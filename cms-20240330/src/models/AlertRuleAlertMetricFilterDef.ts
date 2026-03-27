@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleAlertMetricFilterDefSupportedOpts extends $dara.Model {
   /**
    * @remarks
-   * 显示名称中文
+   * Display Name (Chinese).
    * 
    * @example
-   * 在线
+   * Online
    */
   displayNameCn?: string;
   /**
    * @remarks
-   * 显示名称英文
+   * Display Name (English).
    * 
    * @example
    * Online
@@ -21,7 +21,7 @@ export class AlertRuleAlertMetricFilterDefSupportedOpts extends $dara.Model {
   displayNameEn?: string;
   /**
    * @remarks
-   * 匹配值。
+   * Matching value.
    * 
    * @example
    * online
@@ -55,7 +55,7 @@ export class AlertRuleAlertMetricFilterDefSupportedOpts extends $dara.Model {
 export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   /**
    * @remarks
-   * APM指标中为维度
+   * Dimension in APM metrics.
    * 
    * @example
    * status
@@ -63,7 +63,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   dim?: string;
   /**
    * @remarks
-   * 为true是，过滤项不出现在promQL的group by中
+   * When true, the filter item will not appear in the GROUP BY clause of the PromQL.
    * 
    * @example
    * true
@@ -71,15 +71,15 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   dimDisabled?: boolean;
   /**
    * @remarks
-   * 显示名称中文
+   * Display Name (Chinese).
    * 
    * @example
-   * 应用状态
+   * Application Status
    */
   displayNameCn?: string;
   /**
    * @remarks
-   * 显示名称英文
+   * Display Name (English).
    * 
    * @example
    * Application Status
@@ -87,7 +87,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   displayNameEn?: string;
   /**
    * @remarks
-   * 是否隐藏。 如果隐藏则在前端交互中不显示，但在渲染promQL时可将该过滤条件的值上传上来。  典型的例子是APM场景中的pid这个过滤条件，一般不会通过配置化的方式进行显示，而是前端显为独立的应用搜索列表。
+   * Whether to hide. If hidden, it will not be displayed in the frontend UI, but its value can still be included when rendering the PromQL. A typical example is the "pid" filter condition in APM scenarios, which is generally not exposed through configurable UI elements but instead presented as a separate application search list in the frontend.
    * 
    * @example
    * true
@@ -95,7 +95,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   hidden?: boolean;
   /**
    * @remarks
-   * 为true时，过滤项不出现在promQL的label filter中
+   * When true, the filter item will not appear in the label filter of the PromQL.
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   labelDisabled?: boolean;
   /**
    * @remarks
-   * 过滤条件操作符
+   * Filter Condition Operator.
    * 
    * @example
    * =
@@ -111,7 +111,7 @@ export class AlertRuleAlertMetricFilterDef extends $dara.Model {
   opt?: string;
   /**
    * @remarks
-   * 支持的选项的列表
+   * List of supported options.
    */
   supportedOpts?: AlertRuleAlertMetricFilterDefSupportedOpts[];
   static names(): { [key: string]: string } {

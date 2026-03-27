@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * Cluster ID.
    * 
    * @example
    * cv68tt87d78vyc89zy9v
@@ -13,7 +13,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $da
   clusterId?: string;
   /**
    * @remarks
-   * The cluster type.
+   * Cluster type.
    * 
    * @example
    * ManagedKubernetes
@@ -21,7 +21,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $da
   clusterType?: string;
   /**
    * @remarks
-   * The CIDR block of the VPC.
+   * VPC CIDR
    * 
    * @example
    * 100.100.0.1/16
@@ -29,7 +29,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $da
   vpcCidr?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * Virtual Private Cloud (VPC).
    * 
    * @example
    * vpc-uf664nyle5khp5d4d7hdo
@@ -65,7 +65,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesBindResource extends $da
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAnnotations extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
+   * Operation to be performed.
    * 
    * @example
    * add
@@ -73,7 +73,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAn
   op?: string;
   /**
    * @remarks
-   * The tag key.
+   * Tag key.
    * 
    * @example
    * key
@@ -81,7 +81,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAn
   tagKey?: string;
   /**
    * @remarks
-   * The tag values.
+   * Tag values
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAn
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFieldRules extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the field.
+   * Unique identifier for the field.
    * 
    * @example
    * test
@@ -123,12 +123,12 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFi
   fieldKey?: string;
   /**
    * @remarks
-   * The content of the field. Separate multiple values with commas.
+   * Field content, multiple values separated by English commas.
    */
   fieldValues?: string[];
   /**
    * @remarks
-   * The operation to perform.
+   * Operation to be performed.
    * 
    * @example
    * add
@@ -165,7 +165,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFi
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIpMatchRule extends $dara.Model {
   /**
    * @remarks
-   * The IP address CIDR block.
+   * IP segment
    * 
    * @example
    * 100.100.1.0/16
@@ -173,7 +173,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIp
   ipCidr?: string;
   /**
    * @remarks
-   * The key of the IP address field.
+   * Key of the IP field
    * 
    * @example
    * xxxx
@@ -205,7 +205,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIp
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLabels extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
+   * Operation to be performed.
    * 
    * @example
    * add
@@ -213,7 +213,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLa
   op?: string;
   /**
    * @remarks
-   * The tag key.
+   * Tag key.
    * 
    * @example
    * test
@@ -221,7 +221,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLa
   tagKey?: string;
   /**
    * @remarks
-   * The tag values.
+   * Tag values
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -255,7 +255,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLa
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesTags extends $dara.Model {
   /**
    * @remarks
-   * The operation to perform.
+   * Operation to be performed.
    * 
    * @example
    * add
@@ -263,7 +263,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesTa
   op?: string;
   /**
    * @remarks
-   * The tag key.
+   * Tag key.
    * 
    * @example
    * key
@@ -271,7 +271,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesTa
   tagKey?: string;
   /**
    * @remarks
-   * The tag values.
+   * Tag value.
    */
   tagValues?: string[];
   static names(): { [key: string]: string } {
@@ -305,42 +305,42 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesTa
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRules extends $dara.Model {
   /**
    * @remarks
-   * The annotations.
+   * Annotations
    */
   annotations?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesAnnotations[];
   /**
    * @remarks
-   * A list of entity types.
+   * List of entity types
    */
   entityTypes?: string[];
   /**
    * @remarks
-   * The field rules.
+   * Field rules
    */
   fieldRules?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesFieldRules[];
   /**
    * @remarks
-   * The instance IDs.
+   * Instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The IP address matching rule.
+   * IP match rule
    */
   ipMatchRule?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesIpMatchRule;
   /**
    * @remarks
-   * The labels.
+   * Labels
    */
   labels?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesLabels[];
   /**
    * @remarks
-   * A list of region IDs.
+   * List of region IDs.
    */
   regionIds?: string[];
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-5i6dbwxfxuqihk7k
@@ -348,7 +348,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRules e
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags of the instance.
+   * Instance tag information.
    */
   tags?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRulesTags[];
   static names(): { [key: string]: string } {
@@ -415,7 +415,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRules e
 export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dara.Model {
   /**
    * @remarks
-   * The description.
+   * Description.
    * 
    * @example
    * xxxx
@@ -423,7 +423,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
   description?: string;
   /**
    * @remarks
-   * The entity group ID.
+   * Entity group ID
    * 
    * @example
    * eg-b79f65d11fb94e779867cf937c3a3002
@@ -431,7 +431,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
   entityGroupId?: string;
   /**
    * @remarks
-   * The entity group name.
+   * Entity group name
    * 
    * @example
    * test-eg
@@ -439,12 +439,12 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
   entityGroupName?: string;
   /**
    * @remarks
-   * The entity group.
+   * Entity group
    */
   entityRules?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroupEntityRules;
   /**
    * @remarks
-   * The search keyword. You can search by entity group name and description.
+   * Search keywords, supporting document library name and description
    * 
    * @example
    * 哈弗
@@ -452,7 +452,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
   query?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-heyuan
@@ -460,7 +460,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
   regionId?: string;
   /**
    * @remarks
-   * The user ID.
+   * User ID
    * 
    * @example
    * 1236812738
@@ -468,7 +468,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
   userId?: string;
   /**
    * @remarks
-   * The workspace.
+   * Workspace.
    * 
    * @example
    * test-api
@@ -515,7 +515,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesEntityGroup extends $dar
 export class ListIntegrationPoliciesResponseBodyPoliciesManagedInfo extends $dara.Model {
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI) for the managed probe. For example, eni-xxxx.
+   * ENI card ID of the managed probe. For example: eni-xxxx.
    * 
    * @example
    * eni-12345678
@@ -523,7 +523,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesManagedInfo extends $dar
   eniId?: string;
   /**
    * @remarks
-   * The security group ID.
+   * Security group ID
    * 
    * @example
    * sg-xxxxx
@@ -531,7 +531,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesManagedInfo extends $dar
   securityGroupId?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * VSwitch ID.
    * 
    * @example
    * vsw-xxxxxx
@@ -565,7 +565,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesManagedInfo extends $dar
 export class ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease extends $dara.Model {
   /**
    * @remarks
-   * The number of ready sub-releases.
+   * Number of ready sub-releases
    * 
    * @example
    * 30
@@ -573,7 +573,7 @@ export class ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease extends 
   ready?: number;
   /**
    * @remarks
-   * The number of rules.
+   * Number of rules.
    * 
    * @example
    * 278
@@ -605,12 +605,12 @@ export class ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease extends 
 export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   /**
    * @remarks
-   * The information about the attached resource.
+   * Bound resource information
    */
   bindResource?: ListIntegrationPoliciesResponseBodyPoliciesBindResource;
   /**
    * @remarks
-   * The installation status of umodel in the container environment.
+   * Container environment umodel installation status.
    * 
    * @example
    * true
@@ -618,12 +618,12 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   csUmodelStatus?: boolean;
   /**
    * @remarks
-   * The entity group.
+   * Entity group
    */
   entityGroup?: ListIntegrationPoliciesResponseBodyPoliciesEntityGroup;
   /**
    * @remarks
-   * The billing type.
+   * Billing type.
    * 
    * @example
    * CS_Pro
@@ -631,12 +631,12 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   feePackage?: string;
   /**
    * @remarks
-   * The network management information of the policy.
+   * Policy network management information.
    */
   managedInfo?: ListIntegrationPoliciesResponseBodyPoliciesManagedInfo;
   /**
    * @remarks
-   * The policy ID.
+   * Policy ID.
    * 
    * @example
    * policy-ac38a7cb02d14ff48bc9f97d0a75063e
@@ -644,7 +644,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The policy name.
+   * Rule name.
    * 
    * @example
    * 6f5HSsg3AP
@@ -652,7 +652,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The type of the Integration Center policy.
+   * Access center policy type
    * 
    * @example
    * ECS
@@ -660,7 +660,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-heyuan
@@ -668,7 +668,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-xxxxx
@@ -676,12 +676,12 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The number of sub-releases.
+   * Number of sub-releases
    */
   subAddonRelease?: ListIntegrationPoliciesResponseBodyPoliciesSubAddonRelease;
   /**
    * @remarks
-   * The user ID.
+   * User ID
    * 
    * @example
    * 128470923
@@ -689,7 +689,7 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The workspace.
+   * Workspace.
    * 
    * @example
    * test-api
@@ -755,11 +755,11 @@ export class ListIntegrationPoliciesResponseBodyPolicies extends $dara.Model {
 export class ListIntegrationPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page.
+   * Page size
    * Default value:
-   * 50
+   * 	50
    * Maximum value:
-   * 50
+   * 	50
    * 
    * @example
    * 100
@@ -767,7 +767,7 @@ export class ListIntegrationPoliciesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token.
+   * Pagination token
    * 
    * @example
    * 44ANBjKZmQeKnaB1fXRq06w7sFYK3MUcCALMD9qQbmEiE
@@ -775,12 +775,12 @@ export class ListIntegrationPoliciesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of integration policies.
+   * Access policy list
    */
   policies?: ListIntegrationPoliciesResponseBodyPolicies[];
   /**
    * @remarks
-   * The ID of the request.
+   * ID of the request
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-78B0FECD14B5
@@ -788,7 +788,7 @@ export class ListIntegrationPoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * Total number of entries
    * 
    * @example
    * 0

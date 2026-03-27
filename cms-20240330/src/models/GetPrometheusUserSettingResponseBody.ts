@@ -3,14 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPrometheusUserSettingResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the user settings for Prometheus.
-   */
   prometheusUserSetting?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 058550FA-DDBE-519E-9C6D-93521B9A5E90

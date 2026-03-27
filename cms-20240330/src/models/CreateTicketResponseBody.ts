@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The password-free ticket.
+   * 免登录票据。
    * 
    * @example
    * eyJ***************.eyJ******************.KUT****************

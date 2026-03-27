@@ -4,16 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateNotifyStrategyResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The UUID of the notification policy.
-   * 
    * @example
    * 12312-31-23-123-1-23123
    */
   notifyStrategyId?: string;
   /**
    * @remarks
-   * The ID of the request. This is a unique identifier for troubleshooting.
+   * Id of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

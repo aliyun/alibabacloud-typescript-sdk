@@ -5,17 +5,11 @@ import { EntityDiscoverRule } from "./EntityDiscoverRule";
 
 export class EntityGroupBaseEntityQueries extends $dara.Model {
   /**
-   * @remarks
-   * 实体类型。
-   * 
    * @example
    * acs.ecs.instance
    */
   entityType?: string;
   /**
-   * @remarks
-   * SPL查询语句。
-   * 
    * @example
    * .entity with(type=\\"acs.ecs.instance\\") | where region_id in (\\"cn-beijing\\")
    */
@@ -44,60 +38,26 @@ export class EntityGroupBaseEntityQueries extends $dara.Model {
 }
 
 export class EntityGroupBase extends $dara.Model {
-  /**
-   * @remarks
-   * 实体描述。
-   * 
-   * @example
-   * ECS 实例
-   */
   description?: string;
   /**
-   * @remarks
-   * 实体ID。
-   * 
    * @example
    * eg-1234567890
    */
   entityGroupId?: string;
-  /**
-   * @remarks
-   * 实体名称。
-   * 
-   * @example
-   * ECS 全部实体
-   */
   entityGroupName?: string;
-  /**
-   * @remarks
-   * 实体查询规则集合。
-   */
   entityQueries?: EntityGroupBaseEntityQueries[];
-  /**
-   * @remarks
-   * 用于实体发现的规则。
-   */
   entityRules?: EntityDiscoverRule;
   /**
-   * @remarks
-   * 地域ID。
-   * 
    * @example
    * cn-heyuan
    */
   regionId?: string;
   /**
-   * @remarks
-   * 用户ID。
-   * 
    * @example
    * 1654218***343050
    */
   userId?: string;
   /**
-   * @remarks
-   * 工作空间。
-   * 
    * @example
    * default-cms-1654218***343050-cn-hangzhou
    */

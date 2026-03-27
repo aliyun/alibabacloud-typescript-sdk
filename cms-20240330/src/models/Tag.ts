@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class Tag extends $dara.Model {
   /**
    * @example
-   * test-key
+   * env
    */
   key?: string;
   /**
    * @example
-   * test-value
+   * test
    */
   value?: string;
   static names(): { [key: string]: string } {

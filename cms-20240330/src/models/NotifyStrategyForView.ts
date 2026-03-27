@@ -7,12 +7,22 @@ import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 export class NotifyStrategyForViewCustomTemplateEntries extends $dara.Model {
   /**
    * @remarks
+   * Notification type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * SMS
    */
   targetType?: string;
   /**
    * @remarks
+   * Template UUID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 123-12-312-312-31-23
    */
   templateUuid?: string;
   static names(): { [key: string]: string } {
@@ -39,9 +49,34 @@ export class NotifyStrategyForViewCustomTemplateEntries extends $dara.Model {
 }
 
 export class NotifyStrategyForViewGroupingSetting extends $dara.Model {
+  /**
+   * @remarks
+   * Grouping Keys
+   */
   groupingKeys?: string[];
+  /**
+   * @remarks
+   * Check interval in minutes.
+   * 
+   * @example
+   * 5
+   */
   periodMin?: number;
+  /**
+   * @remarks
+   * Silence duration in seconds.
+   * 
+   * @example
+   * 300
+   */
   silenceSec?: number;
+  /**
+   * @remarks
+   * Trigger count.
+   * 
+   * @example
+   * 3
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -137,12 +172,23 @@ export class NotifyStrategyForViewRepeatNotifySetting extends $dara.Model {
 export class NotifyStrategyForViewRoutesChannels extends $dara.Model {
   /**
    * @remarks
+   * Channel type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * CONTACT
    */
   channelType?: string;
+  /**
+   * @remarks
+   * Enabled notification types.
+   */
   enabledSubChannels?: string[];
   /**
    * @remarks
+   * Channel recipient.
+   * 
    * This parameter is required.
    */
   receivers?: string[];
@@ -178,9 +224,34 @@ export class NotifyStrategyForViewRoutesChannels extends $dara.Model {
 }
 
 export class NotifyStrategyForViewRoutesEffectTimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * Effective days (Monday to Sunday).
+   */
   dayInWeek?: number[];
+  /**
+   * @remarks
+   * End time (in minutes).
+   * 
+   * @example
+   * 60
+   */
   endTimeInMinute?: number;
+  /**
+   * @remarks
+   * Start time (in minutes).
+   * 
+   * @example
+   * 60
+   */
   startTimeInMinute?: number;
+  /**
+   * @remarks
+   * Time Zone.
+   * 
+   * @example
+   * +08:00
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -213,11 +284,27 @@ export class NotifyStrategyForViewRoutesEffectTimeRange extends $dara.Model {
 }
 
 export class NotifyStrategyForViewRoutes extends $dara.Model {
+  /**
+   * @remarks
+   * Notification channel.
+   */
   channels?: NotifyStrategyForViewRoutesChannels[];
   digitalEmployeeName?: string;
+  /**
+   * @remarks
+   * Field.
+   */
   effectTimeRange?: NotifyStrategyForViewRoutesEffectTimeRange;
   enableRca?: boolean;
+  /**
+   * @remarks
+   * Routing settings.
+   */
   filterSetting?: FilterSetting;
+  /**
+   * @remarks
+   * Severity level list.
+   */
   severities?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -264,22 +351,68 @@ export class NotifyStrategyForViewRoutes extends $dara.Model {
 
 export class NotifyStrategyForView extends $dara.Model {
   autoRecoverSeconds?: number;
+  /**
+   * @remarks
+   * Create Time.
+   * 
+   * @example
+   * 2025-03-11T08:21:58Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * Notification channel template.
+   */
   customTemplateEntries?: NotifyStrategyForViewCustomTemplateEntries[];
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * test
+   */
   description?: string;
+  /**
+   * @remarks
+   * Whether enabled.
+   * 
+   * @example
+   * false
+   */
   enable?: boolean;
   filterSetting?: FilterSetting;
   /**
    * @remarks
+   * Grouping Setting.
+   * 
    * This parameter is required.
    */
   groupingSetting?: NotifyStrategyForViewGroupingSetting;
+  /**
+   * @remarks
+   * Whether to notify on recovery.
+   * 
+   * @example
+   * true
+   */
   ignoreRestoredNotification?: boolean;
   incidentEscalationPolicies?: any[];
+  /**
+   * @remarks
+   * UUID
+   * 
+   * @example
+   * 12312-31-23-123-1-23123
+   */
   notifyStrategyId?: string;
   /**
    * @remarks
+   * Name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Test policy.
    */
   notifyStrategyName?: string;
   pushingSetting?: NotifyStrategyForViewPushingSetting;
@@ -287,12 +420,35 @@ export class NotifyStrategyForView extends $dara.Model {
   repeatNotifySetting?: NotifyStrategyForViewRepeatNotifySetting;
   /**
    * @remarks
+   * Notification channel routing configuration.
+   * 
    * This parameter is required.
    */
   routes?: NotifyStrategyForViewRoutes[];
   syncFromType?: string;
+  /**
+   * @remarks
+   * Update Time.
+   * 
+   * @example
+   * 2025-05-30T02:29:09Z
+   */
   updateTime?: string;
+  /**
+   * @remarks
+   * User ID.
+   * 
+   * @example
+   * 123123****
+   */
   userId?: string;
+  /**
+   * @remarks
+   * workspace
+   * 
+   * @example
+   * workspace-test
+   */
   workspace?: string;
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {

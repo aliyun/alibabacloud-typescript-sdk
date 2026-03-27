@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetServiceResponseBodyServiceTags extends $dara.Model {
   /**
-   * @remarks
-   * The tag key.
-   * 
    * @example
    * env
    */
   key?: string;
   /**
-   * @remarks
-   * The tag value.
-   * 
    * @example
    * prod
    */
@@ -45,7 +39,7 @@ export class GetServiceResponseBodyServiceTags extends $dara.Model {
 export class GetServiceResponseBodyService extends $dara.Model {
   /**
    * @remarks
-   * The extended information.
+   * Extended information.
    * 
    * @example
    * {"language":"java"}
@@ -53,7 +47,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * The time when the service was created.
+   * Creation time
    * 
    * @example
    * 2025-05-13T03:32:55Z
@@ -61,7 +55,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description. This parameter is valid only when serviceType is set to RUM.
+   * Description, only valid when serviceType=RUM.
    * 
    * @example
    * test
@@ -69,7 +63,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name. This parameter is valid only when serviceType is set to RUM.
+   * Display name, only valid when serviceType=RUM.
    * 
    * @example
    * demo应用
@@ -77,7 +71,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ID of the ARMS application that is compatible with earlier versions.
+   * Legacy ARMS application ID
    * 
    * @example
    * by6rjzro2j@0fe8dfa799e5906
@@ -85,23 +79,20 @@ export class GetServiceResponseBodyService extends $dara.Model {
   pid?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID
    * 
    * @example
    * cn-heyuan
    */
   regionId?: string;
   /**
-   * @remarks
-   * The resource group ID.
-   * 
    * @example
    * rg-aekxxzuad5zzzz
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service ID.
+   * Service ID.
    * 
    * @example
    * cwzxvuc6uo@4bc6b15ad81f166174ffb
@@ -109,7 +100,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The service name.
+   * Service name
    * 
    * @example
    * demo-app
@@ -117,7 +108,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service status. This parameter is valid only when serviceType is set to RUM.
+   * Service status, only valid when serviceType=RUM.
    * 
    * @example
    * Running
@@ -125,20 +116,16 @@ export class GetServiceResponseBodyService extends $dara.Model {
   serviceStatus?: string;
   /**
    * @remarks
-   * The service type.
+   * Service type.
    * 
    * @example
    * TRACE
    */
   serviceType?: string;
-  /**
-   * @remarks
-   * The array of tags.
-   */
   tags?: GetServiceResponseBodyServiceTags[];
   /**
    * @remarks
-   * The workspace name.
+   * Workspace name
    * 
    * @example
    * default-cms-1106439496876715-cn-hangzhou
@@ -195,7 +182,7 @@ export class GetServiceResponseBodyService extends $dara.Model {
 export class GetServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * 264C3E89-BE6E-5F82-A484-CE9C2196C7DC
@@ -203,7 +190,7 @@ export class GetServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service object.
+   * Service object.
    */
   service?: GetServiceResponseBodyService;
   static names(): { [key: string]: string } {

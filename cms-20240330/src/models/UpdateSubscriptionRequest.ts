@@ -4,15 +4,8 @@ import { SubscriptionForModify } from "./SubscriptionForModify";
 
 
 export class UpdateSubscriptionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The request body.
-   */
   body?: SubscriptionForModify;
   /**
-   * @remarks
-   * The name of the workspace.
-   * 
    * @example
    * workspace-test
    */

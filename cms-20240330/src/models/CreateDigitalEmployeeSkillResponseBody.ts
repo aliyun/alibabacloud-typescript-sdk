@@ -5,16 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDigitalEmployeeSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
-   * @remarks
-   * The name of the skill.
-   * 
    * @example
    * skill
    */

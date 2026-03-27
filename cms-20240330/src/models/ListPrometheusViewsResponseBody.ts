@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model {
   /**
    * @remarks
-   * The time when the instance was created. The time is in UTC and in the \\`yyyy-MM-ddTHH:mmZ\\` format.
+   * Instance creation time, using UTC+0 time, formatted as yyyy-MM-ddTHH:mmZ
    * 
    * @example
    * 2025-07-12T02:18:36Z
@@ -13,7 +13,9 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The instance type. Valid values are \\`prom-view\\` for a new-version aggregation view and \\`global-view\\` for an old-version aggregation view.
+   * Instance type:
+   * prom-view: new version aggregated view
+   * global-view: old version aggregated view
    * 
    * @example
    * prom-view
@@ -21,7 +23,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   instanceType?: string;
   /**
    * @remarks
-   * The billing method. The value is fixed to \\`FREE\\`.
+   * Payment type. Currently, the fixed value is FREE (free).
    * 
    * @example
    * FREE
@@ -29,7 +31,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   paymentType?: string;
   /**
    * @remarks
-   * The product to which the Prometheus instance belongs. Valid values: \\`arms\\` and \\`cms\\`.
+   * Product that the prom instance belongs to (arms or cms).
    * 
    * @example
    * cms
@@ -37,7 +39,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   product?: string;
   /**
    * @remarks
-   * The number of Prometheus instances in the view.
+   * Number of Prometheus instances in the view.
    * 
    * @example
    * 2
@@ -45,7 +47,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   prometheusInstanceCount?: number;
   /**
    * @remarks
-   * The Prometheus view ID.
+   * Prometheus view ID.
    * 
    * @example
    * view-xxx
@@ -53,7 +55,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   prometheusViewId?: string;
   /**
    * @remarks
-   * The name of the Prometheus view.
+   * Prometheus view name.
    * 
    * @example
    * view1
@@ -61,7 +63,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   prometheusViewName?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-zhangjiakou
@@ -69,7 +71,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The resource type. The value is fixed to \\`PrometheusView\\`.
+   * Fixed value: PrometheusView.
    * 
    * @example
    * PrometheusView
@@ -77,7 +79,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   resourceType?: string;
   /**
    * @remarks
-   * The status of the backend data storage.
+   * Backend data storage status.
    * 
    * @example
    * Running
@@ -85,7 +87,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The user ID.
+   * User ID.
    * 
    * @example
    * 123xxx
@@ -93,7 +95,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   userId?: string;
   /**
    * @remarks
-   * The version.
+   * Version.
    * 
    * @example
    * V2
@@ -101,7 +103,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
   version?: string;
   /**
    * @remarks
-   * The workspace to which the Prometheus instance belongs.
+   * Workspace that the prom instance belongs to.
    * 
    * @example
    * default-cms-1490404746278495-cn-hangzhou
@@ -155,7 +157,7 @@ export class ListPrometheusViewsResponseBodyPrometheusViews extends $dara.Model 
 export class ListPrometheusViewsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned.
+   * Maximum number of records to return.
    * 
    * @example
    * 10
@@ -166,7 +168,7 @@ export class ListPrometheusViewsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * Token for the next query.
    * 
    * @example
    * 2-ba4d-4b9f-aa24-dcb067a30f1c
@@ -174,12 +176,12 @@ export class ListPrometheusViewsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of Prometheus view instances.
+   * List of Prometheus view instances.
    */
   prometheusViews?: ListPrometheusViewsResponseBodyPrometheusViews[];
   /**
    * @remarks
-   * The ID of the request.
+   * ID of the request
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-9A629907C1F0
@@ -187,7 +189,7 @@ export class ListPrometheusViewsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instances.
+   * Total number of instances
    * 
    * @example
    * 66

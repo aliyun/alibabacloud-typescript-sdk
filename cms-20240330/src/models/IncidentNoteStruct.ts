@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentNoteStructOperator extends $dara.Model {
   /**
    * @remarks
-   * 联系人。
+   * Contact.
    * 
    * @example
    * {\\"mobile_phone_num\\":\\"153xxxx8040\\",\\"mobile_country_code\\":\\"86\\",\\"email\\":\\"flightxxg@dida.com\\"}
@@ -13,7 +13,7 @@ export class IncidentNoteStructOperator extends $dara.Model {
   contact?: string;
   /**
    * @remarks
-   * 联系人id。
+   * Contact ID.
    * 
    * @example
    * user-12345
@@ -21,15 +21,15 @@ export class IncidentNoteStructOperator extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * 名称。
+   * Name.
    * 
    * @example
-   * 张三
+   * Zhang San.
    */
   name?: string;
   /**
    * @remarks
-   * 用户ID。
+   * User ID.
    * 
    * @example
    * 4123456
@@ -65,15 +65,15 @@ export class IncidentNoteStructOperator extends $dara.Model {
 export class IncidentNoteStruct extends $dara.Model {
   /**
    * @remarks
-   * 内容。
+   * Content.
    * 
    * @example
-   * 已联系运维团队，正在排查问题。
+   * The operations team has been contacted and is currently investigating the issue.
    */
   content?: string;
   /**
    * @remarks
-   * 内容格式。
+   * Content format.
    * 
    * @example
    * markdown
@@ -81,7 +81,7 @@ export class IncidentNoteStruct extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * 事件ID。
+   * Incident ID.
    * 
    * @example
    * incident-001
@@ -89,7 +89,7 @@ export class IncidentNoteStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * 记录ID。
+   * Note ID.
    * 
    * @example
    * note-001
@@ -97,12 +97,12 @@ export class IncidentNoteStruct extends $dara.Model {
   noteId?: string;
   /**
    * @remarks
-   * 操作符。
+   * Operator.
    */
   operator?: IncidentNoteStructOperator;
   /**
    * @remarks
-   * 时间。
+   * Time.
    * 
    * @example
    * 1741234567890
@@ -110,7 +110,7 @@ export class IncidentNoteStruct extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * 类型。
+   * Type.
    * 
    * @example
    * apm

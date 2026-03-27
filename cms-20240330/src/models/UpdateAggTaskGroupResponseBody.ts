@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAggTaskGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The summary of the aggregation task group configuration.
+   * Summary of the aggregation task group configuration.
    * 
    * @example
    * a54136014dc386a92c83a6ef1e97ff22
@@ -13,7 +13,7 @@ export class UpdateAggTaskGroupResponseBody extends $dara.Model {
   aggTaskGroupConfigHash?: string;
   /**
    * @remarks
-   * The ID of the aggregation task group.
+   * Aggregation task group ID
    * 
    * @example
    * aggTaskGroup-5fb2c3ade63a4709bcb059d13493b7b8
@@ -21,7 +21,7 @@ export class UpdateAggTaskGroupResponseBody extends $dara.Model {
   aggTaskGroupId?: string;
   /**
    * @remarks
-   * The name of the aggregation task group.
+   * Aggregation task group name
    * 
    * @example
    * pipeline-aggtask-group
@@ -29,7 +29,7 @@ export class UpdateAggTaskGroupResponseBody extends $dara.Model {
   aggTaskGroupName?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -37,7 +37,7 @@ export class UpdateAggTaskGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the source Prometheus instance for the aggregation task group.
+   * Source Prometheus instance ID of the aggregation task group
    * 
    * @example
    * rw-083e17834e279f8c627fe91a2d72
@@ -45,7 +45,7 @@ export class UpdateAggTaskGroupResponseBody extends $dara.Model {
   sourcePrometheusId?: string;
   /**
    * @remarks
-   * The current status of the aggregation task group.
+   * Current status of the aggregation task group
    * 
    * @example
    * Running

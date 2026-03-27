@@ -4,25 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddMemoriesResponseBodyResults extends $dara.Model {
   /**
-   * @remarks
-   * Event ID.
-   * 
    * @example
    * 897294a7-67a4-4f60-976c-e136edc5f97e
    */
   eventId?: string;
   /**
-   * @remarks
-   * Details.
-   * 
    * @example
    * Memory processing has been queued for background execution
    */
   message?: string;
   /**
-   * @remarks
-   * Processing status.
-   * 
    * @example
    * Pending
    */
@@ -54,17 +45,10 @@ export class AddMemoriesResponseBodyResults extends $dara.Model {
 
 export class AddMemoriesResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Request results.
-   */
   results?: AddMemoriesResponseBodyResults[];
   static names(): { [key: string]: string } {
     return {

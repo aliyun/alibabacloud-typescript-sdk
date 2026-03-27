@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUmodelDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The query conditions.
+   * Query conditions
    * 
    * @example
    * {
@@ -19,7 +19,7 @@ export class GetUmodelDataRequest extends $dara.Model {
   content?: any;
   /**
    * @remarks
-   * The method.
+   * Method
    * 
    * This parameter is required.
    * 

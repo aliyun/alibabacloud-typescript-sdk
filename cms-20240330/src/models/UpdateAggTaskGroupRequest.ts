@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAggTaskGroupRequestTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the resource group tag.
+   * Key of the resource group tag.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class UpdateAggTaskGroupRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the resource group tag.
+   * Value of the resource group tag.
    * 
    * @example
    * value1
@@ -45,7 +45,7 @@ export class UpdateAggTaskGroupRequestTags extends $dara.Model {
 export class UpdateAggTaskGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the aggregation task group. Currently, only the RecordingRuleYaml format is supported. The configuration must comply with the RecordingRule format of open source Prometheus.
+   * Aggregation task group configuration. Currently, only the “RecordingRuleYaml” format is supported, and it must comply with the format requirements of open-source Prometheus RecordingRules.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   aggTaskGroupConfig?: string;
   /**
    * @remarks
-   * The type of the aggregation task group configuration. The default value is RecordingRuleYaml, which is the RecordingRule format of open source Prometheus.
+   * Aggregation task group configuration type, default is “RecordingRuleYaml” (open-source Prometheus RecordingRule format).
    * 
    * @example
    * RecordingRuleYaml
@@ -69,7 +69,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   aggTaskGroupConfigType?: string;
   /**
    * @remarks
-   * The name of the aggregation task group.
+   * Aggregation task group name.
    * 
    * @example
    * test-group
@@ -77,7 +77,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   aggTaskGroupName?: string;
   /**
    * @remarks
-   * The cron expression for scheduling when the scheduling mode is set to Cron. For example, \\`0/1 \\* \\* \\* \\*\\` indicates that the task is scheduled every 1 minute, starting from the 0th minute.
+   * When the scheduling mode is set to “Cron”, this is the specific scheduling expression. For example, “0/1 * * * *” means starting from 0 minutes, schedule every 1 minute.
    * 
    * @example
    * 0/1 * * * *
@@ -85,7 +85,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   cronExpr?: string;
   /**
    * @remarks
-   * The fixed delay for scheduling. Unit: seconds. The default value is 30.
+   * Fixed delay time for scheduling, in seconds, default is 30.
    * 
    * @example
    * 30
@@ -93,7 +93,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   delay?: number;
   /**
    * @remarks
-   * The description of the aggregation task group.
+   * Description of the aggregation task group.
    * 
    * @example
    * desc
@@ -101,7 +101,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The UNIX timestamp in seconds that indicates the start time of the scheduling.
+   * The second-level timestamp corresponding to the start time of the scheduling.
    * 
    * @example
    * 1724996015
@@ -109,7 +109,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The maximum number of retries to execute the aggregation task. The default value is 20.
+   * Maximum number of retries for executing the aggregation task, default is 20.
    * 
    * @example
    * 20
@@ -117,7 +117,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   maxRetries?: number;
   /**
    * @remarks
-   * The maximum retry time to execute the aggregation task. Unit: seconds. The default value is 600.
+   * Maximum retry time for executing the aggregation task, in seconds, default is 600.
    * 
    * @example
    * 600
@@ -125,7 +125,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   maxRunTimeInSeconds?: number;
   /**
    * @remarks
-   * The dry run configuration. This parameter is not configured by default. The input string must be a valid JSON string.
+   * Pre-check configuration, no configuration by default. The input string needs to be correctly parsed as JSON.
    * 
    * @example
    * {"policy":"skip","prometheusId":"xxx","query":"scalar(sum(count_over_time(up{job=\\"_arms/kubelet/cadvisor\\"}[15s])) / 21)","threshold":0.5,"timeout":15,"type":"promql"}
@@ -133,7 +133,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   precheckString?: string;
   /**
    * @remarks
-   * The scheduling mode. Valid values: Cron and FixedRate. The default value is FixedRate.
+   * Scheduling mode, either “Cron” or “FixedRate”, default is “FixedRate”.
    * 
    * @example
    * FixedRate
@@ -141,7 +141,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   scheduleMode?: string;
   /**
    * @remarks
-   * The scheduling time expression. Recommended values are \\`@s\\` and \\`@m\\`. This expression indicates the granularity at which the scheduling time window is snapped. The default value is \\`@m\\`.
+   * Scheduling time expression, recommended values are “@s” or “@m”, indicating the granularity of the scheduling time window alignment, default is “@m”.
    * 
    * @example
    * @m
@@ -149,7 +149,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   scheduleTimeExpr?: string;
   /**
    * @remarks
-   * The status of the aggregation task group. Valid values: Running and Stopped. The default value is Running.
+   * Status of the aggregation task group, either “Running” or “Stopped”. Default is Running.
    * 
    * @example
    * Running
@@ -157,12 +157,12 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the resource group.
+   * Resource group tags.
    */
   tags?: UpdateAggTaskGroupRequestTags[];
   /**
    * @remarks
-   * The ID of the target Prometheus instance for the aggregation task group.
+   * Target Prometheus instance ID of the aggregation task group.
    * 
    * This parameter is required.
    * 
@@ -172,7 +172,7 @@ export class UpdateAggTaskGroupRequest extends $dara.Model {
   targetPrometheusId?: string;
   /**
    * @remarks
-   * The UNIX timestamp in seconds that indicates the end time of the scheduling. A value of 0 indicates that the scheduling does not stop.
+   * The second-level timestamp corresponding to the end time of the scheduling, 0 indicates that the scheduling does not stop.
    * 
    * @example
    * 0

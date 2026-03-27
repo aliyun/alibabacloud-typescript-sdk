@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDigitalEmployeeSkillResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 350779DC-980D-58FD-BECB-D2275D2487CA
    */

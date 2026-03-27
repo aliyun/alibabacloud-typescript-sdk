@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleTimeSpan extends $dara.Model {
   /**
    * @remarks
-   * 每周的星期几
+   * Day of the week.
    */
   dayOfWeek?: number[];
   /**
    * @remarks
-   * 结束时间，格式HH:mm
+   * End time, in HH:mm format.
    * 
    * @example
    * 23:00
@@ -18,7 +18,7 @@ export class AlertRuleTimeSpan extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * 默认北京时间： +0800
+   * Default time zone is Beijing Time: +0800.
    * 
    * @example
    * +0800
@@ -26,7 +26,7 @@ export class AlertRuleTimeSpan extends $dara.Model {
   gmtOffset?: string;
   /**
    * @remarks
-   * 开始时间，格式HH:mm
+   * Start time, in HH:mm format.
    * 
    * @example
    * 09:00

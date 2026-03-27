@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetThreadDataRequest extends $dara.Model {
   /**
-   * @remarks
-   * The maximum number of session data entries to return. The maximum value is 100.
-   * 
    * @example
-   * 1
+   * 10
    */
   maxResults?: number;
   /**
-   * @remarks
-   * The pagination token.
-   * 
    * @example
    * xxxxxxxxxx
    */

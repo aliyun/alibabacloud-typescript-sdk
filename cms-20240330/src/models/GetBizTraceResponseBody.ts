@@ -4,15 +4,8 @@ import { BizTraceConfig } from "./BizTraceConfig";
 
 
 export class GetBizTraceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The business trace.
-   */
   item?: BizTraceConfig;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */

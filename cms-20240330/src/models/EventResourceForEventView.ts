@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EventResourceForEventViewEntity extends $dara.Model {
+  /**
+   * @example
+   * "ECS"
+   */
   domain?: string;
+  /**
+   * @example
+   * "i-bp123456"
+   */
   entityId?: string;
+  /**
+   * @example
+   * "Instance"
+   */
   entityType?: string;
+  /**
+   * @example
+   * { "name": "web-server-01", "ip": "10.0.0.1" }
+   */
   prop?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -39,6 +55,10 @@ export class EventResourceForEventViewEntity extends $dara.Model {
 
 export class EventResourceForEventView extends $dara.Model {
   entity?: EventResourceForEventViewEntity;
+  /**
+   * @example
+   * { "env": "prod", "project": "payment-gateway" }
+   */
   tags?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

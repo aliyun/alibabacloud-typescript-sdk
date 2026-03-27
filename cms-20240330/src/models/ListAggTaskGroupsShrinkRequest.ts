@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of aggregation task group IDs. The value must be a string that can be parsed as a JSON array.
+   * List of IDs for the aggregation task groups, which must be JSON parseable.
    * 
    * @example
    * ["aggTaskGroup-xxx"]
@@ -13,7 +13,7 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   filterAggTaskGroupIds?: string;
   /**
    * @remarks
-   * A list of aggregation task group names. The value must be a string that can be parsed as a JSON array.
+   * List of names for the aggregation task groups, which must be JSON parseable.
    * 
    * @example
    * ["apiserver_request_total"]
@@ -21,7 +21,7 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   filterAggTaskGroupNames?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * Maximum number of records to return.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results.
+   * Query token.
    * 
    * @example
    * 28036394xxx
@@ -37,7 +37,7 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The name to search for. Fuzzy search is supported.
+   * Name search, supports fuzzy matching.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The status of the aggregation task group. Valid values are \\`Running\\` and \\`Stopped\\`. The default value is \\`Running\\`.
+   * Status of the aggregation task group, either \\"Running\\" or \\"Stopped\\". Default is Running.
    * 
    * @example
    * Running
@@ -53,12 +53,12 @@ export class ListAggTaskGroupsShrinkRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the resource group.
+   * Resource group tags.
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * The ID of the target Prometheus instance for the aggregation task group.
+   * The target Prometheus instance ID for the aggregation task group.
    * 
    * @example
    * rw-pq4apob9jm

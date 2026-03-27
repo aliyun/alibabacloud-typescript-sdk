@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentPlanFieldPath extends $dara.Model {
   /**
    * @remarks
-   * 字段别名。
+   * Field alias.
    * 
    * @example
-   * 服务名称
+   * Service name.
    */
   fieldAlias?: string;
   /**
    * @remarks
-   * 字段路径的列表。
+   * List of field paths.
    */
   fieldPath?: string[];
   static names(): { [key: string]: string } {

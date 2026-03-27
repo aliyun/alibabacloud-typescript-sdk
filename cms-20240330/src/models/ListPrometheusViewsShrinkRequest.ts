@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The region IDs by which to filter the results.
+   * Filter by RegionID.
    * 
    * @example
    * cn-zhangjiakou,cn-beijing
@@ -13,7 +13,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   filterRegionIds?: string;
   /**
    * @remarks
-   * The maximum number of records to return.
+   * Maximum number of records to return.
    * 
    * @example
    * 100
@@ -24,7 +24,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token.
+   * Query token.
    * 
    * @example
    * 44ANBjKZmQeKnaB1fXRq06w7sFYK3MUcCALMD9qQbmEiE
@@ -35,7 +35,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The IDs of the Prometheus view instances.
+   * List of Prometheus view instance IDs.
    * 
    * @example
    * view-xxx
@@ -43,7 +43,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   prometheusViewIds?: string;
   /**
    * @remarks
-   * The name of the Prometheus view.
+   * Prometheus view name.
    * 
    * @example
    * view1
@@ -51,7 +51,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   prometheusViewName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-acfm3gn5i6bigbi
@@ -59,7 +59,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type.
+   * Resource type.
    * 
    * @example
    * PROMETHEUSVIEW
@@ -67,12 +67,12 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * List of tags.
    */
   tagShrink?: string;
   /**
    * @remarks
-   * The instance version. Valid values: V1 and V2.
+   * Instance version: V1 or V2
    * 
    * @example
    * V2
@@ -80,7 +80,7 @@ export class ListPrometheusViewsShrinkRequest extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * Workspace name
    * 
    * @example
    * workspace-test

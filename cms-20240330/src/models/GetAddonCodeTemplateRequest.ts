@@ -4,25 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAddonCodeTemplateRequest extends $dara.Model {
   /**
-   * @remarks
-   * The language. Valid values: zh (Chinese) and en (English). Default value: zh.
-   * 
    * @example
    * zh
    */
   aliyunLang?: string;
   /**
-   * @remarks
-   * The type of environment. Valid values: CS (Container Service) and ECS.
-   * 
    * @example
    * Client
    */
   environmentType?: string;
   /**
-   * @remarks
-   * The version of the component.
-   * 
    * @example
    * 0.1.0
    */

@@ -4,25 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
-   * @remarks
-   * The resource group ID.
-   * 
    * @example
    * rg-ae******ey
    */
   resourceGroupId?: string;
   /**
-   * @remarks
-   * The resource ID.
-   * 
    * @example
    * test
    */
   resourceId?: string;
   /**
-   * @remarks
-   * The resource type.
-   * 
    * @example
    * Service
    */

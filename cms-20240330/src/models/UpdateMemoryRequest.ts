@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMemoryRequest extends $dara.Model {
   /**
-   * @remarks
-   * The metadata of the Memory.
-   * 
    * @example
    * {"sessionId":"test_session_001"}
    */
   metadata?: { [key: string]: any };
   /**
-   * @remarks
-   * The new text for the Memory.
-   * 
    * @example
    * Likes to play tennis on weekends
    */

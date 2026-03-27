@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDigitalEmployeeSkillResponseBodyFiles extends $dara.Model {
   /**
-   * @remarks
-   * File content
-   * 
    * @example
    * ---
    * name: skill
@@ -19,9 +16,6 @@ export class GetDigitalEmployeeSkillResponseBodyFiles extends $dara.Model {
    */
   content?: string;
   /**
-   * @remarks
-   * File name
-   * 
    * @example
    * SKILL.md
    */
@@ -52,8 +46,6 @@ export class GetDigitalEmployeeSkillResponseBodyFiles extends $dara.Model {
 export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Creation time
-   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -61,62 +53,41 @@ export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
    */
   createTime?: string;
   /**
-   * @remarks
-   * Skill description
-   * 
    * @example
    * test
    */
   description?: string;
   /**
-   * @remarks
-   * Skill display name
-   * 
    * @example
    * test
    */
   displayName?: string;
   /**
-   * @remarks
-   * Whether the skill is enabled
-   * 
    * @example
    * true
    */
   enable?: boolean;
-  /**
-   * @remarks
-   * Skill file list
-   */
   files?: GetDigitalEmployeeSkillResponseBodyFiles[];
   /**
-   * @remarks
-   * Remarks
-   * 
    * @example
    * remark
    */
   remark?: string;
   /**
    * @remarks
-   * Request ID
+   * Id of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
-   * @remarks
-   * Skill name
-   * 
    * @example
    * test
    */
   skillName?: string;
   /**
    * @remarks
-   * Update time
-   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -124,9 +95,6 @@ export class GetDigitalEmployeeSkillResponseBody extends $dara.Model {
    */
   updateTime?: string;
   /**
-   * @remarks
-   * Version number
-   * 
    * @example
    * 1770386951147366810
    */

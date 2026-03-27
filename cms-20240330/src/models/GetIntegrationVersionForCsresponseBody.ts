@@ -4,16 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetIntegrationVersionForCSResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The version of the Integration Center.
-   * 
    * @example
    * V1
    */
   integrationVersion?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * CD9BCF34-EA09-5643-BC11-AF41C8DFAE5A

@@ -3,94 +3,46 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateChatResponseBodyMessages extends $dara.Model {
-  /**
-   * @remarks
-   * Agents list
-   */
   agents?: { [key: string]: any }[];
-  /**
-   * @remarks
-   * Artifacts information
-   */
   artifacts?: { [key: string]: any }[];
   /**
-   * @remarks
-   * Call ID of the current node
-   * 
    * @example
    * call_search_001
    */
   callId?: string;
-  /**
-   * @remarks
-   * Messages contents array
-   */
   contents?: { [key: string]: any }[];
   /**
-   * @remarks
-   * Detailed information, such as tool progress description
-   * 
    * @example
    * test
    */
   detail?: string;
-  /**
-   * @remarks
-   * Events list
-   */
   events?: { [key: string]: any }[];
   /**
-   * @remarks
-   * Call ID of the parent node
-   * 
    * @example
    * sess_abc123
    */
   parentCallId?: string;
   /**
-   * @remarks
-   * Message role
-   * 
    * @example
    * tool
    */
   role?: string;
   /**
-   * @remarks
-   * Event sequence number. This number increments to preserve event order.
-   * 
    * @example
    * 1
    */
   seq?: number;
   /**
-   * @remarks
-   * UNIX timestamp (seconds)
-   * 
    * @example
    * 1765000005
    */
   timestamp?: string;
-  /**
-   * @remarks
-   * Tools calls array
-   */
   tools?: { [key: string]: any }[];
   /**
-   * @remarks
-   * Special event type, such as done, error, or heartbeat
-   * 
    * @example
    * done
    */
   type?: string;
-  /**
-   * @remarks
-   * Message version number
-   * 
-   * @example
-   * v0.1.0
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -153,23 +105,13 @@ export class CreateChatResponseBodyMessages extends $dara.Model {
 }
 
 export class CreateChatResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Messages list
-   */
   messages?: CreateChatResponseBodyMessages[];
   /**
-   * @remarks
-   * Unique identifier for the request
-   * 
    * @example
    * 0CEC5375-XXXX-XXXX-XXXX-9A629907C1F0
    */
   requestId?: string;
   /**
-   * @remarks
-   * Global identifier for the request trace
-   * 
    * @example
    * 21504600000008405622576e3b48
    */

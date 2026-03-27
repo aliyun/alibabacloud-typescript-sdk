@@ -15,84 +15,47 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
   alertEventIntegrationPolicyId?: string;
   /**
    * @remarks
-   * 名称
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 集成名
    */
   alertEventIntegrationPolicyName?: string;
   /**
-   * @remarks
-   * 创建时间
-   * 
    * @example
    * 2025-03-11T08:21:58Z
    */
   createTime?: string;
   /**
-   * @remarks
-   * 描述
-   * 
    * @example
    * workspace test
    */
   description?: string;
   /**
-   * @remarks
-   * 是否启用
-   * 
    * @example
    * true
    */
   enable?: boolean;
-  /**
-   * @remarks
-   * 过滤配置
-   */
   filterSetting?: FilterSetting;
   /**
-   * @remarks
-   * 订阅设置
-   * 
    * @example
    * {"region":"cn-hangzhou"}
    */
   integrationSetting?: string;
   /**
-   * @remarks
-   * 集成的上报入口key
-   * 
    * @example
    * 10-16818f1445e10a1d012922b285bfb334
    */
   token?: string;
-  /**
-   * @remarks
-   * 转换设置
-   */
   transformerSetting?: TransformAction[];
   /**
-   * @remarks
-   * 类型
-   * 
    * @example
    * ALERT_CUSTOM
    */
   type?: string;
   /**
-   * @remarks
-   * 更新时间
-   * 
    * @example
    * 2024-12-16T02:00:23Z
    */
   updateTime?: string;
   /**
-   * @remarks
-   * 用户id
-   * 
    * @example
    * 123123
    */

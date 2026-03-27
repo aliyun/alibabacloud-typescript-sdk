@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * Status code
    * 
    * @example
    * Success,ExecuteTimeout,UModelNotExist
@@ -13,7 +13,7 @@ export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dar
   code?: string;
   /**
    * @remarks
-   * The status level.
+   * Status level
    * 
    * @example
    * Info,Warn,Error
@@ -21,7 +21,7 @@ export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dar
   level?: string;
   /**
    * @remarks
-   * The execution information.
+   * Calculation execution information
    * 
    * @example
    * Query execution timeout after 30 seconds
@@ -29,7 +29,7 @@ export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dar
   message?: string;
   /**
    * @remarks
-   * The suggestion provided when an execution fault occurs.
+   * Suggestions when an error occurs during execution
    * 
    * @example
    * Try to reduce the query scope or increase timeout limit, then retry
@@ -65,7 +65,7 @@ export class GetEntityStoreDataResponseBodyResponseStatusStatusItem extends $dar
 export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
   /**
    * @remarks
-   * Information about the execution procedure.
+   * Information during the execution process
    * 
    * @example
    * {}
@@ -73,7 +73,7 @@ export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
   executionStates?: string;
   /**
    * @remarks
-   * The status level.
+   * Status level
    * 
    * @example
    * Info,Warn,Error
@@ -81,7 +81,7 @@ export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The execution result.
+   * Execution result
    * 
    * @example
    * Success,PartialSuccess,Error
@@ -89,7 +89,7 @@ export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The retry policy.
+   * Retry policy
    * 
    * @example
    * None,Once,Continuous
@@ -97,7 +97,7 @@ export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
   retryPolicy?: string;
   /**
    * @remarks
-   * A list of detailed status information.
+   * Detailed status information list
    */
   statusItem?: GetEntityStoreDataResponseBodyResponseStatusStatusItem[];
   static names(): { [key: string]: string } {
@@ -135,17 +135,17 @@ export class GetEntityStoreDataResponseBodyResponseStatus extends $dara.Model {
 export class GetEntityStoreDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of returned data.
+   * Total list of returned data
    */
   data?: string[][];
   /**
    * @remarks
-   * The list of request headers.
+   * List of request headers
    */
   header?: string[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
@@ -153,7 +153,7 @@ export class GetEntityStoreDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result status.
+   * Result status
    */
   responseStatus?: GetEntityStoreDataResponseBodyResponseStatus;
   static names(): { [key: string]: string } {

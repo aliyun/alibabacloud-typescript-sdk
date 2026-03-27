@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePrometheusInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * @example
    * rw-abc123
@@ -13,7 +13,7 @@ export class UpdatePrometheusInstanceResponseBody extends $dara.Model {
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * ID of the request
    * 
    * @example
    * 1E92F783-E057-58F1-BD5C-92DED088E7A5

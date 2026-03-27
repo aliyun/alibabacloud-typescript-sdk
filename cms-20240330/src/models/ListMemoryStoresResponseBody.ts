@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
   /**
    * @remarks
-   * The time when the memory store was created.
-   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -14,33 +12,22 @@ export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
    */
   createTime?: string;
   /**
-   * @remarks
-   * The description of the memory store.
-   * 
    * @example
    * Created by taishan-module-recovery
    */
   description?: string;
   /**
-   * @remarks
-   * The name of the memory store.
-   * 
    * @example
    * qianyi_test_1
    */
   memoryStoreName?: string;
   /**
-   * @remarks
-   * The ID of the region.
-   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * The time when the memory store was last updated.
-   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -48,9 +35,6 @@ export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
    */
   updateTime?: string;
   /**
-   * @remarks
-   * Workspace
-   * 
    * @example
    * default-cms-1646467597142798-cn-shenzhen
    */
@@ -88,30 +72,17 @@ export class ListMemoryStoresResponseBodyMemoryStores extends $dara.Model {
 
 export class ListMemoryStoresResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The maximum number of returned entries.
-   * 
    * @example
    * 1
    */
   maxResults?: number;
-  /**
-   * @remarks
-   * The list of memory stores.
-   */
   memoryStores?: ListMemoryStoresResponseBodyMemoryStores[];
   /**
-   * @remarks
-   * The token for the next page of results.
-   * 
    * @example
    * xxxxxxxxxx
    */
   nextToken?: string;
   /**
-   * @remarks
-   * The ID of the request.
-   * 
    * @example
    * 16C0A6D6-C3E7-511D-A60B-A87FD85F5BA7
    */

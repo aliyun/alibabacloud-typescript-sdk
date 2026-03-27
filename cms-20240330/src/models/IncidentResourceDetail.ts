@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentResourceDetail extends $dara.Model {
   /**
    * @remarks
-   * 额外的资源标识符
+   * Additional resource identifier.
    * 
    * @example
    * app-prod-web-01
@@ -13,7 +13,7 @@ export class IncidentResourceDetail extends $dara.Model {
   extraId?: string;
   /**
    * @remarks
-   * 资源 ID 对象。
+   * Resource ID object.
    * 
    * @example
    * { "type": "ecs", "id": "i-bp1234567890abcdef" }
@@ -21,7 +21,7 @@ export class IncidentResourceDetail extends $dara.Model {
   resourceId?: { [key: string]: any };
   /**
    * @remarks
-   * 资源类型，表示该资源属于哪种云产品。
+   * Resource type, indicating which cloud product the resource belongs to.
    * 
    * @example
    * ecs

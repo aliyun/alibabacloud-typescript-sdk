@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentEventStruct extends $dara.Model {
   /**
    * @remarks
-   * 自动恢复时间。
+   * Automatic recovery time.
    * 
    * @example
    * 1741234567890
@@ -13,15 +13,15 @@ export class IncidentEventStruct extends $dara.Model {
   autoRecoverTime?: number;
   /**
    * @remarks
-   * 内容。
+   * Content.
    * 
    * @example
-   * 检测到 user-service 实例 i-abc123 的 CPU 使用率达到 95%，已触发告警。
+   * Detected that the CPU usage of the user-service instance i-abc123 has reached 95%, triggering an alert.
    */
   content?: string;
   /**
    * @remarks
-   * 统计数量。
+   * Count.
    * 
    * @example
    * 6
@@ -29,17 +29,17 @@ export class IncidentEventStruct extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * 维度。
+   * Dimension.
    */
   dimension?: { [key: string]: string };
   /**
    * @remarks
-   * 用于分组维度。
+   * Used for grouping dimensions.
    */
   groupBy?: { [key: string]: string };
   /**
    * @remarks
-   * 事件事件ID。
+   * Incident Event Id.
    * 
    * @example
    * event-001
@@ -47,7 +47,7 @@ export class IncidentEventStruct extends $dara.Model {
   incidentEventId?: string;
   /**
    * @remarks
-   * 事件ID。
+   * Incident Id.
    * 
    * @example
    * incident-001
@@ -55,7 +55,7 @@ export class IncidentEventStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * 最后时间。
+   * Last time.
    * 
    * @example
    * 1741234567890
@@ -63,7 +63,7 @@ export class IncidentEventStruct extends $dara.Model {
   lastTime?: number;
   /**
    * @remarks
-   * 手动恢复时间。
+   * Manual recovery time.
    * 
    * @example
    * 1741234567890
@@ -71,12 +71,12 @@ export class IncidentEventStruct extends $dara.Model {
   recoverTime?: number;
   /**
    * @remarks
-   * 描述事件关联的资源信息。
+   * Describes the resource information associated with the event.
    */
   resource?: { [key: string]: string };
   /**
    * @remarks
-   * 状态。
+   * Status.
    * 
    * @example
    * Running
@@ -84,7 +84,7 @@ export class IncidentEventStruct extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * 时间。
+   * Time.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -92,15 +92,15 @@ export class IncidentEventStruct extends $dara.Model {
   time?: string;
   /**
    * @remarks
-   * 标题。
+   * Title.
    * 
    * @example
-   * 用户服务 CPU 使用率过高
+   * User service CPU usage is too high.
    */
   title?: string;
   /**
    * @remarks
-   * 用户ID。
+   * User ID.
    * 
    * @example
    * user-12345

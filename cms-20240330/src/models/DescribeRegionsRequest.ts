@@ -4,15 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRegionsRequest extends $dara.Model {
   /**
-   * @remarks
-   * The language of the response. Valid values:
-   * 
-   * - zh: Chinese. This is the default value.
-   * 
-   * - en: English.
-   * 
-   * - ja: Japanese.
-   * 
    * @example
    * zh
    */

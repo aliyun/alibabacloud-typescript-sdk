@@ -5,12 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePrometheusUserSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * The value of the user setting.
-   * 
    * This parameter is required.
    * 
    * @example
-   * ap-southeast-1
+   * abc
    */
   settingValue?: string;
   static names(): { [key: string]: string } {

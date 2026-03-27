@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyPodMonitorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on release.
+   * Addon Release name.
    * 
    * @example
    * release-123456789
@@ -13,7 +13,7 @@ export class ListIntegrationPolicyPodMonitorsRequest extends $dara.Model {
   addonReleaseName?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the YAML file.
+   * Whether to encrypt Yaml.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListIntegrationPolicyPodMonitorsRequest extends $dara.Model {
   encryptYaml?: boolean;
   /**
    * @remarks
-   * The namespace.
+   * Namespace.
    * 
    * @example
    * default

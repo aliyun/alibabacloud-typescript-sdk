@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPrometheusUserSettingRequest extends $dara.Model {
   /**
-   * @remarks
-   * The language of the response. Valid values: zh and en. Default value: zh.
-   * 
    * @example
    * zh
    */

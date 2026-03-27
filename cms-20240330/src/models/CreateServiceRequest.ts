@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateServiceRequestTags extends $dara.Model {
   /**
-   * @remarks
-   * The `key` of the tag.
-   * 
    * @example
    * env
    */
   key?: string;
   /**
-   * @remarks
-   * The `value` of the tag.
-   * 
    * @example
    * prod
    */
@@ -45,7 +39,7 @@ export class CreateServiceRequestTags extends $dara.Model {
 export class CreateServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The extended properties.
+   * Extended attributes.
    * 
    * @example
    * {"language":"java"}
@@ -53,7 +47,7 @@ export class CreateServiceRequest extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * The service description. This parameter is valid only when serviceType is set to RUM.
+   * Service description, only valid when `serviceType=RUM`.
    * 
    * @example
    * mag测试应用
@@ -61,7 +55,7 @@ export class CreateServiceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name. This parameter is valid only when serviceType is set to RUM.
+   * Display name, only valid when `serviceType=RUM`.
    * 
    * @example
    * mag测试应用
@@ -69,23 +63,20 @@ export class CreateServiceRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The application ID. You do not typically need to specify this parameter.
+   * Application ID, generally not required to be specified.
    * 
    * @example
    * bx3udsi5ie@ed2ba6beebdb6de
    */
   pid?: string;
   /**
-   * @remarks
-   * The resource group ID.
-   * 
    * @example
-   * rg-xxxxxxx
+   * rg-xxekxxzuad5zzzz
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service name.
+   * Service name
    * 
    * This parameter is required.
    * 
@@ -95,7 +86,7 @@ export class CreateServiceRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service status. Do not specify this parameter when you create a service.
+   * Service status, not required for service creation.
    * 
    * @example
    * Created
@@ -103,7 +94,7 @@ export class CreateServiceRequest extends $dara.Model {
   serviceStatus?: string;
   /**
    * @remarks
-   * The service type.
+   * Service type
    * 
    * This parameter is required.
    * 
@@ -111,10 +102,6 @@ export class CreateServiceRequest extends $dara.Model {
    * TRACE
    */
   serviceType?: string;
-  /**
-   * @remarks
-   * An array of tags.
-   */
   tags?: CreateServiceRequestTags[];
   static names(): { [key: string]: string } {
     return {

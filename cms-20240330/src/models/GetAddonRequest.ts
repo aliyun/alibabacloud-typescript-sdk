@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAddonRequest extends $dara.Model {
   /**
-   * @remarks
-   * The language of the response. Valid values: zh and en. Default value: zh.
-   * 
    * @example
    * zh
    */
   aliyunLang?: string;
   /**
-   * @remarks
-   * The version number of the add-on.
-   * 
    * @example
    * *
    */

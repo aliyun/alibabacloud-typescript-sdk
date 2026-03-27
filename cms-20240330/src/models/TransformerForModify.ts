@@ -7,12 +7,12 @@ import { FilterSetting } from "./FilterSetting";
 export class TransformerForModify extends $dara.Model {
   /**
    * @remarks
-   * 转换操作
+   * Transformation operation.
    */
   actions?: TransformAction[];
   /**
    * @remarks
-   * 描述
+   * Description.
    * 
    * @example
    * workspace test
@@ -20,12 +20,12 @@ export class TransformerForModify extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 筛选条件
+   * Filter Setting.
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * 匹配处理后退出
+   * Exit after matching processing.
    * 
    * @example
    * true
@@ -33,7 +33,7 @@ export class TransformerForModify extends $dara.Model {
   quitAfterMatch?: boolean;
   /**
    * @remarks
-   * 排序数
+   * Sort order.
    * 
    * @example
    * 1
@@ -41,7 +41,7 @@ export class TransformerForModify extends $dara.Model {
   sortId?: number;
   /**
    * @remarks
-   * 名称
+   * Name.
    * 
    * This parameter is required.
    * 

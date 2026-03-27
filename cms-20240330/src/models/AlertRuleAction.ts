@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AlertRuleAction extends $dara.Model {
-  /**
-   * @remarks
-   * 行动集成ID列表
-   */
   actions?: string[];
   static names(): { [key: string]: string } {
     return {

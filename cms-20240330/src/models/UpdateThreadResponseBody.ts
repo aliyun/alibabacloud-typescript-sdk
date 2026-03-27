@@ -12,19 +12,13 @@ export class UpdateThreadResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
-   * @remarks
-   * The session ID.
-   * 
    * @example
-   * thread-12313
+   * thread_id01
    */
   threadId?: string;
   /**
-   * @remarks
-   * The version number.
-   * 
    * @example
-   * 123123
+   * 0.1.0
    */
   version?: number;
   static names(): { [key: string]: string } {

@@ -4,25 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class EntityDiscoverRuleAnnotations extends $dara.Model {
   /**
-   * @remarks
-   * 操作。
-   * 
    * @example
    * in
    */
   op?: string;
   /**
-   * @remarks
-   * 注解的Key。
-   * 
    * @example
    * instanceId
    */
   tagKey?: string;
-  /**
-   * @remarks
-   * 注解的值集合。
-   */
   tagValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -54,22 +44,12 @@ export class EntityDiscoverRuleAnnotations extends $dara.Model {
 
 export class EntityDiscoverRuleFieldRules extends $dara.Model {
   /**
-   * @remarks
-   * 属性的Key。
-   * 
    * @example
    * instanceId
    */
   fieldKey?: string;
-  /**
-   * @remarks
-   * 属性的值集合。
-   */
   fieldValues?: string[];
   /**
-   * @remarks
-   * 操作。
-   * 
    * @example
    * in
    */
@@ -104,17 +84,11 @@ export class EntityDiscoverRuleFieldRules extends $dara.Model {
 
 export class EntityDiscoverRuleIpMatchRule extends $dara.Model {
   /**
-   * @remarks
-   * IP的CIDR。
-   * 
    * @example
    * 192.168.0.1/10
    */
   ipCIDR?: string;
   /**
-   * @remarks
-   * IP字段的Key。
-   * 
    * @example
    * hostIp
    */
@@ -144,25 +118,15 @@ export class EntityDiscoverRuleIpMatchRule extends $dara.Model {
 
 export class EntityDiscoverRuleLabels extends $dara.Model {
   /**
-   * @remarks
-   * 操作。
-   * 
    * @example
    * in
    */
   op?: string;
   /**
-   * @remarks
-   * 标签的Key。
-   * 
    * @example
    * project
    */
   tagKey?: string;
-  /**
-   * @remarks
-   * 标签的值集合。
-   */
   tagValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -194,25 +158,15 @@ export class EntityDiscoverRuleLabels extends $dara.Model {
 
 export class EntityDiscoverRuleTags extends $dara.Model {
   /**
-   * @remarks
-   * 操作。
-   * 
    * @example
    * in
    */
   op?: string;
   /**
-   * @remarks
-   * Tag的Key。
-   * 
    * @example
    * project
    */
   tagKey?: string;
-  /**
-   * @remarks
-   * Tag的值集合。
-   */
   tagValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -243,53 +197,18 @@ export class EntityDiscoverRuleTags extends $dara.Model {
 }
 
 export class EntityDiscoverRule extends $dara.Model {
-  /**
-   * @remarks
-   * 注解匹配集合。
-   */
   annotations?: EntityDiscoverRuleAnnotations[];
-  /**
-   * @remarks
-   * 实体类型集合。
-   */
   entityTypes?: string[];
-  /**
-   * @remarks
-   * 属性匹配规则。
-   */
   fieldRules?: EntityDiscoverRuleFieldRules[];
-  /**
-   * @remarks
-   * 实例ID集合。
-   */
   instanceIds?: string[];
-  /**
-   * @remarks
-   * IP匹配规则集合。
-   */
   ipMatchRule?: EntityDiscoverRuleIpMatchRule[];
-  /**
-   * @remarks
-   * 标签匹配集合。
-   */
   labels?: EntityDiscoverRuleLabels[];
-  /**
-   * @remarks
-   * 地域ID集合。
-   */
   regionIds?: string[];
   /**
-   * @remarks
-   * 资源组ID。
-   * 
    * @example
    * rg-acfm2m7atreujs1
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * 通过Tag进行服务发现。
-   */
   tags?: EntityDiscoverRuleTags[];
   static names(): { [key: string]: string } {
     return {

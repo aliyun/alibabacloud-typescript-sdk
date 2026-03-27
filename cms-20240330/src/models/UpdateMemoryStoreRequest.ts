@@ -4,28 +4,14 @@ import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 
 
 export class UpdateMemoryStoreRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Custom extraction strategies.
-   */
   customExtractionStrategies?: CustomExtractionStrategy[];
   /**
-   * @remarks
-   * Description.
-   * 
    * @example
    * memoryStore test
    */
   description?: string;
-  /**
-   * @remarks
-   * Extraction strategies. Supports "Episodic", "Summary", and "Fact".
-   */
   extractionStrategies?: string[];
   /**
-   * @remarks
-   * Short-term memory retention time.
-   * 
    * @example
    * 7
    */

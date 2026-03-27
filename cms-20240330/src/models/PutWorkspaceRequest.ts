@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the workspace.
+   * Description of the workspace
    * 
    * @example
    * workspace test
@@ -13,7 +13,7 @@ export class PutWorkspaceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the workspace.
+   * Display name of the workspace
    * 
    * @example
    * workspace-test
@@ -21,7 +21,7 @@ export class PutWorkspaceRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * Name of the Log Service project
    * 
    * This parameter is required.
    * 

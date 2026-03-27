@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * Tag key
    * 
    * @example
    * testKey
@@ -13,7 +13,7 @@ export class ListPrometheusInstancesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * Tag value.
    * 
    * @example
    * testValue
@@ -45,7 +45,7 @@ export class ListPrometheusInstancesRequestTag extends $dara.Model {
 export class ListPrometheusInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of region IDs to filter by, separated by commas.
+   * Specified list of regionIds to filter (comma-separated).
    * 
    * @example
    * cn-shenzhen
@@ -56,7 +56,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   filterRegionIds?: string;
   /**
    * @remarks
-   * The maximum number of records to return.
+   * Maximum number of records to return.
    * 
    * @example
    * 10
@@ -67,7 +67,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token.
+   * Query token.
    * 
    * @example
    * xxxxxxxxxx
@@ -78,7 +78,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of instance IDs, separated by commas.
+   * List of instance IDs (comma-separated)
    * 
    * @example
    * rw-00001,rw-00002,rw-00003
@@ -89,7 +89,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   prometheusInstanceIds?: string;
   /**
    * @remarks
-   * The instance name. Partial match is supported.
+   * Instance name (partial match supported)
    * 
    * @example
    * test
@@ -100,7 +100,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   prometheusInstanceName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-aek2bhocin5e2na
@@ -108,7 +108,7 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type of the instance.
+   * Resource type of the instance.
    * 
    * @example
    * Prometheus
@@ -119,12 +119,12 @@ export class ListPrometheusInstancesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * List of tags.
    */
   tag?: ListPrometheusInstancesRequestTag[];
   /**
    * @remarks
-   * The instance version. Valid values: V1 and V2.
+   * Instance version: V1 or V2
    * 
    * @example
    * V2

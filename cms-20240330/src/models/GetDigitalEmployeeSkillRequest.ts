@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDigitalEmployeeSkillRequest extends $dara.Model {
   /**
-   * @remarks
-   * Historical version number
-   * 
    * @example
    * 1770386951147366810
    */

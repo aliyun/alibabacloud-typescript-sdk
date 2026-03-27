@@ -4,39 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class UntagResourcesRequest extends $dara.Model {
   /**
-   * @remarks
-   * Specifies whether to remove all tags from the specified resources. Valid values:
-   * 
-   * false (default): No
-   * true: Yes
-   * 
    * @example
    * false
    */
   all?: boolean;
   /**
    * @remarks
-   * A list of resource IDs.
-   * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type.
-   * 
    * This parameter is required.
    * 
    * @example
    * Service
    */
   resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * You can detach tags with up to 20 tag keys.
-   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {

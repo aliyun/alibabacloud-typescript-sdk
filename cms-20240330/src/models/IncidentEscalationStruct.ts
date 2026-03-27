@@ -6,7 +6,7 @@ import { IncidentEscalationStageStruct } from "./IncidentEscalationStageStruct";
 export class IncidentEscalationStruct extends $dara.Model {
   /**
    * @remarks
-   * 创建时间
+   * Creation time.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -14,15 +14,15 @@ export class IncidentEscalationStruct extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * 描述。
+   * Description.
    * 
    * @example
-   * 当告警未响应时，依次通知运维团队、值班经理、CTO
+   * When an alert is not acknowledged, notify the operations team, on-duty manager, and CTO sequentially.
    */
   description?: string;
   /**
    * @remarks
-   * 事件升级ID
+   * Event Escalation ID.
    * 
    * @example
    * 52631388567
@@ -30,7 +30,7 @@ export class IncidentEscalationStruct extends $dara.Model {
   incidentEscalationId?: string;
   /**
    * @remarks
-   * 修改时间
+   * Modification time.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -38,15 +38,15 @@ export class IncidentEscalationStruct extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * 名称。
+   * Name.
    * 
    * @example
-   * 生产环境告警升级策略
+   * Production Environment Alert Escalation Policy.
    */
   name?: string;
   /**
    * @remarks
-   * 地域 ID
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
@@ -54,12 +54,12 @@ export class IncidentEscalationStruct extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 阶段。
+   * Phase.
    */
   stage?: IncidentEscalationStageStruct[];
   /**
    * @remarks
-   * 工作空间
+   * Workspace.
    * 
    * @example
    * workspace-test

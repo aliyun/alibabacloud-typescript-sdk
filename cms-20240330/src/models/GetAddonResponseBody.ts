@@ -4,25 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAddonResponseBodyDataDashboards extends $dara.Model {
   /**
-   * @remarks
-   * The description of the dashboard.
-   * 
    * @example
    * test
    */
   description?: string;
   /**
-   * @remarks
-   * The name of the dashboard.
-   * 
    * @example
    * rum_api_dot_metric_set
    */
   name?: string;
   /**
-   * @remarks
-   * The URL of the preview image.
-   * 
    * @example
    * http://iac-service-transfer.oss-cn-hangzhou.aliyuncs.com/78c5_288850010070719968_bdcf7cca781844c8ac4add133791713f
    */
@@ -53,21 +44,7 @@ export class GetAddonResponseBodyDataDashboards extends $dara.Model {
 }
 
 export class GetAddonResponseBodyDataEnvironmentsCommonSchemaRefs extends $dara.Model {
-  /**
-   * @remarks
-   * The group name of the common schema.
-   * 
-   * @example
-   * acs-ecs
-   */
   group?: string;
-  /**
-   * @remarks
-   * The version of the common schema.
-   * 
-   * @example
-   * 0.1.3
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,20 +70,8 @@ export class GetAddonResponseBodyDataEnvironmentsCommonSchemaRefs extends $dara.
 }
 
 export class GetAddonResponseBodyDataEnvironmentsDependencies extends $dara.Model {
-  /**
-   * @remarks
-   * The dependencies on cluster types.
-   */
   clusterTypes?: string[];
-  /**
-   * @remarks
-   * The dependencies on probes.
-   */
   features?: { [key: string]: boolean };
-  /**
-   * @remarks
-   * The dependencies on activated services.
-   */
   services?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -143,10 +108,6 @@ export class GetAddonResponseBodyDataEnvironmentsDependencies extends $dara.Mode
 }
 
 export class GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
-  /**
-   * @remarks
-   * The data check rule that is used after installation.
-   */
   promQL?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -174,35 +135,19 @@ export class GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule extends
 
 export class GetAddonResponseBodyDataEnvironmentsPoliciesProtocols extends $dara.Model {
   /**
-   * @remarks
-   * The description of the protocol.
-   * 
    * @example
-   * Support OpenTelemetry Protocol
+   * Prometheus Metrics
    */
   description?: string;
   /**
-   * @remarks
-   * The URL of the icon.
-   * 
    * @example
    * icon URL
    */
   icon?: string;
-  /**
-   * @remarks
-   * The display name of the protocol.
-   * 
-   * @example
-   * OpenTelemetry
-   */
   label?: string;
   /**
-   * @remarks
-   * The name of the protocol.
-   * 
    * @example
-   * OpenTelemetry
+   * rum_api_dot_metric_set
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -234,51 +179,28 @@ export class GetAddonResponseBodyDataEnvironmentsPoliciesProtocols extends $dara
 
 export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   /**
-   * @remarks
-   * The status of the default policy for alert rules.
-   * 
    * @example
    * true
    */
   alertDefaultStatus?: string;
   /**
-   * @remarks
-   * Indicates whether the add-on is installed by default.
-   * 
    * @example
    * true
    */
   defaultInstall?: boolean;
   /**
-   * @remarks
-   * Indicates whether a service account is assigned for communication with the console API.
-   * 
    * @example
    * true
    */
   enableServiceAccount?: boolean;
-  /**
-   * @remarks
-   * The metric check rule.
-   */
   metricCheckRule?: GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule;
   /**
-   * @remarks
-   * Indicates whether to guide the user to restart pods after the add-on is installed.
-   * 
    * @example
    * true
    */
   needRestartAfterIntegration?: boolean;
-  /**
-   * @remarks
-   * The protocol.
-   */
   protocols?: GetAddonResponseBodyDataEnvironmentsPoliciesProtocols[];
   /**
-   * @remarks
-   * The name of the target add-on to which the system redirects.
-   * 
    * @example
    * cs-default
    */
@@ -323,57 +245,26 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
 }
 
 export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
-  /**
-   * @remarks
-   * The list of associated common schemas.
-   */
   commonSchemaRefs?: GetAddonResponseBodyDataEnvironmentsCommonSchemaRefs[];
-  /**
-   * @remarks
-   * The dependencies.
-   */
   dependencies?: GetAddonResponseBodyDataEnvironmentsDependencies;
   /**
-   * @remarks
-   * The description.
-   * 
    * @example
    * Observability integration.
    */
   description?: string;
   /**
-   * @remarks
-   * Indicates whether the feature is enabled.
-   * 
    * @example
    * false
    */
   enable?: boolean;
-  /**
-   * @remarks
-   * The display name of the environment.
-   * 
-   * @example
-   * 容器环境
-   */
   label?: string;
   /**
-   * @remarks
-   * The name of the add-on.
-   * 
    * @example
    * cs-default-umodel-1752755202744_k8s.metric.high_level_metric_deployment_cn-hangzhou/c0a686118449c4390b9cc0a07ea3e0e85
    */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   */
   policies?: GetAddonResponseBodyDataEnvironmentsPolicies;
   /**
-   * @remarks
-   * The type of the integration policy.
-   * 
    * @example
    * CS
    */
@@ -424,101 +315,55 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
 
 export class GetAddonResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * The alias of the component.
-   * 
    * @example
    * resume_vector_alias
    */
   alias?: string;
-  /**
-   * @remarks
-   * The list of component categories.
-   */
   categories?: string[];
-  /**
-   * @remarks
-   * The list of dashboards.
-   */
   dashboards?: GetAddonResponseBodyDataDashboards[];
   /**
-   * @remarks
-   * The description of the add-on.
-   * 
    * @example
    * o11y-demo-cn-heyuan
    */
   description?: string;
-  /**
-   * @remarks
-   * The environment information.
-   */
   environments?: GetAddonResponseBodyDataEnvironments[];
   /**
-   * @remarks
-   * The URL of the icon.
-   * 
    * @example
-   * https://xxxxx
+   * icon URL
    */
   icon?: string;
-  /**
-   * @remarks
-   * The keywords.
-   */
   keywords?: string[];
   /**
-   * @remarks
-   * The language.
-   * 
    * @example
    * zh
    */
   language?: string;
   /**
-   * @remarks
-   * The time when the latest version was created.
-   * 
    * @example
    * 2023-09-12 12:30:30
    */
   latestReleaseCreateTime?: string;
   /**
-   * @remarks
-   * The name of the add-on.
-   * 
    * @example
    * rum_api_dashboard_explorer_link_metric_set
    */
   name?: string;
   /**
-   * @remarks
-   * Indicates whether the add-on can be installed only once.
-   * 
    * @example
    * true
    */
   once?: boolean;
   /**
-   * @remarks
-   * The scenario of the component.
-   * 
    * @example
    * middleware
    */
   scene?: string;
   /**
-   * @remarks
-   * The version of the component.
-   * 
    * @example
    * *
    */
   version?: string;
   /**
-   * @remarks
-   * The weight.
-   * 
    * @example
    * 10
    */
@@ -583,14 +428,10 @@ export class GetAddonResponseBodyData extends $dara.Model {
 }
 
 export class GetAddonResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
   data?: GetAddonResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUmodelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * 234324-123-123-123-23423
@@ -13,7 +13,7 @@ export class UpdateUmodelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * Workspace name
    * 
    * @example
    * workspace-test

@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCmsServiceRequest extends $dara.Model {
   /**
-   * @remarks
-   * prometheus: Checks the activation status of the Prometheus service. The service is billed by reported data volume or written data volume.
-   * 
    * @example
    * prometheus
    * 
@@ -15,9 +12,6 @@ export class GetCmsServiceRequest extends $dara.Model {
    */
   product?: string;
   /**
-   * @remarks
-   * prometheus: Checks whether the Prometheus product that is billed by reported data volume is activated.prometheusgb: Checks whether the Prometheus product that is billed by written data volume is activated.
-   * 
    * @example
    * prometheus
    * 

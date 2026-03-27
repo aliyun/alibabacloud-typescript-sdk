@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $dara.Model {
   /**
    * @remarks
-   * The dashboard ID.
+   * Dashboard ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $d
   id?: string;
   /**
    * @remarks
-   * The dashboard name.
+   * Dashboard name.
    * 
    * @example
    * pod
@@ -21,12 +21,12 @@ export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $d
   name?: string;
   /**
    * @remarks
-   * The tags.
+   * Tags.
    */
   tags?: string[];
   /**
    * @remarks
-   * The dashboard title.
+   * Dashboard title.
    * 
    * @example
    * ceshi
@@ -34,7 +34,7 @@ export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $d
   title?: string;
   /**
    * @remarks
-   * The dashboard UID.
+   * Dashboard UID.
    * 
    * @example
    * 1987395500251724
@@ -42,7 +42,7 @@ export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $d
   uid?: string;
   /**
    * @remarks
-   * The URL of the dashboard.
+   * Dashboard URL address.
    * 
    * @example
    * https://gnew.console.aliyun.com/d/xxx-17460385-807-7-6/cs-cost-application
@@ -85,12 +85,12 @@ export class ListPrometheusDashboardsResponseBodyPrometheusDashboards extends $d
 export class ListPrometheusDashboardsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of dashboards for the Prometheus instance.
+   * List of Prometheus instance dashboards.
    */
   prometheusDashboards?: ListPrometheusDashboardsResponseBodyPrometheusDashboards[];
   /**
    * @remarks
-   * The ID of the request.
+   * ID of the request
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
@@ -98,7 +98,7 @@ export class ListPrometheusDashboardsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instances.
+   * Total number of instances
    * 
    * @example
    * 66

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The extended properties.
+   * Extended attributes.
    * 
    * @example
    * {"language":"java"}
@@ -13,7 +13,7 @@ export class UpdateServiceRequest extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * The description of the service. This parameter is valid only when serviceType is set to RUM.
+   * Service description, only valid when serviceType=RUM.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class UpdateServiceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name. This parameter is valid only when serviceType is set to RUM.
+   * Display name, only valid when serviceType=RUM.
    * 
    * @example
    * api-monitor-test
@@ -29,7 +29,7 @@ export class UpdateServiceRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The status of the service. This parameter is valid only when serviceType is set to RUM.
+   * Service status, only valid when serviceType=RUM.
    * 
    * @example
    * Stopped

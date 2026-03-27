@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddMemoriesRequestMessages extends $dara.Model {
   /**
-   * @remarks
-   * Content.
-   * 
    * @example
    * My name is Zhang San and I live in Hangzhou.
    */
   content?: string;
   /**
-   * @remarks
-   * Role.
-   * 
    * @example
    * user
    */
@@ -44,62 +38,37 @@ export class AddMemoriesRequestMessages extends $dara.Model {
 
 export class AddMemoriesRequest extends $dara.Model {
   /**
-   * @remarks
-   * Application agent ID.
-   * 
    * @example
    * 952730733889060865
    */
   agentId?: string;
   /**
-   * @remarks
-   * Application ID.
-   * 
    * @example
    * mm_480d961a1b5e4efe84603f4cbc0f
    */
   appId?: string;
   /**
-   * @remarks
-   * Asynchronous mode.
-   * 
    * @example
    * true
    */
   asyncMode?: boolean;
   /**
-   * @remarks
-   * Custom instructions.
-   * 
    * @example
    * Your custom instructions here
    */
   customInstructions?: string;
   /**
-   * @remarks
-   * Infer.
-   * 
    * @example
    * true
    */
   infer?: boolean;
-  /**
-   * @remarks
-   * Messages.
-   */
   messages?: AddMemoriesRequestMessages[];
   /**
-   * @remarks
-   * Metadata.
-   * 
    * @example
    * {"sessionId":"test_session_001"}
    */
   metadata?: { [key: string]: any };
   /**
-   * @remarks
-   * Run ID.
-   * 
    * @example
    * jr-80ded1d6953c64ea
    */
@@ -110,9 +79,6 @@ export class AddMemoriesRequest extends $dara.Model {
    */
   timestamp?: number;
   /**
-   * @remarks
-   * User ID.
-   * 
    * @example
    * test_user_001
    */

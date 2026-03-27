@@ -5,22 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListThreadsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The filter key. Supported values are title, workspace, and project.
-   * 
    * This parameter is required.
    * 
    * @example
-   * title
+   * dukang-oxs-pre-obeqi
    */
   key?: string;
   /**
    * @remarks
-   * The set value.
-   * 
    * This parameter is required.
    * 
    * @example
-   * test
+   * [{\\"Type\\": \\"primaryDoc\\", \\"Id\\": \\"01ZM8y7\\", \\"Name\\": \\"key\\"}, {\\"Type\\": \\"text\\", \\"Id\\": \\"mHe1U1b\\", \\"Name\\": \\"value\\"}, {\\"Type\\": \\"text\\", \\"Id\\": \\"rRIhpBs\\", \\"Name\\": u\\"\\u4f5c\\u7528\\"}]
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -47,41 +43,25 @@ export class ListThreadsRequestFilter extends $dara.Model {
 }
 
 export class ListThreadsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The filter conditions for the query. If you do not specify this parameter, all threads in the instance are queried.
-   */
   filter?: ListThreadsRequestFilter[];
   /**
-   * @remarks
-   * The maximum number of results to return. The maximum value is 200.
-   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
-   * @remarks
-   * The paging token.
-   * 
    * @example
    * xxxxxx
    */
   nextToken?: string;
   /**
-   * @remarks
-   * The session status.
-   * 
    * @example
-   * active
+   * Running
    */
   status?: string;
   /**
-   * @remarks
-   * The session ID.
-   * 
    * @example
-   * thread-123123
+   * thread_id01
    */
   threadId?: string;
   static names(): { [key: string]: string } {

@@ -4,19 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateThreadRequestVariables extends $dara.Model {
   /**
-   * @remarks
-   * The name of the Simple Log Service project.
-   * 
    * @example
-   * project
+   * az_alipay
    */
   project?: string;
   /**
-   * @remarks
-   * The name of the workspace.
-   * 
    * @example
-   * workspace
+   * rum-monitor-test-aysls-pub-cn-heyuan-monitor
    */
   workspace?: string;
   static names(): { [key: string]: string } {
@@ -45,17 +39,10 @@ export class CreateThreadRequestVariables extends $dara.Model {
 export class CreateThreadRequest extends $dara.Model {
   attributes?: { [key: string]: string };
   /**
-   * @remarks
-   * The title of the session.
-   * 
    * @example
    * test
    */
   title?: string;
-  /**
-   * @remarks
-   * The properties of the session.
-   */
   variables?: CreateThreadRequestVariables;
   static names(): { [key: string]: string } {
     return {

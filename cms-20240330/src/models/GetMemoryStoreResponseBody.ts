@@ -4,21 +4,7 @@ import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 
 
 export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
-  /**
-   * @remarks
-   * Simple Log Service Logstore name.
-   * 
-   * @example
-   * memory-store
-   */
   logstore?: string;
-  /**
-   * @remarks
-   * Simple Log Service Project name.
-   * 
-   * @example
-   * wk_cms_data_warehouse
-   */
   project?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,76 +29,88 @@ export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
   }
 }
 
+export class GetMemoryStoreResponseBodyTraceSourceConfig extends $dara.Model {
+  includeOutput?: boolean;
+  /**
+   * @example
+   * (serviceName : "langchain-rag" or serviceName : "agentscope-code-correction") and hostname = frontend-proxy-999c48c8d-hvk6c
+   */
+  query?: string;
+  /**
+   * @example
+   * test-workspace
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      includeOutput: 'includeOutput',
+      query: 'query',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includeOutput: 'boolean',
+      query: 'string',
+      workspace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMemoryStoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
-   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
    * 1764556182850
    */
   createTime?: string;
-  /**
-   * @remarks
-   * Custom extraction strategies.
-   */
   customExtractionStrategies?: CustomExtractionStrategy[];
   /**
-   * @remarks
-   * Description.
-   * 
    * @example
    * test
    */
   description?: string;
-  /**
-   * @remarks
-   * Supported values: Episodic, Summary, and Fact.
-   */
   extractionStrategies?: string[];
   /**
-   * @remarks
-   * Memory store name.
-   * 
    * @example
    * test-memory-store
    */
   memoryStoreName?: string;
   /**
-   * @remarks
-   * Region ID.
-   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Short-term memory storage.
-   */
   shortTermStorage?: GetMemoryStoreResponseBodyShortTermStorage;
   /**
-   * @remarks
-   * Short-term memory retention time, in seconds.
-   * 
    * @example
    * 10
    */
   shortTermTtl?: number;
   /**
+   * @example
+   * Trace
+   */
+  sourceType?: string;
+  traceSourceConfig?: GetMemoryStoreResponseBodyTraceSourceConfig;
+  /**
    * @remarks
-   * Update time.
-   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -120,9 +118,6 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
    */
   updateTime?: string;
   /**
-   * @remarks
-   * Workspace name.
-   * 
    * @example
    * default-cms-xxxxxx-cn-beijing
    */
@@ -138,6 +133,8 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
       requestId: 'requestId',
       shortTermStorage: 'shortTermStorage',
       shortTermTtl: 'shortTermTtl',
+      sourceType: 'sourceType',
+      traceSourceConfig: 'traceSourceConfig',
       updateTime: 'updateTime',
       workspace: 'workspace',
     };
@@ -154,6 +151,8 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
       requestId: 'string',
       shortTermStorage: GetMemoryStoreResponseBodyShortTermStorage,
       shortTermTtl: 'number',
+      sourceType: 'string',
+      traceSourceConfig: GetMemoryStoreResponseBodyTraceSourceConfig,
       updateTime: 'string',
       workspace: 'string',
     };
@@ -168,6 +167,9 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
     }
     if(this.shortTermStorage && typeof (this.shortTermStorage as any).validate === 'function') {
       (this.shortTermStorage as any).validate();
+    }
+    if(this.traceSourceConfig && typeof (this.traceSourceConfig as any).validate === 'function') {
+      (this.traceSourceConfig as any).validate();
     }
     super.validate();
   }

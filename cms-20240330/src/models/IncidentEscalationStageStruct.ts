@@ -6,12 +6,12 @@ import { IncidentContactStruct } from "./IncidentContactStruct";
 export class IncidentEscalationStageStruct extends $dara.Model {
   /**
    * @remarks
-   * 联系人列表
+   * Contact list.
    */
   contact?: IncidentContactStruct[];
   /**
    * @remarks
-   * 周期通知统计次数
+   * Number of recurring notification attempts.
    * 
    * @example
    * 3
@@ -19,7 +19,7 @@ export class IncidentEscalationStageStruct extends $dara.Model {
   cycleNotifyCount?: number;
   /**
    * @remarks
-   * 周期通知时间
+   * Recurring notification interval.
    * 
    * @example
    * 300
@@ -27,15 +27,15 @@ export class IncidentEscalationStageStruct extends $dara.Model {
   cycleNotifyTime?: number;
   /**
    * @remarks
-   * 描述
+   * Description.
    * 
    * @example
-   * 负责处理生产环境告警的主负责人
+   * Primary owner responsible for handling production environment alerts.
    */
   description?: string;
   /**
    * @remarks
-   * 有效时间
+   * Effective time period.
    * 
    * @example
    * 2025-04-05T00:00:00Z
@@ -43,15 +43,15 @@ export class IncidentEscalationStageStruct extends $dara.Model {
   effectTime?: string;
   /**
    * @remarks
-   * 名称
+   * Name.
    * 
    * @example
-   * 运维团队
+   * Operations team.
    */
   name?: string;
   /**
    * @remarks
-   * 阶段指数
+   * Phase index.
    * 
    * @example
    * 1
@@ -59,7 +59,7 @@ export class IncidentEscalationStageStruct extends $dara.Model {
   stageIndex?: number;
   /**
    * @remarks
-   * 时区
+   * Time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -67,7 +67,7 @@ export class IncidentEscalationStageStruct extends $dara.Model {
   timeZone?: string;
   /**
    * @remarks
-   * 等待进入下一阶段的时间
+   * Time to wait before proceeding to the next phase.
    * 
    * @example
    * 600

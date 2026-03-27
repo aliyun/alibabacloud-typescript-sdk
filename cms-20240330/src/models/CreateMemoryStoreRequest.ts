@@ -3,29 +3,53 @@ import * as $dara from '@darabonba/typescript';
 import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 
 
-export class CreateMemoryStoreRequest extends $dara.Model {
+export class CreateMemoryStoreRequestTraceSourceConfig extends $dara.Model {
+  includeOutput?: boolean;
   /**
-   * @remarks
-   * A list of custom extraction strategies.
+   * @example
+   * (serviceName : "langchain-rag" or serviceName : "agentscope-code-correction") and hostname = frontend-proxy-999c48c8d-hvk6c
    */
+  query?: string;
+  /**
+   * @example
+   * test-workspace
+   */
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      includeOutput: 'includeOutput',
+      query: 'query',
+      workspace: 'workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includeOutput: 'boolean',
+      query: 'string',
+      workspace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateMemoryStoreRequest extends $dara.Model {
   customExtractionStrategies?: CustomExtractionStrategy[];
   /**
-   * @remarks
-   * The description of the Memory Store.
-   * 
    * @example
    * Test memory store for demonstration.
    */
   description?: string;
-  /**
-   * @remarks
-   * The extraction strategies to use. Valid values: `Episodic`, `Summary`, and `Fact`.
-   */
   extractionStrategies?: string[];
   /**
    * @remarks
-   * The name of the Memory Store.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -34,14 +58,18 @@ export class CreateMemoryStoreRequest extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
-   * The time-to-live (TTL) for short-term memory.
-   * 
    * This parameter is required.
    * 
    * @example
    * 10
    */
   shortTermTtl?: number;
+  /**
+   * @example
+   * None/Trace
+   */
+  sourceType?: string;
+  traceSourceConfig?: CreateMemoryStoreRequestTraceSourceConfig;
   static names(): { [key: string]: string } {
     return {
       customExtractionStrategies: 'customExtractionStrategies',
@@ -49,6 +77,8 @@ export class CreateMemoryStoreRequest extends $dara.Model {
       extractionStrategies: 'extractionStrategies',
       memoryStoreName: 'memoryStoreName',
       shortTermTtl: 'shortTermTtl',
+      sourceType: 'sourceType',
+      traceSourceConfig: 'traceSourceConfig',
     };
   }
 
@@ -59,6 +89,8 @@ export class CreateMemoryStoreRequest extends $dara.Model {
       extractionStrategies: { 'type': 'array', 'itemType': 'string' },
       memoryStoreName: 'string',
       shortTermTtl: 'number',
+      sourceType: 'string',
+      traceSourceConfig: CreateMemoryStoreRequestTraceSourceConfig,
     };
   }
 
@@ -68,6 +100,9 @@ export class CreateMemoryStoreRequest extends $dara.Model {
     }
     if(Array.isArray(this.extractionStrategies)) {
       $dara.Model.validateArray(this.extractionStrategies);
+    }
+    if(this.traceSourceConfig && typeof (this.traceSourceConfig as any).validate === 'function') {
+      (this.traceSourceConfig as any).validate();
     }
     super.validate();
   }

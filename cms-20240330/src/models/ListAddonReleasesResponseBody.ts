@@ -6,7 +6,7 @@ import { EntityGroupBase } from "./EntityGroupBase";
 export class ListAddonReleasesResponseBodyReleasesConditions extends $dara.Model {
   /**
    * @remarks
-   * The time of the first transition.
+   * First transition time.
    * 
    * @example
    * 2024-11-04T16:10:22+08:00
@@ -14,7 +14,7 @@ export class ListAddonReleasesResponseBodyReleasesConditions extends $dara.Model
   firstTransitionTime?: string;
   /**
    * @remarks
-   * The time of the last transition.
+   * Last transition time.
    * 
    * @example
    * 2024-11-04T16:10:22+08:00
@@ -22,7 +22,7 @@ export class ListAddonReleasesResponseBodyReleasesConditions extends $dara.Model
   lastTransitionTime?: string;
   /**
    * @remarks
-   * The details.
+   * Details.
    * 
    * @example
    * The addon loaded successfully
@@ -30,7 +30,7 @@ export class ListAddonReleasesResponseBodyReleasesConditions extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * The status of the phase.
+   * Phase status.
    * 
    * @example
    * True
@@ -38,7 +38,7 @@ export class ListAddonReleasesResponseBodyReleasesConditions extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The type of the phase.
+   * Phase type.
    * 
    * @example
    * Loaded
@@ -76,7 +76,7 @@ export class ListAddonReleasesResponseBodyReleasesConditions extends $dara.Model
 export class ListAddonReleasesResponseBodyReleasesSubAddonRelease extends $dara.Model {
   /**
    * @remarks
-   * The number of ready sub-releases.
+   * Number of ready sub-Releases.
    * 
    * @example
    * 2
@@ -84,7 +84,7 @@ export class ListAddonReleasesResponseBodyReleasesSubAddonRelease extends $dara.
   ready?: number;
   /**
    * @remarks
-   * The total number of sub-releases.
+   * Number of sub-Releases.
    * 
    * @example
    * 3
@@ -116,7 +116,7 @@ export class ListAddonReleasesResponseBodyReleasesSubAddonRelease extends $dara.
 export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on.
+   * Addon name.
    * 
    * @example
    * cs-gpu
@@ -124,7 +124,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   addonName?: string;
   /**
    * @remarks
-   * The number of alert rules.
+   * Number of alert rules.
    * 
    * @example
    * 6
@@ -132,7 +132,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   alertRuleCount?: number;
   /**
    * @remarks
-   * The API version.
+   * API version.
    * 
    * @example
    * 2023-03-30
@@ -140,12 +140,12 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   apiVersion?: string;
   /**
    * @remarks
-   * Information about the installation phase.
+   * Installation phase information.
    */
   conditions?: ListAddonReleasesResponseBodyReleasesConditions[];
   /**
    * @remarks
-   * The configuration of the component.
+   * Component configuration information.
    * 
    * @example
    * {"install":{"mode":"auto-install","listenPort":"9400"},"discoverMode":"instances","discover":{"instances":"worker-k8s-for-cs-c126d87c76218487e83ab322017f11b44"},"scrapeInterval":"15","enableSecuritecs-nodeyGroupInjection":"true","metricTags":""}
@@ -153,7 +153,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The integration time.
+   * Access time.
    * 
    * @example
    * 2024-11-04T16:10:12+08:00
@@ -161,7 +161,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The number of dashboards.
+   * Number of dashboards.
    * 
    * @example
    * 3
@@ -169,12 +169,12 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   dashboardCount?: number;
   /**
    * @remarks
-   * The entity details.
+   * Entity details.
    */
   entityRules?: EntityGroupBase;
   /**
    * @remarks
-   * The environment type.
+   * Environment type.
    * 
    * @example
    * CS
@@ -182,7 +182,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The environment ID.
+   * Environment ID.
    * 
    * @example
    * policy-xxxxxxxxxxxx
@@ -190,7 +190,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The number of plug-ins.
+   * Number of plugins.
    * 
    * @example
    * 2
@@ -198,7 +198,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   exporterCount?: number;
   /**
    * @remarks
-   * Indicates whether a configuration exists.
+   * Whether there is a configuration.
    * 
    * @example
    * true
@@ -206,7 +206,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   haveConfig?: boolean;
   /**
    * @remarks
-   * The ID of the user who performed the integration.
+   * Access user ID.
    * 
    * @example
    * 175xxxxxxxxx
@@ -214,7 +214,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   installUserId?: string;
   /**
    * @remarks
-   * The language.
+   * Language.
    * 
    * @example
    * zh
@@ -222,7 +222,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * Indicates whether the component is managed.
+   * Whether it is a managed component.
    * 
    * @example
    * true
@@ -230,7 +230,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   managed?: boolean;
   /**
    * @remarks
-   * The token that marks the start of the next page of results.
+   * Starting version number for the remaining list.
    * 
    * @example
    * None
@@ -238,7 +238,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   nextVersion?: string;
   /**
    * @remarks
-   * The ID of the parent AddonRelease.
+   * Parent AddonReleaseId.
    * 
    * @example
    * policy-xxxxxxxxxxxxxx
@@ -246,7 +246,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   parentAddonReleaseId?: string;
   /**
    * @remarks
-   * The policy ID.
+   * Policy ID.
    * 
    * @example
    * policy-xxxxxxxxxxxxxx
@@ -254,7 +254,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
@@ -262,7 +262,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The release ID.
+   * Release ID.
    * 
    * @example
    * 7339d808-66f9-4d40-83fa-xxxxxxxxxxx
@@ -270,7 +270,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   releaseId?: string;
   /**
    * @remarks
-   * The release name.
+   * Release name.
    * 
    * @example
    * test-gpu-integration-name
@@ -278,7 +278,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   releaseName?: string;
   /**
    * @remarks
-   * The component scenario.
+   * Component scenario.
    * 
    * @example
    * container
@@ -286,7 +286,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The status.
+   * Status.
    * 
    * @example
    * running
@@ -294,12 +294,12 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Statistics of the sub-AddonRelease.
+   * Sub-AddonRelease statistics.
    */
   subAddonRelease?: ListAddonReleasesResponseBodyReleasesSubAddonRelease;
   /**
    * @remarks
-   * The time of the last update.
+   * Update time.
    * 
    * @example
    * 2024-11-04T16:10:23+08:00
@@ -307,7 +307,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the owner.
+   * Owner user ID.
    * 
    * @example
    * 175xxxxxxxxxxxxx
@@ -315,7 +315,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The version of the component.
+   * Component version.
    * 
    * @example
    * 0.0.2
@@ -323,7 +323,7 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The workspace.
+   * Workspace.
    * 
    * @example
    * default
@@ -416,12 +416,12 @@ export class ListAddonReleasesResponseBodyReleases extends $dara.Model {
 export class ListAddonReleasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the integrated components.
+   * Set of add-on component information.
    */
   releases?: ListAddonReleasesResponseBodyReleases[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-78B0FECD14B5
@@ -429,7 +429,7 @@ export class ListAddonReleasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of components.
+   * Number of components.
    * 
    * @example
    * 1

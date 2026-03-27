@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara.Model {
   /**
    * @remarks
-   * The dashboard engine. Valid values:
-   * grafana: shared Grafana.
-   * cms: the self-developed dashboard engine of CloudMonitor.
+   * Dashboard engine:
+   * grafana: shared grafana.
+   * cms: cms self-developed dashboard engine.
    * 
    * @example
    * grafana
@@ -15,7 +15,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   engine?: string;
   /**
    * @remarks
-   * The UID of the dashboard folder.
+   * UID of the dashboard folder.
    * 
    * @example
    * Env-AAA
@@ -23,7 +23,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   folderUid?: string;
   /**
    * @remarks
-   * The dashboard name.
+   * Dashboard name
    * 
    * @example
    * k8s-pod
@@ -31,7 +31,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   name?: string;
   /**
    * @remarks
-   * The region.
+   * Region
    * 
    * @example
    * cn-hongkong
@@ -39,12 +39,12 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   region?: string;
   /**
    * @remarks
-   * The list of tags.
+   * List of tags.
    */
   tags?: string[];
   /**
    * @remarks
-   * The title of the UI module. This is different from the name parameter.
+   * Title of the UI module (not name)
    * 
    * @example
    * test
@@ -52,7 +52,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   title?: string;
   /**
    * @remarks
-   * The ID of the current Alibaba Cloud account. This parameter is read-only.
+   * ID of the current Alibaba Cloud primary account, read-only
    * 
    * @example
    * 1258199346721590
@@ -60,7 +60,7 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
   uid?: string;
   /**
    * @remarks
-   * The webhook URL for PagerDuty integration. V1 and V2 are supported.
+   * pagerDuty integration webhook. Supports V1 and V2 versions
    * 
    * @example
    * https://agi.alicdn.com/user/0/0_0_5255362686.png?x-oss-process=image/quality,q_75/format,jpg&file=1734574878007.jpg
@@ -107,12 +107,12 @@ export class ListIntegrationPolicyDashboardsResponseBodyDashboards extends $dara
 export class ListIntegrationPolicyDashboardsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of dashboards.
+   * List of dashboards.
    */
   dashboards?: ListIntegrationPolicyDashboardsResponseBodyDashboards[];
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-78B0FECD14B5
@@ -120,7 +120,7 @@ export class ListIntegrationPolicyDashboardsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of components.
+   * Number of components.
    * 
    * @example
    * 1

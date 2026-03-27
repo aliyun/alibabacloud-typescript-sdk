@@ -4,97 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class MergeWebhook extends $dara.Model {
   /**
-   * @remarks
-   * 内容类型。
-   * 
    * @example
    * application/json
    */
   contentType?: string;
   /**
-   * @remarks
-   * 扩展字段，用于存储额外配置。
-   * 
    * @example
    * {"timeout": 3000}
    */
   extend?: string;
   /**
-   * @remarks
-   * 创建时间。
-   * 
    * @example
    * 2025-03-11T08:21:58.789Z
    */
   gmtCreate?: string;
   /**
-   * @remarks
-   * 最后修改时间。
-   * 
    * @example
    * 2025-03-11T08:21:58.789Z
    */
   gmtModified?: { [key: string]: any };
   /**
-   * @remarks
-   * 请求头信息。
-   * 
    * @example
    * {"Authorization": "Bearer abc123"}
    */
   headers?: string;
   /**
-   * @remarks
-   * Webhook 唯一标识符。
-   * 
    * @example
    * webhook-12345
    */
   identifier?: string;
   /**
-   * @remarks
-   * 语言偏好。
-   * 
    * @example
    * zh-CN
    */
   lang?: string;
   /**
-   * @remarks
-   * HTTP 请求方法。
-   * 
    * @example
    * POST
    */
   method?: string;
-  /**
-   * @remarks
-   * Webhook 名称。
-   * 
-   * @example
-   * 运维告警通知
-   */
   name?: string;
   /**
-   * @remarks
-   * Webhook 来源系统。
-   * 
    * @example
    * dingtalk
    */
   source?: string;
   /**
-   * @remarks
-   * Webhook 类型，表示其目标平台。
-   * 
    * @example
    * dingtalk
    */
   type?: string;
   /**
-   * @remarks
-   * Webhook 地址，用于发送请求。
-   * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=abc123
    */

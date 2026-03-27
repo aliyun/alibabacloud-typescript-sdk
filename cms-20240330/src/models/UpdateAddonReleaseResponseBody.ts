@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAddonReleaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 9F00A7AF-2728-5424-B321-79D39C00A1EC

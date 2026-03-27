@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of days to store archived data after the storage duration expires. A value of 0 disables archiving. For V1 instances, the valid values are 1 to 365. This is supported only for the pay-by-data-write billing method. For V2 instances, the valid values are 1 to 3650. A value of 3650 indicates permanent storage.
+   * The number of days to automatically archive and save after the storage expires, 0 means no archiving. The range of archiving days:
+   * V1: 1~365 days. Only supported for metric write volume.
+   * V2: 1~3650 days (3650 indicates permanent storage).
    * 
    * @example
    * 365
@@ -16,7 +18,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   archiveDuration?: number;
   /**
    * @remarks
-   * The policy for password-free read access. The policy supports IP address segments and VPC IDs.
+   * Password-free read policy (supports IP segments and VpcId).
    * 
    * @example
    * {
@@ -33,7 +35,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * The policy for password-free write access. The policy supports IP address segments and VPC IDs.
+   * Password-free write policy (supports IP segments and VpcId).
    * 
    * @example
    * {
@@ -50,7 +52,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   authFreeWritePolicy?: string;
   /**
    * @remarks
-   * Specifies whether to enable password-free read access.
+   * Whether to enable password-free read.
    * 
    * @example
    * true
@@ -58,7 +60,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable password-free write access.
+   * Whether to enable password-free write.
    * 
    * @example
    * true
@@ -66,7 +68,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   enableAuthFreeWrite?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable authentication with an access token.
+   * Whether to enable access token authentication.
    * 
    * @example
    * true
@@ -74,7 +76,9 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * The billing method. You can change the billing method only once during the instance lifecycle. Valid values: \\`POSTPAY\\` (pay-as-you-go based on reported metrics) and \\`POSTPAY_GB\\` (pay-as-you-go based on data writes).
+   * Billing method (can only be modified once during the instance\\"s lifecycle):
+   * POSTPAY: Postpaid by metric reporting volume.
+   * POSTPAY_GB: Postpaid by metric write volume.
    * 
    * @example
    * POSTPAY_GB
@@ -82,7 +86,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * Instance name.
    * 
    * @example
    * test-prom-name
@@ -90,7 +94,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   prometheusInstanceName?: string;
   /**
    * @remarks
-   * The status of the instance storage database. Only RUNNING is supported. If this parameter is left empty, the status of the storage database is not changed.
+   * Instance storage DB status (only supports RUNNING). If empty, the storage DB status will not be changed.
    * 
    * @example
    * RUNNING
@@ -98,7 +102,9 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage duration in days. If the instance is billed by data writes, valid values are 90 and 180. If the instance is billed by reported metrics, valid values are 15, 30, 60, 90, and 180.
+   * Storage duration (days):
+   * By write volume: 90, 180.
+   * By metric reporting volume: 15, 30, 60, 90, 180.
    * 
    * @example
    * 90
@@ -106,7 +112,7 @@ export class UpdatePrometheusInstanceRequest extends $dara.Model {
   storageDuration?: number;
   /**
    * @remarks
-   * The workspace to which the instance belongs.
+   * Belonging workspace.
    * 
    * @example
    * default-cms-1500199863951574-cn-shanghai

@@ -4,25 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIntegrationPolicyServiceMonitorsRequest extends $dara.Model {
   /**
-   * @remarks
-   * The name of the add-on release.
-   * 
    * @example
    * release-12345678
    */
   addonReleaseName?: string;
   /**
-   * @remarks
-   * Specifies whether to encrypt the YAML file.
-   * 
    * @example
    * true
    */
   encryptYaml?: boolean;
   /**
-   * @remarks
-   * The namespace.
-   * 
    * @example
    * arms-prom
    */

@@ -5,33 +5,21 @@ import { Tag } from "./Tag";
 
 export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
   /**
-   * @remarks
-   * The properties of the knowledge base.
-   * 
    * @example
    * test
    */
   attributes?: string;
   /**
-   * @remarks
-   * The ID of the Bailian index.
-   * 
    * @example
    * index-xxxx
    */
   indexId?: string;
   /**
-   * @remarks
-   * The region of the Bailian knowledge base.
-   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
-   * @remarks
-   * The ID of the Bailian workspace.
-   * 
    * @example
    * llm-xxxxx
    */
@@ -64,15 +52,7 @@ export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
 }
 
 export class CreateDigitalEmployeeRequestKnowledges extends $dara.Model {
-  /**
-   * @remarks
-   * The list of Bailian knowledge bases.
-   */
   bailian?: CreateDigitalEmployeeRequestKnowledgesBailian[];
-  /**
-   * @remarks
-   * The list of Standard Operating Procedure (SOP) knowledge bases.
-   */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
@@ -105,38 +85,23 @@ export class CreateDigitalEmployeeRequestKnowledges extends $dara.Model {
 
 export class CreateDigitalEmployeeRequest extends $dara.Model {
   /**
-   * @remarks
-   * The default rule.
-   * 
    * @example
    * test
    */
   defaultRule?: string;
   /**
-   * @remarks
-   * The description of the digital employee.
-   * 
    * @example
    * aaa
    */
   description?: string;
   /**
-   * @remarks
-   * The display name of the digital employee.
-   * 
    * @example
    * digial-employee-test
    */
   displayName?: string;
-  /**
-   * @remarks
-   * The list of knowledge bases.
-   */
   knowledges?: CreateDigitalEmployeeRequestKnowledges;
   /**
    * @remarks
-   * The name of the digital employee.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -144,27 +109,18 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
    */
   name?: string;
   /**
-   * @remarks
-   * The ID of the resource group.
-   * 
    * @example
    * rg-ae******ey
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
-   * 
    * This parameter is required.
    * 
    * @example
    * acs:ram::12345678912:role/testrole
    */
   roleArn?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {

@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateBizTraceResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the business trace.
-   * 
    * @example
    * e339260ed64c95d
    */
   bizTraceId?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */

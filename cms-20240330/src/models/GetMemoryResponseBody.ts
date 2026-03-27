@@ -14,73 +14,46 @@ export class GetMemoryResponseBody extends $dara.Model {
    */
   appId?: string;
   /**
-   * @remarks
-   * The time when the memory was created.
-   * 
    * @example
    * 1751595283143
    */
   createdAt?: string;
   /**
-   * @remarks
-   * The expiration time.
-   * 
    * @example
    * 1751595283143
    */
   expirationDate?: string;
   /**
-   * @remarks
-   * The memory ID.
-   * 
    * @example
    * 019ca1e5-7307-7d50-b943-5e628326a8ed
    */
   id?: string;
   /**
-   * @remarks
-   * This property is mutable.
-   * 
    * @example
    * test
    */
   immutable?: string;
   /**
-   * @remarks
-   * The memory content.
-   * 
    * @example
    * My name is Zhang San and I live in Hangzhou.
    */
   memory?: string;
   /**
-   * @remarks
-   * The metadata.
-   * 
    * @example
    * {"sessionId":"test_session_001"}
    */
   metadata?: string;
   /**
-   * @remarks
-   * The organization.
-   * 
    * @example
    * test
    */
   organization?: string;
   /**
-   * @remarks
-   * The owner of the memory.
-   * 
    * @example
    * test
    */
   owner?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
@@ -91,9 +64,6 @@ export class GetMemoryResponseBody extends $dara.Model {
    */
   runId?: string;
   /**
-   * @remarks
-   * The time when the memory was last updated.
-   * 
    * @example
    * 1744428159434
    */

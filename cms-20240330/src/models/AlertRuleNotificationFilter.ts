@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AlertRuleNotificationFilter extends $dara.Model {
-  /**
-   * @remarks
-   * 联系人ID过滤
-   */
   contacts?: string[];
-  /**
-   * @remarks
-   * 自定义webhook ID过滤
-   */
   customWebhooks?: string[];
-  /**
-   * @remarks
-   * 钉钉webhook ID过滤
-   */
   dingWebhooks?: string[];
-  /**
-   * @remarks
-   * 飞书webhook ID过滤
-   */
   fsWebhooks?: string[];
-  /**
-   * @remarks
-   * 联系人组过滤配置
-   */
   groups?: string[];
-  /**
-   * @remarks
-   * slack webhook ID过滤列表
-   */
   slackWebhooks?: string[];
-  /**
-   * @remarks
-   * 微信webhook ID过滤
-   */
   wxWebhooks?: string[];
   static names(): { [key: string]: string } {
     return {

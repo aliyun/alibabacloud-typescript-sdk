@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyCustomScrapeJobRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the add-on release.
+   * Addon Release name.
    * 
    * @example
    * release12345678
@@ -13,7 +13,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesRequest extends $dara.Mode
   addonReleaseName?: string;
   /**
    * @remarks
-   * Specifies whether to encrypt the YAML file.
+   * Whether to encrypt Yaml.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListIntegrationPolicyCustomScrapeJobRulesRequest extends $dara.Mode
   encryptYaml?: boolean;
   /**
    * @remarks
-   * The namespace.
+   * Namespace.
    * 
    * @example
    * arms-prom

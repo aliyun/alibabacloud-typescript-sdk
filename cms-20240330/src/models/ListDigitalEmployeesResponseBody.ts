@@ -5,33 +5,21 @@ import { Tag } from "./Tag";
 
 export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian extends $dara.Model {
   /**
-   * @remarks
-   * Knowledge base attributes.
-   * 
    * @example
    * test
    */
   attributes?: string;
   /**
-   * @remarks
-   * Bailian index ID.
-   * 
    * @example
    * index-xxxx
    */
   indexId?: string;
   /**
-   * @remarks
-   * Region of the Bailian knowledge base.
-   * 
    * @example
    * cn-beijing
    */
   region?: string;
   /**
-   * @remarks
-   * Bailian workspace ID.
-   * 
    * @example
    * llm-xxxx
    */
@@ -64,15 +52,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian e
 }
 
 export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges extends $dara.Model {
-  /**
-   * @remarks
-   * Bailian knowledge base list.
-   */
   bailian?: ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian[];
-  /**
-   * @remarks
-   * SOP knowledge base list.
-   */
   sop?: { [key: string]: any }[];
   static names(): { [key: string]: string } {
     return {
@@ -106,8 +86,6 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges extends 
 export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
-   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -115,75 +93,40 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
    */
   createTime?: string;
   /**
-   * @remarks
-   * Default rule.
-   * 
    * @example
    * test
    */
   defaultRule?: string;
   /**
-   * @remarks
-   * Description.
-   * 
    * @example
    * test
    */
   description?: string;
   /**
-   * @remarks
-   * Digital employee display name.
-   * 
    * @example
    * test
    */
   displayName?: string;
-  /**
-   * @remarks
-   * Digital employee type.
-   * 
-   * @example
-   * custom
-   */
   employeeType?: string;
-  /**
-   * @remarks
-   * List of knowledge bases.
-   */
   knowledges?: ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges;
   /**
-   * @remarks
-   * Digital employee name.
-   * 
    * @example
    * test
    */
   name?: string;
   /**
-   * @remarks
-   * Resource group ID.
-   * 
    * @example
    * rg-ae******ey
    */
   resourceGroupId?: string;
   /**
-   * @remarks
-   * Role ARN.
-   * 
    * @example
    * acs:ram::12345678912:role/testrole
    */
   roleArn?: string;
-  /**
-   * @remarks
-   * Tags.
-   */
   tags?: Tag[];
   /**
    * @remarks
-   * Update time.
-   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -238,39 +181,23 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
 }
 
 export class ListDigitalEmployeesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * List of digital employees.
-   */
   digitalEmployees?: ListDigitalEmployeesResponseBodyDigitalEmployees[];
   /**
-   * @remarks
-   * Maximum number of results returned.
-   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
-   * @remarks
-   * Token for the next page of results.
-   * 
    * @example
    * xxxxx
    */
   nextToken?: string;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
-   * @remarks
-   * Total number of records.
-   * 
    * @example
    * 56
    */

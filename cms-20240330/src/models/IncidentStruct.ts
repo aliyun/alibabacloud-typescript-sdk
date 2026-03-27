@@ -8,20 +8,20 @@ import { IncidentResourceDetail } from "./IncidentResourceDetail";
 export class IncidentStruct extends $dara.Model {
   /**
    * @remarks
-   * 事件内容。
+   * Content.
    * 
    * @example
-   * 检测到 RDS 实例 rds-bp1234567890abcdef 的连接数达到 1000，已触发告警。
+   * Detected that the connection count of RDS instance rds-bp1234567890abcdef has reached 1000, triggering an alert.
    */
   content?: string;
   /**
    * @remarks
-   * 升级策略列表。
+   * List of escalation policies.
    */
   escalations?: IncidentEscalationStruct[];
   /**
    * @remarks
-   * 事件唯一 ID。
+   * Incident ID.
    * 
    * @example
    * incident-001
@@ -29,17 +29,17 @@ export class IncidentStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * 关联的事件预案。
+   * Associated incident contingency plan.
    */
   incidentPlan?: IncidentPlanStruct;
   /**
    * @remarks
-   * 关联的资源详情。
+   * Associated resource details.
    */
   resource?: IncidentResourceDetail;
   /**
    * @remarks
-   * 事件严重等级。
+   * Incident severity level.
    * 
    * @example
    * P1
@@ -47,7 +47,7 @@ export class IncidentStruct extends $dara.Model {
   severity?: string;
   /**
    * @remarks
-   * 当前状态。
+   * Status.
    * 
    * @example
    * OPEN
@@ -55,7 +55,7 @@ export class IncidentStruct extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 时间戳
+   * Time.
    * 
    * @example
    * 1741234567890
@@ -63,15 +63,15 @@ export class IncidentStruct extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * 事件标题。
+   * Title.
    * 
    * @example
-   * 数据库连接数过高
+   * Excessively high database connection count.
    */
   title?: string;
   /**
    * @remarks
-   * 用户 ID。
+   * User ID.
    * 
    * @example
    * user-12345

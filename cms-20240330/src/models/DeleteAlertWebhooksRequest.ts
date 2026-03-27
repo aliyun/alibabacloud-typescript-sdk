@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertWebhooksRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique webhook identifiers.
-   * 
    * This parameter is required.
    */
   webhookIds?: string[];

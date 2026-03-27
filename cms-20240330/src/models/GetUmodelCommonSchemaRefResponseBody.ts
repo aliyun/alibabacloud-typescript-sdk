@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef extends $dara.Model {
   /**
-   * @remarks
-   * The common Umodel Schema group.
-   * 
    * @example
    * apm-common
    */
   group?: string;
   /**
-   * @remarks
-   * The version.
-   * 
    * @example
    * 0.1.0
    */
@@ -43,10 +37,6 @@ export class GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef extends $dara.M
 }
 
 export class GetUmodelCommonSchemaRefResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The referenced common Umodel Schema.
-   */
   commonSchemaRef?: GetUmodelCommonSchemaRefResponseBodyCommonSchemaRef[];
   static names(): { [key: string]: string } {
     return {

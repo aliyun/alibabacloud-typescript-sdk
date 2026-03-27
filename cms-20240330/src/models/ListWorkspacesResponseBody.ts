@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   /**
    * @remarks
-   * The time when the workspace was created.
+   * Creation time
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -15,7 +15,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the workspace.
+   * Workspace description
    * 
    * @example
    * workspace test
@@ -23,7 +23,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The display name of the workspace.
+   * Workspace display name
    * 
    * @example
    * workspace-test
@@ -31,7 +31,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The time when the workspace was last modified.
+   * Last modified time
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -41,7 +41,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   lastModifyTime?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * Region ID
    * 
    * @example
    * cn-heyuan
@@ -49,7 +49,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * Log Service project name
    * 
    * @example
    * sls-project-test-001
@@ -57,7 +57,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * Workspace name
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,11 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
 export class ListWorkspacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 50. Maximum value: 50.
+   * Page size
+   * Default value:
+   * 	50
+   * Maximum value:
+   * 	50
    * 
    * @example
    * 10
@@ -109,7 +113,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * Pagination Token
    * 
    * @example
    * xxxxxxxxxx
@@ -117,7 +121,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
@@ -125,7 +129,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * Total count
    * 
    * @example
    * 1
@@ -133,7 +137,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * The list of workspaces.
+   * List of workspaces
    */
   workspaces?: ListWorkspacesResponseBodyWorkspaces[];
   static names(): { [key: string]: string } {

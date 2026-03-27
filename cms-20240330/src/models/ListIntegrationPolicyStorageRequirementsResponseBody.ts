@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsMetadata extends $dara.Model {
   /**
    * @remarks
-   * The annotations.
+   * Annotations
    */
   annotations?: { [key: string]: string };
   /**
    * @remarks
-   * The resource labels.
+   * Resource labels
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The resource name.
+   * Resource name
    * 
    * @example
    * pod-1234567
@@ -23,7 +23,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   name?: string;
   /**
    * @remarks
-   * The namespace.
+   * Namespace
    * 
    * @example
    * arms-prom
@@ -65,7 +65,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsSpec extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. Specify this parameter to query data at the instance level. This parameter depends on data in EntityStore.
+   * Instance ID, which can be specified if you need to pinpoint to the instance level. It depends on the data in EntityStore.
    * 
    * @example
    * es-xxxxx
@@ -73,7 +73,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   entityId?: string;
   /**
    * @remarks
-   * The ID of the Prometheus instance.
+   * Prom Instance ID.
    * 
    * @example
    * i-bp122p85gthbniw8rsu9
@@ -81,7 +81,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   instance?: string;
   /**
    * @remarks
-   * The name of the Prometheus instance.
+   * Prom instance name
    * 
    * @example
    * category_predict
@@ -89,7 +89,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   instanceName?: string;
   /**
    * @remarks
-   * Optional. The project is determined based on the current environment type.
+   * Optional parameter, determined based on the current environment type
    * 
    * @example
    * datagrid_cdm
@@ -97,7 +97,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   project?: string;
   /**
    * @remarks
-   * The region.
+   * Region
    * 
    * @example
    * cn-shenzhen
@@ -105,7 +105,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   region?: string;
   /**
    * @remarks
-   * The scope of storage sharing. Valid values: Environment, Region, Workspace, and Custom.
+   * Storage sharing scope: Environment | Region | Workspace | Custom
    * 
    * @example
    * Region
@@ -113,7 +113,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   shareScope?: string;
   /**
    * @remarks
-   * The storage type of the instance.
+   * Instance storage type
    * 
    * @example
    * Prometheus
@@ -121,17 +121,17 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   storageType?: string;
   /**
    * @remarks
-   * The tags that need to be added to the destination storage. The tags are injected as system tags.
+   * Tags to be applied to the target storage (injected as system tags)
    */
   systemTags?: { [key: string]: string };
   /**
    * @remarks
-   * The tags that need to be added to the destination storage. The tags are injected as common tags.
+   * Tags to be applied to the target storage (injected as regular tags)
    */
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The user ID.
+   * User ID
    * 
    * @example
    * 12345678
@@ -139,7 +139,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   userId?: string;
   /**
    * @remarks
-   * The workspace.
+   * Workspace
    * 
    * @example
    * test-api
@@ -195,7 +195,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsStatus extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID
    * 
    * @example
    * rmq-cn-uqm3ket1t0u
@@ -203,7 +203,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   instanceId?: string;
   /**
    * @remarks
-   * The internal URL.
+   * Internal URL
    * 
    * @example
    * http://192.168.xxxxxx
@@ -211,7 +211,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   interUrl?: string;
   /**
    * @remarks
-   * The internal URL.
+   * External URL
    * 
    * @example
    * http://100.100.xxxxxx
@@ -219,7 +219,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   intraUrl?: string;
   /**
    * @remarks
-   * The name of the storage requirement.
+   * 存储需求名称
    * 
    * @example
    * sr-xxxx
@@ -227,7 +227,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   name?: string;
   /**
    * @remarks
-   * The project for the storage requirement.
+   * 存储需求项目
    * 
    * @example
    * jiuwu_algo
@@ -235,7 +235,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   project?: string;
   /**
    * @remarks
-   * The metric store of Prometheus.
+   * Prom\\"s metric center
    * 
    * @example
    * xxxx
@@ -243,7 +243,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   promMetricStore?: string;
   /**
    * @remarks
-   * The region.
+   * Region
    * 
    * @example
    * cn-hangzhou
@@ -251,7 +251,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   region?: string;
   /**
    * @remarks
-   * The storage type of the instance.
+   * Instance storage type
    * 
    * @example
    * Prometheus
@@ -259,7 +259,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   storageType?: string;
   /**
    * @remarks
-   * The workspace.
+   * Workspace.
    * 
    * @example
    * default
@@ -305,12 +305,12 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirements extends $dara.Model {
   /**
    * @remarks
-   * A collection of AddonRelease names.
+   * Collection of AddonReleases.
    */
   addonReleaseNames?: string[];
   /**
    * @remarks
-   * The version number.
+   * API Version
    * 
    * @example
    * v1
@@ -318,7 +318,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   apiVersion?: string;
   /**
    * @remarks
-   * The kind of the resource.
+   * Resource kind
    * 
    * @example
    * Pod
@@ -326,17 +326,17 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   kind?: string;
   /**
    * @remarks
-   * The metadata.
+   * Metadata
    */
   metadata?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsMetadata;
   /**
    * @remarks
-   * The spec of the resource.
+   * Resource spec
    */
   spec?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsSpec;
   /**
    * @remarks
-   * The status of the storage requirement.
+   * Storage requirement status
    */
   status?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsStatus;
   static names(): { [key: string]: string } {
@@ -385,7 +385,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 export class ListIntegrationPolicyStorageRequirementsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-9A629907C1F0
@@ -393,7 +393,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBody extends $dara.
   requestId?: string;
   /**
    * @remarks
-   * The list of storage requirements.
+   * List of storage requirements
    */
   storageRequirements?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirements[];
   static names(): { [key: string]: string } {

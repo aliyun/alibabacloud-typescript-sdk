@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMemoryStoreResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 0CEC5375-C554-562B-A65F-9A629907C1F0
    */

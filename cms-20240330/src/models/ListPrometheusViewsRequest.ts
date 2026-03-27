@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusViewsRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * Tag key
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class ListPrometheusViewsRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * Match value.
    * 
    * @example
    * value1
@@ -45,7 +45,7 @@ export class ListPrometheusViewsRequestTag extends $dara.Model {
 export class ListPrometheusViewsRequest extends $dara.Model {
   /**
    * @remarks
-   * The region IDs by which to filter the results.
+   * Filter by RegionID.
    * 
    * @example
    * cn-zhangjiakou,cn-beijing
@@ -53,7 +53,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   filterRegionIds?: string;
   /**
    * @remarks
-   * The maximum number of records to return.
+   * Maximum number of records to return.
    * 
    * @example
    * 100
@@ -64,7 +64,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token.
+   * Query token.
    * 
    * @example
    * 44ANBjKZmQeKnaB1fXRq06w7sFYK3MUcCALMD9qQbmEiE
@@ -75,7 +75,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The IDs of the Prometheus view instances.
+   * List of Prometheus view instance IDs.
    * 
    * @example
    * view-xxx
@@ -83,7 +83,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   prometheusViewIds?: string;
   /**
    * @remarks
-   * The name of the Prometheus view.
+   * Prometheus view name.
    * 
    * @example
    * view1
@@ -91,7 +91,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   prometheusViewName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-acfm3gn5i6bigbi
@@ -99,7 +99,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type.
+   * Resource type.
    * 
    * @example
    * PROMETHEUSVIEW
@@ -107,12 +107,12 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * List of tags.
    */
   tag?: ListPrometheusViewsRequestTag[];
   /**
    * @remarks
-   * The instance version. Valid values: V1 and V2.
+   * Instance version: V1 or V2
    * 
    * @example
    * V2
@@ -120,7 +120,7 @@ export class ListPrometheusViewsRequest extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The name of the workspace.
+   * Workspace name
    * 
    * @example
    * workspace-test

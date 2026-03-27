@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   /**
    * @remarks
-   * The entity group ID.
+   * Entity group ID.
    * 
    * @example
    * eg-b79f65d11fb94e779867cf937c3a3002
@@ -13,7 +13,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   entityGroupId?: string;
   /**
    * @remarks
-   * The policy ID.
+   * Policy ID.
    * 
    * @example
    * policy-14c8e9a29b0a46da843f8781471062ff
@@ -21,7 +21,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The policy name.
+   * Policy name.
    * 
    * @example
    * metrics-inner-manage
@@ -29,7 +29,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * The policy type.
+   * Policy type.
    * 
    * @example
    * CS
@@ -37,7 +37,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   policyType?: string;
   /**
    * @remarks
-   * The region.
+   * Region ID.
    * 
    * @example
    * cn-heyuan
@@ -45,7 +45,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID.
+   * User ID.
    * 
    * @example
    * u1234567
@@ -53,7 +53,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The workspace where the policy resides.
+   * The workspace where the Policy resides.
    * 
    * @example
    * prometheus
@@ -95,7 +95,7 @@ export class CreateIntegrationPolicyResponseBodyPolicy extends $dara.Model {
 export class CreateIntegrationPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the policy was created.
+   * Whether it is created.
    * 
    * @example
    * true
@@ -103,12 +103,12 @@ export class CreateIntegrationPolicyResponseBody extends $dara.Model {
   created?: boolean;
   /**
    * @remarks
-   * The upload policy.
+   * Uploaded policy.
    */
   policy?: CreateIntegrationPolicyResponseBodyPolicy;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * CD8BA7D6-995D-578D-9941-78B0FECD14B5

@@ -4,39 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class UntagResourcesShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * Specifies whether to remove all tags from the specified resources. Valid values:
-   * 
-   * false (default): No
-   * true: Yes
-   * 
    * @example
    * false
    */
   all?: boolean;
   /**
    * @remarks
-   * A list of resource IDs.
-   * 
    * This parameter is required.
    */
   resourceIdShrink?: string;
   /**
    * @remarks
-   * The resource type.
-   * 
    * This parameter is required.
    * 
    * @example
    * Service
    */
   resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * You can detach tags with up to 20 tag keys.
-   */
   tagKeyShrink?: string;
   static names(): { [key: string]: string } {
     return {

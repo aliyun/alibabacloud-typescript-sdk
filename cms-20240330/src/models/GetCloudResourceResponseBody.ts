@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCloudResourceResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The region ID.
-   * 
    * @example
    * cn-heyuan
    */
   regionId?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */

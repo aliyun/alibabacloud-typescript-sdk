@@ -4,15 +4,8 @@ import { NotifyStrategyForModify } from "./NotifyStrategyForModify";
 
 
 export class UpdateNotifyStrategyRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The request body.
-   */
   body?: NotifyStrategyForModify;
   /**
-   * @remarks
-   * The name of the workspace.
-   * 
    * @example
    * workspace-test
    */

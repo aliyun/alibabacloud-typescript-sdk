@@ -7,12 +7,12 @@ import { AlertRuleAlertMetricInputParamValue } from "./AlertRuleAlertMetricInput
 export class AlertRuleAlertMetricInput extends $dara.Model {
   /**
    * @remarks
-   * 用户输入的过滤条件列表。指标所支持的参数列表、过滤条件列表可通过ListAlertMetrics进行查询。
+   * List of user-provided filter conditions. The supported parameters and filter conditions for the metric can be queried via ListAlertMetrics.
    */
   filterValues?: AlertRuleAlertMetricInputFilterValue[];
   /**
    * @remarks
-   * 用户所选指标组的key
+   * Key of the metric group selected by the user.
    * 
    * @example
    * apm.jvm
@@ -20,7 +20,7 @@ export class AlertRuleAlertMetricInput extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * 用户所选预定义指标的key
+   * Key of the predefined metric selected by the user.
    * 
    * @example
    * appstat.jvm.GcPsMarkSweepCount
@@ -28,7 +28,7 @@ export class AlertRuleAlertMetricInput extends $dara.Model {
   metricId?: string;
   /**
    * @remarks
-   * 输入的参数列表。  指标所支持的参数列表、过滤条件列表可通过ListAlertMetrics进行查询。
+   * List of input parameters. The metric\\"s supported parameters and filter conditions can be queried via ListAlertMetrics.
    */
   paramValues?: AlertRuleAlertMetricInputParamValue[];
   static names(): { [key: string]: string } {

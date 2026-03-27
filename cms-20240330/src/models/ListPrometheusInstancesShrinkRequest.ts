@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of region IDs to filter by, separated by commas.
+   * Specified list of regionIds to filter (comma-separated).
    * 
    * @example
    * cn-shenzhen
@@ -16,7 +16,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   filterRegionIds?: string;
   /**
    * @remarks
-   * The maximum number of records to return.
+   * Maximum number of records to return.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token.
+   * Query token.
    * 
    * @example
    * xxxxxxxxxx
@@ -38,7 +38,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of instance IDs, separated by commas.
+   * List of instance IDs (comma-separated)
    * 
    * @example
    * rw-00001,rw-00002,rw-00003
@@ -49,7 +49,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   prometheusInstanceIds?: string;
   /**
    * @remarks
-   * The instance name. Partial match is supported.
+   * Instance name (partial match supported)
    * 
    * @example
    * test
@@ -60,7 +60,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   prometheusInstanceName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * Resource group ID.
    * 
    * @example
    * rg-aek2bhocin5e2na
@@ -68,7 +68,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource type of the instance.
+   * Resource type of the instance.
    * 
    * @example
    * Prometheus
@@ -79,12 +79,12 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * List of tags.
    */
   tagShrink?: string;
   /**
    * @remarks
-   * The instance version. Valid values: V1 and V2.
+   * Instance version: V1 or V2
    * 
    * @example
    * V2
