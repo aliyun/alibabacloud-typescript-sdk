@@ -727,6 +727,7 @@ export class UpdateDIJobRequest extends $dara.Model {
    * The description of the synchronization task.
    */
   description?: string;
+  fileSpec?: string;
   /**
    * @remarks
    * The ID of the synchronization task.
@@ -779,6 +780,7 @@ export class UpdateDIJobRequest extends $dara.Model {
     return {
       DIJobId: 'DIJobId',
       description: 'Description',
+      fileSpec: 'FileSpec',
       id: 'Id',
       jobSettings: 'JobSettings',
       owner: 'Owner',
@@ -793,6 +795,7 @@ export class UpdateDIJobRequest extends $dara.Model {
     return {
       DIJobId: 'number',
       description: 'string',
+      fileSpec: 'string',
       id: 'number',
       jobSettings: UpdateDIJobRequestJobSettings,
       owner: 'string',

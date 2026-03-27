@@ -21,6 +21,7 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
    * The description of the synchronization task.
    */
   description?: string;
+  fileSpec?: string;
   /**
    * @remarks
    * The ID of the synchronization task.
@@ -73,6 +74,7 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
     return {
       DIJobId: 'DIJobId',
       description: 'Description',
+      fileSpec: 'FileSpec',
       id: 'Id',
       jobSettingsShrink: 'JobSettings',
       owner: 'Owner',
@@ -87,6 +89,7 @@ export class UpdateDIJobShrinkRequest extends $dara.Model {
     return {
       DIJobId: 'number',
       description: 'string',
+      fileSpec: 'string',
       id: 'number',
       jobSettingsShrink: 'string',
       owner: 'string',

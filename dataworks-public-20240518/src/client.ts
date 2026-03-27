@@ -874,6 +874,10 @@ export default class Client extends OpenApi {
       body["DestinationDataSourceSettings"] = request.destinationDataSourceSettingsShrink;
     }
 
+    if (!$dara.isNull(request.fileSpec)) {
+      body["FileSpec"] = request.fileSpec;
+    }
+
     if (!$dara.isNull(request.jobSettingsShrink)) {
       body["JobSettings"] = request.jobSettingsShrink;
     }
@@ -13545,6 +13549,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.fileSpec)) {
+      body["FileSpec"] = request.fileSpec;
     }
 
     if (!$dara.isNull(request.jobSettingsShrink)) {

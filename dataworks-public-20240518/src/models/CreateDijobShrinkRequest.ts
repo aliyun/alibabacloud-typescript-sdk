@@ -14,20 +14,17 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The list of destination data source settings.
-   * 
-   * This parameter is required.
    */
   destinationDataSourceSettingsShrink?: string;
   /**
    * @remarks
    * The destination type. Valid values: Hologres, OSS-HDFS, OSS, MaxCompute, LogHub, StarRocks, DataHub, AnalyticDB for MySQL, Kafka, and Hive.
    * 
-   * This parameter is required.
-   * 
    * @example
    * Hologres
    */
   destinationDataSourceType?: string;
+  fileSpec?: string;
   /**
    * @remarks
    * This parameter is deprecated and is replaced by the Name parameter.
@@ -65,8 +62,6 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
    * *   OfflineIncremental
    * *   FullAndOfflineIncremental
    * 
-   * This parameter is required.
-   * 
    * @example
    * FullAndRealtimeIncremental
    */
@@ -100,22 +95,16 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The resource settings.
-   * 
-   * This parameter is required.
    */
   resourceSettingsShrink?: string;
   /**
    * @remarks
    * The list of source data source settings.
-   * 
-   * This parameter is required.
    */
   sourceDataSourceSettingsShrink?: string;
   /**
    * @remarks
    * The source type. Valid values: PolarDB, MySQL, Kafka, LogHub, Hologres, Oracle, OceanBase, MongoDB, Redshift, Hive, SQL Server, Doris, and ClickHouse.
-   * 
-   * This parameter is required.
    * 
    * @example
    * MySQL
@@ -126,8 +115,6 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
    * The list of synchronization object transformation mappings. Each element describes a set of source object selection rules and the transformation rules applied to those objects.
    * 
    * >  [ { "SourceObjectSelectionRules":[ { "ObjectType":"Database", "Action":"Include", "ExpressionType":"Exact", "Expression":"biz_db" }, { "ObjectType":"Schema", "Action":"Include", "ExpressionType":"Exact", "Expression":"s1" }, { "ObjectType":"Table", "Action":"Include", "ExpressionType":"Exact", "Expression":"table1" } ], "TransformationRuleNames":[ { "RuleName":"my_database_rename_rule", "RuleActionType":"Rename", "RuleTargetType":"Schema" } ] } ]
-   * 
-   * This parameter is required.
    */
   tableMappingsShrink?: string;
   /**
@@ -142,6 +129,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
       description: 'Description',
       destinationDataSourceSettingsShrink: 'DestinationDataSourceSettings',
       destinationDataSourceType: 'DestinationDataSourceType',
+      fileSpec: 'FileSpec',
       jobName: 'JobName',
       jobSettingsShrink: 'JobSettings',
       jobType: 'JobType',
@@ -162,6 +150,7 @@ export class CreateDIJobShrinkRequest extends $dara.Model {
       description: 'string',
       destinationDataSourceSettingsShrink: 'string',
       destinationDataSourceType: 'string',
+      fileSpec: 'string',
       jobName: 'string',
       jobSettingsShrink: 'string',
       jobType: 'string',
