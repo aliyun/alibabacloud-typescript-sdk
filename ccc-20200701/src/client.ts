@@ -302,6 +302,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组添加号码
+   * 
    * @param request - AddNumbersToSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddNumbersToSkillGroupResponse
@@ -343,6 +345,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组添加号码
+   * 
    * @param request - AddNumbersToSkillGroupRequest
    * @returns AddNumbersToSkillGroupResponse
    */
@@ -352,6 +356,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 增加个人号码
+   * 
    * @param request - AddPersonalNumbersToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddPersonalNumbersToUserResponse
@@ -389,6 +395,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 增加个人号码
+   * 
    * @param request - AddPersonalNumbersToUserRequest
    * @returns AddPersonalNumbersToUserResponse
    */
@@ -398,6 +406,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组添加号码
+   * 
    * @param request - AddPhoneNumberToSkillGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddPhoneNumberToSkillGroupsResponse
@@ -435,6 +445,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组添加号码
+   * 
    * @param request - AddPhoneNumberToSkillGroupsRequest
    * @returns AddPhoneNumberToSkillGroupsResponse
    */
@@ -444,6 +456,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加号码
+   * 
    * @param request - AddPhoneNumbersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddPhoneNumbersResponse
@@ -489,6 +503,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加号码
+   * 
    * @param request - AddPhoneNumbersRequest
    * @returns AddPhoneNumbersResponse
    */
@@ -554,6 +570,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组添加用户
+   * 
    * @param request - AddSkillGroupsToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddSkillGroupsToUserResponse
@@ -591,6 +609,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组添加用户
+   * 
    * @param request - AddSkillGroupsToUserRequest
    * @returns AddSkillGroupsToUserResponse
    */
@@ -658,6 +678,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组添加用户
+   * 
    * @param request - AddUsersToSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddUsersToSkillGroupResponse
@@ -695,6 +717,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 技能组添加用户
+   * 
    * @param request - AddUsersToSkillGroupRequest
    * @returns AddUsersToSkillGroupResponse
    */
@@ -704,6 +728,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分析对话
+   * 
    * @param request - AnalyzeConversationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AnalyzeConversationResponse
@@ -745,6 +771,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分析对话
+   * 
    * @param request - AnalyzeConversationRequest
    * @returns AnalyzeConversationResponse
    */
@@ -754,6 +782,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 接电话
+   * 
    * @param request - AnswerCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AnswerCallResponse
@@ -795,6 +825,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 接电话
+   * 
    * @param request - AnswerCallRequest
    * @returns AnswerCallResponse
    */
@@ -862,6 +894,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入坐席
+   * 
    * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
    * 
    * @param request - AssignUsersRequest
@@ -909,6 +943,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入坐席
+   * 
    * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
    * 
    * @param request - AssignUsersRequest
@@ -921,6 +957,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * BargeInCall
+   * 
    * @param request - BargeInCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BargeInCallResponse
@@ -970,6 +1008,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * BargeInCall
+   * 
    * @param request - BargeInCallRequest
    * @returns BargeInCallResponse
    */
@@ -979,6 +1019,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 盲转
+   * 
    * @param request - BlindTransferRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BlindTransferResponse
@@ -1072,6 +1114,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 盲转
+   * 
    * @param request - BlindTransferRequest
    * @returns BlindTransferResponse
    */
@@ -1081,6 +1125,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * BridgeRtcCall
+   * 
    * @param request - BridgeRtcCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns BridgeRtcCallResponse
@@ -1142,6 +1188,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * BridgeRtcCall
+   * 
    * @param request - BridgeRtcCallRequest
    * @returns BridgeRtcCallResponse
    */
@@ -1151,6 +1199,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关注转-取消
+   * 
    * @param request - CancelAttendedTransferRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelAttendedTransferResponse
@@ -1192,6 +1242,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关注转-取消
+   * 
    * @param request - CancelAttendedTransferRequest
    * @returns CancelAttendedTransferResponse
    */
@@ -1201,6 +1253,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改隐身状态(等同于仅外呼场景)
+   * 
    * @param request - ChangeVisibilityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeVisibilityResponse
@@ -1238,6 +1292,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改隐身状态(等同于仅外呼场景)
+   * 
    * @param request - ChangeVisibilityRequest
    * @returns ChangeVisibilityResponse
    */
@@ -1247,6 +1303,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改坐席工作模式
+   * 
    * @param request - ChangeWorkModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeWorkModeResponse
@@ -1296,12 +1354,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改坐席工作模式
+   * 
    * @param request - ChangeWorkModeRequest
    * @returns ChangeWorkModeResponse
    */
   async changeWorkMode(request: $_model.ChangeWorkModeRequest): Promise<$_model.ChangeWorkModeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.changeWorkModeWithOptions(request, runtime);
+  }
+
+  /**
+   * 认领电话
+   * 
+   * @param request - ClaimCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClaimCallResponse
+   */
+  async claimCallWithOptions(request: $_model.ClaimCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClaimCallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.candidateUserListJson)) {
+      query["CandidateUserListJson"] = request.candidateUserListJson;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.skillGroupId)) {
+      query["SkillGroupId"] = request.skillGroupId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClaimCall",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClaimCallResponse>(await this.callApi(params, req, runtime), new $_model.ClaimCallResponse({}));
+  }
+
+  /**
+   * 认领电话
+   * 
+   * @param request - ClaimCallRequest
+   * @returns ClaimCallResponse
+   */
+  async claimCall(request: $_model.ClaimCallRequest): Promise<$_model.ClaimCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.claimCallWithOptions(request, runtime);
   }
 
   /**
@@ -1351,6 +1473,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 辅导
+   * 
    * @param request - CoachCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CoachCallResponse
@@ -1400,6 +1524,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 辅导
+   * 
    * @param request - CoachCallRequest
    * @returns CoachCallResponse
    */
@@ -1409,6 +1535,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交ivr流程
+   * 
    * @param request - CommitContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CommitContactFlowResponse
@@ -1454,6 +1582,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交ivr流程
+   * 
    * @param request - CommitContactFlowRequest
    * @returns CommitContactFlowResponse
    */
@@ -1463,6 +1593,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关注转-完成
+   * 
    * @param request - CompleteAttendedTransferRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CompleteAttendedTransferResponse
@@ -1504,6 +1636,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关注转-完成
+   * 
    * @param request - CompleteAttendedTransferRequest
    * @returns CompleteAttendedTransferResponse
    */
@@ -1513,6 +1647,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建媒体文件
+   * 
    * @param request - CreateAudioFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAudioFileResponse
@@ -1558,6 +1694,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建媒体文件
+   * 
    * @param request - CreateAudioFileRequest
    * @returns CreateAudioFileResponse
    */
@@ -1567,6 +1705,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建会话小结
+   * 
    * @param request - CreateCallSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateCallSummaryResponse
@@ -1608,6 +1748,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建会话小结
+   * 
    * @param request - CreateCallSummaryRequest
    * @returns CreateCallSummaryResponse
    */
@@ -1833,6 +1975,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建ivr流程
+   * 
    * @param request - CreateContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateContactFlowResponse
@@ -1878,6 +2022,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建ivr流程
+   * 
    * @param request - CreateContactFlowRequest
    * @returns CreateContactFlowResponse
    */
@@ -2056,6 +2202,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建技能组
+   * 
    * @param request - CreateSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSkillGroupResponse
@@ -2101,6 +2249,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建技能组
+   * 
    * @param request - CreateSkillGroupRequest
    * @returns CreateSkillGroupResponse
    */
@@ -2262,6 +2412,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除语音文件
+   * 
    * @param request - DeleteAudioFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAudioFileResponse
@@ -2295,6 +2447,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除语音文件
+   * 
    * @param request - DeleteAudioFileRequest
    * @returns DeleteAudioFileResponse
    */
@@ -2350,7 +2504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * -
+   * 删除ivr流程
    * 
    * @param request - DeleteContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2389,7 +2543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * -
+   * 删除ivr流程
    * 
    * @param request - DeleteContactFlowRequest
    * @returns DeleteContactFlowResponse
@@ -2686,6 +2840,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除技能组
+   * 
    * @param request - DeleteSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSkillGroupResponse
@@ -2723,6 +2879,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除技能组
+   * 
    * @param request - DeleteSkillGroupRequest
    * @returns DeleteSkillGroupResponse
    */
@@ -2908,6 +3066,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 废弃当前IVR流程
+   * 
    * @param request - DiscardEditingContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DiscardEditingContactFlowResponse
@@ -2945,6 +3105,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 废弃当前IVR流程
+   * 
    * @param request - DiscardEditingContactFlowRequest
    * @returns DiscardEditingContactFlowResponse
    */
@@ -3046,6 +3208,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 结束会议
+   * 
    * @param request - EndConferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EndConferenceResponse
@@ -3083,6 +3247,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 结束会议
+   * 
    * @param request - EndConferenceRequest
    * @returns EndConferenceResponse
    */
@@ -3285,7 +3451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetAccessChannelOfStaging
+   * 获取指定Chat渠道配置
    * 
    * @param request - GetAccessChannelOfStagingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3312,7 +3478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetAccessChannelOfStaging
+   * 获取指定Chat渠道配置
    * 
    * @param request - GetAccessChannelOfStagingRequest
    * @returns GetAccessChannelOfStagingResponse
@@ -3369,6 +3535,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取录音文件下载链接
+   * 
    * @param request - GetAudioFileDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAudioFileDownloadUrlResponse
@@ -3402,6 +3570,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取录音文件下载链接
+   * 
    * @param request - GetAudioFileDownloadUrlRequest
    * @returns GetAudioFileDownloadUrlResponse
    */
@@ -3411,6 +3581,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取录音文件上传参数
+   * 
    * @param request - GetAudioFileUploadParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAudioFileUploadParametersResponse
@@ -3444,6 +3616,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取录音文件上传参数
+   * 
    * @param request - GetAudioFileUploadParametersRequest
    * @returns GetAudioFileUploadParametersResponse
    */
@@ -3545,6 +3719,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取预测试外呼号码配置文件上传链接
+   * 
    * @param request - GetCaseFileUploadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCaseFileUploadUrlResponse
@@ -3578,6 +3754,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取预测试外呼号码配置文件上传链接
+   * 
    * @param request - GetCaseFileUploadUrlRequest
    * @returns GetCaseFileUploadUrlResponse
    */
@@ -3671,6 +3849,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取ivr流程信息
+   * 
    * @param request - GetContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetContactFlowResponse
@@ -3708,6 +3888,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取ivr流程信息
+   * 
    * @param request - GetContactFlowRequest
    * @returns GetContactFlowResponse
    */
@@ -3767,6 +3949,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取DataChannel通道的Token信息
+   * 
    * @param request - GetDataChannelCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDataChannelCredentialsResponse
@@ -3800,6 +3984,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取DataChannel通道的Token信息
+   * 
    * @param request - GetDataChannelCredentialsRequest
    * @returns GetDataChannelCredentialsResponse
    */
@@ -3947,6 +4133,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 统计呼入号码信息
+   * 
    * @param request - GetHistoricalCallerReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHistoricalCallerReportResponse
@@ -3988,6 +4176,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 统计呼入号码信息
+   * 
    * @param request - GetHistoricalCallerReportRequest
    * @returns GetHistoricalCallerReportResponse
    */
@@ -4035,6 +4225,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 统计实例呼叫数据
+   * 
    * @param request - GetHistoricalInstanceReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetHistoricalInstanceReportResponse
@@ -4076,6 +4268,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 统计实例呼叫数据
+   * 
    * @param request - GetHistoricalInstanceReportRequest
    * @returns GetHistoricalInstanceReportResponse
    */
@@ -4127,6 +4321,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 统计实例呼叫信息
+   * 
    * @param request - GetInstanceTrendingReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceTrendingReportResponse
@@ -4168,6 +4364,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 统计实例呼叫信息
+   * 
    * @param request - GetInstanceTrendingReportRequest
    * @returns GetInstanceTrendingReportResponse
    */
@@ -4223,6 +4421,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取登录信息
+   * 
    * @param request - GetLoginDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLoginDetailsResponse
@@ -4260,6 +4460,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取登录信息
+   * 
    * @param request - GetLoginDetailsRequest
    * @returns GetLoginDetailsResponse
    */
@@ -4269,6 +4471,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取通话对应的录音, 用于播放和下载
+   * 
    * @param request - GetMonoRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMonoRecordingResponse
@@ -4306,6 +4510,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取通话对应的录音, 用于播放和下载
+   * 
    * @param request - GetMonoRecordingRequest
    * @returns GetMonoRecordingResponse
    */
@@ -4315,6 +4521,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取通话对应的录音, 用于分轨或者质检
+   * 
    * @param request - GetMultiChannelRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMultiChannelRecordingResponse
@@ -4348,6 +4556,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取通话对应的录音, 用于分轨或者质检
+   * 
    * @param request - GetMultiChannelRecordingRequest
    * @returns GetMultiChannelRecordingResponse
    */
@@ -4357,6 +4567,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询号码归属地
+   * 
    * @param request - GetNumberLocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNumberLocationResponse
@@ -4390,6 +4602,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询号码归属地
+   * 
    * @param request - GetNumberLocationRequest
    * @returns GetNumberLocationResponse
    */
@@ -4437,6 +4651,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 实时查询实例状态信息
+   * 
    * @param request - GetRealtimeInstanceStatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRealtimeInstanceStatesResponse
@@ -4470,6 +4686,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 实时查询实例状态信息
+   * 
    * @param request - GetRealtimeInstanceStatesRequest
    * @returns GetRealtimeInstanceStatesResponse
    */
@@ -4733,6 +4951,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取工单模版
+   * 
    * @param request - GetTicketTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTicketTemplateResponse
@@ -4770,6 +4990,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取工单模版
+   * 
    * @param request - GetTicketTemplateRequest
    * @returns GetTicketTemplateResponse
    */
@@ -4779,6 +5001,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取TURN服务的临时用户名和密码
+   * 
    * @param request - GetTurnCredentialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTurnCredentialsResponse
@@ -4812,6 +5036,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取TURN服务的临时用户名和密码
+   * 
    * @param request - GetTurnCredentialsRequest
    * @returns GetTurnCredentialsResponse
    */
@@ -4821,6 +5047,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取可用的TURN服务器列表
+   * 
    * @param request - GetTurnServerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTurnServerListResponse
@@ -4850,6 +5078,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取可用的TURN服务器列表
+   * 
    * @param request - GetTurnServerListRequest
    * @returns GetTurnServerListResponse
    */
@@ -4897,6 +5127,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询坐席
+   * 
    * @param request - GetUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserResponse
@@ -4934,6 +5166,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询坐席
+   * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
    */
@@ -5031,6 +5265,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取语音邮箱录音, 用于播放和下载
+   * 
    * @param request - GetVoicemailRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVoicemailRecordingResponse
@@ -5064,6 +5300,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取语音邮箱录音, 用于播放和下载
+   * 
    * @param request - GetVoicemailRecordingRequest
    * @returns GetVoicemailRecordingResponse
    */
@@ -5073,6 +5311,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 保持通话
+   * 
    * @param request - HoldCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns HoldCallResponse
@@ -5122,6 +5362,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 保持通话
+   * 
    * @param request - HoldCallRequest
    * @returns HoldCallResponse
    */
@@ -5436,6 +5678,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入ram用户
+   * 
    * @param request - ImportRamUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImportRamUsersResponse
@@ -5481,6 +5725,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入ram用户
+   * 
    * @param request - ImportRamUsersRequest
    * @returns ImportRamUsersResponse
    */
@@ -5490,6 +5736,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关注转-发起
+   * 
    * @param request - InitiateAttendedTransferRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InitiateAttendedTransferResponse
@@ -5575,6 +5823,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关注转-发起
+   * 
    * @param request - InitiateAttendedTransferRequest
    * @returns InitiateAttendedTransferResponse
    */
@@ -5584,6 +5834,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 打断通话
+   * 
    * @param request - InterceptCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InterceptCallResponse
@@ -5633,6 +5885,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 打断通话
+   * 
    * @param request - InterceptCallRequest
    * @returns InterceptCallResponse
    */
@@ -5642,6 +5896,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发起IVR认证流程
+   * 
    * @param request - LaunchAuthenticationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LaunchAuthenticationResponse
@@ -5691,6 +5947,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发起IVR认证流程
+   * 
    * @param request - LaunchAuthenticationRequest
    * @returns LaunchAuthenticationResponse
    */
@@ -5700,6 +5958,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发起话后满意度调查IVR流程
+   * 
    * @param request - LaunchSurveyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns LaunchSurveyResponse
@@ -5765,6 +6025,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发起话后满意度调查IVR流程
+   * 
    * @param request - LaunchSurveyRequest
    * @returns LaunchSurveyResponse
    */
@@ -5774,6 +6036,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取坐席状态记录列表
+   * 
    * @param request - ListAgentStateLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAgentStateLogsResponse
@@ -5815,6 +6079,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取坐席状态记录列表
+   * 
    * @param request - ListAgentStateLogsRequest
    * @returns ListAgentStateLogsResponse
    */
@@ -6080,6 +6346,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 坐席工作台坐席调用转接使用
+   * 
    * @param request - ListBriefSkillGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListBriefSkillGroupsResponse
@@ -6125,6 +6393,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 坐席工作台坐席调用转接使用
+   * 
    * @param request - ListBriefSkillGroupsRequest
    * @returns ListBriefSkillGroupsResponse
    */
@@ -6134,6 +6404,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取通话详情
+   * 
    * @param request - ListCallDetailRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCallDetailRecordsResponse
@@ -6243,6 +6515,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取通话详情
+   * 
    * @param request - ListCallDetailRecordsRequest
    * @returns ListCallDetailRecordsResponse
    */
@@ -6758,6 +7032,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询系统配置
+   * 
    * @param request - ListConfigItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListConfigItemsResponse
@@ -6795,6 +7071,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询系统配置
+   * 
    * @param request - ListConfigItemsRequest
    * @returns ListConfigItemsResponse
    */
@@ -6804,7 +7082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * -
+   * 列表查询ivr流程
    * 
    * @param request - ListContactFlowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6859,7 +7137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * -
+   * 列表查询ivr流程
    * 
    * @param request - ListContactFlowsRequest
    * @returns ListContactFlowsResponse
@@ -6933,6 +7211,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询可用设备
+   * 
    * @param request - ListDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDevicesResponse
@@ -6966,6 +7246,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询可用设备
+   * 
    * @param request - ListDevicesRequest
    * @returns ListDevicesResponse
    */
@@ -7369,6 +7651,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询历史作息报告
+   * 
    * @param request - ListHistoricalAgentReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListHistoricalAgentReportResponse
@@ -7428,6 +7712,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询历史作息报告
+   * 
    * @param request - ListHistoricalAgentReportRequest
    * @returns ListHistoricalAgentReportResponse
    */
@@ -7577,6 +7863,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例列表
+   * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesResponse
@@ -7610,6 +7898,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例列表
+   * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
    */
@@ -7619,6 +7909,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例列表
+   * 
    * @param request - ListInstancesOfUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesOfUserResponse
@@ -7652,6 +7944,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例列表
+   * 
    * @param request - ListInstancesOfUserRequest
    * @returns ListInstancesOfUserResponse
    */
@@ -7661,6 +7955,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询坐席报表
+   * 
    * @param request - ListIntervalAgentReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListIntervalAgentReportResponse
@@ -7710,6 +8006,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询坐席报表
+   * 
    * @param request - ListIntervalAgentReportRequest
    * @returns ListIntervalAgentReportResponse
    */
@@ -7757,6 +8055,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例报表
+   * 
    * @param request - ListIntervalInstanceReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListIntervalInstanceReportResponse
@@ -7798,6 +8098,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例报表
+   * 
    * @param request - ListIntervalInstanceReportRequest
    * @returns ListIntervalInstanceReportResponse
    */
@@ -7807,6 +8109,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询技能组报表
+   * 
    * @param request - ListIntervalSkillGroupReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListIntervalSkillGroupReportResponse
@@ -7856,6 +8160,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询技能组报表
+   * 
    * @param request - ListIntervalSkillGroupReportRequest
    * @returns ListIntervalSkillGroupReportResponse
    */
@@ -7865,6 +8171,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询ivr轨迹
+   * 
    * @param request - ListIvrTrackingDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListIvrTrackingDetailsResponse
@@ -7906,6 +8214,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询ivr轨迹
+   * 
    * @param request - ListIvrTrackingDetailsRequest
    * @returns ListIvrTrackingDetailsResponse
    */
@@ -8381,6 +8691,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取个人外呼号码列表
+   * 
    * @param request - ListPersonalNumbersOfUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPersonalNumbersOfUserResponse
@@ -8430,6 +8742,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取个人外呼号码列表
+   * 
    * @param request - ListPersonalNumbersOfUserRequest
    * @returns ListPersonalNumbersOfUserResponse
    */
@@ -8501,6 +8815,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询技能组绑定的号码
+   * 
    * @param request - ListPhoneNumbersOfSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPhoneNumbersOfSkillGroupResponse
@@ -8554,6 +8870,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询技能组绑定的号码
+   * 
    * @param request - ListPhoneNumbersOfSkillGroupRequest
    * @returns ListPhoneNumbersOfSkillGroupResponse
    */
@@ -8563,6 +8881,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户权限
+   * 
    * @param request - ListPrivilegesOfUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrivilegesOfUserResponse
@@ -8592,6 +8912,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户权限
+   * 
    * @param request - ListPrivilegesOfUserRequest
    * @returns ListPrivilegesOfUserResponse
    */
@@ -8601,6 +8923,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询ram用户
+   * 
    * @param request - ListRamUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRamUsersResponse
@@ -8642,6 +8966,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询ram用户
+   * 
    * @param request - ListRamUsersRequest
    * @returns ListRamUsersResponse
    */
@@ -8651,6 +8977,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询坐席状态
+   * 
    * @param request - ListRealtimeAgentStatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRealtimeAgentStatesResponse
@@ -8726,6 +9054,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询坐席状态
+   * 
    * @param request - ListRealtimeAgentStatesRequest
    * @returns ListRealtimeAgentStatesResponse
    */
@@ -8735,6 +9065,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询技能组状态报表
+   * 
    * @param request - ListRealtimeSkillGroupStatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRealtimeSkillGroupStatesResponse
@@ -8782,6 +9114,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询技能组状态报表
+   * 
    * @param request - ListRealtimeSkillGroupStatesRequest
    * @returns ListRealtimeSkillGroupStatesResponse
    */
@@ -8791,6 +9125,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询历史通话记录
+   * 
    * @param request - ListRecentCallDetailRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRecentCallDetailRecordsResponse
@@ -8842,6 +9178,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询历史通话记录
+   * 
    * @param request - ListRecentCallDetailRecordsRequest
    * @returns ListRecentCallDetailRecordsResponse
    */
@@ -8851,6 +9189,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询角色
+   * 
    * @param request - ListRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRolesResponse
@@ -8880,6 +9220,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列表查询角色
+   * 
    * @param request - ListRolesRequest
    * @returns ListRolesResponse
    */
@@ -8975,6 +9317,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询技能组列表
+   * 
    * @param request - ListSkillGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSkillGroupsResponse
@@ -9020,6 +9364,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询技能组列表
+   * 
    * @param request - ListSkillGroupsRequest
    * @returns ListSkillGroupsResponse
    */
@@ -9029,6 +9375,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户技能组级别
+   * 
    * @param request - ListSkillLevelsOfUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSkillLevelsOfUserResponse
@@ -9078,6 +9426,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户技能组级别
+   * 
    * @param request - ListSkillLevelsOfUserRequest
    * @returns ListSkillLevelsOfUserResponse
    */
@@ -9385,6 +9735,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询技能组级别列表
+   * 
    * @param request - ListUserLevelsOfSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserLevelsOfSkillGroupResponse
@@ -9434,6 +9786,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询技能组级别列表
+   * 
    * @param request - ListUserLevelsOfSkillGroupRequest
    * @returns ListUserLevelsOfSkillGroupResponse
    */
@@ -9443,6 +9797,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户列表
+   * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUsersResponse
@@ -9488,6 +9844,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户列表
+   * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
    */
@@ -9757,6 +10115,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改媒体文件
+   * 
    * @param request - ModifyAudioFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAudioFileResponse
@@ -9806,6 +10166,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改媒体文件
+   * 
    * @param request - ModifyAudioFileRequest
    * @returns ModifyAudioFileResponse
    */
@@ -9971,6 +10333,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改电话号码
+   * 
    * @param request - ModifyPhoneNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyPhoneNumberResponse
@@ -10012,6 +10376,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改电话号码
+   * 
    * @param request - ModifyPhoneNumberRequest
    * @returns ModifyPhoneNumberResponse
    */
@@ -10021,6 +10387,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改技能组
+   * 
    * @param request - ModifySkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySkillGroupResponse
@@ -10062,6 +10430,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改技能组
+   * 
    * @param request - ModifySkillGroupRequest
    * @returns ModifySkillGroupResponse
    */
@@ -10071,6 +10441,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改坐席技能组
+   * 
    * @param request - ModifySkillLevelsOfUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySkillLevelsOfUserResponse
@@ -10108,6 +10480,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改坐席技能组
+   * 
    * @param request - ModifySkillLevelsOfUserRequest
    * @returns ModifySkillLevelsOfUserResponse
    */
@@ -10117,6 +10491,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改坐席
+   * 
    * @param request - ModifyUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyUserResponse
@@ -10182,6 +10558,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改坐席
+   * 
    * @param request - ModifyUserRequest
    * @returns ModifyUserResponse
    */
@@ -10191,6 +10569,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改坐席技能组级别
+   * 
    * @param request - ModifyUserLevelsOfSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyUserLevelsOfSkillGroupResponse
@@ -10228,6 +10608,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改坐席技能组级别
+   * 
    * @param request - ModifyUserLevelsOfSkillGroupRequest
    * @returns ModifyUserLevelsOfSkillGroupResponse
    */
@@ -10237,6 +10619,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通话监听
+   * 
    * @param request - MonitorCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MonitorCallResponse
@@ -10282,6 +10666,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通话监听
+   * 
    * @param request - MonitorCallRequest
    * @returns MonitorCallResponse
    */
@@ -10291,6 +10677,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 静音
+   * 
    * @param request - MuteCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns MuteCallResponse
@@ -10336,6 +10724,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 静音
+   * 
    * @param request - MuteCallRequest
    * @returns MuteCallResponse
    */
@@ -10391,6 +10781,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 选择外呼号码
+   * 
    * @param request - PickOutboundNumbersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PickOutboundNumbersResponse
@@ -10432,6 +10824,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 选择外呼号码
+   * 
    * @param request - PickOutboundNumbersRequest
    * @returns PickOutboundNumbersResponse
    */
@@ -10441,6 +10835,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 轮询座席状态
+   * 
    * @param request - PollUserStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PollUserStatusResponse
@@ -10478,6 +10874,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 轮询座席状态
+   * 
    * @param request - PollUserStatusRequest
    * @returns PollUserStatusResponse
    */
@@ -10599,6 +10997,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发布ivr流程
+   * 
    * @param request - PublishContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PublishContactFlowResponse
@@ -10636,6 +11036,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发布ivr流程
+   * 
    * @param request - PublishContactFlowRequest
    * @returns PublishContactFlowResponse
    */
@@ -10645,6 +11047,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 就绪/示闲
+   * 
    * @param request - ReadyForServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReadyForServiceResponse
@@ -10686,6 +11090,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 就绪/示闲
+   * 
    * @param request - ReadyForServiceRequest
    * @returns ReadyForServiceResponse
    */
@@ -10695,6 +11101,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重拨
+   * 
    * @param request - RedialCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RedialCallResponse
@@ -10752,6 +11160,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重拨
+   * 
    * @param request - RedialCallRequest
    * @returns RedialCallResponse
    */
@@ -10761,6 +11171,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 注册设备
+   * 
    * @param request - RegisterDeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterDeviceResponse
@@ -10802,6 +11214,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 注册设备
+   * 
    * @param request - RegisterDeviceRequest
    * @returns RegisterDeviceResponse
    */
@@ -10811,6 +11225,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 注册设备
+   * 
    * @param request - RegisterDevicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RegisterDevicesResponse
@@ -10852,6 +11268,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 注册设备
+   * 
    * @param request - RegisterDevicesRequest
    * @returns RegisterDevicesResponse
    */
@@ -10949,6 +11367,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 释放对话
+   * 
    * @param request - ReleaseCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReleaseCallResponse
@@ -10994,6 +11414,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 释放对话
+   * 
    * @param request - ReleaseCallRequest
    * @returns ReleaseCallResponse
    */
@@ -11153,6 +11575,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除个人号码
+   * 
    * @param request - RemovePersonalNumbersFromUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemovePersonalNumbersFromUserResponse
@@ -11190,6 +11614,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除个人号码
+   * 
    * @param request - RemovePersonalNumbersFromUserRequest
    * @returns RemovePersonalNumbersFromUserResponse
    */
@@ -11199,6 +11625,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除技能组下的电话号码
+   * 
    * @param request - RemovePhoneNumberFromSkillGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemovePhoneNumberFromSkillGroupsResponse
@@ -11236,6 +11664,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除技能组下的电话号码
+   * 
    * @param request - RemovePhoneNumberFromSkillGroupsRequest
    * @returns RemovePhoneNumberFromSkillGroupsResponse
    */
@@ -11245,6 +11675,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除电话号码
+   * 
    * @param request - RemovePhoneNumbersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemovePhoneNumbersResponse
@@ -11282,6 +11714,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除电话号码
+   * 
    * @param request - RemovePhoneNumbersRequest
    * @returns RemovePhoneNumbersResponse
    */
@@ -11291,6 +11725,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除技能组下的电话号码
+   * 
    * @param request - RemovePhoneNumbersFromSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemovePhoneNumbersFromSkillGroupResponse
@@ -11328,6 +11764,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除技能组下的电话号码
+   * 
    * @param request - RemovePhoneNumbersFromSkillGroupRequest
    * @returns RemovePhoneNumbersFromSkillGroupResponse
    */
@@ -11337,6 +11775,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除多个技能组下的坐席
+   * 
    * @param request - RemoveSkillGroupsFromUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveSkillGroupsFromUserResponse
@@ -11374,6 +11814,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除多个技能组下的坐席
+   * 
    * @param request - RemoveSkillGroupsFromUserRequest
    * @returns RemoveSkillGroupsFromUserResponse
    */
@@ -11383,6 +11825,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除坐席
+   * 
    * @param request - RemoveUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveUsersResponse
@@ -11428,6 +11872,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除坐席
+   * 
    * @param request - RemoveUsersRequest
    * @returns RemoveUsersResponse
    */
@@ -11437,6 +11883,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除坐席下的技能组
+   * 
    * @param request - RemoveUsersFromSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveUsersFromSkillGroupResponse
@@ -11474,6 +11922,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 移除坐席下的技能组
+   * 
    * @param request - RemoveUsersFromSkillGroupRequest
    * @returns RemoveUsersFromSkillGroupResponse
    */
@@ -11483,6 +11933,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重置坐席状态
+   * 
    * @param request - ResetAgentStateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetAgentStateResponse
@@ -11520,6 +11972,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重置坐席状态
+   * 
    * @param request - ResetAgentStateRequest
    * @returns ResetAgentStateResponse
    */
@@ -11529,6 +11983,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重置坐席密码
+   * 
    * @param request - ResetUserPasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResetUserPasswordResponse
@@ -11566,6 +12022,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重置坐席密码
+   * 
    * @param request - ResetUserPasswordRequest
    * @returns ResetUserPasswordResponse
    */
@@ -11713,6 +12171,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取回
+   * 
    * @param request - RetrieveCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RetrieveCallResponse
@@ -11758,6 +12218,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取回
+   * 
    * @param request - RetrieveCallRequest
    * @returns RetrieveCallResponse
    */
@@ -11821,6 +12283,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 客服侧数据收集
+   * 
    * @param request - SaveRTCStatsV2Request
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveRTCStatsV2Response
@@ -11870,6 +12334,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 客服侧数据收集
+   * 
    * @param request - SaveRTCStatsV2Request
    * @returns SaveRTCStatsV2Response
    */
@@ -11879,6 +12345,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 保存终端埋点日志
+   * 
    * @param request - SaveTerminalLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveTerminalLogResponse
@@ -11940,6 +12408,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 保存终端埋点日志
+   * 
    * @param request - SaveTerminalLogRequest
    * @returns SaveTerminalLogResponse
    */
@@ -11949,6 +12419,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 客服侧数据收集
+   * 
    * @param request - SaveWebRTCStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveWebRTCStatsResponse
@@ -11998,6 +12470,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 客服侧数据收集
+   * 
    * @param request - SaveWebRTCStatsRequest
    * @returns SaveWebRTCStatsResponse
    */
@@ -12007,6 +12481,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 客服侧数据收集
+   * 
    * @param request - SaveWebRtcInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveWebRtcInfoResponse
@@ -12052,6 +12528,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 客服侧数据收集
+   * 
    * @param request - SaveWebRtcInfoRequest
    * @returns SaveWebRtcInfoResponse
    */
@@ -12061,6 +12539,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 在接通的电话上发送DTMF信号
+   * 
    * @param request - SendDtmfSignalingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SendDtmfSignalingResponse
@@ -12110,6 +12590,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 在接通的电话上发送DTMF信号
+   * 
    * @param request - SendDtmfSignalingRequest
    * @returns SendDtmfSignalingResponse
    */
@@ -12177,6 +12659,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 上线
+   * 
    * @param request - SignInGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SignInGroupResponse
@@ -12226,6 +12710,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 上线
+   * 
    * @param request - SignInGroupRequest
    * @returns SignInGroupResponse
    */
@@ -12235,6 +12721,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下线
+   * 
    * @param request - SignOutGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SignOutGroupResponse
@@ -12272,6 +12760,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下线
+   * 
    * @param request - SignOutGroupRequest
    * @returns SignOutGroupResponse
    */
@@ -12281,6 +12771,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 双呼
+   * 
    * @param request - StartBack2BackCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartBack2BackCallResponse
@@ -12334,6 +12826,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 双呼
+   * 
    * @param request - StartBack2BackCallRequest
    * @returns StartBack2BackCallResponse
    */
@@ -12399,6 +12893,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开始会议
+   * 
    * @param request - StartConferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartConferenceResponse
@@ -12444,6 +12940,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开始会议
+   * 
    * @param request - StartConferenceRequest
    * @returns StartConferenceResponse
    */
@@ -12453,6 +12951,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑ivr流程
+   * 
    * @param request - StartEditContactFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartEditContactFlowResponse
@@ -12486,6 +12986,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 编辑ivr流程
+   * 
    * @param request - StartEditContactFlowRequest
    * @returns StartEditContactFlowResponse
    */
@@ -12495,6 +12997,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开始预测试外呼
+   * 
    * @param request - StartPredictiveCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartPredictiveCallResponse
@@ -12556,6 +13060,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开始预测试外呼
+   * 
    * @param request - StartPredictiveCallRequest
    * @returns StartPredictiveCallResponse
    */
@@ -12665,6 +13171,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 切换关注/咨询转到会议
+   * 
    * @param request - SwitchToConferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SwitchToConferenceResponse
@@ -12706,6 +13214,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 切换关注/咨询转到会议
+   * 
    * @param request - SwitchToConferenceRequest
    * @returns SwitchToConferenceResponse
    */
@@ -12715,6 +13225,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 小休
+   * 
    * @param request - TakeBreakRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TakeBreakResponse
@@ -12756,6 +13268,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 小休
+   * 
    * @param request - TakeBreakRequest
    * @returns TakeBreakResponse
    */
@@ -12865,6 +13379,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消静音
+   * 
    * @param request - UnmuteCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnmuteCallResponse
@@ -12910,6 +13426,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消静音
+   * 
    * @param request - UnmuteCallRequest
    * @returns UnmuteCallResponse
    */
@@ -12965,6 +13483,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新会话小结
+   * 
    * @param request - UpdateCallSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCallSummaryResponse
@@ -13002,6 +13522,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新会话小结
+   * 
    * @param request - UpdateCallSummaryRequest
    * @returns UpdateCallSummaryResponse
    */
@@ -13011,7 +13533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update campaign
+   * 更新预测试外呼活动
    * 
    * @param request - UpdateCampaignRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13070,7 +13592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update campaign
+   * 更新预测试外呼活动
    * 
    * @param request - UpdateCampaignRequest
    * @returns UpdateCampaignResponse
@@ -13123,6 +13645,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新系统配置
+   * 
    * @param request - UpdateConfigItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateConfigItemsResponse
@@ -13164,6 +13688,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新系统配置
+   * 
    * @param request - UpdateConfigItemsRequest
    * @returns UpdateConfigItemsResponse
    */
