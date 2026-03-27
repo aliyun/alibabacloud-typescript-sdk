@@ -1658,6 +1658,10 @@ export default class Client extends OpenApi {
       request.multimediaParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.multimediaParameters, "MultimediaParameters", "json");
     }
 
+    if (!$dara.isNull(tmpReq.outputFormat)) {
+      request.outputFormatShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outputFormat, "OutputFormat", "simple");
+    }
+
     let query = { };
     if (!$dara.isNull(request.customOssConfigShrink)) {
       query["CustomOssConfig"] = request.customOssConfigShrink;
@@ -1713,6 +1717,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ossEndpoint)) {
       query["OssEndpoint"] = request.ossEndpoint;
+    }
+
+    if (!$dara.isNull(request.outputFormatShrink)) {
+      query["OutputFormat"] = request.outputFormatShrink;
     }
 
     if (!$dara.isNull(request.outputHtmlTable)) {
@@ -1840,12 +1848,18 @@ export default class Client extends OpenApi {
   /**
    * 文档智能解析
    * 
-   * @param request - SubmitDocStructureJobRequest
+   * @param tmpReq - SubmitDocStructureJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitDocStructureJobResponse
    */
-  async submitDocStructureJobWithOptions(request: $_model.SubmitDocStructureJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocStructureJobResponse> {
-    request.validate();
+  async submitDocStructureJobWithOptions(tmpReq: $_model.SubmitDocStructureJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitDocStructureJobResponse> {
+    tmpReq.validate();
+    let request = new $_model.SubmitDocStructureJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.outputFormat)) {
+      request.outputFormatShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outputFormat, "OutputFormat", "simple");
+    }
+
     let query = { };
     if (!$dara.isNull(request.allowPptFormat)) {
       query["AllowPptFormat"] = request.allowPptFormat;
@@ -1877,6 +1891,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ossEndpoint)) {
       query["OssEndpoint"] = request.ossEndpoint;
+    }
+
+    if (!$dara.isNull(request.outputFormatShrink)) {
+      query["OutputFormat"] = request.outputFormatShrink;
     }
 
     if (!$dara.isNull(request.pageIndex)) {

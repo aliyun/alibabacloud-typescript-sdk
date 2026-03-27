@@ -24,6 +24,7 @@ export class SubmitDocStructureJobAdvanceRequest extends $dara.Model {
   formulaEnhancement?: boolean;
   ossBucket?: string;
   ossEndpoint?: string;
+  outputFormat?: string[];
   pageIndex?: string;
   structureType?: string;
   static names(): { [key: string]: string } {
@@ -36,6 +37,7 @@ export class SubmitDocStructureJobAdvanceRequest extends $dara.Model {
       formulaEnhancement: 'FormulaEnhancement',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
+      outputFormat: 'OutputFormat',
       pageIndex: 'PageIndex',
       structureType: 'StructureType',
     };
@@ -51,12 +53,16 @@ export class SubmitDocStructureJobAdvanceRequest extends $dara.Model {
       formulaEnhancement: 'boolean',
       ossBucket: 'string',
       ossEndpoint: 'string',
+      outputFormat: { 'type': 'array', 'itemType': 'string' },
       pageIndex: 'string',
       structureType: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.outputFormat)) {
+      $dara.Model.validateArray(this.outputFormat);
+    }
     super.validate();
   }
 

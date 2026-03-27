@@ -130,6 +130,7 @@ export class SubmitDocParserJobRequest extends $dara.Model {
   option?: string;
   ossBucket?: string;
   ossEndpoint?: string;
+  outputFormat?: string[];
   outputHtmlTable?: boolean;
   pageIndex?: string;
   static names(): { [key: string]: string } {
@@ -148,6 +149,7 @@ export class SubmitDocParserJobRequest extends $dara.Model {
       option: 'Option',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
+      outputFormat: 'OutputFormat',
       outputHtmlTable: 'OutputHtmlTable',
       pageIndex: 'PageIndex',
     };
@@ -169,6 +171,7 @@ export class SubmitDocParserJobRequest extends $dara.Model {
       option: 'string',
       ossBucket: 'string',
       ossEndpoint: 'string',
+      outputFormat: { 'type': 'array', 'itemType': 'string' },
       outputHtmlTable: 'boolean',
       pageIndex: 'string',
     };
@@ -183,6 +186,9 @@ export class SubmitDocParserJobRequest extends $dara.Model {
     }
     if(this.multimediaParameters && typeof (this.multimediaParameters as any).validate === 'function') {
       (this.multimediaParameters as any).validate();
+    }
+    if(Array.isArray(this.outputFormat)) {
+      $dara.Model.validateArray(this.outputFormat);
     }
     super.validate();
   }

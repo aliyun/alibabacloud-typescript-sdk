@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitDocStructureJobRequest extends $dara.Model {
+export class SubmitDocStructureJobShrinkRequest extends $dara.Model {
   allowPptFormat?: boolean;
   enableEventCallback?: boolean;
   /**
@@ -23,7 +23,7 @@ export class SubmitDocStructureJobRequest extends $dara.Model {
   formulaEnhancement?: boolean;
   ossBucket?: string;
   ossEndpoint?: string;
-  outputFormat?: string[];
+  outputFormatShrink?: string;
   pageIndex?: string;
   structureType?: string;
   static names(): { [key: string]: string } {
@@ -36,7 +36,7 @@ export class SubmitDocStructureJobRequest extends $dara.Model {
       formulaEnhancement: 'FormulaEnhancement',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
-      outputFormat: 'OutputFormat',
+      outputFormatShrink: 'OutputFormat',
       pageIndex: 'PageIndex',
       structureType: 'StructureType',
     };
@@ -52,16 +52,13 @@ export class SubmitDocStructureJobRequest extends $dara.Model {
       formulaEnhancement: 'boolean',
       ossBucket: 'string',
       ossEndpoint: 'string',
-      outputFormat: { 'type': 'array', 'itemType': 'string' },
+      outputFormatShrink: 'string',
       pageIndex: 'string',
       structureType: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.outputFormat)) {
-      $dara.Model.validateArray(this.outputFormat);
-    }
     super.validate();
   }
 

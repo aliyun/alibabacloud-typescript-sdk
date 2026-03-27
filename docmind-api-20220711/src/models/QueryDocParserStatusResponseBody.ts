@@ -2,9 +2,77 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryDocParserStatusResponseBodyDataOutputFormatResultPages extends $dara.Model {
+  imageHeight?: number;
+  imageUrl?: string;
+  imageWidth?: number;
+  pageIdAllDocs?: number;
+  pageIdCurDoc?: number;
+  static names(): { [key: string]: string } {
+    return {
+      imageHeight: 'ImageHeight',
+      imageUrl: 'ImageUrl',
+      imageWidth: 'ImageWidth',
+      pageIdAllDocs: 'PageIdAllDocs',
+      pageIdCurDoc: 'PageIdCurDoc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageHeight: 'number',
+      imageUrl: 'string',
+      imageWidth: 'number',
+      pageIdAllDocs: 'number',
+      pageIdCurDoc: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryDocParserStatusResponseBodyDataOutputFormatResult extends $dara.Model {
+  outputFileUrl?: string;
+  outputType?: string;
+  pages?: QueryDocParserStatusResponseBodyDataOutputFormatResultPages[];
+  static names(): { [key: string]: string } {
+    return {
+      outputFileUrl: 'OutputFileUrl',
+      outputType: 'OutputType',
+      pages: 'Pages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputFileUrl: 'string',
+      outputType: 'string',
+      pages: { 'type': 'array', 'itemType': QueryDocParserStatusResponseBodyDataOutputFormatResultPages },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.pages)) {
+      $dara.Model.validateArray(this.pages);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryDocParserStatusResponseBodyData extends $dara.Model {
   imageCount?: number;
   numberOfSuccessfulParsing?: number;
+  outputFormatResult?: QueryDocParserStatusResponseBodyDataOutputFormatResult[];
   pageCountEstimate?: number;
   paragraphCount?: number;
   processing?: number;
@@ -15,6 +83,7 @@ export class QueryDocParserStatusResponseBodyData extends $dara.Model {
     return {
       imageCount: 'ImageCount',
       numberOfSuccessfulParsing: 'NumberOfSuccessfulParsing',
+      outputFormatResult: 'OutputFormatResult',
       pageCountEstimate: 'PageCountEstimate',
       paragraphCount: 'ParagraphCount',
       processing: 'Processing',
@@ -28,6 +97,7 @@ export class QueryDocParserStatusResponseBodyData extends $dara.Model {
     return {
       imageCount: 'number',
       numberOfSuccessfulParsing: 'number',
+      outputFormatResult: { 'type': 'array', 'itemType': QueryDocParserStatusResponseBodyDataOutputFormatResult },
       pageCountEstimate: 'number',
       paragraphCount: 'number',
       processing: 'number',
@@ -38,6 +108,9 @@ export class QueryDocParserStatusResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.outputFormatResult)) {
+      $dara.Model.validateArray(this.outputFormatResult);
+    }
     super.validate();
   }
 

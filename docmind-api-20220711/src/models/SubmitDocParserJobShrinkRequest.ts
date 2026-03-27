@@ -29,6 +29,7 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
   option?: string;
   ossBucket?: string;
   ossEndpoint?: string;
+  outputFormatShrink?: string;
   outputHtmlTable?: boolean;
   pageIndex?: string;
   static names(): { [key: string]: string } {
@@ -47,6 +48,7 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
       option: 'Option',
       ossBucket: 'OssBucket',
       ossEndpoint: 'OssEndpoint',
+      outputFormatShrink: 'OutputFormat',
       outputHtmlTable: 'OutputHtmlTable',
       pageIndex: 'PageIndex',
     };
@@ -68,6 +70,7 @@ export class SubmitDocParserJobShrinkRequest extends $dara.Model {
       option: 'string',
       ossBucket: 'string',
       ossEndpoint: 'string',
+      outputFormatShrink: 'string',
       outputHtmlTable: 'boolean',
       pageIndex: 'string',
     };

@@ -1,5 +1,7 @@
 export { GetDocumentConvertResultResponseBodyData } from './GetDocumentConvertResultResponseBody';
 export { GetPageNumResponseBodyData } from './GetPageNumResponseBody';
+export { QueryDocParserStatusResponseBodyDataOutputFormatResultPages } from './QueryDocParserStatusResponseBody';
+export { QueryDocParserStatusResponseBodyDataOutputFormatResult } from './QueryDocParserStatusResponseBody';
 export { QueryDocParserStatusResponseBodyData } from './QueryDocParserStatusResponseBody';
 export { SubmitConvertImageToExcelJobResponseBodyData } from './SubmitConvertImageToExcelJobResponseBody';
 export { SubmitConvertImageToMarkdownJobResponseBodyData } from './SubmitConvertImageToMarkdownJobResponseBody';
@@ -91,6 +93,7 @@ export { SubmitDocParserJobResponseBody } from './SubmitDocParserJobResponseBody
 export { SubmitDocParserJobResponse } from './SubmitDocParserJobResponse';
 export { SubmitDocStructureJobRequest } from './SubmitDocStructureJobRequest';
 export { SubmitDocStructureJobAdvanceRequest } from './SubmitDocStructureJobAdvanceRequest';
+export { SubmitDocStructureJobShrinkRequest } from './SubmitDocStructureJobShrinkRequest';
 export { SubmitDocStructureJobResponseBody } from './SubmitDocStructureJobResponseBody';
 export { SubmitDocStructureJobResponse } from './SubmitDocStructureJobResponse';
 export { SubmitDocumentExtractJobRequest } from './SubmitDocumentExtractJobRequest';
