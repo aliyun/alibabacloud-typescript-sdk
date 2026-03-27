@@ -16718,6 +16718,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据用户提供的问题，智能搜索获取表知识
+   * 
+   * @remarks
+   * 根据用户提供的问题，智能搜索获取表知识
+   * 
+   * @param request - SearchTableKnowledgeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchTableKnowledgeResponse
+   */
+  async searchTableKnowledgeWithOptions(request: $_model.SearchTableKnowledgeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchTableKnowledgeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchTableKnowledge",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchTableKnowledgeResponse>(await this.callApi(params, req, runtime), new $_model.SearchTableKnowledgeResponse({}));
+  }
+
+  /**
+   * 根据用户提供的问题，智能搜索获取表知识
+   * 
+   * @remarks
+   * 根据用户提供的问题，智能搜索获取表知识
+   * 
+   * @param request - SearchTableKnowledgeRequest
+   * @returns SearchTableKnowledgeResponse
+   */
+  async searchTableKnowledge(request: $_model.SearchTableKnowledgeRequest): Promise<$_model.SearchTableKnowledgeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchTableKnowledgeWithOptions(request, runtime);
+  }
+
+  /**
    * Configures the owner of an instance, a database, or a table.
    * 
    * @param request - SetOwnersRequest

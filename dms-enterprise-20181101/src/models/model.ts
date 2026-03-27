@@ -364,6 +364,7 @@ export { SearchTableResponseBodySearchTableListSearchTableOwnerIdList } from './
 export { SearchTableResponseBodySearchTableListSearchTableOwnerNameList } from './SearchTableResponseBody';
 export { SearchTableResponseBodySearchTableListSearchTable } from './SearchTableResponseBody';
 export { SearchTableResponseBodySearchTableList } from './SearchTableResponseBody';
+export { SearchTableKnowledgeResponseBodyData } from './SearchTableKnowledgeResponseBody';
 export { SimplyAddInstanceResponseBodyInstance } from './SimplyAddInstanceResponseBody';
 export { UpdateAuthorityTemplateResponseBodyAuthorityTemplateView } from './UpdateAuthorityTemplateResponseBody';
 export { UpdateSLARulesRequestSlaRuleList } from './UpdateSlarulesRequest';
@@ -1248,6 +1249,9 @@ export { SearchDatabaseResponse } from './SearchDatabaseResponse';
 export { SearchTableRequest } from './SearchTableRequest';
 export { SearchTableResponseBody } from './SearchTableResponseBody';
 export { SearchTableResponse } from './SearchTableResponse';
+export { SearchTableKnowledgeRequest } from './SearchTableKnowledgeRequest';
+export { SearchTableKnowledgeResponseBody } from './SearchTableKnowledgeResponseBody';
+export { SearchTableKnowledgeResponse } from './SearchTableKnowledgeResponse';
 export { SetOwnersRequest } from './SetOwnersRequest';
 export { SetOwnersResponseBody } from './SetOwnersResponseBody';
 export { SetOwnersResponse } from './SetOwnersResponse';
