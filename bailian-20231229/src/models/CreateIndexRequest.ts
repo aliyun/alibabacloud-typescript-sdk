@@ -72,96 +72,6 @@ export class CreateIndexRequestColumns extends $dara.Model {
   }
 }
 
-export class CreateIndexRequestDataSource extends $dara.Model {
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  credentialId?: string;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  credentialKey?: string;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  database?: string;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  endpoint?: string;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  isPrivateLink?: boolean;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  region?: string;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  subPath?: string;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  subType?: string;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  table?: string;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      credentialId: 'CredentialId',
-      credentialKey: 'CredentialKey',
-      database: 'Database',
-      endpoint: 'Endpoint',
-      isPrivateLink: 'IsPrivateLink',
-      region: 'Region',
-      subPath: 'SubPath',
-      subType: 'SubType',
-      table: 'Table',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      credentialId: 'string',
-      credentialKey: 'string',
-      database: 'string',
-      endpoint: 'string',
-      isPrivateLink: 'boolean',
-      region: 'string',
-      subPath: 'string',
-      subType: 'string',
-      table: 'string',
-      type: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateIndexRequestMetaExtractColumns extends $dara.Model {
   /**
    * @remarks
@@ -294,11 +204,6 @@ export class CreateIndexRequest extends $dara.Model {
    * > This parameter is not available. Do not specify this parameter.
    */
   createIndexType?: string;
-  /**
-   * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  dataSource?: CreateIndexRequestDataSource;
   /**
    * @remarks
    * The description of the knowledge base. The description must be 0 to 1,000 characters in length. This parameter is empty by default.
@@ -494,6 +399,7 @@ export class CreateIndexRequest extends $dara.Model {
    */
   enableHeaders?: boolean;
   knowledgeScene?: string;
+  knowledgeType?: string;
   /**
    * @remarks
    * The metadata extraction configurations. Metadata refers to a set of additional attributes associated with unstructured data, which are integrated into text chunks in key-value pairs. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
@@ -521,7 +427,6 @@ export class CreateIndexRequest extends $dara.Model {
       chunkSize: 'ChunkSize',
       columns: 'Columns',
       createIndexType: 'CreateIndexType',
-      dataSource: 'DataSource',
       description: 'Description',
       documentIds: 'DocumentIds',
       embeddingModelName: 'EmbeddingModelName',
@@ -544,6 +449,7 @@ export class CreateIndexRequest extends $dara.Model {
       datasourceCode: 'datasourceCode',
       enableHeaders: 'enableHeaders',
       knowledgeScene: 'knowledgeScene',
+      knowledgeType: 'knowledgeType',
       metaExtractColumns: 'metaExtractColumns',
       pipelineCommercialCu: 'pipelineCommercialCu',
       pipelineCommercialType: 'pipelineCommercialType',
@@ -558,7 +464,6 @@ export class CreateIndexRequest extends $dara.Model {
       chunkSize: 'number',
       columns: { 'type': 'array', 'itemType': CreateIndexRequestColumns },
       createIndexType: 'string',
-      dataSource: CreateIndexRequestDataSource,
       description: 'string',
       documentIds: { 'type': 'array', 'itemType': 'string' },
       embeddingModelName: 'string',
@@ -581,6 +486,7 @@ export class CreateIndexRequest extends $dara.Model {
       datasourceCode: 'string',
       enableHeaders: 'boolean',
       knowledgeScene: 'string',
+      knowledgeType: 'string',
       metaExtractColumns: { 'type': 'array', 'itemType': CreateIndexRequestMetaExtractColumns },
       pipelineCommercialCu: 'number',
       pipelineCommercialType: 'string',
@@ -595,9 +501,6 @@ export class CreateIndexRequest extends $dara.Model {
     }
     if(Array.isArray(this.columns)) {
       $dara.Model.validateArray(this.columns);
-    }
-    if(this.dataSource && typeof (this.dataSource as any).validate === 'function') {
-      (this.dataSource as any).validate();
     }
     if(Array.isArray(this.documentIds)) {
       $dara.Model.validateArray(this.documentIds);

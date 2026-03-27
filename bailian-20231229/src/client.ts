@@ -552,10 +552,6 @@ export default class Client extends OpenApi {
       request.columnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.columns, "Columns", "json");
     }
 
-    if (!$dara.isNull(tmpReq.dataSource)) {
-      request.dataSourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSource, "DataSource", "json");
-    }
-
     if (!$dara.isNull(tmpReq.documentIds)) {
       request.documentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentIds, "DocumentIds", "json");
     }
@@ -583,10 +579,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.createIndexType)) {
       query["CreateIndexType"] = request.createIndexType;
-    }
-
-    if (!$dara.isNull(request.dataSourceShrink)) {
-      query["DataSource"] = request.dataSourceShrink;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -675,6 +667,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.knowledgeScene)) {
       query["knowledgeScene"] = request.knowledgeScene;
+    }
+
+    if (!$dara.isNull(request.knowledgeType)) {
+      query["knowledgeType"] = request.knowledgeType;
     }
 
     if (!$dara.isNull(request.metaExtractColumnsShrink)) {

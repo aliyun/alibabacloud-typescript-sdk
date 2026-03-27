@@ -19,7 +19,6 @@ export { CreateAndPulishAgentRequestApplicationConfigWorkFlows } from './CreateA
 export { CreateAndPulishAgentRequestApplicationConfig } from './CreateAndPulishAgentRequest';
 export { CreateAndPulishAgentRequestSampleLibrary } from './CreateAndPulishAgentRequest';
 export { CreateIndexRequestColumns } from './CreateIndexRequest';
-export { CreateIndexRequestDataSource } from './CreateIndexRequest';
 export { CreateIndexRequestMetaExtractColumns } from './CreateIndexRequest';
 export { CreateIndexResponseBodyData } from './CreateIndexResponseBody';
 export { DeleteCategoryResponseBodyData } from './DeleteCategoryResponseBody';

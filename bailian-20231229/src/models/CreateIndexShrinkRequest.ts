@@ -32,11 +32,6 @@ export class CreateIndexShrinkRequest extends $dara.Model {
   createIndexType?: string;
   /**
    * @remarks
-   * >  This parameter is not available. Do not specify this parameter.
-   */
-  dataSourceShrink?: string;
-  /**
-   * @remarks
    * The description of the knowledge base. The description must be 0 to 1,000 characters in length. This parameter is empty by default.
    */
   description?: string;
@@ -230,6 +225,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
    */
   enableHeaders?: boolean;
   knowledgeScene?: string;
+  knowledgeType?: string;
   /**
    * @remarks
    * The metadata extraction configurations. Metadata refers to a set of additional attributes associated with unstructured data, which are integrated into text chunks in key-value pairs. For more information, see [Knowledge base](https://help.aliyun.com/document_detail/2807740.html).
@@ -257,7 +253,6 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       chunkSize: 'ChunkSize',
       columnsShrink: 'Columns',
       createIndexType: 'CreateIndexType',
-      dataSourceShrink: 'DataSource',
       description: 'Description',
       documentIdsShrink: 'DocumentIds',
       embeddingModelName: 'EmbeddingModelName',
@@ -280,6 +275,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       datasourceCode: 'datasourceCode',
       enableHeaders: 'enableHeaders',
       knowledgeScene: 'knowledgeScene',
+      knowledgeType: 'knowledgeType',
       metaExtractColumnsShrink: 'metaExtractColumns',
       pipelineCommercialCu: 'pipelineCommercialCu',
       pipelineCommercialType: 'pipelineCommercialType',
@@ -294,7 +290,6 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       chunkSize: 'number',
       columnsShrink: 'string',
       createIndexType: 'string',
-      dataSourceShrink: 'string',
       description: 'string',
       documentIdsShrink: 'string',
       embeddingModelName: 'string',
@@ -317,6 +312,7 @@ export class CreateIndexShrinkRequest extends $dara.Model {
       datasourceCode: 'string',
       enableHeaders: 'boolean',
       knowledgeScene: 'string',
+      knowledgeType: 'string',
       metaExtractColumnsShrink: 'string',
       pipelineCommercialCu: 'number',
       pipelineCommercialType: 'string',
