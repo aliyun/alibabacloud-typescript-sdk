@@ -238,6 +238,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
    * text
    */
   resourceType?: string;
+  sceneType?: string;
   /**
    * @remarks
    * Service code.
@@ -294,6 +295,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
       gmtModified: 'GmtModified',
       option: 'Option',
       resourceType: 'ResourceType',
+      sceneType: 'SceneType',
       serviceCode: 'ServiceCode',
       serviceDesc: 'ServiceDesc',
       serviceName: 'ServiceName',
@@ -311,6 +313,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
       gmtModified: 'string',
       option: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       resourceType: 'string',
+      sceneType: 'string',
       serviceCode: 'string',
       serviceDesc: 'string',
       serviceName: 'string',
