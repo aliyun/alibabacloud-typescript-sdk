@@ -20,6 +20,8 @@ export { DescribeDedicatedBlockStorageClustersRequestTag } from './DescribeDedic
 export { DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersDedicatedBlockStorageClusterCapacity } from './DescribeDedicatedBlockStorageClustersResponseBody';
 export { DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClustersTags } from './DescribeDedicatedBlockStorageClustersResponseBody';
 export { DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters } from './DescribeDedicatedBlockStorageClustersResponseBody';
+export { DescribeDiagnoseReportResponseBodyReportsEvents } from './DescribeDiagnoseReportResponseBody';
+export { DescribeDiagnoseReportResponseBodyReports } from './DescribeDiagnoseReportResponseBody';
 export { DescribeDiskEventsResponseBodyDiskEvents } from './DescribeDiskEventsResponseBody';
 export { DescribeDiskMonitorDataResponseBodyMonitorData } from './DescribeDiskMonitorDataResponseBody';
 export { DescribeDiskMonitorDataListResponseBodyMonitorData } from './DescribeDiskMonitorDataListResponseBody';
@@ -92,6 +94,9 @@ export { CreateAppResponse } from './CreateAppResponse';
 export { CreateDedicatedBlockStorageClusterRequest } from './CreateDedicatedBlockStorageClusterRequest';
 export { CreateDedicatedBlockStorageClusterResponseBody } from './CreateDedicatedBlockStorageClusterResponseBody';
 export { CreateDedicatedBlockStorageClusterResponse } from './CreateDedicatedBlockStorageClusterResponse';
+export { CreateDiagnoseReportRequest } from './CreateDiagnoseReportRequest';
+export { CreateDiagnoseReportResponseBody } from './CreateDiagnoseReportResponseBody';
+export { CreateDiagnoseReportResponse } from './CreateDiagnoseReportResponse';
 export { CreateDiskReplicaGroupRequest } from './CreateDiskReplicaGroupRequest';
 export { CreateDiskReplicaGroupResponseBody } from './CreateDiskReplicaGroupResponseBody';
 export { CreateDiskReplicaGroupResponse } from './CreateDiskReplicaGroupResponse';
@@ -123,6 +128,9 @@ export { DescribeDedicatedBlockStorageClusterDisksResponse } from './DescribeDed
 export { DescribeDedicatedBlockStorageClustersRequest } from './DescribeDedicatedBlockStorageClustersRequest';
 export { DescribeDedicatedBlockStorageClustersResponseBody } from './DescribeDedicatedBlockStorageClustersResponseBody';
 export { DescribeDedicatedBlockStorageClustersResponse } from './DescribeDedicatedBlockStorageClustersResponse';
+export { DescribeDiagnoseReportRequest } from './DescribeDiagnoseReportRequest';
+export { DescribeDiagnoseReportResponseBody } from './DescribeDiagnoseReportResponseBody';
+export { DescribeDiagnoseReportResponse } from './DescribeDiagnoseReportResponse';
 export { DescribeDiskEventsRequest } from './DescribeDiskEventsRequest';
 export { DescribeDiskEventsResponseBody } from './DescribeDiskEventsResponseBody';
 export { DescribeDiskEventsResponse } from './DescribeDiskEventsResponse';

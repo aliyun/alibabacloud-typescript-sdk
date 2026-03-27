@@ -558,6 +558,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Triggers a diagnostic.
+   * 
+   * @param request - CreateDiagnoseReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDiagnoseReportResponse
+   */
+  async createDiagnoseReportWithOptions(request: $_model.CreateDiagnoseReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDiagnoseReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.diagnoseType)) {
+      query["DiagnoseType"] = request.diagnoseType;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDiagnoseReport",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDiagnoseReportResponse>(await this.callApi(params, req, runtime), new $_model.CreateDiagnoseReportResponse({}));
+  }
+
+  /**
+   * Triggers a diagnostic.
+   * 
+   * @param request - CreateDiagnoseReportRequest
+   * @returns CreateDiagnoseReportResponse
+   */
+  async createDiagnoseReport(request: $_model.CreateDiagnoseReportRequest): Promise<$_model.CreateDiagnoseReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDiagnoseReportWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a replication pair-consistent group.
    * 
    * @remarks
@@ -1351,6 +1417,84 @@ export default class Client extends OpenApi {
   async describeDedicatedBlockStorageClusters(request: $_model.DescribeDedicatedBlockStorageClustersRequest): Promise<$_model.DescribeDedicatedBlockStorageClustersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDedicatedBlockStorageClustersWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries diagnostic reports.
+   * 
+   * @param request - DescribeDiagnoseReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDiagnoseReportResponse
+   */
+  async describeDiagnoseReportWithOptions(request: $_model.DescribeDiagnoseReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDiagnoseReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.diagnoseType)) {
+      query["DiagnoseType"] = request.diagnoseType;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.reportIds)) {
+      query["ReportIds"] = request.reportIds;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDiagnoseReport",
+      version: "2021-07-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDiagnoseReportResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDiagnoseReportResponse({}));
+  }
+
+  /**
+   * Queries diagnostic reports.
+   * 
+   * @param request - DescribeDiagnoseReportRequest
+   * @returns DescribeDiagnoseReportResponse
+   */
+  async describeDiagnoseReport(request: $_model.DescribeDiagnoseReportRequest): Promise<$_model.DescribeDiagnoseReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDiagnoseReportWithOptions(request, runtime);
   }
 
   /**
