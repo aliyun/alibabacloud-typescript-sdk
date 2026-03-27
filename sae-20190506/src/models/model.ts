@@ -187,6 +187,7 @@ export { DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutesRoutePredi
 export { DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRuleRoutes } from './DescribeSwimmingLaneResponseBody';
 export { DescribeSwimmingLaneResponseBodyDataMseGatewayEntryRule } from './DescribeSwimmingLaneResponseBody';
 export { DescribeSwimmingLaneResponseBodyData } from './DescribeSwimmingLaneResponseBody';
+export { DescribeVSwitchesResponseBodyData } from './DescribeVswitchesResponseBody';
 export { DisableArmsResponseBodyData } from './DisableArmsResponseBody';
 export { DowngradeApplicationApmServiceResponseBodyData } from './DowngradeApplicationApmServiceResponseBody';
 export { ExecJobResponseBodyData } from './ExecJobResponseBody';
@@ -644,6 +645,9 @@ export { DescribeSecretResponse } from './DescribeSecretResponse';
 export { DescribeSwimmingLaneRequest } from './DescribeSwimmingLaneRequest';
 export { DescribeSwimmingLaneResponseBody } from './DescribeSwimmingLaneResponseBody';
 export { DescribeSwimmingLaneResponse } from './DescribeSwimmingLaneResponse';
+export { DescribeVSwitchesRequest } from './DescribeVswitchesRequest';
+export { DescribeVSwitchesResponseBody } from './DescribeVswitchesResponseBody';
+export { DescribeVSwitchesResponse } from './DescribeVswitchesResponse';
 export { DescribeWebApplicationRequest } from './DescribeWebApplicationRequest';
 export { DescribeWebApplicationResponse } from './DescribeWebApplicationResponse';
 export { DescribeWebApplicationResourceStaticsRequest } from './DescribeWebApplicationResourceStaticsRequest';
