@@ -296,6 +296,8 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
    * off
    */
   richTextClipboard?: string;
+  richTextClipboardLimit?: number;
+  richTextClipboardSizeUnit?: string;
   /**
    * @remarks
    * The text clipboard policy.
@@ -320,6 +322,8 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
       clipboardWriteLimit: 'ClipboardWriteLimit',
       fileClipboard: 'FileClipboard',
       richTextClipboard: 'RichTextClipboard',
+      richTextClipboardLimit: 'RichTextClipboardLimit',
+      richTextClipboardSizeUnit: 'RichTextClipboardSizeUnit',
       textClipboard: 'TextClipboard',
     };
   }
@@ -333,6 +337,8 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
       clipboardWriteLimit: 'number',
       fileClipboard: 'string',
       richTextClipboard: 'string',
+      richTextClipboardLimit: 'number',
+      richTextClipboardSizeUnit: 'string',
       textClipboard: 'string',
     };
   }
