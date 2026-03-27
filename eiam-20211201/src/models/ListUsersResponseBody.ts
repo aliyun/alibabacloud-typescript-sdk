@@ -245,6 +245,8 @@ export class ListUsersResponseBodyUsers extends $dara.Model {
 }
 
 export class ListUsersResponseBody extends $dara.Model {
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The ID of the request.
@@ -268,6 +270,8 @@ export class ListUsersResponseBody extends $dara.Model {
   users?: ListUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
       users: 'Users',
@@ -276,6 +280,8 @@ export class ListUsersResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
+      nextToken: 'string',
       requestId: 'string',
       totalCount: 'number',
       users: { 'type': 'array', 'itemType': ListUsersResponseBodyUsers },

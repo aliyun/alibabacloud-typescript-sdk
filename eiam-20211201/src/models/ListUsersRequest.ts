@@ -29,6 +29,8 @@ export class ListUsersRequest extends $dara.Model {
    * idaas_ue2jvisn35ea5lmthk267xxxxx
    */
   instanceId?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The ID of the organizational unit.
@@ -131,6 +133,8 @@ export class ListUsersRequest extends $dara.Model {
       displayNameStartsWith: 'DisplayNameStartsWith',
       email: 'Email',
       instanceId: 'InstanceId',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       organizationalUnitId: 'OrganizationalUnitId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -150,6 +154,8 @@ export class ListUsersRequest extends $dara.Model {
       displayNameStartsWith: 'string',
       email: 'string',
       instanceId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       organizationalUnitId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

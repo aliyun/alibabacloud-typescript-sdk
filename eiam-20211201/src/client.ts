@@ -12919,6 +12919,14 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
     if (!$dara.isNull(request.organizationalUnitId)) {
       query["OrganizationalUnitId"] = request.organizationalUnitId;
     }
