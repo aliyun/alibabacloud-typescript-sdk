@@ -8,6 +8,7 @@ export class GetAppRecommendedCommoditiesRequest extends $dara.Model {
    * WD20250703155602000001
    */
   bizId?: string;
+  extend?: string;
   resourceConditions?: string;
   /**
    * @example
@@ -17,6 +18,7 @@ export class GetAppRecommendedCommoditiesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
+      extend: 'Extend',
       resourceConditions: 'ResourceConditions',
       scene: 'Scene',
     };
@@ -25,6 +27,7 @@ export class GetAppRecommendedCommoditiesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
+      extend: 'string',
       resourceConditions: 'string',
       scene: 'string',
     };
