@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribePolarFsAttributeResponseBodyCustomBucketPathList extends $dara.Model {
+  /**
+   * @example
+   * pfs-xxx.oss-[regionId]-internal.aliyuncs.com
+   */
+  bucket?: string;
+  /**
+   * @example
+   * /data
+   */
+  path?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bucket: 'Bucket',
+      path: 'Path',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucket: 'string',
+      path: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePolarFsAttributeResponseBodyMountInfo extends $dara.Model {
   /**
    * @example
@@ -46,6 +80,11 @@ export class DescribePolarFsAttributeResponseBodyMountInfo extends $dara.Model {
 export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
    * @example
+   * alluxio
+   */
+  accelerateType?: string;
+  /**
+   * @example
    * 1000
    */
   acceleratedStorageSpace?: number;
@@ -81,6 +120,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * xxxxxx-%d.oss-cn-beijing-internal.aliyuncs.com
    */
   customBucketPath?: string;
+  customBucketPathList?: DescribePolarFsAttributeResponseBodyCustomBucketPathList[];
   /**
    * @example
    * MySQL
@@ -191,6 +231,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      accelerateType: 'AccelerateType',
       acceleratedStorageSpace: 'AcceleratedStorageSpace',
       acceleratingEnable: 'AcceleratingEnable',
       bandwidth: 'Bandwidth',
@@ -200,6 +241,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       clientDownloadPath: 'ClientDownloadPath',
       createTime: 'CreateTime',
       customBucketPath: 'CustomBucketPath',
+      customBucketPathList: 'CustomBucketPathList',
       DBType: 'DBType',
       expireTime: 'ExpireTime',
       expired: 'Expired',
@@ -230,6 +272,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accelerateType: 'string',
       acceleratedStorageSpace: 'number',
       acceleratingEnable: 'string',
       bandwidth: 'number',
@@ -239,6 +282,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
       clientDownloadPath: 'string',
       createTime: 'string',
       customBucketPath: 'string',
+      customBucketPathList: { 'type': 'array', 'itemType': DescribePolarFsAttributeResponseBodyCustomBucketPathList },
       DBType: 'string',
       expireTime: 'string',
       expired: 'string',
@@ -268,6 +312,9 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.customBucketPathList)) {
+      $dara.Model.validateArray(this.customBucketPathList);
+    }
     if(this.mountInfo && typeof (this.mountInfo as any).validate === 'function') {
       (this.mountInfo as any).validate();
     }

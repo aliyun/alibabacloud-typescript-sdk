@@ -1866,6 +1866,18 @@ export default class Client extends OpenApi {
       query["SecurityGroupId"] = request.securityGroupId;
     }
 
+    if (!$dara.isNull(request.securityIPArrayName)) {
+      query["SecurityIPArrayName"] = request.securityIPArrayName;
+    }
+
+    if (!$dara.isNull(request.securityIPList)) {
+      query["SecurityIPList"] = request.securityIPList;
+    }
+
+    if (!$dara.isNull(request.securityIPType)) {
+      query["SecurityIPType"] = request.securityIPType;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }

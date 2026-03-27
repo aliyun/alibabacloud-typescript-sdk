@@ -44,6 +44,7 @@ export { DescribeApplicationAttributeResponseBodyEndpoints } from './DescribeApp
 export { DescribeApplicationAttributeResponseBodyMemApplicationAttribute } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodySecurityGroups } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodySecurityIPArrays } from './DescribeApplicationAttributeResponseBody';
+export { DescribeApplicationAttributeResponseBodyStorages } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationParametersResponseBodyParameterTemplatesComponentParameterTemplatesParameters } from './DescribeApplicationParametersResponseBody';
 export { DescribeApplicationParametersResponseBodyParameterTemplatesComponentParameterTemplates } from './DescribeApplicationParametersResponseBody';
 export { DescribeApplicationParametersResponseBodyParameterTemplates } from './DescribeApplicationParametersResponseBody';
@@ -205,6 +206,7 @@ export { DescribePendingMaintenanceActionResponseBodyItems } from './DescribePen
 export { DescribePendingMaintenanceActionsResponseBodyTypeList } from './DescribePendingMaintenanceActionsResponseBody';
 export { DescribePolarAgentChatRecordsResponseBodyData } from './DescribePolarAgentChatRecordsResponseBody';
 export { DescribePolarAgentUserSessionsResponseBodyData } from './DescribePolarAgentUserSessionsResponseBody';
+export { DescribePolarFsAttributeResponseBodyCustomBucketPathList } from './DescribePolarFsAttributeResponseBody';
 export { DescribePolarFsAttributeResponseBodyMountInfo } from './DescribePolarFsAttributeResponseBody';
 export { DescribePolarFsQuotaResponseBodyPolicyItems } from './DescribePolarFsQuotaResponseBody';
 export { DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch } from './DescribeRdsVswitchsResponseBody';

@@ -437,6 +437,38 @@ export class DescribeApplicationAttributeResponseBodySecurityIPArrays extends $d
   }
 }
 
+export class DescribeApplicationAttributeResponseBodyStorages extends $dara.Model {
+  storageCapacity?: string;
+  storageInstanceId?: string;
+  storagePerformanceLevel?: string;
+  storageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      storageCapacity: 'StorageCapacity',
+      storageInstanceId: 'StorageInstanceId',
+      storagePerformanceLevel: 'StoragePerformanceLevel',
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageCapacity: 'string',
+      storageInstanceId: 'string',
+      storagePerformanceLevel: 'string',
+      storageType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   /**
    * @example
@@ -527,6 +559,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * Activated
    */
   status?: string;
+  storages?: DescribeApplicationAttributeResponseBodyStorages[];
   /**
    * @example
    * false
@@ -585,6 +618,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       securityIPArrays: 'SecurityIPArrays',
       serverlessType: 'ServerlessType',
       status: 'Status',
+      storages: 'Storages',
       upgradeAvailable: 'UpgradeAvailable',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -620,6 +654,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       securityIPArrays: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodySecurityIPArrays },
       serverlessType: 'string',
       status: 'string',
+      storages: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodyStorages },
       upgradeAvailable: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -643,6 +678,9 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.securityIPArrays)) {
       $dara.Model.validateArray(this.securityIPArrays);
+    }
+    if(Array.isArray(this.storages)) {
+      $dara.Model.validateArray(this.storages);
     }
     super.validate();
   }

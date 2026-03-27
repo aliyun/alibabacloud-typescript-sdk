@@ -306,6 +306,9 @@ export class CreateApplicationRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   securityGroupId?: string;
+  securityIPArrayName?: string;
+  securityIPList?: string;
+  securityIPType?: string;
   tag?: CreateApplicationRequestTag[];
   /**
    * @example
@@ -355,6 +358,9 @@ export class CreateApplicationRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
+      securityIPArrayName: 'SecurityIPArrayName',
+      securityIPList: 'SecurityIPList',
+      securityIPType: 'SecurityIPType',
       tag: 'Tag',
       targetVersion: 'TargetVersion',
       usedTime: 'UsedTime',
@@ -391,6 +397,9 @@ export class CreateApplicationRequest extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
+      securityIPArrayName: 'string',
+      securityIPList: 'string',
+      securityIPType: 'string',
       tag: { 'type': 'array', 'itemType': CreateApplicationRequestTag },
       targetVersion: 'string',
       usedTime: 'string',
