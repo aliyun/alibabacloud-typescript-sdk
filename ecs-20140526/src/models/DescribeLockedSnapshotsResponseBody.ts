@@ -52,6 +52,11 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
    */
   lockExpiredTime?: string;
   /**
+   * @example
+   * compliance
+   */
+  lockMode?: string;
+  /**
    * @remarks
    * The lock status. Valid values:
    * 
@@ -79,6 +84,7 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
       lockDuration: 'LockDuration',
       lockDurationStartTime: 'LockDurationStartTime',
       lockExpiredTime: 'LockExpiredTime',
+      lockMode: 'LockMode',
       lockStatus: 'LockStatus',
       snapshotId: 'SnapshotId',
     };
@@ -92,6 +98,7 @@ export class DescribeLockedSnapshotsResponseBodyLockedSnapshotsInfo extends $dar
       lockDuration: 'number',
       lockDurationStartTime: 'string',
       lockExpiredTime: 'string',
+      lockMode: 'string',
       lockStatus: 'string',
       snapshotId: 'string',
     };
