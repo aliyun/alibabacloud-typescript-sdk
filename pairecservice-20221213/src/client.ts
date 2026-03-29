@@ -938,6 +938,152 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据诊断。
+   * 
+   * @param request - CreateDataDiagnosisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataDiagnosisResponse
+   */
+  async createDataDiagnosisWithOptions(request: $_model.CreateDataDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataDiagnosisResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.cycleTime)) {
+      body["CycleTime"] = request.cycleTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.leftTableMetaId)) {
+      body["LeftTableMetaId"] = request.leftTableMetaId;
+    }
+
+    if (!$dara.isNull(request.leftTablePartitionField)) {
+      body["LeftTablePartitionField"] = request.leftTablePartitionField;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.partitionField)) {
+      body["PartitionField"] = request.partitionField;
+    }
+
+    if (!$dara.isNull(request.rightTableMetaId)) {
+      body["RightTableMetaId"] = request.rightTableMetaId;
+    }
+
+    if (!$dara.isNull(request.rightTablePartitionField)) {
+      body["RightTablePartitionField"] = request.rightTablePartitionField;
+    }
+
+    if (!$dara.isNull(request.tableMetaId)) {
+      body["TableMetaId"] = request.tableMetaId;
+    }
+
+    if (!$dara.isNull(request.topNQuantity)) {
+      body["TopNQuantity"] = request.topNQuantity;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataDiagnosis",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datadiagnoses`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataDiagnosisResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataDiagnosisResponse({}));
+  }
+
+  /**
+   * 创建数据诊断。
+   * 
+   * @param request - CreateDataDiagnosisRequest
+   * @returns CreateDataDiagnosisResponse
+   */
+  async createDataDiagnosis(request: $_model.CreateDataDiagnosisRequest): Promise<$_model.CreateDataDiagnosisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDataDiagnosisWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建数据诊断（重跑）任务。
+   * 
+   * @param request - CreateDataDiagnosisJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataDiagnosisJobsResponse
+   */
+  async createDataDiagnosisJobsWithOptions(request: $_model.CreateDataDiagnosisJobsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataDiagnosisJobsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataDiagnosisId)) {
+      body["DataDiagnosisId"] = request.dataDiagnosisId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataDiagnosisJobs",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/batch/datadiagnosisjobs/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataDiagnosisJobsResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataDiagnosisJobsResponse({}));
+  }
+
+  /**
+   * 创建数据诊断（重跑）任务。
+   * 
+   * @param request - CreateDataDiagnosisJobsRequest
+   * @returns CreateDataDiagnosisJobsResponse
+   */
+  async createDataDiagnosisJobs(request: $_model.CreateDataDiagnosisJobsRequest): Promise<$_model.CreateDataDiagnosisJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDataDiagnosisJobsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建引擎配置
    * 
    * @param request - CreateEngineConfigRequest
@@ -2910,6 +3056,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除指定数据诊断。
+   * 
+   * @param request - DeleteDataDiagnosisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataDiagnosisResponse
+   */
+  async deleteDataDiagnosisWithOptions(DataDiagnosisId: string, request: $_model.DeleteDataDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataDiagnosisResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataDiagnosis",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datadiagnoses/${$dara.URL.percentEncode(DataDiagnosisId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataDiagnosisResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataDiagnosisResponse({}));
+  }
+
+  /**
+   * 删除指定数据诊断。
+   * 
+   * @param request - DeleteDataDiagnosisRequest
+   * @returns DeleteDataDiagnosisResponse
+   */
+  async deleteDataDiagnosis(DataDiagnosisId: string, request: $_model.DeleteDataDiagnosisRequest): Promise<$_model.DeleteDataDiagnosisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDataDiagnosisWithOptions(DataDiagnosisId, request, headers, runtime);
+  }
+
+  /**
    * 删除指定推荐引擎配置。
    * 
    * @param request - DeleteEngineConfigRequest
@@ -4034,6 +4225,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCalculationJobWithOptions(CalculationJobId, request, headers, runtime);
+  }
+
+  /**
+   * 获取数据诊断详细信息。
+   * 
+   * @param request - GetDataDiagnosisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataDiagnosisResponse
+   */
+  async getDataDiagnosisWithOptions(DataDiagnosisId: string, request: $_model.GetDataDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataDiagnosisResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataDiagnosis",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datadiagnoses/${$dara.URL.percentEncode(DataDiagnosisId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataDiagnosisResponse>(await this.callApi(params, req, runtime), new $_model.GetDataDiagnosisResponse({}));
+  }
+
+  /**
+   * 获取数据诊断详细信息。
+   * 
+   * @param request - GetDataDiagnosisRequest
+   * @returns GetDataDiagnosisResponse
+   */
+  async getDataDiagnosis(DataDiagnosisId: string, request: $_model.GetDataDiagnosisRequest): Promise<$_model.GetDataDiagnosisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDataDiagnosisWithOptions(DataDiagnosisId, request, headers, runtime);
   }
 
   /**
@@ -5445,6 +5681,201 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据诊断列表。
+   * 
+   * @param tmpReq - ListDataDiagnosesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataDiagnosesResponse
+   */
+  async listDataDiagnosesWithOptions(tmpReq: $_model.ListDataDiagnosesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataDiagnosesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDataDiagnosesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.types)) {
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "Types", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.typesShrink)) {
+      query["Types"] = request.typesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataDiagnoses",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datadiagnoses`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataDiagnosesResponse>(await this.callApi(params, req, runtime), new $_model.ListDataDiagnosesResponse({}));
+  }
+
+  /**
+   * 获取数据诊断列表。
+   * 
+   * @param request - ListDataDiagnosesRequest
+   * @returns ListDataDiagnosesResponse
+   */
+  async listDataDiagnoses(request: $_model.ListDataDiagnosesRequest): Promise<$_model.ListDataDiagnosesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDataDiagnosesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取数据诊断任务列表。
+   * 
+   * @param tmpReq - ListDataDiagnosisJobsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataDiagnosisJobsResponse
+   */
+  async listDataDiagnosisJobsWithOptions(tmpReq: $_model.ListDataDiagnosisJobsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataDiagnosisJobsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListDataDiagnosisJobsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.types)) {
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "Types", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.typesShrink)) {
+      query["Types"] = request.typesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataDiagnosisJobs",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datadiagnosisjobs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataDiagnosisJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListDataDiagnosisJobsResponse({}));
+  }
+
+  /**
+   * 获取数据诊断任务列表。
+   * 
+   * @param request - ListDataDiagnosisJobsRequest
+   * @returns ListDataDiagnosisJobsResponse
+   */
+  async listDataDiagnosisJobs(request: $_model.ListDataDiagnosisJobsRequest): Promise<$_model.ListDataDiagnosisJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDataDiagnosisJobsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取数据诊断报告。
+   * 
+   * @param request - ListDataDiagnosisReportsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataDiagnosisReportsResponse
+   */
+  async listDataDiagnosisReportsWithOptions(DataDiagnosisId: string, request: $_model.ListDataDiagnosisReportsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataDiagnosisReportsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.featureName)) {
+      query["FeatureName"] = request.featureName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.remainRateType)) {
+      query["RemainRateType"] = request.remainRateType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.topN)) {
+      query["TopN"] = request.topN;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataDiagnosisReports",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datadiagnoses/${$dara.URL.percentEncode(DataDiagnosisId)}/reports`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataDiagnosisReportsResponse>(await this.callApi(params, req, runtime), new $_model.ListDataDiagnosisReportsResponse({}));
+  }
+
+  /**
+   * 获取数据诊断报告。
+   * 
+   * @param request - ListDataDiagnosisReportsRequest
+   * @returns ListDataDiagnosisReportsResponse
+   */
+  async listDataDiagnosisReports(DataDiagnosisId: string, request: $_model.ListDataDiagnosisReportsRequest): Promise<$_model.ListDataDiagnosisReportsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDataDiagnosisReportsWithOptions(DataDiagnosisId, request, headers, runtime);
+  }
+
+  /**
    * 获取引擎配置列表。
    * 
    * @param request - ListEngineConfigsRequest
@@ -5530,10 +5961,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.layerId)) {
       query["LayerId"] = request.layerId;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -7582,6 +8009,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * QueryDataDiagnosisStatistics
+   * 
+   * @param request - QueryDataDiagnosisStatisticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryDataDiagnosisStatisticsResponse
+   */
+  async queryDataDiagnosisStatisticsWithOptions(DataDiagnosisId: string, request: $_model.QueryDataDiagnosisStatisticsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryDataDiagnosisStatisticsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.remainRateType)) {
+      query["RemainRateType"] = request.remainRateType;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryDataDiagnosisStatistics",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datadiagnoses/${$dara.URL.percentEncode(DataDiagnosisId)}/statistics/action/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryDataDiagnosisStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.QueryDataDiagnosisStatisticsResponse({}));
+  }
+
+  /**
+   * QueryDataDiagnosisStatistics
+   * 
+   * @param request - QueryDataDiagnosisStatisticsRequest
+   * @returns QueryDataDiagnosisStatisticsResponse
+   */
+  async queryDataDiagnosisStatistics(DataDiagnosisId: string, request: $_model.QueryDataDiagnosisStatisticsRequest): Promise<$_model.QueryDataDiagnosisStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryDataDiagnosisStatisticsWithOptions(DataDiagnosisId, request, headers, runtime);
+  }
+
+  /**
    * 查看样本一致性任务差异的详情
    * 
    * @param request - QuerySampleConsistencyJobDifferenceRequest
@@ -8497,6 +8981,95 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCrowdWithOptions(CrowdId, request, headers, runtime);
+  }
+
+  /**
+   * 更新数据诊断。
+   * 
+   * @param request - UpdateDataDiagnosisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataDiagnosisResponse
+   */
+  async updateDataDiagnosisWithOptions(DataDiagnosisId: string, request: $_model.UpdateDataDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataDiagnosisResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.cycleTime)) {
+      body["CycleTime"] = request.cycleTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.leftTableMetaId)) {
+      body["LeftTableMetaId"] = request.leftTableMetaId;
+    }
+
+    if (!$dara.isNull(request.leftTablePartitionField)) {
+      body["LeftTablePartitionField"] = request.leftTablePartitionField;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.partitionField)) {
+      body["PartitionField"] = request.partitionField;
+    }
+
+    if (!$dara.isNull(request.rightTableMetaId)) {
+      body["RightTableMetaId"] = request.rightTableMetaId;
+    }
+
+    if (!$dara.isNull(request.rightTablePartitionField)) {
+      body["RightTablePartitionField"] = request.rightTablePartitionField;
+    }
+
+    if (!$dara.isNull(request.tableMetaId)) {
+      body["TableMetaId"] = request.tableMetaId;
+    }
+
+    if (!$dara.isNull(request.topNQuantity)) {
+      body["TopNQuantity"] = request.topNQuantity;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataDiagnosis",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/datadiagnoses/${$dara.URL.percentEncode(DataDiagnosisId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataDiagnosisResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataDiagnosisResponse({}));
+  }
+
+  /**
+   * 更新数据诊断。
+   * 
+   * @param request - UpdateDataDiagnosisRequest
+   * @returns UpdateDataDiagnosisResponse
+   */
+  async updateDataDiagnosis(DataDiagnosisId: string, request: $_model.UpdateDataDiagnosisRequest): Promise<$_model.UpdateDataDiagnosisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDataDiagnosisWithOptions(DataDiagnosisId, request, headers, runtime);
   }
 
   /**
@@ -10022,11 +10595,6 @@ export default class Client extends OpenApi {
    */
   async uploadRecommendationDataWithOptions(request: $_model.UploadRecommendationDataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UploadRecommendationDataResponse> {
     request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.content)) {
       body["Content"] = request.content;
@@ -10038,7 +10606,6 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({

@@ -2,44 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListExperimentGroupsRequest extends $dara.Model {
+export class QueryDataDiagnosisStatisticsRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * pairec-cn-abcdefg1234
+   * 2023-08-08
+   */
+  endDate?: string;
+  /**
+   * @example
+   * learn-pairec-xxx
    */
   instanceId?: string;
   /**
    * @example
-   * 3
+   * Period
    */
-  layerId?: string;
+  remainRateType?: string;
   /**
    * @example
-   * Online
+   * 2023-08-01
    */
-  status?: string;
-  timeRangeEnd?: string;
-  timeRangeStart?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
+      endDate: 'EndDate',
       instanceId: 'InstanceId',
-      layerId: 'LayerId',
-      status: 'Status',
-      timeRangeEnd: 'TimeRangeEnd',
-      timeRangeStart: 'TimeRangeStart',
+      remainRateType: 'RemainRateType',
+      startDate: 'StartDate',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endDate: 'string',
       instanceId: 'string',
-      layerId: 'string',
-      status: 'string',
-      timeRangeEnd: 'string',
-      timeRangeStart: 'string',
+      remainRateType: 'string',
+      startDate: 'string',
     };
   }
 

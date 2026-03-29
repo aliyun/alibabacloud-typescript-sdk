@@ -2,28 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends $dara.Model {
+export class CreateDataDiagnosisResponseBody extends $dara.Model {
   /**
    * @example
-   * 80
+   * 1
    */
-  traffic?: number;
+  dataDiagnosisId?: string;
   /**
    * @example
-   * 1760319273
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
-  recordTime?: number;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      traffic: 'Traffic',
-      recordTime: 'RecordTime',
+      dataDiagnosisId: 'DataDiagnosisId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      traffic: 'number',
-      recordTime: 'number',
+      dataDiagnosisId: 'string',
+      requestId: 'string',
     };
   }
 

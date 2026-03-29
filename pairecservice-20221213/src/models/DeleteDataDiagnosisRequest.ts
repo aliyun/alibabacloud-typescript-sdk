@@ -2,28 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TrafficControlTaskTrafficInfoTargetTrafficsDataValue extends $dara.Model {
+export class DeleteDataDiagnosisRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 80
+   * learn-pairec-xxx
    */
-  traffic?: number;
-  /**
-   * @example
-   * 1760319273
-   */
-  recordTime?: number;
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      traffic: 'Traffic',
-      recordTime: 'RecordTime',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      traffic: 'number',
-      recordTime: 'number',
+      instanceId: 'string',
     };
   }
 

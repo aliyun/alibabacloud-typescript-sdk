@@ -2,44 +2,48 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListExperimentGroupsRequest extends $dara.Model {
+export class ListDataDiagnosisJobsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * pairec-cn-abcdefg1234
+   * pairec-test1
    */
   instanceId?: string;
   /**
    * @example
-   * 3
+   * 1
    */
-  layerId?: string;
+  pageNumber?: string;
   /**
    * @example
-   * Online
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * Initializing
    */
   status?: string;
-  timeRangeEnd?: string;
-  timeRangeStart?: string;
+  typesShrink?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      layerId: 'LayerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       status: 'Status',
-      timeRangeEnd: 'TimeRangeEnd',
-      timeRangeStart: 'TimeRangeStart',
+      typesShrink: 'Types',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      layerId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
       status: 'string',
-      timeRangeEnd: 'string',
-      timeRangeStart: 'string',
+      typesShrink: 'string',
     };
   }
 

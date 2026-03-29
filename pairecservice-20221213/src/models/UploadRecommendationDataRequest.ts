@@ -29,12 +29,10 @@ export class UploadRecommendationDataRequestContent extends $dara.Model {
 }
 
 export class UploadRecommendationDataRequest extends $dara.Model {
-  regionId?: string;
   content?: UploadRecommendationDataRequestContent[];
   dataType?: string;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       content: 'Content',
       dataType: 'DataType',
     };
@@ -42,7 +40,6 @@ export class UploadRecommendationDataRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       content: { 'type': 'array', 'itemType': UploadRecommendationDataRequestContent },
       dataType: 'string',
     };
