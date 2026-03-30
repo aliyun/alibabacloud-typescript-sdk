@@ -1627,6 +1627,10 @@ export default class Client extends OpenApi {
       query["CloudAccountProviderName"] = request.cloudAccountProviderName;
     }
 
+    if (!$dara.isNull(request.cloudAccountSite)) {
+      query["CloudAccountSite"] = request.cloudAccountSite;
+    }
+
     if (!$dara.isNull(request.cloudAccountVendorType)) {
       query["CloudAccountVendorType"] = request.cloudAccountVendorType;
     }

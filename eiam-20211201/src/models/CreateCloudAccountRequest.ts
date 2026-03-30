@@ -37,6 +37,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
    * idaas-eiam-oidc-provider
    */
   cloudAccountProviderName?: string;
+  cloudAccountSite?: string;
   /**
    * @remarks
    * 云账号类型
@@ -68,6 +69,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
       cloudAccountExternalId: 'CloudAccountExternalId',
       cloudAccountName: 'CloudAccountName',
       cloudAccountProviderName: 'CloudAccountProviderName',
+      cloudAccountSite: 'CloudAccountSite',
       cloudAccountVendorType: 'CloudAccountVendorType',
       description: 'Description',
       instanceId: 'InstanceId',
@@ -80,6 +82,7 @@ export class CreateCloudAccountRequest extends $dara.Model {
       cloudAccountExternalId: 'string',
       cloudAccountName: 'string',
       cloudAccountProviderName: 'string',
+      cloudAccountSite: 'string',
       cloudAccountVendorType: 'string',
       description: 'string',
       instanceId: 'string',
