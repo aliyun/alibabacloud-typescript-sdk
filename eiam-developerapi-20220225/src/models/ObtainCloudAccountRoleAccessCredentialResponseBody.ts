@@ -50,6 +50,38 @@ export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleA
   }
 }
 
+export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialAwsStsToken extends $dara.Model {
+  accessKeyId?: string;
+  expiration?: string;
+  secretAccessKey?: string;
+  sessionToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'accessKeyId',
+      expiration: 'expiration',
+      secretAccessKey: 'secretAccessKey',
+      sessionToken: 'sessionToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      expiration: 'string',
+      secretAccessKey: 'string',
+      sessionToken: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredential extends $dara.Model {
   /**
    * @example
@@ -57,10 +89,12 @@ export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleA
    */
   accessCredentialExpiresAt?: number;
   alibabaCloudStsToken?: ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialAlibabaCloudStsToken;
+  awsStsToken?: ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialAwsStsToken;
   static names(): { [key: string]: string } {
     return {
       accessCredentialExpiresAt: 'accessCredentialExpiresAt',
       alibabaCloudStsToken: 'alibabaCloudStsToken',
+      awsStsToken: 'awsStsToken',
     };
   }
 
@@ -68,12 +102,16 @@ export class ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleA
     return {
       accessCredentialExpiresAt: 'number',
       alibabaCloudStsToken: ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialAlibabaCloudStsToken,
+      awsStsToken: ObtainCloudAccountRoleAccessCredentialResponseBodyCloudAccountRoleAccessCredentialAwsStsToken,
     };
   }
 
   validate() {
     if(this.alibabaCloudStsToken && typeof (this.alibabaCloudStsToken as any).validate === 'function') {
       (this.alibabaCloudStsToken as any).validate();
+    }
+    if(this.awsStsToken && typeof (this.awsStsToken as any).validate === 'function') {
+      (this.awsStsToken as any).validate();
     }
     super.validate();
   }

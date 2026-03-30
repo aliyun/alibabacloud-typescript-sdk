@@ -2,27 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ObtainCloudAccountRoleAccessCredentialRequest extends $dara.Model {
+export class ObtainJwtAuthenticationTokenRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * acs:ram::xxx:role/role-test
+   * atntkn_01kqflm0sxxx8nmdc1cb5dskxxxxx
    */
-  cloudAccountRoleExternalId?: string;
-  durationSeconds?: number;
+  authenticationTokenId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test_jwt_subject
+   */
+  consumerId?: string;
   static names(): { [key: string]: string } {
     return {
-      cloudAccountRoleExternalId: 'cloudAccountRoleExternalId',
-      durationSeconds: 'durationSeconds',
+      authenticationTokenId: 'authenticationTokenId',
+      consumerId: 'consumerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cloudAccountRoleExternalId: 'string',
-      durationSeconds: 'number',
+      authenticationTokenId: 'string',
+      consumerId: 'string',
     };
   }
 

@@ -1913,6 +1913,10 @@ export default class Client extends OpenApi {
       query["cloudAccountRoleExternalId"] = request.cloudAccountRoleExternalId;
     }
 
+    if (!$dara.isNull(request.durationSeconds)) {
+      query["durationSeconds"] = request.durationSeconds;
+    }
+
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -2004,6 +2008,64 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.ObtainCredentialHeaders({ });
     return await this.obtainCredentialWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 获取JWT认证令牌明文。
+   * 
+   * @param request - ObtainJwtAuthenticationTokenRequest
+   * @param headers - ObtainJwtAuthenticationTokenHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ObtainJwtAuthenticationTokenResponse
+   */
+  async obtainJwtAuthenticationTokenWithOptions(instanceId: string, request: $_model.ObtainJwtAuthenticationTokenRequest, headers: $_model.ObtainJwtAuthenticationTokenHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ObtainJwtAuthenticationTokenResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.authenticationTokenId)) {
+      body["authenticationTokenId"] = request.authenticationTokenId;
+    }
+
+    if (!$dara.isNull(request.consumerId)) {
+      body["consumerId"] = request.consumerId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ObtainJwtAuthenticationToken",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/authenticationTokens/_/actions/obtainJwt`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ObtainJwtAuthenticationTokenResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.ObtainJwtAuthenticationTokenResponse({}));
+  }
+
+  /**
+   * 获取JWT认证令牌明文。
+   * 
+   * @param request - ObtainJwtAuthenticationTokenRequest
+   * @returns ObtainJwtAuthenticationTokenResponse
+   */
+  async obtainJwtAuthenticationToken(instanceId: string, request: $_model.ObtainJwtAuthenticationTokenRequest): Promise<$_model.ObtainJwtAuthenticationTokenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ObtainJwtAuthenticationTokenHeaders({ });
+    return await this.obtainJwtAuthenticationTokenWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
