@@ -175,6 +175,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - AddDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDataSourceResponse
+   */
+  async addDataSourceWithOptions(request: $_model.AddDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddDataSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.connectionInfo)) {
+      query["ConnectionInfo"] = request.connectionInfo;
+    }
+
+    if (!$dara.isNull(request.credential)) {
+      query["Credential"] = request.credential;
+    }
+
+    if (!$dara.isNull(request.dataSourceName)) {
+      query["DataSourceName"] = request.dataSourceName;
+    }
+
+    if (!$dara.isNull(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!$dara.isNull(request.exclude)) {
+      query["Exclude"] = request.exclude;
+    }
+
+    if (!$dara.isNull(request.include)) {
+      query["Include"] = request.include;
+    }
+
+    if (!$dara.isNull(request.indexLevel)) {
+      query["IndexLevel"] = request.indexLevel;
+    }
+
+    if (!$dara.isNull(request.options)) {
+      query["Options"] = request.options;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.schedule)) {
+      query["Schedule"] = request.schedule;
+    }
+
+    if (!$dara.isNull(request.speedLimit)) {
+      query["SpeedLimit"] = request.speedLimit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddDataSource",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.AddDataSourceResponse({}));
+  }
+
+  /**
+   * @param request - AddDataSourceRequest
+   * @returns AddDataSourceResponse
+   */
+  async addDataSource(request: $_model.AddDataSourceRequest): Promise<$_model.AddDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addDataSourceWithOptions(request, runtime);
+  }
+
+  /**
    * 浏览备份文件
    * 
    * @param request - BrowseFilesRequest
