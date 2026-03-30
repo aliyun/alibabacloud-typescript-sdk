@@ -40,15 +40,21 @@ export class RetrieveRequestRerank extends $dara.Model {
    * gte-rerank-hybrid
    */
   modelName?: string;
+  rerankInstruct?: string;
+  rerankMode?: string;
   static names(): { [key: string]: string } {
     return {
       modelName: 'ModelName',
+      rerankInstruct: 'RerankInstruct',
+      rerankMode: 'RerankMode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       modelName: 'string',
+      rerankInstruct: 'string',
+      rerankMode: 'string',
     };
   }
 

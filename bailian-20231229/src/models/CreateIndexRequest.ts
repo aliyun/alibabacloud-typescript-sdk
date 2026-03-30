@@ -258,6 +258,7 @@ export class CreateIndexRequest extends $dara.Model {
    * 16
    */
   overlapSize?: number;
+  rerankInstruct?: string;
   /**
    * @remarks
    * The similarity threshold. Only chunks with a similarity score higher than this value can be recalled. This parameter is used to filter chunks returned by the re-rank model. Valid values: 0.01 to 1.00.
@@ -268,6 +269,7 @@ export class CreateIndexRequest extends $dara.Model {
    * 0.20
    */
   rerankMinScore?: number;
+  rerankMode?: string;
   /**
    * @remarks
    * The re-ranking model used in the knowledge base. The re-rank model is a scoring system outside the knowledge base. It calculates the similarity score of the query and text chunks in the knowledge base and ranks them in descending order. Then, the model returns the top K chunks with the highest scores. Valid values:
@@ -433,7 +435,9 @@ export class CreateIndexRequest extends $dara.Model {
       enableRewrite: 'EnableRewrite',
       name: 'Name',
       overlapSize: 'OverlapSize',
+      rerankInstruct: 'RerankInstruct',
       rerankMinScore: 'RerankMinScore',
+      rerankMode: 'RerankMode',
       rerankModelName: 'RerankModelName',
       separator: 'Separator',
       sinkInstanceId: 'SinkInstanceId',
@@ -470,7 +474,9 @@ export class CreateIndexRequest extends $dara.Model {
       enableRewrite: 'boolean',
       name: 'string',
       overlapSize: 'number',
+      rerankInstruct: 'string',
       rerankMinScore: 'number',
+      rerankMode: 'string',
       rerankModelName: 'string',
       separator: 'string',
       sinkInstanceId: 'string',

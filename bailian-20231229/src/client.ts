@@ -605,8 +605,16 @@ export default class Client extends OpenApi {
       query["OverlapSize"] = request.overlapSize;
     }
 
+    if (!$dara.isNull(request.rerankInstruct)) {
+      query["RerankInstruct"] = request.rerankInstruct;
+    }
+
     if (!$dara.isNull(request.rerankMinScore)) {
       query["RerankMinScore"] = request.rerankMinScore;
+    }
+
+    if (!$dara.isNull(request.rerankMode)) {
+      query["RerankMode"] = request.rerankMode;
     }
 
     if (!$dara.isNull(request.rerankModelName)) {
