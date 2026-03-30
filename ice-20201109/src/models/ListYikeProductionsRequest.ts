@@ -23,12 +23,14 @@ export class ListYikeProductionsRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -38,6 +40,7 @@ export class ListYikeProductionsRequest extends $dara.Model {
       nextToken: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      workspaceId: 'string',
     };
   }
 
