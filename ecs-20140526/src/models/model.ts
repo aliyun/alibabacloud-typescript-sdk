@@ -14,6 +14,8 @@ export { AttachKeyPairResponseBodyResults } from './AttachKeyPairResponseBody';
 export { AuthorizeSecurityGroupRequestPermissions } from './AuthorizeSecurityGroupRequest';
 export { AuthorizeSecurityGroupEgressRequestPermissions } from './AuthorizeSecurityGroupEgressRequest';
 export { CancelImagePipelineExecutionRequestTemplateTag } from './CancelImagePipelineExecutionRequest';
+export { CloneDisksRequestArn } from './CloneDisksRequest';
+export { CloneDisksRequestTag } from './CloneDisksRequest';
 export { CopyImageRequestTag } from './CopyImageRequest';
 export { CopySnapshotRequestArn } from './CopySnapshotRequest';
 export { CopySnapshotRequestTag } from './CopySnapshotRequest';
@@ -975,6 +977,9 @@ export { CancelSimulatedSystemEventsResponse } from './CancelSimulatedSystemEven
 export { CancelTaskRequest } from './CancelTaskRequest';
 export { CancelTaskResponseBody } from './CancelTaskResponseBody';
 export { CancelTaskResponse } from './CancelTaskResponse';
+export { CloneDisksRequest } from './CloneDisksRequest';
+export { CloneDisksResponseBody } from './CloneDisksResponseBody';
+export { CloneDisksResponse } from './CloneDisksResponse';
 export { ConnectRouterInterfaceRequest } from './ConnectRouterInterfaceRequest';
 export { ConnectRouterInterfaceResponseBody } from './ConnectRouterInterfaceResponseBody';
 export { ConnectRouterInterfaceResponse } from './ConnectRouterInterfaceResponse';

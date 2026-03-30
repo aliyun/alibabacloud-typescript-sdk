@@ -2462,6 +2462,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 使用一块已有的磁盘克隆出新磁盘
+   * 
+   * @param request - CloneDisksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloneDisksResponse
+   */
+  async cloneDisksWithOptions(request: $_model.CloneDisksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloneDisksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.arn)) {
+      query["Arn"] = request.arn;
+    }
+
+    if (!$dara.isNull(request.burstingEnabled)) {
+      query["BurstingEnabled"] = request.burstingEnabled;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.diskCategory)) {
+      query["DiskCategory"] = request.diskCategory;
+    }
+
+    if (!$dara.isNull(request.diskName)) {
+      query["DiskName"] = request.diskName;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.encrypted)) {
+      query["Encrypted"] = request.encrypted;
+    }
+
+    if (!$dara.isNull(request.kmsKeyId)) {
+      query["KmsKeyId"] = request.kmsKeyId;
+    }
+
+    if (!$dara.isNull(request.multiAttach)) {
+      query["MultiAttach"] = request.multiAttach;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.performanceLevel)) {
+      query["PerformanceLevel"] = request.performanceLevel;
+    }
+
+    if (!$dara.isNull(request.provisionedIops)) {
+      query["ProvisionedIops"] = request.provisionedIops;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.sourceDiskId)) {
+      query["SourceDiskId"] = request.sourceDiskId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloneDisks",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloneDisksResponse>(await this.callApi(params, req, runtime), new $_model.CloneDisksResponse({}));
+  }
+
+  /**
+   * 使用一块已有的磁盘克隆出新磁盘
+   * 
+   * @param request - CloneDisksRequest
+   * @returns CloneDisksResponse
+   */
+  async cloneDisks(request: $_model.CloneDisksRequest): Promise<$_model.CloneDisksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloneDisksWithOptions(request, runtime);
+  }
+
+  /**
    * ConnectRouterInterface
    * 
    * @deprecated OpenAPI ConnectRouterInterface is deprecated, please use Vpc::2016-04-28::ConnectRouterInterface instead.
@@ -17569,7 +17679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询运维窗口
+   * Query O\\\\\\&M window
    * 
    * @param tmpReq - DescribePlanMaintenanceWindowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17634,7 +17744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询运维窗口
+   * Query O\\\\\\&M window
    * 
    * @param request - DescribePlanMaintenanceWindowsRequest
    * @returns DescribePlanMaintenanceWindowsResponse

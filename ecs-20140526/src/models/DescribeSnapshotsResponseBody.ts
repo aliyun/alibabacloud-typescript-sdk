@@ -60,6 +60,11 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $dara.Model 
   creationTime?: string;
   description?: string;
   encrypted?: boolean;
+  /**
+   * @example
+   * 65535
+   */
+  fullSnapshotSizeInBytes?: number;
   instantAccess?: boolean;
   instantAccessRetentionDays?: number;
   KMSKeyId?: string;
@@ -99,6 +104,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $dara.Model 
       creationTime: 'CreationTime',
       description: 'Description',
       encrypted: 'Encrypted',
+      fullSnapshotSizeInBytes: 'FullSnapshotSizeInBytes',
       instantAccess: 'InstantAccess',
       instantAccessRetentionDays: 'InstantAccessRetentionDays',
       KMSKeyId: 'KMSKeyId',
@@ -133,6 +139,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $dara.Model 
       creationTime: 'string',
       description: 'string',
       encrypted: 'boolean',
+      fullSnapshotSizeInBytes: 'number',
       instantAccess: 'boolean',
       instantAccessRetentionDays: 'number',
       KMSKeyId: 'string',
