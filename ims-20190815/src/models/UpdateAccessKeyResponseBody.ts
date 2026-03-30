@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAccessKeyResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B9AF80E4-1565-42D9-9256-0B8B0D9FD3EC
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -156,9 +156,8 @@ export class ListExternalApplicationsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the response is truncated. Valid values:
    * 
-   * - true
-   * 
-   * - false
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -168,7 +167,7 @@ export class ListExternalApplicationsResponseBody extends $dara.Model {
    * @remarks
    * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
-   * > This parameter is returned only when `IsTruncated` is `true`.
+   * >  This parameter is returned only when `IsTruncated` is `true`.
    * 
    * @example
    * EXAMPLE

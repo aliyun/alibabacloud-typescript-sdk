@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAccessKeysInRecycleBinRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Resource Access Management (RAM) user.
+   * 
+   * @example
+   * 20732900249392****
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {

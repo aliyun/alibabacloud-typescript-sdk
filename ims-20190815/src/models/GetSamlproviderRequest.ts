@@ -5,9 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetSAMLProviderRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the SAML provider.
+   * The name of the IdP.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * test-provider
    */
   SAMLProviderName?: string;
   static names(): { [key: string]: string } {

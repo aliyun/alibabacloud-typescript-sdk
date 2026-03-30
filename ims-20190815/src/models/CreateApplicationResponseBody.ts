@@ -128,7 +128,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * 472457090344041****
@@ -152,7 +152,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The time when the application was created.
+   * The creation time.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -160,7 +160,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The information about the application scopes.
+   * The information about the permissions that are granted on the application.
    */
   delegatedScope?: CreateApplicationResponseBodyApplicationDelegatedScope;
   /**
@@ -173,23 +173,12 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the application can be installed by other Alibaba Cloud accounts.
+   * Indicates whether the application can be installed by using other Alibaba Cloud accounts.
    * 
    * @example
    * true
    */
   isMultiTenant?: boolean;
-  /**
-   * @remarks
-   * The OAuth protocol version of the application. Valid values:
-   * 
-   * - `2.0`: OAuth 2.0.
-   * 
-   * - `2.1`: OAuth 2.1.
-   * 
-   * @example
-   * 2.0
-   */
   protocolVersion?: string;
   redirectUris?: CreateApplicationResponseBodyApplicationRedirectUris;
   /**
@@ -202,7 +191,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   refreshTokenValidity?: number;
   /**
    * @remarks
-   * Indicates whether an application key is required.
+   * Indicates whether a secret is required.
    * 
    * @example
    * true
@@ -210,7 +199,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
   secretRequired?: boolean;
   /**
    * @remarks
-   * The time when the application was last updated.
+   * The update time.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -272,7 +261,7 @@ export class CreateApplicationResponseBodyApplication extends $dara.Model {
 export class CreateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The application information.
+   * The information about the application.
    */
   application?: CreateApplicationResponseBodyApplication;
   /**

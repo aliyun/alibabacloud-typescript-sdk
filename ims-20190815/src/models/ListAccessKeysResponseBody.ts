@@ -62,6 +62,13 @@ export class ListAccessKeysResponseBodyAccessKeys extends $dara.Model {
 
 export class ListAccessKeysResponseBody extends $dara.Model {
   accessKeys?: ListAccessKeysResponseBodyAccessKeys;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4B450CA1-36E8-4AA2-8461-86B42BF4CC4E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

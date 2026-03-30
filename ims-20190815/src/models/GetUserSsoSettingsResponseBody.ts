@@ -3,39 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $dara.Model {
-  /**
-   * @remarks
-   * The signature algorithm supported by the Alibaba Cloud service provider (SP). Valid values:
-   * 
-   * - rsa-sha256
-   * 
-   * - rsa-sha1
-   */
   authnSignAlgo?: string;
   /**
    * @remarks
    * The auxiliary domain name.
+   * 
+   * @example
+   * example.com
    */
   auxiliaryDomain?: string;
   /**
    * @remarks
-   * The metadata file. The value is Base64-encoded.
+   * The metadata file, which is Base64-encoded.
+   * 
+   * @example
+   * PD94bWwgdmVy****
    */
   metadataDocument?: string;
   /**
    * @remarks
    * Indicates whether user-based SSO is enabled.
+   * 
+   * @example
+   * false
    */
   ssoEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether the `<saml:NameID>` element in a SAML response must contain a domain name when a user logs on using SAML SSO. The username for SSO logon matching is specified on the identity provider (IdP) side.
+   * Indicates whether the Security Assertion Markup Language (SAML) SSO requires a domain name in the `<saml:NameID>` element of the SAML response. If yes, the username specified by the identity provider (IdP) for SSO must have a domain name as the suffix.
    * 
-   * - If this parameter is set to `true`, the value of the `<saml:NameID>` element **must** be in the `username@domain` format. The `domain` can be the default domain name or a domain alias, if a domain alias is configured.
-   * 
-   * - If this parameter is set to `false`, the value of the `<saml:NameID>` element \\*\\*must\\*\\* contain only the \\`username\\` and \\*\\*must not\\*\\* contain the \\`domain\\` part.
+   * *   If the value of the parameter is `true`, the `<saml:NameID>` element **must** be in the `username@domain` format. You can set `domain` to the default domain name or the configured domain alias.
+   * *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
    * 
    * The default value is `true`.
+   * 
+   * @example
+   * true
    */
   ssoLoginWithDomain?: boolean;
   static names(): { [key: string]: string } {
@@ -71,11 +74,14 @@ export class GetUserSsoSettingsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request ID.
+   * 
+   * @example
+   * 69FC3E5E-D3D9-434B-90CA-BBA8E0551A47
    */
   requestId?: string;
   /**
    * @remarks
-   * The user-based SSO settings.
+   * The configurations of user-based SSO.
    */
   userSsoSettings?: GetUserSsoSettingsResponseBodyUserSsoSettings;
   static names(): { [key: string]: string } {

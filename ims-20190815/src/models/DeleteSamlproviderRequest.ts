@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSAMLProviderRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the IdP that you want to delete.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-provider
    */
   SAMLProviderName?: string;
   static names(): { [key: string]: string } {

@@ -5,24 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether logon is prevented after the password expires.
+   * Indicates whether to disable logon after the password expires.
    * 
    * @example
    * false
    */
   hardExpire?: boolean;
-  /**
-   * @remarks
-   * The validity period of the initial password.
-   * 
-   * @example
-   * 14
-   */
   initialPasswordAge?: number;
   interceptRiskPasswordOnApi?: boolean;
   /**
    * @remarks
-   * The maximum number of consecutive logon failures that are allowed.
+   * The maximum number of password retries.
    * 
    * @example
    * 0
@@ -46,7 +39,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   minimumPasswordDifferentCharacter?: number;
   /**
    * @remarks
-   * The minimum length of the password.
+   * The minimum number of characters in the password.
    * 
    * @example
    * 8
@@ -54,7 +47,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   minimumPasswordLength?: number;
   /**
    * @remarks
-   * Prevents passwords from containing the username.
+   * Indicates whether to exclude the username from the password.
    * 
    * @example
    * false
@@ -62,7 +55,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   passwordNotContainUserName?: boolean;
   /**
    * @remarks
-   * The number of previous passwords that cannot be reused.
+   * The policy for password history check.
    * 
    * @example
    * 0
@@ -86,7 +79,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
   requireNumbers?: boolean;
   /**
    * @remarks
-   * Indicates whether the password must contain symbols.
+   * Indicates whether the password must contain special characters.
    * 
    * @example
    * false
@@ -148,7 +141,7 @@ export class SetPasswordPolicyResponseBodyPasswordPolicy extends $dara.Model {
 export class SetPasswordPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The password strength policy.
+   * The details of the password policy.
    */
   passwordPolicy?: SetPasswordPolicyResponseBodyPasswordPolicy;
   /**

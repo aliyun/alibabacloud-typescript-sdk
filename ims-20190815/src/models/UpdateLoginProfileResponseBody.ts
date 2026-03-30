@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to automatically disable console logon for an inactive account. This feature is enabled by default and cannot be disabled.
+   * Indicates whether console logon is automatically disabled if a RAM user does not log on to the console in the previous specified number of days. The number of days is specified by MaxIdleDaysForUsers. The default value is true, and you cannot change the value.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   autoDisableLoginStatus?: string;
   /**
    * @remarks
-   * Indicates whether MFA is enforced for the user.
+   * Indicates whether MFA must be enabled.
    * 
    * @example
    * false
@@ -21,31 +21,16 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the RAM user must reset the password at the next logon.
+   * Indicates whether the RAM user is required to reset the password upon the next logon.
    * 
    * @example
    * false
    */
   passwordResetRequired?: boolean;
-  /**
-   * @remarks
-   * The status of the initial password. An initial password is the one set when a logon profile is created or console logon is re-enabled.
-   * 
-   * Valid values:
-   * 
-   * - "NotInitial": Not an initial password.
-   * 
-   * - "InitialValid": The initial password is valid.
-   * 
-   * - "InitialExpired": The initial password has expired.
-   * 
-   * @example
-   * NotInitial
-   */
   passwordStatus?: string;
   /**
    * @remarks
-   * Specifies whether password logon to the console is enabled or disabled.
+   * Indicates whether to enable password-based logons to the console.
    * 
    * @example
    * Active
@@ -53,7 +38,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the logon profile was updated.
+   * The modification time.
    * 
    * @example
    * 2020-10-14T07:48:41Z
@@ -103,7 +88,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $dara.Model {
 export class UpdateLoginProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The console logon information.
+   * The console logon configurations.
    */
   loginProfile?: UpdateLoginProfileResponseBodyLoginProfile;
   /**

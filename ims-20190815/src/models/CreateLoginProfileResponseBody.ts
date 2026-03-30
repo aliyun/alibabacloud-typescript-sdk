@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the RAM user is required to enable MFA.
+   * Indicates whether to forcefully enable MFA for the RAM user.
    * 
    * @example
    * false
@@ -13,31 +13,16 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the RAM user must reset the password at the next logon.
+   * Indicates whether the RAM user is required to reset the password upon the next logon.
    * 
    * @example
    * false
    */
   passwordResetRequired?: boolean;
-  /**
-   * @remarks
-   * The status of the initial password. This password is set when a logon configuration is created or when console logon is re-enabled.
-   * 
-   * Valid values
-   * 
-   * - "NotInitial": The password is not an initial password.
-   * 
-   * - "InitialValid": The initial password is valid.
-   * 
-   * - "InitialExpired": The initial password has expired.
-   * 
-   * @example
-   * NotInitial
-   */
   passwordStatus?: string;
   /**
    * @remarks
-   * Indicates whether password-based logon for the console is enabled or disabled.
+   * Indicates whether to enable password-based logons to the console.
    * 
    * @example
    * Active
@@ -45,7 +30,7 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the logon configuration was last updated.
+   * The update time.
    * 
    * @example
    * 2020-10-14T03:47:51Z
@@ -93,7 +78,7 @@ export class CreateLoginProfileResponseBodyLoginProfile extends $dara.Model {
 export class CreateLoginProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The logon information for the console.
+   * The logon information.
    */
   loginProfile?: CreateLoginProfileResponseBodyLoginProfile;
   /**

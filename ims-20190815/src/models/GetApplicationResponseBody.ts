@@ -128,7 +128,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * 472457090344041****
@@ -136,7 +136,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * myapp
@@ -144,13 +144,11 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application type. Valid values:
+   * The type of the application. Valid values:
    * 
-   * - WebApp: a web application that is based on browser interaction.
-   * 
-   * - NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
-   * 
-   * - ServerApp: an application that can directly access Alibaba Cloud services without user logon. Currently, only applications that use the System for Cross-domain Identity Management (SCIM) for user synchronization are supported.
+   * *   WebApp: a web application.
+   * *   NativeApp: a native application that runs on an operating system, such as a desktop or mobile operating system.
+   * *   ServerApp: an application that can access Alibaba Cloud services without the need for user logon. Only applications that synchronize user information based on the System for Cross-domain Identity Management (SCIM) protocol are supported.
    * 
    * @example
    * WebApp
@@ -158,7 +156,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The time when the application was created.
+   * The creation time.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -166,7 +164,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The permission scopes of the application.
+   * The information about the permissions that are granted on the application.
    */
   delegatedScope?: GetApplicationResponseBodyApplicationDelegatedScope;
   /**
@@ -179,23 +177,12 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Indicates whether the application can be installed by other Alibaba Cloud accounts.
+   * Indicates whether the application can be installed by using other Alibaba Cloud accounts.
    * 
    * @example
    * true
    */
   isMultiTenant?: boolean;
-  /**
-   * @remarks
-   * The OAuth protocol version of the application. Valid values:
-   * 
-   * - `2.0`: OAuth 2.0.
-   * 
-   * - `2.1`: OAuth 2.1.
-   * 
-   * @example
-   * 2.0
-   */
   protocolVersion?: string;
   redirectUris?: GetApplicationResponseBodyApplicationRedirectUris;
   /**
@@ -208,7 +195,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   refreshTokenValidity?: number;
   /**
    * @remarks
-   * Indicates whether an application key is required.
+   * Indicates whether a secret is required.
    * 
    * @example
    * true
@@ -216,7 +203,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   secretRequired?: boolean;
   /**
    * @remarks
-   * The time when the application was last updated.
+   * The update time.
    * 
    * @example
    * 2020-10-23T08:06:57Z
@@ -283,7 +270,7 @@ export class GetApplicationResponseBody extends $dara.Model {
   application?: GetApplicationResponseBodyApplication;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6616F09B-2768-4C11-8866-A8EE4C4A583E

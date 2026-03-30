@@ -207,7 +207,7 @@ export class ListApplicationsResponseBody extends $dara.Model {
   applications?: ListApplicationsResponseBodyApplications;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CE458B58-8C40-46F7-A9D4-CB85136B0C06

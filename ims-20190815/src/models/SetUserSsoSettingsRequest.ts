@@ -3,45 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetUserSsoSettingsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The signature algorithm that is supported by the Alibaba Cloud service provider (SP). Valid values:
-   * 
-   * - rsa-sha256
-   * 
-   * - rsa-sha1 (default)
-   */
   authnSignAlgo?: string;
   /**
    * @remarks
    * The auxiliary domain name.
+   * 
+   * @example
+   * example.com
    */
   auxiliaryDomain?: string;
   /**
    * @remarks
-   * The metadata file. The file must be Base64-encoded.
+   * The metadata file, which is Base64-encoded.
    * 
-   * The file is provided by an identity provider (IdP) that supports the Security Assertion Markup Language (SAML) 2.0 protocol.
+   * The file is provided by an identity provider (IdP) that supports Security Assertion Markup Language (SAML) 2.0.
+   * 
+   * @example
+   * PD94bWwgdmVy****
    */
   metadataDocument?: string;
   /**
    * @remarks
-   * Specifies whether to enable user-based SSO for Resource Access Management (RAM) users. Valid values:
+   * Specifies whether to enable SSO for the RAM user. Valid values:
    * 
-   * - true: Enables user-based SSO.
+   * *   true
+   * *   false (default)
    * 
-   * - false (default): Disables user-based SSO.
+   * @example
+   * true
    */
   ssoEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether the `<saml:NameID>` element in a SAML response must contain a domain name when a user logs on using SAML-based SSO. This applies if the username that is specified on the IdP for logon matching contains a domain name suffix.
+   * Specifies whether the SAML SSO requires a domain name in the `<saml:NameID>` element of the SAML response. If yes, the username specified by the IdP for SSO must have a domain name as the suffix.
    * 
-   * - If this parameter is set to `true`, the value of the `<saml:NameID>` element **must** be in the `username@domain` format, which includes a domain name suffix. The `domain` can be the default domain name or a domain alias if one is configured.
+   * *   If the value of the parameter is `true`, the `<saml:NameID>` element **must** be in the `username@domain` format. You can set `domain` to the default domain name or the configured domain alias.
+   * *   If the value of the parameter is `false`, the `<saml:NameID>` element **must** be in the `username` format and **cannot** contain the `domain` suffix.
    * 
-   * - If this parameter is set to `false`, the value of the `<saml:NameID>` element **must** be the `username` only. The value **must not** contain the `domain` part.
+   * Set the value to the default `true`.
    * 
-   * The default value is `true`.
+   * @example
+   * true
    */
   ssoLoginWithDomain?: boolean;
   static names(): { [key: string]: string } {

@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetAccessKeyInfoInRecycleBinRequest extends $dara.Model {
   /**
    * @remarks
+   * The AccessKey ID of the Resource Access Management (RAM) user.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * LTAI*******************
    */
   userAccessKeyId?: string;
   static names(): { [key: string]: string } {

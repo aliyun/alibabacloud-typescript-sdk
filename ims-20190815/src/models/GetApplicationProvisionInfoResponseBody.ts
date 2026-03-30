@@ -81,12 +81,58 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfoDele
 }
 
 export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 177242285274****
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * 452392483381546****
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The name of the application.
+   * 
+   * @example
+   * GiteePrd
+   */
   appName?: string;
+  /**
+   * @remarks
+   * The time when the application was installed. The value is a timestamp.
+   * 
+   * @example
+   * 1603693518000
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The information about the scopes of permissions that are granted to the application.
+   */
   delegatedScope?: GetApplicationProvisionInfoResponseBodyApplicationProvisionInfoDelegatedScope;
+  /**
+   * @remarks
+   * The display name of the application.
+   * 
+   * @example
+   * GiteeAliyun
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The update time. The value is a timestamp.
+   * 
+   * @example
+   * 1603693518000
+   */
   updateDate?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,7 +171,18 @@ export class GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo ext
 }
 
 export class GetApplicationProvisionInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The installation information about the application.
+   */
   applicationProvisionInfo?: GetApplicationProvisionInfoResponseBodyApplicationProvisionInfo;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 936E1D9C-157D-45BD-8A3B-81C0716EB078
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

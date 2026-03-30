@@ -11,21 +11,10 @@ export class CreateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
    * acs:ram::177242285274****:saml-provider/test-provider
    */
   arn?: string;
-  /**
-   * @remarks
-   * The supported signature algorithm. Valid values:
-   * 
-   * - rsa-sha256
-   * 
-   * - rsa-sha1 (default)
-   * 
-   * @example
-   * rsa-sha1
-   */
   authnSignAlgo?: string;
   /**
    * @remarks
-   * The time when the information was created. It is displayed in UTC.
+   * The creation time. The time is displayed in UTC.
    * 
    * @example
    * 2020-10-22T02:37:05Z
@@ -33,7 +22,7 @@ export class CreateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * The IdP description.
+   * The description.
    * 
    * @example
    * This is a provider.
@@ -41,7 +30,7 @@ export class CreateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IdP name.
+   * The name of the IdP.
    * 
    * @example
    * test-provider
@@ -49,7 +38,7 @@ export class CreateSAMLProviderResponseBodySAMLProvider extends $dara.Model {
   SAMLProviderName?: string;
   /**
    * @remarks
-   * The time when the information was last updated. It is displayed in UTC.
+   * The update time. The time is displayed in UTC.
    * 
    * @example
    * 2020-10-22T02:51:20Z
@@ -92,7 +81,7 @@ export class CreateSAMLProviderResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * E5EDDFD2-3654-4F9F-9780-4AE7D81823EF
+   * A95A763D-F6B7-5242-83EB-AB45CE67F358
    */
   requestId?: string;
   /**

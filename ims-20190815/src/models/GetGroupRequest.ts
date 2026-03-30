@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the RAM user group.
+   * 
+   * @example
+   * Dev-Team
+   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {

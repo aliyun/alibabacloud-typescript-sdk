@@ -7,9 +7,8 @@ export class ListApplicationProvisionInfosRequest extends $dara.Model {
    * @remarks
    * The source of the applications. Valid values:
    * 
-   * - inner: The applications are from the current account.
-   * 
-   * - external: The applications are from other accounts.
+   * *   inner: The applications are from the current account.
+   * *   external: The applications are from other accounts.
    * 
    * @example
    * external

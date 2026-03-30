@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为OIDC身份提供商添加指定客户端ID
+   * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
    * 
    * @param request - AddClientIdToOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65,7 +65,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为OIDC身份提供商添加指定客户端ID
+   * Adds a client ID to an OpenID Connect (OIDC) identity provider (IdP).
    * 
    * @param request - AddClientIdToOIDCProviderRequest
    * @returns AddClientIdToOIDCProviderResponse
@@ -76,7 +76,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为OIDC身份提供商添加验证指纹
+   * Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - AddFingerprintToOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -111,7 +115,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为OIDC身份提供商添加验证指纹
+   * Adds a fingerprint to an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - AddFingerprintToOIDCProviderRequest
    * @returns AddFingerprintToOIDCProviderResponse
@@ -122,7 +130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将RAM用户添加到指定的用户组
+   * Adds a Resource Access Management (RAM) user to a RAM user group.
    * 
    * @param request - AddUserToGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -157,7 +165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将RAM用户添加到指定的用户组
+   * Adds a Resource Access Management (RAM) user to a RAM user group.
    * 
    * @param request - AddUserToGroupRequest
    * @returns AddUserToGroupResponse
@@ -168,7 +176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为RAM用户绑定多因素认证设备
+   * Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
    * 
    * @param request - BindMFADeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -211,7 +219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为RAM用户绑定多因素认证设备
+   * Binds a multi-factor authentication (MFA) device to a Resource Access Management (RAM) user.
    * 
    * @param request - BindMFADeviceRequest
    * @returns BindMFADeviceResponse
@@ -222,7 +230,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RAM用户的登录密码
+   * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+   * 
+   * @remarks
+   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
    * 
    * @param request - ChangePasswordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -257,7 +268,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RAM用户的登录密码
+   * Changes the password that is used to log on to the console for a Resource Access Management (RAM) user.
+   * 
+   * @remarks
+   * >  This operation is available only for RAM users. Before you call this operation, make sure that `AllowUserToChangePassword` in [SetSecurityPreference](https://help.aliyun.com/document_detail/43765.html) is set to `True`. The value True indicates that RAM users can manage their passwords.
    * 
    * @param request - ChangePasswordRequest
    * @returns ChangePasswordResponse
@@ -268,7 +282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建主账号或RAM用户访问密钥
+   * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - CreateAccessKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -299,7 +313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建主账号或RAM用户访问密钥
+   * Creates an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - CreateAccessKeyRequest
    * @returns CreateAccessKeyResponse
@@ -310,7 +324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为指定的应用创建应用密钥
+   * Creates an application secret for an application.
    * 
    * @param request - CreateAppSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -341,7 +355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为指定的应用创建应用密钥
+   * Creates an application secret for an application.
    * 
    * @param request - CreateAppSecretRequest
    * @returns CreateAppSecretResponse
@@ -434,7 +448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户组
+   * Creates a Resource Access Management (RAM) user group.
    * 
    * @param request - CreateGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -473,7 +487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建用户组
+   * Creates a Resource Access Management (RAM) user group.
    * 
    * @param request - CreateGroupRequest
    * @returns CreateGroupResponse
@@ -484,7 +498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a logon configuration for a Resource Access Management (RAM) user.
+   * Enables logon to the console for a Resource Access Management (RAM) user.
    * 
    * @param request - CreateLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -531,7 +545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a logon configuration for a Resource Access Management (RAM) user.
+   * Enables logon to the console for a Resource Access Management (RAM) user.
    * 
    * @param request - CreateLoginProfileRequest
    * @returns CreateLoginProfileResponse
@@ -542,7 +556,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建OIDC身份供应商
+   * Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
+   * ### [](#)Limits
+   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+   * *   You can add a maximum of 50 client IDs to an OIDC IdP.
+   * *   You can add a maximum of five fingerprints to an OIDC IdP.
+   * ### [](#)Operation description
+   * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
    * 
    * @param request - CreateOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -593,7 +617,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建OIDC身份供应商
+   * Creates an OpenID Connect (OIDC) identity provider (IdP) to configure a trust relationship between Alibaba Cloud and an external IdP. This topic provides an example on how to create an IdP named TestOIDCProvider to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
+   * 
+   * @remarks
+   * ### [](#)Prerequisites
+   * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificate authority (CA) certificates, and the client IDs are obtained from an external IdP, such as Google Workspace or Okta.
+   * ### [](#)Limits
+   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+   * *   You can add a maximum of 50 client IDs to an OIDC IdP.
+   * *   You can add a maximum of five fingerprints to an OIDC IdP.
+   * ### [](#)Operation description
+   * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
    * 
    * @param request - CreateOIDCProviderRequest
    * @returns CreateOIDCProviderResponse
@@ -658,7 +692,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RAM用户
+   * Creates a RAM user.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a RAM user named `test`.
    * 
    * @param request - CreateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -709,7 +746,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建RAM用户
+   * Creates a RAM user.
+   * 
+   * @remarks
+   * This topic provides an example on how to create a RAM user named `test`.
    * 
    * @param request - CreateUserRequest
    * @returns CreateUserResponse
@@ -720,7 +760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建多因素认证设备
+   * Creates a virtual multi-factor authentication (MFA) device.
    * 
    * @param request - CreateVirtualMFADeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -751,7 +791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建多因素认证设备
+   * Creates a virtual multi-factor authentication (MFA) device.
    * 
    * @param request - CreateVirtualMFADeviceRequest
    * @returns CreateVirtualMFADeviceResponse
@@ -762,7 +802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户的访问密钥
+   * Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteAccessKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -797,7 +837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户的访问密钥
+   * Deletes an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteAccessKeyRequest
    * @returns DeleteAccessKeyResponse
@@ -808,7 +848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除回收站中的访问密钥
+   * Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
    * 
    * @param request - DeleteAccessKeyInRecycleBinRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -843,7 +883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除回收站中的访问密钥
+   * Deletes a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
    * 
    * @param request - DeleteAccessKeyInRecycleBinRequest
    * @returns DeleteAccessKeyInRecycleBinResponse
@@ -854,7 +894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定应用的应用密钥
+   * Deletes the application secret of an application.
    * 
    * @param request - DeleteAppSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -889,7 +929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定应用的应用密钥
+   * Deletes the application secret of an application.
    * 
    * @param request - DeleteAppSecretRequest
    * @returns DeleteAppSecretResponse
@@ -900,7 +940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的应用
+   * Deletes an application.
    * 
    * @param request - DeleteApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -931,7 +971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的应用
+   * Deletes an application.
    * 
    * @param request - DeleteApplicationRequest
    * @returns DeleteApplicationResponse
@@ -942,7 +982,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的用户组
+   * Deletes a Resource Access Management (RAM) user group.
+   * 
+   * @remarks
+   * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
    * 
    * @param request - DeleteGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -973,7 +1016,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的用户组
+   * Deletes a Resource Access Management (RAM) user group.
+   * 
+   * @remarks
+   * Before you delete a RAM user group, make sure that no policies are attached to the group and no RAM users are included in the group.
    * 
    * @param request - DeleteGroupRequest
    * @returns DeleteGroupResponse
@@ -984,7 +1030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭指定RAM用户的控制台登录
+   * Disables logon to the console for a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1015,7 +1061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭指定RAM用户的控制台登录
+   * Disables logon to the console for a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteLoginProfileRequest
    * @returns DeleteLoginProfileResponse
@@ -1026,7 +1072,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的角色SSO身份提供商
+   * Deletes an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - DeleteOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1057,7 +1107,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的角色SSO身份提供商
+   * Deletes an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - DeleteOIDCProviderRequest
    * @returns DeleteOIDCProviderResponse
@@ -1068,7 +1122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Passkey
+   * Deletes a passkey for a Resource Access Management (RAM) user.
    * 
    * @param request - DeletePasskeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1103,7 +1157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Passkey
+   * Deletes a passkey for a Resource Access Management (RAM) user.
    * 
    * @param request - DeletePasskeyRequest
    * @returns DeletePasskeyResponse
@@ -1114,7 +1168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的角色SSO身份提供商
+   * Deletes an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @param request - DeleteSAMLProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1145,7 +1199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定的角色SSO身份提供商
+   * Deletes an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @param request - DeleteSAMLProviderRequest
    * @returns DeleteSAMLProviderResponse
@@ -1156,7 +1210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RAM用户
+   * Deletes a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1191,7 +1245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RAM用户
+   * Deletes a Resource Access Management (RAM) user.
    * 
    * @param request - DeleteUserRequest
    * @returns DeleteUserResponse
@@ -1202,7 +1256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除回收站中的用户
+   * Deletes a specific Resource Access Management (RAM) user from the recycle bin.
    * 
    * @param request - DeleteUserInRecycleBinRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1233,7 +1287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除回收站中的用户
+   * Deletes a specific Resource Access Management (RAM) user from the recycle bin.
    * 
    * @param request - DeleteUserInRecycleBinRequest
    * @returns DeleteUserInRecycleBinResponse
@@ -1244,7 +1298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除多因素认证设备
+   * Deletes a multi-factor authentication (MFA) device.
    * 
    * @param request - DeleteVirtualMFADeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1275,7 +1329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除多因素认证设备
+   * Deletes a multi-factor authentication (MFA) device.
    * 
    * @param request - DeleteVirtualMFADeviceRequest
    * @returns DeleteVirtualMFADeviceResponse
@@ -1286,7 +1340,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除安装应用
+   * Uninstalls an external application or an internal application of the ServerApp type.
+   * 
+   * @remarks
+   * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
+   * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
    * 
    * @param request - DeprovisionApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1317,7 +1375,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除安装应用
+   * Uninstalls an external application or an internal application of the ServerApp type.
+   * 
+   * @remarks
+   * If you want to call this operation to uninstall an internal application, the type of the internal application must be **ServerApp**. Otherwise, an error occurs when you call this operation.
+   * >  For **internal applications**, only internal applications of the ServerApp type need to be **installed or provisioned**. Therefore, only internal applications of the ServerApp type **can be uninstalled**. Internal applications of the WebApp and NativeApp types **do not need to and cannot be uninstalled**.
    * 
    * @param request - DeprovisionApplicationRequest
    * @returns DeprovisionApplicationResponse
@@ -1328,7 +1390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除安装外部应用
+   * Deletes an installed external application.
    * 
    * @param request - DeprovisionExternalApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1359,7 +1421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解除安装外部应用
+   * Deletes an installed external application.
    * 
    * @param request - DeprovisionExternalApplicationRequest
    * @returns DeprovisionExternalApplicationResponse
@@ -1370,7 +1432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑并删除多因素认证设备
+   * Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
    * 
    * @param request - DisableVirtualMFARequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1401,7 +1463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑并删除多因素认证设备
+   * Unbinds and deletes a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
    * 
    * @param request - DisableVirtualMFARequest
    * @returns DisableVirtualMFAResponse
@@ -1412,7 +1474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成用户凭证报告
+   * Generates the user credential report of an Alibaba Cloud account.
    * 
    * @param request - GenerateCredentialReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1435,7 +1497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成用户凭证报告
+   * Generates the user credential report of an Alibaba Cloud account.
    * @returns GenerateCredentialReportResponse
    */
   async generateCredentialReport(): Promise<$_model.GenerateCredentialReportResponse> {
@@ -1444,7 +1506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成身份权限治理报告
+   * Generates a check report for Cloud Governance.
    * 
    * @param request - GenerateGovernanceReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1467,7 +1529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成身份权限治理报告
+   * Generates a check report for Cloud Governance.
    * @returns GenerateGovernanceReportResponse
    */
   async generateGovernanceReport(): Promise<$_model.GenerateGovernanceReportResponse> {
@@ -1476,7 +1538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询回收站中的访问密钥信息
+   * Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
    * 
    * @param request - GetAccessKeyInfoInRecycleBinRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1507,7 +1569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询回收站中的访问密钥信息
+   * Queries information about a specific AccessKey pair of a Resource Access Management (RAM) user in the recycle bin.
    * 
    * @param request - GetAccessKeyInfoInRecycleBinRequest
    * @returns GetAccessKeyInfoInRecycleBinResponse
@@ -1518,7 +1580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定访问密钥的最后使用时间
+   * Queries the time when an AccessKey pair was used for the last time.
    * 
    * @param request - GetAccessKeyLastUsedRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1553,7 +1615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定访问密钥的最后使用时间
+   * Queries the time when an AccessKey pair was used for the last time.
    * 
    * @param request - GetAccessKeyLastUsedRequest
    * @returns GetAccessKeyLastUsedResponse
@@ -1564,7 +1626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主账号多因素认证设备信息
+   * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
    * 
    * @param request - GetAccountMFAInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1587,7 +1649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主账号多因素认证设备信息
+   * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
    * @returns GetAccountMFAInfoResponse
    */
   async getAccountMFAInfo(): Promise<$_model.GetAccountMFAInfoResponse> {
@@ -1596,7 +1658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询阿里云账号的安全报告
+   * Queries the security report of an Alibaba Cloud account.
    * 
    * @param request - GetAccountSecurityPracticeReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1619,7 +1681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询阿里云账号的安全报告
+   * Queries the security report of an Alibaba Cloud account.
    * @returns GetAccountSecurityPracticeReportResponse
    */
   async getAccountSecurityPracticeReport(): Promise<$_model.GetAccountSecurityPracticeReportResponse> {
@@ -1628,7 +1690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a summary of an Alibaba Cloud account.
+   * Queries the overview information about an Alibaba Cloud account.
    * 
    * @param request - GetAccountSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1651,7 +1713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a summary of an Alibaba Cloud account.
+   * Queries the overview information about an Alibaba Cloud account.
    * @returns GetAccountSummaryResponse
    */
   async getAccountSummary(): Promise<$_model.GetAccountSummaryResponse> {
@@ -1660,7 +1722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用密钥信息
+   * Queries the details of an application secret.
    * 
    * @param request - GetAppSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1695,7 +1757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用密钥信息
+   * Queries the details of an application secret.
    * 
    * @param request - GetAppSecretRequest
    * @returns GetAppSecretResponse
@@ -1706,10 +1768,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information of a specified application.
+   * Queries the configuration information about an application.
    * 
    * @remarks
-   * This topic provides an example of how to query the configuration information of the application `472457090344041****`.
+   * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
    * 
    * @param request - GetApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1740,10 +1802,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information of a specified application.
+   * Queries the configuration information about an application.
    * 
    * @remarks
-   * This topic provides an example of how to query the configuration information of the application `472457090344041****`.
+   * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
    * 
    * @param request - GetApplicationRequest
    * @returns GetApplicationResponse
@@ -1754,7 +1816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用安装信息
+   * Queries installation information about a specified installed application.
    * 
    * @param request - GetApplicationProvisionInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1785,7 +1847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用安装信息
+   * Queries installation information about a specified installed application.
    * 
    * @param request - GetApplicationProvisionInfoRequest
    * @returns GetApplicationProvisionInfoResponse
@@ -1796,7 +1858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户凭证报告内容
+   * Queries the user credential reports of an Alibaba Cloud account.
    * 
    * @param request - GetCredentialReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1831,7 +1893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户凭证报告内容
+   * Queries the user credential reports of an Alibaba Cloud account.
    * 
    * @param request - GetCredentialReportRequest
    * @returns GetCredentialReportResponse
@@ -1842,7 +1904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询默认域名
+   * Queries the default domain name of an Alibaba Cloud account.
    * 
    * @param request - GetDefaultDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1865,7 +1927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询默认域名
+   * Queries the default domain name of an Alibaba Cloud account.
    * @returns GetDefaultDomainResponse
    */
   async getDefaultDomain(): Promise<$_model.GetDefaultDomainResponse> {
@@ -1874,7 +1936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询外部应用
+   * Queries information about an installed external application.
    * 
    * @param request - GetExternalApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1905,7 +1967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询外部应用
+   * Queries information about an installed external application.
    * 
    * @param request - GetExternalApplicationRequest
    * @returns GetExternalApplicationResponse
@@ -1916,7 +1978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific check item in an identity and access governance report.
+   * 查询用户的单项ram治理报告
    * 
    * @param request - GetGovernanceItemReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1955,7 +2017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific check item in an identity and access governance report.
+   * 查询用户的单项ram治理报告
    * 
    * @param request - GetGovernanceItemReportRequest
    * @returns GetGovernanceItemReportResponse
@@ -1966,7 +2028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an identity and access governance report.
+   * 查询成熟度报告状态
    * 
    * @param request - GetGovernanceReportStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1989,7 +2051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an identity and access governance report.
+   * 查询成熟度报告状态
    * @returns GetGovernanceReportStatusResponse
    */
   async getGovernanceReportStatus(): Promise<$_model.GetGovernanceReportStatusResponse> {
@@ -1998,7 +2060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定用户组信息
+   * Queries the information about a Resource Access Management (RAM) user group.
    * 
    * @param request - GetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2029,7 +2091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定用户组信息
+   * Queries the information about a Resource Access Management (RAM) user group.
    * 
    * @param request - GetGroupRequest
    * @returns GetGroupResponse
@@ -2040,7 +2102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the logon information for a specified Resource Access Management (RAM) user.
+   * Queries the logon configurations of a Resource Access Management (RAM) user.
    * 
    * @param request - GetLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2071,7 +2133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the logon information for a specified Resource Access Management (RAM) user.
+   * Queries the logon configurations of a Resource Access Management (RAM) user.
    * 
    * @param request - GetLoginProfileRequest
    * @returns GetLoginProfileResponse
@@ -2082,7 +2144,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询OIDC身份提供商信息
+   * Queries the information about an OIDC IdP.
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
    * 
    * @param request - GetOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2113,7 +2179,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询OIDC身份提供商信息
+   * Queries the information about an OIDC IdP.
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
    * 
    * @param request - GetOIDCProviderRequest
    * @returns GetOIDCProviderResponse
@@ -2124,7 +2194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the password strength policy for Resource Access Management (RAM) users.
+   * Queries the details of the password policy for RAM users.
    * 
    * @param request - GetPasswordPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2147,7 +2217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the password strength policy for Resource Access Management (RAM) users.
+   * Queries the details of the password policy for RAM users.
    * @returns GetPasswordPolicyResponse
    */
   async getPasswordPolicy(): Promise<$_model.GetPasswordPolicyResponse> {
@@ -2156,7 +2226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specified SAML provider for role-based SSO.
+   * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @param request - GetSAMLProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2187,7 +2257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about a specified SAML provider for role-based SSO.
+   * Queries the information about an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @param request - GetSAMLProviderRequest
    * @returns GetSAMLProviderResponse
@@ -2198,7 +2268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global security preferences for Resource Access Management (RAM) users.
+   * Queries the security preferences for RAM users.
    * 
    * @param request - GetSecurityPreferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2221,7 +2291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global security preferences for Resource Access Management (RAM) users.
+   * Queries the security preferences for RAM users.
    * @returns GetSecurityPreferenceResponse
    */
   async getSecurityPreference(): Promise<$_model.GetSecurityPreferenceResponse> {
@@ -2230,7 +2300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RAM用户的详细信息
+   * Queries the information about a RAM user.
    * 
    * @param request - GetUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2269,7 +2339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RAM用户的详细信息
+   * Queries the information about a RAM user.
    * 
    * @param request - GetUserRequest
    * @returns GetUserResponse
@@ -2280,7 +2350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取回收站中的用户
+   * Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
    * 
    * @param request - GetUserInRecycleBinRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2315,7 +2385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取回收站中的用户
+   * Queries information about a specific Resource Access Management (RAM) user in the recycle bin.
    * 
    * @param request - GetUserInRecycleBinRequest
    * @returns GetUserInRecycleBinResponse
@@ -2326,7 +2396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RAM用户多因素认证设备信息
+   * Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
    * 
    * @param request - GetUserMFAInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2357,7 +2427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RAM用户多因素认证设备信息
+   * Queries information about the multi-factor authentication (MFA) device that is bound to a Resource Access Management (RAM) user.
    * 
    * @param request - GetUserMFAInfoRequest
    * @returns GetUserMFAInfoResponse
@@ -2368,7 +2438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the identity provider settings for user-based SSO.
+   * Queries the configurations of user-based single sign-on (SSO).
    * 
    * @param request - GetUserSsoSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2391,7 +2461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the identity provider settings for user-based SSO.
+   * Queries the configurations of user-based single sign-on (SSO).
    * @returns GetUserSsoSettingsResponse
    */
   async getUserSsoSettings(): Promise<$_model.GetUserSsoSettingsResponse> {
@@ -2400,7 +2470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户安全认证的信息
+   * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
    * 
    * @param request - GetVerificationInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2431,7 +2501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户安全认证的信息
+   * Queries the status of the mobile phone or email that is bound to a Resource Access Management (RAM) user.
    * 
    * @param request - GetVerificationInfoRequest
    * @returns GetVerificationInfoResponse
@@ -2442,7 +2512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主账号或RAM用户访问密钥列表
+   * Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - ListAccessKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2473,7 +2543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询主账号或RAM用户访问密钥列表
+   * Queries the AccessKey pairs of an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - ListAccessKeysRequest
    * @returns ListAccessKeysResponse
@@ -2484,7 +2554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出回收站中访问密钥列表
+   * Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
    * 
    * @param request - ListAccessKeysInRecycleBinRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2515,7 +2585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出回收站中访问密钥列表
+   * Queries the AccessKey pairs of a specific Resource Access Management (RAM) user in the recycle bin.
    * 
    * @param request - ListAccessKeysInRecycleBinRequest
    * @returns ListAccessKeysInRecycleBinResponse
@@ -2526,7 +2596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用的应用密钥ID列表
+   * Queries the secret IDs of an application.
    * 
    * @param request - ListAppSecretIdsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2557,7 +2627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定应用的应用密钥ID列表
+   * Queries the secret IDs of an application.
    * 
    * @param request - ListAppSecretIdsRequest
    * @returns ListAppSecretIdsResponse
@@ -2610,10 +2680,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the applications that you have created.
+   * Lists the created applications.
    * 
    * @remarks
-   * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
+   * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
    * 
    * @param request - ListApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2636,10 +2706,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the applications that you have created.
+   * Lists the created applications.
    * 
    * @remarks
-   * This topic provides an example of how to query the applications in your Alibaba Cloud account. The response shows that only one application, named `myapp`, exists in the account.
+   * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
    * @returns ListApplicationsResponse
    */
   async listApplications(): Promise<$_model.ListApplicationsResponse> {
@@ -2726,7 +2796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RAM用户加入的用户组列表
+   * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
    * 
    * @param request - ListGroupsForUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2757,7 +2827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询RAM用户加入的用户组列表
+   * Queries the Resource Access Management (RAM) user groups to which a RAM user belongs.
    * 
    * @param request - ListGroupsForUserRequest
    * @returns ListGroupsForUserResponse
@@ -2768,7 +2838,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询OIDC身份提供商列表
+   * Queries OIDC IdPs.
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - ListOIDCProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2803,7 +2877,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询OIDC身份提供商列表
+   * Queries OIDC IdPs.
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - ListOIDCProvidersRequest
    * @returns ListOIDCProvidersResponse
@@ -2814,7 +2892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Passkey
+   * Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
    * 
    * @param request - ListPasskeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2845,7 +2923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Passkey
+   * Queries the information about the passkeys that are bound to a Resource Access Management (RAM) user.
    * 
    * @param request - ListPasskeysRequest
    * @returns ListPasskeysResponse
@@ -2930,7 +3008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询角色SSO身份提供商列表
+   * Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
    * 
    * @param request - ListSAMLProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2965,7 +3043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询角色SSO身份提供商列表
+   * Queries information about identity providers (IdPs) for role-based single sign-on (SSO).
    * 
    * @param request - ListSAMLProvidersRequest
    * @returns ListSAMLProvidersResponse
@@ -2976,7 +3054,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源与标签的关系
+   * Queries the tags that are added resources.
+   * 
+   * @remarks
+   * ###
+   * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+   * *   `ResourceId.N`
+   * *   `Tag.N.Key`
+   * *   `Tag.N.Key` and `Tag.N.Value`
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3027,7 +3112,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源与标签的关系
+   * Queries the tags that are added resources.
+   * 
+   * @remarks
+   * ###
+   * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+   * *   `ResourceId.N`
+   * *   `Tag.N.Key`
+   * *   `Tag.N.Key` and `Tag.N.Value`
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -3042,8 +3134,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can call the following API operations to query information about all RAM users:
-   * - ListUsers: queries the details of all RAM users.
-   * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+   * *   ListUsers: queries the details of all RAM users.
+   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
    * 
    * @param request - ListUserBasicInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3090,8 +3182,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * You can call the following API operations to query information about all RAM users:
-   * - ListUsers: queries the details of all RAM users.
-   * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+   * *   ListUsers: queries the details of all RAM users.
+   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
    * 
    * @param request - ListUserBasicInfosRequest
    * @returns ListUserBasicInfosResponse
@@ -3107,8 +3199,8 @@ export default class Client extends OpenApi {
    * @remarks
    * ### [](#)
    * You can call the following API operations to query the details of all RAM users:
-   * - ListUsers: queries the details of all RAM users.
-   * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+   * *   ListUsers: queries the details of all RAM users.
+   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
    * 
    * @param request - ListUsersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3156,8 +3248,8 @@ export default class Client extends OpenApi {
    * @remarks
    * ### [](#)
    * You can call the following API operations to query the details of all RAM users:
-   * - ListUsers: queries the details of all RAM users.
-   * - ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
+   * *   ListUsers: queries the details of all RAM users.
+   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
    * 
    * @param request - ListUsersRequest
    * @returns ListUsersResponse
@@ -3168,7 +3260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户组中用户列表
+   * Queries Resource Access Management (RAM) users in a RAM user group.
    * 
    * @param request - ListUsersForGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3207,7 +3299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户组中用户列表
+   * Queries Resource Access Management (RAM) users in a RAM user group.
    * 
    * @param request - ListUsersForGroupRequest
    * @returns ListUsersForGroupResponse
@@ -3218,7 +3310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询回收站中用户列表
+   * Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
    * 
    * @param request - ListUsersInRecycleBinRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3257,7 +3349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询回收站中用户列表
+   * Queries the basic information about all Resource Access Management (RAM) users in the recycle bin.
    * 
    * @param request - ListUsersInRecycleBinRequest
    * @returns ListUsersInRecycleBinResponse
@@ -3314,7 +3406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 安装应用
+   * Installs an application.
    * 
    * @param request - ProvisionApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3349,7 +3441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 安装应用
+   * Installs an application.
    * 
    * @param request - ProvisionApplicationRequest
    * @returns ProvisionApplicationResponse
@@ -3360,7 +3452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 安装外部应用
+   * Installs an external application.
    * 
    * @param request - ProvisionExternalApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3395,7 +3487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 安装外部应用
+   * Installs an external application.
    * 
    * @param request - ProvisionExternalApplicationRequest
    * @returns ProvisionExternalApplicationResponse
@@ -3406,7 +3498,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除OIDC身份提供商中的指定客户端ID
+   * Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - RemoveClientIdFromOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3441,7 +3537,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除OIDC身份提供商中的指定客户端ID
+   * Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - RemoveClientIdFromOIDCProviderRequest
    * @returns RemoveClientIdFromOIDCProviderResponse
@@ -3452,7 +3552,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除OIDC身份提供商中指定的验证指纹
+   * Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - RemoveFingerprintFromOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3487,7 +3591,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除OIDC身份提供商中指定的验证指纹
+   * Removes a fingerprint from an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
    * 
    * @param request - RemoveFingerprintFromOIDCProviderRequest
    * @returns RemoveFingerprintFromOIDCProviderResponse
@@ -3498,7 +3606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将RAM用户从用户组中移除
+   * Removes a Resource Access Management (RAM) user from a RAM user group.
    * 
    * @param request - RemoveUserFromGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3533,7 +3641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将RAM用户从用户组中移除
+   * Removes a Resource Access Management (RAM) user from a RAM user group.
    * 
    * @param request - RemoveUserFromGroupRequest
    * @returns RemoveUserFromGroupResponse
@@ -3544,7 +3652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 清空回收站中的访问密钥
+   * Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
    * 
    * @param request - RestoreAccessKeyFromRecycleBinRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3579,7 +3687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 清空回收站中的访问密钥
+   * Restores a specific AccessKey pair that belongs to a Resource Access Management (RAM) user from the recycle bin.
    * 
    * @param request - RestoreAccessKeyFromRecycleBinRequest
    * @returns RestoreAccessKeyFromRecycleBinResponse
@@ -3590,7 +3698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 清空回收站中的用户
+   * Restores a specific Resource Access Management (RAM) user from the recycle bin.
    * 
    * @param request - RestoreUserFromRecycleBinRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3621,7 +3729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 清空回收站中的用户
+   * Restores a specific Resource Access Management (RAM) user from the recycle bin.
    * 
    * @param request - RestoreUserFromRecycleBinRequest
    * @returns RestoreUserFromRecycleBinResponse
@@ -3632,7 +3740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置默认域名
+   * Configures the default domain name for an Alibaba Cloud account.
    * 
    * @param request - SetDefaultDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3663,7 +3771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置默认域名
+   * Configures the default domain name for an Alibaba Cloud account.
    * 
    * @param request - SetDefaultDomainRequest
    * @returns SetDefaultDomainResponse
@@ -3674,7 +3782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the password strength policy for RAM users.
+   * Configures the password policy for Resource Access Management (RAM) users.
    * 
    * @param request - SetPasswordPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3753,7 +3861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the password strength policy for RAM users.
+   * Configures the password policy for Resource Access Management (RAM) users.
    * 
    * @param request - SetPasswordPolicyRequest
    * @returns SetPasswordPolicyResponse
@@ -3764,7 +3872,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the global security preferences for a Resource Access Management (RAM) user.
+   * Configures security preferences for a RAM user.
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
    * 
    * @param tmpReq - SetSecurityPreferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3849,7 +3961,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures the global security preferences for a Resource Access Management (RAM) user.
+   * Configures security preferences for a RAM user.
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
    * 
    * @param request - SetSecurityPreferenceRequest
    * @returns SetSecurityPreferenceResponse
@@ -3860,7 +3976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the identity provider (IdP) settings for user-based single sign-on (SSO).
+   * Configures information about user-based single sign-on (SSO).
    * 
    * @param request - SetUserSsoSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3907,7 +4023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the identity provider (IdP) settings for user-based single sign-on (SSO).
+   * Configures information about user-based single sign-on (SSO).
    * 
    * @param request - SetUserSsoSettingsRequest
    * @returns SetUserSsoSettingsResponse
@@ -3918,7 +4034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增录入/修改安全手机号码、安全邮箱的API
+   * Binds a mobile phone or email to a Resource Access Management (RAM) user.
    * 
    * @param request - SetVerificationInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3961,7 +4077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增录入/修改安全手机号码、安全邮箱的API
+   * Binds a mobile phone or email to a Resource Access Management (RAM) user.
    * 
    * @param request - SetVerificationInfoRequest
    * @returns SetVerificationInfoResponse
@@ -3972,7 +4088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源打上标签
+   * Adds tags to resources.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4015,7 +4131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 资源打上标签
+   * Adds tags to resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -4026,7 +4142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为RAM用户解绑多因素认证设备
+   * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
    * 
    * @param request - UnbindMFADeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4057,7 +4173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为RAM用户解绑多因素认证设备
+   * Unbinds a multi-factor authentication (MFA) device from a Resource Access Management (RAM) user.
    * 
    * @param request - UnbindMFADeviceRequest
    * @returns UnbindMFADeviceResponse
@@ -4068,7 +4184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户的安全认证
+   * Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
    * 
    * @param request - UnbindVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4111,7 +4227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户的安全认证
+   * Unbinds a mobile phone or email from a Resource Access Management (RAM) user.
    * 
    * @param request - UnbindVerificationRequest
    * @returns UnbindVerificationResponse
@@ -4122,7 +4238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑资源的标签
+   * Removes tags from a resource.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4169,7 +4285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑资源的标签
+   * Removes tags from a resource.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -4180,7 +4296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改访问密钥状态
+   * Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateAccessKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4219,7 +4335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改访问密钥状态
+   * Modifies the status of an AccessKey pair for an Alibaba Cloud account or a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateAccessKeyRequest
    * @returns UpdateAccessKeyResponse
@@ -4230,7 +4346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a specified application.
+   * Modifies the information about a specified application.
    * 
    * @param request - UpdateApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4293,7 +4409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a specified application.
+   * Modifies the information about a specified application.
    * 
    * @param request - UpdateApplicationRequest
    * @returns UpdateApplicationResponse
@@ -4304,7 +4420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改指定用户组的信息
+   * Modifies information about a Resource Access Management (RAM) user group.
    * 
    * @param request - UpdateGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4347,7 +4463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改指定用户组的信息
+   * Modifies information about a Resource Access Management (RAM) user group.
    * 
    * @param request - UpdateGroupRequest
    * @returns UpdateGroupResponse
@@ -4358,7 +4474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the console logon information for a specified Resource Access Management (RAM) user.
+   * Modifies the console logon configurations of a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4405,7 +4521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the console logon information for a specified Resource Access Management (RAM) user.
+   * Modifies the console logon configurations of a Resource Access Management (RAM) user.
    * 
    * @param request - UpdateLoginProfileRequest
    * @returns UpdateLoginProfileResponse
@@ -4416,7 +4532,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改OIDC身份提供商的描述和客户端ID
+   * Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
    * 
    * @param request - UpdateOIDCProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4459,7 +4579,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改OIDC身份提供商的描述和客户端ID
+   * Modifies the description and client IDs of an OpenID Connect (OIDC) identity provider (IdP).
+   * 
+   * @remarks
+   * ###
+   * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`
    * 
    * @param request - UpdateOIDCProviderRequest
    * @returns UpdateOIDCProviderResponse
@@ -4470,7 +4594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Passkey
+   * Updates the name of a passkey.
    * 
    * @param request - UpdatePasskeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4509,7 +4633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Passkey
+   * Updates the name of a passkey.
    * 
    * @param request - UpdatePasskeyRequest
    * @returns UpdatePasskeyResponse
@@ -4520,10 +4644,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a specified identity provider for role-based single sign-on (SSO).
+   * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @remarks
-   * This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
+   * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
    * 
    * @param request - UpdateSAMLProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4566,10 +4690,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a specified identity provider for role-based single sign-on (SSO).
+   * Modifies information about an identity provider (IdP) for role-based single sign-on (SSO).
    * 
    * @remarks
-   * This example shows how to change the description of the identity provider `test-provider` to `This is a new provider.`.
+   * This topic provides an example on how to change the description of an IdP named `test-provider` to `This is a new provider.`
    * 
    * @param request - UpdateSAMLProviderRequest
    * @returns UpdateSAMLProviderResponse
@@ -4580,7 +4704,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RAM用户信息
+   * Modifies the information about a RAM user.
+   * 
+   * @remarks
+   * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
    * 
    * @param request - UpdateUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4635,7 +4762,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RAM用户信息
+   * Modifies the information about a RAM user.
+   * 
+   * @remarks
+   * This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
    * 
    * @param request - UpdateUserRequest
    * @returns UpdateUserResponse

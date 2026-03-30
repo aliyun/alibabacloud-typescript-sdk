@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeletePasskeyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the passkey.
+   * 
+   * @example
+   * PASSKEY-CuZjEHhWcr7GIQOMGvkS
+   */
   passkeyId?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,6 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAccessKeysRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * If this parameter is empty, the AccessKey pairs of the current user are queried.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {

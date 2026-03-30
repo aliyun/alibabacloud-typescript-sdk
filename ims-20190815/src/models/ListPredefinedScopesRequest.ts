@@ -7,11 +7,9 @@ export class ListPredefinedScopesRequest extends $dara.Model {
    * @remarks
    * The type of the application. Valid values:
    * 
-   * - WebApp
-   * 
-   * - NativeApp
-   * 
-   * - ServerApp
+   * *   WebApp
+   * *   NativeApp
+   * *   ServerApp
    * 
    * If this parameter is empty, the permissions on all types of applications are queried.
    * 

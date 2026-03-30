@@ -59,6 +59,13 @@ export class ListAppSecretIdsResponseBodyAppSecrets extends $dara.Model {
 
 export class ListAppSecretIdsResponseBody extends $dara.Model {
   appSecrets?: ListAppSecretIdsResponseBodyAppSecrets;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 5F2FD500-7173-47D6-BD2F-EB60879B4F16
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

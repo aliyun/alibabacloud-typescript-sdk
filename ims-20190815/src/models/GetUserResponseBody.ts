@@ -55,17 +55,102 @@ export class GetUserResponseBodyUserTags extends $dara.Model {
 }
 
 export class GetUserResponseBodyUser extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * This is a cloud computing engineer.
+   */
   comments?: string;
+  /**
+   * @remarks
+   * The time when the RAM user was created.
+   * 
+   * @example
+   * 2020-10-12T09:12:00Z
+   */
   createDate?: string;
+  /**
+   * @remarks
+   * The display name of the RAM user.
+   * 
+   * @example
+   * test
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The email address of the RAM user.
+   * 
+   * > This parameter is valid only on the China site (aliyun.com).
+   * 
+   * @example
+   * alice@example.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * The last time when the RAM user logged on to the Alibaba Cloud Management Console.
+   * 
+   * @example
+   * 2020-10-12T09:12:00Z
+   */
   lastLoginDate?: string;
+  /**
+   * @remarks
+   * The mobile phone number of the RAM user.
+   * 
+   * > This parameter is valid only on the China site (aliyun.com).
+   * 
+   * @example
+   * 86-1868888****
+   */
   mobilePhone?: string;
+  /**
+   * @remarks
+   * The source of the RAM user. Valid value:
+   * 
+   * *   Manual: The RAM user is manually created in the RAM console.
+   * *   SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
+   * *   CloudSSO: The RAM user is mapped from a CloudSSO user.
+   * 
+   * @example
+   * CloudSSO
+   */
   provisionType?: string;
   tags?: GetUserResponseBodyUserTags;
+  /**
+   * @remarks
+   * The time when the information about the RAM user was updated.
+   * 
+   * @example
+   * 2020-10-13T07:39:22Z
+   */
   updateDate?: string;
+  /**
+   * @remarks
+   * The ID of the RAM user.
+   * 
+   * @example
+   * 20732900249392****
+   */
   userId?: string;
+  /**
+   * @remarks
+   * The username of the RAM user, which is the prefix of the logon name of the RAM user.
+   * 
+   * @example
+   * test
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The logon name of the RAM user.
+   * 
+   * @example
+   * test@example.onaliyun.com
+   */
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,7 +199,18 @@ export class GetUserResponseBodyUser extends $dara.Model {
 }
 
 export class GetUserResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4507D1CD-526A-4E2B-A1E2-3AB045D1EE0B
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the RAM user.
+   */
   user?: GetUserResponseBodyUser;
   static names(): { [key: string]: string } {
     return {
