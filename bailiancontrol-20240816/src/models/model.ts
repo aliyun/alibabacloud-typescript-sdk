@@ -2,6 +2,7 @@ export { GetApiKeyResponseBodyApiKeyAuthSetModelAuthAppStructure } from './GetAp
 export { GetApiKeyResponseBodyApiKeyAuthSetModelAuthModelStructure } from './GetApiKeyResponseBody';
 export { GetApiKeyResponseBodyApiKeyAuthSetModel } from './GetApiKeyResponseBody';
 export { GetApiKeyResponseBodyApiKey } from './GetApiKeyResponseBody';
+export { ListApiKeysResponseBodyApiKeysAuthSetModel } from './ListApiKeysResponseBody';
 export { ListApiKeysResponseBodyApiKeys } from './ListApiKeysResponseBody';
 export { GetApiKeyRequest } from './GetApiKeyRequest';
 export { GetApiKeyResponseBody } from './GetApiKeyResponseBody';

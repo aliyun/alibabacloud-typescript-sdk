@@ -2,9 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListApiKeysResponseBodyApiKeysAuthSetModel extends $dara.Model {
+  authSetMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authSetMode: 'authSetMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authSetMode: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   apiKeyValue?: string;
   apikeyId?: string;
+  authSetModel?: ListApiKeysResponseBodyApiKeysAuthSetModel;
   blocked?: number;
   createTime?: number;
   creator?: string;
@@ -19,6 +43,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
     return {
       apiKeyValue: 'apiKeyValue',
       apikeyId: 'apikeyId',
+      authSetModel: 'authSetModel',
       blocked: 'blocked',
       createTime: 'createTime',
       creator: 'creator',
@@ -36,6 +61,7 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
     return {
       apiKeyValue: 'string',
       apikeyId: 'string',
+      authSetModel: ListApiKeysResponseBodyApiKeysAuthSetModel,
       blocked: 'number',
       createTime: 'number',
       creator: 'string',
@@ -50,6 +76,9 @@ export class ListApiKeysResponseBodyApiKeys extends $dara.Model {
   }
 
   validate() {
+    if(this.authSetModel && typeof (this.authSetModel as any).validate === 'function') {
+      (this.authSetModel as any).validate();
+    }
     super.validate();
   }
 
