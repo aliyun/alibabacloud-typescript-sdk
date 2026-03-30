@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEcdReportTasksRequest extends $dara.Model {
+  businessChannel?: string;
   /**
    * @remarks
    * The number of the page to return. Pages start from page 1. Default value: 1.
@@ -66,6 +67,7 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       status: 'Status',
@@ -77,6 +79,7 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       pageNum: 'number',
       pageSize: 'number',
       status: { 'type': 'array', 'itemType': 'string' },

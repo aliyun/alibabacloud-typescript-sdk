@@ -11,6 +11,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * Public
    */
   appliedScope?: string;
+  businessChannel?: string;
   /**
    * @remarks
    * The number of vCPUs.
@@ -214,6 +215,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appliedScope: 'AppliedScope',
+      businessChannel: 'BusinessChannel',
       cpuCount: 'CpuCount',
       desktopGroupIdForModify: 'DesktopGroupIdForModify',
       desktopIdForModify: 'DesktopIdForModify',
@@ -239,6 +241,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appliedScope: 'string',
+      businessChannel: 'string',
       cpuCount: 'number',
       desktopGroupIdForModify: 'string',
       desktopIdForModify: 'string',

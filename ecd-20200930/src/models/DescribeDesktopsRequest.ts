@@ -43,6 +43,7 @@ export class DescribeDesktopsRequestTag extends $dara.Model {
 }
 
 export class DescribeDesktopsRequest extends $dara.Model {
+  businessChannel?: string;
   /**
    * @remarks
    * The billing method of the cloud computer.
@@ -372,6 +373,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
   userName?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       chargeType: 'ChargeType',
       desktopGroupId: 'DesktopGroupId',
       desktopId: 'DesktopId',
@@ -414,6 +416,7 @@ export class DescribeDesktopsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       chargeType: 'string',
       desktopGroupId: 'string',
       desktopId: { 'type': 'array', 'itemType': 'string' },

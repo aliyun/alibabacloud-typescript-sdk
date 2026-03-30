@@ -70,6 +70,7 @@ export class CreateEcdReportTaskRequestFilterList extends $dara.Model {
 }
 
 export class CreateEcdReportTaskRequest extends $dara.Model {
+  businessChannel?: string;
   /**
    * @remarks
    * The filter conditions for filtering query results. The logical relationship between each filter condition is "and" (&). Each filter condition contains FilterKey and FilterValues, which indicate the key and value for the filter condition.
@@ -123,6 +124,7 @@ export class CreateEcdReportTaskRequest extends $dara.Model {
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       filterList: 'FilterList',
       langType: 'LangType',
       reportFileName: 'ReportFileName',
@@ -133,6 +135,7 @@ export class CreateEcdReportTaskRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       filterList: { 'type': 'array', 'itemType': CreateEcdReportTaskRequestFilterList },
       langType: 'string',
       reportFileName: 'string',

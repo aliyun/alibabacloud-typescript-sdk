@@ -4011,6 +4011,10 @@ export default class Client extends OpenApi {
   async createEcdReportTaskWithOptions(request: $_model.CreateEcdReportTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEcdReportTaskResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.filterList)) {
       query["FilterList"] = request.filterList;
     }
@@ -8134,6 +8138,10 @@ export default class Client extends OpenApi {
   async describeDesktopInfoWithOptions(request: $_model.DescribeDesktopInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDesktopInfoResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.desktopId)) {
       query["DesktopId"] = request.desktopId;
     }
@@ -8559,6 +8567,10 @@ export default class Client extends OpenApi {
       query["AppliedScope"] = request.appliedScope;
     }
 
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.cpuCount)) {
       query["CpuCount"] = request.cpuCount;
     }
@@ -8676,6 +8688,10 @@ export default class Client extends OpenApi {
   async describeDesktopsWithOptions(request: $_model.DescribeDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDesktopsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
@@ -9134,6 +9150,10 @@ export default class Client extends OpenApi {
   async describeEcdReportTasksWithOptions(request: $_model.DescribeEcdReportTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEcdReportTasksResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.pageNum)) {
       query["PageNum"] = request.pageNum;
     }
@@ -16839,7 +16859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改全球加速配置
+   * Modifies Global Accelerator (GA) configuration.
    * 
    * @param request - ModifyOfficeSiteAcceleratorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16878,7 +16898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改全球加速配置
+   * Modifies Global Accelerator (GA) configuration.
    * 
    * @param request - ModifyOfficeSiteAcceleratorRequest
    * @returns ModifyOfficeSiteAcceleratorResponse
@@ -18952,7 +18972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
+   * Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
    * 
    * @remarks
    * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
@@ -19014,7 +19034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a PowerShell or batch (.bat) command on one or more Windows cloud computers.
+   * Runs a PowerShell or batch (.bat) script on Windows cloud desktops.
    * 
    * @remarks
    * You can use the RunCommand operation to run scripts only on Windows cloud desktops.
