@@ -13,6 +13,7 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
    * 554863270150
    */
   couponNo?: string;
+  couponTemplateIdListShrink?: string;
   /**
    * @example
    * CERTAIN
@@ -71,6 +72,7 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
     return {
       couponId: 'CouponId',
       couponNo: 'CouponNo',
+      couponTemplateIdListShrink: 'CouponTemplateIdList',
       couponType: 'CouponType',
       currentPage: 'CurrentPage',
       ecIdAccountIdsShrink: 'EcIdAccountIds',
@@ -90,6 +92,7 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
     return {
       couponId: 'number',
       couponNo: 'string',
+      couponTemplateIdListShrink: 'string',
       couponType: 'string',
       currentPage: 'number',
       ecIdAccountIdsShrink: 'string',

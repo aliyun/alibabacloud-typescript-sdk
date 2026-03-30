@@ -960,6 +960,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.DescribeCouponShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.couponTemplateIdList)) {
+      request.couponTemplateIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.couponTemplateIdList, "CouponTemplateIdList", "json");
+    }
+
     if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
       request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
     }
@@ -971,6 +975,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.couponNo)) {
       query["CouponNo"] = request.couponNo;
+    }
+
+    if (!$dara.isNull(request.couponTemplateIdListShrink)) {
+      query["CouponTemplateIdList"] = request.couponTemplateIdListShrink;
     }
 
     if (!$dara.isNull(request.couponType)) {

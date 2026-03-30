@@ -49,6 +49,7 @@ export class DescribeCouponRequest extends $dara.Model {
    * 554863270150
    */
   couponNo?: string;
+  couponTemplateIdList?: number[];
   /**
    * @example
    * CERTAIN
@@ -107,6 +108,7 @@ export class DescribeCouponRequest extends $dara.Model {
     return {
       couponId: 'CouponId',
       couponNo: 'CouponNo',
+      couponTemplateIdList: 'CouponTemplateIdList',
       couponType: 'CouponType',
       currentPage: 'CurrentPage',
       ecIdAccountIds: 'EcIdAccountIds',
@@ -126,6 +128,7 @@ export class DescribeCouponRequest extends $dara.Model {
     return {
       couponId: 'number',
       couponNo: 'string',
+      couponTemplateIdList: { 'type': 'array', 'itemType': 'number' },
       couponType: 'string',
       currentPage: 'number',
       ecIdAccountIds: { 'type': 'array', 'itemType': DescribeCouponRequestEcIdAccountIds },
@@ -142,6 +145,9 @@ export class DescribeCouponRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.couponTemplateIdList)) {
+      $dara.Model.validateArray(this.couponTemplateIdList);
+    }
     if(Array.isArray(this.ecIdAccountIds)) {
       $dara.Model.validateArray(this.ecIdAccountIds);
     }
