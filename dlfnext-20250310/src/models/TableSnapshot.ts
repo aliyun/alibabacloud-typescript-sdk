@@ -7,6 +7,7 @@ export class TableSnapshot extends $dara.Model {
   fileCount?: number;
   fileSizeInBytes?: number;
   lastFileCreationTime?: number;
+  partitionCount?: number;
   recordCount?: number;
   snapshot?: Snapshot;
   totalBuckets?: number;
@@ -15,6 +16,7 @@ export class TableSnapshot extends $dara.Model {
       fileCount: 'fileCount',
       fileSizeInBytes: 'fileSizeInBytes',
       lastFileCreationTime: 'lastFileCreationTime',
+      partitionCount: 'partitionCount',
       recordCount: 'recordCount',
       snapshot: 'snapshot',
       totalBuckets: 'totalBuckets',
@@ -26,6 +28,7 @@ export class TableSnapshot extends $dara.Model {
       fileCount: 'number',
       fileSizeInBytes: 'number',
       lastFileCreationTime: 'number',
+      partitionCount: 'number',
       recordCount: 'number',
       snapshot: Snapshot,
       totalBuckets: 'number',

@@ -34,6 +34,7 @@ export class Database extends $dara.Model {
    * acs:ram::[accountId]:root
    */
   owner?: string;
+  tableCount?: number;
   /**
    * @example
    * 1744970111419
@@ -53,6 +54,7 @@ export class Database extends $dara.Model {
       name: 'name',
       options: 'options',
       owner: 'owner',
+      tableCount: 'tableCount',
       updatedAt: 'updatedAt',
       updatedBy: 'updatedBy',
     };
@@ -67,6 +69,7 @@ export class Database extends $dara.Model {
       name: 'string',
       options: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       owner: 'string',
+      tableCount: 'number',
       updatedAt: 'number',
       updatedBy: 'string',
     };
