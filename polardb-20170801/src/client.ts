@@ -1778,6 +1778,14 @@ export default class Client extends OpenApi {
       query["Architecture"] = request.architecture;
     }
 
+    if (!$dara.isNull(request.authProvider)) {
+      query["AuthProvider"] = request.authProvider;
+    }
+
+    if (!$dara.isNull(request.authProviderConfig)) {
+      query["AuthProviderConfig"] = request.authProviderConfig;
+    }
+
     if (!$dara.isNull(request.autoAllocatePublicEip)) {
       query["AutoAllocatePublicEip"] = request.autoAllocatePublicEip;
     }

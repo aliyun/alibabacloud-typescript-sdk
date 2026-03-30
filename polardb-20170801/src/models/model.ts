@@ -42,6 +42,7 @@ export { DescribeApplicationAttributeResponseBodyComponentsTopology } from './De
 export { DescribeApplicationAttributeResponseBodyComponents } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyEndpoints } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyMemApplicationAttribute } from './DescribeApplicationAttributeResponseBody';
+export { DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodySecurityGroups } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodySecurityIPArrays } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyStorages } from './DescribeApplicationAttributeResponseBody';

@@ -58,6 +58,16 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * x86
    */
   architecture?: string;
+  /**
+   * @example
+   * feishu
+   */
+  authProvider?: string;
+  /**
+   * @example
+   * xxx
+   */
+  authProviderConfig?: string;
   autoAllocatePublicEip?: boolean;
   autoCreatePolarFs?: boolean;
   /**
@@ -170,6 +180,8 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       AIDBClusterId: 'AIDBClusterId',
       applicationType: 'ApplicationType',
       architecture: 'Architecture',
+      authProvider: 'AuthProvider',
+      authProviderConfig: 'AuthProviderConfig',
       autoAllocatePublicEip: 'AutoAllocatePublicEip',
       autoCreatePolarFs: 'AutoCreatePolarFs',
       autoRenew: 'AutoRenew',
@@ -209,6 +221,8 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       AIDBClusterId: 'string',
       applicationType: 'string',
       architecture: 'string',
+      authProvider: 'string',
+      authProviderConfig: 'string',
       autoAllocatePublicEip: 'boolean',
       autoCreatePolarFs: 'boolean',
       autoRenew: 'boolean',

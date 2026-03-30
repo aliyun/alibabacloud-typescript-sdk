@@ -334,6 +334,29 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
   }
 }
 
+export class DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute extends $dara.Model {
+  authCallbackURL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authCallbackURL: 'AuthCallbackURL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCallbackURL: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationAttributeResponseBodySecurityGroups extends $dara.Model {
   /**
    * @example
@@ -536,6 +559,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * Postpaid
    */
   payType?: string;
+  polarClawSaaSApplicationAttribute?: DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute;
   /**
    * @example
    * pfs-**************
@@ -611,6 +635,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       memApplicationAttribute: 'MemApplicationAttribute',
       minorVersion: 'MinorVersion',
       payType: 'PayType',
+      polarClawSaaSApplicationAttribute: 'PolarClawSaaSApplicationAttribute',
       polarFSInstanceId: 'PolarFSInstanceId',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -647,6 +672,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       memApplicationAttribute: DescribeApplicationAttributeResponseBodyMemApplicationAttribute,
       minorVersion: 'string',
       payType: 'string',
+      polarClawSaaSApplicationAttribute: DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute,
       polarFSInstanceId: 'string',
       regionId: 'string',
       requestId: 'string',
@@ -672,6 +698,9 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
     }
     if(this.memApplicationAttribute && typeof (this.memApplicationAttribute as any).validate === 'function') {
       (this.memApplicationAttribute as any).validate();
+    }
+    if(this.polarClawSaaSApplicationAttribute && typeof (this.polarClawSaaSApplicationAttribute as any).validate === 'function') {
+      (this.polarClawSaaSApplicationAttribute as any).validate();
     }
     if(Array.isArray(this.securityGroups)) {
       $dara.Model.validateArray(this.securityGroups);
