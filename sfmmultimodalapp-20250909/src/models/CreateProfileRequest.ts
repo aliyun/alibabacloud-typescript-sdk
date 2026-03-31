@@ -67,9 +67,6 @@ export class CreateProfileRequest extends $dara.Model {
    */
   name?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 6e18191727f747ec9de06a2
    */

@@ -12,9 +12,6 @@ export class QueryMemoryConfigRequest extends $dara.Model {
    */
   appId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 110b6d4359977d1
    */

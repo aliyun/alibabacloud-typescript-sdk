@@ -66,9 +66,6 @@ export class UpdateProfileRequest extends $dara.Model {
    */
   name?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 10b6d435
    */

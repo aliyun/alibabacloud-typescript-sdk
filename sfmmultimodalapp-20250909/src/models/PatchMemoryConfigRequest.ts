@@ -33,9 +33,6 @@ export class PatchMemoryConfigRequest extends $dara.Model {
    */
   topK?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 110b6d4359977d1
    */

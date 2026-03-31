@@ -12,9 +12,6 @@ export class DeleteProfileRequest extends $dara.Model {
    */
   appId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 5A7C969B-5101-112B-8202-DFAEEA4BFBED
    */

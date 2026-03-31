@@ -12,9 +12,6 @@ export class QueryProfileRequest extends $dara.Model {
    */
   appId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 6d4359977d1
    */
