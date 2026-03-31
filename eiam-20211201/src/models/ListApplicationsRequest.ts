@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListApplicationsRequestCustomFields extends $dara.Model {
+  fieldName?: string;
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldName: 'FieldName',
+      fieldValue: 'FieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldName: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListApplicationsRequest extends $dara.Model {
   /**
    * @example
@@ -40,6 +66,7 @@ export class ListApplicationsRequest extends $dara.Model {
    * authorize_required
    */
   authorizationType?: string;
+  customFields?: ListApplicationsRequestCustomFields[];
   /**
    * @remarks
    * The ID of the instance.
@@ -115,6 +142,7 @@ export class ListApplicationsRequest extends $dara.Model {
       applicationIds: 'ApplicationIds',
       applicationName: 'ApplicationName',
       authorizationType: 'AuthorizationType',
+      customFields: 'CustomFields',
       instanceId: 'InstanceId',
       m2MClientStatus: 'M2MClientStatus',
       pageNumber: 'PageNumber',
@@ -132,6 +160,7 @@ export class ListApplicationsRequest extends $dara.Model {
       applicationIds: { 'type': 'array', 'itemType': 'string' },
       applicationName: 'string',
       authorizationType: 'string',
+      customFields: { 'type': 'array', 'itemType': ListApplicationsRequestCustomFields },
       instanceId: 'string',
       m2MClientStatus: 'string',
       pageNumber: 'number',
@@ -145,6 +174,9 @@ export class ListApplicationsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.applicationIds)) {
       $dara.Model.validateArray(this.applicationIds);
+    }
+    if(Array.isArray(this.customFields)) {
+      $dara.Model.validateArray(this.customFields);
     }
     super.validate();
   }

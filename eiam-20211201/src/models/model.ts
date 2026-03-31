@@ -5,6 +5,8 @@ export { CheckApplicationProvisioningUserPrimaryOrganizationalUnitResponseBodyCh
 export { CheckInstanceForDeleteResponseBodyCheckInstanceResultRestrictScenarios } from './CheckInstanceForDeleteResponseBody';
 export { CheckInstanceForDeleteResponseBodyCheckInstanceResult } from './CheckInstanceForDeleteResponseBody';
 export { CheckInstanceModuleStatusResponseBodyModule } from './CheckInstanceModuleStatusResponseBody';
+export { CreateApplicationRequestApplicationOwner } from './CreateApplicationRequest';
+export { CreateApplicationRequestCustomFields } from './CreateApplicationRequest';
 export { CreateApplicationClientSecretResponseBodyApplicationClientSecret } from './CreateApplicationClientSecretResponseBody';
 export { CreateApplicationFederatedCredentialRequestAttributeMappings } from './CreateApplicationFederatedCredentialRequest';
 export { CreateApplicationTokenResponseBodyApplicationTokens } from './CreateApplicationTokenResponseBody';
@@ -53,6 +55,8 @@ export { ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMe
 export { ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadata } from './ExecIdentityProviderMetadataUrlResolutionResponseBody';
 export { GenerateOauthTokenResponseBodyTokenResponse } from './GenerateOauthTokenResponseBody';
 export { GenerateWebAuthnAuthenticatorRegistrationUrlResponseBodyWebAuthnAuthenticatorRegistrationUrl } from './GenerateWebAuthnAuthenticatorRegistrationUrlResponseBody';
+export { GetApplicationResponseBodyApplicationApplicationOwner } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyApplicationCustomFields } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyApplication } from './GetApplicationResponseBody';
 export { GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfigScimServerAdvancedConfig } from './GetApplicationAdvancedConfigResponseBody';
 export { GetApplicationAdvancedConfigResponseBodyApplicationAdvancedConfig } from './GetApplicationAdvancedConfigResponseBody';
@@ -215,6 +219,7 @@ export { ListApplicationRolesRequestFilter } from './ListApplicationRolesRequest
 export { ListApplicationRolesResponseBodyApplicationRoles } from './ListApplicationRolesResponseBody';
 export { ListApplicationSupportedProvisionProtocolTypesResponseBodyApplicationSupportedProvisionProtocolType } from './ListApplicationSupportedProvisionProtocolTypesResponseBody';
 export { ListApplicationTokensResponseBodyApplicationTokens } from './ListApplicationTokensResponseBody';
+export { ListApplicationsRequestCustomFields } from './ListApplicationsRequest';
 export { ListApplicationsResponseBodyApplications } from './ListApplicationsResponseBody';
 export { ListApplicationsForAuthorizationRuleRequestFilter } from './ListApplicationsForAuthorizationRuleRequest';
 export { ListApplicationsForAuthorizationRuleResponseBodyApplicationsValidityPeriod } from './ListApplicationsForAuthorizationRuleResponseBody';
@@ -404,6 +409,8 @@ export { SetPasswordComplexityConfigurationRequestPasswordComplexityRules } from
 export { SetWebAuthnConfigurationRequestAaguids } from './SetWebAuthnConfigurationRequest';
 export { UpdateApplicationAdvancedConfigRequestScimServerAdvancedConfig } from './UpdateApplicationAdvancedConfigRequest';
 export { UpdateApplicationFederatedCredentialRequestAttributeMappings } from './UpdateApplicationFederatedCredentialRequest';
+export { UpdateApplicationInfoRequestApplicationOwner } from './UpdateApplicationInfoRequest';
+export { UpdateApplicationInfoRequestCustomFields } from './UpdateApplicationInfoRequest';
 export { UpdateApplicationSsoFormParamsRequestApplicationTemplateParams } from './UpdateApplicationSsoFormParamsRequest';
 export { UpdateAuthorizationRuleApplicationAttachmentRequestValidityPeriod } from './UpdateAuthorizationRuleApplicationAttachmentRequest';
 export { UpdateAuthorizationRuleGroupAttachmentRequestValidityPeriod } from './UpdateAuthorizationRuleGroupAttachmentRequest';

@@ -2,6 +2,64 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetApplicationResponseBodyApplicationApplicationOwner extends $dara.Model {
+  groupIds?: string[];
+  userIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupIds: 'GroupIds',
+      userIds: 'UserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupIds: { 'type': 'array', 'itemType': 'string' },
+      userIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    if(Array.isArray(this.userIds)) {
+      $dara.Model.validateArray(this.userIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyApplicationCustomFields extends $dara.Model {
+  fieldName?: string;
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldName: 'FieldName',
+      fieldValue: 'FieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldName: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationResponseBodyApplication extends $dara.Model {
   /**
    * @remarks
@@ -36,6 +94,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * SAML Application
    */
   applicationName?: string;
+  applicationOwner?: GetApplicationResponseBodyApplicationApplicationOwner;
   /**
    * @remarks
    * The origin of the application. Valid values:
@@ -87,6 +146,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * 1649830226000
    */
   createTime?: number;
+  customFields?: GetApplicationResponseBodyApplicationCustomFields[];
   customSubjectStatus?: string;
   /**
    * @remarks
@@ -206,12 +266,14 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       applicationId: 'ApplicationId',
       applicationIdentityType: 'ApplicationIdentityType',
       applicationName: 'ApplicationName',
+      applicationOwner: 'ApplicationOwner',
       applicationSourceType: 'ApplicationSourceType',
       applicationTemplateId: 'ApplicationTemplateId',
       applicationVisibility: 'ApplicationVisibility',
       authorizationType: 'AuthorizationType',
       clientId: 'ClientId',
       createTime: 'CreateTime',
+      customFields: 'CustomFields',
       customSubjectStatus: 'CustomSubjectStatus',
       description: 'Description',
       features: 'Features',
@@ -236,12 +298,14 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       applicationId: 'string',
       applicationIdentityType: 'string',
       applicationName: 'string',
+      applicationOwner: GetApplicationResponseBodyApplicationApplicationOwner,
       applicationSourceType: 'string',
       applicationTemplateId: 'string',
       applicationVisibility: { 'type': 'array', 'itemType': 'string' },
       authorizationType: 'string',
       clientId: 'string',
       createTime: 'number',
+      customFields: { 'type': 'array', 'itemType': GetApplicationResponseBodyApplicationCustomFields },
       customSubjectStatus: 'string',
       description: 'string',
       features: 'string',
@@ -260,8 +324,14 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
   }
 
   validate() {
+    if(this.applicationOwner && typeof (this.applicationOwner as any).validate === 'function') {
+      (this.applicationOwner as any).validate();
+    }
     if(Array.isArray(this.applicationVisibility)) {
       $dara.Model.validateArray(this.applicationVisibility);
+    }
+    if(Array.isArray(this.customFields)) {
+      $dara.Model.validateArray(this.customFields);
     }
     super.validate();
   }

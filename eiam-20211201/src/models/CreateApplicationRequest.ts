@@ -2,6 +2,64 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateApplicationRequestApplicationOwner extends $dara.Model {
+  groupIds?: string[];
+  userIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      groupIds: 'GroupIds',
+      userIds: 'UserIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupIds: { 'type': 'array', 'itemType': 'string' },
+      userIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.groupIds)) {
+      $dara.Model.validateArray(this.groupIds);
+    }
+    if(Array.isArray(this.userIds)) {
+      $dara.Model.validateArray(this.userIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationRequestCustomFields extends $dara.Model {
+  fieldName?: string;
+  fieldValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldName: 'FieldName',
+      fieldValue: 'FieldValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldName: 'string',
+      fieldValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationRequest extends $dara.Model {
   /**
    * @example
@@ -18,6 +76,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * Ram Account SSO
    */
   applicationName?: string;
+  applicationOwner?: CreateApplicationRequestApplicationOwner;
   /**
    * @remarks
    * The type of the application source. Valid values:
@@ -39,6 +98,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * template_cloud_ram
    */
   applicationTemplateId?: string;
+  customFields?: CreateApplicationRequestCustomFields[];
   /**
    * @remarks
    * The description of the application.
@@ -82,8 +142,10 @@ export class CreateApplicationRequest extends $dara.Model {
     return {
       applicationIdentityType: 'ApplicationIdentityType',
       applicationName: 'ApplicationName',
+      applicationOwner: 'ApplicationOwner',
       applicationSourceType: 'ApplicationSourceType',
       applicationTemplateId: 'ApplicationTemplateId',
+      customFields: 'CustomFields',
       description: 'Description',
       instanceId: 'InstanceId',
       logoUrl: 'LogoUrl',
@@ -95,8 +157,10 @@ export class CreateApplicationRequest extends $dara.Model {
     return {
       applicationIdentityType: 'string',
       applicationName: 'string',
+      applicationOwner: CreateApplicationRequestApplicationOwner,
       applicationSourceType: 'string',
       applicationTemplateId: 'string',
+      customFields: { 'type': 'array', 'itemType': CreateApplicationRequestCustomFields },
       description: 'string',
       instanceId: 'string',
       logoUrl: 'string',
@@ -105,6 +169,12 @@ export class CreateApplicationRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.applicationOwner && typeof (this.applicationOwner as any).validate === 'function') {
+      (this.applicationOwner as any).validate();
+    }
+    if(Array.isArray(this.customFields)) {
+      $dara.Model.validateArray(this.customFields);
+    }
     super.validate();
   }
 

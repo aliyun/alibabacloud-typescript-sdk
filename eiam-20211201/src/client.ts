@@ -1086,12 +1086,20 @@ export default class Client extends OpenApi {
       query["ApplicationName"] = request.applicationName;
     }
 
+    if (!$dara.isNull(request.applicationOwner)) {
+      query["ApplicationOwner"] = request.applicationOwner;
+    }
+
     if (!$dara.isNull(request.applicationSourceType)) {
       query["ApplicationSourceType"] = request.applicationSourceType;
     }
 
     if (!$dara.isNull(request.applicationTemplateId)) {
       query["ApplicationTemplateId"] = request.applicationTemplateId;
+    }
+
+    if (!$dara.isNull(request.customFields)) {
+      query["CustomFields"] = request.customFields;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -10081,6 +10089,10 @@ export default class Client extends OpenApi {
       query["AuthorizationType"] = request.authorizationType;
     }
 
+    if (!$dara.isNull(request.customFields)) {
+      query["CustomFields"] = request.customFields;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -15997,12 +16009,20 @@ export default class Client extends OpenApi {
       query["ApplicationName"] = request.applicationName;
     }
 
+    if (!$dara.isNull(request.applicationOwner)) {
+      query["ApplicationOwner"] = request.applicationOwner;
+    }
+
     if (!$dara.isNull(request.applicationVisibility)) {
       query["ApplicationVisibility"] = request.applicationVisibility;
     }
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.customFields)) {
+      query["CustomFields"] = request.customFields;
     }
 
     if (!$dara.isNull(request.instanceId)) {
