@@ -46,6 +46,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
   nodeGroupDescription?: string;
   nodeGroupId?: string;
   nodeGroupName?: string;
+  ramRoleName?: string;
   /**
    * @remarks
    * Id of the request
@@ -71,6 +72,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupId: 'NodeGroupId',
       nodeGroupName: 'NodeGroupName',
+      ramRoleName: 'RamRoleName',
       requestId: 'RequestId',
       systemDisk: 'SystemDisk',
       updateTime: 'UpdateTime',
@@ -95,6 +97,7 @@ export class DescribeNodeGroupResponseBody extends $dara.Model {
       nodeGroupDescription: 'string',
       nodeGroupId: 'string',
       nodeGroupName: 'string',
+      ramRoleName: 'string',
       requestId: 'string',
       systemDisk: DescribeNodeGroupResponseBodySystemDisk,
       updateTime: 'string',

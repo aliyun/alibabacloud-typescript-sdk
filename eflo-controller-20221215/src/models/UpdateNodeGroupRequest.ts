@@ -51,6 +51,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
    * i120021051733814190732
    */
   nodeGroupId?: string;
+  ramRoleName?: string;
   /**
    * @remarks
    * User-defined script
@@ -69,6 +70,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
       loginPassword: 'LoginPassword',
       newNodeGroupName: 'NewNodeGroupName',
       nodeGroupId: 'NodeGroupId',
+      ramRoleName: 'RamRoleName',
       userData: 'UserData',
     };
   }
@@ -81,6 +83,7 @@ export class UpdateNodeGroupRequest extends $dara.Model {
       loginPassword: 'string',
       newNodeGroupName: 'string',
       nodeGroupId: 'string',
+      ramRoleName: 'string',
       userData: 'string',
     };
   }

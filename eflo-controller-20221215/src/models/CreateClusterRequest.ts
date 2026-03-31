@@ -1022,6 +1022,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
    * Node list
    */
   nodes?: CreateClusterRequestNodeGroupsNodes[];
+  ramRoleName?: string;
   /**
    * @remarks
    * System disk information
@@ -1062,6 +1063,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupName: 'NodeGroupName',
       nodes: 'Nodes',
+      ramRoleName: 'RamRoleName',
       systemDisk: 'SystemDisk',
       userData: 'UserData',
       virtualGpuEnabled: 'VirtualGpuEnabled',
@@ -1080,6 +1082,7 @@ export class CreateClusterRequestNodeGroups extends $dara.Model {
       nodeGroupDescription: 'string',
       nodeGroupName: 'string',
       nodes: { 'type': 'array', 'itemType': CreateClusterRequestNodeGroupsNodes },
+      ramRoleName: 'string',
       systemDisk: CreateClusterRequestNodeGroupsSystemDisk,
       userData: 'string',
       virtualGpuEnabled: 'boolean',

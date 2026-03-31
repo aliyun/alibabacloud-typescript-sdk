@@ -3233,6 +3233,10 @@ export default class Client extends OpenApi {
       body["NodeGroupId"] = request.nodeGroupId;
     }
 
+    if (!$dara.isNull(request.ramRoleName)) {
+      body["RamRoleName"] = request.ramRoleName;
+    }
+
     if (!$dara.isNull(request.userData)) {
       body["UserData"] = request.userData;
     }

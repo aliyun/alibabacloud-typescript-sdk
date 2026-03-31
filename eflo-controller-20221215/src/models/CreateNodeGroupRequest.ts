@@ -129,6 +129,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
    * PAI-LINGJUN
    */
   nodeGroupName?: string;
+  ramRoleName?: string;
   /**
    * @remarks
    * Details of the node system disk configuration.
@@ -162,6 +163,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
       machineType: 'MachineType',
       nodeGroupDescription: 'NodeGroupDescription',
       nodeGroupName: 'NodeGroupName',
+      ramRoleName: 'RamRoleName',
       systemDisk: 'SystemDisk',
       userData: 'UserData',
       virtualGpuEnabled: 'VirtualGpuEnabled',
@@ -178,6 +180,7 @@ export class CreateNodeGroupRequestNodeGroup extends $dara.Model {
       machineType: 'string',
       nodeGroupDescription: 'string',
       nodeGroupName: 'string',
+      ramRoleName: 'string',
       systemDisk: CreateNodeGroupRequestNodeGroupSystemDisk,
       userData: 'string',
       virtualGpuEnabled: 'boolean',
