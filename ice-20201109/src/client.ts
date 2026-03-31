@@ -764,6 +764,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 增加用户积分
+   * 
+   * @param request - AddYikeUserCreditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddYikeUserCreditResponse
+   */
+  async addYikeUserCreditWithOptions(request: $_model.AddYikeUserCreditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddYikeUserCreditResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credit)) {
+      query["Credit"] = request.credit;
+    }
+
+    if (!$dara.isNull(request.yikeUserId)) {
+      query["YikeUserId"] = request.yikeUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddYikeUserCredit",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddYikeUserCreditResponse>(await this.callApi(params, req, runtime), new $_model.AddYikeUserCreditResponse({}));
+  }
+
+  /**
+   * 增加用户积分
+   * 
+   * @param request - AddYikeUserCreditRequest
+   * @returns AddYikeUserCreditResponse
+   */
+  async addYikeUserCredit(request: $_model.AddYikeUserCreditRequest): Promise<$_model.AddYikeUserCreditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addYikeUserCreditWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies search index information including index status and configurations.
    * 
    * @param request - AlterSearchIndexRequest
@@ -3583,6 +3629,156 @@ export default class Client extends OpenApi {
   async createYikeAssetUpload(request: $_model.CreateYikeAssetUploadRequest): Promise<$_model.CreateYikeAssetUploadResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createYikeAssetUploadWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一刻项目
+   * 
+   * @param request - CreateYikeProductionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateYikeProductionResponse
+   */
+  async createYikeProductionWithOptions(request: $_model.CreateYikeProductionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateYikeProductionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateYikeProduction",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateYikeProductionResponse>(await this.callApi(params, req, runtime), new $_model.CreateYikeProductionResponse({}));
+  }
+
+  /**
+   * 创建一刻项目
+   * 
+   * @param request - CreateYikeProductionRequest
+   * @returns CreateYikeProductionResponse
+   */
+  async createYikeProduction(request: $_model.CreateYikeProductionRequest): Promise<$_model.CreateYikeProductionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createYikeProductionWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一刻子用户
+   * 
+   * @param request - CreateYikeUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateYikeUserResponse
+   */
+  async createYikeUserWithOptions(request: $_model.CreateYikeUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateYikeUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nickname)) {
+      query["Nickname"] = request.nickname;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.productionIds)) {
+      query["ProductionIds"] = request.productionIds;
+    }
+
+    if (!$dara.isNull(request.userNamePrefix)) {
+      query["UserNamePrefix"] = request.userNamePrefix;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateYikeUser",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateYikeUserResponse>(await this.callApi(params, req, runtime), new $_model.CreateYikeUserResponse({}));
+  }
+
+  /**
+   * 创建一刻子用户
+   * 
+   * @param request - CreateYikeUserRequest
+   * @returns CreateYikeUserResponse
+   */
+  async createYikeUser(request: $_model.CreateYikeUserRequest): Promise<$_model.CreateYikeUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createYikeUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建工作室
+   * 
+   * @param request - CreateYikeWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateYikeWorkspaceResponse
+   */
+  async createYikeWorkspaceWithOptions(request: $_model.CreateYikeWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateYikeWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.userCountLimit)) {
+      query["UserCountLimit"] = request.userCountLimit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateYikeWorkspace",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateYikeWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateYikeWorkspaceResponse({}));
+  }
+
+  /**
+   * 创建工作室
+   * 
+   * @param request - CreateYikeWorkspaceRequest
+   * @returns CreateYikeWorkspaceResponse
+   */
+  async createYikeWorkspace(request: $_model.CreateYikeWorkspaceRequest): Promise<$_model.CreateYikeWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createYikeWorkspaceWithOptions(request, runtime);
   }
 
   /**
@@ -10149,6 +10345,48 @@ export default class Client extends OpenApi {
   async getYikeStoryboardJob(request: $_model.GetYikeStoryboardJobRequest): Promise<$_model.GetYikeStoryboardJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getYikeStoryboardJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询一刻用户积分
+   * 
+   * @param request - GetYikeUserCreditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeUserCreditResponse
+   */
+  async getYikeUserCreditWithOptions(request: $_model.GetYikeUserCreditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeUserCreditResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.yikeUserId)) {
+      query["YikeUserId"] = request.yikeUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeUserCredit",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeUserCreditResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeUserCreditResponse({}));
+  }
+
+  /**
+   * 查询一刻用户积分
+   * 
+   * @param request - GetYikeUserCreditRequest
+   * @returns GetYikeUserCreditResponse
+   */
+  async getYikeUserCredit(request: $_model.GetYikeUserCreditRequest): Promise<$_model.GetYikeUserCreditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeUserCreditWithOptions(request, runtime);
   }
 
   /**
@@ -16719,6 +16957,52 @@ export default class Client extends OpenApi {
   async setNotifyConfig(request: $_model.SetNotifyConfigRequest): Promise<$_model.SetNotifyConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setNotifyConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置用户角色
+   * 
+   * @param request - SetYikeUserRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetYikeUserRoleResponse
+   */
+  async setYikeUserRoleWithOptions(request: $_model.SetYikeUserRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetYikeUserRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.roleName)) {
+      query["RoleName"] = request.roleName;
+    }
+
+    if (!$dara.isNull(request.yikeUserId)) {
+      query["YikeUserId"] = request.yikeUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetYikeUserRole",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetYikeUserRoleResponse>(await this.callApi(params, req, runtime), new $_model.SetYikeUserRoleResponse({}));
+  }
+
+  /**
+   * 设置用户角色
+   * 
+   * @param request - SetYikeUserRoleRequest
+   * @returns SetYikeUserRoleResponse
+   */
+  async setYikeUserRole(request: $_model.SetYikeUserRoleRequest): Promise<$_model.SetYikeUserRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setYikeUserRoleWithOptions(request, runtime);
   }
 
   /**
