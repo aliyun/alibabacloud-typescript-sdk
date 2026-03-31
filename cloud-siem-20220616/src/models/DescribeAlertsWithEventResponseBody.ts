@@ -332,6 +332,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
    * 85ea4241-798f-4684-a876-65d4f0c3****
    */
   incidentUuid?: string;
+  investigationReport?: string;
   /**
    * @remarks
    * Indicates whether an attack is defended against. Valid values:
@@ -428,6 +429,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
       gmtModified: 'GmtModified',
       id: 'Id',
       incidentUuid: 'IncidentUuid',
+      investigationReport: 'InvestigationReport',
       isDefend: 'IsDefend',
       logTime: 'LogTime',
       logUuid: 'LogUuid',
@@ -471,6 +473,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
       gmtModified: 'string',
       id: 'number',
       incidentUuid: 'string',
+      investigationReport: 'string',
       isDefend: 'string',
       logTime: 'string',
       logUuid: 'string',

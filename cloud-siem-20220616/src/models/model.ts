@@ -107,6 +107,7 @@ export { ListDisposeStrategyResponseBodyDataPageInfo } from './ListDisposeStrate
 export { ListDisposeStrategyResponseBodyDataResponseData } from './ListDisposeStrategyResponseBody';
 export { ListDisposeStrategyResponseBodyData } from './ListDisposeStrategyResponseBody';
 export { ListEntitiesResponseBodyDataPageInfo } from './ListEntitiesResponseBody';
+export { ListEntitiesResponseBodyDataResponseDataAgentDisposes } from './ListEntitiesResponseBody';
 export { ListEntitiesResponseBodyDataResponseData } from './ListEntitiesResponseBody';
 export { ListEntitiesResponseBodyData } from './ListEntitiesResponseBody';
 export { ListImportedLogsByProdResponseBodyData } from './ListImportedLogsByProdResponseBody';

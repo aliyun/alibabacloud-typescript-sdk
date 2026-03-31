@@ -43,11 +43,38 @@ export class ListEntitiesResponseBodyDataPageInfo extends $dara.Model {
   }
 }
 
+export class ListEntitiesResponseBodyDataResponseDataAgentDisposes extends $dara.Model {
+  agentDisposalMethod?: string;
+  agentDisposalPlaybookUuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentDisposalMethod: 'AgentDisposalMethod',
+      agentDisposalPlaybookUuid: 'AgentDisposalPlaybookUuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentDisposalMethod: 'string',
+      agentDisposalPlaybookUuid: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   agentConfidence?: string;
   agentDisposalMethod?: string;
   agentDisposalPlaybookUuid?: string;
   agentDisposalSuggestion?: string;
+  agentDisposes?: ListEntitiesResponseBodyDataResponseDataAgentDisposes[];
   /**
    * @example
    * 1
@@ -137,6 +164,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
       agentDisposalMethod: 'AgentDisposalMethod',
       agentDisposalPlaybookUuid: 'AgentDisposalPlaybookUuid',
       agentDisposalSuggestion: 'AgentDisposalSuggestion',
+      agentDisposes: 'AgentDisposes',
       alertNum: 'AlertNum',
       alertUuid: 'AlertUuid',
       aliuid: 'Aliuid',
@@ -165,6 +193,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
       agentDisposalMethod: 'string',
       agentDisposalPlaybookUuid: 'string',
       agentDisposalSuggestion: 'string',
+      agentDisposes: { 'type': 'array', 'itemType': ListEntitiesResponseBodyDataResponseDataAgentDisposes },
       alertNum: 'number',
       alertUuid: 'string',
       aliuid: 'number',
@@ -188,6 +217,9 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.agentDisposes)) {
+      $dara.Model.validateArray(this.agentDisposes);
+    }
     super.validate();
   }
 

@@ -110,6 +110,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
    * {"opCode":"3"}
    */
   taskConfig?: string;
+  unAvailableCode?: string;
   /**
    * @example
    * kill_process_isolate_file
@@ -136,6 +137,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
       opLevel: 'OpLevel',
       paramConfig: 'ParamConfig',
       taskConfig: 'TaskConfig',
+      unAvailableCode: 'UnAvailableCode',
       uuid: 'Uuid',
       wafPlaybook: 'WafPlaybook',
     };
@@ -151,6 +153,7 @@ export class DescribeDisposeAndPlaybookResponseBodyDataResponseDataPlaybookList 
       opLevel: 'string',
       paramConfig: { 'type': 'array', 'itemType': 'any' },
       taskConfig: 'string',
+      unAvailableCode: 'string',
       uuid: 'string',
       wafPlaybook: 'boolean',
     };
