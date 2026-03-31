@@ -50,6 +50,7 @@ export { DescribeContainerClusterResponseBodyClusters } from './DescribeContaine
 export { DescribeContainerResourceResponseBodyResources } from './DescribeContainerResourceResponseBody';
 export { DescribeCrossAccountsResponseBodyCrossAccountsCrossAccount } from './DescribeCrossAccountsResponseBody';
 export { DescribeCrossAccountsResponseBodyCrossAccounts } from './DescribeCrossAccountsResponseBody';
+export { DescribeDataSourcesResponseBodyDataSources } from './DescribeDataSourcesResponseBody';
 export { DescribeHanaBackupPlansResponseBodyHanaBackupPlansHanaBackupPlan } from './DescribeHanaBackupPlansResponseBody';
 export { DescribeHanaBackupPlansResponseBodyHanaBackupPlans } from './DescribeHanaBackupPlansResponseBody';
 export { DescribeHanaBackupSettingResponseBodyHanaBackupSetting } from './DescribeHanaBackupSettingResponseBody';
@@ -264,6 +265,9 @@ export { DescribeContainerResourceResponse } from './DescribeContainerResourceRe
 export { DescribeCrossAccountsRequest } from './DescribeCrossAccountsRequest';
 export { DescribeCrossAccountsResponseBody } from './DescribeCrossAccountsResponseBody';
 export { DescribeCrossAccountsResponse } from './DescribeCrossAccountsResponse';
+export { DescribeDataSourcesRequest } from './DescribeDataSourcesRequest';
+export { DescribeDataSourcesResponseBody } from './DescribeDataSourcesResponseBody';
+export { DescribeDataSourcesResponse } from './DescribeDataSourcesResponse';
 export { DescribeHanaBackupPlansRequest } from './DescribeHanaBackupPlansRequest';
 export { DescribeHanaBackupPlansResponseBody } from './DescribeHanaBackupPlansResponseBody';
 export { DescribeHanaBackupPlansResponse } from './DescribeHanaBackupPlansResponse';
@@ -355,6 +359,9 @@ export { ListProtectedResourcesResponseBody } from './ListProtectedResourcesResp
 export { ListProtectedResourcesResponse } from './ListProtectedResourcesResponse';
 export { OpenHbrServiceResponseBody } from './OpenHbrServiceResponseBody';
 export { OpenHbrServiceResponse } from './OpenHbrServiceResponse';
+export { RemoveDataSourceRequest } from './RemoveDataSourceRequest';
+export { RemoveDataSourceResponseBody } from './RemoveDataSourceResponseBody';
+export { RemoveDataSourceResponse } from './RemoveDataSourceResponse';
 export { SearchHistoricalSnapshotsRequest } from './SearchHistoricalSnapshotsRequest';
 export { SearchHistoricalSnapshotsShrinkRequest } from './SearchHistoricalSnapshotsShrinkRequest';
 export { SearchHistoricalSnapshotsResponseBody } from './SearchHistoricalSnapshotsResponseBody';
@@ -382,6 +389,9 @@ export { UpdateClientSettingsResponse } from './UpdateClientSettingsResponse';
 export { UpdateContainerClusterRequest } from './UpdateContainerClusterRequest';
 export { UpdateContainerClusterResponseBody } from './UpdateContainerClusterResponseBody';
 export { UpdateContainerClusterResponse } from './UpdateContainerClusterResponse';
+export { UpdateDataSourceRequest } from './UpdateDataSourceRequest';
+export { UpdateDataSourceResponseBody } from './UpdateDataSourceResponseBody';
+export { UpdateDataSourceResponse } from './UpdateDataSourceResponse';
 export { UpdateHanaBackupPlanRequest } from './UpdateHanaBackupPlanRequest';
 export { UpdateHanaBackupPlanResponseBody } from './UpdateHanaBackupPlanResponseBody';
 export { UpdateHanaBackupPlanResponse } from './UpdateHanaBackupPlanResponse';

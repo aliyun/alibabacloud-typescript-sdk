@@ -3127,6 +3127,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeDataSourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDataSourcesResponse
+   */
+  async describeDataSourcesWithOptions(request: $_model.DescribeDataSourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDataSourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!$dara.isNull(request.dataSourceName)) {
+      query["DataSourceName"] = request.dataSourceName;
+    }
+
+    if (!$dara.isNull(request.dataSourceType)) {
+      query["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDataSources",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDataSourcesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDataSourcesResponse({}));
+  }
+
+  /**
+   * @param request - DescribeDataSourcesRequest
+   * @returns DescribeDataSourcesResponse
+   */
+  async describeDataSources(request: $_model.DescribeDataSourcesRequest): Promise<$_model.DescribeDataSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDataSourcesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries one or more SAP HANA backup plans that meet the specified conditions.
    * 
    * @param request - DescribeHanaBackupPlansRequest
@@ -4938,6 +4996,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - RemoveDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveDataSourceResponse
+   */
+  async removeDataSourceWithOptions(request: $_model.RemoveDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveDataSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveDataSource",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.RemoveDataSourceResponse({}));
+  }
+
+  /**
+   * @param request - RemoveDataSourceRequest
+   * @returns RemoveDataSourceResponse
+   */
+  async removeDataSource(request: $_model.RemoveDataSourceRequest): Promise<$_model.RemoveDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeDataSourceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about one or more backup snapshots that meet the specified conditions.
    * 
    * @param tmpReq - SearchHistoricalSnapshotsRequest
@@ -5537,6 +5633,88 @@ export default class Client extends OpenApi {
   async updateContainerCluster(request: $_model.UpdateContainerClusterRequest): Promise<$_model.UpdateContainerClusterResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateContainerClusterWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataSourceResponse
+   */
+  async updateDataSourceWithOptions(request: $_model.UpdateDataSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDataSourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.connectionInfo)) {
+      query["ConnectionInfo"] = request.connectionInfo;
+    }
+
+    if (!$dara.isNull(request.credential)) {
+      query["Credential"] = request.credential;
+    }
+
+    if (!$dara.isNull(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!$dara.isNull(request.dataSourceName)) {
+      query["DataSourceName"] = request.dataSourceName;
+    }
+
+    if (!$dara.isNull(request.exclude)) {
+      query["Exclude"] = request.exclude;
+    }
+
+    if (!$dara.isNull(request.include)) {
+      query["Include"] = request.include;
+    }
+
+    if (!$dara.isNull(request.indexLevel)) {
+      query["IndexLevel"] = request.indexLevel;
+    }
+
+    if (!$dara.isNull(request.options)) {
+      query["Options"] = request.options;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.schedule)) {
+      query["Schedule"] = request.schedule;
+    }
+
+    if (!$dara.isNull(request.speedLimit)) {
+      query["SpeedLimit"] = request.speedLimit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataSource",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDataSourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDataSourceResponse({}));
+  }
+
+  /**
+   * @param request - UpdateDataSourceRequest
+   * @returns UpdateDataSourceResponse
+   */
+  async updateDataSource(request: $_model.UpdateDataSourceRequest): Promise<$_model.UpdateDataSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDataSourceWithOptions(request, runtime);
   }
 
   /**
