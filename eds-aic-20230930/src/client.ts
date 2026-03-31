@@ -664,6 +664,10 @@ export default class Client extends OpenApi {
       query["PromotionId"] = request.promotionId;
     }
 
+    if (!$dara.isNull(request.saleMode)) {
+      query["SaleMode"] = request.saleMode;
+    }
+
     if (!$dara.isNull(request.streamMode)) {
       query["StreamMode"] = request.streamMode;
     }
