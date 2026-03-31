@@ -274,6 +274,8 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    */
   endUserCount?: number;
   entraDomainName?: string;
+  envId?: string;
+  envType?: string;
   /**
    * @remarks
    * The expiration date of the subscription cloud computer share.
@@ -653,6 +655,8 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       desktopType: 'DesktopType',
       endUserCount: 'EndUserCount',
       entraDomainName: 'EntraDomainName',
+      envId: 'EnvId',
+      envType: 'EnvType',
       expiredTime: 'ExpiredTime',
       expiredTimes: 'ExpiredTimes',
       gpuCount: 'GpuCount',
@@ -715,6 +719,8 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       desktopType: 'string',
       endUserCount: 'number',
       entraDomainName: 'string',
+      envId: 'string',
+      envType: 'string',
       expiredTime: 'string',
       expiredTimes: { 'type': 'array', 'itemType': 'string' },
       gpuCount: 'number',

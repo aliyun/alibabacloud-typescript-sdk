@@ -323,6 +323,8 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
    * SIMPLE
    */
   directoryType?: string;
+  envId?: string;
+  envType?: string;
   /**
    * @remarks
    * The expiration date of the subscription cloud computer share.
@@ -657,6 +659,8 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
       desktopGroupName: 'DesktopGroupName',
       directoryId: 'DirectoryId',
       directoryType: 'DirectoryType',
+      envId: 'EnvId',
+      envType: 'EnvType',
       expiredTime: 'ExpiredTime',
       expiredTimes: 'ExpiredTimes',
       gpuCount: 'GpuCount',
@@ -715,6 +719,8 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $dara.Model {
       desktopGroupName: 'string',
       directoryId: 'string',
       directoryType: 'string',
+      envId: 'string',
+      envType: 'string',
       expiredTime: 'string',
       expiredTimes: { 'type': 'array', 'itemType': 'string' },
       gpuCount: 'number',
