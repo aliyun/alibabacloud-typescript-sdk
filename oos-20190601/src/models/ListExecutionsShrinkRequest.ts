@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListExecutionsShrinkRequest extends $dara.Model {
   /**
+   * @example
+   * 123456789
+   */
+  accountId?: string;
+  /**
    * @remarks
    * The types of the execution template. Valid values: Other, TimerTrigger, EventTrigger, and AlarmTrigger. You can specify only one of the Categories and Category parameters. We recommend that you specify Categories.
    * 
@@ -118,6 +123,7 @@ export class ListExecutionsShrinkRequest extends $dara.Model {
    * OOSServiceRole
    */
   ramRole?: string;
+  rdFolderIdsShrink?: string;
   /**
    * @remarks
    * The ID of the region.
@@ -215,6 +221,7 @@ export class ListExecutionsShrinkRequest extends $dara.Model {
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       categories: 'Categories',
       category: 'Category',
       depth: 'Depth',
@@ -229,6 +236,7 @@ export class ListExecutionsShrinkRequest extends $dara.Model {
       nextToken: 'NextToken',
       parentExecutionId: 'ParentExecutionId',
       ramRole: 'RamRole',
+      rdFolderIdsShrink: 'RdFolderIds',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceId: 'ResourceId',
@@ -245,6 +253,7 @@ export class ListExecutionsShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       categories: 'string',
       category: 'string',
       depth: 'string',
@@ -259,6 +268,7 @@ export class ListExecutionsShrinkRequest extends $dara.Model {
       nextToken: 'string',
       parentExecutionId: 'string',
       ramRole: 'string',
+      rdFolderIdsShrink: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceId: 'string',

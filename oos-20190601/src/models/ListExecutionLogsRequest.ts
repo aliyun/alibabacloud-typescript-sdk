@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListExecutionLogsRequest extends $dara.Model {
   /**
+   * @example
+   * 123456789
+   */
+  accountId?: string;
+  /**
    * @remarks
    * The ID of the execution.
    * 
@@ -55,6 +60,7 @@ export class ListExecutionLogsRequest extends $dara.Model {
   taskExecutionId?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       executionId: 'ExecutionId',
       logType: 'LogType',
       maxResults: 'MaxResults',
@@ -66,6 +72,7 @@ export class ListExecutionLogsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       executionId: 'string',
       logType: 'string',
       maxResults: 'number',

@@ -43,6 +43,7 @@ export class SetServiceSettingsRequest extends $dara.Model {
    * SlsProjectName
    */
   deliverySlsProjectName?: string;
+  rdFolderIds?: string[];
   /**
    * @remarks
    * The id of RDC Enterprise.
@@ -59,6 +60,11 @@ export class SetServiceSettingsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  serviceAccessRdEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       deliveryOssBucketName: 'DeliveryOssBucketName',
@@ -66,8 +72,10 @@ export class SetServiceSettingsRequest extends $dara.Model {
       deliveryOssKeyPrefix: 'DeliveryOssKeyPrefix',
       deliverySlsEnabled: 'DeliverySlsEnabled',
       deliverySlsProjectName: 'DeliverySlsProjectName',
+      rdFolderIds: 'RdFolderIds',
       rdcEnterpriseId: 'RdcEnterpriseId',
       regionId: 'RegionId',
+      serviceAccessRdEnabled: 'ServiceAccessRdEnabled',
     };
   }
 
@@ -78,12 +86,17 @@ export class SetServiceSettingsRequest extends $dara.Model {
       deliveryOssKeyPrefix: 'string',
       deliverySlsEnabled: 'boolean',
       deliverySlsProjectName: 'string',
+      rdFolderIds: { 'type': 'array', 'itemType': 'string' },
       rdcEnterpriseId: 'string',
       regionId: 'string',
+      serviceAccessRdEnabled: 'boolean',
     };
   }
 
   validate() {
+    if(Array.isArray(this.rdFolderIds)) {
+      $dara.Model.validateArray(this.rdFolderIds);
+    }
     super.validate();
   }
 

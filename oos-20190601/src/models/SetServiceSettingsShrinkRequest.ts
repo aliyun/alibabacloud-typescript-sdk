@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
+export class SetServiceSettingsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of OSS bucket to deliver.
@@ -16,7 +16,7 @@ export class SetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
    * Whether to enable OSS delivery.
    * 
    * @example
-   * true
+   * false
    */
   deliveryOssEnabled?: boolean;
   /**
@@ -43,6 +43,7 @@ export class SetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
    * SlsProjectName
    */
   deliverySlsProjectName?: string;
+  rdFolderIdsShrink?: string;
   /**
    * @remarks
    * The id of RDC Enterprise.
@@ -51,6 +52,18 @@ export class SetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
    * RdcEnterpriseId
    */
   rdcEnterpriseId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
   serviceAccessRdEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -59,7 +72,9 @@ export class SetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
       deliveryOssKeyPrefix: 'DeliveryOssKeyPrefix',
       deliverySlsEnabled: 'DeliverySlsEnabled',
       deliverySlsProjectName: 'DeliverySlsProjectName',
+      rdFolderIdsShrink: 'RdFolderIds',
       rdcEnterpriseId: 'RdcEnterpriseId',
+      regionId: 'RegionId',
       serviceAccessRdEnabled: 'ServiceAccessRdEnabled',
     };
   }
@@ -71,52 +86,14 @@ export class SetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
       deliveryOssKeyPrefix: 'string',
       deliverySlsEnabled: 'boolean',
       deliverySlsProjectName: 'string',
+      rdFolderIdsShrink: 'string',
       rdcEnterpriseId: 'string',
+      regionId: 'string',
       serviceAccessRdEnabled: 'boolean',
     };
   }
 
   validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetServiceSettingsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * CBEC8072-BEC2-478E-8EAE-E723BA79CF19
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The information of service settings.
-   */
-  serviceSettings?: SetServiceSettingsResponseBodyServiceSettings[];
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-      serviceSettings: 'ServiceSettings',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-      serviceSettings: { 'type': 'array', 'itemType': SetServiceSettingsResponseBodyServiceSettings },
-    };
-  }
-
-  validate() {
-    if(Array.isArray(this.serviceSettings)) {
-      $dara.Model.validateArray(this.serviceSettings);
-    }
     super.validate();
   }
 

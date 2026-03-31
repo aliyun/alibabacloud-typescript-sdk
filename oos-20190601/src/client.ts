@@ -552,6 +552,140 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - CreateChatConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateChatConfigurationResponse
+   */
+  async createChatConfigurationWithOptions(request: $_model.CreateChatConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateChatConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configuration)) {
+      query["Configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ramRole)) {
+      query["RamRole"] = request.ramRole;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateChatConfiguration",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateChatConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.CreateChatConfigurationResponse({}));
+  }
+
+  /**
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - CreateChatConfigurationRequest
+   * @returns CreateChatConfigurationResponse
+   */
+  async createChatConfiguration(request: $_model.CreateChatConfigurationRequest): Promise<$_model.CreateChatConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createChatConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建部署制品
+   * 
+   * @param request - CreateDeployRevisionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDeployRevisionResponse
+   */
+  async createDeployRevisionWithOptions(request: $_model.CreateDeployRevisionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDeployRevisionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!$dara.isNull(request.deployResourceType)) {
+      query["DeployResourceType"] = request.deployResourceType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.hooks)) {
+      query["Hooks"] = request.hooks;
+    }
+
+    if (!$dara.isNull(request.location)) {
+      query["Location"] = request.location;
+    }
+
+    if (!$dara.isNull(request.revisionType)) {
+      query["RevisionType"] = request.revisionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDeployRevision",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDeployRevisionResponse>(await this.callApi(params, req, runtime), new $_model.CreateDeployRevisionResponse({}));
+  }
+
+  /**
+   * 创建部署制品
+   * 
+   * @param request - CreateDeployRevisionRequest
+   * @returns CreateDeployRevisionResponse
+   */
+  async createDeployRevision(request: $_model.CreateDeployRevisionRequest): Promise<$_model.CreateDeployRevisionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDeployRevisionWithOptions(request, runtime);
+  }
+
+  /**
    * 创建仓库
    * 
    * @param request - CreateGitRepositoryRequest
@@ -634,7 +768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an O\\\\\\\\\\\\&M Item.
+   * Creates an O\\\\\\\\\\\\\\\\\\\\&M Item.
    * 
    * @param tmpReq - CreateOpsItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -719,7 +853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an O\\\\\\\\\\\\&M Item.
+   * Creates an O\\\\\\\\\\\\\\\\\\\\&M Item.
    * 
    * @param request - CreateOpsItemRequest
    * @returns CreateOpsItemResponse
@@ -918,7 +1052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+   * Creates an encryption parameter. Make sure that you have the permissions to call the CreateSecret operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param tmpReq - CreateSecretParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -995,7 +1129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an encryption parameter. Make sure that you have the permissions to call this operation.
+   * Creates an encryption parameter. Make sure that you have the permissions to call the CreateSecret operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - CreateSecretParameterRequest
    * @returns CreateSecretParameterResponse
@@ -1274,7 +1408,63 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple executions.
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - DeleteChatConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteChatConfigurationResponse
+   */
+  async deleteChatConfigurationWithOptions(request: $_model.DeleteChatConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteChatConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteChatConfiguration",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteChatConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteChatConfigurationResponse({}));
+  }
+
+  /**
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - DeleteChatConfigurationRequest
+   * @returns DeleteChatConfigurationResponse
+   */
+  async deleteChatConfiguration(request: $_model.DeleteChatConfigurationRequest): Promise<$_model.DeleteChatConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteChatConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes executions.
    * 
    * @param request - DeleteExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1313,7 +1503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple executions.
+   * Deletes executions.
    * 
    * @param request - DeleteExecutionsRequest
    * @returns DeleteExecutionsResponse
@@ -1462,7 +1652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+   * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - DeleteSecretParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1497,7 +1687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation before you call this operation.
+   * Deletes an encryption parameter. Make sure that you have the permissions to call the DeleteSecret operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - DeleteSecretParameterRequest
    * @returns DeleteSecretParameterResponse
@@ -1716,7 +1906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用分组资源成本
+   * Queries the resource costs of an application group.
    * 
    * @param request - DescribeApplicationGroupBillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1771,7 +1961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用分组资源成本
+   * Queries the resource costs of an application group.
    * 
    * @param request - DescribeApplicationGroupBillRequest
    * @returns DescribeApplicationGroupBillResponse
@@ -2040,6 +2230,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - GetChatConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatConfigurationResponse
+   */
+  async getChatConfigurationWithOptions(request: $_model.GetChatConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetChatConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetChatConfiguration",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetChatConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.GetChatConfigurationResponse({}));
+  }
+
+  /**
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - GetChatConfigurationRequest
+   * @returns GetChatConfigurationResponse
+   */
+  async getChatConfiguration(request: $_model.GetChatConfigurationRequest): Promise<$_model.GetChatConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getChatConfigurationWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about the template of an execution, including the content of the template.
    * 
    * @param request - GetExecutionTemplateRequest
@@ -2272,7 +2518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an O\\\\\\\\\\\\&M item.
+   * Queries the details of an O\\\\\\\\\\\\\\\\\\\\&M item.
    * 
    * @param request - GetOpsItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2307,7 +2553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an O\\\\\\\\\\\\&M item.
+   * Queries the details of an O\\\\\\\\\\\\\\\\\\\\&M item.
    * 
    * @param request - GetOpsItemRequest
    * @returns GetOpsItemResponse
@@ -2522,7 +2768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - GetSecretParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2565,7 +2811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * Queries the information about an encryption parameter, including the parameter value. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - GetSecretParameterRequest
    * @returns GetSecretParameterResponse
@@ -2576,7 +2822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - GetSecretParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2615,7 +2861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * Queries the information about one or more encryption parameters. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - GetSecretParametersRequest
    * @returns GetSecretParametersResponse
@@ -2626,7 +2872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - GetSecretParametersByPathRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2677,7 +2923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation before you call this operation.
+   * Queries encryption parameters by path. Make sure that you have the permissions to call the GetSecretValue operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - GetSecretParametersByPathRequest
    * @returns GetSecretParametersByPathResponse
@@ -2688,7 +2934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the settings of the delivery feature.
+   * Queries the service settings, including the configuration of delivering template execution records and the associated organization ID.
    * 
    * @param request - GetServiceSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2715,7 +2961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the settings of the delivery feature.
+   * Queries the service settings, including the configuration of delivering template execution records and the associated organization ID.
    * 
    * @param request - GetServiceSettingsRequest
    * @returns GetServiceSettingsResponse
@@ -2776,7 +3022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取参数可用值
+   * Obtains available values of parameters.
    * 
    * @param request - GetTemplateParameterConstraintsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2827,7 +3073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取参数可用值
+   * Obtains available values of parameters.
    * 
    * @param request - GetTemplateParameterConstraintsRequest
    * @returns GetTemplateParameterConstraintsResponse
@@ -3034,6 +3280,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - ListChatConfigurationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatConfigurationsResponse
+   */
+  async listChatConfigurationsWithOptions(request: $_model.ListChatConfigurationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatConfigurationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filters)) {
+      query["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatConfigurations",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatConfigurationsResponse>(await this.callApi(params, req, runtime), new $_model.ListChatConfigurationsResponse({}));
+  }
+
+  /**
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - ListChatConfigurationsRequest
+   * @returns ListChatConfigurationsResponse
+   */
+  async listChatConfigurations(request: $_model.ListChatConfigurationsRequest): Promise<$_model.ListChatConfigurationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChatConfigurationsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the logs of an execution.
    * 
    * @remarks
@@ -3046,6 +3356,10 @@ export default class Client extends OpenApi {
   async listExecutionLogsWithOptions(request: $_model.ListExecutionLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListExecutionLogsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     if (!$dara.isNull(request.executionId)) {
       query["ExecutionId"] = request.executionId;
     }
@@ -3158,11 +3472,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.ListExecutionsShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rdFolderIds)) {
+      request.rdFolderIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rdFolderIds, "RdFolderIds", "json");
+    }
+
     if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
     let query = { };
+    if (!$dara.isNull(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     if (!$dara.isNull(request.categories)) {
       query["Categories"] = request.categories;
     }
@@ -3217,6 +3539,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ramRole)) {
       query["RamRole"] = request.ramRole;
+    }
+
+    if (!$dara.isNull(request.rdFolderIdsShrink)) {
+      query["RdFolderIds"] = request.rdFolderIdsShrink;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -3734,7 +4060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the patches of an instance.
+   * Queries the patches of an instance.
    * 
    * @param request - ListInstancePatchesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3781,7 +4107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the patches of an instance.
+   * Queries the patches of an instance.
    * 
    * @param request - ListInstancePatchesRequest
    * @returns ListInstancePatchesResponse
@@ -3854,7 +4180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries O\\&M items.
+   * Queries O\\\\\\&M items.
    * 
    * @param tmpReq - ListOpsItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3915,7 +4241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries O\\&M items.
+   * Queries O\\\\\\&M items.
    * 
    * @param request - ListOpsItemsRequest
    * @returns ListOpsItemsResponse
@@ -4172,7 +4498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+   * Queries the information about a scheduled execution that involves O\\&M operations on Elastic Compute Service (ECS) instances.
    * 
    * @param request - ListResourceExecutionStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4215,7 +4541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a scheduled execution that involves O&M operations on Elastic Compute Service (ECS) instances.
+   * Queries the information about a scheduled execution that involves O\\&M operations on Elastic Compute Service (ECS) instances.
    * 
    * @param request - ListResourceExecutionStatusRequest
    * @returns ListResourceExecutionStatusResponse
@@ -4634,6 +4960,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于获取任务执行内部的云助手脚本执行ID
+   * 
+   * @param request - ListTaskExecutionInvocationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskExecutionInvocationsResponse
+   */
+  async listTaskExecutionInvocationsWithOptions(request: $_model.ListTaskExecutionInvocationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTaskExecutionInvocationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskExecutionId)) {
+      query["TaskExecutionId"] = request.taskExecutionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTaskExecutionInvocations",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTaskExecutionInvocationsResponse>(await this.callApi(params, req, runtime), new $_model.ListTaskExecutionInvocationsResponse({}));
+  }
+
+  /**
+   * 用于获取任务执行内部的云助手脚本执行ID
+   * 
+   * @param request - ListTaskExecutionInvocationsRequest
+   * @returns ListTaskExecutionInvocationsResponse
+   */
+  async listTaskExecutionInvocations(request: $_model.ListTaskExecutionInvocationsRequest): Promise<$_model.ListTaskExecutionInvocationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTaskExecutionInvocationsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries task executions. Multiple methods are supported to filter task executions.
    * 
    * @param request - ListTaskExecutionsRequest
@@ -4643,6 +5019,10 @@ export default class Client extends OpenApi {
   async listTaskExecutionsWithOptions(request: $_model.ListTaskExecutionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTaskExecutionsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     if (!$dara.isNull(request.endDateAfter)) {
       query["EndDateAfter"] = request.endDateAfter;
     }
@@ -4736,7 +5116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of versions of a template.
+   * Queries the versions of a template.
    * 
    * @param request - ListTemplateVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4783,7 +5163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of versions of a template.
+   * Queries the versions of a template.
    * 
    * @param request - ListTemplateVersionsRequest
    * @returns ListTemplateVersionsResponse
@@ -5104,14 +5484,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the feature of delivering template execution records and sets the storage location.
+   * Enables or disables the feature of delivering template execution records and sets the storage location and organization ID.
    * 
-   * @param request - SetServiceSettingsRequest
+   * @param tmpReq - SetServiceSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetServiceSettingsResponse
    */
-  async setServiceSettingsWithOptions(request: $_model.SetServiceSettingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetServiceSettingsResponse> {
-    request.validate();
+  async setServiceSettingsWithOptions(tmpReq: $_model.SetServiceSettingsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetServiceSettingsResponse> {
+    tmpReq.validate();
+    let request = new $_model.SetServiceSettingsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rdFolderIds)) {
+      request.rdFolderIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rdFolderIds, "RdFolderIds", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.deliveryOssBucketName)) {
       query["DeliveryOssBucketName"] = request.deliveryOssBucketName;
@@ -5133,12 +5519,20 @@ export default class Client extends OpenApi {
       query["DeliverySlsProjectName"] = request.deliverySlsProjectName;
     }
 
+    if (!$dara.isNull(request.rdFolderIdsShrink)) {
+      query["RdFolderIds"] = request.rdFolderIdsShrink;
+    }
+
     if (!$dara.isNull(request.rdcEnterpriseId)) {
       query["RdcEnterpriseId"] = request.rdcEnterpriseId;
     }
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.serviceAccessRdEnabled)) {
+      query["ServiceAccessRdEnabled"] = request.serviceAccessRdEnabled;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -5159,7 +5553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the feature of delivering template execution records and sets the storage location.
+   * Enables or disables the feature of delivering template execution records and sets the storage location and organization ID.
    * 
    * @param request - SetServiceSettingsRequest
    * @returns SetServiceSettingsResponse
@@ -5609,6 +6003,10 @@ export default class Client extends OpenApi {
       query["DeployedRevisionId"] = request.deployedRevisionId;
     }
 
+    if (!$dara.isNull(request.monitorMetadata)) {
+      query["MonitorMetadata"] = request.monitorMetadata;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
@@ -5658,7 +6056,79 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update executions that are in Running or Waiting status.
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - UpdateChatConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateChatConfigurationResponse
+   */
+  async updateChatConfigurationWithOptions(request: $_model.UpdateChatConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateChatConfigurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configuration)) {
+      query["Configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ramRole)) {
+      query["RamRole"] = request.ramRole;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateChatConfiguration",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateChatConfigurationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateChatConfigurationResponse({}));
+  }
+
+  /**
+   * 用于创建、更新、查询和删除聊天配置，支持钉钉等平台。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API主要用于管理和配置与钉钉等即时通讯工具集成的聊天机器人设置，包括但不限于创建新的聊天配置、更新现有配置、获取特定配置详情以及删除不再需要的配置。通过此API，可以实现对不同用户或用户组权限的精细化控制，并能够指定具体的RAM角色来执行相关操作。此外，还支持为每个配置添加标签以便于管理和分类。
+   * 特别注意的是，在调用此API时，需确保提供的`RegionId`、`ConversationId`以及请求体中的各项参数准确无误，尤其是涉及到安全敏感信息如`ClientId`、`ClientSecret`等字段时更应谨慎处理，避免泄露给非授权方。
+   * 
+   * @param request - UpdateChatConfigurationRequest
+   * @returns UpdateChatConfigurationResponse
+   */
+  async updateChatConfiguration(request: $_model.UpdateChatConfigurationRequest): Promise<$_model.UpdateChatConfigurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateChatConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates an execution in the Running or Waiting state.
    * 
    * @param request - UpdateExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5713,7 +6183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update executions that are in Running or Waiting status.
+   * Updates an execution in the Running or Waiting state.
    * 
    * @param request - UpdateExecutionRequest
    * @returns UpdateExecutionResponse
@@ -5796,7 +6266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an O\\\\\\\\\\\\&M item.
+   * Modifies an O\\\\\\\\\\\\\\\\\\\\&M item.
    * 
    * @param tmpReq - UpdateOpsItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5889,7 +6359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an O\\\\\\\\\\\\&M item.
+   * Modifies an O\\\\\\\\\\\\\\\\\\\\&M item.
    * 
    * @param request - UpdateOpsItemRequest
    * @returns UpdateOpsItemResponse
@@ -6066,7 +6536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an encryption parameter.
+   * Updates an encryption parameter. Make sure that you have the permissions to call the UpdateSecretValue operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param tmpReq - UpdateSecretParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6123,7 +6593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an encryption parameter.
+   * Updates an encryption parameter. Make sure that you have the permissions to call the UpdateSecretValue operation of Key Management Service (KMS) before you call this operation.
    * 
    * @param request - UpdateSecretParameterRequest
    * @returns UpdateSecretParameterResponse
@@ -6291,6 +6761,68 @@ export default class Client extends OpenApi {
   async updateTemplate(request: $_model.UpdateTemplateRequest): Promise<$_model.UpdateTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新模板属性
+   * 
+   * @param request - UpdateTemplateAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTemplateAttributesResponse
+   */
+  async updateTemplateAttributesWithOptions(request: $_model.UpdateTemplateAttributesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTemplateAttributesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountIds)) {
+      query["AccountIds"] = request.accountIds;
+    }
+
+    if (!$dara.isNull(request.isFavorite)) {
+      query["IsFavorite"] = request.isFavorite;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sharePermissionAction)) {
+      query["SharePermissionAction"] = request.sharePermissionAction;
+    }
+
+    if (!$dara.isNull(request.shareTemplateVersion)) {
+      query["ShareTemplateVersion"] = request.shareTemplateVersion;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTemplateAttributes",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTemplateAttributesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTemplateAttributesResponse({}));
+  }
+
+  /**
+   * 更新模板属性
+   * 
+   * @param request - UpdateTemplateAttributesRequest
+   * @returns UpdateTemplateAttributesResponse
+   */
+  async updateTemplateAttributes(request: $_model.UpdateTemplateAttributesRequest): Promise<$_model.UpdateTemplateAttributesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTemplateAttributesWithOptions(request, runtime);
   }
 
   /**

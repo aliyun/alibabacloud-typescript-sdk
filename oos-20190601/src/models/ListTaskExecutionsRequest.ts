@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTaskExecutionsRequest extends $dara.Model {
   /**
+   * @example
+   * 123456789
+   */
+  accountId?: string;
+  /**
    * @remarks
    * The execution ID of the task.
    * 
@@ -140,6 +145,7 @@ export class ListTaskExecutionsRequest extends $dara.Model {
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       endDateAfter: 'EndDateAfter',
       endDateBefore: 'EndDateBefore',
       executionId: 'ExecutionId',
@@ -161,6 +167,7 @@ export class ListTaskExecutionsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       endDateAfter: 'string',
       endDateBefore: 'string',
       executionId: 'string',

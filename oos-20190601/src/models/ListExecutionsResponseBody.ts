@@ -54,6 +54,11 @@ export class ListExecutionsResponseBodyExecutionsCurrentTasks extends $dara.Mode
 
 export class ListExecutionsResponseBodyExecutions extends $dara.Model {
   /**
+   * @example
+   * 123456789
+   */
+  accountId?: string;
+  /**
    * @remarks
    * The type of the execution template. Valid values: Other, TimerTrigger, EventTrigger, and AlarmTrigger.
    * 
@@ -326,6 +331,7 @@ export class ListExecutionsResponseBodyExecutions extends $dara.Model {
   waitingStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       category: 'Category',
       counters: 'Counters',
       createDate: 'CreateDate',
@@ -365,6 +371,7 @@ export class ListExecutionsResponseBodyExecutions extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       category: 'string',
       counters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       createDate: 'string',

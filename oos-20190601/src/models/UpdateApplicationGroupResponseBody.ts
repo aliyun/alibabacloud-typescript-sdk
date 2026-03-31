@@ -51,6 +51,7 @@ export class UpdateApplicationGroupResponseBodyApplicationGroup extends $dara.Mo
    * v1
    */
   importTagValue?: string;
+  monitorMetadata?: string;
   /**
    * @remarks
    * The name of the application group.
@@ -75,6 +76,7 @@ export class UpdateApplicationGroupResponseBodyApplicationGroup extends $dara.Mo
       description: 'Description',
       importTagKey: 'ImportTagKey',
       importTagValue: 'ImportTagValue',
+      monitorMetadata: 'MonitorMetadata',
       name: 'Name',
       updatedDate: 'UpdatedDate',
     };
@@ -88,6 +90,7 @@ export class UpdateApplicationGroupResponseBodyApplicationGroup extends $dara.Mo
       description: 'string',
       importTagKey: 'string',
       importTagValue: 'string',
+      monitorMetadata: 'string',
       name: 'string',
       updatedDate: 'string',
     };

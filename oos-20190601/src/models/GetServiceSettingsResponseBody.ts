@@ -44,6 +44,11 @@ export class GetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
    */
   deliverySlsProjectName?: string;
   /**
+   * @example
+   * rd-123
+   */
+  rdFolders?: string;
+  /**
    * @remarks
    * The id of RDC Enterprise.
    * 
@@ -51,6 +56,7 @@ export class GetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
    * RdcEnterpriseId
    */
   rdcEnterpriseId?: string;
+  serviceAccessRdEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       deliveryOssBucketName: 'DeliveryOssBucketName',
@@ -58,7 +64,9 @@ export class GetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
       deliveryOssKeyPrefix: 'DeliveryOssKeyPrefix',
       deliverySlsEnabled: 'DeliverySlsEnabled',
       deliverySlsProjectName: 'DeliverySlsProjectName',
+      rdFolders: 'RdFolders',
       rdcEnterpriseId: 'RdcEnterpriseId',
+      serviceAccessRdEnabled: 'ServiceAccessRdEnabled',
     };
   }
 
@@ -69,7 +77,9 @@ export class GetServiceSettingsResponseBodyServiceSettings extends $dara.Model {
       deliveryOssKeyPrefix: 'string',
       deliverySlsEnabled: 'boolean',
       deliverySlsProjectName: 'string',
+      rdFolders: 'string',
       rdcEnterpriseId: 'string',
+      serviceAccessRdEnabled: 'boolean',
     };
   }
 

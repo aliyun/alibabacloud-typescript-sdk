@@ -14,6 +14,7 @@ export class UpdateApplicationGroupShrinkRequest extends $dara.Model {
    */
   applicationName?: string;
   deployedRevisionId?: string;
+  monitorMetadata?: string;
   /**
    * @remarks
    * The name of the application group.
@@ -60,6 +61,7 @@ export class UpdateApplicationGroupShrinkRequest extends $dara.Model {
     return {
       applicationName: 'ApplicationName',
       deployedRevisionId: 'DeployedRevisionId',
+      monitorMetadata: 'MonitorMetadata',
       name: 'Name',
       newName: 'NewName',
       operationName: 'OperationName',
@@ -72,6 +74,7 @@ export class UpdateApplicationGroupShrinkRequest extends $dara.Model {
     return {
       applicationName: 'string',
       deployedRevisionId: 'string',
+      monitorMetadata: 'string',
       name: 'string',
       newName: 'string',
       operationName: 'string',

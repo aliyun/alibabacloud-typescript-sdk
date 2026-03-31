@@ -87,6 +87,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $dara.Model
    * v1
    */
   importTagValue?: string;
+  monitorMetadata?: string;
   /**
    * @remarks
    * The name of the application group.
@@ -151,6 +152,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $dara.Model
       executionId: 'ExecutionId',
       importTagKey: 'ImportTagKey',
       importTagValue: 'ImportTagValue',
+      monitorMetadata: 'MonitorMetadata',
       name: 'Name',
       operationMetadata: 'OperationMetadata',
       progress: 'Progress',
@@ -176,6 +178,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $dara.Model
       executionId: 'string',
       importTagKey: 'string',
       importTagValue: 'string',
+      monitorMetadata: 'string',
       name: 'string',
       operationMetadata: 'string',
       progress: 'string',
