@@ -1,13 +1,69 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListGroupsResponseBodyGroups } from "./ListGroupsResponseBodyGroups";
 
+
+export class ListGroupsResponseBodyGroupsGroup extends $dara.Model {
+  comments?: string;
+  createDate?: string;
+  groupId?: string;
+  groupName?: string;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comments: 'Comments',
+      createDate: 'CreateDate',
+      groupId: 'GroupId',
+      groupName: 'GroupName',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comments: 'string',
+      createDate: 'string',
+      groupId: 'string',
+      groupName: 'string',
+      updateDate: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGroupsResponseBodyGroups extends $dara.Model {
+  group?: ListGroupsResponseBodyGroupsGroup[];
+  static names(): { [key: string]: string } {
+    return {
+      group: 'Group',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      group: { 'type': 'array', 'itemType': ListGroupsResponseBodyGroupsGroup },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.group)) {
+      $dara.Model.validateArray(this.group);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the RAM user groups.
-   */
   groups?: ListGroupsResponseBodyGroups;
   /**
    * @remarks

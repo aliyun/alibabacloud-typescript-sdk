@@ -19,6 +19,7 @@ export class DetachPolicyFromRoleRequest extends $dara.Model {
    * Custom
    */
   policyType?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The name of the RAM role.
@@ -31,6 +32,7 @@ export class DetachPolicyFromRoleRequest extends $dara.Model {
     return {
       policyName: 'PolicyName',
       policyType: 'PolicyType',
+      resourceGroupId: 'ResourceGroupId',
       roleName: 'RoleName',
     };
   }
@@ -39,6 +41,7 @@ export class DetachPolicyFromRoleRequest extends $dara.Model {
     return {
       policyName: 'string',
       policyType: 'string',
+      resourceGroupId: 'string',
       roleName: 'string',
     };
   }

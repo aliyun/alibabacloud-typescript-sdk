@@ -97,6 +97,10 @@ export default class Client extends OpenApi {
       query["PolicyType"] = request.policyType;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -141,6 +145,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyType)) {
       query["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.roleName)) {
@@ -191,6 +199,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyType)) {
       query["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.userName)) {
@@ -1076,7 +1088,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Resource Access Management (RAM) role.
+   * Deletes a regular Resource Access Management (RAM) role.
+   * 
+   * @remarks
+   * Before you delete a regular RAM role, call the [DetachPolicyFromRole](https://help.aliyun.com/document_detail/2337680.html) operation to remove all policies from the RAM role.
+   * The DeleteRole operation cannot be used to delete service-linked roles and reserved roles for cloud services.
    * 
    * @param request - DeleteRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1107,7 +1123,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Resource Access Management (RAM) role.
+   * Deletes a regular Resource Access Management (RAM) role.
+   * 
+   * @remarks
+   * Before you delete a regular RAM role, call the [DetachPolicyFromRole](https://help.aliyun.com/document_detail/2337680.html) operation to remove all policies from the RAM role.
+   * The DeleteRole operation cannot be used to delete service-linked roles and reserved roles for cloud services.
    * 
    * @param request - DeleteRoleRequest
    * @returns DeleteRoleResponse
@@ -1229,6 +1249,10 @@ export default class Client extends OpenApi {
       query["PolicyType"] = request.policyType;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1273,6 +1297,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyType)) {
       query["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.roleName)) {
@@ -1323,6 +1351,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.policyType)) {
       query["PolicyType"] = request.policyType;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.userName)) {
@@ -2286,7 +2318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are added to resources.
+   * Queries the tags that are added to cloud resources which are Resource Access Management (RAM) roles and policies.
    * 
    * @param tmpReq - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2343,7 +2375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags that are added to resources.
+   * Queries the tags that are added to cloud resources which are Resource Access Management (RAM) roles and policies.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -2756,7 +2788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to resources.
+   * Adds tags to cloud resources which are Resource Access Management (RAM) roles and policies.
    * 
    * @param tmpReq - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2805,7 +2837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds tags to resources.
+   * Adds tags to cloud resources which are Resource Access Management (RAM) roles and policies.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -2858,7 +2890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from resources.
+   * Removes tags from cloud resources that are Resource Access Management (RAM) roles and policies.
    * 
    * @param tmpReq - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2911,7 +2943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from resources.
+   * Removes tags from cloud resources that are Resource Access Management (RAM) roles and policies.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse

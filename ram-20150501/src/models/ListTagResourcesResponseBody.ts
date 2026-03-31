@@ -1,7 +1,71 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListTagResourcesResponseBodyTagResources } from "./ListTagResourcesResponseBodyTagResources";
 
+
+export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * @example
+   * role1
+   */
+  resourceName?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * Enumerated values:
+   * 
+   * *   role: RAM roles.
+   * *   policy: policies.
+   * 
+   * @example
+   * role
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The key of the tag.
+   * 
+   * @example
+   * t1
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The value of the tag.
+   * 
+   * @example
+   * v1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceName: 'ResourceName',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceName: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
@@ -22,7 +86,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The tags that are added to the resources.
+   * The tags that are added to the cloud resources.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

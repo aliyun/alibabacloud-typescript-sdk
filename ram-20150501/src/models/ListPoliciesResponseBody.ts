@@ -1,7 +1,131 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListPoliciesResponseBodyPolicies } from "./ListPoliciesResponseBodyPolicies";
 
+
+export class ListPoliciesResponseBodyPoliciesPolicyTagsTag extends $dara.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesResponseBodyPoliciesPolicyTags extends $dara.Model {
+  tag?: ListPoliciesResponseBodyPoliciesPolicyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': ListPoliciesResponseBodyPoliciesPolicyTagsTag },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesResponseBodyPoliciesPolicy extends $dara.Model {
+  attachmentCount?: number;
+  createDate?: string;
+  defaultVersion?: string;
+  description?: string;
+  policyName?: string;
+  policyType?: string;
+  tags?: ListPoliciesResponseBodyPoliciesPolicyTags;
+  updateDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attachmentCount: 'AttachmentCount',
+      createDate: 'CreateDate',
+      defaultVersion: 'DefaultVersion',
+      description: 'Description',
+      policyName: 'PolicyName',
+      policyType: 'PolicyType',
+      tags: 'Tags',
+      updateDate: 'UpdateDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attachmentCount: 'number',
+      createDate: 'string',
+      defaultVersion: 'string',
+      description: 'string',
+      policyName: 'string',
+      policyType: 'string',
+      tags: ListPoliciesResponseBodyPoliciesPolicyTags,
+      updateDate: 'string',
+    };
+  }
+
+  validate() {
+    if(this.tags && typeof (this.tags as any).validate === 'function') {
+      (this.tags as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoliciesResponseBodyPolicies extends $dara.Model {
+  policy?: ListPoliciesResponseBodyPoliciesPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      policy: 'Policy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policy: { 'type': 'array', 'itemType': ListPoliciesResponseBodyPoliciesPolicy },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policy)) {
+      $dara.Model.validateArray(this.policy);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListPoliciesResponseBody extends $dara.Model {
   /**
@@ -20,10 +144,6 @@ export class ListPoliciesResponseBody extends $dara.Model {
    * EXAMPLE
    */
   marker?: string;
-  /**
-   * @remarks
-   * The information about the policies.
-   */
   policies?: ListPoliciesResponseBodyPolicies;
   /**
    * @remarks

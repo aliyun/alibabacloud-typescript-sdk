@@ -19,6 +19,7 @@ export class AttachPolicyToUserRequest extends $dara.Model {
    * Custom
    */
   policyType?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The name of the RAM user.
@@ -31,6 +32,7 @@ export class AttachPolicyToUserRequest extends $dara.Model {
     return {
       policyName: 'PolicyName',
       policyType: 'PolicyType',
+      resourceGroupId: 'ResourceGroupId',
       userName: 'UserName',
     };
   }
@@ -39,6 +41,7 @@ export class AttachPolicyToUserRequest extends $dara.Model {
     return {
       policyName: 'string',
       policyType: 'string',
+      resourceGroupId: 'string',
       userName: 'string',
     };
   }

@@ -1,13 +1,66 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListPolicyVersionsResponseBodyPolicyVersions } from "./ListPolicyVersionsResponseBodyPolicyVersions";
 
+
+export class ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion extends $dara.Model {
+  createDate?: string;
+  isDefaultVersion?: boolean;
+  policyDocument?: string;
+  versionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createDate: 'CreateDate',
+      isDefaultVersion: 'IsDefaultVersion',
+      policyDocument: 'PolicyDocument',
+      versionId: 'VersionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createDate: 'string',
+      isDefaultVersion: 'boolean',
+      policyDocument: 'string',
+      versionId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPolicyVersionsResponseBodyPolicyVersions extends $dara.Model {
+  policyVersion?: ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion[];
+  static names(): { [key: string]: string } {
+    return {
+      policyVersion: 'PolicyVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyVersion: { 'type': 'array', 'itemType': ListPolicyVersionsResponseBodyPolicyVersionsPolicyVersion },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.policyVersion)) {
+      $dara.Model.validateArray(this.policyVersion);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListPolicyVersionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the policy versions.
-   */
   policyVersions?: ListPolicyVersionsResponseBodyPolicyVersions;
   /**
    * @remarks

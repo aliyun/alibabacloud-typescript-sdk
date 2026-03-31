@@ -1,13 +1,63 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ListAccessKeysResponseBodyAccessKeys } from "./ListAccessKeysResponseBodyAccessKeys";
 
+
+export class ListAccessKeysResponseBodyAccessKeysAccessKey extends $dara.Model {
+  accessKeyId?: string;
+  createDate?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessKeyId: 'AccessKeyId',
+      createDate: 'CreateDate',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKeyId: 'string',
+      createDate: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAccessKeysResponseBodyAccessKeys extends $dara.Model {
+  accessKey?: ListAccessKeysResponseBodyAccessKeysAccessKey[];
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: { 'type': 'array', 'itemType': ListAccessKeysResponseBodyAccessKeysAccessKey },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accessKey)) {
+      $dara.Model.validateArray(this.accessKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class ListAccessKeysResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The AccessKey pairs that belong to the RAM user.
-   */
   accessKeys?: ListAccessKeysResponseBodyAccessKeys;
   /**
    * @remarks

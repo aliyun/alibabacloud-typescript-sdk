@@ -27,11 +27,13 @@ export class AttachPolicyToGroupRequest extends $dara.Model {
    * Custom
    */
   policyType?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       groupName: 'GroupName',
       policyName: 'PolicyName',
       policyType: 'PolicyType',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -40,6 +42,7 @@ export class AttachPolicyToGroupRequest extends $dara.Model {
       groupName: 'string',
       policyName: 'string',
       policyType: 'string',
+      resourceGroupId: 'string',
     };
   }
 

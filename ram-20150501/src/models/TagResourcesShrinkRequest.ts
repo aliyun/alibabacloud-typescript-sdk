@@ -14,8 +14,8 @@ export class TagResourcesShrinkRequest extends $dara.Model {
    * 
    * Enumerated values:
    * 
-   * *   role
-   * *   policy
+   * *   role: RAM roles.
+   * *   policy: policies.
    * 
    * @example
    * role
