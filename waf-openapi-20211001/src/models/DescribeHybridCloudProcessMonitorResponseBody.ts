@@ -3,53 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHybridCloudProcessMonitorResponseBodyProcessMonitors extends $dara.Model {
-  /**
-   * @remarks
-   * The severity level of the application status. Valid values:
-   * 
-   * - **normal**: normal.
-   * 
-   * - **critical**: abnormal.
-   * 
-   * @example
-   * normal
-   */
   levle?: string;
   /**
    * @remarks
-   * The name of the application running on the cluster node. Valid values:
+   * The service that the application provides. Valid values:
    * 
-   * - **tianqingproxy**: the central management service
-   * 
-   * - **redis**: the storage service
-   * 
-   * - **scc**: the traffic metering service
-   * 
-   * - **keeper**: the threat intelligence service
-   * 
-   * - **node_exporter**: the application log upload service
-   * 
-   * - **xagent**: the traffic detection service
-   * 
-   * - **noproxy**: the traffic forwarding service
-   * 
-   * - **xloge**: the attack log upload service
-   * 
-   * - **ilogtail**: the log collection service
-   * 
-   * - **xlogd**: the log analysis service
+   * *   **tianqingproxy**: centralized management service.
+   * *   **redis**: storage service.
+   * *   **scc**: traffic calculation service.
+   * *   **keeper**: threat intelligence service.
+   * *   **node_exporter**: application log upload service.
+   * *   **xagent**: traffic detection service.
+   * *   **noproxy**: traffic forwarding service.
+   * *   **xloge**: attack log upload service.
+   * *   **ilogtail**: log collection service.
+   * *   **xlogd**: log analysis service.
    * 
    * @example
-   * keeper
+   * tianqingproxy
    */
   processName?: string;
   /**
    * @remarks
-   * The running status of the application. Valid values:
+   * The status of the application. Valid values:
    * 
-   * - **0**: abnormal.
-   * 
-   * - **1**: normal.
+   * *   **0**: abnormal.
+   * *   **1**: normal.
    * 
    * @example
    * 1
@@ -83,24 +62,17 @@ export class DescribeHybridCloudProcessMonitorResponseBodyProcessMonitors extend
 export class DescribeHybridCloudProcessMonitorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of application statuses.
+   * The status of the applications.
    */
   processMonitors?: DescribeHybridCloudProcessMonitorResponseBodyProcessMonitors[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * DBF79169-B6A0-5C8E-86B2-CFE3****496E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * > This parameter is deprecated and no longer returns a valid value.
-   * 
-   * @example
-   * 3
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

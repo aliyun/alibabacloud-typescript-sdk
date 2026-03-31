@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of risk events that are associated with the security risk.
+   * The number of risk-related security events.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   abnormalEventNumber?: number;
   /**
    * @remarks
-   * The ID of the security risk.
+   * The ID of the risk.
    * 
    * @example
    * 7c1431f27ae7e9c8cc64095***68e
@@ -21,38 +21,24 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   abnormalId?: string;
   /**
    * @remarks
-   * The details of the security risk in JSON format. The JSON object contains the following fields:
+   * The details of the risk. The value is a string that consists of multiple parameters in the JSON format. Valid values:
    * 
-   * - **rule**: The detection rule that triggered the security risk.
-   * 
-   * - **data_type**: The type of sensitive data.
-   * 
-   * - **custom_rule_name**: The name of the custom rule.
-   * 
-   * - **rule_name**: The name of the built-in rule.
+   * * **rule**: risk-related rule
+   * * **data_type**: sensitive data type
+   * * **custom_rule_name**: custom rule name
+   * * **rule_name**: built-in rule name
    * 
    * @example
-   * {
-   *     "data_type": ["1005","1004"],
-   *     "rule": {
-   *         "parent": "RiskType_Permission",
-   *         "code": "Risk_UnauthSensitive",
-   *         "level": "high",
-   *         "origin": "default",
-   *         "name": "Risk_UnauthSensitive"
-   *     }
-   * }
+   * { "data_type": ["1005","1004"], "rule": { "parent": "RiskType_Permission", "code": "Risk_UnauthSensitive", "level": "high", "origin": "default", "name": "Risk_UnauthSensitive" } }
    */
   abnormalInfo?: string;
   /**
    * @remarks
-   * The severity level of the security risk. Valid values:
+   * The level of the risk. Valid values:
    * 
-   * - **high**: High.
-   * 
-   * - **medium**: Medium.
-   * 
-   * - **low**: Low.
+   * * **high**
+   * * **medium**
+   * * **low**
    * 
    * @example
    * high
@@ -60,9 +46,9 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   abnormalLevel?: string;
   /**
    * @remarks
-   * The type of the security risk.
+   * The type of the risk.
    * 
-   * > Call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to query the supported risk types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
    * 
    * @example
    * LackOfSpeedLimit
@@ -70,7 +56,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   abnormalTag?: string;
   /**
    * @remarks
-   * The processing status of the security risk.
+   * The status of the risk.
    * 
    * @example
    * unresolved
@@ -78,7 +64,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   abnromalStatus?: string;
   /**
    * @remarks
-   * The path of the API that is associated with the security risk.
+   * The risk-related API.
    * 
    * @example
    * /api/login
@@ -86,7 +72,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   apiFormat?: string;
   /**
    * @remarks
-   * The ID of the API that is associated with the security risk.
+   * The ID of the risk-related API.
    * 
    * @example
    * 09559c0d71ca2ffc996b81***836d8
@@ -96,7 +82,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * > Call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to query the supported business purposes.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
    * 
    * @example
    * SendMail
@@ -104,7 +90,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   apiTag?: string;
   /**
    * @remarks
-   * The time when the security risk was first detected. The value is a UNIX timestamp. Unit: seconds.
+   * The time at which the risk was first detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1684252800
@@ -112,14 +98,14 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   discoverTime?: number;
   /**
    * @remarks
-   * The list of security risk samples.
+   * The risk-related samples.
    * 
    * @deprecated
    */
   examples?: string[];
   /**
    * @remarks
-   * The time when the API was first discovered. The value is a UNIX timestamp. Unit: seconds.
+   * The time at which the API was first detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1701138088
@@ -127,11 +113,10 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   firstTime?: number;
   /**
    * @remarks
-   * Indicates whether the security risk is being followed. Valid values:
+   * Indicates whether the API is followed. Valid values:
    * 
-   * - **1**: The security risk is being followed.
-   * 
-   * - **0** (default): The security risk is not being followed.
+   * *   **1**: yes
+   * *   **0**(default): no
    * 
    * @example
    * 0
@@ -139,7 +124,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   follow?: number;
   /**
    * @remarks
-   * The time when the security risk was marked as ignored. The value is a UNIX timestamp. Unit: seconds.
+   * The time at which the risk was marked as ignored. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1684252800
@@ -147,7 +132,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   ignoreTime?: number;
   /**
    * @remarks
-   * The most recent time when the API was accessed. The value is a UNIX timestamp. Unit: seconds.
+   * The time at which the API was last accessed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1684252800
@@ -155,7 +140,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   lastestTime?: number;
   /**
    * @remarks
-   * The most recent time when the security risk was detected. The value is a UNIX timestamp. Unit: seconds.
+   * The time at which the risk was last detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1684252800
@@ -163,7 +148,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   latestDiscoverTime?: number;
   /**
    * @remarks
-   * The domain name or IP address that the API resides on.
+   * The domain name or IP address of the API.
    * 
    * @example
    * a.aliyun.com
@@ -171,19 +156,18 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The remarks for the security risk.
+   * The remarks.
    * 
    * @example
-   * Strict
+   * Business side notified
    */
   note?: string;
   /**
    * @remarks
-   * The source of the risk detection rule. Valid values:
+   * The source of the risk type. Valid values:
    * 
-   * - **custom**: Custom rule.
-   * 
-   * - **default**: Built-in rule.
+   * *   **custom**
+   * *   **default**
    * 
    * @example
    * custom
@@ -191,23 +175,13 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The handling status of the security risk. Valid values:
+   * The status of the risk. Valid values:
    * 
-   * - **toBeConfirmed**: To be confirmed.
-   * 
-   * - **confirmed**: Confirmed.
-   * 
-   * - **toBeFixed**: To be fixed.
-   * 
-   * - **fixed**: Fixed (manually verified).
-   * 
-   * - **ignored**: Ignored.
-   * 
-   * - **toBeVerified**: To be verified by the system.
-   * 
-   * - **notFixed**: Verification failed.
-   * 
-   * - **systemFixed**: Fixed (verified by the system).
+   * * **toBeConfirmed**
+   * * **confirmed**
+   * * **toBeFixed**
+   * * **fixed**
+   * * **ignored**
    * 
    * @example
    * Confirmed
@@ -278,7 +252,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $dara.Model {
 export class DescribeApisecAbnormalsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of security risks.
+   * The risks.
    */
   data?: DescribeApisecAbnormalsResponseBodyData[];
   /**
@@ -291,10 +265,10 @@ export class DescribeApisecAbnormalsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of security risks returned.
+   * The total number of entries returned.
    * 
    * @example
-   * 5
+   * 35
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

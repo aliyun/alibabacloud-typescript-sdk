@@ -5,17 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyDomainOwnerResponseBodyVerifyResult extends $dara.Model {
   /**
    * @remarks
-   * The reason why the verification failed.
+   * The reasons why the verification fails. Valid values:
    * 
-   * - DnsTxtVerifyFailed: The DNS TXT record does not match.
-   * 
-   * - DnsServerError: The DNS server is abnormal.
-   * 
-   * - VerifyFileNotExist: The verification file does not exist.
-   * 
-   * - VerifyDomainNotAccess: Failed to access the domain name.
-   * 
-   * - FileContentVerifyFailed: The file content does not match.
+   * *   DnsTxtVerifyFailed: The DNS TXT record and the domain name do not match.
+   * *   DnsServerError: The DNS server is abnormal.
+   * *   VerifyFileNotExist: The verification file does not exist.
+   * *   VerifyDomainNotAccess: The access to the domain name failed.
+   * *   FileContentVerifyFailed: The content of the verification file and the domain name do not match.
    * 
    * @example
    * DnsTxtVerifyFailed
@@ -25,9 +21,8 @@ export class VerifyDomainOwnerResponseBodyVerifyResult extends $dara.Model {
    * @remarks
    * The verification result. Valid values:
    * 
-   * - **true**: The verification is successful.
-   * 
-   * - **false**: The verification failed.
+   * *   **true**: The verification succeeds.
+   * *   **false**: The verification fails.
    * 
    * @example
    * true
@@ -59,7 +54,7 @@ export class VerifyDomainOwnerResponseBodyVerifyResult extends $dara.Model {
 export class VerifyDomainOwnerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F35F45B0-5D6B-4238-BE02-A62D****E840

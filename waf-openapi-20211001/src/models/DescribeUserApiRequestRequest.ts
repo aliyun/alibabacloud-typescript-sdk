@@ -5,11 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserApiRequestRequest extends $dara.Model {
   /**
    * @remarks
-   * The API operation.
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. Use the ApiId parameter instead.
+   * The API.
+   * >Notice: This parameter is deprecated, please use ApiId to query.
    * 
    * @example
    * /api/v1/know
@@ -30,8 +27,7 @@ export class DescribeUserApiRequestRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * 
-   * > This parameter applies only to hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain information about hybrid cloud clusters.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -39,11 +35,8 @@ export class DescribeUserApiRequestRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The domain name or IP address of the API operation.
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated. Use the ApiId parameter instead.
+   * The domain name or IP address of the API.
+   * >Notice: This parameter is deprecated, please use ApiId to query.
    * 
    * @example
    * c.***.com
@@ -53,9 +46,9 @@ export class DescribeUserApiRequestRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -65,11 +58,10 @@ export class DescribeUserApiRequestRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
    * 
    * @example
    * cn-hangzhou
@@ -85,27 +77,18 @@ export class DescribeUserApiRequestRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of statistics. Valid values:
+   * The type of the statistics. Valid values:
    * 
-   * - **api_ip**: total traffic.
-   * 
-   * - **api_cross_border_ip**: cross-border traffic.
-   * 
-   * - **api_bot_ip**: bot traffic.
-   * 
-   * - **remote_region**: geographic location statistics.
-   * 
-   * - **client_id**: client type statistics.
-   * 
-   * - **http_referer**: Referer statistics.
-   * 
-   * - **api_cnt**: total number of calls.
-   * 
-   * - **bot_cnt**: number of bot requests.
-   * 
-   * - **cross_border_cnt**: number of cross-border requests.
-   * 
-   * - **api_freq**: call frequency.
+   * *   **api_ip**: total traffic
+   * *   **api_cross_border_ip**: cross-border traffic
+   * *   **api_bot_ip**: bot traffic
+   * *   **remote_region**: geographical location
+   * *   **client_id**: client type
+   * *   **http_referer**: Referer
+   * *   **api_cnt**: total number of calls
+   * *   **bot_cnt**: number of bot calls
+   * *   **cross_border_cnt**: number of cross-border requests
+   * *   **api_freq**: call frequency
    * 
    * @example
    * api_ip

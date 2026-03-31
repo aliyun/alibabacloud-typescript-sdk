@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSensitiveOutboundDistributionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The destination country.
+   * The country to which the data is transferred.
    * 
    * @example
    * US
@@ -13,7 +13,7 @@ export class DescribeSensitiveOutboundDistributionResponseBodyData extends $dara
   country?: string;
   /**
    * @remarks
-   * The number of outbound personal information entries.
+   * The number of personal information records involved in cross-border data transfer.
    * 
    * @example
    * 213
@@ -21,7 +21,7 @@ export class DescribeSensitiveOutboundDistributionResponseBodyData extends $dara
   infoOutboundCount?: number;
   /**
    * @remarks
-   * The number of outbound sensitive information entries.
+   * The number of sensitive information records involved in cross-border data transfer.
    * 
    * @example
    * 144
@@ -55,7 +55,7 @@ export class DescribeSensitiveOutboundDistributionResponseBodyData extends $dara
 export class DescribeSensitiveOutboundDistributionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of outbound traffic distributions that contain personal information.
+   * The traffic distribution of personal information records involved in cross-border data transfer.
    */
   data?: DescribeSensitiveOutboundDistributionResponseBodyData[];
   /**

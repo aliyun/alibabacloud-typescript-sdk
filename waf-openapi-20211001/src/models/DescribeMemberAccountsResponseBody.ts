@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model {
   /**
    * @remarks
-   * The ID of the member account.
+   * The ID of the member.
    * 
    * @example
    * 169************21
@@ -13,7 +13,7 @@ export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model 
   accountId?: string;
   /**
    * @remarks
-   * The name of the member account.
+   * The name of the member.
    * 
    * @example
    * ipflgmqqnbjg
@@ -21,13 +21,11 @@ export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model 
   accountName?: string;
   /**
    * @remarks
-   * The status of the member account. Valid values:
+   * The status of the member.
    * 
-   * - **enabled**: The member account is being managed.
-   * 
-   * - **disabled**: The member account is not being managed.
-   * 
-   * - **disabling**: The member account is being removed from management.
+   * *   **enabled**: managed.
+   * *   **disabled**: not managed.
+   * *   **disabling**: being deleted.
    * 
    * @example
    * enabled
@@ -35,7 +33,7 @@ export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model 
   accountStatus?: string;
   /**
    * @remarks
-   * The description of the member account.
+   * The description of the member.
    * 
    * @example
    * test
@@ -43,7 +41,7 @@ export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The time when the member account was added. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the member was added.
    * 
    * @example
    * 1683367751000
@@ -81,15 +79,15 @@ export class DescribeMemberAccountsResponseBodyAccountInfos extends $dara.Model 
 export class DescribeMemberAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the member accounts.
+   * The information about the member.
    */
   accountInfos?: DescribeMemberAccountsResponseBodyAccountInfos[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 50C4A80D-D46C-57E0-9A7D-03C078474852
+   * 50C4A80D-D46C-57E0-9A7D-03C0****4852
    */
   requestId?: string;
   static names(): { [key: string]: string } {

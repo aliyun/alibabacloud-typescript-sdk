@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseTemplateValidGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of protected object group names.
+   * The names of the protected object groups.
    */
   groups?: string[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6EA4B39A-9C0C-5E57-993E-30B6****3AD0

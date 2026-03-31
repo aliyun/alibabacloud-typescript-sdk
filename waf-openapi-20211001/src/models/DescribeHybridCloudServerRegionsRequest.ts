@@ -7,7 +7,7 @@ export class DescribeHybridCloudServerRegionsRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,9 @@ export class DescribeHybridCloudServerRegionsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region code. Use this parameter to filter results by a specific continent or area.>Notice: This parameter is required when `RegionType` is set to `region`. Set the value to the code of the continent that you want to query.
+   * The code of the region.
+   * 
+   * >  This parameter is required if you set RegionType to region. The value is the code of the city.
    * 
    * @example
    * 410
@@ -25,11 +27,10 @@ export class DescribeHybridCloudServerRegionsRequest extends $dara.Model {
   regionCode?: string;
   /**
    * @remarks
-   * The region in which the WAF instance resides. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -39,11 +40,9 @@ export class DescribeHybridCloudServerRegionsRequest extends $dara.Model {
    * @remarks
    * The type of the region. Valid values:
    * 
-   * - **operator**: queries carriers.
-   * 
-   * - **continents**: queries continents.
-   * 
-   * - **region**: queries cities.
+   * *   **operator**: the ISP.
+   * *   **continents**: the continent.
+   * *   **region**: the city.
    * 
    * This parameter is required.
    * 
@@ -53,7 +52,7 @@ export class DescribeHybridCloudServerRegionsRequest extends $dara.Model {
   regionType?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

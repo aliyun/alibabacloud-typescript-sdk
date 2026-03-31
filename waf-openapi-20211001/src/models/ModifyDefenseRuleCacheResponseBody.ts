@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefenseRuleCacheResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * A0F2B994-8645-5270-A05D-9DAD8C35****
+   * A0F2B994-8645-5270-A05D-9DAD8C****B6
    */
   requestId?: string;
   static names(): { [key: string]: string } {

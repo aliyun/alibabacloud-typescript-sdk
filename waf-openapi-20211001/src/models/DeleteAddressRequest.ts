@@ -5,17 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of addresses to delete.
-   * 
    * This parameter is required.
    */
   addressList?: string[];
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
-   * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -23,17 +17,12 @@ export class DeleteAddressRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
-   * @remarks
-   * The ID of the Alibaba Cloud resource group.
-   * 
    * @example
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the address book.
-   * 
    * This parameter is required.
    * 
    * @example

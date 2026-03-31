@@ -5,17 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class AddAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The addresses to add to the address book.
-   * 
    * This parameter is required.
    */
   addressList?: string[];
   /**
    * @remarks
-   * The ID of the WAF instance.
-   * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the WAF instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -23,17 +17,12 @@ export class AddAddressRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
-   * @remarks
-   * The ID of the Alibaba Cloud resource group.
-   * 
    * @example
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the address book.
-   * 
    * This parameter is required.
    * 
    * @example

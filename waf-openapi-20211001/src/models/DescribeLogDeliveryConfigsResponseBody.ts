@@ -5,21 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLogDeliveryConfigsResponseBodyDeliveryConfigs extends $dara.Model {
   /**
    * @remarks
-   * The details of the log delivery configuration, returned as a JSON string.
+   * The content of the log delivery configuration. The value is a JSON string that contains multiple parameters.
    * 
-   * > The structure of this parameter is the same as the **DeliveryDetail** request parameter of the [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~) operation.
-   * 
-   * @example
-   * {
-   *   "rfcVersion": "rfc3164",
-   *   "protocol": "tcp",
-   *   "servers": [
-   *     {
-   *       "address": "1.1.1.1",
-   *       "port": 20
-   *     }
-   *   ]
-   * }
+   * >  This parameter is the same as the **DeliveryDetail** parameter of the **CreateLogDeliveryConfig** operation. For more information, see **Parameter description for log delivery configuration** of the [CreateLogDeliveryConfig](~~CreateLogDeliveryConfig~~) operation.
    */
   deliveryDetail?: string;
   /**
@@ -34,12 +22,11 @@ export class DescribeLogDeliveryConfigsResponseBodyDeliveryConfigs extends $dara
    * @remarks
    * The type of the log delivery configuration. Valid values:
    * 
-   * - **syslog**: Log delivery to a syslog server.
-   * 
-   * - **kafka**: Log delivery to a Kafka cluster.
+   * *   **syslog**: Logs are delivered to a syslog service.
+   * *   **kafka**: Logs are delivered to a Kafka service.
    * 
    * @example
-   * syslog
+   * kafka
    */
   deliveryType?: string;
   static names(): { [key: string]: string } {
@@ -70,42 +57,19 @@ export class DescribeLogDeliveryConfigsResponseBodyDeliveryConfigs extends $dara
 export class DescribeLogDeliveryConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log delivery configurations.
+   * The information about the log delivery configuration.
    */
   deliveryConfigs?: DescribeLogDeliveryConfigsResponseBodyDeliveryConfigs[];
-  /**
-   * @remarks
-   * The maximum number of entries returned per page.
-   * 
-   * @example
-   * 20
-   */
   maxResults?: number;
-  /**
-   * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
-   * 
-   * > If this parameter is not empty, more results are available. Use the value of **NextToken** in the next request to retrieve the next page of results. If the value is empty, all results have been returned.
-   * 
-   * @example
-   * AAAAAGBgV9tolsLfijC4wam2htS*****D/46H3X2wIS
-   */
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2EFCFE18-78F8-5079-B312-07***48B
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of log delivery configurations returned.
-   * 
-   * @example
-   * 5
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

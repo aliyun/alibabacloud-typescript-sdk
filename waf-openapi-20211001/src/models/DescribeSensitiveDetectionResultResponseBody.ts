@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSensitiveDetectionResultResponseBodyDataResultList extends $dara.Model {
   /**
    * @remarks
-   * The number of personal information items.
+   * The number of personal information records.
    * 
    * @example
    * 11
@@ -13,7 +13,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultList extends 
   infoCount?: number;
   /**
    * @remarks
-   * The number of outbound transfers of personal information.
+   * The number of sensitive personal information records that are involved in cross-border data transfer.
    * 
    * @example
    * 6
@@ -21,7 +21,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultList extends 
   outboundCount?: number;
   /**
    * @remarks
-   * The code of the sensitive data type.
+   * The sensitive data type.
    * 
    * @example
    * 1002
@@ -55,7 +55,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultList extends 
 export class DescribeSensitiveDetectionResultResponseBodyDataResultMax extends $dara.Model {
   /**
    * @remarks
-   * The number of personal information items for the most frequently detected sensitive data type.
+   * The number of sensitive personal information records that are of the most frequent sensitive data type.
    * 
    * @example
    * 187
@@ -63,7 +63,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultMax extends $
   infoCount?: number;
   /**
    * @remarks
-   * The number of outbound transfers of personal information for the most frequently detected sensitive data type.
+   * The number of sensitive personal information records that are of the most frequent sensitive data type and are involved in cross-border data transfer.
    * 
    * @example
    * 54
@@ -71,7 +71,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultMax extends $
   outboundCount?: number;
   /**
    * @remarks
-   * The code of the sensitive data type that is most frequently detected.
+   * The most frequent sensitive data type.
    * 
    * @example
    * 1003
@@ -105,11 +105,10 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResultMax extends $
 export class DescribeSensitiveDetectionResultResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The result of the compliance detection. Valid values:
+   * The compliance check results. Valid values:
    * 
-   * - **report**: A risk of outbound data transfer is detected.
-   * 
-   * - **none**: No risk of outbound data transfer is detected.
+   * *   **report**: Risks exist in cross-border data transfer.
+   * *   **none**: No risks exist in cross-border data transfer.
    * 
    * @example
    * report
@@ -117,12 +116,12 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResult extends $dar
   detectionResult?: string;
   /**
    * @remarks
-   * The detection results for each sensitive data type.
+   * The sensitive information check results by sensitive data type.
    */
   list?: DescribeSensitiveDetectionResultResponseBodyDataResultList[];
   /**
    * @remarks
-   * The statistics for the most frequently detected sensitive data type.
+   * The maximum values in the statistics of sensitive data types.
    */
   max?: DescribeSensitiveDetectionResultResponseBodyDataResultMax;
   static names(): { [key: string]: string } {
@@ -159,7 +158,7 @@ export class DescribeSensitiveDetectionResultResponseBodyDataResult extends $dar
 export class DescribeSensitiveDetectionResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The compliance detection results for sensitive data.
+   * The compliance checks.
    */
   result?: DescribeSensitiveDetectionResultResponseBodyDataResult[];
   static names(): { [key: string]: string } {
@@ -189,12 +188,12 @@ export class DescribeSensitiveDetectionResultResponseBodyData extends $dara.Mode
 export class DescribeSensitiveDetectionResultResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned for the compliance detection results.
+   * The compliance check results.
    */
   data?: DescribeSensitiveDetectionResultResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D5EB0

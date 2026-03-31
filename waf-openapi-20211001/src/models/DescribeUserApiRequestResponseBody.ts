@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserApiRequestResponseBodyRequests extends $dara.Model {
   /**
    * @remarks
-   * The number of statistics.
+   * The number of entries returned.
    * 
    * @example
    * 76
@@ -13,15 +13,12 @@ export class DescribeUserApiRequestResponseBodyRequests extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The statistics information. This includes:
+   * The type of the statistics. Valid values:
    * 
-   * - **client_list**: the client tool.
-   * 
-   * - **ip**: the IP address information.
-   * 
-   * - **region_id**: the region.
-   * 
-   * - **country_id**: the country.
+   * *   **client_list**: client
+   * *   **ip**: IP address
+   * *   **region_id** region
+   * *   **country_id**: country
    * 
    * @example
    * {
@@ -68,7 +65,7 @@ export class DescribeUserApiRequestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of statistics.
+   * The statistics.
    */
   requests?: DescribeUserApiRequestResponseBodyRequests[];
   static names(): { [key: string]: string } {

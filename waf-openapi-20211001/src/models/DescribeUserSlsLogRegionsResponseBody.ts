@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserSlsLogRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of log storage region IDs.
+   * The region IDs.
    */
   logRegions?: string[];
   /**
@@ -13,7 +13,7 @@ export class DescribeUserSlsLogRegionsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 9D11AC3A-A10C-56E7-A342-E87EC892BAE2
+   * 9D11AC3A-A10C-56E7-A342-E87EC892****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

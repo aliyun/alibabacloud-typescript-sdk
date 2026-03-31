@@ -7,7 +7,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address to query. You can set this parameter to perform a fuzzy query on the added IP address blacklist.
+   * The IP address that you want to query. You can specify this parameter to query an IP address in the IP address blacklist for major event protection by using fuzzy matching.
    * 
    * @example
    * 192.0.XX.XX
@@ -25,15 +25,12 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   ipLike?: string;
   /**
    * @remarks
-   * The property by which to sort the results in **descending order**. Valid values:
+   * The method that you want to use to sort the IP addresses **in descending order**. Valid values:
    * 
-   * - **gmtModified**: sorts by modification time.
-   * 
-   * - **ip**: sorts by IP address.
-   * 
-   * - **templateId**: sorts by template ID.
-   * 
-   * - **id**: sorts by primary key.
+   * *   **gmtModified:** sorts the IP addresses by most recent modification time.
+   * *   **ip:** sorts the IP addresses by IP address.
+   * *   **templateId:** sorts the IP addresses by template ID.
+   * *   **id:** sorts the IP addresses by primary key.
    * 
    * @example
    * gmtModified
@@ -41,7 +38,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**, which indicates the first page.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -49,7 +46,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**, which indicates 10 entries per page.
+   * The number of entries to return on each page. Default value: **10**.
    * 
    * @example
    * 10
@@ -57,11 +54,10 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: regions outside the Chinese mainland.
+   * *   **cn-hangzhou:** the Chinese mainland.
+   * *   **ap-southeast-1:** outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -69,7 +65,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q
@@ -77,7 +73,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the IP address blacklist rule for critical event protection.
+   * The ID of the IP address blacklist rule for major event protection.
    * 
    * @example
    * 20013199
@@ -85,7 +81,7 @@ export class DescribeMajorProtectionBlackIpsRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The ID of the critical event protection template.
+   * The ID of the rule template for major event protection.
    * 
    * @example
    * 5673

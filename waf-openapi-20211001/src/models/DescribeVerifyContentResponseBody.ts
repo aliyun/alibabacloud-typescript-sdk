@@ -4,25 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVerifyContentResponseBodyDnsContent extends $dara.Model {
   /**
-   * @remarks
-   * The host record of the DNS TXT record used for domain ownership verification.
-   * 
    * @example
    * verification
    */
   RR?: string;
   /**
-   * @remarks
-   * The type of the DNS record used for verification.
-   * 
    * @example
    * TXT
    */
   type?: string;
   /**
-   * @remarks
-   * The value of the DNS TXT record used for verification.
-   * 
    * @example
    * verify_0a246ca99d504ba087472d***
    */
@@ -54,41 +45,26 @@ export class DescribeVerifyContentResponseBodyDnsContent extends $dara.Model {
 
 export class DescribeVerifyContentResponseBodyFileContent extends $dara.Model {
   /**
-   * @remarks
-   * The download URL of the verification file.
-   * 
    * @example
    * http://oss.xxx.com//xxx.html
    */
   downloadUrl?: string;
   /**
-   * @remarks
-   * The name of the verification file.
-   * 
    * @example
    * xxx.html
    */
   fileName?: string;
   /**
-   * @remarks
-   * The root domain of the domain name to be verified.
-   * 
    * @example
    * aliyundemo.com
    */
   topDomain?: string;
   /**
-   * @remarks
-   * The content of the verification file.
-   * 
    * @example
    * verify_0a246ca99d504ba08***
    */
   value?: string;
   /**
-   * @remarks
-   * The URL that is used to access the verification file.
-   * 
    * @example
    * http://xxx.xxx.com//xxx.html
    */
@@ -123,28 +99,14 @@ export class DescribeVerifyContentResponseBodyFileContent extends $dara.Model {
 }
 
 export class DescribeVerifyContentResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The DNS-based verification content, including the TXT record details.
-   */
   dnsContent?: DescribeVerifyContentResponseBodyDnsContent;
-  /**
-   * @remarks
-   * The file-based verification content, including the file name, path, and download URL.
-   */
   fileContent?: DescribeVerifyContentResponseBodyFileContent;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * D7861F61-5B61-46CE-A47C-***
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the domain ownership verification is successful.
-   * 
    * @example
    * true
    */

@@ -13,13 +13,11 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
   certId?: string;
   /**
    * @remarks
-   * The type of the cipher suite. Valid values:
+   * The types of cipher suites that are added. Valid values:
    * 
-   * - **1**: all cipher suites.
-   * 
-   * - **2**: strong cipher suites.
-   * 
-   * - **99**: custom cipher suites.
+   * *   **1:** all cipher suites.
+   * *   **2:** strong cipher suites.
+   * *   **99:** custom cipher suites.
    * 
    * @example
    * 1
@@ -27,18 +25,17 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
   cipherSuite?: number;
   /**
    * @remarks
-   * The custom cipher suites to be added.
+   * The custom cipher suites.
    * 
-   * > This parameter is returned only when **CipherSuite** is set to **99**.
+   * >  This parameter is returned only if the value of **CipherSuite** is **99**.
    */
   customCiphers?: string[];
   /**
    * @remarks
    * Indicates whether TLS 1.3 is supported. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -46,11 +43,10 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
   enableTLSv3?: boolean;
   /**
    * @remarks
-   * Indicates whether an exclusive IP address is used. Valid values:
+   * Indicates whether exclusive IP addresses are supported. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -58,11 +54,10 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
   exclusiveIp?: boolean;
   /**
    * @remarks
-   * Indicates whether HTTPS to HTTP redirection is enabled. Valid values:
+   * Indicates whether the HTTP to HTTPS redirection feature is enabled for the domain name. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -72,9 +67,8 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
    * @remarks
    * Indicates whether HTTP/2 is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -82,21 +76,20 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
   http2Enabled?: boolean;
   /**
    * @remarks
-   * The list of HTTP listener ports.
+   * The HTTP listener ports.
    */
   httpPorts?: number[];
   /**
    * @remarks
-   * The list of HTTPS ports.
+   * The HTTPS listener ports.
    */
   httpsPorts?: number[];
   /**
    * @remarks
-   * Indicates whether IPv6 is enabled. Valid values:
+   * Specifies whether to enable IPv6. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * false
@@ -106,9 +99,8 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
    * @remarks
    * The type of the protection resource. Valid values:
    * 
-   * - **share**: shared cluster.
-   * 
-   * - **gslb**: intelligent load balancing for a shared cluster.
+   * *   **share:** shared cluster.
+   * *   **gslb:** shared cluster-based intelligent load balancing.
    * 
    * @example
    * share
@@ -116,13 +108,11 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
   protectionResource?: string;
   /**
    * @remarks
-   * The TLS version. Valid values:
+   * The version of the Transport Layer Security (TLS) protocol. Valid values:
    * 
-   * - **tlsv1**
-   * 
-   * - **tlsv1.1**
-   * 
-   * - **tlsv1.2**
+   * *   **tlsv1**
+   * *   **tlsv1.1**
+   * *   **tlsv1.2**
    * 
    * @example
    * tlsv1.2
@@ -130,13 +120,11 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
   TLSVersion?: string;
   /**
    * @remarks
-   * The method that WAF uses to obtain the client IP address. Valid values:
+   * The method that is used to obtain the actual IP address of a client. Valid values:
    * 
-   * - **0**: No Layer 7 proxies are deployed in front of WAF.
-   * 
-   * - **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the client IP address.
-   * 
-   * - **2**: WAF reads the value of a custom header field as the client IP address.
+   * *   **0**: No Layer 7 proxies are deployed in front of WAF.
+   * *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the actual IP address of the client.
+   * *   **2**: WAF reads the value of a custom header field as the actual IP address of the client.
    * 
    * @example
    * 0
@@ -144,9 +132,9 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The list of custom header fields that are used to obtain the client IP address. The value is in the \\`["header1","header2",...]\\` format.
+   * The custom header fields that are used to obtain the actual IP addresses of clients. The value is in the ["header1","header2",...] format.
    * 
-   * > This parameter is returned only when XffHeaderMode is set to **2**.
+   * >  This parameter is returned only if the value of **XffHeaderMode** is 2.
    */
   xffHeaders?: string[];
   static names(): { [key: string]: string } {
@@ -211,7 +199,7 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsListen extends $dara
 export class DescribeHybridCloudResourcesResponseBodyDomainsRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
-   * The custom request header field.
+   * The key of the custom header field.
    * 
    * @example
    * aaa
@@ -219,7 +207,7 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirectRequestHeade
   key?: string;
   /**
    * @remarks
-   * The value of the custom request header field.
+   * The value of the custom header field.
    * 
    * @example
    * bbb
@@ -251,16 +239,15 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirectRequestHeade
 export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses or domain names of the origin servers for back-to-origin.
+   * The IP addresses or domain names of the origin server.
    */
   backends?: string[];
   /**
    * @remarks
-   * Indicates whether public cloud disaster recovery is enabled. Valid values:
+   * Indicates whether the public cloud disaster recovery feature is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -268,7 +255,7 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   cnameEnabled?: boolean;
   /**
    * @remarks
-   * The connection timeout period. Unit: seconds. Valid values: 5 to 120.
+   * The timeout period for connections. Unit: seconds. Valid values: 5 to 120.
    * 
    * @example
    * 120
@@ -276,11 +263,10 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   connectTimeout?: number;
   /**
    * @remarks
-   * Indicates whether back-to-origin requests are forcefully sent over HTTP. Valid values:
+   * Indicates whether the HTTPS to HTTP redirection feature is enabled for back-to-origin requests. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -288,11 +274,10 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   focusHttpBackend?: boolean;
   /**
    * @remarks
-   * Indicates whether persistent connections are enabled. Valid values:
+   * Indicates whether the persistent connection feature is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -300,9 +285,9 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   keepalive?: boolean;
   /**
    * @remarks
-   * The maximum number of requests that can be sent over a persistent connection. Valid values: 60 to 1000.
+   * The number of reused persistent connections. Valid values: 60 to 1000.
    * 
-   * > After the specified number of requests are sent, the persistent connection is closed and a new connection is established.
+   * >  This parameter indicates the number of reused persistent connections after the persistent connection feature is enabled.
    * 
    * @example
    * 1000
@@ -310,9 +295,9 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The timeout period for an idle persistent connection. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+   * The timeout period for persistent connections that are in the Idle state. Unit: seconds. Valid values: 1 to 60. Default value: 15.
    * 
-   * > An idle persistent connection is released after the timeout period expires.
+   * >  This parameter indicates the period of time during which a reused persistent connection can remain in the Idle state before the persistent connection is released.
    * 
    * @example
    * 15
@@ -320,13 +305,11 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   keepaliveTimeout?: number;
   /**
    * @remarks
-   * The load balancing algorithm for back-to-origin requests. Valid values:
+   * The load balancing algorithm that is used to forward requests to the origin server. Valid values:
    * 
-   * - **iphash**: the IP hash algorithm.
-   * 
-   * - **roundRobin**: the round-robin algorithm.
-   * 
-   * - **leastTime**: the least time algorithm.
+   * *   **iphash**
+   * *   **roundRobin**
+   * *   **leastTime**
    * 
    * @example
    * iphash
@@ -334,7 +317,7 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   loadbalance?: string;
   /**
    * @remarks
-   * The read timeout period. Unit: seconds. Valid values: 5 to 1800.
+   * The timeout period for read connections. Unit: seconds. Valid values: 5 to 1800.
    * 
    * @example
    * 200
@@ -342,16 +325,15 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   readTimeout?: number;
   /**
    * @remarks
-   * The custom header field and value that are used to mark the traffic that is processed by WAF.
+   * The key-value pair that is used to label requests that pass through WAF.
    */
   requestHeaders?: DescribeHybridCloudResourcesResponseBodyDomainsRedirectRequestHeaders[];
   /**
    * @remarks
-   * Indicates whether WAF retries forwarding requests when a back-to-origin request fails. Valid values:
+   * Indicates whether WAF retries forwarding requests if requests fail to be forwarded to the origin server. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -359,13 +341,11 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   retry?: boolean;
   /**
    * @remarks
-   * The forwarding rules for the hybrid cloud. The value is a string that consists of a JSON array. Each element in the array is a struct that contains the following fields:
+   * The forwarding rules that are configured for the domain name. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
    * 
-   * - **rs**: The back-to-origin IP addresses or CNAMEs. This field is of the Array type.
-   * 
-   * - **location**: The name of the protection node. This field is of the String type.
-   * 
-   * - **locationId**: The ID of the protection node. This field is of the Long type.
+   * *   **rs**: the back-to-origin IP addresses or CNAMEs. The value is of the ARRAY type.
+   * *   **location**: the name of the protection node. The value is of the STRING type.
+   * *   **locationId**: the ID of the protection node. The value is of the LONG type.
    * 
    * @example
    * [
@@ -381,11 +361,10 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   routingRules?: string;
   /**
    * @remarks
-   * Indicates whether back-to-origin Server Name Indication (SNI) is enabled. Valid values:
+   * Indicates whether the origin Server Name Indication (SNI) feature is enabled. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -393,9 +372,9 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   sniEnabled?: boolean;
   /**
    * @remarks
-   * The custom value of the SNI extension field. If this parameter is not specified, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
+   * The value of the custom SNI field. If the parameter is left empty, the value of the **Host** field in the request header is automatically used as the value of the SNI field.
    * 
-   * > This parameter is returned only when **SniEnabled** is set to **true**.
+   * >  This parameter is returned only if the value of **SniEnabled** is **true**.
    * 
    * @example
    * www.aliyundoc.com
@@ -403,7 +382,7 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
   sniHost?: string;
   /**
    * @remarks
-   * The write timeout period. Unit: seconds. Valid values: 5 to 1800.
+   * The timeout period for write connections. Unit: seconds. Valid values: 5 to 1800.
    * 
    * @example
    * 200
@@ -467,9 +446,9 @@ export class DescribeHybridCloudResourcesResponseBodyDomainsRedirect extends $da
 export class DescribeHybridCloudResourcesResponseBodyDomains extends $dara.Model {
   /**
    * @remarks
-   * The CNAME that is assigned by WAF to the domain name.
+   * The CNAME assigned by WAF.
    * 
-   * > This parameter is returned only when **CnameEnabled** is set to true.
+   * >  This parameter is returned only if the value of **CnameEnabled** is true.
    * 
    * @example
    * 50fqmu1ci7g0xtiyxnrhgx6qdhmn****.yundunwaf5.com
@@ -485,25 +464,25 @@ export class DescribeHybridCloudResourcesResponseBodyDomains extends $dara.Model
   domain?: string;
   /**
    * @remarks
-   * The ID of the domain name configuration.
+   * The access ID.
    * 
    * @example
-   * 12345
+   * 1
    */
   id?: number;
   /**
    * @remarks
-   * The listener configuration.
+   * The listeners.
    */
   listen?: DescribeHybridCloudResourcesResponseBodyDomainsListen;
   /**
    * @remarks
-   * The forwarding configuration.
+   * The configurations of the forwarding rule.
    */
   redirect?: DescribeHybridCloudResourcesResponseBodyDomainsRedirect;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfmvtc5z52****
@@ -513,15 +492,11 @@ export class DescribeHybridCloudResourcesResponseBodyDomains extends $dara.Model
    * @remarks
    * The status of the domain name. Valid values:
    * 
-   * - **1**: The domain name is in a normal state.
-   * 
-   * - **2**: The domain name is being created.
-   * 
-   * - **3**: The domain name is being modified.
-   * 
-   * - **4**: The domain name is being released.
-   * 
-   * - **5**: Forwarding is disabled for the domain name.
+   * *   **1:** The domain name is in a normal state.
+   * *   **2:** The domain name is being created.
+   * *   **3:** The domain name is being modified.
+   * *   **4:** The domain name is being released.
+   * *   **5:** WAF no longer forwards the traffic of the domain name.
    * 
    * @example
    * 1
@@ -529,7 +504,7 @@ export class DescribeHybridCloudResourcesResponseBodyDomains extends $dara.Model
   status?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The user ID.
    * 
    * @example
    * 130715431409****
@@ -579,7 +554,7 @@ export class DescribeHybridCloudResourcesResponseBodyDomains extends $dara.Model
 export class DescribeHybridCloudResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of domain names.
+   * The domain names.
    */
   domains?: DescribeHybridCloudResourcesResponseBodyDomains[];
   /**
@@ -592,7 +567,7 @@ export class DescribeHybridCloudResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that are returned.
    * 
    * @example
    * 24

@@ -5,7 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara.Model {
   /**
    * @remarks
-   * The protection scenario. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+   * The scenario in which the protection template is used.
+   * 
+   * *   **waf_group**: basic protection.
+   * *   **antiscan**: scan protection.
+   * *   **ip_blacklist**: IP address blacklist.
+   * *   **custom_acl**: custom rule.
+   * *   **whitelist**: whitelist.
+   * *   **region_block**: region blacklist.
+   * *   **custom_response**: custom response.
+   * *   **cc**: HTTP flood protection.
+   * *   **tamperproof**: website tamper-proofing.
+   * *   **dlp**: data leakage prevention.
    * 
    * @example
    * whitelist
@@ -13,13 +24,11 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   defenseScene?: string;
   /**
    * @remarks
-   * The sub-scenario of the template. Valid values:
+   * The sub-scenario in which the template is used. Valid values:
    * 
-   * - **web**: The bot management template for web protection.
-   * 
-   * - **app**: The bot management template for app protection.
-   * 
-   * - **basic**: The basic bot management template.
+   * *   **web**: bot management for website protection.
+   * *   **app**: bot management for app protection.
+   * *   **basic**: bot management for basic protection.
    * 
    * @example
    * basic
@@ -27,15 +36,15 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   defenseSubScene?: string;
   /**
    * @remarks
-   * The description of the template.
+   * The description of the protection template.
    * 
    * @example
-   * testTemplate
+   * test
    */
   description?: string;
   /**
    * @remarks
-   * The time when the protection template was created, in UNIX timestamp format. Unit: milliseconds.
+   * The time when the protection template was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1692930539000
@@ -46,7 +55,7 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
    * The ID of the protection template.
    * 
    * @example
-   * 34328
+   * 12345
    */
   templateId?: number;
   /**
@@ -54,12 +63,12 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
    * The name of the protection template.
    * 
    * @example
-   * antiscanTemplate
+   * TestTemplateName
    */
   templateName?: string;
   /**
    * @remarks
-   * The origin of the protection template. The value custom indicates a user-created template.
+   * The origin of the protection template. The value custom indicates that the template is a custom template created by the user.
    * 
    * @example
    * custom
@@ -69,9 +78,8 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
    * @remarks
    * The status of the protection template. Valid values:
    * 
-   * - **0**: Disabled.
-   * 
-   * - **1**: Enabled.
+   * *   **0**: disabled.
+   * *   **1**: enabled.
    * 
    * @example
    * 1
@@ -79,11 +87,10 @@ export class DescribeDefenseResourceTemplatesResponseBodyTemplates extends $dara
   templateStatus?: number;
   /**
    * @remarks
-   * The type of the template. Valid values:
+   * The type of the protection template. Valid values:
    * 
-   * - **user_default**: The default template for the user.
-   * 
-   * - **user_custom**: A custom template created by the user.
+   * *   **user_default**: default template.
+   * *   **user_custom**: custom template.
    * 
    * @example
    * user_custom
@@ -132,7 +139,7 @@ export class DescribeDefenseResourceTemplatesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 2305CEB0-BA5A-5543-A1D3-3F1D08911B1C
+   * 2305CEB0-BA5A-5543-A1D3-3F1D0891****
    */
   requestId?: string;
   /**

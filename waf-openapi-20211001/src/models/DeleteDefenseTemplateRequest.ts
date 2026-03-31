@@ -7,7 +7,7 @@ export class DeleteDefenseTemplateRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,11 +17,10 @@ export class DeleteDefenseTemplateRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
-   * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * *   **cn-hangzhou:** the Chinese mainland.
+   * *   **ap-southeast-1:** outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +28,7 @@ export class DeleteDefenseTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q
@@ -37,7 +36,7 @@ export class DeleteDefenseTemplateRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the protection template to be deleted.
+   * The ID of the protection rule template that you want to delete.
    * 
    * This parameter is required.
    * 

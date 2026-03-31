@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSensitiveRequestsResponseBodyDataInfoCount extends $dara.Model {
   /**
    * @remarks
-   * The type of sensitive data.
+   * The type of the sensitive data.
    * 
    * @example
    * 1001
@@ -45,7 +45,7 @@ export class DescribeSensitiveRequestsResponseBodyDataInfoCount extends $dara.Mo
 export class DescribeSensitiveRequestsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of threats in the last 30 days.
+   * The number of risks in the previous 30 days.
    * 
    * @example
    * 23
@@ -79,9 +79,8 @@ export class DescribeSensitiveRequestsResponseBodyData extends $dara.Model {
    * @remarks
    * The evaluation result. Valid values:
    * 
-   * - **leak**: A data leak risk is detected.
-   * 
-   * - **none**: No data leak risk is detected.
+   * *   **leak**: Data leaks may occur.
+   * *   **none**: No data leak can occur.
    * 
    * @example
    * leak
@@ -89,7 +88,7 @@ export class DescribeSensitiveRequestsResponseBodyData extends $dara.Model {
   detectionResult?: string;
   /**
    * @remarks
-   * The number of events in the last 30 days.
+   * The number of events in the previous 30 days.
    * 
    * @example
    * 679
@@ -97,12 +96,12 @@ export class DescribeSensitiveRequestsResponseBodyData extends $dara.Model {
   eventCount?: number;
   /**
    * @remarks
-   * A list of statistics about sensitive data.
+   * The statistics of the sensitive data.
    */
   infoCount?: DescribeSensitiveRequestsResponseBodyDataInfoCount[];
   /**
    * @remarks
-   * The domain name to which the API belongs.
+   * The domain name of the API.
    * 
    * @example
    * a.****.com
@@ -110,7 +109,7 @@ export class DescribeSensitiveRequestsResponseBodyData extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * A list of sensitive data.
+   * The sensitive data.
    */
   sensitiveList?: string[];
   static names(): { [key: string]: string } {
@@ -159,7 +158,7 @@ export class DescribeSensitiveRequestsResponseBodyData extends $dara.Model {
 export class DescribeSensitiveRequestsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of sensitive data tracing results.
+   * The tracing results of the data.
    */
   data?: DescribeSensitiveRequestsResponseBodyData[];
   /**

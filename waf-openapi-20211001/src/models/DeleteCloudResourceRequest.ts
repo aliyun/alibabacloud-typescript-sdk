@@ -3,21 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteCloudResourceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the protected resource. WAF automatically generates this ID when you add the cloud service to WAF.
-   * 
-   * > Call [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) to add a resource and then view the resource ID in the response.
-   * 
-   * @example
-   * lb-****py9kcm2n6nuesiu2a-80-clb4
-   */
   cloudResourceId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to view the ID of your WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -27,7 +18,7 @@ export class DeleteCloudResourceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The port of the cloud service that is added to WAF.
+   * The port of the resource that is added to WAF.
    * 
    * @example
    * 443
@@ -37,11 +28,10 @@ export class DeleteCloudResourceRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -51,7 +41,7 @@ export class DeleteCloudResourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the cloud service instance.
+   * The ID of the instance.
    * 
    * @example
    * lb-bp1*****jqnnqk5uj2p
@@ -69,15 +59,11 @@ export class DeleteCloudResourceRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of the cloud service. Valid values:
+   * The cloud service. Valid values:
    * 
-   * - **clb4**: Layer 4 CLB.
-   * 
-   * - **clb7**: Layer 7 CLB.
-   * 
-   * - **ecs**: ECS.
-   * 
-   * - **nlb**: Network Load Balancer (NLB).
+   * *   **clb4**: Layer 4 CLB.
+   * *   **clb7**: Layer 7 CLB.
+   * *   **ecs**: ECS.
    * 
    * @example
    * clb7

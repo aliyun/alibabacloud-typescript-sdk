@@ -5,11 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkFlowTopNMetricRequestFilterConditions extends $dara.Model {
   /**
    * @remarks
-   * The field name to use for filtering. Valid values:
+   * The filter fields. Valid values:
    * 
-   * - matched_host
+   * *   matched_host
+   * *   cluster
    * 
-   * - cluster
+   * For details, see the **Filter fields (Key)** section below.
    * 
    * @example
    * matched_host
@@ -17,7 +18,8 @@ export class DescribeNetworkFlowTopNMetricRequestFilterConditions extends $dara.
   key?: string;
   /**
    * @remarks
-   * The operator that is used for the filter condition. For more information about supported operators, see the **Additional information about request parameters** section.
+   * The filter operator.
+   * For details, see the **Filter operators (OpValue)** section below.
    * 
    * @example
    * eq
@@ -25,7 +27,7 @@ export class DescribeNetworkFlowTopNMetricRequestFilterConditions extends $dara.
   opValue?: string;
   /**
    * @remarks
-   * The value to use for the filter condition. The value format depends on the Key and OpValue that you specify.
+   * The filter content.
    * 
    * @example
    * test.waf-top
@@ -59,7 +61,7 @@ export class DescribeNetworkFlowTopNMetricRequestFilterConditions extends $dara.
 export class DescribeNetworkFlowTopNMetricRequestFilterDateRange extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * End time of the query range (Unix timestamp, seconds).
    * 
    * This parameter is required.
    * 
@@ -69,9 +71,7 @@ export class DescribeNetworkFlowTopNMetricRequestFilterDateRange extends $dara.M
   endDate?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds. The time range cannot exceed the last 30 days.
-   * 
-   * > The start time must be later than 30 days before the current time.
+   * Start time of the query range (Unix timestamp, seconds).
    * 
    * This parameter is required.
    * 
@@ -105,12 +105,12 @@ export class DescribeNetworkFlowTopNMetricRequestFilterDateRange extends $dara.M
 export class DescribeNetworkFlowTopNMetricRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The list of filter conditions.
+   * The list of filter conditions. Each node describes a filter condition.
    */
   conditions?: DescribeNetworkFlowTopNMetricRequestFilterConditions[];
   /**
    * @remarks
-   * The time range to query.
+   * Specifies the date range for the query.
    * 
    * This parameter is required.
    */
@@ -147,16 +147,16 @@ export class DescribeNetworkFlowTopNMetricRequestFilter extends $dara.Model {
 export class DescribeNetworkFlowTopNMetricRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter conditions for the query. If you specify multiple filter conditions, all conditions must be met (logical AND).
+   * An array of filter conditions. Multiple filter parameters use AND logic.
    * 
    * This parameter is required.
    */
   filter?: DescribeNetworkFlowTopNMetricRequestFilter;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The Web Application Firewall (WAF) instance ID.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  Call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to retrieve the WAF instance ID.
    * 
    * This parameter is required.
    * 
@@ -166,7 +166,7 @@ export class DescribeNetworkFlowTopNMetricRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return. Results are sorted in descending order. Maximum value: 10.
+   * Returns up to 10 data entries, sorted in descending order.
    * 
    * This parameter is required.
    * 
@@ -176,21 +176,17 @@ export class DescribeNetworkFlowTopNMetricRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The metric by which to query and rank data. Valid values:
+   * Specifies the data type to be returned. Valid values:
    * 
-   * - real_client_ip: Returns the top N source IP addresses of requests that are sent to WAF. The data is aggregated by source IP address and sorted in descending order.
-   * 
-   * - http_user_agent: Returns the top N user agents of requests that are sent to WAF. The data is aggregated by user agent and sorted in descending order.
-   * 
-   * - request_path: Returns the top N request URLs. The data is aggregated by URL and sorted in descending order.
-   * 
-   * - matched_host_by_total_requests: Returns the top N protected objects by total number of requests received.
-   * 
-   * - matched_host_by_qps: Returns the top N protected objects by queries per second (QPS).
-   * 
-   * - matched_host_by_status: Returns the top N protected objects based on a specific WAF-returned HTTP status code. The data is aggregated by protected object and sorted in descending order. If you set Metric to this value, you must specify the status field in the Conditions parameter of Filter. The format is as follows:<br> {"Key":"status","OpValue":"eq","Values":"200"}<br>
-   * 
-   * - matched_host_by_upstream_status: Returns the top N protected objects based on a specific origin server-returned HTTP status code. The data is aggregated by protected object and sorted in descending order. If you set Metric to this value, you must specify the upstream_status field in the Conditions parameter of Filter. The format is as follows:<br> {"Key":"upstream_status","OpValue":"eq","Values":"200"}<br>
+   * *   real_client_ip: The top N requests, sorted in descending order by source IP address, aggregated from all the current user\\"s WAF requests.
+   * *   request_path: The top N requests, sorted in descending order by user-agent, aggregated from all the current user\\"s WAF requests.
+   * *   request_path: The top N requests, sorted in descending order by request URL, aggregated from all the current user\\"s WAF requests.
+   * *   matched_host_by_total_requests: The top N protected objects and their request counts for the current user.
+   * *   matched_host_by_qps: The top N protected objects and their queries per second (QPS) values.
+   * *   matched_host_by_status: When using it, you must specify status in the Conditions field of the Filter parameter. If the HTTP response code returned by WAF matches the status specified in the Conditions, then the top N data is returned, sorted in descending order by protected objects. The format for specifying the status is as follows:\\
+   *     {"Key":"status","OpValue":"eq","Values":"200"}
+   * *   matched_host_by_upstream_status: When using it, you must specify upstream_status in the Conditions field of the Filter parameter. If the HTTP response code returned by the origin server matches the upstream_status specified, the top N data is returned, sorted in descending order by protected objects. The format for specifying the upstream_status is as follows:\\
+   *     {"Key":"upstream_status","OpValue":"eq","Values":"200"}
    * 
    * This parameter is required.
    * 
@@ -200,19 +196,18 @@ export class DescribeNetworkFlowTopNMetricRequest extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * The region in which the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: The Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
-   * cn-hangzhou
+   * ap-southeast-1
    */
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfm***q

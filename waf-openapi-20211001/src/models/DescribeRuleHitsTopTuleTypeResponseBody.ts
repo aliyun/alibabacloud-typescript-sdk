@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleHitsTopTuleTypeResponseBodyRuleHitsTopTuleType extends $dara.Model {
   /**
    * @remarks
-   * The number of requests that hit the rule.
+   * The number of requests that match protection rules.
    * 
    * @example
    * 698455
@@ -13,26 +13,19 @@ export class DescribeRuleHitsTopTuleTypeResponseBodyRuleHitsTopTuleType extends 
   count?: number;
   /**
    * @remarks
-   * The type of rule that was hit. This parameter is not returned by default, which indicates that data for all rule types is returned.
+   * The type of rule that is matched. By default, this parameter is not returned. This indicates that all types of rules that are matched are returned.
    * 
-   * - **waf**: basic protection rules.
-   * 
-   * - **blacklist**: IP address blacklist.
-   * 
-   * - **custom**: custom rules.
-   * 
-   * - **antiscan**: scan protection rules.
-   * 
-   * - **cc_system**: HTTP flood protection rules.
-   * 
-   * - **region_block**: location blacklist.
-   * 
-   * - **scene**: bot management.
-   * 
-   * - **dlp**: data leak prevention.
+   * *   **waf:** basic protection rules.
+   * *   **blacklist:** IP address blacklist rules.
+   * *   **custom:** custom rules.
+   * *   **antiscan:** scan protection rules.
+   * *   **cc_system:** HTTP flood protection rules.
+   * *   **region_block:** region blacklist rules.
+   * *   **scene:** bot management rules.
+   * *   **dlp:** data leakage prevention rules.
    * 
    * @example
-   * blacklist
+   * cc_system
    */
   ruleType?: string;
   static names(): { [key: string]: string } {
@@ -69,7 +62,7 @@ export class DescribeRuleHitsTopTuleTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The top 10 protection rule types that were hit.
+   * The top 10 protection modules that are matched.
    */
   ruleHitsTopTuleType?: DescribeRuleHitsTopTuleTypeResponseBodyRuleHitsTopTuleType[];
   static names(): { [key: string]: string } {

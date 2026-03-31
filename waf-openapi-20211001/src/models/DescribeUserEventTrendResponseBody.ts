@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserEventTrendResponseBodyTrend extends $dara.Model {
   /**
    * @remarks
-   * The number of important events.
+   * The number of high-risk events.
    * 
    * @example
    * 9
@@ -29,7 +29,8 @@ export class DescribeUserEventTrendResponseBodyTrend extends $dara.Model {
   eventMedium?: number;
   /**
    * @remarks
-   * The time of the statistics. This is a UNIX timestamp in UTC. Unit: seconds.
+   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * >Notice: The parameter has been deprecated, it is recommended to use the Timestamp parameter.
    * 
    * @example
    * 1723435200
@@ -39,7 +40,7 @@ export class DescribeUserEventTrendResponseBodyTrend extends $dara.Model {
   timeStamp?: number;
   /**
    * @remarks
-   * The time of the statistics. This is a UNIX timestamp in UTC. Unit: seconds.
+   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1723435200
@@ -85,7 +86,7 @@ export class DescribeUserEventTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of attack trends.
+   * The trends of attacks.
    */
   trend?: DescribeUserEventTrendResponseBodyTrend[];
   static names(): { [key: string]: string } {

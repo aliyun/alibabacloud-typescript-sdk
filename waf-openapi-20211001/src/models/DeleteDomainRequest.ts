@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The access type of the WAF instance. Valid values:
+   * The mode in which the domain name is added to WAF. Valid values:
    * 
-   * - **share** (default): CNAME access.
-   * 
-   * - **hybrid_cloud_cname**: Hybrid cloud reverse proxy access.
+   * *   **share:** CNAME record mode. This is the default value.
+   * *   **hybrid_cloud_cname:** hybrid cloud reverse proxy mode.
    * 
    * @example
    * share
@@ -17,7 +16,7 @@ export class DeleteDomainRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The domain name that is added to WAF.
+   * The domain name that you want to delete.
    * 
    * @example
    * www.aliyundoc.com
@@ -25,7 +24,7 @@ export class DeleteDomainRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The domain ID.
+   * The ID of the domain name.
    * 
    * @example
    * www.aliyundoc.com-waf
@@ -35,7 +34,7 @@ export class DeleteDomainRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to view the ID of the current WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -45,11 +44,10 @@ export class DeleteDomainRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
-   * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * *   **cn-hangzhou:** the Chinese mainland.
+   * *   **ap-southeast-1:** outside the Chinese mainland.
    * 
    * This parameter is required.
    * 

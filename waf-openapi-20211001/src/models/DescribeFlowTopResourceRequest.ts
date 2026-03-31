@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFlowTopResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the current time is used as the end time.
+   * The end of the time range to query. Unit: seconds. If you do not specify this parameter, the current time is used.
    * 
    * @example
    * 1665386340
@@ -15,7 +15,7 @@ export class DescribeFlowTopResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -27,9 +27,8 @@ export class DescribeFlowTopResourceRequest extends $dara.Model {
    * @remarks
    * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou:** the Chinese mainland.
+   * *   **ap-southeast-1:** outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +36,7 @@ export class DescribeFlowTopResourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -45,7 +44,7 @@ export class DescribeFlowTopResourceRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * The beginning of the time range to query. Unit: seconds.
    * 
    * This parameter is required.
    * 

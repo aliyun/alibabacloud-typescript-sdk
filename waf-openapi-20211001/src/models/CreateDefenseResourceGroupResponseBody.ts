@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDefenseResourceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5D69B341-4F97-58E7-9E16-1B17FE7A9E98

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The IP address or domain name of the origin server for back-to-origin.
+   * The back-to-origin IP address or domain name.
    * 
    * @example
    * 1.1.XX.XX
@@ -13,11 +13,10 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   backend?: string;
   /**
    * @remarks
-   * Indicates whether public cloud disaster recovery is enabled. Valid values:
+   * Specifies whether the public cloud disaster recovery feature is enabled for the domain name. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -35,7 +34,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -45,7 +44,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -53,7 +52,7 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -63,9 +62,8 @@ export class DescribeHybridCloudResourcesRequest extends $dara.Model {
    * @remarks
    * The region ID of the WAF instance. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou:** the Chinese mainland.
+   * *   **ap-southeast-1:** outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

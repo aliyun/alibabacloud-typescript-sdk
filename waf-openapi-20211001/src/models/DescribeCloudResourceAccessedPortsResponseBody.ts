@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudResourceAccessedPortsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP port.
+   * The HTTP ports.
    */
   http?: number[];
   /**
    * @remarks
-   * The HTTPS port.
+   * The HTTPS ports.
    */
   https?: number[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C1823E96-EF4B-5BD2-9E02-1D18****3ED8

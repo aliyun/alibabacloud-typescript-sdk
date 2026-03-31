@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeRuleGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the results to return. The default value is **1**, which returns the first page of results.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeRuleGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. The default value is **10**.
+   * The number of entries to return on each page. Default value: **10**.
    * 
    * @example
    * 10
@@ -33,11 +33,10 @@ export class DescribeRuleGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou:** the Chinese mainland
+   * *   **ap-southeast-1:** outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +44,7 @@ export class DescribeRuleGroupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q
@@ -53,11 +52,10 @@ export class DescribeRuleGroupsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The query type. Valid values:
+   * The type of the query condition. Valid values:
    * 
-   * - **id**: Queries by rule group ID.
-   * 
-   * - **name**: Queries by rule group name. Both Chinese and English names are supported.
+   * *   **id:** queries regular expression rule groups by ID.
+   * *   **name:** queries regular expression rule groups by name.
    * 
    * @example
    * name
@@ -65,7 +63,7 @@ export class DescribeRuleGroupsRequest extends $dara.Model {
   searchType?: string;
   /**
    * @remarks
-   * The content to query.
+   * The query condition.
    * 
    * @example
    * test

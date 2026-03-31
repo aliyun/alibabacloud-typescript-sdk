@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleHitsTopUrlResponseBodyRuleHitsTopUrl extends $dara.Model {
   /**
    * @remarks
-   * The number of requests that triggered the rule.
+   * The number of requests that match protection rules.
    * 
    * @example
    * 21862
@@ -15,7 +15,7 @@ export class DescribeRuleHitsTopUrlResponseBodyRuleHitsTopUrl extends $dara.Mode
    * @remarks
    * The request URL.
    * 
-   * > The value of this parameter is Base64-encoded.
+   * >  The value is Base64-encoded.
    * 
    * @example
    * d3d3LmFsaXl1bmRvYy5jb20vcGF0aDM=
@@ -55,7 +55,7 @@ export class DescribeRuleHitsTopUrlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The top 10 URLs that trigger protection rules.
+   * The top 10 URLs that match protection rules.
    */
   ruleHitsTopUrl?: DescribeRuleHitsTopUrlResponseBodyRuleHitsTopUrl[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCertsResponseBodyCerts extends $dara.Model {
   /**
    * @remarks
-   * The time when the certificate expires.
+   * The expiration time.
    * 
    * @example
    * 1976256736582
@@ -13,7 +13,7 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
   afterDate?: number;
   /**
    * @remarks
-   * The time when the certificate takes effect.
+   * The effective time.
    * 
    * @example
    * 1976256836582
@@ -21,10 +21,10 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
   beforeDate?: number;
   /**
    * @remarks
-   * The globally unique ID of the certificate. The value follows a "\\<Certificate ID>-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of CertIdentifier is 123-cn-hangzhou.
+   * The globally unique ID of the certificate. The value follows a "\\<Certificate ID>-ap-southeast-1" format. For example, if the ID of the certificate is 123, the value of the CertIdentifier parameter is 123-ap-southeast-1.
    * 
    * @example
-   * 12345-cn-hangzhou
+   * 123-ap-southeast-1
    */
   certIdentifier?: string;
   /**
@@ -45,7 +45,7 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The domain name for which the certificate is issued.
+   * The domain that is supported by the certificate.
    * 
    * @example
    * www.example.com
@@ -55,9 +55,8 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
    * @remarks
    * Indicates whether the certificate chain is complete. Valid values:
    * 
-   * - **true**: The certificate chain is complete.
-   * 
-   * - **false**: The certificate chain is incomplete.
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -99,12 +98,12 @@ export class DescribeCertsResponseBodyCerts extends $dara.Model {
 export class DescribeCertsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of certificates.
+   * The certificates.
    */
   certs?: DescribeCertsResponseBodyCerts[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 19511B0D-5AE0-5600-BB8A-DC2C8345****

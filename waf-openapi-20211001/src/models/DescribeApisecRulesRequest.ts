@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -15,39 +15,23 @@ export class DescribeApisecRulesRequest extends $dara.Model {
    * waf_elasticity-cn-0x***
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * The language of the response. Valid values:
-   * 
-   * - **zh** (default): Chinese
-   * 
-   * - **en**: English
-   * 
-   * @example
-   * zh
-   */
   lang?: string;
   /**
    * @remarks
-   * The level of the rule.
+   * The level of the policy.
    * 
-   * For threat detection (risk) and security events (event), valid values are:
+   * If Type is set to risk or event, you can set this parameter to one of the following values:
    * 
-   * - **high**: important
+   * *   **high**
+   * *   **medium**
+   * *   **low**
    * 
-   * - **medium**: medium
+   * If Type is set to sensitive_word, you can set this parameter to one of the following values:
    * 
-   * - **low**: low
-   * 
-   * For sensitive data (sensitive_word), valid values are:
-   * 
-   * - **S1**: S1
-   * 
-   * - **S2**: S2
-   * 
-   * - **S3**: S3
-   * 
-   * - **S4**: S4
+   * *   **S1**
+   * *   **S2**
+   * *   **S3**
+   * *   **S4**
    * 
    * @example
    * high
@@ -55,19 +39,18 @@ export class DescribeApisecRulesRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The name of the policy.
    * 
    * @example
-   * information leakage
+   * Information Leak
    */
   name?: string;
   /**
    * @remarks
-   * The source of the rule. Valid values:
+   * The source of the policy. Valid values:
    * 
-   * - **custom**: custom
-   * 
-   * - **default**: built-in
+   * *   **custom**
+   * *   **default**
    * 
    * @example
    * custom
@@ -75,7 +58,7 @@ export class DescribeApisecRulesRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -83,7 +66,7 @@ export class DescribeApisecRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -91,11 +74,10 @@ export class DescribeApisecRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
    * 
    * @example
    * cn-hangzhou
@@ -103,7 +85,7 @@ export class DescribeApisecRulesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -111,11 +93,10 @@ export class DescribeApisecRulesRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The enabling status of the rule. Valid values:
+   * The status of the policy. Valid values:
    * 
-   * - **1**: enabled
-   * 
-   * - **0**: disabled
+   * *   **1**: enabled
+   * *   **0**: disabled
    * 
    * @example
    * 1
@@ -123,25 +104,17 @@ export class DescribeApisecRulesRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of the rule. Valid values:
+   * The type of the policy. Valid values:
    * 
-   * - **risk**: threat detection
-   * 
-   * - **event**: security event
-   * 
-   * - **sensitive_word**: sensitive data
-   * 
-   * - **auth_flag**: authentication credential
-   * 
-   * - **api_tag**: business purpose
-   * 
-   * - **desensitization**: data masking
-   * 
-   * - **whitelist**: whitelist
-   * 
-   * - **recognition**: API
-   * 
-   * - **offline_api**: lifecycle management
+   * *   **risk**: risk detection
+   * *   **event**: security event
+   * *   **sensitive_word**: sensitive data
+   * *   **auth_flag**: authentication credential
+   * *   **api_tag**: business purpose
+   * *   **desensitization**: masking
+   * *   **whitelist**: whitelist
+   * *   **recognition**: API recognition
+   * *   **offline_api**: lifecycle management
    * 
    * This parameter is required.
    * 

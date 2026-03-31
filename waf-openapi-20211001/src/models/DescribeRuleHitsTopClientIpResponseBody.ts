@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRuleHitsTopClientIpResponseBodyRuleHitsTopClientIp extends $dara.Model {
   /**
    * @remarks
-   * The IP address of the client.
+   * The IP address of the service client.
    * 
    * @example
    * 3.3.XX.XX
@@ -13,7 +13,7 @@ export class DescribeRuleHitsTopClientIpResponseBodyRuleHitsTopClientIp extends 
   clientIp?: string;
   /**
    * @remarks
-   * The number of attack requests.
+   * The number of attacks that are initiated from the IP address.
    * 
    * @example
    * 531
@@ -45,7 +45,7 @@ export class DescribeRuleHitsTopClientIpResponseBodyRuleHitsTopClientIp extends 
 export class DescribeRuleHitsTopClientIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9F0F9AD6-62E2-50BB-A3E5-30FFB9410262
@@ -53,7 +53,7 @@ export class DescribeRuleHitsTopClientIpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The top 10 source IP addresses that initiated the most attacks.
+   * The array of the top 10 IP addresses from which attacks are initiated.
    */
   ruleHitsTopClientIp?: DescribeRuleHitsTopClientIpResponseBodyRuleHitsTopClientIp[];
   static names(): { [key: string]: string } {

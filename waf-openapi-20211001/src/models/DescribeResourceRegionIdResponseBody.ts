@@ -13,7 +13,7 @@ export class DescribeResourceRegionIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The region IDs of cloud service resources that can be added to WAF by using the SDK.
+   * The region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode.
    */
   resourceRegionIds?: string[];
   static names(): { [key: string]: string } {

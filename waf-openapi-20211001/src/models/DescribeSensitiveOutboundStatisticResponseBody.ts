@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSensitiveOutboundStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The assessment result. Valid values:
+   * The evaluation result. Valid values:
    * 
-   * - **report**: a data outbound transfer threat exists.
-   * 
-   * - **none**: no data outbound transfer threat exists.
+   * *   **report**: Risks exist in cross-border data transfer.
+   * *   **none**: No risks exist in cross-border data transfer.
    * 
    * @example
    * report
@@ -17,7 +16,7 @@ export class DescribeSensitiveOutboundStatisticResponseBodyData extends $dara.Mo
   detectionResult?: string;
   /**
    * @remarks
-   * The total number of personal information data entries detected.
+   * The total number of entries returned.
    * 
    * @example
    * 546
@@ -25,7 +24,7 @@ export class DescribeSensitiveOutboundStatisticResponseBodyData extends $dara.Mo
   infoCount?: number;
   /**
    * @remarks
-   * The number of outbound transfer data entries for the sensitive data type.
+   * The number of data entries that are transferred across borders.
    * 
    * @example
    * 300
@@ -33,9 +32,9 @@ export class DescribeSensitiveOutboundStatisticResponseBodyData extends $dara.Mo
   outboundCount?: number;
   /**
    * @remarks
-   * The code that represents the type of sensitive data.
+   * The type of the sensitive data.
    * 
-   * > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to obtain the supported sensitive data types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
    * 
    * @example
    * 1001
@@ -45,11 +44,9 @@ export class DescribeSensitiveOutboundStatisticResponseBodyData extends $dara.Mo
    * @remarks
    * The sensitivity level. Valid values:
    * 
-   * - **high**: high.
-   * 
-   * - **medium**: medium.
-   * 
-   * - **low**: low.
+   * *   **high**
+   * *   **medium**
+   * *   **low**
    * 
    * @example
    * high
@@ -57,11 +54,10 @@ export class DescribeSensitiveOutboundStatisticResponseBodyData extends $dara.Mo
   sensitiveLevel?: string;
   /**
    * @remarks
-   * The type of information. Valid values:
+   * The type of the information. Valid values:
    * 
-   * - **info**: all personal information.
-   * 
-   * - **sensitive**: only sensitive personal information.
+   * *   **info**: full personal information
+   * *   **sensitive**: sensitive personal information
    * 
    * @example
    * info
@@ -101,12 +97,12 @@ export class DescribeSensitiveOutboundStatisticResponseBodyData extends $dara.Mo
 export class DescribeSensitiveOutboundStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of statistics on outbound transfers of personal information.
+   * The data types of personal information involved in cross-border data transfer.
    */
   data?: DescribeSensitiveOutboundStatisticResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 2EFCFE18-78F8-5079-B312-07***48B
@@ -114,7 +110,7 @@ export class DescribeSensitiveOutboundStatisticResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned for outbound transfer statistics.
+   * The total number of entries returned.
    * 
    * @example
    * 5

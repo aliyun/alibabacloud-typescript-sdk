@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Model {
   /**
    * @remarks
-   * The number of HTTP ports that are added to WAF.
+   * The number of the HTTP ports that are added to WAF.
    * 
-   * > This parameter is returned only for ECS and CLB instances.
+   * >  This parameter is returned only if the cloud service is ECS or CLB.
    * 
    * @example
    * 1
@@ -15,9 +15,9 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
   httpPortCount?: number;
   /**
    * @remarks
-   * The number of HTTPS ports that are added to WAF.
+   * The number of the HTTPS ports that are added to WAF.
    * 
-   * > This parameter is returned only for ECS and CLB instances.
+   * >  This parameter is returned only if the cloud service is ECS or CLB.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
   httpsPortCount?: number;
   /**
    * @remarks
-   * The UID of the account to which the resource belongs.
+   * The ID of the Alibaba Cloud account to which the resource belongs.
    * 
    * @example
    * 11769793******
@@ -33,7 +33,7 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
   ownerUserId?: string;
   /**
    * @remarks
-   * The domain name of the resource. This parameter is returned for FC or SAE instances.
+   * The domain name. This parameter has a value only if the value of ResourceProduct is fc or sae.
    * 
    * @example
    * test-resource-domain
@@ -41,7 +41,7 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
   resourceDomain?: string;
   /**
    * @remarks
-   * The name of the function. This parameter is returned for FC instances.
+   * The function name. This parameter has a value only if the value of ResourceProduct is fc.
    * 
    * @example
    * test-resource-function
@@ -49,7 +49,7 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
   resourceFunction?: string;
   /**
    * @remarks
-   * The ID of the resource instance.
+   * The ID of the resource.
    * 
    * @example
    * alb-ffff****
@@ -83,7 +83,7 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
   resourceInstanceName?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The name of the resource.
    * 
    * @example
    * test-resource-name
@@ -95,21 +95,13 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
    * @remarks
    * The cloud service to which the resource belongs. Valid values:
    * 
-   * - **alb**: ALB
-   * 
-   * - **mse**: MSE
-   * 
-   * - **fc**: FC
-   * 
-   * - **sae**: SAE
-   * 
-   * - **ecs**: ECS
-   * 
-   * - **clb4**: CLB that uses TCP
-   * 
-   * - **clb7**: CLB that uses HTTP or HTTPS
-   * 
-   * - **nlb**: NLB
+   * *   **alb**: ALB.
+   * *   **mse**: MSE.
+   * *   **fc**: Function Compute.
+   * *   **sae**: SAE.
+   * *   **ecs**: ECS.
+   * *   **clb4**: Layer 4 CLB.
+   * *   **clb7**: Layer 7 CLB.
    * 
    * @example
    * alb
@@ -117,7 +109,7 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
   resourceProduct?: string;
   /**
    * @remarks
-   * The region where the resource resides.
+   * The region ID of the resource.
    * 
    * @example
    * cn-hangzhou
@@ -125,7 +117,7 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
   resourceRegionId?: string;
   /**
    * @remarks
-   * The name of the route. This parameter is returned for MSE instances.
+   * The route name. This parameter has a value only if the value of ResourceProduct is mse.
    * 
    * @example
    * test-route-name
@@ -133,7 +125,7 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
   resourceRouteName?: string;
   /**
    * @remarks
-   * The name of the service. This parameter is returned for FC instances.
+   * The service name. This parameter has a value only if the value of ResourceProduct is fc.
    * 
    * @example
    * test-resource-service
@@ -189,7 +181,7 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $dara.Mode
 export class DescribeCloudResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of cloud services.
+   * The cloud service resources that are added to WAF.
    */
   cloudResources?: DescribeCloudResourcesResponseBodyCloudResources[];
   /**
@@ -202,7 +194,7 @@ export class DescribeCloudResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of cloud services found.
+   * The total number of cloud service resources returned.
    * 
    * @example
    * 121

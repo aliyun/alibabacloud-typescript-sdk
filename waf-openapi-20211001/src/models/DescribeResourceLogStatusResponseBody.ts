@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The name of the protected object.
+   * The protected object.
    * 
    * @example
    * alb-wewbb23dfsetetcic****
@@ -13,11 +13,10 @@ export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * Indicates whether log collection is enabled for the protected object. Valid values:
+   * Indicates whether the log collection feature is enabled for the protected object. Valid values:
    * 
-   * - **true**: Log collection is enabled.
-   * 
-   * - **false**: Log collection is disabled.
+   * *   **true:** The log collection feature is enabled.
+   * *   **false:** The log collection feature is disabled.
    * 
    * @example
    * true
@@ -57,7 +56,7 @@ export class DescribeResourceLogStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The log status information of protected objects.
+   * The returned result.
    */
   result?: DescribeResourceLogStatusResponseBodyResult[];
   static names(): { [key: string]: string } {

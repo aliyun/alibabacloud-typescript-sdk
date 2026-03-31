@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -17,7 +16,7 @@ export class DescribeInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q

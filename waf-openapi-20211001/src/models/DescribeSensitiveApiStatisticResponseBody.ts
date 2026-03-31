@@ -21,7 +21,7 @@ export class DescribeSensitiveApiStatisticResponseBodyDataList extends $dara.Mod
   apiId?: string;
   /**
    * @remarks
-   * The number of outbound personal information entries by API.
+   * The number of personal information records involved in cross-border data transfer by API.
    * 
    * @example
    * 78
@@ -29,12 +29,12 @@ export class DescribeSensitiveApiStatisticResponseBodyDataList extends $dara.Mod
   infoCount?: number;
   /**
    * @remarks
-   * The list of sensitive data types.
+   * The types of sensitive data.
    */
   sensitiveCode?: string[];
   /**
    * @remarks
-   * The number of outbound personal sensitive data entries by API.
+   * The number of sensitive personal information records involved in cross-border data transfer by API.
    * 
    * @example
    * 55
@@ -75,7 +75,7 @@ export class DescribeSensitiveApiStatisticResponseBodyDataList extends $dara.Mod
 export class DescribeSensitiveApiStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of outbound personal information entries by domain name.
+   * The number of personal information records involved in cross-border data transfer by domain name.
    * 
    * @example
    * 213
@@ -83,9 +83,7 @@ export class DescribeSensitiveApiStatisticResponseBodyData extends $dara.Model {
   infoOutboundCount?: number;
   /**
    * @remarks
-   * The list of statistics about APIs for the domain name.
-   * 
-   * > The statistics by API are returned only when you set the **Type** parameter to **apiFormat**.
+   * The domain name-related APIs.
    */
   list?: DescribeSensitiveApiStatisticResponseBodyDataList[];
   /**
@@ -98,7 +96,7 @@ export class DescribeSensitiveApiStatisticResponseBodyData extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The number of outbound personal sensitive data entries by domain name.
+   * The number of sensitive personal information records involved in cross-border data transfer by domain name.
    * 
    * @example
    * 127
@@ -137,7 +135,7 @@ export class DescribeSensitiveApiStatisticResponseBodyData extends $dara.Model {
 export class DescribeSensitiveApiStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of statistics.
+   * The statistics.
    */
   data?: DescribeSensitiveApiStatisticResponseBodyData[];
   /**
@@ -150,7 +148,7 @@ export class DescribeSensitiveApiStatisticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries returned.
    * 
    * @example
    * 10

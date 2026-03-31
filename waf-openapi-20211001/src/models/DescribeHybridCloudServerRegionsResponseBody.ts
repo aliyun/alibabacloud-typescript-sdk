@@ -45,7 +45,7 @@ export class DescribeHybridCloudServerRegionsResponseBodyRegions extends $dara.M
 export class DescribeHybridCloudServerRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The regions.
+   * The information about the regions.
    */
   regions?: DescribeHybridCloudServerRegionsResponseBodyRegions[];
   /**

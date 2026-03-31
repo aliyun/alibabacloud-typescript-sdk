@@ -5,7 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefenseTemplateValidGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The protection scenario. For more information, see the valid values for the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html) when **DefenseType** is set to **template**.
+   * The scenario in which the protection template is used.
+   * 
+   * *   **waf_group**: basic protection.
+   * *   **antiscan**: scan protection.
+   * *   **ip_blacklist**: IP address blacklist.
+   * *   **custom_acl**: custom rule.
+   * *   **whitelist**: whitelist.
+   * *   **region_block**: region blacklist.
+   * *   **custom_response**: custom response.
+   * *   **cc**: HTTP flood protection.
+   * *   **tamperproof**: website tamper-proofing.
+   * *   **dlp**: data leakage prevention.
    * 
    * This parameter is required.
    * 
@@ -15,7 +26,7 @@ export class DescribeDefenseTemplateValidGroupsRequest extends $dara.Model {
   defenseScene?: string;
   /**
    * @remarks
-   * The name of the protected object group. Use this parameter to filter results by group name.
+   * The name of the protected object group that you want to query.
    * 
    * @example
    * group221
@@ -25,7 +36,7 @@ export class DescribeDefenseTemplateValidGroupsRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +46,7 @@ export class DescribeDefenseTemplateValidGroupsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -51,11 +62,10 @@ export class DescribeDefenseTemplateValidGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

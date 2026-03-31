@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDefenseResourceOwnerUidResponseBodyOwnerInfos extends $dara.Model {
   /**
-   * @remarks
-   * The owner account ID of the protected object.
-   * 
    * @example
    * 125************21
    */
   ownerUserId?: string;
   /**
-   * @remarks
-   * The name of the protected object.
-   * 
    * @example
    * a.com-waf
    */
@@ -43,15 +37,8 @@ export class DescribeDefenseResourceOwnerUidResponseBodyOwnerInfos extends $dara
 }
 
 export class DescribeDefenseResourceOwnerUidResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The owner account information of the protected objects.
-   */
   ownerInfos?: DescribeDefenseResourceOwnerUidResponseBodyOwnerInfos[];
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 7326952B-B83B-5B7C-84FA-77F3E17310A2
    */

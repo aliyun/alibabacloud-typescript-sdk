@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * 123-cn-hangzhou
@@ -13,13 +13,11 @@ export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * The type of the cipher suite. Valid values:
+   * The type of the cipher suites. Valid values:
    * 
-   * - **1**: all cipher suites.
-   * 
-   * - **2**: strong cipher suites.
-   * 
-   * - **99**: custom cipher suites.
+   * *   **1**: all cipher suites.
+   * *   **2**: strong cipher suites.
+   * *   **99**: custom cipher suites.
    * 
    * @example
    * 1
@@ -27,7 +25,7 @@ export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
   cipherSuite?: string;
   /**
    * @remarks
-   * The custom cipher suites. This parameter is returned only when CipherSuite is set to 99.
+   * The custom cipher suite.
    * 
    * @example
    * ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384
@@ -37,9 +35,8 @@ export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
    * @remarks
    * Indicates whether TLS 1.3 is supported. Valid values:
    * 
-   * - **true**: TLS 1.3 is supported.
-   * 
-   * - **false**: TLS 1.3 is not supported.
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -47,13 +44,11 @@ export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
   enableTLSv3?: boolean;
   /**
    * @remarks
-   * The minimum TLS version. Valid values:
+   * The version of the TLS protocol. Valid values:
    * 
-   * - **tlsv1**
-   * 
-   * - **tlsv1.1**
-   * 
-   * - **tlsv1.2**
+   * *   **tlsv1**
+   * *   **tlsv1.1**
+   * *   **tlsv1.2**
    * 
    * @example
    * tlsv1
@@ -91,7 +86,7 @@ export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $dara.Model {
 export class DescribeDefaultHttpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The default SSL/TLS settings.
+   * The default SSL and TLS settings.
    */
   defaultHttps?: DescribeDefaultHttpsResponseBodyDefaultHttps;
   /**

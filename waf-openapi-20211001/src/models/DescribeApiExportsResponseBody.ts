@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
   /**
    * @remarks
-   * The time when the export task was created. This is a UNIX timestamp. Unit: seconds.
+   * The time when the data export task was created. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1725604852
@@ -13,7 +13,7 @@ export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The name of the exported file.
+   * The name of the file.
    * 
    * @example
    * file_16109541456445334c0f01d9a7444e0e908***.csv
@@ -29,7 +29,7 @@ export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
   fileUrl?: string;
   /**
    * @remarks
-   * The format of the exported file, such as CSV.
+   * The format of the exported file.
    * 
    * @example
    * CSV
@@ -37,13 +37,13 @@ export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The status of the export task. Valid values:
+   * The status of the data export task. Valid values:
    * 
-   * - **expired**: The file has expired.
+   * * **expired**: The file is expired.
    * 
-   * - **exporting**: The file is being exported.
+   * * **exporting**: Data is being exported.
    * 
-   * - **completed**: The export is successful.
+   * * **completed**: Data is exported.
    * 
    * @example
    * completed
@@ -51,13 +51,13 @@ export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the export task. Valid values:
+   * The type of the data export task. Valid values:
    * 
-   * - **apisec_api**: API asset task.
+   * * **apisec_api**: API tasks
    * 
-   * - **apisec_abnormal**: API threat task.
+   * * **apisec_abnormal**: API risk tasks
    * 
-   * - **apisec_event**: API security event task.
+   * * **apisec_event**: API security event tasks
    * 
    * @example
    * apisec_api
@@ -97,12 +97,12 @@ export class DescribeApiExportsResponseBodyApiExports extends $dara.Model {
 export class DescribeApiExportsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of API security export tasks.
+   * The returned data export tasks.
    */
   apiExports?: DescribeApiExportsResponseBodyApiExports[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D9532525-E885-54E7-A178-D5554D563AFB
@@ -110,7 +110,11 @@ export class DescribeApiExportsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of export tasks.
+   * The status of the data export task. Valid values:
+   * 
+   * *   **expired**: The file is expired.
+   * *   **exporting**: Data is being exported.
+   * *   **completed**: Data is exported.
    * 
    * @example
    * 7

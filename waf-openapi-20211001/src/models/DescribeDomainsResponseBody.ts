@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDomainsResponseBodyDomainsBackedsHttp extends $dara.Model {
   /**
    * @remarks
-   * The origin address for the HTTP protocol.
+   * The HTTP address of the origin server.
    * 
    * @example
    * 1.1.XX.XX
@@ -35,7 +35,7 @@ export class DescribeDomainsResponseBodyDomainsBackedsHttp extends $dara.Model {
 export class DescribeDomainsResponseBodyDomainsBackedsHttps extends $dara.Model {
   /**
    * @remarks
-   * The origin address for the HTTPS protocol.
+   * The HTTPS address of the origin server.
    * 
    * @example
    * 1.1.XX.XX
@@ -65,12 +65,12 @@ export class DescribeDomainsResponseBodyDomainsBackedsHttps extends $dara.Model 
 export class DescribeDomainsResponseBodyDomainsBackeds extends $dara.Model {
   /**
    * @remarks
-   * The list of origin addresses for the HTTP protocol.
+   * The HTTP addresses of the origin server.
    */
   http?: DescribeDomainsResponseBodyDomainsBackedsHttp[];
   /**
    * @remarks
-   * The list of origin addresses for the HTTPS protocol.
+   * The HTTPS addresses of the origin server.
    */
   https?: DescribeDomainsResponseBodyDomainsBackedsHttps[];
   static names(): { [key: string]: string } {
@@ -105,12 +105,12 @@ export class DescribeDomainsResponseBodyDomainsBackeds extends $dara.Model {
 export class DescribeDomainsResponseBodyDomainsListenPorts extends $dara.Model {
   /**
    * @remarks
-   * The list of listening ports for the HTTP protocol.
+   * The HTTP listener ports.
    */
   http?: number[];
   /**
    * @remarks
-   * The list of listening ports for the HTTPS protocol.
+   * The HTTPS listener ports.
    */
   https?: number[];
   static names(): { [key: string]: string } {
@@ -145,12 +145,12 @@ export class DescribeDomainsResponseBodyDomainsListenPorts extends $dara.Model {
 export class DescribeDomainsResponseBodyDomains extends $dara.Model {
   /**
    * @remarks
-   * The back-to-origin configuration.
+   * The back-to-origin settings.
    */
   backeds?: DescribeDomainsResponseBodyDomainsBackeds;
   /**
    * @remarks
-   * The canonical name (CNAME) that is assigned to the domain name by WAF.
+   * The CNAME assigned by WAF to the domain name.
    * 
    * @example
    * xxxxxcvdaf.****.com
@@ -158,28 +158,21 @@ export class DescribeDomainsResponseBodyDomains extends $dara.Model {
   cname?: string;
   /**
    * @remarks
-   * The domain name that is added to WAF.
+   * The domain name that is added to WAF in CNAME record mode.
    * 
    * @example
    * www.aliyundoc.com
    */
   domain?: string;
-  /**
-   * @remarks
-   * The ID of the domain name.
-   * 
-   * @example
-   * www.aliyundoc.com-waf
-   */
   domainId?: string;
   /**
    * @remarks
-   * The listener configuration.
+   * The configurations of the listeners.
    */
   listenPorts?: DescribeDomainsResponseBodyDomainsListenPorts;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmvtc5z52****
@@ -189,15 +182,11 @@ export class DescribeDomainsResponseBodyDomains extends $dara.Model {
    * @remarks
    * The status of the domain name. Valid values:
    * 
-   * - **1**: The domain name is in a normal state.
-   * 
-   * - **2**: The domain name is being created.
-   * 
-   * - **3**: The domain name is being modified.
-   * 
-   * - **4**: The domain name is being released.
-   * 
-   * - **5**: Forwarding is disabled for the domain name.
+   * *   **1:** The domain name is in a normal state.
+   * *   **2:** The domain name is being created.
+   * *   **3:** The domain name is being modified.
+   * *   **4:** The domain name is being released.
+   * *   **5:** WAF no longer forwards traffic that is sent to the domain name.
    * 
    * @example
    * 1
@@ -245,12 +234,12 @@ export class DescribeDomainsResponseBodyDomains extends $dara.Model {
 export class DescribeDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of domain names.
+   * The domain names that are added to WAF in CNAME record mode.
    */
   domains?: DescribeDomainsResponseBodyDomains[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ABF68BB3-2C48-5FA4-9750-D5FE55700E36
@@ -258,7 +247,7 @@ export class DescribeDomainsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of domain name configurations returned.
+   * The total number of returned entries.
    * 
    * @example
    * 146

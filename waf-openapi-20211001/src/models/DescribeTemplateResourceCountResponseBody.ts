@@ -4,16 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTemplateResourceCountResponseBodyResourceCount extends $dara.Model {
   /**
-   * @remarks
-   * The number of protected assets that are associated with the protection template.
-   * 
    * @example
    * 10
    */
   assetCount?: number;
   /**
    * @remarks
-   * The number of protected object groups that are associated with the protection template.
+   * The number of protected object groups.
    * 
    * @example
    * 30
@@ -21,7 +18,7 @@ export class DescribeTemplateResourceCountResponseBodyResourceCount extends $dar
   groupCount?: number;
   /**
    * @remarks
-   * The number of protected objects that are associated with the protection template.
+   * The number of protected objects.
    * 
    * @example
    * 30
@@ -73,7 +70,7 @@ export class DescribeTemplateResourceCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of resource count objects. Each object contains the number of protected objects, protected object groups, and protected assets that are associated with a protection template.
+   * The number of protected objects or protected object groups for which the protection template takes effect.
    */
   resourceCount?: DescribeTemplateResourceCountResponseBodyResourceCount[];
   static names(): { [key: string]: string } {

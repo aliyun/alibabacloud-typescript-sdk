@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total number of APIs that have security events for the domain name.
+   * The number of APIs.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Mo
   apiCount?: number;
   /**
    * @remarks
-   * The domain name that is protected by WAF.
+   * The domain name.
    * 
    * @example
    * a.aliyun.com
@@ -21,7 +21,7 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Mo
   domain?: string;
   /**
    * @remarks
-   * The number of high-risk security events for the domain name.
+   * The number of high-risk security events.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Mo
   high?: number;
   /**
    * @remarks
-   * The number of low-risk security events for the domain name.
+   * The number of low-risk security events.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Mo
   low?: number;
   /**
    * @remarks
-   * The number of medium-risk security events for the domain name.
+   * The number of medium-risk security events.
    * 
    * @example
    * 6
@@ -75,12 +75,12 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $dara.Mo
 export class DescribeApisecEventDomainStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API security event statistics grouped by domain name.
+   * The response parameters.
    */
   data?: DescribeApisecEventDomainStatisticResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request.
    * 
    * @example
    * 66A98669-*******-80A6-3014697B11AE
@@ -88,7 +88,7 @@ export class DescribeApisecEventDomainStatisticResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * The total number of domain names that have API security events.
+   * The total number of entries returned.
    * 
    * @example
    * 10

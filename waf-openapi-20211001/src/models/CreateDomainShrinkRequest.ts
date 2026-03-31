@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDomainShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * Tagkey1
@@ -13,7 +13,7 @@ export class CreateDomainShrinkRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * TagValue1
@@ -45,11 +45,10 @@ export class CreateDomainShrinkRequestTag extends $dara.Model {
 export class CreateDomainShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The access type of the WAF instance. Valid values:
+   * The mode in which you want to add the domain name to WAF. Valid values:
    * 
-   * - **share** (default): onboarding by using a CNAME record.
-   * 
-   * - **hybrid_cloud_cname**: onboarding by using a hybrid cloud CNAME record.
+   * *   **share:** adds the domain name to WAF in CNAME record mode. This is the default value.
+   * *   **hybrid_cloud_cname:** adds the domain name to WAF in hybrid cloud reverse proxy mode.
    * 
    * @example
    * share
@@ -57,7 +56,7 @@ export class CreateDomainShrinkRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The domain name that you want to add.
+   * The domain name that you want to add to WAF.
    * 
    * This parameter is required.
    * 
@@ -67,9 +66,9 @@ export class CreateDomainShrinkRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -79,7 +78,7 @@ export class CreateDomainShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listening configurations.
+   * The listener configurations.
    * 
    * This parameter is required.
    */
@@ -95,9 +94,8 @@ export class CreateDomainShrinkRequest extends $dara.Model {
    * @remarks
    * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
-   * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * *   **cn-hangzhou**: the Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
    * 
    * This parameter is required.
    * 
@@ -107,7 +105,7 @@ export class CreateDomainShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q

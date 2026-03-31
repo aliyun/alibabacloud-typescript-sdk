@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddAddressResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 2EFCFE18-78F8-5079-B312-07***48B
    */

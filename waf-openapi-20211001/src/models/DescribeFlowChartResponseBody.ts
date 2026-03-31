@@ -85,7 +85,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   ccCustomReportsSum?: number;
   /**
    * @remarks
-   * The number of requests that are blocked by system HTTP flood protection rules.
+   * The number of requests that are blocked by HTTP flood protection rules created by the system.
    * 
    * @example
    * 0
@@ -93,7 +93,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   ccSystemBlocksSum?: number;
   /**
    * @remarks
-   * The number of requests that are monitored by system HTTP flood protection rules.
+   * The number of requests that are monitored by HTTP flood protection rules created by the system.
    * 
    * @example
    * 0
@@ -109,7 +109,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The total volume of inbound traffic. Unit: bytes.
+   * The total number of requests that are redirected to the WAF instance.
    * 
    * @example
    * 121645464
@@ -117,7 +117,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   inBytes?: number;
   /**
    * @remarks
-   * The time sequence number, sorted in chronological order.
+   * The serial number of the time interval. The serial numbers are arranged in chronological order.
    * 
    * @example
    * 10
@@ -125,7 +125,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The peak number of requests.
+   * The peak traffic.
    * 
    * @example
    * 2932
@@ -133,7 +133,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   maxPv?: number;
   /**
    * @remarks
-   * The total volume of outbound traffic. Unit: bytes.
+   * The total number of requests that are forwarded by the WAF instance.
    * 
    * @example
    * 1200540464
@@ -141,7 +141,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   outBytes?: number;
   /**
    * @remarks
-   * The number of requests that are blocked by peak traffic throttling rules.
+   * The number of requests that are blocked by rate limiting rules.
    * 
    * @example
    * 0
@@ -149,7 +149,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   ratelimitBlockSum?: number;
   /**
    * @remarks
-   * The number of requests that are monitored by peak traffic throttling rules.
+   * The number of requests that are monitored by rate limiting rules.
    * 
    * @example
    * 0
@@ -157,7 +157,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   ratelimitReportSum?: number;
   /**
    * @remarks
-   * The number of requests that are blocked by Location Blacklist rules.
+   * The number of requests that are blocked by region blacklist rules.
    * 
    * @example
    * 0
@@ -165,7 +165,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   regionBlockBlocksSum?: number;
   /**
    * @remarks
-   * The number of requests that are monitored by Location Blacklist rules.
+   * The number of requests that are monitored by region blacklist rules.
    * 
    * @example
    * 0
@@ -173,7 +173,7 @@ export class DescribeFlowChartResponseBodyFlowChart extends $dara.Model {
   regionBlockReportsSum?: number;
   /**
    * @remarks
-   * The total number of requests from bots.
+   * The total number of bot requests.
    * 
    * @example
    * 1110
@@ -270,7 +270,7 @@ export class DescribeFlowChartResponseBody extends $dara.Model {
   flowChart?: DescribeFlowChartResponseBodyFlowChart[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BFA71416-670E-585D-AAE6-E7BBEE248FAB

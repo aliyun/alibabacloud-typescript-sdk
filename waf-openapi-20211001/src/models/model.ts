@@ -188,6 +188,7 @@ export { DescribeUserApiRequestResponseBodyRequests } from './DescribeUserApiReq
 export { DescribeUserAssetResponseBodyAssets } from './DescribeUserAssetResponseBody';
 export { DescribeUserEventTrendResponseBodyTrend } from './DescribeUserEventTrendResponseBody';
 export { DescribeUserEventTypeResponseBodyEvent } from './DescribeUserEventTypeResponseBody';
+export { DescribeUserTrafficResponseBodyUserTraffic } from './DescribeUserTrafficResponseBody';
 export { DescribeVerifyContentResponseBodyDnsContent } from './DescribeVerifyContentResponseBody';
 export { DescribeVerifyContentResponseBodyFileContent } from './DescribeVerifyContentResponseBody';
 export { DescribeVisitTopIpResponseBodyTopIp } from './DescribeVisitTopIpResponseBody';
@@ -770,6 +771,9 @@ export { DescribeUserLogFieldConfigResponse } from './DescribeUserLogFieldConfig
 export { DescribeUserSlsLogRegionsRequest } from './DescribeUserSlsLogRegionsRequest';
 export { DescribeUserSlsLogRegionsResponseBody } from './DescribeUserSlsLogRegionsResponseBody';
 export { DescribeUserSlsLogRegionsResponse } from './DescribeUserSlsLogRegionsResponse';
+export { DescribeUserTrafficRequest } from './DescribeUserTrafficRequest';
+export { DescribeUserTrafficResponseBody } from './DescribeUserTrafficResponseBody';
+export { DescribeUserTrafficResponse } from './DescribeUserTrafficResponse';
 export { DescribeUserWafLogStatusRequest } from './DescribeUserWafLogStatusRequest';
 export { DescribeUserWafLogStatusResponseBody } from './DescribeUserWafLogStatusResponseBody';
 export { DescribeUserWafLogStatusResponse } from './DescribeUserWafLogStatusResponse';

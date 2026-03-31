@@ -4,17 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeHybridCloudSupportRegionsResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 256959D5-3B45-54CD-A66D-F75F11E8E754
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of regions that are supported for hybrid cloud access.
-   */
   supportRegions?: string[];
   static names(): { [key: string]: string } {
     return {

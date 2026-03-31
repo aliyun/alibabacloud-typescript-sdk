@@ -5,25 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudClusterRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * [Deprecated] The ID of the hybrid cloud cluster.
+   * The ID of the hybrid cloud cluster.
    * 
    * @example
    * 1
    */
   clusterId?: number;
-  /**
-   * @remarks
-   * The resource ID of the cluster rule.
-   * 
-   * @example
-   * hdbc-clusterrule-*******m0w
-   */
   clusterRuleResourceId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -33,11 +26,10 @@ export class DescribeHybridCloudClusterRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region in which the WAF instance is deployed. Valid value:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
-   * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -53,9 +45,9 @@ export class DescribeHybridCloudClusterRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * [Deprecated] The type of the rule. Valid value:
+   * The type of the rule. Valid values:
    * 
-   * - **pullin**: Traffic routing.
+   * *   **pullin**: The traffic redirection rule of the hybrid cloud cluster.
    * 
    * @example
    * pullin

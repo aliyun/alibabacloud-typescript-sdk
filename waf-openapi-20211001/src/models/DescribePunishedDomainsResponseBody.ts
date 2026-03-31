@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePunishedDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of domain names penalized for not having an ICP filing.
+   * The domain names that are penalized for failing to obtain an ICP filing.
    */
   punishedDomains?: string[];
   /**

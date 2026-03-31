@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of tag N that is added to the resource. Valid values of N: 1 to 20.
    * 
    * @example
    * Tagkey1
@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of tag N that is added to the resource. Valid values of N: 1 to 20.
    * 
    * @example
    * TagValue1
@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * A pagination token for the next query
+   * The pagination token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -53,11 +53,10 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: indicates the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: indicates regions outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -72,7 +71,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
+   * The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
    * 
    * This parameter is required.
    * 

@@ -4,24 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeApisecEventsRequest extends $dara.Model {
   /**
-   * @remarks
-   * The account that you want to use to filter events.
-   * 
    * @example
    * 1818743389962696
    */
   account?: string;
   /**
    * @remarks
-   * The path of the API that is associated with the security event.
+   * The API.
    * 
    * @example
-   * /apisec/v1/***.php
+   * /apisec/v1/register.php
    */
   apiFormat?: string;
   /**
    * @remarks
-   * The ID of the API.
+   * The ID of the event-related API.
    * 
    * @example
    * 820b860***6205da93b935b28
@@ -31,7 +28,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported business purposes.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
    * 
    * @example
    * SendMail
@@ -39,7 +36,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   apiTag?: string;
   /**
    * @remarks
-   * The IP address of the attacker that you want to use to filter events.
+   * The Attack source IP.
    * 
    * @example
    * 42.224.*.*
@@ -47,9 +44,9 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   attackIp?: string;
   /**
    * @remarks
-   * The ID of the hybrid cloud WAF cluster.
+   * The ID of the hybrid cloud cluster.
    * 
-   * > This parameter is required only in hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the IDs of hybrid cloud WAF clusters.
+   * >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -57,7 +54,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * The end of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683703260
@@ -75,33 +72,24 @@ export class DescribeApisecEventsRequest extends $dara.Model {
    * @remarks
    * The severity level of the event. Valid values:
    * 
-   * - **high**: high severity.
-   * 
-   * - **medium**: medium severity.
-   * 
-   * - **low**: low severity.
+   * *   **high**
+   * *   **medium**
+   * *   **low**
    * 
    * @example
    * low
    */
   eventLevel?: string;
   /**
-   * @remarks
-   * The dimension by which security events are categorized. Valid values:
-   * 
-   * - **ip**: IP security event. This is the default value.
-   * 
-   * - **account**: account security event.
-   * 
    * @example
    * ip
    */
   eventScope?: string;
   /**
    * @remarks
-   * The event type.
+   * The type of the event.
    * 
-   * > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
    * 
    * @example
    * ObtainSensitiveUnauthorized
@@ -111,7 +99,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -121,21 +109,19 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The domain name or IP address that is protected by WAF.
+   * The domain name or IP address of the API.
    * 
    * @example
-   * a.***.com
+   * a.aliyun.com
    */
   matchedHost?: string;
   /**
    * @remarks
-   * The field that is used to sort the query results. Valid values:
+   * The name of the sorting field. Valid values:
    * 
-   * - **allCnt**: the number of attacks.
-   * 
-   * - **startTs**: the start time of the event.
-   * 
-   * - **endTs**: the end time of the event.
+   * *   **allCnt**: the number of attacks
+   * *   **startTs**: the start time of the event
+   * *   **endTs**: the end time of the event
    * 
    * @example
    * startTs
@@ -143,11 +129,10 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   orderKey?: string;
   /**
    * @remarks
-   * The order in which the query results are sorted. Valid values:
+   * The sorting method. Valid values:
    * 
-   * - **desc**: descending order. This is the default value.
-   * 
-   * - **asc**: ascending order.
+   * *   **desc** (default): descending order
+   * *   **asc**: ascending order
    * 
    * @example
    * desc
@@ -157,9 +142,8 @@ export class DescribeApisecEventsRequest extends $dara.Model {
    * @remarks
    * The source of the event type. Valid values:
    * 
-   * - **custom**: a user-defined event type.
-   * 
-   * - **default**: a built-in event type.
+   * *   **custom**
+   * *   **default**
    * 
    * @example
    * default
@@ -167,7 +151,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -175,7 +159,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -183,11 +167,10 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Value:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -195,7 +178,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -203,7 +186,7 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * The beginning of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683648000
@@ -211,18 +194,14 @@ export class DescribeApisecEventsRequest extends $dara.Model {
   startTs?: number;
   /**
    * @remarks
-   * The handling status of the event. Valid values:
+   * The event status. Valid values:
    * 
-   * - **toBeConfirmed**: pending confirmation.
-   * 
-   * - **confirmed**: confirmed but not yet handled.
-   * 
-   * - **actioned**: handled.
-   * 
-   * - **ignored**: ignored.
+   * *   **toBeConfirmed**
+   * *   **confirmed**
+   * *   **ignored**
    * 
    * @example
-   * ignored
+   * Ignore
    */
   userStatus?: string;
   static names(): { [key: string]: string } {

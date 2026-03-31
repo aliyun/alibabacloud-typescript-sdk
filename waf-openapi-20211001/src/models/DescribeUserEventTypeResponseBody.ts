@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserEventTypeResponseBodyEvent extends $dara.Model {
   /**
    * @remarks
-   * The event code.
+   * The code of the security event.
    * 
    * @example
    * Event_LoginCollision
@@ -21,7 +21,7 @@ export class DescribeUserEventTypeResponseBodyEvent extends $dara.Model {
   eventCount?: number;
   /**
    * @remarks
-   * The parent type of the event.
+   * The parent type of the security event.
    * 
    * @example
    * EventType_Account
@@ -29,12 +29,12 @@ export class DescribeUserEventTypeResponseBodyEvent extends $dara.Model {
   eventParentType?: string;
   /**
    * @remarks
-   * The type of the event.
+   * The type of the security event.
    * 
-   * > Call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported event types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of security events.
    * 
    * @example
-   * Event_LoginCollision
+   * Event_AbnormalFrequency
    */
   eventType?: string;
   static names(): { [key: string]: string } {
@@ -67,12 +67,12 @@ export class DescribeUserEventTypeResponseBodyEvent extends $dara.Model {
 export class DescribeUserEventTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of security event types and their statistics.
+   * The types and statistics of security events.
    */
   event?: DescribeUserEventTypeResponseBodyEvent[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 177BA739-6512-5470-98C6-E***0BAA3D

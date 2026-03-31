@@ -29,15 +29,15 @@ export class DescribeSlsLogStoreResponseBody extends $dara.Model {
   quota?: number;
   /**
    * @remarks
-   * The request
+   * The request ID.
    * 
    * @example
-   * CAC0A24B-486A-5E12-9894-BE860E5F41CC
+   * CAC0A24B-486A-5E12-9894-BE860E5F****
    */
   requestId?: string;
   /**
    * @remarks
-   * The log retention period. Unit: days.
+   * The storage duration of the Logstore. Unit: days.
    * 
    * @example
    * 180

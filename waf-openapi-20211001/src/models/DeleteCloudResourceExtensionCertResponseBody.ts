@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudResourceExtensionCertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 56B40D30-4960-4F19-B7D5-***

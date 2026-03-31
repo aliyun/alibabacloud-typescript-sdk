@@ -6,8 +6,7 @@ export class DescribeUserAssetRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * 
-   * > This parameter applies only to hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query information about hybrid cloud clusters.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -15,23 +14,16 @@ export class DescribeUserAssetRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of statistics. Valid values:
+   * The type of the statistics. Valid values:
    * 
-   * - **asset_num**: the total number of API assets.
-   * 
-   * - **asset_active**: the number of active APIs.
-   * 
-   * - **asset_newborn**: the number of APIs that are added today.
-   * 
-   * - **asset_offline**: the number of inactive APIs.
-   * 
-   * - **asset_bot**: the number of APIs that receive bot requests.
-   * 
-   * - **asset_cross_border**: the number of APIs that are used for cross-border data transmission.
-   * 
-   * - **sensitive_api**: the number of APIs whose responses contain sensitive data.
-   * 
-   * - **sensitive_domain**: the number of sites whose responses contain sensitive data.
+   * *   **asset_num**: total number of APIs
+   * *   **asset_active**: number of active APIs
+   * *   **asset_newborn**: number of new APIs
+   * *   **asset_offline**: number of deactivated APIs
+   * *   **asset_bot**: number of APIs that are called by bots
+   * *   **asset_cross_border**: number of APIs that are called for cross-border data transfer
+   * *   **sensitive_api**: number of response-sensitive APIs
+   * *   **sensitive_domain**: number of response-sensitive domain names
    * 
    * This parameter is required.
    * 
@@ -41,11 +33,8 @@ export class DescribeUserAssetRequest extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The time to query. The value is a UNIX timestamp in seconds. The time is in Coordinated Universal Time (UTC).
-   * 
-   * >Notice: 
-   * 
-   * This parameter is deprecated.
+   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * >Notice: The parameter has been deprecated.
    * 
    * @example
    * 1723435200
@@ -57,7 +46,7 @@ export class DescribeUserAssetRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -67,11 +56,10 @@ export class DescribeUserAssetRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
    * 
    * @example
    * cn-hangzhou

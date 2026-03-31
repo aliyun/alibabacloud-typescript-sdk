@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDDoSStatusResponseBodyDDoSStatus extends $dara.Model {
   /**
    * @remarks
-   * The name of the event type. Valid values:
+   * The type of events that are triggered by DDoS attacks. Valid values:
    * 
-   * - defense: DDoS traffic scrubbing event.
-   * 
-   * - blackhole: DDoS blackhole filtering event.
+   * *   defense: traffic scrubbing events.
+   * *   blackhole: blackhole filtering events.
    * 
    * @example
    * blackhole
@@ -17,9 +16,9 @@ export class DescribeDDoSStatusResponseBodyDDoSStatus extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The DDoS status:
+   * Indicates whether DDoS attacks occur on specific domain names. Valid value:
    * 
-   * **doing**: Under DDoS attack.
+   * *   **doing**: DDoS attacks occur on specific domain names.
    * 
    * @example
    * doing
@@ -51,7 +50,7 @@ export class DescribeDDoSStatusResponseBodyDDoSStatus extends $dara.Model {
 export class DescribeDDoSStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current DDoS status.
+   * Indicates whether DDoS attacks occur on specific domain names.
    */
   DDoSStatus?: DescribeDDoSStatusResponseBodyDDoSStatus[];
   /**

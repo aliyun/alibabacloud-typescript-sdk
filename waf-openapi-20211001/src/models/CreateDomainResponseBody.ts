@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDomainResponseBodyDomainInfo extends $dara.Model {
   /**
    * @remarks
-   * The CNAME assigned by WAF to the domain name.
+   * The CNAME that is assigned by WAF to the domain name.
    * 
    * @example
    * xxxxxwww.****.com
@@ -13,7 +13,7 @@ export class CreateDomainResponseBodyDomainInfo extends $dara.Model {
   cname?: string;
   /**
    * @remarks
-   * The domain name that is onboarded to WAF.
+   * The domain name that you added to WAF.
    * 
    * @example
    * www.aliyundoc.com
@@ -21,7 +21,7 @@ export class CreateDomainResponseBodyDomainInfo extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The ID of the domain name.
+   * The name of the protected object that is generated.
    * 
    * @example
    * www.aliyundoc.com-waf
@@ -55,15 +55,15 @@ export class CreateDomainResponseBodyDomainInfo extends $dara.Model {
 export class CreateDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the added domain name.
+   * The information about the domain name that is added.
    */
   domainInfo?: CreateDomainResponseBodyDomainInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   * D7861F61-5B61-46CE-A47C-6B19160D****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

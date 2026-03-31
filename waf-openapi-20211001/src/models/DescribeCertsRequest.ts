@@ -7,9 +7,8 @@ export class DescribeCertsRequest extends $dara.Model {
    * @remarks
    * The type of the encryption algorithm. Valid values:
    * 
-   * - **NotSM2 (default)**: Specifies a non-ShangMi (SM) cryptographic algorithm.
-   * 
-   * - **SM2**: Specifies an SM cryptographic algorithm.
+   * *   **NotSM2**: The encryption algorithm is not the SM2 algorithm. This is the default value.
+   * *   **SM2**: The encryption algorithm is the SM2 algorithm.
    * 
    * @example
    * SM2
@@ -27,7 +26,7 @@ export class DescribeCertsRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of your current WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +36,7 @@ export class DescribeCertsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -45,7 +44,7 @@ export class DescribeCertsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**. Maximum value: 100.
+   * The number of entries per page. Valid values: 1 to 100. Default value: **10**.
    * 
    * @example
    * 10
@@ -53,14 +52,13 @@ export class DescribeCertsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: The Chinese mainland.
-   * 
-   * - **ap-southeast-1**: Outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: Outside the Chinese mainland.
    * 
    * @example
-   * cn-hangzhou
+   * ap-southeast-1
    */
   regionId?: string;
   /**

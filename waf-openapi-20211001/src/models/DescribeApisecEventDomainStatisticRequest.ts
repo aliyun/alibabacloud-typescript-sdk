@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Hybrid Cloud WAF cluster.
-   * 
-   * > This parameter is available only for hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query Hybrid Cloud WAF clusters.
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -23,9 +22,9 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,11 +34,10 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sort order of the results. Valid values:
+   * The sorting order. Valid values:
    * 
-   * - **asc**: sorts the results in ascending order.
-   * 
-   * - **desc**: sorts the results in descending order.
+   * - **asc**: ascending order.
+   * - **desc**: descending order.
    * 
    * @example
    * desc
@@ -47,7 +45,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   orderWay?: string;
   /**
    * @remarks
-   * The page number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -55,19 +53,18 @@ export class DescribeApisecEventDomainStatisticRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **5**. Maximum value: **100**.
+   * The number of entries per page. Default value: **5**.
    * 
    * @example
-   * 10
+   * 5
    */
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

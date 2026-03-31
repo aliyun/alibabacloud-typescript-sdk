@@ -7,7 +7,7 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the instance ID.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,11 +17,10 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -29,12 +28,12 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the protected object or protected object group, or the ID of the protected asset to query.
+   * The name of the protected object or protected object group that you want to query.
    * 
    * This parameter is required.
    * 
    * @example
-   * mitsuichemicals.cn-waf
+   * xxxxxhemicals.cn-waf
    */
   resource?: string;
   /**
@@ -47,13 +46,10 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of protected resource. Valid values:
+   * The type of the protected resource. Valid values:
    * 
-   * - **single** (default): A protected object.
-   * 
-   * - **group**: A protected object group.
-   * 
-   * - **asset**: A protected asset.
+   * *   **single**: protected object. This is the default value.
+   * *   **group**: protected object group.
    * 
    * @example
    * single
@@ -69,7 +65,7 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The name of the protection rule.
+   * The name of the rule.
    * 
    * @example
    * demoRuleName
@@ -77,11 +73,10 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The type of protection rule. Valid values:
+   * The type of the protection rule. Valid values:
    * 
-   * - **defense** (default): A protection rule.
-   * 
-   * - **whitelist**: A whitelist rule.
+   * *   **defense**: defense rule. This is the default value.
+   * *   **whitelist**: whitelist rule.
    * 
    * @example
    * whitelist
@@ -89,7 +84,7 @@ export class DescribeDefenseResourceTemplatesRequest extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * The name of the protection template to query.
+   * The name of the protection rule template.
    * 
    * @example
    * test221

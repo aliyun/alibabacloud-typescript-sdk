@@ -7,7 +7,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -41,11 +41,10 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The type of the protocol. Valid values:
    * 
-   * - **http**: HTTP.
-   * 
-   * - **https**: HTTPS.
+   * *   **http**
+   * *   **https**
    * 
    * @example
    * https
@@ -53,11 +52,10 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -65,7 +63,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource instance.
+   * The instance ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -75,7 +73,7 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -83,15 +81,11 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of the cloud service. Valid values:
+   * The cloud service. Valid values:
    * 
-   * - **clb4**: Layer 4 Classic Load Balancer (CLB).
-   * 
-   * - **clb7**: Layer 7 CLB.
-   * 
-   * - **ecs**: Elastic Compute Service (ECS).
-   * 
-   * - **nlb**: Network Load Balancer (NLB).
+   * *   **clb4**: Layer 4 CLB.
+   * *   **clb7**: Layer 7 CLB.
+   * *   **ecs**: ECS.
    * 
    * @example
    * clb7

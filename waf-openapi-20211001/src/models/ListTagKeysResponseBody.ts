@@ -7,9 +7,8 @@ export class ListTagKeysResponseBodyKeys extends $dara.Model {
    * @remarks
    * The type of the tag. Valid values:
    * 
-   * - custom: The custom tag.
-   * 
-   * - system: The system tag.
+   * *   custom
+   * *   system
    * 
    * @example
    * custom
@@ -17,7 +16,7 @@ export class ListTagKeysResponseBodyKeys extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * demoTagKey
@@ -54,7 +53,7 @@ export class ListTagKeysResponseBody extends $dara.Model {
   keys?: ListTagKeysResponseBodyKeys[];
   /**
    * @remarks
-   * The pagination token. If NextToken is empty, there are no more results to return.
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -62,7 +61,7 @@ export class ListTagKeysResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8CB8BB88-24C7-5608-BF5E-4DCA****CF1C

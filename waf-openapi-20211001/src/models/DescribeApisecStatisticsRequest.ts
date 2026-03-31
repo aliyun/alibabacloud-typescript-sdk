@@ -5,27 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecStatisticsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Hybrid Cloud WAF cluster.
+   * The ID of the hybrid cloud cluster.
    * 
-   * > This parameter is available only in hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query Hybrid Cloud WAF clusters.
+   * >  This parameter is available only in hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query hybrid cloud clusters.
    * 
    * @example
    * 428
    */
   clusterId?: string;
   /**
-   * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
-   * 
    * @example
-   * 1726113600
+   * 4809859200000
    */
   endTime?: number;
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * * **cn-hangzhou**: Chinese mainland
+   * * **ap-southeast-1**: outside the Chinese mainland
    * 
    * This parameter is required.
    * 
@@ -35,11 +33,10 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -54,29 +51,21 @@ export class DescribeApisecStatisticsRequest extends $dara.Model {
    */
   resourceManagerResourceGroupId?: string;
   /**
-   * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
-   * 
    * @example
-   * 1668496310
+   * 1668496310000
    */
   startTime?: number;
   /**
    * @remarks
-   * The type of detection statistics. Valid values:
+   * The type of the statistics. Valid values:
    * 
-   * - **risk**: statistics on security risks.
-   * 
-   * - **event**: statistics on attacks.
+   * *   **risk**: risk-related statistics.
+   * *   **event**: event-related statistics.
    * 
    * @example
-   * risk
+   * asset_num
    */
   type?: string;
-  /**
-   * @remarks
-   * The list of statuses used to filter the detection statistics.
-   */
   userStatusList?: string[];
   static names(): { [key: string]: string } {
     return {

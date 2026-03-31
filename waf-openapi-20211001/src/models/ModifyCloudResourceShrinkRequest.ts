@@ -3,21 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyCloudResourceShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the cloud resource that is added to WAF.
-   * 
-   * > Call [CreateCloudResource](https://help.aliyun.com/document_detail/2839876.html) to add a cloud resource. The resource ID is included in the response.
-   * 
-   * @example
-   * lb-***-80-clb7
-   */
   cloudResourceId?: string;
   /**
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -27,23 +18,22 @@ export class ModifyCloudResourceShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listener configuration.
+   * The listener configurations.
    * 
    * This parameter is required.
    */
   listenShrink?: string;
   /**
    * @remarks
-   * The forwarding configuration.
+   * The forwarding configurations.
    */
   redirectShrink?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -53,7 +43,7 @@ export class ModifyCloudResourceShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

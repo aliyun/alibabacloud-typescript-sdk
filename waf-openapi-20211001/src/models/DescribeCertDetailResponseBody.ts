@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   /**
    * @remarks
-   * The time when the certificate expires. This value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the certificate expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1976256736582
@@ -13,7 +13,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   afterDate?: number;
   /**
    * @remarks
-   * The time when the certificate was issued. Unit: milliseconds.
+   * The time when the certificate was issued. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1976256736582
@@ -21,7 +21,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   beforeDate?: number;
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
    * @example
    * 123-cn-hangzhou
@@ -29,7 +29,7 @@ export class DescribeCertDetailResponseBodyCertDetail extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The certificate name.
+   * The name of the certificate.
    * 
    * @example
    * testCertName
@@ -100,7 +100,7 @@ export class DescribeCertDetailResponseBody extends $dara.Model {
   certDetail?: DescribeCertDetailResponseBodyCertDetail;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3C115DBE-8E53-5A12-9CAF-FD3F****CDF6

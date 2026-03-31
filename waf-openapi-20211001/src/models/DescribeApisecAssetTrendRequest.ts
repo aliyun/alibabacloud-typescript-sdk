@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecAssetTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hybrid cloud WAF cluster.
-   * 
-   * > This parameter is applicable only to hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the ID of the hybrid cloud WAF cluster.
+   * The ID of the hybrid cloud cluster.
    * 
    * @example
    * 590
@@ -15,17 +13,17 @@ export class DescribeApisecAssetTrendRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
-   * 1668496310000
+   * 1683183599
    */
   endTime?: number;
   /**
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,11 +33,10 @@ export class DescribeApisecAssetTrendRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region in which the WAF instance resides. Valid values:
+   * The region in which the WAF instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -47,7 +44,7 @@ export class DescribeApisecAssetTrendRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-aek**7uq
@@ -55,10 +52,10 @@ export class DescribeApisecAssetTrendRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: milliseconds.
+   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
-   * 1668496310000
+   * 1668496310
    */
   startTime?: number;
   static names(): { [key: string]: string } {

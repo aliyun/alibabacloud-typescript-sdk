@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFlowTopResourceResponseBodyRuleHitsTopResource extends $dara.Model {
   /**
    * @remarks
-   * The total number of requests for the protected object during the specified time period.
+   * The total number of requests received by the protected object in a specified time range.
    * 
    * @example
    * 181174784
@@ -53,7 +53,7 @@ export class DescribeFlowTopResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The top 10 protected objects that received the most requests.
+   * The array of the top 10 protected objects that receive requests.
    */
   ruleHitsTopResource?: DescribeFlowTopResourceResponseBodyRuleHitsTopResource[];
   static names(): { [key: string]: string } {

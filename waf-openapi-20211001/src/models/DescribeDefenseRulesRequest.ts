@@ -3,25 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDefenseRulesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the protection rule. Valid values:
-   * 
-   * - **template** (default): template protection rules.
-   * 
-   * - **resource**: rules for protected objects.
-   * 
-   * - **global**: global rules.
-   * 
-   * @example
-   * template
-   */
   defenseType?: string;
   /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -31,7 +18,7 @@ export class DescribeDefenseRulesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -39,7 +26,7 @@ export class DescribeDefenseRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -47,21 +34,20 @@ export class DescribeDefenseRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query conditions. Specify this parameter as a JSON string.
+   * The query conditions. Specify a string that contains multiple parameters in the JSON format.
    * 
-   * > The query results for protection rules vary based on the query conditions. For more information, see **Query parameter details**.
+   * >  The results vary based on the query conditions. For more information, see the "**Query parameters**" section in this topic.
    * 
    * @example
-   * {\\"name\\":\\"IPblock_20220822_10\\",\\"scene\\":\\"custom_acl\\",\\"templateId\\":5327}
+   * {\\\\"name\\\\":\\\\"IP address blocking_20220822_10\\\\",\\\\"scene\\\\":\\\\"custom_acl\\\\",\\\\"templateId\\\\":5327}
    */
   query?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -69,7 +55,7 @@ export class DescribeDefenseRulesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm***q
@@ -77,13 +63,10 @@ export class DescribeDefenseRulesRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of the protection rule. Valid values:
+   * The type of protection rule that you want to query. Valid values:
    * 
-   * - **whitelist**: a whitelist rule
-   * 
-   * - **defense** (default): a protection rule
-   * 
-   * > This parameter is required only when **DefenseType** is set to **template**.
+   * *   **whitelist:** whitelist rule.
+   * *   **defense:** defense rule. This is the default value.
    * 
    * @example
    * whitelist

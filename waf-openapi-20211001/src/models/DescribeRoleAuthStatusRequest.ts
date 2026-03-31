@@ -4,21 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRoleAuthStatusRequest extends $dara.Model {
   /**
-   * @remarks
-   * The region in which the WAF instance resides. Valid values:
-   * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
-   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
-   * @remarks
-   * The ID of the Alibaba Cloud resource group.
-   * 
    * @example
    * rg-aekzhalsanv***
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefaultHttpsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 276D7566-31C9-4192-9DD1-***

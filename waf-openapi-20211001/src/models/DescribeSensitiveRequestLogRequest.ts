@@ -4,16 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   /**
-   * @remarks
-   * The account that initiated the request.
-   * 
    * @example
    * admin
    */
   account?: string;
   /**
    * @remarks
-   * The API path.
+   * The API.
    * 
    * @example
    * /api/users/login
@@ -21,7 +18,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   apiFormat?: string;
   /**
    * @remarks
-   * The client IP address.
+   * The IP address.
    * 
    * @example
    * 103.118.55.**
@@ -30,8 +27,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * 
-   * > This parameter is available only for hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query information about hybrid cloud clusters.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 433
@@ -39,7 +35,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1726057800
@@ -49,7 +45,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -83,11 +79,10 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -95,7 +90,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -103,9 +98,9 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The type of sensitive data.
+   * The type of the sensitive data.
    * 
-   * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
    * 
    * @example
    * 1000,1001
@@ -113,7 +108,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   sensitiveCode?: string;
   /**
    * @remarks
-   * The sensitive data in the response.
+   * The response sensitive data.
    * 
    * @example
    * user
@@ -121,7 +116,7 @@ export class DescribeSensitiveRequestLogRequest extends $dara.Model {
   sensitiveData?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
    * @example
    * 1723392000

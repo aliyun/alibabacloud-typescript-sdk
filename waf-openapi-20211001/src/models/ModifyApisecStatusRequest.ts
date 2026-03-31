@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApisecStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The API security status. Valid values:
+   * The status of the API security module. Valid values:
    * 
-   * - **1**: enabled.
-   * 
-   * - **0**: disabled.
+   * *   **1**: enabled
+   * *   **0**: disabled
    * 
    * This parameter is required.
    * 
@@ -21,7 +20,7 @@ export class ModifyApisecStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -31,11 +30,10 @@ export class ModifyApisecStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
    * 
    * @example
    * cn-hangzhou
@@ -43,7 +41,7 @@ export class ModifyApisecStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the protected object group to which the protected object is added.
+   * The name of the protected object group to which the protected object belongs.
    * 
    * @example
    * group

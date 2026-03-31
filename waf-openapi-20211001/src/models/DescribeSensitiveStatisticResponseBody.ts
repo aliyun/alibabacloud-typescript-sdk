@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSensitiveStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The API path.
+   * The API.
    * 
    * @example
    * /api/login
@@ -13,7 +13,7 @@ export class DescribeSensitiveStatisticResponseBodyData extends $dara.Model {
   apiFormat?: string;
   /**
    * @remarks
-   * The client IP address.
+   * The IP address.
    * 
    * @example
    * 10.50.11.**
@@ -21,7 +21,7 @@ export class DescribeSensitiveStatisticResponseBodyData extends $dara.Model {
   clientIP?: string;
   /**
    * @remarks
-   * The number of data entries.
+   * The number of entries returned.
    * 
    * @example
    * 169
@@ -29,7 +29,7 @@ export class DescribeSensitiveStatisticResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The matched domain name.
+   * The domain name.
    * 
    * @example
    * a.****.com
@@ -37,9 +37,9 @@ export class DescribeSensitiveStatisticResponseBodyData extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The sensitive data type.
+   * The type of the sensitive data.
    * 
-   * > Call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive data types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
    * 
    * @example
    * 1003
@@ -77,7 +77,7 @@ export class DescribeSensitiveStatisticResponseBodyData extends $dara.Model {
 export class DescribeSensitiveStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of sensitive data statistics.
+   * The statistics of the sensitive data.
    */
   data?: DescribeSensitiveStatisticResponseBodyData[];
   /**

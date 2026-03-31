@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDefenseResourceResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 1738C613-D054-5191-888B-DC0CF4C3A4A0
    */
   requestId?: string;
   /**
-   * @remarks
-   * The name of the protected object that is created.
-   * 
    * @example
    * cdX.XXX-call.cn-alb
    */

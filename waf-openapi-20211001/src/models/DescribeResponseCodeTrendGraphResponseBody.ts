@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $dara.Model {
   /**
    * @remarks
-   * The number of 302 response codes.
+   * The number of 302 error codes that are returned.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $da
   code302Pv?: number;
   /**
    * @remarks
-   * The number of 405 response codes.
+   * The number of 405 error codes that are returned.
    * 
    * @example
    * 121645464
@@ -21,7 +21,7 @@ export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $da
   code405Pv?: number;
   /**
    * @remarks
-   * The number of 444 response codes.
+   * The number of 444 error codes that are returned.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $da
   code444Pv?: number;
   /**
    * @remarks
-   * The number of 499 response codes.
+   * The number of 499 error codes that are returned.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $da
   code499Pv?: number;
   /**
    * @remarks
-   * The number of 5xx response codes.
+   * The number of 5xx error codes that are returned.
    * 
    * @example
    * 2932
@@ -45,7 +45,7 @@ export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $da
   code5xxPv?: number;
   /**
    * @remarks
-   * The serial number of the time interval, sorted in chronological order.
+   * The serial number of the time interval. The serial numbers are arranged in chronological order.
    * 
    * @example
    * 10
@@ -85,15 +85,15 @@ export class DescribeResponseCodeTrendGraphResponseBodyResponseCodes extends $da
 export class DescribeResponseCodeTrendGraphResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 7D46493E-84DD-58CE-80A7-8643F2B09ECC
+   * 7D46493E-84DD-58CE-80A7-8643****9ECC
    */
   requestId?: string;
   /**
    * @remarks
-   * The statistics of response codes.
+   * The array of the statistics of the error codes.
    */
   responseCodes?: DescribeResponseCodeTrendGraphResponseBodyResponseCodes[];
   static names(): { [key: string]: string } {

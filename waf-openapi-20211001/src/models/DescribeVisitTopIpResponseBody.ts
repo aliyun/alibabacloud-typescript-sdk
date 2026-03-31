@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVisitTopIpResponseBodyTopIp extends $dara.Model {
   /**
    * @remarks
-   * The code of the geographical location.
+   * The ordinal number of the area to which the IP address belongs.
    * 
    * @example
    * 310000
@@ -13,7 +13,7 @@ export class DescribeVisitTopIpResponseBodyTopIp extends $dara.Model {
   area?: string;
   /**
    * @remarks
-   * The total number of requests that are initiated from the IP address.
+   * The total number of requests that are sent from the IP address.
    * 
    * @example
    * 2622
@@ -29,7 +29,7 @@ export class DescribeVisitTopIpResponseBodyTopIp extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The Internet service provider (ISP).
+   * The ISP.
    * 
    * @example
    * AAA
@@ -65,7 +65,7 @@ export class DescribeVisitTopIpResponseBodyTopIp extends $dara.Model {
 export class DescribeVisitTopIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5D2B8DAE-A761-58CB-A68D-74989E4831DA
@@ -73,7 +73,7 @@ export class DescribeVisitTopIpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The top 10 IP addresses that initiate the most requests.
+   * The array of the top 10 IP addresses from which requests are sent.
    */
   topIp?: DescribeVisitTopIpResponseBodyTopIp[];
   static names(): { [key: string]: string } {

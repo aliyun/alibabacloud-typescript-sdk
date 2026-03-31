@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApisecProtectionGroupsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The master switch for API security.
+   * The switch of the API security module.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeApisecProtectionGroupsResponseBodyData extends $dara.Model 
   apisecStatus?: number;
   /**
    * @remarks
-   * The compliance check switch.
+   * The switch of the compliance check feature.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class DescribeApisecProtectionGroupsResponseBodyData extends $dara.Model 
   resourceGroup?: string;
   /**
    * @remarks
-   * The traceability audit switch.
+   * The switch of the tracing and auditing feature.
    * 
    * @example
    * 0
@@ -65,7 +65,7 @@ export class DescribeApisecProtectionGroupsResponseBodyData extends $dara.Model 
 export class DescribeApisecProtectionGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of protected object groups.
+   * The protected object groups.
    */
   data?: DescribeApisecProtectionGroupsResponseBodyData[];
   /**

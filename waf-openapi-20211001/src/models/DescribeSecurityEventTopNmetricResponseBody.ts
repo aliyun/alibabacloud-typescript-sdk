@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues extends $dara.Model {
   /**
    * @remarks
-   * Additional information, such as the protection module to which a rule ID belongs.
+   * The additional information, such as the protection module for a protection rule whose ID is returned.
    * 
    * @example
    * waf_base
@@ -13,7 +13,7 @@ export class DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues 
   attribute?: string;
   /**
    * @remarks
-   * The value of a field. The meaning of this parameter varies based on the specified \\`Metric\\`.
+   * The field value, which varies based on the metric.
    * 
    * @example
    * 10000
@@ -21,7 +21,7 @@ export class DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues 
   name?: string;
   /**
    * @remarks
-   * The statistical count used for top N sorting.
+   * The count for the data entry.
    * 
    * @example
    * 1111
@@ -55,7 +55,7 @@ export class DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues 
 export class DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range that was queried. The value is a UNIX timestamp. Unit: seconds. This value is the same as the \\`EndDate\\` request parameter.
+   * The end of the time range to query. The value is a Unix timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
    * 
    * @example
    * 1713888600
@@ -63,7 +63,7 @@ export class DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange ex
   endDate?: number;
   /**
    * @remarks
-   * The start of the time range that was queried. The value is a UNIX timestamp. Unit: seconds. This value is the same as the \\`StartDate\\` request parameter.
+   * The beginning of the time range to query. The value is a Unix timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
    * 
    * @example
    * 1713888000
@@ -95,12 +95,12 @@ export class DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange ex
 export class DescribeSecurityEventTopNMetricResponseBodyTopNMetaData extends $dara.Model {
   /**
    * @remarks
-   * The time range used for the query.
+   * The time range that is used for the query.
    */
   dateRange?: DescribeSecurityEventTopNMetricResponseBodyTopNMetaDataDateRange;
   /**
    * @remarks
-   * The unit of the returned statistics.
+   * The unit of the statistics returned. It is fixed as requests.
    * 
    * @example
    * requests
@@ -143,12 +143,12 @@ export class DescribeSecurityEventTopNMetricResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * An array of the top N statistics.
+   * The top N data entries returned.
    */
   securityEventTopNValues?: DescribeSecurityEventTopNMetricResponseBodySecurityEventTopNValues[];
   /**
    * @remarks
-   * The metadata of the returned data.
+   * The metadata of the data entries returned.
    */
   topNMetaData?: DescribeSecurityEventTopNMetricResponseBodyTopNMetaData;
   static names(): { [key: string]: string } {

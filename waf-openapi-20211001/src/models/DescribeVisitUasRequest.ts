@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVisitUasRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the current time is used as the end time.
+   * The end of the time range to query. Unit: seconds. If you do not specify this parameter, the current time is used.
    * 
    * @example
    * 1665386280
@@ -15,7 +15,7 @@ export class DescribeVisitUasRequest extends $dara.Model {
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to obtain the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -25,11 +25,10 @@ export class DescribeVisitUasRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region ID of the WAF instance. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -53,7 +52,7 @@ export class DescribeVisitUasRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The beginning of the time range to query. Unit: seconds.
    * 
    * This parameter is required.
    * 

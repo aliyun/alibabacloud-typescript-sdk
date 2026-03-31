@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCertDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The certificate ID.
+   * The ID of the certificate.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeCertDetailRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the current WAF instance ID.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -27,11 +27,10 @@ export class DescribeCertDetailRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
    * 
-   * - **cn-hangzhou**: indicates the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: indicates regions outside the Chinese mainland.
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

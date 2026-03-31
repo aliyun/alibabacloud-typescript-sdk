@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries extends $dara.Model {
   /**
    * @remarks
-   * The content of the returned data. This is consistent with the \\`Metric\\` request parameter.
+   * The metric. This value is the same as the value of Metric in the request parameters.
    * 
    * @example
    * monitored_requests
@@ -13,12 +13,12 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeS
   metric?: string;
   /**
    * @remarks
-   * The time series. Each point represents the start time of a time range.
+   * The time points. Each point represents a time range.
    */
   timestamps?: string[];
   /**
    * @remarks
-   * The data series. Each point represents the statistical count within a specific time range.
+   * The data points. Each point represents a count for a time range.
    */
   values?: number[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeS
 export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. This is a UNIX timestamp. Unit: seconds. This value is the same as the \\`EndDate\\` request parameter.
+   * The end of the time range to query. The value is a Unix timestamp. Unit: seconds. This value is the same as the value of EndDate in the request parameters.
    * 
    * @example
    * 1713888600
@@ -63,7 +63,7 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData
   endDate?: number;
   /**
    * @remarks
-   * The start time of the query. This is a UNIX timestamp. Unit: seconds. This value is the same as the \\`StartDate\\` request parameter.
+   * The beginning of the time range to query. The value is a Unix timestamp. Unit: seconds. This value is the same as the value of StartDate in the request parameters.
    * 
    * @example
    * 1713888000
@@ -95,7 +95,7 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData
 export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData extends $dara.Model {
   /**
    * @remarks
-   * The time granularity of each data point in the returned time series data. For example, "15m" indicates that each returned data point represents statistics for a 15-minute interval. For more information about the time granularity of the returned data, see the Time granularity of time series data points section.
+   * The time granularity of data points in the time series data returned. For example, a value of 15m indicates that data points are collected at 15-minute intervals. For more information about time granularities, see the **Time granularities of data points in time series** section below.
    * 
    * @example
    * 1m
@@ -103,12 +103,12 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData
   aggregateInterval?: string;
   /**
    * @remarks
-   * The time range used for the query.
+   * The time range that is used for the query.
    */
   dateRange?: DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange;
   /**
    * @remarks
-   * The unit of the returned statistical data.
+   * The unit of the statistics returned. It is fixed as requests.
    * 
    * @example
    * requests
@@ -153,12 +153,12 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The returned time series data. The operation can return time series data for multiple values.
+   * The time series data returned. This operation can return time series for multiple metrics.
    */
   securityEventTimeSeries?: DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries[];
   /**
    * @remarks
-   * The metadata of the returned data.
+   * The metadata of the time series data returned.
    */
   timeSeriesMetaData?: DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData;
   static names(): { [key: string]: string } {
