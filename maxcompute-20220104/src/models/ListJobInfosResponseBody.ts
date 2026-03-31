@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.Model {
   /**
    * @remarks
-   * The details of the smart diagnosis result.
+   * The intelligent diagnostics result description.
    * 
    * @example
    * This job uses annual and monthly computing resources. It may be that the job is waiting for resources due to the large amount of overall job running data, many resources requested, and low job priority. Please go to Resource Consumption to view the specific situation. You can also go to Cost Optimization to see if you need to adjust resource configuration.
@@ -13,12 +13,12 @@ export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.M
   description?: string;
   /**
    * @remarks
-   * Information about the nodes that have data skew or data bloat. This parameter is returned only when the diagnosis scenario is data skew or data bloat.
+   * Information about the nodes where data skew or data expansion is detected. This parameter is returned only when the diagnostics scenario is data skew or data expansion.
    */
   params?: { [key: string]: string };
   /**
    * @remarks
-   * The scenario of the smart diagnosis result.
+   * The intelligent diagnostics result scenario.
    * 
    * @example
    * LackResource
@@ -26,7 +26,7 @@ export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.M
   scene?: string;
   /**
    * @remarks
-   * The tag of the smart diagnosis result.
+   * The intelligent diagnostics result tag.
    * 
    * @example
    * SubscriptionLackResource
@@ -34,7 +34,7 @@ export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.M
   sceneTag?: string;
   /**
    * @remarks
-   * A summary of the smart diagnosis result.
+   * The intelligent diagnostics result summary.
    * 
    * @example
    * Insufficient computing resources available for the job. Click to view details.
@@ -42,7 +42,7 @@ export class ListJobInfosResponseBodyDataJobInfoListSceneResults extends $dara.M
   summary?: string;
   /**
    * @remarks
-   * The type of the smart diagnosis result.
+   * The intelligent diagnostics result type.
    * 
    * @example
    * warning
@@ -93,7 +93,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   cluster?: string;
   /**
    * @remarks
-   * The proportion of CUs in the job snapshot.
+   * The CU snapshot proportion of the job.
    * 
    * @example
    * 0.48
@@ -101,7 +101,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   cuSnapshot?: number;
   /**
    * @remarks
-   * The total CUs used.
+   * The amount of resources consumed by the job. This parameter is returned only for jobs that are complete.Unit: 100\\*Core\\*s.
    * 
    * @example
    * 10
@@ -109,7 +109,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   cuUsage?: number;
   /**
    * @remarks
-   * The time when the job finished.
+   * The time when the job stops running.
    * 
    * @example
    * 0
@@ -117,7 +117,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   endAtTime?: number;
   /**
    * @remarks
-   * The ID of the DataWorks node.
+   * The node ID of DataWorks.
    * 
    * @example
    * node_4
@@ -126,7 +126,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   extNodeName?: string;
   /**
    * @remarks
-   * The person in charge of the execution.
+   * The account of the node owner.
    * 
    * @example
    * duty_2
@@ -143,7 +143,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   extPlatformId?: string;
   /**
    * @remarks
-   * The amount of data scanned by the job. Unit: bytes.
+   * The amount of scanned data for the job. Unit: byte.
    * 
    * @example
    * 1234
@@ -159,7 +159,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The account that submitted the job.
+   * The account that commits the job.
    * 
    * @example
    * ALIYUN$xxx@test.aliyunid.com
@@ -167,7 +167,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   jobOwner?: string;
   /**
    * @remarks
-   * The job type.
+   * The type of the job.
    * 
    * @example
    * SQL
@@ -175,7 +175,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The proportion of memory in the job snapshot.
+   * The memory snapshot proportion of the job.
    * 
    * @example
    * 0.42
@@ -183,7 +183,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   memorySnapshot?: number;
   /**
    * @remarks
-   * The total memory used.
+   * The number of memory consumed by the job. This parameter is returned only for jobs that are complete.Unit: MB\\*s.
    * 
    * @example
    * 40
@@ -191,7 +191,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   memoryUsage?: number;
   /**
    * @remarks
-   * The priority.
+   * The priority of the job.
    * 
    * @example
    * 1
@@ -207,7 +207,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The nickname of the quota that the job uses.
+   * The nickname of the quota that is used by the job.
    * 
    * @example
    * my_quota
@@ -215,7 +215,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   quotaNickname?: string;
   /**
    * @remarks
-   * The quota type.
+   * The type of the quota.
    * 
    * @example
    * subscription
@@ -231,7 +231,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The time when the job started to run.
+   * The time when the job starts to run.
    * 
    * @example
    * 1672112113
@@ -239,7 +239,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   runningAtTime?: number;
   /**
    * @remarks
-   * The runtime.
+   * The period for which the job runs.
    * 
    * @example
    * 800
@@ -247,12 +247,12 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   runningTime?: number;
   /**
    * @remarks
-   * The smart diagnosis results.
+   * The intelligent diagnostics results.
    */
   sceneResults?: ListJobInfosResponseBodyDataJobInfoListSceneResults[];
   /**
    * @remarks
-   * The SQL signature.
+   * The signature of the SQL job.
    * 
    * @example
    * i094KijGrN3kOXZ74kbexB77XQY=
@@ -260,7 +260,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   signature?: string;
   /**
    * @remarks
-   * The status.
+   * The status of the job.
    * 
    * @example
    * running
@@ -268,7 +268,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The status of the job snapshot.
+   * The status of the snapshot.
    * 
    * @example
    * running
@@ -276,7 +276,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   statusSnapshot?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The time when the job was committed.
    * 
    * @example
    * 1672112013
@@ -301,7 +301,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The total runtime.
+   * The total period for which the job runs.
    * 
    * @example
    * 900
@@ -309,7 +309,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
   totalTime?: number;
   /**
    * @remarks
-   * The waiting time.
+   * The duration for which the job waits to start.
    * 
    * @example
    * 100
@@ -404,7 +404,7 @@ export class ListJobInfosResponseBodyDataJobInfoList extends $dara.Model {
 export class ListJobInfosResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of job information.
+   * The information about the jobs.
    */
   jobInfoList?: ListJobInfosResponseBodyDataJobInfoList[];
   /**
@@ -425,7 +425,7 @@ export class ListJobInfosResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 64
@@ -464,12 +464,12 @@ export class ListJobInfosResponseBodyData extends $dara.Model {
 export class ListJobInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ListJobInfosResponseBodyData;
   /**
    * @remarks
-   * Indicates whether the business logic was successful. A value other than 200 indicates a failure.
+   * Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
    * 
    * @example
    * 200

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTunnelQuotaTimerRequestBodyTunnelQuotaParameter extends $dara.Model {
   /**
    * @remarks
-   * The number of elastic reserved concurrent slots.
+   * The number of elastically reserved slots.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class UpdateTunnelQuotaTimerRequestBodyTunnelQuotaParameter extends $dara
   elasticReservedSlotNum?: number;
   /**
    * @remarks
-   * The number of reserved concurrent slots.
+   * The number of reserved slots.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class UpdateTunnelQuotaTimerRequestBodyTunnelQuotaParameter extends $dara
 export class UpdateTunnelQuotaTimerRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The start time of the time-based configuration.
+   * The start time of the time-specific configuration.
    * 
    * @example
    * 00:00
@@ -53,7 +53,7 @@ export class UpdateTunnelQuotaTimerRequestBody extends $dara.Model {
   beginTime?: string;
   /**
    * @remarks
-   * The end time of the time-based configuration.
+   * The end time of the time-specific configuration.
    * 
    * @example
    * 08:00
@@ -61,7 +61,7 @@ export class UpdateTunnelQuotaTimerRequestBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The parameters of the time-based configuration.
+   * The parameters for the time-specific configuration.
    */
   tunnelQuotaParameter?: UpdateTunnelQuotaTimerRequestBodyTunnelQuotaParameter;
   static names(): { [key: string]: string } {
@@ -98,13 +98,6 @@ export class UpdateTunnelQuotaTimerRequest extends $dara.Model {
    * The request body.
    */
   body?: UpdateTunnelQuotaTimerRequestBody[];
-  /**
-   * @remarks
-   * The time zone.
-   * 
-   * @example
-   * Asia/Shanghai
-   */
   timezone?: string;
   static names(): { [key: string]: string } {
     return {

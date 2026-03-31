@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRoleAclOnObjectResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The operations that were performed on the object.
+   */
   actions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +33,18 @@ export class GetRoleAclOnObjectResponseBodyData extends $dara.Model {
 }
 
 export class GetRoleAclOnObjectResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data
+   */
   data?: GetRoleAclOnObjectResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bc1366d16686529650188023ef87f
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

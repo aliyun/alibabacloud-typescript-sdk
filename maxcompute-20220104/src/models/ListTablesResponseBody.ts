@@ -3,11 +3,53 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTablesResponseBodyDataTables extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the table was created.
+   * 
+   * @example
+   * 2022-01-17T07:07:47Z
+   */
   creationTime?: number;
+  /**
+   * @remarks
+   * The display name of the table.
+   * 
+   * @example
+   * sale_detail
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * dim_odps
+   */
   name?: string;
+  /**
+   * @remarks
+   * The owner of the table.
+   * 
+   * @example
+   * 1887853961230110
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The schema to which the table belongs.
+   * 
+   * @example
+   * default
+   */
   schema?: string;
+  /**
+   * @remarks
+   * The type of the table.
+   * 
+   * @example
+   * internal
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,8 +83,26 @@ export class ListTablesResponseBodyDataTables extends $dara.Model {
 }
 
 export class ListTablesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates the marker after which the returned list begins.
+   * 
+   * @example
+   * cHlvZHBzX3VkZl8xMDExNV8xNDU3NDI4NDkzKg==
+   */
   marker?: string;
+  /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
   maxItem?: number;
+  /**
+   * @remarks
+   * The information about tables.
+   */
   tables?: ListTablesResponseBodyDataTables[];
   static names(): { [key: string]: string } {
     return {
@@ -73,7 +133,18 @@ export class ListTablesResponseBodyData extends $dara.Model {
 }
 
 export class ListTablesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListTablesResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0a06dd4516687375802853481ec9fd
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,35 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStorageAmountSummaryResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * The date of the statistics.
-   * 
    * @example
    * 20241205
    */
   date?: string;
   /**
-   * @remarks
-   * The timestamp. This API does not return this parameter.
-   * 
    * @example
    * -
    */
   timestamp?: number;
-  /**
-   * @remarks
-   * The unit of the storage metrics. This API does not return this parameter.
-   */
   unit?: { [key: string]: string };
-  /**
-   * @remarks
-   * The storage metrics. The metrics include the following:
-   * 
-   * - projectAmount
-   * - schemaAmount
-   * - tableAmount
-   * - partitionAmount
-   */
   value?: { [key: string]: number };
   static names(): { [key: string]: string } {
     return {
@@ -68,42 +49,23 @@ export class GetStorageAmountSummaryResponseBodyData extends $dara.Model {
 }
 
 export class GetStorageAmountSummaryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
   data?: GetStorageAmountSummaryResponseBodyData;
   /**
-   * @remarks
-   * The business error code or an empty value.
-   * 
-   * - If success is false, a business error code is returned.
-   * - If success is true, an empty value is returned.
-   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
-   * @remarks
-   * The error message.
-   * 
    * @example
    * this quota is not exist.
    */
   errorMsg?: string;
   /**
-   * @remarks
-   * Indicates whether the business is successful. If this parameter is not empty and the value is not 200, the business processing failed.
-   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 688003E1-D1B4-5468-957E-2FFB3AC8D79B
    */

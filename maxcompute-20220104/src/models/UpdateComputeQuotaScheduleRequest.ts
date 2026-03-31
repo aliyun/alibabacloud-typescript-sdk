@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeQuotaScheduleRequestBodyCondition extends $dara.Model {
   /**
    * @remarks
-   * The time when the plan takes effect.
+   * The start time when the quota plan takes effect.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class UpdateComputeQuotaScheduleRequestBodyCondition extends $dara.Model 
 export class UpdateComputeQuotaScheduleRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The condition for the plan to take effect.
+   * The value of effective condition.
    */
   condition?: UpdateComputeQuotaScheduleRequestBodyCondition;
   /**
@@ -52,11 +52,9 @@ export class UpdateComputeQuotaScheduleRequestBody extends $dara.Model {
   plan?: string;
   /**
    * @remarks
-   * The type.
+   * The type of the quota plan.
    * 
-   * >Notice: 
-   * 
-   * Only daily is supported.
+   * >Notice: Currently, only daily is supported.</notice>
    * 
    * This parameter is required.
    * 
@@ -98,15 +96,6 @@ export class UpdateComputeQuotaScheduleRequest extends $dara.Model {
    * The request body parameters.
    */
   body?: UpdateComputeQuotaScheduleRequestBody[];
-  /**
-   * @remarks
-   * The time zone.
-   * 
-   * > The default value is UTC+8.
-   * 
-   * @example
-   * UTC+8
-   */
   scheduleTimezone?: string;
   static names(): { [key: string]: string } {
     return {

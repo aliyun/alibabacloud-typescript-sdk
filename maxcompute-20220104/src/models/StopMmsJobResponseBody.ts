@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopMmsJobResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The data migration ID.
-   * 
    * @example
    * 88
    */
   data?: number;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 8023D058-62B7-5C49-8EB6-AD9BA7942BC5
    */

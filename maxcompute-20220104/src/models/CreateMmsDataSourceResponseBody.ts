@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMmsDataSourceResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the data source.
-   * 
    * @example
    * 18
    */
@@ -33,15 +30,8 @@ export class CreateMmsDataSourceResponseBodyData extends $dara.Model {
 }
 
 export class CreateMmsDataSourceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned results.
-   */
   data?: CreateMmsDataSourceResponseBodyData;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * B42CA730-8187-50F1-9FE0-6733297036DB
    */

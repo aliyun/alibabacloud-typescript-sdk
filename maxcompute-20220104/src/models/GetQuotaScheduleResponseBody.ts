@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetQuotaScheduleResponseBodyDataCondition extends $dara.Model {
+  /**
+   * @remarks
+   * The start time when the quota plan takes effect.
+   * 
+   * @example
+   * 2022-04-25T04:23:04Z
+   */
   after?: string;
+  /**
+   * @remarks
+   * The time when the quota plan takes effect.
+   * 
+   * @example
+   * 0900
+   */
   at?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,11 +43,50 @@ export class GetQuotaScheduleResponseBodyDataCondition extends $dara.Model {
 }
 
 export class GetQuotaScheduleResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The condition value.
+   */
   condition?: GetQuotaScheduleResponseBodyDataCondition;
+  /**
+   * @remarks
+   * The ID of the quota plan.
+   * 
+   * @example
+   * 63
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the operator.
+   * 
+   * @example
+   * userA
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The name of the quota plan.
+   * 
+   * @example
+   * planA
+   */
   plan?: string;
+  /**
+   * @remarks
+   * The time zone.
+   * 
+   * @example
+   * UTC+8
+   */
   timezone?: string;
+  /**
+   * @remarks
+   * The type of the quota plan.
+   * 
+   * @example
+   * once
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70,10 +123,43 @@ export class GetQuotaScheduleResponseBodyData extends $dara.Model {
 }
 
 export class GetQuotaScheduleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetQuotaScheduleResponseBodyData[];
+  /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
+   * @example
+   * success
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * errorMsg
+   */
   errorMsg?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0bc059b716696296266308790e0d3e
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,31 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMmsDataSourceRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of the data source.
-   */
   config?: { [key: string]: any };
   /**
-   * @remarks
-   * The name of the data source.
-   * 
    * @example
    * demo
    */
   name?: string;
   /**
-   * @remarks
-   * The ID of the MaxCompute network connectivity.
-   * 
    * @example
    * vpc-uf6pc2vordian33gobzfr:cn-shanghai
    */
   networklink?: string;
   /**
-   * @remarks
-   * The type of the data source.
-   * 
    * @example
    * BIGQUERY
    */

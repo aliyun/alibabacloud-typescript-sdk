@@ -63,7 +63,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoListPa
 export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * Cluster ID.
    * 
    * @example
    * AT-120N
@@ -71,7 +71,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList e
   cluster?: string;
   /**
    * @remarks
-   * The time when the quota was created.
+   * The creation time.
    * 
    * @example
    * 1730946421757
@@ -79,7 +79,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList e
   createTime?: number;
   /**
    * @remarks
-   * The creator of the resource. This is the UID of an Alibaba Cloud account.
+   * The ID of the Alibaba Cloud account that is used to create the resource.
    * 
    * @example
    * 672863518
@@ -111,7 +111,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList e
   nickName?: string;
   /**
    * @remarks
-   * The quota configuration parameters.
+   * The description of the level-2 quota.
    * 
    * @example
    * {
@@ -127,7 +127,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList e
   parameter?: ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoListParameter;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-beijing
@@ -135,7 +135,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList e
   regionId?: string;
   /**
    * @remarks
-   * The resource status.
+   * Resource status.
    * 
    * @example
    * ON
@@ -143,7 +143,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList e
   status?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * Tenant ID.
    * 
    * @example
    * 478403690625249
@@ -151,7 +151,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList e
   tenantId?: string;
   /**
    * @remarks
-   * The quota type.
+   * The type of quota.
    * 
    * @example
    * FUXI_ONLINE
@@ -214,7 +214,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList e
 export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * Cluster ID.
    * 
    * @example
    * AT-120N
@@ -222,7 +222,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Mod
   cluster?: string;
   /**
    * @remarks
-   * The time when the quota was created.
+   * The time when the level-1 quota was created.
    * 
    * @example
    * 1730247361356
@@ -230,7 +230,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Mod
   createTime?: number;
   /**
    * @remarks
-   * The creator of the resource. This is the UID of an Alibaba Cloud account.
+   * The ID of the Alibaba Cloud account that is used to create the resource.
    * 
    * @example
    * 672863518
@@ -262,7 +262,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Mod
   nickName?: string;
   /**
    * @remarks
-   * The quota configuration parameters.
+   * The description of the level-1 quota.
    * 
    * @example
    * {
@@ -278,7 +278,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Mod
   parameter?: ListComputeQuotaPlanResponseBodyDataPlanListQuotaParameter;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-beijing
@@ -286,7 +286,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The resource status.
+   * Resource status.
    * 
    * @example
    * ON
@@ -294,12 +294,12 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The list of level-2 quotas.
+   * The list of subquotas.
    */
   subQuotaInfoList?: ListComputeQuotaPlanResponseBodyDataPlanListQuotaSubQuotaInfoList[];
   /**
    * @remarks
-   * The tenant ID.
+   * Tenant ID.
    * 
    * @example
    * 478403690625249
@@ -307,7 +307,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Mod
   tenantId?: string;
   /**
    * @remarks
-   * This corresponds to the resourceSystemType field of the control cluster.
+   * The type of quota.
    * 
    * @example
    * FUXI_ONLINE
@@ -315,7 +315,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Mod
   type?: string;
   /**
    * @remarks
-   * The version.
+   * The version number.
    * 
    * @example
    * 2056
@@ -375,7 +375,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanListQuota extends $dara.Mod
 export class ListComputeQuotaPlanResponseBodyDataPlanList extends $dara.Model {
   /**
    * @remarks
-   * The time when the plan was created.
+   * The time when the quota plan was created.
    * 
    * @example
    * 1731394621890
@@ -391,7 +391,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The quota properties.
+   * The details of the quota.
    */
   quota?: ListComputeQuotaPlanResponseBodyDataPlanListQuota;
   static names(): { [key: string]: string } {
@@ -425,7 +425,7 @@ export class ListComputeQuotaPlanResponseBodyDataPlanList extends $dara.Model {
 export class ListComputeQuotaPlanResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of quota plans.
+   * The list of quota plan.
    */
   planList?: ListComputeQuotaPlanResponseBodyDataPlanList[];
   static names(): { [key: string]: string } {
@@ -455,7 +455,7 @@ export class ListComputeQuotaPlanResponseBodyData extends $dara.Model {
 export class ListComputeQuotaPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ListComputeQuotaPlanResponseBodyData;
   /**
@@ -476,7 +476,13 @@ export class ListComputeQuotaPlanResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
+   * 
+   * - 1xx: informational response. The request is received and is being processed.
+   * - 2xx: success. The request is successfully received, understood, and accepted by the server.
+   * - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
+   * - 4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
+   * - 5xx: server error. The server cannot meet requirements due to other reasons.
    * 
    * @example
    * 200

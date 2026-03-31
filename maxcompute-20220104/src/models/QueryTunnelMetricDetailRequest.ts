@@ -4,70 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryTunnelMetricDetailRequest extends $dara.Model {
   /**
-   * @remarks
-   * Specifies whether to sort the results in ascending order.
-   * 
    * @example
    * false
    */
   ascOrder?: boolean;
-  /**
-   * @remarks
-   * The list of grouping bases.
-   */
   groupList?: string[];
   /**
-   * @remarks
-   * The maximum number of entries to return. The default value is 10. The maximum value is 100.
-   * 
    * @example
    * 10
    */
   limit?: number;
-  /**
-   * @remarks
-   * The list of operation types.
-   */
   operationList?: string[];
   /**
-   * @remarks
-   * The column to sort by.
-   * 
    * @example
    * maxValue
    */
   orderColumn?: string;
   /**
-   * @remarks
-   * The name of the project.
-   * 
    * @example
    * project_a
    */
   project?: string;
   /**
-   * @remarks
-   * The nickname of the level-2 quota for the tunnel.
-   * 
-   * The nickname of the shared quota is default.
-   * 
-   * The nickname of the exclusive quota is in the quotaNickname#subQuotaNickname format.
-   * 
    * @example
    * quota_A
    */
   quotaNickname?: string;
-  /**
-   * @remarks
-   * The list of table names.
-   * 
-   * The tables belong to a project. Therefore, if tableList is not empty, project cannot be empty.
-   */
   tableList?: string[];
   /**
    * @remarks
-   * The end of the time range to query.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -76,8 +41,6 @@ export class QueryTunnelMetricDetailRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The start of the time range to query.
-   * 
    * This parameter is required.
    * 
    * @example

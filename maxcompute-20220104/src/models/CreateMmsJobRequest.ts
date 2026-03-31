@@ -3,156 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMmsJobRequest extends $dara.Model {
-  /**
-   * @remarks
-   * {Source column name: Destination column name}
-   */
   columnMapping?: { [key: string]: string };
-  /**
-   * @remarks
-   * The destination MaxCompute project.
-   * 
-   * @example
-   * mms_test
-   */
   dstDbName?: string;
-  /**
-   * @remarks
-   * The destination MaxCompute schema.
-   * 
-   * @example
-   * default
-   */
   dstSchemaName?: string;
-  /**
-   * @remarks
-   * Specifies whether to migrate table data.
-   * 
-   * @example
-   * true
-   */
   enableDataMigration?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to migrate table schemas.
-   * 
-   * @example
-   * true
-   */
   enableSchemaMigration?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to enable data verification. The current verification method is to execute SELECT COUNT(\\*) on the source and destination to compare the number of rows.
-   * 
-   * @example
-   * false
-   */
   enableVerification?: boolean;
-  /**
-   * @remarks
-   * The expected completion time of the migration. Note: A smaller eta value gives the migration task higher priority.
-   * 
-   * @example
-   * 2025-02-04
-   */
   eta?: string;
-  /**
-   * @remarks
-   * Specifies whether to perform an incremental migration. In an incremental migration, only new or changed partitions are migrated. Note that changed partitions are re-migrated.
-   * 
-   * @example
-   * true
-   */
   increment?: boolean;
-  /**
-   * @remarks
-   * The name of the migration job.
-   * 
-   * @example
-   * migrate_db_1
-   */
   name?: string;
-  /**
-   * @remarks
-   * Other configuration information.
-   */
   others?: { [key: string]: any };
-  /**
-   * @remarks
-   * {Table name: Partition filter expression}
-   */
   partitionFilters?: { [key: string]: string };
-  /**
-   * @remarks
-   * The list of partition IDs.
-   */
   partitions?: number[];
-  /**
-   * @remarks
-   * Specifies whether to migrate only metadata.
-   * 
-   * @example
-   * false
-   */
   schemaOnly?: boolean;
-  /**
-   * @remarks
-   * The ID of the data source.
-   * 
-   * @example
-   * 2000014
-   */
   sourceId?: number;
-  /**
-   * @remarks
-   * The name of the data source.
-   * 
-   * @example
-   * demo
-   */
   sourceName?: string;
-  /**
-   * @remarks
-   * The name of the source database.
-   * 
-   * @example
-   * src_db
-   */
   srcDbName?: string;
-  /**
-   * @remarks
-   * The name of the source schema. This is the schema in a Layer 3 namespace.
-   * 
-   * @example
-   * default
-   */
   srcSchemaName?: string;
-  /**
-   * @remarks
-   * The blacklist of tables.
-   */
   tableBlackList?: string[];
-  /**
-   * @remarks
-   * {Source table: Destination table}
-   */
   tableMapping?: { [key: string]: string };
-  /**
-   * @remarks
-   * The whitelist of tables. Note: If you configure both a whitelist and a blacklist, only the blacklist takes effect.
-   */
   tableWhiteList?: string[];
-  /**
-   * @remarks
-   * The list of table names.
-   */
   tables?: string[];
   /**
    * @remarks
-   * The type of the migration task.
-   * 
-   * @example
-   * BIGQUERY
+   * MOCK, HIVE: hive udtf task, HIVE_DATAX: hive datax task, COPY_TASK: odps Copy Task, ODPS_INSERT_OVERWRITE: odps simple insert overwrite task, MC2MC_VERIFY, OSS, HIVE_OSS
    */
   taskType?: string;
   static names(): { [key: string]: string } {

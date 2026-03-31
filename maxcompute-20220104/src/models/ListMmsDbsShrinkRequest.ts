@@ -4,38 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsDbsShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * Data source name
-   * 
    * @example
    * demo
    */
   name?: string;
   /**
-   * @remarks
-   * Page number
-   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
-   * @remarks
-   * Number of records per page
-   * 
    * @example
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * Sorting conditions
-   */
   sorterShrink?: string;
   /**
-   * @remarks
-   * Data source status
-   * 
    * @example
    * STARTED
    */

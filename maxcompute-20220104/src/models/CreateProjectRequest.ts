@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateProjectRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request body parameters.
+   */
   body?: string;
   static names(): { [key: string]: string } {
     return {

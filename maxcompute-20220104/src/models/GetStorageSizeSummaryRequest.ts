@@ -4,25 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetStorageSizeSummaryRequest extends $dara.Model {
   /**
-   * @remarks
-   * The date of statistics. The value is at the day level. The format is YYYYMMdd.
-   * 
    * @example
    * 20241205
    */
   date?: string;
   /**
-   * @remarks
-   * The region ID.
-   * 
    * @example
    * cn-chengdu
    */
   region?: string;
   /**
-   * @remarks
-   * The tenant ID.
-   * 
    * @example
    * 483212237127906
    */

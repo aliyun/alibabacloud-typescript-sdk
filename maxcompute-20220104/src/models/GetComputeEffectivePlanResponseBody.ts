@@ -3,17 +3,109 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetComputeEffectivePlanResponseBodyDataQuotaSubQuotaInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * @example
+   * AT-120N
+   */
   cluster?: string;
+  /**
+   * @remarks
+   * The time when the resource was created.
+   * 
+   * @example
+   * 1718155201628
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to create the resource.
+   * 
+   * @example
+   * 672863518
+   */
   creatorId?: string;
+  /**
+   * @remarks
+   * The ID of the level-2 quota.
+   * 
+   * @example
+   * 10940
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the level-2 quota.
+   * 
+   * @example
+   * dp_cn_shanghai_1696659792_p
+   */
   name?: string;
+  /**
+   * @remarks
+   * The nickname of the level-2 quota.
+   * 
+   * @example
+   * os_MyQuota
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The description of the level-2 quota.
+   * 
+   * @example
+   * {
+   *   "enablePriority": false,
+   *   "minCU": 25,
+   *   "adhocCU": 0,
+   *   "elasticReservedCU": 0,
+   *   "forceReservedMin": false,
+   *   "maxCU": 50,
+   *   "schedulerType": "Fifo"
+   * }
+   */
   parameter?: { [key: string]: any };
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * Resource status.
+   * 
+   * @example
+   * ON
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 478403690625249
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The type of quota.
+   * 
+   * @example
+   * FUXI_ONLINE
+   */
   type?: string;
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * 1386
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,18 +154,114 @@ export class GetComputeEffectivePlanResponseBodyDataQuotaSubQuotaInfoList extend
 }
 
 export class GetComputeEffectivePlanResponseBodyDataQuota extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the cluster.
+   * 
+   * @example
+   * AT-120N
+   */
   cluster?: string;
+  /**
+   * @remarks
+   * The time when the level-1 quota was created.
+   * 
+   * @example
+   * 1719886322347
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to create the resource.
+   * 
+   * @example
+   * 672863518
+   */
   creatorId?: string;
+  /**
+   * @remarks
+   * The ID of the level-1 quota.
+   * 
+   * @example
+   * 2413
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the level-1 quota.
+   * 
+   * @example
+   * dp_cn_shanghai_1699533470_p
+   */
   name?: string;
+  /**
+   * @remarks
+   * The nickname of the level-1 quota.
+   * 
+   * @example
+   * os_MyQuota_p
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The description of the level-2 quota.
+   * 
+   * @example
+   * {
+   *   "enablePriority": false,
+   *   "minCU": 25,
+   *   "adhocCU": 0,
+   *   "elasticReservedCU": 0,
+   *   "forceReservedMin": false,
+   *   "maxCU": 50,
+   *   "schedulerType": "Fifo"
+   * }
+   */
   parameter?: { [key: string]: any };
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The status of the resource.
+   * 
+   * @example
+   * ON
+   */
   status?: string;
+  /**
+   * @remarks
+   * The list of subquotas.
+   */
   subQuotaInfoList?: GetComputeEffectivePlanResponseBodyDataQuotaSubQuotaInfoList[];
+  /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * @example
+   * 478403690625249
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * The type of quota.
+   * 
+   * @example
+   * FUXI_ONLINE
+   */
   type?: string;
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * 1964
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -127,9 +315,35 @@ export class GetComputeEffectivePlanResponseBodyDataQuota extends $dara.Model {
 }
 
 export class GetComputeEffectivePlanResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the quota plan was created.
+   * 
+   * @example
+   * 1714356241163
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * Whether it is currently effective.
+   * > A Quota plan that has taken effect cannot be deleted, i.e., isEffective=true
+   * 
+   * @example
+   * true/false
+   */
   isEffective?: boolean;
+  /**
+   * @remarks
+   * The name of the quota plan.
+   * 
+   * @example
+   * planA
+   */
   name?: string;
+  /**
+   * @remarks
+   * The details of the quota.
+   */
   quota?: GetComputeEffectivePlanResponseBodyDataQuota;
   static names(): { [key: string]: string } {
     return {
@@ -162,10 +376,48 @@ export class GetComputeEffectivePlanResponseBodyData extends $dara.Model {
 }
 
 export class GetComputeEffectivePlanResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetComputeEffectivePlanResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * success
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * plan \\"***\\" does not exist
+   */
   errorMsg?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * - 1xx: informational response. The request is received and is being processed.
+   * - 2xx: success. The request is successfully received, understood, and accepted by the server.
+   * - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
+   * - 4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
+   * - 5xx: server error. The server cannot meet requirements due to other reasons.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 688003E1-D1B4-5468-957E-2FFB3AC8D79B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,41 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsTablesResponseBodyDataObjectListSchemaColumns extends $dara.Model {
   /**
-   * @remarks
-   * The comment on the column.
-   * 
    * @example
    * user id
    */
   comment?: string;
   /**
-   * @remarks
-   * The default value of the column.
-   * 
    * @example
    * ""
    */
   defaultValue?: string;
   /**
-   * @remarks
-   * The column name.
-   * 
    * @example
    * user_id
    */
   name?: string;
   /**
-   * @remarks
-   * Indicates whether the column can be null.
-   * 
    * @example
    * false
    */
   nullable?: boolean;
   /**
-   * @remarks
-   * The column type.
-   * 
    * @example
    * bigint
    */
@@ -73,42 +58,23 @@ export class ListMmsTablesResponseBodyDataObjectListSchemaColumns extends $dara.
 }
 
 export class ListMmsTablesResponseBodyDataObjectListSchemaPartitions extends $dara.Model {
-  /**
-   * @remarks
-   * The comment on the column.
-   * 
-   * @example
-   * 第一分区
-   */
   comment?: string;
   /**
-   * @remarks
-   * The default value of the column.
-   * 
    * @example
    * abc
    */
   defaultValue?: string;
   /**
-   * @remarks
-   * The column name.
-   * 
    * @example
    * p1
    */
   name?: string;
   /**
-   * @remarks
-   * Indicates whether the column can be null.
-   * 
    * @example
    * false
    */
   nullable?: boolean;
   /**
-   * @remarks
-   * The column type.
-   * 
    * @example
    * string
    */
@@ -143,31 +109,17 @@ export class ListMmsTablesResponseBodyDataObjectListSchemaPartitions extends $da
 }
 
 export class ListMmsTablesResponseBodyDataObjectListSchema extends $dara.Model {
-  /**
-   * @remarks
-   * All non-partition key columns of the table.
-   */
   columns?: ListMmsTablesResponseBodyDataObjectListSchemaColumns[];
   /**
-   * @remarks
-   * The comment on the table.
-   * 
    * @example
    * for mms test
    */
   comment?: string;
   /**
-   * @remarks
-   * The table name.
-   * 
    * @example
    * test
    */
   name?: string;
-  /**
-   * @remarks
-   * All partition key columns.
-   */
   partitions?: ListMmsTablesResponseBodyDataObjectListSchemaPartitions[];
   static names(): { [key: string]: string } {
     return {
@@ -204,64 +156,43 @@ export class ListMmsTablesResponseBodyDataObjectListSchema extends $dara.Model {
 
 export class ListMmsTablesResponseBodyDataObjectList extends $dara.Model {
   /**
-   * @remarks
-   * The database ID.
-   * 
    * @example
    * 196
    */
   dbId?: number;
   /**
-   * @remarks
-   * The database name.
-   * 
    * @example
    * demo
    */
   dbName?: string;
   /**
-   * @remarks
-   * The name of the destination MaxCompute table. By default, this name is the same as the source table name.
-   * 
    * @example
    * test
    */
   dstName?: string;
   /**
-   * @remarks
-   * The name of the destination MaxCompute project.
-   * 
    * @example
    * mms_test
    */
   dstProjectName?: string;
   /**
-   * @remarks
-   * The name of the destination MaxCompute schema. This parameter is null if the destination MaxCompute project does not have a schema layer.
-   * 
    * @example
    * default
    */
   dstSchemaName?: string;
   /**
-   * @remarks
-   * Other information stored in JSON format.
-   * 
    * @example
    * {"mapkey.delim":":","collection.delim":",","serialization.format":"|","field.delim":"|"}
    */
   extra?: string;
   /**
-   * @remarks
-   * Indicates whether the table is a partitioned table.
-   * 
    * @example
    * true
    */
   hasPartitions?: boolean;
   /**
    * @remarks
-   * The table ID.
+   * table ID
    * 
    * @example
    * 1003476
@@ -269,7 +200,7 @@ export class ListMmsTablesResponseBodyDataObjectList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The input format.
+   * inputFormat
    * 
    * @example
    * org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
@@ -277,141 +208,95 @@ export class ListMmsTablesResponseBodyDataObjectList extends $dara.Model {
   inputFormat?: string;
   /**
    * @remarks
-   * The last DDL time.
+   * lastDdlTime
    * 
    * @example
    * 2024-12-17 15:44:42
    */
   lastDdlTime?: string;
   /**
-   * @remarks
-   * The storage location of the table.
-   * 
    * @example
    * | hdfs://master-1-1.c-c127cd184bb029ea.cn-zhangjiakou.emr.aliyuncs.com:9000/user/hive/warehouse/demo
    */
   location?: string;
   /**
-   * @remarks
-   * The table name.
-   * 
    * @example
    * test
    */
   name?: string;
   /**
-   * @remarks
-   * The number of rows.
-   * 
    * @example
    * 232323
    */
   numRows?: number;
   /**
    * @remarks
-   * The output format.
+   * outFormat
    * 
    * @example
    * org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
    */
   outputFormat?: string;
   /**
-   * @remarks
-   * The owner of the table.
-   * 
    * @example
    * Hive
    */
   owner?: string;
   /**
-   * @remarks
-   * The number of partitions.
-   * 
    * @example
    * 100
    */
   partitions?: number;
   /**
-   * @remarks
-   * The number of partitions that are being migrated.
-   * 
    * @example
    * 20
    */
   partitionsDoing?: number;
   /**
-   * @remarks
-   * The number of partitions that are migrated.
-   * 
    * @example
    * 60
    */
   partitionsDone?: number;
   /**
-   * @remarks
-   * The number of partitions that failed to be migrated.
-   * 
    * @example
    * 40
    */
   partitionsFailed?: number;
-  /**
-   * @remarks
-   * The table schema.
-   */
   schema?: ListMmsTablesResponseBodyDataObjectListSchema;
   /**
    * @remarks
-   * The serializer/deserializer (SerDe).
+   * serde
    * 
    * @example
    * org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
    */
   serde?: string;
   /**
-   * @remarks
-   * The data size in bytes.
-   * 
    * @example
    * 2985028
    */
   size?: number;
   /**
-   * @remarks
-   * The ID of the data source.
-   * 
    * @example
    * 2000028
    */
   sourceId?: number;
   /**
-   * @remarks
-   * The name of the data source.
-   * 
    * @example
    * demo
    */
   sourceName?: string;
   /**
-   * @remarks
-   * The migration status.
-   * 
    * @example
    * DONE
    */
   status?: string;
   /**
-   * @remarks
-   * The table type.
-   * 
    * @example
    * MANAGED_TABLE
    */
   type?: string;
   /**
-   * @remarks
-   * Indicates whether the metadata is updated.
-   * 
    * @example
    * true
    */
@@ -493,31 +378,18 @@ export class ListMmsTablesResponseBodyDataObjectList extends $dara.Model {
 }
 
 export class ListMmsTablesResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The list of tables.
-   */
   objectList?: ListMmsTablesResponseBodyDataObjectList[];
   /**
-   * @remarks
-   * The page number.
-   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
-   * @remarks
-   * The number of entries per page.
-   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
-   * @remarks
-   * The total number of records.
-   * 
    * @example
    * 100
    */
@@ -553,15 +425,8 @@ export class ListMmsTablesResponseBodyData extends $dara.Model {
 }
 
 export class ListMmsTablesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
   data?: ListMmsTablesResponseBodyData;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * E7FB14F1-4ACD-5C73-A755-B302D70AB9AD
    */

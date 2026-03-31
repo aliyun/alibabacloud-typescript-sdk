@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobSnapshotInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort the results in ascending order.
+   * Specifies whether to sort data in ascending order.
    * 
    * @example
    * true
@@ -13,14 +13,13 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   ascOrder?: boolean;
   /**
    * @remarks
-   * The upstream node ID.
+   * The ID of the upstream node.
    */
   extNodeIdList?: string[];
   /**
    * @remarks
-   * The start UNIX timestamp.
-   * 
-   * > This parameter is invalid. The end timestamp is the point in time for the snapshot that you want to view.
+   * Start timestamp.
+   * > This parameter is invalid. The end timestamp should be the time point for the snapshot you want to view.
    * 
    * @example
    * 1706840714
@@ -28,27 +27,27 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * The job instance ID.
+   * The instance ID.
    */
   instanceIdList?: string[];
   /**
    * @remarks
-   * The job owner.
+   * The account that commits the job.
    */
   jobOwnerList?: string[];
   /**
    * @remarks
-   * The job priority.
+   * The priority of the job.
    */
   priorityList?: number[];
   /**
    * @remarks
-   * The project name.
+   * The name of project.
    */
   projectList?: string[];
   /**
    * @remarks
-   * The nickname of the computing quota that the job uses.
+   * The nickname of the compute Quota used by the job.
    * 
    * @example
    * quota_A
@@ -61,22 +60,22 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   signatureList?: string[];
   /**
    * @remarks
-   * The fields for multi-column sorting.
+   * The sorting columns.
    */
   sortByList?: string[];
   /**
    * @remarks
-   * The sort orders for multi-column sorting.
+   * The orders for the sorting columns.
    */
   sortOrderList?: string[];
   /**
    * @remarks
-   * The job status.
+   * The status of jobs.
    */
   statusList?: string[];
   /**
    * @remarks
-   * The end UNIX timestamp.
+   * End timestamp.
    * 
    * This parameter is required.
    * 
@@ -86,42 +85,12 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   to?: number;
   /**
    * @remarks
-   * The job type.
+   * The type of the job.
    */
   typeList?: string[];
   /**
    * @remarks
-   * The column to sort by. Valid values:
-   * 
-   * - submittedAtTime
-   * 
-   * - waitingTime
-   * 
-   * - runningAtTime
-   * 
-   * - runningTime
-   * 
-   * - snapshotTime
-   * 
-   * - totalTime
-   * 
-   * - cpuUsage
-   * 
-   * - memoryUsage
-   * 
-   * - minCpuPct
-   * 
-   * - minMemoryPct
-   * 
-   * - priority
-   * 
-   * - cpuRequest
-   * 
-   * - memoryRequest
-   * 
-   * - cpuUsageToRequestRatio
-   * 
-   * - memoryUsageToRequestRatio
+   * The sorting column.
    * 
    * @example
    * cpuUsage
@@ -153,7 +122,7 @@ export class ListJobSnapshotInfosRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The tenant ID. To view the tenant ID, log on to the MaxCompute console. In the navigation pane on the left, choose Tenant Management > Tenant Properties.
+   * The ID of the tenant. You can log on to the MaxCompute console, and choose Tenants > Tenant Property from the left-side navigation pane to view the tenant ID.
    * 
    * @example
    * 478403690625249

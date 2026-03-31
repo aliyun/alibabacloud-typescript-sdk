@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateComputeQuotaScheduleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The data returned.
    * 
    * @example
    * success
@@ -29,17 +29,12 @@ export class UpdateComputeQuotaScheduleResponseBody extends $dara.Model {
   errorMsg?: string;
   /**
    * @remarks
-   * The HTTP status code.
-   * 
-   * - 1xx: an informational response. The request was received and is being processed.
-   * 
-   * - 2xx: a success response. The request was successfully received, understood, and accepted by the server.
-   * 
-   * - 3xx: a redirection response. The request was redirected. You must take further action to complete the request.
-   * 
-   * - 4xx: a client error. The request contains invalid request parameters or syntax, or cannot be fulfilled for a specific reason.
-   * 
-   * - 5xx: a server error. The server cannot fulfill the request for other reasons.
+   * HTTP status code.
+   * - 1xx: Informational - The request has been received and is being processed.
+   * - 2xx: Success - The request action was successfully received, understood, and accepted by the server.
+   * - 3xx: Redirection - Further action must be taken to complete the request.
+   * - 4xx: Client Error - The request contains an error in the request parameters, syntax, or specific request conditions cannot be met.
+   * - 5xx: Server Error - The server could not fulfill the request due to other reasons.
    * 
    * @example
    * 200

@@ -4,25 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListMmsDbsRequestSorter extends $dara.Model {
   /**
-   * @remarks
-   * Number of data rows in the database
-   * 
    * @example
    * desc
    */
   numRows?: string;
   /**
-   * @remarks
-   * Size of data in the database
-   * 
    * @example
    * asc
    */
   size?: string;
   /**
-   * @remarks
-   * Update time
-   * 
    * @example
    * 2024-12-17 15:44:17
    */
@@ -54,38 +45,22 @@ export class ListMmsDbsRequestSorter extends $dara.Model {
 
 export class ListMmsDbsRequest extends $dara.Model {
   /**
-   * @remarks
-   * Data source name
-   * 
    * @example
    * demo
    */
   name?: string;
   /**
-   * @remarks
-   * Page number
-   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
-   * @remarks
-   * Number of records per page
-   * 
    * @example
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * Sorting conditions
-   */
   sorter?: ListMmsDbsRequestSorter;
   /**
-   * @remarks
-   * Data source status
-   * 
    * @example
    * STARTED
    */

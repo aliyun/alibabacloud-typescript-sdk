@@ -3,9 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryQuotaResponseBodyDataBillingPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   subscription: the subscription quota.
+   * *   payasyougo: the pay-as-you-go quota.
+   * 
+   * @example
+   * subscription
+   */
   billingMethod?: string;
+  /**
+   * @remarks
+   * In MaxCompute, instanceId and orderId are considered the same.
+   * 
+   * @example
+   * 880c0d0d-5d79-4217-b683-8e8bdd2a2523
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The order specifications.
+   * 
+   * @example
+   * OdpsStandard
+   */
   odpsSpecCode?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 880c0d0d-5d79-4217-b683-8e8bdd2a2523
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +66,18 @@ export class QueryQuotaResponseBodyDataBillingPolicy extends $dara.Model {
 }
 
 export class QueryQuotaResponseBodyDataSaleTag extends $dara.Model {
+  /**
+   * @remarks
+   * The identifier of a MaxCompute quota object. This identifier exists in the Alibaba Cloud sales bill. You can use this identifier to associate the cost of a quota object with a tag.
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The object type. Valid values: quota and project.
+   * 
+   * @example
+   * project
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,13 +106,69 @@ export class QueryQuotaResponseBodyDataSaleTag extends $dara.Model {
 }
 
 export class QueryQuotaResponseBodyDataScheduleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The current quota plan that has taken effect based on the scheduling plan.
+   * 
+   * @example
+   * planA
+   */
   currPlan?: string;
+  /**
+   * @remarks
+   * The time when the plan specified by currPlan is scheduled.
+   * 
+   * @example
+   * 0800
+   */
   currTime?: string;
+  /**
+   * @remarks
+   * The quota plan that will take effect based on the scheduling plan.
+   * 
+   * @example
+   * planB
+   */
   nextPlan?: string;
+  /**
+   * @remarks
+   * The time when the plan specified by nextPlan is scheduled.
+   * 
+   * @example
+   * 1700
+   */
   nextTime?: string;
+  /**
+   * @remarks
+   * The quota plan that immediately takes effect. If the quota plan specified by this parameter is triggered and the plan is different from the plan specified by currPlan, this parameter is not empty.
+   * 
+   * @example
+   * planC
+   */
   oncePlan?: string;
+  /**
+   * @remarks
+   * The time when the quota plan specified by oncePlan is scheduled.
+   * 
+   * @example
+   * 1500
+   */
   onceTime?: string;
+  /**
+   * @remarks
+   * The operator name.
+   * 
+   * @example
+   * userA
+   */
   operatorName?: string;
+  /**
+   * @remarks
+   * The time zone of the project.
+   * 
+   * @example
+   * UTC+8
+   */
   timezone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,9 +206,40 @@ export class QueryQuotaResponseBodyDataScheduleInfo extends $dara.Model {
 }
 
 export class QueryQuotaResponseBodyDataSubQuotaInfoListBillingPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   subscription: the subscription quota.
+   * *   payasyougo: the pay-as-you-go quota.
+   * 
+   * @example
+   * subscription
+   */
   billingMethod?: string;
+  /**
+   * @remarks
+   * In MaxCompute, instanceId and orderId are considered the same.
+   * 
+   * @example
+   * 880c0d0d-5d79-4217-b683-8e8bdd2a2523
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The order specifications.
+   * 
+   * @example
+   * OdpsStandard
+   */
   odpsSpecCode?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 880c0d0d-5d79-4217-b683-8e8bdd2a2523
+   */
   orderId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -140,7 +269,18 @@ export class QueryQuotaResponseBodyDataSubQuotaInfoListBillingPolicy extends $da
 }
 
 export class QueryQuotaResponseBodyDataSubQuotaInfoListSaleTag extends $dara.Model {
+  /**
+   * @remarks
+   * The identifier of a MaxCompute quota object. This identifier exists in the Alibaba Cloud sales bill. You can use this identifier to associate the cost of a quota object with a tag.
+   */
   resourceIds?: string[];
+  /**
+   * @remarks
+   * The object type. Valid values: quota and project.
+   * 
+   * @example
+   * "quota"
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -169,13 +309,69 @@ export class QueryQuotaResponseBodyDataSubQuotaInfoListSaleTag extends $dara.Mod
 }
 
 export class QueryQuotaResponseBodyDataSubQuotaInfoListScheduleInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The current quota plan that has taken effect based on the scheduling plan.
+   * 
+   * @example
+   * planA
+   */
   currPlan?: string;
+  /**
+   * @remarks
+   * The time when the plan specified by currPlan is scheduled.
+   * 
+   * @example
+   * 0800
+   */
   currTime?: string;
+  /**
+   * @remarks
+   * The quota plan that will take effect based on the scheduling plan.
+   * 
+   * @example
+   * planB
+   */
   nextPlan?: string;
+  /**
+   * @remarks
+   * The time when the plan specified by nextPlan is scheduled.
+   * 
+   * @example
+   * 1700
+   */
   nextTime?: string;
+  /**
+   * @remarks
+   * The quota plan that immediately takes effect. If the quota plan specified by this parameter is triggered and the plan is different from the plan specified by currPlan, this parameter is not empty.
+   * 
+   * @example
+   * planC
+   */
   oncePlan?: string;
+  /**
+   * @remarks
+   * The time when the quota plan specified by oncePlan is scheduled.
+   * 
+   * @example
+   * 1500
+   */
   onceTime?: string;
+  /**
+   * @remarks
+   * The operator name.
+   * 
+   * @example
+   * userA
+   */
   operatorName?: string;
+  /**
+   * @remarks
+   * The time zone of the project.
+   * 
+   * @example
+   * UTC+8
+   */
   timezone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -213,23 +409,140 @@ export class QueryQuotaResponseBodyDataSubQuotaInfoListScheduleInfo extends $dar
 }
 
 export class QueryQuotaResponseBodyDataSubQuotaInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The order information.
+   */
   billingPolicy?: QueryQuotaResponseBodyDataSubQuotaInfoListBillingPolicy;
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * AT-120N
+   */
   cluster?: string;
+  /**
+   * @remarks
+   * The time when the resource was created.
+   * 
+   * @example
+   * 1688653978768
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to create the quota plan.
+   * 
+   * @example
+   * 672863518
+   */
   creatorId?: string;
+  /**
+   * @remarks
+   * The role group name.
+   * 
+   * @example
+   * abc
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The ID of the level-2 quota.
+   * 
+   * @example
+   * 1000048
+   */
   id?: string;
+  /**
+   * @remarks
+   * The name of the level-2 quota.
+   * 
+   * @example
+   * subquotaA
+   */
   name?: string;
+  /**
+   * @remarks
+   * The nickname of the level-2 quota.
+   * 
+   * @example
+   * subquotaA
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The quota description.
+   * 
+   * @example
+   * {\\"maxCU\\": 10, \\"minCU\\": 10, \\"adhocCU\\": 0, \\"schedulerType\\": \\"Fifo\\"}
+   */
   parameter?: { [key: string]: any };
+  /**
+   * @remarks
+   * The parent resource ID.
+   * 
+   * @example
+   * 0
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The identifiers of MaxCompute quota objects. The identifiers are the same as those in the Alibaba Cloud sales bill. This parameter is used for tags.
+   */
   saleTag?: QueryQuotaResponseBodyDataSubQuotaInfoListSaleTag;
+  /**
+   * @remarks
+   * The information about the scheduling plan.
+   */
   scheduleInfo?: QueryQuotaResponseBodyDataSubQuotaInfoListScheduleInfo;
+  /**
+   * @remarks
+   * The status of the resource.
+   * 
+   * @example
+   * ON
+   */
   status?: string;
+  /**
+   * @remarks
+   * The resource tag of a quota.
+   * 
+   * @example
+   * abc
+   */
   tag?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 478403690625249
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * This parameter corresponds to the resourceSystemType field.
+   * 
+   * @example
+   * FUXI_ONLINE
+   */
   type?: string;
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * 1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -299,24 +612,149 @@ export class QueryQuotaResponseBodyDataSubQuotaInfoList extends $dara.Model {
 }
 
 export class QueryQuotaResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The order information.
+   */
   billingPolicy?: QueryQuotaResponseBodyDataBillingPolicy;
+  /**
+   * @remarks
+   * The ID of the Managed Service for Prometheus cluster.
+   * 
+   * @example
+   * AT-120N
+   */
   cluster?: string;
+  /**
+   * @remarks
+   * The time when the resource was created.
+   * 
+   * @example
+   * 1714356241163
+   */
   createTime?: number;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that is used to create the quota plan.
+   * 
+   * @example
+   * 1248953767546358
+   */
   creatorId?: string;
+  /**
+   * @remarks
+   * The group name.
+   * 
+   * @example
+   * abc
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The quota ID.
+   * 
+   * @example
+   * 2523
+   */
   id?: string;
+  /**
+   * @remarks
+   * The quota name.
+   * 
+   * @example
+   * quota_a
+   */
   name?: string;
+  /**
+   * @remarks
+   * The quota alias.
+   * 
+   * @example
+   * quota_nickname
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * The quota description.
+   * 
+   * @example
+   * {"minCU":10,	
+   * "adhocCU":0,
+   * "maxCU":10,
+   * "schedulerType":"Fair",
+   * }
+   */
   parameter?: { [key: string]: any };
+  /**
+   * @remarks
+   * The parent resource ID.
+   * 
+   * @example
+   * null
+   */
   parentId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The identifiers of MaxCompute quota objects. The identifiers are the same as those in the Alibaba Cloud sales bill. This parameter is used for tags.
+   */
   saleTag?: QueryQuotaResponseBodyDataSaleTag;
+  /**
+   * @remarks
+   * The information about the scheduling plan.
+   */
   scheduleInfo?: QueryQuotaResponseBodyDataScheduleInfo;
+  /**
+   * @remarks
+   * The status of the resource.
+   * 
+   * @example
+   * ON
+   */
   status?: string;
+  /**
+   * @remarks
+   * The level-2 quotas.
+   */
   subQuotaInfoList?: QueryQuotaResponseBodyDataSubQuotaInfoList[];
+  /**
+   * @remarks
+   * The resource tag of a quota.
+   * 
+   * @example
+   * abc
+   */
   tag?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * @example
+   * 478403690625249
+   */
   tenantId?: string;
+  /**
+   * @remarks
+   * This parameter corresponds to the resourceSystemType field.
+   * 
+   * @example
+   * FUXI_OFFLINE
+   */
   type?: string;
+  /**
+   * @remarks
+   * The version number.
+   * 
+   * @example
+   * 1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -391,10 +829,42 @@ export class QueryQuotaResponseBodyData extends $dara.Model {
 }
 
 export class QueryQuotaResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: QueryQuotaResponseBodyData;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * @example
+   * success
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * Exception information
+   */
   errorMsg?: string;
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0bc1eeed16675342848904412e08dd
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,15 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTunnelMetricDetailResponseBodyDataMetrics extends $dara.Model {
-  /**
-   * @remarks
-   * The metadata of the metric.
-   */
   metric?: { [key: string]: string };
   /**
-   * @remarks
-   * The numeric information of the metric.
-   * 
    * @example
    * "avgValue":"11.5"
    */
@@ -46,15 +39,8 @@ export class QueryTunnelMetricDetailResponseBodyDataMetrics extends $dara.Model 
 }
 
 export class QueryTunnelMetricDetailResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The metric values.
-   */
   metrics?: QueryTunnelMetricDetailResponseBodyDataMetrics[];
   /**
-   * @remarks
-   * The name of the metric.
-   * 
    * @example
    * tableA
    */
@@ -86,39 +72,23 @@ export class QueryTunnelMetricDetailResponseBodyData extends $dara.Model {
 }
 
 export class QueryTunnelMetricDetailResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
   data?: QueryTunnelMetricDetailResponseBodyData;
   /**
-   * @remarks
-   * The error code.
-   * 
    * @example
    * OBJECT_NOT_EXIST
    */
   errorCode?: string;
   /**
-   * @remarks
-   * The error message.
-   * 
    * @example
    * plan \\"***\\" does not exist
    */
   errorMsg?: string;
   /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
    * @example
    * 200
    */
   httpCode?: number;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 0a06dd4516687375802853481ec9fd
    */

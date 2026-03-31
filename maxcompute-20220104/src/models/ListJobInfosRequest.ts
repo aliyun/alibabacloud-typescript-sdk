@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to sort the results in ascending or descending order.
+   * Specifies whether to sort query results in ascending or descending order.
    * 
    * @example
    * true
@@ -13,13 +13,13 @@ export class ListJobInfosRequest extends $dara.Model {
   ascOrder?: boolean;
   /**
    * @remarks
-   * The upstream node ID.
+   * The ancestor node IDs.
    */
   extNodeIdList?: string[];
   extNodeNameList?: string[];
   /**
    * @remarks
-   * The start UNIX timestamp.
+   * The start timestamp.
    * 
    * This parameter is required.
    * 
@@ -29,27 +29,27 @@ export class ListJobInfosRequest extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * The job instance ID.
+   * The job instance IDs.
    */
   instanceIdList?: string[];
   /**
    * @remarks
-   * The job owner.
+   * The job owners.
    */
   jobOwnerList?: string[];
   /**
    * @remarks
-   * The job priority.
+   * The job priorities.
    */
   priorityList?: number[];
   /**
    * @remarks
-   * The project name.
+   * The project names.
    */
   projectList?: string[];
   /**
    * @remarks
-   * The nickname of the quota.
+   * The quota nickname.
    * 
    * @example
    * quota_nickname
@@ -57,33 +57,33 @@ export class ListJobInfosRequest extends $dara.Model {
   quotaNickname?: string;
   /**
    * @remarks
-   * The smart diagnosis tag.
+   * The intelligent diagnostics tags.
    */
   sceneTagList?: string[];
   /**
    * @remarks
-   * The job signature.
+   * The job signatures.
    */
   signatureList?: string[];
   /**
    * @remarks
-   * The fields for multi-column sorting.
+   * The sorting columns.
    */
   sortByList?: string[];
   /**
    * @remarks
-   * The sort orders for multi-column sorting.
+   * The orders for the sorting columns.
    */
   sortOrderList?: string[];
   /**
    * @remarks
-   * The job status.
+   * The job states.
    */
   statusList?: string[];
   taskNameList?: string[];
   /**
    * @remarks
-   * The end UNIX timestamp.
+   * The end timestamp.
    * 
    * This parameter is required.
    * 
@@ -93,12 +93,12 @@ export class ListJobInfosRequest extends $dara.Model {
   to?: number;
   /**
    * @remarks
-   * The job type.
+   * The job types.
    */
   typeList?: string[];
   /**
    * @remarks
-   * The column to use for sorting.
+   * The column based on which you want to sort query results.
    * 
    * @example
    * cuUsage
@@ -114,7 +114,7 @@ export class ListJobInfosRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10

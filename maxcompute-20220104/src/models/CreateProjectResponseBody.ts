@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateProjectResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * success
+   */
   data?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0b87b7a316654730544735643e9200
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

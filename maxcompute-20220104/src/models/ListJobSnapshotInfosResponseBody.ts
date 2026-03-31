@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model {
   /**
    * @remarks
-   * The amount of CPU cores requested by the job at the snapshot time.
+   * The CPU request amount of the job at the snapshot time point. Unit: Core.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   cpuRequest?: number;
   /**
    * @remarks
-   * The CPU usage of the job at the snapshot time. Unit: cores.
+   * CPU usage of the job at the snapshot time. Unit: Core.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   cpuUsage?: number;
   /**
    * @remarks
-   * The CPU fulfillment ratio of the job at the snapshot time. This is calculated by dividing the CPU usage by the CPU request.
+   * The CPU satisfaction ratio of the job at the snapshot time point (cpuUsage/cpuRequest).
    * 
    * @example
    * 0.5
@@ -29,7 +29,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   cpuUsageToRequestRatio?: number;
   /**
    * @remarks
-   * The upstream node ID.
+   * The ID of the upstream node.
    * 
    * @example
    * 76358164
@@ -54,7 +54,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   extPlatformId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The instance ID.
    * 
    * @example
    * 20241028****jkl
@@ -62,7 +62,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   instanceId?: string;
   /**
    * @remarks
-   * The job owner.
+   * The account that commits the job.
    * 
    * @example
    * ALIYUN$7632***@aliyun.com
@@ -70,7 +70,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   jobOwner?: string;
   /**
    * @remarks
-   * The job type.
+   * The type of the job.
    * 
    * @example
    * SQL
@@ -78,7 +78,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   jobType?: string;
   /**
    * @remarks
-   * This parameter is not used.
+   * Not applicable.
    * 
    * @example
    * -1
@@ -86,7 +86,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   maxCpuPct?: number;
   /**
    * @remarks
-   * This parameter is not used.
+   * Not applicable.
    * 
    * @example
    * -1
@@ -94,7 +94,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   maxMemoryPct?: number;
   /**
    * @remarks
-   * The amount of memory requested by the job at the snapshot time, in MB.
+   * The Memory request amount of the job at the snapshot time point. Unit: MB.
    * 
    * @example
    * 409600
@@ -102,7 +102,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   memoryRequest?: number;
   /**
    * @remarks
-   * The memory usage of the job at the snapshot time. Unit: MB.
+   * Memory usage of the job at the snapshot time. Unit: MB.
    * 
    * @example
    * 409600
@@ -110,7 +110,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   memoryUsage?: number;
   /**
    * @remarks
-   * The memory fulfillment ratio of the job at the snapshot time. This is calculated by dividing the memory usage by the memory request.
+   * The Memory satisfaction ratio of the job at the snapshot time point (memoryUsage/memoryRequest).
    * 
    * @example
    * 1
@@ -118,7 +118,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   memoryUsageToRequestRatio?: number;
   /**
    * @remarks
-   * The CPU usage percentage of a subscription job at the snapshot time. This value is calculated by dividing the CPU usage by the sum of the reserved CPU guarantee and the elastic reserved CPU. This parameter is not available for pay-as-you-go jobs.
+   * The CPU usage ratio of the annual or monthly subscription job at the snapshot time (CPU usage / (reserved CPU guarantee + elastic reserved CPU)). This parameter is not available for pay-as-you-go jobs.
    * 
    * @example
    * 0.6
@@ -126,7 +126,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   minCpuPct?: number;
   /**
    * @remarks
-   * The memory usage percentage of a subscription job at the observation time. This value is calculated by dividing the memory usage by the sum of the reserved memory guarantee and the elastic reserved memory. This parameter is not available for pay-as-you-go jobs.
+   * The memory usage ratio of the annual or monthly subscription job at the observation time (memory usage / (reserved memory guarantee + elastic reserved memory)). This parameter is not available for pay-as-you-go jobs.
    * 
    * @example
    * 0.6
@@ -134,7 +134,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   minMemoryPct?: number;
   /**
    * @remarks
-   * The job priority.
+   * The priority of the job.
    * 
    * @example
    * 9
@@ -142,7 +142,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   priority?: number;
   /**
    * @remarks
-   * The project name.
+   * The name of the MaxCompute project.
    * 
    * @example
    * projectA
@@ -150,7 +150,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   project?: string;
   /**
    * @remarks
-   * The nickname of the computing quota that the job uses.
+   * The nickname of the computing Quota used by the job.
    * 
    * @example
    * quota_A
@@ -158,7 +158,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   quotaNickname?: string;
   /**
    * @remarks
-   * The quota type.
+   * The type of the quota.
    * 
    * @example
    * subscription
@@ -174,9 +174,8 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   region?: string;
   /**
    * @remarks
-   * The time when the job started running.
-   * 
-   * > The time when the job acquired its first computing resource.
+   * The start time of the job.
+   * > The time when the job received the first batch of computing resources.
    * 
    * @example
    * 1736821805
@@ -184,7 +183,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   runningAtTime?: number;
   /**
    * @remarks
-   * The runtime duration, in seconds. This is the duration from when the job started running to the snapshot time. If the job has not started, this parameter is empty.
+   * The running duration, which is the duration from the runningAtTime to the snapshotTime of the job.  Unit: seconds (s).
    * 
    * @example
    * 43
@@ -208,9 +207,9 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   snapshotTime?: number;
   /**
    * @remarks
-   * The job status.
+   * The snapshot status of the job.
    * 
-   * > The status of a snapshot job can only be \\`running\\`.
+   * > The snapshot status is only running.
    * 
    * @example
    * running
@@ -218,7 +217,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * The time when the job was submitted.
+   * The time when the job was committed.
    * 
    * @example
    * 1736821785
@@ -234,7 +233,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   tenantId?: string;
   /**
    * @remarks
-   * The total duration, in seconds. This is the duration from when the job was submitted to the snapshot time.
+   * The interval from the time when the job was submitted to the snapshotTime .Unit: seconds (s).
    * 
    * @example
    * 63
@@ -242,7 +241,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
   totalTime?: number;
   /**
    * @remarks
-   * The waiting duration, in seconds. This is the duration from when the job was submitted to when it started running. If the job has not started, this is the duration from the submission time to the snapshot time.
+   * The duration from the time the job is submitted to the time the job starts to run. Unit: seconds (s).
    * 
    * @example
    * 20
@@ -332,7 +331,7 @@ export class ListJobSnapshotInfosResponseBodyDataJobInfoList extends $dara.Model
 export class ListJobSnapshotInfosResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of job snapshots.
+   * The job snapshots.
    */
   jobInfoList?: ListJobSnapshotInfosResponseBodyDataJobInfoList[];
   /**
@@ -353,7 +352,7 @@ export class ListJobSnapshotInfosResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned results.
    * 
    * @example
    * 123
@@ -408,22 +407,18 @@ export class ListJobSnapshotInfosResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 异常信息
+   * this quota is not exist.
    */
   errorMsg?: string;
   /**
    * @remarks
    * The HTTP status code.
    * 
-   * - 1xx: Informational - The request has been received and the process is continuing.
-   * 
-   * - 2xx: Success - The request was successfully received, understood, and accepted.
-   * 
-   * - 3xx: Redirection - Further action must be taken to complete the request.
-   * 
-   * - 4xx: Client Error - The request contains bad syntax or cannot be fulfilled.
-   * 
-   * - 5xx: Server Error - The server failed to fulfill an apparently valid request.
+   * - 1xx: informational response. The request is received and is being processed.
+   * - 2xx: success. The request is successfully received, understood, and accepted by the server.
+   * - 3xx: redirection. The request is redirected, and further actions are required to complete the request.
+   * - 4xx: client error. The request contains invalid request parameters or syntaxes, or specific request conditions cannot be met.
+   * - 5xx: server error. The server cannot meet requirements due to other reasons.
    * 
    * @example
    * 200

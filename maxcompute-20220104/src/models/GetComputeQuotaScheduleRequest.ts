@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetComputeQuotaScheduleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Display time zone.
+   * 
+   * @example
+   * UTC+8
+   */
   displayTimezone?: string;
   static names(): { [key: string]: string } {
     return {

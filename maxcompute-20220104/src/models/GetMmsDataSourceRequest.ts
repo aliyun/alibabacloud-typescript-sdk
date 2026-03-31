@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMmsDataSourceRequest extends $dara.Model {
   /**
-   * @remarks
-   * The language of the description for the configuration items.
-   * 
    * @example
    * en_US
    */
   lang?: string;
   /**
-   * @remarks
-   * Specifies whether to obtain the specific configuration items of the data source.
-   * 
    * @example
    * true
    */

@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateQuotaResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * Quota alias.
-   * 
    * @example
    * os_PayAsYouGoQuota_p
    */
@@ -33,15 +30,8 @@ export class CreateQuotaResponseBodyData extends $dara.Model {
 }
 
 export class CreateQuotaResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Response parameters.
-   */
   data?: CreateQuotaResponseBodyData;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 0bc520ad17171208978521777d742c
    */
