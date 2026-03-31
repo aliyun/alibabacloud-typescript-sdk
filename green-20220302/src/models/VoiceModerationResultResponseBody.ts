@@ -2,6 +2,108 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class VoiceModerationResultResponseBodyDataSliceDetailsResultCustomizedHit extends $dara.Model {
+  keyWords?: string;
+  libName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyWords: 'KeyWords',
+      libName: 'LibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyWords: 'string',
+      libName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationResultResponseBodyDataSliceDetailsResultRiskPositions extends $dara.Model {
+  endPos?: number;
+  riskWord?: string;
+  startPos?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endPos: 'EndPos',
+      riskWord: 'RiskWord',
+      startPos: 'StartPos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endPos: 'number',
+      riskWord: 'string',
+      startPos: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class VoiceModerationResultResponseBodyDataSliceDetailsResult extends $dara.Model {
+  confidence?: number;
+  customizedHit?: VoiceModerationResultResponseBodyDataSliceDetailsResultCustomizedHit[];
+  description?: string;
+  label?: string;
+  riskLevel?: string;
+  riskPositions?: VoiceModerationResultResponseBodyDataSliceDetailsResultRiskPositions[];
+  riskWords?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      customizedHit: 'CustomizedHit',
+      description: 'Description',
+      label: 'Label',
+      riskLevel: 'RiskLevel',
+      riskPositions: 'RiskPositions',
+      riskWords: 'RiskWords',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      customizedHit: { 'type': 'array', 'itemType': VoiceModerationResultResponseBodyDataSliceDetailsResultCustomizedHit },
+      description: 'string',
+      label: 'string',
+      riskLevel: 'string',
+      riskPositions: { 'type': 'array', 'itemType': VoiceModerationResultResponseBodyDataSliceDetailsResultRiskPositions },
+      riskWords: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.customizedHit)) {
+      $dara.Model.validateArray(this.customizedHit);
+    }
+    if(Array.isArray(this.riskPositions)) {
+      $dara.Model.validateArray(this.riskPositions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Model {
   /**
    * @remarks
@@ -51,6 +153,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
    * {}
    */
   originAlgoResult?: { [key: string]: any };
+  result?: VoiceModerationResultResponseBodyDataSliceDetailsResult[];
   /**
    * @remarks
    * Risk Level.
@@ -123,6 +226,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
       extend: 'Extend',
       labels: 'Labels',
       originAlgoResult: 'OriginAlgoResult',
+      result: 'Result',
       riskLevel: 'RiskLevel',
       riskTips: 'RiskTips',
       riskWords: 'RiskWords',
@@ -142,6 +246,7 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
       extend: 'string',
       labels: 'string',
       originAlgoResult: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      result: { 'type': 'array', 'itemType': VoiceModerationResultResponseBodyDataSliceDetailsResult },
       riskLevel: 'string',
       riskTips: 'string',
       riskWords: 'string',
@@ -156,6 +261,9 @@ export class VoiceModerationResultResponseBodyDataSliceDetails extends $dara.Mod
   validate() {
     if(this.originAlgoResult) {
       $dara.Model.validateMap(this.originAlgoResult);
+    }
+    if(Array.isArray(this.result)) {
+      $dara.Model.validateArray(this.result);
     }
     super.validate();
   }

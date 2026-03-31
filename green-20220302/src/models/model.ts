@@ -120,6 +120,9 @@ export { VideoModerationResultResponseBodyDataFrameResultFrames } from './VideoM
 export { VideoModerationResultResponseBodyDataFrameResult } from './VideoModerationResultResponseBody';
 export { VideoModerationResultResponseBodyData } from './VideoModerationResultResponseBody';
 export { VoiceModerationResponseBodyData } from './VoiceModerationResponseBody';
+export { VoiceModerationResultResponseBodyDataSliceDetailsResultCustomizedHit } from './VoiceModerationResultResponseBody';
+export { VoiceModerationResultResponseBodyDataSliceDetailsResultRiskPositions } from './VoiceModerationResultResponseBody';
+export { VoiceModerationResultResponseBodyDataSliceDetailsResult } from './VoiceModerationResultResponseBody';
 export { VoiceModerationResultResponseBodyDataSliceDetails } from './VoiceModerationResultResponseBody';
 export { VoiceModerationResultResponseBodyData } from './VoiceModerationResultResponseBody';
 export { DescribeFileModerationResultRequest } from './DescribeFileModerationResultRequest';
