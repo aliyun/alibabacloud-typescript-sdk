@@ -124,7 +124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Integrates the dashboard of Prometheus Service.
+   * Integrates the dashboard of Managed Service for Prometheus.
    * 
    * @deprecated OpenAPI AddGrafana is deprecated
    * 
@@ -165,7 +165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Integrates the dashboard of Prometheus Service.
+   * Integrates the dashboard of Managed Service for Prometheus.
    * 
    * @deprecated OpenAPI AddGrafana is deprecated
    * 
@@ -470,7 +470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a recording rule of Managed Service for Prometheus.
+   * Creates or updates a recording rule.
    * 
    * @deprecated OpenAPI AddRecordingRule is deprecated
    * 
@@ -511,7 +511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a recording rule of Managed Service for Prometheus.
+   * Creates or updates a recording rule.
    * 
    * @deprecated OpenAPI AddRecordingRule is deprecated
    * 
@@ -794,7 +794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Blocks alert notifications in a time period.
+   * Blocks alert notifications. After an alert is blocked, no more notifications are sent within the specified time range.
    * 
    * @param request - BlockAlarmNotificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -837,7 +837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Blocks alert notifications in a time period.
+   * Blocks alert notifications. After an alert is blocked, no more notifications are sent within the specified time range.
    * 
    * @param request - BlockAlarmNotificationRequest
    * @returns BlockAlarmNotificationResponse
@@ -2120,7 +2120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an EventBridge integration.
+   * Creates or modifies an EventBridge integration that is used to push notifications.
    * 
    * @param request - CreateOrUpdateEventBridgeIntegrationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2183,7 +2183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or modifies an EventBridge integration.
+   * Creates or modifies an EventBridge integration that is used to push notifications.
    * 
    * @param request - CreateOrUpdateEventBridgeIntegrationRequest
    * @returns CreateOrUpdateEventBridgeIntegrationResponse
@@ -3643,7 +3643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a Prometheus instance for Alibaba Cloud services.
+   * Uninstalls a Prometheus instance.
    * 
    * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
    * 
@@ -3680,7 +3680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a Prometheus instance for Alibaba Cloud services.
+   * Uninstalls a Prometheus instance.
    * 
    * @deprecated OpenAPI DeleteCmsExporter is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
    * 
@@ -4082,7 +4082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an EventBridge integration.
+   * Deletes an EventBridge integration that is used to push notifications.
    * 
    * @param request - DeleteEventBridgeIntegrationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4113,7 +4113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an EventBridge integration.
+   * Deletes an EventBridge integration that is used to push notifications.
    * 
    * @param request - DeleteEventBridgeIntegrationRequest
    * @returns DeleteEventBridgeIntegrationResponse
@@ -4277,7 +4277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes collection rules from an integration.
+   * Deletes the collection rules for a Container Service for Kubernetes (ACK) cluster.
    * 
    * @deprecated OpenAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
    * 
@@ -4318,7 +4318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes collection rules from an integration.
+   * Deletes the collection rules for a Container Service for Kubernetes (ACK) cluster.
    * 
    * @deprecated OpenAPI DeleteIntegration is deprecated, please use ARMS::2019-08-08::DeleteAddonRelease instead.
    * 
@@ -4853,7 +4853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the silence policy.
+   * Deletes a silence policy based on its ID.
    * 
    * @param request - DeleteSilencePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4884,7 +4884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the silence policy.
+   * Deletes a silence policy based on its ID.
    * 
    * @param request - DeleteSilencePolicyRequest
    * @returns DeleteSilencePolicyResponse
@@ -5747,7 +5747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instant messaging (IM) chatbots.
+   * Queries a list of IM chatbots.
    * 
    * @param request - DescribeIMRobotsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5790,7 +5790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instant messaging (IM) chatbots.
+   * Queries a list of IM chatbots.
    * 
    * @param request - DescribeIMRobotsRequest
    * @returns DescribeIMRobotsResponse
@@ -9483,7 +9483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 环境addon列表
+   * Queries the information about the add-ons that are installed in an environment.
    * 
    * @param request - ListEnvironmentAddonsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9518,7 +9518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 环境addon列表
+   * Queries the information about the add-ons that are installed in an environment.
    * 
    * @param request - ListEnvironmentAddonsRequest
    * @returns ListEnvironmentAddonsResponse
@@ -9915,7 +9915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an EventBridge integration.
+   * Queries EventBridge integrations that are used to push notifications.
    * 
    * @param request - ListEventBridgeIntegrationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9942,7 +9942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an EventBridge integration.
+   * Queries EventBridge integrations that are used to push notifications.
    * 
    * @param request - ListEventBridgeIntegrationsRequest
    * @returns ListEventBridgeIntegrationsResponse
@@ -12237,7 +12237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application monitoring tasks by page.
+   * Queries Application Monitoring tasks by page.
    * 
    * @param request - SearchTraceAppByPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12288,7 +12288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application monitoring tasks by page.
+   * Queries Application Monitoring tasks by page.
    * 
    * @param request - SearchTraceAppByPageRequest
    * @returns SearchTraceAppByPageResponse

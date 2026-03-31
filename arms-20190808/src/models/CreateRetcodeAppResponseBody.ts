@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRetcodeAppResponseBodyRetcodeAppDataBeanTagsTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TestValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,10 +79,6 @@ export class CreateRetcodeAppResponseBodyRetcodeAppDataBean extends $dara.Model 
    * rg-acfmxyexli2****
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags of the task.
-   */
   tags?: CreateRetcodeAppResponseBodyRetcodeAppDataBeanTags;
   static names(): { [key: string]: string } {
     return {

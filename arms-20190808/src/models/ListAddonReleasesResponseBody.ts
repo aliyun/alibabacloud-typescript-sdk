@@ -313,6 +313,7 @@ export class ListAddonReleasesResponseBodyDataReleases extends $dara.Model {
 }
 
 export class ListAddonReleasesResponseBodyData extends $dara.Model {
+  containsV2Addon?: boolean;
   /**
    * @remarks
    * The queried add-ons.
@@ -328,6 +329,7 @@ export class ListAddonReleasesResponseBodyData extends $dara.Model {
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      containsV2Addon: 'ContainsV2Addon',
       releases: 'Releases',
       total: 'Total',
     };
@@ -335,6 +337,7 @@ export class ListAddonReleasesResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      containsV2Addon: 'boolean',
       releases: { 'type': 'array', 'itemType': ListAddonReleasesResponseBodyDataReleases },
       total: 'number',
     };

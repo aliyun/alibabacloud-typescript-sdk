@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreatePrometheusInstanceRequestTags extends $dara.Model {
+  /**
+   * @example
+   * TestKey
+   */
   key?: string;
+  /**
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
