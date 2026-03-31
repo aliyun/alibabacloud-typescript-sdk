@@ -5,16 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListCompliancePackTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compliance pack template.
+   * The ID of the compliance package template.
    * 
    * @example
-   * ct-5f26ff4e06a300c4****
+   * ct-d254ff4e06a300cf****
    */
   compliancePackTemplateId?: string;
   /**
-   * @remarks
-   * The field used to filter the query results.
-   * 
    * @example
    * LAW
    */
@@ -23,7 +20,7 @@ export class ListCompliancePackTemplatesRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Minimum value: 1. Default value: 1.
+   * Pages start from page 1. Default value: 1
    * 
    * @example
    * 1
@@ -31,9 +28,9 @@ export class ListCompliancePackTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
-   * Valid values: 1 to 100. Default value: 10.
+   * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
    * 
    * @example
    * 10
@@ -41,23 +38,12 @@ export class ListCompliancePackTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource type that is evaluated by the rules. If you specify this parameter, only the compliance pack templates that contain rules for the specified resource type are returned.
+   * The types of the resources evaluated based on the rule. If you configure this parameter, only the rules that include the resource types in the compliance package template are returned.
    * 
    * @example
    * ACS::ECS::Instance
    */
   resourceTypes?: string;
-  /**
-   * @remarks
-   * The risk level of the rules in the compliance pack. Valid values:
-   * 
-   * - 1: high
-   * - 2: medium
-   * - 3: low
-   * 
-   * @example
-   * 2
-   */
   ruleRiskLevel?: number;
   static names(): { [key: string]: string } {
     return {

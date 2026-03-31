@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceComplianceTimelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The end timestamp. If you do not set this parameter, the system queries data generated up to the time of the API call. Unit: milliseconds.
+   * The timestamp that specifies the end of the time range to query. The default value is the time when the GetResourceComplianceTimeline operation is called. Unit: milliseconds.
    * 
    * @example
    * 1625821156000
@@ -13,7 +13,7 @@ export class GetResourceComplianceTimelineRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The maximum number of entries to return on a single page. Valid values: 1 to 100.
+   * The maximum number of entries to return for a single request. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class GetResourceComplianceTimelineRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If the return value is truncated, use this token to initiate another request to retrieve the remaining entries.
+   * The token that is used to initiate the next request. If the response of the current request is truncated, this token is used to initiate another request and obtain the remaining entries.
    * 
    * @example
    * IWBjqMYSy0is7zSMGu16****
@@ -29,7 +29,7 @@ export class GetResourceComplianceTimelineRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region where the resource resides.
    * 
    * This parameter is required.
    * 
@@ -39,9 +39,9 @@ export class GetResourceComplianceTimelineRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
-   * For more information about how to obtain the resource ID, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
    * 
    * This parameter is required.
    * 
@@ -51,9 +51,9 @@ export class GetResourceComplianceTimelineRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
-   * For more information about how to obtain the resource type, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
+   * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class GetResourceComplianceTimelineRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The start timestamp. If you do not set this parameter, the system queries data from the last 30 days. Unit: milliseconds.
+   * The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the compliance evaluations in the last 30 days for the specified resource. Unit: milliseconds.
    * 
    * @example
    * 1623211156000

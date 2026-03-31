@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAggregateConfigRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * cr-4e3d626622af0080****
@@ -13,7 +13,7 @@ export class CreateAggregateConfigRuleResponseBody extends $dara.Model {
   configRuleId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5895065A-196C-4254-8AD8-14EFC31EEF50

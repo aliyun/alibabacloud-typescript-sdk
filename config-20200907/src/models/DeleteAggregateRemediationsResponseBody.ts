@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAggregateRemediationsResponseBodyRemediationDeleteResults extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error code returned.
    * 
-   * - This parameter is empty if the remediation setting is successfully deleted.
-   * 
-   * - If the remediation setting fails to be deleted, this parameter indicates the error code. For more information about error codes, see <props="intl">[Error Center](https://error-center.alibabacloud.com/status/product/Config).
+   * *   If the remediation template is deleted, no error code is returned.
+   * *   If the remediation template fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
    * 
    * @example
    * RemediationConfigNotExist
@@ -17,7 +16,7 @@ export class DeleteAggregateRemediationsResponseBodyRemediationDeleteResults ext
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the remediation setting.
+   * The ID of the remediation template.
    * 
    * @example
    * crr-909ba2d4716700eb****
@@ -25,11 +24,10 @@ export class DeleteAggregateRemediationsResponseBodyRemediationDeleteResults ext
   remediationId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: The operation was successful.
-   * 
-   * - false: The operation failed.
+   * *   true: The request was successful.
+   * *   false: The request failed.
    * 
    * @example
    * true
@@ -63,7 +61,7 @@ export class DeleteAggregateRemediationsResponseBodyRemediationDeleteResults ext
 export class DeleteAggregateRemediationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the operation to delete the remediation settings.
+   * The results of the delete operation.
    */
   remediationDeleteResults?: DeleteAggregateRemediationsResponseBodyRemediationDeleteResults[];
   /**

@@ -5,9 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class GetAggregateResourceComplianceGroupByResourceTypeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the account group.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ca-cdbd626622af0042****
    */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * The ID of the rule. Separate multiple rule IDs with commas (,).
+   * 
+   * @example
+   * cr-2541626622af0000****
+   */
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {

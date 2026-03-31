@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListConfigRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compliance package.
+   * The compliance package ID.
+   * 
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/606968.html).
+   * 
+   * >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
    * 
    * @example
    * cp-fe416457e0d90022****
@@ -15,13 +19,10 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
    * @remarks
    * The compliance evaluation result of the rule. Valid values:
    * 
-   * - COMPLIANT: Compliant.
-   * 
-   * - NON_COMPLIANT: Non-compliant.
-   * 
-   * - NOT_APPLICABLE: Not applicable.
-   * 
-   * - INSUFFICIENT_DATA: Insufficient data.
+   * *   COMPLIANT: The resources are evaluated as compliant.
+   * *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No resource data is available.
    * 
    * @example
    * COMPLIANT
@@ -32,20 +33,17 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
    * The name of the rule.
    * 
    * @example
-   * The name of the rule.
+   * test-rule-name
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The state of the rule. Valid values:
+   * The status of the rule. Valid values:
    * 
-   * - ACTIVE: The rule is enabled.
-   * 
-   * - DELETING: The rule is being deleted.
-   * 
-   * - EVALUATING: The rule is being evaluated.
-   * 
-   * - INACTIVE: The rule is disabled.
+   * *   ACTIVE: The rule is enabled.
+   * *   DELETING: The rule is being deleted.
+   * *   EVALUATING: The rule is being used to evaluate resource configurations.
+   * *   INACTIVE: The rule is disabled.
    * 
    * @example
    * ACTIVE
@@ -53,9 +51,9 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
   configRuleState?: string;
   /**
    * @remarks
-   * The keyword for the fuzzy query.
+   * The query keyword.
    * 
-   * Supports fuzzy queries by rule ID, rule name, rule description, or rule template identifier.
+   * You can perform a fuzzy search by rule ID, rule name, rule description, or managed rule ID.
    * 
    * @example
    * ecs
@@ -65,7 +63,7 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * The default value is 1.
+   * Page numbers start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -73,9 +71,9 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
-   * Valid values: 1 to 100. Default value: 10.
+   * Valid values: 1 to 100. A minimum of 1 entry can be returned per page. Default value: 10.
    * 
    * @example
    * 10
@@ -83,7 +81,7 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The type of resource evaluated by the rule.
+   * The type of the resources to be evaluated based on the rule.
    * 
    * @example
    * ACS::ECS::Instance
@@ -91,31 +89,22 @@ export class ListConfigRulesShrinkRequest extends $dara.Model {
   resourceTypes?: string;
   /**
    * @remarks
-   * The risk level of the rule. Valid values:
+   * The risk level of the resources that are not compliant with the rule. Valid values:
    * 
-   * - 1: High risk.
-   * 
-   * - 2: Medium risk.
-   * 
-   * - 3: Low risk.
+   * *   1: high
+   * *   2: medium
+   * *   3: low
    * 
    * @example
    * 1
    */
   riskLevel?: number;
-  /**
-   * @remarks
-   * The sorting method. This parameter is not required. Set the value to `CreateDate-Desc` to sort the rules by creation time in descending order.
-   * 
-   * @example
-   * CreateDate-Desc
-   */
   sortBy?: string;
   /**
    * @remarks
    * The tags of the resource.
    * 
-   * A maximum of 20 tags can be attached.
+   * You can add up to 20 tags to a resource.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

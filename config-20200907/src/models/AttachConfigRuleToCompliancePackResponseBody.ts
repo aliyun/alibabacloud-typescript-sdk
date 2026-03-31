@@ -3,8 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AttachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList extends $dara.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-6cc4626622af00e7****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   This parameter is empty if the rule is added to the compliance package.
+   * *   An error code is returned if the rule fails to be added to the compliance package. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleNotExists
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +59,10 @@ export class AttachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperat
 }
 
 export class AttachConfigRuleToCompliancePackResponseBodyOperateRuleResult extends $dara.Model {
+  /**
+   * @remarks
+   * The result of the operation to add the rule.
+   */
   operateRuleItemList?: AttachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +89,18 @@ export class AttachConfigRuleToCompliancePackResponseBodyOperateRuleResult exten
 }
 
 export class AttachConfigRuleToCompliancePackResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The results of the operations to add one or more rules.
+   */
   operateRuleResult?: AttachConfigRuleToCompliancePackResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB12A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

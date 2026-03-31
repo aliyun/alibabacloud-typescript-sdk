@@ -21,11 +21,10 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConf
   parameterValue?: string;
   /**
    * @remarks
-   * Indicates whether the input parameter is required. Valid values:
+   * Indicates whether the input parameter was required. Valid values:
    * 
-   * - true: The input parameter is required.
-   * 
-   * - false: The input parameter is not required.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -59,7 +58,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConf
 export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * cr-a260626622af0005****
@@ -70,12 +69,12 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
    * The name of the rule.
    * 
    * @example
-   * 弹性IP实例带宽满足最低要求
+   * The name of the rule.
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The input parameters of the rule.
+   * The details of the input parameter of the rule.
    */
   configRuleParameters?: GetAggregateCompliancePackResponseBodyCompliancePackConfigRulesConfigRuleParameters[];
   /**
@@ -83,12 +82,12 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
    * The description of the rule.
    * 
    * @example
-   * 弹性IP实例可用带宽大于等于指定参数值，视为“合规”。默认值：10 MB。
+   * The description of the rule.
    */
   description?: string;
   /**
    * @remarks
-   * The identifier of the rule.
+   * The ID of the rule template.
    * 
    * @example
    * eip-bandwidth-limit
@@ -96,7 +95,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
   managedRuleIdentifier?: string;
   /**
    * @remarks
-   * The types of the resources that are evaluated by the rule. Separate multiple resource types with commas (,).
+   * The type of the resource evaluated based on the rule. Multiple resource types are separated with commas (,).
    * 
    * @example
    * ACS::EIP::EipAddress
@@ -104,13 +103,11 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
   resourceTypesScope?: string;
   /**
    * @remarks
-   * The risk level of the rule. Valid values:
+   * The risk level of the resources that do not comply with the rule. Valid values:
    * 
-   * - 1: high
-   * 
-   * - 2: medium
-   * 
-   * - 3: low
+   * *   1: high
+   * *   2: medium
+   * *   3: low
    * 
    * @example
    * 1
@@ -155,7 +152,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackConfigRules ext
 export class GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key-2
@@ -163,7 +160,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTag
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * value-2
@@ -195,7 +192,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTag
 export class GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the tag.
    * 
    * @example
    * key-1
@@ -203,7 +200,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope 
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the tag.
    * 
    * @example
    * value-1
@@ -235,7 +232,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScopeTagsScope 
 export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the regions to exclude. Separate multiple region IDs with commas (,).
+   * The IDs of regions that are excluded. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-hangzhou
@@ -243,7 +240,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resource groups to exclude. The compliance pack does not apply to resources in these groups. Separate multiple resource group IDs with commas (,).
+   * The IDs of the resource groups whose resources you do not want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -251,7 +248,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resources to exclude. The compliance pack does not apply to these resources. Separate multiple resource IDs with commas (,).
+   * The ID of the resource that is not evaluated by using the compliance package.
    * 
    * @example
    * eip-8vbf3x310fn56ijfd****
@@ -259,12 +256,12 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * The excluded tag scope.
+   * The scope of the tag that is excluded.
    */
   excludeTagsScope?: GetAggregateCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope[];
   /**
    * @remarks
-   * The IDs of the regions where the compliance pack applies. Separate multiple region IDs with commas (,).
+   * The ID of the region whose resources were evaluated by using the compliance package.
    * 
    * @example
    * cn-hangzhou
@@ -272,7 +269,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $
   regionIdsScope?: string;
   /**
    * @remarks
-   * The IDs of the resource groups where the compliance pack applies. Separate multiple resource group IDs with commas (,).
+   * The ID of the resource group whose resources are evaluated by using the compliance package.
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -288,7 +285,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The tag key of the resources to which the compliance pack applies.
+   * The tag key of the resource that is evaluated by using the compliance package.
    * 
    * @example
    * ECS
@@ -296,7 +293,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $
   tagKeyScope?: string;
   /**
    * @remarks
-   * The tag value of the resources to which the compliance pack applies.
+   * The tag value of the resource that is evaluated by using the compliance package.
    * 
    * @example
    * test
@@ -355,7 +352,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackScope extends $
 export class GetAggregateCompliancePackResponseBodyCompliancePackTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag keys of the resource.
    * 
    * @example
    * key-1
@@ -363,7 +360,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackTags extends $d
   tagKey?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag values of the resource.
    * 
    * @example
    * value-1
@@ -395,7 +392,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePackTags extends $d
 export class GetAggregateCompliancePackResponseBodyCompliancePack extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account to which the compliance pack belongs.
+   * The ID of the management account to which the compliance package belongs.
    * 
    * @example
    * 100931896542****
@@ -411,7 +408,7 @@ export class GetAggregateCompliancePackResponseBodyCompliancePack extends $dara.
   aggregatorId?: string;
   /**
    * @remarks
-   * The ID of the compliance pack.
+   * The ID of the compliance package.
    * 
    * @example
    * cp-fdc8626622af00f9****
@@ -419,15 +416,15 @@ export class GetAggregateCompliancePackResponseBodyCompliancePack extends $dara.
   compliancePackId?: string;
   /**
    * @remarks
-   * The name of the compliance pack.
+   * The name of the compliance package.
    * 
    * @example
-   * 等保三级预检合规包
+   * The name of the compliance package.
    */
   compliancePackName?: string;
   /**
    * @remarks
-   * The ID of the compliance pack template.
+   * The ID of the compliance package template.
    * 
    * @example
    * ct-5f26ff4e06a300c4****
@@ -435,12 +432,12 @@ export class GetAggregateCompliancePackResponseBodyCompliancePack extends $dara.
   compliancePackTemplateId?: string;
   /**
    * @remarks
-   * The list of rules in the compliance pack.
+   * The rules in the compliance package.
    */
   configRules?: GetAggregateCompliancePackResponseBodyCompliancePackConfigRules[];
   /**
    * @remarks
-   * The timestamp when the compliance pack was created. Unit: milliseconds.
+   * The timestamp when the compliance package was created. Unit: milliseconds.
    * 
    * @example
    * 1624243657000
@@ -448,21 +445,19 @@ export class GetAggregateCompliancePackResponseBodyCompliancePack extends $dara.
   createTimestamp?: number;
   /**
    * @remarks
-   * The description of the compliance pack.
+   * The description of the compliance package.
    * 
    * @example
-   * 基于等保2.0三级标准，提供持续检测合规性的建议模板，帮助您提前自检并修复问题，以便快速通过正式检测。
+   * The description of the compliance package.
    */
   description?: string;
   /**
    * @remarks
-   * The risk level of the compliance pack. Valid values:
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
    * 
-   * - 1: high
-   * 
-   * - 2: medium
-   * 
-   * - 3: low
+   * *   1: high
+   * *   2: medium
+   * *   3: low
    * 
    * @example
    * 1
@@ -470,16 +465,15 @@ export class GetAggregateCompliancePackResponseBodyCompliancePack extends $dara.
   riskLevel?: number;
   /**
    * @remarks
-   * The evaluation scope of the compliance pack.
+   * The evaluation scope of the compliance package.
    */
   scope?: GetAggregateCompliancePackResponseBodyCompliancePackScope;
   /**
    * @remarks
-   * The status of the compliance pack. Valid values:
+   * The status of the compliance package. Valid values:
    * 
-   * - ACTIVE: The compliance pack is active.
-   * 
-   * - CREATING: The compliance pack is being created.
+   * *   ACTIVE: The compliance package was normal.
+   * *   CREATING: The compliance package was being created.
    * 
    * @example
    * ACTIVE
@@ -487,63 +481,39 @@ export class GetAggregateCompliancePackResponseBodyCompliancePack extends $dara.
   status?: string;
   /**
    * @remarks
-   * The tags of the resource.
+   * The tags.
    */
   tags?: GetAggregateCompliancePackResponseBodyCompliancePackTags[];
   /**
    * @remarks
-   * The information about the compliance pack template. The list of rules in the template does not include user-defined function rules. You can use the template to quickly create the same compliance pack for other accounts or account groups.
+   * The information about the current compliance package template. The rules in the template do not contain custom function rules. You can quickly create the same compliance package for other accounts or account groups based on the template information.
    * 
    * @example
    * {
-   *     "configRuleTemplates": [
-   *         {
-   *             "configRuleName": "自定义条件规则示例",
-   *             "scope": {
-   *                 "complianceResourceTypes": [
-   *                     "ACS::ECS::Instance"
-   *                 ]
-   *             },
-   *             "description": "",
-   *             "source": {
-   *                 "owner": "CUSTOM_CONFIGURATION",
-   *                 "identifier": "acs-config-configuration",
-   *                 "sourceDetails": [
-   *                     {
-   *                         "messageType": "ScheduledNotification",
-   *                         "maximumExecutionFrequency": "Twelve_Hours"
-   *                     },
-   *                     {
-   *                         "messageType": "ConfigurationItemChangeNotification"
-   *                     }
-   *                 ],
-   *                 "conditions": "{\\"ComplianceConditions\\":\\"{\\\\\\"operator\\\\\\":\\\\\\"and\\\\\\",\\\\\\"children\\\\\\":[{\\\\\\"operator\\\\\\":\\\\\\"GreaterOrEquals\\\\\\",\\\\\\"featurePath\\\\\\":\\\\\\"$.Cpu\\\\\\",\\\\\\"featureSource\\\\\\":\\\\\\"CONFIGURATION\\\\\\",\\\\\\"desired\\\\\\":\\\\\\"2\\\\\\"}]}\\"}"
-   *             },
-   *             "inputParameters": {}
-   *         },
-   *         {
-   *             "configRuleName": "OSS存储空间Referer在指定的防盗链白名单中",
-   *             "scope": {
-   *                 "complianceResourceTypes": [
-   *                     "ACS::OSS::Bucket"
-   *                 ]
-   *             },
-   *             "description": "OSS存储空间开启防盗链并且Referer在指定白名单中，视为“合规”。",
-   *             "source": {
-   *                 "owner": "ALIYUN",
-   *                 "identifier": "oss-bucket-referer-limit",
-   *                 "sourceDetails": [
-   *                     {
-   *                         "messageType": "ConfigurationItemChangeNotification"
-   *                     }
-   *                 ]
-   *             },
-   *             "inputParameters": {
-   *                 "allowEmptyReferer": "true",
-   *                 "allowReferers": "http://www.aliyun.com"
-   *             }
-   *         }
-   *     ]
+   *   "configRuleTemplates": [
+   *     {
+   *       "configRuleName": "OSS-test-name",
+   *       "scope": {
+   *         "complianceResourceTypes": [
+   *           "ACS::OSS::Bucket"
+   *         ]
+   *       },
+   *       "description": "test-description",
+   *       "source": {
+   *         "owner": "ALIYUN",
+   *         "identifier": "oss-bucket-referer-xxx",
+   *         "sourceDetails": [
+   *           {
+   *             "messageType": "ConfigurationItemChangeNotification"
+   *           }
+   *         ]
+   *       },
+   *       "inputParameters": {
+   *         "allowEmptyReferer": "true",
+   *         "allowReferers": "http://www.aliyun.com"
+   *       }
+   *     }
+   *   ]
    * }
    */
   templateContent?: string;
@@ -604,12 +574,12 @@ export class GetAggregateCompliancePackResponseBodyCompliancePack extends $dara.
 export class GetAggregateCompliancePackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the compliance pack.
+   * The details of the compliance package.
    */
   compliancePack?: GetAggregateCompliancePackResponseBodyCompliancePack;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6EC7AED1-172F-42AE-9C12-295BC2ADB751

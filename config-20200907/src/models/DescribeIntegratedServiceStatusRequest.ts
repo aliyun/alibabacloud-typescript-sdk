@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIntegratedServiceStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The code of the cloud service.
-   * 
    * This parameter is required.
    * 
    * @example

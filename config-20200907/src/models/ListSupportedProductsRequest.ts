@@ -10,7 +10,7 @@ export class ListSupportedProductsRequest extends $dara.Model {
    * Valid values: 1 to 500. Default value: 200.
    * 
    * @example
-   * 200
+   * 100
    */
   maxResults?: number;
   /**

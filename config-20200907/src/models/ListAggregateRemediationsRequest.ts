@@ -19,7 +19,7 @@ export class ListAggregateRemediationsRequest extends $dara.Model {
    * @remarks
    * The rule IDs. Separate multiple rule IDs with commas (,).
    * 
-   * For more information about how to obtain a rule ID, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
    * 
    * @example
    * cr-6b7c626622af00b4****

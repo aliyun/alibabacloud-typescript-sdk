@@ -13,7 +13,7 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
   accountId?: string;
   /**
    * @remarks
-   * The zone where the resource resides.
+   * The ID of the zone in which the resource resides.
    * 
    * @example
    * cn-hangzhou-f
@@ -21,7 +21,7 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
   availabilityZone?: string;
   /**
    * @remarks
-   * The timestamp when the compliance evaluation of the resource was recorded. Unit: milliseconds.
+   * The timestamp when the compliance evaluation was recorded. Unit: milliseconds.
    * 
    * @example
    * 1625200295276
@@ -29,18 +29,18 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
   captureTime?: number;
   /**
    * @remarks
-   * The list of rules associated with the resource and the compliance details of the rules.
+   * The rules associated with the resource and the compliance details of the rules.
    * 
    * @example
-   * {\\"Compliance\\":{\\"complianceType\\":\\"COMPLIANT\\",\\"count\\":1},\\"ConfigRuleList\\":[{\\"accountId\\":100931896542****,\\"configRuleId\\":\\"cr-9524626622af003d****\\",\\"configRuleArn\\":\\"acs:config::100931896542****:rule/cr-9524626622af003d****\\",\\"configRuleName\\":\\"OSS存储空间ACL禁止公共读写\\",\\"complianceType\\":\\"COMPLIANT\\",\\"riskLevel\\":1,\\"annotation\\":\\"\\",\\"invokingEventMessageType\\":\\"ScheduledNotification\\"}]}
+   * {\\"Compliance\\":{\\"complianceType\\":\\"COMPLIANT\\",\\"count\\":1},\\"ConfigRuleList\\":[{\\"accountId\\":100931896542****,\\"configRuleId\\":\\"cr-9524626622af003d****\\",\\"configRuleArn\\":\\"acs:config::100931896542****:rule/cr-9524626622af003d****\\",\\"configRuleName\\":\\"test-rule-name\\",\\"complianceType\\":\\"COMPLIANT\\",\\"riskLevel\\":1,\\"annotation\\":\\"\\",\\"invokingEventMessageType\\":\\"ScheduledNotification\\"}]}
    */
   configuration?: string;
   /**
    * @remarks
-   * The details of the resource change that triggered this evaluation.
+   * The details of the resource changes that trigger the compliance evaluation.
    * 
    * @example
-   * {\\"OSS存储空间ACL禁止公共读写\\":[{\\"accountId\\":100931896542****,\\"configRuleId\\":\\"cr-965f626622af003d****\\",\\"configRuleArn\\":\\"acs:config::100931896542****:rule/cr-965f626622af003d****\\",\\"configRuleName\\":\\"OSS存储空间ACL禁止公共读写\\",\\"complianceType\\":\\"COMPLIANT\\",\\"riskLevel\\":1,\\"annotation\\":\\"\\",\\"invokingEventMessageType\\":\\"ScheduledNotification\\"},{}]}
+   * {\\"test-rule-name\\":[{\\"accountId\\":100931896542****,\\"configRuleId\\":\\"cr-965f626622af003d****\\",\\"configRuleArn\\":\\"acs:config::100931896542****:rule/cr-965f626622af003d****\\",\\"configRuleName\\":\\"test-rule-name\\",\\"complianceType\\":\\"COMPLIANT\\",\\"riskLevel\\":1,\\"annotation\\":\\"\\",\\"invokingEventMessageType\\":\\"ScheduledNotification\\"},{}]}
    */
   configurationDiff?: string;
   /**
@@ -53,7 +53,7 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
   region?: string;
   /**
    * @remarks
-   * The timestamp when the resource was created. Unit: milliseconds.
+   * The time when the resource was created. Unit: milliseconds.
    * 
    * @example
    * 1624961112000
@@ -77,19 +77,18 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
   resourceName?: string;
   /**
    * @remarks
-   * The resource status. The resource status is defined by each Alibaba Cloud service. This parameter can be empty. For example:
+   * The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
    * 
-   * - If the resource type is \\`ACS::ECS::Instance\\`, this parameter can be \\`Running\\` or \\`Stopped\\` because ECS instances are stateful.
-   * 
-   * - If the resource type is \\`ACS::OSS::Bucket\\`, this parameter is empty because OSS buckets are stateless.
+   * *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
    * 
    * @example
-   * null
+   * Running
    */
   resourceStatus?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * @example
    * ACS::OSS::Bucket
@@ -97,7 +96,7 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
   resourceType?: string;
   /**
    * @remarks
-   * The resource tags.
+   * The tags of the resource.
    * 
    * @example
    * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
@@ -149,12 +148,12 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
 export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline extends $dara.Model {
   /**
    * @remarks
-   * The list of compliance evaluation history records.
+   * The compliance evaluation records on the compliance timeline.
    */
   complianceList?: GetResourceComplianceTimelineResponseBodyResourceComplianceTimelineComplianceList[];
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries that can be returned for a single request.
    * 
    * @example
    * 10
@@ -162,7 +161,7 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
   maxResults?: number;
   /**
    * @remarks
-   * The token that you use to retrieve the next page of results.
+   * The token that is used to initiate the next request.
    * 
    * @example
    * 5OVS5J4I1/UKTkHV5oNs****
@@ -199,7 +198,7 @@ export class GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline
 export class GetResourceComplianceTimelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8D53A78F-1EB8-4264-A554-72F07E34FAE6
@@ -207,7 +206,7 @@ export class GetResourceComplianceTimelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The compliance evaluation history of the resource.
+   * The information about the compliance timeline.
    */
   resourceComplianceTimeline?: GetResourceComplianceTimelineResponseBodyResourceComplianceTimeline;
   static names(): { [key: string]: string } {

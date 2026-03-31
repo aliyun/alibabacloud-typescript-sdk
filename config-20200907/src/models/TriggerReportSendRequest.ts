@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerReportSendRequest extends $dara.Model {
   /**
    * @remarks
-   * The report template ID.
-   * 
    * This parameter is required.
    * 
    * @example

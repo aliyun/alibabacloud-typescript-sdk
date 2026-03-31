@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IgnoreEvaluationResultsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1840CBF2-0B0B-59F2-9E84-07B38267A279

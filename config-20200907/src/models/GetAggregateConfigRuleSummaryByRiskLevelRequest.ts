@@ -5,7 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class GetAggregateConfigRuleSummaryByRiskLevelRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the account group.
+   * 
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ca-3a58626622af0005****
    */
   aggregatorId?: string;
   static names(): { [key: string]: string } {

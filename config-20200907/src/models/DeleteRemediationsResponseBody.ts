@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRemediationsResponseBodyRemediationDeleteResults extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error code returned.
    * 
-   * - This parameter is empty if the remediation setting is successfully deleted.
-   * 
-   * - This parameter returns an error code if the operation fails. For more information about error codes, see <props="intl">[Error Center](https://error-center.alibabacloud.com/status/product/Config).
+   * *   If the remediation template is deleted, no error code is returned.
+   * *   If the remediation template fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
    * 
    * @example
    * RemediationConfigNotExist
@@ -17,7 +16,7 @@ export class DeleteRemediationsResponseBodyRemediationDeleteResults extends $dar
   errorMessage?: string;
   /**
    * @remarks
-   * The remediation setting ID.
+   * The ID of the remediation template.
    * 
    * @example
    * crr-909ba2d4716700eb****
@@ -25,11 +24,10 @@ export class DeleteRemediationsResponseBodyRemediationDeleteResults extends $dar
   remediationId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: The operation was successful.
-   * 
-   * - false: The operation failed.
+   * *   true: The request was successful.
+   * *   false: The request failed.
    * 
    * @example
    * true
@@ -63,7 +61,7 @@ export class DeleteRemediationsResponseBodyRemediationDeleteResults extends $dar
 export class DeleteRemediationsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the delete operation.
+   * The returned result.
    */
   remediationDeleteResults?: DeleteRemediationsResponseBodyRemediationDeleteResults[];
   /**

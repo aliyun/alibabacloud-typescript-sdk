@@ -5,17 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListManagedRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The scope of the filter.
+   * The scope for filtering managed rules allows you to filter out managed rules without resource coverage. The possible values are:
+   * 
+   *  - ALL: All rules.
+   * 
+   *  - UNCOVERED_RESOURCE: Filters managed rules where some resources are not covered.
    * 
    * @example
-   * 托管规则筛选范围，可以筛选无资源覆盖的托管规则。取值：
-   * - ALL 全部
-   * - UNCOVERED_RESOURCE 筛选有资源未覆盖的托管规则
+   * ALL
    */
   filterType?: string;
   /**
    * @remarks
-   * The keyword of the rule template.
+   * The keyword of the managed rule.
    * 
    * @example
    * CDN
@@ -23,9 +25,9 @@ export class ListManagedRulesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the page to return.
    * 
-   * The value must be greater than or equal to 1. Default value: 1.
+   * Pages start from page 1. Default value: 1
    * 
    * @example
    * 1
@@ -33,9 +35,9 @@ export class ListManagedRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
-   * Valid values: 1 to 100. Default value: 10.
+   * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
    * 
    * @example
    * 10
@@ -43,7 +45,7 @@ export class ListManagedRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource type that is evaluated by the rule.
+   * The type of the resources to be evaluated based on the rule.
    * 
    * @example
    * ACS::ECS::Instance
@@ -51,13 +53,11 @@ export class ListManagedRulesRequest extends $dara.Model {
   resourceTypes?: string;
   /**
    * @remarks
-   * The risk level of the rule template. Valid values:
+   * The risk level of the managed rule. Valid values:
    * 
-   * - 1: high
-   * 
-   * - 2: medium
-   * 
-   * - 3: low
+   * *   1: high
+   * *   2: medium
+   * *   3: low
    * 
    * @example
    * 1

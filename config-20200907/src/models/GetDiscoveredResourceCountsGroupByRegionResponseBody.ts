@@ -3,8 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDiscoveredResourceCountsGroupByRegionResponseBodyDiscoveredResourceCountsSummary extends $dara.Model {
+  /**
+   * @remarks
+   * The dimension by which statistics are collected.
+   * 
+   * >  In most cases, the `Region` parameter instead of the GroupName parameter is returned.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The ID of the region by which statistics are collected.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 10
+   */
   resourceCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32,7 +55,18 @@ export class GetDiscoveredResourceCountsGroupByRegionResponseBodyDiscoveredResou
 }
 
 export class GetDiscoveredResourceCountsGroupByRegionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics on the resources.
+   */
   discoveredResourceCountsSummary?: GetDiscoveredResourceCountsGroupByRegionResponseBodyDiscoveredResourceCountsSummary[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 399BD94C-D20C-4D27-88D4-89E8D75C0595
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

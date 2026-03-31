@@ -3,10 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateIntegratedServiceStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the event that is integrated across accounts. Valid values:
+   * 
+   * *   NonCompliantNotification: non-compliance event
+   * 
+   * @example
+   * NonCompliantNotification
+   */
   aggregatorDeliveryDataType?: string;
+  /**
+   * @remarks
+   * The types of the integrated events. Separate multiple event types with commas (,). Valid values:
+   * 
+   * *   ConfigurationItemChangeNotification: resource change event
+   * *   NonCompliantNotification: non-compliance event
+   * 
+   * @example
+   * NonCompliantNotification
+   */
   integratedTypes?: string;
   /**
    * @remarks
+   * The identity of the cloud service that is integrated with Cloud Config. Valid values:
+   * 
+   * *   eventbridge: EventBridge
+   * *   cms: CloudMonitor
+   * *   bpstudio: Cloud Architect Design Tools
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,6 +40,11 @@ export class UpdateIntegratedServiceStatusRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
+   * Specifies whether you want the product to be integrated. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * This parameter is required.
    * 
    * @example

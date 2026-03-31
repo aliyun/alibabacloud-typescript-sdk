@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRemediationTemplateResponseBodyRemediationTemplates extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the supported rule template.
+   * The ID of the supported rule template.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetRemediationTemplateResponseBodyRemediationTemplates extends $dar
   managedRuleIdentifier?: string;
   /**
    * @remarks
-   * The type of the automatic remediation template. Valid value: OOS (Operation Orchestration).
+   * The type of the automatic remediation template. The value is set to OOS.
    * 
    * @example
    * OOS
@@ -23,10 +23,10 @@ export class GetRemediationTemplateResponseBodyRemediationTemplates extends $dar
   remediationType?: string;
   /**
    * @remarks
-   * The definition of the template parameters.
+   * The parameters of the automatic remediation template.
    * 
    * @example
-   * {\\"Parameters\\":{\\"regionId\\":{\\"AllowValues\\":\\"\\",\\"AssociationProperty\\":\\"RegionId\\",\\"CreateDated\\":\\"2025-08-04T09:54:57\\",\\"Default\\":\\"{regionId}\\",\\"Description\\":{\\"en\\":\\"regionId\\",\\"zh-cn\\":\\"regionId\\"},\\"Id\\":688,\\"MaxKeyLength\\":\\"125\\",\\"MaxValueLength\\":\\"255\\",\\"ModifiedDate\\":\\"2025-08-04T09:54:57\\",\\"Name\\":\\"regionId\\",\\"Optional\\":1,\\"TemplateIdentifier\\":\\"ACS-ALB-BulkyEnableDeletionProtection\\",\\"Type\\":\\"String\\",\\"Version\\":\\"LASTEST\\"},\\"loadBalancerIds\\":{\\"AllowValues\\":\\"\\",\\"AssociationProperty\\":\\"\\",\\"CreateDated\\":\\"2025-08-04T09:54:57\\",\\"Default\\":\\"[\\\\\\"{resourceId}\\\\\\"]\\",\\"Description\\":{\\"en\\":\\"loadBalancerIds\\",\\"zh-cn\\":\\"loadBalancerIds\\"},\\"Id\\":689,\\"MaxKeyLength\\":\\"125\\",\\"MaxValueLength\\":\\"255\\",\\"ModifiedDate\\":\\"2025-08-04T09:54:57\\",\\"Name\\":\\"loadBalancerIds\\",\\"Optional\\":1,\\"TemplateIdentifier\\":\\"ACS-ALB-BulkyEnableDeletionProtection\\",\\"Type\\":\\"ARRAY\\",\\"Version\\":\\"LASTEST\\"}}}
+   * {\\"Parameters\\":{\\"regionId\\":{\\"AssociationProperty\\":\\"RegionId\\",\\"CreateDated\\":\\"2023-09-08T16:36:15\\",\\"Default\\":\\"{regionId}\\",\\"Description\\":{\\"en\\":\\"regionId\\",\\"zh-cn\\":\\"regionId\\"},\\"Id\\":538,\\"MaxKeyLength\\":\\"125\\",\\"MaxValueLength\\":\\"255\\",\\"ModifiedDate\\":\\"2023-09-08T16:36:15\\",\\"Name\\":\\"regionId\\",\\"Optional\\":1,\\"TemplateIdentifier\\":\\"ACS-ALB-BulkyEnableDeletionProtection\\",\\"Type\\":\\"String\\",\\"Version\\":\\"LASTEST\\"},\\"loadBalancerIds\\":{\\"CreateDated\\":\\"2023-09-08T16:36:16\\",\\"Default\\":\\"[\\\\\\"{resourceId}\\\\\\"]\\",\\"Description\\":{\\"en\\":\\"loadBalancerIds\\",\\"zh-cn\\":\\"loadBalancerIds\\"},\\"Id\\":539,\\"MaxKeyLength\\":\\"125\\",\\"MaxValueLength\\":\\"255\\",\\"ModifiedDate\\":\\"2023-09-08T16:36:16\\",\\"Name\\":\\"loadBalancerIds\\",\\"Optional\\":1,\\"TemplateIdentifier\\":\\"ACS-ALB-BulkyEnableDeletionProtection\\",\\"Type\\":\\"ARRAY\\",\\"Version\\":\\"LASTEST\\"}}}
    */
   templateDefinition?: string;
   /**
@@ -36,12 +36,12 @@ export class GetRemediationTemplateResponseBodyRemediationTemplates extends $dar
    * This parameter is required.
    * 
    * @example
-   * Call the EnableDeletionProtection interface to enable ALB instance deletion protection. Be aware of the risks and exercise caution.
+   * 调用接口EnableDeletionProtection，开启ALB实例删除保护，请您知晓风险谨慎操作。
    */
   templateDescription?: string;
   /**
    * @remarks
-   * The identifier of the automatic remediation template.
+   * The ID of the automatic remediation template.
    * 
    * @example
    * ACS-ALB-BulkyEnableDeletionProtection
@@ -52,7 +52,7 @@ export class GetRemediationTemplateResponseBodyRemediationTemplates extends $dar
    * The name of the automatic remediation template.
    * 
    * @example
-   * Enable ALB instance deletion protection
+   * 开启ALB实例删除保护
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -97,7 +97,7 @@ export class GetRemediationTemplateResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * E232FC35-BD40-51E3-B2EB-09416A23****
+   * E232FC35-BD40-51E3-B2EB-09416A234939
    */
   requestId?: string;
   static names(): { [key: string]: string } {

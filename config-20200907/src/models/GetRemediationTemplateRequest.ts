@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetRemediationTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the automatic remediation template.
+   * The ID of the automatic remediation template.
    * 
-   * For information about how to obtain the remediation template identifier, see [Compliance library](https://help.aliyun.com/document_detail/2337741.html).
+   * For more information about how to obtain the ID of a remediation template, see [Compliance library](https://help.aliyun.com/document_detail/2337741.html).
    * 
    * @example
    * ACS-ALB-BulkyEnableDeletionProtection

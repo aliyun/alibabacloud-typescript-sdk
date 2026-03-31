@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourcesByAdvancedSearchRequest extends $dara.Model {
   /**
    * @remarks
+   * The SQL query statement.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * SELECT ResourceId, ResourceName WHERE Tags.Kvpair=\\"business:online\\"
    */
   sql?: string;
   static names(): { [key: string]: string } {

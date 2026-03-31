@@ -5,26 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplatesConfigRulesConfigRuleParameters extends $dara.Model {
   /**
    * @remarks
-   * The name of the parameter for the managed rule.
+   * The name of the input parameter of the managed rule.
    * 
    * @example
-   * necessity
+   * days
    */
   parameterName?: string;
   /**
    * @remarks
-   * The value of the parameter for the managed rule.
+   * The value of the input parameter of the managed rule.
    * 
    * @example
-   * asap
+   * 90
    */
   parameterValue?: string;
   /**
    * @remarks
-   * Indicates whether the parameter is required for the managed rule. Valid values:
+   * Indicates whether the parameter is required in the managed rule. Valid values:
    * 
-   * - true: The parameter is required.
-   * - false: The parameter is not required.
+   * *   true: required
+   * *   false: optional
    * 
    * @example
    * true
@@ -58,33 +58,33 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
 export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplatesConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The parameters of the managed rule.
+   * The input parameter of the managed rule.
    */
   configRuleParameters?: ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplatesConfigRulesConfigRuleParameters[];
   /**
    * @remarks
-   * The description of the control. This parameter is returned only for compliance packs that are created based on a regulation.
+   * The description of the regulation. This parameter is available only for regulation compliance packages.
    * 
    * @example
-   * e) Possible known vulnerabilities should be found and remedied in a timely manner after adequate testing and evaluation.\\nf) It shall be able to detect intrusion into important nodes and provide an alarm in case of serious intrusion events.
+   * No classic networks exist.
    */
   controlDescription?: string;
   /**
    * @remarks
-   * The ID of the control.
+   * The regulation ID.
    * 
-   * > This parameter appears only for regulatory compliance packages.
+   * >  This parameter is available only for regulation compliance packages.
    * 
    * @example
-   * 8.1.4.4
+   * 3.1
    */
   controlId?: string;
   /**
    * @remarks
-   * Indicates whether the rule can be quickly enabled. Valid values:
+   * Indicates whether the rules are enabled together with the compliance package. Valid values:
    * 
-   * - true: The rule can be quickly enabled.
-   * - false: The rule cannot be quickly enabled.
+   * *   true
+   * *   false
    * 
    * @example
    * false
@@ -95,7 +95,7 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
    * The description of the rule.
    * 
    * @example
-   * If no vulnerabilities that are of the specified type and severity level and to be fixed exist on the running ECS instances that are protected by Security Center, the configuration is considered compliant. This rule does not apply to ECS instances that are not in the running state.
+   * If the expiration time of the SLB certificate is later than the specified number of days after the check time, the configuration is considered compliant. Default value: 90 days.
    */
   description?: string;
   /**
@@ -103,7 +103,7 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
    * The identifier of the managed rule.
    * 
    * @example
-   * ecs-instance-updated-security-vul
+   * slb-servercertificate-expired-check
    */
   managedRuleIdentifier?: string;
   /**
@@ -111,27 +111,27 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
    * The name of the managed rule.
    * 
    * @example
-   * ecs-instance-updated-security-vul
+   * slb-servercertificate-expired-check
    */
   managedRuleName?: string;
   /**
    * @remarks
-   * The resource types that are evaluated by the rule.
+   * The types of the resources evaluated based on the rule.
    * 
    * @example
-   * ACS::ECS::Instance
+   * ACS::SLB::ServerCertificate
    */
   resourceTypesScope?: string;
   /**
    * @remarks
    * The risk level of the managed rule. Valid values:
    * 
-   * - 1: high
-   * - 2: medium
-   * - 3: low
+   * *   1: high
+   * *   2: medium
+   * *   3: low
    * 
    * @example
-   * 2
+   * 1
    */
   riskLevel?: number;
   static names(): { [key: string]: string } {
@@ -177,56 +177,56 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
 export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplates extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compliance pack template.
+   * The ID of the compliance package template.
    * 
    * @example
-   * ct-5f26ff4e06a300c4****
+   * ct-d254ff4e06a300cf****
    */
   compliancePackTemplateId?: string;
   /**
    * @remarks
-   * The name of the compliance pack template.
+   * The name of the compliance package template.
    * 
    * @example
-   * ClassifiedProtectionPreCheck
+   * BestPracticesForResourceStability
    */
   compliancePackTemplateName?: string;
   /**
    * @remarks
-   * A list of default rules in the compliance pack.
+   * The default rules in the compliance package.
    */
   configRules?: ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplatesConfigRules[];
   /**
    * @remarks
-   * The description of the compliance pack.
+   * The description of the compliance package.
    * 
    * @example
-   * Checks the compliance of Alibaba Cloud resources based on the specific requirements of MLPS 2.0 Level 3.
+   * example-description
    */
   description?: string;
   /**
    * @remarks
-   * The classification labels of the compliance pack.
+   * The tag of the compliance package.
    * 
    * @example
-   * Regulation
+   * tagKey-1
    */
   labels?: string;
   /**
    * @remarks
-   * The UNIX timestamp when the compliance pack was last updated.
+   * The time when the compliance package was last updated.
    * 
    * @example
-   * 1747983081
+   * 1663408308
    */
   lastUpdate?: number;
   /**
    * @remarks
-   * The risk level of the rules in the compliance pack. Valid values:
+   * The risk level of the managed rule in the compliance package. Valid values:
    * 
-   * - 1: high
-   * - 2: medium
-   * - 3: low
+   * *   1: high
+   * *   2: medium
+   * *   3: low
    * 
    * @example
    * 1
@@ -271,7 +271,7 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
 export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResult extends $dara.Model {
   /**
    * @remarks
-   * A list of compliance pack templates.
+   * The compliance package templates.
    */
   compliancePackTemplates?: ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResultCompliancePackTemplates[];
   /**
@@ -284,7 +284,7 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -292,7 +292,7 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
   pageSize?: number;
   /**
    * @remarks
-   * The total number of compliance pack templates.
+   * The total number of the compliance package templates returned.
    * 
    * @example
    * 1
@@ -331,12 +331,12 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
 export class ListCompliancePackTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the compliance pack templates.
+   * The information about the compliance package templates returned.
    */
   compliancePackTemplatesResult?: ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D67FC82F-25AE-4268-A94C-3348340748F9

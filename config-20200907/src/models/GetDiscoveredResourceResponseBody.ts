@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the resource.
+   * The ID of the Alibaba Cloud account to which the resource belongs.
    * 
    * @example
-   * 120886317861****
+   * 100931896542****
    */
   accountId?: number;
   /**
    * @remarks
-   * The zone where the resource resides.
+   * The ID of the zone in which the resource resides.
    * 
    * @example
    * cn-hangzhou-h
@@ -21,7 +21,12 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
   availabilityZone?: string;
   /**
    * @remarks
-   * The compliance type.
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No data is available.
    * 
    * @example
    * COMPLIANT
@@ -29,10 +34,10 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
   complianceType?: string;
   /**
    * @remarks
-   * The complete configuration information of the resource.
+   * The configuration of the resource.
    * 
    * @example
-   * {"ResourceGroupId":"","Memory":4096,"InstanceChargeType":"PostPaid","Cpu":2,"OSName":"Windows Server 2022 Datacenter 64-bit (Simplified Chinese)","InstanceNetworkType":"vpc","InnerIpAddress":{"IpAddress":[]},"ExpiredTime":"2099-12-31T15:59Z","ImageId":"win2022_21H2_x64_dtc_zh-cn_40G_alibase_20240110.vhd","EipAddress":{"AllocationId":"","IpAddress":"","InternetChargeType":""},"ImageOptions":{},"VlanId":"","HostName":"iZl4i0brknq****","Status":"Stopped","HibernationOptions":{"Configured":false},"MetadataOptions":{"HttpTokens":"","HttpEndpoint":""},"InstanceId":"i-bp12g4xbl4i0brkn****","StoppedMode":"KeepCharging","CpuOptions":{"ThreadsPerCore":2,"Numa":"ON","CoreCount":1},"StartTime":"2024-02-29T07:08Z","DeletionProtection":false,"VpcAttributes":{"PrivateIpAddress":{"IpAddress":["172.16.XX.XX"]},"VpcId":"vpc-bp1wjaw8t272wwmkg****","VSwitchId":"vsw-bp103i8xzww5132ul****","NatIpAddress":""},"SecurityGroupIds":{"SecurityGroupId":["sg-bp1h96fz9fagaegp****"]},"InternetChargeType":"PayByTraffic","InstanceName":"test123","DeploymentSetId":"","InternetMaxBandwidthOut":5,"SerialNumber":"6764f567-28fb-4a39-bfc3-48404995****","OSType":"windows","CreationTime":"2024-02-29T07:08Z","AutoReleaseTime":"","Description":"","InstanceTypeFamily":"ecs.c7","DedicatedInstanceAttribute":{"Tenancy":"","Affinity":""},"PublicIpAddress":{"IpAddress":["47.98.XX.XX"]},"GPUSpec":"","NetworkInterfaces":{"NetworkInterface":[{"Type":"Primary","PrimaryIpAddress":"172.16.XX.XX","MacAddress":"00:16:3e:0c:**:**","NetworkInterfaceId":"eni-bp19uj35v8won3x9****","PrivateIpSets":{"PrivateIpSet":[{"PrivateIpAddress":"172.16.XX.XX","Primary":true}]}}]},"SpotPriceLimit":0.0,"SaleCycle":"","DeviceAvailable":true,"InstanceType":"ecs.c7.large","OSNameEn":"Windows Server  2022 DataCenter Edition 64bit Chinese Edition","SpotStrategy":"NoSpot","IoOptimized":true,"ZoneId":"cn-hangzhou-b","ClusterId":"","EcsCapacityReservationAttr":{"CapacityReservationPreference":"","CapacityReservationId":""},"DedicatedHostAttribute":{"DedicatedHostId":"","DedicatedHostName":"","DedicatedHostClusterId":""},"GPUAmount":0,"OperationLocks":{"LockReason":[]},"InternetMaxBandwidthIn":2000,"Recyclable":false,"RegionId":"cn-hangzhou","CreditSpecification":""}
+   * {\\"AccessControlList\\":{\\"Grant\\":\\"private\\"},\\"ServerSideEncryptionRule\\":{\\"SSEAlgorithm\\":\\"None\\"},\\"Comment\\":\\"\\",\\"CreationDate\\":\\"2021-06-29T10:05:12.000Z\\",\\"Owner\\":{\\"DisplayName\\":\\"100931896542****\\",\\"ID\\":\\"100931896542****\\"},\\"StorageClass\\":\\"Standard\\",\\"DataRedundancyType\\":\\"LRS\\",\\"AllowEmptyReferer\\":\\"true\\",\\"Name\\":\\"new-bucket\\",\\"BucketPolicy\\":{\\"LogPrefix\\":\\"\\",\\"LogBucket\\":\\"\\"},\\"ExtranetEndpoint\\":\\"oss-cn-hangzhou.aliyuncs.com\\",\\"IntranetEndpoint\\":\\"oss-cn-hangzhou-internal.aliyuncs.com\\",\\"Location\\":\\"oss-cn-hangzhou\\"}
    */
   configuration?: string;
   /**
@@ -48,16 +53,15 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
    * The timestamp when the resource was created.
    * 
    * @example
-   * 1709190480000
+   * 1624961112000
    */
   resourceCreationTime?: number;
   /**
    * @remarks
-   * The deletion status of the resource. Valid values:
+   * Indicates whether the resource was deleted. Valid values:
    * 
-   * - 1: The resource is not deleted.
-   * 
-   * - 0: The resource is deleted.
+   * *   1: The resource was not deleted.
+   * *   0: The resource was deleted.
    * 
    * @example
    * 1
@@ -68,35 +72,34 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
    * The resource ID.
    * 
    * @example
-   * i-bp12g4xbl4i0brkn****
+   * new-bucket
    */
   resourceId?: string;
   /**
    * @remarks
-   * The resource name.
+   * The name of the resource.
    * 
    * @example
-   * test123
+   * new-bucket
    */
   resourceName?: string;
   /**
    * @remarks
-   * The status of the resource. The status of a resource is defined by the corresponding Alibaba Cloud service. This parameter can be empty. Examples:
+   * The status of the resource. The value of this parameter varies based on the resource type and may be empty.
    * 
-   * - If the resource type is ACS::ECS::Instance, the resource is stateful. In this case, the value of this parameter is Running or Stopped.
-   * 
-   * - If the resource type is ACS::OSS::Bucket, the resource is stateless. In this case, this parameter is empty.
+   * *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an ECS instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
    * 
    * @example
-   * Stopped
+   * offline
    */
   resourceStatus?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * @example
-   * ACS::ECS::Instance
+   * ACS::OSS::BucketACS::CDN::Domain
    */
   resourceType?: string;
   /**
@@ -104,13 +107,11 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
    * The tags of the resource.
    * 
    * @example
-   * {"key":"value"}
+   * {\\"\\"hc\\"\\":[\\"\\"value2\\"\\"]}
    */
   tags?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the resource belongs. The ID is in the vsw-t4n7pokxxxxxxxxxxxxxx format. If multiple vSwitch IDs are returned, they are separated by commas (,). Example: vsw-t4n7pokxxxxxxxxxxxxxx,vsw-t4n7pokxxxxxxxxxxxxxx. If the resource does not belong to a vSwitch, an empty string "" is returned.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -122,8 +123,6 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the resource belongs. The ID is in the vpc-t4nhheyvay74fp7n0hxxx format. If the resource does not belong to a VPC, an empty string "" is returned.
-   * 
    * This parameter is required.
    * 
    * @example

@@ -7,7 +7,7 @@ export class ListCompliancePacksShrinkRequest extends $dara.Model {
    * @remarks
    * The page number.
    * 
-   * Minimum value: 1. Default value: 1.
+   * Pages start from page 1. Default value: 1
    * 
    * @example
    * 1
@@ -17,33 +17,19 @@ export class ListCompliancePacksShrinkRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * Valid values: 1 to 100. Default value: 10.
+   * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
    * 
    * @example
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The risk level of the compliance pack. Valid values:
-   * 
-   * - 1: high risk.
-   * 
-   * - 2: medium risk.
-   * 
-   * - 3: low risk.
-   * 
-   * @example
-   * 1
-   */
   riskLevel?: number;
   /**
    * @remarks
-   * The status of the compliance pack. Valid values:
+   * The status of the compliance package to be queried. Valid values:
    * 
-   * - ACTIVE: The compliance pack is active.
-   * 
-   * - CREATING: The compliance pack is being created.
+   * *   ACTIVE: The compliance package is active.
+   * *   CREATING: The compliance package is being created.
    * 
    * @example
    * ACTIVE
@@ -53,7 +39,7 @@ export class ListCompliancePacksShrinkRequest extends $dara.Model {
    * @remarks
    * The tags of the resource.
    * 
-   * You can attach up to 20 tags to a resource.
+   * You can add up to 20 tags to a resource.
    */
   tagShrink?: string;
   static names(): { [key: string]: string } {

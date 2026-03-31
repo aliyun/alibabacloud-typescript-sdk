@@ -3,8 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDiscoveredResourceCountsGroupByResourceTypeResponseBodyDiscoveredResourceCountsSummary extends $dara.Model {
+  /**
+   * @remarks
+   * The resource type by which the statistics are collected.
+   * 
+   * > We recommend that you use the `ResourceType` parameter.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The total number of resources.
+   * 
+   * @example
+   * 10
+   */
   resourceCount?: number;
+  /**
+   * @remarks
+   * The resource type by which the statistics are collected.
+   * 
+   * @example
+   * ACS::ECS::Instance
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,7 +55,18 @@ export class GetDiscoveredResourceCountsGroupByResourceTypeResponseBodyDiscovere
 }
 
 export class GetDiscoveredResourceCountsGroupByResourceTypeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The statistics on the resources.
+   */
   discoveredResourceCountsSummary?: GetDiscoveredResourceCountsGroupByResourceTypeResponseBodyDiscoveredResourceCountsSummary[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * AC9BD94C-D20C-4D27-88D4-89E8D75C051B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

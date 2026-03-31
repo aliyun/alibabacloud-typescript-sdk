@@ -3,36 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRecommendManagedRulesResponseBodyRecommendedManagedRulesRecommendedManagedRuleList extends $dara.Model {
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * oss-bucket-referer-limit
-   */
   configRuleName?: string;
-  /**
-   * @remarks
-   * The description of the managed rule.
-   * 
-   * @example
-   * If the hotlink protection feature is enabled for the OSS bucket and the Referer is added to a specified whitelist, the configuration is considered compliant.
-   */
   description?: string;
   /**
-   * @remarks
-   * The rule identifier.
-   * 
    * @example
-   * oss-bucket-referer-limit
+   * rds-instance-expired-check
    */
   identifier?: string;
   /**
-   * @remarks
-   * The resource type.
-   * 
    * @example
-   * ACS::OSS::Bucket
+   * ACS::RDS::Instance
    */
   resourceTypeScope?: string;
   static names(): { [key: string]: string } {
@@ -64,32 +44,17 @@ export class ListRecommendManagedRulesResponseBodyRecommendedManagedRulesRecomme
 
 export class ListRecommendManagedRulesResponseBodyRecommendedManagedRules extends $dara.Model {
   /**
-   * @remarks
-   * The maximum number of entries returned for the request.
-   * 
    * @example
-   * 200
+   * 10
    */
   maxResults?: number;
   /**
-   * @remarks
-   * The token that is used to initiate the next query.
-   * 
-   * > If this parameter is left empty, no more results are returned.
-   * 
    * @example
-   * zXZXbg4Mra0kOrhpwl21****
+   * zXZXbg4Mra0kOrhpwl21Lw==
    */
   nextToken?: string;
-  /**
-   * @remarks
-   * The list of managed rules.
-   */
   recommendedManagedRuleList?: ListRecommendManagedRulesResponseBodyRecommendedManagedRulesRecommendedManagedRuleList[];
   /**
-   * @remarks
-   * The total number of rules.
-   * 
    * @example
    * 39
    */
@@ -125,17 +90,13 @@ export class ListRecommendManagedRulesResponseBodyRecommendedManagedRules extend
 }
 
 export class ListRecommendManagedRulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of rules.
-   */
   recommendedManagedRules?: ListRecommendManagedRulesResponseBodyRecommendedManagedRules;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
-   * DC300244-FCE3-5061-8214-C27ECB66****
+   * DC300244-FCE3-5061-8214-C27ECB668487
    */
   requestId?: string;
   static names(): { [key: string]: string } {

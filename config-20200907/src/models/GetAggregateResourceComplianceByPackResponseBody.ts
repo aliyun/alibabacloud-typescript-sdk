@@ -11,29 +11,8 @@ export class GetAggregateResourceComplianceByPackResponseBodyResourceComplianceR
    * cp-fdc8626622af00f9****
    */
   compliancePackId?: string;
-  /**
-   * @remarks
-   * The total number of compliant resources.
-   * 
-   * @example
-   * 1
-   */
   compliantCount?: number;
-  /**
-   * @remarks
-   * The total number of ignored resources.
-   * 
-   * @example
-   * 1
-   */
   ignoredCount?: number;
-  /**
-   * @remarks
-   * The total number of resources for which the evaluation data is insufficient.
-   * 
-   * @example
-   * 1
-   */
   insufficientDataCount?: number;
   /**
    * @remarks
@@ -43,17 +22,10 @@ export class GetAggregateResourceComplianceByPackResponseBodyResourceComplianceR
    * 7
    */
   nonCompliantCount?: number;
-  /**
-   * @remarks
-   * The total number of resources that are not applicable.
-   * 
-   * @example
-   * 1
-   */
   notApplicableCount?: number;
   /**
    * @remarks
-   * The total number of resources evaluated by the compliance package.
+   * The total number of resources.
    * 
    * @example
    * 10
@@ -95,7 +67,7 @@ export class GetAggregateResourceComplianceByPackResponseBodyResourceComplianceR
 export class GetAggregateResourceComplianceByPackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
@@ -103,7 +75,7 @@ export class GetAggregateResourceComplianceByPackResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The compliance results of the resources in the compliance package.
+   * The compliance evaluation results returned.
    */
   resourceComplianceResult?: GetAggregateResourceComplianceByPackResponseBodyResourceComplianceResult;
   static names(): { [key: string]: string } {

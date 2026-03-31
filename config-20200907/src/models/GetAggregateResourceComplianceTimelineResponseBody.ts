@@ -13,7 +13,7 @@ export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianc
   accountId?: string;
   /**
    * @remarks
-   * The zone where the resource resides.
+   * The ID of the zone in which the resource resides.
    * 
    * @example
    * cn-hangzhou-f
@@ -29,23 +29,52 @@ export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianc
   captureTime?: number;
   /**
    * @remarks
-   * A list of rules associated with the resource and their compliance details.
+   * The information about the rules that evaluated the resource and the compliance evaluation result.
    * 
    * @example
-   * {\\"Compliance\\":{\\"complianceType\\":\\"COMPLIANT\\",\\"count\\":1},\\"ConfigRuleList\\":[{\\"accountId\\":100931896542****,\\"configRuleId\\":\\"cr-9524626622af003d****\\",\\"configRuleArn\\":\\"acs:config::100931896542****:rule/cr-9524626622af003d****\\",\\"configRuleName\\":\\"OSS存储空间ACL禁止公共读写\\",\\"complianceType\\":\\"COMPLIANT\\",\\"riskLevel\\":1,\\"annotation\\":\\"\\",\\"invokingEventMessageType\\":\\"ScheduledNotification\\"}]}
+   * {
+   *     "AccessControlList": {
+   *         "Grant": "private"
+   *     },
+   *     "ServerSideEncryptionRule": {
+   *         "SSEAlgorithm": "None"
+   *     },
+   *     "Comment": "",
+   *     "Owner": {
+   *         "DisplayName": "126672004088****",
+   *         "ID": "126672004088****"
+   *     },
+   *     "ResourceGroupId": "rg-acfmy4dfoau****",
+   *     "StorageClass": "Standard",
+   *     "DataRedundancyType": "LRS",
+   *     "AllowEmptyReferer": "true",
+   *     "Name": "test-private-oss****",
+   *     "BucketPolicy": {
+   *         "LogPrefix": "",
+   *         "LogBucket": ""
+   *     },
+   *     "ExtranetEndpoint": "oss-cn-hangzhou.aliyuncs.com",
+   *     "IntranetEndpoint": "oss-cn-hangzhou-internal.aliyuncs.com",
+   *     "Location": "oss-cn-hangzhou"
+   * }
    */
   configuration?: string;
   /**
    * @remarks
-   * The details of the resource change that triggered this evaluation.
+   * The details of the resource change that triggered the compliance evaluation.
    * 
    * @example
-   * {\\"OSS存储空间ACL禁止公共读写\\":[{\\"accountId\\":100931896542****,\\"configRuleId\\":\\"cr-965f626622af003d****\\",\\"configRuleArn\\":\\"acs:config::100931896542****:rule/cr-965f626622af003d****\\",\\"configRuleName\\":\\"OSS存储空间ACL禁止公共读写\\",\\"complianceType\\":\\"COMPLIANT\\",\\"riskLevel\\":1,\\"annotation\\":\\"\\",\\"invokingEventMessageType\\":\\"ScheduledNotification\\"},{}]}
+   * {
+   *     "ResourceGroupId": [
+   *         "rg-acfmy4dfoau****",
+   *         "rg-a3dmy4lksta****"
+   *     ]
+   * }
    */
   configurationDiff?: string;
   /**
    * @remarks
-   * The ID of the region where the resource resides.
+   * The ID of the region in which the resource resides.
    * 
    * @example
    * cn-hangzhou
@@ -61,35 +90,34 @@ export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianc
   resourceCreateTime?: number;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
-   * new-bucket
+   * test-private-oss****
    */
   resourceId?: string;
   /**
    * @remarks
-   * The resource name.
+   * The name of the resource.
    * 
    * @example
-   * new-bucket
+   * test-private-oss****
    */
   resourceName?: string;
   /**
    * @remarks
-   * The status of the resource. The status of a resource is defined by the corresponding Alibaba Cloud service. This parameter can be empty. For example:
+   * The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
    * 
-   * - If the resource type is ACS::ECS::Instance, this parameter can be Running or Stopped because an ECS instance is stateful.
-   * 
-   * - If the resource type is ACS::OSS::Bucket, this parameter is empty because an OSS bucket is stateless.
+   * *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the ResourceType parameter is set to ACS::OSS::Bucket, the resource is an OSS bucket that does not have a specific state. In this case, this parameter is left empty.
    * 
    * @example
-   * null
+   * Running
    */
   resourceStatus?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * @example
    * ACS::OSS::Bucket
@@ -149,12 +177,15 @@ export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianc
 export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianceTimeline extends $dara.Model {
   /**
    * @remarks
-   * A list of compliance timeline entries.
+   * The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
+   * 
+   * *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+   * *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
    */
   complianceList?: GetAggregateResourceComplianceTimelineResponseBodyResourceComplianceTimelineComplianceList[];
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries returned for a single request.
    * 
    * @example
    * 10
@@ -162,7 +193,7 @@ export class GetAggregateResourceComplianceTimelineResponseBodyResourceComplianc
   maxResults?: number;
   /**
    * @remarks
-   * The token used to query the next page.
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * 5OVS5J4I1/UKTkHV5oNs****
@@ -207,7 +238,7 @@ export class GetAggregateResourceComplianceTimelineResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The compliance timeline of the resource.
+   * The information about the compliance timeline.
    */
   resourceComplianceTimeline?: GetAggregateResourceComplianceTimelineResponseBodyResourceComplianceTimeline;
   static names(): { [key: string]: string } {

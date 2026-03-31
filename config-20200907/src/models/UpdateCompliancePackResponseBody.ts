@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCompliancePackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compliance pack.
+   * The ID of the compliance package.
    * 
    * @example
    * cp-a8a8626622af0082****

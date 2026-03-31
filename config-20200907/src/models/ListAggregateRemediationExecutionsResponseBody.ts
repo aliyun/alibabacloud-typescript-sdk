@@ -3,11 +3,56 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the remediation record was created.
+   * 
+   * @example
+   * 2023-06-25T11:48:15Z
+   */
   executionCreateDate?: string;
+  /**
+   * @remarks
+   * The invocation ID of the remediation record.
+   * 
+   * @example
+   * exec-befded3781994ccf****
+   */
   executionInvocationId?: string;
+  /**
+   * @remarks
+   * The IDs of the remediated resources. Multiple resource IDs are separated with commas (,).
+   * 
+   * @example
+   * rm-0jlk629z240l8****
+   */
   executionResourceIds?: string;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * ACS::RDS::DBInstance
+   */
   executionResourceType?: string;
+  /**
+   * @remarks
+   * The status of the remediation. Valid values:
+   * 
+   * *   Success
+   * *   Failed
+   * 
+   * @example
+   * Success
+   */
   executionStatus?: string;
+  /**
+   * @remarks
+   * The error message returned when the remediation fails.
+   * 
+   * @example
+   * Invocation time out.
+   */
   executionStatusMessage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,8 +86,26 @@ export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionD
 }
 
 export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionData extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of entries returned for a single request.
+   * 
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * @example
+   * cNclqNaKs0Ds7zSNip0a****
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The queried remediation records.
+   */
   remediationExecutions?: ListAggregateRemediationExecutionsResponseBodyRemediationExecutionDataRemediationExecutions[];
   static names(): { [key: string]: string } {
     return {
@@ -73,7 +136,18 @@ export class ListAggregateRemediationExecutionsResponseBodyRemediationExecutionD
 }
 
 export class ListAggregateRemediationExecutionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The queried remediation records.
+   */
   remediationExecutionData?: ListAggregateRemediationExecutionsResponseBodyRemediationExecutionData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 13E67493-3165-529A-A961-BE9E4B11BA11
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

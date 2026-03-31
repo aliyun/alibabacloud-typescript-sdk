@@ -7,7 +7,7 @@ export class UpdateAggregateRemediationRequest extends $dara.Model {
    * @remarks
    * The ID of the account group.
    * 
-   * For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * You can the [ListAggregators](https://help.aliyun.com/document_detail/255797.html) operation to obtain the ID of the account group.
    * 
    * This parameter is required.
    * 
@@ -19,13 +19,10 @@ export class UpdateAggregateRemediationRequest extends $dara.Model {
    * @remarks
    * The execution mode of the remediation. Valid values:
    * 
-   * - NON_EXECUTION: The remediation is not executed.
-   * 
-   * - AUTO_EXECUTION: The remediation is automatically executed.
-   * 
-   * - MANUAL_EXECUTION: The remediation is manually executed.
-   * 
-   * - NOT_CONFIG: The execution mode is not specified.
+   * *   NON_EXECUTION: The remediation is not executed.
+   * *   AUTO_EXECUTION: The remediation is automatically executed.
+   * *   MANUAL_EXECUTION: The remediation is manually executed.
+   * *   NOT_CONFIG: The execution mode is not specified.
    * 
    * @example
    * AUTO_EXECUTION
@@ -33,17 +30,17 @@ export class UpdateAggregateRemediationRequest extends $dara.Model {
   invokeType?: string;
   /**
    * @remarks
-   * The parameters of the remediation setting.
+   * The desired parameter values of the remediation setting.
    * 
    * @example
-   * {"properties":[{"name":"regionId","type":"STRING","value":"{regionId}","allowedValues":[]},{"name":"bucketName","type":"STRING","value":"{resourceId}","allowedValues":[],"description":"OSS Bucket名称。"},{"name":"permissionName","type":"STRING","value":"private","allowedValues":["public-read-write","public-read","private"],"description":"ACL权限名称。"}]}
+   * {"properties":[{"name":"regionId","type":"STRING","value":"{regionId}","allowedValues":[]},{"name":"bucketName","type":"STRING","value":"{resourceId}","allowedValues":[],"description":"OSS Bucket Name."},{"name":"permissionName","type":"STRING","value":"private","allowedValues":["public-read-write","public-read","private"],"description":"ACL Permission Name."}]}
    */
   params?: string;
   /**
    * @remarks
    * The ID of the remediation setting.
    * 
-   * For more information, see [ListAggregateRemediations](https://help.aliyun.com/document_detail/270036.html).
+   * You can call the [ListAggregateRemediations](https://help.aliyun.com/document_detail/270036.html) operation to obtain the ID of the remediation setting.
    * 
    * This parameter is required.
    * 
@@ -55,7 +52,7 @@ export class UpdateAggregateRemediationRequest extends $dara.Model {
    * @remarks
    * The ID of the remediation template.
    * 
-   * For more information, see [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html).
+   * You can call the [ListRemediationTemplates](https://help.aliyun.com/document_detail/270066.html) operation to obtain the ID of the remediation template.
    * 
    * @example
    * ACS-OSS-PutBucketAcl
@@ -63,11 +60,10 @@ export class UpdateAggregateRemediationRequest extends $dara.Model {
   remediationTemplateId?: string;
   /**
    * @remarks
-   * The type of the remediation. Valid values:
+   * The type of the remediation template. Valid values:
    * 
-   * - OOS: Operation Orchestration Service (OOS) (template-based remediation).
-   * 
-   * - FC: Function Compute (FC) (custom remediation).
+   * *   OOS: Operation Orchestration Service (OOS)
+   * *   FC: Function Compute. You can use Function Compute to configure custom remediation settings.
    * 
    * @example
    * OOS
@@ -75,13 +71,11 @@ export class UpdateAggregateRemediationRequest extends $dara.Model {
   remediationType?: string;
   /**
    * @remarks
-   * The source of the rule for which the remediation is performed. Valid values:
+   * The type of the rule for which the remediation template is configured. Valid values:
    * 
-   * - ALIYUN: rule template.
-   * 
-   * - CUSTOM: custom remediation.
-   * 
-   * - NONE: none.
+   * *   ALIYUN: managed rule.
+   * *   CUSTOM: custom rule.
+   * *   NONE: The rule is not specified.
    * 
    * @example
    * ALIYUN

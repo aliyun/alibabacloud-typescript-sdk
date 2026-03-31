@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAggregateConfigRuleShrinkRequestExcludeTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource to exclude.
+   * The tag key of the resource that you want to exclude.
    * 
    * @example
    * key-2
@@ -13,7 +13,7 @@ export class CreateAggregateConfigRuleShrinkRequestExcludeTagsScope extends $dar
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the resource to exclude.
+   * The tag value of the resource that you want to exclude.
    * 
    * @example
    * value-2
@@ -45,7 +45,7 @@ export class CreateAggregateConfigRuleShrinkRequestExcludeTagsScope extends $dar
 export class CreateAggregateConfigRuleShrinkRequestTagsScope extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource.
+   * The tag key.
    * 
    * @example
    * key-1
@@ -53,7 +53,7 @@ export class CreateAggregateConfigRuleShrinkRequestTagsScope extends $dara.Model
   tagKey?: string;
   /**
    * @remarks
-   * The tag value of the resource.
+   * The tag value.
    * 
    * @example
    * value-1
@@ -85,9 +85,7 @@ export class CreateAggregateConfigRuleShrinkRequestTagsScope extends $dara.Model
 export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The rule applies only to resources of the specified member accounts. Separate multiple member account IDs with commas (,).
-   * 
-   * > This parameter applies only to rule templates.
+   * The IDs of the member accounts to which the rule applies, which means that the resources within the member accounts are evaluated based on the rule. Separate multiple member account IDs with commas (,).
    * 
    * @example
    * 115748125982****
@@ -97,7 +95,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the account group.
    * 
-   * For more information about how to obtain the ID of an account group, see [the referenced document](https://help.aliyun.com/document_detail/255797.html).
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
    * 
    * This parameter is required.
    * 
@@ -107,37 +105,33 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * A client token that ensures the request is idempotent. Generate a unique value from your client for each request. The `ClientToken` parameter must contain only ASCII characters and be no more than 64 characters long.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 1594295238-f9361358-5843-4294-8d30-b5183fac****
    */
   clientToken?: string;
   /**
-   * @remarks
-   * The conditions for a custom condition rule, in JSON format.
-   * 
    * @example
    * {"ComplianceConditions":"{\\"operator\\":\\"and\\",\\"children\\":[{\\"operator\\":\\"StringEquals\\",\\"featurePath\\":\\"$.Status\\",\\"desired\\":\\"1\\",\\"featureSource\\":\\"CONFIGURATION\\"}]}"}
    */
   conditions?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * This parameter is required.
    * 
    * @example
-   * 存在所有指定标签
+   * oss-default-encryption-kms
    */
   configRuleName?: string;
   /**
    * @remarks
-   * The trigger type for the rule. Valid values:
+   * The trigger type of the rule. Valid values:
    * 
-   * - ConfigurationItemChangeNotification: The rule triggers when a resource configuration changes.
-   * 
-   * - ScheduledNotification: The rule triggers on a schedule.
+   * *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+   * *   ScheduledNotification: The rule is periodically triggered.
    * 
    * This parameter is required.
    * 
@@ -147,17 +141,17 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   configRuleTriggerTypes?: string;
   /**
    * @remarks
-   * A description of the rule.
+   * The description of the rule.
    * 
    * @example
-   * 最多可以定义6组标签。如果资源同时具有指定的所有标签，则视为“合规”。
+   * description of rule
    */
   description?: string;
   /**
    * @remarks
-   * The rule does not apply to resources of the specified member accounts. Resources in these accounts are not evaluated. Separate multiple member account IDs with commas (,).
+   * The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
    * 
-   * > This parameter applies only to rule templates.
+   * > This parameter applies only to a managed rule.
    * 
    * @example
    * 120886317861****
@@ -165,11 +159,13 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   excludeAccountIdsScope?: string;
   /**
    * @remarks
-   * The rule does not apply to resources of member accounts in the specified folders. Resources in these folders are not evaluated. Separate multiple folder IDs with commas (,).
+   * The ID of the resource directory to which the rule does not apply, which means that the resources within member accounts in the resource directory are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
    * 
-   * > - This parameter applies only to global account group rules.
-   * >
-   * > - This parameter applies only to rule templates.
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
    * 
    * @example
    * fd-pWmkqZ****
@@ -177,7 +173,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   excludeFolderIdsScope?: string;
   /**
    * @remarks
-   * The rule does not apply to resources in the specified regions. Resources in these regions are not evaluated. Separate multiple region IDs with commas (,).
+   * The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-shanghai
@@ -185,7 +181,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * The rule does not apply to resources in the specified resource groups. Resources in these groups are not evaluated. Separate multiple resource group IDs with commas (,).
+   * ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-bnczc6r7rml****
@@ -193,7 +189,9 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The rule does not apply to the specified resources. These resources are not evaluated. Separate multiple resource IDs with commas (,).
+   * The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
    * 
    * @example
    * lb-t4nbowvtbkss7t326****
@@ -201,12 +199,12 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * The scope of tags to exclude.
+   * The scope of the tag that is excluded.
    */
   excludeTagsScope?: CreateAggregateConfigRuleShrinkRequestExcludeTagsScope[];
   /**
    * @remarks
-   * Extended content. This parameter currently supports only setting the trigger time for rules that run on a 24-hour cycle.
+   * The extended content, which is temporarily only used to configure the trigger time with a 24-hour cycle trigger.
    * 
    * @example
    * {"fixedHour":"12"}
@@ -214,11 +212,13 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   extendContent?: string;
   /**
    * @remarks
-   * The rule applies only to resources of member accounts in the specified folders. Separate multiple folder IDs with commas (,).
+   * The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
    * 
-   * > - This parameter applies only to global account group rules.
-   * >
-   * > - This parameter applies only to rule templates.
+   * > 
+   * 
+   * *   This parameter applies only to a rule of a global account group.
+   * 
+   * *   This parameter applies only to a managed rule.
    * 
    * @example
    * fd-ZtHsRH****
@@ -226,7 +226,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   folderIdsScope?: string;
   /**
    * @remarks
-   * The input parameters for the rule.
+   * The input parameter of the rule.
    * 
    * @example
    * {"tag1Key":"ECS","tag1Value":"test"}
@@ -234,19 +234,15 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   inputParametersShrink?: string;
   /**
    * @remarks
-   * The frequency at which the rule runs. Valid values:
+   * The interval at which the rule is triggered. Valid values:
    * 
-   * - One_Hour: 1 hour.
+   * *   One_Hour
+   * *   Three_Hours
+   * *   Six_Hours
+   * *   Twelve_Hours
+   * *   TwentyFour_Hours (default)
    * 
-   * - Three_Hours: 3 hours.
-   * 
-   * - Six_Hours: 6 hours.
-   * 
-   * - Twelve_Hours: 12 hours.
-   * 
-   * - TwentyFour_Hours (default): 24 hours.
-   * 
-   * > Set this parameter if you set `ConfigRuleTriggerTypes` to `ScheduledNotification`.
+   * >  This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
    * 
    * @example
    * One_Hour
@@ -254,7 +250,9 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   maximumExecutionFrequency?: string;
   /**
    * @remarks
-   * The rule applies only to resources in the specified regions. Separate multiple region IDs with commas (,).
+   * The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
    * 
    * @example
    * cn-hangzhou
@@ -262,7 +260,9 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The rule applies only to resources in the specified resource groups. Separate multiple resource group IDs with commas (,).
+   * The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * > This parameter applies only to a managed rule.
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -270,7 +270,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The rule applies only to the specified resources. Separate multiple resource IDs with commas (,).
+   * The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * lb-5cmbowstbkss9ta03****
@@ -278,7 +278,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The rule applies only to resources with the specified names.
+   * The names of the resource to which the rule applies.
    * 
    * @example
    * i-xxx
@@ -289,7 +289,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   resourceNameScope?: string;
   /**
    * @remarks
-   * The resource types to evaluate. Separate multiple types with commas (,).
+   * The type of the resource evaluated by the rule. Separate multiple resource types with commas (,).
    * 
    * This parameter is required.
    * 
@@ -299,13 +299,11 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   resourceTypesScopeShrink?: string;
   /**
    * @remarks
-   * The risk level of the rule. Valid values:
+   * The risk level of the resources that do not comply with the rule. Valid values:
    * 
-   * - 1: high
-   * 
-   * - 2: medium
-   * 
-   * - 3: low
+   * *   1: high
+   * *   2: medium
+   * *   3: low
    * 
    * This parameter is required.
    * 
@@ -317,17 +315,10 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
    * @remarks
    * The identifier of the rule.
    * 
-   * - If `SourceOwner` is `ALIYUN`, enter the identifier of the rule template, such as `required-tags`.
+   * *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
+   * *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
    * 
-   *   > For more information about how to query rule template identifiers, see [the referenced document](https://help.aliyun.com/document_detail/127404.html).
-   * 
-   * - If `SourceOwner` is `CUSTOM_CONFIGURATION`, enter `acs-config-configuration`.
-   * 
-   * - If `SourceOwner` is `CUSTOM_FC`, enter the Alibaba Cloud Resource Name (ARN) of the Function Compute function.
-   * 
-   *   The ARN format is `acs:fc:{region}:{accountId}:services/{serviceName}.LATEST/functions/{functionName}`. For example, `acs:fc:cn-hangzhou:120886317861****:services/service-test.LATEST/functions/config-test`.
-   * 
-   *   > For more information about how to obtain a function ARN, see [the referenced document](https://help.aliyun.com/document_detail/415752.html).
+   * For more information about how to query the name of a managed rule, see [Managed rules](https://help.aliyun.com/document_detail/127404.html).
    * 
    * This parameter is required.
    * 
@@ -337,13 +328,10 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   sourceIdentifier?: string;
   /**
    * @remarks
-   * The type of rule. Valid values:
+   * The type of the rule. Valid values:
    * 
-   * - ALIYUN: rule template
-   * 
-   * - CUSTOM_FC: custom Function Compute rule
-   * 
-   * - CUSTOM_CONFIGURATION: custom condition rule
+   * *   ALIYUN: a managed rule.
+   * *   CUSTOM_FC: a custom rule.
    * 
    * This parameter is required.
    * 
@@ -353,20 +341,20 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   sourceOwner?: string;
   /**
    * @remarks
-   * The tag of the rule.
+   * The tags.
    */
   tagShrink?: string;
   /**
    * @remarks
-   * The logical relationship between multiple tags in the `TagsScope` parameter. For example, if you set `TagsScope` to `"TagsScope.1.TagKey":"a","TagsScope.1.TagValue":"a","TagsScope.2.TagKey":"b","TagsScope.2.TagValue":"b"` and set this parameter to `AND`, the rule applies only to resources that have both the `a:a` and `b:b` tags. The default value is `OR`.
+   * The logical relationship when parameter `TagsScope` takes multiple values, for example: When the parameter `TagsScope` is `"TagsScope.1.TagKey":"a", "TagsScope.1.TagValue":"a", "TagsScope.2.TagKey":"b", "TagsScope.2.TagValue":"b"`, if this parameter is set to` AND`, it means that the rule only applies to resources bound with both tags `a:a` and `b:b`. If not specified, the default logic is `OR`.
    * 
-   * You can also use this parameter with the deprecated `TagKeyScope` parameter, but this is not recommended. For example, if you set `TagKeyScope` to `ECS,OSS` and set this parameter to `AND`, the rule applies only to resources that have both the `ECS` and `OSS` tags.
+   * It can also be used for the deprecated field `TagKeyScope` (not recommended), for example: When the parameter `TagKeyScope` has a value of `ECS`,`OSS`, if this parameter is set to `AND`, it means that the rule only applies to resources bound with both labels `ECS` and `OSS`.
    * 
-   * Valid values:
+   * Values:
    * 
-   * - AND
+   *  - AND: And.
    * 
-   * - OR
+   *  - OR: Or.
    * 
    * @example
    * AND
@@ -374,11 +362,11 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   tagKeyLogicScope?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use the `TagsScope` parameter instead.
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
    * 
-   * The rule applies only to resources that have the specified tag keys. Separate multiple tag keys with commas (,).
+   * The tag key used to filter resources. The rule applies only to the resources with the specified tag key. Separate multiple parameter values with commas (,).
    * 
-   * > This parameter applies only to rule templates. Set both `TagKeyScope` and `TagValueScope` together.
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * ECS
@@ -388,11 +376,11 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   tagKeyScope?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use the `TagsScope` parameter instead.
+   * This parameter is deprecated. We recommend that you use the `TagsScope` parameter.
    * 
-   * The rule applies only to resources that have the specified tag values.
+   * The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
    * 
-   * > This parameter applies only to rule templates. Set both `TagKeyScope` and `TagValueScope` together.
+   * >  This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
    * 
    * @example
    * test
@@ -402,7 +390,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $dara.Model {
   tagValueScope?: string;
   /**
    * @remarks
-   * The scope of tags to include.
+   * The tag scope.
    */
   tagsScope?: CreateAggregateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {

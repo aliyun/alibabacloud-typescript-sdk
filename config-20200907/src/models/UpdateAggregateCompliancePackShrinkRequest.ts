@@ -87,7 +87,7 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
    * @remarks
    * The ID of the account group.
    * 
-   * For more information, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
    * 
    * This parameter is required.
    * 
@@ -97,7 +97,7 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * A client token. It is used to ensure the idempotence of the request. Generate a value that is unique among different requests. The `ClientToken` parameter can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
    * 
    * @example
    * 1594295238-f9361358-5843-4294-8d30-b5183fac****
@@ -105,9 +105,9 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the compliance pack.
+   * The ID of the compliance package.
    * 
-   * For more information, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
    * 
    * This parameter is required.
    * 
@@ -117,32 +117,32 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   compliancePackId?: string;
   /**
    * @remarks
-   * The name of the compliance pack.
+   * The name of the compliance package.
    * 
-   * For more information, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+   * For more information about how to obtain the name of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
    * 
    * @example
-   * 等保三级预检合规包
+   * test-pack-name
    */
   compliancePackName?: string;
   /**
    * @remarks
-   * The rules in the compliance pack.
+   * The rules in the compliance package.
    * 
-   * If you leave this parameter empty when you modify the compliance pack, the existing rules are not changed. If you specify new rules, the new rules replace the existing ones.
+   * If you leave this parameter empty, the rules in the compliance package remain unchanged. If you set this parameter, Cloud Config replaces the existing rules in the compliance package with the specified rules.
    */
   configRulesShrink?: string;
   /**
    * @remarks
-   * The description of the compliance pack.
+   * The description of the compliance package.
    * 
    * @example
-   * 基于等保2.0三级标准，提供持续检测合规性的建议模板，帮助您提前自检并修复问题，以便快速通过正式检测。
+   * Test compliance pack description.
    */
   description?: string;
   /**
    * @remarks
-   * The rules are not effective for resources in the specified regions. Resources in these regions are not evaluated. Separate multiple region IDs with commas (,).
+   * The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-shanghai
@@ -150,7 +150,7 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   excludeRegionIdsScope?: string;
   /**
    * @remarks
-   * The rules are not effective for resources in the specified resource groups. Resources in these resource groups are not evaluated. Separate multiple resource group IDs with commas (,).
+   * ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-bnczc6r7rml****
@@ -158,7 +158,7 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The compliance pack is not effective for the specified resources. The specified resources are not evaluated. Separate multiple resource IDs with commas (,).
+   * The ID of the resource that you do not want to evaluate by using the compliance package. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * eip-8vbf3x310fn56ijfd****
@@ -166,12 +166,12 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   excludeResourceIdsScope?: string;
   /**
    * @remarks
-   * The excluded tag scope.
+   * ExcludeTagsScope
    */
   excludeTagsScope?: UpdateAggregateCompliancePackShrinkRequestExcludeTagsScope[];
   /**
    * @remarks
-   * The compliance pack is effective only for resources in the specified regions. Separate multiple region IDs with commas (,).
+   * The ID of the region whose resources you want to evaluate by using the compliance package. Separate multiple region IDs with commas (,).
    * 
    * @example
    * cn-hangzhou
@@ -179,7 +179,7 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   regionIdsScope?: string;
   /**
    * @remarks
-   * The compliance pack is effective only for resources in the specified resource groups. Separate multiple resource group IDs with commas (,).
+   * The ID of the resource group whose resources you want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
    * 
    * @example
    * rg-aekzc7r7rhx****
@@ -187,7 +187,7 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   resourceGroupIdsScope?: string;
   /**
    * @remarks
-   * The rules are effective only for the specified resources. Separate multiple resource IDs with commas (,).
+   * The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
    * 
    * @example
    * lb-5cmbowstbkss9ta03****
@@ -195,13 +195,11 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   resourceIdsScope?: string;
   /**
    * @remarks
-   * The risk level of the compliance pack. Valid values:
+   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
    * 
-   * - 1: high risk.
-   * 
-   * - 2: medium risk.
-   * 
-   * - 3: low risk.
+   * *   1: high risk level
+   * *   2: medium risk level
+   * *   3: low risk level
    * 
    * @example
    * 1
@@ -209,16 +207,16 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The tags of the resource. This parameter is deprecated and no longer takes effect.
+   * The tags of the resource.
    * 
-   * You can add up to 20 tags.
+   * You can add up to 20 tags to a resource.
    * 
    * @deprecated
    */
   tagShrink?: string;
   /**
    * @remarks
-   * The compliance pack is effective only for resources that have the specified tag key.
+   * The tag key of the resource that you want to evaluate by using the compliance package.
    * 
    * @example
    * ECS
@@ -226,9 +224,9 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   tagKeyScope?: string;
   /**
    * @remarks
-   * The compliance pack is effective only for resources that have the specified tag key and tag value.
+   * The tag value of the resource that you want to evaluate by using the compliance package.
    * 
-   * > You must specify TagValueScope together with TagKeyScope.
+   * >  You must configure the TagValueScope parameter together with the TagKeyScope parameter.
    * 
    * @example
    * test
@@ -236,7 +234,7 @@ export class UpdateAggregateCompliancePackShrinkRequest extends $dara.Model {
   tagValueScope?: string;
   /**
    * @remarks
-   * The tag scope.
+   * TagsScope
    */
   tagsScope?: UpdateAggregateCompliancePackShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {

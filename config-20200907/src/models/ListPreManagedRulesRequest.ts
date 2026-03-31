@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListPreManagedRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The number of the page to return.
    * 
-   * The value starts from 1. The default value is 1.
+   * Pages start from page 1. Default value: 1.
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class ListPreManagedRulesRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * The default value is 10.
+   * Default value: 10.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class ListPreManagedRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of resource types.
+   * The type of the resource.
    */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAggregateConfigDeliveryChannelResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the delivery channel.
+   * 
+   * @example
+   * cdc-8e45ff4e06a3a8****
+   */
   deliveryChannelId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

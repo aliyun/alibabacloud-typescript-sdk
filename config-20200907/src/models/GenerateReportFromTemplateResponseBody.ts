@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateReportFromTemplateResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 6CE4ABA1-9A57-41A9-8EA9-E8B17D4671CD
    */

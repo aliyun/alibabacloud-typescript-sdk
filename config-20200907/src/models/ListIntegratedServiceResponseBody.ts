@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegratedServiceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The event type for cross-account integration. Supported event types:
+   * The type of the event that is integrated across accounts. Valid values:
    * 
-   * - NonCompliantNotification: non-compliance events.
+   * *   NonCompliantNotification: non-compliance event
    * 
    * @example
    * NonCompliantNotification
@@ -15,11 +15,10 @@ export class ListIntegratedServiceResponseBodyData extends $dara.Model {
   aggregatorDeliveryDataType?: string;
   /**
    * @remarks
-   * The event types for the integration. Separate multiple types with commas (,). Supported event types:
+   * The types of the integrated events. Separate multiple event types with commas (,). Valid values:
    * 
-   * - ConfigurationItemChangeNotification: resource change events.
-   * 
-   * - NonCompliantNotification: non-compliance events.
+   * *   ConfigurationItemChangeNotification: resource change event
+   * *   NonCompliantNotification: non-compliance event
    * 
    * @example
    * NonCompliantNotification
@@ -27,13 +26,11 @@ export class ListIntegratedServiceResponseBodyData extends $dara.Model {
   integratedTypes?: string;
   /**
    * @remarks
-   * The identifier of the integrable Alibaba Cloud service. Valid values:
+   * The identifier of the cloud service. Valid values:
    * 
-   * - eventbridge: EventBridge.
-   * 
-   * - cms: Cloud Monitor.
-   * 
-   * - bpstudio: Cloud Architect Design Tools.
+   * *   eventbridge: EventBridge
+   * *   cms: CloudMonitor
+   * *   bpstudio: Cloud Architect Design Tools
    * 
    * @example
    * cms
@@ -41,19 +38,18 @@ export class ListIntegratedServiceResponseBodyData extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The name of the integrated service.
+   * The name of the cloud service.
    * 
    * @example
-   * 云监控
+   * cms
    */
   serviceName?: string;
   /**
    * @remarks
-   * The integration status of the Alibaba Cloud service. Valid values:
+   * The integration status of the cloud service. Valid values:
    * 
-   * - true: The service is integrated.
-   * 
-   * - false: The service is not integrated.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -91,7 +87,7 @@ export class ListIntegratedServiceResponseBodyData extends $dara.Model {
 export class ListIntegratedServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the integrated services.
+   * The information about the cloud service that can be integrated.
    */
   data?: ListIntegratedServiceResponseBodyData[];
   /**

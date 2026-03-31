@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class StartConfigRuleEvaluationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the compliance package.
+   * The compliance package ID.
    * 
-   * For more information, see [ListCompliancePacks](https://help.aliyun.com/document_detail/606968.html).
+   * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/606968.html).
    * 
-   * > Specify either `CompliancePackId` or `ConfigRuleId`.
+   * >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
    * 
    * @example
    * cp-ac16626622af0053****
@@ -17,11 +17,11 @@ export class StartConfigRuleEvaluationRequest extends $dara.Model {
   compliancePackId?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
-   * For more information, see [ListConfigRules](https://help.aliyun.com/document_detail/609222.html).
+   * You can call the [ListConfigRules](https://help.aliyun.com/document_detail/609222.html) operation to obtain the rule ID.
    * 
-   * > Specify either `CompliancePackId` or `ConfigRuleId`.
+   * >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
    * 
    * @example
    * cr-9920626622af0035****
@@ -29,11 +29,10 @@ export class StartConfigRuleEvaluationRequest extends $dara.Model {
   configRuleId?: string;
   /**
    * @remarks
-   * Specifies whether to restore evaluation results that were ignored. Valid values:
+   * Specifies whether to re-evaluate the ignored non-compliant resource. Valid values:
    * 
-   * - true: Restores ignored evaluation results.
-   * 
-   * - false (default): Does not restore ignored evaluation results.
+   * *   true: re-evaluates the ignored non-compliant resource based on the rule.
+   * *   false (default): does not re-evaluate the ignored non-compliant resource based on the rule.
    * 
    * @example
    * false

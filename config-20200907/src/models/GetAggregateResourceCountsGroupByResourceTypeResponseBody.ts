@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAggregateResourceCountsGroupByResourceTypeResponseBodyDiscoveredResourceCountsSummary extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is expired. The resource type by which statistics are collected.
+   * 
+   * @example
+   * ACS::RAM::Role
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The total number of resources in the region.
+   * 
+   * @example
+   * 7
+   */
   resourceCount?: number;
+  /**
+   * @remarks
+   * The resource type by which statistics are collected.
+   * 
+   * @example
+   * ACS::RAM::Role
+   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,7 +53,18 @@ export class GetAggregateResourceCountsGroupByResourceTypeResponseBodyDiscovered
 }
 
 export class GetAggregateResourceCountsGroupByResourceTypeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The resource type by which the statistics are collected.
+   */
   discoveredResourceCountsSummary?: GetAggregateResourceCountsGroupByResourceTypeResponseBodyDiscoveredResourceCountsSummary[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 99114B22-1EFF-47DF-B906-1CCE82FF9D60
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

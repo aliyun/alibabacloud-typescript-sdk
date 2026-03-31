@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the current Alibaba Cloud account.
+   * The ID of your Alibaba Cloud account.
    * 
    * @example
    * 120886317861****
@@ -13,11 +13,10 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
   accountId?: number;
   /**
    * @remarks
-   * Specifies whether to receive compliance snapshots. Cloud Config delivers resource compliance and non-compliance information to SLS. Valid values:
+   * Indicates whether the specified destination receives scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots at `04:00Z` and `16:00Z` to  Log Service every day. The time is displayed in UTC. Valid values:
    * 
-   * - true: Receive compliance snapshots.
-   * 
-   * - false: Do not receive compliance snapshots.
+   * *   true: The specified destination receives scheduled compliant snapshots.
+   * *   false: The specified destination does not receive scheduled compliant snapshots.
    * 
    * @example
    * false
@@ -25,11 +24,10 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
   compliantSnapshot?: boolean;
   /**
    * @remarks
-   * Specifies whether to receive the resource configuration history. When a resource configuration changes, Cloud Config delivers the resource configuration history to OSS, SLS, or MNS. Valid values:
+   * Indicates whether the specified destination receives resource change logs. If the value of this parameter is true, Cloud Config delivers the resource change logs to OSS, Log Service, or MNS when the configurations of the resources change. Valid values:
    * 
-   * - true: Receive the resource configuration history.
-   * 
-   * - false: Do not receive the resource configuration history.
+   * *   true: The specified destination receives resource change logs.
+   * *   false: The specified destination does not receive resource change logs.
    * 
    * @example
    * true
@@ -37,11 +35,10 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
   configurationItemChangeNotification?: boolean;
   /**
    * @remarks
-   * Specifies whether to receive scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots to OSS or SLS at `04:00Z` and `16:00Z` (UTC) every day. Valid values:
+   * Indicates whether the specified destination receives scheduled resource snapshots. Cloud Config delivers scheduled resource snapshots at `04:00Z` and `16:00Z` to OSS, MNS, or Log Service every day. The time is displayed in UTC. Valid values:
    * 
-   * - true: Receive scheduled resource snapshots.
-   * 
-   * - false: Do not receive scheduled resource snapshots.
+   * *   true: The specified destination receives scheduled resource snapshots.
+   * *   false: The specified destination does not receive scheduled resource snapshots.
    * 
    * @example
    * false
@@ -49,7 +46,7 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
   configurationSnapshot?: boolean;
   /**
    * @remarks
-   * The ARN of the role that is assumed by the delivery channel.
+   * The ARN of the role assumed by the delivery channel.
    * 
    * @example
    * acs:ram::120886317861****:role/aliyunserviceroleforconfig
@@ -57,25 +54,25 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
   deliveryChannelAssumeRoleArn?: string;
   /**
    * @remarks
-   * The rule attached to the delivery channel. This parameter is supported for MNS channels and for snapshot delivery to SLS channels.
+   * The rule that is attached to the delivery channel. This parameter is available when you deliver data of all types to MNS or deliver snapshots to Log Service.
    * 
-   * - To subscribe to MNS events, specify the minimum risk level and resource types:
+   * *   If the value of the DeliveryChannelType parameter is MNS, take note of the following settings of the lowest risk level and resource types of the events to which you subscribed:
    * 
-   *   - Minimum risk level of subscribed events: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
+   *     *   The setting of the lowest risk level for the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
    * 
-   *     \\`value\\` specifies the risk level. Valid values: 1 (high risk), 2 (medium risk), and 3 (low risk).
+   *         The `value` field indicates the lowest risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
    * 
-   *   - Resource types of subscribed events: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   *     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
    * 
-   *     \\`values\\` is a JSON array of the resource types.
-   *     Example:
-   *     `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   *         The `values` field indicates the resource types of the events to which you want to subscribe. The value of the field is a JSON array. Examples:
    * 
-   * - To deliver snapshots to SLS, specify the resource types: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
    * 
-   *   \\`values\\` is a JSON array of the resource types.
-   *   Example:
-   *   `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
+   * *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+   * 
+   *     The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array. Examples:
+   * 
+   * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
    * 
    * @example
    * [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
@@ -101,11 +98,9 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the delivery destination.
    * 
-   * - If \\`DeliveryChannelType\\` is \\`OSS\\`, this parameter is the ARN of an OSS bucket.
-   * 
-   * - If \\`DeliveryChannelType\\` is \\`MNS\\`, this parameter is the ARN of an MNS topic.
-   * 
-   * - If \\`DeliveryChannelType\\` is \\`SLS\\`, this parameter is the ARN of an SLS Logstore.
+   * *   If the value of the DeliveryChannelType parameter is OSS, the value of this parameter is the ARN of the destination OSS bucket.
+   * *   If the value of the DeliveryChannelType parameter is MNS, the value of this parameter is the ARN of the destination MNS topic.
+   * *   If the value of the DeliveryChannelType parameter is SLS, the value of this parameter is the ARN of the destination Log Service Logstore.
    * 
    * @example
    * acs:oss:cn-shanghai:120886317861****:new-bucket
@@ -115,11 +110,9 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
    * @remarks
    * The type of the delivery channel. Valid values:
    * 
-   * - OSS: Object Storage Service (OSS).
-   * 
-   * - MNS: Simple Message Queue (formerly MNS).
-   * 
-   * - SLS: Simple Log Service (SLS).
+   * *   OSS: Object Storage Service (OSS)
+   * *   MNS: Message Service (MNS)
+   * *   SLS: Log Service
    * 
    * @example
    * OSS
@@ -127,9 +120,9 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
   deliveryChannelType?: string;
   /**
    * @remarks
-   * The time when scheduled resource snapshots start to be delivered every day.
+   * The time when Cloud Config delivers scheduled resources snapshots every day.
    * 
-   * The format is `HH:mmZ` (UTC).
+   * Format: `HH:mmZ`. This time is displayed in UTC.
    * 
    * @example
    * 09:10Z
@@ -145,11 +138,10 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
   description?: string;
   /**
    * @remarks
-   * Specifies whether to receive resource non-compliance events. When a resource becomes non-compliant, Cloud Config delivers a resource non-compliance event to SLS or MNS. Valid values:
+   * Indicates whether the specified destination receives resource non-compliance events. If the value of this parameter is true, Cloud Config delivers resource non-compliance events to Log Service or MNS when resources are evaluated as non-compliant. Valid values:
    * 
-   * - true: Receive resource non-compliance events.
-   * 
-   * - false: Do not receive resource non-compliance events.
+   * *   true: The specified destination receives resource non-compliance events.
+   * *   false: The specified destination does not receive resource non-compliance events.
    * 
    * @example
    * false
@@ -157,7 +149,7 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
   nonCompliantNotification?: boolean;
   /**
    * @remarks
-   * The destination OSS bucket to which the data is transferred when the size of the data exceeds the limit of the delivery channel.
+   * The ARN of the OSS bucket to which you want to transfer the delivery data when the size of the data exceeds the specified upper limit of the delivery channel.
    * 
    * @example
    * acs:oss:cn-shanghai:100931896542****:new-bucket
@@ -167,9 +159,8 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
    * @remarks
    * The status of the delivery channel. Valid values:
    * 
-   * - 0: The delivery channel is disabled.
-   * 
-   * - 1: The delivery channel is enabled.
+   * *   0: The delivery channel is disabled.
+   * *   1: The delivery channel is enabled.
    * 
    * @example
    * 1
@@ -227,7 +218,7 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $dar
 export class ListConfigDeliveryChannelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of delivery channels.
+   * The information about the delivery channels.
    */
   deliveryChannels?: ListConfigDeliveryChannelsResponseBodyDeliveryChannels[];
   /**

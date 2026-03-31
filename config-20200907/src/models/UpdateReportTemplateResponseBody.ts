@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateReportTemplateResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the report template.
-   * 
    * @example
    * crt-xxx
    */
   reportTemplateId?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * A7A0FFF8-0B44-40C6-8BBF-3A185EFDF3F7
    */

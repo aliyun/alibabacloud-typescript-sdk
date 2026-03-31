@@ -3,8 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $dara.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-9908626622af0035****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the rule is disabled, no error code is returned.
+   * *   If the rule fails to be disabled, an error code is returned. For more information about error codes, see [Error codes](https://api.alibabacloud.com/document/Config/2020-09-07/errorCode).
+   * 
+   * @example
+   * ConfigRuleCanNotDelete
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +59,10 @@ export class DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList e
 }
 
 export class DeleteConfigRulesResponseBodyOperateRuleResult extends $dara.Model {
+  /**
+   * @remarks
+   * The result of the delete operation.
+   */
   operateRuleItemList?: DeleteConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +89,18 @@ export class DeleteConfigRulesResponseBodyOperateRuleResult extends $dara.Model 
 }
 
 export class DeleteConfigRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The results of the delete operations.
+   */
   operateRuleResult?: DeleteConfigRulesResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6721BBD3-F2A6-5349-9051-EE0111036D3F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

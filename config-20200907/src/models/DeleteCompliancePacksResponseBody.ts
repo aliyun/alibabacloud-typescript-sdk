@@ -3,8 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteCompliancePacksResponseBodyOperateCompliancePacksResultOperateCompliancePacks extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the compliance package.
+   * 
+   * @example
+   * cp-541e626622af0087****
+   */
   compliancePackId?: string;
+  /**
+   * @remarks
+   * The error code returned.
+   * 
+   * *   If the compliance package is deleted, no error code is returned.
+   * *   If the compliance package fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * CompliancePackAlreadyPending
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +59,10 @@ export class DeleteCompliancePacksResponseBodyOperateCompliancePacksResultOperat
 }
 
 export class DeleteCompliancePacksResponseBodyOperateCompliancePacksResult extends $dara.Model {
+  /**
+   * @remarks
+   * An array that contains compliance packages that are deleted.
+   */
   operateCompliancePacks?: DeleteCompliancePacksResponseBodyOperateCompliancePacksResultOperateCompliancePacks[];
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +89,18 @@ export class DeleteCompliancePacksResponseBodyOperateCompliancePacksResult exten
 }
 
 export class DeleteCompliancePacksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned result.
+   */
   operateCompliancePacksResult?: DeleteCompliancePacksResponseBodyOperateCompliancePacksResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the compliance summary. This value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the compliance statistics were collected. Unit: milliseconds.
    * 
    * @example
    * 1589853822103
@@ -65,7 +65,7 @@ export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianc
 export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource extends $dara.Model {
   /**
    * @remarks
-   * The timestamp of the compliance summary. This value is a UNIX timestamp. Unit: milliseconds.
+   * The time when the compliance statistics were collected. Unit: milliseconds.
    * 
    * @example
    * 1589853822103
@@ -79,29 +79,8 @@ export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianc
    * 20
    */
   compliantCount?: number;
-  /**
-   * @remarks
-   * The number of non-compliant resources detected by high-risk rules. Note: This value is not deduplicated by resource. If a resource is evaluated as non-compliant by two different rules, it is counted twice.
-   * 
-   * @example
-   * 2
-   */
   highRiskRuleNonCompliantResourceCount?: number;
-  /**
-   * @remarks
-   * The number of non-compliant resources detected by low-risk rules. Note: This value is not deduplicated by resource. If a resource is evaluated as non-compliant by two different rules, it is counted twice.
-   * 
-   * @example
-   * 2
-   */
   lowRiskRuleNonCompliantResourceCount?: number;
-  /**
-   * @remarks
-   * The number of non-compliant resources detected by medium-risk rules. Note: This value is not deduplicated by resource. If a resource is evaluated as non-compliant by two different rules, it is counted twice.
-   * 
-   * @example
-   * 6
-   */
   mediumRiskRuleNonCompliantResourceCount?: number;
   /**
    * @remarks
@@ -155,12 +134,12 @@ export class GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianc
 export class GetAggregateComplianceSummaryResponseBodyComplianceSummary extends $dara.Model {
   /**
    * @remarks
-   * The compliance summary by rule.
+   * The summary of compliance statistics from the rule dimension.
    */
   complianceSummaryByConfigRule?: GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByConfigRule;
   /**
    * @remarks
-   * The compliance summary by resource.
+   * The summary of compliance statistics from the resource dimension.
    */
   complianceSummaryByResource?: GetAggregateComplianceSummaryResponseBodyComplianceSummaryComplianceSummaryByResource;
   static names(): { [key: string]: string } {
@@ -195,7 +174,7 @@ export class GetAggregateComplianceSummaryResponseBodyComplianceSummary extends 
 export class GetAggregateComplianceSummaryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The compliance summary.
+   * The compliance statistics.
    */
   complianceSummary?: GetAggregateComplianceSummaryResponseBodyComplianceSummary;
   /**

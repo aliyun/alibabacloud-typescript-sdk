@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDiscoveredResourceCountsGroupByResourceTypeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,8 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList extends $dara.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-2da35180a8d1008e****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   If the rule is enabled, no error code is returned.
+   * *   If the rule fails to be enabled, an error code is returned. For more information about error codes, see [Error codes](https://next.api.aliyun.com/document/Config/2020-09-07/errorCode).
+   * 
+   * @example
+   * ConfigRuleStatusNotInActive
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +59,10 @@ export class ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList e
 }
 
 export class ActiveConfigRulesResponseBodyOperateRuleResult extends $dara.Model {
+  /**
+   * @remarks
+   * The returned results.
+   */
   operateRuleItemList?: ActiveConfigRulesResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +89,18 @@ export class ActiveConfigRulesResponseBodyOperateRuleResult extends $dara.Model 
 }
 
 export class ActiveConfigRulesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned results.
+   */
   operateRuleResult?: ActiveConfigRulesResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 61C1A88F-D163-40DF-84A6-F200229F37B2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

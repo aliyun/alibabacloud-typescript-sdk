@@ -7,7 +7,7 @@ export class StartRemediationRequest extends $dara.Model {
    * @remarks
    * The rule ID.
    * 
-   * For information about how to obtain the rule ID, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
+   * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
    * 
    * This parameter is required.
    * 

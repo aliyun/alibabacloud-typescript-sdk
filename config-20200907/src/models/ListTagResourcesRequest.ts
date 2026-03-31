@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource.
+   * The key of the tag that is added to the resource.
    * 
-   * You can specify a maximum of 20 tag keys.
+   * You can add up to 20 tag keys to a resource.
    * 
    * @example
    * Env
@@ -15,9 +15,9 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource.
+   * The value of the tag that is added to the resource.
    * 
-   * You can specify a maximum of 20 tag values.
+   * You can add up to 20 tag values to a resource.
    * 
    * @example
    * prod
@@ -49,7 +49,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The pagination token that is used in the next request to retrieve a new page of results.
    * 
    * @example
    * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJ****
@@ -57,7 +57,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region to which the tags belong.
+   * The region ID of the tag.
    * 
    * This parameter is required.
    * 
@@ -69,34 +69,30 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The resource ID.
    * 
-   * You can query tags for a maximum of 50 resources.
+   * You can add tags to up to 50 resources.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type in CloudConfig. Valid values:
+   * The resource type. Valid values:
    * 
-   * - `ACS::Config::Rule`: a rule for a single account.
-   * 
-   * - `ACS::Config::AggregateConfigRule`: a rule for multiple accounts.
-   * 
-   * - `ACS::Config::Aggregator`: an account group.
-   * 
-   * - `ACS::Config::CompliancePack`: a compliance package for a single account.
-   * 
-   * - `ACS::Config::AggregateCompliancePack`: a compliance package for multiple accounts.
+   * *   `ACS::Config::Rule`
+   * *   `ACS::Config::AggregateConfigRule`
+   * *   `ACS::Config::Aggregator`
+   * *   `ACS::Config::CompliancePack`
+   * *   `ACS::Config::AggregateCompliancePack`
    * 
    * This parameter is required.
    * 
    * @example
-   * ACS::Config::Rule
+   * ACS::Config:rule
    */
   resourceType?: string;
   /**
    * @remarks
    * The tags of the resource.
    * 
-   * You can filter resources by a maximum of 20 tags.
+   * You can add up to 20 tags to a resource.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

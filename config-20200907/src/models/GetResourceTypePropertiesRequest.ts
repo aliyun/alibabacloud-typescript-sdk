@@ -5,10 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceTypePropertiesRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource type.
-   * 
-   * For more information about how to obtain the type, see [ListDiscoveredResources](https://help.aliyun.com/document_detail/169620.html).
-   * 
    * This parameter is required.
    * 
    * @example

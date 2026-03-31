@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetAggregateDiscoveredResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The account group ID.
+   * The ID of the account group.
    * 
-   * For more information about how to obtain the account group ID, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
    * 
    * This parameter is required.
    * 
@@ -19,9 +19,8 @@ export class GetAggregateDiscoveredResourceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query the compliance results of the resource. Valid values:
    * 
-   * - 0 (default): does not query the compliance results of the resource.
-   * 
-   * - 1: queries the compliance results of the resource.
+   * *   0 (default): does not query the compliance results of the resource.
+   * *   1: queries the compliance results of the resource.
    * 
    * @example
    * 0
@@ -29,9 +28,9 @@ export class GetAggregateDiscoveredResourceRequest extends $dara.Model {
   complianceOption?: number;
   /**
    * @remarks
-   * The region ID of the resource.
+   * The ID of the region in which the resource resides.
    * 
-   * For more information about how to obtain the region ID of the resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
+   * For more information about how to query the ID of a region in which the resource resides, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
    * 
    * This parameter is required.
    * 
@@ -41,7 +40,7 @@ export class GetAggregateDiscoveredResourceRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Required. The ID of the Alibaba Cloud account to which the resource to be queried belongs in the account group.
+   * Required. The ID of the Alibaba Cloud account to which the specified resource belongs in the account group.
    * 
    * @example
    * 100931896542****
@@ -51,12 +50,12 @@ export class GetAggregateDiscoveredResourceRequest extends $dara.Model {
    * @remarks
    * The resource ID.
    * 
-   * For more information about how to obtain the resource ID, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
+   * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * i-bp12g4xbl4i0brkn****
+   * new-bucket
    */
   resourceId?: string;
   /**
@@ -65,14 +64,14 @@ export class GetAggregateDiscoveredResourceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
-   * For more information about how to obtain the resource type, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
+   * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](https://help.aliyun.com/document_detail/411691.html).
    * 
    * This parameter is required.
    * 
    * @example
-   * ACS::ECS::Instance
+   * ACS::OSS::Bucket
    */
   resourceType?: string;
   static names(): { [key: string]: string } {

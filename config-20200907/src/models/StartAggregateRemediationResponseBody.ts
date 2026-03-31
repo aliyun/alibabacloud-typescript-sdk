@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class StartAggregateRemediationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operation succeeded. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: The operation succeeded.
-   * 
-   * - false: The operation failed.
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -17,7 +16,7 @@ export class StartAggregateRemediationResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C7817373-78CB-4F9A-8AFA-E7A88E9D64A2

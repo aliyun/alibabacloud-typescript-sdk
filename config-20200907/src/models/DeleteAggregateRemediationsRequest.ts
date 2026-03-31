@@ -7,7 +7,7 @@ export class DeleteAggregateRemediationsRequest extends $dara.Model {
    * @remarks
    * The ID of the account group.
    * 
-   * For more information about how to obtain the ID of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * For more information about how to obtain the ID of the account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class DeleteAggregateRemediationsRequest extends $dara.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * The ID of the remediation setting. Separate multiple remediation setting IDs with commas (,).
+   * The ID of the remediation template. Separate multiple remediation template IDs with commas (,).
    * 
-   * For more information about how to obtain the ID of a remediation setting, see [ListAggregateRemediations](https://help.aliyun.com/document_detail/270036.html).
+   * For more information about how to obtain the ID of a remediation template, see [ListAggregateRemediations](https://help.aliyun.com/document_detail/270036.html).
    * 
    * This parameter is required.
    * 

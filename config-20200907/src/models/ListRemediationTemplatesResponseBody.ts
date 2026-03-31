@@ -3,10 +3,74 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRemediationTemplatesResponseBodyRemediationTemplates extends $dara.Model {
+  /**
+   * @remarks
+   * The type of the remediation template. Valid value: OOS, which indicates Operation Orchestration Service.
+   * 
+   * @example
+   * OOS
+   */
   remediationType?: string;
+  /**
+   * @remarks
+   * The definition of the remediation template.
+   * 
+   * @example
+   * {
+   *     "Parameters": {
+   *         "bucketName": {
+   *             "Default": "{resourceId}",
+   *             "Description": {
+   *                 "zh-cn": "[Required]OSS Bucket Name.",
+   *                 "en": "[Required]OSS Bucket Name."
+   *             },
+   *             "Type": "String"
+   *         },
+   *         "regionId": {
+   *             "AssociationProperty": "RegionId",
+   *             "Default": "{regionId}",
+   *             "Description": {
+   *                 "zh-cn": "[Required]The id of target region.",
+   *                 "en": "[Required]The id of target region."
+   *             },
+   *             "Type": "String"
+   *         },
+   *         "permissionName": {
+   *             "AllowValues": "[\\"public-read-write\\",\\"public-read\\",\\"private\\"]",
+   *             "Default": "private",
+   *             "Description": {
+   *                 "zh-cn": "[Required]ACL Permission Name.",
+   *                 "en": "[Required]ACL Permission Name."
+   *             },
+   *             "Type": "String"
+   *         }
+   *     }
+   * }
+   */
   templateDefinition?: string;
+  /**
+   * @remarks
+   * The description of the remediation template.
+   * 
+   * @example
+   * Configure encryption rules for OSSBucket through the PutBucketEncryption interface. Be aware of the risks and exercise caution.
+   */
   templateDescription?: string;
+  /**
+   * @remarks
+   * The ID of the remediation template.
+   * 
+   * @example
+   * ACS-OSS-PutBucketAcl
+   */
   templateIdentifier?: string;
+  /**
+   * @remarks
+   * The name of the remediation template.
+   * 
+   * @example
+   * Set the ACL of an OSS bucket to private
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,10 +102,42 @@ export class ListRemediationTemplatesResponseBodyRemediationTemplates extends $d
 }
 
 export class ListRemediationTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The queried remediation templates.
+   */
   remediationTemplates?: ListRemediationTemplatesResponseBodyRemediationTemplates[];
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * FC2C4750-7024-499C-A69F-763543D1CBE3
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of remediation templates.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {

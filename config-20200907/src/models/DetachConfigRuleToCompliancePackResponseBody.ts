@@ -13,20 +13,10 @@ export class DetachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperat
   configRuleId?: string;
   /**
    * @remarks
-   * The error code.
+   * The error code returned.
    * 
-   * - This parameter is empty if the operation is successful.
-   * 
-   * <props="china">
-   * 
-   * - An error code is returned if the operation fails. For more information about error codes, see the [Error Center](https://error-center.aliyun.com/status/product/Config).
-   * 
-   * 
-   * 
-   * 
-   * <props="intl">
-   * 
-   * - An error code is returned if the operation fails. For more information about error codes, see the [Error Center](https://error-center.alibabacloud.com/status/product/Config).
+   * *   This parameter is empty if the rule is removed from the compliance package.
+   * *   An error code is returned if the rule fails to be removed from the compliance package. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
    * 
    * @example
    * ConfigRuleNotExists
@@ -34,11 +24,10 @@ export class DetachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperat
   errorCode?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: The operation was successful.
-   * 
-   * - false: The operation failed.
+   * *   true: The request was successful.
+   * *   false: The request failed.
    * 
    * @example
    * true
@@ -72,7 +61,7 @@ export class DetachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperat
 export class DetachConfigRuleToCompliancePackResponseBodyOperateRuleResult extends $dara.Model {
   /**
    * @remarks
-   * A list of the results of the operation to detach rules.
+   * The result of the operation to remove the rule.
    */
   operateRuleItemList?: DetachConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
@@ -102,12 +91,12 @@ export class DetachConfigRuleToCompliancePackResponseBodyOperateRuleResult exten
 export class DetachConfigRuleToCompliancePackResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The results of the operation to detach rules.
+   * The results of the operations to remove one or more rules.
    */
   operateRuleResult?: DetachConfigRuleToCompliancePackResponseBodyOperateRuleResult;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AC7AED1-172F-42AE-9C12-295BC2ADB12A

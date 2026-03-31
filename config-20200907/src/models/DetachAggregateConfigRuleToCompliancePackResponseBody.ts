@@ -3,8 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList extends $dara.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * cr-a124626622af00e7****
+   */
   configRuleId?: string;
+  /**
+   * @remarks
+   * The error code.
+   * 
+   * *   This parameter is empty if the rule is removed from the compliance package.
+   * *   An error code is returned if the rule fails to be removed from the compliance package. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+   * 
+   * @example
+   * ConfigRuleNotExists
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +59,10 @@ export class DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleRes
 }
 
 export class DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResult extends $dara.Model {
+  /**
+   * @remarks
+   * The result of the operation to remove the rule.
+   */
   operateRuleItemList?: DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResultOperateRuleItemList[];
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +89,18 @@ export class DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleRes
 }
 
 export class DetachAggregateConfigRuleToCompliancePackResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The results of the operations to remove one or more rules.
+   */
   operateRuleResult?: DetachAggregateConfigRuleToCompliancePackResponseBodyOperateRuleResult;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6EC7AED1-172F-42AE-9C12-295BC2ADB12A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

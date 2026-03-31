@@ -4,27 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeIntegratedServiceStatusResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The event type for cross-account integration. The supported event type is:
-   * 
-   * - NonCompliantNotification: non-compliance events.
-   * 
    * @example
    * NonCompliantNotification
    */
   aggregatorDeliveryDataType?: string;
   /**
-   * @remarks
-   * The enabling status of the integrated service.
-   * 
    * @example
    * false
    */
   data?: boolean;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 2E265A38-84D9-5083-A333-B33A2B46D139
    */

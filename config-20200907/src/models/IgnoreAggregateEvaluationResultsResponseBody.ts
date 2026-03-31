@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class IgnoreAggregateEvaluationResultsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0132CBF2-0B0B-59F2-9E84-07B38267BC32
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,11 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResourceDirectoryFolderNode extends $dara.Model {
+  /**
+   * @example
+   * 171322098523****
+   */
   accountId?: string;
   children?: ResourceDirectoryFolderNode[];
+  /**
+   * @example
+   * Alice
+   */
   displayName?: string;
+  /**
+   * @example
+   * fd-JeZYYJ****
+   */
   folderId?: string;
+  /**
+   * @example
+   * ECS
+   */
   folderName?: string;
+  /**
+   * @example
+   * fd-JeZYYJ****
+   */
   parentFolderId?: string;
   static names(): { [key: string]: string } {
     return {
