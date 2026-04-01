@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyDataTagResourcesTagResources extends $dara.Model {
-  /**
-   * @example
-   * cas-upload-xgjcng
-   */
   resourceId?: string;
-  /**
-   * @example
-   * ALIYUN::CAS::PCACERTIFICATE
-   */
   resourceType?: string;
   tagKey?: string;
-  /**
-   * @example
-   * PVDCDC
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {

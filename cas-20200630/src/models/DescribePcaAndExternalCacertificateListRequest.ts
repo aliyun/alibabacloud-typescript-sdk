@@ -8,6 +8,8 @@ export class DescribePcaAndExternalCACertificateListRequest extends $dara.Model 
    * 1
    */
   currentPage?: number;
+  identifiers?: string;
+  keyWord?: string;
   /**
    * @example
    * 50
@@ -16,6 +18,8 @@ export class DescribePcaAndExternalCACertificateListRequest extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       currentPage: 'CurrentPage',
+      identifiers: 'Identifiers',
+      keyWord: 'KeyWord',
       showSize: 'ShowSize',
     };
   }
@@ -23,6 +27,8 @@ export class DescribePcaAndExternalCACertificateListRequest extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       currentPage: 'number',
+      identifiers: 'string',
+      keyWord: 'string',
       showSize: 'number',
     };
   }

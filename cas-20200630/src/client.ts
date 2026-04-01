@@ -1141,7 +1141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
+   * Queries the details about a certificate authority (CA) certificate.
    * 
    * @remarks
    * You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
@@ -1178,7 +1178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a root certificate authority (CA) certificate or an intermediate CA certificate.
+   * Queries the details about a certificate authority (CA) certificate.
    * 
    * @remarks
    * You can call the DescribeCACertificate operation to query the details about a root CA certificate or an intermediate CA certificate by using the unique identifier of the root CA certificate or intermediate CA certificate. The details include the serial number, user information, and content of a CA certificate.
@@ -1459,7 +1459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取客户端证书
+   * Queries the details about multiple client certificates or server certificates at a time by using the serial numbers of the certificates.
    * 
    * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
    * 
@@ -1492,7 +1492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取客户端证书
+   * Queries the details about multiple client certificates or server certificates at a time by using the serial numbers of the certificates.
    * 
    * @deprecated OpenAPI DescribeClientCertificateForSerialNumber is deprecated, please use cas::2020-06-30::DescribeClientCertificate instead.
    * 
@@ -1558,7 +1558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取客户端证书状态
+   * Queries the status information about client certificates or server certificates by using the serial numbers of the certificates.
    * 
    * @param request - DescribeClientCertificateStatusForSerialNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1589,7 +1589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取客户端证书状态
+   * Queries the status information about client certificates or server certificates by using the serial numbers of the certificates.
    * 
    * @param request - DescribeClientCertificateStatusForSerialNumberRequest
    * @returns DescribeClientCertificateStatusForSerialNumberResponse
@@ -1602,8 +1602,6 @@ export default class Client extends OpenApi {
   /**
    * 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
    * 
-   * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
-   * 
    * @param request - DescribePcaAndExternalCACertificateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePcaAndExternalCACertificateListResponse
@@ -1613,6 +1611,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.identifiers)) {
+      query["Identifiers"] = request.identifiers;
+    }
+
+    if (!$dara.isNull(request.keyWord)) {
+      query["KeyWord"] = request.keyWord;
     }
 
     if (!$dara.isNull(request.showSize)) {
@@ -1639,12 +1645,9 @@ export default class Client extends OpenApi {
   /**
    * 返回用户所有CaCertificate，包括PCA内部产生的与导入的外部证书
    * 
-   * @deprecated OpenAPI DescribePcaAndExternalCACertificateList is deprecated, please use cas::2020-06-30::ListAllEndEntityInstance instead.
-   * 
    * @param request - DescribePcaAndExternalCACertificateListRequest
    * @returns DescribePcaAndExternalCACertificateListResponse
    */
-  // Deprecated
   async describePcaAndExternalCACertificateList(request: $_model.DescribePcaAndExternalCACertificateListRequest): Promise<$_model.DescribePcaAndExternalCACertificateListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePcaAndExternalCACertificateListWithOptions(request, runtime);
@@ -1769,7 +1772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取证书日志
+   * Queries the operation logs of a certificate authority (CA) certificate.
    * 
    * @param request - ListCACertificateLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1800,7 +1803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取证书日志
+   * Queries the operation logs of a certificate authority (CA) certificate.
    * 
    * @param request - ListCACertificateLogRequest
    * @returns ListCACertificateLogResponse
@@ -1811,7 +1814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取证书列表
+   * Queries a list of certificates.
    * 
    * @param request - ListCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1878,7 +1881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取证书列表
+   * Queries a list of certificates.
    * 
    * @param request - ListCertRequest
    * @returns ListCertResponse
@@ -1953,7 +1956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询私有CA机构证书
+   * Queries private certificate authority (CA) certificates.
    * 
    * @param request - ListPcaCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1988,7 +1991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询私有CA机构证书
+   * Queries private certificate authority (CA) certificates.
    * 
    * @param request - ListPcaCaCertificateRequest
    * @returns ListPcaCaCertificateResponse
@@ -2405,7 +2408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传pca证书到SSL上传证书
+   * Synchronizes private certificate authority (CA) certificates to the list of SSL certificates.
    * 
    * @param request - UploadPcaCertToCasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2436,7 +2439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传pca证书到SSL上传证书
+   * Synchronizes private certificate authority (CA) certificates to the list of SSL certificates.
    * 
    * @param request - UploadPcaCertToCasRequest
    * @returns UploadPcaCertToCasResponse
