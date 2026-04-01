@@ -29,6 +29,7 @@ export class TableSummary extends $dara.Model {
    * 1744970111419
    */
   lastAccessTime?: number;
+  lastRequester?: string;
   objTypeArchiveSize?: number;
   objTypeColdArchiveSize?: number;
   objTypeIaSize?: number;
@@ -57,6 +58,10 @@ export class TableSummary extends $dara.Model {
    * table1
    */
   tableName?: string;
+  topRequester?: string;
+  totalFileAccessNum?: number;
+  totalFileAccessNum30d?: number;
+  totalFileAccessNum7d?: number;
   /**
    * @remarks
    * 30-day access count
@@ -89,6 +94,7 @@ export class TableSummary extends $dara.Model {
       databaseName: 'databaseName',
       generatedDate: 'generatedDate',
       lastAccessTime: 'lastAccessTime',
+      lastRequester: 'lastRequester',
       objTypeArchiveSize: 'objTypeArchiveSize',
       objTypeColdArchiveSize: 'objTypeColdArchiveSize',
       objTypeIaSize: 'objTypeIaSize',
@@ -99,6 +105,10 @@ export class TableSummary extends $dara.Model {
       storageActionTimestamp: 'storageActionTimestamp',
       storageClass: 'storageClass',
       tableName: 'tableName',
+      topRequester: 'topRequester',
+      totalFileAccessNum: 'totalFileAccessNum',
+      totalFileAccessNum30d: 'totalFileAccessNum30d',
+      totalFileAccessNum7d: 'totalFileAccessNum7d',
       totalFileCount: 'totalFileCount',
       totalFileSizeInBytes: 'totalFileSizeInBytes',
       totalMetaFileCount: 'totalMetaFileCount',
@@ -115,6 +125,7 @@ export class TableSummary extends $dara.Model {
       databaseName: 'string',
       generatedDate: 'string',
       lastAccessTime: 'number',
+      lastRequester: 'string',
       objTypeArchiveSize: 'number',
       objTypeColdArchiveSize: 'number',
       objTypeIaSize: 'number',
@@ -125,6 +136,10 @@ export class TableSummary extends $dara.Model {
       storageActionTimestamp: 'number',
       storageClass: 'string',
       tableName: 'string',
+      topRequester: 'string',
+      totalFileAccessNum: 'number',
+      totalFileAccessNum30d: 'number',
+      totalFileAccessNum7d: 'number',
       totalFileCount: 'number',
       totalFileSizeInBytes: 'number',
       totalMetaFileCount: 'number',

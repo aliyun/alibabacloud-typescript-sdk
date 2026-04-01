@@ -27,6 +27,7 @@ export class PartitionSummary extends $dara.Model {
    * 1744970111419
    */
   lastAccessTime?: number;
+  lastRequester?: string;
   /**
    * @remarks
    * Partition identifier
@@ -46,6 +47,10 @@ export class PartitionSummary extends $dara.Model {
    * table1
    */
   tableName?: string;
+  topRequester?: string;
+  totalFileAccessNum?: number;
+  totalFileAccessNum30d?: number;
+  totalFileAccessNum7d?: number;
   /**
    * @remarks
    * 24h access count
@@ -72,11 +77,16 @@ export class PartitionSummary extends $dara.Model {
       createdAt: 'createdAt',
       databaseName: 'databaseName',
       lastAccessTime: 'lastAccessTime',
+      lastRequester: 'lastRequester',
       partitionName: 'partitionName',
       storageActionParams: 'storageActionParams',
       storageActionTimestamp: 'storageActionTimestamp',
       storageClass: 'storageClass',
       tableName: 'tableName',
+      topRequester: 'topRequester',
+      totalFileAccessNum: 'totalFileAccessNum',
+      totalFileAccessNum30d: 'totalFileAccessNum30d',
+      totalFileAccessNum7d: 'totalFileAccessNum7d',
       totalFileCount: 'totalFileCount',
       totalFileSizeInBytes: 'totalFileSizeInBytes',
       updatedAt: 'updatedAt',
@@ -88,11 +98,16 @@ export class PartitionSummary extends $dara.Model {
       createdAt: 'number',
       databaseName: 'string',
       lastAccessTime: 'number',
+      lastRequester: 'string',
       partitionName: 'string',
       storageActionParams: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       storageActionTimestamp: 'number',
       storageClass: 'string',
       tableName: 'string',
+      topRequester: 'string',
+      totalFileAccessNum: 'number',
+      totalFileAccessNum30d: 'number',
+      totalFileAccessNum7d: 'number',
       totalFileCount: 'number',
       totalFileSizeInBytes: 'number',
       updatedAt: 'number',
