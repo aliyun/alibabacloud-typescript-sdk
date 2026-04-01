@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Disaster Recovery Plan Entry
+   * Adds a topic mapping to a Global Replicator task.
    * 
    * @param request - AddDisasterRecoveryItemRequest
    * @param headers - map
@@ -63,7 +63,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Disaster Recovery Plan Entry
+   * Adds a topic mapping to a Global Replicator task.
    * 
    * @param request - AddDisasterRecoveryItemRequest
    * @returns AddDisasterRecoveryItemResponse
@@ -701,7 +701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除容灾计划条目
+   * Deletes a topic mapping of a Global Replicator task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -726,7 +726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除容灾计划条目
+   * Deletes a topic mapping of a Global Replicator task.
    * @returns DeleteDisasterRecoveryItemResponse
    */
   async deleteDisasterRecoveryItem(planId: string, itemId: string): Promise<$_model.DeleteDisasterRecoveryItemResponse> {
@@ -771,7 +771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a ApsaraMQ for RocketMQ instance.
+   * Releases an instance.
    * 
    * @remarks
    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -801,7 +801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a ApsaraMQ for RocketMQ instance.
+   * Releases an instance.
    * 
    * @remarks
    * > API operations provided by Alibaba Cloud are used to manage and query resources of Alibaba Cloud services. We recommend that you integrate these API operations only in management systems. Do not use these API operations in the core system of messaging services. Otherwise, system risks may occur.
@@ -996,7 +996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行迁移操作
+   * Executes a specific operation on a specific migration task.
    * 
    * @param request - ExecuteMigrationOperationRequest
    * @param headers - map
@@ -1035,7 +1035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行迁移操作
+   * Executes a specific operation on a specific migration task.
    * 
    * @param request - ExecuteMigrationOperationRequest
    * @returns ExecuteMigrationOperationResponse
@@ -1092,7 +1092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询topic可重置时间范围
+   * Queries the time range within which the consumer offset in a topic can be reset.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1117,7 +1117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询topic可重置时间范围
+   * Queries the time range within which the consumer offset in a topic can be reset.
    * @returns GetConsumeTimespanResponse
    */
   async getConsumeTimespan(instanceId: string, consumerGroupId: string, topicName: string): Promise<$_model.GetConsumeTimespanResponse> {
@@ -1297,7 +1297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询容灾计划条目详情
+   * Queries the details of a topic mapping in a Global Replicator task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1322,7 +1322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询容灾计划条目详情
+   * Queries the details of a topic mapping in a Global Replicator task.
    * @returns GetDisasterRecoveryItemResponse
    */
   async getDisasterRecoveryItem(planId: string, itemId: string): Promise<$_model.GetDisasterRecoveryItemResponse> {
@@ -1672,7 +1672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询支持的可用区
+   * Queries the supported zones.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1697,7 +1697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询支持的可用区
+   * Queries the supported zones.
    * @returns ListAvailableZonesResponse
    */
   async listAvailableZones(): Promise<$_model.ListAvailableZonesResponse> {
@@ -1707,7 +1707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者客户端连接信息
+   * Queries the connections of a specific consumer client.
    * 
    * @param request - ListConsumerConnectionsRequest
    * @param headers - map
@@ -1744,7 +1744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者客户端连接信息
+   * Queries the connections of a specific consumer client.
    * 
    * @param request - ListConsumerConnectionsRequest
    * @returns ListConsumerConnectionsResponse
@@ -1860,7 +1860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query disaster recovery plan consumption progress information
+   * Queries consumer progress synchronization tasks.
    * 
    * @param request - ListDisasterRecoveryCheckpointsRequest
    * @param headers - map
@@ -1905,7 +1905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query disaster recovery plan consumption progress information
+   * Queries consumer progress synchronization tasks.
    * 
    * @param request - ListDisasterRecoveryCheckpointsRequest
    * @returns ListDisasterRecoveryCheckpointsResponse
@@ -2279,7 +2279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of messages.
+   * Queries messages.
    * 
    * @param request - ListMessagesRequest
    * @param headers - map
@@ -2340,7 +2340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of messages.
+   * Queries messages.
    * 
    * @param request - ListMessagesRequest
    * @returns ListMessagesResponse
@@ -2401,7 +2401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询迁移操作列表
+   * Queries a list of migration operations.
    * 
    * @param request - ListMigrationOperationsRequest
    * @param headers - map
@@ -2450,7 +2450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询迁移操作列表
+   * Queries a list of migration operations.
    * 
    * @param request - ListMigrationOperationsRequest
    * @returns ListMigrationOperationsResponse
@@ -2462,7 +2462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询迁移列表
+   * Queries migration tasks.
    * 
    * @param request - ListMigrationsRequest
    * @param headers - map
@@ -2511,7 +2511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询迁移列表
+   * Queries migration tasks.
    * 
    * @param request - ListMigrationsRequest
    * @returns ListMigrationsResponse
@@ -2558,7 +2558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query visible resource tag relationships
+   * Queries the tags that are added to resources.
    * 
    * @param request - ListTagResourcesRequest
    * @param headers - map
@@ -2611,7 +2611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query visible resource tag relationships
+   * Queries the tags that are added to resources.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -2794,7 +2794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the consumer offset of a consumer group.
+   * Resets the consumer offset of a consumer group. If you reset a consumer offset, the offset from which a consumer starts to consume messages is changed. If faults occur or wrong messages are consumed during message consumption, you can reset the consumer offset to roll back the consumption to a specific offset for reconsumption. You can also reset the consumer offset to the latest offset and temporarily leave the accumulated messages unhandled.
    * 
    * @param request - ResetConsumeOffsetRequest
    * @param headers - map
@@ -2831,7 +2831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the consumer offset of a consumer group.
+   * Resets the consumer offset of a consumer group. If you reset a consumer offset, the offset from which a consumer starts to consume messages is changed. If faults occur or wrong messages are consumed during message consumption, you can reset the consumer offset to roll back the consumption to a specific offset for reconsumption. You can also reset the consumer offset to the latest offset and temporarily leave the accumulated messages unhandled.
    * 
    * @param request - ResetConsumeOffsetRequest
    * @returns ResetConsumeOffsetResponse
@@ -2843,7 +2843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable Disaster Recovery Plan Entry
+   * Starts a topic mapping of a Global Replicator task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2868,7 +2868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable Disaster Recovery Plan Entry
+   * Starts a topic mapping of a Global Replicator task.
    * @returns StartDisasterRecoveryItemResponse
    */
   async startDisasterRecoveryItem(planId: string, itemId: string): Promise<$_model.StartDisasterRecoveryItemResponse> {
@@ -2878,7 +2878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deactivate Disaster Recovery Plan Entry
+   * Stops a topic mapping of a Global Replicator task.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2903,7 +2903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deactivate Disaster Recovery Plan Entry
+   * Stops a topic mapping of a Global Replicator task.
    * @returns StopDisasterRecoveryItemResponse
    */
   async stopDisasterRecoveryItem(planId: string, itemId: string): Promise<$_model.StopDisasterRecoveryItemResponse> {
@@ -3528,6 +3528,10 @@ export default class Client extends OpenApi {
   async verifySendMessageWithOptions(instanceId: string, topicName: string, request: $_model.VerifySendMessageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.VerifySendMessageResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deliveryTimeStamp)) {
+      body["deliveryTimeStamp"] = request.deliveryTimeStamp;
+    }
+
     if (!$dara.isNull(request.liteTopicName)) {
       body["liteTopicName"] = request.liteTopicName;
     }
@@ -3536,12 +3540,20 @@ export default class Client extends OpenApi {
       body["message"] = request.message;
     }
 
+    if (!$dara.isNull(request.messageGroup)) {
+      body["messageGroup"] = request.messageGroup;
+    }
+
     if (!$dara.isNull(request.messageKey)) {
       body["messageKey"] = request.messageKey;
     }
 
     if (!$dara.isNull(request.messageTag)) {
       body["messageTag"] = request.messageTag;
+    }
+
+    if (!$dara.isNull(request.userProperties)) {
+      body["userProperties"] = request.userProperties;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

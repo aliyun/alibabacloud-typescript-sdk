@@ -279,6 +279,11 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
   autoScaling?: boolean;
   capacityType?: string;
   /**
+   * @example
+   * async_cross_az
+   */
+  drReplicationMode?: string;
+  /**
    * @remarks
    * The retention period of messages. Unit: hours.
    * 
@@ -332,6 +337,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
     return {
       autoScaling: 'autoScaling',
       capacityType: 'capacityType',
+      drReplicationMode: 'drReplicationMode',
       messageRetentionTime: 'messageRetentionTime',
       msgProcessSpec: 'msgProcessSpec',
       provisionedCapacity: 'provisionedCapacity',
@@ -346,6 +352,7 @@ export class CreateInstanceRequestProductInfo extends $dara.Model {
     return {
       autoScaling: 'boolean',
       capacityType: 'string',
+      drReplicationMode: 'string',
       messageRetentionTime: 'number',
       msgProcessSpec: 'string',
       provisionedCapacity: 'number',
