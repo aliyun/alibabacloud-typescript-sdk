@@ -30,6 +30,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 停止剧本
+   * 
+   * @param request - AbortPlaybookExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AbortPlaybookExecutionResponse
+   */
+  async abortPlaybookExecutionWithOptions(request: $_model.AbortPlaybookExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AbortPlaybookExecutionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.playbookExecutionUuid)) {
+      body["PlaybookExecutionUuid"] = request.playbookExecutionUuid;
+    }
+
+    if (!$dara.isNull(request.playbookUuid)) {
+      body["PlaybookUuid"] = request.playbookUuid;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!$dara.isNull(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AbortPlaybookExecution",
+      version: "2025-09-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AbortPlaybookExecutionResponse>(await this.callApi(params, req, runtime), new $_model.AbortPlaybookExecutionResponse({}));
+  }
+
+  /**
+   * 停止剧本
+   * 
+   * @param request - AbortPlaybookExecutionRequest
+   * @returns AbortPlaybookExecutionResponse
+   */
+  async abortPlaybookExecution(request: $_model.AbortPlaybookExecutionRequest): Promise<$_model.AbortPlaybookExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.abortPlaybookExecutionWithOptions(request, runtime);
+  }
+
+  /**
    * Create Component Asset.
    * 
    * @remarks
@@ -284,7 +342,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行组件动作
+   * Execute component action.
+   * 
+   * @remarks
+   * Before using this interface, please make sure you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the Response Orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic).
    * 
    * @param request - ExecuteComponentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -339,7 +400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 执行组件动作
+   * Execute component action.
+   * 
+   * @remarks
+   * Before using this interface, please make sure you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/sas/detail/sas) of the Response Orchestration product (i.e., Threat Analysis and Response Log Ingress Traffic).
    * 
    * @param request - ExecuteComponentRequest
    * @returns ExecuteComponentResponse

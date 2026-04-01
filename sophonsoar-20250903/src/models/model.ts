@@ -11,6 +11,9 @@ export { ListPlaybooksResponseBodyPlaybooks } from './ListPlaybooksResponseBody'
 export { UpdateComponentAssetRequestComponentAssetValues } from './UpdateComponentAssetRequest';
 export { FieldInputConfig } from './FieldInputConfig';
 export { FieldOutputConfig } from './FieldOutputConfig';
+export { AbortPlaybookExecutionRequest } from './AbortPlaybookExecutionRequest';
+export { AbortPlaybookExecutionResponseBody } from './AbortPlaybookExecutionResponseBody';
+export { AbortPlaybookExecutionResponse } from './AbortPlaybookExecutionResponse';
 export { CreateComponentAssetRequest } from './CreateComponentAssetRequest';
 export { CreateComponentAssetResponseBody } from './CreateComponentAssetResponseBody';
 export { CreateComponentAssetResponse } from './CreateComponentAssetResponse';

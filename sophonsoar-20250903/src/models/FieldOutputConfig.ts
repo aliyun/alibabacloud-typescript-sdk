@@ -3,10 +3,51 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FieldOutputConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Field default value.
+   * 
+   * @example
+   * 11.**.*.11
+   */
   defaultValue?: string;
+  /**
+   * @remarks
+   * Field description information.
+   * 
+   * @example
+   * Single IP to be blocked
+   */
   fieldDescription?: string;
+  /**
+   * @remarks
+   * Field example.
+   * 
+   * @example
+   * 2.*.*.2
+   */
   fieldExample?: string;
+  /**
+   * @remarks
+   * Field name.
+   * 
+   * @example
+   * ip
+   */
   fieldName?: string;
+  /**
+   * @remarks
+   * Field type, with the following values:
+   * 
+   * - **String**: String.
+   * - **Long**: Long integer.
+   * - **Integer**: Integer.
+   * - **Double**: Double.
+   * - **Boolean**: Boolean.
+   * 
+   * @example
+   * String
+   */
   fieldType?: string;
   static names(): { [key: string]: string } {
     return {
