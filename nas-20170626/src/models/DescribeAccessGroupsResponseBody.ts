@@ -3,75 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccessGroupsResponseBodyAccessGroupsAccessGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the permission group.
-   * 
-   * @example
-   * DEFAULT_VPC_GROUP_NAME
-   */
   accessGroupName?: string;
-  /**
-   * @remarks
-   * The network type of the permission group. Valid value: **Vpc**.
-   * 
-   * @example
-   * Vpc
-   */
   accessGroupType?: string;
-  /**
-   * @remarks
-   * The time when the permission group was created.
-   * 
-   * @example
-   * 2020-01-05T16:00:00Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The description of the permission group.
-   * 
-   * @example
-   * This is a test access group.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The type of the file system.
-   * 
-   * Valid values:
-   * 
-   * *   standard: General-purpose NAS
-   * *   extreme: Extreme NAS
-   * *   cpfs: CPFS
-   * 
-   * @example
-   * standard
-   */
   fileSystemType?: string;
-  /**
-   * @remarks
-   * The number of mount targets to which the permission group is attached.
-   * 
-   * @example
-   * 0
-   */
   mountTargetCount?: number;
-  /**
-   * @remarks
-   * Region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The total number of rules in the permission group.
-   * 
-   * @example
-   * 0
-   */
   ruleCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -135,10 +73,6 @@ export class DescribeAccessGroupsResponseBodyAccessGroups extends $dara.Model {
 }
 
 export class DescribeAccessGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried permission groups.
-   */
   accessGroups?: DescribeAccessGroupsResponseBodyAccessGroups;
   /**
    * @remarks

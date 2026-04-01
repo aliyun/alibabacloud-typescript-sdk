@@ -29,29 +29,7 @@ export class DescribeZonesResponseBodyZonesZoneCapacity extends $dara.Model {
 }
 
 export class DescribeZonesResponseBodyZonesZoneInstanceTypesInstanceType extends $dara.Model {
-  /**
-   * @remarks
-   * The protocol type.
-   * 
-   * *   If the FileSystemType parameter is set to standard, the protocol type is nfs or smb.
-   * *   If the FileSystemType parameter is set to extreme, the protocol type is nfs.
-   * *   If the FileSystemType parameter is set to cpfs, the protocol type is cpfs.
-   * 
-   * @example
-   * nfs
-   */
   protocolType?: string;
-  /**
-   * @remarks
-   * The storage type.
-   * 
-   * *   If the FileSystemType parameter is set to standard, the storage type is Performance or Capacity.
-   * *   If the FileSystemType parameter is set to extreme, the storage type is standard or advance.
-   * *   If the FileSystemType parameter is set to cpfs, the storage type is advance_100 (100 MB/s/TiB baseline) or advance_200 (200 MB/s/TiB baseline).
-   * 
-   * @example
-   * Capacity
-   */
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,28 +107,9 @@ export class DescribeZonesResponseBodyZonesZonePerformance extends $dara.Model {
 }
 
 export class DescribeZonesResponseBodyZonesZone extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is reserved. You can ignore this parameter.
-   */
   capacity?: DescribeZonesResponseBodyZonesZoneCapacity;
-  /**
-   * @remarks
-   * The details about file system types.
-   */
   instanceTypes?: DescribeZonesResponseBodyZonesZoneInstanceTypes;
-  /**
-   * @remarks
-   * This parameter is reserved. You can ignore this parameter.
-   */
   performance?: DescribeZonesResponseBodyZonesZonePerformance;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-b
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -223,10 +182,6 @@ export class DescribeZonesResponseBody extends $dara.Model {
    * A70BEE5D-76D3-49FB-B58F-1F398211****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The queried zones.
-   */
   zones?: DescribeZonesResponseBodyZones;
   static names(): { [key: string]: string } {
     return {

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The region name.
-   * 
-   * @example
-   * East China 1
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The endpoint for the region.
-   * 
-   * @example
-   * nas.cn-hangzhou.aliyuncs.com
-   */
   regionEndpoint?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,10 +74,6 @@ export class DescribeRegionsResponseBody extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The queried regions.
-   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks

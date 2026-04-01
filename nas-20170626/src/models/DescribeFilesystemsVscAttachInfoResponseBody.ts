@@ -3,35 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeFilesystemsVscAttachInfoResponseBodyVscAttachInfoVscAttachInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the file system.
-   * 
-   * @example
-   * bmcpfs-290t15yn4uo8lid****
-   */
   fileSystemId?: string;
-  /**
-   * @remarks
-   * The association status of the file system and virtual channel. Valid values:
-   * 
-   * *   Attaching: The association is being made.
-   * *   Attached: The association is complete.
-   * *   Detaching: The association is being canceled.
-   * *   Detached: The association is canceled.
-   * *   Failed: The association failed.
-   * 
-   * @example
-   * Attached
-   */
   status?: string;
-  /**
-   * @remarks
-   * The ID of the virtual storage channel.
-   * 
-   * @example
-   * vsc-8vb864o3ppwfvh****
-   */
   vscId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,10 +94,6 @@ export class DescribeFilesystemsVscAttachInfoResponseBody extends $dara.Model {
    * 1
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * A collection of file system and virtual channel association data.
-   */
   vscAttachInfo?: DescribeFilesystemsVscAttachInfoResponseBodyVscAttachInfo;
   static names(): { [key: string]: string } {
     return {

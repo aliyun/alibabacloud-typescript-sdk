@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasksAutoSnapshotTask extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the automatic snapshot policy.
-   * 
-   * @example
-   * sp-extreme-233e6****
-   */
   autoSnapshotPolicyId?: string;
-  /**
-   * @remarks
-   * The ID of the file system.
-   * 
-   * @example
-   * extreme-233e6****
-   */
   sourceFileSystemId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks extends $dar
 }
 
 export class DescribeAutoSnapshotTasksResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried automatic snapshot tasks.
-   */
   autoSnapshotTasks?: DescribeAutoSnapshotTasksResponseBodyAutoSnapshotTasks;
   /**
    * @remarks

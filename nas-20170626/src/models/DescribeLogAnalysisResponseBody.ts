@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLogAnalysisResponseBodyAnalysesAnalysisMetaValue extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the dedicated Logstore that is used to store NAS operation logs.
-   * 
-   * @example
-   * nas-nfs
-   */
   logstore?: string;
-  /**
-   * @remarks
-   * The name of the project where the dedicated Logstore resides.
-   * 
-   * @example
-   * nas-1746495857602745-cn-hangzhou
-   */
   project?: string;
-  /**
-   * @remarks
-   * The region where the dedicated Logstore resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
-  /**
-   * @remarks
-   * The role that is used by NAS to access Simple Log Service.
-   * 
-   * @example
-   * acs:ram::162165525211xxxx:role/aliyunnaslogarchiverole
-   */
   roleArn?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,18 +35,7 @@ export class DescribeLogAnalysisResponseBodyAnalysesAnalysisMetaValue extends $d
 }
 
 export class DescribeLogAnalysisResponseBodyAnalysesAnalysis extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the file system.
-   * 
-   * @example
-   * 0c7154xxxx
-   */
   metaKey?: string;
-  /**
-   * @remarks
-   * The log dump information of the file system.
-   */
   metaValue?: DescribeLogAnalysisResponseBodyAnalysesAnalysisMetaValue;
   static names(): { [key: string]: string } {
     return {
@@ -129,10 +90,6 @@ export class DescribeLogAnalysisResponseBodyAnalyses extends $dara.Model {
 }
 
 export class DescribeLogAnalysisResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The collection of log dump information.
-   */
   analyses?: DescribeLogAnalysisResponseBodyAnalyses;
   /**
    * @remarks

@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeFilesystemsAssociatedHpnZonesResponseBodyFilesystems extends $dara.Model {
+  /**
+   * @remarks
+   * The list of HpnZones supported by the file system.
+   */
   associatedHpnZones?: string[];
   /**
+   * @remarks
+   * The ID of the CPFS for Lingjun file system.
+   * 
    * @example
    * bmcpfs-290t15yn4uo8lid****
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The zone ID.
+   * 
    * @example
    * cn-hangzhou-k
    */
@@ -43,8 +53,15 @@ export class DescribeFilesystemsAssociatedHpnZonesResponseBodyFilesystems extend
 }
 
 export class DescribeFilesystemsAssociatedHpnZonesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of HpnZones associated with the file system.
+   */
   filesystems?: DescribeFilesystemsAssociatedHpnZonesResponseBodyFilesystems[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****
    */

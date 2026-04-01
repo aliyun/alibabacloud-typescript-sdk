@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMountedClientsResponseBodyClientsClient extends $dara.Model {
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 10.10.10.1
-   */
   clientIP?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +52,6 @@ export class DescribeMountedClientsResponseBodyClients extends $dara.Model {
 }
 
 export class DescribeMountedClientsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried clients.
-   */
   clients?: DescribeMountedClientsResponseBodyClients;
   /**
    * @remarks

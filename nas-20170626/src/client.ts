@@ -4299,7 +4299,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询文件系统关联的 HpnZone 列表
+   * Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
+   * 
+   * @remarks
+   *   Only CPFS for Lingjun supports this operation.
+   * *   You can call this operation to query up to 20 file systems at a time.
    * 
    * @param tmpReq - DescribeFilesystemsAssociatedHpnZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4340,7 +4344,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询文件系统关联的 HpnZone 列表
+   * Retrieves the list of HpnZones for a file system. Access performance is optimal when compute nodes are located in one of the associated HpnZones.
+   * 
+   * @remarks
+   *   Only CPFS for Lingjun supports this operation.
+   * *   You can call this operation to query up to 20 file systems at a time.
    * 
    * @param request - DescribeFilesystemsAssociatedHpnZonesRequest
    * @returns DescribeFilesystemsAssociatedHpnZonesResponse
@@ -4450,6 +4458,60 @@ export default class Client extends OpenApi {
   async describeLifecyclePolicies(request: $_model.DescribeLifecyclePoliciesRequest): Promise<$_model.DescribeLifecyclePoliciesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeLifecyclePoliciesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询生命周期策略日志
+   * 
+   * @param request - DescribeLifecyclePolicyLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLifecyclePolicyLogsResponse
+   */
+  async describeLifecyclePolicyLogsWithOptions(request: $_model.DescribeLifecyclePolicyLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeLifecyclePolicyLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.lifecyclePolicyId)) {
+      query["LifecyclePolicyId"] = request.lifecyclePolicyId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeLifecyclePolicyLogs",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeLifecyclePolicyLogsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeLifecyclePolicyLogsResponse({}));
+  }
+
+  /**
+   * 查询生命周期策略日志
+   * 
+   * @param request - DescribeLifecyclePolicyLogsRequest
+   * @returns DescribeLifecyclePolicyLogsResponse
+   */
+  async describeLifecyclePolicyLogs(request: $_model.DescribeLifecyclePolicyLogsRequest): Promise<$_model.DescribeLifecyclePolicyLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeLifecyclePolicyLogsWithOptions(request, runtime);
   }
 
   /**
@@ -5521,7 +5583,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询协议机挂载点
+   * Query the export directory information of the protocol service
    * 
    * @param request - GetProtocolMountTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5572,7 +5634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询协议机挂载点
+   * Query the export directory information of the protocol service
    * 
    * @param request - GetProtocolMountTargetRequest
    * @returns GetProtocolMountTargetResponse
@@ -7303,6 +7365,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动生命周期策略运行
+   * 
+   * @param request - StartLifecyclePolicyExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartLifecyclePolicyExecutionResponse
+   */
+  async startLifecyclePolicyExecutionWithOptions(request: $_model.StartLifecyclePolicyExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartLifecyclePolicyExecutionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.lifecyclePolicyId)) {
+      query["LifecyclePolicyId"] = request.lifecyclePolicyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartLifecyclePolicyExecution",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartLifecyclePolicyExecutionResponse>(await this.callApi(params, req, runtime), new $_model.StartLifecyclePolicyExecutionResponse({}));
+  }
+
+  /**
+   * 启动生命周期策略运行
+   * 
+   * @param request - StartLifecyclePolicyExecutionRequest
+   * @returns StartLifecyclePolicyExecutionResponse
+   */
+  async startLifecyclePolicyExecution(request: $_model.StartLifecyclePolicyExecutionRequest): Promise<$_model.StartLifecyclePolicyExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startLifecyclePolicyExecutionWithOptions(request, runtime);
+  }
+
+  /**
    * Disables a dataflow.
    * 
    * @remarks
@@ -7373,7 +7481,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates tags and binds the tags to file systems.
+   * 停止生命周期策略运行
+   * 
+   * @param request - StopLifecyclePolicyExecutionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopLifecyclePolicyExecutionResponse
+   */
+  async stopLifecyclePolicyExecutionWithOptions(request: $_model.StopLifecyclePolicyExecutionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopLifecyclePolicyExecutionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.lifecyclePolicyId)) {
+      query["LifecyclePolicyId"] = request.lifecyclePolicyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopLifecyclePolicyExecution",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopLifecyclePolicyExecutionResponse>(await this.callApi(params, req, runtime), new $_model.StopLifecyclePolicyExecutionResponse({}));
+  }
+
+  /**
+   * 停止生命周期策略运行
+   * 
+   * @param request - StopLifecyclePolicyExecutionRequest
+   * @returns StopLifecyclePolicyExecutionResponse
+   */
+  async stopLifecyclePolicyExecution(request: $_model.StopLifecyclePolicyExecutionRequest): Promise<$_model.StopLifecyclePolicyExecutionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopLifecyclePolicyExecutionWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates and adds tags to specified resources. File systems and access points are supported.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7412,7 +7566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates tags and binds the tags to file systems.
+   * Creates and adds tags to specified resources. File systems and access points are supported.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -7423,7 +7577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from a file system.
+   * Deletes a tag from a specified resource.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7466,7 +7620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from a file system.
+   * Deletes a tag from a specified resource.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -7474,6 +7628,72 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新生命周期策略
+   * 
+   * @param request - UpdateLifecyclePolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLifecyclePolicyResponse
+   */
+  async updateLifecyclePolicyWithOptions(request: $_model.UpdateLifecyclePolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLifecyclePolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.fileSystemId)) {
+      query["FileSystemId"] = request.fileSystemId;
+    }
+
+    if (!$dara.isNull(request.lifecyclePolicyId)) {
+      query["LifecyclePolicyId"] = request.lifecyclePolicyId;
+    }
+
+    if (!$dara.isNull(request.paths)) {
+      query["Paths"] = request.paths;
+    }
+
+    if (!$dara.isNull(request.retrieveRules)) {
+      query["RetrieveRules"] = request.retrieveRules;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!$dara.isNull(request.transitRules)) {
+      query["TransitRules"] = request.transitRules;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLifecyclePolicy",
+      version: "2017-06-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLifecyclePolicyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLifecyclePolicyResponse({}));
+  }
+
+  /**
+   * 更新生命周期策略
+   * 
+   * @param request - UpdateLifecyclePolicyRequest
+   * @returns UpdateLifecyclePolicyResponse
+   */
+  async updateLifecyclePolicy(request: $_model.UpdateLifecyclePolicyRequest): Promise<$_model.UpdateLifecyclePolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLifecyclePolicyWithOptions(request, runtime);
   }
 
   /**
