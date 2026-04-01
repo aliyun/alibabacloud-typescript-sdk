@@ -2912,6 +2912,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取keystore信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKeystoresResponse
+   */
+  async getKeystoresWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetKeystoresResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKeystores",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(InstanceId)}/keystores`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKeystoresResponse>(await this.callApi(params, req, runtime), new $_model.GetKeystoresResponse({}));
+  }
+
+  /**
+   * 获取keystore信息
+   * @returns GetKeystoresResponse
+   */
+  async getKeystores(InstanceId: string): Promise<$_model.GetKeystoresResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getKeystoresWithOptions(InstanceId, headers, runtime);
+  }
+
+  /**
    * View the storage capacity and usage of the OpensStore instance.
    * 
    * @param headers - map
@@ -3171,6 +3206,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.grayPublishWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 初始化ai模型
+   * 
+   * @param request - InitModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitModelResponse
+   */
+  async initModelWithOptions(InstanceId: string, request: $_model.InitModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InitModelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["api_key"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      body["host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.httpSchema)) {
+      body["http_schema"] = request.httpSchema;
+    }
+
+    if (!$dara.isNull(request.models)) {
+      body["models"] = request.models;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      body["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitModel",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(InstanceId)}/initModel`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitModelResponse>(await this.callApi(params, req, runtime), new $_model.InitModelResponse({}));
+  }
+
+  /**
+   * 初始化ai模型
+   * 
+   * @param request - InitModelRequest
+   * @returns InitModelResponse
+   */
+  async initModel(InstanceId: string, request: $_model.InitModelRequest): Promise<$_model.InitModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.initModelWithOptions(InstanceId, request, headers, runtime);
   }
 
   /**
@@ -5860,6 +5956,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用户自定义插件列表
+   * 
+   * @param request - ListUserPluginRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUserPluginResponse
+   */
+  async listUserPluginWithOptions(instanceId: string, request: $_model.ListUserPluginRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListUserPluginResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUserPlugin",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(instanceId)}/userPlugins`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUserPluginResponse>(await this.callApi(params, req, runtime), new $_model.ListUserPluginResponse({}));
+  }
+
+  /**
+   * 用户自定义插件列表
+   * 
+   * @param request - ListUserPluginRequest
+   * @returns ListUserPluginResponse
+   */
+  async listUserPlugin(instanceId: string, request: $_model.ListUserPluginRequest): Promise<$_model.ListUserPluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listUserPluginWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Queries the statuses of endpoints in the virtual private cloud (VPC) within the Elasticsearch service account.
    * 
    * @param request - ListVpcEndpointsRequest
@@ -6371,6 +6520,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 自定义插件解析&上传接口
+   * 
+   * @param request - PluginAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PluginAnalysisResponse
+   */
+  async pluginAnalysisWithOptions(instanceId: string, request: $_model.PluginAnalysisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PluginAnalysisResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: request.body,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PluginAnalysis",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(instanceId)}/plugins/actions/analysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PluginAnalysisResponse>(await this.callApi(params, req, runtime), new $_model.PluginAnalysisResponse({}));
+  }
+
+  /**
+   * 自定义插件解析&上传接口
+   * 
+   * @param request - PluginAnalysisRequest
+   * @returns PluginAnalysisResponse
+   */
+  async pluginAnalysis(instanceId: string, request: $_model.PluginAnalysisRequest): Promise<$_model.PluginAnalysisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.pluginAnalysisWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * PostEmonTryAlarmRule
    * 
    * @param request - PostEmonTryAlarmRuleRequest
@@ -6500,6 +6695,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.reinstallCollectorWithOptions(ResId, request, headers, runtime);
+  }
+
+  /**
+   * 从插件库中删除插件，区别于卸载插件
+   * 
+   * @param request - RemovePluginRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemovePluginResponse
+   */
+  async removePluginWithOptions(instanceId: string, request: $_model.RemovePluginRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemovePluginResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: request.body,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemovePlugin",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(instanceId)}/plugins/actions/remove`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemovePluginResponse>(await this.callApi(params, req, runtime), new $_model.RemovePluginResponse({}));
+  }
+
+  /**
+   * 从插件库中删除插件，区别于卸载插件
+   * 
+   * @param request - RemovePluginRequest
+   * @returns RemovePluginResponse
+   */
+  async removePlugin(instanceId: string, request: $_model.RemovePluginRequest): Promise<$_model.RemovePluginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.removePluginWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -8266,6 +8501,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改FalconSeek配置
+   * 
+   * @param request - UpdateFalconSeekRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFalconSeekResponse
+   */
+  async updateFalconSeekWithOptions(InstanceId: string, request: $_model.UpdateFalconSeekRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFalconSeekResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enable)) {
+      query["enable"] = request.enable;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFalconSeek",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(InstanceId)}/falconseek`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFalconSeekResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFalconSeekResponse({}));
+  }
+
+  /**
+   * 修改FalconSeek配置
+   * 
+   * @param request - UpdateFalconSeekRequest
+   * @returns UpdateFalconSeekResponse
+   */
+  async updateFalconSeek(InstanceId: string, request: $_model.UpdateFalconSeekRequest): Promise<$_model.UpdateFalconSeekResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFalconSeekWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
    * null
    * 
    * @remarks
@@ -8633,6 +8913,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新keystore
+   * 
+   * @param request - UpdateKeystoresRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKeystoresResponse
+   */
+  async updateKeystoresWithOptions(InstanceId: string, request: $_model.UpdateKeystoresRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKeystoresResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.force)) {
+      query["force"] = request.force;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.remove)) {
+      body["remove"] = request.remove;
+    }
+
+    if (!$dara.isNull(request.update)) {
+      body["update"] = request.update;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKeystores",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(InstanceId)}/keystores`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKeystoresResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKeystoresResponse({}));
+  }
+
+  /**
+   * 更新keystore
+   * 
+   * @param request - UpdateKeystoresRequest
+   * @returns UpdateKeystoresResponse
+   */
+  async updateKeystores(InstanceId: string, request: $_model.UpdateKeystoresRequest): Promise<$_model.UpdateKeystoresResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateKeystoresWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
    * 更新kibana私网链接
    * 
    * @param request - UpdateKibanaPvlNetworkRequest
@@ -8735,6 +9070,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateKibanaSettingsWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * UpdateKibanaSso
+   * 
+   * @param request - UpdateKibanaSsoRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKibanaSsoResponse
+   */
+  async updateKibanaSsoWithOptions(InstanceId: string, request: $_model.UpdateKibanaSsoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKibanaSsoResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enable)) {
+      query["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.networkType)) {
+      query["networkType"] = request.networkType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKibanaSso",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(InstanceId)}/actions/kibana-sso`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKibanaSsoResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKibanaSsoResponse({}));
+  }
+
+  /**
+   * UpdateKibanaSso
+   * 
+   * @param request - UpdateKibanaSsoRequest
+   * @returns UpdateKibanaSsoResponse
+   */
+  async updateKibanaSso(InstanceId: string, request: $_model.UpdateKibanaSsoRequest): Promise<$_model.UpdateKibanaSsoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateKibanaSsoWithOptions(InstanceId, request, headers, runtime);
   }
 
   /**
@@ -9692,6 +10076,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.upgradeEngineVersionWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询是否有可升级的小版本
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeInfoResponse
+   */
+  async upgradeInfoWithOptions(instanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeInfoResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeInfo",
+      version: "2017-06-13",
+      protocol: "HTTPS",
+      pathname: `/openapi/instances/${$dara.URL.percentEncode(instanceId)}/upgradeInfo`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeInfoResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeInfoResponse({}));
+  }
+
+  /**
+   * 查询是否有可升级的小版本
+   * @returns UpgradeInfoResponse
+   */
+  async upgradeInfo(instanceId: string): Promise<$_model.UpgradeInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upgradeInfoWithOptions(instanceId, headers, runtime);
   }
 
   /**
