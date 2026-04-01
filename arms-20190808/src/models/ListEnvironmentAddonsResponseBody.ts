@@ -516,6 +516,7 @@ export class ListEnvironmentAddonsResponseBodyData extends $dara.Model {
    * The queried add-ons.
    */
   addons?: ListEnvironmentAddonsResponseBodyDataAddons[];
+  containsV2Addon?: boolean;
   /**
    * @example
    * 1
@@ -524,6 +525,7 @@ export class ListEnvironmentAddonsResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addons: 'Addons',
+      containsV2Addon: 'ContainsV2Addon',
       total: 'Total',
     };
   }
@@ -531,6 +533,7 @@ export class ListEnvironmentAddonsResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addons: { 'type': 'array', 'itemType': ListEnvironmentAddonsResponseBodyDataAddons },
+      containsV2Addon: 'boolean',
       total: 'number',
     };
   }
