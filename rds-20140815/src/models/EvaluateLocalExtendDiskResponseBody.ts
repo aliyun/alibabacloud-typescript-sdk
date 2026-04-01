@@ -8,7 +8,7 @@ export class EvaluateLocalExtendDiskResponseBody extends $dara.Model {
    * Indicates whether the instance is available. Valid values: true and false.
    * 
    * @example
-   * true
+   * True
    */
   available?: string;
   /**
@@ -16,7 +16,7 @@ export class EvaluateLocalExtendDiskResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-wz9s06u4drm******
+   * rm-bp1375i66nd******
    */
   DBInstanceId?: string;
   /**

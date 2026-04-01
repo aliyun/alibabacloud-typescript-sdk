@@ -67,10 +67,38 @@ export class DescribeParameterTemplatesResponseBodyParameters extends $dara.Mode
 }
 
 export class DescribeParameterTemplatesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The database engine of the instance.
+   * 
+   * @example
+   * mysql
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The version of the database engine.
+   * 
+   * @example
+   * 8.0
+   */
   engineVersion?: string;
+  /**
+   * @remarks
+   * The number of parameters.
+   * 
+   * @example
+   * 2
+   */
   parameterCount?: string;
   parameters?: DescribeParameterTemplatesResponseBodyParameters;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0F9B7410-EC73-510C-B385-8339455C12C6
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

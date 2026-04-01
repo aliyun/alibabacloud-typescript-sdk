@@ -197,16 +197,13 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
    */
   externalReplication?: string;
   /**
-   * @remarks
-   * The executed global transaction identifier.
-   * 
    * @example
    * bd2a34b9-8b8d-11ef-8917-00163e1298b9:1-20567
    */
   gtidExecuted?: string;
   /**
    * @remarks
-   * Indicates whether full data has been successfully imported.
+   * COMPLETED: 导入完成，INIT: 初始化，IMPORTING: 正在导入
    * 
    * @example
    * COMPLETED
@@ -229,17 +226,11 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
    */
   replicationErrorMessage?: string;
   /**
-   * @remarks
-   * The replication IP address.
-   * 
    * @example
    * 192.168.10.x
    */
   replicationIp?: string;
   /**
-   * @remarks
-   * The replication port.
-   * 
    * @example
    * 3306
    */
@@ -249,7 +240,7 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
    * The source of the native replication.
    * 
    * @example
-   * 192.168.XX.XX
+   * 192.168.x.x
    */
   replicationSource?: string;
   /**
@@ -262,7 +253,10 @@ export class DescribeDBInstanceReplicationResponseBody extends $dara.Model {
    * *   **Error**
    * 
    * @example
+   * Running
+   * Connecting
    * Stopped
+   * Error
    */
   replicationState?: string;
   /**

@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCImageListResponseBodyImagesDiskDeviceMappings extends $dara.Model {
-  /**
-   * @remarks
-   * The device information of the disk, such as `/dev/xvdb`.
-   * 
-   * @example
-   * /dev/xvdb
-   */
   device?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: GiB.
-   * 
-   * @example
-   * 40
-   */
   size?: string;
-  /**
-   * @remarks
-   * The property of the disk.
-   * 
-   * - **system**: system disk.
-   * - **data**: data disk.
-   * 
-   * @example
-   * system
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,10 +59,6 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
    * test
    */
   description?: string;
-  /**
-   * @remarks
-   * The mapping between disks and snapshots in the image.
-   */
   diskDeviceMappings?: DescribeRCImageListResponseBodyImagesDiskDeviceMappings[];
   /**
    * @remarks
@@ -123,23 +95,10 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
    * false
    */
   isPublic?: boolean;
-  /**
-   * @remarks
-   * Indicates whether RDS Custom instances are supported. Valid values:
-   * 
-   * - **true**: Yes.
-   * - **false**: No.
-   * 
-   * @example
-   * true
-   */
   isSupportRdsCustom?: boolean;
   /**
    * @remarks
    * The display name of the operating system in Chinese.
-   * 
-   * @example
-   * Alibaba Cloud Linux  2.1903 LTS 64位 快速启动版
    */
   OSName?: string;
   /**
@@ -161,13 +120,6 @@ export class DescribeRCImageListResponseBodyImages extends $dara.Model {
    * linux
    */
   OSType?: string;
-  /**
-   * @remarks
-   * Operating system platform.
-   * 
-   * @example
-   * Aliyun
-   */
   platform?: string;
   /**
    * @remarks

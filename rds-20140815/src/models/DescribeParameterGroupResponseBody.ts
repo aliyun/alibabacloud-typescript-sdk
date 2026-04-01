@@ -191,6 +191,13 @@ export class DescribeParameterGroupResponseBodyRelatedCustinsInfo extends $dara.
 export class DescribeParameterGroupResponseBody extends $dara.Model {
   paramGroup?: DescribeParameterGroupResponseBodyParamGroup;
   relatedCustinsInfo?: DescribeParameterGroupResponseBodyRelatedCustinsInfo;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 498AE8CA-8C81-4A01-AF37-2B902014ED30
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBProxyEndpointAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 50F6C32B-DD73-4DA1-ADA2-0EAF2B0FCD8A
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -391,6 +391,7 @@ export { ListUserBackupFilesResponseBodyRecords } from './ListUserBackupFilesRes
 export { MigrateDBNodesRequestDBNode } from './MigrateDbnodesRequest';
 export { ModifyBackupPolicyRequestAdvancedDataPolicies } from './ModifyBackupPolicyRequest';
 export { ModifyBackupPolicyRequestAdvancedLogPolicies } from './ModifyBackupPolicyRequest';
+export { ModifyDBInstanceRequestDBNodes } from './ModifyDbinstanceRequest';
 export { ModifyDBInstanceEndpointRequestNodeItems } from './ModifyDbinstanceEndpointRequest';
 export { ModifyDBInstanceEndpointResponseBodyData } from './ModifyDbinstanceEndpointResponseBody';
 export { ModifyDBInstanceEndpointAddressResponseBodyData } from './ModifyDbinstanceEndpointAddressResponseBody';
@@ -1294,6 +1295,10 @@ export { ModifyCustinsResourceResponse } from './ModifyCustinsResourceResponse';
 export { ModifyDBDescriptionRequest } from './ModifyDbdescriptionRequest';
 export { ModifyDBDescriptionResponseBody } from './ModifyDbdescriptionResponseBody';
 export { ModifyDBDescriptionResponse } from './ModifyDbdescriptionResponse';
+export { ModifyDBInstanceRequest } from './ModifyDbinstanceRequest';
+export { ModifyDBInstanceShrinkRequest } from './ModifyDbinstanceShrinkRequest';
+export { ModifyDBInstanceResponseBody } from './ModifyDbinstanceResponseBody';
+export { ModifyDBInstanceResponse } from './ModifyDbinstanceResponse';
 export { ModifyDBInstanceAutoUpgradeMinorVersionRequest } from './ModifyDbinstanceAutoUpgradeMinorVersionRequest';
 export { ModifyDBInstanceAutoUpgradeMinorVersionResponseBody } from './ModifyDbinstanceAutoUpgradeMinorVersionResponseBody';
 export { ModifyDBInstanceAutoUpgradeMinorVersionResponse } from './ModifyDbinstanceAutoUpgradeMinorVersionResponse';

@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UnassociateEipAddressWithRCInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CDEAC7BF-D64B-54A1-9051-BE9AC0990E68
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

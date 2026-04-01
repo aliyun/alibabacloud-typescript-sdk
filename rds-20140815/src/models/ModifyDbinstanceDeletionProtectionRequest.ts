@@ -3,15 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstanceDeletionProtectionRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCzxxxxxxxxxx
+   */
   clientToken?: string;
   /**
    * @remarks
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   /**
    * @remarks
+   * Specifies whether to enable the release protection feature for the read-only instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * true
    */
   deletionProtection?: boolean;
   ownerAccount?: string;

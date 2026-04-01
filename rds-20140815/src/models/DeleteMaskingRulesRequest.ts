@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMaskingRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
-   * 
    * This parameter is required.
    * 
    * @example
@@ -14,18 +12,12 @@ export class DeleteMaskingRulesRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
-   * @remarks
-   * Database name
-   * 
    * @example
    * myDB
    */
   DBName?: string;
   ownerId?: string;
   /**
-   * @remarks
-   * Region ID
-   * 
    * @example
    * ap-southeast-1
    */
@@ -34,8 +26,6 @@ export class DeleteMaskingRulesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Name of the rule to delete
-   * 
    * This parameter is required.
    * 
    * @example

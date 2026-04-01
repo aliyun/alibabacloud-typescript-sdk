@@ -10,7 +10,7 @@ export class DescribeAnalyticdbByPrimaryDBInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5****
+   * rm-uf6wjk5*******
    */
   DBInstanceId?: string;
   ownerId?: number;

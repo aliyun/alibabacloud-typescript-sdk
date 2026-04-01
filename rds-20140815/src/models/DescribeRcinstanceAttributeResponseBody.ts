@@ -310,58 +310,10 @@ export class DescribeRCInstanceAttributeResponseBodySecurityGroupIds extends $da
 }
 
 export class DescribeRCInstanceAttributeResponseBodySystemDisk extends $dara.Model {
-  /**
-   * @remarks
-   * A backup parameter.
-   * 
-   * @example
-   * None
-   */
   deleteWithInstance?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to encrypt the disk. Valid values:
-   * 
-   * - **true**: Yes
-   * - **false**: No
-   * 
-   * @example
-   * false
-   */
   encrypted?: string;
-  /**
-   * @remarks
-   * The system disk category. Valid values:
-   * 
-   * - **cloud_efficiency**: ultra disk.
-   * - **cloud_ssd**: standard SSD.
-   * - **cloud_essd**: enterprise SSD (ESSD).
-   * - **cloud_auto**: premium performance disk.
-   * 
-   * @example
-   * cloud_essd
-   */
   systemDiskCategory?: string;
-  /**
-   * @remarks
-   * Performance level of the system disk when it is an enterprise SSD (ESSD). Valid values:
-   * 
-   * - **PL0**
-   * - **PL1**
-   * - **PL2**
-   * - **PL3**
-   * 
-   * @example
-   * PL1
-   */
   systemDiskPerformanceLevel?: string;
-  /**
-   * @remarks
-   * System disk size, in GiB.
-   * 
-   * @example
-   * 40
-   */
   systemDiskSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -533,16 +485,6 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $dara.
 }
 
 export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether auto-renewal is enabled for the instance. Valid values:
-   * 
-   * * **true**: Yes
-   * * **false**: No
-   * 
-   * @example
-   * false
-   */
   autoRenew?: boolean;
   /**
    * @remarks
@@ -562,16 +504,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * 4
    */
   cpu?: number;
-  /**
-   * @remarks
-   * Indicates whether the instance is added to an ACK cluster. Valid values:  
-   * 
-   * - **1**: Yes  
-   * - **0**: No
-   * 
-   * @example
-   * 0
-   */
   createMode?: number;
   /**
    * @remarks
@@ -590,16 +522,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    */
   creditSpecification?: string;
   dataDisks?: DescribeRCInstanceAttributeResponseBodyDataDisks;
-  /**
-   * @remarks
-   * The database type. Valid values:
-   * 
-   * - **mssql**: SQL Server
-   * - **mysql**: MySQL
-   * 
-   * @example
-   * mysql
-   */
   dbType?: string;
   /**
    * @remarks
@@ -609,15 +531,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * true
    */
   dedicatedHostAttribute?: DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute;
-  /**
-   * @remarks
-   * Whether deletion protection is enabled. Valid values:
-   * * **true**: Enabled
-   * * **false**: Disabled
-   * 
-   * @example
-   * false
-   */
   deletionProtection?: boolean;
   /**
    * @remarks
@@ -675,21 +588,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * 2024-08-10T00:00:00Z
    */
   expiredTime?: string;
-  /**
-   * @remarks
-   * Number of GPUs.
-   * 
-   * @example
-   * 2
-   */
   gpu?: number;
-  /**
-   * @remarks
-   * The GPU type.
-   * 
-   * @example
-   * NVIDIA V100
-   */
   gpuTypes?: string;
   /**
    * @remarks
@@ -719,15 +618,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    */
   imageId?: string;
   innerIpAddress?: DescribeRCInstanceAttributeResponseBodyInnerIpAddress;
-  /**
-   * @remarks
-   * Billing method. Valid values:
-   * * **PrePaid**: subscription
-   * * **PostPaid**: pay-as-you-go
-   * 
-   * @example
-   * PostPaid
-   */
   instanceChargeType?: string;
   /**
    * @remarks
@@ -820,13 +710,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * 8192
    */
   memory?: number;
-  /**
-   * @remarks
-   * The File Type. When the value is **rds_vnode**, it indicates that the node is a container node.
-   * 
-   * @example
-   * rds_vnode
-   */
   nodeType?: string;
   operationLocks?: DescribeRCInstanceAttributeResponseBodyOperationLocks;
   publicIpAddress?: DescribeRCInstanceAttributeResponseBodyPublicIpAddress;
@@ -846,13 +729,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * EA2D4F34-01A7-46EB-A339-D80882135206
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-aeky6z354ks****
-   */
   resourceGroupId?: string;
   securityGroupIds?: DescribeRCInstanceAttributeResponseBodySecurityGroupIds;
   /**
@@ -863,16 +739,6 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * b076f6ff-46d1-4234-a608-4e951ed6****
    */
   serialNumber?: string;
-  /**
-   * @remarks
-   * The spot strategy for pay-as-you-go instances. Valid values:
-   * 
-   * - **NoSpot**: Normal pay-as-you-go instance.
-   * - **SpotAsPriceGo**: The system automatically bids based on the current marketplace price.
-   * 
-   * @example
-   * NoSpot
-   */
   spotStrategy?: string;
   /**
    * @remarks
@@ -900,21 +766,8 @@ export class DescribeRCInstanceAttributeResponseBody extends $dara.Model {
    * Not-applicable
    */
   stoppedMode?: string;
-  /**
-   * @remarks
-   * System disk specifications.
-   */
   systemDisk?: DescribeRCInstanceAttributeResponseBodySystemDisk;
   tags?: DescribeRCInstanceAttributeResponseBodyTags;
-  /**
-   * @remarks
-   * The custom data of the instance, formatted as a base64-encoded string.
-   * 
-   * > If the instance does not have custom data, an empty string is returned.
-   * 
-   * @example
-   * IyEvYmluL3NoCmVjaG8gXCJIZWxsbyBXb3JsZC4gVGhlIHRpbWUgaXMgbm93ICQoZGF0ZSAtUikhXCIgfCB0ZWUgL3Jvb3QvdXNlcmRhdGFfdGVzdDA2MjB0d28udHh0
-   */
   userData?: string;
   /**
    * @remarks

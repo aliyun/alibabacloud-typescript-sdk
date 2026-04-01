@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePriceResponseBodyPriceInfoActivityInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Error description
+   */
   checkErrMsg?: string;
+  /**
+   * @remarks
+   * The error code that is returned.
+   * 
+   * @example
+   * 123456
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * Success
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -116,15 +137,68 @@ export class DescribePriceResponseBodyPriceInfoRuleIds extends $dara.Model {
 }
 
 export class DescribePriceResponseBodyPriceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the promotion.
+   */
   activityInfo?: DescribePriceResponseBodyPriceInfoActivityInfo;
   coupons?: DescribePriceResponseBodyPriceInfoCoupons;
+  /**
+   * @remarks
+   * The currency unit.
+   * 
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @remarks
+   * The discount.
+   * 
+   * @example
+   * 0
+   */
   discountPrice?: number;
+  /**
+   * @remarks
+   * The order information.
+   * 
+   * @example
+   * Order Information
+   */
   orderLines?: any;
+  /**
+   * @remarks
+   * The original price.
+   * 
+   * @example
+   * 2504
+   */
   originalPrice?: number;
   ruleIds?: DescribePriceResponseBodyPriceInfoRuleIds;
+  /**
+   * @remarks
+   * The estimated hourly cost that is calculated based on the maximum number of RCUs you specify.
+   * 
+   * @example
+   * 1**
+   */
   tradeMaxRCUAmount?: number;
+  /**
+   * @remarks
+   * The estimated hourly cost that is calculated based on the minimum number of RCUs you specify.
+   * 
+   * @example
+   * 2**
+   */
   tradeMinRCUAmount?: number;
+  /**
+   * @remarks
+   * The transaction price, which is equal to the original price minus the discount.
+   * 
+   * @example
+   * 2504
+   */
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -230,15 +304,85 @@ export class DescribePriceResponseBodyRules extends $dara.Model {
 }
 
 export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
+  /**
+   * @remarks
+   * The discount amount of the maximum number of RCUs.
+   * 
+   * @example
+   * 1**.*
+   */
   RCUDiscountMaxAmount?: number;
+  /**
+   * @remarks
+   * The discount amount of the minimum number of RCUs.
+   * 
+   * @example
+   * 1*.*
+   */
   RCUDiscountMinAmount?: number;
+  /**
+   * @remarks
+   * The price of the maximum number of RCUs.
+   * 
+   * @example
+   * 2**.*
+   */
   RCUOriginalMaxAmount?: number;
+  /**
+   * @remarks
+   * The price of the minimum number of RCUs.
+   * 
+   * @example
+   * 3*.*
+   */
   RCUOriginalMinAmount?: number;
+  /**
+   * @remarks
+   * The original price of the disk capacity.
+   * 
+   * @example
+   * 1*
+   */
   storageOriginalAmount?: number;
+  /**
+   * @remarks
+   * The maximum total price before the discount.
+   * 
+   * @example
+   * 2**.*
+   */
   totalOriginalMaxAmount?: number;
+  /**
+   * @remarks
+   * The minimum total price before the discount.
+   * 
+   * @example
+   * 2*.*
+   */
   totalOriginalMinAmount?: number;
+  /**
+   * @remarks
+   * The transaction price of the maximum number of RCUs.
+   * 
+   * @example
+   * 1**.*
+   */
   tradeMaxRCUAmount?: number;
+  /**
+   * @remarks
+   * The transaction price of the minimum number of RCUs.
+   * 
+   * @example
+   * 2*.*
+   */
   tradeMinRCUAmount?: number;
+  /**
+   * @remarks
+   * The discounted price of the disk capacity.
+   * 
+   * @example
+   * 2.*
+   */
   storageDiscountAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -280,13 +424,58 @@ export class DescribePriceResponseBodyServerlessPrice extends $dara.Model {
 }
 
 export class DescribePriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The order parameters.
+   * 
+   * >  If the **OrderParamOut** parameter is set to **true**, the value of the OrderParams parameter is returned.
+   * 
+   * @example
+   * {\\"autoPay\\":false}"
+   */
   orderParams?: string;
+  /**
+   * @remarks
+   * The price information.
+   */
   priceInfo?: DescribePriceResponseBodyPriceInfo;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * CA0ADDDC-0BEB-4381-A3ED-73B4C79B8CC6
+   */
   requestId?: string;
   rules?: DescribePriceResponseBodyRules;
+  /**
+   * @remarks
+   * The pricing information about a serverless RDS instance.
+   */
   serverlessPrice?: DescribePriceResponseBodyServerlessPrice;
+  /**
+   * @remarks
+   * Indicates whether discounts can be used.
+   * 
+   * @example
+   * True
+   */
   showDiscount?: boolean;
+  /**
+   * @remarks
+   * The estimated hourly fee that is calculated based on the maximum number of RCUs.
+   * 
+   * @example
+   * 2**
+   */
   tradeMaxRCUAmount?: number;
+  /**
+   * @remarks
+   * The estimated hourly fee that is calculated based on the minimum number of RCUs.
+   * 
+   * @example
+   * 1**
+   */
   tradeMinRCUAmount?: number;
   static names(): { [key: string]: string } {
     return {

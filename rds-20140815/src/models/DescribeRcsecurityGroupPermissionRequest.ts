@@ -6,11 +6,17 @@ export class DescribeRCSecurityGroupPermissionRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * sg-2ze27hs990o2hn94****
    */
   securityGroupId?: string;
   static names(): { [key: string]: string } {

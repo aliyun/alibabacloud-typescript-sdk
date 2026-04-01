@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceCLSRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
-   * 
    * This parameter is required.
    * 
    * @example

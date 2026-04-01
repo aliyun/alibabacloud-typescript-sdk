@@ -5,11 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLocalAvailableRecoveryTimeRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   region?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmy*****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

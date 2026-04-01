@@ -214,8 +214,35 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $da
 
 export class DescribeDBInstanceNetInfoResponseBody extends $dara.Model {
   DBInstanceNetInfos?: DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos;
+  /**
+   * @remarks
+   * The network type of the instance. Valid values:
+   * 
+   * *   **Classic**: classic network
+   * *   **VPC**: virtual private cloud (VPC)
+   * 
+   * @example
+   * VPC
+   */
   instanceNetworkType?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 777C4593-8053-427B-99E2-105593277CAB
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The whitelist mode of the instance. Valid values:
+   * 
+   * *   **normal**: standard whitelist mode
+   * *   **safety**: enhanced whitelist mode
+   * 
+   * @example
+   * safety
+   */
   securityIPMode?: string;
   static names(): { [key: string]: string } {
     return {

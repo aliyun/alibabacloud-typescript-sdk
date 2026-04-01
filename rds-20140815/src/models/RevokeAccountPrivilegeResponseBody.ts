@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RevokeAccountPrivilegeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * E22099CA-A61E-4992-A0B7-CE82DC175626
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

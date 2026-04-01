@@ -48,7 +48,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-wz9s06u4drm******
+   * rm-wz92gn1ll9fe5d3a4
    */
   DBInstanceId?: string;
   /**
@@ -144,7 +144,7 @@ export class DescribeCustinsResourceInfoResponseBodyData extends $dara.Model {
    * The memory increase percentage.
    * 
    * @example
-   * 20
+   * 2023-10-25
    */
   memoryIncreaseRatio?: string;
   /**

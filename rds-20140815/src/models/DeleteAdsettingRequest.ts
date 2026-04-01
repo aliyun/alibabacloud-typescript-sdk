@@ -3,16 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteADSettingRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz*****
+   */
   clientToken?: string;
   /**
    * @remarks
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rm-bp1k8s41l2o52****
    */
   DBInstanceId?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

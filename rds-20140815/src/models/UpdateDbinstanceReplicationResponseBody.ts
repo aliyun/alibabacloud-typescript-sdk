@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDBInstanceReplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 17F57FEE-EA4F-4337-8D2E-9C23CAA63D74

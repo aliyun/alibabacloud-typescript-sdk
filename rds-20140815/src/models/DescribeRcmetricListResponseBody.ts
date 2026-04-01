@@ -16,7 +16,7 @@ export class DescribeRCMetricListResponseBody extends $dara.Model {
    * The monitoring data.
    * 
    * @example
-   * [{\\"timestamp\\":1722909960000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988******\\",\\"Minimum\\":0.097,\\"Maximum\\":0.097,\\"Average\\":0.097},{\\"timestamp\\":1722910020000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988******\\",\\"Minimum\\":0.093,\\"Maximum\\":0.093,\\"Average\\":0.093}]
+   * [{\\"timestamp\\":1722909960000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988087373\\",\\"Minimum\\":0.097,\\"Maximum\\":0.097,\\"Average\\":0.097},{\\"timestamp\\":1722910020000,\\"instanceId\\":\\"rc-dh2jf9n6j4s14926****\\",\\"userId\\":\\"1695619988087373\\",\\"Minimum\\":0.093,\\"Maximum\\":0.093,\\"Average\\":0.093}]
    */
   datapoints?: string;
   /**
@@ -34,7 +34,7 @@ export class DescribeRCMetricListResponseBody extends $dara.Model {
    * The pagination token.
    * 
    * @example
-   * 6178f1825f9fb76ce0b5e8707e******
+   * 6178f1825f9fb76ce0b5e8707e68181f
    */
   nextToken?: string;
   /**

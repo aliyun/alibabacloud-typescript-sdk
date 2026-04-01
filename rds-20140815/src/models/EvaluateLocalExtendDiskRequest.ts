@@ -10,7 +10,7 @@ export class EvaluateLocalExtendDiskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-wz9s06u4drm******
+   * rm-m5e999iqm65******
    */
   DBInstanceName?: string;
   ownerId?: number;

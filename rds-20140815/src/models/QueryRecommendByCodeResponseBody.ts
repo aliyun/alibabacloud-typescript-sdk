@@ -31,7 +31,7 @@ export class QueryRecommendByCodeResponseBody extends $dara.Model {
    * *   **false**
    * 
    * @example
-   * true
+   * True
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -3,37 +3,68 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInvocationResultsShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * c-7d2a745b412b4601b2d47f6a768d****
+   */
   commandId?: string;
   /**
    * @example
-   * PlainText
+   * Base64
    */
   contentEncoding?: string;
+  /**
+   * @example
+   * false
+   */
   includeHistory?: boolean;
+  /**
+   * @example
+   * rc-i322y2t562oh7o******
+   */
   instanceId?: string;
+  /**
+   * @example
+   * t-7d2a745b412b4601b2d47f6a768d****
+   */
   invokeId?: string;
   /**
    * @example
    * Running
    */
   invokeRecordStatus?: string;
+  /**
+   * @example
+   * 10
+   */
   maxResults?: number;
+  /**
+   * @example
+   * AAAAAdDWBF2
+   */
   nextToken?: string;
   /**
    * @example
-   * 1
+   * None
    */
   pageNumber?: number;
   /**
    * @example
-   * 10
+   * None
    */
   pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * rg-acfmx****
+   */
   resourceGroupId?: string;
   tagShrink?: string;
   static names(): { [key: string]: string } {

@@ -86,9 +86,37 @@ export class DescribeEventsResponseBodyEventItems extends $dara.Model {
 
 export class DescribeEventsResponseBody extends $dara.Model {
   eventItems?: DescribeEventsResponseBodyEventItems;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 30
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A103039D-B1B2-4C57-B989-7D7C0DA95426
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 40
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBInstanceReplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the replication channel, used to identify the replication link.
+   * 复制通道名称，用于标识需要删除的复制链路
    * 
    * @example
    * replication-channel-001
@@ -13,7 +13,7 @@ export class DeleteDBInstanceReplicationRequest extends $dara.Model {
   channelName?: string;
   /**
    * @remarks
-   * Instance ID. You can invoke DescribeDBInstances to obtain it.
+   * 目标RDS实例ID，复制链路将从此实例上删除
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class DeleteDBInstanceReplicationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Region ID. You can invoke DescribeRegions to obtain it.
+   * 地域ID，表示RDS实例所在的地域
    * 
    * This parameter is required.
    * 

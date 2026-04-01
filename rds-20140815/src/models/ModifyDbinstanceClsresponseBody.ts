@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDBInstanceCLSResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Request ID
-   * 
    * @example
    * 2144F5CC-10C5-3B72-8C74-E5***********
    */

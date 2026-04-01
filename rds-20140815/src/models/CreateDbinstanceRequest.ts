@@ -227,7 +227,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * A deprecated parameter. You do not need to specify this parameter.
    * 
    * @example
-   * 0
+   * false
    */
   bpeEnabled?: string;
   /**
@@ -280,7 +280,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCz****
+   * ETnLKlblzczshOTUbOCz*****
    */
   clientToken?: string;
   /**
@@ -316,7 +316,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * The internal endpoint that is used to connect to the instance.
    * 
    * @example
-   * rm-uf6wjk5****.mysql.rds.aliyuncs.com
+   * rm-uf6wjk5*****.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
@@ -346,7 +346,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * mysql.n2.medium.2c
+   * rds.mysql.s1.small
    */
   DBInstanceClass?: string;
   /**
@@ -356,7 +356,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * >  The value cannot start with http:// or https://.
    * 
    * @example
-   * testInstance
+   * Test database
    */
   DBInstanceDescription?: string;
   /**
@@ -366,7 +366,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Intranet
+   * Internet
    */
   DBInstanceNetType?: string;
   /**
@@ -398,7 +398,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * >  Serverless instances support only PL1 ESSDs and Premium ESSDs.
    * 
    * @example
-   * general_essd
+   * cloud_essd
    */
   DBInstanceStorageType?: string;
   /**
@@ -419,7 +419,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * >  This parameter is available if you want to create an instance that runs MySQL or PostgreSQL. If you do not configure this parameter, the default parameter template is used. If you want to use a custom parameter template, you can customize a parameter template and set this parameter to the ID of the custom template.
    * 
    * @example
-   * rpg-sys-****
+   * rpg-sys-*****
    */
   DBParamGroupId?: string;
   /**
@@ -453,7 +453,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * *   If no dedicated clusters are created, you can call the CreateDedicatedHostGroup operation to create a dedicated cluster.
    * 
    * @example
-   * dhg-4n****
+   * dhg-4n*****
    */
   dedicatedHostGroupId?: string;
   /**
@@ -539,18 +539,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 8.0
+   * 5.6
    */
   engineVersion?: string;
-  /**
-   * @remarks
-   * Enable or disable [RDS MySQL native replication](https://help.aliyun.com/document_detail/2856526.html). Valid values:
-   * - **ON**: Enabled.
-   * - **OFF**: Disabled.
-   * 
-   * @example
-   * ON
-   */
   externalReplication?: boolean;
   /**
    * @remarks
@@ -568,7 +559,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engines, you must set this parameter to **VPC**.
    * 
    * @example
-   * VPC
+   * Classic
    */
   instanceNetworkType?: string;
   /**
@@ -668,7 +659,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-acfmy****
+   * rg-acfmy*****
    */
   resourceGroupId?: string;
   resourceOwnerId?: number;
@@ -679,7 +670,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * >  When you enable the encryption, you must specify the RoleARN.
    * 
    * @example
-   * acs:ram::1406****:role/aliyunrdsinstanceencryptiondefaultrole
+   * acs:ram::1406xxxxxx:role/aliyunrdsinstanceencryptiondefaultrole
    */
   roleARN?: string;
   /**
@@ -765,7 +756,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
    * 
    * @example
-   * i-bp****
+   * i-bp*****3
    */
   targetDedicatedHostIdForLog?: string;
   /**
@@ -778,7 +769,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
    * 
    * @example
-   * i-bp****
+   * i-bp*****1
    */
   targetDedicatedHostIdForMaster?: string;
   /**
@@ -791,7 +782,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * *   If no hosts are created, you can call the CreateDedicatedHost operation to create a host.
    * 
    * @example
-   * i-bp****
+   * i-bp*****2
    */
   targetDedicatedHostIdForSlave?: string;
   /**
@@ -842,7 +833,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * *   The **Category** parameter is set to **Basic**.
    * 
    * @example
-   * 67798****
+   * 67798*****
    */
   userBackupId?: string;
   /**
@@ -852,7 +843,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * > This parameter is available when you set the **InstanceNetworkType** parameter to **VPC**.
    * 
    * @example
-   * vpc-****
+   * vpc-*****
    */
   VPCId?: string;
   /**
@@ -865,7 +856,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * *   **Limits on characters**: The value cannot contain `spaces` or the following characters: `!` `#` `￥` `&` `%`
    * 
    * @example
-   * vsw-****
+   * vsw-*****
    */
   vSwitchId?: string;
   /**
@@ -873,7 +864,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * The entries in the whitelist. If you enter multiple IP addresses or CIDR blocks, you must separate the IP addresses or CIDR blocks with commas (,). Do not add spaces preceding or following the commas. Example: `192.168.0.1,172.16.213.9`.
    * 
    * @example
-   * 192.168.0.1,172.16.213.9
+   * 192.XXX.XX.1,172.XXX.XX.9
    */
   whitelistTemplateList?: string;
   /**

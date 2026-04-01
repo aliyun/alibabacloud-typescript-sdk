@@ -5,13 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBNodesRequestDBNode extends $dara.Model {
   /**
    * @remarks
+   * The specification information of the node.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * mysql.n2.medium.xc
    */
   classCode?: string;
+  /**
+   * @remarks
+   * The vSwitch ID of the node.
+   * 
+   * @example
+   * vsw-bp1sxxsodv28ey5dl****
+   */
   vswitchId?: string;
   /**
    * @remarks
+   * The ID of the zone in which the node is deployed.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-zhangjiakou-a
    */
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -40,19 +57,42 @@ export class CreateDBNodesRequestDBNode extends $dara.Model {
 }
 
 export class CreateDBNodesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * 
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
   clientToken?: string;
   /**
    * @remarks
+   * The instance ID You can call the DescribeDBInstances operation to query the instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rm-2ze450g4ctg6t****
    */
   DBInstanceId?: string;
   /**
    * @remarks
+   * The details of the node.
+   * 
    * This parameter is required.
    */
   DBNode?: CreateDBNodesRequestDBNode[];
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+   * 
+   * @example
+   * rg-acfmy*****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

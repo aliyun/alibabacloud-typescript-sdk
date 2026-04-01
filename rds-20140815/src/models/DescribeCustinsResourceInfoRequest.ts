@@ -10,7 +10,7 @@ export class DescribeCustinsResourceInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-wz9s06u4drm******
+   * rm-wz9s06u4drmqj4aqv
    */
   DBInstanceIds?: string;
   ownerId?: number;

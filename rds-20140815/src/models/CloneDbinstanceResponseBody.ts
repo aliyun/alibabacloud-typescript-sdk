@@ -8,7 +8,7 @@ export class CloneDBInstanceResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5****
+   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   /**
@@ -24,7 +24,7 @@ export class CloneDBInstanceResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 1E43AAE0-BEE8-43DA-860D-EAF2****
+   * 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
    */
   requestId?: string;
   static names(): { [key: string]: string } {

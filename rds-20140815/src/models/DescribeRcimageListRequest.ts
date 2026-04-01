@@ -14,29 +14,8 @@ export class DescribeRCImageListRequest extends $dara.Model {
    * x86_64
    */
   architecture?: string;
-  /**
-   * @remarks
-   * Image ID.
-   * 
-   * @example
-   * m-2oqiu973jwcxe****
-   */
   imageId?: string;
-  /**
-   * @remarks
-   * Image Name.
-   * 
-   * @example
-   * test_image_name
-   */
   imageName?: string;
-  /**
-   * @remarks
-   * Query images that can be used for the specified instance type.
-   * 
-   * @example
-   * mysql.x2.xlarge.6cm
-   */
   instanceType?: string;
   /**
    * @remarks

@@ -5,17 +5,36 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAccountPasswordRequest extends $dara.Model {
   /**
    * @remarks
+   * The username of the account.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test1
    */
   accountName?: string;
   /**
    * @remarks
+   * The new password.
+   * 
+   * > *   The value must be 8 to 32 characters in length.
+   * > *   The value must contain at least three types of the following characters: uppercase letters, lowercase letters, digits, and special characters.
+   * > *   The following special characters are supported: ! @ # $ & % ^ \\* ( ) _ + - =
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Test123456
    */
   accountPassword?: string;
   /**
    * @remarks
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   ownerAccount?: string;

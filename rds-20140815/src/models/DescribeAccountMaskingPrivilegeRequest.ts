@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccountMaskingPrivilegeRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID
-   * 
    * This parameter is required.
    * 
    * @example
@@ -14,18 +12,12 @@ export class DescribeAccountMaskingPrivilegeRequest extends $dara.Model {
    */
   DBInstanceName?: string;
   /**
-   * @remarks
-   * Database name
-   * 
    * @example
    * myDB
    */
   DBName?: string;
   ownerId?: string;
   /**
-   * @remarks
-   * Region ID
-   * 
    * @example
    * ap-southeast-1
    */
@@ -33,9 +25,6 @@ export class DescribeAccountMaskingPrivilegeRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
-   * @remarks
-   * Account name. You can specify a particular account to query.
-   * 
    * @example
    * rds
    */

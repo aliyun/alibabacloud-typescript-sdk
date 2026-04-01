@@ -5,13 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyActionEventPolicyRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the event history feature. Valid values:
+   * 
+   * *   **True**
+   * *   **False**
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * True
    */
   enableEventLog?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;

@@ -8,6 +8,10 @@ export class CheckRdsCustomInitResponseBody extends $dara.Model {
    * true
    */
   hasServiceLinkedRole?: string;
+  /**
+   * @example
+   * true
+   */
   registerUidSuccess?: boolean;
   /**
    * @example

@@ -58,12 +58,54 @@ export class DescribeCrossBackupMetaListResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeCrossBackupMetaListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance to which the cross-region backup file belongs.
+   * 
+   * @example
+   * rm-uf6wjk5xxxxxxx
+   */
   DBInstanceName?: string;
   items?: DescribeCrossBackupMetaListResponseBodyItems;
+  /**
+   * @remarks
+   * The page number of the returned page.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 1
+   */
   pageRecordCount?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 60F9A12A-16B8-4728-B099-4CA38D32C31C
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPageCount?: number;
+  /**
+   * @remarks
+   * The total number of returned entries.
+   * 
+   * @example
+   * 1
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {

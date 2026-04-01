@@ -62,6 +62,13 @@ export class CalculateDBInstanceWeightResponseBodyItems extends $dara.Model {
 
 export class CalculateDBInstanceWeightResponseBody extends $dara.Model {
   items?: CalculateDBInstanceWeightResponseBodyItems;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C816A4BF-A6EC-4722-95F9-2055859CCFD2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

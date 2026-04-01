@@ -5,12 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ReleaseInstancePublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
+   * The public endpoint. You can call the DescribeDBInstanceNetInfo operation to query the public endpoint.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rm-uf6wjk5xxxx.mysql.rds.aliyuncs.com
    */
   currentConnectionString?: string;
   /**
    * @remarks
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   ownerAccount?: string;

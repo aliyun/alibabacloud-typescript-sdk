@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -14,17 +12,12 @@ export class CreateImportTaskRequest extends $dara.Model {
    */
   dbInstanceId?: string;
   /**
-   * @remarks
-   * Estimated data space, in GB
-   * 
    * @example
    * 1000
    */
   estimatedSize?: number;
   /**
    * @remarks
-   * The source MySQL host IP address. RDS will access this IP address to retrieve the backup.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -34,8 +27,6 @@ export class CreateImportTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The Password of the source MySQL Account, which must be Base64-encoded.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -44,8 +35,6 @@ export class CreateImportTaskRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Source MySQL port
-   * 
    * This parameter is required.
    * 
    * @example
@@ -54,8 +43,6 @@ export class CreateImportTaskRequest extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The Region ID. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) to obtain it.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -63,25 +50,17 @@ export class CreateImportTaskRequest extends $dara.Model {
    */
   regionId?: string;
   /**
-   * @remarks
-   * The source cloud instance ID.
-   * 
    * @example
    * i-bp1fe296n52ub3chezpg
    */
   sourceInstanceId?: string;
   /**
-   * @remarks
-   * Source cloud instance type
-   * 
    * @example
    * ECS
    */
   sourcePlatform?: string;
   /**
    * @remarks
-   * Stream port used for backup transmission
-   * 
    * This parameter is required.
    * 
    * @example
@@ -90,22 +69,6 @@ export class CreateImportTaskRequest extends $dara.Model {
   streamPort?: number;
   /**
    * @remarks
-   * Source MySQL account, which must have permissions to create backups and set up replication. Refer to the following SQL for granting permissions:  
-   * ```  
-   * -- MySQL 5.7  
-   * mysql> CREATE USER \\"myadmin\\"@\\"%\\" IDENTIFIED BY \\"s3cret\\";  
-   * mysql> GRANT RELOAD, LOCK TABLES, PROCESS, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO  
-   *        \\"myadmin\\"@\\"%\\";  
-   * mysql> FLUSH PRIVILEGES;  
-   * -- MySQL 8.0  
-   * mysql> CREATE USER \\"myadmin\\"@\\"%\\" IDENTIFIED BY \\"Test123!\\";  
-   * mysql> GRANT BACKUP_ADMIN, PROCESS, RELOAD, LOCK TABLES, REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO \\"myadmin\\"@\\"%\\";  
-   * mysql> GRANT SELECT ON performance_schema.log_status TO \\"myadmin\\"@\\"%\\";  
-   * mysql> GRANT SELECT ON performance_schema.keyring_component_status TO myadmin@\\"%\\";  
-   * mysql> GRANT SELECT ON performance_schema.replication_group_members TO myadmin@\\"%\\";  
-   * mysql> FLUSH PRIVILEGES;  
-   * ```
-   * 
    * This parameter is required.
    * 
    * @example
@@ -113,9 +76,6 @@ export class CreateImportTaskRequest extends $dara.Model {
    */
   user?: string;
   /**
-   * @remarks
-   * Installation path of xtrabackup on the source
-   * 
    * @example
    * /usr/bin/xtrabackup
    */

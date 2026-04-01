@@ -3,10 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstanceTypesShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The commodity code of the instance.
+   * 
+   * @example
+   * rds_customprepaid_public_cn
+   */
   commodityCode?: string;
+  /**
+   * @remarks
+   * The database engine. Set the value to MySQL.
+   * 
+   * @example
+   * MySQL
+   */
   engine?: string;
+  /**
+   * @remarks
+   * The instance types.
+   */
   instanceTypeShrink?: string;
+  /**
+   * @remarks
+   * The instance family. You can call the **DescribeRCInstanceTypeFamilies** operation to query the instance families of instances.
+   * 
+   * @example
+   * gn8.cm
+   */
   instanceTypeFamily?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -172,9 +172,37 @@ export class DescribeSQLLogReportListResponseBodyItems extends $dara.Model {
 
 export class DescribeSQLLogReportListResponseBody extends $dara.Model {
   items?: DescribeSQLLogReportListResponseBodyItems;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of SQL log reports on the current page.
+   * 
+   * @example
+   * 30
+   */
   pageRecordCount?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries.
+   * 
+   * @example
+   * 60
+   */
   totalRecordCount?: number;
   static names(): { [key: string]: string } {
     return {

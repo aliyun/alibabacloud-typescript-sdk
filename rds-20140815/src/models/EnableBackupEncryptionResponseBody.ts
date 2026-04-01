@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EnableBackupEncryptionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * rm-wz951f7f******
+   */
   DBInstanceId?: string;
+  /**
+   * @example
+   * FCA65FA6-658A-5C43-96F4-D************
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

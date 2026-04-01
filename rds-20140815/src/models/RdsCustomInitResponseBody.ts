@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RdsCustomInitResponseBody extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   registerUidSuccess?: boolean;
   /**
    * @example

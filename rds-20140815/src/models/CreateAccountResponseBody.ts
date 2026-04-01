@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAccountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * D4D4BE8A-DD46-440A-BFCD-EE31DA81C9DD
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

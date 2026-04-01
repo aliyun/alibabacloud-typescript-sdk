@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstancePayTypeResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 100789370230206
+   */
   orderId?: number;
   static names(): { [key: string]: string } {
     return {

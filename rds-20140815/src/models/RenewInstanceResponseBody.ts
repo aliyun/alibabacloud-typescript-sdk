@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RenewInstanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 201815745430941
+   */
   orderId?: number;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

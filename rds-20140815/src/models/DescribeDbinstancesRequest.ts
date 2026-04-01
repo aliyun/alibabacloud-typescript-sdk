@@ -21,7 +21,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
-   * ETnLKlblzczshOTUbOCz****
+   * ETnLKlblzczshOTUbOCzxxxxxxx
    */
   clientToken?: string;
   /**
@@ -42,7 +42,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The endpoint of the instance. You must specify this parameter only when you want to query a single instance.
    * 
    * @example
-   * rm-uf6wjk5****.mysql.rds.aliyuncs.com
+   * rm-uf6wjk5xxxxxxx.mysql.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
@@ -58,7 +58,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rm-uf6wjk5****
+   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   /**
@@ -89,7 +89,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The dedicated cluster ID.
    * 
    * @example
-   * dhg-7a9****
+   * dhg-7a9xxxxxxxx
    */
   dedicatedHostGroupId?: string;
   /**
@@ -97,7 +97,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The host ID of the instance in the dedicated cluster.
    * 
    * @example
-   * i-bp****
+   * i-bpxxxxxxx
    */
   dedicatedHostId?: string;
   /**
@@ -120,7 +120,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The database engine version.
    * 
    * @example
-   * 8.0
+   * 5.7
    */
   engineVersion?: string;
   /**
@@ -183,7 +183,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The token that is used to display the next page. You must set this parameter to the value that is returned from the most recent call of the **DescribeDBInstances** operation for **NextToken**. If the returned entries are displayed on multiple pages, the next page can be displayed when you call this operation again with this parameter specified.
    * 
    * @example
-   * o7PORW5o2TJg****
+   * o7PORW5o2TJg**********
    */
   nextToken?: string;
   ownerAccount?: string;
@@ -219,13 +219,6 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * Postpaid
    */
   payType?: string;
-  /**
-   * @remarks
-   * Reserved parameter. No configuration is required.
-   * 
-   * @example
-   * test
-   */
   queryAutoRenewal?: boolean;
   /**
    * @remarks
@@ -242,7 +235,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-acfmy****
+   * rg-acfmyxxxxx
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
@@ -268,7 +261,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The vSwitch ID.
    * 
    * @example
-   * vsw-uf6adz52c2p****
+   * vsw-uf6adz52c2pxxxxxxxxxx
    */
   vSwitchId?: string;
   /**
@@ -276,7 +269,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The VPC ID.
    * 
    * @example
-   * vpc-uf6f7l4fg90****
+   * vpc-uf6f7l4fg90xxxxxxxxxx
    */
   vpcId?: string;
   /**

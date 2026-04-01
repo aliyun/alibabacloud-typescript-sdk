@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyRCInstanceNetworkSpecResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8F347CA3-D6AB-5045-9026-24578801F781
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

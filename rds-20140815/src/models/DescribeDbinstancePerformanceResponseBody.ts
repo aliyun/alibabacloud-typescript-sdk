@@ -116,11 +116,46 @@ export class DescribeDBInstancePerformanceResponseBodyPerformanceKeys extends $d
 }
 
 export class DescribeDBInstancePerformanceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-uf6wjk5xxxxxxxxxx
+   */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The end time of the query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * 
+   * @example
+   * 2012-06-19T15:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The database engine of the instance.
+   * 
+   * @example
+   * MySQL
+   */
   engine?: string;
   performanceKeys?: DescribeDBInstancePerformanceResponseBodyPerformanceKeys;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * A5409D02-D661-4BF3-8F3D-0A814D0574E7
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The start time of the query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * 
+   * @example
+   * 2012-06-10T15:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {

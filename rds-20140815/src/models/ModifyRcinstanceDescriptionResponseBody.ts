@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyRCInstanceDescriptionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CCECD3CD-AB2D-4F6D-BEDE-47BC90A398D2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

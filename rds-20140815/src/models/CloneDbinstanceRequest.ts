@@ -133,7 +133,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * A reserved parameter. You do not need to specify this parameter.
    * 
    * @example
-   * 0
+   * false
    */
   bpeEnabled?: string;
   /**
@@ -202,7 +202,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5****
+   * rm-uf6wjk5xxxxxxxxxx
    */
   DBInstanceId?: string;
   /**
@@ -229,7 +229,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * >  Serverless instances support only PL1 ESSDs and general ESSDs.
    * 
    * @example
-   * general_essd
+   * cloud_essd
    */
   DBInstanceStorageType?: string;
   /**
@@ -245,7 +245,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * The ID of the dedicated cluster.
    * 
    * @example
-   * dhg-7a9****
+   * dhg-7a9xxxxxxxx
    */
   dedicatedHostGroupId?: string;
   /**
@@ -277,7 +277,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * A reserved parameter.
    * 
    * @example
-   * 0
+   * None
    */
   ioAccelerationEnabled?: string;
   /**
@@ -312,7 +312,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * The internal IP address of the new instance, which must be within the CIDR block supported by the specified vSwitch. The system automatically assigns an internal IP address based on the values of the **VPCId** and **VSwitchId** parameters.
    * 
    * @example
-   * 172.XX.XX.69
+   * 172.XX.XXX.69
    */
   privateIpAddress?: string;
   /**
@@ -377,7 +377,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * >  Make sure that the VPC belongs to the required region.
    * 
    * @example
-   * vpc-uf6f7l4fg90****
+   * vpc-uf6f7l4fg90xxxxxxxxxx
    */
   VPCId?: string;
   /**
@@ -388,7 +388,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * *   If you specify the **ZoneSlaveId1** parameter, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
    * 
    * @example
-   * vsw-uf6adz52c2p****
+   * vsw-uf6adz52c2pxxxxxxxxxx
    */
   vSwitchId?: string;
   /**

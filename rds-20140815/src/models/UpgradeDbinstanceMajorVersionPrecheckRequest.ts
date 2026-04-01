@@ -21,20 +21,9 @@ export class UpgradeDBInstanceMajorVersionPrecheckRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 17.0
+   * 12.0
    */
   targetMajorVersion?: string;
-  /**
-   * @remarks
-   * Upgrade mode. Valid values:  
-   * 
-   * - **zeroDownTimeUpgrade**: Zero downtime.  
-   * - **inPlaceUpgrade**: In-place upgrade.  
-   * - **greenBlueDeployment**: Blue-green deployment.
-   * 
-   * @example
-   * zeroDownTimeUpgrade
-   */
   upgradeMode?: string;
   static names(): { [key: string]: string } {
     return {

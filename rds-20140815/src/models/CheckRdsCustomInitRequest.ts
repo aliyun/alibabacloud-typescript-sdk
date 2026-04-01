@@ -13,7 +13,7 @@ export class CheckRdsCustomInitRequest extends $dara.Model {
   regionId?: string;
   /**
    * @example
-   * rg-bp67acfmxazb4p****
+   * None
    */
   resourceGroupId?: string;
   /**

@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CheckBackupEncryptionAuthorizedResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   authorizationState?: string;
+  /**
+   * @example
+   * CB07C463-7428-50AA-9E39-********
+   */
   requestId?: string;
+  /**
+   * @example
+   * acs:ram::1139916************:role/AliyunServiceRoleForRdsBackupEncryption
+   */
   roleARN?: string;
   static names(): { [key: string]: string } {
     return {

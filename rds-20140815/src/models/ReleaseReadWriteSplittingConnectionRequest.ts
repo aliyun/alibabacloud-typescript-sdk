@@ -10,7 +10,7 @@ export class ReleaseReadWriteSplittingConnectionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * rm-uf6wjk5****
+   * rm-uf6wjk5xxxxxxx
    */
   DBInstanceId?: string;
   ownerAccount?: string;

@@ -3,16 +3,60 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyRCSecurityGroupPermissionRequest extends $dara.Model {
+  /**
+   * @example
+   * 172.16.0.0/24
+   */
   destCidrIp?: string;
+  /**
+   * @example
+   * ingress
+   */
   direction?: string;
+  /**
+   * @example
+   * TCP
+   */
   ipProtocol?: string;
+  /**
+   * @example
+   * Accept
+   */
   policy?: string;
+  /**
+   * @example
+   * 80/80
+   */
   portRange?: string;
+  /**
+   * @example
+   * 1
+   */
   priority?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * sg-2ze27hs990o2hn9****
+   */
   securityGroupId?: string;
+  /**
+   * @example
+   * sgr-uf6ffg4du0e9jis2****
+   */
   securityGroupRuleId?: string;
+  /**
+   * @example
+   * 192.168.0.0/0
+   */
   sourceCidrIp?: string;
+  /**
+   * @example
+   * 80/80
+   */
   sourcePortRange?: string;
   static names(): { [key: string]: string } {
     return {

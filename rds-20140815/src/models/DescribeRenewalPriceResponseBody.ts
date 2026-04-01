@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRenewalPriceResponseBodyPriceInfoActivityInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * Error description
+   */
   checkErrMsg?: string;
+  /**
+   * @remarks
+   * The error code that is returned.
+   * 
+   * @example
+   * 123456
+   */
   errorCode?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * Success
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -116,12 +137,44 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRuleIds extends $dara.Mode
 }
 
 export class DescribeRenewalPriceResponseBodyPriceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the promotion.
+   */
   activityInfo?: DescribeRenewalPriceResponseBodyPriceInfoActivityInfo;
   coupons?: DescribeRenewalPriceResponseBodyPriceInfoCoupons;
+  /**
+   * @remarks
+   * The currency unit.
+   * 
+   * @example
+   * CNY
+   */
   currency?: string;
+  /**
+   * @remarks
+   * The discount.
+   * 
+   * @example
+   * 27
+   */
   discountPrice?: number;
+  /**
+   * @remarks
+   * The original price.
+   * 
+   * @example
+   * 138
+   */
   originalPrice?: number;
   ruleIds?: DescribeRenewalPriceResponseBodyPriceInfoRuleIds;
+  /**
+   * @remarks
+   * The transaction price, which is equal to the original price minus the discount.
+   * 
+   * @example
+   * 111
+   */
   tradePrice?: number;
   static names(): { [key: string]: string } {
     return {
@@ -221,7 +274,18 @@ export class DescribeRenewalPriceResponseBodyRules extends $dara.Model {
 }
 
 export class DescribeRenewalPriceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of price information.
+   */
   priceInfo?: DescribeRenewalPriceResponseBodyPriceInfo;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * DC9F4EF6-D038-4405-B497-1F48E722C9F2
+   */
   requestId?: string;
   rules?: DescribeRenewalPriceResponseBodyRules;
   static names(): { [key: string]: string } {

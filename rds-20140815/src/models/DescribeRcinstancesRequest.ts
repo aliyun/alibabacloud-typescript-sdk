@@ -4,13 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRCInstancesRequest extends $dara.Model {
   description?: string;
-  /**
-   * @remarks
-   * Query by instance host IP address.
-   * 
-   * @example
-   * 172.16.XX.XX
-   */
   hostIp?: string;
   imageId?: string;
   /**
@@ -18,25 +11,11 @@ export class DescribeRCInstancesRequest extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * rc-i2p26bde8bckf141****
+   * rm-2ze704f*****
    */
   instanceId?: string;
-  /**
-   * @remarks
-   * Instance ID.
-   * 
-   * This parameter is used to query multiple instances simultaneously. Separate instance IDs with English commas (,), and up to 100 IDs are supported. The input format is: `["instance ID 1","instance ID 2"]`.
-   * 
-   * > When both **InstanceIds** and **instanceId** are provided, the value of **InstanceIds** takes precedence.
-   * 
-   * @example
-   * ["rc-i2p26bde8bckf141****","rc-l1753m982otq2s2m****"]
-   */
   instanceIds?: string;
   /**
-   * @remarks
-   * Instance Name
-   * 
    * @example
    * k8s-node
    */
@@ -65,13 +44,6 @@ export class DescribeRCInstancesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * Query by instance public IP address.
-   * 
-   * @example
-   * 121.89.XX.XX
-   */
   publicIp?: string;
   /**
    * @remarks
@@ -81,27 +53,7 @@ export class DescribeRCInstancesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * Instance status. Valid values:  
-   * 
-   * - **Pending**: Creation in progress.  
-   * - **Running**: Running.  
-   * - **Starting**: Starting.  
-   * - **Stopping**: Pausing.  
-   * - **Stopped**: Paused.
-   * 
-   * @example
-   * Running
-   */
   status?: string;
-  /**
-   * @remarks
-   * Query by specified tag. The input format is: `{"TagKey":"TagValue"}`.
-   * 
-   * @example
-   * {"testRC":"test01"}
-   */
   tag?: string;
   /**
    * @remarks

@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMaskingRulesResponseBodyDataRulesRuleConfig extends $dara.Model {
-  /**
-   * @remarks
-   * List of columns
-   */
   columns?: string[];
-  /**
-   * @remarks
-   * List of databases
-   */
   databases?: string[];
-  /**
-   * @remarks
-   * Table List
-   */
   tables?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -54,39 +42,23 @@ export class DescribeMaskingRulesResponseBodyDataRulesRuleConfig extends $dara.M
 
 export class DescribeMaskingRulesResponseBodyDataRules extends $dara.Model {
   /**
-   * @remarks
-   * Default encryption or masking algorithm
-   * 
    * @example
    * aes-128-gcm
    */
   defaultAlgo?: string;
   /**
-   * @remarks
-   * Whether the rule is enabled
-   * 
    * @example
    * true
    */
   enabled?: string;
   /**
-   * @remarks
-   * Rule algorithm. Multiple algorithms can be selected. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, number of encrypted digits}}
-   * 
    * @example
    * [{"name": "aes-128-gcm"},
    *         {"name":"sm4-128-gcm"}]
    */
   maskingAlgo?: string;
-  /**
-   * @remarks
-   * Rule configuration
-   */
   ruleConfig?: DescribeMaskingRulesResponseBodyDataRulesRuleConfig;
   /**
-   * @remarks
-   * Rule Name
-   * 
    * @example
    * test
    */
@@ -124,10 +96,6 @@ export class DescribeMaskingRulesResponseBodyDataRules extends $dara.Model {
 }
 
 export class DescribeMaskingRulesResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * List of encryption or desensitization rules
-   */
   rules?: DescribeMaskingRulesResponseBodyDataRules[];
   static names(): { [key: string]: string } {
     return {
@@ -154,15 +122,8 @@ export class DescribeMaskingRulesResponseBodyData extends $dara.Model {
 }
 
 export class DescribeMaskingRulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Returned data
-   */
   data?: DescribeMaskingRulesResponseBodyData;
   /**
-   * @remarks
-   * Request ID
-   * 
    * @example
    * 69779000-57A4-38F6-BF85-**********A2
    */

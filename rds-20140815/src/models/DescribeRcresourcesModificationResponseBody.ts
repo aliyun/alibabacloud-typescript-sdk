@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCResourcesModificationResponseBodyAvailableZonesAvailableResourcesSupportedResources extends $dara.Model {
+  /**
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @example
+   * WithStock
+   */
   statusCategory?: string;
+  /**
+   * @example
+   * mysql.x4.4xlarge.7cm
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,6 +45,10 @@ export class DescribeRCResourcesModificationResponseBodyAvailableZonesAvailableR
 
 export class DescribeRCResourcesModificationResponseBodyAvailableZonesAvailableResources extends $dara.Model {
   supportedResources?: DescribeRCResourcesModificationResponseBodyAvailableZonesAvailableResourcesSupportedResources[];
+  /**
+   * @example
+   * InstanceType
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -62,9 +78,25 @@ export class DescribeRCResourcesModificationResponseBodyAvailableZonesAvailableR
 
 export class DescribeRCResourcesModificationResponseBodyAvailableZones extends $dara.Model {
   availableResources?: DescribeRCResourcesModificationResponseBodyAvailableZonesAvailableResources[];
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @example
+   * WithStock
+   */
   statusCategory?: string;
+  /**
+   * @example
+   * cn-hangzhou-e
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -100,6 +132,10 @@ export class DescribeRCResourcesModificationResponseBodyAvailableZones extends $
 
 export class DescribeRCResourcesModificationResponseBody extends $dara.Model {
   availableZones?: DescribeRCResourcesModificationResponseBodyAvailableZones[];
+  /**
+   * @example
+   * 473469C7-AA6F-4DC5-B3DB-xxxxxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -55,9 +55,30 @@ export class DescribeDTCSecurityIpHostsForSQLServerResponseBodyItems extends $da
 }
 
 export class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-uf6wjk5xxxxxxx
+   */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The number of distributed transaction whitelists.
+   * 
+   * @example
+   * 1
+   */
   ipHostPairNum?: string;
   items?: DescribeDTCSecurityIpHostsForSQLServerResponseBodyItems;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2CA62A70-2203-45C6-8E90-8971D5ACC0C2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

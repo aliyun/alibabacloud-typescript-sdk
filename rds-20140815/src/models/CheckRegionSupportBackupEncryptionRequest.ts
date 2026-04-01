@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CheckRegionSupportBackupEncryptionRequest extends $dara.Model {
+  /**
+   * @example
+   * rm-wz91q53f9*******
+   */
   DBInstanceID?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerId?: number;

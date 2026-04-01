@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RestoreTableResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * EA2D4F34-01A7-46EB-A339-D80882135206
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

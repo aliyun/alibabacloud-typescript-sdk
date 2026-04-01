@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCSnapshotsResponseBodySnapshotsTag extends $dara.Model {
-  /**
-   * @remarks
-   * tag key.
-   * 
-   * @example
-   * testRC
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * tag value.
-   * 
-   * @example
-   * test01
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -118,13 +104,6 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * Resource group ID.
-   * 
-   * @example
-   * rc-t8q22a87745hf8****
-   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -139,7 +118,7 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
    * The snapshot name.
    * 
    * @example
-   * csw-37-系统盘
+   * s-2ze8klip00xcogcwer76
    */
   snapshotName?: string;
   /**
@@ -203,10 +182,6 @@ export class DescribeRCSnapshotsResponseBodySnapshots extends $dara.Model {
    * progressing
    */
   status?: string;
-  /**
-   * @remarks
-   * Tag Details.
-   */
   tag?: DescribeRCSnapshotsResponseBodySnapshotsTag[];
   /**
    * @remarks

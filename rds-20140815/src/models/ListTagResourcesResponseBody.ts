@@ -61,7 +61,21 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 }
 
 export class ListTagResourcesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
+   * @example
+   * 212db86sca4384811e0b5e8707ec21345
+   */
   nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 47A514A1-4B77-4E30-B4C5-2A880650B3FD
+   */
   requestId?: string;
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {

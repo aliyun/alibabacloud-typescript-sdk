@@ -59,6 +59,13 @@ export class DescribeCollationTimeZonesResponseBodyCollationTimeZones extends $d
 
 export class DescribeCollationTimeZonesResponseBody extends $dara.Model {
   collationTimeZones?: DescribeCollationTimeZonesResponseBodyCollationTimeZones;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 4EAED246-DB18-4C8D-9EB5-C319626F2A77
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

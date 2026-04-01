@@ -5,16 +5,38 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCharacterSetNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The type of the database engine. Valid values:
+   * 
+   * *   **mysql**
+   * *   **mssql**
+   * *   **PostgreSQL**
+   * *   **MariaDB**
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * mysql
    */
   engine?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
+   * 
+   * @example
+   * rg-acfmy*****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;

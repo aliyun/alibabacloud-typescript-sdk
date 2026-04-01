@@ -11,13 +11,6 @@ export class RenewRCInstanceResponseBody extends $dara.Model {
    * rc-dh2jf9n6j4s14926****
    */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * The order ID.
-   * 
-   * @example
-   * 23202700556****
-   */
   orderId?: string;
   /**
    * @remarks

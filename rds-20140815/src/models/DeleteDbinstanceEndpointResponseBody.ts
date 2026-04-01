@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteDBInstanceEndpointResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The endpoint ID of the instance.
+   * 
+   * @example
+   * ep-****
+   */
   DBInstanceEndpointId?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * @example
+   * rm-****
+   */
   DBInstanceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +43,18 @@ export class DeleteDBInstanceEndpointResponseBodyData extends $dara.Model {
 }
 
 export class DeleteDBInstanceEndpointResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DeleteDBInstanceEndpointResponseBodyData;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 224DB9F7-3100-4899-AB9C-C938BCCB43E7
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

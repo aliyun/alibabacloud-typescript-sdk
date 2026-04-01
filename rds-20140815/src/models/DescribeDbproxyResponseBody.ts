@@ -373,7 +373,7 @@ export class DescribeDBProxyResponseBody extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-acfmy****
+   * rg-acfmy*****
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

@@ -3,31 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMaskingRulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Returned data
-   */
   data?: { [key: string]: string };
   /**
-   * @remarks
-   * Return message
-   * 
    * @example
    * successful
    */
   message?: string;
   /**
-   * @remarks
-   * Request ID
-   * 
    * @example
    * 5EEE1ED1-A459-38D2-840C-0C49********
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the operation succeeded
-   * 
    * @example
    * true
    */

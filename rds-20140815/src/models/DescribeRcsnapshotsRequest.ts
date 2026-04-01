@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCSnapshotsRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * testRC
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * test01
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -86,10 +72,6 @@ export class DescribeRCSnapshotsRequest extends $dara.Model {
    * ["rcds-bp67acfmxazb4p****", "rcds-bp67acfmxazb5p****", … "rcds-bp67acfmxazb6p****"]
    */
   snapshotIds?: string;
-  /**
-   * @remarks
-   * Tag Details.
-   */
   tag?: DescribeRCSnapshotsRequestTag[];
   static names(): { [key: string]: string } {
     return {

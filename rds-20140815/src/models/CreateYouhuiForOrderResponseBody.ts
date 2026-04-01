@@ -24,7 +24,7 @@ export class CreateYouhuiForOrderResponseBody extends $dara.Model {
    * The coupon ID.
    * 
    * @example
-   * 22120151****
+   * 221201******
    */
   youhuiId?: string;
   static names(): { [key: string]: string } {

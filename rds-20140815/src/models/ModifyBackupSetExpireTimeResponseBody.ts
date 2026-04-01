@@ -16,7 +16,11 @@ export class ModifyBackupSetExpireTimeResponseBody extends $dara.Model {
    * The details of the returned parameters.
    * 
    * @example
-   * {expectExpireTime=1752581423000, dbClusterId=rm-7xv8f2zcia0e4****, backupId=262186****}
+   * {
+   *       "SupportOnlineResizeDisk": true,
+   *       "DBInstanceName": "rm-bp****",
+   *       "maxSupportDiskSizeGB": 6144
+   * }
    */
   data?: string;
   /**

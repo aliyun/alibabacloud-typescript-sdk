@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID. You can obtain it by calling DescribeDBInstances.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -16,8 +14,6 @@ export class DescribeImportTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Region ID. You can obtain it by calling DescribeRegions.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -26,8 +22,6 @@ export class DescribeImportTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Job ID.
-   * 
    * This parameter is required.
    * 
    * @example

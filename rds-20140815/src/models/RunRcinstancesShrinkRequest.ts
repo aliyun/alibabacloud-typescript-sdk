@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunRCInstancesShrinkRequestTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key. You can create up to N tag keys at the same time, where N ranges from **1 to 20**. Empty strings are not allowed.
-   * 
-   * @example
-   * Testkey1
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value corresponding to the tag key. You can create up to N tag values at the same time, where N ranges from **1 to 20**. Empty strings are allowed.
-   * 
-   * @example
-   * Testvalue1
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,9 +30,6 @@ export class RunRCInstancesShrinkRequestTag extends $dara.Model {
 
 export class RunRCInstancesShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * ACU type
-   * 
    * @example
    * gn8is
    */
@@ -71,7 +54,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * >  If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
    * 
    * @example
-   * true
+   * false
    */
   autoPay?: boolean;
   /**
@@ -82,20 +65,9 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * *   **false**
    * 
    * @example
-   * true
+   * false
    */
   autoRenew?: boolean;
-  /**
-   * @remarks
-   * Specifies whether to automatically use a coupon. Valid values:
-   * * **true** (default): Yes.
-   * * **false**: No.
-   * 
-   * > If you use a coupon and later decrease the quota, the amount offset by the coupon will not be refunded.
-   * 
-   * @example
-   * true
-   */
   autoUseCoupon?: boolean;
   /**
    * @remarks
@@ -105,51 +77,21 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
-  /**
-   * @remarks
-   * Information about the ACK Edge cluster.
-   */
   createAckEdgeParamShrink?: string;
-  /**
-   * @remarks
-   * Reserved parameter. Not supported currently.
-   * 
-   * @example
-   * None
-   */
   createExtraParam?: string;
-  /**
-   * @remarks
-   * Specifies whether the instance can be added to an ACK cluster. When this parameter is set to **1**, the created instance can be added to an ACK cluster by invoking the **AttachRCInstances** API operation, enabling efficient management of container applications.
-   * 
-   * - **1**: Yes.
-   * - **0** (default): No.
-   * 
-   * @example
-   * 0
-   */
   createMode?: string;
   /**
    * @remarks
    * The information about the data disks.
    */
   dataDiskShrink?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable release protection. Valid values:  
-   * * **true**: Enabled  
-   * * **false** (default): Disabled
-   * 
-   * @example
-   * false
-   */
   deletionProtection?: boolean;
   /**
    * @remarks
    * The deployment set ID.
    * 
    * @example
-   * ds-uf6670sipmph********
+   * ds-uf6670sipmph5j5b6ke4
    */
   deploymentSetId?: string;
   /**
@@ -171,23 +113,13 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
-  /**
-   * @remarks
-   * Hostname of the instance (2–64 characters).  
-   * 
-   * - Multiple segments separated by periods (.) are supported. Each segment can contain uppercase and lowercase English letters, digits, and hyphens (-).  
-   * - A period (.) or hyphen (-) cannot appear at the beginning or end of a segment, nor can two periods or hyphens appear consecutively.
-   * 
-   * @example
-   * testHost1
-   */
   hostName?: string;
   /**
    * @remarks
    * The ID of the image used by the instance.
    * 
    * @example
-   * image-dsvjzw2ii8n4******
+   * image-dsvjzw2ii8n4fvr6de
    */
   imageId?: string;
   /**
@@ -203,7 +135,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * The instance name.
    * 
    * @example
-   * rc-node-[99,1]-rchost
+   * ceshi
    */
   instanceName?: string;
   /**
@@ -229,7 +161,7 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * The reserved parameter. This parameter is not supported.
    * 
    * @example
-   * 0
+   * null
    */
   internetMaxBandwidthOut?: number;
   /**
@@ -254,13 +186,9 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * The password of the account that is used to log on to the instance.
    * 
    * @example
-   * TestRDS123!
+   * 2F9e9@a69c!e18b569c8
    */
   password?: string;
-  /**
-   * @remarks
-   * Specifies whether to use the password preset in the image. When this parameter is used, the Password parameter must be empty, and you must ensure that the selected image has a password already configured. Default value: false.
-   */
   passwordInherit?: boolean;
   /**
    * @remarks
@@ -278,21 +206,14 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * *   **Month** (default)
    * 
    * @example
-   * Month
+   * Year
    */
   periodUnit?: string;
   /**
    * @example
-   * `10.1.**.**`
+   * ``10.1.**.**``
    */
   privateIpAddress?: string;
-  /**
-   * @remarks
-   * The coupon code.
-   * 
-   * @example
-   * 72329885****
-   */
   promotionCode?: string;
   /**
    * @remarks
@@ -304,18 +225,8 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-acfmy****
-   */
   resourceGroupId?: string;
   /**
-   * @remarks
-   * Scheduled elasticity rule
-   * 
    * @example
    * {"rule":[{"beginTime":"09:00","endTime":"17:00","acu":4}]}
    */
@@ -335,70 +246,19 @@ export class RunRCInstancesShrinkRequest extends $dara.Model {
    * >  The network type of the instance is determined by the security group specified by the SecurityGroupId parameter. For example, if the network type of the specified security group is VPC, the instance is a VPC-type instance. In this case, you must specify the VSwitchId parameter.
    * 
    * @example
-   * sg-uf6av412xaxixu******
+   * sg-uf6av412xaxixuezol6w
    */
   securityGroupId?: string;
   securityGroupIdsShrink?: string;
-  /**
-   * @remarks
-   * The spot strategy for pay-as-you-go instances. This parameter takes effect only when the **InstanceChargeType** parameter is set to **PostPaid**. Valid values:  
-   * 
-   * - **NoSpot**: Normal pay-as-you-go instance.  
-   * - **SpotAsPriceGo**: The system automatically bids based on the current market price.  
-   * 
-   * Default value: **NoSpot**.
-   * 
-   * @example
-   * NoSpot
-   */
   spotStrategy?: string;
-  /**
-   * @remarks
-   * The deployment type of RDS Custom. Valid values:
-   * 
-   * - **eni**: Dual network interface cards.
-   * - **edge**: Point of presence (POP) node pool.
-   * - **share**: VPC.
-   * 
-   * @example
-   * share
-   */
   supportCase?: string;
   /**
    * @remarks
    * The specification of the system disk.
    */
   systemDiskShrink?: string;
-  /**
-   * @remarks
-   * The list of tags.
-   */
   tag?: RunRCInstancesShrinkRequestTag[];
-  /**
-   * @remarks
-   * The instance user data. The raw data can be up to 32 KB in size.  
-   * 
-   * Do not pass sensitive information, such as passwords and private keys, in plaintext. If you must pass such information, encrypt it first, encode it in Base64, and then transmit it. Decrypt and use it inside the instance. The following is an example of converting a script into a Base64-encoded string:  
-   * 
-   * ```
-   * echo -n \\"#!/bin/sh
-   * echo "Hello World"\\" | base64 -w 0
-   * ```
-   * 
-   * @example
-   * IyEvYmluL3NoCmVjaG8gIkhlbGxvIFdvcmxkLiBUaGUgdGltZSBpcyBub3cgJChkYXRlIC1SKSIhIHwgdGVlIC9yb290L3VzZXJkYXRhX3Rlc3QudHh0
-   */
   userData?: string;
-  /**
-   * @remarks
-   * Specifies whether custom data is Base64-encoded.  
-   * 
-   * - **true**: Yes.  
-   * - **false** (default): No.
-   * 
-   * @example
-   * true
-   */
   userDataInBase64?: boolean;
   /**
    * @remarks

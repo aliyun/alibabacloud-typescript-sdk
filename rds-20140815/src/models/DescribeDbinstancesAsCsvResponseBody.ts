@@ -211,6 +211,13 @@ export class DescribeDBInstancesAsCsvResponseBodyItems extends $dara.Model {
 
 export class DescribeDBInstancesAsCsvResponseBody extends $dara.Model {
   items?: DescribeDBInstancesAsCsvResponseBodyItems;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A444291****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

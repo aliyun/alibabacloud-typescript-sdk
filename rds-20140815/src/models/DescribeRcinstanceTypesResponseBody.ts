@@ -3,15 +3,43 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRCInstanceTypesResponseBodyInstanceTypesInstanceType extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of CPU cores.
+   * 
+   * @example
+   * 32
+   */
   cpuCoreCount?: number;
   /**
    * @example
    * 16
    */
   diskQuantity?: number;
+  /**
+   * @remarks
+   * The ID of the instance family.
+   * 
+   * @example
+   * gn8.cm
+   */
   instanceTypeFamily?: string;
+  /**
+   * @remarks
+   * The instance type of the instance.
+   * 
+   * @example
+   * rds.gna8.2xlarge.8cm
+   */
   instanceTypeId?: string;
   jumboFrameSupport?: boolean;
+  /**
+   * @remarks
+   * The memory size of the instance type. Unit: GiB.
+   * 
+   * @example
+   * 256
+   */
   memorySize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -45,6 +73,10 @@ export class DescribeRCInstanceTypesResponseBodyInstanceTypesInstanceType extend
 }
 
 export class DescribeRCInstanceTypesResponseBodyInstanceTypes extends $dara.Model {
+  /**
+   * @remarks
+   * The instance types.
+   */
   instanceType?: DescribeRCInstanceTypesResponseBodyInstanceTypesInstanceType[];
   static names(): { [key: string]: string } {
     return {
@@ -71,7 +103,18 @@ export class DescribeRCInstanceTypesResponseBodyInstanceTypes extends $dara.Mode
 }
 
 export class DescribeRCInstanceTypesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the instance types.
+   */
   instanceTypes?: DescribeRCInstanceTypesResponseBodyInstanceTypes;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F2911788-25E8-42E5-A3A3-1B38D263F01E
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

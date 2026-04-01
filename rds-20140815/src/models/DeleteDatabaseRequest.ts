@@ -5,12 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDatabaseRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rm-uf6wjk5*****
    */
   DBInstanceId?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * testdb01
    */
   DBName?: string;
   resourceOwnerId?: number;
