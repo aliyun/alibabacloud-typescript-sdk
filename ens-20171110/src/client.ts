@@ -5122,6 +5122,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Releases the VPC peering connection.
+   * 
+   * @param request - DeleteNetworkPeerConnectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNetworkPeerConnectionResponse
+   */
+  async deleteNetworkPeerConnectionWithOptions(request: $_model.DeleteNetworkPeerConnectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNetworkPeerConnectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNetworkPeerConnection",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNetworkPeerConnectionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNetworkPeerConnectionResponse({}));
+  }
+
+  /**
+   * Releases the VPC peering connection.
+   * 
+   * @param request - DeleteNetworkPeerConnectionRequest
+   * @returns DeleteNetworkPeerConnectionResponse
+   */
+  async deleteNetworkPeerConnection(request: $_model.DeleteNetworkPeerConnectionRequest): Promise<$_model.DeleteNetworkPeerConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNetworkPeerConnectionWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an object.
    * 
    * @param request - DeleteObjectRequest
@@ -10031,6 +10073,68 @@ export default class Client extends OpenApi {
   async describeNetworkInterfaces(request: $_model.DescribeNetworkInterfacesRequest): Promise<$_model.DescribeNetworkInterfacesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeNetworkInterfacesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries VPC peering connections.
+   * 
+   * @param request - DescribeNetworkPeerConnectionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeNetworkPeerConnectionsResponse
+   */
+  async describeNetworkPeerConnectionsWithOptions(request: $_model.DescribeNetworkPeerConnectionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNetworkPeerConnectionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ensRegionId)) {
+      query["EnsRegionId"] = request.ensRegionId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.networkIds)) {
+      query["NetworkIds"] = request.networkIds;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeNetworkPeerConnections",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeNetworkPeerConnectionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeNetworkPeerConnectionsResponse({}));
+  }
+
+  /**
+   * Queries VPC peering connections.
+   * 
+   * @param request - DescribeNetworkPeerConnectionsRequest
+   * @returns DescribeNetworkPeerConnectionsResponse
+   */
+  async describeNetworkPeerConnections(request: $_model.DescribeNetworkPeerConnectionsRequest): Promise<$_model.DescribeNetworkPeerConnectionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeNetworkPeerConnectionsWithOptions(request, runtime);
   }
 
   /**
@@ -18487,6 +18591,48 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新集群证书
+   * 
+   * @param request - UpdateClusterCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateClusterCertificateResponse
+   */
+  async updateClusterCertificateWithOptions(request: $_model.UpdateClusterCertificateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateClusterCertificateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateClusterCertificate",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateClusterCertificateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateClusterCertificateResponse({}));
+  }
+
+  /**
+   * 更新集群证书
+   * 
+   * @param request - UpdateClusterCertificateRequest
+   * @returns UpdateClusterCertificateResponse
+   */
+  async updateClusterCertificate(request: $_model.UpdateClusterCertificateRequest): Promise<$_model.UpdateClusterCertificateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateClusterCertificateWithOptions(request, runtime);
   }
 
   /**
