@@ -46,10 +46,12 @@ export class DeleteClusterNodesRequest extends $dara.Model {
    * eck-xxxxxxxx
    */
   clusterId?: string;
+  releaseNode?: boolean;
   static names(): { [key: string]: string } {
     return {
       body: 'Body',
       clusterId: 'ClusterId',
+      releaseNode: 'ReleaseNode',
     };
   }
 
@@ -57,6 +59,7 @@ export class DeleteClusterNodesRequest extends $dara.Model {
     return {
       body: DeleteClusterNodesRequestBody,
       clusterId: 'string',
+      releaseNode: 'boolean',
     };
   }
 

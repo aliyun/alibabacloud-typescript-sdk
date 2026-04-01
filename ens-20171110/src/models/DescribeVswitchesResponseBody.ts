@@ -3,35 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVSwitchesResponseBodyVSwitchesVSwitchTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
   key?: string;
   /**
-   * @example
-   * TestKey
-   * 
    * @deprecated
    */
   tagKey?: string;
   /**
-   * @example
-   * TestValue
-   * 
    * @deprecated
    */
   tagValue?: string;
-  /**
-   * @remarks
-   * The request error rate.
-   * 
-   * @example
-   * TestValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,81 +67,15 @@ export class DescribeVSwitchesResponseBodyVSwitchesVSwitchTags extends $dara.Mod
 }
 
 export class DescribeVSwitchesResponseBodyVSwitchesVSwitch extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv4 CIDR block of the vSwitch.
-   * 
-   * @example
-   * 10.21.224.0/22
-   */
   cidrBlock?: string;
-  /**
-   * @remarks
-   * The time when the VPC was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2020-06-16T06:33:15Z
-   */
   createdTime?: string;
-  /**
-   * @remarks
-   * The description of the vSwitch.
-   * 
-   * @example
-   * VSwitchDescription
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the ENS node.
-   * 
-   * @example
-   * cn-xian-unicom
-   */
   ensRegionId?: string;
-  /**
-   * @remarks
-   * The number of available IP addresses.
-   * 
-   * @example
-   * 1024
-   */
   freeIpCount?: number;
-  /**
-   * @remarks
-   * The ID of the virtual private cloud (VPC).
-   * 
-   * @example
-   * vpc-25cdvfeq58pl****
-   */
   networkId?: string;
-  /**
-   * @remarks
-   * The status of the vSwitch. Valid values:
-   * 
-   * *   Pending
-   * *   Available
-   * 
-   * @example
-   * Pending
-   */
   status?: string;
   tags?: DescribeVSwitchesResponseBodyVSwitchesVSwitchTags;
-  /**
-   * @remarks
-   * The ID of the vSwitch.
-   * 
-   * @example
-   * vsw-5m9xhlq8oh***
-   */
   vSwitchId?: string;
-  /**
-   * @remarks
-   * The name of the vSwitch.
-   * 
-   * @example
-   * testVSwitchName
-   */
   vSwitchName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -264,10 +178,6 @@ export class DescribeVSwitchesResponseBody extends $dara.Model {
    * 3
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * The information about the vSwitches. For more information, see the array of vSwitches in the response examples in the JSON format.
-   */
   vSwitches?: DescribeVSwitchesResponseBodyVSwitches;
   static names(): { [key: string]: string } {
     return {

@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttributesInstanceRenewAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * The renewal type of the instance.
-   * 
-   * *   **true**: enables auto-renewal.
-   * *   **false**: disables auto-renewal.
-   * 
-   * @example
-   * false
-   */
   autoRenewal?: boolean;
-  /**
-   * @remarks
-   * The unit of the auto-renewal period.
-   * 
-   * @example
-   * 0
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-5ci7l7k1m9m2zmhp4iw3o****
-   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,10 +66,6 @@ export class DescribeInstanceAutoRenewAttributeResponseBody extends $dara.Model 
    * 0
    */
   code?: number;
-  /**
-   * @remarks
-   * The renewal status of the instance.
-   */
   instanceRenewAttributes?: DescribeInstanceAutoRenewAttributeResponseBodyInstanceRenewAttributes;
   /**
    * @remarks

@@ -13,7 +13,7 @@ export class PutBucketLifecycleRequest extends $dara.Model {
    * @example
    * false
    */
-  allowSameActionOverlap?: string;
+  allowSameActionOverlap?: boolean;
   /**
    * @remarks
    * The name of the bucket.
@@ -95,7 +95,7 @@ export class PutBucketLifecycleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      allowSameActionOverlap: 'string',
+      allowSameActionOverlap: 'boolean',
       bucketName: 'string',
       createdBeforeDate: 'string',
       expirationDays: 'number',

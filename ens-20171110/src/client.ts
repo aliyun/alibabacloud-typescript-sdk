@@ -590,6 +590,132 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加已有节点到集群节点池
+   * 
+   * @param tmpReq - AttachInstancesToNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachInstancesToNodePoolResponse
+   */
+  async attachInstancesToNodePoolWithOptions(tmpReq: $_model.AttachInstancesToNodePoolRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachInstancesToNodePoolResponse> {
+    tmpReq.validate();
+    let request = new $_model.AttachInstancesToNodePoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instances)) {
+      request.instancesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instances, "Instances", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.instancesShrink)) {
+      query["Instances"] = request.instancesShrink;
+    }
+
+    if (!$dara.isNull(request.nodepoolId)) {
+      query["NodepoolId"] = request.nodepoolId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachInstancesToNodePool",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachInstancesToNodePoolResponse>(await this.callApi(params, req, runtime), new $_model.AttachInstancesToNodePoolResponse({}));
+  }
+
+  /**
+   * 添加已有节点到集群节点池
+   * 
+   * @param request - AttachInstancesToNodePoolRequest
+   * @returns AttachInstancesToNodePoolResponse
+   */
+  async attachInstancesToNodePool(request: $_model.AttachInstancesToNodePoolRequest): Promise<$_model.AttachInstancesToNodePoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachInstancesToNodePoolWithOptions(request, runtime);
+  }
+
+  /**
+   * Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+   * 
+   * @remarks
+   * ## [](#)
+   * This operation is used to bind a key pair to instances. Only disabled instances are supported.
+   * *   You can bind a maximum of 30 instances at a time.
+   * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
+   * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+   * 
+   * @param tmpReq - AttachKeyPairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachKeyPairResponse
+   */
+  async attachKeyPairWithOptions(tmpReq: $_model.AttachKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AttachKeyPairResponse> {
+    tmpReq.validate();
+    let request = new $_model.AttachKeyPairShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.keyPairId)) {
+      query["KeyPairId"] = request.keyPairId;
+    }
+
+    if (!$dara.isNull(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AttachKeyPair",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AttachKeyPairResponse>(await this.callApi(params, req, runtime), new $_model.AttachKeyPairResponse({}));
+  }
+
+  /**
+   * Binds a Secure Shell (SSH) key pair to specific instances. You can bind a maximum of 30 instances at a time.
+   * 
+   * @remarks
+   * ## [](#)
+   * This operation is used to bind a key pair to instances. Only disabled instances are supported.
+   * *   You can bind a maximum of 30 instances at a time.
+   * *   At least one of the key_pair_name and key_pair_id parameters is not empty.
+   * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+   * 
+   * @param request - AttachKeyPairRequest
+   * @returns AttachKeyPairResponse
+   */
+  async attachKeyPair(request: $_model.AttachKeyPairRequest): Promise<$_model.AttachKeyPairResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.attachKeyPairWithOptions(request, runtime);
+  }
+
+  /**
    * Attaches an Elastic Network Interface (ENI) to an Edge Node Service (ECS) instance.
    * 
    * @remarks
@@ -4003,6 +4129,10 @@ export default class Client extends OpenApi {
       query["ClusterId"] = request.clusterId;
     }
 
+    if (!$dara.isNull(request.retainResources)) {
+      query["RetainResources"] = request.retainResources;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4099,6 +4229,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.releaseNode)) {
+      query["ReleaseNode"] = request.releaseNode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -6074,6 +6208,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询添加已有节点到集群节点池的脚本
+   * 
+   * @param request - DescribeClusterAttachScriptsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClusterAttachScriptsResponse
+   */
+  async describeClusterAttachScriptsWithOptions(request: $_model.DescribeClusterAttachScriptsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClusterAttachScriptsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.nodepoolId)) {
+      query["NodepoolId"] = request.nodepoolId;
+    }
+
+    if (!$dara.isNull(request.options)) {
+      query["Options"] = request.options;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClusterAttachScripts",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClusterAttachScriptsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeClusterAttachScriptsResponse({}));
+  }
+
+  /**
+   * 查询添加已有节点到集群节点池的脚本
+   * 
+   * @param request - DescribeClusterAttachScriptsRequest
+   * @returns DescribeClusterAttachScriptsResponse
+   */
+  async describeClusterAttachScripts(request: $_model.DescribeClusterAttachScriptsRequest): Promise<$_model.DescribeClusterAttachScriptsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClusterAttachScriptsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询集群详细信息
    * 
    * @param request - DescribeClusterDetailRequest
@@ -7984,7 +8168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about file systems.
+   * Queries the information about Apsara File Storage NAS (NAS) file systems.
    * 
    * @param request - DescribeFileSystemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8011,7 +8195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about file systems.
+   * Queries the information about Apsara File Storage NAS (NAS) file systems.
    * 
    * @param request - DescribeFileSystemsRequest
    * @returns DescribeFileSystemsResponse
@@ -11370,6 +11554,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+   * 
+   * @remarks
+   * ## [](#)
+   * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
+   * *   You can unbind a maximum of 30 instances at a time.
+   * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
+   * *   At least one of key_pair_name and key_pair_id is not empty.
+   * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+   * 
+   * @param tmpReq - DetachKeyPairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachKeyPairResponse
+   */
+  async detachKeyPairWithOptions(tmpReq: $_model.DetachKeyPairRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachKeyPairResponse> {
+    tmpReq.validate();
+    let request = new $_model.DetachKeyPairShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.keyPairId)) {
+      query["KeyPairId"] = request.keyPairId;
+    }
+
+    if (!$dara.isNull(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachKeyPair",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachKeyPairResponse>(await this.callApi(params, req, runtime), new $_model.DetachKeyPairResponse({}));
+  }
+
+  /**
+   * Unbinds a Secure Shell (SSH) key pair from specific instances by specifying the name or ID of the SSH key pair.
+   * 
+   * @remarks
+   * ## [](#)
+   * This operation is used to unbind a key pair from instances. Only disabled instances are supported.
+   * *   You can unbind a maximum of 30 instances at a time.
+   * *   If the name of the SSH key pair that is bound to an instance is not same as the value of the keyPairName parameter, an exception is thrown.
+   * *   At least one of key_pair_name and key_pair_id is not empty.
+   * *   Specify the key_pair_id parameter when you call this parameter. The key_pair_name parameter will be discarded.
+   * 
+   * @param request - DetachKeyPairRequest
+   * @returns DetachKeyPairResponse
+   */
+  async detachKeyPair(request: $_model.DetachKeyPairRequest): Promise<$_model.DetachKeyPairResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachKeyPairWithOptions(request, runtime);
+  }
+
+  /**
    * Detach an elastic network interface (ENI) from an instance.
    * 
    * @remarks
@@ -11508,6 +11764,10 @@ export default class Client extends OpenApi {
       query["PlanTime"] = request.planTime;
     }
 
+    if (!$dara.isNull(request.planUtcTime)) {
+      query["PlanUtcTime"] = request.planUtcTime;
+    }
+
     if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
@@ -11568,6 +11828,10 @@ export default class Client extends OpenApi {
       query["PlanTime"] = request.planTime;
     }
 
+    if (!$dara.isNull(request.planUtcTime)) {
+      query["PlanUtcTime"] = request.planUtcTime;
+    }
+
     if (!$dara.isNull(request.resourceId)) {
       query["ResourceId"] = request.resourceId;
     }
@@ -11626,6 +11890,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.planTime)) {
       query["PlanTime"] = request.planTime;
+    }
+
+    if (!$dara.isNull(request.planUtcTime)) {
+      query["PlanUtcTime"] = request.planUtcTime;
     }
 
     if (!$dara.isNull(request.resourceId)) {
@@ -12222,7 +12490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+   * Create a service-linked role (SLR) for ENS for the current user to manage resources.
    * 
    * @param request - InitializeENSECKServiceRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12245,7 +12513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为当前用户创建ENS的服务关联角色（SLR），管控资源。
+   * Create a service-linked role (SLR) for ENS for the current user to manage resources.
    * @returns InitializeENSECKServiceRoleResponse
    */
   async initializeENSECKServiceRole(): Promise<$_model.InitializeENSECKServiceRoleResponse> {
@@ -12896,7 +13164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取所有产品能力
+   * Lists all service capabilities.
    * 
    * @param request - ListProductAbilitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12919,7 +13187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取所有产品能力
+   * Lists all service capabilities.
    * @returns ListProductAbilitiesResponse
    */
   async listProductAbilities(): Promise<$_model.ListProductAbilitiesResponse> {
@@ -14292,7 +14560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改snat规则
+   * Modifies a specified SNAT entry.
    * 
    * @param request - ModifySnatEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14339,7 +14607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改snat规则
+   * Modifies a specified SNAT entry.
    * 
    * @param request - ModifySnatEntryRequest
    * @returns ModifySnatEntryResponse

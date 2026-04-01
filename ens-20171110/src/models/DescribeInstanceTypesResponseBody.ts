@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceType extends $dara.Model {
-  /**
-   * @remarks
-   * The number of vCPUs.
-   * 
-   * @example
-   * 2
-   */
   cpuCoreCount?: number;
-  /**
-   * @remarks
-   * This parameter is unavailable.
-   * 
-   * @example
-   * This parameter is not needed temporarily.
-   */
   instanceTypeId?: string;
-  /**
-   * @remarks
-   * The name of the instance type.
-   * 
-   * @example
-   * ens.xxx.small
-   */
   instanceTypeName?: string;
-  /**
-   * @remarks
-   * The memory size. Unit: MB.
-   * 
-   * @example
-   * 8192
-   */
   memorySize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -97,10 +69,6 @@ export class DescribeInstanceTypesResponseBody extends $dara.Model {
    * 0
    */
   code?: number;
-  /**
-   * @remarks
-   * Details about the instance types.
-   */
   instanceTypes?: DescribeInstanceTypesResponseBodyInstanceTypes;
   /**
    * @remarks

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeReservedResourceResponseBodyImagesImage extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * centos_6_08_64_20G_alibase_****
-   */
   imageId?: string;
-  /**
-   * @remarks
-   * The name of the image.
-   * 
-   * @example
-   * centos_6_08_64_20G_alibase_****
-   */
   imageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,39 +107,10 @@ export class DescribeReservedResourceResponseBodySupportResourcesSupportResource
 }
 
 export class DescribeReservedResourceResponseBodySupportResourcesSupportResource extends $dara.Model {
-  /**
-   * @remarks
-   * The sizes of data disks.
-   */
   dataDiskSizes?: DescribeReservedResourceResponseBodySupportResourcesSupportResourceDataDiskSizes;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * @example
-   * cn-beijing-cmcc
-   */
   ensRegionId?: string;
-  /**
-   * @remarks
-   * The specifications of instances.
-   * 
-   * @example
-   * ens.sn1.stiny
-   */
   instanceSpec?: string;
-  /**
-   * @remarks
-   * The number of resources that you can purchase.
-   * 
-   * @example
-   * 9
-   */
   supportResourcesCount?: string;
-  /**
-   * @remarks
-   * The sizes of system disks.
-   */
   systemDiskSizes?: DescribeReservedResourceResponseBodySupportResourcesSupportResourceSystemDiskSizes;
   static names(): { [key: string]: string } {
     return {
@@ -225,10 +182,6 @@ export class DescribeReservedResourceResponseBody extends $dara.Model {
    * 0
    */
   code?: number;
-  /**
-   * @remarks
-   * The information about the image.
-   */
   images?: DescribeReservedResourceResponseBodyImages;
   /**
    * @remarks
@@ -238,10 +191,6 @@ export class DescribeReservedResourceResponseBody extends $dara.Model {
    * 6666C5A5-75ED-422E-A022-7121FA18C968
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The resources.
-   */
   supportResources?: DescribeReservedResourceResponseBodySupportResources;
   static names(): { [key: string]: string } {
     return {

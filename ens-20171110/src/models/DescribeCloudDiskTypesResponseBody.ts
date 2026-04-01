@@ -3,26 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudDiskTypesResponseBodySupportResourcesSupportResource extends $dara.Model {
-  /**
-   * @remarks
-   * The category of the disk.
-   * 
-   * *   cloud_efficiency: ultra disk.
-   * *   cloud_ssd: all-flash disk.
-   * *   local_hdd: local HDD.
-   * *   local_ssd: local SSD.
-   * 
-   * @example
-   * cloud_efficiency
-   */
   category?: string;
-  /**
-   * @remarks
-   * The ID of the edge node.
-   * 
-   * @example
-   * cn-guangzhou-10
-   */
   ensRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,10 +63,6 @@ export class DescribeCloudDiskTypesResponseBody extends $dara.Model {
    * 77990CEE-B714-5702-BDE6-943F702277DD
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The specifications of resources that you can purchase.
-   */
   supportResources?: DescribeCloudDiskTypesResponseBodySupportResources;
   static names(): { [key: string]: string } {
     return {

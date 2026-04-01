@@ -3,87 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSecurityGroupAttributeResponseBodyPermissionsPermission extends $dara.Model {
-  /**
-   * @remarks
-   * The time at which the security group rule was created. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-12-12T07:28:38Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * testDescription1
-   */
   description?: string;
-  /**
-   * @remarks
-   * The range of destination IP addresses for outbound access control.
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
   destCidrIp?: string;
-  /**
-   * @remarks
-   * The direction in which the security group rule is applied.
-   * 
-   * @example
-   * ingress
-   */
   direction?: string;
-  /**
-   * @remarks
-   * The transport layer protocol.
-   * 
-   * @example
-   * TCP
-   */
   ipProtocol?: string;
   ipv6DestCidrIp?: string;
   ipv6SourceCidrIp?: string;
-  /**
-   * @remarks
-   * The policy.
-   * 
-   * @example
-   * Accept
-   */
   policy?: string;
-  /**
-   * @remarks
-   * The source port range.
-   * 
-   * @example
-   * 80/80
-   */
   portRange?: string;
-  /**
-   * @remarks
-   * The priority of the rule.
-   * 
-   * @example
-   * 1
-   */
   priority?: number;
-  /**
-   * @remarks
-   * The range of source IP addresses for inbound access control.
-   * 
-   * @example
-   * 0.0.0.0/0
-   */
   sourceCidrIp?: string;
-  /**
-   * @remarks
-   * The source port number range for the security group.
-   * 
-   * @example
-   * 22/22
-   */
   sourcePortRange?: string;
   static names(): { [key: string]: string } {
     return {
@@ -163,10 +93,6 @@ export class DescribeSecurityGroupAttributeResponseBody extends $dara.Model {
    * testDescription1
    */
   description?: string;
-  /**
-   * @remarks
-   * Details about the rules.
-   */
   permissions?: DescribeSecurityGroupAttributeResponseBodyPermissions;
   /**
    * @remarks

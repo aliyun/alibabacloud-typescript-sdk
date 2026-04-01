@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNetworkAttributeResponseBodyCloudResourcesCloudResourceSetType extends $dara.Model {
-  /**
-   * @remarks
-   * The number of resources in the network.
-   * 
-   * @example
-   * 3
-   */
   resourceCount?: number;
-  /**
-   * @remarks
-   * The resource type. VSwitch.
-   * 
-   * @example
-   * VSwitch
-   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -285,10 +271,6 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
    * 10.0.0.0/24
    */
   cidrBlock?: string;
-  /**
-   * @remarks
-   * The list of resources in the network.
-   */
   cloudResources?: DescribeNetworkAttributeResponseBodyCloudResources;
   /**
    * @remarks
@@ -322,25 +304,9 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
    * rt-539***tbs
    */
   gatewayRouteTableId?: string;
-  /**
-   * @remarks
-   * List of HaVipIds.
-   */
   haVipIds?: DescribeNetworkAttributeResponseBodyHaVipIds;
-  /**
-   * @remarks
-   * The instance IDs.
-   */
   instanceIds?: DescribeNetworkAttributeResponseBodyInstanceIds;
-  /**
-   * @remarks
-   * List of ELB instances.
-   */
   loadBalancerIds?: DescribeNetworkAttributeResponseBodyLoadBalancerIds;
-  /**
-   * @remarks
-   * List of NAT Gateways.
-   */
   natGatewayIds?: DescribeNetworkAttributeResponseBodyNatGatewayIds;
   /**
    * @remarks
@@ -358,10 +324,6 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
    * n-5***
    */
   networkId?: string;
-  /**
-   * @remarks
-   * A list of multicast source IDs.
-   */
   networkInterfaceIds?: DescribeNetworkAttributeResponseBodyNetworkInterfaceIds;
   /**
    * @remarks
@@ -387,10 +349,6 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
    * rt-539***fpu
    */
   routeTableId?: string;
-  /**
-   * @remarks
-   * List of routing table IDs.
-   */
   routeTableIds?: DescribeNetworkAttributeResponseBodyRouteTableIds;
   /**
    * @remarks
@@ -412,10 +370,6 @@ export class DescribeNetworkAttributeResponseBody extends $dara.Model {
    * Available
    */
   status?: string;
-  /**
-   * @remarks
-   * The list of vSwitches in the network.
-   */
   vSwitchIds?: DescribeNetworkAttributeResponseBodyVSwitchIds;
   static names(): { [key: string]: string } {
     return {

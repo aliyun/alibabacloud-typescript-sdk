@@ -58,6 +58,7 @@ export class EventMigrateInstanceRequest extends $dara.Model {
    * 1742452232000
    */
   planTime?: number;
+  planUtcTime?: string;
   /**
    * @remarks
    * The ID of the resource.
@@ -75,6 +76,7 @@ export class EventMigrateInstanceRequest extends $dara.Model {
       opsType: 'OpsType',
       password: 'Password',
       planTime: 'PlanTime',
+      planUtcTime: 'PlanUtcTime',
       resourceId: 'ResourceId',
     };
   }
@@ -86,6 +88,7 @@ export class EventMigrateInstanceRequest extends $dara.Model {
       opsType: 'string',
       password: 'string',
       planTime: 'number',
+      planUtcTime: 'string',
       resourceId: 'string',
     };
   }

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatusesContainerStatus extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the container.
-   * 
-   * @example
-   * container_e79_1638372147094_158091_02_000001
-   */
   containerId?: string;
-  /**
-   * @remarks
-   * The name of the container.
-   * 
-   * @example
-   * nginx
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,10 +63,6 @@ export class DescribeServcieScheduleResponseBodyPodAbstractInfo extends $dara.Mo
    * android
    */
   containerService?: boolean;
-  /**
-   * @remarks
-   * The information about the container.
-   */
   containerStatuses?: DescribeServcieScheduleResponseBodyPodAbstractInfoContainerStatuses;
   /**
    * @remarks

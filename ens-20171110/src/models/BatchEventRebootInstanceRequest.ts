@@ -30,6 +30,7 @@ export class BatchEventRebootInstanceRequestEventInfos extends $dara.Model {
    * 1742452232000
    */
   planTime?: number;
+  planUtcTime?: string;
   /**
    * @remarks
    * A client ID.
@@ -43,6 +44,7 @@ export class BatchEventRebootInstanceRequestEventInfos extends $dara.Model {
       eventId: 'EventId',
       opsType: 'OpsType',
       planTime: 'PlanTime',
+      planUtcTime: 'PlanUtcTime',
       resourceId: 'ResourceId',
     };
   }
@@ -52,6 +54,7 @@ export class BatchEventRebootInstanceRequestEventInfos extends $dara.Model {
       eventId: 'string',
       opsType: 'string',
       planTime: 'number',
+      planUtcTime: 'string',
       resourceId: 'string',
     };
   }

@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEnsRegionsResponseBodyEnsRegionsEnsRegions extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the region.
-   * 
-   * @example
-   * NorthEastChina
-   */
   area?: string;
-  /**
-   * @remarks
-   * The name of the node.
-   * 
-   * @example
-   * NorthChina
-   */
   enName?: string;
-  /**
-   * @remarks
-   * The ID of the node.
-   * 
-   * @example
-   * cn-dalian-unicom
-   */
   ensRegionId?: string;
-  /**
-   * @remarks
-   * The name of the node.
-   * 
-   * @example
-   * Dalian Unicom
-   */
   name?: string;
-  /**
-   * @remarks
-   * The province where the node is deployed.
-   * 
-   * @example
-   * Liaoning Province
-   */
   province?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,10 +72,6 @@ export class DescribeEnsRegionsResponseBody extends $dara.Model {
    * 0
    */
   code?: number;
-  /**
-   * @remarks
-   * The information about the regions.
-   */
   ensRegions?: DescribeEnsRegionsResponseBodyEnsRegions;
   /**
    * @remarks

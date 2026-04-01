@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeImageSharePermissionResponseBodyAccountsAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud account with which you share the image.
-   * 
-   * @example
-   * 1515285523xxxx
-   */
   aliyunUid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +52,6 @@ export class DescribeImageSharePermissionResponseBodyAccounts extends $dara.Mode
 }
 
 export class DescribeImageSharePermissionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The account information.
-   */
   accounts?: DescribeImageSharePermissionResponseBodyAccounts;
   /**
    * @remarks

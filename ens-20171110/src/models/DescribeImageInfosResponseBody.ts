@@ -3,39 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeImageInfosResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping extends $dara.Model {
-  /**
-   * @remarks
-   * The format of the image.
-   * 
-   * @example
-   * The format of the image.
-   * raw
-   * qcow2
-   */
   format?: string;
-  /**
-   * @remarks
-   * The size of the image. Unit: GB.
-   * 
-   * @example
-   * 100
-   */
   size?: string;
-  /**
-   * @remarks
-   * The type of the disk. Valid values: System and Data.
-   * 
-   * @example
-   * Data
-   */
   type?: string;
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * i-test
-   */
   imageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,79 +61,14 @@ export class DescribeImageInfosResponseBodyImagesImageDiskDeviceMappings extends
 }
 
 export class DescribeImageInfosResponseBodyImagesImage extends $dara.Model {
-  /**
-   * @remarks
-   * The computing type of the image. Valid values:
-   * 
-   * *   ens_vm: x86 computing.
-   * *   arm_vm: ARM computing.
-   * *   bare_metal: x86 bare machine.
-   * *   pcfarm: heterogeneous computing.
-   * 
-   * @example
-   * ens_vm
-   */
   computeType?: string;
-  /**
-   * @remarks
-   * The description of the image.
-   * 
-   * @example
-   * centos_6_08_64_20G_alibase_2017****
-   */
   description?: string;
-  /**
-   * @remarks
-   * The mappings between disks and snapshots in the image.
-   */
   diskDeviceMappings?: DescribeImageInfosResponseBodyImagesImageDiskDeviceMappings;
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * centos_6_08_64_20G_alibase_2017****
-   */
   imageId?: string;
-  /**
-   * @remarks
-   * The size of the image. Unit: GiB.
-   * 
-   * @example
-   * 20
-   */
   imageSize?: string;
-  /**
-   * @remarks
-   * The version of the image.
-   * 
-   * @example
-   * 6.8
-   */
   imageVersion?: string;
-  /**
-   * @remarks
-   * The type of the image. Valid values: **centos**, **debian**, **ubuntu**, and **windows**.
-   * 
-   * @example
-   * centos
-   */
   OSName?: string;
-  /**
-   * @remarks
-   * The type of the operating system.
-   * 
-   * @example
-   * linux
-   */
   OSType?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-shenzhen
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -240,10 +145,6 @@ export class DescribeImageInfosResponseBody extends $dara.Model {
    * 0
    */
   code?: number;
-  /**
-   * @remarks
-   * The information about images.
-   */
   images?: DescribeImageInfosResponseBodyImages;
   /**
    * @remarks

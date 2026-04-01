@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteClusterRequest extends $dara.Model {
+export class AttachInstancesToNodePoolShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11,18 +11,32 @@ export class DeleteClusterRequest extends $dara.Model {
    * eck-xxxxxxxx
    */
   clusterId?: string;
-  retainResources?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instancesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np68mi5y1dd748ky37ojo2kqdrz
+   */
+  nodepoolId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
-      retainResources: 'RetainResources',
+      instancesShrink: 'Instances',
+      nodepoolId: 'NodepoolId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
-      retainResources: 'boolean',
+      instancesShrink: 'string',
+      nodepoolId: 'string',
     };
   }
 

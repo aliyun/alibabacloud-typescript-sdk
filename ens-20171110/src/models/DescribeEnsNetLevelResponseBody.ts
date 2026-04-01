@@ -3,17 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEnsNetLevelResponseBodyEnsNetLevelsEnsNetLevel extends $dara.Model {
-  /**
-   * @remarks
-   * The network level. Valid values:
-   * 
-   * *   Big: greater area.
-   * *   Middle: province.
-   * *   Small: city.
-   * 
-   * @example
-   * Big
-   */
   ensNetLevelCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71,10 +60,6 @@ export class DescribeEnsNetLevelResponseBody extends $dara.Model {
    * 0
    */
   code?: number;
-  /**
-   * @remarks
-   * The network levels.
-   */
   ensNetLevels?: DescribeEnsNetLevelResponseBodyEnsNetLevels;
   /**
    * @remarks

@@ -201,6 +201,11 @@ export class DescribeClusterNodePoolsResponseBodyNodePoolsStatus extends $dara.M
    * @example
    * 0
    */
+  failedNodes?: number;
+  /**
+   * @example
+   * 0
+   */
   initialNodes?: number;
   /**
    * @example
@@ -225,6 +230,7 @@ export class DescribeClusterNodePoolsResponseBodyNodePoolsStatus extends $dara.M
   static names(): { [key: string]: string } {
     return {
       desiredNodes: 'DesiredNodes',
+      failedNodes: 'FailedNodes',
       initialNodes: 'InitialNodes',
       removingNodes: 'RemovingNodes',
       servingNodes: 'ServingNodes',
@@ -236,6 +242,7 @@ export class DescribeClusterNodePoolsResponseBodyNodePoolsStatus extends $dara.M
   static types(): { [key: string]: any } {
     return {
       desiredNodes: 'number',
+      failedNodes: 'number',
       initialNodes: 'number',
       removingNodes: 'number',
       servingNodes: 'number',

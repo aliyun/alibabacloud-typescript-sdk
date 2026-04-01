@@ -3,57 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEnsNetDistrictResponseBodyEnsNetDistrictsEnsNetDistrict extends $dara.Model {
-  /**
-   * @remarks
-   * The number of nodes in the region.
-   * 
-   * @example
-   * 2
-   */
   ensRegionIdCount?: string;
-  /**
-   * @remarks
-   * The code of the region.
-   * 
-   * @example
-   * 100106
-   */
   netDistrictCode?: string;
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * southWest
-   */
   netDistrictEnName?: string;
-  /**
-   * @remarks
-   * The parent code of the region.
-   * 
-   * @example
-   * 100000
-   */
   netDistrictFatherCode?: string;
-  /**
-   * @remarks
-   * The level of the region.
-   * 
-   * *   **Big**: area
-   * *   **Middle**: province
-   * *   **Small**: city
-   * 
-   * @example
-   * Big
-   */
   netDistrictLevel?: string;
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * southwest China
-   */
   netDistrictName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,10 +75,6 @@ export class DescribeEnsNetDistrictResponseBody extends $dara.Model {
    * 0
    */
   code?: number;
-  /**
-   * @remarks
-   * The information about the regions.
-   */
   ensNetDistricts?: DescribeEnsNetDistrictResponseBodyEnsNetDistricts;
   /**
    * @remarks

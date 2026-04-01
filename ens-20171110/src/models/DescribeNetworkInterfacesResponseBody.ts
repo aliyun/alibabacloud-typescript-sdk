@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6SetsIpv6Set extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 address of the ENI.
-   * 
-   * @example
-   * 2605:340:cdb1:XXXX:XXXX:XXXX:XXXX:e2d6
-   */
   ipv6Address?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,24 +52,7 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSetsPrivateIpSet extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether the private IP address is the primary private IP address. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   primary?: boolean;
-  /**
-   * @remarks
-   * The private IP address.
-   * 
-   * @example
-   * 192.168.0.130
-   */
   privateIpAddress?: string;
   privateIpStatus?: string;
   static names(): { [key: string]: string } {
@@ -157,136 +133,21 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInt
 }
 
 export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSet extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the ENI was created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2022-02-22T03:53:25Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of ENI.
-   * 
-   * @example
-   * test-description
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the edge node.
-   * 
-   * @example
-   * id-jakarta-1
-   */
   ensRegionId?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the ENI is bound.
-   * 
-   * @example
-   * i-5siavnr3
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The IPv6 addresses of the ENIs.
-   */
   ipv6Sets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetIpv6Sets;
-  /**
-   * @remarks
-   * The MAC address of the ENI.
-   * 
-   * @example
-   * 00:16:3e:08:60:0a
-   */
   macAddress?: string;
-  /**
-   * @remarks
-   * The ID of the network.
-   * 
-   * @example
-   * n-5w0qd03adw****
-   */
   networkId?: string;
-  /**
-   * @remarks
-   * The ID of the ENI.
-   * 
-   * @example
-   * eni-uf686a5
-   */
   networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The ENI name.
-   * 
-   * @example
-   * primaryTest
-   */
   networkInterfaceName?: string;
-  /**
-   * @remarks
-   * The private IP address of the server.
-   * 
-   * @example
-   * 12.23.3.4
-   */
   primaryIp?: string;
-  /**
-   * @remarks
-   * The primary private IP address. Valid values:
-   * 
-   * *   **Public**: public IP address.
-   * *   **Private**: internal IP address.
-   * 
-   * @example
-   * private
-   */
   primaryIpType?: string;
-  /**
-   * @remarks
-   * Details about the private IP address.
-   */
   privateIpSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetPrivateIpSets;
-  /**
-   * @remarks
-   * The ID of the security group.
-   */
   securityGroupIds?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSetsNetworkInterfaceSetSecurityGroupIds;
-  /**
-   * @remarks
-   * The status of the ENI. Valid values:
-   * 
-   * *   Available: The ENI is available.
-   * *   Attaching: The ENI is being attached to an instance.
-   * *   InUse: The ENI is attached to an instance.
-   * *   Detaching: The ENI is being detached from an instance.
-   * *   Deleting: The ENI is being deleted.
-   * 
-   * @example
-   * In_use
-   */
   status?: string;
-  /**
-   * @remarks
-   * The type of the ENI. Valid values:
-   * 
-   * *   Primary
-   * *   Secondary
-   * 
-   * @example
-   * Primary
-   */
   type?: string;
-  /**
-   * @remarks
-   * The ID of the vSwitch.
-   * 
-   * @example
-   * vsw-5rqswx1trlsj9
-   */
   vSwitchId?: string;
   vmncLearn?: boolean;
   static names(): { [key: string]: string } {
@@ -378,10 +239,6 @@ export class DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets extends $
 }
 
 export class DescribeNetworkInterfacesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the ENIs.
-   */
   networkInterfaceSets?: DescribeNetworkInterfacesResponseBodyNetworkInterfaceSets;
   /**
    * @remarks

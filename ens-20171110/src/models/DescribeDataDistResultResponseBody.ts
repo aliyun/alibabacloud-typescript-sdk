@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDataDistResultResponseBodyDistResultsDistResultStatusStatsStatusStatInstancesInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the instance
-   * 
-   * @example
-   * i-5qzje8f5un1wmi341m2yetaxv
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The start time of the distribution. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-11-19T07:24:52Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The description of the distribution status.
-   * 
-   * @example
-   * SUCCESS
-   */
   statusDescrip?: string;
-  /**
-   * @remarks
-   * The time when the distribution status was last updated. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-10-11T02:38:19Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,32 +61,8 @@ export class DescribeDataDistResultResponseBodyDistResultsDistResultStatusStatsS
 }
 
 export class DescribeDataDistResultResponseBodyDistResultsDistResultStatusStatsStatusStat extends $dara.Model {
-  /**
-   * @remarks
-   * The number of associated edge instances.
-   * 
-   * @example
-   * 10
-   */
   instanceCount?: string;
-  /**
-   * @remarks
-   * The distribution status of the edge instance.
-   */
   instances?: DescribeDataDistResultResponseBodyDistResultsDistResultStatusStatsStatusStatInstances;
-  /**
-   * @remarks
-   * The distribution status. The value is of the enumeration type. Valid values:
-   * 
-   * *   SUCCESS: The distribution is successful.
-   * *   FAILED: The distribution failed.
-   * *   DISTING: The data is being distributed.
-   * *   POD_RESTARTING: The idle pod is being restarted.
-   * *   DELETED: The data is cleared or removed.
-   * 
-   * @example
-   * SUCCESS
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -171,26 +119,8 @@ export class DescribeDataDistResultResponseBodyDistResultsDistResultStatusStats 
 }
 
 export class DescribeDataDistResultResponseBodyDistResultsDistResult extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the data file.
-   * 
-   * @example
-   * gcs-prod-websocket-eip-unicom
-   */
   name?: string;
-  /**
-   * @remarks
-   * The distribution status statistics.
-   */
   statusStats?: DescribeDataDistResultResponseBodyDistResultsDistResultStatusStats;
-  /**
-   * @remarks
-   * The version number of the data file.
-   * 
-   * @example
-   * standard
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -247,10 +177,6 @@ export class DescribeDataDistResultResponseBodyDistResults extends $dara.Model {
 }
 
 export class DescribeDataDistResultResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The distribution status of data files on edge instances.
-   */
   distResults?: DescribeDataDistResultResponseBodyDistResults;
   /**
    * @remarks

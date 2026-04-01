@@ -3,50 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddBackendServersResponseBodyBackendServersBackendServer extends $dara.Model {
-  /**
-   * @remarks
-   * The IP address of the backend server.
-   * 
-   * @example
-   * 192.168.0.1
-   */
   ip?: string;
-  /**
-   * @remarks
-   * The backend port that is used by the ELB instance.
-   * 
-   * @example
-   * 0
-   */
   port?: number;
-  /**
-   * @remarks
-   * The ID of the instance that is used as the backend server.
-   * 
-   * @example
-   * i-5uf6hj58zvml4ali8****
-   */
   serverId?: string;
-  /**
-   * @remarks
-   * The type of the backend server. Valid values:
-   * 
-   * *   **ens**: ENS instance.
-   * *   **eni**: ENI.
-   * 
-   * @example
-   * ens
-   */
   type?: string;
-  /**
-   * @remarks
-   * The weight of the backend server. Default value: 100. Valid values: **0** to **100**.
-   * 
-   * >  The value 0 indicates that requests are not forwarded to the backend server.
-   * 
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -104,12 +64,6 @@ export class AddBackendServersResponseBodyBackendServers extends $dara.Model {
 }
 
 export class AddBackendServersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of backend servers that you want to add. You can add at most 20 backend servers.
-   * 
-   * >  Only ENS instances that are in the running state can be attached to the ELB instance as backend servers.
-   */
   backendServers?: AddBackendServersResponseBodyBackendServers;
   /**
    * @remarks

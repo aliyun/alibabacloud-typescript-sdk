@@ -55,55 +55,12 @@ export class DescribeSecurityGroupsResponseBodySecurityGroupsSecurityGroupNetwor
 }
 
 export class DescribeSecurityGroupsResponseBodySecurityGroupsSecurityGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-11-01T06:08:46Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the security group.
-   * 
-   * @example
-   * TestDescription
-   */
   description?: string;
-  /**
-   * @remarks
-   * The number of associated instances.
-   * 
-   * @example
-   * 5
-   */
   instanceCount?: number;
-  /**
-   * @remarks
-   * The IDs of the instances that are associated with the security group.
-   */
   instanceIds?: DescribeSecurityGroupsResponseBodySecurityGroupsSecurityGroupInstanceIds;
-  /**
-   * @remarks
-   * The IDs of the ENIs that are associated with the security group.
-   */
   networkInterfaceIds?: DescribeSecurityGroupsResponseBodySecurityGroupsSecurityGroupNetworkInterfaceIds;
-  /**
-   * @remarks
-   * The ID of the security group.
-   * 
-   * @example
-   * sg-bp67acfmxazb4ph***
-   */
   securityGroupId?: string;
-  /**
-   * @remarks
-   * The name of the security group.
-   * 
-   * @example
-   * DocTest
-   */
   securityGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -195,10 +152,6 @@ export class DescribeSecurityGroupsResponseBody extends $dara.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about security groups.
-   */
   securityGroups?: DescribeSecurityGroupsResponseBodySecurityGroups;
   /**
    * @remarks

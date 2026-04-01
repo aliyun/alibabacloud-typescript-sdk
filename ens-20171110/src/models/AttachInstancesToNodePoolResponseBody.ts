@@ -2,27 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteClusterRequest extends $dara.Model {
+export class AttachInstancesToNodePoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is required.
+   * Id of the request
    * 
    * @example
-   * eck-xxxxxxxx
+   * C0003E8B-B930-4F59-ADC0-0E209A9012A8
    */
-  clusterId?: string;
-  retainResources?: boolean;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      clusterId: 'ClusterId',
-      retainResources: 'RetainResources',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clusterId: 'string',
-      retainResources: 'boolean',
+      requestId: 'string',
     };
   }
 

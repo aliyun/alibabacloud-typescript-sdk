@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunServiceScheduleResponseBodyCommandResultsCommandResult extends $dara.Model {
-  /**
-   * @remarks
-   * The command.
-   * 
-   * @example
-   * ls -l /data
-   */
   command?: string;
-  /**
-   * @remarks
-   * The name of the container.
-   * 
-   * @example
-   * android
-   */
   containerName?: string;
-  /**
-   * @remarks
-   * The execution result of the command.
-   * 
-   * @example
-   * success
-   */
   resultMsg?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class RunServiceScheduleResponseBodyCommandResults extends $dara.Model {
 }
 
 export class RunServiceScheduleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The execution results of the commands.
-   */
   commandResults?: RunServiceScheduleResponseBodyCommandResults;
   /**
    * @remarks

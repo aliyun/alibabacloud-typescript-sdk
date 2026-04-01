@@ -55,35 +55,15 @@ export class DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks exte
 }
 
 export class DescribeNetworksResponseBodyNetworksNetworkTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * TestKey
-   */
   key?: string;
   /**
-   * @example
-   * TestKey
-   * 
    * @deprecated
    */
   tagKey?: string;
   /**
-   * @example
-   * TestValue
-   * 
    * @deprecated
    */
   tagValue?: string;
-  /**
-   * @remarks
-   * The bandwidth.
-   * 
-   * @example
-   * TestValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -165,108 +145,20 @@ export class DescribeNetworksResponseBodyNetworksNetworkVSwitchIds extends $dara
 }
 
 export class DescribeNetworksResponseBodyNetworksNetwork extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv4 CIDR block of the network.
-   * 
-   * @example
-   * 10.0.xx.xx/24
-   */
   cidrBlock?: string;
-  /**
-   * @remarks
-   * The timestamp when the instance was created. Unit: milliseconds.
-   * 
-   * @example
-   * 2020-06-16T06:33:15Z
-   */
   createdTime?: string;
-  /**
-   * @remarks
-   * The description of the network.
-   * 
-   * @example
-   * exampleDescription
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the edge node.
-   * 
-   * @example
-   * cn-beijing
-   */
   ensRegionId?: string;
-  /**
-   * @remarks
-   * The ID of the gateway route table.
-   * 
-   * @example
-   * rt-5*****tbs
-   */
   gatewayRouteTableId?: string;
-  /**
-   * @remarks
-   * The ID of the network access control list (ACL).
-   * 
-   * @example
-   * nacl-a2do9e413e0spxscd****
-   */
   networkAclId?: string;
-  /**
-   * @remarks
-   * The ID of the network.
-   * 
-   * @example
-   * n-5***
-   */
   networkId?: string;
-  /**
-   * @remarks
-   * The name of the network.
-   * 
-   * @example
-   * example
-   */
   networkName?: string;
-  /**
-   * @remarks
-   * The ID of the route table.
-   * 
-   * @example
-   * rt-5*****pks
-   */
   routeTableId?: string;
-  /**
-   * @remarks
-   * The IDs of the route tables.
-   */
   routeTableIds?: DescribeNetworksResponseBodyNetworksNetworkRouteTableIds;
-  /**
-   * @remarks
-   * The route table ID.
-   * 
-   * @example
-   * rtb-5**
-   */
   routerTableId?: string;
   secondaryCidrBlocks?: DescribeNetworksResponseBodyNetworksNetworkSecondaryCidrBlocks;
-  /**
-   * @remarks
-   * The status of the network. Valid values:
-   * 
-   * *   Pending
-   * *   Available
-   * 
-   * @example
-   * Available
-   */
   status?: string;
   tags?: DescribeNetworksResponseBodyNetworksNetworkTags;
-  /**
-   * @remarks
-   * The list of vSwitches in the network.
-   */
   vSwitchIds?: DescribeNetworksResponseBodyNetworksNetworkVSwitchIds;
   static names(): { [key: string]: string } {
     return {
@@ -356,10 +248,6 @@ export class DescribeNetworksResponseBodyNetworks extends $dara.Model {
 }
 
 export class DescribeNetworksResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The VPCs.
-   */
   networks?: DescribeNetworksResponseBodyNetworks;
   /**
    * @remarks

@@ -3,15 +3,41 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag extends $dara.Model {
+  /**
+   * @remarks
+   * 标签键
+   * 
+   * @example
+   * TestKey
+   */
   key?: string;
   /**
+   * @remarks
+   * 标签键。
+   * 
+   * @example
+   * TestKey
+   * 
    * @deprecated
    */
   tagKey?: string;
   /**
+   * @remarks
+   * 标签值。
+   * 
+   * @example
+   * TestValue
+   * 
    * @deprecated
    */
   tagValue?: string;
+  /**
+   * @remarks
+   * 标签值。
+   * 
+   * @example
+   * TestValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,22 +93,159 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags exten
 }
 
 export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $dara.Model {
+  /**
+   * @remarks
+   * EIP的实例ID。
+   * 
+   * @example
+   * eip-5sainglpw7qfem3icir4s****
+   */
   allocationId?: string;
+  /**
+   * @remarks
+   * EIP的创建时间
+   * 
+   * @example
+   * 1624885274000
+   */
   allocationTime?: string;
+  /**
+   * @remarks
+   * EIP的带宽峰值，默认值为5。取值范围：**5**~**10000**，单位：Mbps。
+   * 
+   * @example
+   * 50
+   */
   bandwidth?: number;
+  /**
+   * @remarks
+   * EIP的计费模式。
+   * 
+   * - **PrePaid**：包年包月。
+   * 
+   * - **PostPaid**：按量计费。
+   * 
+   * @example
+   * PostPaid
+   */
   chargeType?: string;
+  /**
+   * @remarks
+   * EIP的描述信息。
+   * 
+   * @example
+   * example
+   */
   description?: string;
+  /**
+   * @remarks
+   * ENS节点ID。
+   * 
+   * @example
+   * cn-xian-telecom
+   */
   ensRegionId?: string;
   icmpReplyEnabled?: boolean;
+  /**
+   * @remarks
+   * 当前绑定的实例的ID。
+   * 
+   * @example
+   * lb-5sc3kum2e0sz34wbqrws9****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * 要绑定的云产品实例的类型，取值： 
+   * 
+   * - **EnsInstance**：VPC类型的ENS实例。
+   * 
+   * - **SlbInstance**：负载均衡实例。
+   * 
+   * @example
+   * SlbInstance
+   */
   instanceType?: string;
+  /**
+   * @remarks
+   * EIP的计费方式。
+   * 
+   * - **95BandwidthByMonth**：月95峰值带宽。
+   * 
+   * - **PayByBandwidth**：固定带宽计费。
+   * 
+   * @example
+   * 95BandwidthByMonth
+   */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * EIP的IP地址。
+   * 
+   * @example
+   * 120.XXX.XXX.4
+   */
   ipAddress?: string;
+  /**
+   * @remarks
+   * 如果该弹性IP是备用EIP时，表示当前EIP的运行状态。
+   * - **Stopped**：已停止。
+   * - **Running**：运行中。
+   * - **Starting**：启动中。
+   * - **Stopping**：停止中。
+   * 
+   * @example
+   * Stopped
+   */
   ipStatus?: string;
+  /**
+   * @remarks
+   * 运营商，取值：
+   * 
+   * - **cmcc**：中国移动。
+   * - **unicom**：中国联通。
+   * - **telecom**：中国电信。
+   * 
+   * @example
+   * cmcc
+   */
   isp?: string;
+  /**
+   * @remarks
+   * EIP实例名称。
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * 该EIP是否是备用。
+   * 
+   * @example
+   * true
+   */
   standby?: boolean;
+  /**
+   * @remarks
+   * EIP的状态。
+   * 
+   * - **Associating**：绑定中。
+   * 
+   * - **Unassociating**：解绑中。   
+   * 
+   * - **InUse**：已分配。   
+   * 
+   * - **Available**：可用。
+   * 
+   * @example
+   * Available
+   */
   status?: string;
+  /**
+   * @remarks
+   * 标签集合。
+   */
   tags?: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags;
   static names(): { [key: string]: string } {
     return {

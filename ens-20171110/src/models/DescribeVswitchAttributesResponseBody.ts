@@ -173,25 +173,9 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * cn-xian-unicom
    */
   ensRegionId?: string;
-  /**
-   * @remarks
-   * A list of high-availability VIP instance IDs.
-   */
   haVipIds?: DescribeVSwitchAttributesResponseBodyHaVipIds;
-  /**
-   * @remarks
-   * A list of instance IDs.
-   */
   instanceIds?: DescribeVSwitchAttributesResponseBodyInstanceIds;
-  /**
-   * @remarks
-   * A list of load balancer instance IDs.
-   */
   loadBalancerIds?: DescribeVSwitchAttributesResponseBodyLoadBalancerIds;
-  /**
-   * @remarks
-   * A list of NAT gateway IDs.
-   */
   natGatewayIds?: DescribeVSwitchAttributesResponseBodyNatGatewayIds;
   /**
    * @remarks
@@ -201,10 +185,6 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * n-257gqcdfvx6n****
    */
   networkId?: string;
-  /**
-   * @remarks
-   * A list of elastic network interface IDs.
-   */
   networkInterfaceIds?: DescribeVSwitchAttributesResponseBodyNetworkInterfaceIds;
   /**
    * @remarks

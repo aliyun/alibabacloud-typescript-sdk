@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceSpecResponseBodyInstanceSpecsInstanceSpec extends $dara.Model {
-  /**
-   * @remarks
-   * The number of CPU cores.
-   * 
-   * @example
-   * 1
-   */
   core?: string;
-  /**
-   * @remarks
-   * The display name of the instance type.
-   * 
-   * @example
-   * Computational 1C2G
-   */
   displayName?: string;
-  /**
-   * @remarks
-   * The type of the instance.
-   * 
-   * @example
-   * ens.sn1.stiny
-   */
   instanceType?: string;
-  /**
-   * @remarks
-   * The memory size. Unit: MB.
-   * 
-   * @example
-   * 2048
-   */
   memory?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,10 +93,6 @@ export class DescribeInstanceSpecResponseBody extends $dara.Model {
    * 0
    */
   dataDiskMinSize?: number;
-  /**
-   * @remarks
-   * The information about instance specifications.
-   */
   instanceSpecs?: DescribeInstanceSpecResponseBodyInstanceSpecs;
   /**
    * @remarks

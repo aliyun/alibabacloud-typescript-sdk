@@ -3,77 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeExportImageInfoResponseBodyImagesImage extends $dara.Model {
-  /**
-   * @remarks
-   * The architecture of the image. Example: **x86_64**.
-   * 
-   * @example
-   * x86_64
-   */
   architecture?: string;
-  /**
-   * @remarks
-   * The time when the image was created.
-   * 
-   * @example
-   * 2017-12-08T12:10:03Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The URL of the exported image.
-   * 
-   * @example
-   * https://user_defined_bucket.oss-cn-beijing.aliyuncs.com/m-xxxxxxxxx1.qcow2
-   */
   exportedImageURL?: string;
-  /**
-   * @remarks
-   * The export status of the image. Valid values:
-   * 
-   * *   Exporting
-   * *   Exported
-   * *   ExportError
-   * *   Unexported
-   * 
-   * @example
-   * Exported
-   */
   imageExportStatus?: string;
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * m-xxxxxxxxx1
-   */
   imageId?: string;
-  /**
-   * @remarks
-   * The name of the image.
-   * 
-   * @example
-   * m-xxxxxxxxx1
-   */
   imageName?: string;
-  /**
-   * @remarks
-   * The source of the image. Valid values:
-   * 
-   * *   system: public image
-   * *   self: custom image
-   * 
-   * @example
-   * system
-   */
   imageOwnerAlias?: string;
-  /**
-   * @remarks
-   * The OS.
-   * 
-   * @example
-   * centos
-   */
   platform?: string;
   static names(): { [key: string]: string } {
     return {
@@ -137,10 +73,6 @@ export class DescribeExportImageInfoResponseBodyImages extends $dara.Model {
 }
 
 export class DescribeExportImageInfoResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned result. For more information, see the Images parameter described in the JSON-formatted sample success response.
-   */
   images?: DescribeExportImageInfoResponseBodyImages;
   /**
    * @remarks

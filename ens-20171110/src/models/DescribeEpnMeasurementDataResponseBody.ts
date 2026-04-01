@@ -3,48 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEpnMeasurementDataResponseBodyMeasurementDatasMeasurementDataBandWidthFeeDatasBandWidthFeeData extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the billable item.
-   * 
-   * @example
-   * cn-cmcc-1
-   */
   costCode?: string;
-  /**
-   * @remarks
-   * The name of the billable item.
-   * 
-   * @example
-   * Beijing, Shanghai, and Guangzhou Mobile
-   */
   costName?: string;
-  /**
-   * @remarks
-   * Metering method
-   * 
-   * *   SpeedUp: bandwidth of intelligent acceleration
-   * *   IntranetConnection: internal bandwidth
-   * 
-   * @example
-   * SpeedUp
-   */
   costType?: string;
-  /**
-   * @remarks
-   * The value of the billable item.
-   * 
-   * @example
-   * 16486
-   */
   costVal?: number;
-  /**
-   * @remarks
-   * This parameter is unavailable.
-   * 
-   * @example
-   * This parameter is not currently in use.
-   */
   ispLine?: string;
   static names(): { [key: string]: string } {
     return {
@@ -102,45 +64,10 @@ export class DescribeEpnMeasurementDataResponseBodyMeasurementDatasMeasurementDa
 }
 
 export class DescribeEpnMeasurementDataResponseBodyMeasurementDatasMeasurementData extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth data returned.
-   */
   bandWidthFeeDatas?: DescribeEpnMeasurementDataResponseBodyMeasurementDatasMeasurementDataBandWidthFeeDatas;
-  /**
-   * @remarks
-   * The metering method. Valid values:
-   * 
-   * *   ChargeByUnified: unified metering.
-   * *   ChargeByGrade: differential metering.
-   * 
-   * @example
-   * ChargeByGrade
-   */
   chargeModel?: string;
-  /**
-   * @remarks
-   * The metering cycle.
-   * 
-   * @example
-   * 2019-07-30
-   */
   costCycle?: string;
-  /**
-   * @remarks
-   * The end time of the metering cycle.
-   * 
-   * @example
-   * 2019-07-30T16:00:00Z
-   */
   costEndTime?: string;
-  /**
-   * @remarks
-   * The start time of the metering cycle.
-   * 
-   * @example
-   * 2019-07-29T16:00:00Z
-   */
   costStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -201,10 +128,6 @@ export class DescribeEpnMeasurementDataResponseBodyMeasurementDatas extends $dar
 }
 
 export class DescribeEpnMeasurementDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The metering data returned.
-   */
   measurementDatas?: DescribeEpnMeasurementDataResponseBodyMeasurementDatas;
   /**
    * @remarks

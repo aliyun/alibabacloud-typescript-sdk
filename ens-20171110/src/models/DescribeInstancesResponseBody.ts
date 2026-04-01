@@ -3,111 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstancesResponseBodyInstancesInstanceDataDiskDataDisk extends $dara.Model {
-  /**
-   * @remarks
-   * The category of the cloud disk or local disk. Valid values:
-   * 
-   * *   **file**: local disk.
-   * *   **pangu**: ultra disk.
-   * *   **local_hdd**: local HDD.
-   * 
-   * @example
-   * file
-   */
   category?: string;
-  /**
-   * @remarks
-   * The ID of the disk.
-   * 
-   * @example
-   * d-5ip4c2dhmas0vjd5u1r****
-   */
   diskId?: string;
-  /**
-   * @remarks
-   * The name of the disk.
-   * 
-   * @example
-   * DiskName
-   */
   diskName?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: GiB.
-   * 
-   * @example
-   * 100
-   */
   diskSize?: number;
-  /**
-   * @remarks
-   * The KMS key ID used by the cloud drive.
-   * 
-   * @example
-   * 0e478b7a-4262-4802-b8cb-00d3fxxxxx
-   */
   encryptKeyId?: string;
-  /**
-   * @remarks
-   * Specifies whether to encrypt the disk.
-   * 
-   * @example
-   * true
-   */
   encrypted?: boolean;
-  /**
-   * @remarks
-   * The size of the disk. Unit: MiB.
-   * 
-   * @example
-   * 51200
-   */
   size?: number;
-  /**
-   * @remarks
-   * The extended field of the disk category. Valid values:
-   * 
-   * *   **file**: local disk.
-   * *   **pangu**: ultra disk.
-   * *   **local_hdd**: local HDD.
-   * 
-   * @example
-   * pangu
-   */
   deviceType?: string;
-  /**
-   * @remarks
-   * The type of the cloud disk or local disk. Valid values:
-   * 
-   * **system**: system disk. **data**: data disk.
-   * 
-   * @example
-   * system
-   */
   diskType?: string;
-  /**
-   * @remarks
-   * The name of the disk.
-   * 
-   * @example
-   * name
-   */
   name?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: MiB.
-   * 
-   * @example
-   * 20480
-   */
   storage?: number;
-  /**
-   * @remarks
-   * The UUID of the disk.
-   * 
-   * @example
-   * d-5itef1wtxj961mbff8xe9****
-   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -231,26 +137,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkAttributesPriv
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkAttributes extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the network.
-   * 
-   * @example
-   * n-2zeuphj08tt7q3brd****
-   */
   networkId?: string;
-  /**
-   * @remarks
-   * Details of the private IP addresses.
-   */
   privateIpAddress?: DescribeInstancesResponseBodyInstancesInstanceNetworkAttributesPrivateIpAddress;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-2zeh0r1pabwtg6wcs****
-   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -281,13 +169,6 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkAttributes ext
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesIpv6SetsIpv6Set extends $dara.Model {
-  /**
-   * @remarks
-   * IPv6 addresses N of the ENI. You can specify multiple IPv6 addresses. Valid values of N: 1 to 100.
-   * 
-   * @example
-   * 2408:4005:396:3200:****:6609:821e:df7a
-   */
   ipv6Address?: string;
   static names(): { [key: string]: string } {
     return {
@@ -337,26 +218,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSetsPrivateIpSet extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the IP address is the primary private IP address. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   primary?: boolean;
-  /**
-   * @remarks
-   * The private IP address.
-   * 
-   * >  This parameter is available only if ScheduleAreaLevel is set to Region and cannot be configured if ScheduleAreaLevel is set to other values. Otherwise, an error occurs. If you specify a private IP address, the number of instances must be 1. The private IP address takes effect only when the private IP address and the vSwitch ID are not empty.
-   * 
-   * @example
-   * 10.75.66.***
-   */
   privateIpAddress?: string;
   static names(): { [key: string]: string } {
     return {
@@ -408,50 +270,11 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfaces extends $dara.Model {
-  /**
-   * @remarks
-   * The IPv6 addresses of the ENI. This parameter has a value only when `AdditionalAttributes.N` is set to `NETWORK_PRIMARY_ENI_IP`.
-   */
   ipv6Sets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesIpv6Sets;
-  /**
-   * @remarks
-   * The MAC address of the ENI.
-   * 
-   * @example
-   * 00:16:3e:4f:5f:ca
-   */
   macAddress?: string;
-  /**
-   * @remarks
-   * The ID of the ENI.
-   * 
-   * @example
-   * eni-0wlonoy6jo8532gfzuama****
-   */
   networkInterfaceId?: string;
-  /**
-   * @remarks
-   * The primary IP address of the ENI.
-   * 
-   * @example
-   * ***************
-   */
   primaryIpAddress?: string;
-  /**
-   * @remarks
-   * The private IP addresses of the ENI.
-   */
   privateIpSets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSets;
-  /**
-   * @remarks
-   * The type of the disk. Valid values:
-   * 
-   * *   system: system disk.
-   * *   data: data disk.
-   * 
-   * @example
-   * Secondary
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -517,29 +340,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfaces ext
 }
 
 export class DescribeInstancesResponseBodyInstancesInstancePrivateIpAddressesPrivateIpAddress extends $dara.Model {
-  /**
-   * @remarks
-   * The gateway.
-   * 
-   * @example
-   * 119.147.xx.xx
-   */
   gateWay?: string;
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 119.147.xx.xx
-   */
   ip?: string;
-  /**
-   * @remarks
-   * The ISP.
-   * 
-   * @example
-   * cmcc
-   */
   isp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -619,29 +421,8 @@ export class DescribeInstancesResponseBodyInstancesInstancePublicIpAddress exten
 }
 
 export class DescribeInstancesResponseBodyInstancesInstancePublicIpAddressesPublicIpAddress extends $dara.Model {
-  /**
-   * @remarks
-   * The gateway.
-   * 
-   * @example
-   * 119.147.xx.xx
-   */
   gateWay?: string;
-  /**
-   * @remarks
-   * The IP address.
-   * 
-   * @example
-   * 119.147.xx.xx
-   */
   ip?: string;
-  /**
-   * @remarks
-   * The Internet service provider (ISP).
-   * 
-   * @example
-   * unicom
-   */
   isp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -721,88 +502,14 @@ export class DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds exte
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceSystemDisk extends $dara.Model {
-  /**
-   * @remarks
-   * The category of the cloud disk or local disk. Valid values:
-   * 
-   * *   **file**: local disk.
-   * *   **pangu**: ultra disk.
-   * *   **local_hdd**: local HDD.
-   * 
-   * @example
-   * file
-   */
   category?: string;
-  /**
-   * @remarks
-   * The ID of the disk.
-   * 
-   * @example
-   * d-5ip4c2dhmas0rn7rt0p9****
-   */
   diskId?: string;
-  /**
-   * @remarks
-   * The name of the disk.
-   * 
-   * @example
-   * DiskName
-   */
   diskName?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: MiB.
-   * 
-   * @example
-   * 51200
-   */
   size?: number;
-  /**
-   * @remarks
-   * The extended field of the disk category. Valid values:
-   * 
-   * *   **file**: local disk.
-   * *   **pangu**: ultra disk.
-   * *   **local_hdd**: local HDD.
-   * 
-   * @example
-   * pangu
-   */
   deviceType?: string;
-  /**
-   * @remarks
-   * The type of the cloud disk or local disk. Valid values:
-   * 
-   * *   **system**: system disk.
-   * *   **data**: data disk.
-   * 
-   * @example
-   * system
-   */
   diskType?: string;
-  /**
-   * @remarks
-   * The name of the disk.
-   * 
-   * @example
-   * DiskName
-   */
   name?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: MiB.
-   * 
-   * @example
-   * 20480
-   */
   storage?: number;
-  /**
-   * @remarks
-   * The UUID of the disk.
-   * 
-   * @example
-   * d-5ip4c2dhmas0rn7rt0p96****
-   */
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -842,21 +549,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceSystemDisk extends $d
 }
 
 export class DescribeInstancesResponseBodyInstancesInstanceTagsTags extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * key1
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * value1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -908,247 +601,37 @@ export class DescribeInstancesResponseBodyInstancesInstanceTags extends $dara.Mo
 }
 
 export class DescribeInstancesResponseBodyInstancesInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The automatic release time of the instance.
-   * 
-   * @example
-   * 2023-06-28T14:38:52Z
-   */
   autoReleaseTime?: string;
-  /**
-   * @remarks
-   * The number of vCPUs.
-   * 
-   * @example
-   * 2
-   */
   cpu?: string;
-  /**
-   * @remarks
-   * The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-07-26T06:40:43Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * Details of the data disk.
-   */
   dataDisk?: DescribeInstancesResponseBodyInstancesInstanceDataDisk;
   deletionProtection?: boolean;
-  /**
-   * @remarks
-   * The total size of the disk. Unit: MiB.
-   * 
-   * @example
-   * 71680
-   */
   disk?: number;
-  /**
-   * @remarks
-   * The region ID of the instance.
-   * 
-   * @example
-   * cn-hangzhou-telecom
-   */
   ensRegionId?: string;
-  /**
-   * @remarks
-   * The expiration time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2119-07-13T02:38:57Z
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The hostname of the instance.
-   * 
-   * *   The hostname cannot start or end with a period (.) or hyphen (-). It cannot contain consecutive periods (.) or hyphens (-).
-   * *   For a Windows instance, the hostname must be 2 to 15 characters in length and can contain letters, digits, and hyphens (-). The hostname cannot contain periods (.) or contain only digits.
-   * *   For an instance that runs another operating system such as Linux, the hostname must be 2 to 64 characters in length. You can use periods (.) to separate the hostname into multiple segments. Each segment can contain letters, digits, and hyphens (-).
-   * 
-   * @example
-   * testHostName
-   */
   hostName?: string;
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * m-****
-   */
   imageId?: string;
-  /**
-   * @remarks
-   * The private IP addresses of the instances.
-   */
   innerIpAddress?: DescribeInstancesResponseBodyInstancesInstanceInnerIpAddress;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-instanc****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the instance.
-   * 
-   * @example
-   * i-5itef0f28t17bcdw9deu6meub
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The category of the instance. Valid values:
-   * 
-   * *   EnsInstance: ENS instances that you purchase.
-   * *   EnsService: ENS instances that belong to edge services.
-   * *   BuildMachine: ENS instances that are configured with image builders.
-   * *   EnsPostPaidInstance: pay-as-you-go ENS instances that you purchase.
-   * 
-   * @example
-   * EnsService
-   */
   instanceResourceType?: string;
-  /**
-   * @remarks
-   * The instance family. Valid values:
-   * 
-   * *   x86_vm: x86-based computing instance.
-   * *   x86_pm: x86-based physical machine.
-   * *   x86_bmi: x86-based bare metal instance.
-   * *   x86_bm: bare metal instance with the SmartNIC.
-   * *   pc_bmi: heterogeneous bare metal instance.
-   * *   pc_vm: heterogeneous virtual machine.
-   * *   arm_bmi: Arm-based computing instance.
-   * 
-   * @example
-   * x86_vm
-   */
   instanceTypeFamily?: string;
-  /**
-   * @remarks
-   * The maximum outbound bandwidth. Unit: Mbit/s.
-   * 
-   * @example
-   * 40
-   */
   internetMaxBandwidthIn?: number;
-  /**
-   * @remarks
-   * The minimum inbound bandwidth. Unit: Mbit/s.
-   * 
-   * @example
-   * 100
-   */
   internetMaxBandwidthOut?: number;
-  /**
-   * @remarks
-   * The name of the SSH key pair.
-   * 
-   * @example
-   * terraform-example
-   */
   keyPairName?: string;
-  /**
-   * @remarks
-   * The memory size. Unit: MB.
-   * 
-   * @example
-   * 2048
-   */
   memory?: number;
-  /**
-   * @remarks
-   * Details of the network.
-   */
   networkAttributes?: DescribeInstancesResponseBodyInstancesInstanceNetworkAttributes;
-  /**
-   * @remarks
-   * The ENI attached to the instance.
-   */
   networkInterfaces?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfaces;
-  /**
-   * @remarks
-   * The name of the image.
-   * 
-   * @example
-   * centos 6.8 x86_64
-   */
   OSName?: string;
-  /**
-   * @remarks
-   * Details of the private IP addresses.
-   */
   privateIpAddresses?: DescribeInstancesResponseBodyInstancesInstancePrivateIpAddresses;
-  /**
-   * @remarks
-   * The public IP addresses of the instances.
-   */
   publicIpAddress?: DescribeInstancesResponseBodyInstancesInstancePublicIpAddress;
-  /**
-   * @remarks
-   * Details of the public IP addresses.
-   */
   publicIpAddresses?: DescribeInstancesResponseBodyInstancesInstancePublicIpAddresses;
-  /**
-   * @remarks
-   * The IDs of the security groups.
-   */
   securityGroupIds?: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds;
-  /**
-   * @remarks
-   * The ID of your Alibaba Cloud account.
-   * 
-   * @example
-   * Deleting
-   */
   serviceStatus?: string;
-  /**
-   * @remarks
-   * The instance type.
-   * 
-   * @example
-   * ens.sn1.stiny
-   */
   specName?: string;
-  /**
-   * @remarks
-   * The bidding policy of the preemptible instance.
-   * 
-   * @example
-   * NoSpot
-   */
   spotStrategy?: string;
-  /**
-   * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * *   Running
-   * *   Expired
-   * *   Stopped
-   * 
-   * @example
-   * Running
-   */
   status?: string;
-  /**
-   * @remarks
-   * Details of the system disk.
-   */
   systemDisk?: DescribeInstancesResponseBodyInstancesInstanceSystemDisk;
-  /**
-   * @remarks
-   * The tags of the instance.
-   * 
-   * >  This operation does not return tag information. You can call this operation in combination with the tag-related operations.
-   */
   tags?: DescribeInstancesResponseBodyInstancesInstanceTags;
   static names(): { [key: string]: string } {
     return {
@@ -1298,10 +781,6 @@ export class DescribeInstancesResponseBody extends $dara.Model {
    * 0
    */
   code?: number;
-  /**
-   * @remarks
-   * The information about the instance is returned in an array of InstanceAttributesType.
-   */
   instances?: DescribeInstancesResponseBodyInstances;
   /**
    * @remarks

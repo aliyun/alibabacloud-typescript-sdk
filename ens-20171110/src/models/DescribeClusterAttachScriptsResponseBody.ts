@@ -2,27 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteClusterRequest extends $dara.Model {
+export class DescribeClusterAttachScriptsResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * eck-xxxxxxxx
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
    */
-  clusterId?: string;
-  retainResources?: boolean;
+  requestId?: string;
+  /**
+   * @example
+   * Y2QgWnhiU0o=
+   */
+  script?: string;
   static names(): { [key: string]: string } {
     return {
-      clusterId: 'ClusterId',
-      retainResources: 'RetainResources',
+      requestId: 'RequestId',
+      script: 'Script',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clusterId: 'string',
-      retainResources: 'boolean',
+      requestId: 'string',
+      script: 'string',
     };
   }
 

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataBandWidthFeeDatasBandWidthFeeData extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the bandwidth plan.
-   * 
-   * @example
-   * cn-cmcc-1
-   */
   costCode?: string;
-  /**
-   * @remarks
-   * The name of the bandwidth plan.
-   * 
-   * @example
-   * Beijing, Shanghai, and Guangzhou Mobile
-   */
   costName?: string;
-  /**
-   * @remarks
-   * The bandwidth consumption. Unit: bit/second.
-   * 
-   * @example
-   * 16486
-   */
   costVal?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,29 +58,8 @@ export class DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataB
 }
 
 export class DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataResourceFeeData extends $dara.Model {
-  /**
-   * @remarks
-   * The memory size. Unit: GB.
-   * 
-   * @example
-   * 24
-   */
   memory?: number;
-  /**
-   * @remarks
-   * The storage capacity. Unit: GB.
-   * 
-   * @example
-   * 60
-   */
   storage?: number;
-  /**
-   * @remarks
-   * The number of vCPUs.
-   * 
-   * @example
-   * 12
-   */
   vcpu?: number;
   static names(): { [key: string]: string } {
     return {
@@ -129,41 +87,9 @@ export class DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataR
 }
 
 export class DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataResourceFeeDataDetailsResourceFeeDataDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The code of the resource.
-   * 
-   * @example
-   * vCPU
-   */
   costCode?: string;
-  /**
-   * @remarks
-   * The name of the resource.
-   * 
-   * @example
-   * vCPU
-   */
   costName?: string;
-  /**
-   * @remarks
-   * The consumption of the resource.
-   * 
-   * *   Memory unit: GB.
-   * *   CPU unit: vCPU.
-   * *   Storage unit: GB.
-   * 
-   * @example
-   * 55
-   */
   costVal?: number;
-  /**
-   * @remarks
-   * The type of the resource.
-   * 
-   * @example
-   * vCPU
-   */
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -219,55 +145,12 @@ export class DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataR
 }
 
 export class DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementData extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth data returned.
-   */
   bandWidthFeeDatas?: DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataBandWidthFeeDatas;
-  /**
-   * @remarks
-   * The metering method. Valid values:
-   * 
-   * *   ChargeByUnified: unified metering.
-   * *   ChargeByGrade: differential metering.
-   * 
-   * @example
-   * ChargeByGrade
-   */
   chargeModel?: string;
-  /**
-   * @remarks
-   * The metering cycle.
-   * 
-   * @example
-   * 2019-07-30
-   */
   costCycle?: string;
-  /**
-   * @remarks
-   * The end time of the metering cycle.
-   * 
-   * @example
-   * 2019-07-30T16:00:00Z
-   */
   costEndTime?: string;
-  /**
-   * @remarks
-   * The start time of the metering cycle.
-   * 
-   * @example
-   * 2019-07-29T16:00:00Z
-   */
   costStartTime?: string;
-  /**
-   * @remarks
-   * The information about computing resources.
-   */
   resourceFeeData?: DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataResourceFeeData;
-  /**
-   * @remarks
-   * Details of the computing resources.
-   */
   resourceFeeDataDetails?: DescribeMeasurementDataResponseBodyMeasurementDatasMeasurementDataResourceFeeDataDetails;
   static names(): { [key: string]: string } {
     return {
@@ -338,10 +221,6 @@ export class DescribeMeasurementDataResponseBodyMeasurementDatas extends $dara.M
 }
 
 export class DescribeMeasurementDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The metering data returned.
-   */
   measurementDatas?: DescribeMeasurementDataResponseBodyMeasurementDatas;
   /**
    * @remarks

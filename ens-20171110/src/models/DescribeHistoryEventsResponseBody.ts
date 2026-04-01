@@ -73,6 +73,7 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
    * 1715578245000
    */
   notBefore?: number;
+  notBeforeUtcTime?: string;
   /**
    * @remarks
    * The release time in milliseconds.
@@ -81,6 +82,7 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
    * 1715578245000
    */
   publishTime?: number;
+  publishUtcTime?: string;
   /**
    * @remarks
    * The event cause.
@@ -102,7 +104,9 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
       eventType: 'EventType',
       extendedAttribute: 'ExtendedAttribute',
       notBefore: 'NotBefore',
+      notBeforeUtcTime: 'NotBeforeUtcTime',
       publishTime: 'PublishTime',
+      publishUtcTime: 'PublishUtcTime',
       reason: 'Reason',
       resourceId: 'ResourceId',
     };
@@ -116,7 +120,9 @@ export class DescribeHistoryEventsResponseBodyEvents extends $dara.Model {
       eventType: 'string',
       extendedAttribute: 'string',
       notBefore: 'number',
+      notBeforeUtcTime: 'string',
       publishTime: 'number',
+      publishUtcTime: 'string',
       reason: 'string',
       resourceId: 'string',
     };

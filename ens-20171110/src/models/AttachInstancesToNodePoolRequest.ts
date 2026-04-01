@@ -2,12 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteClusterNodesShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  bodyShrink?: string;
+export class AttachInstancesToNodePoolRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -16,24 +11,39 @@ export class DeleteClusterNodesShrinkRequest extends $dara.Model {
    * eck-xxxxxxxx
    */
   clusterId?: string;
-  releaseNode?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instances?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * np68mi5y1dd748ky37ojo2kqdrz
+   */
+  nodepoolId?: string;
   static names(): { [key: string]: string } {
     return {
-      bodyShrink: 'Body',
       clusterId: 'ClusterId',
-      releaseNode: 'ReleaseNode',
+      instances: 'Instances',
+      nodepoolId: 'NodepoolId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bodyShrink: 'string',
       clusterId: 'string',
-      releaseNode: 'boolean',
+      instances: { 'type': 'array', 'itemType': 'string' },
+      nodepoolId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.instances)) {
+      $dara.Model.validateArray(this.instances);
+    }
     super.validate();
   }
 

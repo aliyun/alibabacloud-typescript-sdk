@@ -3,93 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEpnInstancesResponseBodyEPNInstancesEPNInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the instance was created. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-11-01T06:08:46Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The ID of the EPN instance.
-   * 
-   * @example
-   * epn****
-   */
   EPNInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the EPN instance.
-   * 
-   * @example
-   * ens_test_epn
-   */
   EPNInstanceName?: string;
-  /**
-   * @remarks
-   * Set the value to EdgeToEdge.
-   * 
-   * @example
-   * EdgeToEdge
-   */
   EPNInstanceType?: string;
-  /**
-   * @remarks
-   * The end of the time range during which the data was queried. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-11-01T06:08:46Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The inbound bandwidth. Unit: Mbit/s.
-   * 
-   * @example
-   * 40
-   */
   internetMaxBandwidthOut?: number;
-  /**
-   * @remarks
-   * The time when the instance was last modified. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-11-01T06:08:46Z
-   */
   modifyTime?: string;
-  /**
-   * @remarks
-   * The networking mode. Valid values:
-   * 
-   * *   SpeedUp: intelligent acceleration network (Internet)
-   * *   Connection: internal network
-   * *   SpeedUpAndConnection: intelligent acceleration network and internal network
-   * 
-   * @example
-   * SpeedUp
-   */
   networkingModel?: string;
-  /**
-   * @remarks
-   * The beginning of the time range during which the data was queried. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-11-01T06:08:46Z
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * The status of the instance. Valid values:
-   * 
-   * *   Running
-   * *   Excuting
-   * *   Stopped
-   * 
-   * @example
-   * Running
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -157,10 +79,6 @@ export class DescribeEpnInstancesResponseBodyEPNInstances extends $dara.Model {
 }
 
 export class DescribeEpnInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details of EPN instances.
-   */
   EPNInstances?: DescribeEpnInstancesResponseBodyEPNInstances;
   /**
    * @remarks

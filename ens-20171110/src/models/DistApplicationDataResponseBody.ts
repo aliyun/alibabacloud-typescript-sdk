@@ -29,37 +29,9 @@ export class DistApplicationDataResponseBodyDistInstanceIds extends $dara.Model 
 }
 
 export class DistApplicationDataResponseBodyDistResultsDistResult extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the data file.
-   * 
-   * @example
-   * gcs-prod-websocket-eip-unicom
-   */
   name?: string;
-  /**
-   * @remarks
-   * The error code. The value is of the enumerated data type.
-   * 
-   * @example
-   * 400
-   */
   resultCode?: number;
-  /**
-   * @remarks
-   * The description of the distribution result.
-   * 
-   * @example
-   * Success
-   */
   resultDescrip?: string;
-  /**
-   * @remarks
-   * The version number of the data file.
-   * 
-   * @example
-   * standard
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,10 +87,6 @@ export class DistApplicationDataResponseBodyDistResults extends $dara.Model {
 }
 
 export class DistApplicationDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of ENS instance IDs.
-   */
   distInstanceIds?: DistApplicationDataResponseBodyDistInstanceIds;
   /**
    * @remarks
@@ -128,10 +96,6 @@ export class DistApplicationDataResponseBody extends $dara.Model {
    * 2
    */
   distInstanceTotalCount?: number;
-  /**
-   * @remarks
-   * The distribution result of the data file.
-   */
   distResults?: DistApplicationDataResponseBodyDistResults;
   /**
    * @remarks

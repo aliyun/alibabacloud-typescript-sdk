@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAvailableResourceInfoResponseBodyImagesImage extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * centos_6_08_64_20G_a****
-   */
   imageId?: string;
-  /**
-   * @remarks
-   * The name of the image.
-   * 
-   * @example
-   * centos_6_08_64_20G_a****
-   */
   imageName?: string;
-  /**
-   * @remarks
-   * The size of the image. Unit: GB.
-   * 
-   * @example
-   * 20
-   */
   imageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -131,53 +110,11 @@ export class DescribeAvailableResourceInfoResponseBodySupportResourcesSupportRes
 }
 
 export class DescribeAvailableResourceInfoResponseBodySupportResourcesSupportResourceEnsRegionIdsExtendsEnsRegionId extends $dara.Model {
-  /**
-   * @remarks
-   * The region.
-   * 
-   * @example
-   * EastChina
-   */
   area?: string;
-  /**
-   * @remarks
-   * The name. This parameter is empty by default.
-   * 
-   * @example
-   * EnName
-   */
   enName?: string;
-  /**
-   * @remarks
-   * The ID of the edge node.
-   * 
-   * @example
-   * cn-chengdu-telecom-4
-   */
   ensRegionId?: string;
-  /**
-   * @remarks
-   * The information about the Internet service provider (ISP).
-   * 
-   * @example
-   * unicom
-   */
   isp?: string;
-  /**
-   * @remarks
-   * The name of the edge node.
-   * 
-   * @example
-   * Taizhou Telecom, China Unicom, and China Mobile
-   */
   name?: string;
-  /**
-   * @remarks
-   * The province.
-   * 
-   * @example
-   * Zhejiang Province
-   */
   province?: string;
   static names(): { [key: string]: string } {
     return {
@@ -289,58 +226,14 @@ export class DescribeAvailableResourceInfoResponseBodySupportResourcesSupportRes
 }
 
 export class DescribeAvailableResourceInfoResponseBodySupportResourcesSupportResource extends $dara.Model {
-  /**
-   * @remarks
-   * Bandwidth billing method.
-   */
   bandwidthTypes?: DescribeAvailableResourceInfoResponseBodySupportResourcesSupportResourceBandwidthTypes;
-  /**
-   * @remarks
-   * The maximum capacity of a data disk. Unit: GB.
-   * 
-   * @example
-   * 200
-   */
   dataDiskMaxSize?: number;
-  /**
-   * @remarks
-   * The minimum data disk size. Unit: GiB.
-   * 
-   * @example
-   * 100
-   */
   dataDiskMinSize?: number;
-  /**
-   * @remarks
-   * node ID
-   */
   ensRegionIds?: DescribeAvailableResourceInfoResponseBodySupportResourcesSupportResourceEnsRegionIds;
-  /**
-   * @remarks
-   * The supplementary information about the edge nodes.
-   */
   ensRegionIdsExtends?: DescribeAvailableResourceInfoResponseBodySupportResourcesSupportResourceEnsRegionIdsExtends;
   instanceSpeces?: DescribeAvailableResourceInfoResponseBodySupportResourcesSupportResourceInstanceSpeces;
-  /**
-   * @remarks
-   * Operator
-   */
   isp?: DescribeAvailableResourceInfoResponseBodySupportResourcesSupportResourceIsp;
-  /**
-   * @remarks
-   * The maximum size of the system disk. Unit: GiB.
-   * 
-   * @example
-   * 100
-   */
   systemDiskMaxSize?: number;
-  /**
-   * @remarks
-   * The minimum capacity of a system disk. Unit: GB.
-   * 
-   * @example
-   * 20
-   */
   systemDiskMinSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -421,10 +314,6 @@ export class DescribeAvailableResourceInfoResponseBodySupportResources extends $
 }
 
 export class DescribeAvailableResourceInfoResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the image.
-   */
   images?: DescribeAvailableResourceInfoResponseBodyImages;
   /**
    * @remarks
@@ -434,10 +323,6 @@ export class DescribeAvailableResourceInfoResponseBody extends $dara.Model {
    * 8629F679-B51D-4194-A1CC-5D8F504C362B
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The specifications of resources that you can purchase.
-   */
   supportResources?: DescribeAvailableResourceInfoResponseBodySupportResources;
   static names(): { [key: string]: string } {
     return {

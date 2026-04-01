@@ -3,42 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeImagesResponseBodyImagesImageDiskDeviceMappingsDiskDeviceMapping extends $dara.Model {
-  /**
-   * @remarks
-   * The format of the image.
-   * 
-   * @example
-   * The format of the image.
-   * raw
-   * qcow2
-   */
   format?: string;
-  /**
-   * @remarks
-   * The size of the disk. Unit: GiB.
-   * 
-   * @example
-   * 100
-   */
   size?: string;
-  /**
-   * @remarks
-   * The type of the disk. Valid values:
-   * 
-   * *   system: system disk.
-   * *   data: data disk.
-   * 
-   * @example
-   * Data
-   */
   type?: string;
-  /**
-   * @remarks
-   * The ID of image.
-   * 
-   * @example
-   * i-test
-   */
   imageId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -94,89 +61,15 @@ export class DescribeImagesResponseBodyImagesImageDiskDeviceMappings extends $da
 }
 
 export class DescribeImagesResponseBodyImagesImage extends $dara.Model {
-  /**
-   * @remarks
-   * The architecture of the image. Example: **x86_64**.
-   * 
-   * @example
-   * x86_64
-   */
   architecture?: string;
-  /**
-   * @remarks
-   * The time when the image was created. The time follows the ISO 8601 standard.
-   * 
-   * @example
-   * 2017-12-08T12:10:03Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The mappings between the disk and the snapshot in the image.
-   */
   diskDeviceMappings?: DescribeImagesResponseBodyImagesImageDiskDeviceMappings;
-  /**
-   * @remarks
-   * The ID of the image.
-   * 
-   * @example
-   * centos_6_08_64_20G_alibase_2017****
-   */
   imageId?: string;
-  /**
-   * @remarks
-   * The name of the image.
-   * 
-   * @example
-   * Ubuntu_16.04
-   */
   imageName?: string;
-  /**
-   * @remarks
-   * The source of the image. Valid values:
-   * 
-   * *   system: Alibaba Cloud public images
-   * *   self: your custom images
-   * *   others: shared images from other Alibaba Cloud accounts, or community images published by other Alibaba Cloud accounts
-   * 
-   * @example
-   * system
-   */
   imageOwnerAlias?: string;
-  /**
-   * @remarks
-   * The size of the image. Unit: GiB.
-   * 
-   * @example
-   * 40
-   */
   imageSize?: string;
-  /**
-   * @remarks
-   * The operating system type of the image. Valid values:
-   * 
-   * *   Linux
-   * *   Windows
-   * 
-   * @example
-   * centos
-   */
   platform?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-qingdao
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the snapshot.
-   * 
-   * @example
-   * mock-clone_snapshot_id
-   */
   snapshotId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -255,10 +148,6 @@ export class DescribeImagesResponseBody extends $dara.Model {
    * 0
    */
   code?: number;
-  /**
-   * @remarks
-   * The information about the images.
-   */
   images?: DescribeImagesResponseBodyImages;
   /**
    * @remarks
