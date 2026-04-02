@@ -45,6 +45,8 @@ export class ListCloudGtmInstanceConfigsRequest extends $dara.Model {
    * @remarks
    * Current page number, starting at **1**, default is **1**.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1
    */
@@ -52,6 +54,8 @@ export class ListCloudGtmInstanceConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of rows per page when paginating queries, with a maximum value of **100**, and a default of **20**.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 20
