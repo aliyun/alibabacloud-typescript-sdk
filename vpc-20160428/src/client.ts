@@ -282,7 +282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+   * AddCommonBandwidthPackageIp
    * 
    * @remarks
    * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
@@ -348,7 +348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
+   * AddCommonBandwidthPackageIp
    * 
    * @remarks
    * Associates an elastic IP address (EIP) with an Internet Shared Bandwidth instance.
@@ -3971,6 +3971,100 @@ export default class Client extends OpenApi {
   async createDhcpOptionsSet(request: $_model.CreateDhcpOptionsSetRequest): Promise<$_model.CreateDhcpOptionsSetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createDhcpOptionsSetWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建增强型VPN网关
+   * 
+   * @param request - CreateEnhancedVpnGatewayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEnhancedVpnGatewayResponse
+   */
+  async createEnhancedVpnGatewayWithOptions(request: $_model.CreateEnhancedVpnGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEnhancedVpnGatewayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.disasterRecoveryVSwitchId)) {
+      query["DisasterRecoveryVSwitchId"] = request.disasterRecoveryVSwitchId;
+    }
+
+    if (!$dara.isNull(request.gatewayType)) {
+      query["GatewayType"] = request.gatewayType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.vpnType)) {
+      query["VpnType"] = request.vpnType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateEnhancedVpnGateway",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateEnhancedVpnGatewayResponse>(await this.callApi(params, req, runtime), new $_model.CreateEnhancedVpnGatewayResponse({}));
+  }
+
+  /**
+   * 创建增强型VPN网关
+   * 
+   * @param request - CreateEnhancedVpnGatewayRequest
+   * @returns CreateEnhancedVpnGatewayResponse
+   */
+  async createEnhancedVpnGateway(request: $_model.CreateEnhancedVpnGatewayRequest): Promise<$_model.CreateEnhancedVpnGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createEnhancedVpnGatewayWithOptions(request, runtime);
   }
 
   /**
@@ -10214,6 +10308,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an Enhanced VPN gateway.
+   * 
+   * @param request - DeleteEnhancedVpnGatewayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEnhancedVpnGatewayResponse
+   */
+  async deleteEnhancedVpnGatewayWithOptions(request: $_model.DeleteEnhancedVpnGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEnhancedVpnGatewayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.vpnGatewayId)) {
+      query["VpnGatewayId"] = request.vpnGatewayId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEnhancedVpnGateway",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteEnhancedVpnGatewayResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEnhancedVpnGatewayResponse({}));
+  }
+
+  /**
+   * Deletes an Enhanced VPN gateway.
+   * 
+   * @param request - DeleteEnhancedVpnGatewayRequest
+   * @returns DeleteEnhancedVpnGatewayResponse
+   */
+  async deleteEnhancedVpnGateway(request: $_model.DeleteEnhancedVpnGatewayRequest): Promise<$_model.DeleteEnhancedVpnGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteEnhancedVpnGatewayWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a Express Connect instance, including the initiator and acceptor.
    * 
    * @param request - DeleteExpressConnectRequest
@@ -15114,7 +15274,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
+   * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
    * 
    * @remarks
    * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
@@ -15180,7 +15340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and get up to 400 data points in each request.
+   * Queries the monitoring data of an elastic IP address (EIP). You can query monitoring data within the last 30 days, and obtain up to 400 data points in each request.
    * 
    * @remarks
    * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
@@ -23330,7 +23490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries he connection features supported by a Express Connect circuit.
+   * Querying the connection features supported by a Express Connect circuit.
    * 
    * @param request - ListPhysicalConnectionFeaturesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23385,7 +23545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries he connection features supported by a Express Connect circuit.
+   * Querying the connection features supported by a Express Connect circuit.
    * 
    * @param request - ListPhysicalConnectionFeaturesRequest
    * @returns ListPhysicalConnectionFeaturesResponse
@@ -30670,7 +30830,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates an EIP from an Internet Shared Bandwidth instance.
+   * The region ID of the Internet Shared Bandwidth instance.
+   * You can call the [DescribeRegions]\\(~~36063~~) operation to query the most recent region list.
    * 
    * @param request - RemoveCommonBandwidthPackageIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30729,7 +30890,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates an EIP from an Internet Shared Bandwidth instance.
+   * The region ID of the Internet Shared Bandwidth instance.
+   * You can call the [DescribeRegions]\\(~~36063~~) operation to query the most recent region list.
    * 
    * @param request - RemoveCommonBandwidthPackageIpRequest
    * @returns RemoveCommonBandwidthPackageIpResponse
@@ -32893,6 +33055,84 @@ export default class Client extends OpenApi {
   async updateDhcpOptionsSetAttribute(request: $_model.UpdateDhcpOptionsSetAttributeRequest): Promise<$_model.UpdateDhcpOptionsSetAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDhcpOptionsSetAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改增强型VPN实例属性
+   * 
+   * @param request - UpdateEnhancedVpnGatewayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateEnhancedVpnGatewayResponse
+   */
+  async updateEnhancedVpnGatewayWithOptions(request: $_model.UpdateEnhancedVpnGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEnhancedVpnGatewayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPropagate)) {
+      query["AutoPropagate"] = request.autoPropagate;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.vpnGatewayId)) {
+      query["VpnGatewayId"] = request.vpnGatewayId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateEnhancedVpnGateway",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateEnhancedVpnGatewayResponse>(await this.callApi(params, req, runtime), new $_model.UpdateEnhancedVpnGatewayResponse({}));
+  }
+
+  /**
+   * 修改增强型VPN实例属性
+   * 
+   * @param request - UpdateEnhancedVpnGatewayRequest
+   * @returns UpdateEnhancedVpnGatewayResponse
+   */
+  async updateEnhancedVpnGateway(request: $_model.UpdateEnhancedVpnGatewayRequest): Promise<$_model.UpdateEnhancedVpnGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateEnhancedVpnGatewayWithOptions(request, runtime);
   }
 
   /**

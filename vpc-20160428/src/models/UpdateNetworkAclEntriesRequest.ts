@@ -7,7 +7,7 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $dara.Model 
    * @remarks
    * The description of the outbound rule.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * This is EgressAclEntries.
@@ -15,15 +15,16 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block.
+   * The destination CIDR block. Alternatively, a prefix list ID can be provided.
    * 
    * @example
    * 10.0.0.0/24
+   * pl-xxxxxx
    */
   destinationCidrIp?: string;
   /**
    * @remarks
-   * The type of the rule. Set the value to **custom**, which specifies custom rules.
+   * The rule type. Set the value to **custom**.
    * 
    * @example
    * custom
@@ -31,9 +32,9 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $dara.Model 
   entryType?: string;
   /**
    * @remarks
-   * The IP version. Valid values:
+   * The IP version:
    * 
-   * *   **IPv4** (default)
+   * *   **IPv4**
    * *   **IPv6**
    * 
    * @example
@@ -44,7 +45,7 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $dara.Model 
    * @remarks
    * The ID of the outbound rule.
    * 
-   * Valid values of **N**: **0** to **99**. You can specify at most 100 outbound rules.
+   * Valid values of **N**: **0** to **99**. You can specify at most 100 outbound rule IDs.
    * 
    * @example
    * nae-2zecs97e0brcge46****
@@ -62,7 +63,7 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $dara.Model 
   networkAclEntryName?: string;
   /**
    * @remarks
-   * The action to be performed on network traffic that matches the rule. Valid values:
+   * The access control policy. Valid values:
    * 
    * *   **accept**
    * *   **drop**
@@ -75,8 +76,8 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $dara.Model 
    * @remarks
    * The destination port range of the outbound traffic.
    * 
-   * *   If the **protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specified all ports.
-   * *   If the **protocol** of the outbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid values for a port: **1** to **65535**.
+   * *   If **Protocol** is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which indicates all ports are available.
+   * *   If **Protocol** is set to **tcp** or **udp**, valid port numbers are **1** to **65535**. Format: **1/200** (port 1 to 200) or **80/80** (port 80).
    * 
    * @example
    * -1/-1
@@ -84,13 +85,14 @@ export class UpdateNetworkAclEntriesRequestEgressAclEntries extends $dara.Model 
   port?: string;
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The protocol type. Valid values:
    * 
    * *   **icmp**
    * *   **gre**
    * *   **tcp**
    * *   **udp**
    * *   **all**
+   * *   **icmpv6**
    * 
    * @example
    * all
@@ -138,7 +140,7 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $dara.Model
    * @remarks
    * The description of the inbound rule.
    * 
-   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
    * @example
    * This is IngressAclEntries.
@@ -146,7 +148,7 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The type of the rule. Set the value to **custom**, which specifies custom rules.
+   * The rule type. Set the value to **custom**.
    * 
    * @example
    * custom
@@ -154,9 +156,9 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $dara.Model
   entryType?: string;
   /**
    * @remarks
-   * The IP version. Valid values:
+   * The IP version:
    * 
-   * *   **IPv4** (default)
+   * *   **IPv4**
    * *   **IPv6**
    * 
    * @example
@@ -167,7 +169,7 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $dara.Model
    * @remarks
    * The ID of the inbound rule.
    * 
-   * Valid values of **N**: **0** to **99**. You can specify at most 100 inbound rules.
+   * Valid values of **N**: **0** to **99**. You can specify at most 100 inbound rule IDs.
    * 
    * @example
    * nae-2zepn32de59j8m4****
@@ -185,9 +187,9 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $dara.Model
   networkAclEntryName?: string;
   /**
    * @remarks
-   * The action to be performed on network traffic that matches the rule. Valid values:
+   * The access control policy. Valid values:
    * 
-   * *   **accept**
+   * *   **accept**: allows network traffic.
    * *   **drop**
    * 
    * @example
@@ -198,8 +200,8 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $dara.Model
    * @remarks
    * The source port range of the inbound rule.
    * 
-   * *   If the **protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which specifies all ports.
-   * *   If the **protocol** of the inbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid ports: **1** to **65535**.
+   * *   If **Protocol** is set to **all**, **icmp**, or **gre**, the port range is -1/-1, which indicates all ports are available.
+   * *   If **Protocol** is set to **tcp** or **udp**, valid port numbers are **1** to **65535**. Format: **1/200** (port 1 to 200) or **80/80** (port 80).
    * 
    * @example
    * -1/-1
@@ -207,13 +209,14 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $dara.Model
   port?: string;
   /**
    * @remarks
-   * The protocol. Valid values:
+   * Protocol type. Valid values:
    * 
    * *   **icmp**
    * *   **gre**
    * *   **tcp**
    * *   **udp**
    * *   **all**
+   * *   **icmpv6**
    * 
    * @example
    * all
@@ -221,10 +224,11 @@ export class UpdateNetworkAclEntriesRequestIngressAclEntries extends $dara.Model
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block.
+   * The source CIDR block. Alternatively, a prefix list ID can be provided.
    * 
    * @example
    * 10.0.0.0/24
+   * pl-xxxxxx
    */
   sourceCidrIp?: string;
   static names(): { [key: string]: string } {
@@ -295,7 +299,7 @@ export class UpdateNetworkAclEntriesRequest extends $dara.Model {
   egressAclEntries?: UpdateNetworkAclEntriesRequestEgressAclEntries[];
   /**
    * @remarks
-   * The information about the inbound rule.
+   * The information about the inbound rules.
    */
   ingressAclEntries?: UpdateNetworkAclEntriesRequestIngressAclEntries[];
   /**
