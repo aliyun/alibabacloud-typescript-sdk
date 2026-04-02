@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { UsageInfoDTO } from "./UsageInfoDto";
 
 
 export class RequestLogDTO extends $dara.Model {
@@ -60,6 +61,11 @@ export class RequestLogDTO extends $dara.Model {
   modelName?: string;
   /**
    * @example
+   * Chat
+   */
+  modelType?: string;
+  /**
+   * @example
    * 100
    */
   promptTokens?: number;
@@ -108,6 +114,11 @@ export class RequestLogDTO extends $dara.Model {
    * 150
    */
   totalTokens?: number;
+  /**
+   * @example
+   * {"prompt_tokens":100,"completion_tokens":50,"total_tokens":150}
+   */
+  usage?: UsageInfoDTO;
   static names(): { [key: string]: string } {
     return {
       apiKeyId: 'apiKeyId',
@@ -121,6 +132,7 @@ export class RequestLogDTO extends $dara.Model {
       modelCode: 'modelCode',
       modelId: 'modelId',
       modelName: 'modelName',
+      modelType: 'modelType',
       promptTokens: 'promptTokens',
       requestBody: 'requestBody',
       requestId: 'requestId',
@@ -131,6 +143,7 @@ export class RequestLogDTO extends $dara.Model {
       statusCode: 'statusCode',
       symbol: 'symbol',
       totalTokens: 'totalTokens',
+      usage: 'usage',
     };
   }
 
@@ -147,6 +160,7 @@ export class RequestLogDTO extends $dara.Model {
       modelCode: 'string',
       modelId: 'number',
       modelName: 'string',
+      modelType: 'string',
       promptTokens: 'number',
       requestBody: 'string',
       requestId: 'string',
@@ -157,10 +171,14 @@ export class RequestLogDTO extends $dara.Model {
       statusCode: 'number',
       symbol: 'string',
       totalTokens: 'number',
+      usage: UsageInfoDTO,
     };
   }
 
   validate() {
+    if(this.usage && typeof (this.usage as any).validate === 'function') {
+      (this.usage as any).validate();
+    }
     super.validate();
   }
 

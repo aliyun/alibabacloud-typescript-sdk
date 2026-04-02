@@ -2632,6 +2632,10 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!$dara.isNull(request.parentId)) {
+      body["parentId"] = request.parentId;
+    }
+
     if (!$dara.isNull(request.remark)) {
       body["remark"] = request.remark;
     }
@@ -2740,6 +2744,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.extensions)) {
+      body["extensions"] = request.extensions;
+    }
+
+    if (!$dara.isNull(request.inOut)) {
+      body["inOut"] = request.inOut;
     }
 
     if (!$dara.isNull(request.maxInputLength)) {
@@ -3315,6 +3327,10 @@ export default class Client extends OpenApi {
       query["maxResults"] = request.maxResults;
     }
 
+    if (!$dara.isNull(request.modelType)) {
+      query["modelType"] = request.modelType;
+    }
+
     if (!$dara.isNull(request.needTotalCount)) {
       query["needTotalCount"] = request.needTotalCount;
     }
@@ -3457,6 +3473,10 @@ export default class Client extends OpenApi {
   async modelRouterQueryNacosTagsWithOptions(request: $_model.ModelRouterQueryNacosTagsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryNacosTagsResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configType)) {
+      query["configType"] = request.configType;
+    }
+
     if (!$dara.isNull(request.groupBy)) {
       query["groupBy"] = request.groupBy;
     }

@@ -26,6 +26,16 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
   description?: string;
   /**
    * @example
+   * {}
+   */
+  extensions?: string;
+  /**
+   * @example
+   * text
+   */
+  inOut?: string;
+  /**
+   * @example
    * 32K
    */
   maxInputLength?: string;
@@ -64,6 +74,8 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
       apiKey: 'apiKey',
       baseUrl: 'baseUrl',
       description: 'description',
+      extensions: 'extensions',
+      inOut: 'inOut',
       maxInputLength: 'maxInputLength',
       maxOutputLength: 'maxOutputLength',
       modelId: 'modelId',
@@ -79,6 +91,8 @@ export class ModelRouterCreateModelRequest extends $dara.Model {
       apiKey: 'string',
       baseUrl: 'string',
       description: 'string',
+      extensions: 'string',
+      inOut: 'string',
       maxInputLength: 'string',
       maxOutputLength: 'string',
       modelId: 'string',

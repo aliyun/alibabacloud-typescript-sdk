@@ -20,6 +20,11 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @example
+   * Chat
+   */
+  modelType?: string;
+  /**
+   * @example
    * true
    */
   needTotalCount?: boolean;
@@ -58,6 +63,7 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
       groupBy: 'groupBy',
       keyword: 'keyword',
       maxResults: 'maxResults',
+      modelType: 'modelType',
       needTotalCount: 'needTotalCount',
       nextToken: 'nextToken',
       orderBy: 'orderBy',
@@ -73,6 +79,7 @@ export class ModelRouterQueryModelListRequest extends $dara.Model {
       groupBy: 'string',
       keyword: 'string',
       maxResults: 'number',
+      modelType: 'string',
       needTotalCount: 'boolean',
       nextToken: 'string',
       orderBy: 'string',

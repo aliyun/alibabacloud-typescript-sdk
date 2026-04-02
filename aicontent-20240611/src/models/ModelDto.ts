@@ -22,6 +22,7 @@ export class ModelDTO extends $dara.Model {
    */
   deleteTag?: number;
   description?: string;
+  extensions?: string;
   /**
    * @example
    * 2024-01-01T00:00:00Z
@@ -40,6 +41,7 @@ export class ModelDTO extends $dara.Model {
    * 1
    */
   id?: number;
+  inOut?: string;
   /**
    * @example
    * false
@@ -88,9 +90,11 @@ export class ModelDTO extends $dara.Model {
       baseUrl: 'baseUrl',
       deleteTag: 'deleteTag',
       description: 'description',
+      extensions: 'extensions',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       id: 'id',
+      inOut: 'inOut',
       isCustom: 'isCustom',
       maxInputLength: 'maxInputLength',
       maxOutputLength: 'maxOutputLength',
@@ -110,9 +114,11 @@ export class ModelDTO extends $dara.Model {
       baseUrl: 'string',
       deleteTag: 'number',
       description: 'string',
+      extensions: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       id: 'number',
+      inOut: 'string',
       isCustom: 'boolean',
       maxInputLength: 'string',
       maxOutputLength: 'string',

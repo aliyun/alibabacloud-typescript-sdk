@@ -2,27 +2,70 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.Model {
-  identifier?: string;
-  inputToken?: string;
-  outputToken?: string;
+export class ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions extends $dara.Model {
+  async?: boolean;
   static names(): { [key: string]: string } {
     return {
-      identifier: 'identifier',
-      inputToken: 'inputToken',
-      outputToken: 'outputToken',
+      async: 'async',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      identifier: 'string',
-      inputToken: 'string',
-      outputToken: 'string',
+      async: 'boolean',
     };
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModelRouterQueryNacosProvidersResponseBodyDataModels extends $dara.Model {
+  extensions?: ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions;
+  identifier?: string;
+  /**
+   * @example
+   * text
+   */
+  inOut?: string;
+  inputToken?: string;
+  outputToken?: string;
+  /**
+   * @example
+   * Chat
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extensions: 'extensions',
+      identifier: 'identifier',
+      inOut: 'inOut',
+      inputToken: 'inputToken',
+      outputToken: 'outputToken',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extensions: ModelRouterQueryNacosProvidersResponseBodyDataModelsExtensions,
+      identifier: 'string',
+      inOut: 'string',
+      inputToken: 'string',
+      outputToken: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(this.extensions && typeof (this.extensions as any).validate === 'function') {
+      (this.extensions as any).validate();
+    }
     super.validate();
   }
 

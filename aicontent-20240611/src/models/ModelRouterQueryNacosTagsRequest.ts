@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
   /**
    * @example
+   * providers
+   */
+  configType?: string;
+  /**
+   * @example
    * resourceId
    */
   groupBy?: string;
@@ -45,6 +50,7 @@ export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      configType: 'configType',
       groupBy: 'groupBy',
       maxResults: 'maxResults',
       needTotalCount: 'needTotalCount',
@@ -58,6 +64,7 @@ export class ModelRouterQueryNacosTagsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      configType: 'string',
       groupBy: 'string',
       maxResults: 'number',
       needTotalCount: 'boolean',

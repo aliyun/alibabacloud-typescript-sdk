@@ -3,19 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModelRouterQueryNacosTagsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * 文本生成
+   */
+  label?: string;
   tag?: string;
   tagName?: string;
+  /**
+   * @example
+   * NLP
+   */
+  value?: string;
   static names(): { [key: string]: string } {
     return {
+      label: 'label',
       tag: 'tag',
       tagName: 'tagName',
+      value: 'value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      label: 'string',
       tag: 'string',
       tagName: 'string',
+      value: 'string',
     };
   }
 

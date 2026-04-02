@@ -25,6 +25,11 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
   name?: string;
   /**
    * @example
+   * 1
+   */
+  parentId?: number;
+  /**
+   * @example
    * 备注
    */
   remark?: string;
@@ -34,6 +39,7 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
       allowedModels: 'allowedModels',
       contact: 'contact',
       name: 'name',
+      parentId: 'parentId',
       remark: 'remark',
     };
   }
@@ -44,6 +50,7 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
       allowedModels: 'string',
       contact: 'string',
       name: 'string',
+      parentId: 'number',
       remark: 'string',
     };
   }
