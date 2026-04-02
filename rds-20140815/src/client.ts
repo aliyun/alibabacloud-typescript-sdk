@@ -25699,6 +25699,10 @@ export default class Client extends OpenApi {
       query["DbEndpointAliases"] = request.dbEndpointAliases;
     }
 
+    if (!$dara.isNull(request.dbEndpointCostThresholdForDuckdb)) {
+      query["DbEndpointCostThresholdForDuckdb"] = request.dbEndpointCostThresholdForDuckdb;
+    }
+
     if (!$dara.isNull(request.dbEndpointMinSlaveCount)) {
       query["DbEndpointMinSlaveCount"] = request.dbEndpointMinSlaveCount;
     }

@@ -148,6 +148,7 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
    * 3306
    */
   DBProxyConnectStringPort?: string;
+  DBProxyEndpointCostThresholdForDuckdb?: string;
   /**
    * @remarks
    * The ID of the proxy endpoint.
@@ -281,6 +282,7 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
       DBProxyConnectString: 'DBProxyConnectString',
       DBProxyConnectStringNetType: 'DBProxyConnectStringNetType',
       DBProxyConnectStringPort: 'DBProxyConnectStringPort',
+      DBProxyEndpointCostThresholdForDuckdb: 'DBProxyEndpointCostThresholdForDuckdb',
       DBProxyEndpointId: 'DBProxyEndpointId',
       DBProxyEndpointMinSlaveCount: 'DBProxyEndpointMinSlaveCount',
       DBProxyEngineType: 'DBProxyEngineType',
@@ -305,6 +307,7 @@ export class DescribeDBProxyEndpointResponseBody extends $dara.Model {
       DBProxyConnectString: 'string',
       DBProxyConnectStringNetType: 'string',
       DBProxyConnectStringPort: 'string',
+      DBProxyEndpointCostThresholdForDuckdb: 'string',
       DBProxyEndpointId: 'string',
       DBProxyEndpointMinSlaveCount: 'string',
       DBProxyEngineType: 'string',

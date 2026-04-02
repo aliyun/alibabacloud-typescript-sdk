@@ -75,6 +75,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
    * test-proxy
    */
   dbEndpointAliases?: string;
+  dbEndpointCostThresholdForDuckdb?: string;
   /**
    * @remarks
    * The minimum number of reserved instances.
@@ -221,6 +222,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
       DBProxyEndpointId: 'DBProxyEndpointId',
       DBProxyEngineType: 'DBProxyEngineType',
       dbEndpointAliases: 'DbEndpointAliases',
+      dbEndpointCostThresholdForDuckdb: 'DbEndpointCostThresholdForDuckdb',
       dbEndpointMinSlaveCount: 'DbEndpointMinSlaveCount',
       dbEndpointOperator: 'DbEndpointOperator',
       dbEndpointReadWriteMode: 'DbEndpointReadWriteMode',
@@ -247,6 +249,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
       DBProxyEndpointId: 'string',
       DBProxyEngineType: 'string',
       dbEndpointAliases: 'string',
+      dbEndpointCostThresholdForDuckdb: 'string',
       dbEndpointMinSlaveCount: 'string',
       dbEndpointOperator: 'string',
       dbEndpointReadWriteMode: 'string',
