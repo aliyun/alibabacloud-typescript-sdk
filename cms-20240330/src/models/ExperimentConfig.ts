@@ -5,6 +5,7 @@ import { PromptTemplateItem } from "./PromptTemplateItem";
 
 
 export class ExperimentConfig extends $dara.Model {
+  endpointConnectorId?: string;
   label?: string;
   modelName?: string;
   modelParameters?: ModelParameters;
@@ -13,6 +14,7 @@ export class ExperimentConfig extends $dara.Model {
   promptTemplate?: PromptTemplateItem[];
   static names(): { [key: string]: string } {
     return {
+      endpointConnectorId: 'endpointConnectorId',
       label: 'label',
       modelName: 'modelName',
       modelParameters: 'modelParameters',
@@ -24,6 +26,7 @@ export class ExperimentConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endpointConnectorId: 'string',
       label: 'string',
       modelName: 'string',
       modelParameters: ModelParameters,

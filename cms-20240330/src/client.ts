@@ -5748,6 +5748,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 管理告警规则
+   * 
+   * @param tmpReq - ManageAlertRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ManageAlertRulesResponse
+   */
+  async manageAlertRulesWithOptions(tmpReq: $_model.ManageAlertRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ManageAlertRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ManageAlertRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ManageAlertRules",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/manageAlertRules`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ManageAlertRulesResponse>(await this.callApi(params, req, runtime), new $_model.ManageAlertRulesResponse({}));
+  }
+
+  /**
+   * 管理告警规则
+   * 
+   * @param request - ManageAlertRulesRequest
+   * @returns ManageAlertRulesResponse
+   */
+  async manageAlertRules(request: $_model.ManageAlertRulesRequest): Promise<$_model.ManageAlertRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.manageAlertRulesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Create Workspace
    * 
    * @param request - PutWorkspaceRequest
@@ -5798,6 +5849,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putWorkspaceWithOptions(workspaceName, request, headers, runtime);
+  }
+
+  /**
+   * 查询告警规则
+   * 
+   * @param tmpReq - QueryAlertRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAlertRulesResponse
+   */
+  async queryAlertRulesWithOptions(tmpReq: $_model.QueryAlertRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAlertRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryAlertRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAlertRules",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/queryAlertRules`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAlertRulesResponse>(await this.callApi(params, req, runtime), new $_model.QueryAlertRulesResponse({}));
+  }
+
+  /**
+   * 查询告警规则
+   * 
+   * @param request - QueryAlertRulesRequest
+   * @returns QueryAlertRulesResponse
+   */
+  async queryAlertRules(request: $_model.QueryAlertRulesRequest): Promise<$_model.QueryAlertRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryAlertRulesWithOptions(request, headers, runtime);
   }
 
   /**
