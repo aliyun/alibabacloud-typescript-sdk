@@ -84,6 +84,8 @@ export class SidecarContainerConfig extends $dara.Model {
    * name
    */
   name?: string;
+  postStart?: string;
+  preStop?: string;
   readiness?: string;
   secretMountDesc?: string;
   static names(): { [key: string]: string } {
@@ -99,6 +101,8 @@ export class SidecarContainerConfig extends $dara.Model {
       liveness: 'Liveness',
       memory: 'Memory',
       name: 'Name',
+      postStart: 'PostStart',
+      preStop: 'PreStop',
       readiness: 'Readiness',
       secretMountDesc: 'SecretMountDesc',
     };
@@ -117,6 +121,8 @@ export class SidecarContainerConfig extends $dara.Model {
       liveness: 'string',
       memory: 'number',
       name: 'string',
+      postStart: 'string',
+      preStop: 'string',
       readiness: 'string',
       secretMountDesc: 'string',
     };

@@ -724,6 +724,8 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig ex
    * test
    */
   name?: string;
+  postStart?: string;
+  preStop?: string;
   readiness?: string;
   secretMountDesc?: DescribeApplicationConfigResponseBodyDataSidecarContainersConfigSecretMountDesc[];
   static names(): { [key: string]: string } {
@@ -739,6 +741,8 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig ex
       liveness: 'Liveness',
       memory: 'Memory',
       name: 'Name',
+      postStart: 'PostStart',
+      preStop: 'PreStop',
       readiness: 'Readiness',
       secretMountDesc: 'SecretMountDesc',
     };
@@ -757,6 +761,8 @@ export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig ex
       liveness: 'string',
       memory: 'number',
       name: 'string',
+      postStart: 'string',
+      preStop: 'string',
       readiness: 'string',
       secretMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSidecarContainersConfigSecretMountDesc },
     };
