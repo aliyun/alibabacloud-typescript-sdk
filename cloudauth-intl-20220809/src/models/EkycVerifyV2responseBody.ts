@@ -2,56 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeResponseBodyResult extends $dara.Model {
+export class EkycVerifyV2ResponseBodyResult extends $dara.Model {
   /**
-   * @remarks
-   * Client configuration
-   * 
    * @example
-   * ***
+   * {
+   * "faceAttack": "N",
+   * "faceComparisonScore": 52.57,
+   * "facePassed": "N",
+   * "authorityComparisonScore": 80.39
+   * }
    */
-  clientCfg?: string;
+  extFaceInfo?: string;
+  extIdInfo?: string;
   /**
-   * @remarks
-   * Standard encryption protocol for authentication.
-   * 
-   * > Required when integrating with H5 web pages using iframe embedding.
-   * 
    * @example
-   * hksb7ba1b28130d24e015d*********
+   * Y
    */
-  protocol?: string;
+  passed?: string;
   /**
-   * @remarks
-   * Authentication ID
-   * 
    * @example
-   * 08573be80f944d95ac812e019e3655a8
+   * 205
+   */
+  subCode?: string;
+  /**
+   * @example
+   * 4ab0b***cbde97
    */
   transactionId?: string;
-  /**
-   * @remarks
-   * Web authentication URL
-   * 
-   * @example
-   * http****
-   */
-  transactionUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      clientCfg: 'ClientCfg',
-      protocol: 'Protocol',
+      extFaceInfo: 'ExtFaceInfo',
+      extIdInfo: 'ExtIdInfo',
+      passed: 'Passed',
+      subCode: 'SubCode',
       transactionId: 'TransactionId',
-      transactionUrl: 'TransactionUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientCfg: 'string',
-      protocol: 'string',
+      extFaceInfo: 'string',
+      extIdInfo: 'string',
+      passed: 'string',
+      subCode: 'string',
       transactionId: 'string',
-      transactionUrl: 'string',
     };
   }
 
@@ -64,36 +58,26 @@ export class InitializeResponseBodyResult extends $dara.Model {
   }
 }
 
-export class InitializeResponseBody extends $dara.Model {
+export class EkycVerifyV2ResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Return code
-   * 
    * @example
    * Success
    */
   code?: string;
   /**
-   * @remarks
-   * Return message
-   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
-   * 4EB35****87EBA1
+   * 4EB356FE-BB6A-5DCC-B4C5-E8051787EBA1
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Return result
-   */
-  result?: InitializeResponseBodyResult;
+  result?: EkycVerifyV2ResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -108,7 +92,7 @@ export class InitializeResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: InitializeResponseBodyResult,
+      result: EkycVerifyV2ResponseBodyResult,
     };
   }
 

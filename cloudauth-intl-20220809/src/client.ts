@@ -1638,6 +1638,180 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 卡证ocr纯服务端V2
+   * 
+   * @param request - DocOcrV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DocOcrV2Response
+   */
+  async docOcrV2WithOptions(request: $_model.DocOcrV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.DocOcrV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cardSide)) {
+      query["CardSide"] = request.cardSide;
+    }
+
+    if (!$dara.isNull(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.idFaceQuality)) {
+      query["IdFaceQuality"] = request.idFaceQuality;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureUrl)) {
+      query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
+    }
+
+    if (!$dara.isNull(request.idThreshold)) {
+      query["IdThreshold"] = request.idThreshold;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!$dara.isNull(request.ocr)) {
+      query["Ocr"] = request.ocr;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.spoof)) {
+      query["Spoof"] = request.spoof;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.idOcrPictureBase64)) {
+      body["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureFile)) {
+      body["IdOcrPictureFile"] = request.idOcrPictureFile;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DocOcrV2",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DocOcrV2Response>(await this.callApi(params, req, runtime), new $_model.DocOcrV2Response({}));
+  }
+
+  /**
+   * 卡证ocr纯服务端V2
+   * 
+   * @param request - DocOcrV2Request
+   * @returns DocOcrV2Response
+   */
+  async docOcrV2(request: $_model.DocOcrV2Request): Promise<$_model.DocOcrV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.docOcrV2WithOptions(request, runtime);
+  }
+
+  async docOcrV2Advance(request: $_model.DocOcrV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DocOcrV2Response> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let docOcrV2Req = new $_model.DocOcrV2Request({ });
+    OpenApiUtil.convert(request, docOcrV2Req);
+    if (!$dara.isNull(request.idOcrPictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.idOcrPictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      docOcrV2Req.idOcrPictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let docOcrV2Resp = await this.docOcrV2WithOptions(docOcrV2Req, runtime);
+    return docOcrV2Resp;
+  }
+
+  /**
    * Console Export Records
    * 
    * @param request - DownloadVerifyRecordIntlRequest
@@ -1788,6 +1962,215 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ekyc纯服务端接口V2
+   * 
+   * @param request - EkycVerifyV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EkycVerifyV2Response
+   */
+  async ekycVerifyV2WithOptions(request: $_model.EkycVerifyV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.EkycVerifyV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authorize)) {
+      query["Authorize"] = request.authorize;
+    }
+
+    if (!$dara.isNull(request.crop)) {
+      query["Crop"] = request.crop;
+    }
+
+    if (!$dara.isNull(request.docName)) {
+      query["DocName"] = request.docName;
+    }
+
+    if (!$dara.isNull(request.docNo)) {
+      query["DocNo"] = request.docNo;
+    }
+
+    if (!$dara.isNull(request.docType)) {
+      query["DocType"] = request.docType;
+    }
+
+    if (!$dara.isNull(request.facePictureUrl)) {
+      query["FacePictureUrl"] = request.facePictureUrl;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureUrl)) {
+      query["IdOcrPictureUrl"] = request.idOcrPictureUrl;
+    }
+
+    if (!$dara.isNull(request.idThreshold)) {
+      query["IdThreshold"] = request.idThreshold;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.merchantUserId)) {
+      query["MerchantUserId"] = request.merchantUserId;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.facePictureBase64)) {
+      body["FacePictureBase64"] = request.facePictureBase64;
+    }
+
+    if (!$dara.isNull(request.facePictureFile)) {
+      body["FacePictureFile"] = request.facePictureFile;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureBase64)) {
+      body["IdOcrPictureBase64"] = request.idOcrPictureBase64;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureFile)) {
+      body["IdOcrPictureFile"] = request.idOcrPictureFile;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EkycVerifyV2",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EkycVerifyV2Response>(await this.callApi(params, req, runtime), new $_model.EkycVerifyV2Response({}));
+  }
+
+  /**
+   * ekyc纯服务端接口V2
+   * 
+   * @param request - EkycVerifyV2Request
+   * @returns EkycVerifyV2Response
+   */
+  async ekycVerifyV2(request: $_model.EkycVerifyV2Request): Promise<$_model.EkycVerifyV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.ekycVerifyV2WithOptions(request, runtime);
+  }
+
+  async ekycVerifyV2Advance(request: $_model.EkycVerifyV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EkycVerifyV2Response> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let ekycVerifyV2Req = new $_model.EkycVerifyV2Request({ });
+    OpenApiUtil.convert(request, ekycVerifyV2Req);
+    if (!$dara.isNull(request.facePictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.facePictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      ekycVerifyV2Req.facePictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    if (!$dara.isNull(request.idOcrPictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.idOcrPictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      ekycVerifyV2Req.idOcrPictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let ekycVerifyV2Resp = await this.ekycVerifyV2WithOptions(ekycVerifyV2Req, runtime);
+    return ekycVerifyV2Resp;
+  }
+
+  /**
    * This topic describes how to integrate FaceCompare using only the server-side API.
    * 
    * @param request - FaceCompareRequest
@@ -1849,6 +2232,187 @@ export default class Client extends OpenApi {
   async faceCompare(request: $_model.FaceCompareRequest): Promise<$_model.FaceCompareResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.faceCompareWithOptions(request, runtime);
+  }
+
+  /**
+   * 人脸比对V2
+   * 
+   * @param request - FaceCompareV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FaceCompareV2Response
+   */
+  async faceCompareV2WithOptions(request: $_model.FaceCompareV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.FaceCompareV2Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.facePictureQualityCheck)) {
+      query["FacePictureQualityCheck"] = request.facePictureQualityCheck;
+    }
+
+    if (!$dara.isNull(request.merchantBizId)) {
+      query["MerchantBizId"] = request.merchantBizId;
+    }
+
+    if (!$dara.isNull(request.sourceFacePictureUrl)) {
+      query["SourceFacePictureUrl"] = request.sourceFacePictureUrl;
+    }
+
+    if (!$dara.isNull(request.targetFacePictureUrl)) {
+      query["TargetFacePictureUrl"] = request.targetFacePictureUrl;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sourceFacePicture)) {
+      body["SourceFacePicture"] = request.sourceFacePicture;
+    }
+
+    if (!$dara.isNull(request.sourceFacePictureFile)) {
+      body["SourceFacePictureFile"] = request.sourceFacePictureFile;
+    }
+
+    if (!$dara.isNull(request.targetFacePicture)) {
+      body["TargetFacePicture"] = request.targetFacePicture;
+    }
+
+    if (!$dara.isNull(request.targetFacePictureFile)) {
+      body["TargetFacePictureFile"] = request.targetFacePictureFile;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FaceCompareV2",
+      version: "2022-08-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FaceCompareV2Response>(await this.callApi(params, req, runtime), new $_model.FaceCompareV2Response({}));
+  }
+
+  /**
+   * 人脸比对V2
+   * 
+   * @param request - FaceCompareV2Request
+   * @returns FaceCompareV2Response
+   */
+  async faceCompareV2(request: $_model.FaceCompareV2Request): Promise<$_model.FaceCompareV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.faceCompareV2WithOptions(request, runtime);
+  }
+
+  async faceCompareV2Advance(request: $_model.FaceCompareV2AdvanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FaceCompareV2Response> {
+    // Step 0: init client
+    if ($dara.isNull(this._credential)) {
+      throw new $OpenApi.ClientError({
+        code: "InvalidCredentials",
+        message: "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details.",
+      });
+    }
+
+    let credentialModel = await this._credential.getCredential();
+    let accessKeyId = credentialModel.accessKeyId;
+    let accessKeySecret = credentialModel.accessKeySecret;
+    let securityToken = credentialModel.securityToken;
+    let credentialType = credentialModel.type;
+    let openPlatformEndpoint = this._openPlatformEndpoint;
+    if ($dara.isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+      openPlatformEndpoint = "openplatform.aliyuncs.com";
+    }
+
+    if ($dara.isNull(credentialType)) {
+      credentialType = "access_key";
+    }
+
+    let authConfig = new $OpenApiUtil.Config({
+      accessKeyId: accessKeyId,
+      accessKeySecret: accessKeySecret,
+      securityToken: securityToken,
+      type: credentialType,
+      endpoint: openPlatformEndpoint,
+      protocol: this._protocol,
+      regionId: this._regionId,
+    });
+    let authClient = new OpenApi(authConfig);
+    let authRequest = {
+      Product: "Cloudauth-intl",
+      RegionId: this._regionId,
+    };
+    let authReq = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(authRequest),
+    });
+    let authParams = new $OpenApiUtil.Params({
+      action: "AuthorizeFileUpload",
+      version: "2019-12-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let authResponse : {[key: string]: any} = { };
+    let fileObj = new $dara.FileField({ });
+    let ossHeader : {[key: string]: any} = { };
+    let tmpBody : {[key: string]: any} = { };
+    let useAccelerate : boolean = false;
+    let authResponseBody : {[key: string ]: string} = { };
+    let faceCompareV2Req = new $_model.FaceCompareV2Request({ });
+    OpenApiUtil.convert(request, faceCompareV2Req);
+    if (!$dara.isNull(request.sourceFacePictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.sourceFacePictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      faceCompareV2Req.sourceFacePictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    if (!$dara.isNull(request.targetFacePictureFileObject)) {
+      authResponse = await authClient.callApi(authParams, authReq, runtime);
+      tmpBody = authResponse["body"];
+      useAccelerate = Boolean(tmpBody["UseAccelerate"]);
+      authResponseBody = OpenApiUtil.stringifyMapValue(tmpBody);
+      fileObj = new $dara.FileField({
+        filename: authResponseBody["ObjectKey"],
+        content: request.targetFacePictureFileObject,
+        contentType: "",
+      });
+      ossHeader = {
+        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        OSSAccessKeyId: authResponseBody["AccessKeyId"],
+        policy: authResponseBody["EncodedPolicy"],
+        Signature: authResponseBody["Signature"],
+        key: authResponseBody["ObjectKey"],
+        file: fileObj,
+        success_action_status: "201",
+      };
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
+      faceCompareV2Req.targetFacePictureFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
+    }
+
+    let faceCompareV2Resp = await this.faceCompareV2WithOptions(faceCompareV2Req, runtime);
+    return faceCompareV2Resp;
   }
 
   /**

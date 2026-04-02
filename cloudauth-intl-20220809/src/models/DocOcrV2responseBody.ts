@@ -2,56 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InitializeResponseBodyResult extends $dara.Model {
+export class DocOcrV2ResponseBodyResult extends $dara.Model {
+  extIdInfo?: string;
   /**
-   * @remarks
-   * Client configuration
-   * 
    * @example
-   * ***
+   * Y
    */
-  clientCfg?: string;
+  passed?: string;
   /**
-   * @remarks
-   * Standard encryption protocol for authentication.
-   * 
-   * > Required when integrating with H5 web pages using iframe embedding.
-   * 
    * @example
-   * hksb7ba1b28130d24e015d*********
+   * 200
    */
-  protocol?: string;
+  subCode?: string;
   /**
-   * @remarks
-   * Authentication ID
-   * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
    */
   transactionId?: string;
-  /**
-   * @remarks
-   * Web authentication URL
-   * 
-   * @example
-   * http****
-   */
-  transactionUrl?: string;
   static names(): { [key: string]: string } {
     return {
-      clientCfg: 'ClientCfg',
-      protocol: 'Protocol',
+      extIdInfo: 'ExtIdInfo',
+      passed: 'Passed',
+      subCode: 'SubCode',
       transactionId: 'TransactionId',
-      transactionUrl: 'TransactionUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clientCfg: 'string',
-      protocol: 'string',
+      extIdInfo: 'string',
+      passed: 'string',
+      subCode: 'string',
       transactionId: 'string',
-      transactionUrl: 'string',
     };
   }
 
@@ -64,36 +46,26 @@ export class InitializeResponseBodyResult extends $dara.Model {
   }
 }
 
-export class InitializeResponseBody extends $dara.Model {
+export class DocOcrV2ResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Return code
-   * 
    * @example
    * Success
    */
   code?: string;
   /**
-   * @remarks
-   * Return message
-   * 
    * @example
    * success
    */
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
-   * 4EB35****87EBA1
+   * 86C40EC3-5940-5F47-995C-BFE90B70E540
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Return result
-   */
-  result?: InitializeResponseBodyResult;
+  result?: DocOcrV2ResponseBodyResult;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -108,7 +80,7 @@ export class InitializeResponseBody extends $dara.Model {
       code: 'string',
       message: 'string',
       requestId: 'string',
-      result: InitializeResponseBodyResult,
+      result: DocOcrV2ResponseBodyResult,
     };
   }
 
