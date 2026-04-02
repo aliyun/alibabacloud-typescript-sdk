@@ -153,6 +153,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   securityIPArrayName?: string;
   securityIPList?: string;
   securityIPType?: string;
+  skillTemplateId?: string;
   tag?: CreateApplicationShrinkRequestTag[];
   /**
    * @example
@@ -207,6 +208,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       securityIPArrayName: 'SecurityIPArrayName',
       securityIPList: 'SecurityIPList',
       securityIPType: 'SecurityIPType',
+      skillTemplateId: 'SkillTemplateId',
       tag: 'Tag',
       targetVersion: 'TargetVersion',
       usedTime: 'UsedTime',
@@ -248,6 +250,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       securityIPArrayName: 'string',
       securityIPList: 'string',
       securityIPType: 'string',
+      skillTemplateId: 'string',
       tag: { 'type': 'array', 'itemType': CreateApplicationShrinkRequestTag },
       targetVersion: 'string',
       usedTime: 'string',

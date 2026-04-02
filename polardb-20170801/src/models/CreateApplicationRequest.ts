@@ -319,6 +319,7 @@ export class CreateApplicationRequest extends $dara.Model {
   securityIPArrayName?: string;
   securityIPList?: string;
   securityIPType?: string;
+  skillTemplateId?: string;
   tag?: CreateApplicationRequestTag[];
   /**
    * @example
@@ -373,6 +374,7 @@ export class CreateApplicationRequest extends $dara.Model {
       securityIPArrayName: 'SecurityIPArrayName',
       securityIPList: 'SecurityIPList',
       securityIPType: 'SecurityIPType',
+      skillTemplateId: 'SkillTemplateId',
       tag: 'Tag',
       targetVersion: 'TargetVersion',
       usedTime: 'UsedTime',
@@ -414,6 +416,7 @@ export class CreateApplicationRequest extends $dara.Model {
       securityIPArrayName: 'string',
       securityIPList: 'string',
       securityIPType: 'string',
+      skillTemplateId: 'string',
       tag: { 'type': 'array', 'itemType': CreateApplicationRequestTag },
       targetVersion: 'string',
       usedTime: 'string',

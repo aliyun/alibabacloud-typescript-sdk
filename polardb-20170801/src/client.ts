@@ -1886,6 +1886,10 @@ export default class Client extends OpenApi {
       query["SecurityIPType"] = request.securityIPType;
     }
 
+    if (!$dara.isNull(request.skillTemplateId)) {
+      query["SkillTemplateId"] = request.skillTemplateId;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }

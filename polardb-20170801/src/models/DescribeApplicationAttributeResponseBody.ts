@@ -336,15 +336,18 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
 
 export class DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute extends $dara.Model {
   authCallbackURL?: string;
+  supabaseClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       authCallbackURL: 'AuthCallbackURL',
+      supabaseClusterId: 'SupabaseClusterId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       authCallbackURL: 'string',
+      supabaseClusterId: 'string',
     };
   }
 
