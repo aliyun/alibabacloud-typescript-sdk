@@ -2903,6 +2903,47 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 暂停沙箱
+   * 
+   * @remarks
+   * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseSandboxResponse
+   */
+  async pauseSandboxWithOptions(sandboxId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PauseSandboxResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PauseSandbox",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/sandboxes/${$dara.URL.percentEncode(sandboxId)}/pause`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PauseSandboxResponse>(await this.callApi(params, req, runtime), new $_model.PauseSandboxResponse({}));
+  }
+
+  /**
+   * 暂停沙箱
+   * 
+   * @remarks
+   * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
+   * @returns PauseSandboxResponse
+   */
+  async pauseSandbox(sandboxId: string): Promise<$_model.PauseSandboxResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.pauseSandboxWithOptions(sandboxId, headers, runtime);
+  }
+
+  /**
    * 发布运行时版本
    * 
    * @remarks
@@ -2949,7 +2990,42 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除沙箱
+   * 恢复沙箱
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeSandboxResponse
+   */
+  async resumeSandboxWithOptions(sandboxId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeSandboxResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeSandbox",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/sandboxes/${$dara.URL.percentEncode(sandboxId)}/resume`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeSandboxResponse>(await this.callApi(params, req, runtime), new $_model.ResumeSandboxResponse({}));
+  }
+
+  /**
+   * 恢复沙箱
+   * @returns ResumeSandboxResponse
+   */
+  async resumeSandbox(sandboxId: string): Promise<$_model.ResumeSandboxResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resumeSandboxWithOptions(sandboxId, headers, runtime);
+  }
+
+  /**
+   * 停止沙箱
    * 
    * @remarks
    * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
@@ -2977,7 +3053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除沙箱
+   * 停止沙箱
    * 
    * @remarks
    * 停止指定的沙箱实例。停止后，沙箱将进入TERMINATED状态。
