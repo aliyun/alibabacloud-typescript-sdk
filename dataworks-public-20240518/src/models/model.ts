@@ -64,6 +64,7 @@ export { CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels } from
 export { CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers } from './CreateDialarmRuleRequest';
 export { CreateDIAlarmRuleRequestNotificationSettings } from './CreateDialarmRuleRequest';
 export { CreateDIAlarmRuleRequestTriggerConditions } from './CreateDialarmRuleRequest';
+export { CreateDIJobRequestDestinationDataSourceSettingsDataSourceProperties } from './CreateDijobRequest';
 export { CreateDIJobRequestDestinationDataSourceSettings } from './CreateDijobRequest';
 export { CreateDIJobRequestJobSettingsColumnDataTypeSettings } from './CreateDijobRequest';
 export { CreateDIJobRequestJobSettingsCycleScheduleSettings } from './CreateDijobRequest';

@@ -2,6 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateDIJobRequestDestinationDataSourceSettingsDataSourceProperties extends $dara.Model {
+  /**
+   * @example
+   * {     "instanceType": "serverless",     "username": "zmtest",     "password": "xxxxxxx",     "regionId": "cn-beijing",     "appName": "es-servexxxx" }
+   */
+  connectionProperties?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionProperties: 'ConnectionProperties',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionProperties: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDIJobRequestDestinationDataSourceSettings extends $dara.Model {
   /**
    * @remarks
@@ -11,19 +38,25 @@ export class CreateDIJobRequestDestinationDataSourceSettings extends $dara.Model
    * holo_datasource_1
    */
   dataSourceName?: string;
+  dataSourceProperties?: CreateDIJobRequestDestinationDataSourceSettingsDataSourceProperties;
   static names(): { [key: string]: string } {
     return {
       dataSourceName: 'DataSourceName',
+      dataSourceProperties: 'DataSourceProperties',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       dataSourceName: 'string',
+      dataSourceProperties: CreateDIJobRequestDestinationDataSourceSettingsDataSourceProperties,
     };
   }
 
   validate() {
+    if(this.dataSourceProperties && typeof (this.dataSourceProperties as any).validate === 'function') {
+      (this.dataSourceProperties as any).validate();
+    }
     super.validate();
   }
 
@@ -475,6 +508,11 @@ export class CreateDIJobRequestResourceSettings extends $dara.Model {
 
 export class CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties extends $dara.Model {
   /**
+   * @example
+   * {     "instanceId": "rm-2ze09gn3x6xxx",     "password": "xxxx",     "database": "agent",     "username": "zmtest"     "regionId": "cn-beijing" }
+   */
+  connectionProperties?: string;
+  /**
    * @remarks
    * The database encoding.
    * 
@@ -492,6 +530,7 @@ export class CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties exte
   timezone?: string;
   static names(): { [key: string]: string } {
     return {
+      connectionProperties: 'ConnectionProperties',
       encoding: 'Encoding',
       timezone: 'Timezone',
     };
@@ -499,6 +538,7 @@ export class CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties exte
 
   static types(): { [key: string]: any } {
     return {
+      connectionProperties: 'string',
       encoding: 'string',
       timezone: 'string',
     };
