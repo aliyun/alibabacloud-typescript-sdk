@@ -655,6 +655,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据集
+   * 
+   * @param request - CreateDatasetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetResponse
+   */
+  async createDatasetWithOptions(workspace: string, request: $_model.CreateDatasetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatasetResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetName)) {
+      body["datasetName"] = request.datasetName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.schema)) {
+      body["schema"] = request.schema;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataset",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/dataset`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatasetResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatasetResponse({}));
+  }
+
+  /**
+   * 创建数据集
+   * 
+   * @param request - CreateDatasetRequest
+   * @returns CreateDatasetResponse
+   */
+  async createDataset(workspace: string, request: $_model.CreateDatasetRequest): Promise<$_model.CreateDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDatasetWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
    * 创建数据投递任务
    * 
    * @param request - CreateDeliveryTaskRequest
@@ -1746,6 +1799,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除数据集
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetResponse
+   */
+  async deleteDatasetWithOptions(workspace: string, datasetName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataset",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/dataset/${$dara.URL.percentEncode(datasetName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDatasetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDatasetResponse({}));
+  }
+
+  /**
+   * 删除数据集
+   * @returns DeleteDatasetResponse
+   */
+  async deleteDataset(workspace: string, datasetName: string): Promise<$_model.DeleteDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDatasetWithOptions(workspace, datasetName, headers, runtime);
+  }
+
+  /**
    * 删除数据投递任务
    * 
    * @param headers - map
@@ -2140,6 +2228,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除 Prometheus 虚拟实例
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePrometheusVirtualInstanceResponse
+   */
+  async deletePrometheusVirtualInstanceWithOptions(prometheusInstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusVirtualInstanceResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePrometheusVirtualInstance",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/virtual-instances/${$dara.URL.percentEncode(prometheusInstanceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePrometheusVirtualInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeletePrometheusVirtualInstanceResponse({}));
+  }
+
+  /**
+   * 删除 Prometheus 虚拟实例
+   * @returns DeletePrometheusVirtualInstanceResponse
+   */
+  async deletePrometheusVirtualInstance(prometheusInstanceId: string): Promise<$_model.DeletePrometheusVirtualInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePrometheusVirtualInstanceWithOptions(prometheusInstanceId, headers, runtime);
+  }
+
+  /**
    * Delete Service
    * 
    * @param headers - map
@@ -2432,6 +2555,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 执行查询语句
+   * 
+   * @param request - ExecuteQueryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteQueryResponse
+   */
+  async executeQueryWithOptions(workspace: string, datasetName: string, request: $_model.ExecuteQueryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteQueryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.query)) {
+      body["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteQuery",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/dataset/${$dara.URL.percentEncode(datasetName)}/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteQueryResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteQueryResponse({}));
+  }
+
+  /**
+   * 执行查询语句
+   * 
+   * @param request - ExecuteQueryRequest
+   * @returns ExecuteQueryResponse
+   */
+  async executeQuery(workspace: string, datasetName: string, request: $_model.ExecuteQueryRequest): Promise<$_model.ExecuteQueryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeQueryWithOptions(workspace, datasetName, request, headers, runtime);
   }
 
   /**
@@ -2829,6 +3001,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCmsServiceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询数据集
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetResponse
+   */
+  async getDatasetWithOptions(workspace: string, datasetName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataset",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/dataset/${$dara.URL.percentEncode(datasetName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDatasetResponse>(await this.callApi(params, req, runtime), new $_model.GetDatasetResponse({}));
+  }
+
+  /**
+   * 查询数据集
+   * @returns GetDatasetResponse
+   */
+  async getDataset(workspace: string, datasetName: string): Promise<$_model.GetDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDatasetWithOptions(workspace, datasetName, headers, runtime);
   }
 
   /**
@@ -4150,6 +4357,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listBizTracesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询数据集列表
+   * 
+   * @param request - ListDatasetsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasetsResponse
+   */
+  async listDatasetsWithOptions(workspace: string, request: $_model.ListDatasetsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasetsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetName)) {
+      query["datasetName"] = request.datasetName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatasets",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/dataset`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatasetsResponse>(await this.callApi(params, req, runtime), new $_model.ListDatasetsResponse({}));
+  }
+
+  /**
+   * 查询数据集列表
+   * 
+   * @param request - ListDatasetsRequest
+   * @returns ListDatasetsResponse
+   */
+  async listDatasets(workspace: string, request: $_model.ListDatasetsRequest): Promise<$_model.ListDatasetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDatasetsWithOptions(workspace, request, headers, runtime);
   }
 
   /**
@@ -6060,6 +6320,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新数据集
+   * 
+   * @param request - UpdateDatasetRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasetResponse
+   */
+  async updateDatasetWithOptions(workspace: string, datasetName: string, request: $_model.UpdateDatasetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDatasetResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDataset",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/dataset/${$dara.URL.percentEncode(datasetName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDatasetResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDatasetResponse({}));
+  }
+
+  /**
+   * 更新数据集
+   * 
+   * @param request - UpdateDatasetRequest
+   * @returns UpdateDatasetResponse
+   */
+  async updateDataset(workspace: string, datasetName: string, request: $_model.UpdateDatasetRequest): Promise<$_model.UpdateDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDatasetWithOptions(workspace, datasetName, request, headers, runtime);
   }
 
   /**
