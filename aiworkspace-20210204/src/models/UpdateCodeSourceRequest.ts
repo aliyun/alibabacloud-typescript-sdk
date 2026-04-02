@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCodeSourceRequest extends $dara.Model {
+  cloneType?: number;
   /**
    * @remarks
    * The name of the code branch.
@@ -66,6 +67,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
   mountPath?: string;
   static names(): { [key: string]: string } {
     return {
+      cloneType: 'CloneType',
       codeBranch: 'CodeBranch',
       codeCommit: 'CodeCommit',
       codeRepo: 'CodeRepo',
@@ -79,6 +81,7 @@ export class UpdateCodeSourceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cloneType: 'number',
       codeBranch: 'string',
       codeCommit: 'string',
       codeRepo: 'string',

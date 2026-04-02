@@ -14,6 +14,7 @@ export class CodeSourceItem extends $dara.Model {
    * PUBLIC
    */
   accessibility?: string;
+  cloneType?: number;
   /**
    * @remarks
    * The code branch.
@@ -118,6 +119,7 @@ export class CodeSourceItem extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      cloneType: 'CloneType',
       codeBranch: 'CodeBranch',
       codeCommit: 'CodeCommit',
       codeRepo: 'CodeRepo',
@@ -137,6 +139,7 @@ export class CodeSourceItem extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      cloneType: 'number',
       codeBranch: 'string',
       codeCommit: 'string',
       codeRepo: 'string',

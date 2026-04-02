@@ -355,6 +355,10 @@ export default class Client extends OpenApi {
       body["Accessibility"] = request.accessibility;
     }
 
+    if (!$dara.isNull(request.cloneType)) {
+      body["CloneType"] = request.cloneType;
+    }
+
     if (!$dara.isNull(request.codeBranch)) {
       body["CodeBranch"] = request.codeBranch;
     }
@@ -5701,6 +5705,10 @@ export default class Client extends OpenApi {
   async updateCodeSourceWithOptions(CodeSourceId: string, request: $_model.UpdateCodeSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCodeSourceResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cloneType)) {
+      body["CloneType"] = request.cloneType;
+    }
+
     if (!$dara.isNull(request.codeBranch)) {
       body["CodeBranch"] = request.codeBranch;
     }
