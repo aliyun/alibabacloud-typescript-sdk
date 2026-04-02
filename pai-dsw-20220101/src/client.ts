@@ -452,6 +452,112 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建临时文件
+   * 
+   * @param request - CreateTempFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTempFileResponse
+   */
+  async createTempFileWithOptions(request: $_model.CreateTempFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTempFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.capacity)) {
+      body["Capacity"] = request.capacity;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.prefix)) {
+      body["Prefix"] = request.prefix;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTempFile",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tempfiles`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTempFileResponse>(await this.callApi(params, req, runtime), new $_model.CreateTempFileResponse({}));
+  }
+
+  /**
+   * 创建临时文件
+   * 
+   * @param request - CreateTempFileRequest
+   * @returns CreateTempFileResponse
+   */
+  async createTempFile(request: $_model.CreateTempFileRequest): Promise<$_model.CreateTempFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTempFileWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建临时文件任务
+   * 
+   * @param request - CreateTempFileTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTempFileTaskResponse
+   */
+  async createTempFileTaskWithOptions(request: $_model.CreateTempFileTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTempFileTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTempFileTask",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tempfiletasks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTempFileTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateTempFileTaskResponse({}));
+  }
+
+  /**
+   * 创建临时文件任务
+   * 
+   * @param request - CreateTempFileTaskRequest
+   * @returns CreateTempFileTaskResponse
+   */
+  async createTempFileTask(request: $_model.CreateTempFileTaskRequest): Promise<$_model.CreateTempFileTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTempFileTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Deletes the automatic stop policy of an instance.
    * 
    * @param headers - map
@@ -679,6 +785,121 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除临时文件
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTempFileResponse
+   */
+  async deleteTempFileWithOptions(TempFileId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTempFileResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTempFile",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tempfiles/${$dara.URL.percentEncode(TempFileId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTempFileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTempFileResponse({}));
+  }
+
+  /**
+   * 删除临时文件
+   * @returns DeleteTempFileResponse
+   */
+  async deleteTempFile(TempFileId: string): Promise<$_model.DeleteTempFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTempFileWithOptions(TempFileId, headers, runtime);
+  }
+
+  /**
+   * 删除临时文件
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTempFileTaskResponse
+   */
+  async deleteTempFileTaskWithOptions(TempFileTaskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTempFileTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTempFileTask",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tempfiletasks/${$dara.URL.percentEncode(TempFileTaskId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTempFileTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTempFileTaskResponse({}));
+  }
+
+  /**
+   * 删除临时文件
+   * @returns DeleteTempFileTaskResponse
+   */
+  async deleteTempFileTask(TempFileTaskId: string): Promise<$_model.DeleteTempFileTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTempFileTaskWithOptions(TempFileTaskId, headers, runtime);
+  }
+
+  /**
+   * 批量删除临时文件
+   * 
+   * @param request - DeleteTempFileTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTempFileTasksResponse
+   */
+  async deleteTempFileTasksWithOptions(request: $_model.DeleteTempFileTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTempFileTasksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tempFileTaskIds)) {
+      body["TempFileTaskIds"] = request.tempFileTaskIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTempFileTasks",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/batch/tempfiletasks/delete`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTempFileTasksResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTempFileTasksResponse({}));
+  }
+
+  /**
+   * 批量删除临时文件
+   * 
+   * @param request - DeleteTempFileTasksRequest
+   * @returns DeleteTempFileTasksResponse
+   */
+  async deleteTempFileTasks(request: $_model.DeleteTempFileTasksRequest): Promise<$_model.DeleteTempFileTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteTempFileTasksWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1197,6 +1418,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSanityCheckTaskWithOptions(CheckType, TaskId, request, headers, runtime);
+  }
+
+  /**
+   * 获取临时文件详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTempFileResponse
+   */
+  async getTempFileWithOptions(TempFileId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTempFileResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTempFile",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tempfiles/${$dara.URL.percentEncode(TempFileId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTempFileResponse>(await this.callApi(params, req, runtime), new $_model.GetTempFileResponse({}));
+  }
+
+  /**
+   * 获取临时文件详情
+   * @returns GetTempFileResponse
+   */
+  async getTempFile(TempFileId: string): Promise<$_model.GetTempFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTempFileWithOptions(TempFileId, headers, runtime);
+  }
+
+  /**
+   * 获取临时文件任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTempFileTaskResponse
+   */
+  async getTempFileTaskWithOptions(TempFileTaskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTempFileTaskResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTempFileTask",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tempfiletasks/${$dara.URL.percentEncode(TempFileTaskId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTempFileTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetTempFileTaskResponse({}));
+  }
+
+  /**
+   * 获取临时文件任务
+   * @returns GetTempFileTaskResponse
+   */
+  async getTempFileTask(TempFileTaskId: string): Promise<$_model.GetTempFileTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTempFileTaskWithOptions(TempFileTaskId, headers, runtime);
   }
 
   /**
@@ -1760,6 +2051,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取临时文件列表
+   * 
+   * @param request - ListTempFilesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTempFilesResponse
+   */
+  async listTempFilesWithOptions(request: $_model.ListTempFilesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTempFilesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.delimiter)) {
+      query["Delimiter"] = request.delimiter;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.prefix)) {
+      query["Prefix"] = request.prefix;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTempFiles",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tempfiles`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTempFilesResponse>(await this.callApi(params, req, runtime), new $_model.ListTempFilesResponse({}));
+  }
+
+  /**
+   * 获取临时文件列表
+   * 
+   * @param request - ListTempFilesRequest
+   * @returns ListTempFilesResponse
+   */
+  async listTempFiles(request: $_model.ListTempFilesRequest): Promise<$_model.ListTempFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listTempFilesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 启动实例
    * 
    * @param headers - map
@@ -2104,6 +2468,100 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceLabelsWithOptions(InstanceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新临时文件
+   * 
+   * @param request - UpdateTempFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTempFileResponse
+   */
+  async updateTempFileWithOptions(TempFileId: string, request: $_model.UpdateTempFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTempFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gmtExpiredTime)) {
+      body["GmtExpiredTime"] = request.gmtExpiredTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTempFile",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tempfiles/${$dara.URL.percentEncode(TempFileId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTempFileResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTempFileResponse({}));
+  }
+
+  /**
+   * 更新临时文件
+   * 
+   * @param request - UpdateTempFileRequest
+   * @returns UpdateTempFileResponse
+   */
+  async updateTempFile(TempFileId: string, request: $_model.UpdateTempFileRequest): Promise<$_model.UpdateTempFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTempFileWithOptions(TempFileId, request, headers, runtime);
+  }
+
+  /**
+   * 更新临时文件任务
+   * 
+   * @param request - UpdateTempFileTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTempFileTaskResponse
+   */
+  async updateTempFileTaskWithOptions(TempFileTaskId: string, request: $_model.UpdateTempFileTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTempFileTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gmtExpiredTime)) {
+      body["GmtExpiredTime"] = request.gmtExpiredTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTempFileTask",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/tempfiletasks/${$dara.URL.percentEncode(TempFileTaskId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTempFileTaskResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTempFileTaskResponse({}));
+  }
+
+  /**
+   * 更新临时文件任务
+   * 
+   * @param request - UpdateTempFileTaskRequest
+   * @returns UpdateTempFileTaskResponse
+   */
+  async updateTempFileTask(TempFileTaskId: string, request: $_model.UpdateTempFileTaskRequest): Promise<$_model.UpdateTempFileTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTempFileTaskWithOptions(TempFileTaskId, request, headers, runtime);
   }
 
 }
