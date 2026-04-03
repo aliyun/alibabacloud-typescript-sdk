@@ -1267,7 +1267,15 @@ export default class Client extends OpenApi {
       request.sparseVectorIndexConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sparseVectorIndexConfig, "SparseVectorIndexConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.vectorIndexConfig)) {
+      request.vectorIndexConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vectorIndexConfig, "VectorIndexConfig", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
     if (!$dara.isNull(request.collection)) {
       query["Collection"] = request.collection;
     }
@@ -1342,6 +1350,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.supportSparse)) {
       query["SupportSparse"] = request.supportSparse;
+    }
+
+    if (!$dara.isNull(request.vectorIndexConfigShrink)) {
+      query["VectorIndexConfig"] = request.vectorIndexConfigShrink;
     }
 
     if (!$dara.isNull(request.workspaceId)) {
@@ -1891,7 +1903,15 @@ export default class Client extends OpenApi {
       request.sparseVectorIndexConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sparseVectorIndexConfig, "SparseVectorIndexConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.vectorIndexConfig)) {
+      request.vectorIndexConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vectorIndexConfig, "VectorIndexConfig", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
     if (!$dara.isNull(request.collection)) {
       query["Collection"] = request.collection;
     }
@@ -1994,6 +2014,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.supportSparse)) {
       query["SupportSparse"] = request.supportSparse;
+    }
+
+    if (!$dara.isNull(request.vectorIndexConfigShrink)) {
+      query["VectorIndexConfig"] = request.vectorIndexConfigShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3176,6 +3200,10 @@ export default class Client extends OpenApi {
   async createVectorIndexWithOptions(request: $_model.CreateVectorIndexRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVectorIndexResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.algorithm)) {
+      query["Algorithm"] = request.algorithm;
+    }
+
     if (!$dara.isNull(request.collection)) {
       query["Collection"] = request.collection;
     }
@@ -3216,12 +3244,20 @@ export default class Client extends OpenApi {
       query["Namespace"] = request.namespace;
     }
 
+    if (!$dara.isNull(request.nlist)) {
+      query["Nlist"] = request.nlist;
+    }
+
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.pqEnable)) {
       query["PqEnable"] = request.pqEnable;
+    }
+
+    if (!$dara.isNull(request.rabitqBits)) {
+      query["RabitqBits"] = request.rabitqBits;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -3462,6 +3498,74 @@ export default class Client extends OpenApi {
   async deleteBackup(request: $_model.DeleteBackupRequest): Promise<$_model.DeleteBackupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBackupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除文本块
+   * 
+   * @param tmpReq - DeleteChunksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteChunksResponse
+   */
+  async deleteChunksWithOptions(tmpReq: $_model.DeleteChunksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteChunksResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteChunksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.chunkIds)) {
+      request.chunkIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chunkIds, "ChunkIds", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.chunkIdsShrink)) {
+      query["ChunkIds"] = request.chunkIdsShrink;
+    }
+
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteChunks",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteChunksResponse>(await this.callApi(params, req, runtime), new $_model.DeleteChunksResponse({}));
+  }
+
+  /**
+   * 删除文本块
+   * 
+   * @param request - DeleteChunksRequest
+   * @returns DeleteChunksResponse
+   */
+  async deleteChunks(request: $_model.DeleteChunksRequest): Promise<$_model.DeleteChunksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteChunksWithOptions(request, runtime);
   }
 
   /**
@@ -10755,6 +10859,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文本块详情
+   * 
+   * @param request - ListChunksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChunksResponse
+   */
+  async listChunksWithOptions(request: $_model.ListChunksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListChunksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.collection)) {
+      query["Collection"] = request.collection;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.includeVector)) {
+      query["IncludeVector"] = request.includeVector;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.namespacePassword)) {
+      query["NamespacePassword"] = request.namespacePassword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChunks",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChunksResponse>(await this.callApi(params, req, runtime), new $_model.ListChunksResponse({}));
+  }
+
+  /**
+   * 获取文本块详情
+   * 
+   * @param request - ListChunksRequest
+   * @returns ListChunksResponse
+   */
+  async listChunks(request: $_model.ListChunksRequest): Promise<$_model.ListChunksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listChunksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of vector collections.
    * 
    * @param request - ListCollectionsRequest
@@ -14203,6 +14385,10 @@ export default class Client extends OpenApi {
       request.recallWindowShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.recallWindow, "RecallWindow", "json");
     }
 
+    if (!$dara.isNull(tmpReq.rerankModel)) {
+      request.rerankModelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rerankModel, "RerankModel", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.collection)) {
       query["Collection"] = request.collection;
@@ -14286,6 +14472,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.rerankFactor)) {
       query["RerankFactor"] = request.rerankFactor;
+    }
+
+    if (!$dara.isNull(request.rerankModelShrink)) {
+      query["RerankModel"] = request.rerankModelShrink;
     }
 
     if (!$dara.isNull(request.topK)) {
@@ -14435,6 +14625,10 @@ export default class Client extends OpenApi {
       request.mergeMethodArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mergeMethodArgs, "MergeMethodArgs", "json");
     }
 
+    if (!$dara.isNull(tmpReq.rerankModel)) {
+      request.rerankModelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rerankModel, "RerankModel", "json");
+    }
+
     if (!$dara.isNull(tmpReq.sourceCollection)) {
       request.sourceCollectionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sourceCollection, "SourceCollection", "json");
     }
@@ -14466,6 +14660,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.rerankFactor)) {
       query["RerankFactor"] = request.rerankFactor;
+    }
+
+    if (!$dara.isNull(request.rerankModelShrink)) {
+      query["RerankModel"] = request.rerankModelShrink;
     }
 
     if (!$dara.isNull(request.sourceCollectionShrink)) {
@@ -14631,6 +14829,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.documentsShrink)) {
       body["Documents"] = request.documentsShrink;
+    }
+
+    if (!$dara.isNull(request.instruct)) {
+      body["Instruct"] = request.instruct;
     }
 
     if (!$dara.isNull(request.maxChunksPerDoc)) {

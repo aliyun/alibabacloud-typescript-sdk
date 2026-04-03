@@ -32,6 +32,40 @@ export class QueryContentRequestGraphSearchArgs extends $dara.Model {
   }
 }
 
+export class QueryContentRequestRerankModel extends $dara.Model {
+  /**
+   * @example
+   * Given a web search query, retrieve relevant passages that answer the query
+   */
+  instruct?: string;
+  /**
+   * @example
+   * qwen3-rerank
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instruct: 'Instruct',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instruct: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryContentRequest extends $dara.Model {
   /**
    * @remarks
@@ -257,6 +291,7 @@ export class QueryContentRequest extends $dara.Model {
    * 2
    */
   rerankFactor?: number;
+  rerankModel?: QueryContentRequestRerankModel;
   /**
    * @remarks
    * The number of the returned top results.
@@ -313,6 +348,7 @@ export class QueryContentRequest extends $dara.Model {
       recallWindow: 'RecallWindow',
       regionId: 'RegionId',
       rerankFactor: 'RerankFactor',
+      rerankModel: 'RerankModel',
       topK: 'TopK',
       urlExpiration: 'UrlExpiration',
       useFullTextRetrieval: 'UseFullTextRetrieval',
@@ -343,6 +379,7 @@ export class QueryContentRequest extends $dara.Model {
       recallWindow: { 'type': 'array', 'itemType': 'number' },
       regionId: 'string',
       rerankFactor: 'number',
+      rerankModel: QueryContentRequestRerankModel,
       topK: 'number',
       urlExpiration: 'string',
       useFullTextRetrieval: 'boolean',
@@ -358,6 +395,9 @@ export class QueryContentRequest extends $dara.Model {
     }
     if(Array.isArray(this.recallWindow)) {
       $dara.Model.validateArray(this.recallWindow);
+    }
+    if(this.rerankModel && typeof (this.rerankModel as any).validate === 'function') {
+      (this.rerankModel as any).validate();
     }
     super.validate();
   }

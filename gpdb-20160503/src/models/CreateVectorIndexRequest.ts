@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVectorIndexRequest extends $dara.Model {
+  algorithm?: string;
   /**
    * @remarks
    * Collection name.
@@ -105,6 +106,7 @@ export class CreateVectorIndexRequest extends $dara.Model {
    * mynamespace
    */
   namespace?: string;
+  nlist?: number;
   ownerId?: number;
   /**
    * @remarks
@@ -116,6 +118,7 @@ export class CreateVectorIndexRequest extends $dara.Model {
    * 1
    */
   pqEnable?: number;
+  rabitqBits?: number;
   /**
    * @remarks
    * Region ID where the instance is located.
@@ -129,6 +132,7 @@ export class CreateVectorIndexRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       dimension: 'Dimension',
@@ -139,8 +143,10 @@ export class CreateVectorIndexRequest extends $dara.Model {
       managerAccountPassword: 'ManagerAccountPassword',
       metrics: 'Metrics',
       namespace: 'Namespace',
+      nlist: 'Nlist',
       ownerId: 'OwnerId',
       pqEnable: 'PqEnable',
+      rabitqBits: 'RabitqBits',
       regionId: 'RegionId',
       type: 'Type',
     };
@@ -148,6 +154,7 @@ export class CreateVectorIndexRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
       collection: 'string',
       DBInstanceId: 'string',
       dimension: 'number',
@@ -158,8 +165,10 @@ export class CreateVectorIndexRequest extends $dara.Model {
       managerAccountPassword: 'string',
       metrics: 'string',
       namespace: 'string',
+      nlist: 'number',
       ownerId: 'number',
       pqEnable: 'number',
+      rabitqBits: 'number',
       regionId: 'string',
       type: 'string',
     };

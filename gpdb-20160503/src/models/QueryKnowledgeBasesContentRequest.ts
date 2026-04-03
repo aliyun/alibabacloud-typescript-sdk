@@ -102,6 +102,32 @@ export class QueryKnowledgeBasesContentRequestMergeMethodArgs extends $dara.Mode
   }
 }
 
+export class QueryKnowledgeBasesContentRequestRerankModel extends $dara.Model {
+  instruct?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instruct: 'Instruct',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instruct: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsGraphSearchArgs extends $dara.Model {
   /**
    * @remarks
@@ -120,6 +146,32 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsGraphSe
   static types(): { [key: string]: any } {
     return {
       graphTopK: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsRerankModel extends $dara.Model {
+  instruct?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instruct: 'Instruct',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instruct: 'string',
+      name: 'string',
     };
   }
 
@@ -254,6 +306,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
    * 2.0
    */
   rerankFactor?: number;
+  rerankModel?: QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsRerankModel;
   /**
    * @remarks
    * The number of top results.
@@ -282,6 +335,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
       orderBy: 'OrderBy',
       recallWindow: 'RecallWindow',
       rerankFactor: 'RerankFactor',
+      rerankModel: 'RerankModel',
       topK: 'TopK',
       useFullTextRetrieval: 'UseFullTextRetrieval',
     };
@@ -299,6 +353,7 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
       orderBy: 'string',
       recallWindow: { 'type': 'array', 'itemType': 'number' },
       rerankFactor: 'number',
+      rerankModel: QueryKnowledgeBasesContentRequestSourceCollectionQueryParamsRerankModel,
       topK: 'number',
       useFullTextRetrieval: 'boolean',
     };
@@ -313,6 +368,9 @@ export class QueryKnowledgeBasesContentRequestSourceCollectionQueryParams extend
     }
     if(Array.isArray(this.recallWindow)) {
       $dara.Model.validateArray(this.recallWindow);
+    }
+    if(this.rerankModel && typeof (this.rerankModel as any).validate === 'function') {
+      (this.rerankModel as any).validate();
     }
     super.validate();
   }
@@ -453,6 +511,7 @@ export class QueryKnowledgeBasesContentRequest extends $dara.Model {
    * 2
    */
   rerankFactor?: number;
+  rerankModel?: QueryKnowledgeBasesContentRequestRerankModel;
   /**
    * @remarks
    * The information about collections to retrieve from.
@@ -477,6 +536,7 @@ export class QueryKnowledgeBasesContentRequest extends $dara.Model {
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       rerankFactor: 'RerankFactor',
+      rerankModel: 'RerankModel',
       sourceCollection: 'SourceCollection',
       topK: 'TopK',
     };
@@ -491,6 +551,7 @@ export class QueryKnowledgeBasesContentRequest extends $dara.Model {
       ownerId: 'number',
       regionId: 'string',
       rerankFactor: 'number',
+      rerankModel: QueryKnowledgeBasesContentRequestRerankModel,
       sourceCollection: { 'type': 'array', 'itemType': QueryKnowledgeBasesContentRequestSourceCollection },
       topK: 'number',
     };
@@ -499,6 +560,9 @@ export class QueryKnowledgeBasesContentRequest extends $dara.Model {
   validate() {
     if(this.mergeMethodArgs && typeof (this.mergeMethodArgs as any).validate === 'function') {
       (this.mergeMethodArgs as any).validate();
+    }
+    if(this.rerankModel && typeof (this.rerankModel as any).validate === 'function') {
+      (this.rerankModel as any).validate();
     }
     if(Array.isArray(this.sourceCollection)) {
       $dara.Model.validateArray(this.sourceCollection);

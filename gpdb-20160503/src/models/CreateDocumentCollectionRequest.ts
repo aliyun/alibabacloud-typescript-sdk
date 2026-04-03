@@ -3,10 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDocumentCollectionRequestSparseVectorIndexConfig extends $dara.Model {
+  algorithm?: string;
   hnswEfConstruction?: number;
   hnswM?: number;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
       hnswEfConstruction: 'HnswEfConstruction',
       hnswM: 'HnswM',
     };
@@ -14,6 +16,7 @@ export class CreateDocumentCollectionRequestSparseVectorIndexConfig extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
       hnswEfConstruction: 'number',
       hnswM: 'number',
     };
@@ -28,7 +31,34 @@ export class CreateDocumentCollectionRequestSparseVectorIndexConfig extends $dar
   }
 }
 
+export class CreateDocumentCollectionRequestVectorIndexConfig extends $dara.Model {
+  nlist?: number;
+  rabitqBits?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nlist: 'Nlist',
+      rabitqBits: 'RabitqBits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nlist: 'number',
+      rabitqBits: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDocumentCollectionRequest extends $dara.Model {
+  algorithm?: string;
   /**
    * @remarks
    * The name of the document collection that you want to create.
@@ -236,8 +266,10 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   sparseRetrievalFields?: string;
   sparseVectorIndexConfig?: CreateDocumentCollectionRequestSparseVectorIndexConfig;
   supportSparse?: boolean;
+  vectorIndexConfig?: CreateDocumentCollectionRequestVectorIndexConfig;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       dimension: 'Dimension',
@@ -264,11 +296,13 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
       sparseRetrievalFields: 'SparseRetrievalFields',
       sparseVectorIndexConfig: 'SparseVectorIndexConfig',
       supportSparse: 'SupportSparse',
+      vectorIndexConfig: 'VectorIndexConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
       collection: 'string',
       DBInstanceId: 'string',
       dimension: 'number',
@@ -295,6 +329,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
       sparseRetrievalFields: 'string',
       sparseVectorIndexConfig: CreateDocumentCollectionRequestSparseVectorIndexConfig,
       supportSparse: 'boolean',
+      vectorIndexConfig: CreateDocumentCollectionRequestVectorIndexConfig,
     };
   }
 
@@ -307,6 +342,9 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
     }
     if(this.sparseVectorIndexConfig && typeof (this.sparseVectorIndexConfig as any).validate === 'function') {
       (this.sparseVectorIndexConfig as any).validate();
+    }
+    if(this.vectorIndexConfig && typeof (this.vectorIndexConfig as any).validate === 'function') {
+      (this.vectorIndexConfig as any).validate();
     }
     super.validate();
   }

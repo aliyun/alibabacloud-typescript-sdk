@@ -102,6 +102,40 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgs ex
   }
 }
 
+export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsRerankModel extends $dara.Model {
+  /**
+   * @example
+   * Given a web search query, retrieve relevant passages that answer the query
+   */
+  instruct?: string;
+  /**
+   * @example
+   * qwen3-rerank
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instruct: 'Instruct',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instruct: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParamsGraphSearchArgs extends $dara.Model {
   /**
    * @remarks
@@ -120,6 +154,40 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
   static types(): { [key: string]: any } {
     return {
       graphTopK: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel extends $dara.Model {
+  /**
+   * @example
+   * Given a web search query, retrieve relevant passages that answer the query
+   */
+  instruct?: string;
+  /**
+   * @example
+   * qwen3-rerank
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instruct: 'Instruct',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instruct: 'string',
+      name: 'string',
     };
   }
 
@@ -230,6 +298,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
    * 2.0
    */
   rerankFactor?: number;
+  rerankModel?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel;
   /**
    * @remarks
    * The number of top results.
@@ -256,6 +325,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
       metrics: 'Metrics',
       recallWindow: 'RecallWindow',
       rerankFactor: 'RerankFactor',
+      rerankModel: 'RerankModel',
       topK: 'TopK',
       useFullTextRetrieval: 'UseFullTextRetrieval',
     };
@@ -271,6 +341,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
       metrics: 'string',
       recallWindow: { 'type': 'array', 'itemType': 'number' },
       rerankFactor: 'number',
+      rerankModel: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel,
       topK: 'number',
       useFullTextRetrieval: 'boolean',
     };
@@ -285,6 +356,9 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollectionQu
     }
     if(Array.isArray(this.recallWindow)) {
       $dara.Model.validateArray(this.recallWindow);
+    }
+    if(this.rerankModel && typeof (this.rerankModel as any).validate === 'function') {
+      (this.rerankModel as any).validate();
     }
     super.validate();
   }
@@ -393,6 +467,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParams extends $dara.Mod
    * 5.0
    */
   rerankFactor?: number;
+  rerankModel?: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsRerankModel;
   /**
    * @remarks
    * Knowledge base.
@@ -413,6 +488,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParams extends $dara.Mod
       mergeMethod: 'MergeMethod',
       mergeMethodArgs: 'MergeMethodArgs',
       rerankFactor: 'RerankFactor',
+      rerankModel: 'RerankModel',
       sourceCollection: 'SourceCollection',
       topK: 'TopK',
     };
@@ -423,6 +499,7 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParams extends $dara.Mod
       mergeMethod: 'string',
       mergeMethodArgs: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsMergeMethodArgs,
       rerankFactor: 'number',
+      rerankModel: ChatWithKnowledgeBaseStreamRequestKnowledgeParamsRerankModel,
       sourceCollection: { 'type': 'array', 'itemType': ChatWithKnowledgeBaseStreamRequestKnowledgeParamsSourceCollection },
       topK: 'number',
     };
@@ -431,6 +508,9 @@ export class ChatWithKnowledgeBaseStreamRequestKnowledgeParams extends $dara.Mod
   validate() {
     if(this.mergeMethodArgs && typeof (this.mergeMethodArgs as any).validate === 'function') {
       (this.mergeMethodArgs as any).validate();
+    }
+    if(this.rerankModel && typeof (this.rerankModel as any).validate === 'function') {
+      (this.rerankModel as any).validate();
     }
     if(Array.isArray(this.sourceCollection)) {
       $dara.Model.validateArray(this.sourceCollection);

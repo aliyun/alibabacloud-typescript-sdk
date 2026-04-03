@@ -102,6 +102,40 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsMergeMethodArgs extends 
   }
 }
 
+export class ChatWithKnowledgeBaseRequestKnowledgeParamsRerankModel extends $dara.Model {
+  /**
+   * @example
+   * Given a web search query, retrieve relevant passages that answer the query
+   */
+  instruct?: string;
+  /**
+   * @example
+   * qwen3-rerank
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instruct: 'Instruct',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instruct: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParamsGraphSearchArgs extends $dara.Model {
   /**
    * @remarks
@@ -120,6 +154,40 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
   static types(): { [key: string]: any } {
     return {
       graphTopK: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel extends $dara.Model {
+  /**
+   * @example
+   * Given a web search query, retrieve relevant passages that answer the query
+   */
+  instruct?: string;
+  /**
+   * @example
+   * qwen3-rerank
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instruct: 'Instruct',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instruct: 'string',
+      name: 'string',
     };
   }
 
@@ -230,6 +298,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
    * 1.5
    */
   rerankFactor?: number;
+  rerankModel?: ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel;
   /**
    * @remarks
    * The number of top results.
@@ -256,6 +325,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
       metrics: 'Metrics',
       recallWindow: 'RecallWindow',
       rerankFactor: 'RerankFactor',
+      rerankModel: 'RerankModel',
       topK: 'TopK',
       useFullTextRetrieval: 'UseFullTextRetrieval',
     };
@@ -271,6 +341,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
       metrics: 'string',
       recallWindow: { 'type': 'array', 'itemType': 'number' },
       rerankFactor: 'number',
+      rerankModel: ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel,
       topK: 'number',
       useFullTextRetrieval: 'boolean',
     };
@@ -285,6 +356,9 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
     }
     if(Array.isArray(this.recallWindow)) {
       $dara.Model.validateArray(this.recallWindow);
+    }
+    if(this.rerankModel && typeof (this.rerankModel as any).validate === 'function') {
+      (this.rerankModel as any).validate();
     }
     super.validate();
   }
@@ -393,6 +467,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParams extends $dara.Model {
    * 1.0001
    */
   rerankFactor?: number;
+  rerankModel?: ChatWithKnowledgeBaseRequestKnowledgeParamsRerankModel;
   /**
    * @remarks
    * Knowledge base.
@@ -413,6 +488,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParams extends $dara.Model {
       mergeMethod: 'MergeMethod',
       mergeMethodArgs: 'MergeMethodArgs',
       rerankFactor: 'RerankFactor',
+      rerankModel: 'RerankModel',
       sourceCollection: 'SourceCollection',
       topK: 'TopK',
     };
@@ -423,6 +499,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParams extends $dara.Model {
       mergeMethod: 'string',
       mergeMethodArgs: ChatWithKnowledgeBaseRequestKnowledgeParamsMergeMethodArgs,
       rerankFactor: 'number',
+      rerankModel: ChatWithKnowledgeBaseRequestKnowledgeParamsRerankModel,
       sourceCollection: { 'type': 'array', 'itemType': ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollection },
       topK: 'number',
     };
@@ -431,6 +508,9 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParams extends $dara.Model {
   validate() {
     if(this.mergeMethodArgs && typeof (this.mergeMethodArgs as any).validate === 'function') {
       (this.mergeMethodArgs as any).validate();
+    }
+    if(this.rerankModel && typeof (this.rerankModel as any).validate === 'function') {
+      (this.rerankModel as any).validate();
     }
     if(Array.isArray(this.sourceCollection)) {
       $dara.Model.validateArray(this.sourceCollection);

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDocumentCollectionShrinkRequest extends $dara.Model {
+  algorithm?: string;
   /**
    * @remarks
    * The name of the document collection that you want to create.
@@ -210,8 +211,10 @@ export class CreateDocumentCollectionShrinkRequest extends $dara.Model {
   sparseRetrievalFields?: string;
   sparseVectorIndexConfigShrink?: string;
   supportSparse?: boolean;
+  vectorIndexConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       dimension: 'Dimension',
@@ -238,11 +241,13 @@ export class CreateDocumentCollectionShrinkRequest extends $dara.Model {
       sparseRetrievalFields: 'SparseRetrievalFields',
       sparseVectorIndexConfigShrink: 'SparseVectorIndexConfig',
       supportSparse: 'SupportSparse',
+      vectorIndexConfigShrink: 'VectorIndexConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
       collection: 'string',
       DBInstanceId: 'string',
       dimension: 'number',
@@ -269,6 +274,7 @@ export class CreateDocumentCollectionShrinkRequest extends $dara.Model {
       sparseRetrievalFields: 'string',
       sparseVectorIndexConfigShrink: 'string',
       supportSparse: 'boolean',
+      vectorIndexConfigShrink: 'string',
     };
   }
 

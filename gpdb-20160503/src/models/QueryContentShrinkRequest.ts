@@ -227,6 +227,7 @@ export class QueryContentShrinkRequest extends $dara.Model {
    * 2
    */
   rerankFactor?: number;
+  rerankModelShrink?: string;
   /**
    * @remarks
    * The number of the returned top results.
@@ -283,6 +284,7 @@ export class QueryContentShrinkRequest extends $dara.Model {
       recallWindowShrink: 'RecallWindow',
       regionId: 'RegionId',
       rerankFactor: 'RerankFactor',
+      rerankModelShrink: 'RerankModel',
       topK: 'TopK',
       urlExpiration: 'UrlExpiration',
       useFullTextRetrieval: 'UseFullTextRetrieval',
@@ -313,6 +315,7 @@ export class QueryContentShrinkRequest extends $dara.Model {
       recallWindowShrink: 'string',
       regionId: 'string',
       rerankFactor: 'number',
+      rerankModelShrink: 'string',
       topK: 'number',
       urlExpiration: 'string',
       useFullTextRetrieval: 'boolean',

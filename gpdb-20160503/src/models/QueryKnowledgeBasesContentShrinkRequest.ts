@@ -63,6 +63,7 @@ export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
    * 2
    */
   rerankFactor?: number;
+  rerankModelShrink?: string;
   /**
    * @remarks
    * The information about collections to retrieve from.
@@ -87,6 +88,7 @@ export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       rerankFactor: 'RerankFactor',
+      rerankModelShrink: 'RerankModel',
       sourceCollectionShrink: 'SourceCollection',
       topK: 'TopK',
     };
@@ -101,6 +103,7 @@ export class QueryKnowledgeBasesContentShrinkRequest extends $dara.Model {
       ownerId: 'number',
       regionId: 'string',
       rerankFactor: 'number',
+      rerankModelShrink: 'string',
       sourceCollectionShrink: 'string',
       topK: 'number',
     };

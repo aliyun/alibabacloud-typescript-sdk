@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateCollectionShrinkRequest extends $dara.Model {
+  algorithm?: string;
   /**
    * @remarks
    * The name of the collection that you want to create.
@@ -180,6 +181,7 @@ export class CreateCollectionShrinkRequest extends $dara.Model {
   regionId?: string;
   sparseVectorIndexConfigShrink?: string;
   supportSparse?: boolean;
+  vectorIndexConfigShrink?: string;
   /**
    * @remarks
    * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
@@ -190,6 +192,7 @@ export class CreateCollectionShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       dimension: 'Dimension',
@@ -209,12 +212,14 @@ export class CreateCollectionShrinkRequest extends $dara.Model {
       regionId: 'RegionId',
       sparseVectorIndexConfigShrink: 'SparseVectorIndexConfig',
       supportSparse: 'SupportSparse',
+      vectorIndexConfigShrink: 'VectorIndexConfig',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
       collection: 'string',
       DBInstanceId: 'string',
       dimension: 'number',
@@ -234,6 +239,7 @@ export class CreateCollectionShrinkRequest extends $dara.Model {
       regionId: 'string',
       sparseVectorIndexConfigShrink: 'string',
       supportSparse: 'boolean',
+      vectorIndexConfigShrink: 'string',
       workspaceId: 'string',
     };
   }

@@ -21,6 +21,11 @@ export class RerankShrinkRequest extends $dara.Model {
    */
   documentsShrink?: string;
   /**
+   * @example
+   * Given a web search query, retrieve relevant passages that answer the query
+   */
+  instruct?: string;
+  /**
    * @remarks
    * Maximum number of chunks allowed when the text exceeds the model window:
    * - bge-reranker-v2-m3: default value is 10.
@@ -82,6 +87,7 @@ export class RerankShrinkRequest extends $dara.Model {
     return {
       DBInstanceId: 'DBInstanceId',
       documentsShrink: 'Documents',
+      instruct: 'Instruct',
       maxChunksPerDoc: 'MaxChunksPerDoc',
       model: 'Model',
       ownerId: 'OwnerId',
@@ -96,6 +102,7 @@ export class RerankShrinkRequest extends $dara.Model {
     return {
       DBInstanceId: 'string',
       documentsShrink: 'string',
+      instruct: 'string',
       maxChunksPerDoc: 'number',
       model: 'string',
       ownerId: 'number',

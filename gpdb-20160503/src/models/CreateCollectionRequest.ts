@@ -3,10 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateCollectionRequestSparseVectorIndexConfig extends $dara.Model {
+  algorithm?: string;
   hnswEfConstruction?: number;
   hnswM?: number;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
       hnswEfConstruction: 'HnswEfConstruction',
       hnswM: 'HnswM',
     };
@@ -14,6 +16,7 @@ export class CreateCollectionRequestSparseVectorIndexConfig extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
       hnswEfConstruction: 'number',
       hnswM: 'number',
     };
@@ -28,7 +31,34 @@ export class CreateCollectionRequestSparseVectorIndexConfig extends $dara.Model 
   }
 }
 
+export class CreateCollectionRequestVectorIndexConfig extends $dara.Model {
+  nlist?: number;
+  rabitqBits?: number;
+  static names(): { [key: string]: string } {
+    return {
+      nlist: 'Nlist',
+      rabitqBits: 'RabitqBits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nlist: 'number',
+      rabitqBits: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCollectionRequest extends $dara.Model {
+  algorithm?: string;
   /**
    * @remarks
    * The name of the collection that you want to create.
@@ -206,6 +236,7 @@ export class CreateCollectionRequest extends $dara.Model {
   regionId?: string;
   sparseVectorIndexConfig?: CreateCollectionRequestSparseVectorIndexConfig;
   supportSparse?: boolean;
+  vectorIndexConfig?: CreateCollectionRequestVectorIndexConfig;
   /**
    * @remarks
    * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
@@ -216,6 +247,7 @@ export class CreateCollectionRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      algorithm: 'Algorithm',
       collection: 'Collection',
       DBInstanceId: 'DBInstanceId',
       dimension: 'Dimension',
@@ -235,12 +267,14 @@ export class CreateCollectionRequest extends $dara.Model {
       regionId: 'RegionId',
       sparseVectorIndexConfig: 'SparseVectorIndexConfig',
       supportSparse: 'SupportSparse',
+      vectorIndexConfig: 'VectorIndexConfig',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      algorithm: 'string',
       collection: 'string',
       DBInstanceId: 'string',
       dimension: 'number',
@@ -260,6 +294,7 @@ export class CreateCollectionRequest extends $dara.Model {
       regionId: 'string',
       sparseVectorIndexConfig: CreateCollectionRequestSparseVectorIndexConfig,
       supportSparse: 'boolean',
+      vectorIndexConfig: CreateCollectionRequestVectorIndexConfig,
       workspaceId: 'string',
     };
   }
@@ -267,6 +302,9 @@ export class CreateCollectionRequest extends $dara.Model {
   validate() {
     if(this.sparseVectorIndexConfig && typeof (this.sparseVectorIndexConfig as any).validate === 'function') {
       (this.sparseVectorIndexConfig as any).validate();
+    }
+    if(this.vectorIndexConfig && typeof (this.vectorIndexConfig as any).validate === 'function') {
+      (this.vectorIndexConfig as any).validate();
     }
     super.validate();
   }
