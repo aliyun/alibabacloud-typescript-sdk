@@ -28,6 +28,11 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
    */
   azureInstanceCount?: number;
   /**
+   * @example
+   * 5
+   */
+  baiduInstanceCount?: number;
+  /**
    * @remarks
    * The number of cores of exposed assets.
    * 
@@ -115,6 +120,11 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
    * 10
    */
   instanceSyncTaskCount?: number;
+  /**
+   * @example
+   * 5
+   */
+  kingsoftInstanceCount?: number;
   /**
    * @remarks
    * The number of cores of new servers.
@@ -212,6 +222,11 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
    */
   riskInstanceCount?: number;
   /**
+   * @example
+   * 5
+   */
+  stateCloudInstanceCount?: number;
+  /**
    * @remarks
    * The total number of cloud services that are protected by Security Center.
    * 
@@ -235,6 +250,11 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
    * 2
    */
   tripartiteInstanceCount?: number;
+  /**
+   * @example
+   * 5
+   */
+  ucloudInstanceCount?: number;
   /**
    * @remarks
    * The number of servers that are in the Unknown state.
@@ -280,6 +300,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
       aliYunInstanceCount: 'AliYunInstanceCount',
       awsInstanceCount: 'AwsInstanceCount',
       azureInstanceCount: 'AzureInstanceCount',
+      baiduInstanceCount: 'BaiduInstanceCount',
       exposedInstanceCoreCount: 'ExposedInstanceCoreCount',
       exposedInstanceCount: 'ExposedInstanceCount',
       generalAssetCount: 'GeneralAssetCount',
@@ -291,6 +312,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
       instanceCoreCount: 'InstanceCoreCount',
       instanceCount: 'InstanceCount',
       instanceSyncTaskCount: 'InstanceSyncTaskCount',
+      kingsoftInstanceCount: 'KingsoftInstanceCount',
       newInstanceCoreCount: 'NewInstanceCoreCount',
       newInstanceCount: 'NewInstanceCount',
       noRiskInstanceCount: 'NoRiskInstanceCount',
@@ -303,9 +325,11 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
       regionCount: 'RegionCount',
       riskInstanceCoreCount: 'RiskInstanceCoreCount',
       riskInstanceCount: 'RiskInstanceCount',
+      stateCloudInstanceCount: 'StateCloudInstanceCount',
       tencentInstanceCount: 'TencentInstanceCount',
       testAssetCount: 'TestAssetCount',
       tripartiteInstanceCount: 'TripartiteInstanceCount',
+      ucloudInstanceCount: 'UcloudInstanceCount',
       unKnowStatusInstanceCount: 'UnKnowStatusInstanceCount',
       unprotectedInstanceCoreCount: 'UnprotectedInstanceCoreCount',
       unprotectedInstanceCount: 'UnprotectedInstanceCount',
@@ -319,6 +343,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
       aliYunInstanceCount: 'number',
       awsInstanceCount: 'number',
       azureInstanceCount: 'number',
+      baiduInstanceCount: 'number',
       exposedInstanceCoreCount: 'number',
       exposedInstanceCount: 'number',
       generalAssetCount: 'number',
@@ -330,6 +355,7 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
       instanceCoreCount: 'number',
       instanceCount: 'number',
       instanceSyncTaskCount: 'number',
+      kingsoftInstanceCount: 'number',
       newInstanceCoreCount: 'number',
       newInstanceCount: 'number',
       noRiskInstanceCount: 'number',
@@ -342,9 +368,11 @@ export class DescribeFieldStatisticsResponseBodyGroupedFields extends $dara.Mode
       regionCount: 'number',
       riskInstanceCoreCount: 'number',
       riskInstanceCount: 'number',
+      stateCloudInstanceCount: 'number',
       tencentInstanceCount: 'number',
       testAssetCount: 'number',
       tripartiteInstanceCount: 'number',
+      ucloudInstanceCount: 'number',
       unKnowStatusInstanceCount: 'number',
       unprotectedInstanceCoreCount: 'number',
       unprotectedInstanceCount: 'number',
