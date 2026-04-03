@@ -3721,6 +3721,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看参数模版
+   * 
    * @param request - DescribeParameterTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeParameterTemplatesResponse
@@ -3762,6 +3764,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看参数模版
+   * 
    * @param request - DescribeParameterTemplatesRequest
    * @returns DescribeParameterTemplatesResponse
    */

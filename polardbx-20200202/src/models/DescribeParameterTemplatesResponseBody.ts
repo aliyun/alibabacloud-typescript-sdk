@@ -33,6 +33,11 @@ export class DescribeParameterTemplatesResponseBodyDataParameters extends $dara.
    * 0
    */
   revisable?: number;
+  /**
+   * @example
+   * 0
+   */
+  userChangable?: number;
   static names(): { [key: string]: string } {
     return {
       checkingCode: 'CheckingCode',
@@ -41,6 +46,7 @@ export class DescribeParameterTemplatesResponseBodyDataParameters extends $dara.
       parameterName: 'ParameterName',
       parameterValue: 'ParameterValue',
       revisable: 'Revisable',
+      userChangable: 'UserChangable',
     };
   }
 
@@ -52,6 +58,7 @@ export class DescribeParameterTemplatesResponseBodyDataParameters extends $dara.
       parameterName: 'string',
       parameterValue: 'string',
       revisable: 'number',
+      userChangable: 'number',
     };
   }
 
