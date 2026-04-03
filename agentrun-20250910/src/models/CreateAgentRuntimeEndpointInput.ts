@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { RoutingConfiguration } from "./RoutingConfiguration";
+import { ScalingConfig } from "./ScalingConfig";
 
 
 export class CreateAgentRuntimeEndpointInput extends $dara.Model {
@@ -29,6 +30,11 @@ export class CreateAgentRuntimeEndpointInput extends $dara.Model {
   routingConfiguration?: RoutingConfiguration;
   /**
    * @remarks
+   * 端点的弹性伸缩配置，包括最小实例数和定时扩容策略（复用 ScalingConfig）
+   */
+  scalingConfig?: ScalingConfig;
+  /**
+   * @remarks
    * 智能体运行时的目标版本
    * 
    * @example
@@ -41,6 +47,7 @@ export class CreateAgentRuntimeEndpointInput extends $dara.Model {
       description: 'description',
       disablePublicNetworkAccess: 'disablePublicNetworkAccess',
       routingConfiguration: 'routingConfiguration',
+      scalingConfig: 'scalingConfig',
       targetVersion: 'targetVersion',
     };
   }
@@ -51,6 +58,7 @@ export class CreateAgentRuntimeEndpointInput extends $dara.Model {
       description: 'string',
       disablePublicNetworkAccess: 'boolean',
       routingConfiguration: RoutingConfiguration,
+      scalingConfig: ScalingConfig,
       targetVersion: 'string',
     };
   }
@@ -58,6 +66,9 @@ export class CreateAgentRuntimeEndpointInput extends $dara.Model {
   validate() {
     if(this.routingConfiguration && typeof (this.routingConfiguration as any).validate === 'function') {
       (this.routingConfiguration as any).validate();
+    }
+    if(this.scalingConfig && typeof (this.scalingConfig as any).validate === 'function') {
+      (this.scalingConfig as any).validate();
     }
     super.validate();
   }

@@ -41,6 +41,11 @@ export class CreateFunagentInput extends $dara.Model {
   /**
    * @remarks
    * `string`，必填
+   */
+  dbInstanceId?: string;
+  /**
+   * @remarks
+   * `string`，必填
    * 
    * This parameter is required.
    */
@@ -134,6 +139,7 @@ export class CreateFunagentInput extends $dara.Model {
       cpu: 'cpu',
       dbConnections: 'dbConnections',
       dbHost: 'dbHost',
+      dbInstanceId: 'dbInstanceId',
       dbName: 'dbName',
       dbPassword: 'dbPassword',
       dbPort: 'dbPort',
@@ -157,6 +163,7 @@ export class CreateFunagentInput extends $dara.Model {
       cpu: 'number',
       dbConnections: 'number',
       dbHost: 'string',
+      dbInstanceId: 'string',
       dbName: 'string',
       dbPassword: 'string',
       dbPort: 'number',

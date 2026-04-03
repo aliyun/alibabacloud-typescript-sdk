@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { RoutingConfiguration } from "./RoutingConfiguration";
+import { ScalingStatus } from "./ScalingStatus";
 
 
 export class AgentRuntimeEndpoint extends $dara.Model {
@@ -48,6 +49,11 @@ export class AgentRuntimeEndpoint extends $dara.Model {
    */
   routingConfiguration?: RoutingConfiguration;
   /**
+   * @remarks
+   * 端点的弹性伸缩状态，包括最小/目标/当前实例数及定时策略（复用 ScalingStatus）
+   */
+  scalingStatus?: ScalingStatus;
+  /**
    * @example
    * ACTIVE
    */
@@ -72,6 +78,7 @@ export class AgentRuntimeEndpoint extends $dara.Model {
       disablePublicNetworkAccess: 'disablePublicNetworkAccess',
       endpointPublicUrl: 'endpointPublicUrl',
       routingConfiguration: 'routingConfiguration',
+      scalingStatus: 'scalingStatus',
       status: 'status',
       statusReason: 'statusReason',
       targetVersion: 'targetVersion',
@@ -88,6 +95,7 @@ export class AgentRuntimeEndpoint extends $dara.Model {
       disablePublicNetworkAccess: 'boolean',
       endpointPublicUrl: 'string',
       routingConfiguration: RoutingConfiguration,
+      scalingStatus: ScalingStatus,
       status: 'string',
       statusReason: 'string',
       targetVersion: 'string',
@@ -97,6 +105,9 @@ export class AgentRuntimeEndpoint extends $dara.Model {
   validate() {
     if(this.routingConfiguration && typeof (this.routingConfiguration as any).validate === 'function') {
       (this.routingConfiguration as any).validate();
+    }
+    if(this.scalingStatus && typeof (this.scalingStatus as any).validate === 'function') {
+      (this.scalingStatus as any).validate();
     }
     super.validate();
   }
