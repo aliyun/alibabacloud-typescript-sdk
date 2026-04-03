@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
+  agentProviderList?: string[];
   /**
    * @example
    * PostPaid
@@ -75,6 +76,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      agentProviderList: 'AgentProviderList',
       chargeType: 'ChargeType',
       creationTime: 'CreationTime',
       desktopGroupId: 'DesktopGroupId',
@@ -98,6 +100,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentProviderList: { 'type': 'array', 'itemType': 'string' },
       chargeType: 'string',
       creationTime: 'string',
       desktopGroupId: 'string',
@@ -120,6 +123,9 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.agentProviderList)) {
+      $dara.Model.validateArray(this.agentProviderList);
+    }
     if(Array.isArray(this.managementFlags)) {
       $dara.Model.validateArray(this.managementFlags);
     }

@@ -617,6 +617,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * deny
    */
   adminAccess?: string;
+  adminKeyboardOnFullScreen?: string;
+  adminKeyboardOnWindows?: string;
   /**
    * @remarks
    * Indicates whether the anti-screenshot feature is enabled.
@@ -751,6 +753,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * 70
    */
   cpuSingleRateLimit?: number;
+  description?: string;
   /**
    * @remarks
    * The number of cloud computers bound with this policy.
@@ -931,6 +934,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    */
   internetCommunicationProtocol?: string;
   internetPrinter?: string;
+  keyboardControl?: string;
   /**
    * @remarks
    * The permissions on local disk mapping.
@@ -1694,6 +1698,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
     return {
       academicProxy: 'AcademicProxy',
       adminAccess: 'AdminAccess',
+      adminKeyboardOnFullScreen: 'AdminKeyboardOnFullScreen',
+      adminKeyboardOnWindows: 'AdminKeyboardOnWindows',
       appContentProtection: 'AppContentProtection',
       authorizeAccessPolicyRules: 'AuthorizeAccessPolicyRules',
       authorizeSecurityPolicyRules: 'AuthorizeSecurityPolicyRules',
@@ -1715,6 +1721,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       cpuRateLimit: 'CpuRateLimit',
       cpuSampleDuration: 'CpuSampleDuration',
       cpuSingleRateLimit: 'CpuSingleRateLimit',
+      description: 'Description',
       desktopCount: 'DesktopCount',
       desktopGroupCount: 'DesktopGroupCount',
       deviceConnectHint: 'DeviceConnectHint',
@@ -1743,6 +1750,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
       internetPrinter: 'InternetPrinter',
+      keyboardControl: 'KeyboardControl',
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
@@ -1835,6 +1843,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
     return {
       academicProxy: 'string',
       adminAccess: 'string',
+      adminKeyboardOnFullScreen: 'string',
+      adminKeyboardOnWindows: 'string',
       appContentProtection: 'string',
       authorizeAccessPolicyRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules },
       authorizeSecurityPolicyRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules },
@@ -1856,6 +1866,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       cpuRateLimit: 'number',
       cpuSampleDuration: 'number',
       cpuSingleRateLimit: 'number',
+      description: 'string',
       desktopCount: 'number',
       desktopGroupCount: 'number',
       deviceConnectHint: 'string',
@@ -1884,6 +1895,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
       internetPrinter: 'string',
+      keyboardControl: 'string',
       localDrive: 'string',
       maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',

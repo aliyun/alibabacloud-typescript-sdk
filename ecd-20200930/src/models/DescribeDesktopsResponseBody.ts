@@ -432,6 +432,7 @@ export class DescribeDesktopsResponseBodyDesktopsTags extends $dara.Model {
 
 export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   accountType?: string;
+  agentProviderList?: string[];
   /**
    * @remarks
    * The number of concurrent sessions of each cloud computer in a multi-session cloud computer pool.
@@ -984,6 +985,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountType: 'AccountType',
+      agentProviderList: 'AgentProviderList',
       bindAmount: 'BindAmount',
       bundleId: 'BundleId',
       bundleName: 'BundleName',
@@ -1059,6 +1061,7 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountType: 'string',
+      agentProviderList: { 'type': 'array', 'itemType': 'string' },
       bindAmount: 'number',
       bundleId: 'string',
       bundleName: 'string',
@@ -1132,6 +1135,9 @@ export class DescribeDesktopsResponseBodyDesktops extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.agentProviderList)) {
+      $dara.Model.validateArray(this.agentProviderList);
+    }
     if(Array.isArray(this.desktopDurationList)) {
       $dara.Model.validateArray(this.desktopDurationList);
     }

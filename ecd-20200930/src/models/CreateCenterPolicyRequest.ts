@@ -648,6 +648,8 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * deny
    */
   adminAccess?: string;
+  adminKeyboardOnFullScreen?: string;
+  adminKeyboardOnWindows?: string;
   /**
    * @remarks
    * The anti-screenshot policy.
@@ -798,6 +800,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    * 70
    */
   cpuSingleRateLimit?: number;
+  description?: string;
   /**
    * @remarks
    * Specifies whether to display the peripheral connection prompt.
@@ -971,6 +974,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
    */
   internetCommunicationProtocol?: string;
   internetPrinter?: string;
+  keyboardControl?: string;
   /**
    * @remarks
    * The read/write permissions on the on-premises drive.
@@ -1717,6 +1721,8 @@ export class CreateCenterPolicyRequest extends $dara.Model {
     return {
       academicProxy: 'AcademicProxy',
       adminAccess: 'AdminAccess',
+      adminKeyboardOnFullScreen: 'AdminKeyboardOnFullScreen',
+      adminKeyboardOnWindows: 'AdminKeyboardOnWindows',
       appContentProtection: 'AppContentProtection',
       authorizeAccessPolicyRule: 'AuthorizeAccessPolicyRule',
       authorizeSecurityPolicyRule: 'AuthorizeSecurityPolicyRule',
@@ -1739,6 +1745,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       cpuRateLimit: 'CpuRateLimit',
       cpuSampleDuration: 'CpuSampleDuration',
       cpuSingleRateLimit: 'CpuSingleRateLimit',
+      description: 'Description',
       deviceConnectHint: 'DeviceConnectHint',
       deviceRedirects: 'DeviceRedirects',
       deviceRules: 'DeviceRules',
@@ -1761,6 +1768,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
       internetPrinter: 'InternetPrinter',
+      keyboardControl: 'KeyboardControl',
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
@@ -1851,6 +1859,8 @@ export class CreateCenterPolicyRequest extends $dara.Model {
     return {
       academicProxy: 'string',
       adminAccess: 'string',
+      adminKeyboardOnFullScreen: 'string',
+      adminKeyboardOnWindows: 'string',
       appContentProtection: 'string',
       authorizeAccessPolicyRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestAuthorizeAccessPolicyRule },
       authorizeSecurityPolicyRule: { 'type': 'array', 'itemType': CreateCenterPolicyRequestAuthorizeSecurityPolicyRule },
@@ -1873,6 +1883,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       cpuRateLimit: 'number',
       cpuSampleDuration: 'number',
       cpuSingleRateLimit: 'number',
+      description: 'string',
       deviceConnectHint: 'string',
       deviceRedirects: { 'type': 'array', 'itemType': CreateCenterPolicyRequestDeviceRedirects },
       deviceRules: { 'type': 'array', 'itemType': CreateCenterPolicyRequestDeviceRules },
@@ -1895,6 +1906,7 @@ export class CreateCenterPolicyRequest extends $dara.Model {
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
       internetPrinter: 'string',
+      keyboardControl: 'string',
       localDrive: 'string',
       maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',

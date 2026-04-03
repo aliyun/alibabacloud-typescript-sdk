@@ -2439,6 +2439,14 @@ export default class Client extends OpenApi {
       query["AdminAccess"] = request.adminAccess;
     }
 
+    if (!$dara.isNull(request.adminKeyboardOnFullScreen)) {
+      query["AdminKeyboardOnFullScreen"] = request.adminKeyboardOnFullScreen;
+    }
+
+    if (!$dara.isNull(request.adminKeyboardOnWindows)) {
+      query["AdminKeyboardOnWindows"] = request.adminKeyboardOnWindows;
+    }
+
     if (!$dara.isNull(request.appContentProtection)) {
       query["AppContentProtection"] = request.appContentProtection;
     }
@@ -2527,6 +2535,10 @@ export default class Client extends OpenApi {
       query["CpuSingleRateLimit"] = request.cpuSingleRateLimit;
     }
 
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.deviceConnectHint)) {
       query["DeviceConnectHint"] = request.deviceConnectHint;
     }
@@ -2613,6 +2625,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.internetPrinter)) {
       query["InternetPrinter"] = request.internetPrinter;
+    }
+
+    if (!$dara.isNull(request.keyboardControl)) {
+      query["KeyboardControl"] = request.keyboardControl;
     }
 
     if (!$dara.isNull(request.localDrive)) {
@@ -14828,6 +14844,14 @@ export default class Client extends OpenApi {
       query["AdminAccess"] = request.adminAccess;
     }
 
+    if (!$dara.isNull(request.adminKeyboardOnFullScreen)) {
+      query["AdminKeyboardOnFullScreen"] = request.adminKeyboardOnFullScreen;
+    }
+
+    if (!$dara.isNull(request.adminKeyboardOnWindows)) {
+      query["AdminKeyboardOnWindows"] = request.adminKeyboardOnWindows;
+    }
+
     if (!$dara.isNull(request.appContentProtection)) {
       query["AppContentProtection"] = request.appContentProtection;
     }
@@ -14914,6 +14938,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.cpuSingleRateLimit)) {
       query["CpuSingleRateLimit"] = request.cpuSingleRateLimit;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!$dara.isNull(request.deviceConnectHint)) {

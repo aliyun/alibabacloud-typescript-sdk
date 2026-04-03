@@ -801,6 +801,8 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * deny
    */
   adminAccess?: string;
+  adminKeyboardOnFullScreen?: string;
+  adminKeyboardOnWindows?: string;
   /**
    * @remarks
    * The anti-screenshot policy.
@@ -947,6 +949,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
    * 80
    */
   cpuSingleRateLimit?: number;
+  description?: string;
   /**
    * @remarks
    * Specifies whether to display the peripheral connection prompt.
@@ -1904,6 +1907,8 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
     return {
       academicProxy: 'AcademicProxy',
       adminAccess: 'AdminAccess',
+      adminKeyboardOnFullScreen: 'AdminKeyboardOnFullScreen',
+      adminKeyboardOnWindows: 'AdminKeyboardOnWindows',
       appContentProtection: 'AppContentProtection',
       authorizeAccessPolicyRule: 'AuthorizeAccessPolicyRule',
       authorizeSecurityPolicyRule: 'AuthorizeSecurityPolicyRule',
@@ -1926,6 +1931,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       cpuRateLimit: 'CpuRateLimit',
       cpuSampleDuration: 'CpuSampleDuration',
       cpuSingleRateLimit: 'CpuSingleRateLimit',
+      description: 'Description',
       deviceConnectHint: 'DeviceConnectHint',
       deviceRedirects: 'DeviceRedirects',
       deviceRules: 'DeviceRules',
@@ -2041,6 +2047,8 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
     return {
       academicProxy: 'string',
       adminAccess: 'string',
+      adminKeyboardOnFullScreen: 'string',
+      adminKeyboardOnWindows: 'string',
       appContentProtection: 'string',
       authorizeAccessPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestAuthorizeAccessPolicyRule },
       authorizeSecurityPolicyRule: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestAuthorizeSecurityPolicyRule },
@@ -2063,6 +2071,7 @@ export class ModifyCenterPolicyRequest extends $dara.Model {
       cpuRateLimit: 'number',
       cpuSampleDuration: 'number',
       cpuSingleRateLimit: 'number',
+      description: 'string',
       deviceConnectHint: 'string',
       deviceRedirects: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDeviceRedirects },
       deviceRules: { 'type': 'array', 'itemType': ModifyCenterPolicyRequestDeviceRules },
