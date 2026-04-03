@@ -156,10 +156,12 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages extends
 
 export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPending extends $dara.Model {
   messages?: AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages[];
+  mode?: string;
   waitTime?: number;
   static names(): { [key: string]: string } {
     return {
       messages: 'Messages',
+      mode: 'Mode',
       waitTime: 'WaitTime',
     };
   }
@@ -167,6 +169,7 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigLlmPending extends $dara.M
   static types(): { [key: string]: any } {
     return {
       messages: { 'type': 'array', 'itemType': AIAgentOutboundCallConfigAutoSpeechConfigLlmPendingMessages },
+      mode: 'string',
       waitTime: 'number',
     };
   }
@@ -210,11 +213,13 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages extends $
 }
 
 export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdle extends $dara.Model {
+  hangupEndWord?: string;
   maxRepeats?: number;
   messages?: AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages[];
   waitTime?: number;
   static names(): { [key: string]: string } {
     return {
+      hangupEndWord: 'HangupEndWord',
       maxRepeats: 'MaxRepeats',
       messages: 'Messages',
       waitTime: 'WaitTime',
@@ -223,6 +228,7 @@ export class AIAgentOutboundCallConfigAutoSpeechConfigUserIdle extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      hangupEndWord: 'string',
       maxRepeats: 'number',
       messages: { 'type': 'array', 'itemType': AIAgentOutboundCallConfigAutoSpeechConfigUserIdleMessages },
       waitTime: 'number',

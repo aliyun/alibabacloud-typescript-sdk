@@ -826,6 +826,7 @@ export { UpdateMediaLiveChannelRequestVideoSettings } from './UpdateMediaLiveCha
 export { UpdateMediaLiveInputRequestInputSettings } from './UpdateMediaLiveInputRequest';
 export { UpdateRtcRobotInstanceRequestConfig } from './UpdateRtcRobotInstanceRequest';
 export { UploadMediaByURLResponseBodyUploadJobs } from './UploadMediaByUrlresponseBody';
+export { AIAgentCallInfo } from './AiagentCallInfo';
 export { AIAgentConfig } from './AiagentConfig';
 export { AIAgentOutboundCallConfig } from './AiagentOutboundCallConfig';
 export { AIAgentRuntimeConfig } from './AiagentRuntimeConfig';

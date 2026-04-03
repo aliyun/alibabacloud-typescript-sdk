@@ -11,6 +11,7 @@ export class GenerateAIAgentCallResponseBody extends $dara.Model {
    * 877ae632caae49b1afc81c2e8194ffb4
    */
   AIAgentUserId?: string;
+  avatarUserId?: string;
   /**
    * @remarks
    * The ARTC channel ID.
@@ -54,6 +55,7 @@ export class GenerateAIAgentCallResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       AIAgentUserId: 'AIAgentUserId',
+      avatarUserId: 'AvatarUserId',
       channelId: 'ChannelId',
       instanceId: 'InstanceId',
       requestId: 'RequestId',
@@ -65,6 +67,7 @@ export class GenerateAIAgentCallResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       AIAgentUserId: 'string',
+      avatarUserId: 'string',
       channelId: 'string',
       instanceId: 'string',
       requestId: 'string',
