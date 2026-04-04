@@ -274,6 +274,172 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 校验用户资源计量
+   * 
+   * @param request - CheckUserResourceMeasureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckUserResourceMeasureResponse
+   */
+  async checkUserResourceMeasureWithOptions(request: $_model.CheckUserResourceMeasureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckUserResourceMeasureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.belongId)) {
+      query["BelongId"] = request.belongId;
+    }
+
+    if (!$dara.isNull(request.belongIdType)) {
+      query["BelongIdType"] = request.belongIdType;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.espBizId)) {
+      query["EspBizId"] = request.espBizId;
+    }
+
+    if (!$dara.isNull(request.orderComponentParams)) {
+      query["OrderComponentParams"] = request.orderComponentParams;
+    }
+
+    if (!$dara.isNull(request.resourceCode)) {
+      query["ResourceCode"] = request.resourceCode;
+    }
+
+    if (!$dara.isNull(request.resourceValue)) {
+      query["ResourceValue"] = request.resourceValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckUserResourceMeasure",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckUserResourceMeasureResponse>(await this.callApi(params, req, runtime), new $_model.CheckUserResourceMeasureResponse({}));
+  }
+
+  /**
+   * 校验用户资源计量
+   * 
+   * @param request - CheckUserResourceMeasureRequest
+   * @returns CheckUserResourceMeasureResponse
+   */
+  async checkUserResourceMeasure(request: $_model.CheckUserResourceMeasureRequest): Promise<$_model.CheckUserResourceMeasureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkUserResourceMeasureWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建应用助手智能体
+   * 
+   * @param request - CreateAppAssistantAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppAssistantAgentResponse
+   */
+  async createAppAssistantAgentWithOptions(request: $_model.CreateAppAssistantAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppAssistantAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.platformType)) {
+      query["PlatformType"] = request.platformType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAppAssistantAgent",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppAssistantAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppAssistantAgentResponse({}));
+  }
+
+  /**
+   * 创建应用助手智能体
+   * 
+   * @param request - CreateAppAssistantAgentRequest
+   * @returns CreateAppAssistantAgentResponse
+   */
+  async createAppAssistantAgent(request: $_model.CreateAppAssistantAgentRequest): Promise<$_model.CreateAppAssistantAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppAssistantAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 生成应用助手SSO免登
+   * 
+   * @param request - CreateAppAssistantAgentSsoLoginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAppAssistantAgentSsoLoginResponse
+   */
+  async createAppAssistantAgentSsoLoginWithOptions(request: $_model.CreateAppAssistantAgentSsoLoginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppAssistantAgentSsoLoginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.platformType)) {
+      query["PlatformType"] = request.platformType;
+    }
+
+    if (!$dara.isNull(request.targetUrl)) {
+      query["TargetUrl"] = request.targetUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAppAssistantAgentSsoLogin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAppAssistantAgentSsoLoginResponse>(await this.callApi(params, req, runtime), new $_model.CreateAppAssistantAgentSsoLoginResponse({}));
+  }
+
+  /**
+   * 生成应用助手SSO免登
+   * 
+   * @param request - CreateAppAssistantAgentSsoLoginRequest
+   * @returns CreateAppAssistantAgentSsoLoginResponse
+   */
+  async createAppAssistantAgentSsoLogin(request: $_model.CreateAppAssistantAgentSsoLoginRequest): Promise<$_model.CreateAppAssistantAgentSsoLoginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAppAssistantAgentSsoLoginWithOptions(request, runtime);
+  }
+
+  /**
    * Create a website instance
    * 
    * @param tmpReq - CreateAppInstanceRequest
@@ -1511,6 +1677,52 @@ export default class Client extends OpenApi {
   async introspectAppInstanceTicketForPreview(request: $_model.IntrospectAppInstanceTicketForPreviewRequest): Promise<$_model.IntrospectAppInstanceTicketForPreviewResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.introspectAppInstanceTicketForPreviewWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询应用助手智能体列表
+   * 
+   * @param request - ListAppAssistantAgentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAppAssistantAgentsResponse
+   */
+  async listAppAssistantAgentsWithOptions(request: $_model.ListAppAssistantAgentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAppAssistantAgentsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.platformType)) {
+      query["PlatformType"] = request.platformType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAppAssistantAgents",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAppAssistantAgentsResponse>(await this.callApi(params, req, runtime), new $_model.ListAppAssistantAgentsResponse({}));
+  }
+
+  /**
+   * 查询应用助手智能体列表
+   * 
+   * @param request - ListAppAssistantAgentsRequest
+   * @returns ListAppAssistantAgentsResponse
+   */
+  async listAppAssistantAgents(request: $_model.ListAppAssistantAgentsRequest): Promise<$_model.ListAppAssistantAgentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAppAssistantAgentsWithOptions(request, runtime);
   }
 
   /**
