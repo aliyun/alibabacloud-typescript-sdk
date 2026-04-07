@@ -2852,6 +2852,10 @@ export default class Client extends OpenApi {
   async resumeSessionWithOptions(functionName: string, sessionId: string, request: $_model.ResumeSessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeSessionResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileSystemOnly)) {
+      query["fileSystemOnly"] = request.fileSystemOnly;
+    }
+
     if (!$dara.isNull(request.qualifier)) {
       query["qualifier"] = request.qualifier;
     }

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResumeSessionRequest extends $dara.Model {
+  fileSystemOnly?: boolean;
   /**
    * @example
    * aliasName1
@@ -10,12 +11,14 @@ export class ResumeSessionRequest extends $dara.Model {
   qualifier?: string;
   static names(): { [key: string]: string } {
     return {
+      fileSystemOnly: 'fileSystemOnly',
       qualifier: 'qualifier',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      fileSystemOnly: 'boolean',
       qualifier: 'string',
     };
   }
