@@ -71,8 +71,6 @@ export class CreateDBEndpointAddressRequest extends $dara.Model {
    * 
    * >  You can call the [DescribeDBClusterEndpoints](https://help.aliyun.com/document_detail/98205.html) operation to query endpoint details.
    * 
-   * This parameter is required.
-   * 
    * @example
    * pe-**************
    */

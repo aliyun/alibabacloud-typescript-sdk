@@ -137,6 +137,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
    * Enable
    */
   autoAddNewNodes?: string;
+  connectionString?: string;
   /**
    * @remarks
    * The ID of the cluster.
@@ -199,6 +200,7 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
    * Custom
    */
   endpointType?: string;
+  netType?: string;
   /**
    * @remarks
    * The role name of each node in the endpoint. The role name of the primary node is **Writer**. Multiple read-only nodes can be associated with an endpoint. Therefore, the role name of each read-only node is suffixed with a number. For example, you can use **Reader1** and **Reader2** as the role names.
@@ -236,6 +238,8 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
    * 100
    */
   polarSccWaitTimeout?: string;
+  port?: string;
+  protocol?: string;
   /**
    * @remarks
    * The read/write mode. Valid values:
@@ -259,22 +263,28 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
    */
   sccMode?: string;
   serviceName?: string;
+  VPCId?: string;
   static names(): { [key: string]: string } {
     return {
       addressItems: 'AddressItems',
       autoAddNewNodes: 'AutoAddNewNodes',
+      connectionString: 'ConnectionString',
       DBClusterId: 'DBClusterId',
       DBEndpointDescription: 'DBEndpointDescription',
       DBEndpointId: 'DBEndpointId',
       endpointConfig: 'EndpointConfig',
       endpointType: 'EndpointType',
+      netType: 'NetType',
       nodeWithRoles: 'NodeWithRoles',
       nodes: 'Nodes',
       polarSccTimeoutAction: 'PolarSccTimeoutAction',
       polarSccWaitTimeout: 'PolarSccWaitTimeout',
+      port: 'Port',
+      protocol: 'Protocol',
       readWriteMode: 'ReadWriteMode',
       sccMode: 'SccMode',
       serviceName: 'ServiceName',
+      VPCId: 'VPCId',
     };
   }
 
@@ -282,18 +292,23 @@ export class DescribeDBClusterEndpointsResponseBodyItems extends $dara.Model {
     return {
       addressItems: { 'type': 'array', 'itemType': DescribeDBClusterEndpointsResponseBodyItemsAddressItems },
       autoAddNewNodes: 'string',
+      connectionString: 'string',
       DBClusterId: 'string',
       DBEndpointDescription: 'string',
       DBEndpointId: 'string',
       endpointConfig: 'string',
       endpointType: 'string',
+      netType: 'string',
       nodeWithRoles: 'string',
       nodes: 'string',
       polarSccTimeoutAction: 'string',
       polarSccWaitTimeout: 'string',
+      port: 'string',
+      protocol: 'string',
       readWriteMode: 'string',
       sccMode: 'string',
       serviceName: 'string',
+      VPCId: 'string',
     };
   }
 
