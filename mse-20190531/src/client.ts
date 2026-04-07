@@ -1378,6 +1378,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 增加ZooKeeper Sasl 用户
+   * 
+   * @param tmpReq - AddZooKeeperSaslUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddZooKeeperSaslUserResponse
+   */
+  async addZooKeeperSaslUserWithOptions(tmpReq: $_model.AddZooKeeperSaslUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddZooKeeperSaslUserResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddZooKeeperSaslUserShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.saslUser)) {
+      request.saslUserShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.saslUser, "SaslUser", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.reload)) {
+      query["Reload"] = request.reload;
+    }
+
+    if (!$dara.isNull(request.saslUserShrink)) {
+      query["SaslUser"] = request.saslUserShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddZooKeeperSaslUser",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddZooKeeperSaslUserResponse>(await this.callApi(params, req, runtime), new $_model.AddZooKeeperSaslUserResponse({}));
+  }
+
+  /**
+   * 增加ZooKeeper Sasl 用户
+   * 
+   * @param request - AddZooKeeperSaslUserRequest
+   * @returns AddZooKeeperSaslUserResponse
+   */
+  async addZooKeeperSaslUser(request: $_model.AddZooKeeperSaslUserRequest): Promise<$_model.AddZooKeeperSaslUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addZooKeeperSaslUserWithOptions(request, runtime);
+  }
+
+  /**
    * Publishes a route for a gateway.
    * 
    * @param request - ApplyGatewayRouteRequest
@@ -11063,6 +11123,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出所有ZooKeeper sasl用户
+   * 
+   * @param request - ListZooKeeperSaslUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListZooKeeperSaslUserResponse
+   */
+  async listZooKeeperSaslUserWithOptions(request: $_model.ListZooKeeperSaslUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListZooKeeperSaslUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListZooKeeperSaslUser",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListZooKeeperSaslUserResponse>(await this.callApi(params, req, runtime), new $_model.ListZooKeeperSaslUserResponse({}));
+  }
+
+  /**
+   * 列出所有ZooKeeper sasl用户
+   * 
+   * @param request - ListZooKeeperSaslUserRequest
+   * @returns ListZooKeeperSaslUserResponse
+   */
+  async listZooKeeperSaslUser(request: $_model.ListZooKeeperSaslUserRequest): Promise<$_model.ListZooKeeperSaslUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listZooKeeperSaslUserWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the information about a cluster for which Microservice Governance is enabled.
    * 
    * @param tmpReq - ModifyGovernanceKubernetesClusterRequest
@@ -12534,6 +12640,66 @@ export default class Client extends OpenApi {
   async removeAuthPolicy(request: $_model.RemoveAuthPolicyRequest): Promise<$_model.RemoveAuthPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeAuthPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除ZooKeeper sasl用户
+   * 
+   * @param tmpReq - RemoveZooKeeperSaslUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveZooKeeperSaslUserResponse
+   */
+  async removeZooKeeperSaslUserWithOptions(tmpReq: $_model.RemoveZooKeeperSaslUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveZooKeeperSaslUserResponse> {
+    tmpReq.validate();
+    let request = new $_model.RemoveZooKeeperSaslUserShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.userNames)) {
+      request.userNamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userNames, "UserNames", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.reload)) {
+      query["Reload"] = request.reload;
+    }
+
+    if (!$dara.isNull(request.userNamesShrink)) {
+      query["UserNames"] = request.userNamesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveZooKeeperSaslUser",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveZooKeeperSaslUserResponse>(await this.callApi(params, req, runtime), new $_model.RemoveZooKeeperSaslUserResponse({}));
+  }
+
+  /**
+   * 删除ZooKeeper sasl用户
+   * 
+   * @param request - RemoveZooKeeperSaslUserRequest
+   * @returns RemoveZooKeeperSaslUserResponse
+   */
+  async removeZooKeeperSaslUser(request: $_model.RemoveZooKeeperSaslUserRequest): Promise<$_model.RemoveZooKeeperSaslUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeZooKeeperSaslUserWithOptions(request, runtime);
   }
 
   /**
@@ -16614,6 +16780,66 @@ export default class Client extends OpenApi {
   async updateZnode(request: $_model.UpdateZnodeRequest): Promise<$_model.UpdateZnodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateZnodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改ZooKeeper sasl 用户信息
+   * 
+   * @param tmpReq - UpdateZooKeeperSaslUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateZooKeeperSaslUserResponse
+   */
+  async updateZooKeeperSaslUserWithOptions(tmpReq: $_model.UpdateZooKeeperSaslUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateZooKeeperSaslUserResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateZooKeeperSaslUserShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.saslUser)) {
+      request.saslUserShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.saslUser, "SaslUser", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.reload)) {
+      query["Reload"] = request.reload;
+    }
+
+    if (!$dara.isNull(request.saslUserShrink)) {
+      query["SaslUser"] = request.saslUserShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateZooKeeperSaslUser",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateZooKeeperSaslUserResponse>(await this.callApi(params, req, runtime), new $_model.UpdateZooKeeperSaslUserResponse({}));
+  }
+
+  /**
+   * 修改ZooKeeper sasl 用户信息
+   * 
+   * @param request - UpdateZooKeeperSaslUserRequest
+   * @returns UpdateZooKeeperSaslUserResponse
+   */
+  async updateZooKeeperSaslUser(request: $_model.UpdateZooKeeperSaslUserRequest): Promise<$_model.UpdateZooKeeperSaslUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateZooKeeperSaslUserWithOptions(request, runtime);
   }
 
   /**
