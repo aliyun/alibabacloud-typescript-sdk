@@ -246,6 +246,7 @@ export { ListMetricMetaRequest } from './ListMetricMetaRequest';
 export { ListMetricMetaResponseBody } from './ListMetricMetaResponseBody';
 export { ListMetricMetaResponse } from './ListMetricMetaResponse';
 export { ListMigrationOperationsRequest } from './ListMigrationOperationsRequest';
+export { ListMigrationOperationsShrinkRequest } from './ListMigrationOperationsShrinkRequest';
 export { ListMigrationOperationsResponseBody } from './ListMigrationOperationsResponseBody';
 export { ListMigrationOperationsResponse } from './ListMigrationOperationsResponse';
 export { ListMigrationsRequest } from './ListMigrationsRequest';

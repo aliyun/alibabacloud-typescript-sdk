@@ -2403,20 +2403,38 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of migration operations.
    * 
-   * @param request - ListMigrationOperationsRequest
+   * @param tmpReq - ListMigrationOperationsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMigrationOperationsResponse
    */
-  async listMigrationOperationsWithOptions(migrationId: string, stageType: string, request: $_model.ListMigrationOperationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMigrationOperationsResponse> {
-    request.validate();
+  async listMigrationOperationsWithOptions(migrationId: string, stageType: string, tmpReq: $_model.ListMigrationOperationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMigrationOperationsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListMigrationOperationsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.businessStatus)) {
+      request.businessStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.businessStatus, "businessStatus", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.operationStatus)) {
+      request.operationStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.operationStatus, "operationStatus", "simple");
+    }
+
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessStatusShrink)) {
+      query["businessStatus"] = request.businessStatusShrink;
+    }
+
     if (!$dara.isNull(request.filter)) {
       query["filter"] = request.filter;
     }
 
     if (!$dara.isNull(request.instanceId)) {
       query["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.operationStatusShrink)) {
+      query["operationStatus"] = request.operationStatusShrink;
     }
 
     if (!$dara.isNull(request.operationType)) {

@@ -2,8 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListMigrationOperationsRequest extends $dara.Model {
-  businessStatus?: string[];
+export class ListMigrationOperationsShrinkRequest extends $dara.Model {
+  businessStatusShrink?: string;
   /**
    * @example
    * xx
@@ -14,7 +14,7 @@ export class ListMigrationOperationsRequest extends $dara.Model {
    * rmq-cn-zxu37eiqq0x
    */
   instanceId?: string;
-  operationStatus?: string[];
+  operationStatusShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -41,10 +41,10 @@ export class ListMigrationOperationsRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
-      businessStatus: 'businessStatus',
+      businessStatusShrink: 'businessStatus',
       filter: 'filter',
       instanceId: 'instanceId',
-      operationStatus: 'operationStatus',
+      operationStatusShrink: 'operationStatus',
       operationType: 'operationType',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
@@ -53,10 +53,10 @@ export class ListMigrationOperationsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      businessStatus: { 'type': 'array', 'itemType': 'string' },
+      businessStatusShrink: 'string',
       filter: 'string',
       instanceId: 'string',
-      operationStatus: { 'type': 'array', 'itemType': 'string' },
+      operationStatusShrink: 'string',
       operationType: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -64,12 +64,6 @@ export class ListMigrationOperationsRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.businessStatus)) {
-      $dara.Model.validateArray(this.businessStatus);
-    }
-    if(Array.isArray(this.operationStatus)) {
-      $dara.Model.validateArray(this.operationStatus);
-    }
     super.validate();
   }
 
