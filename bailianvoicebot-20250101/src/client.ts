@@ -43,6 +43,10 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!$dara.isNull(request.audioCodec)) {
+      query["AudioCodec"] = request.audioCodec;
+    }
+
     if (!$dara.isNull(request.businessUnitId)) {
       query["BusinessUnitId"] = request.businessUnitId;
     }
@@ -242,6 +246,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建克隆音
+   * 
+   * @param request - CreateCloneVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCloneVoiceResponse
+   */
+  async createCloneVoiceWithOptions(request: $_model.CreateCloneVoiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCloneVoiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCloneVoice",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCloneVoiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateCloneVoiceResponse({}));
+  }
+
+  /**
+   * 创建克隆音
+   * 
+   * @param request - CreateCloneVoiceRequest
+   * @returns CreateCloneVoiceResponse
+   */
+  async createCloneVoice(request: $_model.CreateCloneVoiceRequest): Promise<$_model.CreateCloneVoiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建变量
+   * 
+   * @param request - CreateVariableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVariableResponse
+   */
+  async createVariableWithOptions(request: $_model.CreateVariableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVariableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVariable",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVariableResponse>(await this.callApi(params, req, runtime), new $_model.CreateVariableResponse({}));
+  }
+
+  /**
+   * 创建变量
+   * 
+   * @param request - CreateVariableRequest
+   * @returns CreateVariableResponse
+   */
+  async createVariable(request: $_model.CreateVariableRequest): Promise<$_model.CreateVariableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVariableWithOptions(request, runtime);
+  }
+
+  /**
    * 删除应用
    * 
    * @param request - DeleteApplicationRequest
@@ -285,6 +393,98 @@ export default class Client extends OpenApi {
   async deleteApplication(request: $_model.DeleteApplicationRequest): Promise<$_model.DeleteApplicationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteApplicationWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除场景
+   * 
+   * @param request - DeleteCloneVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCloneVoiceResponse
+   */
+  async deleteCloneVoiceWithOptions(request: $_model.DeleteCloneVoiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCloneVoiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.cloneVoiceId)) {
+      body["CloneVoiceId"] = request.cloneVoiceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCloneVoice",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCloneVoiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCloneVoiceResponse({}));
+  }
+
+  /**
+   * 删除场景
+   * 
+   * @param request - DeleteCloneVoiceRequest
+   * @returns DeleteCloneVoiceResponse
+   */
+  async deleteCloneVoice(request: $_model.DeleteCloneVoiceRequest): Promise<$_model.DeleteCloneVoiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除变量
+   * 
+   * @param request - DeleteVariableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVariableResponse
+   */
+  async deleteVariableWithOptions(request: $_model.DeleteVariableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVariableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.variableId)) {
+      body["VariableId"] = request.variableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVariable",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVariableResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVariableResponse({}));
+  }
+
+  /**
+   * 删除变量
+   * 
+   * @param request - DeleteVariableRequest
+   * @returns DeleteVariableResponse
+   */
+  async deleteVariable(request: $_model.DeleteVariableRequest): Promise<$_model.DeleteVariableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVariableWithOptions(request, runtime);
   }
 
   /**
@@ -431,6 +631,114 @@ export default class Client extends OpenApi {
   async listApplications(request: $_model.ListApplicationsRequest): Promise<$_model.ListApplicationsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listApplicationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例详情
+   * 
+   * @param request - ListCloneVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloneVoiceResponse
+   */
+  async listCloneVoiceWithOptions(request: $_model.ListCloneVoiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloneVoiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloneVoice",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloneVoiceResponse>(await this.callApi(params, req, runtime), new $_model.ListCloneVoiceResponse({}));
+  }
+
+  /**
+   * 获取实例详情
+   * 
+   * @param request - ListCloneVoiceRequest
+   * @returns ListCloneVoiceResponse
+   */
+  async listCloneVoice(request: $_model.ListCloneVoiceRequest): Promise<$_model.ListCloneVoiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取变量列表
+   * 
+   * @param request - ListVariableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVariableResponse
+   */
+  async listVariableWithOptions(request: $_model.ListVariableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVariableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.searchPattern)) {
+      body["SearchPattern"] = request.searchPattern;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVariable",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVariableResponse>(await this.callApi(params, req, runtime), new $_model.ListVariableResponse({}));
+  }
+
+  /**
+   * 获取变量列表
+   * 
+   * @param request - ListVariableRequest
+   * @returns ListVariableResponse
+   */
+  async listVariable(request: $_model.ListVariableRequest): Promise<$_model.ListVariableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVariableWithOptions(request, runtime);
   }
 
   /**
@@ -623,6 +931,110 @@ export default class Client extends OpenApi {
   async updateApplicationVersion(request: $_model.UpdateApplicationVersionRequest): Promise<$_model.UpdateApplicationVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateApplicationVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新实例
+   * 
+   * @param request - UpdateCloneVoiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCloneVoiceResponse
+   */
+  async updateCloneVoiceWithOptions(request: $_model.UpdateCloneVoiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCloneVoiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.cloneVoiceId)) {
+      body["CloneVoiceId"] = request.cloneVoiceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCloneVoice",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCloneVoiceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCloneVoiceResponse({}));
+  }
+
+  /**
+   * 更新实例
+   * 
+   * @param request - UpdateCloneVoiceRequest
+   * @returns UpdateCloneVoiceResponse
+   */
+  async updateCloneVoice(request: $_model.UpdateCloneVoiceRequest): Promise<$_model.UpdateCloneVoiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新变量
+   * 
+   * @param request - UpdateVariableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateVariableResponse
+   */
+  async updateVariableWithOptions(request: $_model.UpdateVariableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateVariableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.variableId)) {
+      body["VariableId"] = request.variableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateVariable",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateVariableResponse>(await this.callApi(params, req, runtime), new $_model.UpdateVariableResponse({}));
+  }
+
+  /**
+   * 更新变量
+   * 
+   * @param request - UpdateVariableRequest
+   * @returns UpdateVariableResponse
+   */
+  async updateVariable(request: $_model.UpdateVariableRequest): Promise<$_model.UpdateVariableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateVariableWithOptions(request, runtime);
   }
 
 }

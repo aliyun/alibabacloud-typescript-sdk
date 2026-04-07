@@ -11,6 +11,7 @@ export class BridgeWebCallRequest extends $dara.Model {
    * a395011f-a247-400f-bc69-28796749fd52
    */
   applicationId?: string;
+  audioCodec?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -55,6 +56,7 @@ export class BridgeWebCallRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      audioCodec: 'AudioCodec',
       businessUnitId: 'BusinessUnitId',
       caller: 'Caller',
       deviceId: 'DeviceId',
@@ -68,6 +70,7 @@ export class BridgeWebCallRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      audioCodec: 'string',
       businessUnitId: 'string',
       caller: 'string',
       deviceId: 'string',
