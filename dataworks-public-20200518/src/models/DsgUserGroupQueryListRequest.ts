@@ -47,6 +47,7 @@ export class DsgUserGroupQueryListRequest extends $dara.Model {
    * dev_project
    */
   projectName?: string;
+  userGroupType?: number;
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
@@ -54,6 +55,7 @@ export class DsgUserGroupQueryListRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectName: 'ProjectName',
+      userGroupType: 'userGroupType',
     };
   }
 
@@ -64,6 +66,7 @@ export class DsgUserGroupQueryListRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       projectName: 'string',
+      userGroupType: 'number',
     };
   }
 

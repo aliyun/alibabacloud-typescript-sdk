@@ -48,6 +48,7 @@ export class DsgUserGroupQueryListResponseBodyPageDataData extends $dara.Model {
    * user1
    */
   owner?: string;
+  mcAggregationInfo?: string;
   static names(): { [key: string]: string } {
     return {
       accounts: 'Accounts',
@@ -56,6 +57,7 @@ export class DsgUserGroupQueryListResponseBodyPageDataData extends $dara.Model {
       id: 'Id',
       name: 'Name',
       owner: 'Owner',
+      mcAggregationInfo: 'mcAggregationInfo',
     };
   }
 
@@ -67,6 +69,7 @@ export class DsgUserGroupQueryListResponseBodyPageDataData extends $dara.Model {
       id: 'number',
       name: 'string',
       owner: 'string',
+      mcAggregationInfo: 'string',
     };
   }
 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFolderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request. You can use the ID to troubleshoot issues.
+   * The unique identifier of the folder.
    * 
    * @example
    * bdfd68****
@@ -13,7 +13,7 @@ export class CreateFolderResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error code.
+   * The error code returned.
    * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
@@ -21,7 +21,7 @@ export class CreateFolderResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The error message returned.
    * 
    * @example
    * The connection does not exist.
@@ -29,7 +29,7 @@ export class CreateFolderResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The unique identifier of the folder.
+   * The path of the folder.
    * 
    * @example
    * 200
@@ -37,7 +37,7 @@ export class CreateFolderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The ID of the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 0000-ABCD-EFG
@@ -45,7 +45,7 @@ export class CreateFolderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The error code returned.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

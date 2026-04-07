@@ -1159,6 +1159,9 @@ export class ListDataServicePublishedApisResponseBodyDataApis extends $dara.Mode
    */
   scriptDetails?: ListDataServicePublishedApisResponseBodyDataApisScriptDetails;
   /**
+   * @remarks
+   * SQL mode. 0: Basic SQL; 1: Advanced SQL.
+   * 
    * @example
    * 0
    */
@@ -1278,7 +1281,7 @@ export class ListDataServicePublishedApisResponseBodyDataApis extends $dara.Mode
 export class ListDataServicePublishedApisResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The information about the APIs in the published state.
+   * Information about published APIs.
    */
   apis?: ListDataServicePublishedApisResponseBodyDataApis[];
   /**

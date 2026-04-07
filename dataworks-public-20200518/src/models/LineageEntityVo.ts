@@ -9,6 +9,9 @@ export class LineageEntityVO extends $dara.Model {
    */
   attributes?: { [key: string]: string };
   /**
+   * @remarks
+   * Detail url of entity
+   * 
    * @example
    * http://domain.test.url/entity
    */
@@ -19,6 +22,9 @@ export class LineageEntityVO extends $dara.Model {
    */
   entityType?: string;
   /**
+   * @remarks
+   * Name of entity
+   * 
    * @example
    * tableName
    */
@@ -29,11 +35,17 @@ export class LineageEntityVO extends $dara.Model {
    */
   owner?: string;
   /**
+   * @remarks
+   * Parent name of entity
+   * 
    * @example
    * dbName
    */
   parentName?: string;
   /**
+   * @remarks
+   * Unique identifier of entity
+   * 
    * @example
    * maxcompute-table.projectName.tablename
    */

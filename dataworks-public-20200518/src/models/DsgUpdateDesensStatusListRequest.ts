@@ -2,42 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Cluster extends $dara.Model {
+export class DsgUpdateDesensStatusListRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique business identifier of the cluster.
-   * 
    * This parameter is required.
    * 
    * @example
-   * c-d8a7523****
+   * 1
    */
-  clusterBizId?: string;
+  desensStatus?: number;
   /**
    * @remarks
-   * The ID of the cluster associated with DataWorks.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 1234
    */
-  clusterId?: number;
+  ids?: number[];
   static names(): { [key: string]: string } {
     return {
-      clusterBizId: 'ClusterBizId',
-      clusterId: 'ClusterId',
+      desensStatus: 'DesensStatus',
+      ids: 'Ids',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clusterBizId: 'string',
-      clusterId: 'number',
+      desensStatus: 'number',
+      ids: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.ids)) {
+      $dara.Model.validateArray(this.ids);
+    }
     super.validate();
   }
 

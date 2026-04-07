@@ -338,7 +338,15 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail extends $
    * The content of the permission request.
    */
   approveContent?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetailApproveContent;
+  /**
+   * @example
+   * 1757496687000
+   */
   finishAapprovalTimestamp?: number;
+  /**
+   * @example
+   * agree
+   */
   finishApprovalComment?: string;
   /**
    * @remarks
@@ -415,7 +423,7 @@ export class GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail extends $
 export class GetPermissionApplyOrderDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission request order.
+   * Details of the permission request order.
    */
   applyOrderDetail?: GetPermissionApplyOrderDetailResponseBodyApplyOrderDetail;
   /**

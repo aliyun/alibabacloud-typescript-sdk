@@ -21,7 +21,7 @@ export class ListMeasureDataResponseBodyMeasureDatas extends $dara.Model {
   domainCode?: string;
   /**
    * @remarks
-   * The end timestamp of the measurement period, in milliseconds.
+   * The end timestamp of the metering cycle, in milliseconds.
    * 
    * @example
    * 1717430400000
@@ -29,7 +29,7 @@ export class ListMeasureDataResponseBodyMeasureDatas extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The start timestamp of the measurement period, in milliseconds.
+   * The start timestamp of the metering cycle, in milliseconds.
    * 
    * @example
    * 1717344000000
@@ -99,7 +99,7 @@ export class ListMeasureDataResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The measurement results.
+   * The metering results.
    */
   measureDatas?: ListMeasureDataResponseBodyMeasureDatas[];
   /**

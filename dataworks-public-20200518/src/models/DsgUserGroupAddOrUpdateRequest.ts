@@ -9,8 +9,6 @@ export class DsgUserGroupAddOrUpdateRequestUserGroups extends $dara.Model {
    * 
    * *   If a user group is created by using an Alibaba Cloud account and a RAM role, you can call the [DsgUserGroupQueryUserList](https://help.aliyun.com/document_detail/2786445.html) operation to query the users in the group.
    * *   If a user group is created by using a MaxCompute role, you can call the [DsgUserGroupQueryUserList](https://help.aliyun.com/document_detail/2785695.html) operation to query the users in the group.
-   * 
-   * This parameter is required.
    */
   accounts?: string[];
   /**
@@ -66,6 +64,7 @@ export class DsgUserGroupAddOrUpdateRequestUserGroups extends $dara.Model {
    * 1
    */
   userGroupType?: number;
+  projects?: string;
   static names(): { [key: string]: string } {
     return {
       accounts: 'Accounts',
@@ -74,6 +73,7 @@ export class DsgUserGroupAddOrUpdateRequestUserGroups extends $dara.Model {
       owner: 'Owner',
       projectName: 'ProjectName',
       userGroupType: 'UserGroupType',
+      projects: 'projects',
     };
   }
 
@@ -85,6 +85,7 @@ export class DsgUserGroupAddOrUpdateRequestUserGroups extends $dara.Model {
       owner: 'string',
       projectName: 'string',
       userGroupType: 'number',
+      projects: 'string',
     };
   }
 

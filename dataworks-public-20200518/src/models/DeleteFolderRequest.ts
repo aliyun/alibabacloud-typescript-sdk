@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFolderRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the folder. You can call the [ListFolders](https://help.aliyun.com/document_detail/173955.html) operation to query the ID.
+   * DeleteFolder
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteFolderRequest extends $dara.Model {
   folderId?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Management page to obtain the ID. You must specify either this parameter or ProjectIdentifier to determine the DataWorks workspace to which the operation is applied.
+   * Indicates whether the request is successful.
    * 
    * @example
    * 10000
@@ -23,7 +23,7 @@ export class DeleteFolderRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace Settings panel to obtain the name. You must specify either this parameter or ProjectId to determine the DataWorks workspace to which the operation is applied.
+   * http://100.67.165.184/business/api/folders/delete
    * 
    * @example
    * dw_project

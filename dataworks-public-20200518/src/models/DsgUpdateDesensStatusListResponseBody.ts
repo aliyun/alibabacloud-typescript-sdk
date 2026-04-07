@@ -2,15 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteFolderResponseBody extends $dara.Model {
+export class DsgUpdateDesensStatusListResponseBody extends $dara.Model {
   /**
    * @example
-   * Invalid.Tenant.ConnectionNotExists
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * 1010040007
    */
   errorCode?: string;
   /**
    * @example
-   * The connection does not exist.
+   * The specified parameters are invalid.
    */
   errorMessage?: string;
   /**
@@ -20,7 +25,7 @@ export class DeleteFolderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @example
-   * 0000-ABCD-EFG****
+   * AFBB799F-8578-51C5-A766-E922EDB8XXXX
    */
   requestId?: string;
   /**
@@ -30,6 +35,7 @@ export class DeleteFolderResponseBody extends $dara.Model {
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
+      data: 'Data',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       httpStatusCode: 'HttpStatusCode',
@@ -40,6 +46,7 @@ export class DeleteFolderResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      data: 'boolean',
       errorCode: 'string',
       errorMessage: 'string',
       httpStatusCode: 'number',

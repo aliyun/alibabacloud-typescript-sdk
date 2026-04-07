@@ -37,7 +37,7 @@ export class ListDataServicePublishedApisRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries per page. Default is 10, and the maximum is 100.
    * 
    * @example
    * 10

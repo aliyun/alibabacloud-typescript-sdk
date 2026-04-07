@@ -16,9 +16,6 @@ export class UpdateTableRequestColumns extends $dara.Model {
   /**
    * @remarks
    * The display name of the field.
-   * 
-   * @example
-   * 名称
    */
   columnNameCn?: string;
   /**

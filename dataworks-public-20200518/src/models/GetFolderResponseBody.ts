@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetFolderResponseBodyData extends $dara.Model {
   /**
-   * @remarks
-   * The folder ID.
-   * 
    * @example
    * 2735****
    */
   folderId?: string;
   /**
-   * @remarks
-   * The path of the folder.
-   * 
    * @example
    * Business_process/my_first_business_process/MaxCompute/ods_layer
    */
@@ -43,14 +37,10 @@ export class GetFolderResponseBodyData extends $dara.Model {
 }
 
 export class GetFolderResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the folder.
-   */
   data?: GetFolderResponseBodyData;
   /**
    * @remarks
-   * The error code.
+   * GetFolder
    * 
    * @example
    * Invalid.Tenant.ConnectionNotExists
@@ -58,7 +48,7 @@ export class GetFolderResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * The folder ID.
    * 
    * @example
    * The connection does not exist.
@@ -66,7 +56,7 @@ export class GetFolderResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * The path of the folder.
    * 
    * @example
    * 200
@@ -74,16 +64,13 @@ export class GetFolderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * http://100.67.165.184/business/api/folders/detail
    * 
    * @example
    * 0000-ABCD-EFG****
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the request was successful.
-   * 
    * @example
    * true
    */

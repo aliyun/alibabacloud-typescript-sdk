@@ -14,69 +14,148 @@ export default class Client extends OpenApi {
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-1': "dataworks.ap-northeast-1.aliyuncs.com",
-      'ap-south-1': "dataworks.ap-south-1.aliyuncs.com",
+      'ap-northeast-2-pop': "dataworks.aliyuncs.com",
+      'ap-south-1': "dataworks.aliyuncs.com",
       'ap-southeast-1': "dataworks.ap-southeast-1.aliyuncs.com",
-      'ap-southeast-2': "dataworks.ap-southeast-2.aliyuncs.com",
+      'ap-southeast-2': "dataworks.aliyuncs.com",
       'ap-southeast-3': "dataworks.ap-southeast-3.aliyuncs.com",
       'ap-southeast-5': "dataworks.ap-southeast-5.aliyuncs.com",
       'cn-beijing': "dataworks.cn-beijing.aliyuncs.com",
+      'cn-beijing-finance-1': "dataworks.cn-beijing-finance-1.aliyuncs.com",
+      'cn-beijing-finance-pop': "dataworks.aliyuncs.com",
+      'cn-beijing-gov-1': "dataworks.aliyuncs.com",
+      'cn-beijing-nu16-b01': "dataworks.aliyuncs.com",
       'cn-chengdu': "dataworks.cn-chengdu.aliyuncs.com",
+      'cn-edge-1': "dataworks.aliyuncs.com",
+      'cn-fujian': "dataworks.aliyuncs.com",
+      'cn-haidian-cm12-c01': "dataworks.aliyuncs.com",
       'cn-hangzhou': "dataworks.cn-hangzhou.aliyuncs.com",
+      'cn-hangzhou-bj-b01': "dataworks.aliyuncs.com",
+      'cn-hangzhou-finance': "dataworks.aliyuncs.com",
+      'cn-hangzhou-internal-prod-1': "dataworks.aliyuncs.com",
+      'cn-hangzhou-internal-test-1': "dataworks.aliyuncs.com",
+      'cn-hangzhou-internal-test-2': "dataworks.aliyuncs.com",
+      'cn-hangzhou-internal-test-3': "dataworks.aliyuncs.com",
+      'cn-hangzhou-test-306': "dataworks.aliyuncs.com",
       'cn-hongkong': "dataworks.cn-hongkong.aliyuncs.com",
+      'cn-hongkong-finance-pop': "dataworks.aliyuncs.com",
       'cn-huhehaote': "dataworks.aliyuncs.com",
+      'cn-huhehaote-nebula-1': "dataworks.aliyuncs.com",
+      'cn-north-2-gov-1': "dataworks.cn-north-2-gov-1.aliyuncs.com",
       'cn-qingdao': "dataworks.aliyuncs.com",
+      'cn-qingdao-nebula': "dataworks.aliyuncs.com",
       'cn-shanghai': "dataworks.cn-shanghai.aliyuncs.com",
+      'cn-shanghai-et15-b01': "dataworks.aliyuncs.com",
+      'cn-shanghai-et2-b01': "dataworks.aliyuncs.com",
+      'cn-shanghai-finance-1': "dataworks.cn-shanghai-finance-1.aliyuncs.com",
+      'cn-shanghai-inner': "dataworks.aliyuncs.com",
+      'cn-shanghai-internal-test-1': "dataworks.aliyuncs.com",
       'cn-shenzhen': "dataworks.cn-shenzhen.aliyuncs.com",
-      'cn-zhangjiakou': "dataworks.aliyuncs.com",
+      'cn-shenzhen-finance-1': "dataworks.cn-shenzhen-finance-1.aliyuncs.com",
+      'cn-shenzhen-inner': "dataworks.aliyuncs.com",
+      'cn-shenzhen-st4-d01': "dataworks.aliyuncs.com",
+      'cn-shenzhen-su18-b01': "dataworks.aliyuncs.com",
+      'cn-wuhan': "dataworks.aliyuncs.com",
+      'cn-wulanchabu': "dataworks.cn-wulanchabu.aliyuncs.com",
+      'cn-yushanfang': "dataworks.aliyuncs.com",
+      'cn-zhangbei': "dataworks.aliyuncs.com",
+      'cn-zhangbei-na61-b01': "dataworks.aliyuncs.com",
+      'cn-zhangjiakou': "dataworks.cn-zhangjiakou.aliyuncs.com",
+      'cn-zhangjiakou-na62-a01': "dataworks.aliyuncs.com",
+      'cn-zhengzhou-nebula-1': "dataworks.aliyuncs.com",
       'eu-central-1': "dataworks.eu-central-1.aliyuncs.com",
       'eu-west-1': "dataworks.eu-west-1.aliyuncs.com",
+      'eu-west-1-oxs': "dataworks.aliyuncs.com",
       'me-east-1': "dataworks.me-east-1.aliyuncs.com",
+      'rus-west-1-pop': "dataworks.aliyuncs.com",
       'us-east-1': "dataworks.us-east-1.aliyuncs.com",
       'us-west-1': "dataworks.us-west-1.aliyuncs.com",
-      'cn-hangzhou-finance': "dataworks.aliyuncs.com",
-      'cn-shenzhen-finance-1': "dataworks.aliyuncs.com",
-      'cn-shanghai-finance-1': "dataworks.aliyuncs.com",
-      'cn-north-2-gov-1': "dataworks.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dataworks-public", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
 
-  async _postOSSObject(bucketName: string, form: {[key: string]: any}): Promise<{[key: string]: any}> {
-    let request_ = new $dara.Request();
-    let boundary = $dara.Form.getBoundary();
-    request_.protocol = "HTTPS";
-    request_.method = "POST";
-    request_.pathname = `/`;
-    request_.headers = {
-      host: String(form["host"]),
-      date: OpenApiUtil.getDateUTCString(),
-      'user-agent': OpenApiUtil.getUserAgent(""),
-    };
-    request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
-    request_.body = $dara.Form.toFileForm(form, boundary);
-    let response_ = await $dara.doAction(request_);
-
-    let respMap : {[key: string]: any} = null;
-    let bodyStr = await $dara.Stream.readAsString(response_.body);
-    if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
-      respMap = $dara.XML.parseXml(bodyStr, null);
-      let err = respMap["Error"];
-      throw new $OpenApi.ClientError({
-        code: String(err["Code"]),
-        message: String(err["Message"]),
-        data: {
-          httpCode: response_.statusCode,
-          requestId: String(err["RequestId"]),
-          hostId: String(err["HostId"]),
-        },
-      });
+  async _postOSSObject(bucketName: string, form: {[key: string]: any}, runtime: $dara.RuntimeOptions): Promise<{[key: string]: any}> {
+    let _runtime: { [key: string]: any } = {
+      key: runtime.key || this._key,
+      cert: runtime.cert || this._cert,
+      ca: runtime.ca || this._ca,
+      readTimeout: runtime.readTimeout || this._readTimeout,
+      connectTimeout: runtime.connectTimeout || this._connectTimeout,
+      httpProxy: runtime.httpProxy || this._httpProxy,
+      httpsProxy: runtime.httpsProxy || this._httpsProxy,
+      noProxy: runtime.noProxy || this._noProxy,
+      socks5Proxy: runtime.socks5Proxy || this._socks5Proxy,
+      socks5NetWork: runtime.socks5NetWork || this._socks5NetWork,
+      maxIdleConns: runtime.maxIdleConns || this._maxIdleConns,
+      retryOptions: this._retryOptions,
+      ignoreSSL: runtime.ignoreSSL || false,
+      tlsMinVersion: this._tlsMinVersion,
     }
 
-    respMap = $dara.XML.parseXml(bodyStr, null);
-    return {
-      ...respMap,
-    };
+    let _retriesAttempted = 0;
+    let _lastRequest = null, _lastResponse = null;
+    let _context = new $dara.RetryPolicyContext({
+      retriesAttempted: _retriesAttempted,
+    });
+    while ($dara.shouldRetry(_runtime['retryOptions'], _context)) {
+      if (_retriesAttempted > 0) {
+        let _backoffTime = $dara.getBackoffDelay(_runtime['retryOptions'], _context);
+        if (_backoffTime > 0) {
+          await $dara.sleep(_backoffTime);
+        }
+      }
+
+      _retriesAttempted = _retriesAttempted + 1;
+      try {
+        let request_ = new $dara.Request();
+        let boundary = $dara.Form.getBoundary();
+        request_.protocol = "HTTPS";
+        request_.method = "POST";
+        request_.pathname = `/`;
+        request_.headers = {
+          host: String(form["host"]),
+          date: OpenApiUtil.getDateUTCString(),
+          'user-agent': OpenApiUtil.getUserAgent(""),
+        };
+        request_.headers["content-type"] = `multipart/form-data; boundary=${boundary}`;
+        request_.body = $dara.Form.toFileForm(form, boundary);
+        _lastRequest = request_;
+        let response_ = await $dara.doAction(request_, _runtime);
+        _lastResponse = response_;
+
+        let respMap : {[key: string]: any} = null;
+        let bodyStr = await $dara.Stream.readAsString(response_.body);
+        if ((response_.statusCode >= 400) && (response_.statusCode < 600)) {
+          respMap = $dara.XML.parseXml(bodyStr, null);
+          let err = respMap["Error"];
+          throw new $OpenApi.ClientError({
+            code: String(err["Code"]),
+            message: String(err["Message"]),
+            data: {
+              httpCode: response_.statusCode,
+              requestId: String(err["RequestId"]),
+              hostId: String(err["HostId"]),
+            },
+          });
+        }
+
+        respMap = $dara.XML.parseXml(bodyStr, null);
+        return {
+          ...respMap,
+        };
+      } catch (ex) {
+        _context = new $dara.RetryPolicyContext({
+          retriesAttempted : _retriesAttempted,
+          httpRequest : _lastRequest,
+          httpResponse : _lastResponse,
+          exception : ex,
+        });
+        continue;
+      }
+    }
+
+    throw $dara.newUnretryableError(_context);
   }
 
   getEndpoint(productId: string, regionId: string, endpointRule: string, network: string, suffix: string, endpointMap: {[key: string ]: string}, endpoint: string): string {
@@ -1935,7 +2014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The operation that you want to perform. Set the value to \\*\\*CreateFolder\\*\\*.
+   * The operation that you want to perform. Set the value to \\\\*\\\\*CreateFolder\\\\*\\\\*.
    * 
    * @param request - CreateFolderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1974,7 +2053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The operation that you want to perform. Set the value to \\*\\*CreateFolder\\*\\*.
+   * The operation that you want to perform. Set the value to \\\\*\\\\*CreateFolder\\\\*\\\\*.
    * 
    * @param request - CreateFolderRequest
    * @returns CreateFolderResponse
@@ -2172,7 +2251,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       createImportMigrationReq.packageFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -2580,6 +2659,8 @@ export default class Client extends OpenApi {
   /**
    * Creates a partition filter expression.
    * 
+   * @deprecated OpenAPI CreateQualityEntity is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+   * 
    * @param request - CreateQualityEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateQualityEntityResponse
@@ -2631,9 +2712,12 @@ export default class Client extends OpenApi {
   /**
    * Creates a partition filter expression.
    * 
+   * @deprecated OpenAPI CreateQualityEntity is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+   * 
    * @param request - CreateQualityEntityRequest
    * @returns CreateQualityEntityResponse
    */
+  // Deprecated
   async createQualityEntity(request: $_model.CreateQualityEntityRequest): Promise<$_model.CreateQualityEntityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createQualityEntityWithOptions(request, runtime);
@@ -2641,6 +2725,8 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a subscriber for a partition filter expression.
+   * 
+   * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
    * 
    * @param request - CreateQualityFollowerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2689,9 +2775,12 @@ export default class Client extends OpenApi {
   /**
    * Creates a subscriber for a partition filter expression.
    * 
+   * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
+   * 
    * @param request - CreateQualityFollowerRequest
    * @returns CreateQualityFollowerResponse
    */
+  // Deprecated
   async createQualityFollower(request: $_model.CreateQualityFollowerRequest): Promise<$_model.CreateQualityFollowerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createQualityFollowerWithOptions(request, runtime);
@@ -2699,6 +2788,8 @@ export default class Client extends OpenApi {
 
   /**
    * Associates a node with a partition filter expression.
+   * 
+   * @deprecated OpenAPI CreateQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
    * 
    * @param request - CreateQualityRelativeNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2759,9 +2850,12 @@ export default class Client extends OpenApi {
   /**
    * Associates a node with a partition filter expression.
    * 
+   * @deprecated OpenAPI CreateQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param request - CreateQualityRelativeNodeRequest
    * @returns CreateQualityRelativeNodeResponse
    */
+  // Deprecated
   async createQualityRelativeNode(request: $_model.CreateQualityRelativeNodeRequest): Promise<$_model.CreateQualityRelativeNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createQualityRelativeNodeWithOptions(request, runtime);
@@ -2769,6 +2863,8 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a monitoring rule.
+   * 
+   * @deprecated OpenAPI CreateQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
    * 
    * @param request - CreateQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2877,9 +2973,12 @@ export default class Client extends OpenApi {
   /**
    * Creates a monitoring rule.
    * 
+   * @deprecated OpenAPI CreateQualityRule is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityScan instead.
+   * 
    * @param request - CreateQualityRuleRequest
    * @returns CreateQualityRuleResponse
    */
+  // Deprecated
   async createQualityRule(request: $_model.CreateQualityRuleRequest): Promise<$_model.CreateQualityRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createQualityRuleWithOptions(request, runtime);
@@ -3151,7 +3250,7 @@ export default class Client extends OpenApi {
         file: fileObj,
         success_action_status: "201",
       };
-      await this._postOSSObject(authResponseBody["Bucket"], ossHeader);
+      await this._postOSSObject(authResponseBody["Bucket"], ossHeader, runtime);
       createResourceFileReq.resourceFile = `http://${authResponseBody["Bucket"]}.${authResponseBody["Endpoint"]}/${authResponseBody["ObjectKey"]}`;
     }
 
@@ -3161,6 +3260,8 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a MaxCompute table or view.
+   * 
+   * @deprecated OpenAPI CreateTable is deprecated
    * 
    * @param request - CreateTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3271,16 +3372,19 @@ export default class Client extends OpenApi {
   /**
    * Creates a MaxCompute table or view.
    * 
+   * @deprecated OpenAPI CreateTable is deprecated
+   * 
    * @param request - CreateTableRequest
    * @returns CreateTableResponse
    */
+  // Deprecated
   async createTable(request: $_model.CreateTableRequest): Promise<$_model.CreateTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createTableWithOptions(request, runtime);
   }
 
   /**
-   * Creates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Creates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - CreateTableLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3323,7 +3427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Creates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - CreateTableLevelRequest
    * @returns CreateTableLevelResponse
@@ -3524,6 +3628,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a workflow.
+   * 
    * @param request - DeleteBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBusinessResponse
@@ -3561,6 +3667,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a workflow.
+   * 
    * @param request - DeleteBusinessRequest
    * @returns DeleteBusinessResponse
    */
@@ -3959,6 +4067,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a folder from DataStudio.
+   * 
    * @param request - DeleteFolderRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFolderResponse
@@ -3996,6 +4106,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a folder from DataStudio.
+   * 
    * @param request - DeleteFolderRequest
    * @returns DeleteFolderResponse
    */
@@ -4285,6 +4397,8 @@ export default class Client extends OpenApi {
   /**
    * Deletes a partition filter expression.
    * 
+   * @deprecated OpenAPI DeleteQualityEntity is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+   * 
    * @param request - DeleteQualityEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteQualityEntityResponse
@@ -4328,19 +4442,24 @@ export default class Client extends OpenApi {
   /**
    * Deletes a partition filter expression.
    * 
+   * @deprecated OpenAPI DeleteQualityEntity is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityScan instead.
+   * 
    * @param request - DeleteQualityEntityRequest
    * @returns DeleteQualityEntityResponse
    */
+  // Deprecated
   async deleteQualityEntity(request: $_model.DeleteQualityEntityRequest): Promise<$_model.DeleteQualityEntityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteQualityEntityWithOptions(request, runtime);
   }
 
   /**
-   * Deletes a subscriber of a partition filter expression.
+   * Calls DeleteQualityFollower to delete the subscribers of a partition expression.
    * 
    * @remarks
    * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
+   * 
+   * @deprecated OpenAPI DeleteQualityFollower is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityAlertRule instead.
    * 
    * @param request - DeleteQualityFollowerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4379,20 +4498,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a subscriber of a partition filter expression.
+   * Calls DeleteQualityFollower to delete the subscribers of a partition expression.
    * 
    * @remarks
    * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
    * 
+   * @deprecated OpenAPI DeleteQualityFollower is deprecated, please use dataworks-public::2024-05-18::DeleteDataQualityAlertRule instead.
+   * 
    * @param request - DeleteQualityFollowerRequest
    * @returns DeleteQualityFollowerResponse
    */
+  // Deprecated
   async deleteQualityFollower(request: $_model.DeleteQualityFollowerRequest): Promise<$_model.DeleteQualityFollowerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteQualityFollowerWithOptions(request, runtime);
   }
 
   /**
+   * Disassociates a node from a partition filter expression.
+   * 
+   * @deprecated OpenAPI DeleteQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param request - DeleteQualityRelativeNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteQualityRelativeNodeResponse
@@ -4450,9 +4576,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disassociates a node from a partition filter expression.
+   * 
+   * @deprecated OpenAPI DeleteQualityRelativeNode is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param request - DeleteQualityRelativeNodeRequest
    * @returns DeleteQualityRelativeNodeResponse
    */
+  // Deprecated
   async deleteQualityRelativeNode(request: $_model.DeleteQualityRelativeNodeRequest): Promise<$_model.DeleteQualityRelativeNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteQualityRelativeNodeWithOptions(request, runtime);
@@ -4460,6 +4591,8 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a monitoring rule.
+   * 
+   * @deprecated OpenAPI DeleteQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
    * 
    * @param request - DeleteQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4500,9 +4633,12 @@ export default class Client extends OpenApi {
   /**
    * Deletes a monitoring rule.
    * 
+   * @deprecated OpenAPI DeleteQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param request - DeleteQualityRuleRequest
    * @returns DeleteQualityRuleResponse
    */
+  // Deprecated
   async deleteQualityRule(request: $_model.DeleteQualityRuleRequest): Promise<$_model.DeleteQualityRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteQualityRuleWithOptions(request, runtime);
@@ -4597,6 +4733,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a MaxCompute table.
+   * 
+   * @deprecated OpenAPI DeleteTable is deprecated
+   * 
    * @param request - DeleteTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTableResponse
@@ -4642,16 +4782,21 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a MaxCompute table.
+   * 
+   * @deprecated OpenAPI DeleteTable is deprecated
+   * 
    * @param request - DeleteTableRequest
    * @returns DeleteTableResponse
    */
+  // Deprecated
   async deleteTable(request: $_model.DeleteTableRequest): Promise<$_model.DeleteTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTableWithOptions(request, runtime);
   }
 
   /**
-   * Deletes a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Deletes a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - DeleteTableLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4686,7 +4831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Deletes a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - DeleteTableLevelRequest
    * @returns DeleteTableLevelResponse
@@ -4991,12 +5136,18 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of data masking rules.
    * 
-   * @param request - DsgDesensPlanQueryListRequest
+   * @param tmpReq - DsgDesensPlanQueryListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DsgDesensPlanQueryListResponse
    */
-  async dsgDesensPlanQueryListWithOptions(request: $_model.DsgDesensPlanQueryListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DsgDesensPlanQueryListResponse> {
-    request.validate();
+  async dsgDesensPlanQueryListWithOptions(tmpReq: $_model.DsgDesensPlanQueryListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DsgDesensPlanQueryListResponse> {
+    tmpReq.validate();
+    let request = new $_model.DsgDesensPlanQueryListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.columns)) {
+      request.columnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.columns, "columns", "json");
+    }
+
     let query = OpenApiUtil.query(request.toMap());
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
@@ -5156,6 +5307,44 @@ export default class Client extends OpenApi {
   async dsgQueryDefaultTemplates(request: $_model.DsgQueryDefaultTemplatesRequest): Promise<$_model.DsgQueryDefaultTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.dsgQueryDefaultTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the status of the masking switch.
+   * 
+   * @param request - DsgQueryDesensStatusListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DsgQueryDesensStatusListResponse
+   */
+  async dsgQueryDesensStatusListWithOptions(request: $_model.DsgQueryDesensStatusListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DsgQueryDesensStatusListResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DsgQueryDesensStatusList",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DsgQueryDesensStatusListResponse>(await this.callApi(params, req, runtime), new $_model.DsgQueryDesensStatusListResponse({}));
+  }
+
+  /**
+   * Query the status of the masking switch.
+   * 
+   * @param request - DsgQueryDesensStatusListRequest
+   * @returns DsgQueryDesensStatusListResponse
+   */
+  async dsgQueryDesensStatusList(request: $_model.DsgQueryDesensStatusListRequest): Promise<$_model.DsgQueryDesensStatusListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dsgQueryDesensStatusListWithOptions(request, runtime);
   }
 
   /**
@@ -5498,6 +5687,58 @@ export default class Client extends OpenApi {
   async dsgStopSensIdentify(request: $_model.DsgStopSensIdentifyRequest): Promise<$_model.DsgStopSensIdentifyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.dsgStopSensIdentifyWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the status of the masking switch.
+   * 
+   * @param tmpReq - DsgUpdateDesensStatusListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DsgUpdateDesensStatusListResponse
+   */
+  async dsgUpdateDesensStatusListWithOptions(tmpReq: $_model.DsgUpdateDesensStatusListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DsgUpdateDesensStatusListResponse> {
+    tmpReq.validate();
+    let request = new $_model.DsgUpdateDesensStatusListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.desensStatus)) {
+      query["DesensStatus"] = request.desensStatus;
+    }
+
+    if (!$dara.isNull(request.idsShrink)) {
+      query["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DsgUpdateDesensStatusList",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DsgUpdateDesensStatusListResponse>(await this.callApi(params, req, runtime), new $_model.DsgUpdateDesensStatusListResponse({}));
+  }
+
+  /**
+   * Updates the status of the masking switch.
+   * 
+   * @param request - DsgUpdateDesensStatusListRequest
+   * @returns DsgUpdateDesensStatusListResponse
+   */
+  async dsgUpdateDesensStatusList(request: $_model.DsgUpdateDesensStatusListRequest): Promise<$_model.DsgUpdateDesensStatusListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dsgUpdateDesensStatusListWithOptions(request, runtime);
   }
 
   /**
@@ -5953,6 +6194,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+   * 
    * @param request - EstablishRelationTableToBusinessRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EstablishRelationTableToBusinessResponse
@@ -5998,6 +6241,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+   * 
    * @param request - EstablishRelationTableToBusinessRequest
    * @returns EstablishRelationTableToBusinessResponse
    */
@@ -6451,6 +6696,8 @@ export default class Client extends OpenApi {
   /**
    * Queries the status of a table creation, update, or deletion task.
    * 
+   * @deprecated OpenAPI GetDDLJobStatus is deprecated
+   * 
    * @param request - GetDDLJobStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDDLJobStatusResponse
@@ -6478,9 +6725,12 @@ export default class Client extends OpenApi {
   /**
    * Queries the status of a table creation, update, or deletion task.
    * 
+   * @deprecated OpenAPI GetDDLJobStatus is deprecated
+   * 
    * @param request - GetDDLJobStatusRequest
    * @returns GetDDLJobStatusResponse
    */
+  // Deprecated
   async getDDLJobStatus(request: $_model.GetDDLJobStatusRequest): Promise<$_model.GetDDLJobStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDDLJobStatusWithOptions(request, runtime);
@@ -8297,6 +8547,8 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
    * 
+   * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
+   * 
    * @param request - GetMetaTableFullInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMetaTableFullInfoResponse
@@ -8327,9 +8579,12 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
    * 
+   * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
+   * 
    * @param request - GetMetaTableFullInfoRequest
    * @returns GetMetaTableFullInfoResponse
    */
+  // Deprecated
   async getMetaTableFullInfo(request: $_model.GetMetaTableFullInfoRequest): Promise<$_model.GetMetaTableFullInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getMetaTableFullInfoWithOptions(request, runtime);
@@ -8696,7 +8951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the themes and levels of a metatable.
+   * Fetches topics and hierarchy metadata for tables
    * 
    * @param request - GetMetaTableThemeLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8723,7 +8978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the themes and levels of a metatable.
+   * Fetches topics and hierarchy metadata for tables
    * 
    * @param request - GetMetaTableThemeLevelRequest
    * @returns GetMetaTableThemeLevelResponse
@@ -9381,6 +9636,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a partition filter expression.
+   * 
+   * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+   * 
    * @param request - GetQualityEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetQualityEntityResponse
@@ -9426,9 +9685,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a partition filter expression.
+   * 
+   * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+   * 
    * @param request - GetQualityEntityRequest
    * @returns GetQualityEntityResponse
    */
+  // Deprecated
   async getQualityEntity(request: $_model.GetQualityEntityRequest): Promise<$_model.GetQualityEntityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityEntityWithOptions(request, runtime);
@@ -9436,6 +9700,8 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the subscribers of a partition filter expression.
+   * 
+   * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
    * 
    * @param request - GetQualityFollowerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9476,9 +9742,12 @@ export default class Client extends OpenApi {
   /**
    * Queries the subscribers of a partition filter expression.
    * 
+   * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
+   * 
    * @param request - GetQualityFollowerRequest
    * @returns GetQualityFollowerResponse
    */
+  // Deprecated
   async getQualityFollower(request: $_model.GetQualityFollowerRequest): Promise<$_model.GetQualityFollowerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityFollowerWithOptions(request, runtime);
@@ -9486,6 +9755,8 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about a monitoring rule.
+   * 
+   * @deprecated OpenAPI GetQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
    * 
    * @param request - GetQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9526,9 +9797,12 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about a monitoring rule.
    * 
+   * @deprecated OpenAPI GetQualityRule is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+   * 
    * @param request - GetQualityRuleRequest
    * @returns GetQualityRuleResponse
    */
+  // Deprecated
   async getQualityRule(request: $_model.GetQualityRuleRequest): Promise<$_model.GetQualityRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getQualityRuleWithOptions(request, runtime);
@@ -12634,7 +12908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views permission requests.
+   * Queries a list of permission requests.
    * 
    * @param request - ListPermissionApplyOrdersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12713,7 +12987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Views permission requests.
+   * Queries a list of permission requests.
    * 
    * @param request - ListPermissionApplyOrdersRequest
    * @returns ListPermissionApplyOrdersResponse
@@ -12988,6 +13262,8 @@ export default class Client extends OpenApi {
    * @remarks
    * ***
    * 
+   * @deprecated OpenAPI ListQualityResultsByEntity is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+   * 
    * @param request - ListQualityResultsByEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListQualityResultsByEntityResponse
@@ -13046,9 +13322,12 @@ export default class Client extends OpenApi {
    * @remarks
    * ***
    * 
+   * @deprecated OpenAPI ListQualityResultsByEntity is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+   * 
    * @param request - ListQualityResultsByEntityRequest
    * @returns ListQualityResultsByEntityResponse
    */
+  // Deprecated
   async listQualityResultsByEntity(request: $_model.ListQualityResultsByEntityRequest): Promise<$_model.ListQualityResultsByEntityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listQualityResultsByEntityWithOptions(request, runtime);
@@ -13056,6 +13335,8 @@ export default class Client extends OpenApi {
 
   /**
    * Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
+   * 
+   * @deprecated OpenAPI ListQualityResultsByRule is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
    * 
    * @param request - ListQualityResultsByRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13112,9 +13393,12 @@ export default class Client extends OpenApi {
   /**
    * Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
    * 
+   * @deprecated OpenAPI ListQualityResultsByRule is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScanRuns instead.
+   * 
    * @param request - ListQualityResultsByRuleRequest
    * @returns ListQualityResultsByRuleResponse
    */
+  // Deprecated
   async listQualityResultsByRule(request: $_model.ListQualityResultsByRuleRequest): Promise<$_model.ListQualityResultsByRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listQualityResultsByRuleWithOptions(request, runtime);
@@ -13122,6 +13406,8 @@ export default class Client extends OpenApi {
 
   /**
    * Queries monitoring rules based on a partition filter expression.
+   * 
+   * @deprecated OpenAPI ListQualityRules is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
    * 
    * @param request - ListQualityRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13170,9 +13456,12 @@ export default class Client extends OpenApi {
   /**
    * Queries monitoring rules based on a partition filter expression.
    * 
+   * @deprecated OpenAPI ListQualityRules is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
+   * 
    * @param request - ListQualityRulesRequest
    * @returns ListQualityRulesResponse
    */
+  // Deprecated
   async listQualityRules(request: $_model.ListQualityRulesRequest): Promise<$_model.ListQualityRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listQualityRulesWithOptions(request, runtime);
@@ -13525,7 +13814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of table levels. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Lists hierarchy levels. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - ListTableLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13552,7 +13841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of table levels. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Lists hierarchy levels. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - ListTableLevelRequest
    * @returns ListTableLevelResponse
@@ -13563,7 +13852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of table themes. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Lists table themes. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - ListTableThemeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13590,7 +13879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of table themes. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Lists table themes. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - ListTableThemeRequest
    * @returns ListTableThemeResponse
@@ -14461,7 +14750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a suspended instance.
+   * Calls the ResumeInstance operation to resume a suspended instance.
    * 
    * @param request - ResumeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14496,7 +14785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a suspended instance.
+   * Calls the ResumeInstance operation to resume a suspended instance.
    * 
    * @param request - ResumeInstanceRequest
    * @returns ResumeInstanceResponse
@@ -17058,7 +17347,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the metadata information about a table. Only MaxCompute tables are supported.
+   * This operation updates the metadata of a table.
+   * 
+   * @remarks
+   * This operation supports MaxCompute tables only.
    * 
    * @param request - UpdateMetaTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17131,7 +17423,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the metadata information about a table. Only MaxCompute tables are supported.
+   * This operation updates the metadata of a table.
+   * 
+   * @remarks
+   * This operation supports MaxCompute tables only.
    * 
    * @param request - UpdateMetaTableRequest
    * @returns UpdateMetaTableResponse
@@ -17292,6 +17587,8 @@ export default class Client extends OpenApi {
   /**
    * Updates a subscription relationship.
    * 
+   * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
+   * 
    * @param request - UpdateQualityFollowerRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateQualityFollowerResponse
@@ -17339,9 +17636,12 @@ export default class Client extends OpenApi {
   /**
    * Updates a subscription relationship.
    * 
+   * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
+   * 
    * @param request - UpdateQualityFollowerRequest
    * @returns UpdateQualityFollowerResponse
    */
+  // Deprecated
   async updateQualityFollower(request: $_model.UpdateQualityFollowerRequest): Promise<$_model.UpdateQualityFollowerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateQualityFollowerWithOptions(request, runtime);
@@ -17349,6 +17649,8 @@ export default class Client extends OpenApi {
 
   /**
    * Updates a monitoring rule.
+   * 
+   * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
    * 
    * @param request - UpdateQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17465,9 +17767,12 @@ export default class Client extends OpenApi {
   /**
    * Updates a monitoring rule.
    * 
+   * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
+   * 
    * @param request - UpdateQualityRuleRequest
    * @returns UpdateQualityRuleResponse
    */
+  // Deprecated
   async updateQualityRule(request: $_model.UpdateQualityRuleRequest): Promise<$_model.UpdateQualityRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateQualityRuleWithOptions(request, runtime);
@@ -17586,6 +17891,8 @@ export default class Client extends OpenApi {
   /**
    * Updates a MaxCompute table.
    * 
+   * @deprecated OpenAPI UpdateTable is deprecated
+   * 
    * @param request - UpdateTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTableResponse
@@ -17695,9 +18002,12 @@ export default class Client extends OpenApi {
   /**
    * Updates a MaxCompute table.
    * 
+   * @deprecated OpenAPI UpdateTable is deprecated
+   * 
    * @param request - UpdateTableRequest
    * @returns UpdateTableResponse
    */
+  // Deprecated
   async updateTable(request: $_model.UpdateTableRequest): Promise<$_model.UpdateTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTableWithOptions(request, runtime);
@@ -17705,6 +18015,8 @@ export default class Client extends OpenApi {
 
   /**
    * Updates the fields in a MaxCompute table.
+   * 
+   * @deprecated OpenAPI UpdateTableAddColumn is deprecated
    * 
    * @param request - UpdateTableAddColumnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17743,16 +18055,19 @@ export default class Client extends OpenApi {
   /**
    * Updates the fields in a MaxCompute table.
    * 
+   * @deprecated OpenAPI UpdateTableAddColumn is deprecated
+   * 
    * @param request - UpdateTableAddColumnRequest
    * @returns UpdateTableAddColumnResponse
    */
+  // Deprecated
   async updateTableAddColumn(request: $_model.UpdateTableAddColumnRequest): Promise<$_model.UpdateTableAddColumnResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTableAddColumnWithOptions(request, runtime);
   }
 
   /**
-   * Updates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Updates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - UpdateTableLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17799,7 +18114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
+   * Updates a hierarchy level. This operation will be replaced soon. We recommend that you do not call this operation.
    * 
    * @param request - UpdateTableLevelRequest
    * @returns UpdateTableLevelResponse

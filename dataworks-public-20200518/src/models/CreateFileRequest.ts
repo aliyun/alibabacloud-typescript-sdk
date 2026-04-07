@@ -201,7 +201,7 @@ export class CreateFileRequest extends $dara.Model {
   ignoreParentSkipRunningProperty?: boolean;
   /**
    * @remarks
-   * Custom image ID
+   * The ID of the custom image.
    * 
    * @example
    * m-bp1h4b5a8ogkbll2f3tr

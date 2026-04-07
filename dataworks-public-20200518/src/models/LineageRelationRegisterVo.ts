@@ -6,12 +6,27 @@ import { RelationshipVO } from "./RelationshipVo";
 
 export class LineageRelationRegisterVO extends $dara.Model {
   /**
+   * @remarks
+   * The time of lineage relation generation
+   * 
    * @example
    * 1684327487964
    */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * The destination entity in lineage relation
+   */
   destEntity?: LineageEntityVO;
+  /**
+   * @remarks
+   * The relationship between entities
+   */
   relationship?: RelationshipVO;
+  /**
+   * @remarks
+   * The source entity in lineage relation
+   */
   srcEntity?: LineageEntityVO;
   static names(): { [key: string]: string } {
     return {

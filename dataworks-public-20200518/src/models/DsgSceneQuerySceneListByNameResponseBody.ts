@@ -125,6 +125,7 @@ export class DsgSceneQuerySceneListByNameResponseBodyData extends $dara.Model {
    * user1,user2
    */
   userGroups?: string;
+  scenceDbType?: string;
   static names(): { [key: string]: string } {
     return {
       children: 'Children',
@@ -135,6 +136,7 @@ export class DsgSceneQuerySceneListByNameResponseBodyData extends $dara.Model {
       sceneLevel: 'SceneLevel',
       sceneName: 'SceneName',
       userGroups: 'UserGroups',
+      scenceDbType: 'scenceDbType',
     };
   }
 
@@ -148,6 +150,7 @@ export class DsgSceneQuerySceneListByNameResponseBodyData extends $dara.Model {
       sceneLevel: 'number',
       sceneName: 'string',
       userGroups: 'string',
+      scenceDbType: 'string',
     };
   }
 

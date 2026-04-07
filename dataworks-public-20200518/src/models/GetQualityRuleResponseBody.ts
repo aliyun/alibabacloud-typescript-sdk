@@ -155,7 +155,11 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The type of the monitoring rule.
+   * Rule type:
+   * 
+   * *   0: System template rule
+   * *   1: Custom SQL rule
+   * *   4: Custom template rule
    * 
    * @example
    * 0
@@ -281,7 +285,7 @@ export class GetQualityRuleResponseBodyData extends $dara.Model {
 export class GetQualityRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the monitoring rule.
+   * Information about the retrieved rule.
    */
   data?: GetQualityRuleResponseBodyData;
   /**

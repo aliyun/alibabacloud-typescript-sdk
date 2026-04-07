@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListPermissionApplyOrdersRequest extends $dara.Model {
   /**
    * @remarks
-   * 设置申请单类型，枚举值为：
+   * The type of permission request. Valid values:
    * 
-   * - [ MaxComputeTable]  MaxCompute表权限申请单
-   * - [ MaxComputeFunction] MaxCompute函数申请单
-   * - [ MaxComputeResource] MaxCompute资源申请单
-   * - [ DLFSchema] DLF1.0版本Schema权限申请单
-   * - [ DLFTable] DLF1.0版本表权限申请单
-   * - [ DLFColumn] DLF1.0版本列权限申请单
-   * - [ DsApiDeploy] 发布数据服务权限申请单
+   * *   MaxComputeTable: Permission request for MaxCompute tables
+   * *   MaxComputeFunction: Permission request for MaxCompute functions
+   * *   MaxComputeResource: Permission request for MaxCompute resources
+   * *   DLFSchema: Permission request for DLF 1.0 schemas
+   * *   DLFTable: Permission request for DLF 1.0 tables
+   * *   DLFColumn: Permission request for DLF 1.0 columns
+   * *   DsApiDeploy: Permission request for publishing data services
    * 
    * @example
    * MaxComputeTable
@@ -21,7 +21,7 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   applyType?: string;
   /**
    * @remarks
-   * 查询的数据目录名称。
+   * The name of the data catalog to query.
    * 
    * @example
    * hive
@@ -37,7 +37,11 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The type of the compute engine with which the permission request order is associated. The parameter value is odps and cannot be changed. This value indicates that you can request permissions only on fields of tables in the MaxCompute compute engine.
+   * This parameter is deprecated and does not take effect.
+   * 
+   * Valid values:
+   * 
+   * *   odps
    * 
    * @example
    * odps
@@ -45,12 +49,22 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The status of the permission request order. Valid values:
+   * The status of the permission request. Valid values:
    * 
-   * *   1: to be processed
-   * *   2: approved and authorized
-   * *   3: approved but authorization failed
-   * *   4: rejected
+   * *   1: Pending approval
+   * *   2: Approved and authorization succeeded
+   * *   3: Approved but authorization failed
+   * *   4: Rejected
+   * *   5: Withdrawn
+   * 
+   * Valid values:
+   * 
+   * *   0
+   * *   1
+   * *   2
+   * *   3
+   * *   4
+   * *   5
    * 
    * @example
    * 1
@@ -66,7 +80,12 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   maxComputeProjectName?: string;
   /**
    * @remarks
-   * The type of the permission request order. The parameter value is 1 and cannot be changed. This value indicates ACL-based authorization.
+   * This parameter is deprecated and does not take effect.
+   * 
+   * Valid values:
+   * 
+   * *   1
+   * *   0
    * 
    * @example
    * 1
@@ -74,7 +93,7 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   orderType?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number for pagination. The value must be a positive integer greater than or equal to 1. Default value: 1.
    * 
    * @example
    * 1
@@ -90,10 +109,11 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query type of the permission request order. Valid values:
+   * The query type for permission requests. Valid values:
    * 
-   * *   0: The permission request orders you submitted.
-   * *   1: The permission request orders you approved.
+   * *   0: Permission requests submitted by me
+   * *   1: Permission requests pending my approval
+   * *   2: All permission requests
    * 
    * This parameter is required.
    * 
@@ -119,7 +139,7 @@ export class ListPermissionApplyOrdersRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace that is associated with the permission request order. If you do not specify the parameter, the permission request orders of all workspaces are returned. You can go to the Workspace page in the DataWorks console to obtain the workspace ID.
+   * The ID of the workspace to which the permission request belongs. If you do not specify this parameter, permission requests from all workspaces are returned. To obtain the workspace ID, log on to the DataWorks console and navigate to the workspace configuration page.
    * 
    * @example
    * 12345

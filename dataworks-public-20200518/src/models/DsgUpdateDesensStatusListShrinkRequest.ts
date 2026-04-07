@@ -2,38 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Cluster extends $dara.Model {
+export class DsgUpdateDesensStatusListShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique business identifier of the cluster.
-   * 
    * This parameter is required.
    * 
    * @example
-   * c-d8a7523****
+   * 1
    */
-  clusterBizId?: string;
+  desensStatus?: number;
   /**
    * @remarks
-   * The ID of the cluster associated with DataWorks.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 1234
    */
-  clusterId?: number;
+  idsShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      clusterBizId: 'ClusterBizId',
-      clusterId: 'ClusterId',
+      desensStatus: 'DesensStatus',
+      idsShrink: 'Ids',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      clusterBizId: 'string',
-      clusterId: 'number',
+      desensStatus: 'number',
+      idsShrink: 'string',
     };
   }
 

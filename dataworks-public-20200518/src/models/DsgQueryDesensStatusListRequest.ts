@@ -2,11 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListFoldersRequest extends $dara.Model {
+export class DsgQueryDesensStatusListRequest extends $dara.Model {
+  /**
+   * @example
+   * my
+   */
+  keyword?: string;
   /**
    * @remarks
-   * The error code.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -15,8 +18,6 @@ export class ListFoldersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -25,47 +26,34 @@ export class ListFoldersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 0000-ABCD-EFG****
-   * 
    * This parameter is required.
    * 
    * @example
-   * Business_process/my_first_business_process/MaxCompute
+   * dataworks_display_desense_code
    */
-  parentFolderPath?: string;
+  sceneCode?: string;
   /**
-   * @remarks
-   * The error message.
-   * 
    * @example
-   * 10000
+   * 124
    */
-  projectId?: number;
-  /**
-   * @remarks
-   * The request ID. You can troubleshoot issues based on the ID.
-   * 
-   * @example
-   * dw_project
-   */
-  projectIdentifier?: string;
+  sceneId?: string;
   static names(): { [key: string]: string } {
     return {
+      keyword: 'Keyword',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      parentFolderPath: 'ParentFolderPath',
-      projectId: 'ProjectId',
-      projectIdentifier: 'ProjectIdentifier',
+      sceneCode: 'SceneCode',
+      sceneId: 'sceneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      keyword: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      parentFolderPath: 'string',
-      projectId: 'number',
-      projectIdentifier: 'string',
+      sceneCode: 'string',
+      sceneId: 'string',
     };
   }
 

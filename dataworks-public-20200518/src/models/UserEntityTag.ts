@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UserEntityTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * priority
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * p1
    */

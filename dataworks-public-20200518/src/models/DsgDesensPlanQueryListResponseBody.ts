@@ -42,6 +42,38 @@ export class DsgDesensPlanQueryListResponseBodyPageDataDataDesensPlan extends $d
   }
 }
 
+export class DsgDesensPlanQueryListResponseBodyPageDataDataColumns extends $dara.Model {
+  column?: string;
+  dbType?: string;
+  project?: string;
+  table?: string;
+  static names(): { [key: string]: string } {
+    return {
+      column: 'column',
+      dbType: 'dbType',
+      project: 'project',
+      table: 'table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: 'string',
+      dbType: 'string',
+      project: 'string',
+      table: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model {
   /**
    * @remarks
@@ -165,6 +197,8 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
    * 1
    */
   status?: number;
+  columns?: DsgDesensPlanQueryListResponseBodyPageDataDataColumns[];
+  emptyNotDesesn?: boolean;
   static names(): { [key: string]: string } {
     return {
       checkWatermark: 'CheckWatermark',
@@ -181,6 +215,8 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
       sceneCode: 'SceneCode',
       sceneName: 'SceneName',
       status: 'Status',
+      columns: 'columns',
+      emptyNotDesesn: 'emptyNotDesesn',
     };
   }
 
@@ -200,12 +236,17 @@ export class DsgDesensPlanQueryListResponseBodyPageDataData extends $dara.Model 
       sceneCode: 'string',
       sceneName: 'string',
       status: 'number',
+      columns: { 'type': 'array', 'itemType': DsgDesensPlanQueryListResponseBodyPageDataDataColumns },
+      emptyNotDesesn: 'boolean',
     };
   }
 
   validate() {
     if(this.desensPlan && typeof (this.desensPlan as any).validate === 'function') {
       (this.desensPlan as any).validate();
+    }
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
     }
     super.validate();
   }

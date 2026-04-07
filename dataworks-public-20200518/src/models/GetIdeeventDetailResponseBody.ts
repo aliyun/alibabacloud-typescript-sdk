@@ -708,8 +708,8 @@ export class GetIDEEventDetailResponseBodyEventDetailTableModelColumns extends $
    * @remarks
    * Indicates whether the column is a partition key column. Valid values:
    * 
-   * *   true
-   * *   false
+   * *   true: The column is a partition key column.
+   * *   false: The column is not a partition key column.
    * 
    * @example
    * false

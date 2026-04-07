@@ -2,28 +2,49 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListFoldersResponseBodyDataFolders extends $dara.Model {
+export class DsgQueryDesensStatusListResponseBodyDataPageData extends $dara.Model {
   /**
    * @example
-   * 2735c2****
+   * 1
    */
-  folderId?: string;
+  desensStatus?: number;
   /**
    * @example
-   * Business_process/my_first_business_process/MaxCompute/ods_layer
+   * 1
    */
-  folderPath?: string;
+  handleSpace?: string;
+  /**
+   * @example
+   * 56207
+   */
+  id?: number;
+  /**
+   * @example
+   * test_space
+   */
+  workspaceIdentifier?: string;
+  /**
+   * @example
+   * test_space
+   */
+  workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
-      folderId: 'FolderId',
-      folderPath: 'FolderPath',
+      desensStatus: 'DesensStatus',
+      handleSpace: 'HandleSpace',
+      id: 'Id',
+      workspaceIdentifier: 'WorkspaceIdentifier',
+      workspaceName: 'WorkspaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      folderId: 'string',
-      folderPath: 'string',
+      desensStatus: 'number',
+      handleSpace: 'string',
+      id: 'number',
+      workspaceIdentifier: 'string',
+      workspaceName: 'string',
     };
   }
 
@@ -36,35 +57,26 @@ export class ListFoldersResponseBodyDataFolders extends $dara.Model {
   }
 }
 
-export class ListFoldersResponseBodyData extends $dara.Model {
-  folders?: ListFoldersResponseBodyDataFolders[];
+export class DsgQueryDesensStatusListResponseBodyData extends $dara.Model {
+  pageData?: DsgQueryDesensStatusListResponseBodyDataPageData[];
   /**
-   * @remarks
-   * The folder ID.
-   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * http://100.67.165.184/business/api/folders/list
-   * 
    * @example
-   * 10
+   * 20
    */
   pageSize?: number;
   /**
-   * @remarks
-   * ListFolders
-   * 
    * @example
-   * 13
+   * 100
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
-      folders: 'Folders',
+      pageData: 'PageData',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       totalCount: 'TotalCount',
@@ -73,7 +85,7 @@ export class ListFoldersResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      folders: { 'type': 'array', 'itemType': ListFoldersResponseBodyDataFolders },
+      pageData: { 'type': 'array', 'itemType': DsgQueryDesensStatusListResponseBodyDataPageData },
       pageNumber: 'number',
       pageSize: 'number',
       totalCount: 'number',
@@ -81,8 +93,8 @@ export class ListFoldersResponseBodyData extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.folders)) {
-      $dara.Model.validateArray(this.folders);
+    if(Array.isArray(this.pageData)) {
+      $dara.Model.validateArray(this.pageData);
     }
     super.validate();
   }
@@ -92,48 +104,29 @@ export class ListFoldersResponseBodyData extends $dara.Model {
   }
 }
 
-export class ListFoldersResponseBody extends $dara.Model {
+export class DsgQueryDesensStatusListResponseBody extends $dara.Model {
+  data?: DsgQueryDesensStatusListResponseBodyData;
   /**
-   * @remarks
-   * The path of the folder.
-   */
-  data?: ListFoldersResponseBodyData;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
    * @example
-   * Invalid.Tenant.ConnectionNotExists
+   * 400010
    */
   errorCode?: string;
   /**
-   * @remarks
-   * The page number.
-   * 
    * @example
-   * The connection does not exist.
+   * param error
    */
   errorMessage?: string;
   /**
-   * @remarks
-   * The information about the folders.
-   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
-   * @remarks
-   * The number of entries per page.
-   * 
    * @example
-   * 0000-ABCD-****
+   * AASFDFSDFG-DFSDF-DFSDFD-SDFSDF
    */
   requestId?: string;
   /**
-   * @remarks
-   * The list of folders.
-   * 
    * @example
    * true
    */
@@ -151,7 +144,7 @@ export class ListFoldersResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: ListFoldersResponseBodyData,
+      data: DsgQueryDesensStatusListResponseBodyData,
       errorCode: 'string',
       errorMessage: 'string',
       httpStatusCode: 'number',

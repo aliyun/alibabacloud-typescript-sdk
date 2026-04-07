@@ -79,6 +79,10 @@ export class ListNodesResponseBodyDataNodes extends $dara.Model {
    * @remarks
    * The file ID. You can call the ListFiles operation to query the ID.
    * 
+   * **
+   * 
+   * **Warning** This field is deprecated.
+   * 
    * @example
    * 20
    */

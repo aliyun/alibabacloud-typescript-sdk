@@ -52,6 +52,54 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRulesDesensPlan extends $dara.
   }
 }
 
+export class DsgDesensPlanAddOrUpdateRequestDesensRulesColumns extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  column?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dbType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  project?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  table?: string;
+  static names(): { [key: string]: string } {
+    return {
+      column: 'column',
+      dbType: 'dbType',
+      project: 'project',
+      table: 'table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      column: 'string',
+      dbType: 'string',
+      project: 'string',
+      table: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
   /**
    * @remarks
@@ -67,8 +115,6 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
   /**
    * @remarks
    * The sensitive field type.
-   * 
-   * This parameter is required.
    * 
    * @example
    * phone
@@ -127,6 +173,8 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
    * 1
    */
   status?: number;
+  columns?: DsgDesensPlanAddOrUpdateRequestDesensRulesColumns[];
+  emptyNotDesesn?: boolean;
   static names(): { [key: string]: string } {
     return {
       checkWatermark: 'CheckWatermark',
@@ -137,6 +185,8 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
       ruleName: 'RuleName',
       sceneIds: 'SceneIds',
       status: 'Status',
+      columns: 'columns',
+      emptyNotDesesn: 'emptyNotDesesn',
     };
   }
 
@@ -150,6 +200,8 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
       ruleName: 'string',
       sceneIds: { 'type': 'array', 'itemType': 'number' },
       status: 'number',
+      columns: { 'type': 'array', 'itemType': DsgDesensPlanAddOrUpdateRequestDesensRulesColumns },
+      emptyNotDesesn: 'boolean',
     };
   }
 
@@ -159,6 +211,9 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
     }
     if(Array.isArray(this.sceneIds)) {
       $dara.Model.validateArray(this.sceneIds);
+    }
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
     }
     super.validate();
   }

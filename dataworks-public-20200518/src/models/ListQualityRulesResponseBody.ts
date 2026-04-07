@@ -168,11 +168,11 @@ export class ListQualityRulesResponseBodyDataRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The type of the monitoring rule. Valid values:
+   * Rule type:
    * 
-   * *   0: The monitoring rule is created by the system.
-   * *   1: The monitoring rule is created by a user.
-   * *   2: The monitoring rule is a workspace-level rule.
+   * *   0: System template rule
+   * *   1: Custom SQL rule
+   * *   1: Custom template rule
    * 
    * @example
    * 0
@@ -308,7 +308,7 @@ export class ListQualityRulesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The details of the monitoring rules.
+   * The details of the validation rule.
    */
   rules?: ListQualityRulesResponseBodyDataRules[];
   /**
@@ -352,7 +352,7 @@ export class ListQualityRulesResponseBodyData extends $dara.Model {
 export class ListQualityRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of monitoring rules.
+   * The list of retrieved rules.
    */
   data?: ListQualityRulesResponseBodyData;
   /**

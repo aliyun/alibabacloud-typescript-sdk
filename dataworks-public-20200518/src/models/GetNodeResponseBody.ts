@@ -77,7 +77,11 @@ export class GetNodeResponseBodyData extends $dara.Model {
   dqcType?: number;
   /**
    * @remarks
-   * The ID of the file.
+   * The file ID.
+   * 
+   * **
+   * 
+   * **Warning** The field is deprecated.
    * 
    * @example
    * 123

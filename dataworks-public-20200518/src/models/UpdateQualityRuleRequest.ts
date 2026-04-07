@@ -155,11 +155,11 @@ export class UpdateQualityRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The type of the monitoring rule. Valid values:
+   * Rule type:
    * 
-   * *   0: The monitoring rule is created by the system.
-   * *   1: The monitoring rule is created by a user.
-   * *   2: The monitoring rule is a workspace-level rule.
+   * *   0: System template rule
+   * *   1: Custom SQL rule
+   * *   4: Custom template rule
    * 
    * @example
    * 0

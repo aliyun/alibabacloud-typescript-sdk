@@ -2,39 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DsgDesensPlanQueryListRequestColumns extends $dara.Model {
-  column?: string;
-  dbType?: string;
-  project?: string;
-  table?: string;
-  static names(): { [key: string]: string } {
-    return {
-      column: 'column',
-      dbType: 'dbType',
-      project: 'project',
-      table: 'table',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      column: 'string',
-      dbType: 'string',
-      project: 'string',
-      table: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DsgDesensPlanQueryListRequest extends $dara.Model {
+export class DsgDesensPlanQueryListShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The owner of the data masking rule.
@@ -92,7 +60,7 @@ export class DsgDesensPlanQueryListRequest extends $dara.Model {
    * 1
    */
   status?: number;
-  columns?: DsgDesensPlanQueryListRequestColumns[];
+  columnsShrink?: string;
   dataType?: string;
   emptyNotDesesn?: string;
   static names(): { [key: string]: string } {
@@ -103,7 +71,7 @@ export class DsgDesensPlanQueryListRequest extends $dara.Model {
       ruleName: 'RuleName',
       sceneId: 'SceneId',
       status: 'Status',
-      columns: 'columns',
+      columnsShrink: 'columns',
       dataType: 'dataType',
       emptyNotDesesn: 'emptyNotDesesn',
     };
@@ -117,16 +85,13 @@ export class DsgDesensPlanQueryListRequest extends $dara.Model {
       ruleName: 'string',
       sceneId: 'number',
       status: 'number',
-      columns: { 'type': 'array', 'itemType': DsgDesensPlanQueryListRequestColumns },
+      columnsShrink: 'string',
       dataType: 'string',
       emptyNotDesesn: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.columns)) {
-      $dara.Model.validateArray(this.columns);
-    }
     super.validate();
   }
 
