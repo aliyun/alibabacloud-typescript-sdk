@@ -20,6 +20,7 @@ export { GetSmsSignResponseBodySignIspRegisterDetailList } from './GetSmsSignRes
 export { GetSmsTemplateResponseBodyAuditInfo } from './GetSmsTemplateResponseBody';
 export { GetSmsTemplateResponseBodyFileUrlList } from './GetSmsTemplateResponseBody';
 export { GetSmsTemplateResponseBodyMoreDataFileUrlList } from './GetSmsTemplateResponseBody';
+export { GetSmsTemplateResponseBodySignList } from './GetSmsTemplateResponseBody';
 export { GetSmsTemplateListResponseBodyDataListTemplateTag } from './GetSmsTemplateListResponseBody';
 export { GetSmsTemplateListResponseBodyDataList } from './GetSmsTemplateListResponseBody';
 export { GetSmsTemplateListResponseBodyData } from './GetSmsTemplateListResponseBody';

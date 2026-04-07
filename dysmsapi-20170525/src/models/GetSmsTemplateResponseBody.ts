@@ -94,6 +94,32 @@ export class GetSmsTemplateResponseBodyMoreDataFileUrlList extends $dara.Model {
   }
 }
 
+export class GetSmsTemplateResponseBodySignList extends $dara.Model {
+  signList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      signList: 'SignList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      signList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.signList)) {
+      $dara.Model.validateArray(this.signList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSmsTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -182,6 +208,7 @@ export class GetSmsTemplateResponseBody extends $dara.Model {
    * 819BE656-D2E0-4858-8B21-B2E47708****
    */
   requestId?: string;
+  signList?: GetSmsTemplateResponseBodySignList;
   /**
    * @remarks
    * SMS template code.
@@ -271,6 +298,7 @@ export class GetSmsTemplateResponseBody extends $dara.Model {
       relatedSignName: 'RelatedSignName',
       remark: 'Remark',
       requestId: 'RequestId',
+      signList: 'SignList',
       templateCode: 'TemplateCode',
       templateContent: 'TemplateContent',
       templateName: 'TemplateName',
@@ -296,6 +324,7 @@ export class GetSmsTemplateResponseBody extends $dara.Model {
       relatedSignName: 'string',
       remark: 'string',
       requestId: 'string',
+      signList: GetSmsTemplateResponseBodySignList,
       templateCode: 'string',
       templateContent: 'string',
       templateName: 'string',
@@ -316,6 +345,9 @@ export class GetSmsTemplateResponseBody extends $dara.Model {
     }
     if(this.moreDataFileUrlList && typeof (this.moreDataFileUrlList as any).validate === 'function') {
       (this.moreDataFileUrlList as any).validate();
+    }
+    if(this.signList && typeof (this.signList as any).validate === 'function') {
+      (this.signList as any).validate();
     }
     if(this.vendorAuditStatus) {
       $dara.Model.validateMap(this.vendorAuditStatus);

@@ -71,6 +71,14 @@ export class GetSmsTemplateListResponseBodyDataList extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
+   * 模板内容
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  templateContent?: string;
+  /**
+   * @remarks
    * 模板名称
    * 
    * @example
@@ -109,6 +117,7 @@ export class GetSmsTemplateListResponseBodyDataList extends $dara.Model {
       gmtCreate: 'GmtCreate',
       signName: 'SignName',
       templateCode: 'TemplateCode',
+      templateContent: 'TemplateContent',
       templateName: 'TemplateName',
       templateTag: 'TemplateTag',
       templateType: 'TemplateType',
@@ -123,6 +132,7 @@ export class GetSmsTemplateListResponseBodyDataList extends $dara.Model {
       gmtCreate: 'string',
       signName: 'string',
       templateCode: 'string',
+      templateContent: 'string',
       templateName: 'string',
       templateTag: { 'type': 'array', 'itemType': GetSmsTemplateListResponseBodyDataListTemplateTag },
       templateType: 'number',
