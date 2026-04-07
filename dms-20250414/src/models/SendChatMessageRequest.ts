@@ -98,6 +98,62 @@ export class SendChatMessageRequestDataSource extends $dara.Model {
   }
 }
 
+export class SendChatMessageRequestDataSources extends $dara.Model {
+  dataSourceId?: string;
+  dataSourceType?: string;
+  database?: string;
+  dbName?: string;
+  dmsDatabaseId?: string;
+  dmsInstanceId?: string;
+  engine?: string;
+  fileId?: string;
+  location?: string;
+  regionId?: string;
+  tables?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      dataSourceType: 'DataSourceType',
+      database: 'Database',
+      dbName: 'DbName',
+      dmsDatabaseId: 'DmsDatabaseId',
+      dmsInstanceId: 'DmsInstanceId',
+      engine: 'Engine',
+      fileId: 'FileId',
+      location: 'Location',
+      regionId: 'RegionId',
+      tables: 'Tables',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      dataSourceType: 'string',
+      database: 'string',
+      dbName: 'string',
+      dmsDatabaseId: 'string',
+      dmsInstanceId: 'string',
+      engine: 'string',
+      fileId: 'string',
+      location: 'string',
+      regionId: 'string',
+      tables: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tables)) {
+      $dara.Model.validateArray(this.tables);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendChatMessageRequestSessionConfig extends $dara.Model {
   /**
    * @example
@@ -157,6 +213,7 @@ export class SendChatMessageRequest extends $dara.Model {
    */
   DMSUnit?: string;
   dataSource?: SendChatMessageRequestDataSource;
+  dataSources?: SendChatMessageRequestDataSources[];
   /**
    * @remarks
    * This parameter is required.
@@ -200,6 +257,7 @@ export class SendChatMessageRequest extends $dara.Model {
       agentId: 'AgentId',
       DMSUnit: 'DMSUnit',
       dataSource: 'DataSource',
+      dataSources: 'DataSources',
       message: 'Message',
       messageType: 'MessageType',
       parentSessionId: 'ParentSessionId',
@@ -216,6 +274,7 @@ export class SendChatMessageRequest extends $dara.Model {
       agentId: 'string',
       DMSUnit: 'string',
       dataSource: SendChatMessageRequestDataSource,
+      dataSources: { 'type': 'array', 'itemType': SendChatMessageRequestDataSources },
       message: 'string',
       messageType: 'string',
       parentSessionId: 'string',
@@ -230,6 +289,9 @@ export class SendChatMessageRequest extends $dara.Model {
   validate() {
     if(this.dataSource && typeof (this.dataSource as any).validate === 'function') {
       (this.dataSource as any).validate();
+    }
+    if(Array.isArray(this.dataSources)) {
+      $dara.Model.validateArray(this.dataSources);
     }
     if(this.sessionConfig && typeof (this.sessionConfig as any).validate === 'function') {
       (this.sessionConfig as any).validate();

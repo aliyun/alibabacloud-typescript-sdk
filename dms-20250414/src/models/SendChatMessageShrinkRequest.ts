@@ -17,6 +17,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
    */
   DMSUnit?: string;
   dataSourceShrink?: string;
+  dataSourcesShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -60,6 +61,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
       agentId: 'AgentId',
       DMSUnit: 'DMSUnit',
       dataSourceShrink: 'DataSource',
+      dataSourcesShrink: 'DataSources',
       message: 'Message',
       messageType: 'MessageType',
       parentSessionId: 'ParentSessionId',
@@ -76,6 +78,7 @@ export class SendChatMessageShrinkRequest extends $dara.Model {
       agentId: 'string',
       DMSUnit: 'string',
       dataSourceShrink: 'string',
+      dataSourcesShrink: 'string',
       message: 'string',
       messageType: 'string',
       parentSessionId: 'string',

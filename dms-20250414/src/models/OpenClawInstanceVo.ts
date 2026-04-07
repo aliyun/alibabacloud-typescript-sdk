@@ -44,6 +44,7 @@ export class OpenClawInstanceVO extends $dara.Model {
   authType?: string;
   basicAuthPassword?: string;
   basicAuthUsername?: string;
+  chargeType?: string;
   cpu?: number;
   gmtCreate?: string;
   gmtModified?: string;
@@ -53,6 +54,7 @@ export class OpenClawInstanceVO extends $dara.Model {
   instanceName?: string;
   instanceRegion?: string;
   lastActiveTime?: string;
+  lockTime?: string;
   memorySize?: number;
   openclawToken?: string;
   ownerUid?: string;
@@ -60,6 +62,7 @@ export class OpenClawInstanceVO extends $dara.Model {
   status?: number;
   statusDesc?: string;
   statusMessage?: string;
+  trialExpireTime?: string;
   variables?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,6 +70,7 @@ export class OpenClawInstanceVO extends $dara.Model {
       authType: 'AuthType',
       basicAuthPassword: 'BasicAuthPassword',
       basicAuthUsername: 'BasicAuthUsername',
+      chargeType: 'ChargeType',
       cpu: 'Cpu',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
@@ -76,6 +80,7 @@ export class OpenClawInstanceVO extends $dara.Model {
       instanceName: 'InstanceName',
       instanceRegion: 'InstanceRegion',
       lastActiveTime: 'LastActiveTime',
+      lockTime: 'LockTime',
       memorySize: 'MemorySize',
       openclawToken: 'OpenclawToken',
       ownerUid: 'OwnerUid',
@@ -83,6 +88,7 @@ export class OpenClawInstanceVO extends $dara.Model {
       status: 'Status',
       statusDesc: 'StatusDesc',
       statusMessage: 'StatusMessage',
+      trialExpireTime: 'TrialExpireTime',
       variables: 'Variables',
     };
   }
@@ -93,6 +99,7 @@ export class OpenClawInstanceVO extends $dara.Model {
       authType: 'string',
       basicAuthPassword: 'string',
       basicAuthUsername: 'string',
+      chargeType: 'string',
       cpu: 'number',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -102,6 +109,7 @@ export class OpenClawInstanceVO extends $dara.Model {
       instanceName: 'string',
       instanceRegion: 'string',
       lastActiveTime: 'string',
+      lockTime: 'string',
       memorySize: 'number',
       openclawToken: 'string',
       ownerUid: 'string',
@@ -109,6 +117,7 @@ export class OpenClawInstanceVO extends $dara.Model {
       status: 'number',
       statusDesc: 'string',
       statusMessage: 'string',
+      trialExpireTime: 'string',
       variables: 'string',
     };
   }

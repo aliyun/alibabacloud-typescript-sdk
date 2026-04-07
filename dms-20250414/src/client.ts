@@ -3671,6 +3671,10 @@ export default class Client extends OpenApi {
       request.dataSourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSource, "DataSource", "json");
     }
 
+    if (!$dara.isNull(tmpReq.dataSources)) {
+      request.dataSourcesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSources, "DataSources", "json");
+    }
+
     if (!$dara.isNull(tmpReq.sessionConfig)) {
       request.sessionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sessionConfig, "SessionConfig", "json");
     }
@@ -3686,6 +3690,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dataSourceShrink)) {
       query["DataSource"] = request.dataSourceShrink;
+    }
+
+    if (!$dara.isNull(request.dataSourcesShrink)) {
+      query["DataSources"] = request.dataSourcesShrink;
     }
 
     if (!$dara.isNull(request.message)) {
