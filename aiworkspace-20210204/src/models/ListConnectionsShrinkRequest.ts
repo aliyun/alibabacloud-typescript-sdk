@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListConnectionsShrinkRequest extends $dara.Model {
+  accessibility?: string;
   /**
    * @remarks
    * The list of connection IDs.
@@ -101,6 +102,7 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       connectionIdsShrink: 'ConnectionIds',
       connectionName: 'ConnectionName',
       connectionTypesShrink: 'ConnectionTypes',
@@ -119,6 +121,7 @@ export class ListConnectionsShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       connectionIdsShrink: 'string',
       connectionName: 'string',
       connectionTypesShrink: 'string',

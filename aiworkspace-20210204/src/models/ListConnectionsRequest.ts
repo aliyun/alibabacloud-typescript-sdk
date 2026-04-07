@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListConnectionsRequest extends $dara.Model {
+  accessibility?: string;
   /**
    * @remarks
    * The list of connection IDs.
@@ -101,6 +102,7 @@ export class ListConnectionsRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessibility: 'Accessibility',
       connectionIds: 'ConnectionIds',
       connectionName: 'ConnectionName',
       connectionTypes: 'ConnectionTypes',
@@ -119,6 +121,7 @@ export class ListConnectionsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessibility: 'string',
       connectionIds: { 'type': 'array', 'itemType': 'string' },
       connectionName: 'string',
       connectionTypes: { 'type': 'array', 'itemType': 'string' },

@@ -3595,6 +3595,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      query["Accessibility"] = request.accessibility;
+    }
+
     if (!$dara.isNull(request.connectionIdsShrink)) {
       query["ConnectionIds"] = request.connectionIdsShrink;
     }
