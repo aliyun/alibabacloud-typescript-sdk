@@ -15,7 +15,7 @@ export class RevokeInstanceFromCenRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The user ID (UID) of the Apsara Stack tenant account to which the CEN instance belongs.
+   * The user ID (UID) of the Alibaba Cloud account to which the CEN instance belongs.
    * 
    * This parameter is required.
    * 

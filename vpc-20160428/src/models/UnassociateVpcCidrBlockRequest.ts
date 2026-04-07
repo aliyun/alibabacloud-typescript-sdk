@@ -7,7 +7,8 @@ export class UnassociateVpcCidrBlockRequest extends $dara.Model {
    * @remarks
    * The secondary IPv6 CIDR block to be deleted.
    * 
-   * >  You must set one of the **Ipv6CidrBlock** and **SecondaryCidrBlock** parameters.
+   * > 
+   * > - You must set one of the Ipv6CidrBlock and SecondaryCidrBlock parameters.
    * 
    * @example
    * 2408:XXXX:0:6a::/56
@@ -19,12 +20,12 @@ export class UnassociateVpcCidrBlockRequest extends $dara.Model {
    * @remarks
    * The region ID of the VPC to which the secondary CIDR block to be deleted belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * ch-hangzhou
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -33,7 +34,8 @@ export class UnassociateVpcCidrBlockRequest extends $dara.Model {
    * @remarks
    * The secondary IPv4 CIDR block to be deleted.
    * 
-   * >  You must set one of the **SecondaryCidrBlock** and **Ipv6CidrBlock** parameters.
+   * > 
+   * > - You must set one of the SecondaryCidrBlock and Ipv6CidrBlock parameters.
    * 
    * @example
    * 192.168.0.0/16

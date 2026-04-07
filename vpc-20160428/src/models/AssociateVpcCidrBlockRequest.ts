@@ -66,7 +66,7 @@ export class AssociateVpcCidrBlockRequest extends $dara.Model {
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * @example
-   * ch-hangzhou
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -83,7 +83,7 @@ export class AssociateVpcCidrBlockRequest extends $dara.Model {
    * *   The CIDR block cannot start with 0. The subnet mask must be 8 to 28 bits in length.
    * *   The CIDR block cannot overlap with the primary CIDR block or an existing secondary CIDR block of the VPC.
    * 
-   * >  You must and can specify only one of **SecondaryCidrBlock** and **Ipv6CidrBlock**.
+   * >  You must and can specify only one of **SecondaryCidrBlock** and **IPv6CidrBlock**.
    * 
    * @example
    * 192.168.0.0/16

@@ -27,7 +27,7 @@ export class ModifyVpcAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the DNS hostname feature is enabled. Valid values:
+   * Specifies whether to enable the DNS hostname feature. Valid values:
    * 
    * *   **false** (default): disabled.
    * *   **true**: enabled.

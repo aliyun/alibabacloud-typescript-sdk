@@ -111,7 +111,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * The CIDR block of the vSwitch.
    * 
    * @example
-   * 192.168.0.1/24
+   * 192.168.0.0/24
    */
   cidrBlock?: string;
   /**
@@ -136,6 +136,8 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * 
    * *   **true**
    * *   **false**
+   * 
+   * This field is returned only when IPv6 is enabled for the vSwitch.
    * 
    * @example
    * true
@@ -165,7 +167,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * The network access control list (ACL) rules.
    * 
    * @example
-   * 1
+   * nacl-bp1fg655nh68xyz9****
    */
   networkAclId?: string;
   /**
@@ -173,7 +175,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * The ID of the Alibaba Cloud account to which the resource belongs.
    * 
    * @example
-   * 287683832402436789
+   * 28768383240243****
    */
   ownerId?: number;
   /**

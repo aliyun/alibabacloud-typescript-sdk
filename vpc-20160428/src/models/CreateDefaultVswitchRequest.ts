@@ -34,7 +34,7 @@ export class CreateDefaultVSwitchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-hangzhou
+   * ap-southeast-1
    */
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -48,7 +48,7 @@ export class CreateDefaultVSwitchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-hangzhou-b
+   * ap-southeast-1a
    */
   zoneId?: string;
   static names(): { [key: string]: string } {
