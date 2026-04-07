@@ -1141,6 +1141,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建mem0
+   * 
+   * @param request - CreateMem0Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMem0Response
+   */
+  async createMem0WithOptions(request: $_model.CreateMem0Request, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMem0Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMem0",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMem0Response>(await this.callApi(params, req, runtime), new $_model.CreateMem0Response({}));
+  }
+
+  /**
+   * 创建mem0
+   * 
+   * @param request - CreateMem0Request
+   * @returns CreateMem0Response
+   */
+  async createMem0(request: $_model.CreateMem0Request): Promise<$_model.CreateMem0Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMem0WithOptions(request, runtime);
+  }
+
+  /**
    * 创建评估预检任务
    * 
    * @param request - CreateRplInspectionTaskRequest
@@ -1804,6 +1850,52 @@ export default class Client extends OpenApi {
   async deleteGdnInstance(request: $_model.DeleteGdnInstanceRequest): Promise<$_model.DeleteGdnInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteGdnInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除mem0
+   * 
+   * @param request - DeleteMem0Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMem0Response
+   */
+  async deleteMem0WithOptions(request: $_model.DeleteMem0Request, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMem0Response> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMem0",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMem0Response>(await this.callApi(params, req, runtime), new $_model.DeleteMem0Response({}));
+  }
+
+  /**
+   * 删除mem0
+   * 
+   * @param request - DeleteMem0Request
+   * @returns DeleteMem0Response
+   */
+  async deleteMem0(request: $_model.DeleteMem0Request): Promise<$_model.DeleteMem0Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMem0WithOptions(request, runtime);
   }
 
   /**
@@ -3630,6 +3722,52 @@ export default class Client extends OpenApi {
   async describeGdnInstances(request: $_model.DescribeGdnInstancesRequest): Promise<$_model.DescribeGdnInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeGdnInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询mem0实例信息
+   * 
+   * @param request - DescribeMem0InfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMem0InfoResponse
+   */
+  async describeMem0InfoWithOptions(request: $_model.DescribeMem0InfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMem0InfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMem0Info",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMem0InfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMem0InfoResponse({}));
+  }
+
+  /**
+   * 查询mem0实例信息
+   * 
+   * @param request - DescribeMem0InfoRequest
+   * @returns DescribeMem0InfoResponse
+   */
+  async describeMem0Info(request: $_model.DescribeMem0InfoRequest): Promise<$_model.DescribeMem0InfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMem0InfoWithOptions(request, runtime);
   }
 
   /**
