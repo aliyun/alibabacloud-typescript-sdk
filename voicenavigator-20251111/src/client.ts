@@ -138,6 +138,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建场景配置
+   * 
+   * @param tmpReq - CreateScriptVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateScriptVersionResponse
+   */
+  async createScriptVersionWithOptions(tmpReq: $_model.CreateScriptVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateScriptVersionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateScriptVersionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.interactionConfig)) {
+      request.interactionConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interactionConfig, "InteractionConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.labelConfig)) {
+      request.labelConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelConfig, "LabelConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.scriptProfile)) {
+      request.scriptProfileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scriptProfile, "ScriptProfile", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.synthesizerConfig)) {
+      request.synthesizerConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.synthesizerConfig, "SynthesizerConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.transcriberConfig)) {
+      request.transcriberConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transcriberConfig, "TranscriberConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.interactionConfigShrink)) {
+      body["InteractionConfig"] = request.interactionConfigShrink;
+    }
+
+    if (!$dara.isNull(request.labelConfigShrink)) {
+      body["LabelConfig"] = request.labelConfigShrink;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.scriptProfileShrink)) {
+      body["ScriptProfile"] = request.scriptProfileShrink;
+    }
+
+    if (!$dara.isNull(request.sourceVersionId)) {
+      body["SourceVersionId"] = request.sourceVersionId;
+    }
+
+    if (!$dara.isNull(request.synthesizerConfigShrink)) {
+      body["SynthesizerConfig"] = request.synthesizerConfigShrink;
+    }
+
+    if (!$dara.isNull(request.transcriberConfigShrink)) {
+      body["TranscriberConfig"] = request.transcriberConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateScriptVersion",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateScriptVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateScriptVersionResponse({}));
+  }
+
+  /**
+   * 创建场景配置
+   * 
+   * @param request - CreateScriptVersionRequest
+   * @returns CreateScriptVersionResponse
+   */
+  async createScriptVersion(request: $_model.CreateScriptVersionRequest): Promise<$_model.CreateScriptVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createScriptVersionWithOptions(request, runtime);
+  }
+
+  /**
    * 创建变量
    * 
    * @param request - CreateVariableRequest
@@ -678,6 +770,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例详情
+   * 
+   * @param request - GenerateFileUploadParamsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateFileUploadParamsResponse
+   */
+  async generateFileUploadParamsWithOptions(request: $_model.GenerateFileUploadParamsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateFileUploadParamsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessType)) {
+      body["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateFileUploadParams",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateFileUploadParamsResponse>(await this.callApi(params, req, runtime), new $_model.GenerateFileUploadParamsResponse({}));
+  }
+
+  /**
+   * 获取实例详情
+   * 
+   * @param request - GenerateFileUploadParamsRequest
+   * @returns GenerateFileUploadParamsResponse
+   */
+  async generateFileUploadParams(request: $_model.GenerateFileUploadParamsRequest): Promise<$_model.GenerateFileUploadParamsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateFileUploadParamsWithOptions(request, runtime);
+  }
+
+  /**
    * 获取通话详情
    * 
    * @param request - GetCallDetailRecordRequest
@@ -724,6 +866,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例实时指标
+   * 
+   * @param request - GetRealtimeInstanceStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRealtimeInstanceStatsResponse
+   */
+  async getRealtimeInstanceStatsWithOptions(request: $_model.GetRealtimeInstanceStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRealtimeInstanceStatsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRealtimeInstanceStats",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRealtimeInstanceStatsResponse>(await this.callApi(params, req, runtime), new $_model.GetRealtimeInstanceStatsResponse({}));
+  }
+
+  /**
+   * 获取实例实时指标
+   * 
+   * @param request - GetRealtimeInstanceStatsRequest
+   * @returns GetRealtimeInstanceStatsResponse
+   */
+  async getRealtimeInstanceStats(request: $_model.GetRealtimeInstanceStatsRequest): Promise<$_model.GetRealtimeInstanceStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRealtimeInstanceStatsWithOptions(request, runtime);
+  }
+
+  /**
    * 获取录音
    * 
    * @param request - GetRecordingRequest
@@ -767,6 +951,52 @@ export default class Client extends OpenApi {
   async getRecording(request: $_model.GetRecordingRequest): Promise<$_model.GetRecordingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getRecordingWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例详情
+   * 
+   * @param request - GetScriptRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScriptResponse
+   */
+  async getScriptWithOptions(request: $_model.GetScriptRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetScriptResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScript",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScriptResponse>(await this.callApi(params, req, runtime), new $_model.GetScriptResponse({}));
+  }
+
+  /**
+   * 获取实例详情
+   * 
+   * @param request - GetScriptRequest
+   * @returns GetScriptResponse
+   */
+  async getScript(request: $_model.GetScriptRequest): Promise<$_model.GetScriptResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getScriptWithOptions(request, runtime);
   }
 
   /**
@@ -951,6 +1181,128 @@ export default class Client extends OpenApi {
   async listBackgroundMusics(request: $_model.ListBackgroundMusicsRequest): Promise<$_model.ListBackgroundMusicsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBackgroundMusicsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例详情
+   * 
+   * @param tmpReq - ListCallDetailRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCallDetailRecordsResponse
+   */
+  async listCallDetailRecordsWithOptions(tmpReq: $_model.ListCallDetailRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCallDetailRecordsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListCallDetailRecordsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dispositionCodes)) {
+      request.dispositionCodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dispositionCodes, "DispositionCodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.dispositionReasons)) {
+      request.dispositionReasonsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dispositionReasons, "DispositionReasons", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.sessionIds)) {
+      request.sessionIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sessionIds, "SessionIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.accessChannelId)) {
+      query["AccessChannelId"] = request.accessChannelId;
+    }
+
+    if (!$dara.isNull(request.accessChannelType)) {
+      query["AccessChannelType"] = request.accessChannelType;
+    }
+
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.issueResolved)) {
+      query["IssueResolved"] = request.issueResolved;
+    }
+
+    if (!$dara.isNull(request.maxTalkTurns)) {
+      query["MaxTalkTurns"] = request.maxTalkTurns;
+    }
+
+    if (!$dara.isNull(request.minTalkTurns)) {
+      query["MinTalkTurns"] = request.minTalkTurns;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callee)) {
+      body["Callee"] = request.callee;
+    }
+
+    if (!$dara.isNull(request.caller)) {
+      body["Caller"] = request.caller;
+    }
+
+    if (!$dara.isNull(request.dispositionCodesShrink)) {
+      body["DispositionCodes"] = request.dispositionCodesShrink;
+    }
+
+    if (!$dara.isNull(request.dispositionReasonsShrink)) {
+      body["DispositionReasons"] = request.dispositionReasonsShrink;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionIdsShrink)) {
+      body["SessionIds"] = request.sessionIdsShrink;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCallDetailRecords",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCallDetailRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ListCallDetailRecordsResponse({}));
+  }
+
+  /**
+   * 获取实例详情
+   * 
+   * @param request - ListCallDetailRecordsRequest
+   * @returns ListCallDetailRecordsResponse
+   */
+  async listCallDetailRecords(request: $_model.ListCallDetailRecordsRequest): Promise<$_model.ListCallDetailRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCallDetailRecordsWithOptions(request, runtime);
   }
 
   /**
