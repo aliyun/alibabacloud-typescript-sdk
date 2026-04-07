@@ -93,6 +93,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
    * 1733292921000
    */
   beginTime?: number;
+  enableAiFunction?: boolean;
   /**
    * @example
    * true
@@ -223,6 +224,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
       aclId: 'AclId',
       architecture: 'Architecture',
       beginTime: 'BeginTime',
+      enableAiFunction: 'EnableAiFunction',
       enableAutoMinorVersionUpgrade: 'EnableAutoMinorVersionUpgrade',
       enableSSL: 'EnableSSL',
       enabledAuditLoader: 'EnabledAuditLoader',
@@ -257,6 +259,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
       aclId: 'string',
       architecture: 'string',
       beginTime: 'number',
+      enableAiFunction: 'boolean',
       enableAutoMinorVersionUpgrade: 'boolean',
       enableSSL: 'boolean',
       enabledAuditLoader: 'boolean',
