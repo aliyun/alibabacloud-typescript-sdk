@@ -68,6 +68,7 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
    * 200
    */
   httpStatusCode?: number;
+  outerFileUrl?: string;
   /**
    * @example
    * C166D79D-436B-45F0-B5A5-25E1959F****
@@ -87,6 +88,7 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
       errMessage: 'ErrMessage',
       fileUrl: 'FileUrl',
       httpStatusCode: 'HttpStatusCode',
+      outerFileUrl: 'OuterFileUrl',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -101,6 +103,7 @@ export class DescribeDocParserJobResultResponseBody extends $dara.Model {
       errMessage: 'string',
       fileUrl: 'string',
       httpStatusCode: 'number',
+      outerFileUrl: 'string',
       requestId: 'string',
       success: 'boolean',
     };
