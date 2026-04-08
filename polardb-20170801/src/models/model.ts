@@ -3,6 +3,7 @@ export { CreateAINodesRequestDBNodes } from './CreateAinodesRequest';
 export { CreateApplicationRequestComponents } from './CreateApplicationRequest';
 export { CreateApplicationRequestEndpoints } from './CreateApplicationRequest';
 export { CreateApplicationRequestMemApplicationSpec } from './CreateApplicationRequest';
+export { CreateApplicationRequestParameters } from './CreateApplicationRequest';
 export { CreateApplicationRequestTag } from './CreateApplicationRequest';
 export { CreateApplicationShrinkRequestTag } from './CreateApplicationShrinkRequest';
 export { CreateApplicationResponseBodyComponents } from './CreateApplicationResponseBody';

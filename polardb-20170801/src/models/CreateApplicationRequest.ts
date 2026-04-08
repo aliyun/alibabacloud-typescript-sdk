@@ -168,6 +168,32 @@ export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   }
 }
 
+export class CreateApplicationRequestParameters extends $dara.Model {
+  parameterName?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterName: 'ParameterName',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterName: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationRequestTag extends $dara.Model {
   /**
    * @example
@@ -285,6 +311,7 @@ export class CreateApplicationRequest extends $dara.Model {
    * qwen3-max
    */
   modelName?: string;
+  parameters?: CreateApplicationRequestParameters[];
   /**
    * @example
    * Postpaid
@@ -364,6 +391,7 @@ export class CreateApplicationRequest extends $dara.Model {
       modelBaseUrl: 'ModelBaseUrl',
       modelFrom: 'ModelFrom',
       modelName: 'ModelName',
+      parameters: 'Parameters',
       payType: 'PayType',
       period: 'Period',
       polarFSInstanceId: 'PolarFSInstanceId',
@@ -406,6 +434,7 @@ export class CreateApplicationRequest extends $dara.Model {
       modelBaseUrl: 'string',
       modelFrom: 'string',
       modelName: 'string',
+      parameters: { 'type': 'array', 'itemType': CreateApplicationRequestParameters },
       payType: 'string',
       period: 'string',
       polarFSInstanceId: 'string',
@@ -435,6 +464,9 @@ export class CreateApplicationRequest extends $dara.Model {
     }
     if(this.memApplicationSpec && typeof (this.memApplicationSpec as any).validate === 'function') {
       (this.memApplicationSpec as any).validate();
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);

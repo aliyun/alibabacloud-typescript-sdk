@@ -1765,6 +1765,10 @@ export default class Client extends OpenApi {
       request.memApplicationSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memApplicationSpec, "MemApplicationSpec", "json");
     }
 
+    if (!$dara.isNull(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.AIDBClusterId)) {
       query["AIDBClusterId"] = request.AIDBClusterId;
@@ -1844,6 +1848,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.modelName)) {
       query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
     }
 
     if (!$dara.isNull(request.payType)) {

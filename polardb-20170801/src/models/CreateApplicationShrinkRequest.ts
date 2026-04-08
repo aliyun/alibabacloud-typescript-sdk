@@ -119,6 +119,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    * qwen3-max
    */
   modelName?: string;
+  parametersShrink?: string;
   /**
    * @example
    * Postpaid
@@ -198,6 +199,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       modelBaseUrl: 'ModelBaseUrl',
       modelFrom: 'ModelFrom',
       modelName: 'ModelName',
+      parametersShrink: 'Parameters',
       payType: 'PayType',
       period: 'Period',
       polarFSInstanceId: 'PolarFSInstanceId',
@@ -240,6 +242,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       modelBaseUrl: 'string',
       modelFrom: 'string',
       modelName: 'string',
+      parametersShrink: 'string',
       payType: 'string',
       period: 'string',
       polarFSInstanceId: 'string',
