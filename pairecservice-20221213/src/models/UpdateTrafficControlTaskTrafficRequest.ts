@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateTrafficControlTaskTrafficRequestTraffics extends $dara.Model {
+  /**
+   * @example
+   * item1
+   */
   itemOrExperimentId?: string;
+  /**
+   * @example
+   * 2024-01-01T02:05:06.111Z
+   */
   recordTime?: string;
+  /**
+   * @example
+   * 10.0
+   */
   trafficControlTargetAimTraffic?: number;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTargetId?: string;
+  /**
+   * @example
+   * 100000
+   */
   trafficControlTargetTraffic?: number;
+  /**
+   * @example
+   * 1000000
+   */
   trafficControlTaskTraffic?: number;
   static names(): { [key: string]: string } {
     return {
@@ -41,9 +65,21 @@ export class UpdateTrafficControlTaskTrafficRequestTraffics extends $dara.Model 
 }
 
 export class UpdateTrafficControlTaskTrafficRequest extends $dara.Model {
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @example
+   * learn-pairec-cn-xxx
+   */
   instanceId?: string;
   traffics?: UpdateTrafficControlTaskTrafficRequestTraffics[];
+  /**
+   * @example
+   * null
+   */
   newParam3?: string;
   static names(): { [key: string]: string } {
     return {

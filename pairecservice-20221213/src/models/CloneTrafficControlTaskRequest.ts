@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CloneTrafficControlTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * pairec_123****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {

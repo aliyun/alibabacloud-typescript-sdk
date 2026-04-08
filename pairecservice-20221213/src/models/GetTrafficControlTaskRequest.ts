@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTrafficControlTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * All
+   */
   controlTargetFilter?: string;
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @example
+   * pairec-1324***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * Latest
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {

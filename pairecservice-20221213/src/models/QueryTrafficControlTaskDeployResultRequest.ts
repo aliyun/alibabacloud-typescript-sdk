@@ -2,24 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateTrafficControlTaskResponseBody extends $dara.Model {
+export class QueryTrafficControlTaskDeployResultRequest extends $dara.Model {
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
-   * 6CF1E160-3F36-5E73-A170-C75504F05BBC
+   * Daily
    */
-  requestId?: string;
+  environment?: string;
+  /**
+   * @example
+   * pairec_123****
+   */
+  instanceId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      environment: 'Environment',
+      instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      environment: 'string',
+      instanceId: 'string',
     };
   }
 

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTrafficControlTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * pairec-1324***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {

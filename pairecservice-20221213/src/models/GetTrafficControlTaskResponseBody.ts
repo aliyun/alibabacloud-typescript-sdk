@@ -41,23 +41,91 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts ex
 }
 
 export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dara.Model {
+  /**
+   * @example
+   * 2024-04-25
+   */
   endTime?: string;
+  /**
+   * @example
+   * click
+   */
   event?: string;
+  /**
+   * @example
+   * 2024-03-25T06:04:28.441Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2024-03-25T06:04:28.441Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * [{"field":"status","option":"=","value":"1"}]
+   */
   itemConditionArray?: string;
+  /**
+   * @example
+   * status=1
+   */
   itemConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   itemConditionType?: string;
+  /**
+   * @example
+   * target-1
+   */
   name?: string;
+  /**
+   * @example
+   * false
+   */
   newProductRegulation?: boolean;
+  /**
+   * @example
+   * recall-1
+   */
   recallName?: string;
   splitParts?: GetTrafficControlTaskResponseBodyTrafficControlTargetsSplitParts;
+  /**
+   * @example
+   * 2024-03-25
+   */
   startTime?: string;
+  /**
+   * @example
+   * Daily
+   */
   statisPeriod?: string;
+  /**
+   * @example
+   * Opened
+   */
   status?: string;
+  /**
+   * @example
+   * 10
+   */
   toleranceValue?: number;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTargetId?: string;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTaskId?: string;
+  /**
+   * @example
+   * 30
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -118,43 +186,179 @@ export class GetTrafficControlTaskResponseBodyTrafficControlTargets extends $dar
 }
 
 export class GetTrafficControlTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   behaviorTableMetaId?: string;
+  /**
+   * @example
+   * Global
+   */
   controlGranularity?: string;
+  /**
+   * @example
+   * Guaranteed
+   */
   controlLogic?: string;
+  /**
+   * @example
+   * Percent
+   */
   controlType?: string;
+  /**
+   * @example
+   * this is a test task
+   */
   description?: string;
   effectiveSceneIds?: number[];
   effectiveSceneNames?: string[];
+  /**
+   * @example
+   * 2024-04-25
+   */
   endTime?: string;
+  /**
+   * @example
+   * true
+   */
   everPublished?: boolean;
+  /**
+   * @example
+   * Permanent
+   */
   executionTime?: string;
+  /**
+   * @example
+   * resource-xxx
+   */
   flinkResourceId?: string;
+  /**
+   * @example
+   * flink_test
+   */
   flinkResourceName?: string;
+  /**
+   * @example
+   * 2024-01-11T02:27:38.208Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2024-01-11T02:27:38.208Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * [{"field":"status","option":"=","value":"1"}]
+   */
   itemConditionArray?: string;
+  /**
+   * @example
+   * status=1
+   */
   itemConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   itemConditionType?: string;
+  /**
+   * @example
+   * 3
+   */
   itemTableMetaId?: string;
+  /**
+   * @example
+   * task-1
+   */
   name?: string;
+  /**
+   * @example
+   * 1,2,3
+   */
   preExperimentIds?: string;
+  /**
+   * @example
+   * Running
+   */
   prepubStatus?: string;
+  /**
+   * @example
+   * 4,5,6
+   */
   prodExperimentIds?: string;
+  /**
+   * @example
+   * Running
+   */
   productStatus?: string;
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * 2
+   */
   sceneId?: string;
+  /**
+   * @example
+   * scene-2
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 1
+   */
   serviceId?: string;
   serviceIds?: number[];
+  /**
+   * @example
+   * 2024-03-25
+   */
   startTime?: string;
+  /**
+   * @example
+   * [{"field":"click","option":"<=","value":"30"}]
+   */
   statisBehaviorConditionArray?: string;
+  /**
+   * @example
+   * click=30
+   */
   statisBehaviorConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   statisBehaviorConditionType?: string;
   trafficControlTargets?: GetTrafficControlTaskResponseBodyTrafficControlTargets[];
+  /**
+   * @example
+   * 1
+   */
   trafficControlTaskId?: string;
+  /**
+   * @example
+   * [{"field":"gender","option":"=","value":"male"}]
+   */
   userConditionArray?: string;
+  /**
+   * @example
+   * age<=30&&(3<=level<=6)&&gender=male
+   */
   userConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   userConditionType?: string;
+  /**
+   * @example
+   * 2
+   */
   userTableMetaId?: string;
   static names(): { [key: string]: string } {
     return {

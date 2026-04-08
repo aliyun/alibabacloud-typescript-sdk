@@ -2,57 +2,45 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListTrafficControlTargetTrafficHistoryRequest extends $dara.Model {
+export class QueryTrafficControlTaskItemReportRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 2024-01-10 13:13:20
+   * 2024-01-02 10:30:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * Pre
    */
   environment?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 2
-   */
-  experimentGroupId?: string;
-  /**
-   * @example
-   * ER_All
-   */
-  experimentId?: string;
-  /**
-   * @example
-   * pairec-1324***
+   * pairec_123****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 1001
-   */
-  itemId?: string;
-  /**
-   * @example
-   * 2024-01-01 13:13:20
+   * 2024-01-01 10:30:00
    */
   startTime?: string;
-  /**
-   * @example
-   * 20
-   */
-  threshold?: string;
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
       environment: 'Environment',
-      experimentGroupId: 'ExperimentGroupId',
-      experimentId: 'ExperimentId',
       instanceId: 'InstanceId',
-      itemId: 'ItemId',
       startTime: 'StartTime',
-      threshold: 'Threshold',
     };
   }
 
@@ -60,12 +48,8 @@ export class ListTrafficControlTargetTrafficHistoryRequest extends $dara.Model {
     return {
       endTime: 'string',
       environment: 'string',
-      experimentGroupId: 'string',
-      experimentId: 'string',
       instanceId: 'string',
-      itemId: 'string',
       startTime: 'string',
-      threshold: 'string',
     };
   }
 

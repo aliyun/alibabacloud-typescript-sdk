@@ -4,8 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails extends $dara.Model {
   features?: { [key: string]: any };
+  /**
+   * @example
+   * 794872809896
+   */
   itemId?: string;
+  /**
+   * @example
+   * 49%
+   */
   targetProgress?: string;
+  /**
+   * @example
+   * 20
+   */
   targetTraffic?: number;
   static names(): { [key: string]: string } {
     return {
@@ -39,8 +51,20 @@ export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControl
 
 export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails extends $dara.Model {
   features?: { [key: string]: any };
+  /**
+   * @example
+   * 398734
+   */
   itemId?: string;
+  /**
+   * @example
+   * 49%
+   */
   targetProgress?: string;
+  /**
+   * @example
+   * 20
+   */
   targetTraffic?: number;
   static names(): { [key: string]: string } {
     return {
@@ -105,6 +129,10 @@ export class QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControl
 }
 
 export class QueryTrafficControlTargetItemReportDetailResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
   trafficControlTargetItemReportDetail?: QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail;
   static names(): { [key: string]: string } {

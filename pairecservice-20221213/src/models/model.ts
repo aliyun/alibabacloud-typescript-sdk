@@ -112,6 +112,7 @@ export { QuerySampleConsistencyJobDifferenceResponseBodyStringFeatureDifferences
 export { QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTailReportDetails } from './QueryTrafficControlTargetItemReportDetailResponseBody';
 export { QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetailItemControlTopReportDetails } from './QueryTrafficControlTargetItemReportDetailResponseBody';
 export { QueryTrafficControlTargetItemReportDetailResponseBodyTrafficControlTargetItemReportDetail } from './QueryTrafficControlTargetItemReportDetailResponseBody';
+export { QueryTrafficControlTaskItemReportResponseBodyTrafficControlTaskItemReports } from './QueryTrafficControlTaskItemReportResponseBody';
 export { ReportSampleConsistencyJobResponseBodyFeaturesDifference } from './ReportSampleConsistencyJobResponseBody';
 export { UpdateRecallManagementConfigRequestNetworkConfigs } from './UpdateRecallManagementConfigRequest';
 export { UpdateRecallManagementServiceVersionConfigRequestMergeConfig } from './UpdateRecallManagementServiceVersionConfigRequest';
@@ -321,6 +322,9 @@ export { DeleteTrafficControlTargetResponse } from './DeleteTrafficControlTarget
 export { DeleteTrafficControlTaskRequest } from './DeleteTrafficControlTaskRequest';
 export { DeleteTrafficControlTaskResponseBody } from './DeleteTrafficControlTaskResponseBody';
 export { DeleteTrafficControlTaskResponse } from './DeleteTrafficControlTaskResponse';
+export { DeployTrafficControlTaskCodeRequest } from './DeployTrafficControlTaskCodeRequest';
+export { DeployTrafficControlTaskCodeResponseBody } from './DeployTrafficControlTaskCodeResponseBody';
+export { DeployTrafficControlTaskCodeResponse } from './DeployTrafficControlTaskCodeResponse';
 export { GenerateAlgorithmCustomizationScriptRequest } from './GenerateAlgorithmCustomizationScriptRequest';
 export { GenerateAlgorithmCustomizationScriptResponseBody } from './GenerateAlgorithmCustomizationScriptResponseBody';
 export { GenerateAlgorithmCustomizationScriptResponse } from './GenerateAlgorithmCustomizationScriptResponse';
@@ -562,6 +566,12 @@ export { QuerySampleConsistencyJobDifferenceResponse } from './QuerySampleConsis
 export { QueryTrafficControlTargetItemReportDetailRequest } from './QueryTrafficControlTargetItemReportDetailRequest';
 export { QueryTrafficControlTargetItemReportDetailResponseBody } from './QueryTrafficControlTargetItemReportDetailResponseBody';
 export { QueryTrafficControlTargetItemReportDetailResponse } from './QueryTrafficControlTargetItemReportDetailResponse';
+export { QueryTrafficControlTaskDeployResultRequest } from './QueryTrafficControlTaskDeployResultRequest';
+export { QueryTrafficControlTaskDeployResultResponseBody } from './QueryTrafficControlTaskDeployResultResponseBody';
+export { QueryTrafficControlTaskDeployResultResponse } from './QueryTrafficControlTaskDeployResultResponse';
+export { QueryTrafficControlTaskItemReportRequest } from './QueryTrafficControlTaskItemReportRequest';
+export { QueryTrafficControlTaskItemReportResponseBody } from './QueryTrafficControlTaskItemReportResponseBody';
+export { QueryTrafficControlTaskItemReportResponse } from './QueryTrafficControlTaskItemReportResponse';
 export { ReleaseTrafficControlTaskRequest } from './ReleaseTrafficControlTaskRequest';
 export { ReleaseTrafficControlTaskResponseBody } from './ReleaseTrafficControlTaskResponseBody';
 export { ReleaseTrafficControlTaskResponse } from './ReleaseTrafficControlTaskResponse';

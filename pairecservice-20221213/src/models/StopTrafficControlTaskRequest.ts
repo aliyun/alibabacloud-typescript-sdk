@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StopTrafficControlTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @example
+   * Daily
+   */
   environment?: string;
+  /**
+   * @example
+   * pairec_123****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories extends $dara.Model {
+  /**
+   * @example
+   * E1
+   */
   experimentId?: string;
+  /**
+   * @example
+   * 1001
+   */
   itemId?: string;
+  /**
+   * @example
+   * 2023-10-10 10:10:58
+   */
   recordTime?: string;
+  /**
+   * @example
+   * 30
+   */
   trafficControlTargetAimTraffic?: number;
+  /**
+   * @example
+   * 20
+   */
   trafficControlTargetTraffic?: number;
+  /**
+   * @example
+   * 60
+   */
   trafficControlTaskTraffic?: number;
   static names(): { [key: string]: string } {
     return {
@@ -41,7 +65,15 @@ export class ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTas
 }
 
 export class ListTrafficControlTargetTrafficHistoryResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: string;
   trafficControlTaskTrafficHistories?: ListTrafficControlTargetTrafficHistoryResponseBodyTrafficControlTaskTrafficHistories[];
   static names(): { [key: string]: string } {

@@ -2,13 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateTrafficControlTaskResponseBody extends $dara.Model {
+export class DeployTrafficControlTaskCodeResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
-   * 6CF1E160-3F36-5E73-A170-C75504F05BBC
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
    */
   requestId?: string;
   static names(): { [key: string]: string } {

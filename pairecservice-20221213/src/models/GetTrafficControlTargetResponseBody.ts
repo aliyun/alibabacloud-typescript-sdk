@@ -41,23 +41,87 @@ export class GetTrafficControlTargetResponseBodySplitParts extends $dara.Model {
 }
 
 export class GetTrafficControlTargetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 2024-04-25
+   */
   endTime?: string;
+  /**
+   * @example
+   * click
+   */
   event?: string;
+  /**
+   * @example
+   * 2024-01-03T02:28:00.000Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * [{"field":"status","option":"=","value":"1"}]
+   */
   itemConditionArray?: string;
+  /**
+   * @example
+   * status=1
+   */
   itemConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   itemConditionType?: string;
+  /**
+   * @example
+   * target-1
+   */
   name?: string;
+  /**
+   * @example
+   * false
+   */
   newProductRegulation?: boolean;
+  /**
+   * @example
+   * recall-1
+   */
   recallName?: string;
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
   splitParts?: GetTrafficControlTargetResponseBodySplitParts;
+  /**
+   * @example
+   * 2024-03-25
+   */
   startTime?: string;
+  /**
+   * @example
+   * Daily
+   */
   statisPeriod?: string;
   status?: string;
+  /**
+   * @example
+   * 10
+   */
   toleranceValue?: number;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTargetId?: string;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTaskId?: string;
+  /**
+   * @example
+   * 30
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {

@@ -6,16 +6,25 @@ export class CheckTrafficControlTaskExpressionRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * event=exposure
    */
   expression?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * pairec_123****
    */
   instanceId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   tableMetaId?: string;
   static names(): { [key: string]: string } {

@@ -3946,6 +3946,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 部署流量调控任务的flink code
+   * 
+   * @param request - DeployTrafficControlTaskCodeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeployTrafficControlTaskCodeResponse
+   */
+  async deployTrafficControlTaskCodeWithOptions(TrafficControlTaskId: string, request: $_model.DeployTrafficControlTaskCodeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeployTrafficControlTaskCodeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.environment)) {
+      body["Environment"] = request.environment;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.retryDeploy)) {
+      body["RetryDeploy"] = request.retryDeploy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeployTrafficControlTaskCode",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${$dara.URL.percentEncode(TrafficControlTaskId)}/action/deploycode`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeployTrafficControlTaskCodeResponse>(await this.callApi(params, req, runtime), new $_model.DeployTrafficControlTaskCodeResponse({}));
+  }
+
+  /**
+   * 部署流量调控任务的flink code
+   * 
+   * @param request - DeployTrafficControlTaskCodeRequest
+   * @returns DeployTrafficControlTaskCodeResponse
+   */
+  async deployTrafficControlTaskCode(TrafficControlTaskId: string, request: $_model.DeployTrafficControlTaskCodeRequest): Promise<$_model.DeployTrafficControlTaskCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deployTrafficControlTaskCodeWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
    * 生成算法定制脚本
    * 
    * @param request - GenerateAlgorithmCustomizationScriptRequest
@@ -8169,6 +8222,112 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.queryTrafficControlTargetItemReportDetailWithOptions(TrafficControlTargetId, request, headers, runtime);
+  }
+
+  /**
+   * 获取流量调控任务部署的结果。
+   * 
+   * @param request - QueryTrafficControlTaskDeployResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTrafficControlTaskDeployResultResponse
+   */
+  async queryTrafficControlTaskDeployResultWithOptions(TrafficControlTaskId: string, request: $_model.QueryTrafficControlTaskDeployResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTrafficControlTaskDeployResultResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.environment)) {
+      query["Environment"] = request.environment;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryTrafficControlTaskDeployResult",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${$dara.URL.percentEncode(TrafficControlTaskId)}/action/queryresult`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryTrafficControlTaskDeployResultResponse>(await this.callApi(params, req, runtime), new $_model.QueryTrafficControlTaskDeployResultResponse({}));
+  }
+
+  /**
+   * 获取流量调控任务部署的结果。
+   * 
+   * @param request - QueryTrafficControlTaskDeployResultRequest
+   * @returns QueryTrafficControlTaskDeployResultResponse
+   */
+  async queryTrafficControlTaskDeployResult(TrafficControlTaskId: string, request: $_model.QueryTrafficControlTaskDeployResultRequest): Promise<$_model.QueryTrafficControlTaskDeployResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryTrafficControlTaskDeployResultWithOptions(TrafficControlTaskId, request, headers, runtime);
+  }
+
+  /**
+   * 查询流量调控任务单品调控报表。
+   * 
+   * @param request - QueryTrafficControlTaskItemReportRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTrafficControlTaskItemReportResponse
+   */
+  async queryTrafficControlTaskItemReportWithOptions(TrafficControlTaskId: string, request: $_model.QueryTrafficControlTaskItemReportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTrafficControlTaskItemReportResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.environment)) {
+      query["Environment"] = request.environment;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryTrafficControlTaskItemReport",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/trafficcontroltasks/${$dara.URL.percentEncode(TrafficControlTaskId)}/action/queryitemreport`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryTrafficControlTaskItemReportResponse>(await this.callApi(params, req, runtime), new $_model.QueryTrafficControlTaskItemReportResponse({}));
+  }
+
+  /**
+   * 查询流量调控任务单品调控报表。
+   * 
+   * @param request - QueryTrafficControlTaskItemReportRequest
+   * @returns QueryTrafficControlTaskItemReportResponse
+   */
+  async queryTrafficControlTaskItemReport(TrafficControlTaskId: string, request: $_model.QueryTrafficControlTaskItemReportRequest): Promise<$_model.QueryTrafficControlTaskItemReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryTrafficControlTaskItemReportWithOptions(TrafficControlTaskId, request, headers, runtime);
   }
 
   /**

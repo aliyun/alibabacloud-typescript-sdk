@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTrafficControlTargetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTargetId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -2,24 +2,23 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GenerateTrafficControlTaskCodeRequest extends $dara.Model {
+export class DeployTrafficControlTaskCodeRequest extends $dara.Model {
   /**
    * @example
    * Daily
    */
   environment?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * pairec-test1
    */
   instanceId?: string;
+  retryDeploy?: boolean;
   static names(): { [key: string]: string } {
     return {
       environment: 'Environment',
       instanceId: 'InstanceId',
+      retryDeploy: 'RetryDeploy',
     };
   }
 
@@ -27,6 +26,7 @@ export class GenerateTrafficControlTaskCodeRequest extends $dara.Model {
     return {
       environment: 'string',
       instanceId: 'string',
+      retryDeploy: 'boolean',
     };
   }
 

@@ -3,19 +3,75 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateTrafficControlTargetRequest extends $dara.Model {
+  /**
+   * @example
+   * 2024-04-25
+   */
   endTime?: string;
+  /**
+   * @example
+   * click
+   */
   event?: string;
+  /**
+   * @example
+   * [{"field":"status","option":"=","value":"1"}]
+   */
   itemConditionArray?: string;
+  /**
+   * @example
+   * status=1
+   */
   itemConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   itemConditionType?: string;
+  /**
+   * @example
+   * target-1
+   */
   name?: string;
+  /**
+   * @example
+   * false
+   */
   newProductRegulation?: boolean;
+  /**
+   * @example
+   * recall-1
+   */
   recallName?: string;
+  /**
+   * @example
+   * 2024-03-25
+   */
   startTime?: string;
+  /**
+   * @example
+   * Daily
+   */
   statisPeriod?: string;
+  /**
+   * @example
+   * Opened
+   */
   status?: string;
+  /**
+   * @example
+   * 10
+   */
   toleranceValue?: number;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTaskId?: string;
+  /**
+   * @example
+   * 10
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {

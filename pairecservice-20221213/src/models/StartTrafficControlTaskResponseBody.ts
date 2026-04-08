@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartTrafficControlTaskResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

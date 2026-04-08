@@ -3,15 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTrafficControlTargetItemReportDetailRequest extends $dara.Model {
+  /**
+   * @example
+   * 2024-01-01
+   */
   date?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * Pre
    */
   environment?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * pairec_123****
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

@@ -3,18 +3,70 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTrafficControlTasksRequest extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   all?: boolean;
+  /**
+   * @example
+   * All
+   */
   controlTargetFilter?: string;
+  /**
+   * @example
+   * Pre
+   */
   environment?: string;
+  /**
+   * @example
+   * pairec-cn-********
+   */
   instanceId?: string;
+  /**
+   * @example
+   * task_1
+   */
   name?: string;
+  /**
+   * @example
+   * ASC
+   */
   order?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: string;
+  /**
+   * @example
+   * 1
+   */
   sceneId?: string;
+  /**
+   * @example
+   * GmtCreateTime
+   */
   sortBy?: string;
+  /**
+   * @example
+   * Running
+   */
   status?: string;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTaskId?: string;
+  /**
+   * @example
+   * Latest
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StartTrafficControlTaskRequest extends $dara.Model {
+  /**
+   * @example
+   * Pre
+   */
   environment?: string;
+  /**
+   * @example
+   * pairec-123***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {

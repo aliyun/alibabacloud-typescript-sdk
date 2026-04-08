@@ -35,23 +35,91 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
 }
 
 export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets extends $dara.Model {
+  /**
+   * @example
+   * 2024-04-25
+   */
   endTime?: string;
+  /**
+   * @example
+   * click
+   */
   event?: string;
+  /**
+   * @example
+   * 2025-06-03T15:08:10.58+08:00
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2025-11-21T16:26:58.57+08:00
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * [{"field":"status","option":"=","value":"1"}]
+   */
   itemConditionArray?: string;
+  /**
+   * @example
+   * status=1
+   */
   itemConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   itemConditionType?: string;
+  /**
+   * @example
+   * target-1
+   */
   name?: string;
+  /**
+   * @example
+   * false
+   */
   newProductRegulation?: boolean;
+  /**
+   * @example
+   * recall-1
+   */
   recallName?: string;
   splitParts?: ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargetsSplitParts;
+  /**
+   * @example
+   * 2024-03-25
+   */
   startTime?: string;
+  /**
+   * @example
+   * Daily
+   */
   statisPeriod?: string;
+  /**
+   * @example
+   * Opened
+   */
   status?: string;
+  /**
+   * @example
+   * 10
+   */
   toleranceValue?: number;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTargetId?: string;
+  /**
+   * @example
+   * 1
+   */
   trafficControlTaskId?: string;
+  /**
+   * @example
+   * 30
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -112,45 +180,181 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficContro
 }
 
 export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   behaviorTableMetaId?: string;
+  /**
+   * @example
+   * Global
+   */
   controlGranularity?: string;
+  /**
+   * @example
+   * Guaranteed
+   */
   controlLogic?: string;
+  /**
+   * @example
+   * Percent
+   */
   controlType?: string;
+  /**
+   * @example
+   * this is a test task
+   */
   description?: string;
   effectiveSceneIds?: number[];
   effectiveSceneNameList?: string[];
   effectiveSceneNames?: number[];
+  /**
+   * @example
+   * 2024-04-25
+   */
   endTime?: string;
+  /**
+   * @example
+   * false
+   */
   everPublished?: boolean;
+  /**
+   * @example
+   * Permanent
+   */
   executionTime?: string;
+  /**
+   * @example
+   * resource-xxx
+   */
   flinkResourceId?: string;
+  /**
+   * @example
+   * flink_test
+   */
   flinkResourceName?: string;
+  /**
+   * @example
+   * 2024-03-25T06:04:28.441Z
+   */
   gmtCreateTime?: string;
+  /**
+   * @example
+   * 2024-03-25T06:04:28.441Z
+   */
   gmtModifiedTime?: string;
+  /**
+   * @example
+   * [{"field":"status","option":"=","value":"1"}]
+   */
   itemConditionArray?: string;
+  /**
+   * @example
+   * status=1
+   */
   itemConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   itemConditionType?: string;
+  /**
+   * @example
+   * 3
+   */
   itemTableMetaId?: string;
+  /**
+   * @example
+   * task_1
+   */
   name?: string;
+  /**
+   * @example
+   * 1,2
+   */
   preExperimentIds?: string;
+  /**
+   * @example
+   * Runnning
+   */
   prepubStatus?: string;
+  /**
+   * @example
+   * 6,7
+   */
   prodExperimentIds?: string;
+  /**
+   * @example
+   * Runnning
+   */
   productStatus?: string;
+  /**
+   * @example
+   * 4
+   */
   sceneId?: string;
+  /**
+   * @example
+   * home_feed
+   */
   sceneName?: string;
+  /**
+   * @example
+   * 1
+   */
   serviceId?: string;
   serviceIdList?: number[];
   serviceIds?: string[];
+  /**
+   * @example
+   * 2024-03-25
+   */
   startTime?: string;
+  /**
+   * @example
+   * event=click
+   */
   statisBahaviorConditionExpress?: string;
+  /**
+   * @example
+   * [{"field":"click","option":"<=","value":"30"}]
+   */
   statisBehaviorConditionArray?: string;
+  /**
+   * @example
+   * event=exposure
+   */
   statisBehaviorConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   statisBehaviorConditionType?: string;
   trafficControlTargets?: ListTrafficControlTasksResponseBodyTrafficControlTasksTrafficControlTargets[];
+  /**
+   * @example
+   * 1
+   */
   trafficControlTaskId?: string;
+  /**
+   * @example
+   * [{"field":"gender","option":"=","value":"male"}]
+   */
   userConditionArray?: string;
+  /**
+   * @example
+   * age<=30&&(3<=level<=6)&&gender=male
+   */
   userConditionExpress?: string;
+  /**
+   * @example
+   * Array
+   */
   userConditionType?: string;
+  /**
+   * @example
+   * 2
+   */
   userTableMetaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -270,7 +474,15 @@ export class ListTrafficControlTasksResponseBodyTrafficControlTasks extends $dar
 }
 
 export class ListTrafficControlTasksResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 3AAA45F6-0798-5461-9360-81D133823CE7
+   */
   requestId?: string;
+  /**
+   * @example
+   * 20
+   */
   totalCount?: string;
   trafficControlTasks?: ListTrafficControlTasksResponseBodyTrafficControlTasks[];
   static names(): { [key: string]: string } {
