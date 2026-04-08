@@ -89,6 +89,7 @@ export class ListDBTaskSQLJobDetailResponseBodyDBTaskSQLJobDetailList extends $d
    * false
    */
   skip?: boolean;
+  sqlId?: number;
   /**
    * @remarks
    * The type of the SQL statement, such as DELETE, UPDATE, or ALTER_TABLE.
@@ -142,6 +143,7 @@ export class ListDBTaskSQLJobDetailResponseBodyDBTaskSQLJobDetailList extends $d
       log: 'Log',
       logic: 'Logic',
       skip: 'Skip',
+      sqlId: 'SqlId',
       sqlType: 'SqlType',
       startTime: 'StartTime',
       status: 'Status',
@@ -161,6 +163,7 @@ export class ListDBTaskSQLJobDetailResponseBodyDBTaskSQLJobDetailList extends $d
       log: 'string',
       logic: 'boolean',
       skip: 'boolean',
+      sqlId: 'number',
       sqlType: 'string',
       startTime: 'string',
       status: 'string',
