@@ -158,6 +158,14 @@ export class ObtainCredentialResponseBody extends $dara.Model {
   credentialScenarioLabel?: string;
   /**
    * @remarks
+   * 凭据的共享范围。
+   * 
+   * @example
+   * user_exclusive
+   */
+  credentialSharingScope?: string;
+  /**
+   * @remarks
    * 凭据所属的主体ID。
    * 
    * @example
@@ -188,6 +196,14 @@ export class ObtainCredentialResponseBody extends $dara.Model {
    * credential_description
    */
   description?: string;
+  /**
+   * @remarks
+   * 凭据的专属账户ID。
+   * 
+   * @example
+   * user_xxx
+   */
+  exclusiveUserId?: string;
   /**
    * @remarks
    * EIAM实例ID。
@@ -221,10 +237,12 @@ export class ObtainCredentialResponseBody extends $dara.Model {
       credentialIdentifier: 'credentialIdentifier',
       credentialName: 'credentialName',
       credentialScenarioLabel: 'credentialScenarioLabel',
+      credentialSharingScope: 'credentialSharingScope',
       credentialSubjectId: 'credentialSubjectId',
       credentialSubjectType: 'credentialSubjectType',
       credentialType: 'credentialType',
       description: 'description',
+      exclusiveUserId: 'exclusiveUserId',
       instanceId: 'instanceId',
       status: 'status',
       updateTime: 'updateTime',
@@ -240,10 +258,12 @@ export class ObtainCredentialResponseBody extends $dara.Model {
       credentialIdentifier: 'string',
       credentialName: 'string',
       credentialScenarioLabel: 'string',
+      credentialSharingScope: 'string',
       credentialSubjectId: 'string',
       credentialSubjectType: 'string',
       credentialType: 'string',
       description: 'string',
+      exclusiveUserId: 'string',
       instanceId: 'string',
       status: 'string',
       updateTime: 'number',
