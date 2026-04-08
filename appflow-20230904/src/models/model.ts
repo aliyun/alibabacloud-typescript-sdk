@@ -1,3 +1,9 @@
+export { InvokeActionRequestAuthConfig } from './InvokeActionRequest';
+export { InvokeActionResponseBodyResult } from './InvokeActionResponseBody';
 export { GenerateUserSessionTokenRequest } from './GenerateUserSessionTokenRequest';
 export { GenerateUserSessionTokenResponseBody } from './GenerateUserSessionTokenResponseBody';
 export { GenerateUserSessionTokenResponse } from './GenerateUserSessionTokenResponse';
+export { InvokeActionRequest } from './InvokeActionRequest';
+export { InvokeActionShrinkRequest } from './InvokeActionShrinkRequest';
+export { InvokeActionResponseBody } from './InvokeActionResponseBody';
+export { InvokeActionResponse } from './InvokeActionResponse';

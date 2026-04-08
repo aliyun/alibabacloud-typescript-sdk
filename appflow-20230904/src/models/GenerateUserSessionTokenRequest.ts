@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class GenerateUserSessionTokenRequest extends $dara.Model {
   /**
    * @remarks

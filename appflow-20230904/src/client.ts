@@ -95,4 +95,207 @@ export default class Client extends OpenApi {
     return await this.generateUserSessionTokenWithOptions(request, runtime);
   }
 
+  /**
+   * 运行连接器的执行动作
+   * 
+   * @param tmpReq - InvokeActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeActionResponse
+   */
+  async *invokeActionWithSSE(tmpReq: $_model.InvokeActionRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.InvokeActionResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.InvokeActionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.authConfig)) {
+      request.authConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.authConfig, "AuthConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "Body", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.headers)) {
+      request.headersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.headers, "Headers", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.path)) {
+      request.pathShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.path, "Path", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.query)) {
+      request.queryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.query, "Query", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.actionId)) {
+      query["ActionId"] = request.actionId;
+    }
+
+    if (!$dara.isNull(request.actionVersion)) {
+      query["ActionVersion"] = request.actionVersion;
+    }
+
+    if (!$dara.isNull(request.authConfigShrink)) {
+      query["AuthConfig"] = request.authConfigShrink;
+    }
+
+    if (!$dara.isNull(request.bodyShrink)) {
+      query["Body"] = request.bodyShrink;
+    }
+
+    if (!$dara.isNull(request.connectorId)) {
+      query["ConnectorId"] = request.connectorId;
+    }
+
+    if (!$dara.isNull(request.connectorVersion)) {
+      query["ConnectorVersion"] = request.connectorVersion;
+    }
+
+    if (!$dara.isNull(request.headersShrink)) {
+      query["Headers"] = request.headersShrink;
+    }
+
+    if (!$dara.isNull(request.pathShrink)) {
+      query["Path"] = request.pathShrink;
+    }
+
+    if (!$dara.isNull(request.queryShrink)) {
+      query["Query"] = request.queryShrink;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      query["Stream"] = request.stream;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeAction",
+      version: "2023-09-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.InvokeActionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.InvokeActionResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 运行连接器的执行动作
+   * 
+   * @param tmpReq - InvokeActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeActionResponse
+   */
+  async invokeActionWithOptions(tmpReq: $_model.InvokeActionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeActionResponse> {
+    tmpReq.validate();
+    let request = new $_model.InvokeActionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.authConfig)) {
+      request.authConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.authConfig, "AuthConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "Body", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.headers)) {
+      request.headersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.headers, "Headers", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.path)) {
+      request.pathShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.path, "Path", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.query)) {
+      request.queryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.query, "Query", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.actionId)) {
+      query["ActionId"] = request.actionId;
+    }
+
+    if (!$dara.isNull(request.actionVersion)) {
+      query["ActionVersion"] = request.actionVersion;
+    }
+
+    if (!$dara.isNull(request.authConfigShrink)) {
+      query["AuthConfig"] = request.authConfigShrink;
+    }
+
+    if (!$dara.isNull(request.bodyShrink)) {
+      query["Body"] = request.bodyShrink;
+    }
+
+    if (!$dara.isNull(request.connectorId)) {
+      query["ConnectorId"] = request.connectorId;
+    }
+
+    if (!$dara.isNull(request.connectorVersion)) {
+      query["ConnectorVersion"] = request.connectorVersion;
+    }
+
+    if (!$dara.isNull(request.headersShrink)) {
+      query["Headers"] = request.headersShrink;
+    }
+
+    if (!$dara.isNull(request.pathShrink)) {
+      query["Path"] = request.pathShrink;
+    }
+
+    if (!$dara.isNull(request.queryShrink)) {
+      query["Query"] = request.queryShrink;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      query["Stream"] = request.stream;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeAction",
+      version: "2023-09-04",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InvokeActionResponse>(await this.callApi(params, req, runtime), new $_model.InvokeActionResponse({}));
+  }
+
+  /**
+   * 运行连接器的执行动作
+   * 
+   * @param request - InvokeActionRequest
+   * @returns InvokeActionResponse
+   */
+  async invokeAction(request: $_model.InvokeActionRequest): Promise<$_model.InvokeActionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.invokeActionWithOptions(request, runtime);
+  }
+
 }
