@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ArmsConfiguration } from "./ArmsConfiguration";
 import { CodeConfiguration } from "./CodeConfiguration";
 import { ContainerConfiguration } from "./ContainerConfiguration";
 import { HealthCheckConfiguration } from "./HealthCheckConfiguration";
@@ -21,6 +22,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
    * my-agent-runtime
    */
   agentRuntimeName?: string;
+  armsConfiguration?: ArmsConfiguration;
   /**
    * @remarks
    * 指定智能体运行时的部署类型，支持Code（代码模式）和Container（容器模式）
@@ -209,6 +211,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentRuntimeName: 'agentRuntimeName',
+      armsConfiguration: 'armsConfiguration',
       artifactType: 'artifactType',
       codeConfiguration: 'codeConfiguration',
       containerConfiguration: 'containerConfiguration',
@@ -238,6 +241,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentRuntimeName: 'string',
+      armsConfiguration: ArmsConfiguration,
       artifactType: 'string',
       codeConfiguration: CodeConfiguration,
       containerConfiguration: ContainerConfiguration,
@@ -265,6 +269,9 @@ export class CreateAgentRuntimeInput extends $dara.Model {
   }
 
   validate() {
+    if(this.armsConfiguration && typeof (this.armsConfiguration as any).validate === 'function') {
+      (this.armsConfiguration as any).validate();
+    }
     if(this.codeConfiguration && typeof (this.codeConfiguration as any).validate === 'function') {
       (this.codeConfiguration as any).validate();
     }
