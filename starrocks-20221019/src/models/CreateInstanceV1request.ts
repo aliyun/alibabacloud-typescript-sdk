@@ -364,6 +364,7 @@ export class CreateInstanceV1Request extends $dara.Model {
    * 1
    */
   duration?: number;
+  enableMultiAz?: boolean;
   /**
    * @example
    * true
@@ -491,6 +492,7 @@ export class CreateInstanceV1Request extends $dara.Model {
       dlfCatalogName: 'DlfCatalogName',
       dlfCatalogType: 'DlfCatalogType',
       duration: 'Duration',
+      enableMultiAz: 'EnableMultiAz',
       encrypted: 'Encrypted',
       frontendNodeGroups: 'FrontendNodeGroups',
       gatewayType: 'GatewayType',
@@ -527,6 +529,7 @@ export class CreateInstanceV1Request extends $dara.Model {
       dlfCatalogName: 'string',
       dlfCatalogType: 'string',
       duration: 'number',
+      enableMultiAz: 'boolean',
       encrypted: 'boolean',
       frontendNodeGroups: { 'type': 'array', 'itemType': CreateInstanceV1RequestFrontendNodeGroups },
       gatewayType: 'string',

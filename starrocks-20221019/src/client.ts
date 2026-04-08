@@ -377,6 +377,10 @@ export default class Client extends OpenApi {
       body["Duration"] = request.duration;
     }
 
+    if (!$dara.isNull(request.enableMultiAz)) {
+      body["EnableMultiAz"] = request.enableMultiAz;
+    }
+
     if (!$dara.isNull(request.encrypted)) {
       body["Encrypted"] = request.encrypted;
     }

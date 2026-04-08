@@ -13,11 +13,13 @@ export class ListOperationActivityResponseBodyData extends $dara.Model {
    * COMPLETED
    */
   activityStatus?: string;
+  consoleRetryCount?: number;
   /**
    * @example
    * 1742178604000
    */
   endTime?: number;
+  errMessage?: string;
   /**
    * @example
    * UpdateClusterStatusToModifyingConfigStatus
@@ -32,7 +34,9 @@ export class ListOperationActivityResponseBodyData extends $dara.Model {
     return {
       activityId: 'ActivityId',
       activityStatus: 'ActivityStatus',
+      consoleRetryCount: 'ConsoleRetryCount',
       endTime: 'EndTime',
+      errMessage: 'ErrMessage',
       name: 'Name',
       startTime: 'StartTime',
     };
@@ -42,7 +46,9 @@ export class ListOperationActivityResponseBodyData extends $dara.Model {
     return {
       activityId: 'string',
       activityStatus: 'string',
+      consoleRetryCount: 'number',
       endTime: 'number',
+      errMessage: 'string',
       name: 'string',
       startTime: 'number',
     };

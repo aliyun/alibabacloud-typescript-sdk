@@ -99,6 +99,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
    * true
    */
   enableAutoMinorVersionUpgrade?: boolean;
+  enableMultiAz?: boolean;
   /**
    * @example
    * true
@@ -226,6 +227,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
       beginTime: 'BeginTime',
       enableAiFunction: 'EnableAiFunction',
       enableAutoMinorVersionUpgrade: 'EnableAutoMinorVersionUpgrade',
+      enableMultiAz: 'EnableMultiAz',
       enableSSL: 'EnableSSL',
       enabledAuditLoader: 'EnabledAuditLoader',
       encrypted: 'Encrypted',
@@ -261,6 +263,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
       beginTime: 'number',
       enableAiFunction: 'boolean',
       enableAutoMinorVersionUpgrade: 'boolean',
+      enableMultiAz: 'boolean',
       enableSSL: 'boolean',
       enabledAuditLoader: 'boolean',
       encrypted: 'boolean',
