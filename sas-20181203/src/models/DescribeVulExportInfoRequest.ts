@@ -13,15 +13,22 @@ export class DescribeVulExportInfoRequest extends $dara.Model {
    * 14356
    */
   exportId?: number;
+  /**
+   * @example
+   * 1
+   */
+  resourceDirectoryAccountId?: number;
   static names(): { [key: string]: string } {
     return {
       exportId: 'ExportId',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       exportId: 'number',
+      resourceDirectoryAccountId: 'number',
     };
   }
 

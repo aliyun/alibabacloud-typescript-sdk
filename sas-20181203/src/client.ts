@@ -23955,6 +23955,10 @@ export default class Client extends OpenApi {
       query["ExportId"] = request.exportId;
     }
 
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26288,6 +26292,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.raspDefend)) {
       query["RaspDefend"] = request.raspDefend;
+    }
+
+    if (!$dara.isNull(request.resourceDirectoryAccountId)) {
+      query["ResourceDirectoryAccountId"] = request.resourceDirectoryAccountId;
     }
 
     if (!$dara.isNull(request.searchTags)) {

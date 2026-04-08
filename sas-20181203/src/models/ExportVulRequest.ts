@@ -170,6 +170,11 @@ export class ExportVulRequest extends $dara.Model {
    */
   raspDefend?: number;
   /**
+   * @example
+   * 1
+   */
+  resourceDirectoryAccountId?: number;
+  /**
    * @remarks
    * The tag that is used to search for the vulnerabilities. Valid values:
    * 
@@ -238,6 +243,7 @@ export class ExportVulRequest extends $dara.Model {
       necessity: 'Necessity',
       path: 'Path',
       raspDefend: 'RaspDefend',
+      resourceDirectoryAccountId: 'ResourceDirectoryAccountId',
       searchTags: 'SearchTags',
       type: 'Type',
       uuids: 'Uuids',
@@ -261,6 +267,7 @@ export class ExportVulRequest extends $dara.Model {
       necessity: 'string',
       path: 'string',
       raspDefend: 'number',
+      resourceDirectoryAccountId: 'number',
       searchTags: 'string',
       type: 'string',
       uuids: 'string',
