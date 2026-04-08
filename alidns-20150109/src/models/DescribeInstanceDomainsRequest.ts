@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceDomainsRequest extends $dara.Model {
+  domainKeywords?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud Domain Name System (DNS) instance. You can call the [DescribeDomainInfo](https://www.alibabacloud.com/help/zh/dns/api-alidns-2015-01-09-describedomaininfo?spm=a2c63.p38356.help-menu-search-29697.d_0) operation to obtain the ID.
@@ -44,6 +45,7 @@ export class DescribeInstanceDomainsRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      domainKeywords: 'DomainKeywords',
       instanceId: 'InstanceId',
       lang: 'Lang',
       pageNumber: 'PageNumber',
@@ -53,6 +55,7 @@ export class DescribeInstanceDomainsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      domainKeywords: 'string',
       instanceId: 'string',
       lang: 'string',
       pageNumber: 'number',

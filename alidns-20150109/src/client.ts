@@ -6232,6 +6232,10 @@ export default class Client extends OpenApi {
   async describeInstanceDomainsWithOptions(request: $_model.DescribeInstanceDomainsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceDomainsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.domainKeywords)) {
+      query["DomainKeywords"] = request.domainKeywords;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
