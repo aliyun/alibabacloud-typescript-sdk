@@ -86,6 +86,7 @@ export class ListResourcesRequest extends $dara.Model {
    * CreateTime
    */
   sort?: string;
+  usageMode?: string;
   static names(): { [key: string]: string } {
     return {
       order: 'Order',
@@ -96,6 +97,7 @@ export class ListResourcesRequest extends $dara.Model {
       resourceStatus: 'ResourceStatus',
       resourceType: 'ResourceType',
       sort: 'Sort',
+      usageMode: 'UsageMode',
     };
   }
 
@@ -109,6 +111,7 @@ export class ListResourcesRequest extends $dara.Model {
       resourceStatus: 'string',
       resourceType: 'string',
       sort: 'string',
+      usageMode: 'string',
     };
   }
 

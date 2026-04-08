@@ -126,6 +126,7 @@ export class Resource extends $dara.Model {
    * 2019-02-26T19:52:49Z
    */
   updateTime?: string;
+  usageMode?: string;
   /**
    * @remarks
    * The vendor of the resource group instances.
@@ -163,6 +164,7 @@ export class Resource extends $dara.Model {
       resourceType: 'ResourceType',
       status: 'Status',
       updateTime: 'UpdateTime',
+      usageMode: 'UsageMode',
       vendor: 'Vendor',
     };
   }
@@ -191,6 +193,7 @@ export class Resource extends $dara.Model {
       resourceType: 'string',
       status: 'string',
       updateTime: 'string',
+      usageMode: 'string',
       vendor: 'string',
     };
   }

@@ -170,6 +170,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
    * 2021-02-24T11:52:17Z
    */
   updateTime?: string;
+  usageMode?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
@@ -196,6 +197,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
       resourceType: 'ResourceType',
       status: 'Status',
       updateTime: 'UpdateTime',
+      usageMode: 'UsageMode',
     };
   }
 
@@ -225,6 +227,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
       resourceType: 'string',
       status: 'string',
       updateTime: 'string',
+      usageMode: 'string',
     };
   }
 

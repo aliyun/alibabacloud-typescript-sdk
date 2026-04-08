@@ -644,6 +644,10 @@ export default class Client extends OpenApi {
       body["SystemDiskSize"] = request.systemDiskSize;
     }
 
+    if (!$dara.isNull(request.usageMode)) {
+      body["UsageMode"] = request.usageMode;
+    }
+
     if (!$dara.isNull(request.zone)) {
       body["Zone"] = request.zone;
     }
@@ -3660,6 +3664,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.sort)) {
       query["Sort"] = request.sort;
+    }
+
+    if (!$dara.isNull(request.usageMode)) {
+      query["UsageMode"] = request.usageMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

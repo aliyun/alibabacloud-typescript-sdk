@@ -214,6 +214,7 @@ export class CreateResourceRequest extends $dara.Model {
    * 200
    */
   systemDiskSize?: number;
+  usageMode?: string;
   /**
    * @remarks
    * The ID of the zone in which the instance resides.
@@ -233,6 +234,7 @@ export class CreateResourceRequest extends $dara.Model {
       resourceType: 'ResourceType',
       selfManagedResourceOptions: 'SelfManagedResourceOptions',
       systemDiskSize: 'SystemDiskSize',
+      usageMode: 'UsageMode',
       zone: 'Zone',
     };
   }
@@ -248,6 +250,7 @@ export class CreateResourceRequest extends $dara.Model {
       resourceType: 'string',
       selfManagedResourceOptions: CreateResourceRequestSelfManagedResourceOptions,
       systemDiskSize: 'number',
+      usageMode: 'string',
       zone: 'string',
     };
   }
