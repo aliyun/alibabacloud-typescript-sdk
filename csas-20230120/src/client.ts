@@ -517,6 +517,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建内网访问诊断任务
+   * 
+   * @param tmpReq - CreatePADiagnosisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePADiagnosisTaskResponse
+   */
+  async createPADiagnosisTaskWithOptions(tmpReq: $_model.CreatePADiagnosisTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePADiagnosisTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreatePADiagnosisTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.udpExtraConfigs)) {
+      request.udpExtraConfigsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.udpExtraConfigs, "UdpExtraConfigs", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.devTag)) {
+      body["DevTag"] = request.devTag;
+    }
+
+    if (!$dara.isNull(request.diagnoseType)) {
+      body["DiagnoseType"] = request.diagnoseType;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      body["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.popId)) {
+      body["PopId"] = request.popId;
+    }
+
+    if (!$dara.isNull(request.popMode)) {
+      body["PopMode"] = request.popMode;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      body["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      body["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.udpExtraConfigsShrink)) {
+      body["UdpExtraConfigs"] = request.udpExtraConfigsShrink;
+    }
+
+    if (!$dara.isNull(request.userGroupId)) {
+      body["UserGroupId"] = request.userGroupId;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      body["Username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePADiagnosisTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePADiagnosisTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreatePADiagnosisTaskResponse({}));
+  }
+
+  /**
+   * 创建内网访问诊断任务
+   * 
+   * @param request - CreatePADiagnosisTaskRequest
+   * @returns CreatePADiagnosisTaskResponse
+   */
+  async createPADiagnosisTask(request: $_model.CreatePADiagnosisTaskRequest): Promise<$_model.CreatePADiagnosisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPADiagnosisTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an office application within the current Alibaba Cloud account.
    * 
    * @remarks
@@ -2458,6 +2542,44 @@ export default class Client extends OpenApi {
   async getIdpConfig(request: $_model.GetIdpConfigRequest): Promise<$_model.GetIdpConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getIdpConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询内网访问诊断任务详情
+   * 
+   * @param request - GetPADiagnosisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPADiagnosisTaskResponse
+   */
+  async getPADiagnosisTaskWithOptions(request: $_model.GetPADiagnosisTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPADiagnosisTaskResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPADiagnosisTask",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPADiagnosisTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetPADiagnosisTaskResponse({}));
+  }
+
+  /**
+   * 查询内网访问诊断任务详情
+   * 
+   * @param request - GetPADiagnosisTaskRequest
+   * @returns GetPADiagnosisTaskResponse
+   */
+  async getPADiagnosisTask(request: $_model.GetPADiagnosisTaskRequest): Promise<$_model.GetPADiagnosisTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPADiagnosisTaskWithOptions(request, runtime);
   }
 
   /**
