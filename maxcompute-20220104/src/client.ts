@@ -421,6 +421,111 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateMmsTimer
+   * 
+   * @param request - CreateMmsTimerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMmsTimerResponse
+   */
+  async createMmsTimerWithOptions(sourceId: string, request: $_model.CreateMmsTimerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMmsTimerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.columnMapping)) {
+      body["columnMapping"] = request.columnMapping;
+    }
+
+    if (!$dara.isNull(request.enableDataMigration)) {
+      body["enableDataMigration"] = request.enableDataMigration;
+    }
+
+    if (!$dara.isNull(request.enableSchemaMigration)) {
+      body["enableSchemaMigration"] = request.enableSchemaMigration;
+    }
+
+    if (!$dara.isNull(request.enableVerification)) {
+      body["enableVerification"] = request.enableVerification;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.others)) {
+      body["others"] = request.others;
+    }
+
+    if (!$dara.isNull(request.partitionFilters)) {
+      body["partitionFilters"] = request.partitionFilters;
+    }
+
+    if (!$dara.isNull(request.partitions)) {
+      body["partitions"] = request.partitions;
+    }
+
+    if (!$dara.isNull(request.scheduleType)) {
+      body["scheduleType"] = request.scheduleType;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      body["sourceId"] = request.sourceId;
+    }
+
+    if (!$dara.isNull(request.srcDbName)) {
+      body["srcDbName"] = request.srcDbName;
+    }
+
+    if (!$dara.isNull(request.tableBlackList)) {
+      body["tableBlackList"] = request.tableBlackList;
+    }
+
+    if (!$dara.isNull(request.tableMapping)) {
+      body["tableMapping"] = request.tableMapping;
+    }
+
+    if (!$dara.isNull(request.tableWhiteList)) {
+      body["tableWhiteList"] = request.tableWhiteList;
+    }
+
+    if (!$dara.isNull(request.tables)) {
+      body["tables"] = request.tables;
+    }
+
+    if (!$dara.isNull(request.value)) {
+      body["value"] = request.value;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMmsTimer",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/timers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMmsTimerResponse>(await this.callApi(params, req, runtime), new $_model.CreateMmsTimerResponse({}));
+  }
+
+  /**
+   * CreateMmsTimer
+   * 
+   * @param request - CreateMmsTimerRequest
+   * @returns CreateMmsTimerResponse
+   */
+  async createMmsTimer(sourceId: string, request: $_model.CreateMmsTimerRequest): Promise<$_model.CreateMmsTimerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMmsTimerWithOptions(sourceId, request, headers, runtime);
+  }
+
+  /**
    * Creates a package.
    * 
    * @param request - CreatePackageRequest
@@ -756,6 +861,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteMmsJobWithOptions(sourceId, jobId, headers, runtime);
+  }
+
+  /**
+   * DeleteMmsTimer
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMmsTimerResponse
+   */
+  async deleteMmsTimerWithOptions(sourceId: string, timerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMmsTimerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMmsTimer",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/timers/${$dara.URL.percentEncode(timerId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMmsTimerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMmsTimerResponse({}));
+  }
+
+  /**
+   * DeleteMmsTimer
+   * @returns DeleteMmsTimerResponse
+   */
+  async deleteMmsTimer(sourceId: string, timerId: string): Promise<$_model.DeleteMmsTimerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMmsTimerWithOptions(sourceId, timerId, headers, runtime);
   }
 
   /**
@@ -1365,6 +1505,41 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMmsTaskWithOptions(sourceId, taskId, headers, runtime);
+  }
+
+  /**
+   * GetMmsTimer
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMmsTimerResponse
+   */
+  async getMmsTimerWithOptions(sourceId: string, timerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMmsTimerResponse> {
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMmsTimer",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/timers/${$dara.URL.percentEncode(timerId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMmsTimerResponse>(await this.callApi(params, req, runtime), new $_model.GetMmsTimerResponse({}));
+  }
+
+  /**
+   * GetMmsTimer
+   * @returns GetMmsTimerResponse
+   */
+  async getMmsTimer(sourceId: string, timerId: string): Promise<$_model.GetMmsTimerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMmsTimerWithOptions(sourceId, timerId, headers, runtime);
   }
 
   /**
@@ -2703,6 +2878,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListMmsDataSourceConfigItems
+   * 
+   * @param request - ListMmsDataSourceConfigItemsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMmsDataSourceConfigItemsResponse
+   */
+  async listMmsDataSourceConfigItemsWithOptions(request: $_model.ListMmsDataSourceConfigItemsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMmsDataSourceConfigItemsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      query["lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["sourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMmsDataSourceConfigItems",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/configItems`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMmsDataSourceConfigItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListMmsDataSourceConfigItemsResponse({}));
+  }
+
+  /**
+   * ListMmsDataSourceConfigItems
+   * 
+   * @param request - ListMmsDataSourceConfigItemsRequest
+   * @returns ListMmsDataSourceConfigItemsResponse
+   */
+  async listMmsDataSourceConfigItems(request: $_model.ListMmsDataSourceConfigItemsRequest): Promise<$_model.ListMmsDataSourceConfigItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMmsDataSourceConfigItemsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries a list of MaxCompute Migration Assist (MMA) data sources.
    * 
    * @param request - ListMmsDataSourcesRequest
@@ -3235,6 +3459,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMmsTasksWithOptions(sourceId, request, headers, runtime);
+  }
+
+  /**
+   * ListMmsTimerLogs
+   * 
+   * @param request - ListMmsTimerLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMmsTimerLogsResponse
+   */
+  async listMmsTimerLogsWithOptions(sourceId: string, timerId: string, request: $_model.ListMmsTimerLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMmsTimerLogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNum)) {
+      query["pageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMmsTimerLogs",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/timers/${$dara.URL.percentEncode(timerId)}/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMmsTimerLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListMmsTimerLogsResponse({}));
+  }
+
+  /**
+   * ListMmsTimerLogs
+   * 
+   * @param request - ListMmsTimerLogsRequest
+   * @returns ListMmsTimerLogsResponse
+   */
+  async listMmsTimerLogs(sourceId: string, timerId: string, request: $_model.ListMmsTimerLogsRequest): Promise<$_model.ListMmsTimerLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMmsTimerLogsWithOptions(sourceId, timerId, request, headers, runtime);
   }
 
   /**
