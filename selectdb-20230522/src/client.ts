@@ -142,7 +142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SelectDB实例创建前检查
+   * Performs a precheck before an ApsaraDB for SelectDB instance is created.
    * 
    * @param request - CheckCreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -237,7 +237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SelectDB实例创建前检查
+   * Performs a precheck before an ApsaraDB for SelectDB instance is created.
    * 
    * @param request - CheckCreateDBInstanceRequest
    * @returns CheckCreateDBInstanceResponse
@@ -286,7 +286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查服务关联角色
+   * Queries the service-linked role of ApsaraDB for SelectDB.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -321,7 +321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查服务关联角色
+   * Queries the service-linked role of ApsaraDB for SelectDB.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @returns CheckServiceLinkedRoleResponse
@@ -952,7 +952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DB实例
+   * Deletes an ApsaraDB for SelectDB instance.
    * 
    * @param request - DeleteDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -993,7 +993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DB实例
+   * Deletes an ApsaraDB for SelectDB instance.
    * 
    * @param request - DeleteDBInstanceRequest
    * @returns DeleteDBInstanceResponse
@@ -1950,7 +1950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群变配
+   * Scales a cluster in an ApsaraDB for SelectDB instance.
    * 
    * @param request - ModifyDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2021,7 +2021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 集群变配
+   * Scales a cluster in an ApsaraDB for SelectDB instance.
    * 
    * @param request - ModifyDBClusterRequest
    * @returns ModifyDBClusterResponse
@@ -2506,7 +2506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停后恢复集群
+   * Starts a cluster in an ApsaraDB for SelectDB instance.
    * 
    * @param request - StartBEClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2549,7 +2549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停后恢复集群
+   * Starts a cluster in an ApsaraDB for SelectDB instance.
    * 
    * @param request - StartBEClusterRequest
    * @returns StartBEClusterResponse
@@ -2560,7 +2560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停BE集群
+   * Stops a cluster in an ApsaraDB for SelectDB instance.
    * 
    * @param request - StopBEClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2603,7 +2603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 暂停BE集群
+   * Stops a cluster in an ApsaraDB for SelectDB instance.
    * 
    * @param request - StopBEClusterRequest
    * @returns StopBEClusterResponse

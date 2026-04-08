@@ -495,6 +495,8 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * true
    */
   multiZone?: DescribeDBInstanceAttributeResponseBodyMultiZone[];
+  OTelBearerToken?: string;
+  OTelGrafanaServiceStatus?: string;
   /**
    * @remarks
    * The storage capacity of the instance.
@@ -623,6 +625,8 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       maintainEndtime: 'MaintainEndtime',
       maintainStarttime: 'MaintainStarttime',
       multiZone: 'MultiZone',
+      OTelBearerToken: 'OTelBearerToken',
+      OTelGrafanaServiceStatus: 'OTelGrafanaServiceStatus',
       objectStoreSize: 'ObjectStoreSize',
       regionId: 'RegionId',
       requestId: 'RequestId',
@@ -661,6 +665,8 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       maintainEndtime: 'string',
       maintainStarttime: 'string',
       multiZone: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyMultiZone },
+      OTelBearerToken: 'string',
+      OTelGrafanaServiceStatus: 'string',
       objectStoreSize: 'number',
       regionId: 'string',
       requestId: 'string',
