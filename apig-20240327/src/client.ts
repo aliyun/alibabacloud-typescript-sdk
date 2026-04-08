@@ -2150,13 +2150,29 @@ export default class Client extends OpenApi {
   /**
    * Exports an HTTP API.
    * 
+   * @param request - ExportHttpApiRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExportHttpApiResponse
    */
-  async exportHttpApiWithOptions(httpApiId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExportHttpApiResponse> {
+  async exportHttpApiWithOptions(httpApiId: string, request: $_model.ExportHttpApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExportHttpApiResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.extensionConfig)) {
+      body["extensionConfig"] = request.extensionConfig;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.operationIds)) {
+      body["operationIds"] = request.operationIds;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "ExportHttpApi",
@@ -2174,12 +2190,14 @@ export default class Client extends OpenApi {
 
   /**
    * Exports an HTTP API.
+   * 
+   * @param request - ExportHttpApiRequest
    * @returns ExportHttpApiResponse
    */
-  async exportHttpApi(httpApiId: string): Promise<$_model.ExportHttpApiResponse> {
+  async exportHttpApi(httpApiId: string, request: $_model.ExportHttpApiRequest): Promise<$_model.ExportHttpApiResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.exportHttpApiWithOptions(httpApiId, headers, runtime);
+    return await this.exportHttpApiWithOptions(httpApiId, request, headers, runtime);
   }
 
   /**
@@ -3349,6 +3367,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listEnvironmentsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取网关外的服务信息
+   * 
+   * @param request - ListExternalServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExternalServicesResponse
+   */
+  async listExternalServicesWithOptions(gatewayId: string, request: $_model.ListExternalServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListExternalServicesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.importableOnly)) {
+      query["importableOnly"] = request.importableOnly;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.paiWorkspaceId)) {
+      query["paiWorkspaceId"] = request.paiWorkspaceId;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["sourceType"] = request.sourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListExternalServices",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/external-services`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListExternalServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListExternalServicesResponse({}));
+  }
+
+  /**
+   * 获取网关外的服务信息
+   * 
+   * @param request - ListExternalServicesRequest
+   * @returns ListExternalServicesResponse
+   */
+  async listExternalServices(gatewayId: string, request: $_model.ListExternalServicesRequest): Promise<$_model.ListExternalServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listExternalServicesWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -5405,10 +5484,6 @@ export default class Client extends OpenApi {
       body["backendConfig"] = request.backendConfig;
     }
 
-    if (!$dara.isNull(request.deployConfigs)) {
-      body["deployConfigs"] = request.deployConfigs;
-    }
-
     if (!$dara.isNull(request.description)) {
       body["description"] = request.description;
     }
@@ -5427,10 +5502,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.mcpRouteConfig)) {
       body["mcpRouteConfig"] = request.mcpRouteConfig;
-    }
-
-    if (!$dara.isNull(request.name)) {
-      body["name"] = request.name;
     }
 
     if (!$dara.isNull(request.policyConfigs)) {
