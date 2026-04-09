@@ -88,7 +88,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份认证查询接口
+   * Queries the information about identity providers by logon identifier.
    * 
    * @param tmpReq - FindIdpListByLoginIdentifierRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -159,7 +159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 身份认证查询接口
+   * Queries the information about identity providers by logon identifier.
    * 
    * @param request - FindIdpListByLoginIdentifierRequest
    * @returns FindIdpListByLoginIdentifierResponse
@@ -170,7 +170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetLoginToken
+   * Queries a logon token using an enterprise identifier.
    * 
    * @param tmpReq - GetLoginTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -355,7 +355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetLoginToken
+   * Queries a logon token using an enterprise identifier.
    * 
    * @param request - GetLoginTokenRequest
    * @returns GetLoginTokenResponse
@@ -366,7 +366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取无影StsToken
+   * Obtains an STS token.
    * 
    * @param request - GetStsTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -417,7 +417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取无影StsToken
+   * Obtains an STS token.
    * 
    * @param request - GetStsTokenRequest
    * @returns GetStsTokenResponse
@@ -428,6 +428,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Refreshes a logon token.
+   * 
    * @param request - RefreshLoginTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RefreshLoginTokenResponse
@@ -489,6 +491,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Refreshes a logon token.
+   * 
    * @param request - RefreshLoginTokenRequest
    * @returns RefreshLoginTokenResponse
    */

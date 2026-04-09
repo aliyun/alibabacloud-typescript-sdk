@@ -14,6 +14,10 @@ export class FindIdpListByLoginIdentifierShrinkRequest extends $dara.Model {
    * 370b56f8-2812-4b6c-bfa6-2560791c****
    */
   clientId?: string;
+  /**
+   * @example
+   * 22.21.XX.XX
+   */
   clientIp?: string;
   /**
    * @example

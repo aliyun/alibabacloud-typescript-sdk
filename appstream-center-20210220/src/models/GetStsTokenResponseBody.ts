@@ -3,6 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetStsTokenResponseBodyStsTokenModel extends $dara.Model {
+  endUserId?: string;
+  loginToken?: string;
+  profileRegion?: string;
   /**
    * @example
    * be4be09e-cd00-4b4c-add7-11b4d8****
@@ -20,6 +23,9 @@ export class GetStsTokenResponseBodyStsTokenModel extends $dara.Model {
   tenantId?: number;
   static names(): { [key: string]: string } {
     return {
+      endUserId: 'EndUserId',
+      loginToken: 'LoginToken',
+      profileRegion: 'ProfileRegion',
       sessionId: 'SessionId',
       stsToken: 'StsToken',
       tenantId: 'TenantId',
@@ -28,6 +34,9 @@ export class GetStsTokenResponseBodyStsTokenModel extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      endUserId: 'string',
+      loginToken: 'string',
+      profileRegion: 'string',
       sessionId: 'string',
       stsToken: 'string',
       tenantId: 'number',
