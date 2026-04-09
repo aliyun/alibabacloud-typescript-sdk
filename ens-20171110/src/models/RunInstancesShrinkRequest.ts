@@ -430,6 +430,8 @@ export class RunInstancesShrinkRequest extends $dara.Model {
    * vsw-5sagnw7m613oulalkd10nv0ob
    */
   vSwitchId?: string;
+  vpdId?: string;
+  vpdVSwitchIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
@@ -474,6 +476,8 @@ export class RunInstancesShrinkRequest extends $dara.Model {
       uniqueSuffix: 'UniqueSuffix',
       userData: 'UserData',
       vSwitchId: 'VSwitchId',
+      vpdId: 'VpdId',
+      vpdVSwitchIdsShrink: 'VpdVSwitchIds',
     };
   }
 
@@ -521,6 +525,8 @@ export class RunInstancesShrinkRequest extends $dara.Model {
       uniqueSuffix: 'boolean',
       userData: 'string',
       vSwitchId: 'string',
+      vpdId: 'string',
+      vpdVSwitchIdsShrink: 'string',
     };
   }
 

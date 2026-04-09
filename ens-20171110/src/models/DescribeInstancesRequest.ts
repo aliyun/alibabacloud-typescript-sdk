@@ -213,6 +213,8 @@ export class DescribeInstancesRequest extends $dara.Model {
    * vsw-2zeh0r1pabwtg6wcs****
    */
   vSwitchId?: string;
+  vpdId?: string;
+  vpdVSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       eipAddresses: 'EipAddresses',
@@ -236,6 +238,8 @@ export class DescribeInstancesRequest extends $dara.Model {
       status: 'Status',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
+      vpdId: 'VpdId',
+      vpdVSwitchId: 'VpdVSwitchId',
     };
   }
 
@@ -262,6 +266,8 @@ export class DescribeInstancesRequest extends $dara.Model {
       status: 'string',
       tags: { 'type': 'array', 'itemType': DescribeInstancesRequestTags },
       vSwitchId: 'string',
+      vpdId: 'string',
+      vpdVSwitchId: 'string',
     };
   }
 

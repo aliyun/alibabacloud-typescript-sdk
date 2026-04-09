@@ -543,6 +543,8 @@ export class RunInstancesRequest extends $dara.Model {
    * vsw-5sagnw7m613oulalkd10nv0ob
    */
   vSwitchId?: string;
+  vpdId?: string;
+  vpdVSwitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
@@ -587,6 +589,8 @@ export class RunInstancesRequest extends $dara.Model {
       uniqueSuffix: 'UniqueSuffix',
       userData: 'UserData',
       vSwitchId: 'VSwitchId',
+      vpdId: 'VpdId',
+      vpdVSwitchIds: 'VpdVSwitchIds',
     };
   }
 
@@ -634,6 +638,8 @@ export class RunInstancesRequest extends $dara.Model {
       uniqueSuffix: 'boolean',
       userData: 'string',
       vSwitchId: 'string',
+      vpdId: 'string',
+      vpdVSwitchIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -646,6 +652,9 @@ export class RunInstancesRequest extends $dara.Model {
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
+    }
+    if(Array.isArray(this.vpdVSwitchIds)) {
+      $dara.Model.validateArray(this.vpdVSwitchIds);
     }
     super.validate();
   }

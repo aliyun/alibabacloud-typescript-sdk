@@ -5978,7 +5978,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the resources that can be created.
    * 
-   * @param request - DescribeAvailableResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAvailableResourceResponse
    */
@@ -6010,7 +6009,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the specifications of resources that you can purchase when you create an instance.
    * 
-   * @param request - DescribeAvailableResourceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAvailableResourceInfoResponse
    */
@@ -6042,7 +6040,6 @@ export default class Client extends OpenApi {
   /**
    * Queries available bandwidth metering methods.
    * 
-   * @param request - DescribeBandWithdChargeTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBandWithdChargeTypeResponse
    */
@@ -6128,7 +6125,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the available resources in a region.
    * 
-   * @param request - DescribeCloudDiskAvailableResourceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudDiskAvailableResourceInfoResponse
    */
@@ -6996,7 +6992,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the specifications of resources that you can purchase when you create an instance.
    * 
-   * @param request - DescribeElbAvailableResourceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeElbAvailableResourceInfoResponse
    */
@@ -7248,7 +7243,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the supported network levels.
    * 
-   * @param request - DescribeEnsNetLevelRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEnsNetLevelResponse
    */
@@ -8900,7 +8894,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the instance specifications that you can purchase.
    * 
-   * @param request - DescribeInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceSpecResponse
    */
@@ -8932,7 +8925,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the specifications of instance types.
    * 
-   * @param request - DescribeInstanceTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceTypesResponse
    */
@@ -9114,6 +9106,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpdId)) {
+      query["VpdId"] = request.vpdId;
+    }
+
+    if (!$dara.isNull(request.vpdVSwitchId)) {
+      query["VpdVSwitchId"] = request.vpdVSwitchId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -9764,7 +9764,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the specifications of resources that you can purchase when you create a NAS.
    * 
-   * @param request - DescribeNASAvailableResourceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeNASAvailableResourceInfoResponse
    */
@@ -10424,7 +10423,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the specifications of resources that you can purchase.
    * 
-   * @param request - DescribeReservedResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeReservedResourceResponse
    */
@@ -12596,7 +12594,6 @@ export default class Client extends OpenApi {
   /**
    * Create a service-linked role (SLR) for ENS for the current user to manage resources.
    * 
-   * @param request - InitializeENSECKServiceRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InitializeENSECKServiceRoleResponse
    */
@@ -13010,7 +13007,6 @@ export default class Client extends OpenApi {
   /**
    * Querying the details of a cluster component
    * 
-   * @param request - ListAddonsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAddonsResponse
    */
@@ -13270,7 +13266,6 @@ export default class Client extends OpenApi {
   /**
    * Lists all service capabilities.
    * 
-   * @param request - ListProductAbilitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListProductAbilitiesResponse
    */
@@ -16672,6 +16667,10 @@ export default class Client extends OpenApi {
       request.systemDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.systemDisk, "SystemDisk", "json");
     }
 
+    if (!$dara.isNull(tmpReq.vpdVSwitchIds)) {
+      request.vpdVSwitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vpdVSwitchIds, "VpdVSwitchIds", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.amount)) {
       query["Amount"] = request.amount;
@@ -16839,6 +16838,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.vSwitchId)) {
       query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpdId)) {
+      query["VpdId"] = request.vpdId;
+    }
+
+    if (!$dara.isNull(request.vpdVSwitchIdsShrink)) {
+      query["VpdVSwitchIds"] = request.vpdVSwitchIdsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

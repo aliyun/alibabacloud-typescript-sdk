@@ -276,6 +276,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
   primaryIpAddress?: string;
   privateIpSets?: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSets;
   type?: string;
+  vpdId?: string;
+  vpdVSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       ipv6Sets: 'Ipv6Sets',
@@ -284,6 +286,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
       primaryIpAddress: 'PrimaryIpAddress',
       privateIpSets: 'PrivateIpSets',
       type: 'Type',
+      vpdId: 'VpdId',
+      vpdVSwitchId: 'VpdVSwitchId',
     };
   }
 
@@ -295,6 +299,8 @@ export class DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetw
       primaryIpAddress: 'string',
       privateIpSets: DescribeInstancesResponseBodyInstancesInstanceNetworkInterfacesNetworkInterfacesPrivateIpSets,
       type: 'string',
+      vpdId: 'string',
+      vpdVSwitchId: 'string',
     };
   }
 
