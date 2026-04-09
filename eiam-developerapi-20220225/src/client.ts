@@ -364,13 +364,89 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建账户专属凭据。
+   * 
+   * @param request - CreateUserExclusiveCredentialRequest
+   * @param headers - CreateUserExclusiveCredentialHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserExclusiveCredentialResponse
+   */
+  async createUserExclusiveCredentialWithOptions(instanceId: string, request: $_model.CreateUserExclusiveCredentialRequest, headers: $_model.CreateUserExclusiveCredentialHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUserExclusiveCredentialResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.credentialContent)) {
+      body["credentialContent"] = request.credentialContent;
+    }
+
+    if (!$dara.isNull(request.credentialIdentifier)) {
+      body["credentialIdentifier"] = request.credentialIdentifier;
+    }
+
+    if (!$dara.isNull(request.credentialName)) {
+      body["credentialName"] = request.credentialName;
+    }
+
+    if (!$dara.isNull(request.credentialScenarioLabel)) {
+      body["credentialScenarioLabel"] = request.credentialScenarioLabel;
+    }
+
+    if (!$dara.isNull(request.credentialType)) {
+      body["credentialType"] = request.credentialType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateUserExclusiveCredential",
+      version: "2022-02-25",
+      protocol: "HTTPS",
+      pathname: `/v2/${$dara.URL.percentEncode(instanceId)}/credentials/_/actions/createUserExclusive`,
+      method: "POST",
+      authType: "Anonymous",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateUserExclusiveCredentialResponse>(await this.doROARequest(params.action, params.version, params.protocol, params.method, params.authType, params.pathname, params.bodyType, req, runtime), new $_model.CreateUserExclusiveCredentialResponse({}));
+  }
+
+  /**
+   * 创建账户专属凭据。
+   * 
+   * @param request - CreateUserExclusiveCredentialRequest
+   * @returns CreateUserExclusiveCredentialResponse
+   */
+  async createUserExclusiveCredential(instanceId: string, request: $_model.CreateUserExclusiveCredentialRequest): Promise<$_model.CreateUserExclusiveCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CreateUserExclusiveCredentialHeaders({ });
+    return await this.createUserExclusiveCredentialWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a group.
    * 
+   * @param request - DeleteGroupRequest
    * @param headers - DeleteGroupHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGroupResponse
    */
-  async deleteGroupWithOptions(instanceId: string, applicationId: string, groupId: string, headers: $_model.DeleteGroupHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGroupResponse> {
+  async deleteGroupWithOptions(instanceId: string, applicationId: string, groupId: string, request: $_model.DeleteGroupRequest, headers: $_model.DeleteGroupHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGroupResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -399,22 +475,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a group.
+   * 
+   * @param request - DeleteGroupRequest
    * @returns DeleteGroupResponse
    */
-  async deleteGroup(instanceId: string, applicationId: string, groupId: string): Promise<$_model.DeleteGroupResponse> {
+  async deleteGroup(instanceId: string, applicationId: string, groupId: string, request: $_model.DeleteGroupRequest): Promise<$_model.DeleteGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.DeleteGroupHeaders({ });
-    return await this.deleteGroupWithOptions(instanceId, applicationId, groupId, headers, runtime);
+    return await this.deleteGroupWithOptions(instanceId, applicationId, groupId, request, headers, runtime);
   }
 
   /**
    * Deletes an organizational unit.
    * 
+   * @param request - DeleteOrganizationalUnitRequest
    * @param headers - DeleteOrganizationalUnitHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteOrganizationalUnitResponse
    */
-  async deleteOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, headers: $_model.DeleteOrganizationalUnitHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOrganizationalUnitResponse> {
+  async deleteOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, request: $_model.DeleteOrganizationalUnitRequest, headers: $_model.DeleteOrganizationalUnitHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteOrganizationalUnitResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -443,22 +523,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an organizational unit.
+   * 
+   * @param request - DeleteOrganizationalUnitRequest
    * @returns DeleteOrganizationalUnitResponse
    */
-  async deleteOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<$_model.DeleteOrganizationalUnitResponse> {
+  async deleteOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string, request: $_model.DeleteOrganizationalUnitRequest): Promise<$_model.DeleteOrganizationalUnitResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.DeleteOrganizationalUnitHeaders({ });
-    return await this.deleteOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+    return await this.deleteOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
   }
 
   /**
    * Deletes an Employee Identity and Access Management (EIAM) account.
    * 
+   * @param request - DeleteUserRequest
    * @param headers - DeleteUserHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUserResponse
    */
-  async deleteUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: $_model.DeleteUserHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUserResponse> {
+  async deleteUserWithOptions(instanceId: string, applicationId: string, userId: string, request: $_model.DeleteUserRequest, headers: $_model.DeleteUserHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUserResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -487,22 +571,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an Employee Identity and Access Management (EIAM) account.
+   * 
+   * @param request - DeleteUserRequest
    * @returns DeleteUserResponse
    */
-  async deleteUser(instanceId: string, applicationId: string, userId: string): Promise<$_model.DeleteUserResponse> {
+  async deleteUser(instanceId: string, applicationId: string, userId: string, request: $_model.DeleteUserRequest): Promise<$_model.DeleteUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.DeleteUserHeaders({ });
-    return await this.deleteUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+    return await this.deleteUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
   }
 
   /**
    * Disables an Employee Identity and Access Management (EIAM) account.
    * 
+   * @param request - DisableUserRequest
    * @param headers - DisableUserHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DisableUserResponse
    */
-  async disableUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: $_model.DisableUserHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DisableUserResponse> {
+  async disableUserWithOptions(instanceId: string, applicationId: string, userId: string, request: $_model.DisableUserRequest, headers: $_model.DisableUserHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.DisableUserResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -531,22 +619,26 @@ export default class Client extends OpenApi {
 
   /**
    * Disables an Employee Identity and Access Management (EIAM) account.
+   * 
+   * @param request - DisableUserRequest
    * @returns DisableUserResponse
    */
-  async disableUser(instanceId: string, applicationId: string, userId: string): Promise<$_model.DisableUserResponse> {
+  async disableUser(instanceId: string, applicationId: string, userId: string, request: $_model.DisableUserRequest): Promise<$_model.DisableUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.DisableUserHeaders({ });
-    return await this.disableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+    return await this.disableUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
   }
 
   /**
    * Enables an Employee Identity and Access Management (EIAM) account.
    * 
+   * @param request - EnableUserRequest
    * @param headers - EnableUserHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableUserResponse
    */
-  async enableUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: $_model.EnableUserHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.EnableUserResponse> {
+  async enableUserWithOptions(instanceId: string, applicationId: string, userId: string, request: $_model.EnableUserRequest, headers: $_model.EnableUserHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.EnableUserResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -575,12 +667,14 @@ export default class Client extends OpenApi {
 
   /**
    * Enables an Employee Identity and Access Management (EIAM) account.
+   * 
+   * @param request - EnableUserRequest
    * @returns EnableUserResponse
    */
-  async enableUser(instanceId: string, applicationId: string, userId: string): Promise<$_model.EnableUserResponse> {
+  async enableUser(instanceId: string, applicationId: string, userId: string, request: $_model.EnableUserRequest): Promise<$_model.EnableUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.EnableUserHeaders({ });
-    return await this.enableUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+    return await this.enableUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
   }
 
   /**
@@ -971,11 +1065,13 @@ export default class Client extends OpenApi {
    * > 
    * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
    * 
+   * @param request - GetApplicationProvisioningScopeRequest
    * @param headers - GetApplicationProvisioningScopeHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetApplicationProvisioningScopeResponse
    */
-  async getApplicationProvisioningScopeWithOptions(instanceId: string, applicationId: string, headers: $_model.GetApplicationProvisioningScopeHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetApplicationProvisioningScopeResponse> {
+  async getApplicationProvisioningScopeWithOptions(instanceId: string, applicationId: string, request: $_model.GetApplicationProvisioningScopeRequest, headers: $_model.GetApplicationProvisioningScopeHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetApplicationProvisioningScopeResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -1008,22 +1104,26 @@ export default class Client extends OpenApi {
    * @remarks
    * > 
    * *   You can go to the Applications page in the IDaaS console to set the synchronization scope. After an application is created, the application has the permission to call this operation by default.
+   * 
+   * @param request - GetApplicationProvisioningScopeRequest
    * @returns GetApplicationProvisioningScopeResponse
    */
-  async getApplicationProvisioningScope(instanceId: string, applicationId: string): Promise<$_model.GetApplicationProvisioningScopeResponse> {
+  async getApplicationProvisioningScope(instanceId: string, applicationId: string, request: $_model.GetApplicationProvisioningScopeRequest): Promise<$_model.GetApplicationProvisioningScopeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetApplicationProvisioningScopeHeaders({ });
-    return await this.getApplicationProvisioningScopeWithOptions(instanceId, applicationId, headers, runtime);
+    return await this.getApplicationProvisioningScopeWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   /**
    * Queries the details of a group.
    * 
+   * @param request - GetGroupRequest
    * @param headers - GetGroupHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetGroupResponse
    */
-  async getGroupWithOptions(instanceId: string, applicationId: string, groupId: string, headers: $_model.GetGroupHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetGroupResponse> {
+  async getGroupWithOptions(instanceId: string, applicationId: string, groupId: string, request: $_model.GetGroupRequest, headers: $_model.GetGroupHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetGroupResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -1052,22 +1152,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details of a group.
+   * 
+   * @param request - GetGroupRequest
    * @returns GetGroupResponse
    */
-  async getGroup(instanceId: string, applicationId: string, groupId: string): Promise<$_model.GetGroupResponse> {
+  async getGroup(instanceId: string, applicationId: string, groupId: string, request: $_model.GetGroupRequest): Promise<$_model.GetGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetGroupHeaders({ });
-    return await this.getGroupWithOptions(instanceId, applicationId, groupId, headers, runtime);
+    return await this.getGroupWithOptions(instanceId, applicationId, groupId, request, headers, runtime);
   }
 
   /**
    * Queries the information of an organizational unit.
    * 
+   * @param request - GetOrganizationalUnitRequest
    * @param headers - GetOrganizationalUnitHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOrganizationalUnitResponse
    */
-  async getOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, headers: $_model.GetOrganizationalUnitHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetOrganizationalUnitResponse> {
+  async getOrganizationalUnitWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, request: $_model.GetOrganizationalUnitRequest, headers: $_model.GetOrganizationalUnitHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetOrganizationalUnitResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -1096,12 +1200,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information of an organizational unit.
+   * 
+   * @param request - GetOrganizationalUnitRequest
    * @returns GetOrganizationalUnitResponse
    */
-  async getOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<$_model.GetOrganizationalUnitResponse> {
+  async getOrganizationalUnit(instanceId: string, applicationId: string, organizationalUnitId: string, request: $_model.GetOrganizationalUnitRequest): Promise<$_model.GetOrganizationalUnitResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetOrganizationalUnitHeaders({ });
-    return await this.getOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+    return await this.getOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
   }
 
   /**
@@ -1169,11 +1275,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the details of an Employee Identity and Access Management (EIAM) account.
    * 
+   * @param request - GetUserRequest
    * @param headers - GetUserHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserResponse
    */
-  async getUserWithOptions(instanceId: string, applicationId: string, userId: string, headers: $_model.GetUserHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserResponse> {
+  async getUserWithOptions(instanceId: string, applicationId: string, userId: string, request: $_model.GetUserRequest, headers: $_model.GetUserHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -1202,12 +1310,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details of an Employee Identity and Access Management (EIAM) account.
+   * 
+   * @param request - GetUserRequest
    * @returns GetUserResponse
    */
-  async getUser(instanceId: string, applicationId: string, userId: string): Promise<$_model.GetUserResponse> {
+  async getUser(instanceId: string, applicationId: string, userId: string, request: $_model.GetUserRequest): Promise<$_model.GetUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetUserHeaders({ });
-    return await this.getUserWithOptions(instanceId, applicationId, userId, headers, runtime);
+    return await this.getUserWithOptions(instanceId, applicationId, userId, request, headers, runtime);
   }
 
   /**
@@ -1437,11 +1547,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the information of a user by using the user token.
    * 
+   * @param request - GetUserInfoRequest
    * @param headers - GetUserInfoHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserInfoResponse
    */
-  async getUserInfoWithOptions(instanceId: string, applicationId: string, headers: $_model.GetUserInfoHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserInfoResponse> {
+  async getUserInfoWithOptions(instanceId: string, applicationId: string, request: $_model.GetUserInfoRequest, headers: $_model.GetUserInfoHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserInfoResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -1470,12 +1582,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information of a user by using the user token.
+   * 
+   * @param request - GetUserInfoRequest
    * @returns GetUserInfoResponse
    */
-  async getUserInfo(instanceId: string, applicationId: string): Promise<$_model.GetUserInfoResponse> {
+  async getUserInfo(instanceId: string, applicationId: string, request: $_model.GetUserInfoRequest): Promise<$_model.GetUserInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetUserInfoHeaders({ });
-    return await this.getUserInfoWithOptions(instanceId, applicationId, headers, runtime);
+    return await this.getUserInfoWithOptions(instanceId, applicationId, request, headers, runtime);
   }
 
   /**
@@ -1675,11 +1789,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the information of all the parent organizational units of an organizational unit.
    * 
+   * @param request - ListOrganizationalUnitParentIdsRequest
    * @param headers - ListOrganizationalUnitParentIdsHeaders
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListOrganizationalUnitParentIdsResponse
    */
-  async listOrganizationalUnitParentIdsWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, headers: $_model.ListOrganizationalUnitParentIdsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListOrganizationalUnitParentIdsResponse> {
+  async listOrganizationalUnitParentIdsWithOptions(instanceId: string, applicationId: string, organizationalUnitId: string, request: $_model.ListOrganizationalUnitParentIdsRequest, headers: $_model.ListOrganizationalUnitParentIdsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ListOrganizationalUnitParentIdsResponse> {
+    request.validate();
     let realHeaders : {[key: string ]: string} = { };
     if (!$dara.isNull(headers.commonHeaders)) {
       realHeaders = headers.commonHeaders;
@@ -1708,12 +1824,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information of all the parent organizational units of an organizational unit.
+   * 
+   * @param request - ListOrganizationalUnitParentIdsRequest
    * @returns ListOrganizationalUnitParentIdsResponse
    */
-  async listOrganizationalUnitParentIds(instanceId: string, applicationId: string, organizationalUnitId: string): Promise<$_model.ListOrganizationalUnitParentIdsResponse> {
+  async listOrganizationalUnitParentIds(instanceId: string, applicationId: string, organizationalUnitId: string, request: $_model.ListOrganizationalUnitParentIdsRequest): Promise<$_model.ListOrganizationalUnitParentIdsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.ListOrganizationalUnitParentIdsHeaders({ });
-    return await this.listOrganizationalUnitParentIdsWithOptions(instanceId, applicationId, organizationalUnitId, headers, runtime);
+    return await this.listOrganizationalUnitParentIdsWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
   }
 
   /**
