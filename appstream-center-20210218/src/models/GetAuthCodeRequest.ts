@@ -25,12 +25,14 @@ export class GetAuthCodeRequest extends $dara.Model {
    * }
    */
   policy?: string;
+  tokenType?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreateUser: 'AutoCreateUser',
       endUserId: 'EndUserId',
       externalUserId: 'ExternalUserId',
       policy: 'Policy',
+      tokenType: 'TokenType',
     };
   }
 
@@ -40,6 +42,7 @@ export class GetAuthCodeRequest extends $dara.Model {
       endUserId: 'string',
       externalUserId: 'string',
       policy: 'string',
+      tokenType: 'string',
     };
   }
 

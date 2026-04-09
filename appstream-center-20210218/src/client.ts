@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 登录token主动失效
+   * Manually invalidates a logon token.
    * 
    * @param request - ExpireLoginTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 登录token主动失效
+   * Manually invalidates a logon token.
    * 
    * @param request - ExpireLoginTokenRequest
    * @returns ExpireLoginTokenResponse
@@ -84,7 +84,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取授权码
+   * Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
    * 
    * @param request - GetAuthCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -92,6 +92,11 @@ export default class Client extends OpenApi {
    */
   async getAuthCodeWithOptions(request: $_model.GetAuthCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuthCodeResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.tokenType)) {
+      query["TokenType"] = request.tokenType;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.autoCreateUser)) {
       body["AutoCreateUser"] = request.autoCreateUser;
@@ -110,6 +115,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -127,7 +133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取授权码
+   * Obtains an authorization code that includes the identity and permission information of a user. You can use the code to launch cloud apps in integration scenarios.
    * 
    * @param request - GetAuthCodeRequest
    * @returns GetAuthCodeResponse
