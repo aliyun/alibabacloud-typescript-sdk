@@ -668,8 +668,16 @@ export default class Client extends OpenApi {
   async createABMetricWithOptions(request: $_model.CreateABMetricRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateABMetricResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aggregationByUser)) {
+      body["AggregationByUser"] = request.aggregationByUser;
+    }
+
     if (!$dara.isNull(request.definition)) {
       body["Definition"] = request.definition;
+    }
+
+    if (!$dara.isNull(request.denominator)) {
+      body["Denominator"] = request.denominator;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -680,12 +688,24 @@ export default class Client extends OpenApi {
       body["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.isBinomialDistribution)) {
+      body["IsBinomialDistribution"] = request.isBinomialDistribution;
+    }
+
     if (!$dara.isNull(request.leftMetricId)) {
       body["LeftMetricId"] = request.leftMetricId;
     }
 
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.needSignificance)) {
+      body["NeedSignificance"] = request.needSignificance;
+    }
+
+    if (!$dara.isNull(request.numerator)) {
+      body["Numerator"] = request.numerator;
     }
 
     if (!$dara.isNull(request.operator)) {
@@ -3238,11 +3258,13 @@ export default class Client extends OpenApi {
   /**
    * 删除指定实例下的指定配置资源。
    * 
+   * @param request - DeleteInstanceResourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceResourceResponse
    */
-  async deleteInstanceResourceWithOptions(InstanceId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstanceResourceResponse> {
+  async deleteInstanceResourceWithOptions(InstanceId: string, ResourceId: string, request: $_model.DeleteInstanceResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstanceResourceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3262,12 +3284,14 @@ export default class Client extends OpenApi {
 
   /**
    * 删除指定实例下的指定配置资源。
+   * 
+   * @param request - DeleteInstanceResourceRequest
    * @returns DeleteInstanceResourceResponse
    */
-  async deleteInstanceResource(InstanceId: string, ResourceId: string): Promise<$_model.DeleteInstanceResourceResponse> {
+  async deleteInstanceResource(InstanceId: string, ResourceId: string, request: $_model.DeleteInstanceResourceRequest): Promise<$_model.DeleteInstanceResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteInstanceResourceWithOptions(InstanceId, ResourceId, headers, runtime);
+    return await this.deleteInstanceResourceWithOptions(InstanceId, ResourceId, request, headers, runtime);
   }
 
   /**
@@ -4553,11 +4577,13 @@ export default class Client extends OpenApi {
   /**
    * 获取指定推荐全链路深度定制开发平台实例信息。
    * 
+   * @param request - GetInstanceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceResponse
    */
-  async getInstanceWithOptions(InstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceResponse> {
+  async getInstanceWithOptions(InstanceId: string, request: $_model.GetInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4577,22 +4603,26 @@ export default class Client extends OpenApi {
 
   /**
    * 获取指定推荐全链路深度定制开发平台实例信息。
+   * 
+   * @param request - GetInstanceRequest
    * @returns GetInstanceResponse
    */
-  async getInstance(InstanceId: string): Promise<$_model.GetInstanceResponse> {
+  async getInstance(InstanceId: string, request: $_model.GetInstanceRequest): Promise<$_model.GetInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getInstanceWithOptions(InstanceId, headers, runtime);
+    return await this.getInstanceWithOptions(InstanceId, request, headers, runtime);
   }
 
   /**
    * 获取指定实例下指定资源的详细信息。
    * 
+   * @param request - GetInstanceResourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceResourceResponse
    */
-  async getInstanceResourceWithOptions(InstanceId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceResourceResponse> {
+  async getInstanceResourceWithOptions(InstanceId: string, ResourceId: string, request: $_model.GetInstanceResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceResourceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4612,22 +4642,26 @@ export default class Client extends OpenApi {
 
   /**
    * 获取指定实例下指定资源的详细信息。
+   * 
+   * @param request - GetInstanceResourceRequest
    * @returns GetInstanceResourceResponse
    */
-  async getInstanceResource(InstanceId: string, ResourceId: string): Promise<$_model.GetInstanceResourceResponse> {
+  async getInstanceResource(InstanceId: string, ResourceId: string, request: $_model.GetInstanceResourceRequest): Promise<$_model.GetInstanceResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getInstanceResourceWithOptions(InstanceId, ResourceId, headers, runtime);
+    return await this.getInstanceResourceWithOptions(InstanceId, ResourceId, request, headers, runtime);
   }
 
   /**
    * 获取数据源下指定表的详细信息。
    * 
+   * @param request - GetInstanceResourceTableRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceResourceTableResponse
    */
-  async getInstanceResourceTableWithOptions(InstanceId: string, ResourceId: string, TableName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceResourceTableResponse> {
+  async getInstanceResourceTableWithOptions(InstanceId: string, ResourceId: string, TableName: string, request: $_model.GetInstanceResourceTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceResourceTableResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4647,12 +4681,14 @@ export default class Client extends OpenApi {
 
   /**
    * 获取数据源下指定表的详细信息。
+   * 
+   * @param request - GetInstanceResourceTableRequest
    * @returns GetInstanceResourceTableResponse
    */
-  async getInstanceResourceTable(InstanceId: string, ResourceId: string, TableName: string): Promise<$_model.GetInstanceResourceTableResponse> {
+  async getInstanceResourceTable(InstanceId: string, ResourceId: string, TableName: string, request: $_model.GetInstanceResourceTableRequest): Promise<$_model.GetInstanceResourceTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getInstanceResourceTableWithOptions(InstanceId, ResourceId, TableName, headers, runtime);
+    return await this.getInstanceResourceTableWithOptions(InstanceId, ResourceId, TableName, request, headers, runtime);
   }
 
   /**
@@ -8942,8 +8978,16 @@ export default class Client extends OpenApi {
   async updateABMetricWithOptions(ABMetricId: string, request: $_model.UpdateABMetricRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateABMetricResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aggregationByUser)) {
+      body["AggregationByUser"] = request.aggregationByUser;
+    }
+
     if (!$dara.isNull(request.definition)) {
       body["Definition"] = request.definition;
+    }
+
+    if (!$dara.isNull(request.denominator)) {
+      body["Denominator"] = request.denominator;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -8954,12 +8998,24 @@ export default class Client extends OpenApi {
       body["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.isBinomialDistribution)) {
+      body["IsBinomialDistribution"] = request.isBinomialDistribution;
+    }
+
     if (!$dara.isNull(request.leftMetricId)) {
       body["LeftMetricId"] = request.leftMetricId;
     }
 
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.needSignificance)) {
+      body["NeedSignificance"] = request.needSignificance;
+    }
+
+    if (!$dara.isNull(request.numerator)) {
+      body["Numerator"] = request.numerator;
     }
 
     if (!$dara.isNull(request.operator)) {

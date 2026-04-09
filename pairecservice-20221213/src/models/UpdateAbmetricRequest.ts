@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateABMetricRequest extends $dara.Model {
+  aggregationByUser?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -11,6 +12,11 @@ export class UpdateABMetricRequest extends $dara.Model {
    * sum(click_cnt)
    */
   definition?: string;
+  /**
+   * @example
+   * pv
+   */
+  denominator?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -24,6 +30,7 @@ export class UpdateABMetricRequest extends $dara.Model {
    * pairec-cn-test123
    */
   instanceId?: string;
+  isBinomialDistribution?: boolean;
   /**
    * @example
    * 2
@@ -37,6 +44,12 @@ export class UpdateABMetricRequest extends $dara.Model {
    * pv
    */
   name?: string;
+  needSignificance?: boolean;
+  /**
+   * @example
+   * click
+   */
+  numerator?: string;
   /**
    * @example
    * Division
@@ -91,11 +104,16 @@ export class UpdateABMetricRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      aggregationByUser: 'AggregationByUser',
       definition: 'Definition',
+      denominator: 'Denominator',
       description: 'Description',
       instanceId: 'InstanceId',
+      isBinomialDistribution: 'IsBinomialDistribution',
       leftMetricId: 'LeftMetricId',
       name: 'Name',
+      needSignificance: 'NeedSignificance',
+      numerator: 'Numerator',
       operator: 'Operator',
       realtime: 'Realtime',
       resultResourceId: 'ResultResourceId',
@@ -109,11 +127,16 @@ export class UpdateABMetricRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aggregationByUser: 'boolean',
       definition: 'string',
+      denominator: 'string',
       description: 'string',
       instanceId: 'string',
+      isBinomialDistribution: 'boolean',
       leftMetricId: 'string',
       name: 'string',
+      needSignificance: 'boolean',
+      numerator: 'string',
       operator: 'string',
       realtime: 'boolean',
       resultResourceId: 'string',

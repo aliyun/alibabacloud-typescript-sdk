@@ -3,12 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetABMetricResponseBody extends $dara.Model {
+  aggregationByUser?: boolean;
   /**
    * @example
    * sum(click_cnt)
    */
   definition?: string;
+  /**
+   * @example
+   * pv
+   */
+  denominator?: string;
   description?: string;
+  isBinomialDistribution?: boolean;
   /**
    * @example
    * 3
@@ -19,6 +26,12 @@ export class GetABMetricResponseBody extends $dara.Model {
    * pv
    */
   name?: string;
+  needSignificance?: boolean;
+  /**
+   * @example
+   * click
+   */
+  numerator?: string;
   /**
    * @example
    * Division
@@ -76,10 +89,15 @@ export class GetABMetricResponseBody extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      aggregationByUser: 'AggregationByUser',
       definition: 'Definition',
+      denominator: 'Denominator',
       description: 'Description',
+      isBinomialDistribution: 'IsBinomialDistribution',
       leftMetricId: 'LeftMetricId',
       name: 'Name',
+      needSignificance: 'NeedSignificance',
+      numerator: 'Numerator',
       operator: 'Operator',
       realtime: 'Realtime',
       requestId: 'RequestId',
@@ -96,10 +114,15 @@ export class GetABMetricResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aggregationByUser: 'boolean',
       definition: 'string',
+      denominator: 'string',
       description: 'string',
+      isBinomialDistribution: 'boolean',
       leftMetricId: 'string',
       name: 'string',
+      needSignificance: 'boolean',
+      numerator: 'string',
       operator: 'string',
       realtime: 'string',
       requestId: 'string',

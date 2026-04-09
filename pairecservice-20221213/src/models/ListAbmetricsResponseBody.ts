@@ -8,12 +8,19 @@ export class ListABMetricsResponseBodyABMetrics extends $dara.Model {
    * 1
    */
   ABMetricId?: string;
+  aggregationByUser?: boolean;
   /**
    * @example
    * sum(click_cnt)
    */
   definition?: string;
+  /**
+   * @example
+   * pv
+   */
+  denominator?: string;
   description?: string;
+  isBinomialDistribution?: boolean;
   /**
    * @example
    * 3
@@ -24,6 +31,12 @@ export class ListABMetricsResponseBodyABMetrics extends $dara.Model {
    * pv
    */
   name?: string;
+  needSignificance?: boolean;
+  /**
+   * @example
+   * click
+   */
+  numerator?: string;
   /**
    * @example
    * Division
@@ -77,10 +90,15 @@ export class ListABMetricsResponseBodyABMetrics extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       ABMetricId: 'ABMetricId',
+      aggregationByUser: 'AggregationByUser',
       definition: 'Definition',
+      denominator: 'Denominator',
       description: 'Description',
+      isBinomialDistribution: 'IsBinomialDistribution',
       leftMetricId: 'LeftMetricId',
       name: 'Name',
+      needSignificance: 'NeedSignificance',
+      numerator: 'Numerator',
       operator: 'Operator',
       realtime: 'Realtime',
       resultResourceId: 'ResultResourceId',
@@ -97,10 +115,15 @@ export class ListABMetricsResponseBodyABMetrics extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       ABMetricId: 'string',
+      aggregationByUser: 'boolean',
       definition: 'string',
+      denominator: 'string',
       description: 'string',
+      isBinomialDistribution: 'boolean',
       leftMetricId: 'string',
       name: 'string',
+      needSignificance: 'boolean',
+      numerator: 'string',
       operator: 'string',
       realtime: 'string',
       resultResourceId: 'string',
