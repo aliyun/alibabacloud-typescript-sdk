@@ -6,9 +6,6 @@ export class GetErrorCodeSolutionsResponseBodySolutions extends $dara.Model {
   /**
    * @remarks
    * The content of the solution, which is in the markdown format.
-   * 
-   * @example
-   * Unsupported transit router status\\n====\\n\\nCause\\n----\\n\\nThe transit router is in an unstable state.\\n\\n* * *\\n\\nSolution\\n----\\n\\nTry again after the transit router enters a stable state. You can check whether the transit router is in a stable state based on the following information.\\n\\nExample\\n------\\n\\nBefore you proceed, make sure that the transit route is in a stable state.\\n\\n1. Go to the console. If the status of the transit router in the Transit Router list is Available, the transit router is in a stable state.\\n\\n2. Call the ListTransitRouters operation. If Active is returned for Status, the transit router is in a stable state.
    */
   content?: string;
   /**
@@ -16,7 +13,7 @@ export class GetErrorCodeSolutionsResponseBodySolutions extends $dara.Model {
    * The error code.
    * 
    * @example
-   * IncorrectStatus.TransitRouter
+   * 0017-00000502
    */
   errorCode?: string;
   /**
@@ -38,9 +35,6 @@ export class GetErrorCodeSolutionsResponseBodySolutions extends $dara.Model {
   /**
    * @remarks
    * The name of the product to which the solution belongs.
-   * 
-   * @example
-   * Elastic Compute Service
    */
   productName?: string;
   /**

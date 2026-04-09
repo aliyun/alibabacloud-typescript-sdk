@@ -34,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
+   * 验证 Terraform HCL 语法
    * 
    * @param request - ApiMcpServerValidateHclRequest
    * @param headers - map
@@ -67,7 +67,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates the syntax of HashiCorp Configuration Language (HCL) for Terraform.
+   * 验证 Terraform HCL 语法
    * 
    * @param request - ApiMcpServerValidateHclRequest
    * @returns ApiMcpServerValidateHclResponse
@@ -79,7 +79,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API MCP service.
+   * 创建ApiMcpServer
    * 
    * @param request - CreateApiMcpServerRequest
    * @param headers - map
@@ -176,7 +176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an API MCP service.
+   * 创建ApiMcpServer
    * 
    * @param request - CreateApiMcpServerRequest
    * @returns CreateApiMcpServerResponse
@@ -188,7 +188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an API MCP service.
+   * 删除ApiMcpServer
    * 
    * @param request - DeleteApiMcpServerRequest
    * @param headers - map
@@ -225,7 +225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an API MCP service.
+   * 删除ApiMcpServer
    * 
    * @param request - DeleteApiMcpServerRequest
    * @returns DeleteApiMcpServerResponse
@@ -237,7 +237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates an Alibaba Cloud CLI command dynamically.
+   * 动态生成Aliyun CLI命令
    * 
    * @param tmpReq - GenerateCLICommandRequest
    * @param headers - map
@@ -300,7 +300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates an Alibaba Cloud CLI command dynamically.
+   * 动态生成Aliyun CLI命令
    * 
    * @param request - GenerateCLICommandRequest
    * @returns GenerateCLICommandResponse
@@ -312,7 +312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OpenAPI metadata for an API in a product.
+   * 获取产品相关接口的开放元数据
    * 
    * @param request - GetApiDefinitionRequest
    * @param headers - map
@@ -353,7 +353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OpenAPI metadata for an API in a product.
+   * 获取产品相关接口的开放元数据
    * 
    * @param request - GetApiDefinitionRequest
    * @returns GetApiDefinitionResponse
@@ -365,7 +365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific API MCP service.
+   * 查询 ApiMcpServer
    * 
    * @param request - GetApiMcpServerRequest
    * @param headers - map
@@ -398,7 +398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specific API MCP service.
+   * 查询 ApiMcpServer
    * 
    * @param request - GetApiMcpServerRequest
    * @returns GetApiMcpServerResponse
@@ -410,7 +410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
+   * 查询用户全局API MCP Server配置
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -435,7 +435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the global API MCP Server configuration for a user. The configuration includes settings for public network access and the whitelist of source VPC IDs for requests from a VPC.
+   * 查询用户全局API MCP Server配置
    * @returns GetApiMcpServerUserConfigResponse
    */
   async getApiMcpServerUserConfig(): Promise<$_model.GetApiMcpServerUserConfigResponse> {
@@ -508,10 +508,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
+   * Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
    * 
    * @remarks
-   * This API does not support authorization.
+   * Permissions on this API cannot be granted to other members.
    * 
    * @param request - GetOwnRequestLogRequest
    * @param headers - map
@@ -544,10 +544,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an OpenAPI call log for your account using the request ID returned from an API call. This operation is used for troubleshooting.
+   * Queries the log of an API call performed by using the current account based on the returned request ID of the API to troubleshoot issues.
    * 
    * @remarks
-   * This API does not support authorization.
+   * Permissions on this API cannot be granted to other members.
    * 
    * @param request - GetOwnRequestLogRequest
    * @returns GetOwnRequestLogResponse
@@ -559,7 +559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the endpoint information for a product.
+   * 获取产品的接入点信息
    * 
    * @param request - GetProductEndpointsRequest
    * @param headers - map
@@ -592,7 +592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the endpoint information for a product.
+   * 获取产品的接入点信息
    * 
    * @param request - GetProductEndpointsRequest
    * @returns GetProductEndpointsResponse
@@ -604,10 +604,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
+   * Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
    * 
    * @remarks
-   * You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
+   * You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
    * 
    * @param request - GetRequestLogRequest
    * @param headers - map
@@ -640,10 +640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a request log using the request ID that is returned from an API call. This operation is useful for troubleshooting.
+   * Queries the log of an API call based on the returned request ID of the API to troubleshoot issues.
    * 
    * @remarks
-   * You can query call logs across different RAM users or Alibaba Cloud accounts using RAM authorization or role assumption. For more information, see [Cross-account API error diagnosis authorization](https://help.aliyun.com/document_detail/2868101.html).
+   * You can grant permissions to a Resource Access Management (RAM) user or assume a role to query the log of an API call across RAM users or Alibaba Cloud accounts. For more information, see [Grant permissions to troubleshoot API errors across accounts](https://help.aliyun.com/document_detail/2868101.html).
    * 
    * @param request - GetRequestLogRequest
    * @returns GetRequestLogResponse
@@ -655,7 +655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OpenAPI metadata for a product.
+   * 获取产品的开放元数据
    * 
    * @param request - ListApiDefinitionsRequest
    * @param headers - map
@@ -692,7 +692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the OpenAPI metadata for a product.
+   * 获取产品的开放元数据
    * 
    * @param request - ListApiDefinitionsRequest
    * @returns ListApiDefinitionsResponse
@@ -704,7 +704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the system tools supported by the MCP service.
+   * 查询系统工具列表
    * 
    * @param request - ListApiMcpServerSystemToolsRequest
    * @param headers - map
@@ -745,7 +745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the system tools supported by the MCP service.
+   * 查询系统工具列表
    * 
    * @param request - ListApiMcpServerSystemToolsRequest
    * @returns ListApiMcpServerSystemToolsResponse
@@ -757,7 +757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries a list of all API MCP servers in an Alibaba Cloud account.
+   * 列出资源ApiMcpServer
    * 
    * @param request - ListApiMcpServersRequest
    * @param headers - map
@@ -826,7 +826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries a list of all API MCP servers in an Alibaba Cloud account.
+   * 列出资源ApiMcpServer
    * 
    * @param request - ListApiMcpServersRequest
    * @returns ListApiMcpServersResponse
@@ -838,7 +838,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an API MCP service.
+   * 列举云产品
+   * 
+   * @param request - ListProductsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProductsResponse
+   */
+  async listProductsWithOptions(request: $_model.ListProductsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProductsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProducts",
+      version: "2024-11-30",
+      protocol: "HTTPS",
+      pathname: `/listProducts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProductsResponse>(await this.callApi(params, req, runtime), new $_model.ListProductsResponse({}));
+  }
+
+  /**
+   * 列举云产品
+   * 
+   * @param request - ListProductsRequest
+   * @returns ListProductsResponse
+   */
+  async listProducts(request: $_model.ListProductsRequest): Promise<$_model.ListProductsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listProductsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新UpdateApiMcpServer
    * 
    * @param request - UpdateApiMcpServerRequest
    * @param headers - map
@@ -937,7 +982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an API MCP service.
+   * 更新UpdateApiMcpServer
    * 
    * @param request - UpdateApiMcpServerRequest
    * @returns UpdateApiMcpServerResponse
@@ -949,7 +994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the global API MCP Server configuration for a user.
+   * 修改用户全局API MCP Server配置
    * 
    * @param request - UpdateApiMcpServerUserConfigRequest
    * @param headers - map
@@ -986,7 +1031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the global API MCP Server configuration for a user.
+   * 修改用户全局API MCP Server配置
    * 
    * @param request - UpdateApiMcpServerUserConfigRequest
    * @returns UpdateApiMcpServerUserConfigResponse

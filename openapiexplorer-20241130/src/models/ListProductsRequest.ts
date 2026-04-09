@@ -2,24 +2,21 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetApiMcpServerRequest extends $dara.Model {
+export class ListProductsRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * v6ZZ7ftCzEILW***
+   * ECS
    */
-  id?: string;
+  filter?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'id',
+      filter: 'filter',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
+      filter: 'string',
     };
   }
 
