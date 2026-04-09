@@ -20,6 +20,11 @@ export class ListToolsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @example
+   * tool-1
+   */
+  toolName?: string;
+  /**
    * @remarks
    * 按工具类型过滤，可选值：MCP、FUNCTIONCALL、SKILL
    * 
@@ -44,6 +49,7 @@ export class ListToolsRequest extends $dara.Model {
     return {
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      toolName: 'toolName',
       toolType: 'toolType',
       workspaceId: 'workspaceId',
       workspaceIds: 'workspaceIds',
@@ -54,6 +60,7 @@ export class ListToolsRequest extends $dara.Model {
     return {
       pageNumber: 'number',
       pageSize: 'number',
+      toolName: 'string',
       toolType: 'string',
       workspaceId: 'string',
       workspaceIds: 'string',
