@@ -6846,7 +6846,6 @@ export default class Client extends OpenApi {
   /**
    * Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
    * 
-   * @param request - GenerateKMSDataKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateKMSDataKeyResponse
    */
@@ -7398,7 +7397,6 @@ export default class Client extends OpenApi {
   /**
    * 获取内容分析搜索配置
    * 
-   * @param request - GetContentAnalyzeConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetContentAnalyzeConfigResponse
    */
@@ -7624,7 +7622,6 @@ export default class Client extends OpenApi {
   /**
    * 获取用户默认存储地址
    * 
-   * @param request - GetDefaultStorageLocationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDefaultStorageLocationResponse
    */
@@ -7828,7 +7825,6 @@ export default class Client extends OpenApi {
   /**
    * Queries event callback configurations.
    * 
-   * @param request - GetEventCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetEventCallbackResponse
    */
@@ -8464,7 +8460,6 @@ export default class Client extends OpenApi {
   /**
    * Retrieves all regions where MediaConnect is available.
    * 
-   * @param request - GetMediaConnectAvailableRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMediaConnectAvailableRegionResponse
    */
@@ -17683,6 +17678,52 @@ export default class Client extends OpenApi {
   async stopRtcRobotInstance(request: $_model.StopRtcRobotInstanceRequest): Promise<$_model.StopRtcRobotInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopRtcRobotInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 扣减用户积分
+   * 
+   * @param request - SubYikeUserCreditRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubYikeUserCreditResponse
+   */
+  async subYikeUserCreditWithOptions(request: $_model.SubYikeUserCreditRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubYikeUserCreditResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credit)) {
+      query["Credit"] = request.credit;
+    }
+
+    if (!$dara.isNull(request.yikeUserId)) {
+      query["YikeUserId"] = request.yikeUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubYikeUserCredit",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubYikeUserCreditResponse>(await this.callApi(params, req, runtime), new $_model.SubYikeUserCreditResponse({}));
+  }
+
+  /**
+   * 扣减用户积分
+   * 
+   * @param request - SubYikeUserCreditRequest
+   * @returns SubYikeUserCreditResponse
+   */
+  async subYikeUserCredit(request: $_model.SubYikeUserCreditRequest): Promise<$_model.SubYikeUserCreditResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.subYikeUserCreditWithOptions(request, runtime);
   }
 
   /**
