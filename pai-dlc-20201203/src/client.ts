@@ -112,6 +112,10 @@ export default class Client extends OpenApi {
       body["DebuggerConfigContent"] = request.debuggerConfigContent;
     }
 
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.displayName)) {
       body["DisplayName"] = request.displayName;
     }
@@ -341,11 +345,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a completed or stopped job.
    * 
+   * @param request - DeleteJobRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteJobResponse
    */
-  async deleteJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteJobResponse> {
+  async deleteJobWithOptions(JobId: string, request: $_model.DeleteJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteJobResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -365,12 +371,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a completed or stopped job.
+   * 
+   * @param request - DeleteJobRequest
    * @returns DeleteJobResponse
    */
-  async deleteJob(JobId: string): Promise<$_model.DeleteJobResponse> {
+  async deleteJob(JobId: string, request: $_model.DeleteJobRequest): Promise<$_model.DeleteJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteJobWithOptions(JobId, headers, runtime);
+    return await this.deleteJobWithOptions(JobId, request, headers, runtime);
   }
 
   /**
@@ -1201,6 +1209,10 @@ export default class Client extends OpenApi {
       query["Caller"] = request.caller;
     }
 
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
     if (!$dara.isNull(request.displayName)) {
       query["DisplayName"] = request.displayName;
     }
@@ -1528,11 +1540,13 @@ export default class Client extends OpenApi {
   /**
    * Stops a running job.
    * 
+   * @param request - StopJobRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopJobResponse
    */
-  async stopJobWithOptions(JobId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopJobResponse> {
+  async stopJobWithOptions(JobId: string, request: $_model.StopJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopJobResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1552,12 +1566,14 @@ export default class Client extends OpenApi {
 
   /**
    * Stops a running job.
+   * 
+   * @param request - StopJobRequest
    * @returns StopJobResponse
    */
-  async stopJob(JobId: string): Promise<$_model.StopJobResponse> {
+  async stopJob(JobId: string, request: $_model.StopJobRequest): Promise<$_model.StopJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopJobWithOptions(JobId, headers, runtime);
+    return await this.stopJobWithOptions(JobId, request, headers, runtime);
   }
 
   /**
@@ -1618,6 +1634,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.accessibility)) {
       body["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
     }
 
     if (!$dara.isNull(request.jobSpecs)) {

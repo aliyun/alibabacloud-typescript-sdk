@@ -15,6 +15,7 @@ export class UpdateJobRequest extends $dara.Model {
    * PRIVATE
    */
   accessibility?: string;
+  description?: string;
   jobSpecs?: JobSpec[];
   /**
    * @remarks
@@ -30,6 +31,7 @@ export class UpdateJobRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      description: 'Description',
       jobSpecs: 'JobSpecs',
       priority: 'Priority',
     };
@@ -38,6 +40,7 @@ export class UpdateJobRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      description: 'string',
       jobSpecs: { 'type': 'array', 'itemType': JobSpec },
       priority: 'number',
     };

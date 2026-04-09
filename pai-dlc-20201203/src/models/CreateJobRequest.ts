@@ -289,6 +289,7 @@ export class CreateJobRequest extends $dara.Model {
    * “”
    */
   debuggerConfigContent?: string;
+  description?: string;
   /**
    * @remarks
    * The job name. The name must be in the following format:
@@ -465,6 +466,7 @@ export class CreateJobRequest extends $dara.Model {
       customEnvs: 'CustomEnvs',
       dataSources: 'DataSources',
       debuggerConfigContent: 'DebuggerConfigContent',
+      description: 'Description',
       displayName: 'DisplayName',
       elasticSpec: 'ElasticSpec',
       envs: 'Envs',
@@ -494,6 +496,7 @@ export class CreateJobRequest extends $dara.Model {
       customEnvs: { 'type': 'array', 'itemType': CreateJobRequestCustomEnvs },
       dataSources: { 'type': 'array', 'itemType': CreateJobRequestDataSources },
       debuggerConfigContent: 'string',
+      description: 'string',
       displayName: 'string',
       elasticSpec: JobElasticSpec,
       envs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },

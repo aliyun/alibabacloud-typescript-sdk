@@ -30,6 +30,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
    * local
    */
   caller?: string;
+  description?: string;
   /**
    * @remarks
    * The job name. Fuzzy query is supported. The name is case-insensitive. Wildcards are not supported. For example, if you enter test, test-job1, job-test, job-test2, or job-test can be matched, and job-t1 cannot be matched. The default value null indicates any job name.
@@ -249,6 +250,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
       accessibility: 'Accessibility',
       businessUserId: 'BusinessUserId',
       caller: 'Caller',
+      description: 'Description',
       displayName: 'DisplayName',
       displayNameSearchMode: 'DisplayNameSearchMode',
       enableAssignNode: 'EnableAssignNode',
@@ -289,6 +291,7 @@ export class ListJobsShrinkRequest extends $dara.Model {
       accessibility: 'string',
       businessUserId: 'string',
       caller: 'string',
+      description: 'string',
       displayName: 'string',
       displayNameSearchMode: 'string',
       enableAssignNode: 'string',

@@ -636,6 +636,7 @@ export class GetJobResponseBody extends $dara.Model {
    * The data sources.
    */
   dataSources?: GetJobResponseBodyDataSources[];
+  description?: string;
   /**
    * @remarks
    * The job name.
@@ -925,6 +926,7 @@ export class GetJobResponseBody extends $dara.Model {
       credentialConfig: 'CredentialConfig',
       customEnvs: 'CustomEnvs',
       dataSources: 'DataSources',
+      description: 'Description',
       displayName: 'DisplayName',
       duration: 'Duration',
       elasticSpec: 'ElasticSpec',
@@ -975,6 +977,7 @@ export class GetJobResponseBody extends $dara.Model {
       credentialConfig: CredentialConfig,
       customEnvs: { 'type': 'array', 'itemType': GetJobResponseBodyCustomEnvs },
       dataSources: { 'type': 'array', 'itemType': GetJobResponseBodyDataSources },
+      description: 'string',
       displayName: 'string',
       duration: 'number',
       elasticSpec: JobElasticSpec,
