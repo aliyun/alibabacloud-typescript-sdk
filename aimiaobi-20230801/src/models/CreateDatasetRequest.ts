@@ -463,6 +463,11 @@ export class CreateDatasetRequestDocumentHandleConfig extends $dara.Model {
 }
 
 export class CreateDatasetRequest extends $dara.Model {
+  /**
+   * @example
+   * private
+   */
+  accessLevel?: string;
   datasetConfig?: CreateDatasetRequestDatasetConfig;
   /**
    * @example
@@ -503,6 +508,7 @@ export class CreateDatasetRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessLevel: 'AccessLevel',
       datasetConfig: 'DatasetConfig',
       datasetDescription: 'DatasetDescription',
       datasetName: 'DatasetName',
@@ -516,6 +522,7 @@ export class CreateDatasetRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessLevel: 'string',
       datasetConfig: CreateDatasetRequestDatasetConfig,
       datasetDescription: 'string',
       datasetName: 'string',

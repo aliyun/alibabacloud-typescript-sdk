@@ -473,6 +473,11 @@ export class GetDatasetResponseBodyDataDocumentHandleConfig extends $dara.Model 
 export class GetDatasetResponseBodyData extends $dara.Model {
   /**
    * @example
+   * private
+   */
+  accessLevel?: string;
+  /**
+   * @example
    * 2024-11-12 21:46:24
    */
   createTime?: string;
@@ -510,6 +515,7 @@ export class GetDatasetResponseBodyData extends $dara.Model {
   searchDatasetEnable?: number;
   static names(): { [key: string]: string } {
     return {
+      accessLevel: 'AccessLevel',
       createTime: 'CreateTime',
       createUser: 'CreateUser',
       datasetConfig: 'DatasetConfig',
@@ -524,6 +530,7 @@ export class GetDatasetResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessLevel: 'string',
       createTime: 'string',
       createUser: 'string',
       datasetConfig: GetDatasetResponseBodyDataDatasetConfig,

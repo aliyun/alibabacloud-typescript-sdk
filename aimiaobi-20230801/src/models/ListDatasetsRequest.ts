@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetsRequest extends $dara.Model {
   /**
    * @example
+   * xx
+   */
+  datasetDescription?: string;
+  /**
+   * @example
    * 1
    */
   datasetId?: number;
@@ -54,6 +59,7 @@ export class ListDatasetsRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      datasetDescription: 'DatasetDescription',
       datasetId: 'DatasetId',
       datasetName: 'DatasetName',
       datasetType: 'DatasetType',
@@ -69,6 +75,7 @@ export class ListDatasetsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      datasetDescription: 'string',
       datasetId: 'number',
       datasetName: 'string',
       datasetType: 'string',

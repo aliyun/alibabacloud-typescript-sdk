@@ -932,6 +932,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用户数据集权限-批量添加
+   * 
+   * @param tmpReq - CreateDataPermissionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataPermissionsResponse
+   */
+  async createDataPermissionsWithOptions(tmpReq: $_model.CreateDataPermissionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataPermissionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDataPermissionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.permissionUserInfos)) {
+      request.permissionUserInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permissionUserInfos, "PermissionUserInfos", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataId)) {
+      body["DataId"] = request.dataId;
+    }
+
+    if (!$dara.isNull(request.dataType)) {
+      body["DataType"] = request.dataType;
+    }
+
+    if (!$dara.isNull(request.permissionUserInfosShrink)) {
+      body["PermissionUserInfos"] = request.permissionUserInfosShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataPermissions",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataPermissionsResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataPermissionsResponse({}));
+  }
+
+  /**
+   * 用户数据集权限-批量添加
+   * 
+   * @param request - CreateDataPermissionsRequest
+   * @returns CreateDataPermissionsResponse
+   */
+  async createDataPermissions(request: $_model.CreateDataPermissionsRequest): Promise<$_model.CreateDataPermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataPermissionsWithOptions(request, runtime);
+  }
+
+  /**
    * 数据集管理-创建
    * 
    * @param tmpReq - CreateDatasetRequest
@@ -951,6 +1011,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessLevel)) {
+      body["AccessLevel"] = request.accessLevel;
+    }
+
     if (!$dara.isNull(request.datasetConfigShrink)) {
       body["DatasetConfig"] = request.datasetConfigShrink;
     }
@@ -1429,6 +1493,58 @@ export default class Client extends OpenApi {
   async deleteCustomTopicViewPointById(request: $_model.DeleteCustomTopicViewPointByIdRequest): Promise<$_model.DeleteCustomTopicViewPointByIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomTopicViewPointByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 用户数据集权限-批量删除
+   * 
+   * @param tmpReq - DeleteDataPermissionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataPermissionsResponse
+   */
+  async deleteDataPermissionsWithOptions(tmpReq: $_model.DeleteDataPermissionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataPermissionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteDataPermissionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataPermissions",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataPermissionsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataPermissionsResponse({}));
+  }
+
+  /**
+   * 用户数据集权限-批量删除
+   * 
+   * @param request - DeleteDataPermissionsRequest
+   * @returns DeleteDataPermissionsResponse
+   */
+  async deleteDataPermissions(request: $_model.DeleteDataPermissionsRequest): Promise<$_model.DeleteDataPermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataPermissionsWithOptions(request, runtime);
   }
 
   /**
@@ -5972,6 +6088,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用户数据集权限-列表
+   * 
+   * @param request - ListDataPermissionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataPermissionsResponse
+   */
+  async listDataPermissionsWithOptions(request: $_model.ListDataPermissionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDataPermissionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataId)) {
+      body["DataId"] = request.dataId;
+    }
+
+    if (!$dara.isNull(request.dataType)) {
+      body["DataType"] = request.dataType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDataPermissions",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDataPermissionsResponse>(await this.callApi(params, req, runtime), new $_model.ListDataPermissionsResponse({}));
+  }
+
+  /**
+   * 用户数据集权限-列表
+   * 
+   * @param request - ListDataPermissionsRequest
+   * @returns ListDataPermissionsResponse
+   */
+  async listDataPermissions(request: $_model.ListDataPermissionsRequest): Promise<$_model.ListDataPermissionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDataPermissionsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询数据集文档列表
    * 
    * @param tmpReq - ListDatasetDocumentsRequest
@@ -6141,6 +6315,10 @@ export default class Client extends OpenApi {
   async listDatasetsWithOptions(request: $_model.ListDatasetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasetsResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetDescription)) {
+      body["DatasetDescription"] = request.datasetDescription;
+    }
+
     if (!$dara.isNull(request.datasetId)) {
       body["DatasetId"] = request.datasetId;
     }
@@ -14918,6 +15096,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessLevel)) {
+      body["AccessLevel"] = request.accessLevel;
+    }
+
     if (!$dara.isNull(request.datasetConfigShrink)) {
       body["DatasetConfig"] = request.datasetConfigShrink;
     }

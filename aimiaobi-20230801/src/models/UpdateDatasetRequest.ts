@@ -444,6 +444,11 @@ export class UpdateDatasetRequestDatasetConfig extends $dara.Model {
 }
 
 export class UpdateDatasetRequest extends $dara.Model {
+  /**
+   * @example
+   * private
+   */
+  accessLevel?: string;
   datasetConfig?: UpdateDatasetRequestDatasetConfig;
   /**
    * @example
@@ -470,6 +475,7 @@ export class UpdateDatasetRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessLevel: 'AccessLevel',
       datasetConfig: 'DatasetConfig',
       datasetDescription: 'DatasetDescription',
       datasetId: 'DatasetId',
@@ -480,6 +486,7 @@ export class UpdateDatasetRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessLevel: 'string',
       datasetConfig: UpdateDatasetRequestDatasetConfig,
       datasetDescription: 'string',
       datasetId: 'number',

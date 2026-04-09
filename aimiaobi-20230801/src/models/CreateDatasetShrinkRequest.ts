@@ -3,6 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDatasetShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * private
+   */
+  accessLevel?: string;
   datasetConfigShrink?: string;
   /**
    * @example
@@ -43,6 +48,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessLevel: 'AccessLevel',
       datasetConfigShrink: 'DatasetConfig',
       datasetDescription: 'DatasetDescription',
       datasetName: 'DatasetName',
@@ -56,6 +62,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessLevel: 'string',
       datasetConfigShrink: 'string',
       datasetDescription: 'string',
       datasetName: 'string',

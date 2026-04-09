@@ -50,7 +50,47 @@ export class ListDatasetsResponseBodyCustomSemanticSearchConfig extends $dara.Mo
   }
 }
 
+export class ListDatasetsResponseBodyDataAdministrators extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
+  userId?: string;
+  /**
+   * @example
+   * xx
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      userId: 'UserId',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userId: 'string',
+      username: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDatasetsResponseBodyData extends $dara.Model {
+  /**
+   * @example
+   * private
+   */
+  accessLevel?: string;
+  administrators?: ListDatasetsResponseBodyDataAdministrators[];
   /**
    * @example
    * 2024-11-12 21:46:24
@@ -93,6 +133,8 @@ export class ListDatasetsResponseBodyData extends $dara.Model {
   searchDatasetEnable?: number;
   static names(): { [key: string]: string } {
     return {
+      accessLevel: 'AccessLevel',
+      administrators: 'Administrators',
       createTime: 'CreateTime',
       createUser: 'CreateUser',
       datasetDescription: 'DatasetDescription',
@@ -106,6 +148,8 @@ export class ListDatasetsResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessLevel: 'string',
+      administrators: { 'type': 'array', 'itemType': ListDatasetsResponseBodyDataAdministrators },
       createTime: 'string',
       createUser: 'string',
       datasetDescription: 'string',
@@ -118,6 +162,9 @@ export class ListDatasetsResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.administrators)) {
+      $dara.Model.validateArray(this.administrators);
+    }
     super.validate();
   }
 
