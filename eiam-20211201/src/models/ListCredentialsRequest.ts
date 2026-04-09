@@ -37,6 +37,7 @@ export class ListCredentialsRequestFilter extends $dara.Model {
 
 export class ListCredentialsRequest extends $dara.Model {
   credentialIds?: string[];
+  credentialSharingScopes?: string[];
   credentialTypes?: string[];
   filter?: ListCredentialsRequestFilter[];
   /**
@@ -69,6 +70,7 @@ export class ListCredentialsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       credentialIds: 'CredentialIds',
+      credentialSharingScopes: 'CredentialSharingScopes',
       credentialTypes: 'CredentialTypes',
       filter: 'Filter',
       instanceId: 'InstanceId',
@@ -81,6 +83,7 @@ export class ListCredentialsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       credentialIds: { 'type': 'array', 'itemType': 'string' },
+      credentialSharingScopes: { 'type': 'array', 'itemType': 'string' },
       credentialTypes: { 'type': 'array', 'itemType': 'string' },
       filter: { 'type': 'array', 'itemType': ListCredentialsRequestFilter },
       instanceId: 'string',
@@ -93,6 +96,9 @@ export class ListCredentialsRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.credentialIds)) {
       $dara.Model.validateArray(this.credentialIds);
+    }
+    if(Array.isArray(this.credentialSharingScopes)) {
+      $dara.Model.validateArray(this.credentialSharingScopes);
     }
     if(Array.isArray(this.credentialTypes)) {
       $dara.Model.validateArray(this.credentialTypes);

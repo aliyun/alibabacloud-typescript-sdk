@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderCloudIdPProviderConfig extends $dara.Model {
+  identityProviderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviderId: 'IdentityProviderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviderId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderOidcProviderConfig extends $dara.Model {
   /**
    * @remarks
@@ -424,6 +447,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 }
 
 export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvider extends $dara.Model {
+  cloudIdPProviderConfig?: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderCloudIdPProviderConfig;
   /**
    * @remarks
    * 创建时间
@@ -513,6 +537,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
+      cloudIdPProviderConfig: 'CloudIdPProviderConfig',
       createTime: 'CreateTime',
       description: 'Description',
       federatedCredentialProviderId: 'FederatedCredentialProviderId',
@@ -530,6 +555,7 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
 
   static types(): { [key: string]: any } {
     return {
+      cloudIdPProviderConfig: GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderCloudIdPProviderConfig,
       createTime: 'number',
       description: 'string',
       federatedCredentialProviderId: 'string',
@@ -546,6 +572,9 @@ export class GetFederatedCredentialProviderResponseBodyFederatedCredentialProvid
   }
 
   validate() {
+    if(this.cloudIdPProviderConfig && typeof (this.cloudIdPProviderConfig as any).validate === 'function') {
+      (this.cloudIdPProviderConfig as any).validate();
+    }
     if(this.oidcProviderConfig && typeof (this.oidcProviderConfig as any).validate === 'function') {
       (this.oidcProviderConfig as any).validate();
     }

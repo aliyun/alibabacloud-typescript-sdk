@@ -26,6 +26,7 @@ export { CreateCustomFieldRequestFieldDataConfig } from './CreateCustomFieldRequ
 export { CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContentsCustomPrivacyPolicyItems } from './CreateCustomPrivacyPolicyRequest';
 export { CreateCustomPrivacyPolicyRequestCustomPrivacyPolicyContents } from './CreateCustomPrivacyPolicyRequest';
 export { CreateDomainRequestFiling } from './CreateDomainRequest';
+export { CreateFederatedCredentialProviderRequestCloudIdPProviderConfig } from './CreateFederatedCredentialProviderRequest';
 export { CreateFederatedCredentialProviderRequestOidcProviderConfig } from './CreateFederatedCredentialProviderRequest';
 export { CreateFederatedCredentialProviderRequestPkcs7ProviderConfigCertificates } from './CreateFederatedCredentialProviderRequest';
 export { CreateFederatedCredentialProviderRequestPkcs7ProviderConfig } from './CreateFederatedCredentialProviderRequest';
@@ -112,6 +113,7 @@ export { GetCustomPrivacyPolicyResponseBodyCustomPrivacyPolicy } from './GetCust
 export { GetDomainResponseBodyDomainFiling } from './GetDomainResponseBody';
 export { GetDomainResponseBodyDomain } from './GetDomainResponseBody';
 export { GetDomainDnsChallengeResponseBodyDomainDnsChallenge } from './GetDomainDnsChallengeResponseBody';
+export { GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderCloudIdPProviderConfig } from './GetFederatedCredentialProviderResponseBody';
 export { GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderOidcProviderConfig } from './GetFederatedCredentialProviderResponseBody';
 export { GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificatesCertificateMetadata } from './GetFederatedCredentialProviderResponseBody';
 export { GetFederatedCredentialProviderResponseBodyFederatedCredentialProviderPkcs7ProviderConfigCertificates } from './GetFederatedCredentialProviderResponseBody';
@@ -293,6 +295,7 @@ export { ListDomainsResponseBodyDomains } from './ListDomainsResponseBody';
 export { ListEiamInstancesResponseBodyInstances } from './ListEiamInstancesResponseBody';
 export { ListEiamRegionsResponseBodyRegions } from './ListEiamRegionsResponseBody';
 export { ListEventTypesResponseBodyEventTypes } from './ListEventTypesResponseBody';
+export { ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersCloudIdPProviderConfig } from './ListFederatedCredentialProvidersResponseBody';
 export { ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersOidcProviderConfig } from './ListFederatedCredentialProvidersResponseBody';
 export { ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPkcs7ProviderConfigCertificatesCertificateMetadata } from './ListFederatedCredentialProvidersResponseBody';
 export { ListFederatedCredentialProvidersResponseBodyFederatedCredentialProvidersPkcs7ProviderConfigCertificates } from './ListFederatedCredentialProvidersResponseBody';

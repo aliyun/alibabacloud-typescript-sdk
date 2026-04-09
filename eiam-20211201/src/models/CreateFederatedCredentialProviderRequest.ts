@@ -2,6 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateFederatedCredentialProviderRequestCloudIdPProviderConfig extends $dara.Model {
+  /**
+   * @example
+   * idp_m7hk2hbnew5ir3ycfabug6xxxx
+   */
+  identityProviderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviderId: 'IdentityProviderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviderId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFederatedCredentialProviderRequestOidcProviderConfig extends $dara.Model {
   audiences?: string[];
   /**
@@ -283,6 +310,7 @@ export class CreateFederatedCredentialProviderRequestPrivateCaProviderConfig ext
 }
 
 export class CreateFederatedCredentialProviderRequest extends $dara.Model {
+  cloudIdPProviderConfig?: CreateFederatedCredentialProviderRequestCloudIdPProviderConfig;
   /**
    * @remarks
    * 联邦凭证提供方描述
@@ -346,6 +374,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   privateCaProviderConfig?: CreateFederatedCredentialProviderRequestPrivateCaProviderConfig;
   static names(): { [key: string]: string } {
     return {
+      cloudIdPProviderConfig: 'CloudIdPProviderConfig',
       description: 'Description',
       federatedCredentialProviderName: 'FederatedCredentialProviderName',
       federatedCredentialProviderType: 'FederatedCredentialProviderType',
@@ -359,6 +388,7 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cloudIdPProviderConfig: CreateFederatedCredentialProviderRequestCloudIdPProviderConfig,
       description: 'string',
       federatedCredentialProviderName: 'string',
       federatedCredentialProviderType: 'string',
@@ -371,6 +401,9 @@ export class CreateFederatedCredentialProviderRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.cloudIdPProviderConfig && typeof (this.cloudIdPProviderConfig as any).validate === 'function') {
+      (this.cloudIdPProviderConfig as any).validate();
+    }
     if(this.oidcProviderConfig && typeof (this.oidcProviderConfig as any).validate === 'function') {
       (this.oidcProviderConfig as any).validate();
     }

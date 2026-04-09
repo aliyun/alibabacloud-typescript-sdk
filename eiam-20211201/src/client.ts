@@ -1855,6 +1855,10 @@ export default class Client extends OpenApi {
       query["CredentialScenarioLabel"] = request.credentialScenarioLabel;
     }
 
+    if (!$dara.isNull(request.credentialSharingScope)) {
+      query["CredentialSharingScope"] = request.credentialSharingScope;
+    }
+
     if (!$dara.isNull(request.credentialSubjectId)) {
       query["CredentialSubjectId"] = request.credentialSubjectId;
     }
@@ -1869,6 +1873,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.exclusiveUserId)) {
+      query["ExclusiveUserId"] = request.exclusiveUserId;
     }
 
     if (!$dara.isNull(request.instanceId)) {
@@ -2231,6 +2239,10 @@ export default class Client extends OpenApi {
   async createFederatedCredentialProviderWithOptions(request: $_model.CreateFederatedCredentialProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFederatedCredentialProviderResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.cloudIdPProviderConfig)) {
+      query["CloudIdPProviderConfig"] = request.cloudIdPProviderConfig;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
     }
@@ -11281,6 +11293,10 @@ export default class Client extends OpenApi {
       query["CredentialIds"] = request.credentialIds;
     }
 
+    if (!$dara.isNull(request.credentialSharingScopes)) {
+      query["CredentialSharingScopes"] = request.credentialSharingScopes;
+    }
+
     if (!$dara.isNull(request.credentialTypes)) {
       query["CredentialTypes"] = request.credentialTypes;
     }
@@ -11590,7 +11606,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the regions in which Employee Identity and Access Management (EIAM) V1.0 instances or EIAM V2.0 instances reside.
    * 
-   * @param request - ListEiamRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEiamRegionsResponse
    */
@@ -12194,7 +12209,6 @@ export default class Client extends OpenApi {
   /**
    * Get a list of regions that support network access endpoints.
    * 
-   * @param request - ListNetworkAccessEndpointAvailableRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNetworkAccessEndpointAvailableRegionsResponse
    */
@@ -12674,7 +12688,6 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of supported Alibaba Cloud regions.
    * 
-   * @param request - ListRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegionsResponse
    */

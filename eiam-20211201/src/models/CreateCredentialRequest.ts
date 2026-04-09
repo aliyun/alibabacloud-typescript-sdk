@@ -158,6 +158,7 @@ export class CreateCredentialRequest extends $dara.Model {
    * llm
    */
   credentialScenarioLabel?: string;
+  credentialSharingScope?: string;
   /**
    * @remarks
    * 凭据所属的主体ID。
@@ -192,6 +193,7 @@ export class CreateCredentialRequest extends $dara.Model {
    * credential_description
    */
   description?: string;
+  exclusiveUserId?: string;
   /**
    * @remarks
    * IDaaS EIAM实例的ID。
@@ -209,10 +211,12 @@ export class CreateCredentialRequest extends $dara.Model {
       credentialIdentifier: 'CredentialIdentifier',
       credentialName: 'CredentialName',
       credentialScenarioLabel: 'CredentialScenarioLabel',
+      credentialSharingScope: 'CredentialSharingScope',
       credentialSubjectId: 'CredentialSubjectId',
       credentialSubjectType: 'CredentialSubjectType',
       credentialType: 'CredentialType',
       description: 'Description',
+      exclusiveUserId: 'ExclusiveUserId',
       instanceId: 'InstanceId',
     };
   }
@@ -224,10 +228,12 @@ export class CreateCredentialRequest extends $dara.Model {
       credentialIdentifier: 'string',
       credentialName: 'string',
       credentialScenarioLabel: 'string',
+      credentialSharingScope: 'string',
       credentialSubjectId: 'string',
       credentialSubjectType: 'string',
       credentialType: 'string',
       description: 'string',
+      exclusiveUserId: 'string',
       instanceId: 'string',
     };
   }
