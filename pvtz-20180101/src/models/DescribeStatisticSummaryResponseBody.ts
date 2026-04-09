@@ -3,56 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeStatisticSummaryResponseBodyVpcRequestTopsVpcRequestTop extends $dara.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * 华北 2
-   */
   regionName?: string;
-  /**
-   * @remarks
-   * The number of DNS requests on the previous day.
-   * 
-   * @example
-   * 2254
-   */
   requestCount?: number;
-  /**
-   * @remarks
-   * The tunnel ID.
-   * 
-   * @example
-   * tun-7h33lkqfuhgnyy****
-   */
   tunnelId?: string;
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-f8zvrvr1payllgz38****
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The VPC type. Valid values:
-   * 
-   * *   STANDARD: standard VPC
-   * *   EDS: Elastic Desktop Service (EDS) workspace VPC
-   * 
-   * @example
-   * STANDARD
-   */
   vpcType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -112,33 +67,8 @@ export class DescribeStatisticSummaryResponseBodyVpcRequestTops extends $dara.Mo
 }
 
 export class DescribeStatisticSummaryResponseBodyZoneRequestTopsZoneRequestTop extends $dara.Model {
-  /**
-   * @remarks
-   * The business type. Valid values:
-   * 
-   * *   AUTH_ZONE: authoritative zone
-   * *   RESOLVER_RULE: forwarding rule
-   * *   INBOUND: inbound endpoint
-   * 
-   * @example
-   * AUTH_ZONE
-   */
   bizType?: string;
-  /**
-   * @remarks
-   * The number of DNS requests on the previous day.
-   * 
-   * @example
-   * 2251
-   */
   requestCount?: number;
-  /**
-   * @remarks
-   * The zone name.
-   * 
-   * @example
-   * test.com
-   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -208,15 +138,7 @@ export class DescribeStatisticSummaryResponseBody extends $dara.Model {
    * 2254
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * The top three VPCs with the largest number of DNS requests.
-   */
   vpcRequestTops?: DescribeStatisticSummaryResponseBodyVpcRequestTops;
-  /**
-   * @remarks
-   * The top three zones with the largest number of DNS requests.
-   */
   zoneRequestTops?: DescribeStatisticSummaryResponseBodyZoneRequestTops;
   static names(): { [key: string]: string } {
     return {

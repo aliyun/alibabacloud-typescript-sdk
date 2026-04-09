@@ -139,8 +139,6 @@ export class AddResolverRuleRequest extends $dara.Model {
    * @remarks
    * The name of the forwarding rule. You can name the rule based on your business requirements.
    * 
-   * This parameter is required.
-   * 
    * @example
    * test
    */

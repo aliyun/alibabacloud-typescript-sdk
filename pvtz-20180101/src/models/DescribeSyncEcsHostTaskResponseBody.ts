@@ -29,18 +29,7 @@ export class DescribeSyncEcsHostTaskResponseBodyEcsRegionsEcsRegionRegionIds ext
 }
 
 export class DescribeSyncEcsHostTaskResponseBodyEcsRegionsEcsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The synchronized region IDs.
-   */
   regionIds?: DescribeSyncEcsHostTaskResponseBodyEcsRegionsEcsRegionRegionIds;
-  /**
-   * @remarks
-   * The user ID to which the region belongs. This parameter is used in cross-account synchronization scenarios.
-   * 
-   * @example
-   * 141339776561****
-   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -121,15 +110,7 @@ export class DescribeSyncEcsHostTaskResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeSyncEcsHostTaskResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The synchronized regions where the ECS instances are deployed.
-   */
   ecsRegions?: DescribeSyncEcsHostTaskResponseBodyEcsRegions;
-  /**
-   * @remarks
-   * The synchronized region IDs of the ECS instances.
-   */
   regions?: DescribeSyncEcsHostTaskResponseBodyRegions;
   /**
    * @remarks
