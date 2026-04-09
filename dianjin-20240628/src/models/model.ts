@@ -196,6 +196,7 @@ export { EvictTaskResponse } from './EvictTaskResponse';
 export { GenDocQaResultRequest } from './GenDocQaResultRequest';
 export { GenDocQaResultResponseBody } from './GenDocQaResultResponseBody';
 export { GenDocQaResultResponse } from './GenDocQaResultResponse';
+export { GetAppConfigRequest } from './GetAppConfigRequest';
 export { GetAppConfigResponseBody } from './GetAppConfigResponseBody';
 export { GetAppConfigResponse } from './GetAppConfigResponse';
 export { GetChatQuestionRespRequest } from './GetChatQuestionRespRequest';
