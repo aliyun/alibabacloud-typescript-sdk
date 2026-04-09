@@ -302,6 +302,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.ipInstanceId)) {
       query["IpInstanceId"] = request.ipInstanceId;
     }
@@ -5707,6 +5711,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -5803,6 +5811,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -11523,6 +11535,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.ipv6EgressOnlyRuleId)) {
@@ -20534,7 +20550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log of an SSL server.
+   * Queries the log entries of an SSL server.
    * 
    * @param request - DescribeVpnSslServerLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20609,7 +20625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log of an SSL server.
+   * Queries the log entries of an SSL server.
    * 
    * @param request - DescribeVpnSslServerLogsRequest
    * @returns DescribeVpnSslServerLogsResponse
@@ -23042,7 +23058,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the most recent region list.
    * 
-   * @param request - ListGeographicSubRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGeographicSubRegionsResponse
    */
@@ -29378,7 +29393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
+   * Modifies the name and description of a VPN gateway.
    * 
    * @remarks
    *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
@@ -29451,7 +29466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the name and description of a VPN Gateway or the automatic route advertisement feature.
+   * Modifies the name and description of a VPN gateway.
    * 
    * @remarks
    *   **ModifyVpnGatewayAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) to query the status of the task.
@@ -30854,6 +30869,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.ipInstanceId)) {

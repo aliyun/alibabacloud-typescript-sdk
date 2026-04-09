@@ -16,6 +16,7 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
    */
   clientToken?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -45,6 +46,7 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
     return {
       bandwidthPackageId: 'BandwidthPackageId',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       ipInstanceId: 'IpInstanceId',
       ipType: 'IpType',
       ownerAccount: 'OwnerAccount',
@@ -59,6 +61,7 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
     return {
       bandwidthPackageId: 'string',
       clientToken: 'string',
+      dryRun: 'boolean',
       ipInstanceId: 'string',
       ipType: 'string',
       ownerAccount: 'string',

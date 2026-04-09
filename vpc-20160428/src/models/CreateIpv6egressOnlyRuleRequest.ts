@@ -25,6 +25,7 @@ export class CreateIpv6EgressOnlyRuleRequest extends $dara.Model {
    * ruledescription
    */
   description?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The ID of the IPv6 address for which you want to create an egress-only rule.
@@ -85,6 +86,7 @@ export class CreateIpv6EgressOnlyRuleRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       description: 'Description',
+      dryRun: 'DryRun',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
       ipv6GatewayId: 'Ipv6GatewayId',
@@ -101,6 +103,7 @@ export class CreateIpv6EgressOnlyRuleRequest extends $dara.Model {
     return {
       clientToken: 'string',
       description: 'string',
+      dryRun: 'boolean',
       instanceId: 'string',
       instanceType: 'string',
       ipv6GatewayId: 'string',

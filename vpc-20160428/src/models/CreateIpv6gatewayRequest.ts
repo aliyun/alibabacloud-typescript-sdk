@@ -69,6 +69,7 @@ export class CreateIpv6GatewayRequest extends $dara.Model {
    * ipv6gatewayforVPC1
    */
   description?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The name of the IPv6 gateway.
@@ -120,6 +121,7 @@ export class CreateIpv6GatewayRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       description: 'Description',
+      dryRun: 'DryRun',
       name: 'Name',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -136,6 +138,7 @@ export class CreateIpv6GatewayRequest extends $dara.Model {
     return {
       clientToken: 'string',
       description: 'string',
+      dryRun: 'boolean',
       name: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

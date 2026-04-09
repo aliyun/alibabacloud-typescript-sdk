@@ -15,6 +15,7 @@ export class DeleteIpv6EgressOnlyRuleRequest extends $dara.Model {
    * 123456
    */
   clientToken?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The ID of the egress-only rule that you want to delete.
@@ -42,6 +43,7 @@ export class DeleteIpv6EgressOnlyRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       ipv6EgressOnlyRuleId: 'Ipv6EgressOnlyRuleId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -54,6 +56,7 @@ export class DeleteIpv6EgressOnlyRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       ipv6EgressOnlyRuleId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

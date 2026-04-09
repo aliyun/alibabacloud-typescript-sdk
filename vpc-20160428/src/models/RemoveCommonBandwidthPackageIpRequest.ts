@@ -16,6 +16,7 @@ export class RemoveCommonBandwidthPackageIpRequest extends $dara.Model {
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -40,6 +41,7 @@ export class RemoveCommonBandwidthPackageIpRequest extends $dara.Model {
     return {
       bandwidthPackageId: 'BandwidthPackageId',
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       ipInstanceId: 'IpInstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -53,6 +55,7 @@ export class RemoveCommonBandwidthPackageIpRequest extends $dara.Model {
     return {
       bandwidthPackageId: 'string',
       clientToken: 'string',
+      dryRun: 'boolean',
       ipInstanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
