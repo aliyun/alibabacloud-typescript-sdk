@@ -110,11 +110,13 @@ export default class Client extends OpenApi {
       try {
         let request_ = new $dara.Request();
         let boundary = $dara.Form.getBoundary();
+        let tmp = String(form["host"]);
+        let host = `${bucketName}.${tmp}`;
         request_.protocol = "HTTPS";
         request_.method = "POST";
         request_.pathname = `/`;
         request_.headers = {
-          host: String(form["host"]),
+          host: host,
           date: OpenApiUtil.getDateUTCString(),
           'user-agent': OpenApiUtil.getUserAgent(""),
         };
@@ -2506,6 +2508,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建参数。
+   * 
+   * @param tmpReq - CreateParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateParameterResponse
+   */
+  async createParameterWithOptions(tmpReq: $_model.CreateParameterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateParameterResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateParameterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.properties)) {
+      request.propertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.properties, "Properties", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.propertiesShrink)) {
+      body["Properties"] = request.propertiesShrink;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      body["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateParameter",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateParameterResponse>(await this.callApi(params, req, runtime), new $_model.CreateParameterResponse({}));
+  }
+
+  /**
+   * 创建参数。
+   * 
+   * @param request - CreateParameterRequest
+   * @returns CreateParameterResponse
+   */
+  async createParameter(request: $_model.CreateParameterRequest): Promise<$_model.CreateParameterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createParameterWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a deployment process for entities in the Data Studio (new version).
    * 
    * @remarks
@@ -2837,7 +2911,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -3009,7 +3083,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -4637,6 +4711,48 @@ export default class Client extends OpenApi {
   async deleteNode(request: $_model.DeleteNodeRequest): Promise<$_model.DeleteNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteNodeWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除参数。
+   * 
+   * @param request - DeleteParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteParameterResponse
+   */
+  async deleteParameterWithOptions(request: $_model.DeleteParameterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteParameterResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteParameter",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteParameterResponse>(await this.callApi(params, req, runtime), new $_model.DeleteParameterResponse({}));
+  }
+
+  /**
+   * 删除参数。
+   * 
+   * @param request - DeleteParameterRequest
+   * @returns DeleteParameterResponse
+   */
+  async deleteParameter(request: $_model.DeleteParameterRequest): Promise<$_model.DeleteParameterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteParameterWithOptions(request, runtime);
   }
 
   /**
@@ -6945,6 +7061,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据参数ID获取参数的详细信息。
+   * 
+   * @param request - GetParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetParameterResponse
+   */
+  async getParameterWithOptions(request: $_model.GetParameterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetParameterResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetParameter",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetParameterResponse>(await this.callApi(params, req, runtime), new $_model.GetParameterResponse({}));
+  }
+
+  /**
+   * 根据参数ID获取参数的详细信息。
+   * 
+   * @param request - GetParameterRequest
+   * @returns GetParameterResponse
+   */
+  async getParameter(request: $_model.GetParameterRequest): Promise<$_model.GetParameterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getParameterWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves partition details for a data map table. Currently supports MaxCompute and HMS (EMR cluster) types only.
    * 
    * @remarks
@@ -7866,7 +8024,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -8339,7 +8497,6 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of metadata crawler types supported in Data Map. The subtypes of the types and the hierarchical relationship between the subtypes are also returned.
    * 
-   * @param request - ListCrawlerTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCrawlerTypesResponse
    */
@@ -10275,6 +10432,144 @@ export default class Client extends OpenApi {
   async listNodes(request: $_model.ListNodesRequest): Promise<$_model.ListNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询参数版本列表。
+   * 
+   * @param request - ListParameterVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListParameterVersionsResponse
+   */
+  async listParameterVersionsWithOptions(request: $_model.ListParameterVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListParameterVersionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListParameterVersions",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListParameterVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListParameterVersionsResponse({}));
+  }
+
+  /**
+   * 查询参数版本列表。
+   * 
+   * @param request - ListParameterVersionsRequest
+   * @returns ListParameterVersionsResponse
+   */
+  async listParameterVersions(request: $_model.ListParameterVersionsRequest): Promise<$_model.ListParameterVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listParameterVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询参数列表。
+   * 
+   * @param tmpReq - ListParametersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListParametersResponse
+   */
+  async listParametersWithOptions(tmpReq: $_model.ListParametersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListParametersResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListParametersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.names)) {
+      request.namesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.names, "Names", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    if (!$dara.isNull(request.namesShrink)) {
+      body["Names"] = request.namesShrink;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.scope)) {
+      body["Scope"] = request.scope;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListParameters",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListParametersResponse>(await this.callApi(params, req, runtime), new $_model.ListParametersResponse({}));
+  }
+
+  /**
+   * 查询参数列表。
+   * 
+   * @param request - ListParametersRequest
+   * @returns ListParametersResponse
+   */
+  async listParameters(request: $_model.ListParametersRequest): Promise<$_model.ListParametersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listParametersWithOptions(request, runtime);
   }
 
   /**
@@ -12443,6 +12738,52 @@ export default class Client extends OpenApi {
   async revokeMemberProjectRoles(request: $_model.RevokeMemberProjectRolesRequest): Promise<$_model.RevokeMemberProjectRolesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeMemberProjectRolesWithOptions(request, runtime);
+  }
+
+  /**
+   * 回滚参数版本。
+   * 
+   * @param request - RollbackParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackParameterResponse
+   */
+  async rollbackParameterWithOptions(request: $_model.RollbackParameterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RollbackParameterResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.rollbackVersion)) {
+      body["RollbackVersion"] = request.rollbackVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RollbackParameter",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RollbackParameterResponse>(await this.callApi(params, req, runtime), new $_model.RollbackParameterResponse({}));
+  }
+
+  /**
+   * 回滚参数版本。
+   * 
+   * @param request - RollbackParameterRequest
+   * @returns RollbackParameterResponse
+   */
+  async rollbackParameter(request: $_model.RollbackParameterRequest): Promise<$_model.RollbackParameterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rollbackParameterWithOptions(request, runtime);
   }
 
   /**
@@ -14815,6 +15156,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新参数。
+   * 
+   * @param tmpReq - UpdateParameterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateParameterResponse
+   */
+  async updateParameterWithOptions(tmpReq: $_model.UpdateParameterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateParameterResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateParameterShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.properties)) {
+      request.propertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.properties, "Properties", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.owner)) {
+      body["Owner"] = request.owner;
+    }
+
+    if (!$dara.isNull(request.propertiesShrink)) {
+      body["Properties"] = request.propertiesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateParameter",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateParameterResponse>(await this.callApi(params, req, runtime), new $_model.UpdateParameterResponse({}));
+  }
+
+  /**
+   * 更新参数。
+   * 
+   * @param request - UpdateParameterRequest
+   * @returns UpdateParameterResponse
+   */
+  async updateParameter(request: $_model.UpdateParameterRequest): Promise<$_model.UpdateParameterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateParameterWithOptions(request, runtime);
+  }
+
+  /**
    * Updates a DataWorks workspace.
    * 
    * @param request - UpdateProjectRequest
@@ -15004,7 +15405,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
