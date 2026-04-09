@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListMembersResponseBodyMembers extends $dara.Model {
+  /**
+   * @example
+   * testAccount
+   */
   accountName?: string;
+  /**
+   * @example
+   * 5
+   */
   accountType?: string;
   /**
    * @remarks

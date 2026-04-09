@@ -43,12 +43,18 @@ export class ListMembersRequest extends $dara.Model {
    * PAI.AlgoDeveloper
    */
   roles?: string;
+  /**
+   * @example
+   * 2788******129
+   */
+  userId?: string;
   static names(): { [key: string]: string } {
     return {
       memberName: 'MemberName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       roles: 'Roles',
+      userId: 'UserId',
     };
   }
 
@@ -58,6 +64,7 @@ export class ListMembersRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       roles: 'string',
+      userId: 'string',
     };
   }
 

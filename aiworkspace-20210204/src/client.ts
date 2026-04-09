@@ -255,11 +255,13 @@ export default class Client extends OpenApi {
   /**
    * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
    * 
+   * @param request - AddMemberRoleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddMemberRoleResponse
    */
-  async addMemberRoleWithOptions(WorkspaceId: string, MemberId: string, RoleName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddMemberRoleResponse> {
+  async addMemberRoleWithOptions(WorkspaceId: string, MemberId: string, RoleName: string, request: $_model.AddMemberRoleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddMemberRoleResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -279,12 +281,14 @@ export default class Client extends OpenApi {
 
   /**
    * Adds a role to a member in a workspace. After you add a role to a member, the member is granted the permissions of the role.
+   * 
+   * @param request - AddMemberRoleRequest
    * @returns AddMemberRoleResponse
    */
-  async addMemberRole(WorkspaceId: string, MemberId: string, RoleName: string): Promise<$_model.AddMemberRoleResponse> {
+  async addMemberRole(WorkspaceId: string, MemberId: string, RoleName: string, request: $_model.AddMemberRoleRequest): Promise<$_model.AddMemberRoleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.addMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, headers, runtime);
+    return await this.addMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, request, headers, runtime);
   }
 
   /**
@@ -1719,11 +1723,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a code source based on the provided ID.
    * 
+   * @param request - DeleteCodeSourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCodeSourceResponse
    */
-  async deleteCodeSourceWithOptions(CodeSourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCodeSourceResponse> {
+  async deleteCodeSourceWithOptions(CodeSourceId: string, request: $_model.DeleteCodeSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCodeSourceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1743,12 +1749,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a code source based on the provided ID.
+   * 
+   * @param request - DeleteCodeSourceRequest
    * @returns DeleteCodeSourceResponse
    */
-  async deleteCodeSource(CodeSourceId: string): Promise<$_model.DeleteCodeSourceResponse> {
+  async deleteCodeSource(CodeSourceId: string, request: $_model.DeleteCodeSourceRequest): Promise<$_model.DeleteCodeSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteCodeSourceWithOptions(CodeSourceId, headers, runtime);
+    return await this.deleteCodeSourceWithOptions(CodeSourceId, request, headers, runtime);
   }
 
   /**
@@ -1803,11 +1811,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a connection.
    * 
+   * @param request - DeleteConnectionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteConnectionResponse
    */
-  async deleteConnectionWithOptions(ConnectionId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConnectionResponse> {
+  async deleteConnectionWithOptions(ConnectionId: string, request: $_model.DeleteConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConnectionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1827,22 +1837,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a connection.
+   * 
+   * @param request - DeleteConnectionRequest
    * @returns DeleteConnectionResponse
    */
-  async deleteConnection(ConnectionId: string): Promise<$_model.DeleteConnectionResponse> {
+  async deleteConnection(ConnectionId: string, request: $_model.DeleteConnectionRequest): Promise<$_model.DeleteConnectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteConnectionWithOptions(ConnectionId, headers, runtime);
+    return await this.deleteConnectionWithOptions(ConnectionId, request, headers, runtime);
   }
 
   /**
    * Deletes a dataset.
    * 
+   * @param request - DeleteDatasetRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDatasetResponse
    */
-  async deleteDatasetWithOptions(DatasetId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetResponse> {
+  async deleteDatasetWithOptions(DatasetId: string, request: $_model.DeleteDatasetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1862,12 +1876,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a dataset.
+   * 
+   * @param request - DeleteDatasetRequest
    * @returns DeleteDatasetResponse
    */
-  async deleteDataset(DatasetId: string): Promise<$_model.DeleteDatasetResponse> {
+  async deleteDataset(DatasetId: string, request: $_model.DeleteDatasetRequest): Promise<$_model.DeleteDatasetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDatasetWithOptions(DatasetId, headers, runtime);
+    return await this.deleteDatasetWithOptions(DatasetId, request, headers, runtime);
   }
 
   /**
@@ -1926,11 +1942,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a dataset job.
    * 
+   * @param request - DeleteDatasetJobRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDatasetJobResponse
    */
-  async deleteDatasetJobWithOptions(DatasetId: string, DatasetJobId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetJobResponse> {
+  async deleteDatasetJobWithOptions(DatasetId: string, DatasetJobId: string, request: $_model.DeleteDatasetJobRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetJobResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1950,12 +1968,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a dataset job.
+   * 
+   * @param request - DeleteDatasetJobRequest
    * @returns DeleteDatasetJobResponse
    */
-  async deleteDatasetJob(DatasetId: string, DatasetJobId: string): Promise<$_model.DeleteDatasetJobResponse> {
+  async deleteDatasetJob(DatasetId: string, DatasetJobId: string, request: $_model.DeleteDatasetJobRequest): Promise<$_model.DeleteDatasetJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDatasetJobWithOptions(DatasetId, DatasetJobId, headers, runtime);
+    return await this.deleteDatasetJobWithOptions(DatasetId, DatasetJobId, request, headers, runtime);
   }
 
   /**
@@ -2051,11 +2071,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
    * 
+   * @param request - DeleteDatasetVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDatasetVersionResponse
    */
-  async deleteDatasetVersionWithOptions(DatasetId: string, VersionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetVersionResponse> {
+  async deleteDatasetVersionWithOptions(DatasetId: string, VersionName: string, request: $_model.DeleteDatasetVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2075,12 +2097,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes the information about a specified version of a dataset. Version v1 cannot be deleted by using this operation. When you call the DeleteDataset operation to delete a dataset, it can be deleted at the same time.
+   * 
+   * @param request - DeleteDatasetVersionRequest
    * @returns DeleteDatasetVersionResponse
    */
-  async deleteDatasetVersion(DatasetId: string, VersionName: string): Promise<$_model.DeleteDatasetVersionResponse> {
+  async deleteDatasetVersion(DatasetId: string, VersionName: string, request: $_model.DeleteDatasetVersionRequest): Promise<$_model.DeleteDatasetVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDatasetVersionWithOptions(DatasetId, VersionName, headers, runtime);
+    return await this.deleteDatasetVersionWithOptions(DatasetId, VersionName, request, headers, runtime);
   }
 
   /**
@@ -2131,11 +2155,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes an experiment.
    * 
+   * @param request - DeleteExperimentRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteExperimentResponse
    */
-  async deleteExperimentWithOptions(ExperimentId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExperimentResponse> {
+  async deleteExperimentWithOptions(ExperimentId: string, request: $_model.DeleteExperimentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExperimentResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2155,22 +2181,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an experiment.
+   * 
+   * @param request - DeleteExperimentRequest
    * @returns DeleteExperimentResponse
    */
-  async deleteExperiment(ExperimentId: string): Promise<$_model.DeleteExperimentResponse> {
+  async deleteExperiment(ExperimentId: string, request: $_model.DeleteExperimentRequest): Promise<$_model.DeleteExperimentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteExperimentWithOptions(ExperimentId, headers, runtime);
+    return await this.deleteExperimentWithOptions(ExperimentId, request, headers, runtime);
   }
 
   /**
    * Deletes an experiment tag.
    * 
+   * @param request - DeleteExperimentLabelRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteExperimentLabelResponse
    */
-  async deleteExperimentLabelWithOptions(ExperimentId: string, Key: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExperimentLabelResponse> {
+  async deleteExperimentLabelWithOptions(ExperimentId: string, Key: string, request: $_model.DeleteExperimentLabelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExperimentLabelResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2190,12 +2220,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an experiment tag.
+   * 
+   * @param request - DeleteExperimentLabelRequest
    * @returns DeleteExperimentLabelResponse
    */
-  async deleteExperimentLabel(ExperimentId: string, Key: string): Promise<$_model.DeleteExperimentLabelResponse> {
+  async deleteExperimentLabel(ExperimentId: string, Key: string, request: $_model.DeleteExperimentLabelRequest): Promise<$_model.DeleteExperimentLabelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteExperimentLabelWithOptions(ExperimentId, Key, headers, runtime);
+    return await this.deleteExperimentLabelWithOptions(ExperimentId, Key, request, headers, runtime);
   }
 
   /**
@@ -2246,11 +2278,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a model.
    * 
+   * @param request - DeleteModelRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteModelResponse
    */
-  async deleteModelWithOptions(ModelId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelResponse> {
+  async deleteModelWithOptions(ModelId: string, request: $_model.DeleteModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2270,12 +2304,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a model.
+   * 
+   * @param request - DeleteModelRequest
    * @returns DeleteModelResponse
    */
-  async deleteModel(ModelId: string): Promise<$_model.DeleteModelResponse> {
+  async deleteModel(ModelId: string, request: $_model.DeleteModelRequest): Promise<$_model.DeleteModelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteModelWithOptions(ModelId, headers, runtime);
+    return await this.deleteModelWithOptions(ModelId, request, headers, runtime);
   }
 
   /**
@@ -2326,11 +2362,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a model version.
    * 
+   * @param request - DeleteModelVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteModelVersionResponse
    */
-  async deleteModelVersionWithOptions(ModelId: string, VersionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelVersionResponse> {
+  async deleteModelVersionWithOptions(ModelId: string, VersionName: string, request: $_model.DeleteModelVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2350,12 +2388,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a model version.
+   * 
+   * @param request - DeleteModelVersionRequest
    * @returns DeleteModelVersionResponse
    */
-  async deleteModelVersion(ModelId: string, VersionName: string): Promise<$_model.DeleteModelVersionResponse> {
+  async deleteModelVersion(ModelId: string, VersionName: string, request: $_model.DeleteModelVersionRequest): Promise<$_model.DeleteModelVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteModelVersionWithOptions(ModelId, VersionName, headers, runtime);
+    return await this.deleteModelVersionWithOptions(ModelId, VersionName, request, headers, runtime);
   }
 
   /**
@@ -2406,11 +2446,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a run.
    * 
+   * @param request - DeleteRunRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRunResponse
    */
-  async deleteRunWithOptions(RunId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRunResponse> {
+  async deleteRunWithOptions(RunId: string, request: $_model.DeleteRunRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRunResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2430,22 +2472,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a run.
+   * 
+   * @param request - DeleteRunRequest
    * @returns DeleteRunResponse
    */
-  async deleteRun(RunId: string): Promise<$_model.DeleteRunResponse> {
+  async deleteRun(RunId: string, request: $_model.DeleteRunRequest): Promise<$_model.DeleteRunResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteRunWithOptions(RunId, headers, runtime);
+    return await this.deleteRunWithOptions(RunId, request, headers, runtime);
   }
 
   /**
    * Deletes a tag that is added to a run.
    * 
+   * @param request - DeleteRunLabelRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRunLabelResponse
    */
-  async deleteRunLabelWithOptions(RunId: string, Key: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRunLabelResponse> {
+  async deleteRunLabelWithOptions(RunId: string, Key: string, request: $_model.DeleteRunLabelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRunLabelResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2465,12 +2511,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a tag that is added to a run.
+   * 
+   * @param request - DeleteRunLabelRequest
    * @returns DeleteRunLabelResponse
    */
-  async deleteRunLabel(RunId: string, Key: string): Promise<$_model.DeleteRunLabelResponse> {
+  async deleteRunLabel(RunId: string, Key: string, request: $_model.DeleteRunLabelRequest): Promise<$_model.DeleteRunLabelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteRunLabelWithOptions(RunId, Key, headers, runtime);
+    return await this.deleteRunLabelWithOptions(RunId, Key, request, headers, runtime);
   }
 
   /**
@@ -2525,11 +2573,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
    * 
+   * @param request - DeleteWorkspaceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteWorkspaceResponse
    */
-  async deleteWorkspaceWithOptions(WorkspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceResponse> {
+  async deleteWorkspaceWithOptions(WorkspaceId: string, request: $_model.DeleteWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2549,12 +2599,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a workspace. After you delete a workspace, the associated resources are not automatically released. You must manually release the resources.
+   * 
+   * @param request - DeleteWorkspaceRequest
    * @returns DeleteWorkspaceResponse
    */
-  async deleteWorkspace(WorkspaceId: string): Promise<$_model.DeleteWorkspaceResponse> {
+  async deleteWorkspace(WorkspaceId: string, request: $_model.DeleteWorkspaceRequest): Promise<$_model.DeleteWorkspaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteWorkspaceWithOptions(WorkspaceId, headers, runtime);
+    return await this.deleteWorkspaceWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
@@ -2625,11 +2677,13 @@ export default class Client extends OpenApi {
   /**
    * Obtains the details of a code source.
    * 
+   * @param request - GetCodeSourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCodeSourceResponse
    */
-  async getCodeSourceWithOptions(CodeSourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCodeSourceResponse> {
+  async getCodeSourceWithOptions(CodeSourceId: string, request: $_model.GetCodeSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCodeSourceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2649,12 +2703,14 @@ export default class Client extends OpenApi {
 
   /**
    * Obtains the details of a code source.
+   * 
+   * @param request - GetCodeSourceRequest
    * @returns GetCodeSourceResponse
    */
-  async getCodeSource(CodeSourceId: string): Promise<$_model.GetCodeSourceResponse> {
+  async getCodeSource(CodeSourceId: string, request: $_model.GetCodeSourceRequest): Promise<$_model.GetCodeSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getCodeSourceWithOptions(CodeSourceId, headers, runtime);
+    return await this.getCodeSourceWithOptions(CodeSourceId, request, headers, runtime);
   }
 
   /**
@@ -2758,11 +2814,13 @@ export default class Client extends OpenApi {
   /**
    * Obtains a dataset.
    * 
+   * @param request - GetDatasetRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDatasetResponse
    */
-  async getDatasetWithOptions(DatasetId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetResponse> {
+  async getDatasetWithOptions(DatasetId: string, request: $_model.GetDatasetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2782,12 +2840,14 @@ export default class Client extends OpenApi {
 
   /**
    * Obtains a dataset.
+   * 
+   * @param request - GetDatasetRequest
    * @returns GetDatasetResponse
    */
-  async getDataset(DatasetId: string): Promise<$_model.GetDatasetResponse> {
+  async getDataset(DatasetId: string, request: $_model.GetDatasetRequest): Promise<$_model.GetDatasetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDatasetWithOptions(DatasetId, headers, runtime);
+    return await this.getDatasetWithOptions(DatasetId, request, headers, runtime);
   }
 
   /**
@@ -2993,11 +3053,13 @@ export default class Client extends OpenApi {
   /**
    * Obtains the information about a specified version of a dataset.
    * 
+   * @param request - GetDatasetVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDatasetVersionResponse
    */
-  async getDatasetVersionWithOptions(DatasetId: string, VersionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetVersionResponse> {
+  async getDatasetVersionWithOptions(DatasetId: string, VersionName: string, request: $_model.GetDatasetVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3017,12 +3079,14 @@ export default class Client extends OpenApi {
 
   /**
    * Obtains the information about a specified version of a dataset.
+   * 
+   * @param request - GetDatasetVersionRequest
    * @returns GetDatasetVersionResponse
    */
-  async getDatasetVersion(DatasetId: string, VersionName: string): Promise<$_model.GetDatasetVersionResponse> {
+  async getDatasetVersion(DatasetId: string, VersionName: string, request: $_model.GetDatasetVersionRequest): Promise<$_model.GetDatasetVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDatasetVersionWithOptions(DatasetId, VersionName, headers, runtime);
+    return await this.getDatasetVersionWithOptions(DatasetId, VersionName, request, headers, runtime);
   }
 
   /**
@@ -3212,11 +3276,13 @@ export default class Client extends OpenApi {
   /**
    * Obtains the details of a specified model.
    * 
+   * @param request - GetModelRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetModelResponse
    */
-  async getModelWithOptions(ModelId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelResponse> {
+  async getModelWithOptions(ModelId: string, request: $_model.GetModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3236,22 +3302,26 @@ export default class Client extends OpenApi {
 
   /**
    * Obtains the details of a specified model.
+   * 
+   * @param request - GetModelRequest
    * @returns GetModelResponse
    */
-  async getModel(ModelId: string): Promise<$_model.GetModelResponse> {
+  async getModel(ModelId: string, request: $_model.GetModelRequest): Promise<$_model.GetModelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getModelWithOptions(ModelId, headers, runtime);
+    return await this.getModelWithOptions(ModelId, request, headers, runtime);
   }
 
   /**
    * Queries a model version.
    * 
+   * @param request - GetModelVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetModelVersionResponse
    */
-  async getModelVersionWithOptions(ModelId: string, VersionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelVersionResponse> {
+  async getModelVersionWithOptions(ModelId: string, VersionName: string, request: $_model.GetModelVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3271,12 +3341,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a model version.
+   * 
+   * @param request - GetModelVersionRequest
    * @returns GetModelVersionResponse
    */
-  async getModelVersion(ModelId: string, VersionName: string): Promise<$_model.GetModelVersionResponse> {
+  async getModelVersion(ModelId: string, VersionName: string, request: $_model.GetModelVersionRequest): Promise<$_model.GetModelVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getModelVersionWithOptions(ModelId, VersionName, headers, runtime);
+    return await this.getModelVersionWithOptions(ModelId, VersionName, request, headers, runtime);
   }
 
   /**
@@ -4501,6 +4573,10 @@ export default class Client extends OpenApi {
       query["Roles"] = request.roles;
     }
 
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -4734,11 +4810,13 @@ export default class Client extends OpenApi {
   /**
    * Lists the permissions that a user has in a workspace.
    * 
+   * @param request - ListPermissionsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPermissionsResponse
    */
-  async listPermissionsWithOptions(WorkspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPermissionsResponse> {
+  async listPermissionsWithOptions(WorkspaceId: string, request: $_model.ListPermissionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPermissionsResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4758,12 +4836,14 @@ export default class Client extends OpenApi {
 
   /**
    * Lists the permissions that a user has in a workspace.
+   * 
+   * @param request - ListPermissionsRequest
    * @returns ListPermissionsResponse
    */
-  async listPermissions(WorkspaceId: string): Promise<$_model.ListPermissionsResponse> {
+  async listPermissions(WorkspaceId: string, request: $_model.ListPermissionsRequest): Promise<$_model.ListPermissionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listPermissionsWithOptions(WorkspaceId, headers, runtime);
+    return await this.listPermissionsWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
@@ -5352,11 +5432,13 @@ export default class Client extends OpenApi {
   /**
    * Publishes a private code source to a workspace to make the code source publicly accessible.
    * 
+   * @param request - PublishCodeSourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PublishCodeSourceResponse
    */
-  async publishCodeSourceWithOptions(CodeSourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PublishCodeSourceResponse> {
+  async publishCodeSourceWithOptions(CodeSourceId: string, request: $_model.PublishCodeSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PublishCodeSourceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -5376,22 +5458,26 @@ export default class Client extends OpenApi {
 
   /**
    * Publishes a private code source to a workspace to make the code source publicly accessible.
+   * 
+   * @param request - PublishCodeSourceRequest
    * @returns PublishCodeSourceResponse
    */
-  async publishCodeSource(CodeSourceId: string): Promise<$_model.PublishCodeSourceResponse> {
+  async publishCodeSource(CodeSourceId: string, request: $_model.PublishCodeSourceRequest): Promise<$_model.PublishCodeSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.publishCodeSourceWithOptions(CodeSourceId, headers, runtime);
+    return await this.publishCodeSourceWithOptions(CodeSourceId, request, headers, runtime);
   }
 
   /**
    * Publishes a private dataset in a workspace.
    * 
+   * @param request - PublishDatasetRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PublishDatasetResponse
    */
-  async publishDatasetWithOptions(DatasetId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PublishDatasetResponse> {
+  async publishDatasetWithOptions(DatasetId: string, request: $_model.PublishDatasetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PublishDatasetResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -5411,22 +5497,26 @@ export default class Client extends OpenApi {
 
   /**
    * Publishes a private dataset in a workspace.
+   * 
+   * @param request - PublishDatasetRequest
    * @returns PublishDatasetResponse
    */
-  async publishDataset(DatasetId: string): Promise<$_model.PublishDatasetResponse> {
+  async publishDataset(DatasetId: string, request: $_model.PublishDatasetRequest): Promise<$_model.PublishDatasetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.publishDatasetWithOptions(DatasetId, headers, runtime);
+    return await this.publishDatasetWithOptions(DatasetId, request, headers, runtime);
   }
 
   /**
    * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
    * 
+   * @param request - PublishImageRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PublishImageResponse
    */
-  async publishImageWithOptions(ImageId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PublishImageResponse> {
+  async publishImageWithOptions(ImageId: string, request: $_model.PublishImageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PublishImageResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -5446,22 +5536,26 @@ export default class Client extends OpenApi {
 
   /**
    * Publishes an image. After the image is published, the visibility of the image is changed from PRIVATE to PUBLIC.
+   * 
+   * @param request - PublishImageRequest
    * @returns PublishImageResponse
    */
-  async publishImage(ImageId: string): Promise<$_model.PublishImageResponse> {
+  async publishImage(ImageId: string, request: $_model.PublishImageRequest): Promise<$_model.PublishImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.publishImageWithOptions(ImageId, headers, runtime);
+    return await this.publishImageWithOptions(ImageId, request, headers, runtime);
   }
 
   /**
    * Removes an image.
    * 
+   * @param request - RemoveImageRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveImageResponse
    */
-  async removeImageWithOptions(ImageId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveImageResponse> {
+  async removeImageWithOptions(ImageId: string, request: $_model.RemoveImageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveImageResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -5481,22 +5575,26 @@ export default class Client extends OpenApi {
 
   /**
    * Removes an image.
+   * 
+   * @param request - RemoveImageRequest
    * @returns RemoveImageResponse
    */
-  async removeImage(ImageId: string): Promise<$_model.RemoveImageResponse> {
+  async removeImage(ImageId: string, request: $_model.RemoveImageRequest): Promise<$_model.RemoveImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeImageWithOptions(ImageId, headers, runtime);
+    return await this.removeImageWithOptions(ImageId, request, headers, runtime);
   }
 
   /**
    * Removes an image tag.
    * 
+   * @param request - RemoveImageLabelsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveImageLabelsResponse
    */
-  async removeImageLabelsWithOptions(ImageId: string, LabelKey: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveImageLabelsResponse> {
+  async removeImageLabelsWithOptions(ImageId: string, LabelKey: string, request: $_model.RemoveImageLabelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveImageLabelsResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -5516,22 +5614,26 @@ export default class Client extends OpenApi {
 
   /**
    * Removes an image tag.
+   * 
+   * @param request - RemoveImageLabelsRequest
    * @returns RemoveImageLabelsResponse
    */
-  async removeImageLabels(ImageId: string, LabelKey: string): Promise<$_model.RemoveImageLabelsResponse> {
+  async removeImageLabels(ImageId: string, LabelKey: string, request: $_model.RemoveImageLabelsRequest): Promise<$_model.RemoveImageLabelsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeImageLabelsWithOptions(ImageId, LabelKey, headers, runtime);
+    return await this.removeImageLabelsWithOptions(ImageId, LabelKey, request, headers, runtime);
   }
 
   /**
    * Removes a member role.
    * 
+   * @param request - RemoveMemberRoleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveMemberRoleResponse
    */
-  async removeMemberRoleWithOptions(WorkspaceId: string, MemberId: string, RoleName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveMemberRoleResponse> {
+  async removeMemberRoleWithOptions(WorkspaceId: string, MemberId: string, RoleName: string, request: $_model.RemoveMemberRoleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveMemberRoleResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -5551,12 +5653,14 @@ export default class Client extends OpenApi {
 
   /**
    * Removes a member role.
+   * 
+   * @param request - RemoveMemberRoleRequest
    * @returns RemoveMemberRoleResponse
    */
-  async removeMemberRole(WorkspaceId: string, MemberId: string, RoleName: string): Promise<$_model.RemoveMemberRoleResponse> {
+  async removeMemberRole(WorkspaceId: string, MemberId: string, RoleName: string, request: $_model.RemoveMemberRoleRequest): Promise<$_model.RemoveMemberRoleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.removeMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, headers, runtime);
+    return await this.removeMemberRoleWithOptions(WorkspaceId, MemberId, RoleName, request, headers, runtime);
   }
 
   /**
