@@ -60,7 +60,17 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
 export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResource extends $dara.Model {
   availableAmount?: number;
   capacityReservationUsages?: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResourceCapacityReservationUsages;
+  /**
+   * @example
+   * 1
+   */
+  failedAmount?: number;
   instanceType?: string;
+  /**
+   * @example
+   * 1
+   */
+  lockedAmount?: number;
   totalAmount?: number;
   usedAmount?: number;
   zoneId?: string;
@@ -68,7 +78,9 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
     return {
       availableAmount: 'AvailableAmount',
       capacityReservationUsages: 'CapacityReservationUsages',
+      failedAmount: 'FailedAmount',
       instanceType: 'InstanceType',
+      lockedAmount: 'LockedAmount',
       totalAmount: 'TotalAmount',
       usedAmount: 'UsedAmount',
       zoneId: 'zoneId',
@@ -79,7 +91,9 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
     return {
       availableAmount: 'number',
       capacityReservationUsages: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResourcesAllocatedResourceCapacityReservationUsages,
+      failedAmount: 'number',
       instanceType: 'string',
+      lockedAmount: 'number',
       totalAmount: 'number',
       usedAmount: 'number',
       zoneId: 'string',

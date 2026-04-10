@@ -60,7 +60,17 @@ export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElast
 export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemAllocatedResourcesAllocatedResource extends $dara.Model {
   availableAmount?: number;
   elasticityAssuranceUsages?: DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemAllocatedResourcesAllocatedResourceElasticityAssuranceUsages;
+  /**
+   * @example
+   * 1
+   */
+  failedAmount?: number;
   instanceType?: string;
+  /**
+   * @example
+   * 1
+   */
+  lockedAmount?: number;
   totalAmount?: number;
   usedAmount?: number;
   zoneId?: string;
@@ -68,7 +78,9 @@ export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElast
     return {
       availableAmount: 'AvailableAmount',
       elasticityAssuranceUsages: 'ElasticityAssuranceUsages',
+      failedAmount: 'FailedAmount',
       instanceType: 'InstanceType',
+      lockedAmount: 'LockedAmount',
       totalAmount: 'TotalAmount',
       usedAmount: 'UsedAmount',
       zoneId: 'zoneId',
@@ -79,7 +91,9 @@ export class DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElast
     return {
       availableAmount: 'number',
       elasticityAssuranceUsages: DescribeElasticityAssurancesResponseBodyElasticityAssuranceSetElasticityAssuranceItemAllocatedResourcesAllocatedResourceElasticityAssuranceUsages,
+      failedAmount: 'number',
       instanceType: 'string',
+      lockedAmount: 'number',
       totalAmount: 'number',
       usedAmount: 'number',
       zoneId: 'string',
