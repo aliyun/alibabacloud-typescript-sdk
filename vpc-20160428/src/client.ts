@@ -33085,7 +33085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改增强型VPN实例属性
+   * Modifies the name, description, or route auto-propagation feature of an Enhanced VPN gateway.
    * 
    * @param request - UpdateEnhancedVpnGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33152,7 +33152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改增强型VPN实例属性
+   * Modifies the name, description, or route auto-propagation feature of an Enhanced VPN gateway.
    * 
    * @param request - UpdateEnhancedVpnGatewayRequest
    * @returns UpdateEnhancedVpnGatewayResponse

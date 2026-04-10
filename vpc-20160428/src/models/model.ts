@@ -222,6 +222,8 @@ export { DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOATypePMInf
 export { DescribePhysicalConnectionLOAResponseBodyPhysicalConnectionLOAType } from './DescribePhysicalConnectionLoaresponseBody';
 export { DescribePhysicalConnectionsRequestFilter } from './DescribePhysicalConnectionsRequest';
 export { DescribePhysicalConnectionsRequestTags } from './DescribePhysicalConnectionsRequest';
+export { DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeMacsecKeysMacsecKey } from './DescribePhysicalConnectionsResponseBody';
+export { DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeMacsecKeys } from './DescribePhysicalConnectionsResponseBody';
 export { DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags } from './DescribePhysicalConnectionsResponseBody';
 export { DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTags } from './DescribePhysicalConnectionsResponseBody';
 export { DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionType } from './DescribePhysicalConnectionsResponseBody';

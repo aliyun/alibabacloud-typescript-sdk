@@ -2,6 +2,67 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeMacsecKeysMacsecKey extends $dara.Model {
+  cak?: string;
+  cipherSuite?: string;
+  ckn?: string;
+  startOn?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cak: 'Cak',
+      cipherSuite: 'CipherSuite',
+      ckn: 'Ckn',
+      startOn: 'StartOn',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cak: 'string',
+      cipherSuite: 'string',
+      ckn: 'string',
+      startOn: 'string',
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeMacsecKeys extends $dara.Model {
+  macsecKey?: DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeMacsecKeysMacsecKey[];
+  static names(): { [key: string]: string } {
+    return {
+      macsecKey: 'MacsecKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      macsecKey: { 'type': 'array', 'itemType': DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeMacsecKeysMacsecKey },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.macsecKey)) {
+      $dara.Model.validateArray(this.macsecKey);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeTagsTags extends $dara.Model {
   key?: string;
   value?: string;
@@ -71,6 +132,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
   hasReservationData?: string;
   lineOperator?: string;
   loaStatus?: string;
+  macsecKeys?: DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeMacsecKeys;
   name?: string;
   opticalModuleModel?: string;
   orderMode?: string;
@@ -112,6 +174,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       hasReservationData: 'HasReservationData',
       lineOperator: 'LineOperator',
       loaStatus: 'LoaStatus',
+      macsecKeys: 'MacsecKeys',
       name: 'Name',
       opticalModuleModel: 'OpticalModuleModel',
       orderMode: 'OrderMode',
@@ -156,6 +219,7 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
       hasReservationData: 'string',
       lineOperator: 'string',
       loaStatus: 'string',
+      macsecKeys: DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysicalConnectionTypeMacsecKeys,
       name: 'string',
       opticalModuleModel: 'string',
       orderMode: 'string',
@@ -183,6 +247,9 @@ export class DescribePhysicalConnectionsResponseBodyPhysicalConnectionSetPhysica
   }
 
   validate() {
+    if(this.macsecKeys && typeof (this.macsecKeys as any).validate === 'function') {
+      (this.macsecKeys as any).validate();
+    }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();
     }
