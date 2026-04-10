@@ -35,12 +35,14 @@ export class FaceGuardRiskRequest extends $dara.Model {
    * FACE_GUARD
    */
   productCode?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
       deviceToken: 'DeviceToken',
       merchantBizId: 'MerchantBizId',
       productCode: 'ProductCode',
+      type: 'Type',
     };
   }
 
@@ -50,6 +52,7 @@ export class FaceGuardRiskRequest extends $dara.Model {
       deviceToken: 'string',
       merchantBizId: 'string',
       productCode: 'string',
+      type: 'string',
     };
   }
 
