@@ -16,6 +16,7 @@ export { DescribeInstanceEndpointsResponseBodyInstanceEndpoints } from './Descri
 export { DescribeInstanceIpWhitelistResponseBodyIpWhiteListGroups } from './DescribeInstanceIpWhitelistResponseBody';
 export { DescribeInstanceRAGConfigResponseBodyConfigList } from './DescribeInstanceRagconfigResponseBody';
 export { DescribeInstanceStorageConfigResponseBodyConfigList } from './DescribeInstanceStorageConfigResponseBody';
+export { DescribeSandboxTemplatesResponseBodySandboxTemplates } from './DescribeSandboxTemplatesResponseBody';
 export { GetConversationsResponseBodyData } from './GetConversationsResponseBody';
 export { GetCustomAgentResponseBodySkills } from './GetCustomAgentResponseBody';
 export { GetInspectionReportResponseBodyDataDataItemsData } from './GetInspectionReportResponseBody';
@@ -112,6 +113,9 @@ export { DescribeInstanceSSLResponse } from './DescribeInstanceSslresponse';
 export { DescribeInstanceStorageConfigRequest } from './DescribeInstanceStorageConfigRequest';
 export { DescribeInstanceStorageConfigResponseBody } from './DescribeInstanceStorageConfigResponseBody';
 export { DescribeInstanceStorageConfigResponse } from './DescribeInstanceStorageConfigResponse';
+export { DescribeSandboxTemplatesRequest } from './DescribeSandboxTemplatesRequest';
+export { DescribeSandboxTemplatesResponseBody } from './DescribeSandboxTemplatesResponseBody';
+export { DescribeSandboxTemplatesResponse } from './DescribeSandboxTemplatesResponse';
 export { GetConversationsRequest } from './GetConversationsRequest';
 export { GetConversationsResponseBody } from './GetConversationsResponseBody';
 export { GetConversationsResponse } from './GetConversationsResponse';

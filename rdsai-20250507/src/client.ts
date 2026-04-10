@@ -1539,6 +1539,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询沙箱模板列表
+   * 
+   * @param request - DescribeSandboxTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSandboxTemplatesResponse
+   */
+  async describeSandboxTemplatesWithOptions(request: $_model.DescribeSandboxTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSandboxTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSandboxTemplates",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSandboxTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSandboxTemplatesResponse({}));
+  }
+
+  /**
+   * 查询沙箱模板列表
+   * 
+   * @param request - DescribeSandboxTemplatesRequest
+   * @returns DescribeSandboxTemplatesResponse
+   */
+  async describeSandboxTemplates(request: $_model.DescribeSandboxTemplatesRequest): Promise<$_model.DescribeSandboxTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSandboxTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the history conversations of a user.
    * 
    * @param request - GetConversationsRequest
@@ -1999,7 +2065,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the custom agent tools of the user.
    * 
-   * @param request - ListCustomAgentToolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCustomAgentToolsResponse
    */
