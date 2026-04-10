@@ -1081,6 +1081,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 兑换权益
+   * 
+   * @param request - ExchangeEntitlementRequest
+   * @param headers - ExchangeEntitlementHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExchangeEntitlementResponse
+   */
+  async exchangeEntitlementWithOptions(workspaceId: string, tenantId: string, request: $_model.ExchangeEntitlementRequest, headers: $_model.ExchangeEntitlementHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.ExchangeEntitlementResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["externalUserId"] = request.externalUserId;
+    }
+
+    if (!$dara.isNull(request.keyHash)) {
+      body["keyHash"] = request.keyHash;
+    }
+
+    if (!$dara.isNull(request.requestId)) {
+      body["requestId"] = request.requestId;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      body["templateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["userName"] = request.userName;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xLoadTest)) {
+      realHeaders["X-Load-Test"] = typeof headers.xLoadTest === "string" ? headers.xLoadTest : JSON.stringify(headers.xLoadTest);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExchangeEntitlement",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/v1/tenants/${$dara.URL.percentEncode(tenantId)}/redeem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExchangeEntitlementResponse>(await this.callApi(params, req, runtime), new $_model.ExchangeEntitlementResponse({}));
+  }
+
+  /**
+   * 兑换权益
+   * 
+   * @param request - ExchangeEntitlementRequest
+   * @returns ExchangeEntitlementResponse
+   */
+  async exchangeEntitlement(workspaceId: string, tenantId: string, request: $_model.ExchangeEntitlementRequest): Promise<$_model.ExchangeEntitlementResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.ExchangeEntitlementHeaders({ });
+    return await this.exchangeEntitlementWithOptions(workspaceId, tenantId, request, headers, runtime);
+  }
+
+  /**
    * 根据文档解析问答QA
    * 
    * @param request - GenDocQaResultRequest
@@ -2067,6 +2137,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用量明细
+   * 
+   * @param request - GetUsageRequest
+   * @param headers - GetUsageHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUsageResponse
+   */
+  async getUsageWithOptions(workspaceId: string, tenantId: string, request: $_model.GetUsageRequest, headers: $_model.GetUsageHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetUsageResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      query["externalUserId"] = request.externalUserId;
+    }
+
+    if (!$dara.isNull(request.redemptionOrderNo)) {
+      query["redemptionOrderNo"] = request.redemptionOrderNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xLoadTest)) {
+      realHeaders["X-Load-Test"] = typeof headers.xLoadTest === "string" ? headers.xLoadTest : JSON.stringify(headers.xLoadTest);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUsage",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/v1/tenants/${$dara.URL.percentEncode(tenantId)}/usage`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUsageResponse>(await this.callApi(params, req, runtime), new $_model.GetUsageResponse({}));
+  }
+
+  /**
+   * 查询用量明细
+   * 
+   * @param request - GetUsageRequest
+   * @returns GetUsageResponse
+   */
+  async getUsage(workspaceId: string, tenantId: string, request: $_model.GetUsageRequest): Promise<$_model.GetUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetUsageHeaders({ });
+    return await this.getUsageWithOptions(workspaceId, tenantId, request, headers, runtime);
+  }
+
+  /**
    * 获取视频生成任务结果
    * 
    * @param request - GetVideoCreationTaskResultRequest
@@ -2216,6 +2344,126 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.previewDocumentWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询兑换记录
+   * 
+   * @param request - QueryApiKeysRequest
+   * @param headers - QueryApiKeysHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryApiKeysResponse
+   */
+  async queryApiKeysWithOptions(workspaceId: string, tenantId: string, request: $_model.QueryApiKeysRequest, headers: $_model.QueryApiKeysHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.QueryApiKeysResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      query["externalUserId"] = request.externalUserId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xLoadTest)) {
+      realHeaders["X-Load-Test"] = typeof headers.xLoadTest === "string" ? headers.xLoadTest : JSON.stringify(headers.xLoadTest);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryApiKeys",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/v1/tenants/${$dara.URL.percentEncode(tenantId)}/apikeys`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.QueryApiKeysResponse({}));
+  }
+
+  /**
+   * 查询兑换记录
+   * 
+   * @param request - QueryApiKeysRequest
+   * @returns QueryApiKeysResponse
+   */
+  async queryApiKeys(workspaceId: string, tenantId: string, request: $_model.QueryApiKeysRequest): Promise<$_model.QueryApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.QueryApiKeysHeaders({ });
+    return await this.queryApiKeysWithOptions(workspaceId, tenantId, request, headers, runtime);
+  }
+
+  /**
+   * 查询兑换记录
+   * 
+   * @param request - QueryRedemptionRecordsRequest
+   * @param headers - QueryRedemptionRecordsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRedemptionRecordsResponse
+   */
+  async queryRedemptionRecordsWithOptions(workspaceId: string, tenantId: string, request: $_model.QueryRedemptionRecordsRequest, headers: $_model.QueryRedemptionRecordsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRedemptionRecordsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      query["externalUserId"] = request.externalUserId;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.redemptionOrderNo)) {
+      query["redemptionOrderNo"] = request.redemptionOrderNo;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xLoadTest)) {
+      realHeaders["X-Load-Test"] = typeof headers.xLoadTest === "string" ? headers.xLoadTest : JSON.stringify(headers.xLoadTest);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRedemptionRecords",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/api/v1/tenants/${$dara.URL.percentEncode(tenantId)}/redemption-records`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryRedemptionRecordsResponse>(await this.callApi(params, req, runtime), new $_model.QueryRedemptionRecordsResponse({}));
+  }
+
+  /**
+   * 查询兑换记录
+   * 
+   * @param request - QueryRedemptionRecordsRequest
+   * @returns QueryRedemptionRecordsResponse
+   */
+  async queryRedemptionRecords(workspaceId: string, tenantId: string, request: $_model.QueryRedemptionRecordsRequest): Promise<$_model.QueryRedemptionRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.QueryRedemptionRecordsHeaders({ });
+    return await this.queryRedemptionRecordsWithOptions(workspaceId, tenantId, request, headers, runtime);
   }
 
   /**

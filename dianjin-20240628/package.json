@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/dianjin20240628",
-  "version": "1.17.6",
+  "version": "1.18.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
