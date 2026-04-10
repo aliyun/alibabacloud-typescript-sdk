@@ -925,11 +925,13 @@ export default class Client extends OpenApi {
   /**
    * Create storage related to EntityStore
    * 
+   * @param request - CreateEntityStoreRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateEntityStoreResponse
    */
-  async createEntityStoreWithOptions(workspaceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEntityStoreResponse> {
+  async createEntityStoreWithOptions(workspaceName: string, request: $_model.CreateEntityStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEntityStoreResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -949,12 +951,14 @@ export default class Client extends OpenApi {
 
   /**
    * Create storage related to EntityStore
+   * 
+   * @param request - CreateEntityStoreRequest
    * @returns CreateEntityStoreResponse
    */
-  async createEntityStore(workspaceName: string): Promise<$_model.CreateEntityStoreResponse> {
+  async createEntityStore(workspaceName: string, request: $_model.CreateEntityStoreRequest): Promise<$_model.CreateEntityStoreResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createEntityStoreWithOptions(workspaceName, headers, runtime);
+    return await this.createEntityStoreWithOptions(workspaceName, request, headers, runtime);
   }
 
   /**
@@ -1404,11 +1408,13 @@ export default class Client extends OpenApi {
   /**
    * 创建应用可观测实例
    * 
+   * @param request - CreateServiceObservabilityRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceObservabilityResponse
    */
-  async createServiceObservabilityWithOptions(workspace: string, type: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceObservabilityResponse> {
+  async createServiceObservabilityWithOptions(workspace: string, type: string, request: $_model.CreateServiceObservabilityRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceObservabilityResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1428,12 +1434,14 @@ export default class Client extends OpenApi {
 
   /**
    * 创建应用可观测实例
+   * 
+   * @param request - CreateServiceObservabilityRequest
    * @returns CreateServiceObservabilityResponse
    */
-  async createServiceObservability(workspace: string, type: string): Promise<$_model.CreateServiceObservabilityResponse> {
+  async createServiceObservability(workspace: string, type: string, request: $_model.CreateServiceObservabilityRequest): Promise<$_model.CreateServiceObservabilityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createServiceObservabilityWithOptions(workspace, type, headers, runtime);
+    return await this.createServiceObservabilityWithOptions(workspace, type, request, headers, runtime);
   }
 
   /**
@@ -1645,11 +1653,13 @@ export default class Client extends OpenApi {
   /**
    * Delete Aggregation Task Group
    * 
+   * @param request - DeleteAggTaskGroupRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAggTaskGroupResponse
    */
-  async deleteAggTaskGroupWithOptions(instanceId: string, groupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAggTaskGroupResponse> {
+  async deleteAggTaskGroupWithOptions(instanceId: string, groupId: string, request: $_model.DeleteAggTaskGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAggTaskGroupResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1669,12 +1679,14 @@ export default class Client extends OpenApi {
 
   /**
    * Delete Aggregation Task Group
+   * 
+   * @param request - DeleteAggTaskGroupRequest
    * @returns DeleteAggTaskGroupResponse
    */
-  async deleteAggTaskGroup(instanceId: string, groupId: string): Promise<$_model.DeleteAggTaskGroupResponse> {
+  async deleteAggTaskGroup(instanceId: string, groupId: string, request: $_model.DeleteAggTaskGroupRequest): Promise<$_model.DeleteAggTaskGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+    return await this.deleteAggTaskGroupWithOptions(instanceId, groupId, request, headers, runtime);
   }
 
   /**
@@ -1731,11 +1743,13 @@ export default class Client extends OpenApi {
   /**
    * 删除业务链路
    * 
+   * @param request - DeleteBizTraceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBizTraceResponse
    */
-  async deleteBizTraceWithOptions(bizTraceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBizTraceResponse> {
+  async deleteBizTraceWithOptions(bizTraceId: string, request: $_model.DeleteBizTraceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBizTraceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1755,12 +1769,14 @@ export default class Client extends OpenApi {
 
   /**
    * 删除业务链路
+   * 
+   * @param request - DeleteBizTraceRequest
    * @returns DeleteBizTraceResponse
    */
-  async deleteBizTrace(bizTraceId: string): Promise<$_model.DeleteBizTraceResponse> {
+  async deleteBizTrace(bizTraceId: string, request: $_model.DeleteBizTraceRequest): Promise<$_model.DeleteBizTraceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBizTraceWithOptions(bizTraceId, headers, runtime);
+    return await this.deleteBizTraceWithOptions(bizTraceId, request, headers, runtime);
   }
 
   /**
@@ -1801,11 +1817,13 @@ export default class Client extends OpenApi {
   /**
    * 删除数据集
    * 
+   * @param request - DeleteDatasetRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDatasetResponse
    */
-  async deleteDatasetWithOptions(workspace: string, datasetName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetResponse> {
+  async deleteDatasetWithOptions(workspace: string, datasetName: string, request: $_model.DeleteDatasetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1825,22 +1843,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除数据集
+   * 
+   * @param request - DeleteDatasetRequest
    * @returns DeleteDatasetResponse
    */
-  async deleteDataset(workspace: string, datasetName: string): Promise<$_model.DeleteDatasetResponse> {
+  async deleteDataset(workspace: string, datasetName: string, request: $_model.DeleteDatasetRequest): Promise<$_model.DeleteDatasetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDatasetWithOptions(workspace, datasetName, headers, runtime);
+    return await this.deleteDatasetWithOptions(workspace, datasetName, request, headers, runtime);
   }
 
   /**
    * 删除数据投递任务
    * 
+   * @param request - DeleteDeliveryTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDeliveryTaskResponse
    */
-  async deleteDeliveryTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDeliveryTaskResponse> {
+  async deleteDeliveryTaskWithOptions(taskId: string, request: $_model.DeleteDeliveryTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDeliveryTaskResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1860,22 +1882,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除数据投递任务
+   * 
+   * @param request - DeleteDeliveryTaskRequest
    * @returns DeleteDeliveryTaskResponse
    */
-  async deleteDeliveryTask(taskId: string): Promise<$_model.DeleteDeliveryTaskResponse> {
+  async deleteDeliveryTask(taskId: string, request: $_model.DeleteDeliveryTaskRequest): Promise<$_model.DeleteDeliveryTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDeliveryTaskWithOptions(taskId, headers, runtime);
+    return await this.deleteDeliveryTaskWithOptions(taskId, request, headers, runtime);
   }
 
   /**
    * 删除DigitalEmployee
    * 
+   * @param request - DeleteDigitalEmployeeRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDigitalEmployeeResponse
    */
-  async deleteDigitalEmployeeWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDigitalEmployeeResponse> {
+  async deleteDigitalEmployeeWithOptions(name: string, request: $_model.DeleteDigitalEmployeeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDigitalEmployeeResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1895,22 +1921,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除DigitalEmployee
+   * 
+   * @param request - DeleteDigitalEmployeeRequest
    * @returns DeleteDigitalEmployeeResponse
    */
-  async deleteDigitalEmployee(name: string): Promise<$_model.DeleteDigitalEmployeeResponse> {
+  async deleteDigitalEmployee(name: string, request: $_model.DeleteDigitalEmployeeRequest): Promise<$_model.DeleteDigitalEmployeeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDigitalEmployeeWithOptions(name, headers, runtime);
+    return await this.deleteDigitalEmployeeWithOptions(name, request, headers, runtime);
   }
 
   /**
    * 删除技能
    * 
+   * @param request - DeleteDigitalEmployeeSkillRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDigitalEmployeeSkillResponse
    */
-  async deleteDigitalEmployeeSkillWithOptions(name: string, skillName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDigitalEmployeeSkillResponse> {
+  async deleteDigitalEmployeeSkillWithOptions(name: string, skillName: string, request: $_model.DeleteDigitalEmployeeSkillRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDigitalEmployeeSkillResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1930,22 +1960,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除技能
+   * 
+   * @param request - DeleteDigitalEmployeeSkillRequest
    * @returns DeleteDigitalEmployeeSkillResponse
    */
-  async deleteDigitalEmployeeSkill(name: string, skillName: string): Promise<$_model.DeleteDigitalEmployeeSkillResponse> {
+  async deleteDigitalEmployeeSkill(name: string, skillName: string, request: $_model.DeleteDigitalEmployeeSkillRequest): Promise<$_model.DeleteDigitalEmployeeSkillResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteDigitalEmployeeSkillWithOptions(name, skillName, headers, runtime);
+    return await this.deleteDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
   }
 
   /**
    * Delete EntityStore related storage
    * 
+   * @param request - DeleteEntityStoreRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteEntityStoreResponse
    */
-  async deleteEntityStoreWithOptions(workspaceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEntityStoreResponse> {
+  async deleteEntityStoreWithOptions(workspaceName: string, request: $_model.DeleteEntityStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEntityStoreResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1965,12 +1999,14 @@ export default class Client extends OpenApi {
 
   /**
    * Delete EntityStore related storage
+   * 
+   * @param request - DeleteEntityStoreRequest
    * @returns DeleteEntityStoreResponse
    */
-  async deleteEntityStore(workspaceName: string): Promise<$_model.DeleteEntityStoreResponse> {
+  async deleteEntityStore(workspaceName: string, request: $_model.DeleteEntityStoreRequest): Promise<$_model.DeleteEntityStoreResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteEntityStoreWithOptions(workspaceName, headers, runtime);
+    return await this.deleteEntityStoreWithOptions(workspaceName, request, headers, runtime);
   }
 
   /**
@@ -2078,11 +2114,13 @@ export default class Client extends OpenApi {
   /**
    * 删除记忆
    * 
+   * @param request - DeleteMemoryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMemoryResponse
    */
-  async deleteMemoryWithOptions(workspace: string, memoryStoreName: string, memoryId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryResponse> {
+  async deleteMemoryWithOptions(workspace: string, memoryStoreName: string, memoryId: string, request: $_model.DeleteMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2102,22 +2140,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除记忆
+   * 
+   * @param request - DeleteMemoryRequest
    * @returns DeleteMemoryResponse
    */
-  async deleteMemory(workspace: string, memoryStoreName: string, memoryId: string): Promise<$_model.DeleteMemoryResponse> {
+  async deleteMemory(workspace: string, memoryStoreName: string, memoryId: string, request: $_model.DeleteMemoryRequest): Promise<$_model.DeleteMemoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteMemoryWithOptions(workspace, memoryStoreName, memoryId, headers, runtime);
+    return await this.deleteMemoryWithOptions(workspace, memoryStoreName, memoryId, request, headers, runtime);
   }
 
   /**
    * 删除记忆库
    * 
+   * @param request - DeleteMemoryStoreRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMemoryStoreResponse
    */
-  async deleteMemoryStoreWithOptions(workspace: string, memoryStoreName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryStoreResponse> {
+  async deleteMemoryStoreWithOptions(workspace: string, memoryStoreName: string, request: $_model.DeleteMemoryStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryStoreResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2137,12 +2179,14 @@ export default class Client extends OpenApi {
 
   /**
    * 删除记忆库
+   * 
+   * @param request - DeleteMemoryStoreRequest
    * @returns DeleteMemoryStoreResponse
    */
-  async deleteMemoryStore(workspace: string, memoryStoreName: string): Promise<$_model.DeleteMemoryStoreResponse> {
+  async deleteMemoryStore(workspace: string, memoryStoreName: string, request: $_model.DeleteMemoryStoreRequest): Promise<$_model.DeleteMemoryStoreResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteMemoryStoreWithOptions(workspace, memoryStoreName, headers, runtime);
+    return await this.deleteMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
   }
 
   /**
@@ -2151,11 +2195,13 @@ export default class Client extends OpenApi {
    * @remarks
    * Delete a Prometheus instance.
    * 
+   * @param request - DeletePrometheusInstanceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrometheusInstanceResponse
    */
-  async deletePrometheusInstanceWithOptions(prometheusInstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusInstanceResponse> {
+  async deletePrometheusInstanceWithOptions(prometheusInstanceId: string, request: $_model.DeletePrometheusInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusInstanceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2178,12 +2224,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Delete a Prometheus instance.
+   * 
+   * @param request - DeletePrometheusInstanceRequest
    * @returns DeletePrometheusInstanceResponse
    */
-  async deletePrometheusInstance(prometheusInstanceId: string): Promise<$_model.DeletePrometheusInstanceResponse> {
+  async deletePrometheusInstance(prometheusInstanceId: string, request: $_model.DeletePrometheusInstanceRequest): Promise<$_model.DeletePrometheusInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deletePrometheusInstanceWithOptions(prometheusInstanceId, headers, runtime);
+    return await this.deletePrometheusInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
   }
 
   /**
@@ -2192,11 +2240,13 @@ export default class Client extends OpenApi {
    * @remarks
    * Delete prometheus view instance.
    * 
+   * @param request - DeletePrometheusViewRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrometheusViewResponse
    */
-  async deletePrometheusViewWithOptions(prometheusViewId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusViewResponse> {
+  async deletePrometheusViewWithOptions(prometheusViewId: string, request: $_model.DeletePrometheusViewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusViewResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2219,22 +2269,26 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Delete prometheus view instance.
+   * 
+   * @param request - DeletePrometheusViewRequest
    * @returns DeletePrometheusViewResponse
    */
-  async deletePrometheusView(prometheusViewId: string): Promise<$_model.DeletePrometheusViewResponse> {
+  async deletePrometheusView(prometheusViewId: string, request: $_model.DeletePrometheusViewRequest): Promise<$_model.DeletePrometheusViewResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deletePrometheusViewWithOptions(prometheusViewId, headers, runtime);
+    return await this.deletePrometheusViewWithOptions(prometheusViewId, request, headers, runtime);
   }
 
   /**
    * 删除 Prometheus 虚拟实例
    * 
+   * @param request - DeletePrometheusVirtualInstanceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePrometheusVirtualInstanceResponse
    */
-  async deletePrometheusVirtualInstanceWithOptions(prometheusInstanceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusVirtualInstanceResponse> {
+  async deletePrometheusVirtualInstanceWithOptions(prometheusInstanceId: string, request: $_model.DeletePrometheusVirtualInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePrometheusVirtualInstanceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2254,22 +2308,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除 Prometheus 虚拟实例
+   * 
+   * @param request - DeletePrometheusVirtualInstanceRequest
    * @returns DeletePrometheusVirtualInstanceResponse
    */
-  async deletePrometheusVirtualInstance(prometheusInstanceId: string): Promise<$_model.DeletePrometheusVirtualInstanceResponse> {
+  async deletePrometheusVirtualInstance(prometheusInstanceId: string, request: $_model.DeletePrometheusVirtualInstanceRequest): Promise<$_model.DeletePrometheusVirtualInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deletePrometheusVirtualInstanceWithOptions(prometheusInstanceId, headers, runtime);
+    return await this.deletePrometheusVirtualInstanceWithOptions(prometheusInstanceId, request, headers, runtime);
   }
 
   /**
    * Delete Service
    * 
+   * @param request - DeleteServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceResponse
    */
-  async deleteServiceWithOptions(workspace: string, serviceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceResponse> {
+  async deleteServiceWithOptions(workspace: string, serviceId: string, request: $_model.DeleteServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2289,22 +2347,26 @@ export default class Client extends OpenApi {
 
   /**
    * Delete Service
+   * 
+   * @param request - DeleteServiceRequest
    * @returns DeleteServiceResponse
    */
-  async deleteService(workspace: string, serviceId: string): Promise<$_model.DeleteServiceResponse> {
+  async deleteService(workspace: string, serviceId: string, request: $_model.DeleteServiceRequest): Promise<$_model.DeleteServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteServiceWithOptions(workspace, serviceId, headers, runtime);
+    return await this.deleteServiceWithOptions(workspace, serviceId, request, headers, runtime);
   }
 
   /**
    * 删除会话
    * 
+   * @param request - DeleteThreadRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteThreadResponse
    */
-  async deleteThreadWithOptions(name: string, threadId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteThreadResponse> {
+  async deleteThreadWithOptions(name: string, threadId: string, request: $_model.DeleteThreadRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteThreadResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2324,12 +2386,14 @@ export default class Client extends OpenApi {
 
   /**
    * 删除会话
+   * 
+   * @param request - DeleteThreadRequest
    * @returns DeleteThreadResponse
    */
-  async deleteThread(name: string, threadId: string): Promise<$_model.DeleteThreadResponse> {
+  async deleteThread(name: string, threadId: string, request: $_model.DeleteThreadRequest): Promise<$_model.DeleteThreadResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteThreadWithOptions(name, threadId, headers, runtime);
+    return await this.deleteThreadWithOptions(name, threadId, request, headers, runtime);
   }
 
   /**
@@ -2338,11 +2402,13 @@ export default class Client extends OpenApi {
    * @remarks
    * Delete the Umodel under the specified workspace
    * 
+   * @param request - DeleteUmodelRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteUmodelResponse
    */
-  async deleteUmodelWithOptions(workspace: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUmodelResponse> {
+  async deleteUmodelWithOptions(workspace: string, request: $_model.DeleteUmodelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUmodelResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2365,12 +2431,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Delete the Umodel under the specified workspace
+   * 
+   * @param request - DeleteUmodelRequest
    * @returns DeleteUmodelResponse
    */
-  async deleteUmodel(workspace: string): Promise<$_model.DeleteUmodelResponse> {
+  async deleteUmodel(workspace: string, request: $_model.DeleteUmodelRequest): Promise<$_model.DeleteUmodelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteUmodelWithOptions(workspace, headers, runtime);
+    return await this.deleteUmodelWithOptions(workspace, request, headers, runtime);
   }
 
   /**
@@ -2480,11 +2548,13 @@ export default class Client extends OpenApi {
   /**
    * Delete Workspace
    * 
+   * @param request - DeleteWorkspaceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteWorkspaceResponse
    */
-  async deleteWorkspaceWithOptions(workspaceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceResponse> {
+  async deleteWorkspaceWithOptions(workspaceName: string, request: $_model.DeleteWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2504,12 +2574,14 @@ export default class Client extends OpenApi {
 
   /**
    * Delete Workspace
+   * 
+   * @param request - DeleteWorkspaceRequest
    * @returns DeleteWorkspaceResponse
    */
-  async deleteWorkspace(workspaceName: string): Promise<$_model.DeleteWorkspaceResponse> {
+  async deleteWorkspace(workspaceName: string, request: $_model.DeleteWorkspaceRequest): Promise<$_model.DeleteWorkspaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteWorkspaceWithOptions(workspaceName, headers, runtime);
+    return await this.deleteWorkspaceWithOptions(workspaceName, request, headers, runtime);
   }
 
   /**
@@ -2711,11 +2783,13 @@ export default class Client extends OpenApi {
   /**
    * Check addon release (view connection status)
    * 
+   * @param request - GetAddonReleaseRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAddonReleaseResponse
    */
-  async getAddonReleaseWithOptions(releaseName: string, policyId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAddonReleaseResponse> {
+  async getAddonReleaseWithOptions(releaseName: string, policyId: string, request: $_model.GetAddonReleaseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAddonReleaseResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2735,12 +2809,14 @@ export default class Client extends OpenApi {
 
   /**
    * Check addon release (view connection status)
+   * 
+   * @param request - GetAddonReleaseRequest
    * @returns GetAddonReleaseResponse
    */
-  async getAddonRelease(releaseName: string, policyId: string): Promise<$_model.GetAddonReleaseResponse> {
+  async getAddonRelease(releaseName: string, policyId: string, request: $_model.GetAddonReleaseRequest): Promise<$_model.GetAddonReleaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getAddonReleaseWithOptions(releaseName, policyId, headers, runtime);
+    return await this.getAddonReleaseWithOptions(releaseName, policyId, request, headers, runtime);
   }
 
   /**
@@ -2799,11 +2875,13 @@ export default class Client extends OpenApi {
   /**
    * Describes the aggregation task group
    * 
+   * @param request - GetAggTaskGroupRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAggTaskGroupResponse
    */
-  async getAggTaskGroupWithOptions(instanceId: string, groupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAggTaskGroupResponse> {
+  async getAggTaskGroupWithOptions(instanceId: string, groupId: string, request: $_model.GetAggTaskGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAggTaskGroupResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2823,22 +2901,26 @@ export default class Client extends OpenApi {
 
   /**
    * Describes the aggregation task group
+   * 
+   * @param request - GetAggTaskGroupRequest
    * @returns GetAggTaskGroupResponse
    */
-  async getAggTaskGroup(instanceId: string, groupId: string): Promise<$_model.GetAggTaskGroupResponse> {
+  async getAggTaskGroup(instanceId: string, groupId: string, request: $_model.GetAggTaskGroupRequest): Promise<$_model.GetAggTaskGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getAggTaskGroupWithOptions(instanceId, groupId, headers, runtime);
+    return await this.getAggTaskGroupWithOptions(instanceId, groupId, request, headers, runtime);
   }
 
   /**
    * 查询业务链路
    * 
+   * @param request - GetBizTraceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBizTraceResponse
    */
-  async getBizTraceWithOptions(bizTraceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetBizTraceResponse> {
+  async getBizTraceWithOptions(bizTraceId: string, request: $_model.GetBizTraceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetBizTraceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2858,12 +2940,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查询业务链路
+   * 
+   * @param request - GetBizTraceRequest
    * @returns GetBizTraceResponse
    */
-  async getBizTrace(bizTraceId: string): Promise<$_model.GetBizTraceResponse> {
+  async getBizTrace(bizTraceId: string, request: $_model.GetBizTraceRequest): Promise<$_model.GetBizTraceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getBizTraceWithOptions(bizTraceId, headers, runtime);
+    return await this.getBizTraceWithOptions(bizTraceId, request, headers, runtime);
   }
 
   /**
@@ -3006,11 +3090,13 @@ export default class Client extends OpenApi {
   /**
    * 查询数据集
    * 
+   * @param request - GetDatasetRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDatasetResponse
    */
-  async getDatasetWithOptions(workspace: string, datasetName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetResponse> {
+  async getDatasetWithOptions(workspace: string, datasetName: string, request: $_model.GetDatasetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3030,22 +3116,26 @@ export default class Client extends OpenApi {
 
   /**
    * 查询数据集
+   * 
+   * @param request - GetDatasetRequest
    * @returns GetDatasetResponse
    */
-  async getDataset(workspace: string, datasetName: string): Promise<$_model.GetDatasetResponse> {
+  async getDataset(workspace: string, datasetName: string, request: $_model.GetDatasetRequest): Promise<$_model.GetDatasetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDatasetWithOptions(workspace, datasetName, headers, runtime);
+    return await this.getDatasetWithOptions(workspace, datasetName, request, headers, runtime);
   }
 
   /**
    * 获取数据投递任务详情
    * 
+   * @param request - GetDeliveryTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDeliveryTaskResponse
    */
-  async getDeliveryTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeliveryTaskResponse> {
+  async getDeliveryTaskWithOptions(taskId: string, request: $_model.GetDeliveryTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDeliveryTaskResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3065,22 +3155,26 @@ export default class Client extends OpenApi {
 
   /**
    * 获取数据投递任务详情
+   * 
+   * @param request - GetDeliveryTaskRequest
    * @returns GetDeliveryTaskResponse
    */
-  async getDeliveryTask(taskId: string): Promise<$_model.GetDeliveryTaskResponse> {
+  async getDeliveryTask(taskId: string, request: $_model.GetDeliveryTaskRequest): Promise<$_model.GetDeliveryTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDeliveryTaskWithOptions(taskId, headers, runtime);
+    return await this.getDeliveryTaskWithOptions(taskId, request, headers, runtime);
   }
 
   /**
    * 查询 DigitalEmployee
    * 
+   * @param request - GetDigitalEmployeeRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDigitalEmployeeResponse
    */
-  async getDigitalEmployeeWithOptions(name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDigitalEmployeeResponse> {
+  async getDigitalEmployeeWithOptions(name: string, request: $_model.GetDigitalEmployeeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDigitalEmployeeResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3100,12 +3194,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查询 DigitalEmployee
+   * 
+   * @param request - GetDigitalEmployeeRequest
    * @returns GetDigitalEmployeeResponse
    */
-  async getDigitalEmployee(name: string): Promise<$_model.GetDigitalEmployeeResponse> {
+  async getDigitalEmployee(name: string, request: $_model.GetDigitalEmployeeRequest): Promise<$_model.GetDigitalEmployeeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDigitalEmployeeWithOptions(name, headers, runtime);
+    return await this.getDigitalEmployeeWithOptions(name, request, headers, runtime);
   }
 
   /**
@@ -3156,11 +3252,13 @@ export default class Client extends OpenApi {
   /**
    * Get EntityStore related storage information
    * 
+   * @param request - GetEntityStoreRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetEntityStoreResponse
    */
-  async getEntityStoreWithOptions(workspaceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetEntityStoreResponse> {
+  async getEntityStoreWithOptions(workspaceName: string, request: $_model.GetEntityStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetEntityStoreResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3180,12 +3278,14 @@ export default class Client extends OpenApi {
 
   /**
    * Get EntityStore related storage information
+   * 
+   * @param request - GetEntityStoreRequest
    * @returns GetEntityStoreResponse
    */
-  async getEntityStore(workspaceName: string): Promise<$_model.GetEntityStoreResponse> {
+  async getEntityStore(workspaceName: string, request: $_model.GetEntityStoreRequest): Promise<$_model.GetEntityStoreResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getEntityStoreWithOptions(workspaceName, headers, runtime);
+    return await this.getEntityStoreWithOptions(workspaceName, request, headers, runtime);
   }
 
   /**
@@ -3253,11 +3353,13 @@ export default class Client extends OpenApi {
   /**
    * Query the list of access center policies
    * 
+   * @param request - GetIntegrationPolicyRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetIntegrationPolicyResponse
    */
-  async getIntegrationPolicyWithOptions(policyId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetIntegrationPolicyResponse> {
+  async getIntegrationPolicyWithOptions(policyId: string, request: $_model.GetIntegrationPolicyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetIntegrationPolicyResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3277,12 +3379,14 @@ export default class Client extends OpenApi {
 
   /**
    * Query the list of access center policies
+   * 
+   * @param request - GetIntegrationPolicyRequest
    * @returns GetIntegrationPolicyResponse
    */
-  async getIntegrationPolicy(policyId: string): Promise<$_model.GetIntegrationPolicyResponse> {
+  async getIntegrationPolicy(policyId: string, request: $_model.GetIntegrationPolicyRequest): Promise<$_model.GetIntegrationPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getIntegrationPolicyWithOptions(policyId, headers, runtime);
+    return await this.getIntegrationPolicyWithOptions(policyId, request, headers, runtime);
   }
 
   /**
@@ -3353,6 +3457,10 @@ export default class Client extends OpenApi {
       body["appId"] = request.appId;
     }
 
+    if (!$dara.isNull(request.filters)) {
+      body["filters"] = request.filters;
+    }
+
     if (!$dara.isNull(request.page)) {
       body["page"] = request.page;
     }
@@ -3402,11 +3510,13 @@ export default class Client extends OpenApi {
   /**
    * 查询记忆
    * 
+   * @param request - GetMemoryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMemoryResponse
    */
-  async getMemoryWithOptions(workspace: string, memoryStoreName: string, memoryId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryResponse> {
+  async getMemoryWithOptions(workspace: string, memoryStoreName: string, memoryId: string, request: $_model.GetMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3426,22 +3536,26 @@ export default class Client extends OpenApi {
 
   /**
    * 查询记忆
+   * 
+   * @param request - GetMemoryRequest
    * @returns GetMemoryResponse
    */
-  async getMemory(workspace: string, memoryStoreName: string, memoryId: string): Promise<$_model.GetMemoryResponse> {
+  async getMemory(workspace: string, memoryStoreName: string, memoryId: string, request: $_model.GetMemoryRequest): Promise<$_model.GetMemoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getMemoryWithOptions(workspace, memoryStoreName, memoryId, headers, runtime);
+    return await this.getMemoryWithOptions(workspace, memoryStoreName, memoryId, request, headers, runtime);
   }
 
   /**
    * 查询记忆历史记录
    * 
+   * @param request - GetMemoryHistoryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMemoryHistoryResponse
    */
-  async getMemoryHistoryWithOptions(workspace: string, memoryStoreName: string, memoryId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryHistoryResponse> {
+  async getMemoryHistoryWithOptions(workspace: string, memoryStoreName: string, memoryId: string, request: $_model.GetMemoryHistoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryHistoryResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3461,22 +3575,26 @@ export default class Client extends OpenApi {
 
   /**
    * 查询记忆历史记录
+   * 
+   * @param request - GetMemoryHistoryRequest
    * @returns GetMemoryHistoryResponse
    */
-  async getMemoryHistory(workspace: string, memoryStoreName: string, memoryId: string): Promise<$_model.GetMemoryHistoryResponse> {
+  async getMemoryHistory(workspace: string, memoryStoreName: string, memoryId: string, request: $_model.GetMemoryHistoryRequest): Promise<$_model.GetMemoryHistoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getMemoryHistoryWithOptions(workspace, memoryStoreName, memoryId, headers, runtime);
+    return await this.getMemoryHistoryWithOptions(workspace, memoryStoreName, memoryId, request, headers, runtime);
   }
 
   /**
    * 查询记忆库
    * 
+   * @param request - GetMemoryStoreRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMemoryStoreResponse
    */
-  async getMemoryStoreWithOptions(workspace: string, memoryStoreName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryStoreResponse> {
+  async getMemoryStoreWithOptions(workspace: string, memoryStoreName: string, request: $_model.GetMemoryStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryStoreResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3496,12 +3614,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查询记忆库
+   * 
+   * @param request - GetMemoryStoreRequest
    * @returns GetMemoryStoreResponse
    */
-  async getMemoryStore(workspace: string, memoryStoreName: string): Promise<$_model.GetMemoryStoreResponse> {
+  async getMemoryStore(workspace: string, memoryStoreName: string, request: $_model.GetMemoryStoreRequest): Promise<$_model.GetMemoryStoreResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getMemoryStoreWithOptions(workspace, memoryStoreName, headers, runtime);
+    return await this.getMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
   }
 
   /**
@@ -3662,11 +3782,13 @@ export default class Client extends OpenApi {
   /**
    * Query Service
    * 
+   * @param request - GetServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceResponse
    */
-  async getServiceWithOptions(workspace: string, serviceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceResponse> {
+  async getServiceWithOptions(workspace: string, serviceId: string, request: $_model.GetServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3686,22 +3808,26 @@ export default class Client extends OpenApi {
 
   /**
    * Query Service
+   * 
+   * @param request - GetServiceRequest
    * @returns GetServiceResponse
    */
-  async getService(workspace: string, serviceId: string): Promise<$_model.GetServiceResponse> {
+  async getService(workspace: string, serviceId: string, request: $_model.GetServiceRequest): Promise<$_model.GetServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getServiceWithOptions(workspace, serviceId, headers, runtime);
+    return await this.getServiceWithOptions(workspace, serviceId, request, headers, runtime);
   }
 
   /**
    * Get Application Observability Instance
    * 
+   * @param request - GetServiceObservabilityRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetServiceObservabilityResponse
    */
-  async getServiceObservabilityWithOptions(workspace: string, type: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceObservabilityResponse> {
+  async getServiceObservabilityWithOptions(workspace: string, type: string, request: $_model.GetServiceObservabilityRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetServiceObservabilityResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3721,22 +3847,26 @@ export default class Client extends OpenApi {
 
   /**
    * Get Application Observability Instance
+   * 
+   * @param request - GetServiceObservabilityRequest
    * @returns GetServiceObservabilityResponse
    */
-  async getServiceObservability(workspace: string, type: string): Promise<$_model.GetServiceObservabilityResponse> {
+  async getServiceObservability(workspace: string, type: string, request: $_model.GetServiceObservabilityRequest): Promise<$_model.GetServiceObservabilityResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getServiceObservabilityWithOptions(workspace, type, headers, runtime);
+    return await this.getServiceObservabilityWithOptions(workspace, type, request, headers, runtime);
   }
 
   /**
    * 获取会话
    * 
+   * @param request - GetThreadRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetThreadResponse
    */
-  async getThreadWithOptions(name: string, threadId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetThreadResponse> {
+  async getThreadWithOptions(name: string, threadId: string, request: $_model.GetThreadRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetThreadResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3756,12 +3886,14 @@ export default class Client extends OpenApi {
 
   /**
    * 获取会话
+   * 
+   * @param request - GetThreadRequest
    * @returns GetThreadResponse
    */
-  async getThread(name: string, threadId: string): Promise<$_model.GetThreadResponse> {
+  async getThread(name: string, threadId: string, request: $_model.GetThreadRequest): Promise<$_model.GetThreadResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getThreadWithOptions(name, threadId, headers, runtime);
+    return await this.getThreadWithOptions(name, threadId, request, headers, runtime);
   }
 
   /**
@@ -3819,11 +3951,13 @@ export default class Client extends OpenApi {
    * @remarks
    * Get Umodel configuration information
    * 
+   * @param request - GetUmodelRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUmodelResponse
    */
-  async getUmodelWithOptions(workspace: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUmodelResponse> {
+  async getUmodelWithOptions(workspace: string, request: $_model.GetUmodelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUmodelResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3846,22 +3980,26 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Get Umodel configuration information
+   * 
+   * @param request - GetUmodelRequest
    * @returns GetUmodelResponse
    */
-  async getUmodel(workspace: string): Promise<$_model.GetUmodelResponse> {
+  async getUmodel(workspace: string, request: $_model.GetUmodelRequest): Promise<$_model.GetUmodelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getUmodelWithOptions(workspace, headers, runtime);
+    return await this.getUmodelWithOptions(workspace, request, headers, runtime);
   }
 
   /**
    * 获取Umodel配置信息
    * 
+   * @param request - GetUmodelCommonSchemaRefRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUmodelCommonSchemaRefResponse
    */
-  async getUmodelCommonSchemaRefWithOptions(workspace: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUmodelCommonSchemaRefResponse> {
+  async getUmodelCommonSchemaRefWithOptions(workspace: string, request: $_model.GetUmodelCommonSchemaRefRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUmodelCommonSchemaRefResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3881,12 +4019,14 @@ export default class Client extends OpenApi {
 
   /**
    * 获取Umodel配置信息
+   * 
+   * @param request - GetUmodelCommonSchemaRefRequest
    * @returns GetUmodelCommonSchemaRefResponse
    */
-  async getUmodelCommonSchemaRef(workspace: string): Promise<$_model.GetUmodelCommonSchemaRefResponse> {
+  async getUmodelCommonSchemaRef(workspace: string, request: $_model.GetUmodelCommonSchemaRefRequest): Promise<$_model.GetUmodelCommonSchemaRefResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getUmodelCommonSchemaRefWithOptions(workspace, headers, runtime);
+    return await this.getUmodelCommonSchemaRefWithOptions(workspace, request, headers, runtime);
   }
 
   /**
@@ -3949,11 +4089,13 @@ export default class Client extends OpenApi {
   /**
    * Get Workspace
    * 
+   * @param request - GetWorkspaceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWorkspaceResponse
    */
-  async getWorkspaceWithOptions(workspaceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceResponse> {
+  async getWorkspaceWithOptions(workspaceName: string, request: $_model.GetWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3973,12 +4115,14 @@ export default class Client extends OpenApi {
 
   /**
    * Get Workspace
+   * 
+   * @param request - GetWorkspaceRequest
    * @returns GetWorkspaceResponse
    */
-  async getWorkspace(workspaceName: string): Promise<$_model.GetWorkspaceResponse> {
+  async getWorkspace(workspaceName: string, request: $_model.GetWorkspaceRequest): Promise<$_model.GetWorkspaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getWorkspaceWithOptions(workspaceName, headers, runtime);
+    return await this.getWorkspaceWithOptions(workspaceName, request, headers, runtime);
   }
 
   /**
@@ -4482,11 +4626,13 @@ export default class Client extends OpenApi {
   /**
    * 列出技能版本
    * 
+   * @param request - ListDigitalEmployeeSkillVersionsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDigitalEmployeeSkillVersionsResponse
    */
-  async listDigitalEmployeeSkillVersionsWithOptions(name: string, skillName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDigitalEmployeeSkillVersionsResponse> {
+  async listDigitalEmployeeSkillVersionsWithOptions(name: string, skillName: string, request: $_model.ListDigitalEmployeeSkillVersionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDigitalEmployeeSkillVersionsResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4506,12 +4652,14 @@ export default class Client extends OpenApi {
 
   /**
    * 列出技能版本
+   * 
+   * @param request - ListDigitalEmployeeSkillVersionsRequest
    * @returns ListDigitalEmployeeSkillVersionsResponse
    */
-  async listDigitalEmployeeSkillVersions(name: string, skillName: string): Promise<$_model.ListDigitalEmployeeSkillVersionsResponse> {
+  async listDigitalEmployeeSkillVersions(name: string, skillName: string, request: $_model.ListDigitalEmployeeSkillVersionsRequest): Promise<$_model.ListDigitalEmployeeSkillVersionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listDigitalEmployeeSkillVersionsWithOptions(name, skillName, headers, runtime);
+    return await this.listDigitalEmployeeSkillVersionsWithOptions(name, skillName, request, headers, runtime);
   }
 
   /**
@@ -4754,11 +4902,13 @@ export default class Client extends OpenApi {
   /**
    * 策略addon列表
    * 
+   * @param request - ListIntegrationPolicyAddonsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListIntegrationPolicyAddonsResponse
    */
-  async listIntegrationPolicyAddonsWithOptions(policyId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIntegrationPolicyAddonsResponse> {
+  async listIntegrationPolicyAddonsWithOptions(policyId: string, request: $_model.ListIntegrationPolicyAddonsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIntegrationPolicyAddonsResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4778,12 +4928,14 @@ export default class Client extends OpenApi {
 
   /**
    * 策略addon列表
+   * 
+   * @param request - ListIntegrationPolicyAddonsRequest
    * @returns ListIntegrationPolicyAddonsResponse
    */
-  async listIntegrationPolicyAddons(policyId: string): Promise<$_model.ListIntegrationPolicyAddonsResponse> {
+  async listIntegrationPolicyAddons(policyId: string, request: $_model.ListIntegrationPolicyAddonsRequest): Promise<$_model.ListIntegrationPolicyAddonsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listIntegrationPolicyAddonsWithOptions(policyId, headers, runtime);
+    return await this.listIntegrationPolicyAddonsWithOptions(policyId, request, headers, runtime);
   }
 
   /**
@@ -5935,8 +6087,8 @@ export default class Client extends OpenApi {
       body["appId"] = request.appId;
     }
 
-    if (!$dara.isNull(request.metadata)) {
-      body["metadata"] = request.metadata;
+    if (!$dara.isNull(request.filters)) {
+      body["filters"] = request.filters;
     }
 
     if (!$dara.isNull(request.query)) {
@@ -5947,8 +6099,16 @@ export default class Client extends OpenApi {
       body["rerank"] = request.rerank;
     }
 
+    if (!$dara.isNull(request.retrieveLevel)) {
+      body["retrieveLevel"] = request.retrieveLevel;
+    }
+
     if (!$dara.isNull(request.runId)) {
       body["runId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.threshold)) {
+      body["threshold"] = request.threshold;
     }
 
     if (!$dara.isNull(request.topK)) {

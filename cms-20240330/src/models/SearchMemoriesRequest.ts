@@ -13,11 +13,7 @@ export class SearchMemoriesRequest extends $dara.Model {
    * mm_480d961a1b5e4efe84603f4cbc0f
    */
   appId?: string;
-  /**
-   * @example
-   * {"sessionId":"test_session_001"}
-   */
-  metadata?: { [key: string]: any };
+  filters?: { [key: string]: any };
   /**
    * @example
    * What I like
@@ -30,9 +26,19 @@ export class SearchMemoriesRequest extends $dara.Model {
   rerank?: boolean;
   /**
    * @example
+   * L1
+   */
+  retrieveLevel?: string;
+  /**
+   * @example
    * test_session_001
    */
   runId?: string;
+  /**
+   * @example
+   * 0.3
+   */
+  threshold?: number;
   /**
    * @example
    * 1
@@ -47,10 +53,12 @@ export class SearchMemoriesRequest extends $dara.Model {
     return {
       agentId: 'agentId',
       appId: 'appId',
-      metadata: 'metadata',
+      filters: 'filters',
       query: 'query',
       rerank: 'rerank',
+      retrieveLevel: 'retrieveLevel',
       runId: 'runId',
+      threshold: 'threshold',
       topK: 'topK',
       userId: 'userId',
     };
@@ -60,18 +68,20 @@ export class SearchMemoriesRequest extends $dara.Model {
     return {
       agentId: 'string',
       appId: 'string',
-      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      filters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       query: 'string',
       rerank: 'boolean',
+      retrieveLevel: 'string',
       runId: 'string',
+      threshold: 'number',
       topK: 'number',
       userId: 'string',
     };
   }
 
   validate() {
-    if(this.metadata) {
-      $dara.Model.validateMap(this.metadata);
+    if(this.filters) {
+      $dara.Model.validateMap(this.filters);
     }
     super.validate();
   }

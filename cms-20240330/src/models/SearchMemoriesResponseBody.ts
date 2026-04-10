@@ -78,7 +78,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
    * @example
    * {"sessionId":"test_session_001"}
    */
-  metadata?: string;
+  metadata?: { [key: string]: any };
   /**
    * @example
    * user
@@ -129,7 +129,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
       hash: 'string',
       id: 'string',
       memory: 'string',
-      metadata: 'string',
+      metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       role: 'string',
       runId: 'string',
       score: 'number',
@@ -139,6 +139,9 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   }
 
   validate() {
+    if(this.metadata) {
+      $dara.Model.validateMap(this.metadata);
+    }
     super.validate();
   }
 

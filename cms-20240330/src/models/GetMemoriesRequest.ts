@@ -13,6 +13,7 @@ export class GetMemoriesRequest extends $dara.Model {
    * 150130323
    */
   appId?: string;
+  filters?: { [key: string]: any };
   /**
    * @example
    * 1
@@ -37,6 +38,7 @@ export class GetMemoriesRequest extends $dara.Model {
     return {
       agentId: 'agentId',
       appId: 'appId',
+      filters: 'filters',
       page: 'page',
       pageSize: 'pageSize',
       runId: 'runId',
@@ -48,6 +50,7 @@ export class GetMemoriesRequest extends $dara.Model {
     return {
       agentId: 'string',
       appId: 'string',
+      filters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       page: 'number',
       pageSize: 'number',
       runId: 'string',
@@ -56,6 +59,9 @@ export class GetMemoriesRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.filters) {
+      $dara.Model.validateMap(this.filters);
+    }
     super.validate();
   }
 
