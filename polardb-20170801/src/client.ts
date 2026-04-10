@@ -12613,7 +12613,6 @@ export default class Client extends OpenApi {
   /**
    * 查询资源包列表
    * 
-   * @param request - DescribeResourcePackagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourcePackagesResponse
    */
@@ -20597,6 +20596,72 @@ export default class Client extends OpenApi {
   async revokeAccountPrivilegeZonal(request: $_model.RevokeAccountPrivilegeZonalRequest): Promise<$_model.RevokeAccountPrivilegeZonalResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.revokeAccountPrivilegeZonalWithOptions(request, runtime);
+  }
+
+  /**
+   * 检索记忆
+   * 
+   * @param request - SearchMemoriesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMemoriesResponse
+   */
+  async searchMemoriesWithOptions(request: $_model.SearchMemoriesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMemoriesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.createTimeBegin)) {
+      query["CreateTimeBegin"] = request.createTimeBegin;
+    }
+
+    if (!$dara.isNull(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!$dara.isNull(request.memoryAgentId)) {
+      query["MemoryAgentId"] = request.memoryAgentId;
+    }
+
+    if (!$dara.isNull(request.memoryUserId)) {
+      query["MemoryUserId"] = request.memoryUserId;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchMemories",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchMemoriesResponse>(await this.callApi(params, req, runtime), new $_model.SearchMemoriesResponse({}));
+  }
+
+  /**
+   * 检索记忆
+   * 
+   * @param request - SearchMemoriesRequest
+   * @returns SearchMemoriesResponse
+   */
+  async searchMemories(request: $_model.SearchMemoriesRequest): Promise<$_model.SearchMemoriesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchMemoriesWithOptions(request, runtime);
   }
 
   /**

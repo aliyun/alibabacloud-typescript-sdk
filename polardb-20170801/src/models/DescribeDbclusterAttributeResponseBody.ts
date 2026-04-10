@@ -2,6 +2,76 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeDBClusterAttributeResponseBodyBranchChildBranch extends $dara.Model {
+  branchLsn?: string;
+  branchTime?: string;
+  DBClusterDescription?: string;
+  hasChild?: boolean;
+  insName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branchLsn: 'BranchLsn',
+      branchTime: 'BranchTime',
+      DBClusterDescription: 'DBClusterDescription',
+      hasChild: 'HasChild',
+      insName: 'InsName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branchLsn: 'string',
+      branchTime: 'string',
+      DBClusterDescription: 'string',
+      hasChild: 'boolean',
+      insName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterAttributeResponseBodyBranch extends $dara.Model {
+  branchLsn?: string;
+  branchTime?: string;
+  childBranch?: DescribeDBClusterAttributeResponseBodyBranchChildBranch[];
+  parentInsName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branchLsn: 'BranchLsn',
+      branchTime: 'BranchTime',
+      childBranch: 'ChildBranch',
+      parentInsName: 'ParentInsName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branchLsn: 'string',
+      branchTime: 'string',
+      childBranch: { 'type': 'array', 'itemType': DescribeDBClusterAttributeResponseBodyBranchChildBranch },
+      parentInsName: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.childBranch)) {
+      $dara.Model.validateArray(this.childBranch);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterAttributeResponseBodyDBNodes extends $dara.Model {
   /**
    * @remarks
@@ -398,6 +468,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
    * 5,242,880
    */
   blktagUsed?: number;
+  branch?: DescribeDBClusterAttributeResponseBodyBranch;
   /**
    * @example
    * false
@@ -956,6 +1027,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       autoUpgradeMinorVersion: 'AutoUpgradeMinorVersion',
       blktagTotal: 'BlktagTotal',
       blktagUsed: 'BlktagUsed',
+      branch: 'Branch',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       compressStorageMode: 'CompressStorageMode',
@@ -1030,6 +1102,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       autoUpgradeMinorVersion: 'string',
       blktagTotal: 'number',
       blktagUsed: 'number',
+      branch: DescribeDBClusterAttributeResponseBodyBranch,
       burstingEnabled: 'string',
       category: 'string',
       compressStorageMode: 'string',
@@ -1097,6 +1170,9 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.branch && typeof (this.branch as any).validate === 'function') {
+      (this.branch as any).validate();
+    }
     if(Array.isArray(this.DBNodes)) {
       $dara.Model.validateArray(this.DBNodes);
     }

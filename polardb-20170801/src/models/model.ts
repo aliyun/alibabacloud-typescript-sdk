@@ -86,6 +86,8 @@ export { DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroupsDBCl
 export { DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroups } from './DescribeDbclusterAccessWhitelistResponseBody';
 export { DescribeDBClusterAccessWhitelistResponseBodyItemsDBClusterIPArray } from './DescribeDbclusterAccessWhitelistResponseBody';
 export { DescribeDBClusterAccessWhitelistResponseBodyItems } from './DescribeDbclusterAccessWhitelistResponseBody';
+export { DescribeDBClusterAttributeResponseBodyBranchChildBranch } from './DescribeDbclusterAttributeResponseBody';
+export { DescribeDBClusterAttributeResponseBodyBranch } from './DescribeDbclusterAttributeResponseBody';
 export { DescribeDBClusterAttributeResponseBodyDBNodes } from './DescribeDbclusterAttributeResponseBody';
 export { DescribeDBClusterAttributeResponseBodyTags } from './DescribeDbclusterAttributeResponseBody';
 export { DescribeDBClusterAvailableResourcesResponseBodyAvailableZonesSupportedEnginesAvailableResources } from './DescribeDbclusterAvailableResourcesResponseBody';
@@ -255,6 +257,7 @@ export { ModifyGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup } from './
 export { ModifyGlobalSecurityIPGroupNameResponseBodyGlobalSecurityIPGroup } from './ModifyGlobalSecurityIpgroupNameResponseBody';
 export { ModifyGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel } from './ModifyGlobalSecurityIpgroupRelationResponseBody';
 export { ModifyLogBackupPolicyRequestAdvancedLogPolicies } from './ModifyLogBackupPolicyRequest';
+export { SearchMemoriesResponseBodyResults } from './SearchMemoriesResponseBody';
 export { SetPolarFsFileQuotaRequestFilePathQuotas } from './SetPolarFsFileQuotaRequest';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { TempModifyDBNodeRequestDBNode } from './TempModifyDbnodeRequest';
@@ -1122,6 +1125,9 @@ export { RevokeAccountPrivilegeResponse } from './RevokeAccountPrivilegeResponse
 export { RevokeAccountPrivilegeZonalRequest } from './RevokeAccountPrivilegeZonalRequest';
 export { RevokeAccountPrivilegeZonalResponseBody } from './RevokeAccountPrivilegeZonalResponseBody';
 export { RevokeAccountPrivilegeZonalResponse } from './RevokeAccountPrivilegeZonalResponse';
+export { SearchMemoriesRequest } from './SearchMemoriesRequest';
+export { SearchMemoriesResponseBody } from './SearchMemoriesResponseBody';
+export { SearchMemoriesResponse } from './SearchMemoriesResponse';
 export { SetPolarFsFileQuotaRequest } from './SetPolarFsFileQuotaRequest';
 export { SetPolarFsFileQuotaResponseBody } from './SetPolarFsFileQuotaResponseBody';
 export { SetPolarFsFileQuotaResponse } from './SetPolarFsFileQuotaResponse';
