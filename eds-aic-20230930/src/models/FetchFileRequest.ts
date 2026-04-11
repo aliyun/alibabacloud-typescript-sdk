@@ -10,6 +10,7 @@ export class FetchFileRequest extends $dara.Model {
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
+  clientToken?: string;
   /**
    * @remarks
    * The path to the file that you want to pull from the cloud phone instance.
@@ -56,6 +57,7 @@ export class FetchFileRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       androidInstanceIdList: 'AndroidInstanceIdList',
+      clientToken: 'ClientToken',
       sourceFilePath: 'SourceFilePath',
       uploadEndpoint: 'UploadEndpoint',
       uploadType: 'UploadType',
@@ -66,6 +68,7 @@ export class FetchFileRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
+      clientToken: 'string',
       sourceFilePath: 'string',
       uploadEndpoint: 'string',
       uploadType: 'string',

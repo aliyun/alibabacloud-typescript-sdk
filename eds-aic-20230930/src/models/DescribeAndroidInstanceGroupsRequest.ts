@@ -63,6 +63,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
    * defaultInstanceGroup
    */
   instanceGroupName?: string;
+  instanceVersion?: string;
   /**
    * @remarks
    * The ID of the key pair.
@@ -134,6 +135,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
       chargeType: 'ChargeType',
       instanceGroupIds: 'InstanceGroupIds',
       instanceGroupName: 'InstanceGroupName',
+      instanceVersion: 'InstanceVersion',
       keyPairId: 'KeyPairId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -150,6 +152,7 @@ export class DescribeAndroidInstanceGroupsRequest extends $dara.Model {
       chargeType: 'string',
       instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
       instanceGroupName: 'string',
+      instanceVersion: 'string',
       keyPairId: 'string',
       maxResults: 'number',
       nextToken: 'string',

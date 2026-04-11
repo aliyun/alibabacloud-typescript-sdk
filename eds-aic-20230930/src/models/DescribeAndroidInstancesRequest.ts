@@ -100,6 +100,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
    * test
    */
   instanceGroupName?: string;
+  instanceVersion?: string;
   /**
    * @remarks
    * The ID of the bound key pair.
@@ -156,6 +157,8 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
    * Instance
    */
   saleMode?: string;
+  sortKey?: string;
+  sortType?: string;
   /**
    * @remarks
    * The state of the instance.
@@ -198,6 +201,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
       instanceGroupId: 'InstanceGroupId',
       instanceGroupIds: 'InstanceGroupIds',
       instanceGroupName: 'InstanceGroupName',
+      instanceVersion: 'InstanceVersion',
       keyPairId: 'KeyPairId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -207,6 +211,8 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
       privateIpAddress: 'PrivateIpAddress',
       qosRuleIds: 'QosRuleIds',
       saleMode: 'SaleMode',
+      sortKey: 'SortKey',
+      sortType: 'SortType',
       status: 'Status',
       tag: 'Tag',
     };
@@ -223,6 +229,7 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
       instanceGroupId: 'string',
       instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
       instanceGroupName: 'string',
+      instanceVersion: 'string',
       keyPairId: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -232,6 +239,8 @@ export class DescribeAndroidInstancesRequest extends $dara.Model {
       privateIpAddress: 'string',
       qosRuleIds: { 'type': 'array', 'itemType': 'string' },
       saleMode: 'string',
+      sortKey: 'string',
+      sortType: 'string',
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeAndroidInstancesRequestTag },
     };

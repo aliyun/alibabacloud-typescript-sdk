@@ -2,7 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UninstallAppResponseBodyChildTaskInfo extends $dara.Model {
+  /**
+   * @example
+   * t-ybde48cevxxxx
+   */
+  childTaskId?: string;
+  /**
+   * @example
+   * acp-ty3bnd7b9xxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      childTaskId: 'ChildTaskId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      childTaskId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UninstallAppResponseBody extends $dara.Model {
+  childTaskInfo?: UninstallAppResponseBodyChildTaskInfo[];
   /**
    * @remarks
    * The ID of the request.
@@ -21,6 +56,7 @@ export class UninstallAppResponseBody extends $dara.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      childTaskInfo: 'ChildTaskInfo',
       requestId: 'RequestId',
       taskId: 'TaskId',
     };
@@ -28,12 +64,16 @@ export class UninstallAppResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      childTaskInfo: { 'type': 'array', 'itemType': UninstallAppResponseBodyChildTaskInfo },
       requestId: 'string',
       taskId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.childTaskInfo)) {
+      $dara.Model.validateArray(this.childTaskInfo);
+    }
     super.validate();
   }
 

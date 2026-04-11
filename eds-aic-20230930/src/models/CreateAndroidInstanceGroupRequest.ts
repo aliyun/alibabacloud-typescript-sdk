@@ -238,6 +238,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
    * acp.basic.small
    */
   instanceGroupSpec?: string;
+  instanceVersion?: string;
   /**
    * @remarks
    * >  This parameter is not publicly available.
@@ -346,6 +347,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
       imageId: 'ImageId',
       instanceGroupName: 'InstanceGroupName',
       instanceGroupSpec: 'InstanceGroupSpec',
+      instanceVersion: 'InstanceVersion',
       ipv6Bandwidth: 'Ipv6Bandwidth',
       keyPairId: 'KeyPairId',
       networkInfo: 'NetworkInfo',
@@ -379,6 +381,7 @@ export class CreateAndroidInstanceGroupRequest extends $dara.Model {
       imageId: 'string',
       instanceGroupName: 'string',
       instanceGroupSpec: 'string',
+      instanceVersion: 'string',
       ipv6Bandwidth: 'number',
       keyPairId: 'string',
       networkInfo: CreateAndroidInstanceGroupRequestNetworkInfo,

@@ -620,6 +620,10 @@ export default class Client extends OpenApi {
       query["InstanceGroupSpec"] = request.instanceGroupSpec;
     }
 
+    if (!$dara.isNull(request.instanceVersion)) {
+      query["InstanceVersion"] = request.instanceVersion;
+    }
+
     if (!$dara.isNull(request.ipv6Bandwidth)) {
       query["Ipv6Bandwidth"] = request.ipv6Bandwidth;
     }
@@ -1709,6 +1713,10 @@ export default class Client extends OpenApi {
       query["InstanceGroupName"] = request.instanceGroupName;
     }
 
+    if (!$dara.isNull(request.instanceVersion)) {
+      query["InstanceVersion"] = request.instanceVersion;
+    }
+
     if (!$dara.isNull(request.keyPairId)) {
       query["KeyPairId"] = request.keyPairId;
     }
@@ -1811,6 +1819,10 @@ export default class Client extends OpenApi {
       query["InstanceGroupName"] = request.instanceGroupName;
     }
 
+    if (!$dara.isNull(request.instanceVersion)) {
+      query["InstanceVersion"] = request.instanceVersion;
+    }
+
     if (!$dara.isNull(request.keyPairId)) {
       query["KeyPairId"] = request.keyPairId;
     }
@@ -1845,6 +1857,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.saleMode)) {
       query["SaleMode"] = request.saleMode;
+    }
+
+    if (!$dara.isNull(request.sortKey)) {
+      query["SortKey"] = request.sortKey;
+    }
+
+    if (!$dara.isNull(request.sortType)) {
+      query["SortType"] = request.sortType;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -3288,6 +3308,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.androidInstanceIdList)) {
       query["AndroidInstanceIdList"] = request.androidInstanceIdList;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.sourceFilePath)) {
@@ -5062,6 +5086,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoInstall)) {
       query["AutoInstall"] = request.autoInstall;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
     }
 
     if (!$dara.isNull(request.sourceFilePath)) {
