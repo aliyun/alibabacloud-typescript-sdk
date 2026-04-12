@@ -10343,6 +10343,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取一刻子用户信息
+   * 
+   * @param request - GetYikeUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeUserResponse
+   */
+  async getYikeUserWithOptions(request: $_model.GetYikeUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeUser",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeUserResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeUserResponse({}));
+  }
+
+  /**
+   * 获取一刻子用户信息
+   * 
+   * @param request - GetYikeUserRequest
+   * @returns GetYikeUserResponse
+   */
+  async getYikeUser(request: $_model.GetYikeUserRequest): Promise<$_model.GetYikeUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeUserWithOptions(request, runtime);
+  }
+
+  /**
    * 查询一刻用户积分
    * 
    * @param request - GetYikeUserCreditRequest

@@ -391,6 +391,7 @@ export { GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo } from './GetY
 export { GetYikeAssetMediaInfoResponseBodyMediaInfo } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikeStoryboardJobResponseBodyJobParams } from './GetYikeStoryboardJobResponseBody';
 export { GetYikeStoryboardJobResponseBodyJobResult } from './GetYikeStoryboardJobResponseBody';
+export { GetYikeUserResponseBodyUserInfo } from './GetYikeUserResponseBody';
 export { ListAIAgentDialoguesResponseBodyDialoguesAttachedFileList } from './ListAiagentDialoguesResponseBody';
 export { ListAIAgentDialoguesResponseBodyDialogues } from './ListAiagentDialoguesResponseBody';
 export { ListAIAgentInstanceResponseBodyInstances } from './ListAiagentInstanceResponseBody';
@@ -1470,6 +1471,9 @@ export { GetYikeAssetMediaInfoResponse } from './GetYikeAssetMediaInfoResponse';
 export { GetYikeStoryboardJobRequest } from './GetYikeStoryboardJobRequest';
 export { GetYikeStoryboardJobResponseBody } from './GetYikeStoryboardJobResponseBody';
 export { GetYikeStoryboardJobResponse } from './GetYikeStoryboardJobResponse';
+export { GetYikeUserRequest } from './GetYikeUserRequest';
+export { GetYikeUserResponseBody } from './GetYikeUserResponseBody';
+export { GetYikeUserResponse } from './GetYikeUserResponse';
 export { GetYikeUserCreditRequest } from './GetYikeUserCreditRequest';
 export { GetYikeUserCreditResponseBody } from './GetYikeUserCreditResponseBody';
 export { GetYikeUserCreditResponse } from './GetYikeUserCreditResponse';
