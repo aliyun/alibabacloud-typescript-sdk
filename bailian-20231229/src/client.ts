@@ -261,6 +261,65 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加表格
+   * 
+   * @param tmpReq - AddTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddTableResponse
+   */
+  async addTableWithOptions(WorkspaceId: string, tmpReq: $_model.AddTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddTableResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddTableShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tableColumns)) {
+      request.tableColumnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tableColumns, "TableColumns", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectorId)) {
+      body["ConnectorId"] = request.connectorId;
+    }
+
+    if (!$dara.isNull(request.tableColumnsShrink)) {
+      body["TableColumns"] = request.tableColumnsShrink;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      body["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddTable",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/table`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddTableResponse>(await this.callApi(params, req, runtime), new $_model.AddTableResponse({}));
+  }
+
+  /**
+   * 添加表格
+   * 
+   * @param request - AddTableRequest
+   * @returns AddTableResponse
+   */
+  async addTable(WorkspaceId: string, request: $_model.AddTableRequest): Promise<$_model.AddTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addTableWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Applies for a document upload lease to upload a document. You cannot use the API to upload structured documents. Use the console instead.
    * 
    * @remarks
@@ -883,11 +942,13 @@ export default class Client extends OpenApi {
   /**
    * 删除智能体
    * 
+   * @param request - DeleteAgentRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAgentResponse
    */
-  async deleteAgentWithOptions(workspaceId: string, appCode: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentResponse> {
+  async deleteAgentWithOptions(workspaceId: string, appCode: string, request: $_model.DeleteAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -907,22 +968,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除智能体
+   * 
+   * @param request - DeleteAgentRequest
    * @returns DeleteAgentResponse
    */
-  async deleteAgent(workspaceId: string, appCode: string): Promise<$_model.DeleteAgentResponse> {
+  async deleteAgent(workspaceId: string, appCode: string, request: $_model.DeleteAgentRequest): Promise<$_model.DeleteAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteAgentWithOptions(workspaceId, appCode, headers, runtime);
+    return await this.deleteAgentWithOptions(workspaceId, appCode, request, headers, runtime);
   }
 
   /**
    * Deletes a specified category permanently.
    * 
+   * @param request - DeleteCategoryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCategoryResponse
    */
-  async deleteCategoryWithOptions(CategoryId: string, WorkspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCategoryResponse> {
+  async deleteCategoryWithOptions(CategoryId: string, WorkspaceId: string, request: $_model.DeleteCategoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCategoryResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -942,12 +1007,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a specified category permanently.
+   * 
+   * @param request - DeleteCategoryRequest
    * @returns DeleteCategoryResponse
    */
-  async deleteCategory(CategoryId: string, WorkspaceId: string): Promise<$_model.DeleteCategoryResponse> {
+  async deleteCategory(CategoryId: string, WorkspaceId: string, request: $_model.DeleteCategoryRequest): Promise<$_model.DeleteCategoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteCategoryWithOptions(CategoryId, WorkspaceId, headers, runtime);
+    return await this.deleteCategoryWithOptions(CategoryId, WorkspaceId, request, headers, runtime);
   }
 
   /**
@@ -1030,11 +1097,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
    * 
+   * @param request - DeleteFileRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFileResponse
    */
-  async deleteFileWithOptions(FileId: string, WorkspaceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFileResponse> {
+  async deleteFileWithOptions(FileId: string, WorkspaceId: string, request: $_model.DeleteFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFileResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1054,12 +1123,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
+   * 
+   * @param request - DeleteFileRequest
    * @returns DeleteFileResponse
    */
-  async deleteFile(FileId: string, WorkspaceId: string): Promise<$_model.DeleteFileResponse> {
+  async deleteFile(FileId: string, WorkspaceId: string, request: $_model.DeleteFileRequest): Promise<$_model.DeleteFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteFileWithOptions(FileId, WorkspaceId, headers, runtime);
+    return await this.deleteFileWithOptions(FileId, WorkspaceId, request, headers, runtime);
   }
 
   /**
@@ -1193,11 +1264,13 @@ export default class Client extends OpenApi {
   /**
    * 删除memory
    * 
+   * @param request - DeleteMemoryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMemoryResponse
    */
-  async deleteMemoryWithOptions(workspaceId: string, memoryId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryResponse> {
+  async deleteMemoryWithOptions(workspaceId: string, memoryId: string, request: $_model.DeleteMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1217,22 +1290,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除memory
+   * 
+   * @param request - DeleteMemoryRequest
    * @returns DeleteMemoryResponse
    */
-  async deleteMemory(workspaceId: string, memoryId: string): Promise<$_model.DeleteMemoryResponse> {
+  async deleteMemory(workspaceId: string, memoryId: string, request: $_model.DeleteMemoryRequest): Promise<$_model.DeleteMemoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteMemoryWithOptions(workspaceId, memoryId, headers, runtime);
+    return await this.deleteMemoryWithOptions(workspaceId, memoryId, request, headers, runtime);
   }
 
   /**
    * 删除记忆Node
    * 
+   * @param request - DeleteMemoryNodeRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteMemoryNodeResponse
    */
-  async deleteMemoryNodeWithOptions(workspaceId: string, memoryId: string, memoryNodeId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryNodeResponse> {
+  async deleteMemoryNodeWithOptions(workspaceId: string, memoryId: string, memoryNodeId: string, request: $_model.DeleteMemoryNodeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryNodeResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1252,22 +1329,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除记忆Node
+   * 
+   * @param request - DeleteMemoryNodeRequest
    * @returns DeleteMemoryNodeResponse
    */
-  async deleteMemoryNode(workspaceId: string, memoryId: string, memoryNodeId: string): Promise<$_model.DeleteMemoryNodeResponse> {
+  async deleteMemoryNode(workspaceId: string, memoryId: string, memoryNodeId: string, request: $_model.DeleteMemoryNodeRequest): Promise<$_model.DeleteMemoryNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
+    return await this.deleteMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, request, headers, runtime);
   }
 
   /**
    * Deletes a prompt template based on the template ID.
    * 
+   * @param request - DeletePromptTemplateRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeletePromptTemplateResponse
    */
-  async deletePromptTemplateWithOptions(workspaceId: string, promptTemplateId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePromptTemplateResponse> {
+  async deletePromptTemplateWithOptions(workspaceId: string, promptTemplateId: string, request: $_model.DeletePromptTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePromptTemplateResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1287,12 +1368,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a prompt template based on the template ID.
+   * 
+   * @param request - DeletePromptTemplateRequest
    * @returns DeletePromptTemplateResponse
    */
-  async deletePromptTemplate(workspaceId: string, promptTemplateId: string): Promise<$_model.DeletePromptTemplateResponse> {
+  async deletePromptTemplate(workspaceId: string, promptTemplateId: string, request: $_model.DeletePromptTemplateRequest): Promise<$_model.DeletePromptTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deletePromptTemplateWithOptions(workspaceId, promptTemplateId, headers, runtime);
+    return await this.deletePromptTemplateWithOptions(workspaceId, promptTemplateId, request, headers, runtime);
   }
 
   /**
@@ -1304,11 +1387,13 @@ export default class Client extends OpenApi {
    * *   This operation is idempotent.
    * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
    * 
+   * @param request - DescribeFileRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFileResponse
    */
-  async describeFileWithOptions(WorkspaceId: string, FileId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFileResponse> {
+  async describeFileWithOptions(WorkspaceId: string, FileId: string, request: $_model.DescribeFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFileResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1334,12 +1419,14 @@ export default class Client extends OpenApi {
    * *   You can also call this operation to query unstructured documents that you upload on the [Data Management](https://bailian.console.aliyun.com/knowledge-base#/data-center) page.
    * *   This operation is idempotent.
    * **Throttling:** Make sure that the interval between the two queries is at least 15 seconds. Otherwise, you may trigger system throttling. If throttling is triggered, try again later.
+   * 
+   * @param request - DescribeFileRequest
    * @returns DescribeFileResponse
    */
-  async describeFile(WorkspaceId: string, FileId: string): Promise<$_model.DescribeFileResponse> {
+  async describeFile(WorkspaceId: string, FileId: string, request: $_model.DescribeFileRequest): Promise<$_model.DescribeFileResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeFileWithOptions(WorkspaceId, FileId, headers, runtime);
+    return await this.describeFileWithOptions(WorkspaceId, FileId, request, headers, runtime);
   }
 
   /**
@@ -1608,11 +1695,13 @@ export default class Client extends OpenApi {
   /**
    * 获取memory
    * 
+   * @param request - GetMemoryRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMemoryResponse
    */
-  async getMemoryWithOptions(workspaceId: string, memoryId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryResponse> {
+  async getMemoryWithOptions(workspaceId: string, memoryId: string, request: $_model.GetMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1632,22 +1721,26 @@ export default class Client extends OpenApi {
 
   /**
    * 获取memory
+   * 
+   * @param request - GetMemoryRequest
    * @returns GetMemoryResponse
    */
-  async getMemory(workspaceId: string, memoryId: string): Promise<$_model.GetMemoryResponse> {
+  async getMemory(workspaceId: string, memoryId: string, request: $_model.GetMemoryRequest): Promise<$_model.GetMemoryResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getMemoryWithOptions(workspaceId, memoryId, headers, runtime);
+    return await this.getMemoryWithOptions(workspaceId, memoryId, request, headers, runtime);
   }
 
   /**
    * 获取记忆Node
    * 
+   * @param request - GetMemoryNodeRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMemoryNodeResponse
    */
-  async getMemoryNodeWithOptions(workspaceId: string, memoryId: string, memoryNodeId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryNodeResponse> {
+  async getMemoryNodeWithOptions(workspaceId: string, memoryId: string, memoryNodeId: string, request: $_model.GetMemoryNodeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryNodeResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1667,12 +1760,14 @@ export default class Client extends OpenApi {
 
   /**
    * 获取记忆Node
+   * 
+   * @param request - GetMemoryNodeRequest
    * @returns GetMemoryNodeResponse
    */
-  async getMemoryNode(workspaceId: string, memoryId: string, memoryNodeId: string): Promise<$_model.GetMemoryNodeResponse> {
+  async getMemoryNode(workspaceId: string, memoryId: string, memoryNodeId: string, request: $_model.GetMemoryNodeRequest): Promise<$_model.GetMemoryNodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, headers, runtime);
+    return await this.getMemoryNodeWithOptions(workspaceId, memoryId, memoryNodeId, request, headers, runtime);
   }
 
   /**
@@ -1723,11 +1818,13 @@ export default class Client extends OpenApi {
   /**
    * Obtains a prompt template based on the template ID.
    * 
+   * @param request - GetPromptTemplateRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPromptTemplateResponse
    */
-  async getPromptTemplateWithOptions(workspaceId: string, promptTemplateId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPromptTemplateResponse> {
+  async getPromptTemplateWithOptions(workspaceId: string, promptTemplateId: string, request: $_model.GetPromptTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPromptTemplateResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1747,22 +1844,26 @@ export default class Client extends OpenApi {
 
   /**
    * Obtains a prompt template based on the template ID.
+   * 
+   * @param request - GetPromptTemplateRequest
    * @returns GetPromptTemplateResponse
    */
-  async getPromptTemplate(workspaceId: string, promptTemplateId: string): Promise<$_model.GetPromptTemplateResponse> {
+  async getPromptTemplate(workspaceId: string, promptTemplateId: string, request: $_model.GetPromptTemplateRequest): Promise<$_model.GetPromptTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getPromptTemplateWithOptions(workspaceId, promptTemplateId, headers, runtime);
+    return await this.getPromptTemplateWithOptions(workspaceId, promptTemplateId, request, headers, runtime);
   }
 
   /**
    * 获取发布态智能体应用
    * 
+   * @param request - GetPublishedAgentRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPublishedAgentResponse
    */
-  async getPublishedAgentWithOptions(workspaceId: string, appCode: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPublishedAgentResponse> {
+  async getPublishedAgentWithOptions(workspaceId: string, appCode: string, request: $_model.GetPublishedAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPublishedAgentResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1782,12 +1883,14 @@ export default class Client extends OpenApi {
 
   /**
    * 获取发布态智能体应用
+   * 
+   * @param request - GetPublishedAgentRequest
    * @returns GetPublishedAgentResponse
    */
-  async getPublishedAgent(workspaceId: string, appCode: string): Promise<$_model.GetPublishedAgentResponse> {
+  async getPublishedAgent(workspaceId: string, appCode: string, request: $_model.GetPublishedAgentRequest): Promise<$_model.GetPublishedAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getPublishedAgentWithOptions(workspaceId, appCode, headers, runtime);
+    return await this.getPublishedAgentWithOptions(workspaceId, appCode, request, headers, runtime);
   }
 
   /**
@@ -3232,6 +3335,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updatePromptTemplateWithOptions(workspaceId, promptTemplateId, request, headers, runtime);
+  }
+
+  /**
+   * 从oss上传table
+   * 
+   * @param request - UpdateTableFromAuthorizedOssRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTableFromAuthorizedOssResponse
+   */
+  async updateTableFromAuthorizedOssWithOptions(WorkspaceId: string, TableId: string, request: $_model.UpdateTableFromAuthorizedOssRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTableFromAuthorizedOssResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ossBucket)) {
+      body["OssBucket"] = request.ossBucket;
+    }
+
+    if (!$dara.isNull(request.ossKey)) {
+      body["OssKey"] = request.ossKey;
+    }
+
+    if (!$dara.isNull(request.ossRegionId)) {
+      body["OssRegionId"] = request.ossRegionId;
+    }
+
+    if (!$dara.isNull(request.updateMode)) {
+      body["UpdateMode"] = request.updateMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTableFromAuthorizedOss",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/table/fromoss/${$dara.URL.percentEncode(TableId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTableFromAuthorizedOssResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTableFromAuthorizedOssResponse({}));
+  }
+
+  /**
+   * 从oss上传table
+   * 
+   * @param request - UpdateTableFromAuthorizedOssRequest
+   * @returns UpdateTableFromAuthorizedOssResponse
+   */
+  async updateTableFromAuthorizedOss(WorkspaceId: string, TableId: string, request: $_model.UpdateTableFromAuthorizedOssRequest): Promise<$_model.UpdateTableFromAuthorizedOssResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateTableFromAuthorizedOssWithOptions(WorkspaceId, TableId, request, headers, runtime);
   }
 
 }
