@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateGroupRequestNotifyConfig extends $dara.Model {
   /**
    * @example

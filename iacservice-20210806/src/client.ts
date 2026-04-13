@@ -51,11 +51,13 @@ export default class Client extends OpenApi {
       try {
         let request_ = new $dara.Request();
         let boundary = $dara.Form.getBoundary();
+        let tmp = String(form["host"]);
+        let host = `${bucketName}.${tmp}`;
         request_.protocol = "HTTPS";
         request_.method = "POST";
         request_.pathname = `/`;
         request_.headers = {
-          host: String(form["host"]),
+          host: host,
           date: OpenApiUtil.getDateUTCString(),
           'user-agent': OpenApiUtil.getUserAgent(""),
         };
@@ -162,6 +164,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.addSharedAccountsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 将参数集关联资源
+   * 
+   * @param request - AssociateDetectConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateDetectConfigResponse
+   */
+  async associateDetectConfigWithOptions(request: $_model.AssociateDetectConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AssociateDetectConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.detectConfigId)) {
+      body["detectConfigId"] = request.detectConfigId;
+    }
+
+    if (!$dara.isNull(request.targetId)) {
+      body["targetId"] = request.targetId;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      body["targetType"] = request.targetType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssociateDetectConfig",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detectConfig/operations/associate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssociateDetectConfigResponse>(await this.callApi(params, req, runtime), new $_model.AssociateDetectConfigResponse({}));
+  }
+
+  /**
+   * 将参数集关联资源
+   * 
+   * @param request - AssociateDetectConfigRequest
+   * @returns AssociateDetectConfigResponse
+   */
+  async associateDetectConfig(request: $_model.AssociateDetectConfigRequest): Promise<$_model.AssociateDetectConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.associateDetectConfigWithOptions(request, headers, runtime);
   }
 
   /**
@@ -317,6 +372,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.cancelResourceExportTaskWithOptions(exportTaskId, request, headers, runtime);
+  }
+
+  /**
+   * 创建偏差检测配置
+   * 
+   * @param request - CreateDetectConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDetectConfigResponse
+   */
+  async createDetectConfigWithOptions(request: $_model.CreateDetectConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDetectConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alarmConfigs)) {
+      body["alarmConfigs"] = request.alarmConfigs;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cronExpression)) {
+      body["cronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.detectConfigName)) {
+      body["detectConfigName"] = request.detectConfigName;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.triggerType)) {
+      body["triggerType"] = request.triggerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDetectConfig",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detectConfig`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDetectConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateDetectConfigResponse({}));
+  }
+
+  /**
+   * 创建偏差检测配置
+   * 
+   * @param request - CreateDetectConfigRequest
+   * @returns CreateDetectConfigResponse
+   */
+  async createDetectConfig(request: $_model.CreateDetectConfigRequest): Promise<$_model.CreateDetectConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDetectConfigWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1034,13 +1158,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除偏差检测配置
+   * 
+   * @param request - DeleteDetectConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDetectConfigResponse
+   */
+  async deleteDetectConfigWithOptions(detectConfigId: string, request: $_model.DeleteDetectConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDetectConfigResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDetectConfig",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detectConfig/${$dara.URL.percentEncode(detectConfigId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDetectConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDetectConfigResponse({}));
+  }
+
+  /**
+   * 删除偏差检测配置
+   * 
+   * @param request - DeleteDetectConfigRequest
+   * @returns DeleteDetectConfigResponse
+   */
+  async deleteDetectConfig(detectConfigId: string, request: $_model.DeleteDetectConfigRequest): Promise<$_model.DeleteDetectConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDetectConfigWithOptions(detectConfigId, request, headers, runtime);
+  }
+
+  /**
    * 删除分组
    * 
+   * @param request - DeleteGroupRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGroupResponse
    */
-  async deleteGroupWithOptions(groupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGroupResponse> {
+  async deleteGroupWithOptions(groupId: string, request: $_model.DeleteGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGroupResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1060,22 +1225,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除分组
+   * 
+   * @param request - DeleteGroupRequest
    * @returns DeleteGroupResponse
    */
-  async deleteGroup(groupId: string): Promise<$_model.DeleteGroupResponse> {
+  async deleteGroup(groupId: string, request: $_model.DeleteGroupRequest): Promise<$_model.DeleteGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteGroupWithOptions(groupId, headers, runtime);
+    return await this.deleteGroupWithOptions(groupId, request, headers, runtime);
   }
 
   /**
    * 删除模板
    * 
+   * @param request - DeleteModuleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteModuleResponse
    */
-  async deleteModuleWithOptions(moduleId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModuleResponse> {
+  async deleteModuleWithOptions(moduleId: string, request: $_model.DeleteModuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModuleResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1095,22 +1264,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除模板
+   * 
+   * @param request - DeleteModuleRequest
    * @returns DeleteModuleResponse
    */
-  async deleteModule(moduleId: string): Promise<$_model.DeleteModuleResponse> {
+  async deleteModule(moduleId: string, request: $_model.DeleteModuleRequest): Promise<$_model.DeleteModuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteModuleWithOptions(moduleId, headers, runtime);
+    return await this.deleteModuleWithOptions(moduleId, request, headers, runtime);
   }
 
   /**
    * 删除参数集
    * 
+   * @param request - DeleteParameterSetRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteParameterSetResponse
    */
-  async deleteParameterSetWithOptions(parameterSetId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteParameterSetResponse> {
+  async deleteParameterSetWithOptions(parameterSetId: string, request: $_model.DeleteParameterSetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteParameterSetResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1130,22 +1303,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除参数集
+   * 
+   * @param request - DeleteParameterSetRequest
    * @returns DeleteParameterSetResponse
    */
-  async deleteParameterSet(parameterSetId: string): Promise<$_model.DeleteParameterSetResponse> {
+  async deleteParameterSet(parameterSetId: string, request: $_model.DeleteParameterSetRequest): Promise<$_model.DeleteParameterSetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteParameterSetWithOptions(parameterSetId, headers, runtime);
+    return await this.deleteParameterSetWithOptions(parameterSetId, request, headers, runtime);
   }
 
   /**
    * 删除项目
    * 
+   * @param request - DeleteProjectRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteProjectResponse
    */
-  async deleteProjectWithOptions(projectId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectResponse> {
+  async deleteProjectWithOptions(projectId: string, request: $_model.DeleteProjectRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1165,22 +1342,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除项目
+   * 
+   * @param request - DeleteProjectRequest
    * @returns DeleteProjectResponse
    */
-  async deleteProject(projectId: string): Promise<$_model.DeleteProjectResponse> {
+  async deleteProject(projectId: string, request: $_model.DeleteProjectRequest): Promise<$_model.DeleteProjectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteProjectWithOptions(projectId, headers, runtime);
+    return await this.deleteProjectWithOptions(projectId, request, headers, runtime);
   }
 
   /**
    * 删除RegistryModule
    * 
+   * @param request - DeleteRegistryModuleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRegistryModuleResponse
    */
-  async deleteRegistryModuleWithOptions(namespaceName: string, moduleName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRegistryModuleResponse> {
+  async deleteRegistryModuleWithOptions(namespaceName: string, moduleName: string, request: $_model.DeleteRegistryModuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRegistryModuleResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1200,22 +1381,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除RegistryModule
+   * 
+   * @param request - DeleteRegistryModuleRequest
    * @returns DeleteRegistryModuleResponse
    */
-  async deleteRegistryModule(namespaceName: string, moduleName: string): Promise<$_model.DeleteRegistryModuleResponse> {
+  async deleteRegistryModule(namespaceName: string, moduleName: string, request: $_model.DeleteRegistryModuleRequest): Promise<$_model.DeleteRegistryModuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteRegistryModuleWithOptions(namespaceName, moduleName, headers, runtime);
+    return await this.deleteRegistryModuleWithOptions(namespaceName, moduleName, request, headers, runtime);
   }
 
   /**
    * 删除RegistryModule版本
    * 
+   * @param request - DeleteRegistryModuleVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRegistryModuleVersionResponse
    */
-  async deleteRegistryModuleVersionWithOptions(namespaceName: string, moduleName: string, version: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRegistryModuleVersionResponse> {
+  async deleteRegistryModuleVersionWithOptions(namespaceName: string, moduleName: string, version: string, request: $_model.DeleteRegistryModuleVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRegistryModuleVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1235,22 +1420,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除RegistryModule版本
+   * 
+   * @param request - DeleteRegistryModuleVersionRequest
    * @returns DeleteRegistryModuleVersionResponse
    */
-  async deleteRegistryModuleVersion(namespaceName: string, moduleName: string, version: string): Promise<$_model.DeleteRegistryModuleVersionResponse> {
+  async deleteRegistryModuleVersion(namespaceName: string, moduleName: string, version: string, request: $_model.DeleteRegistryModuleVersionRequest): Promise<$_model.DeleteRegistryModuleVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteRegistryModuleVersionWithOptions(namespaceName, moduleName, version, headers, runtime);
+    return await this.deleteRegistryModuleVersionWithOptions(namespaceName, moduleName, version, request, headers, runtime);
   }
 
   /**
    * 删除工作空间
    * 
+   * @param request - DeleteRegistryNamespaceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteRegistryNamespaceResponse
    */
-  async deleteRegistryNamespaceWithOptions(namespaceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRegistryNamespaceResponse> {
+  async deleteRegistryNamespaceWithOptions(namespaceName: string, request: $_model.DeleteRegistryNamespaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRegistryNamespaceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1270,22 +1459,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除工作空间
+   * 
+   * @param request - DeleteRegistryNamespaceRequest
    * @returns DeleteRegistryNamespaceResponse
    */
-  async deleteRegistryNamespace(namespaceName: string): Promise<$_model.DeleteRegistryNamespaceResponse> {
+  async deleteRegistryNamespace(namespaceName: string, request: $_model.DeleteRegistryNamespaceRequest): Promise<$_model.DeleteRegistryNamespaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteRegistryNamespaceWithOptions(namespaceName, headers, runtime);
+    return await this.deleteRegistryNamespaceWithOptions(namespaceName, request, headers, runtime);
   }
 
   /**
    * 删除资源导出任务
    * 
+   * @param request - DeleteResourceExportTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceExportTaskResponse
    */
-  async deleteResourceExportTaskWithOptions(exportTaskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceExportTaskResponse> {
+  async deleteResourceExportTaskWithOptions(exportTaskId: string, request: $_model.DeleteResourceExportTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceExportTaskResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1305,22 +1498,71 @@ export default class Client extends OpenApi {
 
   /**
    * 删除资源导出任务
+   * 
+   * @param request - DeleteResourceExportTaskRequest
    * @returns DeleteResourceExportTaskResponse
    */
-  async deleteResourceExportTask(exportTaskId: string): Promise<$_model.DeleteResourceExportTaskResponse> {
+  async deleteResourceExportTask(exportTaskId: string, request: $_model.DeleteResourceExportTaskRequest): Promise<$_model.DeleteResourceExportTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteResourceExportTaskWithOptions(exportTaskId, headers, runtime);
+    return await this.deleteResourceExportTaskWithOptions(exportTaskId, request, headers, runtime);
+  }
+
+  /**
+   * 删除资源栈
+   * 
+   * @param request - DeleteStackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStackResponse
+   */
+  async deleteStackWithOptions(stackId: string, request: $_model.DeleteStackRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStackResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cleanResources)) {
+      query["cleanResources"] = request.cleanResources;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStack",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/stacks/${$dara.URL.percentEncode(stackId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStackResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStackResponse({}));
+  }
+
+  /**
+   * 删除资源栈
+   * 
+   * @param request - DeleteStackRequest
+   * @returns DeleteStackResponse
+   */
+  async deleteStack(stackId: string, request: $_model.DeleteStackRequest): Promise<$_model.DeleteStackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteStackWithOptions(stackId, request, headers, runtime);
   }
 
   /**
    * 删除任务
    * 
+   * @param request - DeleteTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTaskResponse
    */
-  async deleteTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTaskResponse> {
+  async deleteTaskWithOptions(taskId: string, request: $_model.DeleteTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTaskResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1340,12 +1582,120 @@ export default class Client extends OpenApi {
 
   /**
    * 删除任务
+   * 
+   * @param request - DeleteTaskRequest
    * @returns DeleteTaskResponse
    */
-  async deleteTask(taskId: string): Promise<$_model.DeleteTaskResponse> {
+  async deleteTask(taskId: string, request: $_model.DeleteTaskRequest): Promise<$_model.DeleteTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTaskWithOptions(taskId, headers, runtime);
+    return await this.deleteTaskWithOptions(taskId, request, headers, runtime);
+  }
+
+  /**
+   * 发起状态文件一致性检测
+   * 
+   * @param request - DetectTerraformStateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetectTerraformStateResponse
+   */
+  async detectTerraformStateWithOptions(request: $_model.DetectTerraformStateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DetectTerraformStateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.identifier)) {
+      body["identifier"] = request.identifier;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetectTerraformState",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detect`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetectTerraformStateResponse>(await this.callApi(params, req, runtime), new $_model.DetectTerraformStateResponse({}));
+  }
+
+  /**
+   * 发起状态文件一致性检测
+   * 
+   * @param request - DetectTerraformStateRequest
+   * @returns DetectTerraformStateResponse
+   */
+  async detectTerraformState(request: $_model.DetectTerraformStateRequest): Promise<$_model.DetectTerraformStateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.detectTerraformStateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 解除参数集关联资源关系
+   * 
+   * @param request - DissociateDetectConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DissociateDetectConfigResponse
+   */
+  async dissociateDetectConfigWithOptions(request: $_model.DissociateDetectConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DissociateDetectConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.detectConfigId)) {
+      body["detectConfigId"] = request.detectConfigId;
+    }
+
+    if (!$dara.isNull(request.targetId)) {
+      body["targetId"] = request.targetId;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      body["targetType"] = request.targetType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DissociateDetectConfig",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detectConfig/operations/dissociate`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DissociateDetectConfigResponse>(await this.callApi(params, req, runtime), new $_model.DissociateDetectConfigResponse({}));
+  }
+
+  /**
+   * 解除参数集关联资源关系
+   * 
+   * @param request - DissociateDetectConfigRequest
+   * @returns DissociateDetectConfigResponse
+   */
+  async dissociateDetectConfig(request: $_model.DissociateDetectConfigRequest): Promise<$_model.DissociateDetectConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.dissociateDetectConfigWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1773,13 +2123,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 偏差检测配置详情
+   * 
+   * @param request - GetDetectConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDetectConfigResponse
+   */
+  async getDetectConfigWithOptions(detectConfigId: string, request: $_model.GetDetectConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDetectConfigResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDetectConfig",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detectConfig/${$dara.URL.percentEncode(detectConfigId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDetectConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetDetectConfigResponse({}));
+  }
+
+  /**
+   * 偏差检测配置详情
+   * 
+   * @param request - GetDetectConfigRequest
+   * @returns GetDetectConfigResponse
+   */
+  async getDetectConfig(detectConfigId: string, request: $_model.GetDetectConfigRequest): Promise<$_model.GetDetectConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDetectConfigWithOptions(detectConfigId, request, headers, runtime);
+  }
+
+  /**
    * 获取Terraform运行结果
    * 
+   * @param request - GetExecuteStateRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetExecuteStateResponse
    */
-  async getExecuteStateWithOptions(stateId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetExecuteStateResponse> {
+  async getExecuteStateWithOptions(stateId: string, request: $_model.GetExecuteStateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetExecuteStateResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1799,22 +2190,26 @@ export default class Client extends OpenApi {
 
   /**
    * 获取Terraform运行结果
+   * 
+   * @param request - GetExecuteStateRequest
    * @returns GetExecuteStateResponse
    */
-  async getExecuteState(stateId: string): Promise<$_model.GetExecuteStateResponse> {
+  async getExecuteState(stateId: string, request: $_model.GetExecuteStateRequest): Promise<$_model.GetExecuteStateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getExecuteStateWithOptions(stateId, headers, runtime);
+    return await this.getExecuteStateWithOptions(stateId, request, headers, runtime);
   }
 
   /**
    * 查询分组
    * 
+   * @param request - GetGroupRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetGroupResponse
    */
-  async getGroupWithOptions(groupId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetGroupResponse> {
+  async getGroupWithOptions(groupId: string, request: $_model.GetGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetGroupResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1834,12 +2229,14 @@ export default class Client extends OpenApi {
 
   /**
    * 查询分组
+   * 
+   * @param request - GetGroupRequest
    * @returns GetGroupResponse
    */
-  async getGroup(groupId: string): Promise<$_model.GetGroupResponse> {
+  async getGroup(groupId: string, request: $_model.GetGroupRequest): Promise<$_model.GetGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getGroupWithOptions(groupId, headers, runtime);
+    return await this.getGroupWithOptions(groupId, request, headers, runtime);
   }
 
   /**
@@ -1890,11 +2287,13 @@ export default class Client extends OpenApi {
   /**
    * Get Module Details
    * 
+   * @param request - GetModuleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetModuleResponse
    */
-  async getModuleWithOptions(moduleId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModuleResponse> {
+  async getModuleWithOptions(moduleId: string, request: $_model.GetModuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModuleResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1914,22 +2313,26 @@ export default class Client extends OpenApi {
 
   /**
    * Get Module Details
+   * 
+   * @param request - GetModuleRequest
    * @returns GetModuleResponse
    */
-  async getModule(moduleId: string): Promise<$_model.GetModuleResponse> {
+  async getModule(moduleId: string, request: $_model.GetModuleRequest): Promise<$_model.GetModuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getModuleWithOptions(moduleId, headers, runtime);
+    return await this.getModuleWithOptions(moduleId, request, headers, runtime);
   }
 
   /**
    * 模板版本详情
    * 
+   * @param request - GetModuleVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetModuleVersionResponse
    */
-  async getModuleVersionWithOptions(moduleId: string, moduleVersion: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModuleVersionResponse> {
+  async getModuleVersionWithOptions(moduleId: string, moduleVersion: string, request: $_model.GetModuleVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModuleVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1949,22 +2352,26 @@ export default class Client extends OpenApi {
 
   /**
    * 模板版本详情
+   * 
+   * @param request - GetModuleVersionRequest
    * @returns GetModuleVersionResponse
    */
-  async getModuleVersion(moduleId: string, moduleVersion: string): Promise<$_model.GetModuleVersionResponse> {
+  async getModuleVersion(moduleId: string, moduleVersion: string, request: $_model.GetModuleVersionRequest): Promise<$_model.GetModuleVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getModuleVersionWithOptions(moduleId, moduleVersion, headers, runtime);
+    return await this.getModuleVersionWithOptions(moduleId, moduleVersion, request, headers, runtime);
   }
 
   /**
    * 参数集详情
    * 
+   * @param request - GetParameterSetRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetParameterSetResponse
    */
-  async getParameterSetWithOptions(parameterSetId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetParameterSetResponse> {
+  async getParameterSetWithOptions(parameterSetId: string, request: $_model.GetParameterSetRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetParameterSetResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1984,22 +2391,26 @@ export default class Client extends OpenApi {
 
   /**
    * 参数集详情
+   * 
+   * @param request - GetParameterSetRequest
    * @returns GetParameterSetResponse
    */
-  async getParameterSet(parameterSetId: string): Promise<$_model.GetParameterSetResponse> {
+  async getParameterSet(parameterSetId: string, request: $_model.GetParameterSetRequest): Promise<$_model.GetParameterSetResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getParameterSetWithOptions(parameterSetId, headers, runtime);
+    return await this.getParameterSetWithOptions(parameterSetId, request, headers, runtime);
   }
 
   /**
    * 查询项目
    * 
+   * @param request - GetProjectRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetProjectResponse
    */
-  async getProjectWithOptions(projectId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetProjectResponse> {
+  async getProjectWithOptions(projectId: string, request: $_model.GetProjectRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetProjectResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2019,22 +2430,26 @@ export default class Client extends OpenApi {
 
   /**
    * 查询项目
+   * 
+   * @param request - GetProjectRequest
    * @returns GetProjectResponse
    */
-  async getProject(projectId: string): Promise<$_model.GetProjectResponse> {
+  async getProject(projectId: string, request: $_model.GetProjectRequest): Promise<$_model.GetProjectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getProjectWithOptions(projectId, headers, runtime);
+    return await this.getProjectWithOptions(projectId, request, headers, runtime);
   }
 
   /**
    * 获取RegistryModule信息
    * 
+   * @param request - GetRegistryModuleRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRegistryModuleResponse
    */
-  async getRegistryModuleWithOptions(namespaceName: string, moduleName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRegistryModuleResponse> {
+  async getRegistryModuleWithOptions(namespaceName: string, moduleName: string, request: $_model.GetRegistryModuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRegistryModuleResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2054,22 +2469,26 @@ export default class Client extends OpenApi {
 
   /**
    * 获取RegistryModule信息
+   * 
+   * @param request - GetRegistryModuleRequest
    * @returns GetRegistryModuleResponse
    */
-  async getRegistryModule(namespaceName: string, moduleName: string): Promise<$_model.GetRegistryModuleResponse> {
+  async getRegistryModule(namespaceName: string, moduleName: string, request: $_model.GetRegistryModuleRequest): Promise<$_model.GetRegistryModuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getRegistryModuleWithOptions(namespaceName, moduleName, headers, runtime);
+    return await this.getRegistryModuleWithOptions(namespaceName, moduleName, request, headers, runtime);
   }
 
   /**
    * 获取RegistryModule版本信息
    * 
+   * @param request - GetRegistryModuleVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRegistryModuleVersionResponse
    */
-  async getRegistryModuleVersionWithOptions(namespaceName: string, moduleName: string, version: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRegistryModuleVersionResponse> {
+  async getRegistryModuleVersionWithOptions(namespaceName: string, moduleName: string, version: string, request: $_model.GetRegistryModuleVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRegistryModuleVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2089,22 +2508,26 @@ export default class Client extends OpenApi {
 
   /**
    * 获取RegistryModule版本信息
+   * 
+   * @param request - GetRegistryModuleVersionRequest
    * @returns GetRegistryModuleVersionResponse
    */
-  async getRegistryModuleVersion(namespaceName: string, moduleName: string, version: string): Promise<$_model.GetRegistryModuleVersionResponse> {
+  async getRegistryModuleVersion(namespaceName: string, moduleName: string, version: string, request: $_model.GetRegistryModuleVersionRequest): Promise<$_model.GetRegistryModuleVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getRegistryModuleVersionWithOptions(namespaceName, moduleName, version, headers, runtime);
+    return await this.getRegistryModuleVersionWithOptions(namespaceName, moduleName, version, request, headers, runtime);
   }
 
   /**
    * 获取工作空间信息
    * 
+   * @param request - GetRegistryNamespaceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRegistryNamespaceResponse
    */
-  async getRegistryNamespaceWithOptions(namespaceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRegistryNamespaceResponse> {
+  async getRegistryNamespaceWithOptions(namespaceName: string, request: $_model.GetRegistryNamespaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRegistryNamespaceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2124,12 +2547,14 @@ export default class Client extends OpenApi {
 
   /**
    * 获取工作空间信息
+   * 
+   * @param request - GetRegistryNamespaceRequest
    * @returns GetRegistryNamespaceResponse
    */
-  async getRegistryNamespace(namespaceName: string): Promise<$_model.GetRegistryNamespaceResponse> {
+  async getRegistryNamespace(namespaceName: string, request: $_model.GetRegistryNamespaceRequest): Promise<$_model.GetRegistryNamespaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getRegistryNamespaceWithOptions(namespaceName, headers, runtime);
+    return await this.getRegistryNamespaceWithOptions(namespaceName, request, headers, runtime);
   }
 
   /**
@@ -2231,13 +2656,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 部署详情接口
+   * 
+   * @param request - GetStackDeploymentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStackDeploymentsResponse
+   */
+  async getStackDeploymentsWithOptions(stackId: string, request: $_model.GetStackDeploymentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetStackDeploymentsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configVersion)) {
+      query["configVersion"] = request.configVersion;
+    }
+
+    if (!$dara.isNull(request.deploymentName)) {
+      query["deploymentName"] = request.deploymentName;
+    }
+
+    if (!$dara.isNull(request.deploymentNo)) {
+      query["deploymentNo"] = request.deploymentNo;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStackDeployments",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/stacks/${$dara.URL.percentEncode(stackId)}/deployments`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStackDeploymentsResponse>(await this.callApi(params, req, runtime), new $_model.GetStackDeploymentsResponse({}));
+  }
+
+  /**
+   * 部署详情接口
+   * 
+   * @param request - GetStackDeploymentsRequest
+   * @returns GetStackDeploymentsResponse
+   */
+  async getStackDeployments(stackId: string, request: $_model.GetStackDeploymentsRequest): Promise<$_model.GetStackDeploymentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getStackDeploymentsWithOptions(stackId, request, headers, runtime);
+  }
+
+  /**
    * 获取资源栈部署结果
    * 
+   * @param request - GetStackExecutionResultRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetStackExecutionResultResponse
    */
-  async getStackExecutionResultWithOptions(triggerId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetStackExecutionResultResponse> {
+  async getStackExecutionResultWithOptions(triggerId: string, request: $_model.GetStackExecutionResultRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetStackExecutionResultResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2257,22 +2749,26 @@ export default class Client extends OpenApi {
 
   /**
    * 获取资源栈部署结果
+   * 
+   * @param request - GetStackExecutionResultRequest
    * @returns GetStackExecutionResultResponse
    */
-  async getStackExecutionResult(triggerId: string): Promise<$_model.GetStackExecutionResultResponse> {
+  async getStackExecutionResult(triggerId: string, request: $_model.GetStackExecutionResultRequest): Promise<$_model.GetStackExecutionResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getStackExecutionResultWithOptions(triggerId, headers, runtime);
+    return await this.getStackExecutionResultWithOptions(triggerId, request, headers, runtime);
   }
 
   /**
    * 查询任务详情
    * 
+   * @param request - GetTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTaskResponse
    */
-  async getTaskWithOptions(taskId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTaskResponse> {
+  async getTaskWithOptions(taskId: string, request: $_model.GetTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTaskResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2292,12 +2788,159 @@ export default class Client extends OpenApi {
 
   /**
    * 查询任务详情
+   * 
+   * @param request - GetTaskRequest
    * @returns GetTaskResponse
    */
-  async getTask(taskId: string): Promise<$_model.GetTaskResponse> {
+  async getTask(taskId: string, request: $_model.GetTaskRequest): Promise<$_model.GetTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTaskWithOptions(taskId, headers, runtime);
+    return await this.getTaskWithOptions(taskId, request, headers, runtime);
+  }
+
+  /**
+   * 获取状态文件检测结果
+   * 
+   * @param request - GetTerraformStateDetectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTerraformStateDetectionResponse
+   */
+  async getTerraformStateDetectionWithOptions(detectionId: string, request: $_model.GetTerraformStateDetectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTerraformStateDetectionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTerraformStateDetection",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detect/${$dara.URL.percentEncode(detectionId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTerraformStateDetectionResponse>(await this.callApi(params, req, runtime), new $_model.GetTerraformStateDetectionResponse({}));
+  }
+
+  /**
+   * 获取状态文件检测结果
+   * 
+   * @param request - GetTerraformStateDetectionRequest
+   * @returns GetTerraformStateDetectionResponse
+   */
+  async getTerraformStateDetection(detectionId: string, request: $_model.GetTerraformStateDetectionRequest): Promise<$_model.GetTerraformStateDetectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTerraformStateDetectionWithOptions(detectionId, request, headers, runtime);
+  }
+
+  /**
+   * 关联到资源的偏差检测配置列表
+   * 
+   * @param request - ListDetectConfigRelationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDetectConfigRelationsResponse
+   */
+  async listDetectConfigRelationsWithOptions(request: $_model.ListDetectConfigRelationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDetectConfigRelationsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.detectConfigId)) {
+      query["detectConfigId"] = request.detectConfigId;
+    }
+
+    if (!$dara.isNull(request.targetId)) {
+      query["targetId"] = request.targetId;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      query["targetType"] = request.targetType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDetectConfigRelations",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detectConfig/operations/relation`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDetectConfigRelationsResponse>(await this.callApi(params, req, runtime), new $_model.ListDetectConfigRelationsResponse({}));
+  }
+
+  /**
+   * 关联到资源的偏差检测配置列表
+   * 
+   * @param request - ListDetectConfigRelationsRequest
+   * @returns ListDetectConfigRelationsResponse
+   */
+  async listDetectConfigRelations(request: $_model.ListDetectConfigRelationsRequest): Promise<$_model.ListDetectConfigRelationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDetectConfigRelationsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 偏差检测配置列表
+   * 
+   * @param request - ListDetectConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDetectConfigsResponse
+   */
+  async listDetectConfigsWithOptions(request: $_model.ListDetectConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDetectConfigsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.detectConfigName)) {
+      query["detectConfigName"] = request.detectConfigName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDetectConfigs",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detectConfig`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDetectConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListDetectConfigsResponse({}));
+  }
+
+  /**
+   * 偏差检测配置列表
+   * 
+   * @param request - ListDetectConfigsRequest
+   * @returns ListDetectConfigsResponse
+   */
+  async listDetectConfigs(request: $_model.ListDetectConfigsRequest): Promise<$_model.ListDetectConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDetectConfigsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3866,6 +4509,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新偏差检测配置
+   * 
+   * @param request - UpdateDetectConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDetectConfigResponse
+   */
+  async updateDetectConfigWithOptions(detectConfigId: string, request: $_model.UpdateDetectConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDetectConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.alarmConfigs)) {
+      body["alarmConfigs"] = request.alarmConfigs;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cronExpression)) {
+      body["cronExpression"] = request.cronExpression;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.detectConfigName)) {
+      body["detectConfigName"] = request.detectConfigName;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.triggerType)) {
+      body["triggerType"] = request.triggerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDetectConfig",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/terraformState/detectConfig/${$dara.URL.percentEncode(detectConfigId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDetectConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDetectConfigResponse({}));
+  }
+
+  /**
+   * 更新偏差检测配置
+   * 
+   * @param request - UpdateDetectConfigRequest
+   * @returns UpdateDetectConfigResponse
+   */
+  async updateDetectConfig(detectConfigId: string, request: $_model.UpdateDetectConfigRequest): Promise<$_model.UpdateDetectConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateDetectConfigWithOptions(detectConfigId, request, headers, runtime);
+  }
+
+  /**
    * 修改ExplorerModule
    * 
    * @param request - UpdateExplorerModuleAttributeRequest
@@ -4611,7 +5323,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
