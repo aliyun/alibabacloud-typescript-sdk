@@ -3,7 +3,7 @@ import * as $dara from '@darabonba/typescript';
 import { ChatDetail } from "./ChatDetail";
 
 
-export class Chat extends $dara.Model {
+export class GetChatResponseBody extends $dara.Model {
   answer?: ChatDetail;
   /**
    * @example
@@ -28,7 +28,7 @@ export class Chat extends $dara.Model {
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
-   * 2026-01-20T09:41:23Z
+   * 2025-12-01T17:52:05+08:00
    */
   gmtModified?: string;
   /**
@@ -42,6 +42,11 @@ export class Chat extends $dara.Model {
    */
   ownerId?: string;
   question?: ChatDetail;
+  /**
+   * @example
+   * 44553E9A-******-37ADC33FE2
+   */
+  requestId?: string;
   /**
    * @example
    * se-dss******
@@ -72,6 +77,7 @@ export class Chat extends $dara.Model {
       message: 'Message',
       ownerId: 'OwnerId',
       question: 'Question',
+      requestId: 'RequestId',
       sessionId: 'SessionId',
       status: 'Status',
       title: 'Title',
@@ -89,6 +95,7 @@ export class Chat extends $dara.Model {
       message: 'string',
       ownerId: 'string',
       question: ChatDetail,
+      requestId: 'string',
       sessionId: 'string',
       status: 'string',
       title: 'string',

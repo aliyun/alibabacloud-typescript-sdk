@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class ChatDetailUserInfo extends $dara.Model {
+  /**
+   * @example
+   * to******
+   */
   name?: string;
+  /**
+   * @example
+   * assistant
+   */
   role?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,6 +43,9 @@ export class ChatDetail extends $dara.Model {
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
+   * 
+   * @example
+   * 2021-01-21T17:12:35Z
    */
   gmtCreateTime?: string;
   userInfo?: ChatDetailUserInfo;
