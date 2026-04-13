@@ -1824,6 +1824,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关联MACSec配置到物理专线
+   * 
+   * @param request - AssociateMacSecKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateMacSecKeyResponse
+   */
+  async associateMacSecKeyWithOptions(request: $_model.AssociateMacSecKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssociateMacSecKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cak)) {
+      query["Cak"] = request.cak;
+    }
+
+    if (!$dara.isNull(request.cipherSuite)) {
+      query["CipherSuite"] = request.cipherSuite;
+    }
+
+    if (!$dara.isNull(request.ckn)) {
+      query["Ckn"] = request.ckn;
+    }
+
+    if (!$dara.isNull(request.physicalConnectionId)) {
+      query["PhysicalConnectionId"] = request.physicalConnectionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssociateMacSecKey",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssociateMacSecKeyResponse>(await this.callApi(params, req, runtime), new $_model.AssociateMacSecKeyResponse({}));
+  }
+
+  /**
+   * 关联MACSec配置到物理专线
+   * 
+   * @param request - AssociateMacSecKeyRequest
+   * @returns AssociateMacSecKeyResponse
+   */
+  async associateMacSecKey(request: $_model.AssociateMacSecKeyRequest): Promise<$_model.AssociateMacSecKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.associateMacSecKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Associates a network access control list (ACL) with a vSwitch.
    * 
    * @remarks
@@ -20996,6 +21054,56 @@ export default class Client extends OpenApi {
   async disableVpcClassicLink(request: $_model.DisableVpcClassicLinkRequest): Promise<$_model.DisableVpcClassicLinkResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableVpcClassicLinkWithOptions(request, runtime);
+  }
+
+  /**
+   * 取消关联MACSec配置到物理专线
+   * 
+   * @param request - DisassociateMacSecKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisassociateMacSecKeyResponse
+   */
+  async disassociateMacSecKeyWithOptions(request: $_model.DisassociateMacSecKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisassociateMacSecKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ckn)) {
+      query["Ckn"] = request.ckn;
+    }
+
+    if (!$dara.isNull(request.physicalConnectionId)) {
+      query["PhysicalConnectionId"] = request.physicalConnectionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisassociateMacSecKey",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisassociateMacSecKeyResponse>(await this.callApi(params, req, runtime), new $_model.DisassociateMacSecKeyResponse({}));
+  }
+
+  /**
+   * 取消关联MACSec配置到物理专线
+   * 
+   * @param request - DisassociateMacSecKeyRequest
+   * @returns DisassociateMacSecKeyResponse
+   */
+  async disassociateMacSecKey(request: $_model.DisassociateMacSecKeyRequest): Promise<$_model.DisassociateMacSecKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disassociateMacSecKeyWithOptions(request, runtime);
   }
 
   /**
