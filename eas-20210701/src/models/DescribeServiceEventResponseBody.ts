@@ -19,6 +19,7 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
    * Updating
    */
   reason?: string;
+  resource?: string;
   /**
    * @remarks
    * The time when the event occurred. The time must be in UTC.
@@ -42,6 +43,7 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
     return {
       message: 'Message',
       reason: 'Reason',
+      resource: 'Resource',
       time: 'Time',
       type: 'Type',
     };
@@ -51,6 +53,7 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
     return {
       message: 'string',
       reason: 'string',
+      resource: 'string',
       time: 'string',
       type: 'string',
     };

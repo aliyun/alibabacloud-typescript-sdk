@@ -152,11 +152,13 @@ export default class Client extends OpenApi {
   /**
    * Commits the Worker0 container in the custom container service and deploys the container as a new image.
    * 
+   * @param request - CommitServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CommitServiceResponse
    */
-  async commitServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CommitServiceResponse> {
+  async commitServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.CommitServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CommitServiceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -176,12 +178,14 @@ export default class Client extends OpenApi {
 
   /**
    * Commits the Worker0 container in the custom container service and deploys the container as a new image.
+   * 
+   * @param request - CommitServiceRequest
    * @returns CommitServiceResponse
    */
-  async commitService(ClusterId: string, ServiceName: string): Promise<$_model.CommitServiceResponse> {
+  async commitService(ClusterId: string, ServiceName: string, request: $_model.CommitServiceRequest): Promise<$_model.CommitServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.commitServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.commitServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
@@ -1188,11 +1192,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a stress testing task.
    * 
+   * @param request - DeleteBenchmarkTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteBenchmarkTaskResponse
    */
-  async deleteBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBenchmarkTaskResponse> {
+  async deleteBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: $_model.DeleteBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBenchmarkTaskResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1212,22 +1218,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a stress testing task.
+   * 
+   * @param request - DeleteBenchmarkTaskRequest
    * @returns DeleteBenchmarkTaskResponse
    */
-  async deleteBenchmarkTask(ClusterId: string, TaskName: string): Promise<$_model.DeleteBenchmarkTaskResponse> {
+  async deleteBenchmarkTask(ClusterId: string, TaskName: string, request: $_model.DeleteBenchmarkTaskRequest): Promise<$_model.DeleteBenchmarkTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+    return await this.deleteBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
 
   /**
    * 删除故障注入任务
    * 
+   * @param request - DeleteFaultInjectionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFaultInjectionResponse
    */
-  async deleteFaultInjectionWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, FaultType: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaultInjectionResponse> {
+  async deleteFaultInjectionWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, FaultType: string, request: $_model.DeleteFaultInjectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFaultInjectionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1247,22 +1257,26 @@ export default class Client extends OpenApi {
 
   /**
    * 删除故障注入任务
+   * 
+   * @param request - DeleteFaultInjectionRequest
    * @returns DeleteFaultInjectionResponse
    */
-  async deleteFaultInjection(ClusterId: string, ServiceName: string, InstanceName: string, FaultType: string): Promise<$_model.DeleteFaultInjectionResponse> {
+  async deleteFaultInjection(ClusterId: string, ServiceName: string, InstanceName: string, FaultType: string, request: $_model.DeleteFaultInjectionRequest): Promise<$_model.DeleteFaultInjectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteFaultInjectionWithOptions(ClusterId, ServiceName, InstanceName, FaultType, headers, runtime);
+    return await this.deleteFaultInjectionWithOptions(ClusterId, ServiceName, InstanceName, FaultType, request, headers, runtime);
   }
 
   /**
    * Deletes a private gateway.
    * 
+   * @param request - DeleteGatewayRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGatewayResponse
    */
-  async deleteGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGatewayResponse> {
+  async deleteGatewayWithOptions(ClusterId: string, GatewayId: string, request: $_model.DeleteGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGatewayResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1282,12 +1296,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a private gateway.
+   * 
+   * @param request - DeleteGatewayRequest
    * @returns DeleteGatewayResponse
    */
-  async deleteGateway(ClusterId: string, GatewayId: string): Promise<$_model.DeleteGatewayResponse> {
+  async deleteGateway(ClusterId: string, GatewayId: string, request: $_model.DeleteGatewayRequest): Promise<$_model.DeleteGatewayResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
+    return await this.deleteGatewayWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   /**
@@ -1448,11 +1464,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a resource group that contains no resources or instances.
    * 
+   * @param request - DeleteResourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceResponse
    */
-  async deleteResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceResponse> {
+  async deleteResourceWithOptions(ClusterId: string, ResourceId: string, request: $_model.DeleteResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1472,22 +1490,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a resource group that contains no resources or instances.
+   * 
+   * @param request - DeleteResourceRequest
    * @returns DeleteResourceResponse
    */
-  async deleteResource(ClusterId: string, ResourceId: string): Promise<$_model.DeleteResourceResponse> {
+  async deleteResource(ClusterId: string, ResourceId: string, request: $_model.DeleteResourceRequest): Promise<$_model.DeleteResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteResourceWithOptions(ClusterId, ResourceId, headers, runtime);
+    return await this.deleteResourceWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
   /**
    * Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
    * 
+   * @param request - DeleteResourceDLinkRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceDLinkResponse
    */
-  async deleteResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceDLinkResponse> {
+  async deleteResourceDLinkWithOptions(ClusterId: string, ResourceId: string, request: $_model.DeleteResourceDLinkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceDLinkResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1507,12 +1529,14 @@ export default class Client extends OpenApi {
 
   /**
    * Disables the virtual private cloud (VPC) direct connection feature for a dedicated resource group.
+   * 
+   * @param request - DeleteResourceDLinkRequest
    * @returns DeleteResourceDLinkResponse
    */
-  async deleteResourceDLink(ClusterId: string, ResourceId: string): Promise<$_model.DeleteResourceDLinkResponse> {
+  async deleteResourceDLink(ClusterId: string, ResourceId: string, request: $_model.DeleteResourceDLinkRequest): Promise<$_model.DeleteResourceDLinkResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
+    return await this.deleteResourceDLinkWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
   /**
@@ -1638,11 +1662,13 @@ export default class Client extends OpenApi {
   /**
    * Disables the LogShipper feature of Log Service for a dedicated resource group.
    * 
+   * @param request - DeleteResourceLogRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceLogResponse
    */
-  async deleteResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceLogResponse> {
+  async deleteResourceLogWithOptions(ClusterId: string, ResourceId: string, request: $_model.DeleteResourceLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResourceLogResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1662,22 +1688,26 @@ export default class Client extends OpenApi {
 
   /**
    * Disables the LogShipper feature of Log Service for a dedicated resource group.
+   * 
+   * @param request - DeleteResourceLogRequest
    * @returns DeleteResourceLogResponse
    */
-  async deleteResourceLog(ClusterId: string, ResourceId: string): Promise<$_model.DeleteResourceLogResponse> {
+  async deleteResourceLog(ClusterId: string, ResourceId: string, request: $_model.DeleteResourceLogRequest): Promise<$_model.DeleteResourceLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
+    return await this.deleteResourceLogWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
   /**
    * Deletes a service.
    * 
+   * @param request - DeleteServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceResponse
    */
-  async deleteServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceResponse> {
+  async deleteServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.DeleteServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1697,22 +1727,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a service.
+   * 
+   * @param request - DeleteServiceRequest
    * @returns DeleteServiceResponse
    */
-  async deleteService(ClusterId: string, ServiceName: string): Promise<$_model.DeleteServiceResponse> {
+  async deleteService(ClusterId: string, ServiceName: string, request: $_model.DeleteServiceRequest): Promise<$_model.DeleteServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.deleteServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
    * Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
    * 
+   * @param request - DeleteServiceAutoScalerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceAutoScalerResponse
    */
-  async deleteServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceAutoScalerResponse> {
+  async deleteServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: $_model.DeleteServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceAutoScalerResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1732,22 +1766,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes the existing Autoscaler controller and disables the Autoscaler feature for a service.
+   * 
+   * @param request - DeleteServiceAutoScalerRequest
    * @returns DeleteServiceAutoScalerResponse
    */
-  async deleteServiceAutoScaler(ClusterId: string, ServiceName: string): Promise<$_model.DeleteServiceAutoScalerResponse> {
+  async deleteServiceAutoScaler(ClusterId: string, ServiceName: string, request: $_model.DeleteServiceAutoScalerRequest): Promise<$_model.DeleteServiceAutoScalerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.deleteServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
    * Disables the Cronscaler feature for a service.
    * 
+   * @param request - DeleteServiceCronScalerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceCronScalerResponse
    */
-  async deleteServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceCronScalerResponse> {
+  async deleteServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: $_model.DeleteServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceCronScalerResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1767,12 +1805,14 @@ export default class Client extends OpenApi {
 
   /**
    * Disables the Cronscaler feature for a service.
+   * 
+   * @param request - DeleteServiceCronScalerRequest
    * @returns DeleteServiceCronScalerResponse
    */
-  async deleteServiceCronScaler(ClusterId: string, ServiceName: string): Promise<$_model.DeleteServiceCronScalerResponse> {
+  async deleteServiceCronScaler(ClusterId: string, ServiceName: string, request: $_model.DeleteServiceCronScalerRequest): Promise<$_model.DeleteServiceCronScalerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.deleteServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
@@ -1894,11 +1934,13 @@ export default class Client extends OpenApi {
   /**
    * Disables the traffic mirroring feature for a service.
    * 
+   * @param request - DeleteServiceMirrorRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceMirrorResponse
    */
-  async deleteServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceMirrorResponse> {
+  async deleteServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: $_model.DeleteServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceMirrorResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1918,22 +1960,26 @@ export default class Client extends OpenApi {
 
   /**
    * Disables the traffic mirroring feature for a service.
+   * 
+   * @param request - DeleteServiceMirrorRequest
    * @returns DeleteServiceMirrorResponse
    */
-  async deleteServiceMirror(ClusterId: string, ServiceName: string): Promise<$_model.DeleteServiceMirrorResponse> {
+  async deleteServiceMirror(ClusterId: string, ServiceName: string, request: $_model.DeleteServiceMirrorRequest): Promise<$_model.DeleteServiceMirrorResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.deleteServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
    * Deletes a virtual resource group that contains no resources or instances.
    * 
+   * @param request - DeleteVirtualResourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVirtualResourceResponse
    */
-  async deleteVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVirtualResourceResponse> {
+  async deleteVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, request: $_model.DeleteVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVirtualResourceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1953,22 +1999,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a virtual resource group that contains no resources or instances.
+   * 
+   * @param request - DeleteVirtualResourceRequest
    * @returns DeleteVirtualResourceResponse
    */
-  async deleteVirtualResource(ClusterId: string, VirtualResourceId: string): Promise<$_model.DeleteVirtualResourceResponse> {
+  async deleteVirtualResource(ClusterId: string, VirtualResourceId: string, request: $_model.DeleteVirtualResourceRequest): Promise<$_model.DeleteVirtualResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteVirtualResourceWithOptions(ClusterId, VirtualResourceId, headers, runtime);
+    return await this.deleteVirtualResourceWithOptions(ClusterId, VirtualResourceId, request, headers, runtime);
   }
 
   /**
    * Queries details about the configurations of a stress testing task.
    * 
+   * @param request - DescribeBenchmarkTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBenchmarkTaskResponse
    */
-  async describeBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBenchmarkTaskResponse> {
+  async describeBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: $_model.DescribeBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBenchmarkTaskResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1988,12 +2038,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries details about the configurations of a stress testing task.
+   * 
+   * @param request - DescribeBenchmarkTaskRequest
    * @returns DescribeBenchmarkTaskResponse
    */
-  async describeBenchmarkTask(ClusterId: string, TaskName: string): Promise<$_model.DescribeBenchmarkTaskResponse> {
+  async describeBenchmarkTask(ClusterId: string, TaskName: string, request: $_model.DescribeBenchmarkTaskRequest): Promise<$_model.DescribeBenchmarkTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+    return await this.describeBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
 
   /**
@@ -2044,11 +2096,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the details of a private gateway.
    * 
+   * @param request - DescribeGatewayRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGatewayResponse
    */
-  async describeGatewayWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGatewayResponse> {
+  async describeGatewayWithOptions(ClusterId: string, GatewayId: string, request: $_model.DescribeGatewayRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGatewayResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2068,22 +2122,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details of a private gateway.
+   * 
+   * @param request - DescribeGatewayRequest
    * @returns DescribeGatewayResponse
    */
-  async describeGateway(ClusterId: string, GatewayId: string): Promise<$_model.DescribeGatewayResponse> {
+  async describeGateway(ClusterId: string, GatewayId: string, request: $_model.DescribeGatewayRequest): Promise<$_model.DescribeGatewayResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeGatewayWithOptions(ClusterId, GatewayId, headers, runtime);
+    return await this.describeGatewayWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   /**
    * Queries the information about a service group.
    * 
+   * @param request - DescribeGroupRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGroupResponse
    */
-  async describeGroupWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGroupResponse> {
+  async describeGroupWithOptions(ClusterId: string, GroupName: string, request: $_model.DescribeGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGroupResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2103,22 +2161,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about a service group.
+   * 
+   * @param request - DescribeGroupRequest
    * @returns DescribeGroupResponse
    */
-  async describeGroup(ClusterId: string, GroupName: string): Promise<$_model.DescribeGroupResponse> {
+  async describeGroup(ClusterId: string, GroupName: string, request: $_model.DescribeGroupRequest): Promise<$_model.DescribeGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeGroupWithOptions(ClusterId, GroupName, headers, runtime);
+    return await this.describeGroupWithOptions(ClusterId, GroupName, request, headers, runtime);
   }
 
   /**
    * Obtains a list of endpoints of service groups.
    * 
+   * @param request - DescribeGroupEndpointsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGroupEndpointsResponse
    */
-  async describeGroupEndpointsWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGroupEndpointsResponse> {
+  async describeGroupEndpointsWithOptions(ClusterId: string, GroupName: string, request: $_model.DescribeGroupEndpointsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGroupEndpointsResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2138,12 +2200,14 @@ export default class Client extends OpenApi {
 
   /**
    * Obtains a list of endpoints of service groups.
+   * 
+   * @param request - DescribeGroupEndpointsRequest
    * @returns DescribeGroupEndpointsResponse
    */
-  async describeGroupEndpoints(ClusterId: string, GroupName: string): Promise<$_model.DescribeGroupEndpointsResponse> {
+  async describeGroupEndpoints(ClusterId: string, GroupName: string, request: $_model.DescribeGroupEndpointsRequest): Promise<$_model.DescribeGroupEndpointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeGroupEndpointsWithOptions(ClusterId, GroupName, headers, runtime);
+    return await this.describeGroupEndpointsWithOptions(ClusterId, GroupName, request, headers, runtime);
   }
 
   /**
@@ -2243,11 +2307,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about a resource group.
    * 
+   * @param request - DescribeResourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourceResponse
    */
-  async describeResourceWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceResponse> {
+  async describeResourceWithOptions(ClusterId: string, ResourceId: string, request: $_model.DescribeResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2267,22 +2333,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about a resource group.
+   * 
+   * @param request - DescribeResourceRequest
    * @returns DescribeResourceResponse
    */
-  async describeResource(ClusterId: string, ResourceId: string): Promise<$_model.DescribeResourceResponse> {
+  async describeResource(ClusterId: string, ResourceId: string, request: $_model.DescribeResourceRequest): Promise<$_model.DescribeResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeResourceWithOptions(ClusterId, ResourceId, headers, runtime);
+    return await this.describeResourceWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
   /**
    * Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
    * 
+   * @param request - DescribeResourceDLinkRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourceDLinkResponse
    */
-  async describeResourceDLinkWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceDLinkResponse> {
+  async describeResourceDLinkWithOptions(ClusterId: string, ResourceId: string, request: $_model.DescribeResourceDLinkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceDLinkResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2302,22 +2372,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries detailed configurations about a virtual private cloud (VPC) direct connection of a dedicated resource group.
+   * 
+   * @param request - DescribeResourceDLinkRequest
    * @returns DescribeResourceDLinkResponse
    */
-  async describeResourceDLink(ClusterId: string, ResourceId: string): Promise<$_model.DescribeResourceDLinkResponse> {
+  async describeResourceDLink(ClusterId: string, ResourceId: string, request: $_model.DescribeResourceDLinkRequest): Promise<$_model.DescribeResourceDLinkResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeResourceDLinkWithOptions(ClusterId, ResourceId, headers, runtime);
+    return await this.describeResourceDLinkWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
   /**
    * Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
    * 
+   * @param request - DescribeResourceLogRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeResourceLogResponse
    */
-  async describeResourceLogWithOptions(ClusterId: string, ResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceLogResponse> {
+  async describeResourceLogWithOptions(ClusterId: string, ResourceId: string, request: $_model.DescribeResourceLogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeResourceLogResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2337,22 +2411,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details about the LogShipper configurations of Log Service for a dedicated resource group.
+   * 
+   * @param request - DescribeResourceLogRequest
    * @returns DescribeResourceLogResponse
    */
-  async describeResourceLog(ClusterId: string, ResourceId: string): Promise<$_model.DescribeResourceLogResponse> {
+  async describeResourceLog(ClusterId: string, ResourceId: string, request: $_model.DescribeResourceLogRequest): Promise<$_model.DescribeResourceLogResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeResourceLogWithOptions(ClusterId, ResourceId, headers, runtime);
+    return await this.describeResourceLogWithOptions(ClusterId, ResourceId, request, headers, runtime);
   }
 
   /**
    * Queries the details about a service.
    * 
+   * @param request - DescribeServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceResponse
    */
-  async describeServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceResponse> {
+  async describeServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2372,22 +2450,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the details about a service.
+   * 
+   * @param request - DescribeServiceRequest
    * @returns DescribeServiceResponse
    */
-  async describeService(ClusterId: string, ServiceName: string): Promise<$_model.DescribeServiceResponse> {
+  async describeService(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceRequest): Promise<$_model.DescribeServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.describeServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
    * Queries information about the Autoscaler configurations of a service.
    * 
+   * @param request - DescribeServiceAutoScalerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceAutoScalerResponse
    */
-  async describeServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceAutoScalerResponse> {
+  async describeServiceAutoScalerWithOptions(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceAutoScalerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceAutoScalerResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2407,22 +2489,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries information about the Autoscaler configurations of a service.
+   * 
+   * @param request - DescribeServiceAutoScalerRequest
    * @returns DescribeServiceAutoScalerResponse
    */
-  async describeServiceAutoScaler(ClusterId: string, ServiceName: string): Promise<$_model.DescribeServiceAutoScalerResponse> {
+  async describeServiceAutoScaler(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceAutoScalerRequest): Promise<$_model.DescribeServiceAutoScalerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeServiceAutoScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.describeServiceAutoScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
    * Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
    * 
+   * @param request - DescribeServiceCronScalerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceCronScalerResponse
    */
-  async describeServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceCronScalerResponse> {
+  async describeServiceCronScalerWithOptions(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceCronScalerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceCronScalerResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2442,22 +2528,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the Cron Horizontal Pod Autoscaler (CronHPA) configurations of a service.
+   * 
+   * @param request - DescribeServiceCronScalerRequest
    * @returns DescribeServiceCronScalerResponse
    */
-  async describeServiceCronScaler(ClusterId: string, ServiceName: string): Promise<$_model.DescribeServiceCronScalerResponse> {
+  async describeServiceCronScaler(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceCronScalerRequest): Promise<$_model.DescribeServiceCronScalerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeServiceCronScalerWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.describeServiceCronScalerWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
    * Queries the diagnostics details of a service.
    * 
+   * @param request - DescribeServiceDiagnosisRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceDiagnosisResponse
    */
-  async describeServiceDiagnosisWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceDiagnosisResponse> {
+  async describeServiceDiagnosisWithOptions(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceDiagnosisResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2477,22 +2567,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the diagnostics details of a service.
+   * 
+   * @param request - DescribeServiceDiagnosisRequest
    * @returns DescribeServiceDiagnosisResponse
    */
-  async describeServiceDiagnosis(ClusterId: string, ServiceName: string): Promise<$_model.DescribeServiceDiagnosisResponse> {
+  async describeServiceDiagnosis(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceDiagnosisRequest): Promise<$_model.DescribeServiceDiagnosisResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeServiceDiagnosisWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.describeServiceDiagnosisWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
    * Obtains a list of service endpoints.
    * 
+   * @param request - DescribeServiceEndpointsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceEndpointsResponse
    */
-  async describeServiceEndpointsWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceEndpointsResponse> {
+  async describeServiceEndpointsWithOptions(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceEndpointsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceEndpointsResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2512,12 +2606,14 @@ export default class Client extends OpenApi {
 
   /**
    * Obtains a list of service endpoints.
+   * 
+   * @param request - DescribeServiceEndpointsRequest
    * @returns DescribeServiceEndpointsResponse
    */
-  async describeServiceEndpoints(ClusterId: string, ServiceName: string): Promise<$_model.DescribeServiceEndpointsResponse> {
+  async describeServiceEndpoints(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceEndpointsRequest): Promise<$_model.DescribeServiceEndpointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeServiceEndpointsWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.describeServiceEndpointsWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
@@ -2588,11 +2684,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
    * 
+   * @param request - DescribeServiceInstanceDiagnosisRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceInstanceDiagnosisResponse
    */
-  async describeServiceInstanceDiagnosisWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceInstanceDiagnosisResponse> {
+  async describeServiceInstanceDiagnosisWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.DescribeServiceInstanceDiagnosisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceInstanceDiagnosisResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2612,12 +2710,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the diagnostics details of an instance that runs Elastic Algorithm Service (EAS).
+   * 
+   * @param request - DescribeServiceInstanceDiagnosisRequest
    * @returns DescribeServiceInstanceDiagnosisResponse
    */
-  async describeServiceInstanceDiagnosis(ClusterId: string, ServiceName: string, InstanceName: string): Promise<$_model.DescribeServiceInstanceDiagnosisResponse> {
+  async describeServiceInstanceDiagnosis(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.DescribeServiceInstanceDiagnosisRequest): Promise<$_model.DescribeServiceInstanceDiagnosisResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeServiceInstanceDiagnosisWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
+    return await this.describeServiceInstanceDiagnosisWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
   }
 
   /**
@@ -2700,11 +2800,13 @@ export default class Client extends OpenApi {
   /**
    * Queries details about the traffic mirroring settings of a service.
    * 
+   * @param request - DescribeServiceMirrorRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeServiceMirrorResponse
    */
-  async describeServiceMirrorWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceMirrorResponse> {
+  async describeServiceMirrorWithOptions(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceMirrorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeServiceMirrorResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2724,12 +2826,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries details about the traffic mirroring settings of a service.
+   * 
+   * @param request - DescribeServiceMirrorRequest
    * @returns DescribeServiceMirrorResponse
    */
-  async describeServiceMirror(ClusterId: string, ServiceName: string): Promise<$_model.DescribeServiceMirrorResponse> {
+  async describeServiceMirror(ClusterId: string, ServiceName: string, request: $_model.DescribeServiceMirrorRequest): Promise<$_model.DescribeServiceMirrorResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.describeServiceMirrorWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
@@ -2837,11 +2941,13 @@ export default class Client extends OpenApi {
   /**
    * Views the details of a virtual resource group.
    * 
+   * @param request - DescribeVirtualResourceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVirtualResourceResponse
    */
-  async describeVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVirtualResourceResponse> {
+  async describeVirtualResourceWithOptions(ClusterId: string, VirtualResourceId: string, request: $_model.DescribeVirtualResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVirtualResourceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2861,12 +2967,14 @@ export default class Client extends OpenApi {
 
   /**
    * Views the details of a virtual resource group.
+   * 
+   * @param request - DescribeVirtualResourceRequest
    * @returns DescribeVirtualResourceResponse
    */
-  async describeVirtualResource(ClusterId: string, VirtualResourceId: string): Promise<$_model.DescribeVirtualResourceResponse> {
+  async describeVirtualResource(ClusterId: string, VirtualResourceId: string, request: $_model.DescribeVirtualResourceRequest): Promise<$_model.DescribeVirtualResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.describeVirtualResourceWithOptions(ClusterId, VirtualResourceId, headers, runtime);
+    return await this.describeVirtualResourceWithOptions(ClusterId, VirtualResourceId, request, headers, runtime);
   }
 
   /**
@@ -3185,11 +3293,13 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of custom domain names of a private gateway.
    * 
+   * @param request - ListGatewayDomainsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewayDomainsResponse
    */
-  async listGatewayDomainsWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayDomainsResponse> {
+  async listGatewayDomainsWithOptions(ClusterId: string, GatewayId: string, request: $_model.ListGatewayDomainsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayDomainsResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3209,22 +3319,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of custom domain names of a private gateway.
+   * 
+   * @param request - ListGatewayDomainsRequest
    * @returns ListGatewayDomainsResponse
    */
-  async listGatewayDomains(ClusterId: string, GatewayId: string): Promise<$_model.ListGatewayDomainsResponse> {
+  async listGatewayDomains(ClusterId: string, GatewayId: string, request: $_model.ListGatewayDomainsRequest): Promise<$_model.ListGatewayDomainsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listGatewayDomainsWithOptions(ClusterId, GatewayId, headers, runtime);
+    return await this.listGatewayDomainsWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   /**
    * Queries a list of the internal endpoints of a private gateway.
    * 
+   * @param request - ListGatewayIntranetLinkedVpcRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewayIntranetLinkedVpcResponse
    */
-  async listGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayIntranetLinkedVpcResponse> {
+  async listGatewayIntranetLinkedVpcWithOptions(ClusterId: string, GatewayId: string, request: $_model.ListGatewayIntranetLinkedVpcRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayIntranetLinkedVpcResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3244,12 +3358,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of the internal endpoints of a private gateway.
+   * 
+   * @param request - ListGatewayIntranetLinkedVpcRequest
    * @returns ListGatewayIntranetLinkedVpcResponse
    */
-  async listGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string): Promise<$_model.ListGatewayIntranetLinkedVpcResponse> {
+  async listGatewayIntranetLinkedVpc(ClusterId: string, GatewayId: string, request: $_model.ListGatewayIntranetLinkedVpcRequest): Promise<$_model.ListGatewayIntranetLinkedVpcResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, headers, runtime);
+    return await this.listGatewayIntranetLinkedVpcWithOptions(ClusterId, GatewayId, request, headers, runtime);
   }
 
   /**
@@ -3300,11 +3416,13 @@ export default class Client extends OpenApi {
   /**
    * Obtains the zones supported by a gateway within an intranet.
    * 
+   * @param request - ListGatewayIntranetSupportedZoneRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewayIntranetSupportedZoneResponse
    */
-  async listGatewayIntranetSupportedZoneWithOptions(GatewayId: string, ClusterId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayIntranetSupportedZoneResponse> {
+  async listGatewayIntranetSupportedZoneWithOptions(GatewayId: string, ClusterId: string, request: $_model.ListGatewayIntranetSupportedZoneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayIntranetSupportedZoneResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3324,12 +3442,14 @@ export default class Client extends OpenApi {
 
   /**
    * Obtains the zones supported by a gateway within an intranet.
+   * 
+   * @param request - ListGatewayIntranetSupportedZoneRequest
    * @returns ListGatewayIntranetSupportedZoneResponse
    */
-  async listGatewayIntranetSupportedZone(GatewayId: string, ClusterId: string): Promise<$_model.ListGatewayIntranetSupportedZoneResponse> {
+  async listGatewayIntranetSupportedZone(GatewayId: string, ClusterId: string, request: $_model.ListGatewayIntranetSupportedZoneRequest): Promise<$_model.ListGatewayIntranetSupportedZoneResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listGatewayIntranetSupportedZoneWithOptions(GatewayId, ClusterId, headers, runtime);
+    return await this.listGatewayIntranetSupportedZoneWithOptions(GatewayId, ClusterId, request, headers, runtime);
   }
 
   /**
@@ -3703,11 +3823,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the containers of a service.
    * 
+   * @param request - ListServiceContainersRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceContainersResponse
    */
-  async listServiceContainersWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceContainersResponse> {
+  async listServiceContainersWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.ListServiceContainersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceContainersResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3727,22 +3849,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the containers of a service.
+   * 
+   * @param request - ListServiceContainersRequest
    * @returns ListServiceContainersResponse
    */
-  async listServiceContainers(ClusterId: string, ServiceName: string, InstanceName: string): Promise<$_model.ListServiceContainersResponse> {
+  async listServiceContainers(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.ListServiceContainersRequest): Promise<$_model.ListServiceContainersResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listServiceContainersWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
+    return await this.listServiceContainersWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
   }
 
   /**
    * 获取故障注入信息
    * 
+   * @param request - ListServiceInstanceFaultInjectionInfoRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceInstanceFaultInjectionInfoResponse
    */
-  async listServiceInstanceFaultInjectionInfoWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceInstanceFaultInjectionInfoResponse> {
+  async listServiceInstanceFaultInjectionInfoWithOptions(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.ListServiceInstanceFaultInjectionInfoRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListServiceInstanceFaultInjectionInfoResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -3762,12 +3888,14 @@ export default class Client extends OpenApi {
 
   /**
    * 获取故障注入信息
+   * 
+   * @param request - ListServiceInstanceFaultInjectionInfoRequest
    * @returns ListServiceInstanceFaultInjectionInfoResponse
    */
-  async listServiceInstanceFaultInjectionInfo(ClusterId: string, ServiceName: string, InstanceName: string): Promise<$_model.ListServiceInstanceFaultInjectionInfoResponse> {
+  async listServiceInstanceFaultInjectionInfo(ClusterId: string, ServiceName: string, InstanceName: string, request: $_model.ListServiceInstanceFaultInjectionInfoRequest): Promise<$_model.ListServiceInstanceFaultInjectionInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listServiceInstanceFaultInjectionInfoWithOptions(ClusterId, ServiceName, InstanceName, headers, runtime);
+    return await this.listServiceInstanceFaultInjectionInfoWithOptions(ClusterId, ServiceName, InstanceName, request, headers, runtime);
   }
 
   /**
@@ -4243,11 +4371,13 @@ export default class Client extends OpenApi {
   /**
    * Resets tenant configurations.
    * 
+   * @param request - ReinstallTenantAddonRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ReinstallTenantAddonResponse
    */
-  async reinstallTenantAddonWithOptions(ClusterId: string, TenantAddonName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ReinstallTenantAddonResponse> {
+  async reinstallTenantAddonWithOptions(ClusterId: string, TenantAddonName: string, request: $_model.ReinstallTenantAddonRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ReinstallTenantAddonResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4267,12 +4397,14 @@ export default class Client extends OpenApi {
 
   /**
    * Resets tenant configurations.
+   * 
+   * @param request - ReinstallTenantAddonRequest
    * @returns ReinstallTenantAddonResponse
    */
-  async reinstallTenantAddon(ClusterId: string, TenantAddonName: string): Promise<$_model.ReinstallTenantAddonResponse> {
+  async reinstallTenantAddon(ClusterId: string, TenantAddonName: string, request: $_model.ReinstallTenantAddonRequest): Promise<$_model.ReinstallTenantAddonResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.reinstallTenantAddonWithOptions(ClusterId, TenantAddonName, headers, runtime);
+    return await this.reinstallTenantAddonWithOptions(ClusterId, TenantAddonName, request, headers, runtime);
   }
 
   /**
@@ -4327,11 +4459,13 @@ export default class Client extends OpenApi {
   /**
    * Restarts a service.
    * 
+   * @param request - RestartServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RestartServiceResponse
    */
-  async restartServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RestartServiceResponse> {
+  async restartServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.RestartServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RestartServiceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4351,12 +4485,14 @@ export default class Client extends OpenApi {
 
   /**
    * Restarts a service.
+   * 
+   * @param request - RestartServiceRequest
    * @returns RestartServiceResponse
    */
-  async restartService(ClusterId: string, ServiceName: string): Promise<$_model.RestartServiceResponse> {
+  async restartService(ClusterId: string, ServiceName: string, request: $_model.RestartServiceRequest): Promise<$_model.RestartServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.restartServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.restartServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
@@ -4411,11 +4547,13 @@ export default class Client extends OpenApi {
   /**
    * Starts a stress testing task.
    * 
+   * @param request - StartBenchmarkTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartBenchmarkTaskResponse
    */
-  async startBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartBenchmarkTaskResponse> {
+  async startBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: $_model.StartBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartBenchmarkTaskResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4435,22 +4573,26 @@ export default class Client extends OpenApi {
 
   /**
    * Starts a stress testing task.
+   * 
+   * @param request - StartBenchmarkTaskRequest
    * @returns StartBenchmarkTaskResponse
    */
-  async startBenchmarkTask(ClusterId: string, TaskName: string): Promise<$_model.StartBenchmarkTaskResponse> {
+  async startBenchmarkTask(ClusterId: string, TaskName: string, request: $_model.StartBenchmarkTaskRequest): Promise<$_model.StartBenchmarkTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+    return await this.startBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
 
   /**
    * Starts a service.
    * 
+   * @param request - StartServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartServiceResponse
    */
-  async startServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartServiceResponse> {
+  async startServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.StartServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartServiceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4470,22 +4612,26 @@ export default class Client extends OpenApi {
 
   /**
    * Starts a service.
+   * 
+   * @param request - StartServiceRequest
    * @returns StartServiceResponse
    */
-  async startService(ClusterId: string, ServiceName: string): Promise<$_model.StartServiceResponse> {
+  async startService(ClusterId: string, ServiceName: string, request: $_model.StartServiceRequest): Promise<$_model.StartServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.startServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.startServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
    * Stops a stress testing task.
    * 
+   * @param request - StopBenchmarkTaskRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopBenchmarkTaskResponse
    */
-  async stopBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopBenchmarkTaskResponse> {
+  async stopBenchmarkTaskWithOptions(ClusterId: string, TaskName: string, request: $_model.StopBenchmarkTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopBenchmarkTaskResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4505,22 +4651,26 @@ export default class Client extends OpenApi {
 
   /**
    * Stops a stress testing task.
+   * 
+   * @param request - StopBenchmarkTaskRequest
    * @returns StopBenchmarkTaskResponse
    */
-  async stopBenchmarkTask(ClusterId: string, TaskName: string): Promise<$_model.StopBenchmarkTaskResponse> {
+  async stopBenchmarkTask(ClusterId: string, TaskName: string, request: $_model.StopBenchmarkTaskRequest): Promise<$_model.StopBenchmarkTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopBenchmarkTaskWithOptions(ClusterId, TaskName, headers, runtime);
+    return await this.stopBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
   }
 
   /**
    * Stops a running service.
    * 
+   * @param request - StopServiceRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopServiceResponse
    */
-  async stopServiceWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopServiceResponse> {
+  async stopServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.StopServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopServiceResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -4540,12 +4690,14 @@ export default class Client extends OpenApi {
 
   /**
    * Stops a running service.
+   * 
+   * @param request - StopServiceRequest
    * @returns StopServiceResponse
    */
-  async stopService(ClusterId: string, ServiceName: string): Promise<$_model.StopServiceResponse> {
+  async stopService(ClusterId: string, ServiceName: string, request: $_model.StopServiceRequest): Promise<$_model.StopServiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.stopServiceWithOptions(ClusterId, ServiceName, headers, runtime);
+    return await this.stopServiceWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
