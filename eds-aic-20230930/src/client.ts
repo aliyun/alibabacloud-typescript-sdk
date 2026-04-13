@@ -1688,6 +1688,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询具体Task的相关信息
+   * 
+   * @param request - DescribeAgentTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAgentTaskResponse
+   */
+  async describeAgentTaskWithOptions(request: $_model.DescribeAgentTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgentTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskIds)) {
+      query["TaskIds"] = request.taskIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAgentTask",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAgentTaskResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAgentTaskResponse({}));
+  }
+
+  /**
+   * 查询具体Task的相关信息
+   * 
+   * @param request - DescribeAgentTaskRequest
+   * @returns DescribeAgentTaskResponse
+   */
+  async describeAgentTask(request: $_model.DescribeAgentTaskRequest): Promise<$_model.DescribeAgentTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAgentTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of an instance group.
    * 
    * @param request - DescribeAndroidInstanceGroupsRequest
@@ -4953,6 +4995,64 @@ export default class Client extends OpenApi {
   async resetAndroidInstancesInGroup(request: $_model.ResetAndroidInstancesInGroupRequest): Promise<$_model.ResetAndroidInstancesInGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetAndroidInstancesInGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 触发云手机内的 Agent 执行 AI 自动化任务。
+   * 
+   * @param request - RunAgentTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunAgentTaskResponse
+   */
+  async runAgentTaskWithOptions(request: $_model.RunAgentTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunAgentTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.maxSteps)) {
+      query["MaxSteps"] = request.maxSteps;
+    }
+
+    if (!$dara.isNull(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    if (!$dara.isNull(request.userPrompt)) {
+      query["UserPrompt"] = request.userPrompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunAgentTask",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunAgentTaskResponse>(await this.callApi(params, req, runtime), new $_model.RunAgentTaskResponse({}));
+  }
+
+  /**
+   * 触发云手机内的 Agent 执行 AI 自动化任务。
+   * 
+   * @param request - RunAgentTaskRequest
+   * @returns RunAgentTaskResponse
+   */
+  async runAgentTask(request: $_model.RunAgentTaskRequest): Promise<$_model.RunAgentTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runAgentTaskWithOptions(request, runtime);
   }
 
   /**
