@@ -83,6 +83,7 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoo
    * InstanceTypesOrDiskTypesNotSupported
    */
   code?: string;
+  elasticStrength?: string;
   /**
    * @remarks
    * The instance type of the resource pool.
@@ -143,6 +144,7 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoo
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      elasticStrength: 'ElasticStrength',
       instanceType: 'InstanceType',
       inventoryHealth: 'InventoryHealth',
       msg: 'Msg',
@@ -156,6 +158,7 @@ export class DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoo
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      elasticStrength: 'string',
       instanceType: 'string',
       inventoryHealth: DescribeElasticStrengthResponseBodyElasticStrengthModelsResourcePoolsInventoryHealth,
       msg: 'string',
@@ -330,6 +333,7 @@ export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Mode
    * IMG_NOT_SUPPORTED
    */
   code?: string;
+  elasticStrength?: string;
   /**
    * @remarks
    * The instance type of the resource pool.
@@ -386,6 +390,7 @@ export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      elasticStrength: 'ElasticStrength',
       instanceType: 'InstanceType',
       inventoryHealth: 'InventoryHealth',
       msg: 'Msg',
@@ -399,6 +404,7 @@ export class DescribeElasticStrengthResponseBodyResourcePools extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      elasticStrength: 'string',
       instanceType: 'string',
       inventoryHealth: DescribeElasticStrengthResponseBodyResourcePoolsInventoryHealth,
       msg: 'string',

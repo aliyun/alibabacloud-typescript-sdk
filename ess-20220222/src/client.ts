@@ -3248,6 +3248,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询备选规格
+   * 
+   * @param request - DescribeCandidateInstanceTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCandidateInstanceTypeResponse
+   */
+  async describeCandidateInstanceTypeWithOptions(request: $_model.DescribeCandidateInstanceTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCandidateInstanceTypeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allowCrossAz)) {
+      query["AllowCrossAz"] = request.allowCrossAz;
+    }
+
+    if (!$dara.isNull(request.allowDifferentGeneration)) {
+      query["AllowDifferentGeneration"] = request.allowDifferentGeneration;
+    }
+
+    if (!$dara.isNull(request.dataDiskCategories)) {
+      query["DataDiskCategories"] = request.dataDiskCategories;
+    }
+
+    if (!$dara.isNull(request.imageFamily)) {
+      query["ImageFamily"] = request.imageFamily;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.imageName)) {
+      query["ImageName"] = request.imageName;
+    }
+
+    if (!$dara.isNull(request.instanceTypes)) {
+      query["InstanceTypes"] = request.instanceTypes;
+    }
+
+    if (!$dara.isNull(request.ipv6AddressCount)) {
+      query["Ipv6AddressCount"] = request.ipv6AddressCount;
+    }
+
+    if (!$dara.isNull(request.maxPrice)) {
+      query["MaxPrice"] = request.maxPrice;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.spotStrategy)) {
+      query["SpotStrategy"] = request.spotStrategy;
+    }
+
+    if (!$dara.isNull(request.systemDiskCategories)) {
+      query["SystemDiskCategories"] = request.systemDiskCategories;
+    }
+
+    if (!$dara.isNull(request.zoneIds)) {
+      query["ZoneIds"] = request.zoneIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCandidateInstanceType",
+      version: "2022-02-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCandidateInstanceTypeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCandidateInstanceTypeResponse({}));
+  }
+
+  /**
+   * 查询备选规格
+   * 
+   * @param request - DescribeCandidateInstanceTypeRequest
+   * @returns DescribeCandidateInstanceTypeResponse
+   */
+  async describeCandidateInstanceType(request: $_model.DescribeCandidateInstanceTypeRequest): Promise<$_model.DescribeCandidateInstanceTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCandidateInstanceTypeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the diagnostic reports.
    * 
    * @param request - DescribeDiagnoseReportsRequest
