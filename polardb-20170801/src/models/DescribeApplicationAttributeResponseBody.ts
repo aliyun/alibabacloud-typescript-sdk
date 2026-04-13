@@ -336,10 +336,12 @@ export class DescribeApplicationAttributeResponseBodyMemApplicationAttribute ext
 
 export class DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute extends $dara.Model {
   authCallbackURL?: string;
+  authProviders?: string[];
   supabaseClusterId?: string;
   static names(): { [key: string]: string } {
     return {
       authCallbackURL: 'AuthCallbackURL',
+      authProviders: 'AuthProviders',
       supabaseClusterId: 'SupabaseClusterId',
     };
   }
@@ -347,11 +349,15 @@ export class DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAtt
   static types(): { [key: string]: any } {
     return {
       authCallbackURL: 'string',
+      authProviders: { 'type': 'array', 'itemType': 'string' },
       supabaseClusterId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.authProviders)) {
+      $dara.Model.validateArray(this.authProviders);
+    }
     super.validate();
   }
 
