@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the resource. It is the ID of the ApsaraDB for MongoDB instance.
-   * 
-   * @example
-   * dds-bp17e7a04960****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The resource type. The return value is fixed to **ALIYUN: KVSTORE: INSTANCE**, indicating an ApsaraDB for MongoDB instance.
-   * 
-   * @example
-   * ALIYUN::DDS::INSTANCE
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * Environment
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * dev
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,10 +79,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * 96017AF2-9AB1-4BC9-88D2-7966B3CD****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the tags of the instance.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

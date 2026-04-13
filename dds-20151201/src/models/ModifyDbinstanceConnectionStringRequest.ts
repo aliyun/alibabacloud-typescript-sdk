@@ -7,8 +7,6 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
    * @remarks
    * The current endpoint that is to be modified.
    * 
-   * This parameter is required.
-   * 
    * @example
    * s-bpxxxxxxxx.mongodb.rds.aliyuncs.com
    */
@@ -25,13 +23,17 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
    * dds-bpxxxxxxxx
    */
   DBInstanceId?: string;
+  forceModifySuffix?: boolean;
+  /**
+   * @example
+   * vpc
+   */
+  networkType?: string;
   /**
    * @remarks
    * The new endpoint. It must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter.
    * 
    * > You need only to specify the prefix of the endpoint. The content other than the prefix cannot be modified.
-   * 
-   * This parameter is required.
    * 
    * @example
    * aliyuntest111
@@ -59,17 +61,21 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
   nodeId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  portModifyOnly?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       currentConnectionString: 'CurrentConnectionString',
       DBInstanceId: 'DBInstanceId',
+      forceModifySuffix: 'ForceModifySuffix',
+      networkType: 'NetworkType',
       newConnectionString: 'NewConnectionString',
       newPort: 'NewPort',
       nodeId: 'NodeId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      portModifyOnly: 'PortModifyOnly',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -79,11 +85,14 @@ export class ModifyDBInstanceConnectionStringRequest extends $dara.Model {
     return {
       currentConnectionString: 'string',
       DBInstanceId: 'string',
+      forceModifySuffix: 'boolean',
+      networkType: 'string',
       newConnectionString: 'string',
       newPort: 'number',
       nodeId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      portModifyOnly: 'boolean',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };

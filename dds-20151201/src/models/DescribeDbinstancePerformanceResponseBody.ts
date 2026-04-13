@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceKeyPerformanceValuesPerformanceValue extends $dara.Model {
-  /**
-   * @remarks
-   * The date and time when the metric value was generated.
-   * 
-   * @example
-   * 2022-06-13T10:58:00Z
-   */
   date?: string;
-  /**
-   * @remarks
-   * The value of the performance metric.
-   * 
-   * @example
-   * 0.23
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,36 +55,9 @@ export class DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformance
 }
 
 export class DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceKey extends $dara.Model {
-  /**
-   * @remarks
-   * The performance metrics that are returned.
-   * 
-   * @example
-   * CpuUsage
-   */
   key?: string;
-  /**
-   * @remarks
-   * The details of the performance metric values.
-   */
   performanceValues?: DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceKeyPerformanceValues;
-  /**
-   * @remarks
-   * The unit of the performance metric.
-   * 
-   * @example
-   * %
-   */
   unit?: string;
-  /**
-   * @remarks
-   * The format of the performance metric value. If the performance metric contains multiple fields, the fields are separated with ampersands ( &).
-   * 
-   * For example, if you query disk space usage, the returned value of the **ValueFormat** parameter is **ins_size\\&data_size\\&log_size**.
-   * 
-   * @example
-   * cpu_usage
-   */
   valueFormat?: string;
   static names(): { [key: string]: string } {
     return {
@@ -165,10 +124,6 @@ export class DescribeDBInstancePerformanceResponseBody extends $dara.Model {
    * 2022-06-13T11:58Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The details of performance metrics.
-   */
   performanceKeys?: DescribeDBInstancePerformanceResponseBodyPerformanceKeys;
   /**
    * @remarks

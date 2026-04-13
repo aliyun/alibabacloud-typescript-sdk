@@ -3,85 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSlowLogRecordsResponseBodyItemsLogRecords extends $dara.Model {
-  /**
-   * @remarks
-   * The username of the database account that performs the operation.
-   * 
-   * @example
-   * test
-   */
   accountName?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * mongodbtest
-   */
   DBName?: string;
-  /**
-   * @remarks
-   * The number of documents that are scanned during the operation.
-   * 
-   * @example
-   * 1000000
-   */
   docsExamined?: number;
-  /**
-   * @remarks
-   * The start time of the operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-02-25T 01:41:28Z
-   */
   executionStartTime?: string;
-  /**
-   * @remarks
-   * The host IP address that is used to connect to the database.
-   * 
-   * @example
-   * 192.168.XX.XX
-   */
   hostAddress?: string;
-  /**
-   * @remarks
-   * The number of rows involved in index scans.
-   * 
-   * @example
-   * 0
-   */
   keysExamined?: number;
-  /**
-   * @remarks
-   * The execution time of the statement. Unit: milliseconds.
-   * 
-   * @example
-   * 600
-   */
   queryTimes?: string;
-  /**
-   * @remarks
-   * The number of rows returned by the SQL statement.
-   * 
-   * @example
-   * 0
-   */
   returnRowCounts?: number;
-  /**
-   * @remarks
-   * The SQL statement that is executed during the slow operation.
-   * 
-   * @example
-   * {\\"op\\":\\"query\\",\\"ns\\":\\"mongodbtest.customer\\",\\"query\\":{\\"find\\":\\"customer\\",\\"filter\\":{\\"name\\":\\"jack\\"}}}
-   */
   SQLText?: string;
-  /**
-   * @remarks
-   * The name of the collection.
-   * 
-   * @example
-   * C1
-   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -157,10 +87,6 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
    * MongoDB
    */
   engine?: string;
-  /**
-   * @remarks
-   * An array that consists of the information about each slow query.
-   */
   items?: DescribeSlowLogRecordsResponseBodyItems;
   /**
    * @remarks

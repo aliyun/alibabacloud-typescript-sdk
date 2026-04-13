@@ -29,10 +29,6 @@ export class DescribeUserEncryptionKeyListResponseBodyKeyIds extends $dara.Model
 }
 
 export class DescribeUserEncryptionKeyListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of custom keys.
-   */
   keyIds?: DescribeUserEncryptionKeyListResponseBodyKeyIds;
   /**
    * @remarks

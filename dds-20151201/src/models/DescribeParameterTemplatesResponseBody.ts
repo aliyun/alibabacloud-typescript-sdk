@@ -3,59 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParameterTemplatesResponseBodyParametersTemplateRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The value range of modifiable parameters.
-   * 
-   * @example
-   * [0-65536]
-   */
   checkingCode?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter is modifiable.
-   * 
-   * *   **false**: The parameter cannot be modified.
-   * *   **true**: The parameter can be modified.
-   * 
-   * @example
-   * true
-   */
   forceModify?: boolean;
-  /**
-   * @remarks
-   * Indicates whether a restart is required for parameter modifications to take effect.
-   * 
-   * *   **false**: A restart is not required. Parameter modifications immediately take effect.
-   * *   **true**: A restart is required for parameter modifications to take effect.
-   * 
-   * @example
-   * false
-   */
   forceRestart?: boolean;
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * The threshold in milliseconds at which the database profiler considers a query slow, default is 100.
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * net.compression.compressors
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The default value of the parameter.
-   * 
-   * @example
-   * 100
-   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,10 +91,6 @@ export class DescribeParameterTemplatesResponseBody extends $dara.Model {
    * 10
    */
   parameterCount?: string;
-  /**
-   * @remarks
-   * Details about the parameter templates.
-   */
   parameters?: DescribeParameterTemplatesResponseBodyParameters;
   /**
    * @remarks

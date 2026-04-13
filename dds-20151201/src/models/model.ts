@@ -33,6 +33,8 @@ export { DescribeBackupDBsResponseBodyDatabases } from './DescribeBackupDbsRespo
 export { DescribeBackupTasksResponseBodyBackupJobs } from './DescribeBackupTasksResponseBody';
 export { DescribeBackupsResponseBodyBackupsBackup } from './DescribeBackupsResponseBody';
 export { DescribeBackupsResponseBodyBackups } from './DescribeBackupsResponseBody';
+export { DescribeBinlogFilesResponseBodyItemsLogFile } from './DescribeBinlogFilesResponseBody';
+export { DescribeBinlogFilesResponseBodyItems } from './DescribeBinlogFilesResponseBody';
 export { DescribeClusterBackupsResponseBodyClusterBackupsBackupsExtraInfo } from './DescribeClusterBackupsResponseBody';
 export { DescribeClusterBackupsResponseBodyClusterBackupsBackups } from './DescribeClusterBackupsResponseBody';
 export { DescribeClusterBackupsResponseBodyClusterBackupsExtraInfo } from './DescribeClusterBackupsResponseBody';
@@ -273,6 +275,9 @@ export { DescribeBackupTasksResponse } from './DescribeBackupTasksResponse';
 export { DescribeBackupsRequest } from './DescribeBackupsRequest';
 export { DescribeBackupsResponseBody } from './DescribeBackupsResponseBody';
 export { DescribeBackupsResponse } from './DescribeBackupsResponse';
+export { DescribeBinlogFilesRequest } from './DescribeBinlogFilesRequest';
+export { DescribeBinlogFilesResponseBody } from './DescribeBinlogFilesResponseBody';
+export { DescribeBinlogFilesResponse } from './DescribeBinlogFilesResponse';
 export { DescribeClusterBackupsRequest } from './DescribeClusterBackupsRequest';
 export { DescribeClusterBackupsResponseBody } from './DescribeClusterBackupsResponseBody';
 export { DescribeClusterBackupsResponse } from './DescribeClusterBackupsResponse';

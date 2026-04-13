@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSecurityIpsResponseBodySecurityIpGroupsSecurityIpGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The attribute of the IP address whitelist.
-   * 
-   * @example
-   * hidden
-   */
   securityIpGroupAttribute?: string;
-  /**
-   * @remarks
-   * The name of the IP whitelist.
-   * 
-   * @example
-   * default
-   */
   securityIpGroupName?: string;
-  /**
-   * @remarks
-   * The name of the IP whitelist.
-   * 
-   * @example
-   * 47.xxx.xxx.xx,100.xxx.xxx.0/24
-   */
   securityIpList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class DescribeSecurityIpsResponseBody extends $dara.Model {
    * FC724D23-2962-479E-ABB1-606C935AE7FD
    */
   requestId?: string;
-  /**
-   * @remarks
-   * An array that consists of the information of IP whitelists.
-   */
   securityIpGroups?: DescribeSecurityIpsResponseBodySecurityIpGroups;
   /**
    * @remarks

@@ -3,120 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRestoreDBInstanceListResponseBodyDBInstancesDBInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The time of instance creation, formatted as <i>yyyy-MM-dd</i>T<i>HH:00:00</i>Z (UTC time).
-   * 
-   * @example
-   * 2022-01-02T07:43:59Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the instance.
-   * 
-   * @example
-   * test-database
-   */
   DBInstanceDescription?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * dds-bp12c5b040dc****
-   */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/63870.html).
-   * 
-   * @example
-   * Running
-   */
   DBInstanceStatus?: string;
-  /**
-   * @remarks
-   * The architecture of the instance. Valid values:
-   * 
-   * *   **sharding**: sharded cluster instance
-   * *   **replicate**: replica set or standalone instance
-   * 
-   * @example
-   * replicate
-   */
   DBInstanceType?: string;
-  /**
-   * @remarks
-   * The database engine version of the instance. Valid values:
-   * 
-   * *   **7.0**
-   * *   **6.0**
-   * *   **5.0**
-   * *   **4.4**
-   * *   **4.2**
-   * *   **4.0**
-   * *   **3.4**
-   * 
-   * @example
-   * 4.2
-   */
   engineVersion?: string;
-  /**
-   * @remarks
-   * The secondary availability zone 2 for the instance when implementing multi-AZ deployment.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
   hiddenZoneId?: string;
-  /**
-   * @remarks
-   * Specifies whether the instance is deleted. Valid values:
-   * 
-   * *   **0**: not deleted
-   * *   **1**: deleted
-   * 
-   * @example
-   * 0
-   */
   isDeleted?: number;
-  /**
-   * @remarks
-   * The locked state of the instance, value description:
-   * - Unlock: Normal.
-   * - ManualLock: Manually triggered lock.
-   * - LockByExpiration: Automatically locked due to expiration.
-   * - LockByRestoration: Automatically locked before restoration.
-   * - LockByDiskQuota: Automatically locked due to disk quota exceeded.
-   * 
-   * @example
-   * Unlock
-   */
   lockMode?: string;
-  /**
-   * @remarks
-   * The region ID of the instance.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The secondary availability zone 1 for the instance when implementing multi-AZ deployment.
-   * 
-   * @example
-   * cn-hangzhou-i
-   */
   secondaryZoneId?: string;
-  /**
-   * @remarks
-   * The zone ID of the instance.
-   * 
-   * @example
-   * cn-hangzhou-g
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -188,10 +85,6 @@ export class DescribeRestoreDBInstanceListResponseBodyDBInstances extends $dara.
 }
 
 export class DescribeRestoreDBInstanceListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * DB instances list.
-   */
   DBInstances?: DescribeRestoreDBInstanceListResponseBodyDBInstances;
   /**
    * @remarks

@@ -3,37 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsDdsRegionZonesZone extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether a virtual private cloud (VPC) is supported. Valid values:
-   * 
-   * *   **true**: VPC is supported.
-   * *   **false**: VPC is not supported.
-   * 
-   * @example
-   * true
-   */
   vpcEnabled?: boolean;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
   zoneId?: string;
-  /**
-   * @remarks
-   * The name of the zone.
-   * 
-   * The value of the ZoneName parameter is in the language that is specified by the **AcceptLanguage** parameter. For example, if the value of the ZoneId parameter in the response is **cn-hangzhou-h**, the following values are returned for the ZoneName parameter:
-   * 
-   * *   If the value of the **AcceptLanguage** parameter is **zh**, the value **H** is returned for the ZoneName parameter.
-   * *   If the value of the **AcceptLanguage** parameter is **en**, the value **Hangzhou Zone H** is returned for the ZoneName parameter.
-   * 
-   * @example
-   * Hangzhou Zone H
-   */
   zoneName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,43 +58,9 @@ export class DescribeRegionsResponseBodyRegionsDdsRegionZones extends $dara.Mode
 }
 
 export class DescribeRegionsResponseBodyRegionsDdsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The public endpoint of the region.
-   * 
-   * For example, if the value of the RegionId parameter in the response is cn-hangzhou, the following value is returned for the EndPoint parameter:
-   * 
-   * *   mongodb.aliyuncs.com
-   * 
-   * @example
-   * mongodb.aliyuncs.com
-   */
   endPoint?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * The value of the LocalName parameter is in the language that is specified by the **AcceptLanguage** parameter. For example, if the value of the RegionId parameter in the response is **cn-hangzhou**, the following values are returned for the LocalName parameter:
-   * 
-   * *   If the value of the **AcceptLanguage** parameter is **zh**, the value **华东1（杭州）** is returned for the LocalName parameter.
-   * *   If the value of the **AcceptLanguage** parameter is **en**, the value **China (Hangzhou)** is returned for the LocalName parameter.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
   regionName?: string;
-  /**
-   * @remarks
-   * The zones.
-   */
   zones?: DescribeRegionsResponseBodyRegionsDdsRegionZones;
   static names(): { [key: string]: string } {
     return {
@@ -182,10 +119,6 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The regions.
-   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks

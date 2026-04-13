@@ -3,55 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeErrorLogRecordsResponseBodyItemsLogRecords extends $dara.Model {
-  /**
-   * @remarks
-   * The category of the log entry. Valid values:
-   * 
-   * *   NETWORK: network connection log
-   * *   ACCESS: access control log
-   * *   \\-: general log
-   * *   COMMAND: slow query log
-   * *   SHARDING: sharded cluster log
-   * *   STORAGE: storage engine log
-   * *   CONNPOOL: connection pool log
-   * *   ASIO: asynchronous I/O operation log
-   * *   WRITE: slow update log
-   * 
-   * @example
-   * NETWORK
-   */
   category?: string;
-  /**
-   * @remarks
-   * The connection information of the log entry.
-   * 
-   * @example
-   * conn18xxxxxx
-   */
   connInfo?: string;
-  /**
-   * @remarks
-   * The content of the log entry.
-   * 
-   * @example
-   * xxxxxxxx
-   */
   content?: string;
-  /**
-   * @remarks
-   * The time when the log entry was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-02-26T12:09:34Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The ID of the log entry.
-   * 
-   * @example
-   * 1111111111
-   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -117,10 +72,6 @@ export class DescribeErrorLogRecordsResponseBody extends $dara.Model {
    * MongoDB
    */
   engine?: string;
-  /**
-   * @remarks
-   * Details about the log entries returned.
-   */
   items?: DescribeErrorLogRecordsResponseBodyItems;
   /**
    * @remarks

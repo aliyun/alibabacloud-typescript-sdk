@@ -3,59 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParametersResponseBodyConfigParametersParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The valid values of the parameter.
-   * 
-   * @example
-   * [0-65536]
-   */
   checkingCode?: string;
-  /**
-   * @remarks
-   * Indicates whether a restart is required for parameter modifications to take effect. Valid values:
-   * 
-   * *   **false**: A restart is not required. Modifications take effect immediately.
-   * *   **true**: A restart is required for parameter modifications to take effect.
-   * 
-   * @example
-   * true
-   */
   forceRestart?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the parameter value can be modified. Valid values:
-   * 
-   * *   **false**: The parameter value cannot be modified.
-   * *   **true**: The parameter value can be modified.
-   * 
-   * @example
-   * true
-   */
   modifiableStatus?: boolean;
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * The threshold in milliseconds at which the database profiler considers a query slow, default is 100.
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * operationProfiling.slowOpThresholdMs
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * @example
-   * 200
-   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,71 +67,12 @@ export class DescribeParametersResponseBodyConfigParameters extends $dara.Model 
 }
 
 export class DescribeParametersResponseBodyRunningParametersParameter extends $dara.Model {
-  /**
-   * @remarks
-   * 实例的角色类型，取值说明：
-   * 
-   * - **db**：shard角色。
-   * - **cs**：config server角色。
-   * - **mongos**：mongos角色。
-   * 
-   * @example
-   * db
-   */
   characterType?: string;
-  /**
-   * @remarks
-   * The valid values of the parameter.
-   * 
-   * @example
-   * [33554432-268435456]
-   */
   checkingCode?: string;
-  /**
-   * @remarks
-   * Indicates whether a restart is required for parameter modifications to take effect. Valid values:
-   * 
-   * *   **false**: A restart is not required. Modifications take effect immediately.
-   * *   **true**: A restart is required for parameter modifications to take effect.
-   * 
-   * @example
-   * false
-   */
   forceRestart?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter value can be modified. Valid values:
-   * 
-   * *   **false**: The parameter value cannot be modified.
-   * *   **true**: The parameter value can be modified.
-   * 
-   * @example
-   * true
-   */
   modifiableStatus?: string;
-  /**
-   * @remarks
-   * The description of the parameter.
-   * 
-   * @example
-   * The maximum memory bytes that sort stage may use, default is 33554432(i.e. 32MB)
-   */
   parameterDescription?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * setParameter.internalQueryExecMaxBlockingSortBytes
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The value of the parameter.
-   * 
-   * @example
-   * 33554432
-   */
   parameterValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -241,10 +134,6 @@ export class DescribeParametersResponseBodyRunningParameters extends $dara.Model
 }
 
 export class DescribeParametersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter settings in the configuration template.
-   */
   configParameters?: DescribeParametersResponseBodyConfigParameters;
   /**
    * @remarks
@@ -270,10 +159,6 @@ export class DescribeParametersResponseBody extends $dara.Model {
    * 3ADD0C7D-2D2A-4F15-88FF-E7AC9B9FDCC8
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The settings of the parameters that have taken effect.
-   */
   runningParameters?: DescribeParametersResponseBodyRunningParameters;
   static names(): { [key: string]: string } {
     return {

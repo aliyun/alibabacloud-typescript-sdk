@@ -3,77 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAuditRecordsResponseBodyItemsSQLRecord extends $dara.Model {
-  /**
-   * @remarks
-   * The account of the database.
-   * 
-   * @example
-   * test
-   */
   accountName?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * test123
-   */
   DBName?: string;
-  /**
-   * @remarks
-   * The time when the statement was executed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-03-11T03:30:27Z
-   */
   executeTime?: string;
-  /**
-   * @remarks
-   * The IP addresses of the client.
-   * 
-   * @example
-   * 11.xxx.xxx.xxx
-   */
   hostAddress?: string;
-  /**
-   * @remarks
-   * The number of SQL audit log entries that are returned.
-   * 
-   * @example
-   * 2
-   */
   returnRowCounts?: number;
-  /**
-   * @remarks
-   * The statement that was executed.
-   * 
-   * @example
-   * { \\"atype\\" : \\"createCollection\\", \\"param\\" : { \\"ns\\" : \\"123.test1\\" }, \\"result\\": \\"OK\\" }
-   */
   syntax?: string;
-  /**
-   * @remarks
-   * The name of the collection.
-   * 
-   * @example
-   * C1
-   */
   tableName?: string;
-  /**
-   * @remarks
-   * The ID of the thread.
-   * 
-   * @example
-   * 140682188297984
-   */
   threadID?: string;
-  /**
-   * @remarks
-   * The duration of the statement execution. Unit: microseconds.
-   * 
-   * @example
-   * 700
-   */
   totalExecutionTimes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -139,10 +76,6 @@ export class DescribeAuditRecordsResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeAuditRecordsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * An array that consists of the information of audit log entries.
-   */
   items?: DescribeAuditRecordsResponseBodyItems;
   /**
    * @remarks

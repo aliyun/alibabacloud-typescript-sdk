@@ -3,69 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeShardingNetworkAddressResponseBodyCompatibleConnectionsCompatibleConnection extends $dara.Model {
-  /**
-   * @remarks
-   * The remaining duration of the classic network endpoint. Unit: seconds.
-   * 
-   * @example
-   * 2591963
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The IP address of the instance.
-   * 
-   * @example
-   * 10.140.xxx.xx
-   */
   IPAddress?: string;
-  /**
-   * @remarks
-   * The endpoint of the instance.
-   * 
-   * @example
-   * dds-bpxxxxxxxxxxxxxx.mongodb.rds.aliyuncs.com
-   */
   networkAddress?: string;
-  /**
-   * @remarks
-   * The network type of the instance.
-   * 
-   * *   **VPC**: virtual private cloud
-   * *   **Classic**: classic network
-   * *   **Public**: the Internet
-   * 
-   * @example
-   * VPC
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The port that is used to connect to the instance.
-   * 
-   * @example
-   * 3717
-   */
   port?: string;
-  /**
-   * @remarks
-   * The VPC ID of the instance.
-   * 
-   * >  This parameter is returned when the network type is **VPC**.
-   * 
-   * @example
-   * vpc-bpxxxxxxxx
-   */
   VPCId?: string;
-  /**
-   * @remarks
-   * The ID of the vSwitch in the Virtual Private Cloud (VPC).
-   * 
-   * >  This parameter is returned when the network type is **VPC**.
-   * 
-   * @example
-   * vsw-bpxxxxxxxx
-   */
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -127,119 +70,17 @@ export class DescribeShardingNetworkAddressResponseBodyCompatibleConnections ext
 }
 
 export class DescribeShardingNetworkAddressResponseBodyNetworkAddressesNetworkAddress extends $dara.Model {
-  /**
-   * @remarks
-   * The public endpoint type. Valid values:
-   * 
-   * *   **SRV**
-   * *   **Normal**
-   * 
-   * @example
-   * SRV
-   */
   connectionType?: string;
-  /**
-   * @remarks
-   * The remaining duration of the classic network endpoint. Unit: seconds.
-   * 
-   * @example
-   * 2591963
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The IP address of the instance.
-   * 
-   * @example
-   * 10.140.xxx.xx
-   */
   IPAddress?: string;
-  /**
-   * @remarks
-   * The connection string of the instance.
-   * 
-   * @example
-   * s-bpxxxxxxxx.mongodb.rds.aliyuncs.com
-   */
   networkAddress?: string;
-  /**
-   * @remarks
-   * The network type of the instance.
-   * 
-   * *   **VPC**: virtual private cloud
-   * *   **Classic**: classic network
-   * *   **Public**: the Internet
-   * 
-   * @example
-   * VPC
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The ID of the mongos node.
-   * 
-   * @example
-   * s-bpxxxxxxxx
-   */
   nodeId?: string;
-  /**
-   * @remarks
-   * The type of the node. Valid values:
-   * 
-   * *   **mongos**: mongos node
-   * *   **shard**: shard node
-   * *   **configserver**: Configserver node
-   * 
-   * @example
-   * mongos
-   */
   nodeType?: string;
-  /**
-   * @remarks
-   * The port that is used to connect to the instance.
-   * 
-   * @example
-   * 3717
-   */
   port?: string;
-  /**
-   * @remarks
-   * The role of the node. Valid values:
-   * 
-   * *   Primary
-   * *   Secondary
-   * 
-   * @example
-   * Primary
-   */
   role?: string;
-  /**
-   * @remarks
-   * Txt record which can be used to store MongoDB-related meta data, such as version, configuration parameters and etc. With the combination of txt record and other technology, for example SRV record, the MongoDB client can complete the complex service discovery and configuration passing.
-   * 
-   * @example
-   * mongo.example.com. IN TXT "config=replicaSet=myReplicaSet"
-   */
   txtRecord?: string;
-  /**
-   * @remarks
-   * The VPC ID of the instance.
-   * 
-   * >  This parameter is returned when the network type is **VPC**.
-   * 
-   * @example
-   * vpc-bpxxxxxxxx
-   */
   VPCId?: string;
-  /**
-   * @remarks
-   * The ID of the vSwitch in the VPC.
-   * 
-   * >  This parameter is returned when the network type is **VPC**.
-   * 
-   * @example
-   * vsw-bpxxxxxxxx
-   */
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -311,15 +152,8 @@ export class DescribeShardingNetworkAddressResponseBodyNetworkAddresses extends 
 }
 
 export class DescribeShardingNetworkAddressResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoints of DynamoDB-compatible instances.
-   */
   compatibleConnections?: DescribeShardingNetworkAddressResponseBodyCompatibleConnections;
-  /**
-   * @remarks
-   * The endpoints of the ApsaraDB for MongoDB sharded cluster instance.
-   */
+  connectionStringSuffix?: string;
   networkAddresses?: DescribeShardingNetworkAddressResponseBodyNetworkAddresses;
   /**
    * @remarks
@@ -332,6 +166,7 @@ export class DescribeShardingNetworkAddressResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       compatibleConnections: 'CompatibleConnections',
+      connectionStringSuffix: 'ConnectionStringSuffix',
       networkAddresses: 'NetworkAddresses',
       requestId: 'RequestId',
     };
@@ -340,6 +175,7 @@ export class DescribeShardingNetworkAddressResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       compatibleConnections: DescribeShardingNetworkAddressResponseBodyCompatibleConnections,
+      connectionStringSuffix: 'string',
       networkAddresses: DescribeShardingNetworkAddressResponseBodyNetworkAddresses,
       requestId: 'string',
     };

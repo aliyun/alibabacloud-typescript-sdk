@@ -13,7 +13,7 @@ export default class Client extends OpenApi {
     super(config);
     this._endpointRule = "regional";
     this._endpointMap = {
-      'cn-qingdao': "mongodb.aliyuncs.com",
+      'cn-qingdao': "mongodb.cn-qingdao.aliyuncs.com",
       'cn-beijing': "mongodb.aliyuncs.com",
       'cn-zhangjiakou': "mongodb.cn-zhangjiakou.aliyuncs.com",
       'cn-huhehaote': "mongodb.cn-huhehaote.aliyuncs.com",
@@ -41,7 +41,7 @@ export default class Client extends OpenApi {
       'cn-shenzhen-finance-1': "mongodb.cn-shenzhen-finance-1.aliyuncs.com",
       'cn-north-2-gov-1': "mongodb.cn-north-2-gov-1.aliyuncs.com",
       'ap-northeast-2-pop': "mongodb.aliyuncs.com",
-      'cn-beijing-finance-1': "mongodb.aliyuncs.com",
+      'cn-beijing-finance-1': "mongodb.cn-beijing-finance-1.aliyuncs.com",
       'cn-beijing-finance-pop': "mongodb.aliyuncs.com",
       'cn-beijing-gov-1': "mongodb.aliyuncs.com",
       'cn-beijing-nu16-b01': "mongodb.aliyuncs.com",
@@ -91,6 +91,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Applies for an SRV endpoint for an ApsaraDB for MongoDB instance.
+   * 
    * @param request - AllocateDBInstanceSrvNetworkAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AllocateDBInstanceSrvNetworkAddressResponse
@@ -144,6 +146,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Applies for an SRV endpoint for an ApsaraDB for MongoDB instance.
+   * 
    * @param request - AllocateDBInstanceSrvNetworkAddressRequest
    * @returns AllocateDBInstanceSrvNetworkAddressResponse
    */
@@ -355,7 +359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+   * Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
    * 
    * @remarks
    * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
@@ -409,7 +413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
+   * Checks whether Key Management Service (KMS) keys are authorized to an ApsaraDB for MongoDB instance.
    * 
    * @remarks
    * Before you enable Transparent Data Encryption (TDE) by calling the [ModifyDBInstanceTDE](https://help.aliyun.com/document_detail/131267.html) operation, you can call this operation to check whether KMS keys are authorized to ApsaraDB for MongoDB instances.
@@ -529,7 +533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a service-linked role is created.
+   * Checks whether a service-linked role (SLR) is created for an instance.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -568,7 +572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether a service-linked role is created.
+   * Checks whether a service-linked role (SLR) is created for an instance.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @returns CheckServiceLinkedRoleResponse
@@ -1481,7 +1485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除MongoDB备份集
+   * Deletes the backup set of MongoDB.
    * 
    * @param request - DeleteBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1532,7 +1536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除MongoDB备份集
+   * Deletes the backup set of MongoDB.
    * 
    * @param request - DeleteBackupRequest
    * @returns DeleteBackupResponse
@@ -2021,6 +2025,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query maintenance task types and task quantities.
+   * 
    * @param request - DescribeActiveOperationTaskRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeActiveOperationTaskRegionResponse
@@ -2070,6 +2076,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query maintenance task types and task quantities.
+   * 
    * @param request - DescribeActiveOperationTaskRegionRequest
    * @returns DescribeActiveOperationTaskRegionResponse
    */
@@ -2621,7 +2629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+   * Queries the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
    * 
    * @param request - DescribeAvailableEngineVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2668,7 +2676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
+   * Queries the engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
    * 
    * @param request - DescribeAvailableEngineVersionRequest
    * @returns DescribeAvailableEngineVersionResponse
@@ -2939,7 +2947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+   * Queries the backup storage capacity of an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
    * 
    * @param request - DescribeBackupStorageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2994,7 +3002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage used for backup in an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks. Note that you are charged only for the backup-used storage of each shard in a sharded cluster instance. You can call this operation only to query the storage used by a single shard in the instance for backup.
+   * Queries the backup storage capacity of an ApsaraDB for MongoDB replica set or sharded cluster instance that uses cloud disks.
    * 
    * @param request - DescribeBackupStorageRequest
    * @returns DescribeBackupStorageResponse
@@ -3166,6 +3174,104 @@ export default class Client extends OpenApi {
   async describeBackups(request: $_model.DescribeBackupsRequest): Promise<$_model.DescribeBackupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBackupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries binary log files bound to an ApsaraDB for MongoDB instance.
+   * 
+   * @param request - DescribeBinlogFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBinlogFilesResponse
+   */
+  async describeBinlogFilesWithOptions(request: $_model.DescribeBinlogFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBinlogFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.binlogId)) {
+      query["BinlogId"] = request.binlogId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.destRegion)) {
+      query["DestRegion"] = request.destRegion;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.srcRegion)) {
+      query["SrcRegion"] = request.srcRegion;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBinlogFiles",
+      version: "2015-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBinlogFilesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBinlogFilesResponse({}));
+  }
+
+  /**
+   * Queries binary log files bound to an ApsaraDB for MongoDB instance.
+   * 
+   * @param request - DescribeBinlogFilesRequest
+   * @returns DescribeBinlogFilesResponse
+   */
+  async describeBinlogFiles(request: $_model.DescribeBinlogFilesRequest): Promise<$_model.DescribeBinlogFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBinlogFilesWithOptions(request, runtime);
   }
 
   /**
@@ -3713,7 +3819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看规格信息详情
+   * Queries the specifications of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeDBInstanceSpecInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3764,7 +3870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看规格信息详情
+   * Queries the specifications of an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeDBInstanceSpecInfoRequest
    * @returns DescribeDBInstanceSpecInfoResponse
@@ -5731,7 +5837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+   * Queries the operational logs of an ApsaraDB for MongoDB instance.
    * 
    * @remarks
    *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
@@ -5830,7 +5936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries entries in operational logs of an ApsaraDB for MongoDB instance.
+   * Queries the operational logs of an ApsaraDB for MongoDB instance.
    * 
    * @remarks
    *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
@@ -5845,7 +5951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+   * Queries the Elastic Compute Service (ECS) security groups that are associated with an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeSecurityGroupConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5892,7 +5998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to query ECS security groups that are bound to an ApsaraDB for MongoDB instance.
+   * Queries the Elastic Compute Service (ECS) security groups that are associated with an ApsaraDB for MongoDB instance.
    * 
    * @param request - DescribeSecurityGroupConfigurationRequest
    * @returns DescribeSecurityGroupConfigurationResponse
@@ -6857,6 +6963,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the O\\\\\\&M task configurations for an instance.
+   * 
    * @param request - ModifyActiveOperationMaintenanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyActiveOperationMaintenanceConfigResponse
@@ -6918,6 +7026,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the O\\\\\\&M task configurations for an instance.
+   * 
    * @param request - ModifyActiveOperationMaintenanceConfigRequest
    * @returns ModifyActiveOperationMaintenanceConfigResponse
    */
@@ -6927,7 +7037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+   * Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6986,7 +7096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the switching time of scheduled O\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
+   * Modifies the switching time of scheduled O\\\\\\\\\\\\&M tasks for an ApsaraDB for MongoDB instance.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @returns ModifyActiveOperationTasksResponse
@@ -7098,6 +7208,10 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!$dara.isNull(request.hotStoragePeriod)) {
+      query["HotStoragePeriod"] = request.hotStoragePeriod;
+    }
+
     if (!$dara.isNull(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -7155,7 +7269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改MongoDB备份集的过期时间
+   * Modifies the expiration time of MongoDB backup sets
    * 
    * @param request - ModifyBackupExpireTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7210,7 +7324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改MongoDB备份集的过期时间
+   * Modifies the expiration time of MongoDB backup sets
    * 
    * @param request - ModifyBackupExpireTimeRequest
    * @returns ModifyBackupExpireTimeResponse
@@ -7365,6 +7479,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies existing release protection configurations.
+   * 
    * @param request - ModifyDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBInstanceAttributeResponse
@@ -7414,6 +7530,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies existing release protection configurations.
+   * 
    * @param request - ModifyDBInstanceAttributeRequest
    * @returns ModifyDBInstanceAttributeResponse
    */
@@ -7423,7 +7541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例配置
+   * Modifies the configurations of an ApsaraDB for MongoDB instance.
    * 
    * @param request - ModifyDBInstanceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7478,7 +7596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例配置
+   * Modifies the configurations of an ApsaraDB for MongoDB instance.
    * 
    * @param request - ModifyDBInstanceConfigRequest
    * @returns ModifyDBInstanceConfigResponse
@@ -7511,6 +7629,14 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!$dara.isNull(request.forceModifySuffix)) {
+      query["ForceModifySuffix"] = request.forceModifySuffix;
+    }
+
+    if (!$dara.isNull(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
     if (!$dara.isNull(request.newConnectionString)) {
       query["NewConnectionString"] = request.newConnectionString;
     }
@@ -7529,6 +7655,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.portModifyOnly)) {
+      query["PortModifyOnly"] = request.portModifyOnly;
     }
 
     if (!$dara.isNull(request.resourceOwnerAccount)) {
@@ -9247,7 +9377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改MongoDB实例的SRV连接地址
+   * Modifies the SRV connection string that is used to connect to an ApsaraDB for MongoDB instance.
    * 
    * @param request - ModifySrvNetworkAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9302,7 +9432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改MongoDB实例的SRV连接地址
+   * Modifies the SRV connection string that is used to connect to an ApsaraDB for MongoDB instance.
    * 
    * @param request - ModifySrvNetworkAddressRequest
    * @returns ModifySrvNetworkAddressResponse

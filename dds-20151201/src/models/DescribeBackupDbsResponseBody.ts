@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeBackupDBsResponseBodyDatabasesDatabase extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * mongodbtest
-   */
   DBName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +52,6 @@ export class DescribeBackupDBsResponseBodyDatabases extends $dara.Model {
 }
 
 export class DescribeBackupDBsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the databases.
-   */
   databases?: DescribeBackupDBsResponseBodyDatabases;
   /**
    * @remarks

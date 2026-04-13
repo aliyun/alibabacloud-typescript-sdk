@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSecurityGroupConfigurationResponseBodyItemsRdsEcsSecurityGroupRel extends $dara.Model {
-  /**
-   * @remarks
-   * The network type of the ECS security group. Valid values:
-   * 
-   * *   **vpc**
-   * *   **classic**
-   * 
-   * @example
-   * vpc
-   */
   netType?: string;
-  /**
-   * @remarks
-   * The region ID of the ECS security group.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the ECS security group.
-   * 
-   * @example
-   * sg-bpxxxxxxxx
-   */
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,10 +58,6 @@ export class DescribeSecurityGroupConfigurationResponseBodyItems extends $dara.M
 }
 
 export class DescribeSecurityGroupConfigurationResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the ECS security groups.
-   */
   items?: DescribeSecurityGroupConfigurationResponseBodyItems;
   /**
    * @remarks

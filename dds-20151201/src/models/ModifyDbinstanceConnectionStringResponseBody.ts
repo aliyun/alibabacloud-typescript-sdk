@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
+  modifiedConnectionString?: string;
   /**
    * @remarks
    * The request ID.
@@ -13,12 +14,14 @@ export class ModifyDBInstanceConnectionStringResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      modifiedConnectionString: 'ModifiedConnectionString',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      modifiedConnectionString: 'string',
       requestId: 'string',
     };
   }

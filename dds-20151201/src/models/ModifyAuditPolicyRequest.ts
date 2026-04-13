@@ -34,6 +34,7 @@ export class ModifyAuditPolicyRequest extends $dara.Model {
    * dds-bp1785659e3f****
    */
   DBInstanceId?: string;
+  hotStoragePeriod?: number;
   ownerAccount?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -64,6 +65,7 @@ export class ModifyAuditPolicyRequest extends $dara.Model {
       auditLogSwitchSource: 'AuditLogSwitchSource',
       auditStatus: 'AuditStatus',
       DBInstanceId: 'DBInstanceId',
+      hotStoragePeriod: 'HotStoragePeriod',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -78,6 +80,7 @@ export class ModifyAuditPolicyRequest extends $dara.Model {
       auditLogSwitchSource: 'string',
       auditStatus: 'string',
       DBInstanceId: 'string',
+      hotStoragePeriod: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',

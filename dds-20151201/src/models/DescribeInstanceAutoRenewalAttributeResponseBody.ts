@@ -3,54 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceAutoRenewalAttributeResponseBodyItemsItem extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether auto-renewal is enabled for the instance. Valid values:
-   * 
-   * *   **true**: Auto-renewal is enabled for the instance.
-   * *   **false**: Auto-renewal is disabled for the instance.
-   * 
-   * @example
-   * true
-   */
   autoRenew?: string;
-  /**
-   * @remarks
-   * The category of the instance. Valid values:
-   * 
-   * *   **replicate**: the standalone or replica set instance
-   * *   **sharding**: the sharded cluster instance
-   * 
-   * @example
-   * replicate
-   */
   DBInstanceType?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * dds-bp2568*****
-   */
   dbInstanceId?: string;
-  /**
-   * @remarks
-   * The auto-renewal period. Unit: months.
-   * 
-   * > * This parameter is ruturned only when the returned value of the **AutoRenew** parameter is **true**.
-   * > * You can call the [ModifyInstanceAutoRenewalAttribute](https://help.aliyun.com/document_detail/145979.html) operation to modify the auto-renewal period.
-   * 
-   * @example
-   * 1
-   */
   duration?: string;
-  /**
-   * @remarks
-   * The region ID of the instance.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,10 +64,6 @@ export class DescribeInstanceAutoRenewalAttributeResponseBodyItems extends $dara
 }
 
 export class DescribeInstanceAutoRenewalAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about returned entries.
-   */
   items?: DescribeInstanceAutoRenewalAttributeResponseBodyItems;
   /**
    * @remarks

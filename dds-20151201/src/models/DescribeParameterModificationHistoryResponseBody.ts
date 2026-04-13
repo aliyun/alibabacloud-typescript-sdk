@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeParameterModificationHistoryResponseBodyHistoricalParametersHistoricalParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the parameter was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-03-12T07:58:24Z
-   */
   modifyTime?: string;
-  /**
-   * @remarks
-   * The parameter value after modification.
-   * 
-   * @example
-   * 200
-   */
   newParameterValue?: string;
-  /**
-   * @remarks
-   * The parameter value before modification.
-   * 
-   * @example
-   * 100
-   */
   oldParameterValue?: string;
-  /**
-   * @remarks
-   * The name of the modified parameter.
-   * 
-   * @example
-   * operationProfiling.slowOpThresholdMs
-   */
   parameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +61,6 @@ export class DescribeParameterModificationHistoryResponseBodyHistoricalParameter
 }
 
 export class DescribeParameterModificationHistoryResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the parameter modification records.
-   */
   historicalParameters?: DescribeParameterModificationHistoryResponseBodyHistoricalParameters;
   /**
    * @remarks

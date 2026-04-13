@@ -14,6 +14,7 @@ export class DescribeMongoDBLogConfigResponseBody extends $dara.Model {
    * true
    */
   enableAudit?: boolean;
+  hotTtlForV2Standard?: number;
   /**
    * @remarks
    * Indicates whether a rule to distribute logs to Logtail is created. For more information, see [Logtail overview](https://help.aliyun.com/document_detail/28979.html). Valid values:
@@ -87,6 +88,7 @@ export class DescribeMongoDBLogConfigResponseBody extends $dara.Model {
    * 1
    */
   ttlForTrail?: number;
+  ttlForV2Standard?: number;
   /**
    * @remarks
    * The used storage capacity for the formal edition of the audit log feature. Unit: bytes.
@@ -114,6 +116,7 @@ export class DescribeMongoDBLogConfigResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       enableAudit: 'EnableAudit',
+      hotTtlForV2Standard: 'HotTtlForV2Standard',
       isEtlMetaExist: 'IsEtlMetaExist',
       isUserProjectLogstoreExist: 'IsUserProjectLogstoreExist',
       preserveStorageForStandard: 'PreserveStorageForStandard',
@@ -122,6 +125,7 @@ export class DescribeMongoDBLogConfigResponseBody extends $dara.Model {
       serviceType: 'ServiceType',
       ttlForStandard: 'TtlForStandard',
       ttlForTrail: 'TtlForTrail',
+      ttlForV2Standard: 'TtlForV2Standard',
       usedStorageForStandard: 'UsedStorageForStandard',
       usedStorageForTrail: 'UsedStorageForTrail',
       userProjectName: 'UserProjectName',
@@ -131,6 +135,7 @@ export class DescribeMongoDBLogConfigResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       enableAudit: 'boolean',
+      hotTtlForV2Standard: 'number',
       isEtlMetaExist: 'number',
       isUserProjectLogstoreExist: 'number',
       preserveStorageForStandard: 'number',
@@ -139,6 +144,7 @@ export class DescribeMongoDBLogConfigResponseBody extends $dara.Model {
       serviceType: 'string',
       ttlForStandard: 'number',
       ttlForTrail: 'number',
+      ttlForV2Standard: 'number',
       usedStorageForStandard: 'number',
       usedStorageForTrail: 'number',
       userProjectName: 'string',

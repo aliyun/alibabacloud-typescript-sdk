@@ -3,54 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccountsResponseBodyAccountsAccount extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the account.
-   * 
-   * @example
-   * Admin
-   */
   accountDescription?: string;
-  /**
-   * @remarks
-   * The name of the account.
-   * 
-   * @example
-   * root
-   */
   accountName?: string;
-  /**
-   * @remarks
-   * The status of the account. Valid values:
-   * 
-   * *   **Unavailable**
-   * *   **Available**
-   * 
-   * @example
-   * Available
-   */
   accountStatus?: string;
-  /**
-   * @remarks
-   * The role of the account. Valid values:
-   * 
-   * *   **db**: shard node
-   * *   **cs**: Configserver node
-   * *   **mongos**: mongos node
-   * *   **logic**: sharded cluster instance
-   * *   **normal**: replica set instance
-   * 
-   * @example
-   * mongos
-   */
   characterType?: string;
-  /**
-   * @remarks
-   * The ID of the instance to which the account belongs.
-   * 
-   * @example
-   * dds-bp1fd530f271****
-   */
   DBInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,10 +64,6 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
 }
 
 export class DescribeAccountsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the account.
-   */
   accounts?: DescribeAccountsResponseBodyAccounts;
   /**
    * @remarks

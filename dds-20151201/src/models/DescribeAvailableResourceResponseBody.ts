@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResourceDBInstanceStorageRange extends $dara.Model {
-  /**
-   * @remarks
-   * The maximum storage capacity. Unit: GB.
-   * 
-   * @example
-   * 16000
-   */
   max?: number;
-  /**
-   * @remarks
-   * The minimum storage capacity. Unit: GB.
-   * 
-   * @example
-   * 20
-   */
   min?: number;
-  /**
-   * @remarks
-   * The step size for adjusting the storage capacity. Unit: GB.
-   * 
-   * @example
-   * 10
-   */
   step?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,26 +32,8 @@ export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTyp
 }
 
 export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResource extends $dara.Model {
-  /**
-   * @remarks
-   * The storage capacity range of the instance.
-   */
   DBInstanceStorageRange?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResourcesAvailableResourceDBInstanceStorageRange;
-  /**
-   * @remarks
-   * The instance family.
-   * 
-   * @example
-   * mdb.shard.2x.xlarge.d
-   */
   instanceClass?: string;
-  /**
-   * @remarks
-   * The type of the instance.
-   * 
-   * @example
-   * 4 cores, 8 GB (Dedicated) (Current instance type: mdb.shard.2x.xlarge.d (4 cores, 8 GB (Dedicated cloud-disk), maximum connections: 3000, maximum IOPS: min{1800 + 50 × Storage capacity, 21000}))
-   */
   instanceClassRemark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,26 +90,8 @@ export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTyp
 }
 
 export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeType extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the available resources.
-   */
   availableResources?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypesSupportedNodeTypeAvailableResources;
-  /**
-   * @remarks
-   * The network type of the instance.
-   * 
-   * @example
-   * VPC
-   */
   networkTypes?: string;
-  /**
-   * @remarks
-   * The number of nodes in the instance.
-   * 
-   * @example
-   * 3
-   */
   nodeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -205,18 +148,7 @@ export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTyp
 }
 
 export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngine extends $dara.Model {
-  /**
-   * @remarks
-   * The storage engine of the instance.
-   * 
-   * @example
-   * WiredTiger
-   */
   engine?: string;
-  /**
-   * @remarks
-   * The supported instance types.
-   */
   supportedNodeTypes?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEnginesSupportedEngineSupportedNodeTypes;
   static names(): { [key: string]: string } {
     return {
@@ -271,18 +203,7 @@ export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTyp
 }
 
 export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersion extends $dara.Model {
-  /**
-   * @remarks
-   * The supported storage engines.
-   */
   supportedEngines?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersionsSupportedEngineVersionSupportedEngines;
-  /**
-   * @remarks
-   * The database engine version of the instance.
-   * 
-   * @example
-   * 4.0
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -337,26 +258,8 @@ export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTyp
 }
 
 export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZone extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The supported storage engine versions.
-   */
   supportedEngineVersions?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZonesAvailableZoneSupportedEngineVersions;
-  /**
-   * @remarks
-   * The ID of the zone.
-   * 
-   * @example
-   * cn-hangzhou-h
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -413,21 +316,7 @@ export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTyp
 }
 
 export class DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBType extends $dara.Model {
-  /**
-   * @remarks
-   * The available zones.
-   */
   availableZones?: DescribeAvailableResourceResponseBodySupportedDBTypesSupportedDBTypeAvailableZones;
-  /**
-   * @remarks
-   * The architecture of the instance. Valid values:
-   * 
-   * *   **normal**: replica set instance
-   * *   **sharding**: sharded cluster instance
-   * 
-   * @example
-   * sharding
-   */
   dbType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -490,10 +379,6 @@ export class DescribeAvailableResourceResponseBody extends $dara.Model {
    * 344EE51D-8850-4935-B68B-58A8F4DCE3BD
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The supported database types.
-   */
   supportedDBTypes?: DescribeAvailableResourceResponseBodySupportedDBTypes;
   static names(): { [key: string]: string } {
     return {

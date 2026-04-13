@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeKernelReleaseNotesResponseBodyReleaseNotesReleaseNote extends $dara.Model {
-  /**
-   * @remarks
-   * The version number.
-   * 
-   * @example
-   * mongodb_20180619_0.4.9
-   */
   kernelVersion?: string;
-  /**
-   * @remarks
-   * The release notes.
-   * 
-   * @example
-   * test release note.
-   */
   releaseNote?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeKernelReleaseNotesResponseBodyReleaseNotes extends $dara.Mo
 }
 
 export class DescribeKernelReleaseNotesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of the version release notes.
-   */
   releaseNotes?: DescribeKernelReleaseNotesResponseBodyReleaseNotes;
   /**
    * @remarks

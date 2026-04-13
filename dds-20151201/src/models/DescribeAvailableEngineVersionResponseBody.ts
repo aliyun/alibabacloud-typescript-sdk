@@ -29,12 +29,6 @@ export class DescribeAvailableEngineVersionResponseBodyEngineVersions extends $d
 }
 
 export class DescribeAvailableEngineVersionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of one or more engine versions to which an ApsaraDB for MongoDB instance can be upgraded.
-   * 
-   * >  An empty string is returned if the latest version is being used.
-   */
   engineVersions?: DescribeAvailableEngineVersionResponseBodyEngineVersions;
   /**
    * @remarks

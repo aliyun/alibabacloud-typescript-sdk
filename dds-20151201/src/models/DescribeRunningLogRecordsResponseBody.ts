@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRunningLogRecordsResponseBodyItemsLogRecords extends $dara.Model {
-  /**
-   * @remarks
-   * The category of the log entry.
-   * 
-   * @example
-   * NETWORK
-   */
   category?: string;
-  /**
-   * @remarks
-   * The connection information of the log entry.
-   * 
-   * @example
-   * conn18xxxxxx
-   */
   connInfo?: string;
-  /**
-   * @remarks
-   * The content of the log entry.
-   * 
-   * @example
-   * end connection 11.xxx.xxx.xx:3xxxx (0 connections now open)\\n
-   */
   content?: string;
-  /**
-   * @remarks
-   * The time when the log entry was generated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-02-26T12:09:34Z
-   */
   createTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,10 +69,6 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
    * MongoDB
    */
   engine?: string;
-  /**
-   * @remarks
-   * Details about the operational log entries.
-   */
   items?: DescribeRunningLogRecordsResponseBodyItems;
   /**
    * @remarks

@@ -3,68 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeReplicaSetRoleResponseBodyReplicaSetsReplicaSet extends $dara.Model {
-  /**
-   * @remarks
-   * The endpoint of the node.
-   * 
-   * @example
-   * dds-bpxxxxxxxx.mongodb.rds.aliyuncs.com
-   */
   connectionDomain?: string;
-  /**
-   * @remarks
-   * The port number that is used to connect to the node.
-   * 
-   * @example
-   * 3717
-   */
   connectionPort?: string;
-  /**
-   * @remarks
-   * The connection type of the node.
-   * 
-   * @example
-   * SRV
-   */
   connectionType?: string;
-  /**
-   * @remarks
-   * The remaining duration of the classic network endpoint. Unit: seconds.
-   * 
-   * @example
-   * 1209582
-   */
   expiredTime?: string;
-  /**
-   * @remarks
-   * The network type of the instance. Valid values:
-   * 
-   * *   **VPC**: the virtual private cloud (VPC)
-   * *   **Classic**: the classic network
-   * *   **Public**: the Internet
-   * 
-   * @example
-   * VPC
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The role of the node in the replica set instance. Valid values:
-   * 
-   * *   **Primary**
-   * *   **Secondary**
-   * 
-   * @example
-   * Primary
-   */
   replicaSetRole?: string;
-  /**
-   * @remarks
-   * The role ID of the node.
-   * 
-   * @example
-   * 651xxxxx
-   */
   roleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -126,6 +70,7 @@ export class DescribeReplicaSetRoleResponseBodyReplicaSets extends $dara.Model {
 }
 
 export class DescribeReplicaSetRoleResponseBody extends $dara.Model {
+  connectionStringSuffix?: string;
   /**
    * @remarks
    * The instance ID.
@@ -134,10 +79,6 @@ export class DescribeReplicaSetRoleResponseBody extends $dara.Model {
    * dds-bpxxxxxxxx
    */
   DBInstanceId?: string;
-  /**
-   * @remarks
-   * The details of the roles of the replica set instance.
-   */
   replicaSets?: DescribeReplicaSetRoleResponseBodyReplicaSets;
   /**
    * @remarks
@@ -149,6 +90,7 @@ export class DescribeReplicaSetRoleResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      connectionStringSuffix: 'ConnectionStringSuffix',
       DBInstanceId: 'DBInstanceId',
       replicaSets: 'ReplicaSets',
       requestId: 'RequestId',
@@ -157,6 +99,7 @@ export class DescribeReplicaSetRoleResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      connectionStringSuffix: 'string',
       DBInstanceId: 'string',
       replicaSets: DescribeReplicaSetRoleResponseBodyReplicaSets,
       requestId: 'string',

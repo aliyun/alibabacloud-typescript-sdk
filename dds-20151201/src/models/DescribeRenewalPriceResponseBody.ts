@@ -3,42 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRenewalPriceResponseBodyOrderCouponsCoupon extends $dara.Model {
-  /**
-   * @remarks
-   * The coupon number.
-   * 
-   * @example
-   * youhuiquan_promotion_option_id_for_blank
-   */
+  activityExtInfo?: { [key: string]: any };
   couponNo?: string;
-  /**
-   * @remarks
-   * The description of the coupon.
-   * 
-   * @example
-   * coupondemo
-   */
   description?: string;
-  /**
-   * @remarks
-   * Indicates whether the coupon was selected.
-   * 
-   * @example
-   * true
-   */
+  effective?: boolean;
   isSelected?: string;
-  /**
-   * @remarks
-   * The name of the coupon.
-   * 
-   * @example
-   * youhuiquan111
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      activityExtInfo: 'ActivityExtInfo',
       couponNo: 'CouponNo',
       description: 'Description',
+      effective: 'Effective',
       isSelected: 'IsSelected',
       name: 'Name',
     };
@@ -46,14 +22,19 @@ export class DescribeRenewalPriceResponseBodyOrderCouponsCoupon extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      activityExtInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       couponNo: 'string',
       description: 'string',
+      effective: 'boolean',
       isSelected: 'string',
       name: 'string',
     };
   }
 
   validate() {
+    if(this.activityExtInfo) {
+      $dara.Model.validateMap(this.activityExtInfo);
+    }
     super.validate();
   }
 
@@ -115,10 +96,6 @@ export class DescribeRenewalPriceResponseBodyOrderRuleIds extends $dara.Model {
 }
 
 export class DescribeRenewalPriceResponseBodyOrder extends $dara.Model {
-  /**
-   * @remarks
-   * Details about the coupons.
-   */
   coupons?: DescribeRenewalPriceResponseBodyOrderCoupons;
   /**
    * @remarks
@@ -147,10 +124,6 @@ export class DescribeRenewalPriceResponseBodyOrder extends $dara.Model {
    * 1144.8
    */
   originalAmount?: number;
-  /**
-   * @remarks
-   * The IDs of the matched rules.
-   */
   ruleIds?: DescribeRenewalPriceResponseBodyOrderRuleIds;
   /**
    * @remarks
@@ -198,29 +171,8 @@ export class DescribeRenewalPriceResponseBodyOrder extends $dara.Model {
 }
 
 export class DescribeRenewalPriceResponseBodyRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the rule.
-   * 
-   * @example
-   * demoname
-   */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the rule.
-   * 
-   * @example
-   * 11111111
-   */
   ruleDescId?: number;
-  /**
-   * @remarks
-   * The title of the rule.
-   * 
-   * @example
-   * demo
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -300,42 +252,10 @@ export class DescribeRenewalPriceResponseBodySubOrdersSubOrderRuleIds extends $d
 }
 
 export class DescribeRenewalPriceResponseBodySubOrdersSubOrder extends $dara.Model {
-  /**
-   * @remarks
-   * The discount amount of the order.
-   * 
-   * @example
-   * 1144.8
-   */
   discountAmount?: number;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * dds-bp12c5b040dc****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The original price of the order.
-   * 
-   * @example
-   * 1144.8
-   */
   originalAmount?: number;
-  /**
-   * @remarks
-   * The IDs of the matched rules.
-   */
   ruleIds?: DescribeRenewalPriceResponseBodySubOrdersSubOrderRuleIds;
-  /**
-   * @remarks
-   * The actual price of the order.
-   * 
-   * @example
-   * 0
-   */
   tradeAmount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -409,15 +329,7 @@ export class DescribeRenewalPriceResponseBody extends $dara.Model {
    * EFD65226-08CC-4C4D-B6A4-CB3C382F67B0
    */
   requestId?: string;
-  /**
-   * @remarks
-   * Details about the promotion rules.
-   */
   rules?: DescribeRenewalPriceResponseBodyRules;
-  /**
-   * @remarks
-   * The rules matching the coupons.
-   */
   subOrders?: DescribeRenewalPriceResponseBodySubOrders;
   static names(): { [key: string]: string } {
     return {
