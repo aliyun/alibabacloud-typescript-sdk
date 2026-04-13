@@ -7694,6 +7694,7 @@ export class UpdateEventStreamingRequestSourceSourceMQTTParameters extends $dara
    * i-bp1dsudbecqwt61jqswt
    */
   instanceId?: string;
+  networkType?: string;
   /**
    * @remarks
    * The ID of the region where the ApsaraMQ for MQTT instance resides.
@@ -7702,6 +7703,7 @@ export class UpdateEventStreamingRequestSourceSourceMQTTParameters extends $dara
    * cn-shanghai
    */
   regionId?: string;
+  securityGroupId?: string;
   /**
    * @remarks
    * The name of the topic on the ApsaraMQ for MQTT instance.
@@ -7710,12 +7712,18 @@ export class UpdateEventStreamingRequestSourceSourceMQTTParameters extends $dara
    * topic_empower_1642400400779
    */
   topic?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       bodyDataType: 'BodyDataType',
       instanceId: 'InstanceId',
+      networkType: 'NetworkType',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
@@ -7723,8 +7731,12 @@ export class UpdateEventStreamingRequestSourceSourceMQTTParameters extends $dara
     return {
       bodyDataType: 'string',
       instanceId: 'string',
+      networkType: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
       topic: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 

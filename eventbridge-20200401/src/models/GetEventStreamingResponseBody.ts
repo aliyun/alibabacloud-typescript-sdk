@@ -6254,6 +6254,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceMQTTParameters extends
    * i-2ze06wqdwk0uq14krrzv
    */
   instanceId?: string;
+  networkType?: string;
   /**
    * @remarks
    * The region ID of the Message Queue for MQTT instance.
@@ -6262,6 +6263,7 @@ export class GetEventStreamingResponseBodyDataSourceSourceMQTTParameters extends
    * cn-shanghai
    */
   regionId?: string;
+  securityGroupId?: string;
   /**
    * @remarks
    * The name of the topic in the Message Queue for MQTT instance.
@@ -6270,12 +6272,18 @@ export class GetEventStreamingResponseBodyDataSourceSourceMQTTParameters extends
    * TOPIC-cainiao-pcs-wms-instock-noPrealertPrintLabel
    */
   topic?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       bodyDataType: 'BodyDataType',
       instanceId: 'InstanceId',
+      networkType: 'NetworkType',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
@@ -6283,8 +6291,12 @@ export class GetEventStreamingResponseBodyDataSourceSourceMQTTParameters extends
     return {
       bodyDataType: 'string',
       instanceId: 'string',
+      networkType: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
       topic: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 

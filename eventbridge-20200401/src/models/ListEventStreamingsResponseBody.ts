@@ -5841,6 +5841,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTP
    * bastionhost-cn-zvp27kcha1r
    */
   instanceId?: string;
+  networkType?: string;
   /**
    * @remarks
    * The ID of the region where the ApsaraMQ for MQTT instance resides.
@@ -5849,6 +5850,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTP
    * cn-qingdao
    */
   regionId?: string;
+  securityGroupId?: string;
   /**
    * @remarks
    * The name of the topic on the ApsaraMQ for MQTT instance.
@@ -5857,12 +5859,18 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTP
    * migration_instance
    */
   topic?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       bodyDataType: 'BodyDataType',
       instanceId: 'InstanceId',
+      networkType: 'NetworkType',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
@@ -5870,8 +5878,12 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSourceSourceMQTTP
     return {
       bodyDataType: 'string',
       instanceId: 'string',
+      networkType: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
       topic: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 

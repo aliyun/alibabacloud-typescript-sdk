@@ -6868,6 +6868,7 @@ export class CreateEventStreamingRequestSourceSourceMQTTParameters extends $dara
    * r-bp1b5ncun5lqerzg4r
    */
   instanceId?: string;
+  networkType?: string;
   /**
    * @remarks
    * The ID of the region where the ApsaraMQ for MQTT instance resides.
@@ -6876,6 +6877,7 @@ export class CreateEventStreamingRequestSourceSourceMQTTParameters extends $dara
    * cn-shenzhen
    */
   regionId?: string;
+  securityGroupId?: string;
   /**
    * @remarks
    * The topic from which messages are sent.
@@ -6884,12 +6886,18 @@ export class CreateEventStreamingRequestSourceSourceMQTTParameters extends $dara
    * CANAL_VICUTU_UAT
    */
   topic?: string;
+  vSwitchIds?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       bodyDataType: 'BodyDataType',
       instanceId: 'InstanceId',
+      networkType: 'NetworkType',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
       topic: 'Topic',
+      vSwitchIds: 'VSwitchIds',
+      vpcId: 'VpcId',
     };
   }
 
@@ -6897,8 +6905,12 @@ export class CreateEventStreamingRequestSourceSourceMQTTParameters extends $dara
     return {
       bodyDataType: 'string',
       instanceId: 'string',
+      networkType: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
       topic: 'string',
+      vSwitchIds: 'string',
+      vpcId: 'string',
     };
   }
 
