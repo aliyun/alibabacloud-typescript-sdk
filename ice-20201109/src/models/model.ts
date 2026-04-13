@@ -601,6 +601,7 @@ export { QueryTraceExtractJobResponseBodyData } from './QueryTraceExtractJobResp
 export { QueryTraceM3u8JobListResponseBodyDataOutput } from './QueryTraceM3u8jobListResponseBody';
 export { QueryTraceM3u8JobListResponseBodyData } from './QueryTraceM3u8jobListResponseBody';
 export { QueryVideoCognitionJobRequestIncludeResults } from './QueryVideoCognitionJobRequest';
+export { QueryVideoCognitionJobResponseBodyInput } from './QueryVideoCognitionJobResponseBody';
 export { QueryVideoCognitionJobResponseBodyResultsResult } from './QueryVideoCognitionJobResponseBody';
 export { QueryVideoCognitionJobResponseBodyResults } from './QueryVideoCognitionJobResponseBody';
 export { SearchEditingProjectResponseBodyProjectList } from './SearchEditingProjectResponseBody';

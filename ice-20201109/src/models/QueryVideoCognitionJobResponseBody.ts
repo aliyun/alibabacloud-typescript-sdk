@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class QueryVideoCognitionJobResponseBodyInput extends $dara.Model {
+  media?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryVideoCognitionJobResponseBodyResultsResult extends $dara.Model {
   data?: string;
   type?: string;
@@ -55,6 +81,7 @@ export class QueryVideoCognitionJobResponseBodyResults extends $dara.Model {
 }
 
 export class QueryVideoCognitionJobResponseBody extends $dara.Model {
+  input?: QueryVideoCognitionJobResponseBodyInput;
   /**
    * @remarks
    * The status of the task. Valid values:
@@ -68,6 +95,7 @@ export class QueryVideoCognitionJobResponseBody extends $dara.Model {
    * Success
    */
   jobStatus?: string;
+  params?: string;
   /**
    * @remarks
    * The request ID.
@@ -77,6 +105,7 @@ export class QueryVideoCognitionJobResponseBody extends $dara.Model {
    */
   requestId?: string;
   results?: QueryVideoCognitionJobResponseBodyResults;
+  templateId?: string;
   /**
    * @remarks
    * The user-defined data.
@@ -87,23 +116,32 @@ export class QueryVideoCognitionJobResponseBody extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      input: 'Input',
       jobStatus: 'JobStatus',
+      params: 'Params',
       requestId: 'RequestId',
       results: 'Results',
+      templateId: 'TemplateId',
       userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      input: QueryVideoCognitionJobResponseBodyInput,
       jobStatus: 'string',
+      params: 'string',
       requestId: 'string',
       results: QueryVideoCognitionJobResponseBodyResults,
+      templateId: 'string',
       userData: 'string',
     };
   }
 
   validate() {
+    if(this.input && typeof (this.input as any).validate === 'function') {
+      (this.input as any).validate();
+    }
     if(this.results && typeof (this.results as any).validate === 'function') {
       (this.results as any).validate();
     }
