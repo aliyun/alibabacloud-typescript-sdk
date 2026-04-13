@@ -94,6 +94,11 @@ export class DescribeRestoreJobs2ResponseBodyRestoreJobsRestoreJob extends $dara
   snapshotHash?: string;
   snapshotId?: string;
   sourceInstanceId?: string;
+  /**
+   * @example
+   * i-123***7890
+   */
+  sourceResourceId?: string;
   sourceType?: string;
   speed?: number;
   startTime?: number;
@@ -145,6 +150,7 @@ export class DescribeRestoreJobs2ResponseBodyRestoreJobsRestoreJob extends $dara
       snapshotHash: 'SnapshotHash',
       snapshotId: 'SnapshotId',
       sourceInstanceId: 'SourceInstanceId',
+      sourceResourceId: 'SourceResourceId',
       sourceType: 'SourceType',
       speed: 'Speed',
       startTime: 'StartTime',
@@ -199,6 +205,7 @@ export class DescribeRestoreJobs2ResponseBodyRestoreJobsRestoreJob extends $dara
       snapshotHash: 'string',
       snapshotId: 'string',
       sourceInstanceId: 'string',
+      sourceResourceId: 'string',
       sourceType: 'string',
       speed: 'number',
       startTime: 'number',

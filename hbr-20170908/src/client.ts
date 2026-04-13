@@ -3928,7 +3928,6 @@ export default class Client extends OpenApi {
   /**
    * Queries available regions.
    * 
-   * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
@@ -4915,6 +4914,10 @@ export default class Client extends OpenApi {
       query["CreatedByProduct"] = request.createdByProduct;
     }
 
+    if (!$dara.isNull(request.hasSnapshot)) {
+      query["HasSnapshot"] = request.hasSnapshot;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -4966,7 +4969,6 @@ export default class Client extends OpenApi {
   /**
    * Activates Cloud Backup.
    * 
-   * @param request - OpenHbrServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenHbrServiceResponse
    */

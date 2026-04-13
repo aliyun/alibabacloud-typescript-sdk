@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.Model {
   /**
    * @example
+   * 1
+   */
+  backupPlanCount?: number;
+  /**
+   * @example
    * BASIC
    */
   createdByProduct?: string;
@@ -30,6 +35,11 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
   resourceOwnerId?: number;
   /**
    * @example
+   * cn-hangzhou
+   */
+  resourceRegionId?: string;
+  /**
+   * @example
    * 30
    */
   snapshotCount?: number;
@@ -40,11 +50,13 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      backupPlanCount: 'BackupPlanCount',
       createdByProduct: 'CreatedByProduct',
       protectedDataSize: 'ProtectedDataSize',
       protectedResourceId: 'ProtectedResourceId',
       resourceId: 'ResourceId',
       resourceOwnerId: 'ResourceOwnerId',
+      resourceRegionId: 'ResourceRegionId',
       snapshotCount: 'SnapshotCount',
       sourceType: 'SourceType',
     };
@@ -52,11 +64,13 @@ export class ListProtectedResourcesResponseBodyProtectedResources extends $dara.
 
   static types(): { [key: string]: any } {
     return {
+      backupPlanCount: 'number',
       createdByProduct: 'string',
       protectedDataSize: 'number',
       protectedResourceId: 'string',
       resourceId: 'string',
       resourceOwnerId: 'number',
+      resourceRegionId: 'string',
       snapshotCount: 'number',
       sourceType: 'string',
     };

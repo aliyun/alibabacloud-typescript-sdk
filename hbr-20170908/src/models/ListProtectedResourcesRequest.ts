@@ -8,6 +8,7 @@ export class ListProtectedResourcesRequest extends $dara.Model {
    * BASIC
    */
   createdByProduct?: string;
+  hasSnapshot?: boolean;
   /**
    * @example
    * 10
@@ -36,6 +37,7 @@ export class ListProtectedResourcesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createdByProduct: 'CreatedByProduct',
+      hasSnapshot: 'HasSnapshot',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       resourceId: 'ResourceId',
@@ -47,6 +49,7 @@ export class ListProtectedResourcesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createdByProduct: 'string',
+      hasSnapshot: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       resourceId: 'string',
