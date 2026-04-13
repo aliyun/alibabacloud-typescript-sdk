@@ -11,6 +11,7 @@ export class UpdateInstanceRequestComponents extends $dara.Model {
    * 8
    */
   cuNum?: number;
+  payType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -30,6 +31,7 @@ export class UpdateInstanceRequestComponents extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cuNum: 'cuNum',
+      payType: 'payType',
       replica: 'replica',
       type: 'type',
     };
@@ -38,6 +40,7 @@ export class UpdateInstanceRequestComponents extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cuNum: 'number',
+      payType: 'string',
       replica: 'number',
       type: 'string',
     };
@@ -63,6 +66,7 @@ export class UpdateInstanceRequest extends $dara.Model {
    * true
    */
   autoBackup?: boolean;
+  autoPay?: boolean;
   components?: UpdateInstanceRequestComponents[];
   /**
    * @example
@@ -96,6 +100,7 @@ export class UpdateInstanceRequest extends $dara.Model {
     return {
       regionId: 'RegionId',
       autoBackup: 'autoBackup',
+      autoPay: 'autoPay',
       components: 'components',
       configuration: 'configuration',
       ha: 'ha',
@@ -109,6 +114,7 @@ export class UpdateInstanceRequest extends $dara.Model {
     return {
       regionId: 'string',
       autoBackup: 'boolean',
+      autoPay: 'boolean',
       components: { 'type': 'array', 'itemType': UpdateInstanceRequestComponents },
       configuration: 'string',
       ha: 'boolean',

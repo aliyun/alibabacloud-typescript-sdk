@@ -145,12 +145,24 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aiFunction)) {
+      body["aiFunction"] = request.aiFunction;
+    }
+
     if (!$dara.isNull(request.autoBackup)) {
       body["autoBackup"] = request.autoBackup;
     }
 
+    if (!$dara.isNull(request.autoPay)) {
+      body["autoPay"] = request.autoPay;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       body["autoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.backupRestoreInfo)) {
+      body["backupRestoreInfo"] = request.backupRestoreInfo;
     }
 
     if (!$dara.isNull(request.components)) {
@@ -911,6 +923,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.autoBackup)) {
       body["autoBackup"] = request.autoBackup;
+    }
+
+    if (!$dara.isNull(request.autoPay)) {
+      body["autoPay"] = request.autoPay;
     }
 
     if (!$dara.isNull(request.components)) {

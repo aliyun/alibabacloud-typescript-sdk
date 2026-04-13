@@ -47,6 +47,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
    * essd
    */
   diskType?: string;
+  payType?: string;
   /**
    * @remarks
    * The number of replicas.
@@ -63,6 +64,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
       cuRatio: 'CuRatio',
       diskSize: 'DiskSize',
       diskType: 'DiskType',
+      payType: 'PayType',
       replica: 'Replica',
       zoneId: 'ZoneId',
     };
@@ -75,6 +77,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
       cuRatio: 'number',
       diskSize: 'number',
       diskType: 'string',
+      payType: 'string',
       replica: 'number',
       zoneId: 'string',
     };
@@ -466,6 +469,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
    */
   instanceStatus?: string;
   kmsKeyId?: string;
+  maintainablePeriod?: string;
   measureConfig?: GetInstanceDetailResponseBodyDataMeasureConfig;
   multiZoneMode?: string;
   /**
@@ -608,6 +612,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
       kmsKeyId: 'KmsKeyId',
+      maintainablePeriod: 'MaintainablePeriod',
       measureConfig: 'MeasureConfig',
       multiZoneMode: 'MultiZoneMode',
       nodeType: 'NodeType',
@@ -645,6 +650,7 @@ export class GetInstanceDetailResponseBodyData extends $dara.Model {
       instanceId: 'string',
       instanceStatus: 'string',
       kmsKeyId: 'string',
+      maintainablePeriod: 'string',
       measureConfig: GetInstanceDetailResponseBodyDataMeasureConfig,
       multiZoneMode: 'string',
       nodeType: 'string',

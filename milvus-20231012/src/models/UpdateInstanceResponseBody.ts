@@ -13,6 +13,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
    * true
    */
   data?: boolean;
+  orderId?: string;
   /**
    * @example
    * true
@@ -22,6 +23,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
     return {
       requestId: 'RequestId',
       data: 'data',
+      orderId: 'orderId',
       success: 'success',
     };
   }
@@ -30,6 +32,7 @@ export class UpdateInstanceResponseBody extends $dara.Model {
     return {
       requestId: 'string',
       data: 'boolean',
+      orderId: 'string',
       success: 'boolean',
     };
   }

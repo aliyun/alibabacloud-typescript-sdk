@@ -337,6 +337,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
    */
   sgId?: string;
   tags?: ListInstancesResponseBodyDataTags[];
+  templateVersion?: string;
   version?: string;
   /**
    * @remarks
@@ -381,6 +382,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
       runningTime: 'RunningTime',
       sgId: 'SgId',
       tags: 'Tags',
+      templateVersion: 'TemplateVersion',
       version: 'Version',
       vpcId: 'VpcId',
       vswId: 'VswId',
@@ -407,6 +409,7 @@ export class ListInstancesResponseBodyData extends $dara.Model {
       runningTime: 'number',
       sgId: 'string',
       tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyDataTags },
+      templateVersion: 'string',
       version: 'string',
       vpcId: 'string',
       vswId: 'string',

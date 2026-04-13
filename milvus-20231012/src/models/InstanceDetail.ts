@@ -3,16 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstanceDetailComponents extends $dara.Model {
+  /**
+   * @example
+   * 4
+   */
   cuNum?: number;
+  /**
+   * @example
+   * general
+   */
   cuType?: string;
+  /**
+   * @example
+   * Normal
+   */
   diskSizeType?: string;
+  payType?: string;
+  /**
+   * @example
+   * 1
+   */
   replica?: number;
+  /**
+   * @example
+   * data
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
       cuNum: 'cuNum',
       cuType: 'cuType',
       diskSizeType: 'diskSizeType',
+      payType: 'payType',
       replica: 'replica',
       type: 'type',
     };
@@ -23,6 +45,7 @@ export class InstanceDetailComponents extends $dara.Model {
       cuNum: 'number',
       cuType: 'string',
       diskSizeType: 'string',
+      payType: 'string',
       replica: 'number',
       type: 'string',
     };
@@ -38,7 +61,15 @@ export class InstanceDetailComponents extends $dara.Model {
 }
 
 export class InstanceDetailTags extends $dara.Model {
+  /**
+   * @example
+   * k1
+   */
   key?: string;
+  /**
+   * @example
+   * v1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,7 +95,15 @@ export class InstanceDetailTags extends $dara.Model {
 }
 
 export class InstanceDetailVSwitchIds extends $dara.Model {
+  /**
+   * @example
+   * vsw-xxx
+   */
   vswId?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -90,40 +129,115 @@ export class InstanceDetailVSwitchIds extends $dara.Model {
 }
 
 export class InstanceDetail extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   autoBackup?: boolean;
   components?: InstanceDetailComponents[];
+  /**
+   * @example
+   * rootCoord:
+   *     maxDatabaseNum: 64 # Maximum number of database
+   *     maxPartitionNum: 4096
+   */
   configuration?: string;
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2025-04-27T02:04:25Z
    */
   createTime?: string;
+  /**
+   * @example
+   * 2.5
+   */
   dbVersion?: string;
+  /**
+   * @example
+   * false
+   */
   encrypted?: boolean;
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
+   * 
+   * @example
+   * 2025-04-27T02:04:25Z
    */
   expireTime?: string;
+  /**
+   * @example
+   * true
+   */
   ha?: boolean;
+  /**
+   * @example
+   * c-xxx
+   */
   instanceId?: string;
   /**
    * @example
    * milvus-test
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * kms key Id。
+   * 
+   * @example
+   * key-xxx
+   */
   kmsKeyId?: string;
+  /**
+   * @example
+   * Single
+   */
   multiZoneMode?: string;
+  /**
+   * @example
+   * 4751
+   */
   orderId?: string;
+  /**
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
+  /**
+   * @example
+   * rg-aek3dcgyq7pnqwa
+   */
   resourceGroupId?: string;
+  /**
+   * @example
+   * 1
+   */
   runningTime?: number;
   securityGroupIds?: string[];
+  /**
+   * @example
+   * running
+   */
   status?: string;
   tags?: InstanceDetailTags[];
   vSwitchIds?: InstanceDetailVSwitchIds[];
+  /**
+   * @example
+   * vpc-xxx
+   */
   vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-i
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

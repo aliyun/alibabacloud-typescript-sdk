@@ -52,12 +52,14 @@ export class DBVersionDetailSpecs extends $dara.Model {
   componentSpecs?: DBVersionDetailSpecsComponentSpecs[];
   isHA?: boolean;
   isStandalone?: boolean;
+  isStandalonePro?: boolean;
   zoneMode?: string;
   static names(): { [key: string]: string } {
     return {
       componentSpecs: 'componentSpecs',
       isHA: 'isHA',
       isStandalone: 'isStandalone',
+      isStandalonePro: 'isStandalonePro',
       zoneMode: 'zoneMode',
     };
   }
@@ -67,6 +69,7 @@ export class DBVersionDetailSpecs extends $dara.Model {
       componentSpecs: { 'type': 'array', 'itemType': DBVersionDetailSpecsComponentSpecs },
       isHA: 'boolean',
       isStandalone: 'boolean',
+      isStandalonePro: 'boolean',
       zoneMode: 'string',
     };
   }

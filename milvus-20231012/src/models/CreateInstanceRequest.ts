@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateInstanceRequestBackupRestoreInfo extends $dara.Model {
+  backupId?: string;
+  backupName?: string;
+  sourceClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backupId: 'backupId',
+      backupName: 'backupName',
+      sourceClusterId: 'sourceClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupId: 'string',
+      backupName: 'string',
+      sourceClusterId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestComponents extends $dara.Model {
   /**
    * @remarks
@@ -120,8 +149,11 @@ export class CreateInstanceRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  aiFunction?: boolean;
   autoBackup?: boolean;
+  autoPay?: boolean;
   autoRenew?: boolean;
+  backupRestoreInfo?: CreateInstanceRequestBackupRestoreInfo;
   components?: CreateInstanceRequestComponents[];
   configuration?: string;
   /**
@@ -202,8 +234,11 @@ export class CreateInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      aiFunction: 'aiFunction',
       autoBackup: 'autoBackup',
+      autoPay: 'autoPay',
       autoRenew: 'autoRenew',
+      backupRestoreInfo: 'backupRestoreInfo',
       components: 'components',
       configuration: 'configuration',
       dbAdminPassword: 'dbAdminPassword',
@@ -231,8 +266,11 @@ export class CreateInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      aiFunction: 'boolean',
       autoBackup: 'boolean',
+      autoPay: 'boolean',
       autoRenew: 'boolean',
+      backupRestoreInfo: CreateInstanceRequestBackupRestoreInfo,
       components: { 'type': 'array', 'itemType': CreateInstanceRequestComponents },
       configuration: 'string',
       dbAdminPassword: 'string',
@@ -258,6 +296,9 @@ export class CreateInstanceRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.backupRestoreInfo && typeof (this.backupRestoreInfo as any).validate === 'function') {
+      (this.backupRestoreInfo as any).validate();
+    }
     if(Array.isArray(this.components)) {
       $dara.Model.validateArray(this.components);
     }
