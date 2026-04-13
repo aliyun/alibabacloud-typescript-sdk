@@ -195,15 +195,18 @@ export class StartAgentRequestVoiceChatConfigAmbientSoundConfig extends $dara.Mo
 
 export class StartAgentRequestVoiceChatConfigBackChannelConfig extends $dara.Model {
   userTurnEnd?: boolean;
+  version?: number;
   static names(): { [key: string]: string } {
     return {
       userTurnEnd: 'UserTurnEnd',
+      version: 'Version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       userTurnEnd: 'boolean',
+      version: 'number',
     };
   }
 
