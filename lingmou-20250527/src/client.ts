@@ -446,6 +446,14 @@ export default class Client extends OpenApi {
   async createChatSessionWithOptions(id: string, request: $_model.CreateChatSessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateChatSessionResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      query["appId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["deviceId"] = request.deviceId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["instanceId"] = request.instanceId;
     }

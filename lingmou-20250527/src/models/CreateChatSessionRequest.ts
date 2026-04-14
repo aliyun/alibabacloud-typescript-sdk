@@ -4,6 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateChatSessionRequest extends $dara.Model {
   /**
+   * @example
+   * emaPet0p1tWYNkqD
+   */
+  appId?: string;
+  /**
+   * @example
+   * xzzx1SIcXGYSju3S
+   */
+  deviceId?: string;
+  /**
    * @remarks
    * 需要在[数字人实时交互服务](https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.457876812ETi6y&commodityCode=avatar_2dchat_public_cn)购买完成对应的服务购买，当前有可用的服务时，前往阿里云-[我的订单](https://billing-cost.console.aliyun.com/order/list)页面对应订单详情下进行查询
    * 
@@ -31,6 +41,8 @@ export class CreateChatSessionRequest extends $dara.Model {
   platform?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'appId',
+      deviceId: 'deviceId',
       instanceId: 'instanceId',
       license: 'license',
       platform: 'platform',
@@ -39,6 +51,8 @@ export class CreateChatSessionRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
+      deviceId: 'string',
       instanceId: 'string',
       license: 'string',
       platform: 'string',
