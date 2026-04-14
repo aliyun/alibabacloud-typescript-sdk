@@ -72,7 +72,7 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBodyData extends $dara.M
 export class SenderStatisticsByTagNameAndBatchIDResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -80,16 +80,12 @@ export class SenderStatisticsByTagNameAndBatchIDResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * The total count of data records.
+   * Total count
    * 
    * @example
    * 1
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * Contains the statistical data.
-   */
   data?: SenderStatisticsByTagNameAndBatchIDResponseBodyData;
   static names(): { [key: string]: string } {
     return {

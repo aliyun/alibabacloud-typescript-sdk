@@ -75,7 +75,7 @@ export class QueryReceiverByParamResponseBodyData extends $dara.Model {
 export class QueryReceiverByParamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Used for paging. If more results are available, set this value as the NextStart parameter in your next request.
+   * Used for pagination. If there are more results, set this returned value to the NextStart in the next request.
    * 
    * @example
    * 6aec200853#102#1638894326#test@example.com
@@ -83,7 +83,7 @@ export class QueryReceiverByParamResponseBody extends $dara.Model {
   nextStart?: string;
   /**
    * @remarks
-   * Number of entries per page.
+   * Number of items displayed per page.
    * 
    * @example
    * 10
@@ -91,7 +91,7 @@ export class QueryReceiverByParamResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * Request ID
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -99,7 +99,7 @@ export class QueryReceiverByParamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of entries.
+   * Total count
    * 
    * @example
    * 15

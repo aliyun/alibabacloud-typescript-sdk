@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMailAddressByParamRequest extends $dara.Model {
   /**
    * @remarks
-   * The email address. The length is 1 to 60 characters. It supports digits, letters, periods (.), hyphens (-), and at signs (@).
+   * Email address, length 1-60, supports numbers, letters, ., -, @.
    * 
    * @example
-   * 账号+@+域名
+   * sender@example.com
    */
   keyWord?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The current page number. The default value is 1.
+   * Current page number, default: 1
    * 
    * @example
    * 1
@@ -22,7 +22,7 @@ export class QueryMailAddressByParamRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. The default value is 10.
+   * Page size, default: 10
    * 
    * @example
    * 10
@@ -32,11 +32,10 @@ export class QueryMailAddressByParamRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The type of the sender address. Valid values:
+   * Sending address type. Values:
    * 
-   * - batch: batch emails
-   * 
-   * - trigger: triggered emails
+   * - batch: bulk email
+   * - trigger: triggered email
    * 
    * @example
    * batch

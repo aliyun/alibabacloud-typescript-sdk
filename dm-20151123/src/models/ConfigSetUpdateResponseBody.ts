@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigSetUpdateResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the configuration set.
-   * 
    * @example
    * xxx
    */
   id?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * xxx
    */

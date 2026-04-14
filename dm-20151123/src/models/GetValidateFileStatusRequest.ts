@@ -5,8 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class GetValidateFileStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The file ID returned after the task is submitted.
-   * 
    * This parameter is required.
    * 
    * @example

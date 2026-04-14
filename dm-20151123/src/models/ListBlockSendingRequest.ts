@@ -4,29 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListBlockSendingRequest extends $dara.Model {
   /**
-   * @remarks
-   * The start of the time range to query blocked emails.
-   * 
    * @example
-   * 1763973206
+   * 1731463398242
    */
   beginTime?: number;
   /**
-   * @remarks
-   * The recipient email address.
-   * 
    * @example
    * xxxx@rcpt.com
    */
   blockEmail?: string;
   /**
    * @remarks
-   * The type of block.
-   * 
-   * - UNSUB: Unsubscribe
-   * 
-   * - REPORT: Spam report
-   * 
    * This parameter is required.
    * 
    * @example
@@ -34,34 +22,21 @@ export class ListBlockSendingRequest extends $dara.Model {
    */
   blockType?: string;
   /**
-   * @remarks
-   * The end of the time range to query blocked emails.
-   * 
    * @example
-   * 1764146006
+   * 1732463398242
    */
   endTime?: number;
   /**
-   * @remarks
-   * The maximum number of entries to return.<br>
-   * Valid values: 1 to 500.<br>
-   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
-   * @remarks
-   * The token used to start the query. If you do not specify this parameter, the query starts from the beginning of the results.
-   * 
    * @example
    * xxxxxyyyyyy
    */
   nextToken?: string;
   /**
-   * @remarks
-   * The sender email address.
-   * 
    * @example
    * xxxx@sender.com
    */

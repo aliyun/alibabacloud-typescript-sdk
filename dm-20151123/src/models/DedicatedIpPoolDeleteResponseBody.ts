@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class DedicatedIpPoolDeleteResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * xxx
    */

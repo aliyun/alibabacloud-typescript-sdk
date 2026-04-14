@@ -62,7 +62,7 @@ export class SaveReceiverDetailResponseBody extends $dara.Model {
   data?: SaveReceiverDetailResponseBodyData;
   /**
    * @remarks
-   * The number of errors.
+   * Number of errors.
    * 
    * @example
    * 638
@@ -70,7 +70,7 @@ export class SaveReceiverDetailResponseBody extends $dara.Model {
   errorCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -78,7 +78,7 @@ export class SaveReceiverDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of successful records.
+   * Number of successes.
    * 
    * @example
    * 274

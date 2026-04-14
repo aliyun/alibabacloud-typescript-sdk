@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpChangeWarmupTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the dedicated IP address.
+   * Dedicated IP ID
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class DedicatedIpChangeWarmupTypeRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The prefetch method.
+   * Warmup method
    * 
    * @example
    * sysCusStream

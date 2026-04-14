@@ -6,17 +6,11 @@ import * as $dara from '@darabonba/typescript';
  */
 export class ConfigSetDetailResponseBodyDetailIpPool extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the associated IP pool.
-   * 
    * @example
    * xxx
    */
   ipPoolId?: string;
   /**
-   * @remarks
-   * The name of the associated IP pool.
-   * 
    * @example
    * xxx
    */
@@ -46,30 +40,17 @@ export class ConfigSetDetailResponseBodyDetailIpPool extends $dara.Model {
 
 export class ConfigSetDetailResponseBodyDetail extends $dara.Model {
   /**
-   * @remarks
-   * The description.
-   * 
    * @example
    * xxx
    */
   description?: string;
   /**
-   * @remarks
-   * The ID of the configuration set.
-   * 
    * @example
    * xxx
    */
   id?: string;
-  /**
-   * @remarks
-   * The associated IP pool.
-   */
   ipPool?: ConfigSetDetailResponseBodyDetailIpPool;
   /**
-   * @remarks
-   * The name of the configuration set.
-   * 
    * @example
    * xxx
    */
@@ -105,15 +86,8 @@ export class ConfigSetDetailResponseBodyDetail extends $dara.Model {
 }
 
 export class ConfigSetDetailResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the configuration set.
-   */
   detail?: ConfigSetDetailResponseBodyDetail;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * xxx
    */

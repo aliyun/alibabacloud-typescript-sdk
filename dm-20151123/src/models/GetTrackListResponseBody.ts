@@ -81,23 +81,23 @@ export class GetTrackListResponseBodyData extends $dara.Model {
 export class GetTrackListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Used for pagination. Do not set this parameter for the first request. For subsequent requests, set this parameter to the OffsetCreateTime value from the previous response. (This field is deprecated.)
+   * Used for pagination. Not set for the first query, but for subsequent queries, it should be set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
    * 
    * @example
-   * （本字段已废弃）
+   * (This field is deprecated)
    */
   offsetCreateTime?: string;
   /**
    * @remarks
-   * (This field is deprecated.)
+   * (This field is deprecated)
    * 
    * @example
-   * （本字段已废弃）
+   * (This field is deprecated)
    */
   offsetCreateTimeDesc?: string;
   /**
    * @remarks
-   * The current page number.
+   * Current page number
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class GetTrackListResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * Number of items per page
    * 
    * @example
    * 10
@@ -113,7 +113,7 @@ export class GetTrackListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier for the request.
+   * Request ID
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -121,19 +121,12 @@ export class GetTrackListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching records.
+   * Total number of items
    * 
    * @example
    * 100
    */
   total?: number;
-  /**
-   * @remarks
-   * The total number of pages.
-   * 
-   * @example
-   * 2
-   */
   totalPages?: number;
   data?: GetTrackListResponseBodyData;
   static names(): { [key: string]: string } {

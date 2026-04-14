@@ -5,45 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The sender address.
+   * Sender address.
    * 
-   * > If you leave this parameter empty, data for all addresses is returned. This parameter is required if you specify TagName.
+   * > If not filled, it represents all addresses; if there is a TagName, this parameter must not be empty.
    * 
    * @example
    * e-service@amegroups.cn
    */
   accountName?: string;
-  /**
-   * @remarks
-   * The configuration set ID.
-   * 
-   * @example
-   * xxx
-   */
   configSetId?: string;
-  /**
-   * @remarks
-   * The dedicated IP address. This parameter is available only for users of dedicated IPs.
-   * 
-   * If you do not specify this parameter, data for all IPs is returned.
-   * 
-   * @example
-   * xxx.xxx.xxx.xxx
-   */
   dedicatedIp?: string;
-  /**
-   * @remarks
-   * The ID of the dedicated IP pool. This parameter is available only for users of dedicated IPs.
-   * 
-   * If you do not specify this parameter, data for all IP pools is returned.
-   * 
-   * @example
-   * xxx
-   */
   dedicatedIpPoolId?: string;
   /**
    * @remarks
-   * The end time. The time span between the start time and end time cannot exceed 15 days. The format is yyyy-MM-dd.
+   * End time, with a span from the start time that cannot exceed 15 days. Format: yyyy-MM-dd.
    * 
    * This parameter is required.
    * 
@@ -51,29 +26,10 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
    * 2019-09-29
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The Email Service Provider (ESP). This parameter is available only for users of dedicated IPs. Valid values:
-   * 
-   * - gmail.com
-   * 
-   * - yahoo.com
-   * 
-   * - outlook.com
-   * 
-   * - icloud.com
-   * 
-   * - others (data for ESPs other than the ones listed above)
-   * 
-   * If you do not specify this parameter, data for all ESPs is returned.
-   * 
-   * @example
-   * gmail.com
-   */
   esp?: string;
   /**
    * @remarks
-   * The value is 0 for the first query and 1 for subsequent queries. A value of 1 indicates a paged query in chronological order. (This field is deprecated)
+   * For the first query, set to 0; for subsequent queries, fixed at 1. 1 indicates pagination in ascending order by time. (This field is deprecated)
    * 
    * @example
    * （本字段已废弃）
@@ -81,7 +37,7 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
   offset?: string;
   /**
    * @remarks
-   * Used for paging. Do not set this parameter for the first query. For subsequent queries, set this parameter to the OffsetCreateTime value from the previous response. (This field is deprecated)
+   * Used for pagination. Not set for the first query; for subsequent queries, set to the value of OffsetCreateTime from the previous response. (This field is deprecated)
    * 
    * @example
    * （本字段已废弃）
@@ -98,7 +54,7 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The current page number.
+   * Current page number
    * 
    * @example
    * 1
@@ -106,7 +62,7 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size
    * 
    * @example
    * 10
@@ -116,7 +72,7 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time. The time cannot be earlier than 30 days ago. The format is yyyy-MM-dd.
+   * Start time, which cannot be earlier than 30 days. Format: yyyy-MM-dd.
    * 
    * This parameter is required.
    * 
@@ -126,7 +82,7 @@ export class GetTrackListByMailFromAndTagNameRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The email tag. If you leave this parameter empty, data for all tags is returned.
+   * Email tag. If not filled, it represents all tags.
    * 
    * @example
    * Subscription

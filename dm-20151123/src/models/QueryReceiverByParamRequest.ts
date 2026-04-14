@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryReceiverByParamRequest extends $dara.Model {
   /**
    * @remarks
-   * Search keyword. Default value: all information.
+   * Keyword, defaults to all information if not specified
    * 
    * @example
    * mesh-notification
@@ -14,7 +14,7 @@ export class QueryReceiverByParamRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Page number.
+   * Current page number
    * 
    * @example
    * 1
@@ -22,7 +22,7 @@ export class QueryReceiverByParamRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * Number of entries per page. Default value: 10.
+   * Number of items per page, default: 10
    * 
    * @example
    * 10
@@ -32,11 +32,12 @@ export class QueryReceiverByParamRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * List status. Valid values:
+   * Delivery result. If not filled, it represents all statuses. Values:
    * 
-   * - 0: uploading
-   * 
-   * - 1: upload complete
+   * - 0: Success
+   * - 2: Invalid address
+   * - 3: Spam
+   * - 4: Failure
    * 
    * @example
    * 1

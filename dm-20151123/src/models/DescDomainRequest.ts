@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name ID. Obtain this ID by calling the QueryDomainByParam operation.
+   * Domain ID. Can be obtained through QueryDomainByParam.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DescDomainRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to perform real-time DNS parsing.
+   * Determines whether to perform real-time DNS resolution
    * 
    * @example
    * true

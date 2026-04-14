@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpNonePoolListResponseBodyIps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the purchased instance.
+   * Purchased instance ID
    * 
    * @example
    * xxx
@@ -13,19 +13,12 @@ export class DedicatedIpNonePoolListResponseBodyIps extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The IP address.
+   * IP address
    * 
    * @example
    * xxx
    */
   ip?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * xxx
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,12 +48,12 @@ export class DedicatedIpNonePoolListResponseBodyIps extends $dara.Model {
 export class DedicatedIpNonePoolListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses that are not added to an IP pool.
+   * Information on IPs not added to the IP pool
    */
   ips?: DedicatedIpNonePoolListResponseBodyIps[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * xxx

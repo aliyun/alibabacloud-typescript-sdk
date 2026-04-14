@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigSetRelationFromAddressResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * xxx
    */
   requestId?: string;
   /**
-   * @remarks
-   * The result of the operation.
-   * 
    * @example
    * true
    */

@@ -10,7 +10,7 @@ export class CreateMailAddressRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 账号+@+域名
+   * test1@example.com
    */
   accountName?: string;
   ownerId?: number;
@@ -19,7 +19,7 @@ export class CreateMailAddressRequest extends $dara.Model {
    * Reply-to address
    * 
    * @example
-   * test1***@example.net
+   * test2@example.com
    */
   replyAddress?: string;
   resourceOwnerAccount?: string;

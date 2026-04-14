@@ -3,21 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescTemplateRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is deprecated. It is retained for historical compatibility.
-   * 
-   * @example
-   * Abandoned, historical reasons for compatibility
-   */
   fromType?: number;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The template ID.
-   * 
    * This parameter is required.
    * 
    * @example

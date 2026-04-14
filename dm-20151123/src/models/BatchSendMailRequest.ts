@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchSendMailRequest extends $dara.Model {
   /**
    * @remarks
-   * The sender address configured in the console.
+   * The sending address configured in the management console.
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,7 @@ export class BatchSendMailRequest extends $dara.Model {
   /**
    * @remarks
    * - 0: Random account
-   * 
-   * - 1: Sender address
+   * - 1: Sending address
    * 
    * This parameter is required.
    * 
@@ -27,93 +26,38 @@ export class BatchSendMailRequest extends $dara.Model {
   addressType?: number;
   /**
    * @remarks
-   * - 1: Enables the data tracking feature.
-   * 
-   * - 0 (default): Disables the data tracking feature.
+   * - 1: Enable data tracking function
+   * - 0 (default): Disable data tracking function
    * 
    * @example
    * 0
    */
   clickTrace?: string;
-  /**
-   * @remarks
-   * Enables domain-level authentication.
-   * 
-   * - true
-   * 
-   * - false
-   * 
-   * Use this parameter only for domain-level authentication. Ignore it for sender address-level authentication.
-   * 
-   * 1\\. The console creates the address \\`domain-auth-created-by-system\\@example.com\\`. Do not change the prefix before the at sign (@). Replace the domain suffix with your own domain.
-   * 
-   * 2\\.
-   * 
-   * **API scenario**
-   * 
-   * Set \\`AccountName\\` to your domain. Recipients see \\`domain-auth-created-by-system\\@example.com\\` as the sender.
-   * 
-   * **SMTP scenario**
-   * 
-   * a. Use the \\`ModifyPWByDomain\\` API to set a password for your domain.
-   * 
-   * b. Authenticate using your domain and the password. Set the actual sender address (\\`mailfrom\\`) to a custom address, such as \\`user\\@example.com\\`. Recipients see \\`user\\@example.com\\` as the sender.
-   * 
-   * @example
-   * true
-   */
   domainAuth?: boolean;
   /**
    * @remarks
-   * Message header settings.
-   * 
-   * All fields, standard or non-standard, must follow standard header syntax. For API calls, the \\`headers\\` field supports up to 10 headers. Any headers beyond this limit are ignored. SMTP does not have a header limit.
-   * 
-   * 1\\. Standard fields
-   * 
-   * \\`Message-ID\\`, \\`List-Unsubscribe\\`, \\`List-Unsubscribe-Post\\`
-   * 
-   * Standard fields overwrite existing values in the message header.
-   * 
-   * 2\\. Non-standard fields
-   * 
-   * Case-insensitive
-   * 
-   * a. Start with \\`X-User-\\`. These fields are not pushed to EventBridge or Message Service. They are required only for API calls. SMTP supports any custom header.
-   * 
-   * b. Start with \\`X-User-Notify-\\`. These fields are pushed to EventBridge and Message Service. They are supported by both API and SMTP.
-   * 
-   * When pushed to EventBridge or Message Service, these fields appear under the \\`headers\\` object.
+   * Currently, the standard fields that can be added to the email header are Message-ID, List-Unsubscribe, and List-Unsubscribe-Post. Standard fields will overwrite the existing values in the email header, while non-standard fields must start with X-User- and will be appended to the email header. Currently, up to 10 headers can be passed in JSON format, and both standard and non-standard fields must comply with the syntax requirements for headers.
    * 
    * @example
    * {
-   *       "Message-ID": "<d52ce63e-a0d5-4f95-b6a9-e1256a44f5fb@example.net>",
-   *       "X-User-UID1": "UID-1-000001",
-   *       "X-User-UID2": "UID-2-000001",
-   *       "X-User-Notify-UID1": "UID-3-000001",
-   *       "X-User-Notify-UID2": "UID-4-000001"
-   * 	  
+   *   "Message-ID": "<msg0001@example.com>",
+   *   "X-User-UID1": "UID-1-000001",
+   *   "X-User-UID2": "UID-2-000001"
    * }
    */
   headers?: string;
   /**
    * @remarks
-   * The ID of the dedicated IP address pool. If you purchased dedicated IP addresses, use this parameter to specify the egress IP address for sending the email.
+   * dedicated IP pool ID. Users who have purchased an dedicated IP can use this parameter to specify the outgoing IP for this send operation.
    * 
    * @example
-   * e4xxxxxe-4xx0-4xx3-8xxa-74cxxxxx1cef
+   * xxx
    */
   ipPoolId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The name of a pre-created recipient list to which recipients have been uploaded.
-   * 
-   * Note:
-   * 
-   * The number of recipients in the list must not exceed your remaining daily quota. Otherwise, email sending fails.
-   * 
-   * Do not delete the recipient list for at least 10 minutes after triggering the task. Otherwise, email sending may fail.
+   * The name of the recipient list that has been created and uploaded with recipients. Note: The recipient list should not be deleted until at least 10 minutes after the task is triggered, otherwise it may cause sending failure.
    * 
    * This parameter is required.
    * 
@@ -123,7 +67,7 @@ export class BatchSendMailRequest extends $dara.Model {
   receiversName?: string;
   /**
    * @remarks
-   * The reply-to address.
+   * Reply address
    * 
    * @example
    * test2***@example.net
@@ -131,17 +75,17 @@ export class BatchSendMailRequest extends $dara.Model {
   replyAddress?: string;
   /**
    * @remarks
-   * The alias for the reply-to address.
+   * Alias for the reply address
    * 
    * @example
-   * 小红
+   * Lucy
    */
   replyAddressAlias?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the email tag.
+   * Email tag name.
    * 
    * @example
    * test3
@@ -149,7 +93,7 @@ export class BatchSendMailRequest extends $dara.Model {
   tagName?: string;
   /**
    * @remarks
-   * The name of a pre-created and approved template.
+   * The name of the template that has been created and approved in advance.
    * 
    * This parameter is required.
    * 
@@ -159,17 +103,12 @@ export class BatchSendMailRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The filtering level. For more information, see [Unsubscribe link generation and filtering mechanism](https://help.aliyun.com/document_detail/2689048.html).
-   * 
-   * - disabled: No filtering.
-   * 
-   * - default: Uses the default policy. Batch emails are filtered at the sender address level.
-   * 
-   * - mailfrom: Filters at the sender address level.
-   * 
-   * - mailfrom_domain: Filters at the email domain level.
-   * 
-   * - edm_id: Filters at the account level.
+   * Filtering level. Refer to the [Unsubscribe Function Link Generation and Filtering Mechanism](https://help.aliyun.com/document_detail/2689048.html) document.
+   * - disabled: No filtering
+   * - default: Use the default strategy, bulk addresses use sender address-level filtering
+   * - mailfrom: Sender address-level filtering
+   * - mailfrom_domain: Sender domain-level filtering
+   * - edm_id: Account-level filtering
    * 
    * @example
    * mailfrom_domain
@@ -177,13 +116,13 @@ export class BatchSendMailRequest extends $dara.Model {
   unSubscribeFilterLevel?: string;
   /**
    * @remarks
-   * The type of unsubscribe link to generate. For more information, see [Unsubscribe link generation and filtering mechanism](https://help.aliyun.com/document_detail/2689048.html).
-   * 
-   * - disabled: Does not generate a link.
-   * 
-   * - default: Uses the default policy. An unsubscribe link is generated when batch emails are sent from a sender address to specific domains, such as those containing the keywords "gmail", "yahoo", "google", "aol.com", "hotmail", "outlook", or "ymail.com".
-   * 
-   * The language of the unsubscribe link matches the recipient\\"s browser language setting.
+   * The type of generated unsubscribe link. Refer to the [Unsubscribe Function Link Generation and Filtering Mechanism](https://help.aliyun.com/document_detail/2689048.html) document.
+   * - disabled: Do not generate
+   * - default: Use the default strategy: Generate an unsubscribe link when a bulk-type sending address sends to specific domains, such as those containing keywords like "gmail", "yahoo",
+   * "google", "aol.com", "hotmail",
+   * "outlook", "ymail.com", etc.
+   * - zh-cn: Generate, for future content preparation
+   * - en-us: Generate, for future content preparation
    * 
    * @example
    * default

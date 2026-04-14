@@ -8,7 +8,7 @@ export class CreateUserSuppressionRequest extends $dara.Model {
    * Email address or domain name
    * 
    * @example
-   * test@example.net或example.net
+   * test@example.net
    */
   address?: string;
   ownerId?: number;

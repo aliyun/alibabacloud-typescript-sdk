@@ -90,7 +90,7 @@ export class QueryTaskByParamResponseBodyData extends $dara.Model {
 export class QueryTaskByParamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * Current page number
    * 
    * @example
    * 3
@@ -98,7 +98,7 @@ export class QueryTaskByParamResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Page size
    * 
    * @example
    * 10
@@ -106,7 +106,7 @@ export class QueryTaskByParamResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * 10A1AD70-E48E-476D-98D9-39BD92193837
@@ -114,7 +114,7 @@ export class QueryTaskByParamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * Total count
    * 
    * @example
    * 15

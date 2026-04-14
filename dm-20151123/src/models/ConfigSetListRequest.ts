@@ -4,33 +4,21 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigSetListRequest extends $dara.Model {
   /**
-   * @remarks
-   * Specifies whether to query all configuration sets. This parameter is optional.
-   * 
    * @example
    * false
    */
   all?: boolean;
   /**
-   * @remarks
-   * The keyword to search by name.
-   * 
    * @example
    * xxx
    */
   keyword?: string;
   /**
-   * @remarks
-   * The page index. The value starts from 1. This parameter is required.
-   * 
    * @example
    * 1
    */
   pageIndex?: string;
   /**
-   * @remarks
-   * The number of entries per page. This parameter is required.
-   * 
    * @example
    * 10
    */

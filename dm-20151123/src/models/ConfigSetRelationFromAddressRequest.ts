@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigSetRelationFromAddressRequest extends $dara.Model {
   /**
-   * @remarks
-   * The sender address. This parameter is required.
-   * 
    * @example
    * xxx@xxx.com
    */
   fromAddress?: string;
   /**
-   * @remarks
-   * The ID of the configuration set. This parameter is required.
-   * 
    * @example
    * xxx
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpPoolListResponseBodyIpPoolsIps extends $dara.Model {
   /**
    * @remarks
-   * The ID of the IP address instance.
+   * Instance purchase ID
    * 
    * @example
    * xxx
@@ -13,19 +13,12 @@ export class DedicatedIpPoolListResponseBodyIpPoolsIps extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The IP address.
+   * IP address
    * 
    * @example
    * xxx
    */
   ip?: string;
-  /**
-   * @remarks
-   * The ID of the Availability Zone.
-   * 
-   * @example
-   * xxx
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55,7 +48,7 @@ export class DedicatedIpPoolListResponseBodyIpPoolsIps extends $dara.Model {
 export class DedicatedIpPoolListResponseBodyIpPools extends $dara.Model {
   /**
    * @remarks
-   * The time when the IP pool was created.
+   * Creation time
    * 
    * @example
    * 2025-05-23T07:41:43Z
@@ -63,7 +56,7 @@ export class DedicatedIpPoolListResponseBodyIpPools extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the IP pool.
+   * IP pool ID
    * 
    * @example
    * xxx
@@ -71,7 +64,7 @@ export class DedicatedIpPoolListResponseBodyIpPools extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The number of source IP addresses in the IP pool.
+   * Number of source IP addresses
    * 
    * @example
    * 1
@@ -79,12 +72,12 @@ export class DedicatedIpPoolListResponseBodyIpPools extends $dara.Model {
   ipCount?: number;
   /**
    * @remarks
-   * A list of IP addresses.
+   * List of IPs
    */
   ips?: DedicatedIpPoolListResponseBodyIpPoolsIps[];
   /**
    * @remarks
-   * The name of the IP pool.
+   * IP pool name
    * 
    * @example
    * xxx
@@ -125,7 +118,7 @@ export class DedicatedIpPoolListResponseBodyIpPools extends $dara.Model {
 export class DedicatedIpPoolListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * Current page
    * 
    * @example
    * 1
@@ -133,7 +126,7 @@ export class DedicatedIpPoolListResponseBody extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * Indicates whether more results are available.
+   * Whether there is a next page
    * 
    * @example
    * false
@@ -141,12 +134,12 @@ export class DedicatedIpPoolListResponseBody extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * A list of IP pools.
+   * List of IP pools
    */
   ipPools?: DedicatedIpPoolListResponseBodyIpPools[];
   /**
    * @remarks
-   * The number of entries on the current page.
+   * Page size
    * 
    * @example
    * 10
@@ -154,7 +147,7 @@ export class DedicatedIpPoolListResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID
    * 
    * @example
    * xxx
@@ -162,7 +155,7 @@ export class DedicatedIpPoolListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that match the query.
+   * Total number of data under the current request conditions
    * 
    * @example
    * 5

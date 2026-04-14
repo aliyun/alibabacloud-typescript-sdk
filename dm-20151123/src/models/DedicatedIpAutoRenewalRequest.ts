@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpAutoRenewalRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal.
+   * Whether to enable auto-renewal
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DedicatedIpAutoRenewalRequest extends $dara.Model {
   autoRenewal?: string;
   /**
    * @remarks
-   * The IDs of the purchased instances. Separate multiple IDs with commas.
+   * Purchase instance ID, separated by English commas if multiple.
    * 
    * This parameter is required.
    * 

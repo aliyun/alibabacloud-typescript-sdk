@@ -4,17 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetValidateFileResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The download URL of the result file.
-   * 
    * @example
    * https://xxxxxx/yyy
    */
   fileUrl?: string;
   /**
-   * @remarks
-   * The ID of the request.
-   * 
    * @example
    * yyyy-yyyy-yyyy-yyyy
    */

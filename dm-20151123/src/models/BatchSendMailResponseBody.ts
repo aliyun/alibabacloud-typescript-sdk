@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchSendMailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The event ID.
+   * Event ID
    * 
    * @example
    * xxx
@@ -13,7 +13,7 @@ export class BatchSendMailResponseBody extends $dara.Model {
   envId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * 12D086F6-8F31-4658-84C1-006DED011A85

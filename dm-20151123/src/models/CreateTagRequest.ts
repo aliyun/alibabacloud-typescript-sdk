@@ -8,7 +8,7 @@ export class CreateTagRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The description of the tag.
+   * Tag description
    * 
    * @example
    * test description
@@ -16,7 +16,7 @@ export class CreateTagRequest extends $dara.Model {
   tagDescription?: string;
   /**
    * @remarks
-   * The tag name. The name must be 1 to 128 characters long and can contain letters, digits, and underscores (_).
+   * Tag name. Limitations: 1-50 characters, allowing English letters, numbers, and underscores.
    * 
    * This parameter is required.
    * 

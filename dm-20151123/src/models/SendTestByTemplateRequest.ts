@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class SendTestByTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The sender address. The length cannot exceed 60 characters.
+   * Sender address, with a maximum length of 60 characters
    * 
    * This parameter is required.
    * 
    * @example
-   * 账号+@+域名
+   * test@example.com
    */
   accountName?: string;
   /**
    * @remarks
-   * The birthday. The length cannot exceed 30 characters.
+   * Birthday, with a maximum length of 30 characters
    * 
    * @example
    * 2000/01/01
@@ -23,25 +23,25 @@ export class SendTestByTemplateRequest extends $dara.Model {
   birthday?: string;
   /**
    * @remarks
-   * The recipient email address. The length cannot exceed 60 characters.
+   * Recipient address, with a maximum length of 60 characters
    * 
    * This parameter is required.
    * 
    * @example
-   * 账号+@+域名
+   * test1@example.com
    */
   email?: string;
   /**
    * @remarks
-   * The gender. The length cannot exceed 30 characters.
+   * Gender, with a maximum length of 30 characters
    * 
    * @example
-   * 先生
+   * doctor
    */
   gender?: string;
   /**
    * @remarks
-   * The mobile number. The length cannot exceed 30 characters.
+   * Mobile, with a maximum length of 30 characters
    * 
    * @example
    * 1380000****
@@ -49,10 +49,10 @@ export class SendTestByTemplateRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * The nickname. The length cannot exceed 30 characters.
+   * NickName, with a maximum length of 30 characters
    * 
    * @example
-   * 昵称
+   * LC
    */
   nickName?: string;
   ownerId?: number;
@@ -60,7 +60,7 @@ export class SendTestByTemplateRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The template ID.
+   * Template ID
    * 
    * This parameter is required.
    * 
@@ -75,10 +75,10 @@ export class SendTestByTemplateRequest extends $dara.Model {
   templateParams?: string;
   /**
    * @remarks
-   * The user name. The length cannot exceed 30 characters.
+   * UserName, with a maximum length of 30 characters
    * 
    * @example
-   * 姓名
+   * Lucy
    */
   userName?: string;
   static names(): { [key: string]: string } {

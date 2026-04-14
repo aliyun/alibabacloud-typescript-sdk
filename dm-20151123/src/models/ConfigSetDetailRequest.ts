@@ -4,9 +4,6 @@ import * as $dara from '@darabonba/typescript';
 
 export class ConfigSetDetailRequest extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the configuration set. This parameter is required.
-   * 
    * @example
    * xxx
    */

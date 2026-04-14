@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DedicatedIpChangeWarmupTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * xxx

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The CNAME authentication flag. 0: Succeeded. 1: Failed.
+   * CNAME verification flag, 0 for success, 1 for failure.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescDomainResponseBody extends $dara.Model {
   cnameAuthStatus?: string;
   /**
    * @remarks
-   * Indicates whether the CNAME host record was modified. A value of 1 means the record was modified. Reverting to the original value is also considered a modification. A value of 0 means the record was not modified.
+   * Indicates whether the CNAME host record has been modified, 1 for modified (reverting to the original value also counts as modification), 0 for not modified.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescDomainResponseBody extends $dara.Model {
   cnameConfirmStatus?: string;
   /**
    * @remarks
-   * The custom part of the CNAME host record.
+   * Custom part of the CNAME host record
    * 
    * @example
    * dmtrace
@@ -29,7 +29,7 @@ export class DescDomainResponseBody extends $dara.Model {
   cnameRecord?: string;
   /**
    * @remarks
-   * The time when the domain name was created.
+   * Creation time
    * 
    * @example
    * 2025-03-19T12:49Z
@@ -37,9 +37,9 @@ export class DescDomainResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether the domain name is the default domain name.
+   * Whether it is the default domain,
    * 
-   * Value: 0 (No). This field is deprecated.
+   * Value: 0 No (this field is deprecated)
    * 
    * @example
    * 0
@@ -47,7 +47,7 @@ export class DescDomainResponseBody extends $dara.Model {
   defaultDomain?: string;
   /**
    * @remarks
-   * The DKIM authentication flag. Indicates if the DKIM record in your DNS settings passed verification. 0: Passed. 1: Not passed.
+   * DKIM verification flag, indicating whether the DKIM record set by the user in DNS has passed validation, 0: Passed, 1: Not passed
    * 
    * @example
    * 0
@@ -55,7 +55,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dkimAuthStatus?: string;
   /**
    * @remarks
-   * The DKIM public key. This is the value of the DKIM record to configure in your DNS settings.
+   * DKIM public key value, the value that users need to set for the DKIM record in DNS
    * 
    * @example
    * v=DKIM1; k=rsa; p=MIGfMA0GCSqGSI...
@@ -63,7 +63,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dkimPublicKey?: string;
   /**
    * @remarks
-   * The DKIM host record. This is the key of the DKIM record to configure in your DNS settings.
+   * DKIM host record, the key that the user needs to set in the DNS for the DKIM record
    * 
    * @example
    * aliyun-cn-hangzhou._domainkey.hangzhou26
@@ -72,7 +72,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dkimRsaLength?: number;
   /**
    * @remarks
-   * The DMARC authentication flag. Indicates if the DMARC record in your DNS settings passed verification. 0: Passed. 1: Not passed.
+   * DMARC verification flag, indicating whether the DMARC record set by the user in DNS has passed validation, 0: Passed, 1: Not passed
    * 
    * @example
    * 1
@@ -80,7 +80,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dmarcAuthStatus?: number;
   /**
    * @remarks
-   * The DMARC host record value.
+   * DMARC host record value
    * 
    * @example
    * _dmarc.xxx
@@ -88,7 +88,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dmarcHostRecord?: string;
   /**
    * @remarks
-   * The DMARC record value.
+   * DMARC record value
    * 
    * @example
    * v=DMARC1;p=none;rua=mailto:dmarc_report@service.aliyun.com
@@ -96,7 +96,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dmarcRecord?: string;
   /**
    * @remarks
-   * The DMARC record value parsed from the public domain name.
+   * DMARC record value resolved through the public domain name
    * 
    * @example
    * v=DMARC1;p=none;rua=mailto:dmarc_report@service.aliyun.com
@@ -104,7 +104,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dnsDmarc?: string;
   /**
    * @remarks
-   * The MX record value parsed from the public domain name.
+   * MX record value resolved from the public network domain
    * 
    * @example
    * mx01.dm.aliyun.com
@@ -112,7 +112,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dnsMx?: string;
   /**
    * @remarks
-   * The SPF record value parsed from the public domain name.
+   * SPF record value resolved from the public network domain
    * 
    * @example
    * v=xxxx
@@ -120,7 +120,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dnsSpf?: string;
   /**
    * @remarks
-   * The ownership record value parsed from the public domain name.
+   * Ownership record value resolved from the public network domain
    * 
    * @example
    * 0c40d5f125af4e42892a
@@ -128,7 +128,7 @@ export class DescDomainResponseBody extends $dara.Model {
   dnsTxt?: string;
   /**
    * @remarks
-   * The domain name ID.
+   * Domain ID
    * 
    * @example
    * 158910
@@ -136,7 +136,7 @@ export class DescDomainResponseBody extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The domain name.
+   * Domain name
    * 
    * @example
    * test.example.net
@@ -144,11 +144,10 @@ export class DescDomainResponseBody extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The domain status. This indicates whether the domain name passed authentication. Valid values:
+   * Domain status. Indicates whether the verification was successful, with values:
    * 
-   * - **0**: Active. The domain name passed authentication.
-   * 
-   * - **1**: Inactive. The domain name failed authentication.
+   * - **0**: Available, verified successfully
+   * - **1**: Unavailable, verification failed
    * 
    * @example
    * 1
@@ -156,15 +155,16 @@ export class DescDomainResponseBody extends $dara.Model {
   domainStatus?: string;
   /**
    * @remarks
-   * The ownership record provided by the Direct Mail console.
+   * Ownership record provided by the email push console
    * 
    * @example
    * 0c40d5f125af4e42892a
    */
   domainType?: string;
+  domainVersion?: number;
   /**
    * @remarks
-   * The host record.
+   * Host record
    * 
    * @example
    * xxx
@@ -172,7 +172,7 @@ export class DescDomainResponseBody extends $dara.Model {
   hostRecord?: string;
   /**
    * @remarks
-   * The ICP filing status. **1** indicates that the domain name has an ICP filing. **0** indicates that the domain name does not have an ICP filing.
+   * Filing status. **1** indicates filed, **0** indicates not filed.
    * 
    * @example
    * 1
@@ -180,7 +180,7 @@ export class DescDomainResponseBody extends $dara.Model {
   icpStatus?: string;
   /**
    * @remarks
-   * The MX authentication flag. 0: Succeeded. 1: Failed.
+   * MX verification flag, 0 for success, 1 for failure.
    * 
    * @example
    * 1
@@ -188,7 +188,7 @@ export class DescDomainResponseBody extends $dara.Model {
   mxAuthStatus?: string;
   /**
    * @remarks
-   * The MX record value provided by the Direct Mail console.
+   * MX record value provided by the email push console
    * 
    * @example
    * mx01.dm.aliyun.com
@@ -196,7 +196,7 @@ export class DescDomainResponseBody extends $dara.Model {
   mxRecord?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID
    * 
    * @example
    * 51B74264-46B4-43C8-A9A0-6B8E8BC04F34
@@ -204,7 +204,7 @@ export class DescDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The SPF authentication flag. 0: Succeeded. 1: Failed.
+   * SPF verification flag, 0 for success, 1 for failure.
    * 
    * @example
    * 1
@@ -212,7 +212,7 @@ export class DescDomainResponseBody extends $dara.Model {
   spfAuthStatus?: string;
   /**
    * @remarks
-   * The SPF record value provided by the Direct Mail console.
+   * SPF record value provided by the email push console
    * 
    * @example
    * include:spf1.dm.aliyun.com
@@ -220,7 +220,7 @@ export class DescDomainResponseBody extends $dara.Model {
   spfRecord?: string;
   /**
    * @remarks
-   * The SPF record. This field replaces the \\`spfRecord\\` field. You can directly display the value of this field without needing to calculate it from the response.
+   * SPF record. Previously, the SPF display content needed to be calculated by the calling end based on the spfRecord in the response. The new field spfRecordV2 replaces spfRecord, and the calling end can directly display this field after obtaining it;
    * 
    * @example
    * v=spf1 include:spf1.dm.aliyun.com -all
@@ -228,7 +228,7 @@ export class DescDomainResponseBody extends $dara.Model {
   spfRecordV2?: string;
   /**
    * @remarks
-   * The primary domain name.
+   * Primary domain
    * 
    * @example
    * example.com
@@ -236,7 +236,7 @@ export class DescDomainResponseBody extends $dara.Model {
   tlDomainName?: string;
   /**
    * @remarks
-   * The CNAME record value provided by the Direct Mail console.
+   * CNAME record value provided by the email push console
    * 
    * @example
    * tracedm.aliyuncs.com
@@ -264,6 +264,7 @@ export class DescDomainResponseBody extends $dara.Model {
       domainName: 'DomainName',
       domainStatus: 'DomainStatus',
       domainType: 'DomainType',
+      domainVersion: 'DomainVersion',
       hostRecord: 'HostRecord',
       icpStatus: 'IcpStatus',
       mxAuthStatus: 'MxAuthStatus',
@@ -299,6 +300,7 @@ export class DescDomainResponseBody extends $dara.Model {
       domainName: 'string',
       domainStatus: 'string',
       domainType: 'string',
+      domainVersion: 'number',
       hostRecord: 'string',
       icpStatus: 'string',
       mxAuthStatus: 'string',

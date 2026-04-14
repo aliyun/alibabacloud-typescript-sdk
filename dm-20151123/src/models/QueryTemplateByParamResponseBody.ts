@@ -80,33 +80,21 @@ export class QueryTemplateByParamResponseBodyData extends $dara.Model {
 
 export class QueryTemplateByParamResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The page number.
-   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * The number of entries per page.
-   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 10Axxxxxxxxxxxx37
    */
   requestId?: string;
   /**
-   * @remarks
-   * The total number of entries.
-   * 
    * @example
    * 21
    */

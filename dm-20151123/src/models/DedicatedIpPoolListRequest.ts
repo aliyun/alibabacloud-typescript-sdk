@@ -3,17 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DedicatedIpPoolListRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to return all entries.
-   * 
-   * @example
-   * false
-   */
   all?: boolean;
   /**
    * @remarks
-   * The keyword to search for IP pools by name.
+   * Search keyword for the name
    * 
    * @example
    * xxx
@@ -21,7 +14,7 @@ export class DedicatedIpPoolListRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number to return, starting from 1.
+   * Page index, starting from 1
    * 
    * @example
    * 1
@@ -29,7 +22,7 @@ export class DedicatedIpPoolListRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Number of items per page
    * 
    * @example
    * 10
