@@ -24,13 +24,6 @@ export class RemoveTrafficControlApisRequest extends $dara.Model {
    * 0009db9c828549768a200320714b8930
    */
   groupId?: string;
-  /**
-   * @remarks
-   * The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-   * 
-   * @example
-   * 4223a10e-eed3-46a6-8b7c-23003f488153
-   */
   securityToken?: string;
   /**
    * @remarks

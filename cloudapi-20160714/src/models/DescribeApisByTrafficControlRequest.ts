@@ -19,13 +19,6 @@ export class DescribeApisByTrafficControlRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
-  /**
-   * @remarks
-   * The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-   * 
-   * @example
-   * 9abe3317-3e22-4957-ab9f-dd893d0ac956
-   */
   securityToken?: string;
   /**
    * @remarks

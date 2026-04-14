@@ -252,37 +252,9 @@ export class DescribeInstanceClusterInfoResponseBodyInstanceClusterAttribute ext
 }
 
 export class DescribeInstanceClusterInfoResponseBodyInstanceListInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The error message returned if the call fails.
-   * 
-   * @example
-   * Instance not found.
-   */
   errorMessage?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * apigateway-ht-04e41d95e9c1
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The instance name.
-   * 
-   * @example
-   * tf-testacceu-central-1apigatewayinstance8752
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The instance status.
-   * 
-   * @example
-   * RUNNING
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -399,10 +371,6 @@ export class DescribeInstanceClusterInfoResponseBody extends $dara.Model {
    * 3.5.3.856
    */
   instanceClusterVersion?: string;
-  /**
-   * @remarks
-   * The dedicated instances contained in the cluster.
-   */
   instanceList?: DescribeInstanceClusterInfoResponseBodyInstanceList;
   /**
    * @remarks

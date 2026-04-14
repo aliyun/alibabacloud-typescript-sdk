@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTrafficSpecialControlRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-   * 
-   * @example
-   * 7c51b234-48d3-44e1-9b36-e2ddccc738e3
-   */
   securityToken?: string;
   /**
    * @remarks

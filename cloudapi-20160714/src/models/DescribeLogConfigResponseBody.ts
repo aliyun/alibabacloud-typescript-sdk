@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLogConfigResponseBodyLogInfosLogInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The log type.
-   * 
-   * @example
-   * PROVIDER
-   */
   logType?: string;
-  /**
-   * @remarks
-   * The region ID of the Logstore.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The name of the Logstore in Log Service.
-   * 
-   * @example
-   * slsstore
-   */
   slsLogStore?: string;
-  /**
-   * @remarks
-   * The name of the Log Service project.
-   * 
-   * @example
-   * slsproject
-   */
   slsProject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +61,6 @@ export class DescribeLogConfigResponseBodyLogInfos extends $dara.Model {
 }
 
 export class DescribeLogConfigResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Info of the log config.
-   */
   logInfos?: DescribeLogConfigResponseBodyLogInfos;
   /**
    * @remarks

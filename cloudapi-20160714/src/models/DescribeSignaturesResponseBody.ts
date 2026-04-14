@@ -3,61 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSignaturesResponseBodySignatureInfosSignatureInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The creation time of the key.
-   * 
-   * @example
-   * 2016-07-23T08:28:48Z
-   */
   createdTime?: string;
-  /**
-   * @remarks
-   * The last modification time of the key.
-   * 
-   * @example
-   * 2016-07-24T08:28:48Z
-   */
   modifiedTime?: string;
-  /**
-   * @remarks
-   * The region where the key is located.
-   * 
-   * @example
-   * cn-qingdao
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The ID of the backend signature key.
-   * 
-   * @example
-   * dd05f1c54d6749eda95f9fa6d491449a
-   */
   signatureId?: string;
-  /**
-   * @remarks
-   * The Key value of the backend signature key.
-   * 
-   * @example
-   * qwertyuiop
-   */
   signatureKey?: string;
-  /**
-   * @remarks
-   * The name of the backend signature key.
-   * 
-   * @example
-   * backendsignature
-   */
   signatureName?: string;
-  /**
-   * @remarks
-   * The Secret value of the backend signature key.
-   * 
-   * @example
-   * asdfghjkl
-   */
   signatureSecret?: string;
   static names(): { [key: string]: string } {
     return {
@@ -143,10 +94,6 @@ export class DescribeSignaturesResponseBody extends $dara.Model {
    * CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The returned signature information. It is an array consisting of SignatureInfo data.
-   */
   signatureInfos?: DescribeSignaturesResponseBodySignatureInfos;
   /**
    * @remarks

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * China (Shenzhen)
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The endpoint of the service for the region.
-   * 
-   * @example
-   * apigateway.cn-shenzhen.aliyuncs.com
-   */
   regionEndpoint?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-shenzhen
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,13 +58,6 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned region information. It is an array that consists of Region data.
-   * 
-   * @example
-   * cn-huhehaote
-   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks

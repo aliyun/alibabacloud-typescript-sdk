@@ -27,13 +27,6 @@ export class ModifyTrafficControlRequest extends $dara.Model {
    * ThrottlingTestDescription
    */
   description?: string;
-  /**
-   * @remarks
-   * The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-   * 
-   * @example
-   * 4223a10e-eed3-46a6-8b7c-23003f488153
-   */
   securityToken?: string;
   /**
    * @remarks

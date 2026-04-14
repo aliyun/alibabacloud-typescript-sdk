@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePluginSchemasResponseBodyPluginSchemasPluginSchema extends $dara.Model {
-  /**
-   * @example
-   * plugin scheme description
-   */
   description?: string;
-  /**
-   * @example
-   * 4107**
-   */
   documentId?: string;
-  /**
-   * @example
-   * VPC_C
-   */
   name?: string;
-  /**
-   * @example
-   * true
-   */
   supportClassic?: boolean;
-  /**
-   * @example
-   * plugin schema title
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {

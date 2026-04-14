@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApiProductsByAppResponseBodyApiProductInfoListApiProductInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the API product.
-   * 
-   * @example
-   * 117b7a64a8b3f064eaa4a47ac62aac5e
-   */
   apiProductId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +52,6 @@ export class DescribeApiProductsByAppResponseBodyApiProductInfoList extends $dar
 }
 
 export class DescribeApiProductsByAppResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about API products.
-   */
   apiProductInfoList?: DescribeApiProductsByAppResponseBodyApiProductInfoList;
   /**
    * @remarks

@@ -68,6 +68,13 @@ export class ModifyApiRequest extends $dara.Model {
    * 0d105f80a8f340408bd34954d4e4ff22
    */
   backendId?: string;
+  /**
+   * @remarks
+   * The constant parameters sent by API Gateway to the backend service.
+   * 
+   * @example
+   * [{\\"ServiceParameterName\\":\\"HOST\\",\\"ConstantValue\\":\\"uat-cgi.smarket.net.cn\\",\\"Location\\":\\"HEAD\\",\\"Description\\":\\"\\\\u540e\\\\u7aefVPC-HOST\\"}]
+   */
   constantParameters?: string;
   /**
    * @remarks
@@ -90,7 +97,23 @@ export class ModifyApiRequest extends $dara.Model {
    * true
    */
   disableInternet?: boolean;
+  /**
+   * @remarks
+   * The sample error codes returned by the backend service.
+   * 
+   * For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).
+   * 
+   * @example
+   * [{"Code":"400","Message":"Missing the userId","Description":"param invalid"}]
+   */
   errorCodeSamples?: string;
+  /**
+   * @remarks
+   * The sample error response from the backend service. This value is used only to generate documents. It does not affect the returned result.
+   * 
+   * @example
+   * {"errorCode":"fail","errorMessage":"param invalid"}
+   */
   failResultSample?: string;
   /**
    * @remarks
@@ -132,6 +155,15 @@ export class ModifyApiRequest extends $dara.Model {
    * {"RequestProtocol":"HTTP","RequestHttpMethod":"GET","RequestPath":"/v3/getUserTest/[userId]","BodyFormat":"FORM","PostBodyDescription":""}
    */
   requestConfig?: string;
+  /**
+   * @remarks
+   * The parameters of API requests sent by the consumer to API Gateway.
+   * 
+   * For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
+   * 
+   * @example
+   * [{\\\\"ParameterName\\\\": \\\\"CaAppId\\\\", \\\\"Location\\\\": \\\\"HEAD\\\\", \\\\"ServiceParameterName\\\\": \\\\"x-ca-appid\\\\"}]
+   */
   requestParameters?: string;
   /**
    * @remarks
@@ -142,7 +174,21 @@ export class ModifyApiRequest extends $dara.Model {
    * {}
    */
   resultBodyModel?: string;
+  /**
+   * @remarks
+   * The descriptions of API responses.
+   * 
+   * @example
+   * []
+   */
   resultDescriptions?: string;
+  /**
+   * @remarks
+   * The sample response that is returned from the backend service. This value is used only to generate documents. It does not affect the actually returned result.
+   * 
+   * @example
+   * 200
+   */
   resultSample?: string;
   /**
    * @remarks
@@ -163,8 +209,33 @@ export class ModifyApiRequest extends $dara.Model {
    * {"ServiceProtocol":"HTTP","ServiceHttpMethod":"GET","ServiceAddress":"http://www.customerdomain.com","ServiceTimeout":"1000","ServicePath":"/v3/getUserTest/[userId]"}
    */
   serviceConfig?: string;
+  /**
+   * @remarks
+   * The parameters of API requests sent by API Gateway to the back-end service.
+   * 
+   * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
+   * 
+   * @example
+   * [{"ServiceParameterName":"age","Location":"Head","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"sex","Location":"Query","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"userId","Location":"Path","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"clientIp","Location":"Head","Type":"String","ParameterCatalog":"SYSTEM"},{"ServiceParameterName":"constance","Location":"Head","Type":"String","ParameterCatalog":"CONSTANT"}]
+   */
   serviceParameters?: string;
+  /**
+   * @remarks
+   * The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the back-end service.
+   * 
+   * For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
+   * 
+   * @example
+   * [{"ServiceParameterName":"age","RequestParameterName":"age"},{"ServiceParameterName":"sex","RequestParameterName":"sex"},{"ServiceParameterName":"userId","RequestParameterName":"userId"},{"ServiceParameterName":"clientIp","RequestParameterName":"CaClientIp"},{"ServiceParameterName":"constance","RequestParameterName":"constance"}]
+   */
   serviceParametersMap?: string;
+  /**
+   * @remarks
+   * The system parameters sent by API Gateway to the backend service.
+   * 
+   * @example
+   * [{\\"ParameterName\\": \\"CaAppId\\", \\"Location\\": \\"HEAD\\", \\"ServiceParameterName\\": \\"x-ca-appid\\"}]
+   */
   systemParameters?: string;
   /**
    * @remarks

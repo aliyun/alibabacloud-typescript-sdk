@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApiIpControlsResponseBodyApiIpControlsApiIpControlItem extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the API.
-   * 
-   * @example
-   * 46fbb52840d146f186e38e8e70fc8c90
-   */
   apiId?: string;
-  /**
-   * @remarks
-   * The name of the API.
-   * 
-   * @example
-   * testapi
-   */
   apiName?: string;
-  /**
-   * @remarks
-   * The time of binding.
-   * 
-   * @example
-   * 2016-07-23T08:28:48Z
-   */
   boundTime?: string;
-  /**
-   * @remarks
-   * The ID of the ACL.
-   * 
-   * @example
-   * dd05f1c54d6749eda95f9fa6d491449a
-   */
   ipControlId?: string;
-  /**
-   * @remarks
-   * The name of the ACL.
-   * 
-   * @example
-   * testControlName
-   */
   ipControlName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +64,6 @@ export class DescribeApiIpControlsResponseBodyApiIpControls extends $dara.Model 
 }
 
 export class DescribeApiIpControlsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the ACLs. The information is an array of ApiIpControlItem data.
-   */
   apiIpControls?: DescribeApiIpControlsResponseBodyApiIpControls;
   /**
    * @remarks

@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePluginTemplatesResponseBodyTemplatesTemplate extends $dara.Model {
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * balabala
-   */
   description?: string;
-  /**
-   * @remarks
-   * The document anchor point.
-   * 
-   * @example
-   * anchor
-   */
   documentAnchor?: string;
-  /**
-   * @remarks
-   * The ID of the document.
-   * 
-   * @example
-   * 41079
-   */
   documentId?: string;
-  /**
-   * @remarks
-   * The sample.
-   * 
-   * @example
-   * 1
-   */
   sample?: string;
-  /**
-   * @remarks
-   * The title of the plug-in template title.
-   * 
-   * @example
-   * template title
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,10 +72,6 @@ export class DescribePluginTemplatesResponseBody extends $dara.Model {
    * EF924FE4-2EDD-4CD3-89EC-34E4708574E7
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The templates.
-   */
   templates?: DescribePluginTemplatesResponseBodyTemplates;
   static names(): { [key: string]: string } {
     return {

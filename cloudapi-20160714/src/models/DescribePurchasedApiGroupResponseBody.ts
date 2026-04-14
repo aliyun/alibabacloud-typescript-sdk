@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePurchasedApiGroupResponseBodyDomainsDomainItem extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * test_domain.com
-   */
   domainName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,10 +60,6 @@ export class DescribePurchasedApiGroupResponseBody extends $dara.Model {
    * api group description
    */
   description?: string;
-  /**
-   * @remarks
-   * The list of domain names.
-   */
   domains?: DescribePurchasedApiGroupResponseBodyDomains;
   /**
    * @remarks

@@ -38,13 +38,6 @@ export class UntagResourcesRequest extends $dara.Model {
    * apiGroup
    */
   resourceType?: string;
-  /**
-   * @remarks
-   * The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-   * 
-   * @example
-   * 0f96f124-1276-4f81-b52b-c554240beb4c
-   */
   securityToken?: string;
   /**
    * @remarks

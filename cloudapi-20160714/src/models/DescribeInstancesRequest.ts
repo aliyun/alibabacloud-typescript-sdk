@@ -72,6 +72,12 @@ export class DescribeInstancesRequest extends $dara.Model {
    * zh
    */
   language?: string;
+  pageNumber?: number;
+  /**
+   * @example
+   * 500
+   */
+  pageSize?: number;
   securityToken?: string;
   /**
    * @remarks
@@ -84,6 +90,8 @@ export class DescribeInstancesRequest extends $dara.Model {
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
       language: 'Language',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       securityToken: 'SecurityToken',
       tag: 'Tag',
     };
@@ -95,6 +103,8 @@ export class DescribeInstancesRequest extends $dara.Model {
       instanceId: 'string',
       instanceType: 'string',
       language: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       securityToken: 'string',
       tag: { 'type': 'array', 'itemType': DescribeInstancesRequestTag },
     };

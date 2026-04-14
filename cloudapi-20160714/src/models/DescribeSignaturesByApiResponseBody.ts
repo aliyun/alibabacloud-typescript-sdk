@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSignaturesByApiResponseBodySignaturesSignatureItem extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the key was bound.
-   * 
-   * @example
-   * 2016-07-23T08:28:48Z
-   */
   boundTime?: string;
-  /**
-   * @remarks
-   * The ID of the backend signature key.
-   * 
-   * @example
-   * dd05f1c54d6749eda95f9fa6d491449a
-   */
   signatureId?: string;
-  /**
-   * @remarks
-   * The name of the backend signature key.
-   * 
-   * @example
-   * mysecret
-   */
   signatureName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class DescribeSignaturesByApiResponseBody extends $dara.Model {
    * CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The returned signature key information. It is an array consisting of SignatureItem data.
-   */
   signatures?: DescribeSignaturesByApiResponseBodySignatures;
   static names(): { [key: string]: string } {
     return {

@@ -898,7 +898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建API分组
+   * Creates an API group.
    * 
    * @param request - CreateApiGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -949,7 +949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建API分组
+   * Creates an API group.
    * 
    * @param request - CreateApiGroupRequest
    * @returns CreateApiGroupResponse
@@ -1032,7 +1032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application for calling APIs in API Gateway.
+   * Creates an app for API Gateway.
    * 
    * @remarks
    *   This operation is intended for API callers.
@@ -1099,7 +1099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application for calling APIs in API Gateway.
+   * Creates an app for API Gateway.
    * 
    * @remarks
    *   This operation is intended for API callers.
@@ -1280,7 +1280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建后端服务在环境上的配置
+   * Creates a backend service configuration in an environment.
    * 
    * @param request - CreateBackendModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1331,7 +1331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建后端服务在环境上的配置
+   * Creates a backend service configuration in an environment.
    * 
    * @param request - CreateBackendModelRequest
    * @returns CreateBackendModelResponse
@@ -1400,7 +1400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义数据集条目
+   * Creates a data entry in a custom dataset.
    * 
    * @param request - CreateDatasetItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1447,7 +1447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义数据集条目
+   * Creates a data entry in a custom dataset.
    * 
    * @param request - CreateDatasetItemRequest
    * @returns CreateDatasetItemResponse
@@ -1552,7 +1552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建内网域名
+   * Grants an internal second-level domain name to an API group.
    * 
    * @param request - CreateIntranetDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1587,7 +1587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建内网域名
+   * Grants an internal second-level domain name to an API group.
    * 
    * @param request - CreateIntranetDomainRequest
    * @returns CreateIntranetDomainResponse
@@ -2458,7 +2458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an application.
+   * Deletes a specified app.
    * 
    * @remarks
    *   This operation is intended for API callers.
@@ -2502,7 +2502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an application.
+   * Deletes a specified app.
    * 
    * @remarks
    *   This operation is intended for API callers.
@@ -2710,7 +2710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义数据集
+   * Deletes a custom dataset.
    * 
    * @param request - DeleteDatasetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2745,7 +2745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义数据集
+   * Deletes a custom dataset.
    * 
    * @param request - DeleteDatasetRequest
    * @returns DeleteDatasetResponse
@@ -3022,7 +3022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the specified log configuration.
+   * Deletes a log configuration.
    * 
    * @param request - DeleteLogConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3057,7 +3057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the specified log configuration.
+   * Deletes a log configuration.
    * 
    * @param request - DeleteLogConfigRequest
    * @returns DeleteLogConfigResponse
@@ -3452,7 +3452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes an API to an environment.
+   * Publishes an API to a specified environment.
    * 
    * @remarks
    *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
@@ -3504,7 +3504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes an API to an environment.
+   * Publishes an API to a specified environment.
    * 
    * @remarks
    *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
@@ -3520,7 +3520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询批量下线API任务
+   * Queries the progress of an API unpublishing task.
    * 
    * @param request - DescribeAbolishApiTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3555,7 +3555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询批量下线API任务
+   * Queries the progress of an API unpublishing task.
    * 
    * @param request - DescribeAbolishApiTaskRequest
    * @returns DescribeAbolishApiTaskResponse
@@ -5178,7 +5178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries APIs by application. The environment information is also returned.
+   * Queries APIs by application and returns the result by environment.
    * 
    * @param request - DescribeApisWithStageNameIntegratedByAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5241,7 +5241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries APIs by application. The environment information is also returned.
+   * Queries APIs by application and returns the result by environment.
    * 
    * @param request - DescribeApisWithStageNameIntegratedByAppRequest
    * @returns DescribeApisWithStageNameIntegratedByAppResponse
@@ -7263,6 +7263,14 @@ export default class Client extends OpenApi {
       query["Language"] = request.language;
     }
 
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
     if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
@@ -7744,7 +7752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询插件列表
+   * Describes the plug-in modes supported by API Gateway.
    * 
    * @param request - DescribePluginSchemasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7779,7 +7787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询插件列表
+   * Describes the plug-in modes supported by API Gateway.
    * 
    * @param request - DescribePluginSchemasRequest
    * @returns DescribePluginSchemasResponse
@@ -7918,7 +7926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the plug-ins that are bound to a running API in an environment.
+   * Queries the plug-ins that are bound to a running API in a specified environment.
    * 
    * @remarks
    *   This operation is intended for API callers.
@@ -7973,7 +7981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the plug-ins that are bound to a running API in an environment.
+   * Queries the plug-ins that are bound to a running API in a specified environment.
    * 
    * @remarks
    *   This operation is intended for API callers.
@@ -8142,7 +8150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries APIs that are purchased from Alibaba Cloud Marketplace.
+   * Queries the APIs purchased in the Alibaba Cloud Marketplace.
    * 
    * @param request - DescribePurchasedApisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8201,7 +8209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries APIs that are purchased from Alibaba Cloud Marketplace.
+   * Queries the APIs purchased in the Alibaba Cloud Marketplace.
    * 
    * @param request - DescribePurchasedApisRequest
    * @returns DescribePurchasedApisResponse
@@ -8624,7 +8632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询批量更新API后端元定结果
+   * Queries the update results of associated published APIs after the definition of a backend service is modified in an environment.
    * 
    * @param request - DescribeUpdateBackendTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8659,7 +8667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询批量更新API后端元定结果
+   * Queries the update results of associated published APIs after the definition of a backend service is modified in an environment.
    * 
    * @param request - DescribeUpdateBackendTaskRequest
    * @returns DescribeUpdateBackendTaskResponse
@@ -8670,7 +8678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询更新VPC授权的任务
+   * Queries the update progress of an API that is being published after its associated VPC access authorization is updated.
    * 
    * @param request - DescribeUpdateVpcInfoTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8705,7 +8713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询更新VPC授权的任务
+   * Queries the update progress of an API that is being published after its associated VPC access authorization is updated.
    * 
    * @param request - DescribeUpdateVpcInfoTaskRequest
    * @returns DescribeUpdateVpcInfoTaskResponse
@@ -8944,7 +8952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑插件
+   * Unbinds a plug-in from an API.
    * 
    * @param request - DetachPluginRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8991,7 +8999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑插件
+   * Unbinds a plug-in from an API.
    * 
    * @param request - DetachPluginRequest
    * @returns DetachPluginResponse
@@ -9242,7 +9250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出OAS
+   * Exports APIs based on OpenAPI Specification (OAS).
    * 
    * @param tmpReq - ExportOASRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9307,7 +9315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出OAS
+   * Exports APIs based on OpenAPI Specification (OAS).
    * 
    * @param request - ExportOASRequest
    * @returns ExportOASResponse
@@ -9318,7 +9326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports APIs based on the OAS standard.
+   * Imports OpenAPI Specification (OAS)-compliant data to create an API.
    * 
    * @param request - ImportOASRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9387,7 +9395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports APIs based on the OAS standard.
+   * Imports OpenAPI Specification (OAS)-compliant data to create an API.
    * 
    * @param request - ImportOASRequest
    * @returns ImportOASResponse
@@ -9780,7 +9788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+   * This API operation is used to modify the draft definition of an API. It is different from the ModifyApi operation in that it does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you need to only specify the value of AuthType, which is APP.
    * 
    * @param request - ModifyApiConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9951,7 +9959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the draft definition of an API. This operation is different from the ModifyApi operation. This operation does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you specify APP as the value of AuthType and do not need to configure other parameters.
+   * This API operation is used to modify the draft definition of an API. It is different from the ModifyApi operation in that it does not require all information about the API. You need to only specify the parameters that you want to modify. For example, if you want to change the authentication method of the API from Anonymous to APP, you need to only specify the value of AuthType, which is APP.
    * 
    * @param request - ModifyApiConfigurationRequest
    * @returns ModifyApiConfigurationResponse
@@ -10330,7 +10338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改后端服务
+   * Modifies the basic information of a backend service, such as name and description. The backend service type cannot be modified once the backend service is created.
    * 
    * @param request - ModifyBackendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10377,7 +10385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改后端服务
+   * Modifies the basic information of a backend service, such as name and description. The backend service type cannot be modified once the backend service is created.
    * 
    * @param request - ModifyBackendRequest
    * @returns ModifyBackendResponse
@@ -10388,7 +10396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改后端服务在环境上的定义
+   * Modifies the definition of a backend service in the environment. After the modification, the backend paths of the APIs that use the backend service in the same environment will be updated at the same time automatically. You do not need to manually publish the APIs again.
    * 
    * @param request - ModifyBackendModelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10443,7 +10451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改后端服务在环境上的定义
+   * Modifies the definition of a backend service in the environment. After the modification, the backend paths of the APIs that use the backend service in the same environment will be updated at the same time automatically. You do not need to manually publish the APIs again.
    * 
    * @param request - ModifyBackendModelRequest
    * @returns ModifyBackendModelResponse
@@ -10508,7 +10516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the expiration time and description of a data entry in a custom dataset.
+   * Modifies the timeout period and description of a data entry in a custom dataset.
    * 
    * @param request - ModifyDatasetItemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10555,7 +10563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the expiration time and description of a data entry in a custom dataset.
+   * Modifies the timeout period and description of a data entry in a custom dataset.
    * 
    * @param request - ModifyDatasetItemRequest
    * @returns ModifyDatasetItemResponse
@@ -11294,7 +11302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+   * Modifies the information of a VPC access authorization and updates the metadata of the associated API.
    * 
    * @param request - ModifyVpcAccessAndUpdateApisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11357,7 +11365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a virtual private cloud (VPC) authorization and updates the metadata of the API associated with the VPC authorization.
+   * Modifies the information of a VPC access authorization and updates the metadata of the associated API.
    * 
    * @param request - ModifyVpcAccessAndUpdateApisRequest
    * @returns ModifyVpcAccessAndUpdateApisResponse
@@ -11368,9 +11376,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通API网关服务
+   * Activates the API Gateway service.
    * 
-   * @param request - OpenApiGatewayServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenApiGatewayServiceResponse
    */
@@ -11391,7 +11398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通API网关服务
+   * Activates the API Gateway service.
    * @returns OpenApiGatewayServiceResponse
    */
   async openApiGatewayService(): Promise<$_model.OpenApiGatewayServiceResponse> {
@@ -11508,7 +11515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制策略中IP条目
+   * This feature provides instance-level access control for dedicated instances. Deletes an IP address entry from an access control policy.
    * 
    * @param request - RemoveAccessControlListEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11547,7 +11554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制策略中IP条目
+   * This feature provides instance-level access control for dedicated instances. Deletes an IP address entry from an access control policy.
    * 
    * @param request - RemoveAccessControlListEntryRequest
    * @returns RemoveAccessControlListEntryResponse
@@ -11684,7 +11691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+   * Revokes the access permissions on a specified API from multiple apps. In this case, multiple apps map to a single API.
    * 
    * @remarks
    *   This operation is intended for API providers and callers.
@@ -11735,7 +11742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes the access permissions on a specified API from multiple applications. In this case, multiple applications map to a single API.
+   * Revokes the access permissions on a specified API from multiple apps. In this case, multiple apps map to a single API.
    * 
    * @remarks
    *   This operation is intended for API providers and callers.
@@ -12004,7 +12011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a VPC authorization without unpublishing the associated APIs.
+   * Deletes a VPC access authorization without unpublishing the associated APIs.
    * 
    * @remarks
    *   This API is intended for API providers.
@@ -12056,7 +12063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a VPC authorization without unpublishing the associated APIs.
+   * Deletes a VPC access authorization without unpublishing the associated APIs.
    * 
    * @remarks
    *   This API is intended for API providers.
@@ -12072,7 +12079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除VPC授权并下线关联API
+   * Deletes a VPC access authorization and unpublishes the associated API.
    * 
    * @param request - RemoveVpcAccessAndAbolishApisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12119,7 +12126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除VPC授权并下线关联API
+   * Deletes a VPC access authorization and unpublishes the associated API.
    * 
    * @param request - RemoveVpcAccessAndAbolishApisRequest
    * @returns RemoveVpcAccessAndAbolishApisResponse
@@ -12180,7 +12187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the key of an application.
+   * Resets the key for an app.
    * 
    * @remarks
    *   This operation is intended for API callers.
@@ -12228,7 +12235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the key of an application.
+   * Resets the key for an app.
    * 
    * @remarks
    *   This operation is intended for API callers.
@@ -12244,7 +12251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据APP生成SDK
+   * Generates an SDK by application.
    * 
    * @param request - SdkGenerateByAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12283,7 +12290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据APP生成SDK
+   * Generates an SDK by application.
    * 
    * @param request - SdkGenerateByAppRequest
    * @returns SdkGenerateByAppResponse
@@ -12344,7 +12351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据分组生成SDK
+   * Generates an SDK by API group.
    * 
    * @param request - SdkGenerateByGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12383,7 +12390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据分组生成SDK
+   * Generates an SDK by API group.
    * 
    * @param request - SdkGenerateByGroupRequest
    * @returns SdkGenerateByGroupResponse
@@ -12394,7 +12401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改访问控制策略的名称
+   * This feature provides instance-level access control for dedicated instances. Modifies the name of an access control policy.
    * 
    * @param request - SetAccessControlListAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12433,7 +12440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改访问控制策略的名称
+   * This feature provides instance-level access control for dedicated instances. Modifies the name of an access control policy.
    * 
    * @param request - SetAccessControlListAttributeRequest
    * @returns SetAccessControlListAttributeResponse
@@ -13364,7 +13371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a tag-resource relationship.
+   * Adds user tags to resources.
    * 
    * @remarks
    *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
@@ -13414,7 +13421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a tag-resource relationship.
+   * Adds user tags to resources.
    * 
    * @remarks
    *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry extends $dara.Model {
-  /**
-   * @remarks
-   * The entry description.
-   * 
-   * @example
-   * default
-   */
   aclEntryComment?: string;
-  /**
-   * @remarks
-   * The ACL entry.
-   * 
-   * @example
-   * 192.168.1.0/24
-   */
   aclEntryIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeAccessControlListAttributeResponseBodyAclEntrys extends $da
 }
 
 export class DescribeAccessControlListAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the access control policy.
-   */
   aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
   /**
    * @remarks

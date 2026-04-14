@@ -100,6 +100,15 @@ export class CreateApiRequest extends $dara.Model {
    * a0305308908c4740aba9cbfd63ba99b7
    */
   backendId?: string;
+  /**
+   * @remarks
+   * The parameters of API requests sent by API Gateway to the backend service.
+   * 
+   * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
+   * 
+   * @example
+   * [{"ServiceParameterName":"age","Location":"Head","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"sex","Location":"Query","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"userId","Location":"Path","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"clientIp","Location":"Head","Type":"String","ParameterCatalog":"SYSTEM"},{"ServiceParameterName":"constance","Location":"Head","Type":"String","ParameterCatalog":"CONSTANT"}]
+   */
   constantParameters?: string;
   /**
    * @remarks
@@ -122,7 +131,23 @@ export class CreateApiRequest extends $dara.Model {
    * true
    */
   disableInternet?: boolean;
+  /**
+   * @remarks
+   * The return description of the API.
+   * 
+   * @example
+   * []
+   */
   errorCodeSamples?: string;
+  /**
+   * @remarks
+   * The sample error codes returned by the backend service.
+   * 
+   * For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).(Support up to 16KB)
+   * 
+   * @example
+   * {"errorCode":"fail","errorMessage":"param invalid"}
+   */
   failResultSample?: string;
   /**
    * @remarks
@@ -166,6 +191,13 @@ export class CreateApiRequest extends $dara.Model {
    * {"RequestProtocol":"HTTP","RequestHttpMethod":"GET","RequestPath":"/v3/getUserTest/[userId]","BodyFormat":"FORM","PostBodyDescription":""}
    */
   requestConfig?: string;
+  /**
+   * @remarks
+   * The common parameters of APIs in JSON format.
+   * 
+   * @example
+   * [{\\\\"demoValue\\\\":\\\\"12345678\\\\",\\\\"description\\\\":\\\\"ConsumerAppKey\\\\",\\\\"location\\\\":\\\\"HEAD\\\\",\\\\"parameterName\\\\":\\\\"CaAppKey\\\\",\\\\"serviceParameterName\\\\":\\\\"X-Ca-Key\\\\"}]
+   */
   requestParameters?: string;
   /**
    * @remarks
@@ -176,7 +208,21 @@ export class CreateApiRequest extends $dara.Model {
    * {}
    */
   resultBodyModel?: string;
+  /**
+   * @remarks
+   * The switch status of ACL. Valid values:- **on** and **off**.
+   * 
+   * @example
+   * []
+   */
   resultDescriptions?: string;
+  /**
+   * @remarks
+   * An example of a response returned by the backend service. This value is used only to generate documentation. The actually returned result shall prevail.(Support up to 32KB)
+   * 
+   * @example
+   * 200
+   */
   resultSample?: string;
   /**
    * @remarks
@@ -199,8 +245,31 @@ export class CreateApiRequest extends $dara.Model {
    * {"ServiceProtocol":"HTTP","ServiceHttpMethod":"GET","ServiceAddress":"http://www.customerdomain.com","ServiceTimeout":"1000","ServicePath":"/v3/getUserTest/[userId]"}
    */
   serviceConfig?: string;
+  /**
+   * @remarks
+   * The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
+   * 
+   * For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
+   * 
+   * @example
+   * [{"ServiceParameterName":"age","Location":"Head","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"sex","Location":"Query","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"userId","Location":"Path","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"clientIp","Location":"Head","Type":"String","ParameterCatalog":"SYSTEM"},{"ServiceParameterName":"constance","Location":"Head","Type":"String","ParameterCatalog":"CONSTANT"}]
+   */
   serviceParameters?: string;
+  /**
+   * @remarks
+   * The format of the response from the backend service. Valid values: JSON, TEXT, BINARY, XML, and HTML. Default value: JSON.
+   * 
+   * @example
+   * [{"ServiceParameterName":"age","RequestParameterName":"age"},{"ServiceParameterName":"sex","RequestParameterName":"sex"},{"ServiceParameterName":"userId","RequestParameterName":"userId"},{"ServiceParameterName":"clientIp","RequestParameterName":"CaClientIp"},{"ServiceParameterName":"constance","RequestParameterName":"constance"}]
+   */
   serviceParametersMap?: string;
+  /**
+   * @remarks
+   * The parameters of the API.
+   * 
+   * @example
+   * [{\\"demoValue\\":\\"12345678\\",\\"description\\":\\"ConsumerAppKey\\",\\"location\\":\\"HEAD\\",\\"parameterName\\":\\"CaAppKey\\",\\"serviceParameterName\\":\\"X-Ca-Key\\"}]
+   */
   systemParameters?: string;
   /**
    * @remarks

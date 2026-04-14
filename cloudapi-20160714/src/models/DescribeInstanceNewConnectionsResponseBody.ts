@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceNewConnectionsResponseBodyInstanceNewConnectionsMonitorItem extends $dara.Model {
-  /**
-   * @remarks
-   * The monitoring time. The time follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
-   * 
-   * @example
-   * 2022-10-08T02:08:00Z
-   */
   itemTime?: string;
-  /**
-   * @remarks
-   * The number of new connections in the instance.
-   * 
-   * @example
-   * 16
-   */
   itemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeInstanceNewConnectionsResponseBodyInstanceNewConnections ex
 }
 
 export class DescribeInstanceNewConnectionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of new connections in the instance.
-   */
   instanceNewConnections?: DescribeInstanceNewConnectionsResponseBodyInstanceNewConnections;
   /**
    * @remarks

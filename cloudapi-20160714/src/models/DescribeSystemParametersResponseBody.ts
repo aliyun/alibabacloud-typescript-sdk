@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSystemParametersResponseBodySystemParamsSystemParamItem extends $dara.Model {
-  /**
-   * @remarks
-   * Examples
-   * 
-   * @example
-   * 192.168.1.1
-   */
   demoValue?: string;
-  /**
-   * @remarks
-   * The description of a parameter.
-   * 
-   * @example
-   * Client IP Address
-   */
   description?: string;
-  /**
-   * @remarks
-   * The name of the parameter.
-   * 
-   * @example
-   * CaClientIp
-   */
   paramName?: string;
-  /**
-   * @remarks
-   * The type of the parameter.
-   * 
-   * @example
-   * string
-   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,10 +69,6 @@ export class DescribeSystemParametersResponseBody extends $dara.Model {
    * 0CCDF65E-6050-412D-AD68-FA3D9196836C
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The returned information about system parameters. It is an array that consists of SystemParam data.
-   */
   systemParams?: DescribeSystemParametersResponseBodySystemParams;
   static names(): { [key: string]: string } {
     return {

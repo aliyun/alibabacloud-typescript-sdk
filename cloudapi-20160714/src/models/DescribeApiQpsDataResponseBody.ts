@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApiQpsDataResponseBodyCallFailsMonitorItem extends $dara.Model {
-  /**
-   * @remarks
-   * The time of the monitoring metric. The time format follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
-   * 
-   * @example
-   * 2016-07-28T08:20:00Z
-   */
   itemTime?: string;
-  /**
-   * @remarks
-   * The value corresponding to the monitoring metric.
-   * 
-   * @example
-   * 0
-   */
   itemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,21 +55,7 @@ export class DescribeApiQpsDataResponseBodyCallFails extends $dara.Model {
 }
 
 export class DescribeApiQpsDataResponseBodyCallSuccessesMonitorItem extends $dara.Model {
-  /**
-   * @remarks
-   * The time of the monitoring metric. The time format follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
-   * 
-   * @example
-   * 2016-07-28T08:24:00Z
-   */
   itemTime?: string;
-  /**
-   * @remarks
-   * The value corresponding to the monitoring metric.
-   * 
-   * @example
-   * 650
-   */
   itemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -135,15 +107,7 @@ export class DescribeApiQpsDataResponseBodyCallSuccesses extends $dara.Model {
 }
 
 export class DescribeApiQpsDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned information about failed API calls. It is an array consisting of MonitorItem data.
-   */
   callFails?: DescribeApiQpsDataResponseBodyCallFails;
-  /**
-   * @remarks
-   * The returned information about successful API calls. It is an array consisting of MonitorItem data.
-   */
   callSuccesses?: DescribeApiQpsDataResponseBodyCallSuccesses;
   /**
    * @remarks

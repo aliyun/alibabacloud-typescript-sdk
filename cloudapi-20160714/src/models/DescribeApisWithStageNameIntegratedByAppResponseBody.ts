@@ -3,101 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationInfosAppApiRelationInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The API ID.
-   * 
-   * @example
-   * c625795a1e664782a918eaa629e96ab5
-   */
   apiId?: string;
-  /**
-   * @remarks
-   * The API name.
-   * 
-   * @example
-   * sd2_h5_player_history_competition
-   */
   apiName?: string;
-  /**
-   * @remarks
-   * The authorization source.
-   * 
-   * @example
-   * SELF
-   */
   authorizationSource?: string;
-  /**
-   * @remarks
-   * The time when the authorization was created.
-   * 
-   * @example
-   * Sun, 02 Jan 2022 16:00:00 GMT
-   */
   createdTime?: string;
-  /**
-   * @remarks
-   * The API description.
-   * 
-   * @example
-   * b1008kz
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the API group.
-   * 
-   * @example
-   * 38bed48d664149e4b9b5ea576319673f
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the API group.
-   * 
-   * @example
-   * manager_vehicles
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The request HTTP method of the API.
-   * 
-   * @example
-   * POST
-   */
   method?: string;
-  /**
-   * @remarks
-   * The authorizer. Valid values:
-   * 
-   * *   **PROVIDER:** the API owner
-   * *   **CONSUMER:** the API caller
-   * 
-   * @example
-   * PROVIDER
-   */
   operator?: string;
-  /**
-   * @remarks
-   * The request path of the API.
-   * 
-   * @example
-   * /api/offline/cacheData
-   */
   path?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-shanghai
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The mapping information between environments and authorizations.
-   */
   stageNameAndAuth?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -172,10 +88,6 @@ export class DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationI
 }
 
 export class DescribeApisWithStageNameIntegratedByAppResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The authorization information of the API.
-   */
   appApiRelationInfos?: DescribeApisWithStageNameIntegratedByAppResponseBodyAppApiRelationInfos;
   /**
    * @remarks

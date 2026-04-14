@@ -53,37 +53,9 @@ export class DescribeApiHistoryResponseBodyBackendConfig extends $dara.Model {
 }
 
 export class DescribeApiHistoryResponseBodyConstantParametersConstantParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The value of the constant parameter.
-   * 
-   * @example
-   * constance
-   */
   constantValue?: string;
-  /**
-   * @remarks
-   * The parameter description.
-   * 
-   * @example
-   * for_test1
-   */
   description?: string;
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * constance
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,45 +111,10 @@ export class DescribeApiHistoryResponseBodyConstantParameters extends $dara.Mode
 }
 
 export class DescribeApiHistoryResponseBodyCustomSystemParametersCustomSystemParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The sample value.
-   * 
-   * @example
-   * 192.168.1.1
-   */
   demoValue?: string;
-  /**
-   * @remarks
-   * The parameter description.
-   * 
-   * @example
-   * balabala
-   */
   description?: string;
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * @example
-   * CaClientIp
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * clientIp
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -235,29 +172,8 @@ export class DescribeApiHistoryResponseBodyCustomSystemParameters extends $dara.
 }
 
 export class DescribeApiHistoryResponseBodyErrorCodeSamplesErrorCodeSample extends $dara.Model {
-  /**
-   * @remarks
-   * The returned error code.
-   * 
-   * @example
-   * 400
-   */
   code?: string;
-  /**
-   * @remarks
-   * The error description.
-   * 
-   * @example
-   * Missing the parameter UserId
-   */
   description?: string;
-  /**
-   * @remarks
-   * The returned error message.
-   * 
-   * @example
-   * MissingParameter
-   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -478,141 +394,22 @@ export class DescribeApiHistoryResponseBodyRequestConfig extends $dara.Model {
 }
 
 export class DescribeApiHistoryResponseBodyRequestParametersRequestParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the parameter in the API request.
-   * 
-   * @example
-   * age
-   */
   apiParameterName?: string;
-  /**
-   * @remarks
-   * The type of the array element.
-   * 
-   * @example
-   * String
-   */
   arrayItemsType?: string;
-  /**
-   * @remarks
-   * The default value.
-   * 
-   * @example
-   * 20
-   */
   defaultValue?: string;
-  /**
-   * @remarks
-   * The sample value.
-   * 
-   * @example
-   * 20
-   */
   demoValue?: string;
-  /**
-   * @remarks
-   * The parameter description.
-   * 
-   * @example
-   * modidyTest
-   */
   description?: string;
-  /**
-   * @remarks
-   * The order in which the parameter is sorted in the document.
-   * 
-   * @example
-   * 0
-   */
   docOrder?: number;
-  /**
-   * @remarks
-   * Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
-   * 
-   * @example
-   * PUBLIC
-   */
   docShow?: string;
-  /**
-   * @remarks
-   * The hash values that are supported when **ParameterType** is set to Int, Long, Float, Double, or String. Separate values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
-   * 
-   * @example
-   * boy,girl
-   */
   enumValue?: string;
-  /**
-   * @remarks
-   * JSON scheme
-   * 
-   * @example
-   * {}
-   */
   jsonScheme?: string;
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The maximum parameter length when **ParameterType** is set to String.
-   * 
-   * @example
-   * 123456
-   */
   maxLength?: number;
-  /**
-   * @remarks
-   * The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
-   * 
-   * @example
-   * 123456
-   */
   maxValue?: number;
-  /**
-   * @remarks
-   * The minimum parameter length when **ParameterType** is set to String.
-   * 
-   * @example
-   * 123456
-   */
   minLength?: number;
-  /**
-   * @remarks
-   * The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
-   * 
-   * @example
-   * 123456
-   */
   minValue?: number;
-  /**
-   * @remarks
-   * The data type of the parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
-   * 
-   * @example
-   * String
-   */
   parameterType?: string;
-  /**
-   * @remarks
-   * The regular expression that is used for parameter validation when **ParameterType** is set to String.
-   * 
-   * @example
-   * xxx
-   */
   regularExpression?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
-   * 
-   * @example
-   * OPTIONAL
-   */
   required?: string;
   static names(): { [key: string]: string } {
     return {
@@ -694,69 +491,13 @@ export class DescribeApiHistoryResponseBodyRequestParameters extends $dara.Model
 }
 
 export class DescribeApiHistoryResponseBodyResultDescriptionsResultDescription extends $dara.Model {
-  /**
-   * @remarks
-   * The subnode description.
-   * 
-   * @example
-   * for_test1
-   */
   description?: string;
-  /**
-   * @remarks
-   * Indicates whether a subnode exists.
-   * 
-   * @example
-   * true
-   */
   hasChild?: boolean;
-  /**
-   * @remarks
-   * The result ID.
-   * 
-   * @example
-   * id
-   */
   id?: string;
-  /**
-   * @remarks
-   * The primary key of the result.
-   * 
-   * @example
-   * groupName
-   */
   key?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter is required.
-   * 
-   * @example
-   * true
-   */
   mandatory?: boolean;
-  /**
-   * @remarks
-   * The result name.
-   * 
-   * @example
-   * fwqf
-   */
   name?: string;
-  /**
-   * @remarks
-   * The ID of the parent node.
-   * 
-   * @example
-   * pid
-   */
   pid?: string;
-  /**
-   * @remarks
-   * The result type.
-   * 
-   * @example
-   * String
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1024,21 +765,7 @@ export class DescribeApiHistoryResponseBodyServiceConfigFunctionComputeConfig ex
 }
 
 export class DescribeApiHistoryResponseBodyServiceConfigMockHeadersMockHeader extends $dara.Model {
-  /**
-   * @remarks
-   * The HTTP headers.
-   * 
-   * @example
-   * Content-Type
-   */
   headerName?: string;
-  /**
-   * @remarks
-   * The values of the HTTP headers.
-   * 
-   * @example
-   * 86400
-   */
   headerValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1269,10 +996,6 @@ export class DescribeApiHistoryResponseBodyServiceConfig extends $dara.Model {
    * TRUE
    */
   mock?: string;
-  /**
-   * @remarks
-   * The simulated Headers.
-   */
   mockHeaders?: DescribeApiHistoryResponseBodyServiceConfigMockHeaders;
   /**
    * @remarks
@@ -1430,29 +1153,8 @@ export class DescribeApiHistoryResponseBodyServiceConfig extends $dara.Model {
 }
 
 export class DescribeApiHistoryResponseBodyServiceParametersServiceParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The data type of the parameter. Valid values: STRING, NUMBER, and BOOLEAN.
-   * 
-   * @example
-   * String
-   */
   parameterType?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * clientIp
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1506,21 +1208,7 @@ export class DescribeApiHistoryResponseBodyServiceParameters extends $dara.Model
 }
 
 export class DescribeApiHistoryResponseBodyServiceParametersMapServiceParameterMap extends $dara.Model {
-  /**
-   * @remarks
-   * The corresponding frontend parameter name. The value must be contained in RequestParametersObject and match RequestParam.ApiParameterName.
-   * 
-   * @example
-   * sex
-   */
   requestParameterName?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * sex
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1572,45 +1260,10 @@ export class DescribeApiHistoryResponseBodyServiceParametersMap extends $dara.Mo
 }
 
 export class DescribeApiHistoryResponseBodySystemParametersSystemParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The sample value.
-   * 
-   * @example
-   * 192.168.1.1
-   */
   demoValue?: string;
-  /**
-   * @remarks
-   * The description.
-   * 
-   * @example
-   * system parameters description
-   */
   description?: string;
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
-   * 
-   * @example
-   * CaClientIp
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * clientIp
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1735,15 +1388,7 @@ export class DescribeApiHistoryResponseBody extends $dara.Model {
    * true
    */
   backendEnable?: boolean;
-  /**
-   * @remarks
-   * The constant parameters.
-   */
   constantParameters?: DescribeApiHistoryResponseBodyConstantParameters;
-  /**
-   * @remarks
-   * The custom system parameters.
-   */
   customSystemParameters?: DescribeApiHistoryResponseBodyCustomSystemParameters;
   /**
    * @remarks
@@ -1770,12 +1415,6 @@ export class DescribeApiHistoryResponseBody extends $dara.Model {
    * true
    */
   disableInternet?: boolean;
-  /**
-   * @remarks
-   * The sample error codes returned by the backend service.
-   * 
-   * For more information, see [ErrorCodeSample](https://help.aliyun.com/document_detail/44392.html).
-   */
   errorCodeSamples?: DescribeApiHistoryResponseBodyErrorCodeSamples;
   /**
    * @remarks
@@ -1846,12 +1485,6 @@ export class DescribeApiHistoryResponseBody extends $dara.Model {
    * 6C87A26A-6A18-4B8E-8099-705278381A2C
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The parameters of API requests sent by the consumer to API Gateway.
-   * 
-   * For more information, see [RequestParameter](https://help.aliyun.com/document_detail/43986.html).
-   */
   requestParameters?: DescribeApiHistoryResponseBodyRequestParameters;
   /**
    * @remarks
@@ -1861,10 +1494,6 @@ export class DescribeApiHistoryResponseBody extends $dara.Model {
    * {}
    */
   resultBodyModel?: string;
-  /**
-   * @remarks
-   * The return description of the API.
-   */
   resultDescriptions?: DescribeApiHistoryResponseBodyResultDescriptions;
   /**
    * @remarks
@@ -1887,19 +1516,7 @@ export class DescribeApiHistoryResponseBody extends $dara.Model {
    * The information about a backend service call.
    */
   serviceConfig?: DescribeApiHistoryResponseBodyServiceConfig;
-  /**
-   * @remarks
-   * The parameters of API requests sent by API Gateway to the backend service.
-   * 
-   * For more information, see [ServiceParameter](https://help.aliyun.com/document_detail/43988.html).
-   */
   serviceParameters?: DescribeApiHistoryResponseBodyServiceParameters;
-  /**
-   * @remarks
-   * The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
-   * 
-   * For more information, see [ServiceParameterMap](https://help.aliyun.com/document_detail/43989.html).
-   */
   serviceParametersMap?: DescribeApiHistoryResponseBodyServiceParametersMap;
   /**
    * @remarks
@@ -1921,10 +1538,6 @@ export class DescribeApiHistoryResponseBody extends $dara.Model {
    * 200
    */
   status?: string;
-  /**
-   * @remarks
-   * The common parameters of the APIs, in JSON format.
-   */
   systemParameters?: DescribeApiHistoryResponseBodySystemParameters;
   /**
    * @remarks

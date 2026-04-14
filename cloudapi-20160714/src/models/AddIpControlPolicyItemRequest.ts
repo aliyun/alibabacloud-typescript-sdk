@@ -37,13 +37,6 @@ export class AddIpControlPolicyItemRequest extends $dara.Model {
    * 7ea91319a34d48a09b5c9c871d9768b1
    */
   ipControlId?: string;
-  /**
-   * @remarks
-   * The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-   * 
-   * @example
-   * 4223a10e-eed3-46a6-8b7c-23003f488153
-   */
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {

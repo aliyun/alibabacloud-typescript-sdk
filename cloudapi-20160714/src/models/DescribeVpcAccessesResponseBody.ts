@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVpcAccessesResponseBodyVpcAccessAttributesVpcAccessAttributeTagsTagInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * PROJECT
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * 6427a17ae6041d1be62414e4
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,82 +55,15 @@ export class DescribeVpcAccessesResponseBodyVpcAccessAttributesVpcAccessAttribut
 }
 
 export class DescribeVpcAccessesResponseBodyVpcAccessAttributesVpcAccessAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the authorization was created.
-   * 
-   * @example
-   * 2017-01-30T04:10:19Z
-   */
   createdTime?: string;
-  /**
-   * @remarks
-   * The description of the VPC access authorization.
-   * 
-   * @example
-   * Test
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of an Elastic Compute Service (ECS) or Server Load Balancer (SLB) instance in the VPC.
-   * 
-   * @example
-   * i-uf6bzcg1pr4oh5jjmxxx
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The name of the authorization.
-   * 
-   * @example
-   * test
-   */
   name?: string;
-  /**
-   * @remarks
-   * The port number that corresponds to the instance.
-   * 
-   * @example
-   * 80
-   */
   port?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: DescribeVpcAccessesResponseBodyVpcAccessAttributesVpcAccessAttributeTags;
-  /**
-   * @remarks
-   * The ID of the VPC access authorization.
-   * 
-   * @example
-   * vpc-*****ssds24
-   */
   vpcAccessId?: string;
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-uf657qec7lx42paw3qxxx
-   */
   vpcId?: string;
-  /**
-   * @remarks
-   * The host of the backend service.
-   * 
-   * @example
-   * hos-a***.fh-**nc.com
-   */
   vpcTargetHostName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -247,10 +166,6 @@ export class DescribeVpcAccessesResponseBody extends $dara.Model {
    * 1
    */
   totalCount?: number;
-  /**
-   * @remarks
-   * The information about the VPC access authorization. The information is an array consisting of VpcAccessAttribute data.
-   */
   vpcAccessAttributes?: DescribeVpcAccessesResponseBodyVpcAccessAttributes;
   static names(): { [key: string]: string } {
     return {

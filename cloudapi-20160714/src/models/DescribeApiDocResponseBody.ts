@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApiDocResponseBodyErrorCodeSamplesErrorCodeSample extends $dara.Model {
-  /**
-   * @remarks
-   * The returned error code.
-   * 
-   * @example
-   * Error
-   */
   code?: string;
-  /**
-   * @remarks
-   * The error description.
-   * 
-   * @example
-   * Unauthorized
-   */
   description?: string;
-  /**
-   * @remarks
-   * The returned error message.
-   * 
-   * @example
-   * error message
-   */
   message?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,141 +154,22 @@ export class DescribeApiDocResponseBodyRequestConfig extends $dara.Model {
 }
 
 export class DescribeApiDocResponseBodyRequestParametersRequestParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the parameter in the API request.
-   * 
-   * @example
-   * Length
-   */
   apiParameterName?: string;
-  /**
-   * @remarks
-   * The type of the array element.
-   * 
-   * @example
-   * String
-   */
   arrayItemsType?: string;
-  /**
-   * @remarks
-   * The default value.
-   * 
-   * @example
-   * 20
-   */
   defaultValue?: string;
-  /**
-   * @remarks
-   * The example value.
-   * 
-   * @example
-   * 20
-   */
   demoValue?: string;
-  /**
-   * @remarks
-   * The parameter description.
-   * 
-   * @example
-   * Parameters
-   */
   description?: string;
-  /**
-   * @remarks
-   * The order in which the parameter is sorted in the document.
-   * 
-   * @example
-   * 0
-   */
   docOrder?: number;
-  /**
-   * @remarks
-   * Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
-   * 
-   * @example
-   * PUBLIC
-   */
   docShow?: string;
-  /**
-   * @remarks
-   * The hash values that are supported when **ParameterType** is set to Int, Long, Float, Double, or String. Separate values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
-   * 
-   * @example
-   * boy,girl
-   */
   enumValue?: string;
-  /**
-   * @remarks
-   * JSON scheme
-   * 
-   * @example
-   * {}
-   */
   jsonScheme?: string;
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The maximum length.
-   * 
-   * @example
-   * 123456
-   */
   maxLength?: number;
-  /**
-   * @remarks
-   * The maximum value.
-   * 
-   * @example
-   * 200
-   */
   maxValue?: number;
-  /**
-   * @remarks
-   * The minimum length.
-   * 
-   * @example
-   * 2
-   */
   minLength?: number;
-  /**
-   * @remarks
-   * The minimum value.
-   * 
-   * @example
-   * 123456
-   */
   minValue?: number;
-  /**
-   * @remarks
-   * The data type of the parameter.
-   * 
-   * @example
-   * String
-   */
   parameterType?: string;
-  /**
-   * @remarks
-   * The regular expression that is used for parameter validation when **ParameterType** is set to String.
-   * 
-   * @example
-   * xxx
-   */
   regularExpression?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter is required.
-   * 
-   * @example
-   * OPTIONAL
-   */
   required?: string;
   static names(): { [key: string]: string } {
     return {
@@ -440,10 +300,6 @@ export class DescribeApiDocResponseBody extends $dara.Model {
    * true
    */
   disableInternet?: boolean;
-  /**
-   * @remarks
-   * The sample error codes returned by the backend service.
-   */
   errorCodeSamples?: DescribeApiDocResponseBodyErrorCodeSamples;
   /**
    * @remarks
@@ -499,10 +355,6 @@ export class DescribeApiDocResponseBody extends $dara.Model {
    * F253FB5F-9AE1-5DDA-99B5-46BE00A3719E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The returned frontend input parameters in the API. It is an array consisting of RequestParameter data.
-   */
   requestParameters?: DescribeApiDocResponseBodyRequestParameters;
   /**
    * @remarks

@@ -23,13 +23,6 @@ export class SetTrafficControlApisRequest extends $dara.Model {
    * 0009db9c828549768a200320714b8930
    */
   groupId?: string;
-  /**
-   * @remarks
-   * The security token included in the WebSocket request header. The system uses this token to authenticate the request.
-   * 
-   * @example
-   * 556d15cb-0808-432d-ab07-33e6b961b703
-   */
   securityToken?: string;
   /**
    * @remarks

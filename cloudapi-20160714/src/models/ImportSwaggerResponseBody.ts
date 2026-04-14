@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ImportSwaggerResponseBodyFailedApiImportSwaggerFailed extends $dara.Model {
-  /**
-   * @remarks
-   * The error message returned when the API is created.
-   * 
-   * @example
-   * api already exists : apiUid ===> 8e274ec61cf6468e83b68371956831cb
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * The HTTP method configured when the API is created.
-   * 
-   * @example
-   * post
-   */
   httpMethod?: string;
-  /**
-   * @remarks
-   * The request path configured when the API is created.
-   * 
-   * @example
-   * /http/get/mapping
-   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,29 +58,8 @@ export class ImportSwaggerResponseBodyFailed extends $dara.Model {
 }
 
 export class ImportSwaggerResponseBodyModelFailedApiImportModelFailed extends $dara.Model {
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * error msg
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * The ID of the API group.
-   * 
-   * @example
-   * 36d4bcfaec1946e1870d90b2d7519710
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the model.
-   * 
-   * @example
-   * Region
-   */
   modelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -155,37 +113,9 @@ export class ImportSwaggerResponseBodyModelFailed extends $dara.Model {
 }
 
 export class ImportSwaggerResponseBodyModelSuccessApiImportModelSuccess extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the API group.
-   * 
-   * @example
-   * b2d552ed90ca435b86f7bf8d45414793
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the model.
-   * 
-   * @example
-   * NewInstance
-   */
   modelName?: string;
-  /**
-   * @remarks
-   * The model operation
-   * 
-   * @example
-   * CREATE
-   */
   modelOperation?: string;
-  /**
-   * @remarks
-   * The UID of the model.
-   * 
-   * @example
-   * d4bcfaec1946e1870d
-   */
   modelUid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -241,37 +171,9 @@ export class ImportSwaggerResponseBodyModelSuccess extends $dara.Model {
 }
 
 export class ImportSwaggerResponseBodySuccessApiImportSwaggerSuccess extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether the operation is CREATE or MODIFY.
-   * 
-   * @example
-   * CREATE
-   */
   apiOperation?: string;
-  /**
-   * @remarks
-   * The UID of the successfully imported API.
-   * 
-   * @example
-   * 8e274ec61cf6468e83b68371956831cb
-   */
   apiUid?: string;
-  /**
-   * @remarks
-   * The HTTP method configured when the API is created.
-   * 
-   * @example
-   * get
-   */
   httpMethod?: string;
-  /**
-   * @remarks
-   * The request path configured when the API is created.
-   * 
-   * @example
-   * /http/get/mapping
-   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -327,20 +229,8 @@ export class ImportSwaggerResponseBodySuccess extends $dara.Model {
 }
 
 export class ImportSwaggerResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The APIs that failed to be created based on the Swagger-compliant data imported this time.
-   */
   failed?: ImportSwaggerResponseBodyFailed;
-  /**
-   * @remarks
-   * The models that failed to be imported through the Swagger-compliant data this time.
-   */
   modelFailed?: ImportSwaggerResponseBodyModelFailed;
-  /**
-   * @remarks
-   * The models that were imported through the Swagger-compliant data this time.
-   */
   modelSuccess?: ImportSwaggerResponseBodyModelSuccess;
   /**
    * @remarks
@@ -350,10 +240,6 @@ export class ImportSwaggerResponseBody extends $dara.Model {
    * 647CEF05-404C-4125-B3D7-44792EB77392
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The APIs that are created based on the Swagger-compliant data imported this time.
-   */
   success?: ImportSwaggerResponseBodySuccess;
   static names(): { [key: string]: string } {
     return {

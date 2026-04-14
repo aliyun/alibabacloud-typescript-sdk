@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAppAttributesResponseBodyAppsAppAttributeTagsTagInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * appid
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * 123
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,59 +55,13 @@ export class DescribeAppAttributesResponseBodyAppsAppAttributeTags extends $dara
 }
 
 export class DescribeAppAttributesResponseBodyAppsAppAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the app.
-   * 
-   * @example
-   * 20112314518278
-   */
   appId?: number;
-  /**
-   * @remarks
-   * The name of the app.
-   * 
-   * @example
-   * CreateApptest
-   */
   appName?: string;
-  /**
-   * @remarks
-   * The creation time (UTC) of the app.
-   * 
-   * @example
-   * 2016-07-31T04:10:19Z
-   */
   createdTime?: string;
-  /**
-   * @remarks
-   * The description of the app.
-   * 
-   * @example
-   * App test
-   */
   description?: string;
   disabled?: boolean;
-  /**
-   * @remarks
-   * 扩展信息
-   * 
-   * @example
-   * 110461946884
-   */
   extend?: string;
-  /**
-   * @remarks
-   * The modification time (UTC) of the app.
-   * 
-   * @example
-   * 2016-07-31T04:10:19Z
-   */
   modifiedTime?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: DescribeAppAttributesResponseBodyAppsAppAttributeTags;
   static names(): { [key: string]: string } {
     return {
@@ -188,10 +128,6 @@ export class DescribeAppAttributesResponseBodyApps extends $dara.Model {
 }
 
 export class DescribeAppAttributesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned app information. It is an array that consists of AppAttribute data.
-   */
   apps?: DescribeAppAttributesResponseBodyApps;
   /**
    * @remarks

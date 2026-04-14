@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceHttpCodeResponseBodyInstanceHttpCodeMonitorItem extends $dara.Model {
-  /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * @example
-   * 404
-   */
   itemTime?: string;
-  /**
-   * @remarks
-   * The corresponding value.
-   * 
-   * @example
-   * 1
-   */
   itemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeInstanceHttpCodeResponseBodyInstanceHttpCode extends $dara.
 }
 
 export class DescribeInstanceHttpCodeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The HTTP status codes.
-   */
   instanceHttpCode?: DescribeInstanceHttpCodeResponseBodyInstanceHttpCode;
   /**
    * @remarks

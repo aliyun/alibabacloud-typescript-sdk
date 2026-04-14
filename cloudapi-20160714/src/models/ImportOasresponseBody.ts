@@ -29,29 +29,8 @@ export class ImportOASResponseBodyErrorMessages extends $dara.Model {
 }
 
 export class ImportOASResponseBodyFailedApisFailedApi extends $dara.Model {
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Invalid Api Definition.
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * The HTTP method configured when you created the API.
-   * 
-   * @example
-   * POST
-   */
   httpMethod?: string;
-  /**
-   * @remarks
-   * The request path configured when you created the API.
-   * 
-   * @example
-   * /st1
-   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,29 +84,8 @@ export class ImportOASResponseBodyFailedApis extends $dara.Model {
 }
 
 export class ImportOASResponseBodyFailedModelsFailedModel extends $dara.Model {
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * Invalid Model Definition.
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * The ID of the API group.
-   * 
-   * @example
-   * 2c1bc62e19614cc68c6b0b484bc9c5db
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the model.
-   * 
-   * @example
-   * test
-   */
   modelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -181,37 +139,9 @@ export class ImportOASResponseBodyFailedModels extends $dara.Model {
 }
 
 export class ImportOASResponseBodySuccessApisSuccessApi extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the API.
-   * 
-   * @example
-   * 92af1abffc2443eaa2b815fdbd9c13f1
-   */
   apiId?: string;
-  /**
-   * @remarks
-   * Indicates that the operation is CREATE or MODIFY.
-   * 
-   * @example
-   * CREATE
-   */
   apiOperation?: string;
-  /**
-   * @remarks
-   * The HTTP method configured when you created the API.
-   * 
-   * @example
-   * POST
-   */
   httpMethod?: string;
-  /**
-   * @remarks
-   * The request path configured when you created the API.
-   * 
-   * @example
-   * /st1
-   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -267,37 +197,9 @@ export class ImportOASResponseBodySuccessApis extends $dara.Model {
 }
 
 export class ImportOASResponseBodySuccessModelsSuccessModel extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the API group.
-   * 
-   * @example
-   * feaccf67040643bcbdedb253e59eb527
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the model.
-   * 
-   * @example
-   * test
-   */
   modelName?: string;
-  /**
-   * @remarks
-   * The operation of the model. Valid values: CREATE and MODIFY.
-   * 
-   * @example
-   * CREATE
-   */
   modelOperation?: string;
-  /**
-   * @remarks
-   * The UID of the model.
-   * 
-   * @example
-   * 1r4efwee19614cc68c6b0b484bc9c5dbs
-   */
   modelUid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -379,20 +281,8 @@ export class ImportOASResponseBodyWarningMessages extends $dara.Model {
 }
 
 export class ImportOASResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The error messages that appear due to the invalid data in the imported file.
-   */
   errorMessages?: ImportOASResponseBodyErrorMessages;
-  /**
-   * @remarks
-   * The APIs that failed to pass the precheck.
-   */
   failedApis?: ImportOASResponseBodyFailedApis;
-  /**
-   * @remarks
-   * The information about the models that failed to pass the precheck.
-   */
   failedModels?: ImportOASResponseBodyFailedModels;
   /**
    * @remarks
@@ -410,20 +300,8 @@ export class ImportOASResponseBody extends $dara.Model {
    * E7FE7172-AA75-5880-B6F7-C00893E9BC06
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the APIs that have passed the precheck.
-   */
   successApis?: ImportOASResponseBodySuccessApis;
-  /**
-   * @remarks
-   * The information about the models that have passed the precheck.
-   */
   successModels?: ImportOASResponseBodySuccessModels;
-  /**
-   * @remarks
-   * The warning messages that appear due to the invalid data in the imported file.
-   */
   warningMessages?: ImportOASResponseBodyWarningMessages;
   static names(): { [key: string]: string } {
     return {

@@ -3,65 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePluginGroupsResponseBodyGroupSummarysGroupPluginSummary extends $dara.Model {
-  /**
-   * @remarks
-   * API root path
-   * 
-   * @example
-   * /rpew
-   */
   basePath?: string;
-  /**
-   * @remarks
-   * Description
-   * 
-   * @example
-   * test
-   */
   description?: string;
-  /**
-   * @remarks
-   * API group ID
-   * 
-   * @example
-   * 4ed31575e2de43de8c51eb1217a1f56b
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * API group name
-   * 
-   * @example
-   * ECP_API
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * Region ID where the API group is located
-   * 
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * Stage name Alias
-   * 
-   * @example
-   * DEV
-   */
   stageAlias?: string;
-  /**
-   * @remarks
-   * Environment name, possible values:
-   * 
-   * - **RELEASE**: Production
-   * - **PRE**: Pre-release
-   * - **TEST**: Testing
-   * 
-   * @example
-   * RELEASE
-   */
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,10 +70,6 @@ export class DescribePluginGroupsResponseBodyGroupSummarys extends $dara.Model {
 }
 
 export class DescribePluginGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Collection of group information
-   */
   groupSummarys?: DescribePluginGroupsResponseBodyGroupSummarys;
   /**
    * @remarks

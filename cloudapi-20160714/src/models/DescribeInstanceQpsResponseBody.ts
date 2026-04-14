@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceQpsResponseBodyInstanceQpsMonitorItem extends $dara.Model {
-  /**
-   * @remarks
-   * The monitoring time. The time follows the ISO 8601 standard. Format: YYYY-MM-DDThh:mm:ssZ
-   * 
-   * @example
-   * 2022-03-29T06:25:00Z
-   */
   itemTime?: string;
-  /**
-   * @remarks
-   * The number of requests sent to the APIs in the instance.
-   * 
-   * @example
-   * 500
-   */
   itemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeInstanceQpsResponseBodyInstanceQps extends $dara.Model {
 }
 
 export class DescribeInstanceQpsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of requests sent to the APIs in the instance.
-   */
   instanceQps?: DescribeInstanceQpsResponseBodyInstanceQps;
   /**
    * @remarks

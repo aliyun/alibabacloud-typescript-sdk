@@ -53,37 +53,9 @@ export class DescribeApiResponseBodyBackendConfig extends $dara.Model {
 }
 
 export class DescribeApiResponseBodyConstantParametersConstantParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The constant parameter value.
-   * 
-   * @example
-   * constance
-   */
   constantValue?: string;
-  /**
-   * @remarks
-   * The parameter description.
-   * 
-   * @example
-   * constance
-   */
   description?: string;
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * constance
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,45 +111,10 @@ export class DescribeApiResponseBodyConstantParameters extends $dara.Model {
 }
 
 export class DescribeApiResponseBodyCustomSystemParametersCustomSystemParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The example value.
-   * 
-   * @example
-   * 192.168.1.1
-   */
   demoValue?: string;
-  /**
-   * @remarks
-   * The parameter description.
-   * 
-   * @example
-   * Client IP Address
-   */
   description?: string;
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
-   * 
-   * @example
-   * CaClientIp
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * clientIp
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -235,29 +172,8 @@ export class DescribeApiResponseBodyCustomSystemParameters extends $dara.Model {
 }
 
 export class DescribeApiResponseBodyDeployedInfosDeployedInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The deployment status. Valid values: DEPLOYED and NONDEPLOYED.
-   * 
-   * @example
-   * DEPLOYED
-   */
   deployedStatus?: string;
-  /**
-   * @remarks
-   * The effective version.
-   * 
-   * @example
-   * xxx
-   */
   effectiveVersion?: string;
-  /**
-   * @remarks
-   * The environment to which the API is published. Valid values: RELEASE and TEST.
-   * 
-   * @example
-   * RELEASE
-   */
   stageName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -311,37 +227,9 @@ export class DescribeApiResponseBodyDeployedInfos extends $dara.Model {
 }
 
 export class DescribeApiResponseBodyErrorCodeSamplesErrorCodeSample extends $dara.Model {
-  /**
-   * @remarks
-   * The returned error code.
-   * 
-   * @example
-   * 400
-   */
   code?: string;
-  /**
-   * @remarks
-   * The error description.
-   * 
-   * @example
-   * The UserId parameter is missing from the request.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The returned error message.
-   * 
-   * @example
-   * Missing the parameter UserId
-   */
   message?: string;
-  /**
-   * @remarks
-   * The model.
-   * 
-   * @example
-   * [\\"*\\"]
-   */
   model?: string;
   static names(): { [key: string]: string } {
     return {
@@ -562,141 +450,22 @@ export class DescribeApiResponseBodyRequestConfig extends $dara.Model {
 }
 
 export class DescribeApiResponseBodyRequestParametersRequestParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * @example
-   * age
-   */
   apiParameterName?: string;
-  /**
-   * @remarks
-   * The type of the array element.
-   * 
-   * @example
-   * String
-   */
   arrayItemsType?: string;
-  /**
-   * @remarks
-   * The default value.
-   * 
-   * @example
-   * 20
-   */
   defaultValue?: string;
-  /**
-   * @remarks
-   * The example value.
-   * 
-   * @example
-   * 20
-   */
   demoValue?: string;
-  /**
-   * @remarks
-   * The parameter description.
-   * 
-   * @example
-   * Age
-   */
   description?: string;
-  /**
-   * @remarks
-   * The order in which the parameter is sorted in the document.
-   * 
-   * @example
-   * 0
-   */
   docOrder?: number;
-  /**
-   * @remarks
-   * Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
-   * 
-   * @example
-   * PUBLIC
-   */
   docShow?: string;
-  /**
-   * @remarks
-   * The hash values that are supported when **ParameterType** is set to Int, Long, Float, Double, or String. Separate values with commas (,). Examples: 1,2,3,4,9 and A,B,C,E,F.
-   * 
-   * @example
-   * boy,girl
-   */
   enumValue?: string;
-  /**
-   * @remarks
-   * The JSON Schema used for JSON validation when **ParameterType** is set to String.
-   * 
-   * @example
-   * JSON
-   */
   jsonScheme?: string;
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The maximum parameter length when **ParameterType** is set to String.
-   * 
-   * @example
-   * 123456
-   */
   maxLength?: number;
-  /**
-   * @remarks
-   * The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
-   * 
-   * @example
-   * 123456
-   */
   maxValue?: number;
-  /**
-   * @remarks
-   * The minimum parameter length when **ParameterType** is set to String.
-   * 
-   * @example
-   * 123456
-   */
   minLength?: number;
-  /**
-   * @remarks
-   * The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
-   * 
-   * @example
-   * 123456
-   */
   minValue?: number;
-  /**
-   * @remarks
-   * The data type of the parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
-   * 
-   * @example
-   * String
-   */
   parameterType?: string;
-  /**
-   * @remarks
-   * The regular expression that is used for parameter validation when **ParameterType** is set to String.
-   * 
-   * @example
-   * xxx
-   */
   regularExpression?: string;
-  /**
-   * @remarks
-   * Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
-   * 
-   * @example
-   * OPTIONAL
-   */
   required?: string;
   static names(): { [key: string]: string } {
     return {
@@ -997,21 +766,7 @@ export class DescribeApiResponseBodyServiceConfigFunctionComputeConfig extends $
 }
 
 export class DescribeApiResponseBodyServiceConfigMockHeadersMockHeader extends $dara.Model {
-  /**
-   * @remarks
-   * The HTTP header.
-   * 
-   * @example
-   * Content-Length
-   */
   headerName?: string;
-  /**
-   * @remarks
-   * The value of the HTTP header.
-   * 
-   * @example
-   * 86400
-   */
   headerValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1250,10 +1005,6 @@ export class DescribeApiResponseBodyServiceConfig extends $dara.Model {
    * TRUE
    */
   mock?: string;
-  /**
-   * @remarks
-   * The simulated headers.
-   */
   mockHeaders?: DescribeApiResponseBodyServiceConfigMockHeaders;
   /**
    * @remarks
@@ -1398,29 +1149,8 @@ export class DescribeApiResponseBodyServiceConfig extends $dara.Model {
 }
 
 export class DescribeApiResponseBodyServiceParametersServiceParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The data type of the parameter. Valid values: STRING, NUMBER, and BOOLEAN.
-   * 
-   * @example
-   * String
-   */
   parameterType?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * clientIp
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1474,21 +1204,7 @@ export class DescribeApiResponseBodyServiceParameters extends $dara.Model {
 }
 
 export class DescribeApiResponseBodyServiceParametersMapServiceParameterMap extends $dara.Model {
-  /**
-   * @remarks
-   * The corresponding frontend parameter name. The value must be contained in RequestParametersObject and match RequestParam.ApiParameterName.
-   * 
-   * @example
-   * sex
-   */
   requestParameterName?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * sex
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1540,45 +1256,10 @@ export class DescribeApiResponseBodyServiceParametersMap extends $dara.Model {
 }
 
 export class DescribeApiResponseBodySystemParametersSystemParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The example value.
-   * 
-   * @example
-   * 192.168.1.1
-   */
   demoValue?: string;
-  /**
-   * @remarks
-   * The parameter description.
-   * 
-   * @example
-   * Client IP Address
-   */
   description?: string;
-  /**
-   * @remarks
-   * The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-   * 
-   * @example
-   * HEAD
-   */
   location?: string;
-  /**
-   * @remarks
-   * The system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
-   * 
-   * @example
-   * CaClientIp
-   */
   parameterName?: string;
-  /**
-   * @remarks
-   * The mapped parameter name in the backend service.
-   * 
-   * @example
-   * clientIp
-   */
   serviceParameterName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1636,21 +1317,7 @@ export class DescribeApiResponseBodySystemParameters extends $dara.Model {
 }
 
 export class DescribeApiResponseBodyTagListTag extends $dara.Model {
-  /**
-   * @remarks
-   * Label key.
-   * 
-   * @example
-   * APP
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * Label value.
-   * 
-   * @example
-   * value3
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1772,10 +1439,6 @@ export class DescribeApiResponseBody extends $dara.Model {
    * true
    */
   backendEnable?: boolean;
-  /**
-   * @remarks
-   * System parameters sent by API Gateway to the backend service
-   */
   constantParameters?: DescribeApiResponseBodyConstantParameters;
   /**
    * @remarks
@@ -1785,15 +1448,7 @@ export class DescribeApiResponseBody extends $dara.Model {
    * 2016-07-28T09:50:43Z
    */
   createdTime?: string;
-  /**
-   * @remarks
-   * Custom system parameters
-   */
   customSystemParameters?: DescribeApiResponseBodyCustomSystemParameters;
-  /**
-   * @remarks
-   * The API publishing status.
-   */
   deployedInfos?: DescribeApiResponseBodyDeployedInfos;
   /**
    * @remarks
@@ -1814,10 +1469,6 @@ export class DescribeApiResponseBody extends $dara.Model {
    * false
    */
   disableInternet?: boolean;
-  /**
-   * @remarks
-   * The sample error codes returned by the backend service.
-   */
   errorCodeSamples?: DescribeApiResponseBodyErrorCodeSamples;
   /**
    * @remarks
@@ -1907,10 +1558,6 @@ export class DescribeApiResponseBody extends $dara.Model {
    * D0FF585F-7966-40CF-BC60-75DB070B23D5<
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The parameters of API requests sent by the consumer to API Gateway.
-   */
   requestParameters?: DescribeApiResponseBodyRequestParameters;
   /**
    * @remarks
@@ -1941,25 +1588,9 @@ export class DescribeApiResponseBody extends $dara.Model {
    * The configuration items of API requests that API Gateway sends to the backend service.
    */
   serviceConfig?: DescribeApiResponseBodyServiceConfig;
-  /**
-   * @remarks
-   * The parameters of API requests sent by API Gateway to the backend service.
-   */
   serviceParameters?: DescribeApiResponseBodyServiceParameters;
-  /**
-   * @remarks
-   * The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
-   */
   serviceParametersMap?: DescribeApiResponseBodyServiceParametersMap;
-  /**
-   * @remarks
-   * System parameters sent by API Gateway to the backend service
-   */
   systemParameters?: DescribeApiResponseBodySystemParameters;
-  /**
-   * @remarks
-   * Tag List.
-   */
   tagList?: DescribeApiResponseBodyTagList;
   /**
    * @remarks

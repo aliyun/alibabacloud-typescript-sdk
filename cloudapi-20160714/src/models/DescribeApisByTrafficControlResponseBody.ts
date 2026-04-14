@@ -3,83 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApisByTrafficControlResponseBodyApiInfosApiInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the API.
-   * 
-   * @example
-   * 3b81fd160f5645e097cc8855d75a1cf6
-   */
   apiId?: string;
-  /**
-   * @remarks
-   * The name of the API
-   * 
-   * @example
-   * testapi
-   */
   apiName?: string;
-  /**
-   * @remarks
-   * The binding time of the API.
-   * 
-   * @example
-   * 2016-07-23T08:28:48Z
-   */
   boundTime?: string;
-  /**
-   * @remarks
-   * The description of the API.
-   * 
-   * @example
-   * Description
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the API group.
-   * 
-   * @example
-   * 0009db9c828549768a200320714b8930
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the group to which an API belongs.
-   * 
-   * @example
-   * mygroup
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The region where the API is located.
-   * 
-   * @example
-   * cn-qingdao
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The name of the runtime environment. Valid values:
-   * 
-   * *   **RELEASE**
-   * *   **TEST**
-   * 
-   * @example
-   * TEST
-   */
   stageName?: string;
-  /**
-   * @remarks
-   * Indicates whether the API is public. Valid values:
-   * 
-   * *   **PUBLIC**
-   * *   **PRIVATE**
-   * 
-   * @example
-   * PUBLIC
-   */
   visibility?: string;
   static names(): { [key: string]: string } {
     return {
@@ -145,10 +76,6 @@ export class DescribeApisByTrafficControlResponseBodyApiInfos extends $dara.Mode
 }
 
 export class DescribeApisByTrafficControlResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned API information. It is an array consisting of ApiInfo data.
-   */
   apiInfos?: DescribeApisByTrafficControlResponseBodyApiInfos;
   /**
    * @remarks

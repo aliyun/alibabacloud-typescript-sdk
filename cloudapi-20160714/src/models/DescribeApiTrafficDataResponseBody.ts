@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeApiTrafficDataResponseBodyCallDownloadsMonitorItem extends $dara.Model {
-  /**
-   * @remarks
-   * The time of the monitoring metric. The time format follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
-   * 
-   * @example
-   * 2016-07-28T08:20:00Z
-   */
   itemTime?: string;
-  /**
-   * @remarks
-   * The value corresponding to the monitoring metric.
-   * 
-   * @example
-   * 0
-   */
   itemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,21 +55,7 @@ export class DescribeApiTrafficDataResponseBodyCallDownloads extends $dara.Model
 }
 
 export class DescribeApiTrafficDataResponseBodyCallUploadsMonitorItem extends $dara.Model {
-  /**
-   * @remarks
-   * The time of the monitoring metric. The time format follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
-   * 
-   * @example
-   * 2016-07-28T08:20:00Z
-   */
   itemTime?: string;
-  /**
-   * @remarks
-   * The value corresponding to the monitoring metric.
-   * 
-   * @example
-   * 670
-   */
   itemValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -135,15 +107,7 @@ export class DescribeApiTrafficDataResponseBodyCallUploads extends $dara.Model {
 }
 
 export class DescribeApiTrafficDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned downlink traffic data of API calls. It is an array consisting of MonitorItem data.
-   */
   callDownloads?: DescribeApiTrafficDataResponseBodyCallDownloads;
-  /**
-   * @remarks
-   * The returned uplink traffic data of API calls. It is an array consisting of MonitorItem data.
-   */
   callUploads?: DescribeApiTrafficDataResponseBodyCallUploads;
   /**
    * @remarks
