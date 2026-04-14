@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDomainExtensionsResponseBodyDomainExtensionsDomainExtension extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * www.example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The ID of the additional certificate.
-   * 
-   * @example
-   * de-bp1rp7ta1****
-   */
   domainExtensionId?: string;
-  /**
-   * @remarks
-   * The ID of the certificate used by the domain name.
-   * 
-   * @example
-   * 1231579085529123_166f8204689_1714763408_70998****
-   */
   serverCertificateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class DescribeDomainExtensionsResponseBodyDomainExtensions extends $dara.
 }
 
 export class DescribeDomainExtensionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of additional certificates.
-   */
   domainExtensions?: DescribeDomainExtensionsResponseBodyDomainExtensions;
   /**
    * @remarks

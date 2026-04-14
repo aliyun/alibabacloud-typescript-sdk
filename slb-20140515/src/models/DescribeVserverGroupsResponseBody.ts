@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsListenersListener extends $dara.Model {
-  /**
-   * @remarks
-   * The listener port.
-   * 
-   * @example
-   * 80
-   */
   port?: number;
-  /**
-   * @remarks
-   * The listener protocol. Valid values: **tcp**, **udp**, **http**, and **https**.
-   * 
-   * @example
-   * tcp
-   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,37 +55,9 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociate
 }
 
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The requested domain name.
-   * 
-   * @example
-   * www.example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The ID of the forwarding rule.
-   * 
-   * @example
-   * rule-a3x3pg1yohq3lq****
-   */
   ruleId?: string;
-  /**
-   * @remarks
-   * The name of the forwarding rule.
-   * 
-   * @example
-   * test
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * The request URL.
-   * 
-   * @example
-   * /example
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -155,15 +113,7 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociate
 }
 
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects extends $dara.Model {
-  /**
-   * @remarks
-   * The listeners.
-   */
   listeners?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsListeners;
-  /**
-   * @remarks
-   * The forwarding rules.
-   */
   rules?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjectsRules;
   static names(): { [key: string]: string } {
     return {
@@ -195,21 +145,7 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociate
 }
 
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -261,49 +197,11 @@ export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupTags exte
 }
 
 export class DescribeVServerGroupsResponseBodyVServerGroupsVServerGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The associated resources.
-   */
   associatedObjects?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupAssociatedObjects;
-  /**
-   * @remarks
-   * The time when the CLB instance was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
-   * 
-   * @example
-   * 2022-08-31T02:49:05Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The number of servers.
-   * 
-   * This parameter is unavailable by default. To use this parameter, submit a ticket or contact your account manager.
-   * 
-   * @example
-   * 1
-   */
   serverCount?: number;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: DescribeVServerGroupsResponseBodyVServerGroupsVServerGroupTags;
-  /**
-   * @remarks
-   * The server group ID.
-   * 
-   * @example
-   * rsp-0bfuc*****
-   */
   VServerGroupId?: string;
-  /**
-   * @remarks
-   * The server group name.
-   * 
-   * @example
-   * Group3
-   */
   VServerGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -377,10 +275,6 @@ export class DescribeVServerGroupsResponseBody extends $dara.Model {
    * 9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The backend servers.
-   */
   VServerGroups?: DescribeVServerGroupsResponseBodyVServerGroups;
   static names(): { [key: string]: string } {
     return {

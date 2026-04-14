@@ -29,29 +29,8 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds extend
 }
 
 export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensionsDomainExtension extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * www.example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The ID of the additional certificate.
-   * 
-   * @example
-   * 12
-   */
   domainExtensionId?: string;
-  /**
-   * @remarks
-   * The ID of the certificate used by the domain name.
-   * 
-   * @example
-   * 13344444****
-   */
   serverCertificateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,45 +84,10 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensi
 }
 
 export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * www.example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The ID of the forwarding rule.
-   * 
-   * @example
-   * 23
-   */
   ruleId?: string;
-  /**
-   * @remarks
-   * The name of the forwarding rule.
-   * 
-   * @example
-   * example
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * The request URL.
-   * 
-   * @example
-   * /example
-   */
   url?: string;
-  /**
-   * @remarks
-   * The ID of the server group specified in the forwarding rule.
-   * 
-   * @example
-   * rsp-cige6j5e********
-   */
   VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -201,21 +145,7 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules extends
 }
 
 export class DescribeLoadBalancerHTTPSListenerAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of tag N. Valid values of N: **1** to **20**. The tag value cannot be an empty string. The tag key can be up to 64 characters in length. The key cannot start with `acs:` or `aliyun` or contain `http://` or `https://`.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of tag N. Valid values of N: **1** to **20**. The tag value can be an empty string. The tag value can be up to 128 characters in length, and cannot start with `acs:`. It cannot contain `http://` or `https://`.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -277,10 +207,6 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $dar
    * acl-a2do9e413e0spzasx****
    */
   aclId?: string;
-  /**
-   * @remarks
-   * The ID of the network access control list (ACL) that is associated with the listener.
-   */
   aclIds?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyAclIds;
   /**
    * @remarks
@@ -359,10 +285,6 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $dar
    * HTTPS_443
    */
   description?: string;
-  /**
-   * @remarks
-   * A list of additional certificates.
-   */
   domainExtensions?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyDomainExtensions;
   /**
    * @remarks
@@ -509,10 +431,6 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $dar
    * 43
    */
   requestTimeout?: number;
-  /**
-   * @remarks
-   * The list of forwarding rules that are associated with the listener.
-   */
   rules?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyRules;
   /**
    * @remarks
@@ -624,10 +542,6 @@ export class DescribeLoadBalancerHTTPSListenerAttributeResponseBody extends $dar
    * tls_cipher_policy_1_0
    */
   TLSCipherPolicy?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: DescribeLoadBalancerHTTPSListenerAttributeResponseBodyTags;
   /**
    * @remarks

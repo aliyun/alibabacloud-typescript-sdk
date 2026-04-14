@@ -98,6 +98,7 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $dara.Model {
    * https_80
    */
   description?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * Specifies whether to use `HTTP 2.0`. Valid values:
@@ -473,6 +474,7 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $dara.Model {
       cookie: 'Cookie',
       cookieTimeout: 'CookieTimeout',
       description: 'Description',
+      dryRun: 'DryRun',
       enableHttp2: 'EnableHttp2',
       gzip: 'Gzip',
       healthCheck: 'HealthCheck',
@@ -520,6 +522,7 @@ export class SetLoadBalancerHTTPSListenerAttributeRequest extends $dara.Model {
       cookie: 'string',
       cookieTimeout: 'number',
       description: 'string',
+      dryRun: 'boolean',
       enableHttp2: 'string',
       gzip: 'string',
       healthCheck: 'string',

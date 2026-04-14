@@ -3,41 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RemoveBackendServersResponseBodyBackendServersBackendServer extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the server group.
-   * 
-   * @example
-   * BackendServer1
-   */
   description?: string;
-  /**
-   * @remarks
-   * The ID of the backend server.
-   * 
-   * @example
-   * i-bp1fq61enf4loa5i****
-   */
   serverId?: string;
-  /**
-   * @remarks
-   * The type of backend server. Valid values:
-   * 
-   * *   **ecs**: ECS instance
-   * *   **eni**: ENI
-   * *   **eci**: elastic container instances
-   * 
-   * @example
-   * ecs
-   */
   type?: string;
-  /**
-   * @remarks
-   * The weight of the backend server. Valid values: **0 to 100**.
-   * 
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -93,10 +61,6 @@ export class RemoveBackendServersResponseBodyBackendServers extends $dara.Model 
 }
 
 export class RemoveBackendServersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The backend servers.
-   */
   backendServers?: RemoveBackendServersResponseBodyBackendServers;
   /**
    * @remarks

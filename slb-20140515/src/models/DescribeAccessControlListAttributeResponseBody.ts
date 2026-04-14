@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccessControlListAttributeResponseBodyAclEntrysAclEntry extends $dara.Model {
-  /**
-   * @remarks
-   * The remarks of the ACL entry.
-   * 
-   * @example
-   * test
-   */
   aclEntryComment?: string;
-  /**
-   * @remarks
-   * The IP entry in the ACL.
-   * 
-   * @example
-   * 192.168.0.1
-   */
   aclEntryIP?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,40 +55,9 @@ export class DescribeAccessControlListAttributeResponseBodyAclEntrys extends $da
 }
 
 export class DescribeAccessControlListAttributeResponseBodyRelatedListenersRelatedListener extends $dara.Model {
-  /**
-   * @remarks
-   * The type of ACL. Valid values:
-   * 
-   * *   **black**
-   * *   **white**
-   * 
-   * @example
-   * white
-   */
   aclType?: string;
-  /**
-   * @remarks
-   * The frontend port of the listener with which the ACL is associated.
-   * 
-   * @example
-   * 443
-   */
   listenerPort?: number;
-  /**
-   * @remarks
-   * The CLB instance ID.
-   * 
-   * @example
-   * lb-bp1qpzldlm38bnexl****
-   */
   loadBalancerId?: string;
-  /**
-   * @remarks
-   * The type of protocol that the associated listener uses.
-   * 
-   * @example
-   * https
-   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -158,21 +113,7 @@ export class DescribeAccessControlListAttributeResponseBodyRelatedListeners exte
 }
 
 export class DescribeAccessControlListAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -224,10 +165,6 @@ export class DescribeAccessControlListAttributeResponseBodyTags extends $dara.Mo
 }
 
 export class DescribeAccessControlListAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the access control policy.
-   */
   aclEntrys?: DescribeAccessControlListAttributeResponseBodyAclEntrys;
   /**
    * @remarks
@@ -261,10 +198,6 @@ export class DescribeAccessControlListAttributeResponseBody extends $dara.Model 
    * 2022-08-31T02:49:05Z
    */
   createTime?: string;
-  /**
-   * @remarks
-   * The listeners with which the ACL is associated.
-   */
   relatedListeners?: DescribeAccessControlListAttributeResponseBodyRelatedListeners;
   /**
    * @remarks
@@ -282,10 +215,6 @@ export class DescribeAccessControlListAttributeResponseBody extends $dara.Model 
    * rg-acfmz3jksig****
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags added to the ACL.
-   */
   tags?: DescribeAccessControlListAttributeResponseBodyTags;
   /**
    * @remarks

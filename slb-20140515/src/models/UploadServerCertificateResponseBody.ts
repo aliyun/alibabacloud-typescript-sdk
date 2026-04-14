@@ -147,12 +147,6 @@ export class UploadServerCertificateResponseBody extends $dara.Model {
    * mycert01
    */
   serverCertificateName?: string;
-  /**
-   * @remarks
-   * The subject alternative names.
-   * 
-   * A domain name list is supported. A maximum of 10 domain names are supported.
-   */
   subjectAlternativeNames?: UploadServerCertificateResponseBodySubjectAlternativeNames;
   static names(): { [key: string]: string } {
     return {

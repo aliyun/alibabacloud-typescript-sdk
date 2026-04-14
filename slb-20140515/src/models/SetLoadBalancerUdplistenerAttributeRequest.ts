@@ -63,6 +63,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
    * udp_80
    */
   description?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The port that is used for health checks.
@@ -263,6 +264,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
       aclType: 'AclType',
       bandwidth: 'Bandwidth',
       description: 'Description',
+      dryRun: 'DryRun',
       healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
       healthCheckInterval: 'HealthCheckInterval',
@@ -294,6 +296,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
       aclType: 'string',
       bandwidth: 'number',
       description: 'string',
+      dryRun: 'boolean',
       healthCheckConnectPort: 'number',
       healthCheckConnectTimeout: 'number',
       healthCheckInterval: 'number',

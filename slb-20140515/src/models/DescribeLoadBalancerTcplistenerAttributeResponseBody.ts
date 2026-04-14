@@ -29,21 +29,7 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds extends 
 }
 
 export class DescribeLoadBalancerTCPListenerAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of tag N. Valid values of N: **1** to **20**. The tag value cannot be an empty string. The tag key can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of tag N. Valid values of N: **1** to **20**. The tag value can be an empty string. The tag value can be up to 128 characters in length, and cannot start with `acs:`. It cannot contain `http://` or `https://`.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,10 +91,6 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $dara.
    * acl-uf60jwfi******
    */
   aclId?: string;
-  /**
-   * @remarks
-   * The IDs of the ACLs.
-   */
   aclIds?: DescribeLoadBalancerTCPListenerAttributeResponseBodyAclIds;
   /**
    * @remarks
@@ -379,10 +361,6 @@ export class DescribeLoadBalancerTCPListenerAttributeResponseBody extends $dara.
    * disable
    */
   synProxy?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: DescribeLoadBalancerTCPListenerAttributeResponseBodyTags;
   /**
    * @remarks

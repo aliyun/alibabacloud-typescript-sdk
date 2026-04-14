@@ -29,21 +29,7 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
 }
 
 export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag keys of the resource.
-   * 
-   * @example
-   * test
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * 1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,122 +81,20 @@ export class DescribeServerCertificatesResponseBodyServerCertificatesServerCerti
 }
 
 export class DescribeServerCertificatesResponseBodyServerCertificatesServerCertificate extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the server certificate from Alibaba Cloud Certificate Management Service.
-   * 
-   * @example
-   * 7309********_15d97e7709a_71445759hr_789289731
-   */
   aliCloudCertificateId?: string;
-  /**
-   * @remarks
-   * The name of the server certificate from Alibaba Cloud Certificate Management Service.
-   * 
-   * @example
-   * testcertkey
-   */
   aliCloudCertificateName?: string;
-  /**
-   * @remarks
-   * The domain name of the server certificate. The domain name is specified in the `CommonName` field.
-   * 
-   * @example
-   * www.example.com
-   */
   commonName?: string;
-  /**
-   * @remarks
-   * The time when the server certificate was uploaded.
-   * 
-   * @example
-   * 2021-08-31T02:49:05Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The timestamp when the server certificate was uploaded.
-   * 
-   * @example
-   * 1504147745000
-   */
   createTimeStamp?: number;
-  /**
-   * @remarks
-   * The time when the server certificate expires.
-   * 
-   * @example
-   * 2023-01-26T23:59:59Z
-   */
   expireTime?: string;
-  /**
-   * @remarks
-   * The timestamp when the server certificate expires.
-   * 
-   * @example
-   * 15041477450
-   */
   expireTimeStamp?: number;
-  /**
-   * @remarks
-   * The fingerprint of the server certificate.
-   * 
-   * @example
-   * 68:08:1a:f8:2c:97:69:a3:a1:e6:16:41:4b:ca:4f:5d:ee:a5:ef:0d
-   */
   fingerprint?: string;
-  /**
-   * @remarks
-   * Indicates whether the server certificate is from Alibaba Cloud Certificate Management Service. Valid values:
-   * 
-   * *   **1**: yes
-   * *   **0**: no
-   * 
-   * @example
-   * 0
-   */
   isAliCloudCertificate?: number;
-  /**
-   * @remarks
-   * The region ID of the server certificate.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-atstuj3rtop****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The server certificate ID.
-   * 
-   * @example
-   * 123157********_166f8204689_1714763408_709981430-cn-east-hangzhou-02
-   */
   serverCertificateId?: string;
-  /**
-   * @remarks
-   * The name of the server certificate.
-   * 
-   * @example
-   * slb
-   */
   serverCertificateName?: string;
-  /**
-   * @remarks
-   * The alternative domain names of the server certificate. The alternative domain names are specified in the Subject Alternative Name field of the server certificate.
-   */
   subjectAlternativeNames?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateSubjectAlternativeNames;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: DescribeServerCertificatesResponseBodyServerCertificatesServerCertificateTags;
   static names(): { [key: string]: string } {
     return {
@@ -302,10 +186,6 @@ export class DescribeServerCertificatesResponseBody extends $dara.Model {
    * 365F4154-92F6-4AE4-92F8-7FF34B540710
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The server certificates.
-   */
   serverCertificates?: DescribeServerCertificatesResponseBodyServerCertificates;
   static names(): { [key: string]: string } {
     return {

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListenersListener extends $dara.Model {
-  /**
-   * @remarks
-   * The listener port.
-   * 
-   * @example
-   * 80
-   */
   port?: number;
-  /**
-   * @remarks
-   * The listener protocol.
-   * 
-   * @example
-   * tcp
-   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsM
 }
 
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects extends $dara.Model {
-  /**
-   * @remarks
-   * The listeners.
-   */
   listeners?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjectsListeners;
   static names(): { [key: string]: string } {
     return {
@@ -99,21 +81,7 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsM
 }
 
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * test_slb_yaochi_tag_key-0
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * 000098dab00323fb
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -165,39 +133,10 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsM
 }
 
 export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The associated resources.
-   */
   associatedObjects?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupAssociatedObjects;
-  /**
-   * @remarks
-   * The time when the CLB instance was created. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format.
-   * 
-   * @example
-   * 2022-12-02T02:49:05Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The ID of the primary/secondary server group.
-   * 
-   * @example
-   * rsp-0bfuc******
-   */
   masterSlaveServerGroupId?: string;
-  /**
-   * @remarks
-   * The name of the primary/secondary server group.
-   * 
-   * @example
-   * Group3
-   */
   masterSlaveServerGroupName?: string;
-  /**
-   * @remarks
-   * The tags to add to the resource.
-   */
   tags?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroupsMasterSlaveServerGroupTags;
   static names(): { [key: string]: string } {
     return {
@@ -261,10 +200,6 @@ export class DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups 
 }
 
 export class DescribeMasterSlaveServerGroupsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The primary/secondary server groups.
-   */
   masterSlaveServerGroups?: DescribeMasterSlaveServerGroupsResponseBodyMasterSlaveServerGroups;
   /**
    * @remarks

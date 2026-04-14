@@ -3,59 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVServerGroupAttributeResponseBodyBackendServersBackendServer extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the server group.
-   * 
-   * >  This parameter is not returned if the Description parameter is not specified in the request.
-   * 
-   * @example
-   * Server Group Description
-   */
   description?: string;
-  /**
-   * @remarks
-   * The port that is used by the backend server.
-   * 
-   * @example
-   * 90
-   */
   port?: number;
-  /**
-   * @remarks
-   * The ID of the backend server.
-   * 
-   * @example
-   * vm-233
-   */
   serverId?: string;
-  /**
-   * @remarks
-   * The IP address of the backend server.
-   * 
-   * @example
-   * 192.XX.XX.11
-   */
   serverIp?: string;
-  /**
-   * @remarks
-   * The type of backend server. Valid values:
-   * 
-   * *   **ecs**: ECS instance
-   * *   **eni**: ENI
-   * *   **eci**: elastic container instance
-   * 
-   * @example
-   * ecs
-   */
   type?: string;
-  /**
-   * @remarks
-   * The weight of the backend server.
-   * 
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -115,25 +67,7 @@ export class DescribeVServerGroupAttributeResponseBodyBackendServers extends $da
 }
 
 export class DescribeVServerGroupAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
-   * 
-   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value. Valid values of N: **1** to **20**. The tag value can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -185,10 +119,6 @@ export class DescribeVServerGroupAttributeResponseBodyTags extends $dara.Model {
 }
 
 export class DescribeVServerGroupAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The backend servers.
-   */
   backendServers?: DescribeVServerGroupAttributeResponseBodyBackendServers;
   /**
    * @remarks
@@ -214,10 +144,6 @@ export class DescribeVServerGroupAttributeResponseBody extends $dara.Model {
    * 9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tags of the backend server.
-   */
   tags?: DescribeVServerGroupAttributeResponseBodyTags;
   /**
    * @remarks

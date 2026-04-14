@@ -3,47 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLoadBalancerAttributeResponseBodyBackendServersBackendServer extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the backend server.
-   * 
-   * > This parameter is not returned if Description is not set.
-   * 
-   * @example
-   * backend server description
-   */
   description?: string;
-  /**
-   * @remarks
-   * The backend server ID.
-   * 
-   * @example
-   * i-2zej4lxhjoq1icu*****
-   */
   serverId?: string;
-  /**
-   * @remarks
-   * The ID of the elastic network interface (ENI) or elastic container instance.
-   * 
-   * @example
-   * 192.XX.XX.11
-   */
   serverIp?: string;
-  /**
-   * @remarks
-   * The type of the backend server.
-   * 
-   * @example
-   * ecs
-   */
   type?: string;
-  /**
-   * @remarks
-   * The weight of the backend server.
-   * 
-   * @example
-   * 90
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -127,21 +90,7 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPorts extends $dar
 }
 
 export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocalListenerPortAndProtocal extends $dara.Model {
-  /**
-   * @remarks
-   * The frontend port that is used by the CLB instance.
-   * 
-   * @example
-   * 443
-   */
   listenerPort?: number;
-  /**
-   * @remarks
-   * The frontend protocol that is used by the CLB instance.
-   * 
-   * @example
-   * http
-   */
   listenerProtocal?: string;
   static names(): { [key: string]: string } {
     return {
@@ -193,45 +142,10 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal e
 }
 
 export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocolListenerPortAndProtocol extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the listener is enabled.
-   * 
-   * @example
-   * Listener Description
-   */
   description?: string;
-  /**
-   * @remarks
-   * The destination listening port to which requests are forwarded. The port must be open and use HTTPS.
-   * 
-   * @example
-   * 443
-   */
   forwardPort?: number;
-  /**
-   * @remarks
-   * Indicates whether the listener is enabled.
-   * 
-   * @example
-   * on
-   */
   listenerForward?: string;
-  /**
-   * @remarks
-   * The frontend port that is used by the CLB instance.
-   * 
-   * @example
-   * 80
-   */
   listenerPort?: number;
-  /**
-   * @remarks
-   * The frontend protocol that is used by the CLB instance.
-   * 
-   * @example
-   * https
-   */
   listenerProtocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -289,25 +203,7 @@ export class DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol e
 }
 
 export class DescribeLoadBalancerAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
-   * 
-   * The tag key can be at most 64 characters in length, and cannot contain `http://` or `https://`. It must not start with `aliyun` or `acs:`.
-   * 
-   * @example
-   * test
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value. Valid values of N: **1** to **20**. The tag value can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
-   * 
-   * @example
-   * value
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -391,10 +287,6 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
    * 1513947075000
    */
   autoReleaseTime?: number;
-  /**
-   * @remarks
-   * The backend servers of the CLB instance.
-   */
   backendServers?: DescribeLoadBalancerAttributeResponseBodyBackendServers;
   /**
    * @remarks
@@ -470,20 +362,8 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
    * paybytraffic
    */
   internetChargeType?: string;
-  /**
-   * @remarks
-   * The frontend port used by the CLB instance.
-   */
   listenerPorts?: DescribeLoadBalancerAttributeResponseBodyListenerPorts;
-  /**
-   * @remarks
-   * The ports or protocols of the listeners.
-   */
   listenerPortsAndProtocal?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocal;
-  /**
-   * @remarks
-   * The ports or protocols of the listeners.
-   */
   listenerPortsAndProtocol?: DescribeLoadBalancerAttributeResponseBodyListenerPortsAndProtocol;
   /**
    * @remarks
@@ -654,10 +534,6 @@ export class DescribeLoadBalancerAttributeResponseBody extends $dara.Model {
    * cn-hangzhou-d
    */
   slaveZoneId?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: DescribeLoadBalancerAttributeResponseBodyTags;
   /**
    * @remarks

@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * lb-bp16qjewdsunr4****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The resource type.
-   * 
-   * @example
-   * instance
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * FinanceDept
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * FinanceJoshua
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,10 +80,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * DE65F6B7-7566-4802-9007-96F2494AC512
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The resources to which the tags are added.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

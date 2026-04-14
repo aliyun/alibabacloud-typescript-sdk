@@ -29,45 +29,10 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds extends
 }
 
 export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * www.example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The ID of the forwarding rule.
-   * 
-   * @example
-   * 1234
-   */
   ruleId?: string;
-  /**
-   * @remarks
-   * The name of the forwarding rule.
-   * 
-   * @example
-   * test
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * The request URL.
-   * 
-   * @example
-   * /example
-   */
   url?: string;
-  /**
-   * @remarks
-   * The ID of the server group specified in the forwarding rule.
-   * 
-   * @example
-   * rsp-uf6w******
-   */
   VServerGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,21 +90,7 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules extends 
 }
 
 export class DescribeLoadBalancerHTTPListenerAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The key of tag N. Valid values of N: **1** to **20**. The tag value cannot be an empty string. The tag key can be up to 64 characters in length. The key cannot start with `acs:` or `aliyun` or contain `http://` or `https://`.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of tag N. Valid values of N: **1** to **20**. The tag value can be an empty string. The tag value can be up to 128 characters in length, and cannot start with `acs:`. It cannot contain `http://` or `https://`.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -201,10 +152,6 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $dara
    * acl-uf60jw******
    */
   aclId?: string;
-  /**
-   * @remarks
-   * The ID of the access control list (ACL).
-   */
   aclIds?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyAclIds;
   /**
    * @remarks
@@ -439,10 +386,6 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $dara
    * 34
    */
   requestTimeout?: number;
-  /**
-   * @remarks
-   * The list of forwarding rules.
-   */
   rules?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyRules;
   /**
    * @remarks
@@ -508,10 +451,6 @@ export class DescribeLoadBalancerHTTPListenerAttributeResponseBody extends $dara
    * insert
    */
   stickySessionType?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: DescribeLoadBalancerHTTPListenerAttributeResponseBodyTags;
   /**
    * @remarks

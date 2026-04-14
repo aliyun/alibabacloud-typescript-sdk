@@ -3,57 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHealthStatusResponseBodyBackendServersBackendServer extends $dara.Model {
-  /**
-   * @remarks
-   * The frontend port that is used by the SLB instance.
-   * 
-   * @example
-   * 80
-   */
   listenerPort?: number;
-  /**
-   * @remarks
-   * The backend port that is used by the SLB instance.
-   * 
-   * @example
-   * 70
-   */
   port?: number;
-  /**
-   * @remarks
-   * The frontend protocol that is used by the SLB instance.
-   * 
-   * @example
-   * https
-   */
   protocol?: string;
-  /**
-   * @remarks
-   * The health status of the backend server. Valid values:
-   * 
-   * *   normal: The backend server is healthy.
-   * *   abnormal: The backend server is unhealthy.
-   * *   unavailable: The health check is not completed.
-   * 
-   * @example
-   * abnormal
-   */
   serverHealthStatus?: string;
-  /**
-   * @remarks
-   * The ID of the backend server.
-   * 
-   * @example
-   * i-bp1h5u3fv54ytf***
-   */
   serverId?: string;
-  /**
-   * @remarks
-   * The IP address of the backend server.
-   * 
-   * @example
-   * 192.XX.XX.11
-   */
   serverIp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -113,10 +67,6 @@ export class DescribeHealthStatusResponseBodyBackendServers extends $dara.Model 
 }
 
 export class DescribeHealthStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The backend servers.
-   */
   backendServers?: DescribeHealthStatusResponseBodyBackendServers;
   /**
    * @remarks

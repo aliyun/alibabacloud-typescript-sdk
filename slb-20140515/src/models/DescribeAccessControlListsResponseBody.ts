@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccessControlListsResponseBodyAclsAclTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * test
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * 1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,50 +55,11 @@ export class DescribeAccessControlListsResponseBodyAclsAclTags extends $dara.Mod
 }
 
 export class DescribeAccessControlListsResponseBodyAclsAcl extends $dara.Model {
-  /**
-   * @remarks
-   * The ACL ID.
-   * 
-   * @example
-   * acl-bp1l0kk4gxce43k*****
-   */
   aclId?: string;
-  /**
-   * @remarks
-   * The ACL name.
-   * 
-   * @example
-   * rule1
-   */
   aclName?: string;
-  /**
-   * @remarks
-   * The IP version that is used by the CLB instance associated with the ACL.
-   * 
-   * @example
-   * ipv4
-   */
   addressIPVersion?: string;
-  /**
-   * @remarks
-   * The time when the CLB instance was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
-   * 
-   * @example
-   * 2022-08-31T02:49:05Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The resource group ID.
-   * 
-   * @example
-   * rg-jfenfbp1lhl0****
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The list of tags added to the network ACL. The value of this parameter must be a STRING list in the JSON format.
-   */
   tags?: DescribeAccessControlListsResponseBodyAclsAclTags;
   static names(): { [key: string]: string } {
     return {
@@ -175,10 +122,6 @@ export class DescribeAccessControlListsResponseBodyAcls extends $dara.Model {
 }
 
 export class DescribeAccessControlListsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * A list of ACLs.
-   */
   acls?: DescribeAccessControlListsResponseBodyAcls;
   /**
    * @remarks

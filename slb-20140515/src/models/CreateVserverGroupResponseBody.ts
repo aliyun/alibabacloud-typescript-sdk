@@ -3,49 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVServerGroupResponseBodyBackendServersBackendServer extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the vServer group.
-   * 
-   * @example
-   * backend server
-   */
   description?: string;
-  /**
-   * @remarks
-   * The port that is used by the backend server.
-   * 
-   * @example
-   * 70
-   */
   port?: number;
-  /**
-   * @remarks
-   * The ID of the ECS instance or ENI.
-   * 
-   * @example
-   * eni-hhshhs****
-   */
   serverId?: string;
-  /**
-   * @remarks
-   * The type of backend server. Valid values:
-   * 
-   * *   **ecs** (default): ECS instance
-   * *   **eni**: elastic network interface (ENI)
-   * *   **eci**: elastic container instance
-   * 
-   * @example
-   * eni
-   */
   type?: string;
-  /**
-   * @remarks
-   * The weight of the backend server.
-   * 
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +64,6 @@ export class CreateVServerGroupResponseBodyBackendServers extends $dara.Model {
 }
 
 export class CreateVServerGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The list of backend servers.
-   */
   backendServers?: CreateVServerGroupResponseBodyBackendServers;
   /**
    * @remarks

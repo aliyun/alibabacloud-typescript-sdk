@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRulesResponseBodyRulesRule extends $dara.Model {
-  /**
-   * @remarks
-   * The forwarding rule ID.
-   * 
-   * @example
-   * rule-bp12jzy0*****
-   */
   ruleId?: string;
-  /**
-   * @remarks
-   * The name of the forwarding rule.
-   * 
-   * @example
-   * Rule2
-   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77,10 +63,6 @@ export class CreateRulesResponseBody extends $dara.Model {
    * 9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The forwarding rules.
-   */
   rules?: CreateRulesResponseBodyRules;
   static names(): { [key: string]: string } {
     return {

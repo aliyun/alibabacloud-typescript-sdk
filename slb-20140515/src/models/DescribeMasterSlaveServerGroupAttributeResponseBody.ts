@@ -3,57 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the primary/secondary server group.
-   * 
-   * @example
-   * Primary and secondary server group description
-   */
   description?: string;
-  /**
-   * @remarks
-   * The port that is used by the backend server.
-   * 
-   * @example
-   * 90
-   */
   port?: number;
-  /**
-   * @remarks
-   * The ID of the backend server.
-   * 
-   * @example
-   * eni-hhshhs****
-   */
   serverId?: string;
-  /**
-   * @remarks
-   * The type of backend server. Valid values: **Master** and **Slave**.
-   * 
-   * @example
-   * Slave
-   */
   serverType?: string;
-  /**
-   * @remarks
-   * The type of the backend server. Valid values:
-   * 
-   * *   **ecs** (default): Elastic Compute Service (ECS) instance
-   * *   **eni**: elastic network interface (ENI)
-   * *   **eci**: elastic container instance
-   * 
-   * @example
-   * eni
-   */
   type?: string;
-  /**
-   * @remarks
-   * The weight of the backend server.
-   * 
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -113,25 +67,7 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBacke
 }
 
 export class DescribeMasterSlaveServerGroupAttributeResponseBodyTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key. Valid values of N: **1** to **20**. The tag key cannot be an empty string.
-   * 
-   * The tag key can be up to 64 characters in length, and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
-   * 
-   * @example
-   * TestKey
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value. Valid values of N: **1** to **20**. The tag value can be an empty string.
-   * 
-   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
-   * 
-   * @example
-   * TestValue
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -199,10 +135,6 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $dara.M
    * lb-14fadafw4343a******
    */
   loadBalancerId?: string;
-  /**
-   * @remarks
-   * A list of backend servers in the primary/secondary server group.
-   */
   masterSlaveBackendServers?: DescribeMasterSlaveServerGroupAttributeResponseBodyMasterSlaveBackendServers;
   /**
    * @remarks
@@ -228,10 +160,6 @@ export class DescribeMasterSlaveServerGroupAttributeResponseBody extends $dara.M
    * 9DEC9C28-AB05-4DDF-9A78-6B0******
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tag list.
-   */
   tags?: DescribeMasterSlaveServerGroupAttributeResponseBodyTags;
   static names(): { [key: string]: string } {
     return {

@@ -1598,6 +1598,10 @@ export default class Client extends OpenApi {
   async createRulesWithOptions(request: $_model.CreateRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRulesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.listenerPort)) {
       query["ListenerPort"] = request.listenerPort;
     }
@@ -6022,7 +6026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the whitelist of a specified listener.
+   * Enables or disables the whitelist of a listener.
    * 
    * @param request - SetListenerAccessControlStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6085,7 +6089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the whitelist of a specified listener.
+   * Enables or disables the whitelist of a listener.
    * 
    * @param request - SetListenerAccessControlStatusRequest
    * @returns SetListenerAccessControlStatusResponse
@@ -6202,6 +6206,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.gzip)) {
@@ -6407,6 +6415,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.enableHttp2)) {
       query["EnableHttp2"] = request.enableHttp2;
     }
@@ -6576,7 +6588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of the configuration read-only mode for a Classic Load Balancer (CLB) instance.
+   * Enable or disable the configuration read-only mode for a Classic Load Balancer (CLB) instance.
    * 
    * @param request - SetLoadBalancerModificationProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6635,7 +6647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of the configuration read-only mode for a Classic Load Balancer (CLB) instance.
+   * Enable or disable the configuration read-only mode for a Classic Load Balancer (CLB) instance.
    * 
    * @param request - SetLoadBalancerModificationProtectionRequest
    * @returns SetLoadBalancerModificationProtectionResponse
@@ -6819,6 +6831,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.establishedTimeout)) {
       query["EstablishedTimeout"] = request.establishedTimeout;
     }
@@ -6989,6 +7005,10 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.healthCheckConnectPort)) {
       query["HealthCheckConnectPort"] = request.healthCheckConnectPort;
     }
@@ -7121,6 +7141,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.cookieTimeout)) {
       query["CookieTimeout"] = request.cookieTimeout;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.healthCheck)) {

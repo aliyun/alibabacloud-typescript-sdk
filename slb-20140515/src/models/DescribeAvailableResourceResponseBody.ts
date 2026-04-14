@@ -3,25 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResourcesSupportResource extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the IP address.
-   * 
-   * Valid values: **ipv4 and ipv6**.
-   * 
-   * @example
-   * ipv4
-   */
   addressIPVersion?: string;
-  /**
-   * @remarks
-   * The network type.
-   * 
-   * Valid values: **vpc, classic-internet, and classic-intranet**.
-   * 
-   * @example
-   * classic_internet
-   */
   addressType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,26 +55,8 @@ export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableRes
 }
 
 export class DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResource extends $dara.Model {
-  /**
-   * @remarks
-   * The primary zone.
-   * 
-   * @example
-   * cn-shanghai-a
-   */
   masterZoneId?: string;
-  /**
-   * @remarks
-   * The secondary zone.
-   * 
-   * @example
-   * cn-shanghai-b
-   */
   slaveZoneId?: string;
-  /**
-   * @remarks
-   * The supported resources.
-   */
   supportResources?: DescribeAvailableResourceResponseBodyAvailableResourcesAvailableResourceSupportResources;
   static names(): { [key: string]: string } {
     return {
@@ -149,10 +113,6 @@ export class DescribeAvailableResourceResponseBodyAvailableResources extends $da
 }
 
 export class DescribeAvailableResourceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The zones and the supported resources.
-   */
   availableResources?: DescribeAvailableResourceResponseBodyAvailableResources;
   /**
    * @remarks

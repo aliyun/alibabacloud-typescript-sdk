@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAccessLogsDownloadAttributeResponseBodyLogsDownloadAttributesLogsDownloadAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * The CLB instance ID.
-   * 
-   * @example
-   * lb-bp1b6c719dfa08ex*****
-   */
   loadBalancerId?: string;
-  /**
-   * @remarks
-   * The name of the Log Service project.
-   * 
-   * @example
-   * test-log-project
-   */
   logProject?: string;
-  /**
-   * @remarks
-   * The name of the Logstore.
-   * 
-   * @example
-   * test-log-store
-   */
   logStore?: string;
-  /**
-   * @remarks
-   * The type of access log. Only **layer7** is returned, which indicates Layer 7 access logs.
-   * 
-   * @example
-   * layer7
-   */
   logType?: string;
-  /**
-   * @remarks
-   * The region ID of the CLB instance.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +64,6 @@ export class DescribeAccessLogsDownloadAttributeResponseBodyLogsDownloadAttribut
 }
 
 export class DescribeAccessLogsDownloadAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration of the access log.
-   */
   logsDownloadAttributes?: DescribeAccessLogsDownloadAttributeResponseBodyLogsDownloadAttributes;
   /**
    * @remarks

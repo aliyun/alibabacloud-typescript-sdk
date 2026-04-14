@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTagsResponseBodyTagSetsTagSet extends $dara.Model {
-  /**
-   * @remarks
-   * The number of instances to which the tag is added.
-   * 
-   * @example
-   * 10
-   */
   instanceCount?: number;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * test
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * api
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +82,6 @@ export class DescribeTagsResponseBody extends $dara.Model {
    * 365F4154-92F6-4AE4-92F8-7FF34B540710
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tags that are queried.
-   */
   tagSets?: DescribeTagsResponseBodyTagSets;
   /**
    * @remarks

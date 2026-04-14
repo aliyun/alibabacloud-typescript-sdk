@@ -84,6 +84,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
    * tcp_80
    */
   description?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * The timeout period of a connection. Unit: seconds. Valid values: **10** to **900**.
@@ -340,6 +341,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
       connectionDrain: 'ConnectionDrain',
       connectionDrainTimeout: 'ConnectionDrainTimeout',
       description: 'Description',
+      dryRun: 'DryRun',
       establishedTimeout: 'EstablishedTimeout',
       healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckConnectTimeout: 'HealthCheckConnectTimeout',
@@ -378,6 +380,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
       connectionDrain: 'string',
       connectionDrainTimeout: 'number',
       description: 'string',
+      dryRun: 'boolean',
       establishedTimeout: 'number',
       healthCheckConnectPort: 'number',
       healthCheckConnectTimeout: 'number',

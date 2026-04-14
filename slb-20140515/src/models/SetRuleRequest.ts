@@ -25,6 +25,7 @@ export class SetRuleRequest extends $dara.Model {
    * 123
    */
   cookieTimeout?: number;
+  dryRun?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the health check feature. Valid values:
@@ -230,6 +231,7 @@ export class SetRuleRequest extends $dara.Model {
     return {
       cookie: 'Cookie',
       cookieTimeout: 'CookieTimeout',
+      dryRun: 'DryRun',
       healthCheck: 'HealthCheck',
       healthCheckConnectPort: 'HealthCheckConnectPort',
       healthCheckDomain: 'HealthCheckDomain',
@@ -258,6 +260,7 @@ export class SetRuleRequest extends $dara.Model {
     return {
       cookie: 'string',
       cookieTimeout: 'number',
+      dryRun: 'boolean',
       healthCheck: 'string',
       healthCheckConnectPort: 'number',
       healthCheckDomain: 'string',

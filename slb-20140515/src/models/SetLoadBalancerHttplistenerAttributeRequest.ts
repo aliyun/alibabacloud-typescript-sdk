@@ -84,6 +84,7 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $dara.Model {
    * test
    */
   description?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * Specifies whether to enable `GZIP` compression to compress specific types of files. Valid values:
@@ -401,6 +402,7 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $dara.Model {
       cookie: 'Cookie',
       cookieTimeout: 'CookieTimeout',
       description: 'Description',
+      dryRun: 'DryRun',
       gzip: 'Gzip',
       healthCheck: 'HealthCheck',
       healthCheckConnectPort: 'HealthCheckConnectPort',
@@ -444,6 +446,7 @@ export class SetLoadBalancerHTTPListenerAttributeRequest extends $dara.Model {
       cookie: 'string',
       cookieTimeout: 'number',
       description: 'string',
+      dryRun: 'boolean',
       gzip: 'string',
       healthCheck: 'string',
       healthCheckConnectPort: 'number',

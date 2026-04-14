@@ -3,59 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServersMasterSlaveBackendServer extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the primary/secondary server group.
-   * 
-   * @example
-   * test-112
-   */
   description?: string;
-  /**
-   * @remarks
-   * The port that is used by the backend server.
-   * 
-   * @example
-   * 82
-   */
   port?: number;
-  /**
-   * @remarks
-   * The ID of the backend server that you want to add.
-   * 
-   * @example
-   * i-bp1fq61enf4loa5i****
-   */
   serverId?: string;
-  /**
-   * @remarks
-   * The type of backend server.
-   * 
-   * Valid values: **Master** and **Slave**.
-   * 
-   * @example
-   * Master
-   */
   serverType?: string;
-  /**
-   * @remarks
-   * The type of backend server. Valid values:
-   * 
-   * *   **ecs**: ECS instance
-   * *   **eni**: ENI
-   * *   **eci**: elastic container instance
-   * 
-   * @example
-   * ecs
-   */
   type?: string;
-  /**
-   * @remarks
-   * The weight of the backend server.
-   * 
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -115,10 +67,6 @@ export class CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers e
 }
 
 export class CreateMasterSlaveServerGroupResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The backend servers in the primary/secondary server group.
-   */
   masterSlaveBackendServers?: CreateMasterSlaveServerGroupResponseBodyMasterSlaveBackendServers;
   /**
    * @remarks
