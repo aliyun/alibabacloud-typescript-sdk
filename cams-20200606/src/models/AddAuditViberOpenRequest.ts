@@ -120,9 +120,29 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   completeAddressOfHeadquarters?: string;
   /**
    * @example
+   * 7151***5@qq.com
+   */
+  contactEmail?: string;
+  /**
+   * @example
    * 123@123.com
    */
   contactMail?: string;
+  /**
+   * @example
+   * mary
+   */
+  contactName?: string;
+  /**
+   * @example
+   * 8615115**777
+   */
+  contactPhone?: string;
+  /**
+   * @example
+   * 职员
+   */
+  contactPosition?: string;
   /**
    * @example
    * 示例值
@@ -189,7 +209,11 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
       companyRegisteredCountry: 'CompanyRegisteredCountry',
       companyTel: 'CompanyTel',
       completeAddressOfHeadquarters: 'CompleteAddressOfHeadquarters',
+      contactEmail: 'ContactEmail',
       contactMail: 'ContactMail',
+      contactName: 'ContactName',
+      contactPhone: 'ContactPhone',
+      contactPosition: 'ContactPosition',
       enableAutoReply: 'EnableAutoReply',
       industryDescription: 'IndustryDescription',
       industryInvolved: 'IndustryInvolved',
@@ -219,7 +243,11 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
       companyRegisteredCountry: 'string',
       companyTel: { 'type': 'array', 'itemType': AddAuditViberOpenRequestAuditRecordCompanyTel },
       completeAddressOfHeadquarters: 'string',
+      contactEmail: 'string',
       contactMail: 'string',
+      contactName: 'string',
+      contactPhone: 'string',
+      contactPosition: 'string',
       enableAutoReply: 'string',
       industryDescription: 'string',
       industryInvolved: 'string',
@@ -275,8 +303,20 @@ export class AddAuditViberOpenRequest extends $dara.Model {
    * 示例值示例值示例值
    */
   custSpaceId?: string;
+  /**
+   * @example
+   * 1651322271196729
+   */
   ownerId?: number;
+  /**
+   * @example
+   * testuser@testdomain.co
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1754580903499898
+   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {

@@ -57,14 +57,11 @@ export class CreateInstanceRequest extends $dara.Model {
    * 长沙麓谷
    */
   officeAddress?: string;
-  ownerId?: number;
   /**
    * @example
    * 示例值
    */
   resourceGroupId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       channelType: 'ChannelType',
@@ -76,10 +73,7 @@ export class CreateInstanceRequest extends $dara.Model {
       isConfirmAudit: 'IsConfirmAudit',
       isvTerms: 'IsvTerms',
       officeAddress: 'OfficeAddress',
-      ownerId: 'OwnerId',
       resourceGroupId: 'ResourceGroupId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -94,10 +88,7 @@ export class CreateInstanceRequest extends $dara.Model {
       isConfirmAudit: 'string',
       isvTerms: 'string',
       officeAddress: 'string',
-      ownerId: 'number',
       resourceGroupId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
     };
   }
 

@@ -2,24 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteInstanceRequest extends $dara.Model {
+export class ListWhatAppTemplateRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * 2399393****
+   * 2983883892
    */
-  instanceId?: string;
+  custSpaceId?: string;
+  /**
+   * @example
+   * {}
+   */
+  hetuParams?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
+      custSpaceId: 'CustSpaceId',
+      hetuParams: 'HetuParams',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
+      custSpaceId: 'string',
+      hetuParams: 'string',
     };
   }
 

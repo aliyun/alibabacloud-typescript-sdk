@@ -26,9 +26,19 @@ export class ListChatGroupShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @example
+   * 示例值示例值
+   */
+  groupLink?: string;
+  /**
+   * @example
    * ACTIVE
    */
   groupStatus?: string;
+  /**
+   * @example
+   * 示例值
+   */
+  groupType?: string;
   ownerId?: number;
   /**
    * @remarks
@@ -47,7 +57,9 @@ export class ListChatGroupShrinkRequest extends $dara.Model {
       businessNumber: 'BusinessNumber',
       channelType: 'ChannelType',
       custSpaceId: 'CustSpaceId',
+      groupLink: 'GroupLink',
       groupStatus: 'GroupStatus',
+      groupType: 'GroupType',
       ownerId: 'OwnerId',
       pageShrink: 'Page',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -61,7 +73,9 @@ export class ListChatGroupShrinkRequest extends $dara.Model {
       businessNumber: 'string',
       channelType: 'string',
       custSpaceId: 'string',
+      groupLink: 'string',
       groupStatus: 'string',
+      groupType: 'string',
       ownerId: 'number',
       pageShrink: 'string',
       resourceOwnerAccount: 'string',

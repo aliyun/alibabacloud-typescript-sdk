@@ -57,9 +57,6 @@ export class UpdateInstanceRequest extends $dara.Model {
    * 长沙麓谷
    */
   officeAddress?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       contactMail: 'ContactMail',
@@ -71,9 +68,6 @@ export class UpdateInstanceRequest extends $dara.Model {
       isConfirmAudit: 'IsConfirmAudit',
       isvTerms: 'IsvTerms',
       officeAddress: 'OfficeAddress',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
@@ -88,9 +82,6 @@ export class UpdateInstanceRequest extends $dara.Model {
       isConfirmAudit: 'string',
       isvTerms: 'string',
       officeAddress: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
     };
   }
 

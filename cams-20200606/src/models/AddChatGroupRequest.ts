@@ -29,13 +29,15 @@ export class AddChatGroupRequest extends $dara.Model {
    * 示例值示例值
    */
   description?: string;
+  /**
+   * @example
+   * https://t.me/testgroup
+   */
+  groupLink?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 示例值示例值
    */
@@ -46,6 +48,7 @@ export class AddChatGroupRequest extends $dara.Model {
       channelType: 'ChannelType',
       custSpaceId: 'CustSpaceId',
       description: 'Description',
+      groupLink: 'GroupLink',
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -59,6 +62,7 @@ export class AddChatGroupRequest extends $dara.Model {
       channelType: 'string',
       custSpaceId: 'string',
       description: 'string',
+      groupLink: 'string',
       ownerId: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',

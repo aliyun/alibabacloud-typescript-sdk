@@ -10,9 +10,19 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
   businessNumber?: string;
   /**
    * @example
+   * 示例值
+   */
+  businessRole?: string;
+  /**
+   * @example
    * test
    */
   description?: string;
+  /**
+   * @example
+   * 94
+   */
+  gmtModifier?: number;
   /**
    * @example
    * EA30d***
@@ -20,9 +30,19 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
   groupId?: string;
   /**
    * @example
+   * 示例值示例值
+   */
+  groupLink?: string;
+  /**
+   * @example
    * ACTIVE
    */
   groupStatus?: string;
+  /**
+   * @example
+   * 示例值示例值示例值
+   */
+  groupType?: string;
   /**
    * @example
    * https://chat.whatsapp.com/***
@@ -38,27 +58,42 @@ export class ListChatGroupResponseBodyDataList extends $dara.Model {
    * 示例值示例值
    */
   subject?: string;
+  /**
+   * @example
+   * 35
+   */
+  totalParticipantCount?: number;
   static names(): { [key: string]: string } {
     return {
       businessNumber: 'BusinessNumber',
+      businessRole: 'BusinessRole',
       description: 'Description',
+      gmtModifier: 'GmtModifier',
       groupId: 'GroupId',
+      groupLink: 'GroupLink',
       groupStatus: 'GroupStatus',
+      groupType: 'GroupType',
       inviteLink: 'InviteLink',
       profilePictureFile: 'ProfilePictureFile',
       subject: 'Subject',
+      totalParticipantCount: 'TotalParticipantCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       businessNumber: 'string',
+      businessRole: 'string',
       description: 'string',
+      gmtModifier: 'number',
       groupId: 'string',
+      groupLink: 'string',
       groupStatus: 'string',
+      groupType: 'string',
       inviteLink: 'string',
       profilePictureFile: 'string',
       subject: 'string',
+      totalParticipantCount: 'number',
     };
   }
 

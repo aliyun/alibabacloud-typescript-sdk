@@ -11,24 +11,15 @@ export class QueryInstanceRequest extends $dara.Model {
    * 9293938****
    */
   instanceId?: string;
-  ownerId?: number;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
-      ownerId: 'OwnerId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
-      ownerId: 'number',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
     };
   }
 

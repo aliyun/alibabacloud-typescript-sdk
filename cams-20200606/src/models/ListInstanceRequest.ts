@@ -23,7 +23,6 @@ export class ListInstanceRequest extends $dara.Model {
    * viber_ins
    */
   instanceName?: string;
-  ownerId?: number;
   /**
    * @example
    * 92
@@ -39,8 +38,6 @@ export class ListInstanceRequest extends $dara.Model {
    * 11
    */
   resourceGroupId?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
   /**
    * @example
    * 2023-12-12 00:00:00
@@ -52,12 +49,9 @@ export class ListInstanceRequest extends $dara.Model {
       filterStr: 'FilterStr',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
-      ownerId: 'OwnerId',
       pageIndex: 'PageIndex',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
       submitTime: 'SubmitTime',
     };
   }
@@ -68,12 +62,9 @@ export class ListInstanceRequest extends $dara.Model {
       filterStr: 'string',
       instanceId: 'string',
       instanceName: 'string',
-      ownerId: 'number',
       pageIndex: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
       submitTime: 'string',
     };
   }

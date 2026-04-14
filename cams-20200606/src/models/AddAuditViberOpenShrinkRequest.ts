@@ -17,8 +17,20 @@ export class AddAuditViberOpenShrinkRequest extends $dara.Model {
    * 示例值示例值示例值
    */
   custSpaceId?: string;
+  /**
+   * @example
+   * 1651322271196729
+   */
   ownerId?: number;
+  /**
+   * @example
+   * testuser@testdomain.co
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1754580903499898
+   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {

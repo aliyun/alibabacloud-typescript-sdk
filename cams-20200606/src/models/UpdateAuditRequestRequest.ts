@@ -125,9 +125,29 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
   completeAddressOfHeadquarters?: string;
   /**
    * @example
+   * 5**8585@gmail.com
+   */
+  contactEmail?: string;
+  /**
+   * @example
    * xxxx@gamil.com
    */
   contactMail?: string;
+  /**
+   * @example
+   * mary
+   */
+  contactName?: string;
+  /**
+   * @example
+   * 861515115***
+   */
+  contactPhone?: string;
+  /**
+   * @example
+   * job
+   */
+  contactPosition?: string;
   /**
    * @example
    * N/A‌
@@ -209,7 +229,11 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
       companyRegisteredCountry: 'CompanyRegisteredCountry',
       companyTel: 'CompanyTel',
       completeAddressOfHeadquarters: 'CompleteAddressOfHeadquarters',
+      contactEmail: 'ContactEmail',
       contactMail: 'ContactMail',
+      contactName: 'ContactName',
+      contactPhone: 'ContactPhone',
+      contactPosition: 'ContactPosition',
       enableAutoReply: 'EnableAutoReply',
       industryDescription: 'IndustryDescription',
       industryInvolved: 'IndustryInvolved',
@@ -242,7 +266,11 @@ export class UpdateAuditRequestRequestAuditRecord extends $dara.Model {
       companyRegisteredCountry: 'string',
       companyTel: { 'type': 'array', 'itemType': UpdateAuditRequestRequestAuditRecordCompanyTel },
       completeAddressOfHeadquarters: 'string',
+      contactEmail: 'string',
       contactMail: 'string',
+      contactName: 'string',
+      contactPhone: 'string',
+      contactPosition: 'string',
       enableAutoReply: 'string',
       industryDescription: 'string',
       industryInvolved: 'string',
@@ -304,6 +332,10 @@ export class UpdateAuditRequestRequest extends $dara.Model {
    * cams-8pi**urn5s
    */
   custSpaceId?: string;
+  /**
+   * @example
+   * 1500111740532860
+   */
   ownerId?: number;
   /**
    * @remarks
@@ -313,7 +345,15 @@ export class UpdateAuditRequestRequest extends $dara.Model {
    * 114624518**5956096
    */
   requestNo?: string;
+  /**
+   * @example
+   * user1@example.com\"
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1577495724967111
+   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {

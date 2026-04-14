@@ -21,6 +21,10 @@ export class UpdateAuditRequestShrinkRequest extends $dara.Model {
    * cams-8pi**urn5s
    */
   custSpaceId?: string;
+  /**
+   * @example
+   * 1500111740532860
+   */
   ownerId?: number;
   /**
    * @remarks
@@ -30,7 +34,15 @@ export class UpdateAuditRequestShrinkRequest extends $dara.Model {
    * 114624518**5956096
    */
   requestNo?: string;
+  /**
+   * @example
+   * user1@example.com\"
+   */
   resourceOwnerAccount?: string;
+  /**
+   * @example
+   * 1577495724967111
+   */
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {

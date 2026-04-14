@@ -125,9 +125,29 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   completeAddressOfHeadquarters?: string;
   /**
    * @example
+   * 6944**@gmail.com
+   */
+  contactEmail?: string;
+  /**
+   * @example
    * 示例值示例值
    */
   contactMail?: string;
+  /**
+   * @example
+   * qwq
+   */
+  contactName?: string;
+  /**
+   * @example
+   * 861151515***
+   */
+  contactPhone?: string;
+  /**
+   * @example
+   * 职员
+   */
+  contactPosition?: string;
   /**
    * @example
    * N
@@ -213,7 +233,11 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
       companyRegisteredCountry: 'CompanyRegisteredCountry',
       companyTel: 'CompanyTel',
       completeAddressOfHeadquarters: 'CompleteAddressOfHeadquarters',
+      contactEmail: 'ContactEmail',
       contactMail: 'ContactMail',
+      contactName: 'ContactName',
+      contactPhone: 'ContactPhone',
+      contactPosition: 'ContactPosition',
       enableAutoReply: 'EnableAutoReply',
       industryDescription: 'IndustryDescription',
       industryInvolved: 'IndustryInvolved',
@@ -247,7 +271,11 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
       companyRegisteredCountry: 'string',
       companyTel: { 'type': 'array', 'itemType': GetViberByRequestNoResponseBodyDataAuditRecordCompanyTel },
       completeAddressOfHeadquarters: 'string',
+      contactEmail: 'string',
       contactMail: 'string',
+      contactName: 'string',
+      contactPhone: 'string',
+      contactPosition: 'string',
       enableAutoReply: 'string',
       industryDescription: 'string',
       industryInvolved: 'string',
