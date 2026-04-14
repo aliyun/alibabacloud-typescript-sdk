@@ -52,7 +52,7 @@ export class DescribeMetricListResponseBody extends $dara.Model {
   /**
    * @example
    * 分析ID: 56dae746-ef55-4f77-8373-cb3594c41457
-   * 机器i-bp164ns76pzirbwv0snt分析失败, 失败原因: Not get GPU trace data for \"56dae746-ef55-4f77-8373-cb3594c41457\" \"[\"93811\"]\"!
+   * 机器i-bp164ns76pzirbwv0snt分析失败, 失败原因: Not get GPU trace data for \\"56dae746-ef55-4f77-8373-cb3594c41457\\" \\"[\\"93811\\"]\\"!
    */
   message?: string;
   /**

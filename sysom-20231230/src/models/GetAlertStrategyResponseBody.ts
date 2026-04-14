@@ -4,10 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
   clusters?: string[];
+  destinations?: any;
   items?: any;
   static names(): { [key: string]: string } {
     return {
       clusters: 'clusters',
+      destinations: 'destinations',
       items: 'items',
     };
   }
@@ -15,6 +17,7 @@ export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusters: { 'type': 'array', 'itemType': 'string' },
+      destinations: 'any',
       items: 'any',
     };
   }

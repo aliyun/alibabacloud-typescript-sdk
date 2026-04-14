@@ -1,14 +1,14 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GenerateCopilotStreamResponseResponseBody } from "./GenerateCopilotStreamResponseResponseBody";
+import { CpuHighAgentStreamResponseResponseBody } from "./CpuHighAgentStreamResponseResponseBody";
 
 
-export class GenerateCopilotStreamResponseResponse extends $dara.Model {
+export class CpuHighAgentStreamResponseResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   id?: string;
   event?: string;
-  body?: GenerateCopilotStreamResponseResponseBody;
+  body?: CpuHighAgentStreamResponseResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -25,7 +25,7 @@ export class GenerateCopilotStreamResponseResponse extends $dara.Model {
       statusCode: 'number',
       id: 'string',
       event: 'string',
-      body: GenerateCopilotStreamResponseResponseBody,
+      body: CpuHighAgentStreamResponseResponseBody,
     };
   }
 

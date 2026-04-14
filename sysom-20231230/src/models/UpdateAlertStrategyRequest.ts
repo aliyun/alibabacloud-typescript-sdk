@@ -4,10 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
   clusters?: string[];
+  destinations?: number[];
   items?: string[];
   static names(): { [key: string]: string } {
     return {
       clusters: 'clusters',
+      destinations: 'destinations',
       items: 'items',
     };
   }
@@ -15,6 +17,7 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusters: { 'type': 'array', 'itemType': 'string' },
+      destinations: { 'type': 'array', 'itemType': 'number' },
       items: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -22,6 +25,9 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
   validate() {
     if(Array.isArray(this.clusters)) {
       $dara.Model.validateArray(this.clusters);
+    }
+    if(Array.isArray(this.destinations)) {
+      $dara.Model.validateArray(this.destinations);
     }
     if(Array.isArray(this.items)) {
       $dara.Model.validateArray(this.items);

@@ -132,6 +132,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * cpu高agent流式接口
+   * 
+   * @param request - CpuHighAgentStreamResponseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CpuHighAgentStreamResponseResponse
+   */
+  async *cpuHighAgentStreamResponseWithSSE(request: $_model.CpuHighAgentStreamResponseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.CpuHighAgentStreamResponseResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.llmParamString)) {
+      body["llmParamString"] = request.llmParamString;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CpuHighAgentStreamResponse",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/highCpuAgent/streamResponse`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.CpuHighAgentStreamResponseResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.CpuHighAgentStreamResponseResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * cpu高agent流式接口
+   * 
+   * @param request - CpuHighAgentStreamResponseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CpuHighAgentStreamResponseResponse
+   */
+  async cpuHighAgentStreamResponseWithOptions(request: $_model.CpuHighAgentStreamResponseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CpuHighAgentStreamResponseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.llmParamString)) {
+      body["llmParamString"] = request.llmParamString;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CpuHighAgentStreamResponse",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/highCpuAgent/streamResponse`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CpuHighAgentStreamResponseResponse>(await this.callApi(params, req, runtime), new $_model.CpuHighAgentStreamResponseResponse({}));
+  }
+
+  /**
+   * cpu高agent流式接口
+   * 
+   * @param request - CpuHighAgentStreamResponseRequest
+   * @returns CpuHighAgentStreamResponseResponse
+   */
+  async cpuHighAgentStreamResponse(request: $_model.CpuHighAgentStreamResponseRequest): Promise<$_model.CpuHighAgentStreamResponseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.cpuHighAgentStreamResponseWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 新增推送告警的策略
    * 
    * @param request - CreateAlertStrategyRequest
@@ -429,16 +521,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.GenerateCopilotStreamResponseResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.GenerateCopilotStreamResponseResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.GenerateCopilotStreamResponseResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.GenerateCopilotStreamResponseResponse({}));
+      }
+
     }
   }
 
@@ -2548,7 +2641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一定时间内集群节点/Pod健康度列表
+   * Obtain a list of cluster node or pod health degrees within a specified time period.
    * 
    * @param request - ListInstanceHealthRequest
    * @param headers - map
@@ -2601,7 +2694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一定时间内集群节点/Pod健康度列表
+   * Obtain a list of cluster node or pod health degrees within a specified time period.
    * 
    * @param request - ListInstanceHealthRequest
    * @returns ListInstanceHealthResponse
