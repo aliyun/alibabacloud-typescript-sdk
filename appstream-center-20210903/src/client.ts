@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取连接信息
+   * Queries the credential used to connect to an app instance.
    * 
    * @param request - GetConnectionTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -157,7 +157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取连接信息
+   * Queries the credential used to connect to an app instance.
    * 
    * @param request - GetConnectionTicketRequest
    * @returns GetConnectionTicketResponse
@@ -168,7 +168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 已上架应用列表
+   * Queries information about published apps.
    * 
    * @param request - ListPublishedAppInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -255,7 +255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 已上架应用列表
+   * Queries information about published apps.
    * 
    * @param request - ListPublishedAppInfoRequest
    * @returns ListPublishedAppInfoResponse
@@ -266,7 +266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行中应用列表
+   * Queries running apps.
    * 
    * @param request - ListRunningAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -341,7 +341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行中应用列表
+   * Queries running apps.
    * 
    * @param request - ListRunningAppsRequest
    * @returns ListRunningAppsResponse
@@ -352,7 +352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置应用资源
+   * Resets app resources.
    * 
    * @param request - ResetAppResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -431,7 +431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置应用资源
+   * Resets app resources.
    * 
    * @param request - ResetAppResourcesRequest
    * @returns ResetAppResourcesResponse
@@ -442,7 +442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启应用资源
+   * Restarts app resources.
    * 
    * @param request - RestartAppResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -521,7 +521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重启应用资源
+   * Restarts app resources.
    * 
    * @param request - RestartAppResourcesRequest
    * @returns RestartAppResourcesResponse
@@ -532,7 +532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动应用资源
+   * Starts app resources.
    * 
    * @param request - StartAppResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -611,7 +611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动应用资源
+   * Starts app resources.
    * 
    * @param request - StartAppResourcesRequest
    * @returns StartAppResourcesResponse
@@ -622,7 +622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止应用
+   * Stops a specific app.
    * 
    * @param request - StopAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -733,7 +733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止应用
+   * Stops a specific app.
    * 
    * @param request - StopAppRequest
    * @returns StopAppResponse
@@ -744,7 +744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭应用资源
+   * Stops app resources.
    * 
    * @param request - StopAppResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -823,7 +823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭应用资源
+   * Stops app resources.
    * 
    * @param request - StopAppResourcesRequest
    * @returns StopAppResourcesResponse
@@ -834,7 +834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑实例
+   * Unbinds an app instance from a user.
    * 
    * @param request - UnbindRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -917,7 +917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑实例
+   * Unbinds an app instance from a user.
    * 
    * @param request - UnbindRequest
    * @returns UnbindResponse
