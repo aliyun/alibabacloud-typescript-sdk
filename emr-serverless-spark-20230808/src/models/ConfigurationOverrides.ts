@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class ConfigurationOverridesConfigurations extends $dara.Model {
   configFileName?: string;
   configItemKey?: string;

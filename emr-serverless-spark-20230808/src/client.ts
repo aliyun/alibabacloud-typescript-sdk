@@ -481,6 +481,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建网络服务
+   * 
+   * @param request - CreateNetworkServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNetworkServiceResponse
+   */
+  async createNetworkServiceWithOptions(workspaceId: string, request: $_model.CreateNetworkServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNetworkServiceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      body["securityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      body["vpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.vswitchIds)) {
+      body["vswitchIds"] = request.vswitchIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNetworkService",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/networkServices`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNetworkServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateNetworkServiceResponse({}));
+  }
+
+  /**
+   * 创建网络服务
+   * 
+   * @param request - CreateNetworkServiceRequest
+   * @returns CreateNetworkServiceResponse
+   */
+  async createNetworkService(workspaceId: string, request: $_model.CreateNetworkServiceRequest): Promise<$_model.CreateNetworkServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createNetworkServiceWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * Creates a workflow.
    * 
    * @param tmpReq - CreateProcessDefinitionWithScheduleRequest
@@ -2560,6 +2631,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMembersWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 查看网络服务列表
+   * 
+   * @param request - ListNetworkServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNetworkServicesResponse
+   */
+  async listNetworkServicesWithOptions(workspaceId: string, request: $_model.ListNetworkServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNetworkServicesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNetworkServices",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/networkServices`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNetworkServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListNetworkServicesResponse({}));
+  }
+
+  /**
+   * 查看网络服务列表
+   * 
+   * @param request - ListNetworkServicesRequest
+   * @returns ListNetworkServicesResponse
+   */
+  async listNetworkServices(workspaceId: string, request: $_model.ListNetworkServicesRequest): Promise<$_model.ListNetworkServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listNetworkServicesWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
