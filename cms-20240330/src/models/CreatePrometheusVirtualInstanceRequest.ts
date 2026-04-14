@@ -13,15 +13,18 @@ export class CreatePrometheusVirtualInstanceRequest extends $dara.Model {
    * cms_prometheus
    */
   namespace?: string;
+  tenantId?: string;
   static names(): { [key: string]: string } {
     return {
       namespace: 'namespace',
+      tenantId: 'tenantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       namespace: 'string',
+      tenantId: 'string',
     };
   }
 

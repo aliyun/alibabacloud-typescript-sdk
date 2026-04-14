@@ -1295,6 +1295,10 @@ export default class Client extends OpenApi {
       body["namespace"] = request.namespace;
     }
 
+    if (!$dara.isNull(request.tenantId)) {
+      body["tenantId"] = request.tenantId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -5588,6 +5592,10 @@ export default class Client extends OpenApi {
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.namespace)) {
       query["namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

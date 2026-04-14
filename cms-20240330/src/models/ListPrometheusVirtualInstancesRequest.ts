@@ -11,15 +11,18 @@ export class ListPrometheusVirtualInstancesRequest extends $dara.Model {
    * ack-csi-fuse
    */
   namespace?: string;
+  tenantId?: string;
   static names(): { [key: string]: string } {
     return {
       namespace: 'namespace',
+      tenantId: 'tenantId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       namespace: 'string',
+      tenantId: 'string',
     };
   }
 
