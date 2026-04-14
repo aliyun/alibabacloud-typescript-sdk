@@ -11684,6 +11684,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询群信息
+   * 
+   * @param tmpReq - GetScenegroupRequest
+   * @param tmpHeader - GetScenegroupHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScenegroupResponse
+   */
+  async getScenegroupWithOptions(tmpReq: $_model.GetScenegroupRequest, tmpHeader: $_model.GetScenegroupHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetScenegroupResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetScenegroupShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetScenegroupShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScenegroup",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/getScenegroup`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScenegroupResponse>(await this.callApi(params, req, runtime), new $_model.GetScenegroupResponse({}));
+  }
+
+  /**
+   * 查询群信息
+   * 
+   * @param request - GetScenegroupRequest
+   * @returns GetScenegroupResponse
+   */
+  async getScenegroup(request: $_model.GetScenegroupRequest): Promise<$_model.GetScenegroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetScenegroupHeaders({ });
+    return await this.getScenegroupWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取用户忙闲信息
    * 
    * @param tmpReq - GetScheduleRequest
