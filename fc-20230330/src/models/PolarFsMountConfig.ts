@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class PolarFsMountConfig extends $dara.Model {
   instanceId?: string;
   mountDir?: string;
+  readOnly?: boolean;
   remoteDir?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'instanceId',
       mountDir: 'mountDir',
+      readOnly: 'readOnly',
       remoteDir: 'remoteDir',
     };
   }
@@ -18,6 +20,7 @@ export class PolarFsMountConfig extends $dara.Model {
     return {
       instanceId: 'string',
       mountDir: 'string',
+      readOnly: 'boolean',
       remoteDir: 'string',
     };
   }

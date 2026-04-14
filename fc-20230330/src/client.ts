@@ -377,11 +377,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes an alias.
    * 
+   * @param request - DeleteAliasRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAliasResponse
    */
-  async deleteAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAliasResponse> {
+  async deleteAliasWithOptions(functionName: string, aliasName: string, request: $_model.DeleteAliasRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAliasResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -401,12 +403,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an alias.
+   * 
+   * @param request - DeleteAliasRequest
    * @returns DeleteAliasResponse
    */
-  async deleteAlias(functionName: string, aliasName: string): Promise<$_model.DeleteAliasResponse> {
+  async deleteAlias(functionName: string, aliasName: string, request: $_model.DeleteAliasRequest): Promise<$_model.DeleteAliasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteAliasWithOptions(functionName, aliasName, headers, runtime);
+    return await this.deleteAliasWithOptions(functionName, aliasName, request, headers, runtime);
   }
 
   /**
@@ -457,11 +461,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a concurrency configuration.
    * 
+   * @param request - DeleteConcurrencyConfigRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteConcurrencyConfigResponse
    */
-  async deleteConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConcurrencyConfigResponse> {
+  async deleteConcurrencyConfigWithOptions(functionName: string, request: $_model.DeleteConcurrencyConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConcurrencyConfigResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -481,22 +487,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a concurrency configuration.
+   * 
+   * @param request - DeleteConcurrencyConfigRequest
    * @returns DeleteConcurrencyConfigResponse
    */
-  async deleteConcurrencyConfig(functionName: string): Promise<$_model.DeleteConcurrencyConfigResponse> {
+  async deleteConcurrencyConfig(functionName: string, request: $_model.DeleteConcurrencyConfigRequest): Promise<$_model.DeleteConcurrencyConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteConcurrencyConfigWithOptions(functionName, headers, runtime);
+    return await this.deleteConcurrencyConfigWithOptions(functionName, request, headers, runtime);
   }
 
   /**
    * Deletes a custom domain name.
    * 
+   * @param request - DeleteCustomDomainRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCustomDomainResponse
    */
-  async deleteCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomDomainResponse> {
+  async deleteCustomDomainWithOptions(domainName: string, request: $_model.DeleteCustomDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomDomainResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -516,22 +526,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a custom domain name.
+   * 
+   * @param request - DeleteCustomDomainRequest
    * @returns DeleteCustomDomainResponse
    */
-  async deleteCustomDomain(domainName: string): Promise<$_model.DeleteCustomDomainResponse> {
+  async deleteCustomDomain(domainName: string, request: $_model.DeleteCustomDomainRequest): Promise<$_model.DeleteCustomDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteCustomDomainWithOptions(domainName, headers, runtime);
+    return await this.deleteCustomDomainWithOptions(domainName, request, headers, runtime);
   }
 
   /**
    * Deletes a function.
    * 
+   * @param request - DeleteFunctionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFunctionResponse
    */
-  async deleteFunctionWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFunctionResponse> {
+  async deleteFunctionWithOptions(functionName: string, request: $_model.DeleteFunctionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFunctionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -551,22 +565,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a function.
+   * 
+   * @param request - DeleteFunctionRequest
    * @returns DeleteFunctionResponse
    */
-  async deleteFunction(functionName: string): Promise<$_model.DeleteFunctionResponse> {
+  async deleteFunction(functionName: string, request: $_model.DeleteFunctionRequest): Promise<$_model.DeleteFunctionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteFunctionWithOptions(functionName, headers, runtime);
+    return await this.deleteFunctionWithOptions(functionName, request, headers, runtime);
   }
 
   /**
    * Deletes a function version.
    * 
+   * @param request - DeleteFunctionVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteFunctionVersionResponse
    */
-  async deleteFunctionVersionWithOptions(functionName: string, versionId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFunctionVersionResponse> {
+  async deleteFunctionVersionWithOptions(functionName: string, versionId: string, request: $_model.DeleteFunctionVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFunctionVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -586,22 +604,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a function version.
+   * 
+   * @param request - DeleteFunctionVersionRequest
    * @returns DeleteFunctionVersionResponse
    */
-  async deleteFunctionVersion(functionName: string, versionId: string): Promise<$_model.DeleteFunctionVersionResponse> {
+  async deleteFunctionVersion(functionName: string, versionId: string, request: $_model.DeleteFunctionVersionRequest): Promise<$_model.DeleteFunctionVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteFunctionVersionWithOptions(functionName, versionId, headers, runtime);
+    return await this.deleteFunctionVersionWithOptions(functionName, versionId, request, headers, runtime);
   }
 
   /**
    * Deletes a layer version.
    * 
+   * @param request - DeleteLayerVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteLayerVersionResponse
    */
-  async deleteLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLayerVersionResponse> {
+  async deleteLayerVersionWithOptions(layerName: string, version: string, request: $_model.DeleteLayerVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLayerVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -621,12 +643,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a layer version.
+   * 
+   * @param request - DeleteLayerVersionRequest
    * @returns DeleteLayerVersionResponse
    */
-  async deleteLayerVersion(layerName: string, version: string): Promise<$_model.DeleteLayerVersionResponse> {
+  async deleteLayerVersion(layerName: string, version: string, request: $_model.DeleteLayerVersionRequest): Promise<$_model.DeleteLayerVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteLayerVersionWithOptions(layerName, version, headers, runtime);
+    return await this.deleteLayerVersionWithOptions(layerName, version, request, headers, runtime);
   }
 
   /**
@@ -767,11 +791,13 @@ export default class Client extends OpenApi {
   /**
    * Deletes a trigger.
    * 
+   * @param request - DeleteTriggerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTriggerResponse
    */
-  async deleteTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTriggerResponse> {
+  async deleteTriggerWithOptions(functionName: string, triggerName: string, request: $_model.DeleteTriggerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTriggerResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -791,22 +817,26 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a trigger.
+   * 
+   * @param request - DeleteTriggerRequest
    * @returns DeleteTriggerResponse
    */
-  async deleteTrigger(functionName: string, triggerName: string): Promise<$_model.DeleteTriggerResponse> {
+  async deleteTrigger(functionName: string, triggerName: string, request: $_model.DeleteTriggerRequest): Promise<$_model.DeleteTriggerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteTriggerWithOptions(functionName, triggerName, headers, runtime);
+    return await this.deleteTriggerWithOptions(functionName, triggerName, request, headers, runtime);
   }
 
   /**
    * Deletes an access control policy from a specified policy group for a VPC firewall.
    * 
+   * @param request - DeleteVpcBindingRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteVpcBindingResponse
    */
-  async deleteVpcBindingWithOptions(functionName: string, vpcId: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVpcBindingResponse> {
+  async deleteVpcBindingWithOptions(functionName: string, vpcId: string, request: $_model.DeleteVpcBindingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVpcBindingResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -826,12 +856,14 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes an access control policy from a specified policy group for a VPC firewall.
+   * 
+   * @param request - DeleteVpcBindingRequest
    * @returns DeleteVpcBindingResponse
    */
-  async deleteVpcBinding(functionName: string, vpcId: string): Promise<$_model.DeleteVpcBindingResponse> {
+  async deleteVpcBinding(functionName: string, vpcId: string, request: $_model.DeleteVpcBindingRequest): Promise<$_model.DeleteVpcBindingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.deleteVpcBindingWithOptions(functionName, vpcId, headers, runtime);
+    return await this.deleteVpcBindingWithOptions(functionName, vpcId, request, headers, runtime);
   }
 
   /**
@@ -937,11 +969,13 @@ export default class Client extends OpenApi {
   /**
    * The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
    * 
+   * @param request - EnableFunctionInvocationRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableFunctionInvocationResponse
    */
-  async enableFunctionInvocationWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableFunctionInvocationResponse> {
+  async enableFunctionInvocationWithOptions(functionName: string, request: $_model.EnableFunctionInvocationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableFunctionInvocationResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -961,22 +995,26 @@ export default class Client extends OpenApi {
 
   /**
    * The EnableFunctionInvocation operation allows a function to be invoked and resumes the creation of provisioned instances. This operation is currently in private preview.
+   * 
+   * @param request - EnableFunctionInvocationRequest
    * @returns EnableFunctionInvocationResponse
    */
-  async enableFunctionInvocation(functionName: string): Promise<$_model.EnableFunctionInvocationResponse> {
+  async enableFunctionInvocation(functionName: string, request: $_model.EnableFunctionInvocationRequest): Promise<$_model.EnableFunctionInvocationResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.enableFunctionInvocationWithOptions(functionName, headers, runtime);
+    return await this.enableFunctionInvocationWithOptions(functionName, request, headers, runtime);
   }
 
   /**
    * Queries information about an alias.
    * 
+   * @param request - GetAliasRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAliasResponse
    */
-  async getAliasWithOptions(functionName: string, aliasName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAliasResponse> {
+  async getAliasWithOptions(functionName: string, aliasName: string, request: $_model.GetAliasRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAliasResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -996,12 +1034,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries information about an alias.
+   * 
+   * @param request - GetAliasRequest
    * @returns GetAliasResponse
    */
-  async getAlias(functionName: string, aliasName: string): Promise<$_model.GetAliasResponse> {
+  async getAlias(functionName: string, aliasName: string, request: $_model.GetAliasRequest): Promise<$_model.GetAliasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getAliasWithOptions(functionName, aliasName, headers, runtime);
+    return await this.getAliasWithOptions(functionName, aliasName, request, headers, runtime);
   }
 
   /**
@@ -1097,11 +1137,13 @@ export default class Client extends OpenApi {
   /**
    * Obtains a concurrency configuration.
    * 
+   * @param request - GetConcurrencyConfigRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConcurrencyConfigResponse
    */
-  async getConcurrencyConfigWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConcurrencyConfigResponse> {
+  async getConcurrencyConfigWithOptions(functionName: string, request: $_model.GetConcurrencyConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConcurrencyConfigResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1121,22 +1163,26 @@ export default class Client extends OpenApi {
 
   /**
    * Obtains a concurrency configuration.
+   * 
+   * @param request - GetConcurrencyConfigRequest
    * @returns GetConcurrencyConfigResponse
    */
-  async getConcurrencyConfig(functionName: string): Promise<$_model.GetConcurrencyConfigResponse> {
+  async getConcurrencyConfig(functionName: string, request: $_model.GetConcurrencyConfigRequest): Promise<$_model.GetConcurrencyConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getConcurrencyConfigWithOptions(functionName, headers, runtime);
+    return await this.getConcurrencyConfigWithOptions(functionName, request, headers, runtime);
   }
 
   /**
    * Queries information about a custom domain name.
    * 
+   * @param request - GetCustomDomainRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCustomDomainResponse
    */
-  async getCustomDomainWithOptions(domainName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomDomainResponse> {
+  async getCustomDomainWithOptions(domainName: string, request: $_model.GetCustomDomainRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomDomainResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1156,12 +1202,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries information about a custom domain name.
+   * 
+   * @param request - GetCustomDomainRequest
    * @returns GetCustomDomainResponse
    */
-  async getCustomDomain(domainName: string): Promise<$_model.GetCustomDomainResponse> {
+  async getCustomDomain(domainName: string, request: $_model.GetCustomDomainRequest): Promise<$_model.GetCustomDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getCustomDomainWithOptions(domainName, headers, runtime);
+    return await this.getCustomDomainWithOptions(domainName, request, headers, runtime);
   }
 
   /**
@@ -1257,11 +1305,13 @@ export default class Client extends OpenApi {
   /**
    * Queries versions of a layer.
    * 
+   * @param request - GetLayerVersionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLayerVersionResponse
    */
-  async getLayerVersionWithOptions(layerName: string, version: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLayerVersionResponse> {
+  async getLayerVersionWithOptions(layerName: string, version: string, request: $_model.GetLayerVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLayerVersionResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1281,22 +1331,26 @@ export default class Client extends OpenApi {
 
   /**
    * Queries versions of a layer.
+   * 
+   * @param request - GetLayerVersionRequest
    * @returns GetLayerVersionResponse
    */
-  async getLayerVersion(layerName: string, version: string): Promise<$_model.GetLayerVersionResponse> {
+  async getLayerVersion(layerName: string, version: string, request: $_model.GetLayerVersionRequest): Promise<$_model.GetLayerVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLayerVersionWithOptions(layerName, version, headers, runtime);
+    return await this.getLayerVersionWithOptions(layerName, version, request, headers, runtime);
   }
 
   /**
    * Obtain version information of a layer by using ARNs.
    * 
+   * @param request - GetLayerVersionByArnRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetLayerVersionByArnResponse
    */
-  async getLayerVersionByArnWithOptions(arn: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLayerVersionByArnResponse> {
+  async getLayerVersionByArnWithOptions(arn: string, request: $_model.GetLayerVersionByArnRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLayerVersionByArnResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1316,12 +1370,14 @@ export default class Client extends OpenApi {
 
   /**
    * Obtain version information of a layer by using ARNs.
+   * 
+   * @param request - GetLayerVersionByArnRequest
    * @returns GetLayerVersionByArnResponse
    */
-  async getLayerVersionByArn(arn: string): Promise<$_model.GetLayerVersionByArnResponse> {
+  async getLayerVersionByArn(arn: string, request: $_model.GetLayerVersionByArnRequest): Promise<$_model.GetLayerVersionByArnResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getLayerVersionByArnWithOptions(arn, headers, runtime);
+    return await this.getLayerVersionByArnWithOptions(arn, request, headers, runtime);
   }
 
   /**
@@ -1462,11 +1518,13 @@ export default class Client extends OpenApi {
   /**
    * Queries information about a trigger.
    * 
+   * @param request - GetTriggerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTriggerResponse
    */
-  async getTriggerWithOptions(functionName: string, triggerName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTriggerResponse> {
+  async getTriggerWithOptions(functionName: string, triggerName: string, request: $_model.GetTriggerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTriggerResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -1486,12 +1544,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries information about a trigger.
+   * 
+   * @param request - GetTriggerRequest
    * @returns GetTriggerResponse
    */
-  async getTrigger(functionName: string, triggerName: string): Promise<$_model.GetTriggerResponse> {
+  async getTrigger(functionName: string, triggerName: string, request: $_model.GetTriggerRequest): Promise<$_model.GetTriggerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getTriggerWithOptions(functionName, triggerName, headers, runtime);
+    return await this.getTriggerWithOptions(functionName, triggerName, request, headers, runtime);
   }
 
   /**
@@ -2497,11 +2557,13 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of existing VPC connections.
    * 
+   * @param request - ListVpcBindingsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListVpcBindingsResponse
    */
-  async listVpcBindingsWithOptions(functionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListVpcBindingsResponse> {
+  async listVpcBindingsWithOptions(functionName: string, request: $_model.ListVpcBindingsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListVpcBindingsResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
     });
@@ -2521,12 +2583,14 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of existing VPC connections.
+   * 
+   * @param request - ListVpcBindingsRequest
    * @returns ListVpcBindingsResponse
    */
-  async listVpcBindings(functionName: string): Promise<$_model.ListVpcBindingsResponse> {
+  async listVpcBindings(functionName: string, request: $_model.ListVpcBindingsRequest): Promise<$_model.ListVpcBindingsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.listVpcBindingsWithOptions(functionName, headers, runtime);
+    return await this.listVpcBindingsWithOptions(functionName, request, headers, runtime);
   }
 
   /**
