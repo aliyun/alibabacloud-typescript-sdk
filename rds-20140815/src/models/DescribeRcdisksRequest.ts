@@ -86,6 +86,11 @@ export class DescribeRCDisksRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @example
+   * All
+   */
+  status?: string;
+  /**
    * @remarks
    * The list of the tags.
    */
@@ -97,6 +102,7 @@ export class DescribeRCDisksRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      status: 'Status',
       tag: 'Tag',
     };
   }
@@ -108,6 +114,7 @@ export class DescribeRCDisksRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeRCDisksRequestTag },
     };
   }

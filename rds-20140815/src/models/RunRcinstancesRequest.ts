@@ -240,6 +240,7 @@ export class RunRCInstancesRequest extends $dara.Model {
    */
   autoRenew?: boolean;
   autoUseCoupon?: boolean;
+  businessInfo?: string;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -460,6 +461,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
+      businessInfo: 'BusinessInfo',
       clientToken: 'ClientToken',
       createAckEdgeParam: 'CreateAckEdgeParam',
       createExtraParam: 'CreateExtraParam',
@@ -509,6 +511,7 @@ export class RunRCInstancesRequest extends $dara.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       autoUseCoupon: 'boolean',
+      businessInfo: 'string',
       clientToken: 'string',
       createAckEdgeParam: RunRCInstancesRequestCreateAckEdgeParam,
       createExtraParam: 'string',

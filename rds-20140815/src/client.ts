@@ -31605,6 +31605,10 @@ export default class Client extends OpenApi {
       query["AutoUseCoupon"] = request.autoUseCoupon;
     }
 
+    if (!$dara.isNull(request.businessInfo)) {
+      query["BusinessInfo"] = request.businessInfo;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
