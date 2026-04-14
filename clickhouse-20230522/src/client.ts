@@ -1355,6 +1355,10 @@ export default class Client extends OpenApi {
       query["Tags"] = request.tags;
     }
 
+    if (!$dara.isNull(request.vpcIds)) {
+      query["VpcIds"] = request.vpcIds;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -1514,7 +1518,6 @@ export default class Client extends OpenApi {
   /**
    * 查询云数据库ClickHouse所有地域和可用区的信息
    * 
-   * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */

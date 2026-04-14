@@ -147,6 +147,9 @@ export class ListWhitelistTemplatesResponseBodyData extends $dara.Model {
 export class ListWhitelistTemplatesResponseBody extends $dara.Model {
   data?: ListWhitelistTemplatesResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 1234567890
    */

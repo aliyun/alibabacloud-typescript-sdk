@@ -94,6 +94,11 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    */
   resourceGroupId?: string;
   tags?: DescribeDBInstancesRequestTags[];
+  /**
+   * @example
+   * vpc-2ze4ee9z******,vpc-2ze4ee9z5l******
+   */
+  vpcIds?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceIds: 'DBInstanceIds',
@@ -104,6 +109,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
+      vpcIds: 'VpcIds',
     };
   }
 
@@ -117,6 +123,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': DescribeDBInstancesRequestTags },
+      vpcIds: 'string',
     };
   }
 

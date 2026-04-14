@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWhitelistTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * RegionId
+   * 
    * This parameter is required.
    * 
    * @example

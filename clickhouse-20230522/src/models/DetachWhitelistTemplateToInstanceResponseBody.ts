@@ -185,6 +185,9 @@ export class DetachWhitelistTemplateToInstanceResponseBodyData extends $dara.Mod
 export class DetachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   data?: DetachWhitelistTemplateToInstanceResponseBodyData;
   /**
+   * @remarks
+   * Request ID。
+   * 
    * @example
    * 1234567890
    */

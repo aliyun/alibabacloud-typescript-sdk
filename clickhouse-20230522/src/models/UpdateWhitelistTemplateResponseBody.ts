@@ -98,6 +98,9 @@ export class UpdateWhitelistTemplateResponseBodyData extends $dara.Model {
 export class UpdateWhitelistTemplateResponseBody extends $dara.Model {
   data?: UpdateWhitelistTemplateResponseBodyData;
   /**
+   * @remarks
+   * Request ID。
+   * 
    * @example
    * 1234567890
    */

@@ -72,6 +72,9 @@ export class ListInstanceLinkedWhitelistTemplatesResponseBodyData extends $dara.
 export class ListInstanceLinkedWhitelistTemplatesResponseBody extends $dara.Model {
   data?: ListInstanceLinkedWhitelistTemplatesResponseBodyData;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 1234567890
    */

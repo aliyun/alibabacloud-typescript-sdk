@@ -244,6 +244,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
    * 2024-04-17T08:14:48Z
    */
   expireTime?: string;
+  langfuseInstanceIds?: string[];
   /**
    * @remarks
    * The latest minor engine version.
@@ -424,6 +425,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       engineMinorVersion: 'EngineMinorVersion',
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
+      langfuseInstanceIds: 'LangfuseInstanceIds',
       latestEngineMinorVersion: 'LatestEngineMinorVersion',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
@@ -467,6 +469,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       engineMinorVersion: 'string',
       engineVersion: 'string',
       expireTime: 'string',
+      langfuseInstanceIds: { 'type': 'array', 'itemType': 'string' },
       latestEngineMinorVersion: 'string',
       lockMode: 'string',
       lockReason: 'string',
@@ -494,6 +497,9 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.langfuseInstanceIds)) {
+      $dara.Model.validateArray(this.langfuseInstanceIds);
+    }
     if(Array.isArray(this.multiZones)) {
       $dara.Model.validateArray(this.multiZones);
     }

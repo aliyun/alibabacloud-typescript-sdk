@@ -15,6 +15,8 @@ export class ListWhitelistTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * RegionId
+   * 
    * This parameter is required.
    * 
    * @example
