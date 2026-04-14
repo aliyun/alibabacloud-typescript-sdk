@@ -1053,6 +1053,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建资源栈
+   * 
+   * @param request - CreateStackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStackResponse
+   */
+  async createStackWithOptions(request: $_model.CreateStackRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStackResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ramRole)) {
+      body["ramRole"] = request.ramRole;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.sourcePath)) {
+      body["sourcePath"] = request.sourcePath;
+    }
+
+    if (!$dara.isNull(request.workingDirectory)) {
+      body["workingDirectory"] = request.workingDirectory;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStack",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/stacks`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStackResponse>(await this.callApi(params, req, runtime), new $_model.CreateStackResponse({}));
+  }
+
+  /**
+   * 创建资源栈
+   * 
+   * @param request - CreateStackRequest
+   * @returns CreateStackResponse
+   */
+  async createStack(request: $_model.CreateStackRequest): Promise<$_model.CreateStackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createStackWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建任务
    * 
    * @param request - CreateTaskRequest
@@ -2656,6 +2725,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取资源栈
+   * 
+   * @param request - GetStackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStackResponse
+   */
+  async getStackWithOptions(stackId: string, request: $_model.GetStackRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetStackResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetStack",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/stacks/${$dara.URL.percentEncode(stackId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetStackResponse>(await this.callApi(params, req, runtime), new $_model.GetStackResponse({}));
+  }
+
+  /**
+   * 获取资源栈
+   * 
+   * @param request - GetStackRequest
+   * @returns GetStackResponse
+   */
+  async getStack(stackId: string, request: $_model.GetStackRequest): Promise<$_model.GetStackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getStackWithOptions(stackId, request, headers, runtime);
+  }
+
+  /**
    * 部署详情接口
    * 
    * @param request - GetStackDeploymentsRequest
@@ -4078,6 +4186,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询资源栈配置列表
+   * 
+   * @param request - ListStackConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStackConfigsResponse
+   */
+  async listStackConfigsWithOptions(stackId: string, request: $_model.ListStackConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListStackConfigsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStackConfigs",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/stacks/${$dara.URL.percentEncode(stackId)}/configs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStackConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListStackConfigsResponse({}));
+  }
+
+  /**
+   * 查询资源栈配置列表
+   * 
+   * @param request - ListStackConfigsRequest
+   * @returns ListStackConfigsResponse
+   */
+  async listStackConfigs(stackId: string, request: $_model.ListStackConfigsRequest): Promise<$_model.ListStackConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listStackConfigsWithOptions(stackId, request, headers, runtime);
+  }
+
+  /**
+   * 列举资源栈
+   * 
+   * @param request - ListStacksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListStacksResponse
+   */
+  async listStacksWithOptions(request: $_model.ListStacksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListStacksResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListStacks",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/stacks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListStacksResponse>(await this.callApi(params, req, runtime), new $_model.ListStacksResponse({}));
+  }
+
+  /**
+   * 列举资源栈
+   * 
+   * @param request - ListStacksRequest
+   * @returns ListStacksResponse
+   */
+  async listStacks(request: $_model.ListStacksRequest): Promise<$_model.ListStacksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listStacksWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 任务列表
    * 
    * @param tmpReq - ListTasksRequest
@@ -5091,6 +5321,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateResourceExportTaskAttributeWithOptions(exportTaskId, request, headers, runtime);
+  }
+
+  /**
+   * 更新资源栈
+   * 
+   * @param request - UpdateStackRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateStackResponse
+   */
+  async updateStackWithOptions(stackId: string, request: $_model.UpdateStackRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateStackResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ramRole)) {
+      body["ramRole"] = request.ramRole;
+    }
+
+    if (!$dara.isNull(request.sourcePath)) {
+      body["sourcePath"] = request.sourcePath;
+    }
+
+    if (!$dara.isNull(request.workingDirectory)) {
+      body["workingDirectory"] = request.workingDirectory;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateStack",
+      version: "2021-08-06",
+      protocol: "HTTPS",
+      pathname: `/stacks/${$dara.URL.percentEncode(stackId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateStackResponse>(await this.callApi(params, req, runtime), new $_model.UpdateStackResponse({}));
+  }
+
+  /**
+   * 更新资源栈
+   * 
+   * @param request - UpdateStackRequest
+   * @returns UpdateStackResponse
+   */
+  async updateStack(stackId: string, request: $_model.UpdateStackRequest): Promise<$_model.UpdateStackResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateStackWithOptions(stackId, request, headers, runtime);
   }
 
   /**
