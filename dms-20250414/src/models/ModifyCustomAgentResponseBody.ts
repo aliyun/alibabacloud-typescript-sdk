@@ -91,6 +91,7 @@ export class ModifyCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
    * mcp
    */
   accessType?: string;
+  kbUuid?: string;
   /**
    * @example
    * nhdpt9adf6ac**********ca
@@ -99,6 +100,7 @@ export class ModifyCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
+      kbUuid: 'KbUuid',
       mcpServerId: 'McpServerId',
     };
   }
@@ -106,6 +108,7 @@ export class ModifyCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.
   static types(): { [key: string]: any } {
     return {
       accessType: 'string',
+      kbUuid: 'string',
       mcpServerId: 'string',
     };
   }

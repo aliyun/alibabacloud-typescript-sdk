@@ -75,10 +75,12 @@ export class DescribeCustomAgentResponseBodyDataExecutionConfig extends $dara.Mo
 
 export class DescribeCustomAgentResponseBodyDataKnowledgeConfigList extends $dara.Model {
   accessType?: string;
+  kbUuid?: string;
   mcpServerId?: string;
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
+      kbUuid: 'KbUuid',
       mcpServerId: 'McpServerId',
     };
   }
@@ -86,6 +88,7 @@ export class DescribeCustomAgentResponseBodyDataKnowledgeConfigList extends $dar
   static types(): { [key: string]: any } {
     return {
       accessType: 'string',
+      kbUuid: 'string',
       mcpServerId: 'string',
     };
   }

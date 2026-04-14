@@ -20,6 +20,7 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
   enableSearch?: boolean;
   encryptKey?: string;
   encryptType?: string;
+  kbUuidList?: string[];
   /**
    * @example
    * CHINESE
@@ -41,6 +42,7 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
       enableSearch: 'EnableSearch',
       encryptKey: 'EncryptKey',
       encryptType: 'EncryptType',
+      kbUuidList: 'KbUuidList',
       language: 'Language',
       mcpServerIds: 'McpServerIds',
       mode: 'Mode',
@@ -57,6 +59,7 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
       enableSearch: 'boolean',
       encryptKey: 'string',
       encryptType: 'string',
+      kbUuidList: { 'type': 'array', 'itemType': 'string' },
       language: 'string',
       mcpServerIds: { 'type': 'array', 'itemType': 'string' },
       mode: 'string',
@@ -67,6 +70,9 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
   }
 
   validate() {
+    if(Array.isArray(this.kbUuidList)) {
+      $dara.Model.validateArray(this.kbUuidList);
+    }
     if(Array.isArray(this.mcpServerIds)) {
       $dara.Model.validateArray(this.mcpServerIds);
     }
