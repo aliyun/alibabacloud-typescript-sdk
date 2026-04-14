@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CredentialPublicConfigRemoteConfig extends $dara.Model {
   timeout?: number;
   ttl?: number;

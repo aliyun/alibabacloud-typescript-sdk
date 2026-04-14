@@ -35,12 +35,21 @@ export class ListAgentRuntimesInput extends $dara.Model {
    * READY,CREATING
    */
   statuses?: string[];
+  /**
+   * @remarks
+   * 按系统标签过滤
+   * 
+   * @example
+   * acs:ecs:tag1,acs:ecs:tag2
+   */
+  systemTags?: string[];
   static names(): { [key: string]: string } {
     return {
       agentRuntimeName: 'agentRuntimeName',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       statuses: 'statuses',
+      systemTags: 'systemTags',
     };
   }
 
@@ -50,12 +59,16 @@ export class ListAgentRuntimesInput extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       statuses: { 'type': 'array', 'itemType': 'string' },
+      systemTags: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
     if(Array.isArray(this.statuses)) {
       $dara.Model.validateArray(this.statuses);
+    }
+    if(Array.isArray(this.systemTags)) {
+      $dara.Model.validateArray(this.systemTags);
     }
     super.validate();
   }

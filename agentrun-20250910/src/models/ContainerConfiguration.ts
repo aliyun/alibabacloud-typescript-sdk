@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { RegistryConfig } from "./RegistryConfig";
 
 
 export class ContainerConfiguration extends $dara.Model {
@@ -33,6 +34,14 @@ export class ContainerConfiguration extends $dara.Model {
    */
   imageRegistryType?: string;
   port?: number;
+  /**
+   * @remarks
+   * 自定义镜像仓库的配置信息，当imageRegistryType为CUSTOM时使用
+   * 
+   * @example
+   * {}
+   */
+  registryConfig?: RegistryConfig;
   static names(): { [key: string]: string } {
     return {
       acrInstanceId: 'acrInstanceId',
@@ -40,6 +49,7 @@ export class ContainerConfiguration extends $dara.Model {
       image: 'image',
       imageRegistryType: 'imageRegistryType',
       port: 'port',
+      registryConfig: 'registryConfig',
     };
   }
 
@@ -50,12 +60,16 @@ export class ContainerConfiguration extends $dara.Model {
       image: 'string',
       imageRegistryType: 'string',
       port: 'number',
+      registryConfig: RegistryConfig,
     };
   }
 
   validate() {
     if(Array.isArray(this.command)) {
       $dara.Model.validateArray(this.command);
+    }
+    if(this.registryConfig && typeof (this.registryConfig as any).validate === 'function') {
+      (this.registryConfig as any).validate();
     }
     super.validate();
   }

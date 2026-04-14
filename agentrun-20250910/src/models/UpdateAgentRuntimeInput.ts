@@ -70,6 +70,14 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
+   * 是否启用会话隔离，启用后每个会话将在独立的环境中运行
+   * 
+   * @example
+   * false
+   */
+  enableSessionIsolation?: boolean;
+  /**
+   * @remarks
    * 智能体运行时的环境变量配置，用于在运行时传递配置参数
    * 
    * @example
@@ -178,6 +186,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       credentialName: 'credentialName',
       description: 'description',
       diskSize: 'diskSize',
+      enableSessionIsolation: 'enableSessionIsolation',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       externalAgentEndpointUrl: 'externalAgentEndpointUrl',
@@ -206,6 +215,7 @@ export class UpdateAgentRuntimeInput extends $dara.Model {
       credentialName: 'string',
       description: 'string',
       diskSize: 'number',
+      enableSessionIsolation: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       externalAgentEndpointUrl: 'string',

@@ -2108,6 +2108,10 @@ export default class Client extends OpenApi {
       query["status"] = request.status;
     }
 
+    if (!$dara.isNull(request.systemTags)) {
+      query["systemTags"] = request.systemTags;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       query["workspaceId"] = request.workspaceId;
     }

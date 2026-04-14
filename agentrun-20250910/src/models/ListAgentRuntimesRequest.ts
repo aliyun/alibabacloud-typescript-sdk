@@ -59,6 +59,14 @@ export class ListAgentRuntimesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
+   * 根据系统标签进行过滤，多个标签用逗号分隔，支持精确匹配
+   * 
+   * @example
+   * acs:ecs:tag1,acs:ecs:tag2
+   */
+  systemTags?: string;
+  /**
+   * @remarks
    * 根据工作空间ID进行过滤，用于资源隔离和权限管理
    * 
    * @example
@@ -75,6 +83,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
       resourceGroupId: 'resourceGroupId',
       searchMode: 'searchMode',
       status: 'status',
+      systemTags: 'systemTags',
       workspaceId: 'workspaceId',
       workspaceIds: 'workspaceIds',
     };
@@ -89,6 +98,7 @@ export class ListAgentRuntimesRequest extends $dara.Model {
       resourceGroupId: 'string',
       searchMode: 'string',
       status: 'string',
+      systemTags: 'string',
       workspaceId: 'string',
       workspaceIds: 'string',
     };
