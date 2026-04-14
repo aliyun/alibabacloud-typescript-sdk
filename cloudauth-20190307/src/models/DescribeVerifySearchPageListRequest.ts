@@ -31,7 +31,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * End date of the query. The format is a Unix timestamp, in milliseconds.
+   * End time of the query. Format is Unix timestamp, in milliseconds.
    * 
    * @example
    * 2025-10-16 23:59:59 +0800
@@ -39,7 +39,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Whether there is device risk (pass true if root = 1 or simulator = 1 or virtual_video = 1).
+   * Whether there is a device risk (pass true if root = 1 or simulator = 1 or virtual_video = 1).
    * 
    * @example
    * true
@@ -47,7 +47,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   hasDeviceRisk?: boolean;
   /**
    * @remarks
-   * Liveness detection model.
+   * Model for liveness detection.
    * 
    * @example
    * LIVENESS
@@ -89,10 +89,55 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
    * ID_PRO
    */
   productCode?: string;
+  /**
+   * @remarks
+   * Business scenario risk
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 1
+   */
   riskBizScenario?: number;
+  /**
+   * @remarks
+   * Device risk:
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 1
+   */
   riskDevice?: number;
+  /**
+   * @remarks
+   * DeviceToken risk:
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 0
+   */
   riskDeviceToken?: number;
+  /**
+   * @remarks
+   * General risk
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 1
+   */
   riskGeneric?: number;
+  /**
+   * @remarks
+   * Large model mining risk
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 1
+   */
   riskModelMining?: number;
   /**
    * @remarks
@@ -120,7 +165,7 @@ export class DescribeVerifySearchPageListRequest extends $dara.Model {
   simulator?: number;
   /**
    * @remarks
-   * Start date of the query.
+   * Start time of the query.
    * 
    * @example
    * 2025-10-10 00:00:00 +0800

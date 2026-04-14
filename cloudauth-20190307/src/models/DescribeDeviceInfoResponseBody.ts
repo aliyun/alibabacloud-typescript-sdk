@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDeviceInfoResponseBodyDeviceInfoListDeviceInfo extends $dara.Model {
-  /**
-   * @remarks
-   * Authorization start date.
-   * 
-   * @example
-   * 20180101
-   */
   beginDay?: string;
-  /**
-   * @remarks
-   * Corresponds to the BizType in the request.
-   * 
-   * @example
-   * FACE_TEST
-   */
   bizType?: string;
-  /**
-   * @remarks
-   * Corresponds to the DeviceId in the request.
-   * 
-   * @example
-   * wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
-   */
   deviceId?: string;
-  /**
-   * @remarks
-   * Authorization expiration date.
-   * 
-   * @example
-   * 20180101
-   */
   expiredDay?: string;
-  /**
-   * @remarks
-   * Corresponds to the UserDeviceId in the request.
-   * 
-   * @example
-   * 3iJ1AY$oHcu7mC69
-   */
   userDeviceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,10 +72,6 @@ export class DescribeDeviceInfoResponseBody extends $dara.Model {
    * 1
    */
   currentPage?: number;
-  /**
-   * @remarks
-   * Array of device information.
-   */
   deviceInfoList?: DescribeDeviceInfoResponseBodyDeviceInfoList;
   /**
    * @remarks

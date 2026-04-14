@@ -51,11 +51,13 @@ export default class Client extends OpenApi {
       try {
         let request_ = new $dara.Request();
         let boundary = $dara.Form.getBoundary();
+        let tmp = String(form["host"]);
+        let host = `${bucketName}.${tmp}`;
         request_.protocol = "HTTPS";
         request_.method = "POST";
         request_.pathname = `/`;
         request_.headers = {
-          host: String(form["host"]),
+          host: host,
           date: OpenApiUtil.getDateUTCString(),
           'user-agent': OpenApiUtil.getUserAgent(""),
         };
@@ -681,7 +683,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -1247,7 +1249,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -1547,7 +1549,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -2140,7 +2142,6 @@ export default class Client extends OpenApi {
    * Request Method: Supports sending requests via HTTPS POST and GET methods.
    * > The authorization key is valid for 30 minutes and cannot be reused. It is recommended to re-obtain it before each activation.
    * 
-   * @param request - DescribeAntAndCloudAuthUserStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAntAndCloudAuthUserStatusResponse
    */
@@ -2502,7 +2503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务导出记录
+   * Query export task records
    * 
    * @param request - DescribeInfoCheckExportRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2549,7 +2550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询任务导出记录
+   * Query export task records
    * 
    * @param request - DescribeInfoCheckExportRecordRequest
    * @returns DescribeInfoCheckExportRecordResponse
@@ -2746,7 +2747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询页面元数据
+   * Query Page Metadata
    * 
    * @param request - DescribeMetaSearchPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2829,7 +2830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询页面元数据
+   * Query Page Metadata
    * 
    * @param request - DescribeMetaSearchPageListRequest
    * @returns DescribeMetaSearchPageListResponse
@@ -2840,7 +2841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询认证统计信息
+   * Query Authentication Statistics
    * 
    * @param request - DescribeMetaStatisticsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2879,7 +2880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询认证统计信息
+   * Query Authentication Statistics
    * 
    * @param request - DescribeMetaStatisticsListRequest
    * @returns DescribeMetaStatisticsListResponse
@@ -2890,7 +2891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询认证统计页面
+   * Query Authentication Statistics Page
    * 
    * @param request - DescribeMetaStatisticsPageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2937,7 +2938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询认证统计页面
+   * Query Authentication Statistics Page
    * 
    * @param request - DescribeMetaStatisticsPageListRequest
    * @returns DescribeMetaStatisticsPageListResponse
@@ -3054,7 +3055,6 @@ export default class Client extends OpenApi {
   /**
    * Call DescribeOssUploadToken to get the Token required for uploading photos to OSS.
    * 
-   * @param request - DescribeOssUploadTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOssUploadTokenResponse
    */
@@ -3151,7 +3151,6 @@ export default class Client extends OpenApi {
    * @remarks
    * Request Method: Only supports sending requests via HTTPS POST method.
    * 
-   * @param request - DescribePageSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePageSettingResponse
    */
@@ -3189,7 +3188,6 @@ export default class Client extends OpenApi {
    * @remarks
    * Request Method: Supports sending requests via HTTPS GET/POST methods.
    * 
-   * @param request - DescribeProductCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProductCodeResponse
    */
@@ -4617,7 +4615,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -4640,7 +4638,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -4794,7 +4792,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -4940,7 +4938,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -4963,7 +4961,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -6797,9 +6795,7 @@ export default class Client extends OpenApi {
    * Update Ant Blockchain Transaction Scenario
    * 
    * @remarks
-   * Update the information of a financial-level authentication scenario based on the scenario ID.
-   * - Service address: cloudauth.aliyuncs.com.
-   * - Request method: HTTPS POST.
+   * Content of the uploaded verification file.
    * 
    * @param request - UpdateAntCloudAuthSceneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6877,9 +6873,7 @@ export default class Client extends OpenApi {
    * Update Ant Blockchain Transaction Scenario
    * 
    * @remarks
-   * Update the information of a financial-level authentication scenario based on the scenario ID.
-   * - Service address: cloudauth.aliyuncs.com.
-   * - Request method: HTTPS POST.
+   * Content of the uploaded verification file.
    * 
    * @param request - UpdateAntCloudAuthSceneRequest
    * @returns UpdateAntCloudAuthSceneResponse

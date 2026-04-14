@@ -10,12 +10,18 @@ export class MobileRecycledMetaVerifyResponseBodyResultObject extends $dara.Mode
   bizCode?: string;
   /**
    * @example
+   * CMCC
+   */
+  ispName?: string;
+  /**
+   * @example
    * 101
    */
   subCode?: string;
   static names(): { [key: string]: string } {
     return {
       bizCode: 'BizCode',
+      ispName: 'IspName',
       subCode: 'SubCode',
     };
   }
@@ -23,6 +29,7 @@ export class MobileRecycledMetaVerifyResponseBodyResultObject extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       bizCode: 'string',
+      ispName: 'string',
       subCode: 'string',
     };
   }

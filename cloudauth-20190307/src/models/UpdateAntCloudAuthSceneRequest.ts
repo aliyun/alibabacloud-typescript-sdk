@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable binding to a mini program:
-   * - **Y**: Enable
-   * - **N (default)**: Do not enable
-   * >Notice: If enabling the binding of a mini program, please ensure all parameters for the mini program are passed.
+   * Update Ant Blockchain Transaction Scenario
    * 
    * @example
    * Y
@@ -16,7 +13,10 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   bindMiniProgram?: string;
   /**
    * @remarks
-   * Content of the uploaded verification file.
+   * Whether to enable binding with a mini program:
+   * - **Y**: Enable
+   * - **N (default)**: Disable
+   * >Notice: If you enable binding with a mini program, please ensure that all parameters for the mini program are passed.
    * 
    * @example
    * 774c4aab45981ff4a86cde9255a11xxx
@@ -24,37 +24,60 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   checkFileBody?: string;
   /**
    * @remarks
+   * Scenario name.
+   * 
+   * @example
+   * Whether to enable storing the authentication files generated during the authentication process to the user\\"s OSS:
+   * - **Y**: Enable
+   * - **N (default)**: Disable
+   */
+  checkFileName?: string;
+  /**
+   * @remarks
    * Name of the uploaded verification file.
    * 
    * @example
-   * 测试.txt
+   * Y
    */
-  checkFileName?: string;
   deviceRiskPlus?: string;
   /**
    * @remarks
-   * Mini program name.
+   * System-defined parameter. Value: **UpdateAntCloudAuthScene**.
    * 
    * @example
-   * 测试APP
+   * Scenario ID.
    */
   miniProgramName?: string;
   /**
    * @remarks
-   * Binding mini program platform:
-   * - **WECHAT**: WeChat
-   * - **ALIPAY**: Alipay
-   * - **TIKTOK**: TikTok
+   * Currently meaningless, can be omitted.
    * 
    * @example
    * IOS
    */
   platform?: string;
+  /**
+   * @remarks
+   * Mini program name.
+   * 
+   * @example
+   * 1
+   */
   returnPicCount?: number;
+  /**
+   * @remarks
+   * Platform for binding the mini program:
+   * - **WECHAT**: WeChat
+   * - **ALIPAY**: Alipay
+   * - **TIKTOK**: TikTok
+   * 
+   * @example
+   * 2
+   */
   returnVideoLength?: number;
   /**
    * @remarks
-   * Scenario ID.
+   * Update Financial-Level Authentication Scenario
    * 
    * This parameter is required.
    * 
@@ -64,7 +87,9 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   sceneId?: number;
   /**
    * @remarks
-   * Scenario name.
+   * Update the information of a financial-level authentication scenario based on the scenario ID.
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST.
    * 
    * @example
    * test
@@ -72,7 +97,7 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   sceneName?: string;
   /**
    * @remarks
-   * Currently meaningless, can be omitted.
+   * Update Ant Blockchain Transaction Scenario
    * 
    * @example
    * -
@@ -80,9 +105,9 @@ export class UpdateAntCloudAuthSceneRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * Whether to enable delivering the authentication files generated during the authentication process to the user\\"s OSS:
-   * - **Y**: Enable
-   * - **N (default)**: Disable
+   * Update the information of a financial-level authentication scenario based on the scenario ID.
+   * - Service address: cloudauth.aliyuncs.com.
+   * - Request method: HTTPS POST.
    * 
    * @example
    * Y

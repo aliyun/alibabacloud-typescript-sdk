@@ -13,17 +13,17 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   certName?: string;
   /**
    * @remarks
-   * Face guard label.
+   * Facial bodyguard label.
    * 
    * @example
-   * -
+   * HOOK,ROOT
    */
   deviceRisk?: string;
   /**
    * @remarks
-   * Whether it is a face attack:
-   * - **T**: Yes
-   * - **F**: No
+   * 是否是人脸攻击：
+   * - **T**：是
+   * - **F**：否
    * 
    * @example
    * T
@@ -31,7 +31,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   faceAttack?: string;
   /**
    * @remarks
-   * Face attack score, with a range of 0~1. A value closer to 1 indicates a higher likelihood of an attack.
+   * Face attack score, ranging from 0 to 1, with values closer to 1 indicating a higher likelihood of an attack.
    * 
    * @example
    * 0.0000445161
@@ -39,7 +39,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   faceAttackScore?: number;
   /**
    * @remarks
-   * Whether the face is occluded, T if yes, F otherwise.
+   * Whether the face is occluded. T if occluded, otherwise F.
    * 
    * @example
    * T
@@ -55,7 +55,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   idCardVerifyScore?: number;
   /**
    * @remarks
-   * The OSS bucket for the photo.
+   * Photo OSS bucket.
    * 
    * @example
    * cn-shanghai-aliyun-cloudauth-XXX
@@ -79,7 +79,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   ossIdNationalEmblemObjectName?: string;
   /**
    * @remarks
-   * The name of the stored object.
+   * Storage object name.
    * 
    * @example
    * verify/XXXXX1251634779/sha6a0a0cab01288c7aa8ac3f45220eb_0_normal.jpeg
@@ -103,12 +103,12 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   verifyScore?: number;
   /**
    * @remarks
-   * List of ASR texts.
+   * ASR text list.
    */
   asrTexts?: string[];
   /**
    * @remarks
-   * List of OSS file names for screen recording files.
+   * Screen recording file OSS name list.
    * 
    * @example
    * -
@@ -116,7 +116,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
   screenVideoObjectNames?: string[];
   /**
    * @remarks
-   * List of OSS file names for audio files.
+   * Audio file OSS name list.
    * 
    * @example
    * -
@@ -183,7 +183,7 @@ export class DescribeVerifySearchPageListResponseBodyItemsExtInfo extends $dara.
 export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Desensitized ID number.
+   * Desensitized ID card number.
    * 
    * @example
    * 3****************2
@@ -191,7 +191,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   certNo?: string;
   /**
    * @remarks
-   * Certification ID.
+   * Authentication ID.
    * 
    * @example
    * shad861465f2aaeeb805b519e1a93ab2
@@ -204,7 +204,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   extInfo?: DescribeVerifySearchPageListResponseBodyItemsExtInfo;
   /**
    * @remarks
-   * Verification time of this authentication.
+   * Verification time for this authentication.
    * 
    * @example
    * 2025-10-14 15:40:13
@@ -228,7 +228,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   outerOrderNo?: string;
   /**
    * @remarks
-   * Whether the certification passed. Values:
+   * Whether the authentication passed. Values:
    * - **T**: Passed.
    * - **F**: Not passed.
    * 
@@ -244,10 +244,55 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
    * ID_PRO
    */
   productCode?: string;
+  /**
+   * @remarks
+   * Business scenario risk:
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 1
+   */
   riskBizScenario?: number;
+  /**
+   * @remarks
+   * Device risk:
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 1
+   */
   riskDevice?: number;
+  /**
+   * @remarks
+   * DeviceToken risk:
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 0
+   */
   riskDeviceToken?: number;
+  /**
+   * @remarks
+   * General risk:
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 1
+   */
   riskGeneric?: number;
+  /**
+   * @remarks
+   * Large model mining risk:
+   * - **0**: No risk
+   * - **1**: Risk present
+   * 
+   * @example
+   * 1
+   */
   riskModelMining?: number;
   /**
    * @remarks
@@ -291,7 +336,7 @@ export class DescribeVerifySearchPageListResponseBodyItems extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Whether it is a virtual adaptation (pass 1 if selected, otherwise do not pass; corresponds to behavior label risk type).
+   * Whether it is virtual adaptation (pass 1 if selected, otherwise do not pass; corresponds to behavior label risk type).
    * 
    * @example
    * 1
@@ -381,7 +426,7 @@ export class DescribeVerifySearchPageListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * ID of this request.
+   * ID of the current request.
    * 
    * @example
    * 47D87BC1-D956-573A-8A15-A9007A76F56C

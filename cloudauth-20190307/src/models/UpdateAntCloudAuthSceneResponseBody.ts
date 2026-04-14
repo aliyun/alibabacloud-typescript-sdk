@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAntCloudAuthSceneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of this request.
+   * Content of the uploaded verification file.
    * 
    * @example
    * A07D5838-2BE0-5D2E-B864-D05ADAA5EDE3
