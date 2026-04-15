@@ -335,6 +335,7 @@ export class ListStackConfigsResponseBodyConfigs extends $dara.Model {
    * format_version: IaCService/2021-08-06\\ndescription: create ALB\\nupstream_input:\\n  - name: stack_network\\n ...
    */
   deploymentContent?: string;
+  failedReason?: string;
   /**
    * @example
    * Deployed
@@ -352,6 +353,7 @@ export class ListStackConfigsResponseBodyConfigs extends $dara.Model {
       createTime: 'createTime',
       deploymentConfig: 'deploymentConfig',
       deploymentContent: 'deploymentContent',
+      failedReason: 'failedReason',
       status: 'status',
       version: 'version',
     };
@@ -364,6 +366,7 @@ export class ListStackConfigsResponseBodyConfigs extends $dara.Model {
       createTime: 'string',
       deploymentConfig: ListStackConfigsResponseBodyConfigsDeploymentConfig,
       deploymentContent: 'string',
+      failedReason: 'string',
       status: 'string',
       version: 'string',
     };
