@@ -1226,6 +1226,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询群成员
+   * 
+   * @param tmpReq - BatchQueryGroupMemberRequest
+   * @param tmpHeader - BatchQueryGroupMemberHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchQueryGroupMemberResponse
+   */
+  async batchQueryGroupMemberWithOptions(tmpReq: $_model.BatchQueryGroupMemberRequest, tmpHeader: $_model.BatchQueryGroupMemberHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.BatchQueryGroupMemberResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchQueryGroupMemberShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.BatchQueryGroupMemberShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.coolAppCode)) {
+      body["CoolAppCode"] = request.coolAppCode;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.openConversationId)) {
+      body["OpenConversationId"] = request.openConversationId;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchQueryGroupMember",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/batchQueryGroupMember`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchQueryGroupMemberResponse>(await this.callApi(params, req, runtime), new $_model.BatchQueryGroupMemberResponse({}));
+  }
+
+  /**
+   * 查询群成员
+   * 
+   * @param request - BatchQueryGroupMemberRequest
+   * @returns BatchQueryGroupMemberResponse
+   */
+  async batchQueryGroupMember(request: $_model.BatchQueryGroupMemberRequest): Promise<$_model.BatchQueryGroupMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.BatchQueryGroupMemberHeaders({ });
+    return await this.batchQueryGroupMemberWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 批量删除表单实例
    * 
    * @param tmpReq - BatchRemovalByFormInstanceIdListRequest
@@ -11681,6 +11763,76 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers = new $_model.GetRunningTasksHeaders({ });
     return await this.getRunningTasksWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取场景群文件下载链接
+   * 
+   * @param tmpReq - GetScencegroupFileDownloadurlRequest
+   * @param tmpHeader - GetScencegroupFileDownloadurlHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScencegroupFileDownloadurlResponse
+   */
+  async getScencegroupFileDownloadurlWithOptions(tmpReq: $_model.GetScencegroupFileDownloadurlRequest, tmpHeader: $_model.GetScencegroupFileDownloadurlHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetScencegroupFileDownloadurlResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetScencegroupFileDownloadurlShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetScencegroupFileDownloadurlShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.downloadCode)) {
+      body["DownloadCode"] = request.downloadCode;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScencegroupFileDownloadurl",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/getScencegroupFileDownloadurl`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScencegroupFileDownloadurlResponse>(await this.callApi(params, req, runtime), new $_model.GetScencegroupFileDownloadurlResponse({}));
+  }
+
+  /**
+   * 获取场景群文件下载链接
+   * 
+   * @param request - GetScencegroupFileDownloadurlRequest
+   * @returns GetScencegroupFileDownloadurlResponse
+   */
+  async getScencegroupFileDownloadurl(request: $_model.GetScencegroupFileDownloadurlRequest): Promise<$_model.GetScencegroupFileDownloadurlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetScencegroupFileDownloadurlHeaders({ });
+    return await this.getScencegroupFileDownloadurlWithOptions(request, headers, runtime);
   }
 
   /**

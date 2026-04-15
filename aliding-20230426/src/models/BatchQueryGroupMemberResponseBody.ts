@@ -2,35 +2,27 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateScheduleConferenceResponseBody extends $dara.Model {
+export class BatchQueryGroupMemberResponseBody extends $dara.Model {
   /**
    * @example
-   * +861234567
+   * true
    */
-  phones?: string[];
+  hasMore?: boolean;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
-   * 1234567
+   * ["012345"]
+   */
+  memberUserIds?: string[];
+  /**
+   * @example
+   * weqrwereqsadqaadfafa
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * 83150xxxxxx
-   */
-  roomCode?: string;
-  /**
-   * @example
-   * 5c7c9bb1-b256-4dc5-xxxx-xxxxxxxxxxxx
-   */
-  scheduleConferenceId?: string;
-  /**
-   * @example
-   * https://meeting.dingtalk.com/j/knvMq1ixxxx
-   */
-  url?: string;
   /**
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
@@ -43,11 +35,10 @@ export class CreateScheduleConferenceResponseBody extends $dara.Model {
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
-      phones: 'phones',
+      hasMore: 'hasMore',
+      memberUserIds: 'memberUserIds',
+      nextToken: 'nextToken',
       requestId: 'requestId',
-      roomCode: 'roomCode',
-      scheduleConferenceId: 'scheduleConferenceId',
-      url: 'url',
       vendorRequestId: 'vendorRequestId',
       vendorType: 'vendorType',
     };
@@ -55,19 +46,18 @@ export class CreateScheduleConferenceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      phones: { 'type': 'array', 'itemType': 'string' },
+      hasMore: 'boolean',
+      memberUserIds: { 'type': 'array', 'itemType': 'string' },
+      nextToken: 'string',
       requestId: 'string',
-      roomCode: 'string',
-      scheduleConferenceId: 'string',
-      url: 'string',
       vendorRequestId: 'string',
       vendorType: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.phones)) {
-      $dara.Model.validateArray(this.phones);
+    if(Array.isArray(this.memberUserIds)) {
+      $dara.Model.validateArray(this.memberUserIds);
     }
     super.validate();
   }

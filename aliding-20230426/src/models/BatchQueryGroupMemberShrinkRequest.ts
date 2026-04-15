@@ -2,54 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateScheduleConferenceShrinkRequest extends $dara.Model {
+export class BatchQueryGroupMemberShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * COOLAPP_XXXXX
+   */
+  coolAppCode?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 1687928400000L
+   * 100
    */
-  endTime?: number;
+  maxResults?: number;
   /**
    * @example
-   * 预约会议设置
+   * weqrwereqsadqaadfafa
    */
-  scheduleConfSettingModelShrink?: string;
+  nextToken?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 1687924800000L
+   * cidt*****Xa4K10w==
    */
-  startTime?: number;
+  openConversationId?: string;
   tenantContextShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 预约会议标题
-   */
-  title?: string;
   static names(): { [key: string]: string } {
     return {
-      endTime: 'EndTime',
-      scheduleConfSettingModelShrink: 'ScheduleConfSettingModel',
-      startTime: 'StartTime',
+      coolAppCode: 'CoolAppCode',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      openConversationId: 'OpenConversationId',
       tenantContextShrink: 'TenantContext',
-      title: 'Title',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endTime: 'number',
-      scheduleConfSettingModelShrink: 'string',
-      startTime: 'number',
+      coolAppCode: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      openConversationId: 'string',
       tenantContextShrink: 'string',
-      title: 'string',
     };
   }
 

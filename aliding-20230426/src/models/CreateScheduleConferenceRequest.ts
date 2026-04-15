@@ -2,7 +2,59 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  allowAllParticipantsStart?: number;
+  /**
+   * @example
+   * 0
+   */
+  receiverType?: number;
+  /**
+   * @example
+   * 0
+   */
+  restrictShareMinutesSummaryOnly?: number;
+  /**
+   * @example
+   * disable
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowAllParticipantsStart: 'AllowAllParticipantsStart',
+      receiverType: 'ReceiverType',
+      restrictShareMinutesSummaryOnly: 'RestrictShareMinutesSummaryOnly',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowAllParticipantsStart: 'number',
+      receiverType: 'number',
+      restrictShareMinutesSummaryOnly: 'number',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   isFollowHost?: boolean;
   /**
    * @example
@@ -19,12 +71,18 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpen
    * 0
    */
   recordAutoStartType?: number;
+  /**
+   * @example
+   * 0
+   */
+  restrictShareMinutesSummaryOnly?: number;
   static names(): { [key: string]: string } {
     return {
       isFollowHost: 'IsFollowHost',
       mode: 'Mode',
       recordAutoStart: 'RecordAutoStart',
       recordAutoStartType: 'RecordAutoStartType',
+      restrictShareMinutesSummaryOnly: 'RestrictShareMinutesSummaryOnly',
     };
   }
 
@@ -34,6 +92,7 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpen
       mode: 'string',
       recordAutoStart: 'number',
       recordAutoStartType: 'number',
+      restrictShareMinutesSummaryOnly: 'number',
     };
   }
 
@@ -54,7 +113,7 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirt
   autoOpenMode?: number;
   /**
    * @example
-   * xxx
+   * xxxx
    */
   coolAppCode?: string;
   /**
@@ -98,7 +157,16 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirt
    * 0
    */
   enableChat?: number;
+  /**
+   * @example
+   * true
+   */
   enableWebAnonymousJoin?: boolean;
+  /**
+   * @example
+   * false
+   */
+  hiddenOwnerNick?: boolean;
   /**
    * @example
    * 0
@@ -114,10 +182,37 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirt
    * 0
    */
   lockNick?: number;
+  /**
+   * @example
+   * 0
+   */
   minutesOwnerUserId?: string;
+  /**
+   * @example
+   * 1
+   */
+  minutesSummaryDiyTemplateVersion?: string;
+  minutesSummaryTemplateId?: string;
+  minutesSummaryTemplateType?: string;
+  /**
+   * @example
+   * {}
+   */
   moziConfExtensionAppSettings?: CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings[];
+  /**
+   * @example
+   * true
+   */
   pushAllMeetingRecords?: boolean;
+  /**
+   * @example
+   * true
+   */
   pushCloudRecordCard?: boolean;
+  /**
+   * @example
+   * true
+   */
   pushMinutesCard?: boolean;
   /**
    * @example
@@ -129,10 +224,14 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirt
       cloudRecordOwnerUserId: 'CloudRecordOwnerUserId',
       enableChat: 'EnableChat',
       enableWebAnonymousJoin: 'EnableWebAnonymousJoin',
+      hiddenOwnerNick: 'HiddenOwnerNick',
       joinBeforeHost: 'JoinBeforeHost',
       lockMediaStatusMicMute: 'LockMediaStatusMicMute',
       lockNick: 'LockNick',
       minutesOwnerUserId: 'MinutesOwnerUserId',
+      minutesSummaryDiyTemplateVersion: 'MinutesSummaryDiyTemplateVersion',
+      minutesSummaryTemplateId: 'MinutesSummaryTemplateId',
+      minutesSummaryTemplateType: 'MinutesSummaryTemplateType',
       moziConfExtensionAppSettings: 'MoziConfExtensionAppSettings',
       pushAllMeetingRecords: 'PushAllMeetingRecords',
       pushCloudRecordCard: 'PushCloudRecordCard',
@@ -146,10 +245,14 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirt
       cloudRecordOwnerUserId: 'string',
       enableChat: 'number',
       enableWebAnonymousJoin: 'boolean',
+      hiddenOwnerNick: 'boolean',
       joinBeforeHost: 'number',
       lockMediaStatusMicMute: 'number',
       lockNick: 'number',
       minutesOwnerUserId: 'string',
+      minutesSummaryDiyTemplateVersion: 'string',
+      minutesSummaryTemplateId: 'string',
+      minutesSummaryTemplateType: 'string',
       moziConfExtensionAppSettings: { 'type': 'array', 'itemType': CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings },
       pushAllMeetingRecords: 'boolean',
       pushCloudRecordCard: 'boolean',
@@ -171,6 +274,15 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirt
 }
 
 export class CreateScheduleConferenceRequestScheduleConfSettingModel extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
+  aiAgentSummarySetting?: CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting;
+  /**
+   * @example
+   * ["012345"]
+   */
   cohostUserIds?: string[];
   /**
    * @example
@@ -187,7 +299,15 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModel extends $da
    * 0
    */
   lockRoom?: number;
+  /**
+   * @example
+   * {}
+   */
   moziConfOpenRecordSetting?: CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting;
+  /**
+   * @example
+   * {}
+   */
   moziConfVirtualExtraSetting?: CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting;
   /**
    * @example
@@ -201,6 +321,7 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModel extends $da
   screenShareForbidden?: number;
   static names(): { [key: string]: string } {
     return {
+      aiAgentSummarySetting: 'AiAgentSummarySetting',
       cohostUserIds: 'CohostUserIds',
       confAllowedCorpId: 'ConfAllowedCorpId',
       hostUserId: 'HostUserId',
@@ -214,6 +335,7 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModel extends $da
 
   static types(): { [key: string]: any } {
     return {
+      aiAgentSummarySetting: CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting,
       cohostUserIds: { 'type': 'array', 'itemType': 'string' },
       confAllowedCorpId: 'string',
       hostUserId: 'string',
@@ -226,6 +348,9 @@ export class CreateScheduleConferenceRequestScheduleConfSettingModel extends $da
   }
 
   validate() {
+    if(this.aiAgentSummarySetting && typeof (this.aiAgentSummarySetting as any).validate === 'function') {
+      (this.aiAgentSummarySetting as any).validate();
+    }
     if(Array.isArray(this.cohostUserIds)) {
       $dara.Model.validateArray(this.cohostUserIds);
     }
@@ -279,6 +404,10 @@ export class CreateScheduleConferenceRequest extends $dara.Model {
    * 1687928400000L
    */
   endTime?: number;
+  /**
+   * @example
+   * 预约会议设置
+   */
   scheduleConfSettingModel?: CreateScheduleConferenceRequestScheduleConfSettingModel;
   /**
    * @remarks

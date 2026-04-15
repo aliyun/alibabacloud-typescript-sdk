@@ -2,35 +2,17 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateScheduleConferenceResponseBody extends $dara.Model {
+export class GetScencegroupFileDownloadurlResponseBody extends $dara.Model {
   /**
    * @example
-   * +861234567
+   * An https download connection
    */
-  phones?: string[];
+  downloadUrl?: string;
   /**
-   * @remarks
-   * requestId
-   * 
    * @example
-   * 1234567
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
    */
   requestId?: string;
-  /**
-   * @example
-   * 83150xxxxxx
-   */
-  roomCode?: string;
-  /**
-   * @example
-   * 5c7c9bb1-b256-4dc5-xxxx-xxxxxxxxxxxx
-   */
-  scheduleConferenceId?: string;
-  /**
-   * @example
-   * https://meeting.dingtalk.com/j/knvMq1ixxxx
-   */
-  url?: string;
   /**
    * @example
    * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
@@ -43,11 +25,8 @@ export class CreateScheduleConferenceResponseBody extends $dara.Model {
   vendorType?: string;
   static names(): { [key: string]: string } {
     return {
-      phones: 'phones',
+      downloadUrl: 'downloadUrl',
       requestId: 'requestId',
-      roomCode: 'roomCode',
-      scheduleConferenceId: 'scheduleConferenceId',
-      url: 'url',
       vendorRequestId: 'vendorRequestId',
       vendorType: 'vendorType',
     };
@@ -55,20 +34,14 @@ export class CreateScheduleConferenceResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      phones: { 'type': 'array', 'itemType': 'string' },
+      downloadUrl: 'string',
       requestId: 'string',
-      roomCode: 'string',
-      scheduleConferenceId: 'string',
-      url: 'string',
       vendorRequestId: 'string',
       vendorType: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.phones)) {
-      $dara.Model.validateArray(this.phones);
-    }
     super.validate();
   }
 
