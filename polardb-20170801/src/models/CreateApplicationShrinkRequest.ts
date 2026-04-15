@@ -93,6 +93,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
    */
   dryRun?: boolean;
   endpointsShrink?: string;
+  knowledgeApplicationSpecShrink?: string;
   memApplicationSpecShrink?: string;
   /**
    * @example
@@ -193,6 +194,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       description: 'Description',
       dryRun: 'DryRun',
       endpointsShrink: 'Endpoints',
+      knowledgeApplicationSpecShrink: 'KnowledgeApplicationSpec',
       memApplicationSpecShrink: 'MemApplicationSpec',
       modelApi: 'ModelApi',
       modelApiKey: 'ModelApiKey',
@@ -236,6 +238,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
       description: 'string',
       dryRun: 'boolean',
       endpointsShrink: 'string',
+      knowledgeApplicationSpecShrink: 'string',
       memApplicationSpecShrink: 'string',
       modelApi: 'string',
       modelApiKey: 'string',

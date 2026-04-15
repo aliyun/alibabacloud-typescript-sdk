@@ -118,6 +118,35 @@ export class CreateApplicationRequestEndpoints extends $dara.Model {
   }
 }
 
+export class CreateApplicationRequestKnowledgeApplicationSpec extends $dara.Model {
+  dashboardPassword?: string;
+  dbPassword?: string;
+  llmModel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dashboardPassword: 'DashboardPassword',
+      dbPassword: 'DbPassword',
+      llmModel: 'LlmModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dashboardPassword: 'string',
+      dbPassword: 'string',
+      llmModel: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationRequestMemApplicationSpec extends $dara.Model {
   dbName?: string;
   dbPassword?: string;
@@ -285,6 +314,7 @@ export class CreateApplicationRequest extends $dara.Model {
    */
   dryRun?: boolean;
   endpoints?: CreateApplicationRequestEndpoints[];
+  knowledgeApplicationSpec?: CreateApplicationRequestKnowledgeApplicationSpec;
   memApplicationSpec?: CreateApplicationRequestMemApplicationSpec;
   /**
    * @example
@@ -385,6 +415,7 @@ export class CreateApplicationRequest extends $dara.Model {
       description: 'Description',
       dryRun: 'DryRun',
       endpoints: 'Endpoints',
+      knowledgeApplicationSpec: 'KnowledgeApplicationSpec',
       memApplicationSpec: 'MemApplicationSpec',
       modelApi: 'ModelApi',
       modelApiKey: 'ModelApiKey',
@@ -428,6 +459,7 @@ export class CreateApplicationRequest extends $dara.Model {
       description: 'string',
       dryRun: 'boolean',
       endpoints: { 'type': 'array', 'itemType': CreateApplicationRequestEndpoints },
+      knowledgeApplicationSpec: CreateApplicationRequestKnowledgeApplicationSpec,
       memApplicationSpec: CreateApplicationRequestMemApplicationSpec,
       modelApi: 'string',
       modelApiKey: 'string',
@@ -461,6 +493,9 @@ export class CreateApplicationRequest extends $dara.Model {
     }
     if(Array.isArray(this.endpoints)) {
       $dara.Model.validateArray(this.endpoints);
+    }
+    if(this.knowledgeApplicationSpec && typeof (this.knowledgeApplicationSpec as any).validate === 'function') {
+      (this.knowledgeApplicationSpec as any).validate();
     }
     if(this.memApplicationSpec && typeof (this.memApplicationSpec as any).validate === 'function') {
       (this.memApplicationSpec as any).validate();

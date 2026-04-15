@@ -1761,6 +1761,10 @@ export default class Client extends OpenApi {
       request.endpointsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.endpoints, "Endpoints", "json");
     }
 
+    if (!$dara.isNull(tmpReq.knowledgeApplicationSpec)) {
+      request.knowledgeApplicationSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeApplicationSpec, "KnowledgeApplicationSpec", "json");
+    }
+
     if (!$dara.isNull(tmpReq.memApplicationSpec)) {
       request.memApplicationSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.memApplicationSpec, "MemApplicationSpec", "json");
     }
@@ -1824,6 +1828,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endpointsShrink)) {
       query["Endpoints"] = request.endpointsShrink;
+    }
+
+    if (!$dara.isNull(request.knowledgeApplicationSpecShrink)) {
+      query["KnowledgeApplicationSpec"] = request.knowledgeApplicationSpecShrink;
     }
 
     if (!$dara.isNull(request.memApplicationSpecShrink)) {
@@ -6978,6 +6986,52 @@ export default class Client extends OpenApi {
   async describeAvailableCrossRegions(request: $_model.DescribeAvailableCrossRegionsRequest): Promise<$_model.DescribeAvailableCrossRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAvailableCrossRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取ai集群模型列表
+   * 
+   * @param request - DescribeAvailableModelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAvailableModelsResponse
+   */
+  async describeAvailableModelsWithOptions(request: $_model.DescribeAvailableModelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAvailableModelsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.kubeType)) {
+      query["KubeType"] = request.kubeType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAvailableModels",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAvailableModelsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAvailableModelsResponse({}));
+  }
+
+  /**
+   * 获取ai集群模型列表
+   * 
+   * @param request - DescribeAvailableModelsRequest
+   * @returns DescribeAvailableModelsResponse
+   */
+  async describeAvailableModels(request: $_model.DescribeAvailableModelsRequest): Promise<$_model.DescribeAvailableModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAvailableModelsWithOptions(request, runtime);
   }
 
   /**

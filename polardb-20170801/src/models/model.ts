@@ -2,6 +2,7 @@ export { AddPolarFsQuotaRequestQuotas } from './AddPolarFsQuotaRequest';
 export { CreateAINodesRequestDBNodes } from './CreateAinodesRequest';
 export { CreateApplicationRequestComponents } from './CreateApplicationRequest';
 export { CreateApplicationRequestEndpoints } from './CreateApplicationRequest';
+export { CreateApplicationRequestKnowledgeApplicationSpec } from './CreateApplicationRequest';
 export { CreateApplicationRequestMemApplicationSpec } from './CreateApplicationRequest';
 export { CreateApplicationRequestParameters } from './CreateApplicationRequest';
 export { CreateApplicationRequestTag } from './CreateApplicationRequest';
@@ -64,6 +65,8 @@ export { DescribeApplicationsResponseBodyItemsApplications } from './DescribeApp
 export { DescribeApplicationsResponseBodyItems } from './DescribeApplicationsResponseBody';
 export { DescribeAutoRenewAttributeResponseBodyItemsAutoRenewAttribute } from './DescribeAutoRenewAttributeResponseBody';
 export { DescribeAutoRenewAttributeResponseBodyItems } from './DescribeAutoRenewAttributeResponseBody';
+export { DescribeAvailableModelsResponseBodyItemsGpuRequired } from './DescribeAvailableModelsResponseBody';
+export { DescribeAvailableModelsResponseBodyItems } from './DescribeAvailableModelsResponseBody';
 export { DescribeBackupLogsResponseBodyItemsBackupLog } from './DescribeBackupLogsResponseBody';
 export { DescribeBackupLogsResponseBodyItems } from './DescribeBackupLogsResponseBody';
 export { DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPolicy } from './DescribeBackupPolicyResponseBody';
@@ -553,6 +556,9 @@ export { DescribeAutoRenewAttributeResponse } from './DescribeAutoRenewAttribute
 export { DescribeAvailableCrossRegionsRequest } from './DescribeAvailableCrossRegionsRequest';
 export { DescribeAvailableCrossRegionsResponseBody } from './DescribeAvailableCrossRegionsResponseBody';
 export { DescribeAvailableCrossRegionsResponse } from './DescribeAvailableCrossRegionsResponse';
+export { DescribeAvailableModelsRequest } from './DescribeAvailableModelsRequest';
+export { DescribeAvailableModelsResponseBody } from './DescribeAvailableModelsResponseBody';
+export { DescribeAvailableModelsResponse } from './DescribeAvailableModelsResponse';
 export { DescribeBackupLogsRequest } from './DescribeBackupLogsRequest';
 export { DescribeBackupLogsResponseBody } from './DescribeBackupLogsResponseBody';
 export { DescribeBackupLogsResponse } from './DescribeBackupLogsResponse';
