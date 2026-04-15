@@ -80,6 +80,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建语言模型配置信息
+   * 
+   * @param tmpReq - CreateLlmAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLlmAccessProfileResponse
+   */
+  async createLlmAccessProfileWithOptions(tmpReq: $_model.CreateLlmAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLlmAccessProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateLlmAccessProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.profile)) {
+      request.profileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.profile, "Profile", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.profileShrink)) {
+      body["Profile"] = request.profileShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLlmAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLlmAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.CreateLlmAccessProfileResponse({}));
+  }
+
+  /**
+   * 创建语言模型配置信息
+   * 
+   * @param request - CreateLlmAccessProfileRequest
+   * @returns CreateLlmAccessProfileResponse
+   */
+  async createLlmAccessProfile(request: $_model.CreateLlmAccessProfileRequest): Promise<$_model.CreateLlmAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createLlmAccessProfileWithOptions(request, runtime);
+  }
+
+  /**
    * 创建实例
    * 
    * @param request - CreateScriptRequest
@@ -443,6 +495,52 @@ export default class Client extends OpenApi {
   async deleteCloneVoice(request: $_model.DeleteCloneVoiceRequest): Promise<$_model.DeleteCloneVoiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除语言模型配置信息
+   * 
+   * @param request - DeleteLlmAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLlmAccessProfileResponse
+   */
+  async deleteLlmAccessProfileWithOptions(request: $_model.DeleteLlmAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLlmAccessProfileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessProfileId)) {
+      body["AccessProfileId"] = request.accessProfileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLlmAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLlmAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLlmAccessProfileResponse({}));
+  }
+
+  /**
+   * 删除语言模型配置信息
+   * 
+   * @param request - DeleteLlmAccessProfileRequest
+   * @returns DeleteLlmAccessProfileResponse
+   */
+  async deleteLlmAccessProfile(request: $_model.DeleteLlmAccessProfileRequest): Promise<$_model.DeleteLlmAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLlmAccessProfileWithOptions(request, runtime);
   }
 
   /**
@@ -1406,6 +1504,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取语言模型配置信息
+   * 
+   * @param request - ListLlmAccessProfilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLlmAccessProfilesResponse
+   */
+  async listLlmAccessProfilesWithOptions(request: $_model.ListLlmAccessProfilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLlmAccessProfilesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLlmAccessProfiles",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLlmAccessProfilesResponse>(await this.callApi(params, req, runtime), new $_model.ListLlmAccessProfilesResponse({}));
+  }
+
+  /**
+   * 获取语言模型配置信息
+   * 
+   * @param request - ListLlmAccessProfilesRequest
+   * @returns ListLlmAccessProfilesResponse
+   */
+  async listLlmAccessProfiles(request: $_model.ListLlmAccessProfilesRequest): Promise<$_model.ListLlmAccessProfilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLlmAccessProfilesWithOptions(request, runtime);
+  }
+
+  /**
    * 获取对话模型列表
    * 
    * @param request - ListNluModelsRequest
@@ -1993,6 +2141,62 @@ export default class Client extends OpenApi {
   async updateCloneVoice(request: $_model.UpdateCloneVoiceRequest): Promise<$_model.UpdateCloneVoiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新语言模型配置信息
+   * 
+   * @param tmpReq - UpdateLlmAccessProfileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLlmAccessProfileResponse
+   */
+  async updateLlmAccessProfileWithOptions(tmpReq: $_model.UpdateLlmAccessProfileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLlmAccessProfileResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateLlmAccessProfileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.profile)) {
+      request.profileShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.profile, "Profile", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessProfileId)) {
+      body["AccessProfileId"] = request.accessProfileId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.profileShrink)) {
+      body["Profile"] = request.profileShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLlmAccessProfile",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLlmAccessProfileResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLlmAccessProfileResponse({}));
+  }
+
+  /**
+   * 更新语言模型配置信息
+   * 
+   * @param request - UpdateLlmAccessProfileRequest
+   * @returns UpdateLlmAccessProfileResponse
+   */
+  async updateLlmAccessProfile(request: $_model.UpdateLlmAccessProfileRequest): Promise<$_model.UpdateLlmAccessProfileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLlmAccessProfileWithOptions(request, runtime);
   }
 
   /**
