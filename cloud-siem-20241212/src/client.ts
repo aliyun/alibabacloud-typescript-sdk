@@ -936,6 +936,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建自动响应规则
+   * 
+   * @param request - CreateResponseRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateResponseRuleResponse
+   */
+  async createResponseRuleWithOptions(request: $_model.CreateResponseRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResponseRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.responseActionConfig)) {
+      body["ResponseActionConfig"] = request.responseActionConfig;
+    }
+
+    if (!$dara.isNull(request.responseActionType)) {
+      body["ResponseActionType"] = request.responseActionType;
+    }
+
+    if (!$dara.isNull(request.responseExecutionCondition)) {
+      body["ResponseExecutionCondition"] = request.responseExecutionCondition;
+    }
+
+    if (!$dara.isNull(request.responseRuleName)) {
+      body["ResponseRuleName"] = request.responseRuleName;
+    }
+
+    if (!$dara.isNull(request.responseRulePriority)) {
+      body["ResponseRulePriority"] = request.responseRulePriority;
+    }
+
+    if (!$dara.isNull(request.responseTriggerType)) {
+      body["ResponseTriggerType"] = request.responseTriggerType;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!$dara.isNull(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateResponseRule",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateResponseRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateResponseRuleResponse({}));
+  }
+
+  /**
+   * 创建自动响应规则
+   * 
+   * @param request - CreateResponseRuleRequest
+   * @returns CreateResponseRuleResponse
+   */
+  async createResponseRule(request: $_model.CreateResponseRuleRequest): Promise<$_model.CreateResponseRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createResponseRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 创建厂商
    * 
    * @param request - CreateVendorRequest
@@ -1496,6 +1582,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除自动响应规则
+   * 
+   * @param request - DeleteResponseRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteResponseRuleResponse
+   */
+  async deleteResponseRuleWithOptions(request: $_model.DeleteResponseRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteResponseRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.responseRuleId)) {
+      body["ResponseRuleId"] = request.responseRuleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteResponseRule",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteResponseRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteResponseRuleResponse({}));
+  }
+
+  /**
+   * 删除自动响应规则
+   * 
+   * @param request - DeleteResponseRuleRequest
+   * @returns DeleteResponseRuleResponse
+   */
+  async deleteResponseRule(request: $_model.DeleteResponseRuleRequest): Promise<$_model.DeleteResponseRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteResponseRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 删除厂商
    * 
    * @param request - DeleteVendorRequest
@@ -2006,7 +2150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取事件列表
+   * Queries the details of a management event.
    * 
    * @param request - GetIncidentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2049,7 +2193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取事件列表
+   * Queries the details of a management event.
    * 
    * @param request - GetIncidentRequest
    * @returns GetIncidentResponse
@@ -2990,7 +3134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取事件列表
+   * Queries the management event list.
    * 
    * @param tmpReq - ListIncidentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3109,7 +3253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取事件列表
+   * Queries the management event list.
    * 
    * @param request - ListIncidentsRequest
    * @returns ListIncidentsResponse
@@ -3811,6 +3955,96 @@ export default class Client extends OpenApi {
   async listProducts(request: $_model.ListProductsRequest): Promise<$_model.ListProductsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listProductsWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询自动响应规则
+   * 
+   * @param request - ListResponseRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResponseRulesResponse
+   */
+  async listResponseRulesWithOptions(request: $_model.ListResponseRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListResponseRulesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.responseActionType)) {
+      body["ResponseActionType"] = request.responseActionType;
+    }
+
+    if (!$dara.isNull(request.responseRuleName)) {
+      body["ResponseRuleName"] = request.responseRuleName;
+    }
+
+    if (!$dara.isNull(request.responseRuleStatus)) {
+      body["ResponseRuleStatus"] = request.responseRuleStatus;
+    }
+
+    if (!$dara.isNull(request.responseRuleType)) {
+      body["ResponseRuleType"] = request.responseRuleType;
+    }
+
+    if (!$dara.isNull(request.responseTriggerType)) {
+      body["ResponseTriggerType"] = request.responseTriggerType;
+    }
+
+    if (!$dara.isNull(request.roleFor)) {
+      body["RoleFor"] = request.roleFor;
+    }
+
+    if (!$dara.isNull(request.roleType)) {
+      body["RoleType"] = request.roleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListResponseRules",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListResponseRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListResponseRulesResponse({}));
+  }
+
+  /**
+   * 分页查询自动响应规则
+   * 
+   * @param request - ListResponseRulesRequest
+   * @returns ListResponseRulesResponse
+   */
+  async listResponseRules(request: $_model.ListResponseRulesRequest): Promise<$_model.ListResponseRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listResponseRulesWithOptions(request, runtime);
   }
 
   /**
@@ -5325,6 +5559,92 @@ export default class Client extends OpenApi {
   async updateProduct(request: $_model.UpdateProductRequest): Promise<$_model.UpdateProductResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateProductWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新自动响应规则
+   * 
+   * @param request - UpdateResponseRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateResponseRuleResponse
+   */
+  async updateResponseRuleWithOptions(request: $_model.UpdateResponseRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateResponseRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.responseActionConfig)) {
+      body["ResponseActionConfig"] = request.responseActionConfig;
+    }
+
+    if (!$dara.isNull(request.responseActionType)) {
+      body["ResponseActionType"] = request.responseActionType;
+    }
+
+    if (!$dara.isNull(request.responseExecutionCondition)) {
+      body["ResponseExecutionCondition"] = request.responseExecutionCondition;
+    }
+
+    if (!$dara.isNull(request.responseRuleId)) {
+      body["ResponseRuleId"] = request.responseRuleId;
+    }
+
+    if (!$dara.isNull(request.responseRuleName)) {
+      body["ResponseRuleName"] = request.responseRuleName;
+    }
+
+    if (!$dara.isNull(request.responseRulePriority)) {
+      body["ResponseRulePriority"] = request.responseRulePriority;
+    }
+
+    if (!$dara.isNull(request.responseRuleStatus)) {
+      body["ResponseRuleStatus"] = request.responseRuleStatus;
+    }
+
+    if (!$dara.isNull(request.responseTriggerType)) {
+      body["ResponseTriggerType"] = request.responseTriggerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateResponseRule",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateResponseRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateResponseRuleResponse({}));
+  }
+
+  /**
+   * 更新自动响应规则
+   * 
+   * @param request - UpdateResponseRuleRequest
+   * @returns UpdateResponseRuleResponse
+   */
+  async updateResponseRule(request: $_model.UpdateResponseRuleRequest): Promise<$_model.UpdateResponseRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateResponseRuleWithOptions(request, runtime);
   }
 
   /**

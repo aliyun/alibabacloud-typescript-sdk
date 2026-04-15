@@ -44,6 +44,7 @@ export { ListNormalizationRulesResponseBodyNormalizationRulesNormalizationRuleRe
 export { ListNormalizationRulesResponseBodyNormalizationRules } from './ListNormalizationRulesResponseBody';
 export { ListNormalizationSchemasResponseBodyNormalizationSchemas } from './ListNormalizationSchemasResponseBody';
 export { ListProductsResponseBodyProducts } from './ListProductsResponseBody';
+export { ListResponseRulesResponseBodyResponseRules } from './ListResponseRulesResponseBody';
 export { ListTrafficStatisticsResponseBodyTrafficStatisticsTrafficStatisticData } from './ListTrafficStatisticsResponseBody';
 export { ListTrafficStatisticsResponseBodyTrafficStatistics } from './ListTrafficStatisticsResponseBody';
 export { ListUpgradeItemsResponseBodyUpgradeItems } from './ListUpgradeItemsResponseBody';
@@ -87,6 +88,9 @@ export { CreateNormalizationSchemaResponse } from './CreateNormalizationSchemaRe
 export { CreateProductRequest } from './CreateProductRequest';
 export { CreateProductResponseBody } from './CreateProductResponseBody';
 export { CreateProductResponse } from './CreateProductResponse';
+export { CreateResponseRuleRequest } from './CreateResponseRuleRequest';
+export { CreateResponseRuleResponseBody } from './CreateResponseRuleResponseBody';
+export { CreateResponseRuleResponse } from './CreateResponseRuleResponse';
 export { CreateVendorRequest } from './CreateVendorRequest';
 export { CreateVendorResponseBody } from './CreateVendorResponseBody';
 export { CreateVendorResponse } from './CreateVendorResponse';
@@ -117,6 +121,9 @@ export { DeleteNormalizationRuleVersionResponse } from './DeleteNormalizationRul
 export { DeleteProductRequest } from './DeleteProductRequest';
 export { DeleteProductResponseBody } from './DeleteProductResponseBody';
 export { DeleteProductResponse } from './DeleteProductResponse';
+export { DeleteResponseRuleRequest } from './DeleteResponseRuleRequest';
+export { DeleteResponseRuleResponseBody } from './DeleteResponseRuleResponseBody';
+export { DeleteResponseRuleResponse } from './DeleteResponseRuleResponse';
 export { DeleteVendorRequest } from './DeleteVendorRequest';
 export { DeleteVendorResponseBody } from './DeleteVendorResponseBody';
 export { DeleteVendorResponse } from './DeleteVendorResponse';
@@ -225,6 +232,9 @@ export { ListProductsRequest } from './ListProductsRequest';
 export { ListProductsShrinkRequest } from './ListProductsShrinkRequest';
 export { ListProductsResponseBody } from './ListProductsResponseBody';
 export { ListProductsResponse } from './ListProductsResponse';
+export { ListResponseRulesRequest } from './ListResponseRulesRequest';
+export { ListResponseRulesResponseBody } from './ListResponseRulesResponseBody';
+export { ListResponseRulesResponse } from './ListResponseRulesResponse';
 export { ListTrafficStatisticsRequest } from './ListTrafficStatisticsRequest';
 export { ListTrafficStatisticsShrinkRequest } from './ListTrafficStatisticsShrinkRequest';
 export { ListTrafficStatisticsResponseBody } from './ListTrafficStatisticsResponseBody';
@@ -290,6 +300,9 @@ export { UpdateNormalizationSchemaResponse } from './UpdateNormalizationSchemaRe
 export { UpdateProductRequest } from './UpdateProductRequest';
 export { UpdateProductResponseBody } from './UpdateProductResponseBody';
 export { UpdateProductResponse } from './UpdateProductResponse';
+export { UpdateResponseRuleRequest } from './UpdateResponseRuleRequest';
+export { UpdateResponseRuleResponseBody } from './UpdateResponseRuleResponseBody';
+export { UpdateResponseRuleResponse } from './UpdateResponseRuleResponse';
 export { UpdateVendorRequest } from './UpdateVendorRequest';
 export { UpdateVendorResponseBody } from './UpdateVendorResponseBody';
 export { UpdateVendorResponse } from './UpdateVendorResponse';
