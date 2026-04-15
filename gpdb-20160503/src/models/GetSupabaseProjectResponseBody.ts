@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSupabaseProjectResponseBody extends $dara.Model {
+  autoScale?: string;
   /**
    * @remarks
    * The creation time.
@@ -175,6 +176,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      autoScale: 'AutoScale',
       createTime: 'CreateTime',
       DBSecurityIpList: 'DBSecurityIpList',
       dashboardPassword: 'DashboardPassword',
@@ -204,6 +206,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoScale: 'string',
       createTime: 'string',
       DBSecurityIpList: 'string',
       dashboardPassword: 'string',

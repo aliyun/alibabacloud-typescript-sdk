@@ -17,6 +17,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
    * Pw123456
    */
   accountPassword?: string;
+  autoScale?: boolean;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
@@ -138,6 +139,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accountPassword: 'AccountPassword',
+      autoScale: 'AutoScale',
       clientToken: 'ClientToken',
       diskPerformanceLevel: 'DiskPerformanceLevel',
       payType: 'PayType',
@@ -157,6 +159,7 @@ export class CreateSupabaseProjectRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accountPassword: 'string',
+      autoScale: 'boolean',
       clientToken: 'string',
       diskPerformanceLevel: 'string',
       payType: 'string',

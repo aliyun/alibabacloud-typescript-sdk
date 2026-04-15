@@ -31,6 +31,10 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  searchField?: string;
+  searchValue?: string;
+  sortField?: string;
+  sortOrder?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
@@ -38,6 +42,10 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      searchField: 'SearchField',
+      searchValue: 'SearchValue',
+      sortField: 'SortField',
+      sortOrder: 'SortOrder',
     };
   }
 
@@ -48,6 +56,10 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      searchField: 'string',
+      searchValue: 'string',
+      sortField: 'string',
+      sortOrder: 'string',
     };
   }
 
