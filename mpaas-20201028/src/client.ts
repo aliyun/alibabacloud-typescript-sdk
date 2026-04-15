@@ -2266,6 +2266,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取token
+   * 
+   * @param tmpReq - CreatePayOrderToMsenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePayOrderToMsenceResponse
+   */
+  async createPayOrderToMsenceWithOptions(tmpReq: $_model.CreatePayOrderToMsenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePayOrderToMsenceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreatePayOrderToMsenceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.extraInfo)) {
+      request.extraInfoShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extraInfo, "ExtraInfo", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.amount)) {
+      body["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.authToken)) {
+      body["AuthToken"] = request.authToken;
+    }
+
+    if (!$dara.isNull(request.customId)) {
+      body["CustomId"] = request.customId;
+    }
+
+    if (!$dara.isNull(request.extraInfoShrink)) {
+      body["ExtraInfo"] = request.extraInfoShrink;
+    }
+
+    if (!$dara.isNull(request.miniProgramId)) {
+      body["MiniProgramId"] = request.miniProgramId;
+    }
+
+    if (!$dara.isNull(request.platformId)) {
+      body["PlatformId"] = request.platformId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePayOrderToMsence",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePayOrderToMsenceResponse>(await this.callApi(params, req, runtime), new $_model.CreatePayOrderToMsenceResponse({}));
+  }
+
+  /**
+   * 获取token
+   * 
+   * @param request - CreatePayOrderToMsenceRequest
+   * @returns CreatePayOrderToMsenceResponse
+   */
+  async createPayOrderToMsence(request: $_model.CreatePayOrderToMsenceRequest): Promise<$_model.CreatePayOrderToMsenceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPayOrderToMsenceWithOptions(request, runtime);
+  }
+
+  /**
    * 创建模版
    * 
    * @param request - CreateTemplateRequest
@@ -3096,6 +3176,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取授权token
+   * 
+   * @param request - GetAuthTokenToMsenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAuthTokenToMsenceResponse
+   */
+  async getAuthTokenToMsenceWithOptions(request: $_model.GetAuthTokenToMsenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAuthTokenToMsenceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.authCode)) {
+      body["AuthCode"] = request.authCode;
+    }
+
+    if (!$dara.isNull(request.miniProgramId)) {
+      body["MiniProgramId"] = request.miniProgramId;
+    }
+
+    if (!$dara.isNull(request.platformId)) {
+      body["PlatformId"] = request.platformId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAuthTokenToMsence",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAuthTokenToMsenceResponse>(await this.callApi(params, req, runtime), new $_model.GetAuthTokenToMsenceResponse({}));
+  }
+
+  /**
+   * 获取授权token
+   * 
+   * @param request - GetAuthTokenToMsenceRequest
+   * @returns GetAuthTokenToMsenceResponse
+   */
+  async getAuthTokenToMsence(request: $_model.GetAuthTokenToMsenceRequest): Promise<$_model.GetAuthTokenToMsenceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAuthTokenToMsenceWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - GetFileTokenForUploadToMsaRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFileTokenForUploadToMsaResponse
@@ -3852,7 +3994,8 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCubecardAppsResponse
    */
-  async listCubecardAppsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListCubecardAppsResponse> {
+  async listCubecardAppsWithOptions(request: $_model.ListCubecardAppsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCubecardAppsResponse> {
+    request.validate();
     let req = new $OpenApiUtil.OpenApiRequest({ });
     let params = new $OpenApiUtil.Params({
       action: "ListCubecardApps",
@@ -3869,15 +4012,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ListCubecardAppsRequest
    * @returns ListCubecardAppsResponse
    */
-  async listCubecardApps(): Promise<$_model.ListCubecardAppsResponse> {
+  async listCubecardApps(request: $_model.ListCubecardAppsRequest): Promise<$_model.ListCubecardAppsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.listCubecardAppsWithOptions(runtime);
+    return await this.listCubecardAppsWithOptions(request, runtime);
   }
 
   /**
-   * @param request - ListMappCenterAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMappCenterAppsResponse
    */
@@ -3906,7 +4049,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - ListMappCenterWorkspacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMappCenterWorkspacesResponse
    */
@@ -6827,6 +6969,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询支付订单信息
+   * 
+   * @param request - QueryPayOrderToMsenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryPayOrderToMsenceResponse
+   */
+  async queryPayOrderToMsenceWithOptions(request: $_model.QueryPayOrderToMsenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryPayOrderToMsenceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.customId)) {
+      body["CustomId"] = request.customId;
+    }
+
+    if (!$dara.isNull(request.miniProgramId)) {
+      body["MiniProgramId"] = request.miniProgramId;
+    }
+
+    if (!$dara.isNull(request.platformId)) {
+      body["PlatformId"] = request.platformId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryPayOrderToMsence",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryPayOrderToMsenceResponse>(await this.callApi(params, req, runtime), new $_model.QueryPayOrderToMsenceResponse({}));
+  }
+
+  /**
+   * 查询支付订单信息
+   * 
+   * @param request - QueryPayOrderToMsenceRequest
+   * @returns QueryPayOrderToMsenceResponse
+   */
+  async queryPayOrderToMsence(request: $_model.QueryPayOrderToMsenceRequest): Promise<$_model.QueryPayOrderToMsenceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryPayOrderToMsenceWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QueryPushAnalysisCoreIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushAnalysisCoreIndexResponse
@@ -7083,6 +7287,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询用户信息
+   * 
+   * @param request - QueryUserInfoToMsenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryUserInfoToMsenceResponse
+   */
+  async queryUserInfoToMsenceWithOptions(request: $_model.QueryUserInfoToMsenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryUserInfoToMsenceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.authToken)) {
+      body["AuthToken"] = request.authToken;
+    }
+
+    if (!$dara.isNull(request.miniProgramId)) {
+      body["MiniProgramId"] = request.miniProgramId;
+    }
+
+    if (!$dara.isNull(request.platformId)) {
+      body["PlatformId"] = request.platformId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryUserInfoToMsence",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryUserInfoToMsenceResponse>(await this.callApi(params, req, runtime), new $_model.QueryUserInfoToMsenceResponse({}));
+  }
+
+  /**
+   * 查询用户信息
+   * 
+   * @param request - QueryUserInfoToMsenceRequest
+   * @returns QueryUserInfoToMsenceResponse
+   */
+  async queryUserInfoToMsence(request: $_model.QueryUserInfoToMsenceRequest): Promise<$_model.QueryUserInfoToMsenceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryUserInfoToMsenceWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - RevokePushMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RevokePushMessageResponse
@@ -7284,6 +7550,84 @@ export default class Client extends OpenApi {
   async saveMgsApirest(request: $_model.SaveMgsApirestRequest): Promise<$_model.SaveMgsApirestResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.saveMgsApirestWithOptions(request, runtime);
+  }
+
+  /**
+   * 关联订单信息
+   * 
+   * @param request - SaveOrderRelationInfoToMsenceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveOrderRelationInfoToMsenceResponse
+   */
+  async saveOrderRelationInfoToMsenceWithOptions(request: $_model.SaveOrderRelationInfoToMsenceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveOrderRelationInfoToMsenceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.amount)) {
+      body["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.bizOrderId)) {
+      body["BizOrderId"] = request.bizOrderId;
+    }
+
+    if (!$dara.isNull(request.bizOrderStatus)) {
+      body["BizOrderStatus"] = request.bizOrderStatus;
+    }
+
+    if (!$dara.isNull(request.customId)) {
+      body["CustomId"] = request.customId;
+    }
+
+    if (!$dara.isNull(request.miniProgramId)) {
+      body["MiniProgramId"] = request.miniProgramId;
+    }
+
+    if (!$dara.isNull(request.openUid)) {
+      body["OpenUid"] = request.openUid;
+    }
+
+    if (!$dara.isNull(request.platformId)) {
+      body["PlatformId"] = request.platformId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SaveOrderRelationInfoToMsence",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SaveOrderRelationInfoToMsenceResponse>(await this.callApi(params, req, runtime), new $_model.SaveOrderRelationInfoToMsenceResponse({}));
+  }
+
+  /**
+   * 关联订单信息
+   * 
+   * @param request - SaveOrderRelationInfoToMsenceRequest
+   * @returns SaveOrderRelationInfoToMsenceResponse
+   */
+  async saveOrderRelationInfoToMsence(request: $_model.SaveOrderRelationInfoToMsenceRequest): Promise<$_model.SaveOrderRelationInfoToMsenceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.saveOrderRelationInfoToMsenceWithOptions(request, runtime);
   }
 
   /**
@@ -8034,6 +8378,68 @@ export default class Client extends OpenApi {
   async uploadUserAppToMsa(request: $_model.UploadUserAppToMsaRequest): Promise<$_model.UploadUserAppToMsaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadUserAppToMsaWithOptions(request, runtime);
+  }
+
+  /**
+   * 虚拟发货接口
+   * 
+   * @param request - VirtualDeliveryToMsceneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns VirtualDeliveryToMsceneResponse
+   */
+  async virtualDeliveryToMsceneWithOptions(request: $_model.VirtualDeliveryToMsceneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.VirtualDeliveryToMsceneResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.customId)) {
+      body["CustomId"] = request.customId;
+    }
+
+    if (!$dara.isNull(request.miniProgramId)) {
+      body["MiniProgramId"] = request.miniProgramId;
+    }
+
+    if (!$dara.isNull(request.platformId)) {
+      body["PlatformId"] = request.platformId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "VirtualDeliveryToMscene",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.VirtualDeliveryToMsceneResponse>(await this.callApi(params, req, runtime), new $_model.VirtualDeliveryToMsceneResponse({}));
+  }
+
+  /**
+   * 虚拟发货接口
+   * 
+   * @param request - VirtualDeliveryToMsceneRequest
+   * @returns VirtualDeliveryToMsceneResponse
+   */
+  async virtualDeliveryToMscene(request: $_model.VirtualDeliveryToMsceneRequest): Promise<$_model.VirtualDeliveryToMsceneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.virtualDeliveryToMsceneWithOptions(request, runtime);
   }
 
 }
