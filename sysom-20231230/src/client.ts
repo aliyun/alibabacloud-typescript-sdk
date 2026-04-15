@@ -224,6 +224,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建一个告警联系人
+   * 
+   * @param request - CreateAlertDestinationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAlertDestinationResponse
+   */
+  async createAlertDestinationWithOptions(request: $_model.CreateAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAlertDestinationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.params)) {
+      body["params"] = request.params;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      body["target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAlertDestination",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/createDestination`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAlertDestinationResponse>(await this.callApi(params, req, runtime), new $_model.CreateAlertDestinationResponse({}));
+  }
+
+  /**
+   * 创建一个告警联系人
+   * 
+   * @param request - CreateAlertDestinationRequest
+   * @returns CreateAlertDestinationResponse
+   */
+  async createAlertDestination(request: $_model.CreateAlertDestinationRequest): Promise<$_model.CreateAlertDestinationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAlertDestinationWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 新增推送告警的策略
    * 
    * @param request - CreateAlertStrategyRequest
@@ -339,6 +396,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVmcoreDiagnosisTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除告警联系人
+   * 
+   * @param request - DeleteAlertDestinationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAlertDestinationResponse
+   */
+  async deleteAlertDestinationWithOptions(request: $_model.DeleteAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAlertDestinationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      query["id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAlertDestination",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/deleteDestination`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAlertDestinationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAlertDestinationResponse({}));
+  }
+
+  /**
+   * 删除告警联系人
+   * 
+   * @param request - DeleteAlertDestinationRequest
+   * @returns DeleteAlertDestinationResponse
+   */
+  async deleteAlertDestination(request: $_model.DeleteAlertDestinationRequest): Promise<$_model.DeleteAlertDestinationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAlertDestinationWithOptions(request, headers, runtime);
   }
 
   /**
@@ -786,6 +888,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAgentTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取告警联系人详情
+   * 
+   * @param request - GetAlertDestinationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAlertDestinationResponse
+   */
+  async getAlertDestinationWithOptions(request: $_model.GetAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAlertDestinationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      query["id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAlertDestination",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/getDestination`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAlertDestinationResponse>(await this.callApi(params, req, runtime), new $_model.GetAlertDestinationResponse({}));
+  }
+
+  /**
+   * 获取告警联系人详情
+   * 
+   * @param request - GetAlertDestinationRequest
+   * @returns GetAlertDestinationResponse
+   */
+  async getAlertDestination(request: $_model.GetAlertDestinationRequest): Promise<$_model.GetAlertDestinationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAlertDestinationWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2273,6 +2420,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看告警联系人列表
+   * 
+   * @param request - ListAlertDestinationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertDestinationsResponse
+   */
+  async listAlertDestinationsWithOptions(request: $_model.ListAlertDestinationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAlertDestinationsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.current)) {
+      query["current"] = request.current;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAlertDestinations",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/listDestinations`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAlertDestinationsResponse>(await this.callApi(params, req, runtime), new $_model.ListAlertDestinationsResponse({}));
+  }
+
+  /**
+   * 查看告警联系人列表
+   * 
+   * @param request - ListAlertDestinationsRequest
+   * @returns ListAlertDestinationsResponse
+   */
+  async listAlertDestinations(request: $_model.ListAlertDestinationsRequest): Promise<$_model.ListAlertDestinationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAlertDestinationsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取所有告警项
    * 
    * @param headers - map
@@ -3455,6 +3663,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.uninstallAgentForClusterWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 更新告警联系人
+   * 
+   * @remarks
+   * 、
+   * 
+   * @param request - UpdateAlertDestinationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlertDestinationResponse
+   */
+  async updateAlertDestinationWithOptions(request: $_model.UpdateAlertDestinationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAlertDestinationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.params)) {
+      body["params"] = request.params;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.target)) {
+      body["target"] = request.target;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAlertDestination",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/alertPusher/alert/updateDestination`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAlertDestinationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAlertDestinationResponse({}));
+  }
+
+  /**
+   * 更新告警联系人
+   * 
+   * @remarks
+   * 、
+   * 
+   * @param request - UpdateAlertDestinationRequest
+   * @returns UpdateAlertDestinationResponse
+   */
+  async updateAlertDestination(request: $_model.UpdateAlertDestinationRequest): Promise<$_model.UpdateAlertDestinationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAlertDestinationWithOptions(request, headers, runtime);
   }
 
   /**
