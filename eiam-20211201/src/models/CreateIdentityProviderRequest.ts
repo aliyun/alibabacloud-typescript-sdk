@@ -808,6 +808,94 @@ export class CreateIdentityProviderRequestOidcConfig extends $dara.Model {
   }
 }
 
+export class CreateIdentityProviderRequestSamlConfigCertificates extends $dara.Model {
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX-----END CERTIFICATE-----
+   */
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestSamlConfig extends $dara.Model {
+  /**
+   * @example
+   * HTTP-REDIRECT
+   */
+  bindingMethod?: string;
+  certificates?: CreateIdentityProviderRequestSamlConfigCertificates[];
+  /**
+   * @example
+   * http://dc.test.com/adfs/services/trust
+   */
+  idPEntityId?: string;
+  /**
+   * @example
+   * https://dc.test.com/adfs/ls/
+   */
+  idPSsoUrl?: string;
+  /**
+   * @example
+   * 180
+   */
+  maxClockSkew?: number;
+  /**
+   * @example
+   * true
+   */
+  requireRequestSigned?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bindingMethod: 'BindingMethod',
+      certificates: 'Certificates',
+      idPEntityId: 'IdPEntityId',
+      idPSsoUrl: 'IdPSsoUrl',
+      maxClockSkew: 'MaxClockSkew',
+      requireRequestSigned: 'RequireRequestSigned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindingMethod: 'string',
+      certificates: { 'type': 'array', 'itemType': CreateIdentityProviderRequestSamlConfigCertificates },
+      idPEntityId: 'string',
+      idPSsoUrl: 'string',
+      maxClockSkew: 'number',
+      requireRequestSigned: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.certificates)) {
+      $dara.Model.validateArray(this.certificates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig extends $dara.Model {
   /**
    * @remarks
@@ -1296,6 +1384,7 @@ export class CreateIdentityProviderRequest extends $dara.Model {
    * OIDC IdP configuration.
    */
   oidcConfig?: CreateIdentityProviderRequestOidcConfig;
+  samlConfig?: CreateIdentityProviderRequestSamlConfig;
   /**
    * @remarks
    * Inbound synchronization configuration information.
@@ -1327,6 +1416,7 @@ export class CreateIdentityProviderRequest extends $dara.Model {
       logoUrl: 'LogoUrl',
       networkAccessEndpointId: 'NetworkAccessEndpointId',
       oidcConfig: 'OidcConfig',
+      samlConfig: 'SamlConfig',
       udPullConfig: 'UdPullConfig',
       udPushConfig: 'UdPushConfig',
       weComConfig: 'WeComConfig',
@@ -1349,6 +1439,7 @@ export class CreateIdentityProviderRequest extends $dara.Model {
       logoUrl: 'string',
       networkAccessEndpointId: 'string',
       oidcConfig: CreateIdentityProviderRequestOidcConfig,
+      samlConfig: CreateIdentityProviderRequestSamlConfig,
       udPullConfig: CreateIdentityProviderRequestUdPullConfig,
       udPushConfig: CreateIdentityProviderRequestUdPushConfig,
       weComConfig: CreateIdentityProviderRequestWeComConfig,
@@ -1379,6 +1470,9 @@ export class CreateIdentityProviderRequest extends $dara.Model {
     }
     if(this.oidcConfig && typeof (this.oidcConfig as any).validate === 'function') {
       (this.oidcConfig as any).validate();
+    }
+    if(this.samlConfig && typeof (this.samlConfig as any).validate === 'function') {
+      (this.samlConfig as any).validate();
     }
     if(this.udPullConfig && typeof (this.udPullConfig as any).validate === 'function') {
       (this.udPullConfig as any).validate();

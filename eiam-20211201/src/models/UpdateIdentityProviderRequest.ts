@@ -388,6 +388,94 @@ export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
   }
 }
 
+export class UpdateIdentityProviderRequestSamlConfigCertificates extends $dara.Model {
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX-----END CERTIFICATE-----
+   */
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
+  /**
+   * @example
+   * HTTP-REDIRECT
+   */
+  bindingMethod?: string;
+  certificates?: UpdateIdentityProviderRequestSamlConfigCertificates[];
+  /**
+   * @example
+   * http://dc.test.com/adfs/services/trust
+   */
+  idPEntityId?: string;
+  /**
+   * @example
+   * https://dc.test.com/adfs/ls/
+   */
+  idPSsoUrl?: string;
+  /**
+   * @example
+   * 180
+   */
+  maxClockSkew?: number;
+  /**
+   * @example
+   * true
+   */
+  requireRequestSigned?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bindingMethod: 'BindingMethod',
+      certificates: 'Certificates',
+      idPEntityId: 'IdPEntityId',
+      idPSsoUrl: 'IdPSsoUrl',
+      maxClockSkew: 'MaxClockSkew',
+      requireRequestSigned: 'RequireRequestSigned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindingMethod: 'string',
+      certificates: { 'type': 'array', 'itemType': UpdateIdentityProviderRequestSamlConfigCertificates },
+      idPEntityId: 'string',
+      idPSsoUrl: 'string',
+      maxClockSkew: 'number',
+      requireRequestSigned: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.certificates)) {
+      $dara.Model.validateArray(this.certificates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   /**
    * @remarks
@@ -507,6 +595,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
    * OIDC IdP配置。
    */
   oidcConfig?: UpdateIdentityProviderRequestOidcConfig;
+  samlConfig?: UpdateIdentityProviderRequestSamlConfig;
   /**
    * @remarks
    * 企业微信基本信息
@@ -524,6 +613,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
       logoUrl: 'LogoUrl',
       networkAccessEndpointId: 'NetworkAccessEndpointId',
       oidcConfig: 'OidcConfig',
+      samlConfig: 'SamlConfig',
       weComConfig: 'WeComConfig',
     };
   }
@@ -540,6 +630,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
       logoUrl: 'string',
       networkAccessEndpointId: 'string',
       oidcConfig: UpdateIdentityProviderRequestOidcConfig,
+      samlConfig: UpdateIdentityProviderRequestSamlConfig,
       weComConfig: UpdateIdentityProviderRequestWeComConfig,
     };
   }
@@ -556,6 +647,9 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
     }
     if(this.oidcConfig && typeof (this.oidcConfig as any).validate === 'function') {
       (this.oidcConfig as any).validate();
+    }
+    if(this.samlConfig && typeof (this.samlConfig as any).validate === 'function') {
+      (this.samlConfig as any).validate();
     }
     if(this.weComConfig && typeof (this.weComConfig as any).validate === 'function') {
       (this.weComConfig as any).validate();

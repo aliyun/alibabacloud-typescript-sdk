@@ -2423,6 +2423,10 @@ export default class Client extends OpenApi {
       query["OidcConfig"] = request.oidcConfig;
     }
 
+    if (!$dara.isNull(request.samlConfig)) {
+      query["SamlConfig"] = request.samlConfig;
+    }
+
     if (!$dara.isNull(request.udPullConfig)) {
       query["UdPullConfig"] = request.udPullConfig;
     }
@@ -6985,6 +6989,10 @@ export default class Client extends OpenApi {
       query["OidcIssuer"] = request.oidcIssuer;
     }
 
+    if (!$dara.isNull(request.samlMetadataUrl)) {
+      query["SamlMetadataUrl"] = request.samlMetadataUrl;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8474,7 +8482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get identity provider
+   * Obtains an identity provider (IdP).
    * 
    * @param request - GetIdentityProviderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8509,7 +8517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get identity provider
+   * Obtains an identity provider (IdP).
    * 
    * @param request - GetIdentityProviderRequest
    * @returns GetIdentityProviderResponse
@@ -17600,6 +17608,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.oidcConfig)) {
       query["OidcConfig"] = request.oidcConfig;
+    }
+
+    if (!$dara.isNull(request.samlConfig)) {
+      query["SamlConfig"] = request.samlConfig;
     }
 
     if (!$dara.isNull(request.weComConfig)) {

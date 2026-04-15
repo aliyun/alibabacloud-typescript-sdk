@@ -43,6 +43,8 @@ export { CreateIdentityProviderRequestLdapConfig } from './CreateIdentityProvide
 export { CreateIdentityProviderRequestOidcConfigAuthnParam } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestOidcConfigEndpointConfig } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestOidcConfig } from './CreateIdentityProviderRequest';
+export { CreateIdentityProviderRequestSamlConfigCertificates } from './CreateIdentityProviderRequest';
+export { CreateIdentityProviderRequestSamlConfig } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestUdPullConfigPeriodicSyncConfig } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestUdPullConfig } from './CreateIdentityProviderRequest';
@@ -53,6 +55,8 @@ export { CreateIdentityProviderRequestWeComConfig } from './CreateIdentityProvid
 export { CreateUserRequestCustomFields } from './CreateUserRequest';
 export { CreateUserRequestPasswordInitializationConfig } from './CreateUserRequest';
 export { ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataOidcOpenIdConfiguration } from './ExecIdentityProviderMetadataUrlResolutionResponseBody';
+export { ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfigurationCertificates } from './ExecIdentityProviderMetadataUrlResolutionResponseBody';
+export { ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfiguration } from './ExecIdentityProviderMetadataUrlResolutionResponseBody';
 export { ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadata } from './ExecIdentityProviderMetadataUrlResolutionResponseBody';
 export { GenerateOauthTokenResponseBodyTokenResponse } from './GenerateOauthTokenResponseBody';
 export { GenerateWebAuthnAuthenticatorRegistrationUrlResponseBodyWebAuthnAuthenticatorRegistrationUrl } from './GenerateWebAuthnAuthenticatorRegistrationUrlResponseBody';
@@ -128,11 +132,15 @@ export { GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig 
 export { GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig } from './GetIdentityProviderResponseBody';
+export { GetIdentityProviderResponseBodyIdentityProviderDetailEndpointMetadata } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig } from './GetIdentityProviderResponseBody';
+export { GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificatesCertificateMetadata } from './GetIdentityProviderResponseBody';
+export { GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificates } from './GetIdentityProviderResponseBody';
+export { GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs } from './GetIdentityProviderResponseBody';
@@ -442,6 +450,8 @@ export { UpdateIdentityProviderRequestLdapConfig } from './UpdateIdentityProvide
 export { UpdateIdentityProviderRequestOidcConfigAuthnParam } from './UpdateIdentityProviderRequest';
 export { UpdateIdentityProviderRequestOidcConfigEndpointConfig } from './UpdateIdentityProviderRequest';
 export { UpdateIdentityProviderRequestOidcConfig } from './UpdateIdentityProviderRequest';
+export { UpdateIdentityProviderRequestSamlConfigCertificates } from './UpdateIdentityProviderRequest';
+export { UpdateIdentityProviderRequestSamlConfig } from './UpdateIdentityProviderRequest';
 export { UpdateIdentityProviderRequestWeComConfig } from './UpdateIdentityProviderRequest';
 export { UpdateUserRequestCustomFields } from './UpdateUserRequest';
 export { AddApplicationAccountToUserRequest } from './AddApplicationAccountToUserRequest';

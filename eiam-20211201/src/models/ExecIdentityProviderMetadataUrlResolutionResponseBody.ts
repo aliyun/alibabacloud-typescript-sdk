@@ -72,27 +72,100 @@ export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProvid
   }
 }
 
+export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfigurationCertificates extends $dara.Model {
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE----- MIIE+zCCA0egAwIBAgIJAJZY0ZY0ZY0Z -----END CERTIFICATE-----
+   */
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfiguration extends $dara.Model {
+  certificates?: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfigurationCertificates[];
+  /**
+   * @example
+   * http://dc.test.com/adfs/services/trust
+   */
+  idPEntityId?: string;
+  /**
+   * @example
+   * https://dc.test.com/adfs/ls/
+   */
+  idPSsoUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificates: 'Certificates',
+      idPEntityId: 'IdPEntityId',
+      idPSsoUrl: 'IdPSsoUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificates: { 'type': 'array', 'itemType': ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfigurationCertificates },
+      idPEntityId: 'string',
+      idPSsoUrl: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.certificates)) {
+      $dara.Model.validateArray(this.certificates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadata extends $dara.Model {
   /**
    * @remarks
    * OIDC IdP的Meta信息。
    */
   oidcOpenIdConfiguration?: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataOidcOpenIdConfiguration;
+  samlMetadataConfiguration?: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfiguration;
   static names(): { [key: string]: string } {
     return {
       oidcOpenIdConfiguration: 'OidcOpenIdConfiguration',
+      samlMetadataConfiguration: 'SamlMetadataConfiguration',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       oidcOpenIdConfiguration: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataOidcOpenIdConfiguration,
+      samlMetadataConfiguration: ExecIdentityProviderMetadataUrlResolutionResponseBodyIdentityProviderMetadataSamlMetadataConfiguration,
     };
   }
 
   validate() {
     if(this.oidcOpenIdConfiguration && typeof (this.oidcOpenIdConfiguration as any).validate === 'function') {
       (this.oidcOpenIdConfiguration as any).validate();
+    }
+    if(this.samlMetadataConfiguration && typeof (this.samlMetadataConfiguration as any).validate === 'function') {
+      (this.samlMetadataConfiguration as any).validate();
     }
     super.validate();
   }

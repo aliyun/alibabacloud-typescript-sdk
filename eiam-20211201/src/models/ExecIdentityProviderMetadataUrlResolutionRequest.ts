@@ -27,18 +27,22 @@ export class ExecIdentityProviderMetadataUrlResolutionRequest extends $dara.Mode
    * @remarks
    * OIDC Issuer地址。
    * 
-   * This parameter is required.
-   * 
    * @example
    * https://login.example.com/.well-known/openid-configuration
    */
   oidcIssuer?: string;
+  /**
+   * @example
+   * https://dc.test.com/FederationMetadata/2007-06/FederationMetadata.xml
+   */
+  samlMetadataUrl?: string;
   static names(): { [key: string]: string } {
     return {
       identityProviderId: 'IdentityProviderId',
       instanceId: 'InstanceId',
       networkAccessEndpointId: 'NetworkAccessEndpointId',
       oidcIssuer: 'OidcIssuer',
+      samlMetadataUrl: 'SamlMetadataUrl',
     };
   }
 
@@ -48,6 +52,7 @@ export class ExecIdentityProviderMetadataUrlResolutionRequest extends $dara.Mode
       instanceId: 'string',
       networkAccessEndpointId: 'string',
       oidcIssuer: 'string',
+      samlMetadataUrl: 'string',
     };
   }
 

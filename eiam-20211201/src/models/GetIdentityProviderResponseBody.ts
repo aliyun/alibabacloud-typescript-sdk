@@ -229,6 +229,47 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvis
   }
 }
 
+export class GetIdentityProviderResponseBodyIdentityProviderDetailEndpointMetadata extends $dara.Model {
+  /**
+   * @example
+   * https://9test.aliyunidaas.com/login/saml2/idp_nhlraxfiwsx7w7zp26qzyoxxxx/acs
+   */
+  samlAcsEndpoint?: string;
+  /**
+   * @example
+   * https://9test.aliyunidaas.com/login/saml2/idp_nhlraxfiwsx7w7zp26qzyoxxxx/meta
+   */
+  samlEntityId?: string;
+  /**
+   * @example
+   * https://9test.aliyunidaas.com/login/saml2/idp_nhlraxfiwsx7w7zp26qzyoxxxx/meta
+   */
+  samlMetaEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      samlAcsEndpoint: 'SamlAcsEndpoint',
+      samlEntityId: 'SamlEntityId',
+      samlMetaEndpoint: 'SamlMetaEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      samlAcsEndpoint: 'string',
+      samlEntityId: 'string',
+      samlMetaEndpoint: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig extends $dara.Model {
   /**
    * @remarks
@@ -602,6 +643,134 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig ext
   }
 }
 
+export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificatesCertificateMetadata extends $dara.Model {
+  /**
+   * @example
+   * 1704067200000
+   */
+  notAfter?: number;
+  /**
+   * @example
+   * 1672531200000
+   */
+  notBefore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notAfter: 'number',
+      notBefore: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificates extends $dara.Model {
+  certificateMetadata?: GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificatesCertificateMetadata;
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE----- MIIC0jCCAbqgAwIBAgIQXXXXX -----END CERTIFICATE-----
+   */
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificateMetadata: 'CertificateMetadata',
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificateMetadata: GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificatesCertificateMetadata,
+      content: 'string',
+    };
+  }
+
+  validate() {
+    if(this.certificateMetadata && typeof (this.certificateMetadata as any).validate === 'function') {
+      (this.certificateMetadata as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig extends $dara.Model {
+  /**
+   * @example
+   * HTTP-REDIRECT
+   */
+  bindingMethod?: string;
+  certificates?: GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificates[];
+  /**
+   * @example
+   * http://dc.test.com/adfs/services/trust
+   */
+  idPEntityId?: string;
+  /**
+   * @example
+   * https://dc.test.com/adfs/ls/
+   */
+  idPSsoUrl?: string;
+  /**
+   * @example
+   * 180
+   */
+  maxClockSkew?: number;
+  /**
+   * @example
+   * true
+   */
+  requireRequestSigned?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      bindingMethod: 'BindingMethod',
+      certificates: 'Certificates',
+      idPEntityId: 'IdPEntityId',
+      idPSsoUrl: 'IdPSsoUrl',
+      maxClockSkew: 'MaxClockSkew',
+      requireRequestSigned: 'RequireRequestSigned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bindingMethod: 'string',
+      certificates: { 'type': 'array', 'itemType': GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfigCertificates },
+      idPEntityId: 'string',
+      idPSsoUrl: 'string',
+      maxClockSkew: 'number',
+      requireRequestSigned: 'boolean',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.certificates)) {
+      $dara.Model.validateArray(this.certificates);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig extends $dara.Model {
   /**
    * @remarks
@@ -930,6 +1099,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
    * DingTalk synchronous configuration.
    */
   dingtalkProvisioningConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig;
+  endpointMetadata?: GetIdentityProviderResponseBodyIdentityProviderDetailEndpointMetadata;
   /**
    * @remarks
    * Identity provider external ID.
@@ -1017,6 +1187,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
    * OIDC IdP configuration.
    */
   oidcConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig;
+  samlConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig;
   /**
    * @remarks
    * Sync in configuration.
@@ -1066,6 +1237,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
       description: 'Description',
       dingtalkAppConfig: 'DingtalkAppConfig',
       dingtalkProvisioningConfig: 'DingtalkProvisioningConfig',
+      endpointMetadata: 'EndpointMetadata',
       identityProviderExternalId: 'IdentityProviderExternalId',
       identityProviderId: 'IdentityProviderId',
       identityProviderName: 'IdentityProviderName',
@@ -1078,6 +1250,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
       logoUrl: 'LogoUrl',
       networkAccessEndpointId: 'NetworkAccessEndpointId',
       oidcConfig: 'OidcConfig',
+      samlConfig: 'SamlConfig',
       udPullConfig: 'UdPullConfig',
       udPullStatus: 'UdPullStatus',
       udPushConfig: 'UdPushConfig',
@@ -1097,6 +1270,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
       description: 'string',
       dingtalkAppConfig: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig,
       dingtalkProvisioningConfig: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig,
+      endpointMetadata: GetIdentityProviderResponseBodyIdentityProviderDetailEndpointMetadata,
       identityProviderExternalId: 'string',
       identityProviderId: 'string',
       identityProviderName: 'string',
@@ -1109,6 +1283,7 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
       logoUrl: 'string',
       networkAccessEndpointId: 'string',
       oidcConfig: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig,
+      samlConfig: GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig,
       udPullConfig: GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig,
       udPullStatus: 'string',
       udPushConfig: GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig,
@@ -1125,6 +1300,9 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
     if(this.dingtalkProvisioningConfig && typeof (this.dingtalkProvisioningConfig as any).validate === 'function') {
       (this.dingtalkProvisioningConfig as any).validate();
     }
+    if(this.endpointMetadata && typeof (this.endpointMetadata as any).validate === 'function') {
+      (this.endpointMetadata as any).validate();
+    }
     if(this.larkConfig && typeof (this.larkConfig as any).validate === 'function') {
       (this.larkConfig as any).validate();
     }
@@ -1133,6 +1311,9 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $dara
     }
     if(this.oidcConfig && typeof (this.oidcConfig as any).validate === 'function') {
       (this.oidcConfig as any).validate();
+    }
+    if(this.samlConfig && typeof (this.samlConfig as any).validate === 'function') {
+      (this.samlConfig as any).validate();
     }
     if(this.udPullConfig && typeof (this.udPullConfig as any).validate === 'function') {
       (this.udPullConfig as any).validate();
