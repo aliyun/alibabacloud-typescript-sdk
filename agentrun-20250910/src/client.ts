@@ -79,6 +79,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 转换Flow DSL
+   * 
+   * @remarks
+   * 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+   * 
+   * @param request - ConvertFlowDSLRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConvertFlowDSLResponse
+   */
+  async convertFlowDSLWithOptions(request: $_model.ConvertFlowDSLRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ConvertFlowDSLResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConvertFlowDSL",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/action/convertDsl`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConvertFlowDSLResponse>(await this.callApi(params, req, runtime), new $_model.ConvertFlowDSLResponse({}));
+  }
+
+  /**
+   * 转换Flow DSL
+   * 
+   * @remarks
+   * 将第三方工作流DSL（如Dify、n8n等）转换为AgentRun Flow定义。支持兼容性检查、插件识别和元数据提取，返回转换后的Flow配置、兼容性分析报告和所需的Toolset安装配置。此操作为dry-run模式，不会创建实际的Flow资源。
+   * 
+   * @param request - ConvertFlowDSLRequest
+   * @returns ConvertFlowDSLResponse
+   */
+  async convertFlowDSL(request: $_model.ConvertFlowDSLRequest): Promise<$_model.ConvertFlowDSLResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.convertFlowDSLWithOptions(request, headers, runtime);
+  }
+
+  /**
    * CreateAgentRuntime
    * 
    * @remarks
@@ -340,6 +386,98 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCustomDomainWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建工作流
+   * 
+   * @remarks
+   * 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+   * 
+   * @param request - CreateFlowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFlowResponse
+   */
+  async createFlowWithOptions(request: $_model.CreateFlowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFlowResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFlow",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFlowResponse>(await this.callApi(params, req, runtime), new $_model.CreateFlowResponse({}));
+  }
+
+  /**
+   * 创建工作流
+   * 
+   * @remarks
+   * 创建一个新的工作流实例，用于定义和执行自动化流程。工作流是AgentRun服务的核心组件，支持可视化编排和版本管理。
+   * 
+   * @param request - CreateFlowRequest
+   * @returns CreateFlowResponse
+   */
+  async createFlow(request: $_model.CreateFlowRequest): Promise<$_model.CreateFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFlowWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建工作流端点
+   * 
+   * @remarks
+   * 为指定工作流创建一个新的端点，用于对外提供服务访问。
+   * 
+   * @param request - CreateFlowEndpointRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFlowEndpointResponse
+   */
+  async createFlowEndpointWithOptions(flowName: string, request: $_model.CreateFlowEndpointRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFlowEndpointResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFlowEndpoint",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/endpoints`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFlowEndpointResponse>(await this.callApi(params, req, runtime), new $_model.CreateFlowEndpointResponse({}));
+  }
+
+  /**
+   * 创建工作流端点
+   * 
+   * @remarks
+   * 为指定工作流创建一个新的端点，用于对外提供服务访问。
+   * 
+   * @param request - CreateFlowEndpointRequest
+   * @returns CreateFlowEndpointResponse
+   */
+  async createFlowEndpoint(flowName: string, request: $_model.CreateFlowEndpointRequest): Promise<$_model.CreateFlowEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createFlowEndpointWithOptions(flowName, request, headers, runtime);
   }
 
   /**
@@ -936,6 +1074,141 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCustomDomainWithOptions(domainName, request, headers, runtime);
+  }
+
+  /**
+   * 删除工作流
+   * 
+   * @remarks
+   * 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * 
+   * @param request - DeleteFlowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFlowResponse
+   */
+  async deleteFlowWithOptions(flowName: string, request: $_model.DeleteFlowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFlowResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFlow",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFlowResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFlowResponse({}));
+  }
+
+  /**
+   * 删除工作流
+   * 
+   * @remarks
+   * 删除指定的工作流实例，包括其所有相关资源和数据。删除操作不可逆，请谨慎操作。
+   * 
+   * @param request - DeleteFlowRequest
+   * @returns DeleteFlowResponse
+   */
+  async deleteFlow(flowName: string, request: $_model.DeleteFlowRequest): Promise<$_model.DeleteFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFlowWithOptions(flowName, request, headers, runtime);
+  }
+
+  /**
+   * 删除工作流端点
+   * 
+   * @remarks
+   * 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+   * 
+   * @param request - DeleteFlowEndpointRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFlowEndpointResponse
+   */
+  async deleteFlowEndpointWithOptions(flowName: string, flowEndpointName: string, request: $_model.DeleteFlowEndpointRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFlowEndpointResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFlowEndpoint",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/endpoints/${$dara.URL.percentEncode(flowEndpointName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFlowEndpointResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFlowEndpointResponse({}));
+  }
+
+  /**
+   * 删除工作流端点
+   * 
+   * @remarks
+   * 删除指定的工作流端点。删除操作不可逆，请谨慎操作。
+   * 
+   * @param request - DeleteFlowEndpointRequest
+   * @returns DeleteFlowEndpointResponse
+   */
+  async deleteFlowEndpoint(flowName: string, flowEndpointName: string, request: $_model.DeleteFlowEndpointRequest): Promise<$_model.DeleteFlowEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFlowEndpointWithOptions(flowName, flowEndpointName, request, headers, runtime);
+  }
+
+  /**
+   * 删除工作流版本
+   * 
+   * @remarks
+   * 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+   * 
+   * @param request - DeleteFlowVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFlowVersionResponse
+   */
+  async deleteFlowVersionWithOptions(flowName: string, flowVersion: string, request: $_model.DeleteFlowVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFlowVersionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFlowVersion",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/versions/${$dara.URL.percentEncode(flowVersion)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFlowVersionResponse({}));
+  }
+
+  /**
+   * 删除工作流版本
+   * 
+   * @remarks
+   * 删除指定工作流的指定版本。删除操作不可逆，请谨慎操作。
+   * 
+   * @param request - DeleteFlowVersionRequest
+   * @returns DeleteFlowVersionResponse
+   */
+  async deleteFlowVersion(flowName: string, flowVersion: string, request: $_model.DeleteFlowVersionRequest): Promise<$_model.DeleteFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFlowVersionWithOptions(flowName, flowVersion, request, headers, runtime);
   }
 
   /**
@@ -1577,6 +1850,186 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCustomDomainWithOptions(domainName, request, headers, runtime);
+  }
+
+  /**
+   * 获取工作流详情
+   * 
+   * @remarks
+   * 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
+   * 
+   * @param request - GetFlowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFlowResponse
+   */
+  async getFlowWithOptions(flowName: string, request: $_model.GetFlowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetFlowResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFlow",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFlowResponse>(await this.callApi(params, req, runtime), new $_model.GetFlowResponse({}));
+  }
+
+  /**
+   * 获取工作流详情
+   * 
+   * @remarks
+   * 根据工作流ID获取指定工作流的详细信息，包括配置、定义、版本信息等。
+   * 
+   * @param request - GetFlowRequest
+   * @returns GetFlowResponse
+   */
+  async getFlow(flowName: string, request: $_model.GetFlowRequest): Promise<$_model.GetFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFlowWithOptions(flowName, request, headers, runtime);
+  }
+
+  /**
+   * 获取工作流草稿
+   * 
+   * @remarks
+   * 获取指定工作流的草稿版本，返回草稿中的配置信息。
+   * 
+   * @param request - GetFlowDraftRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFlowDraftResponse
+   */
+  async getFlowDraftWithOptions(flowName: string, request: $_model.GetFlowDraftRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetFlowDraftResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFlowDraft",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/draft`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFlowDraftResponse>(await this.callApi(params, req, runtime), new $_model.GetFlowDraftResponse({}));
+  }
+
+  /**
+   * 获取工作流草稿
+   * 
+   * @remarks
+   * 获取指定工作流的草稿版本，返回草稿中的配置信息。
+   * 
+   * @param request - GetFlowDraftRequest
+   * @returns GetFlowDraftResponse
+   */
+  async getFlowDraft(flowName: string, request: $_model.GetFlowDraftRequest): Promise<$_model.GetFlowDraftResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFlowDraftWithOptions(flowName, request, headers, runtime);
+  }
+
+  /**
+   * 获取工作流端点详情
+   * 
+   * @remarks
+   * 根据工作流ID和端点ID获取指定工作流端点的详细信息。
+   * 
+   * @param request - GetFlowEndpointRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFlowEndpointResponse
+   */
+  async getFlowEndpointWithOptions(flowName: string, flowEndpointName: string, request: $_model.GetFlowEndpointRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetFlowEndpointResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFlowEndpoint",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/endpoints/${$dara.URL.percentEncode(flowEndpointName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFlowEndpointResponse>(await this.callApi(params, req, runtime), new $_model.GetFlowEndpointResponse({}));
+  }
+
+  /**
+   * 获取工作流端点详情
+   * 
+   * @remarks
+   * 根据工作流ID和端点ID获取指定工作流端点的详细信息。
+   * 
+   * @param request - GetFlowEndpointRequest
+   * @returns GetFlowEndpointResponse
+   */
+  async getFlowEndpoint(flowName: string, flowEndpointName: string, request: $_model.GetFlowEndpointRequest): Promise<$_model.GetFlowEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFlowEndpointWithOptions(flowName, flowEndpointName, request, headers, runtime);
+  }
+
+  /**
+   * 获取工作流版本详情
+   * 
+   * @remarks
+   * 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+   * 
+   * @param request - GetFlowVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFlowVersionResponse
+   */
+  async getFlowVersionWithOptions(flowName: string, flowVersion: string, request: $_model.GetFlowVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetFlowVersionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFlowVersion",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/versions/${$dara.URL.percentEncode(flowVersion)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.GetFlowVersionResponse({}));
+  }
+
+  /**
+   * 获取工作流版本详情
+   * 
+   * @remarks
+   * 根据工作流名称和版本号获取指定版本的详细信息，包括该版本的完整配置快照（定义、环境变量、追踪配置、日志配置等）。
+   * 
+   * @param request - GetFlowVersionRequest
+   * @returns GetFlowVersionResponse
+   */
+  async getFlowVersion(flowName: string, flowVersion: string, request: $_model.GetFlowVersionRequest): Promise<$_model.GetFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getFlowVersionWithOptions(flowName, flowVersion, request, headers, runtime);
   }
 
   /**
@@ -2418,6 +2871,183 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出工作流端点
+   * 
+   * @remarks
+   * 获取指定工作流的所有端点列表，支持分页查询。
+   * 
+   * @param request - ListFlowEndpointsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlowEndpointsResponse
+   */
+  async listFlowEndpointsWithOptions(flowId: string, request: $_model.ListFlowEndpointsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowEndpointsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlowEndpoints",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowId)}/endpoints`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlowEndpointsResponse>(await this.callApi(params, req, runtime), new $_model.ListFlowEndpointsResponse({}));
+  }
+
+  /**
+   * 列出工作流端点
+   * 
+   * @remarks
+   * 获取指定工作流的所有端点列表，支持分页查询。
+   * 
+   * @param request - ListFlowEndpointsRequest
+   * @returns ListFlowEndpointsResponse
+   */
+  async listFlowEndpoints(flowId: string, request: $_model.ListFlowEndpointsRequest): Promise<$_model.ListFlowEndpointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFlowEndpointsWithOptions(flowId, request, headers, runtime);
+  }
+
+  /**
+   * 列出工作流版本
+   * 
+   * @remarks
+   * 获取指定工作流的所有版本列表，支持分页查询。
+   * 
+   * @param request - ListFlowVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlowVersionsResponse
+   */
+  async listFlowVersionsWithOptions(flowName: string, request: $_model.ListFlowVersionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowVersionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlowVersions",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/versions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlowVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListFlowVersionsResponse({}));
+  }
+
+  /**
+   * 列出工作流版本
+   * 
+   * @remarks
+   * 获取指定工作流的所有版本列表，支持分页查询。
+   * 
+   * @param request - ListFlowVersionsRequest
+   * @returns ListFlowVersionsResponse
+   */
+  async listFlowVersions(flowName: string, request: $_model.ListFlowVersionsRequest): Promise<$_model.ListFlowVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFlowVersionsWithOptions(flowName, request, headers, runtime);
+  }
+
+  /**
+   * 列出工作流
+   * 
+   * @remarks
+   * 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
+   * 
+   * @param request - ListFlowsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFlowsResponse
+   */
+  async listFlowsWithOptions(request: $_model.ListFlowsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListFlowsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.flowName)) {
+      query["flowName"] = request.flowName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
+    }
+
+    if (!$dara.isNull(request.workspaceIds)) {
+      query["workspaceIds"] = request.workspaceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFlows",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFlowsResponse>(await this.callApi(params, req, runtime), new $_model.ListFlowsResponse({}));
+  }
+
+  /**
+   * 列出工作流
+   * 
+   * @remarks
+   * 获取当前用户的工作流列表，支持按名称、工作空间等条件过滤，支持分页查询。
+   * 
+   * @param request - ListFlowsRequest
+   * @returns ListFlowsResponse
+   */
+  async listFlows(request: $_model.ListFlowsRequest): Promise<$_model.ListFlowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFlowsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 列出知识库
    * 
    * @param request - ListKnowledgeBasesRequest
@@ -3068,6 +3698,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发布工作流版本
+   * 
+   * @remarks
+   * 为指定工作流发布新版本，用于版本管理和回滚。
+   * 
+   * @param request - PublishFlowVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PublishFlowVersionResponse
+   */
+  async publishFlowVersionWithOptions(flowName: string, request: $_model.PublishFlowVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PublishFlowVersionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PublishFlowVersion",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/versions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PublishFlowVersionResponse>(await this.callApi(params, req, runtime), new $_model.PublishFlowVersionResponse({}));
+  }
+
+  /**
+   * 发布工作流版本
+   * 
+   * @remarks
+   * 为指定工作流发布新版本，用于版本管理和回滚。
+   * 
+   * @param request - PublishFlowVersionRequest
+   * @returns PublishFlowVersionResponse
+   */
+  async publishFlowVersion(flowName: string, request: $_model.PublishFlowVersionRequest): Promise<$_model.PublishFlowVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.publishFlowVersionWithOptions(flowName, request, headers, runtime);
+  }
+
+  /**
    * 发布运行时版本
    * 
    * @remarks
@@ -3400,6 +4076,144 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateCustomDomainWithOptions(domainName, request, headers, runtime);
+  }
+
+  /**
+   * 更新工作流
+   * 
+   * @remarks
+   * 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+   * 
+   * @param request - UpdateFlowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFlowResponse
+   */
+  async updateFlowWithOptions(flowName: string, request: $_model.UpdateFlowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFlowResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFlow",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFlowResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFlowResponse({}));
+  }
+
+  /**
+   * 更新工作流
+   * 
+   * @remarks
+   * 更新指定工作流的配置信息，包括定义、执行模式、环境变量等。
+   * 
+   * @param request - UpdateFlowRequest
+   * @returns UpdateFlowResponse
+   */
+  async updateFlow(flowName: string, request: $_model.UpdateFlowRequest): Promise<$_model.UpdateFlowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFlowWithOptions(flowName, request, headers, runtime);
+  }
+
+  /**
+   * 更新工作流草稿
+   * 
+   * @remarks
+   * 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
+   * 
+   * @param request - UpdateFlowDraftRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFlowDraftResponse
+   */
+  async updateFlowDraftWithOptions(flowName: string, request: $_model.UpdateFlowDraftRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFlowDraftResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFlowDraft",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/draft`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFlowDraftResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFlowDraftResponse({}));
+  }
+
+  /**
+   * 更新工作流草稿
+   * 
+   * @remarks
+   * 更新指定工作流的草稿版本，草稿更新不影响已发布的工作流版本。
+   * 
+   * @param request - UpdateFlowDraftRequest
+   * @returns UpdateFlowDraftResponse
+   */
+  async updateFlowDraft(flowName: string, request: $_model.UpdateFlowDraftRequest): Promise<$_model.UpdateFlowDraftResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFlowDraftWithOptions(flowName, request, headers, runtime);
+  }
+
+  /**
+   * 更新工作流端点
+   * 
+   * @remarks
+   * 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
+   * 
+   * @param request - UpdateFlowEndpointRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFlowEndpointResponse
+   */
+  async updateFlowEndpointWithOptions(flowName: string, flowEndpointName: string, request: $_model.UpdateFlowEndpointRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFlowEndpointResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFlowEndpoint",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/flows/${$dara.URL.percentEncode(flowName)}/endpoints/${$dara.URL.percentEncode(flowEndpointName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFlowEndpointResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFlowEndpointResponse({}));
+  }
+
+  /**
+   * 更新工作流端点
+   * 
+   * @remarks
+   * 更新指定工作流端点的配置信息，包括目标版本、路由配置等。
+   * 
+   * @param request - UpdateFlowEndpointRequest
+   * @returns UpdateFlowEndpointResponse
+   */
+  async updateFlowEndpoint(flowName: string, flowEndpointName: string, request: $_model.UpdateFlowEndpointRequest): Promise<$_model.UpdateFlowEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFlowEndpointWithOptions(flowName, flowEndpointName, request, headers, runtime);
   }
 
   /**

@@ -66,14 +66,6 @@ export class UpdateFlowInput extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 工作流的标签信息，用于资源分类和管理
-   * 
-   * @example
-   * production,automation
-   */
-  tags?: string[];
-  /**
-   * @remarks
    * 工作流的链路追踪配置
    */
   tracingConfiguration?: TracingConfiguration;
@@ -95,7 +87,6 @@ export class UpdateFlowInput extends $dara.Model {
       flowName: 'flowName',
       loggingConfiguration: 'loggingConfiguration',
       resourceGroupId: 'resourceGroupId',
-      tags: 'tags',
       tracingConfiguration: 'tracingConfiguration',
       workspaceId: 'workspaceId',
     };
@@ -111,7 +102,6 @@ export class UpdateFlowInput extends $dara.Model {
       flowName: 'string',
       loggingConfiguration: LoggingConfiguration,
       resourceGroupId: 'string',
-      tags: { 'type': 'array', 'itemType': 'string' },
       tracingConfiguration: TracingConfiguration,
       workspaceId: 'string',
     };
@@ -123,9 +113,6 @@ export class UpdateFlowInput extends $dara.Model {
     }
     if(this.loggingConfiguration && typeof (this.loggingConfiguration as any).validate === 'function') {
       (this.loggingConfiguration as any).validate();
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
     }
     if(this.tracingConfiguration && typeof (this.tracingConfiguration as any).validate === 'function') {
       (this.tracingConfiguration as any).validate();

@@ -30,14 +30,6 @@ export class UpdateFlowEndpointInput extends $dara.Model {
   routingConfiguration?: FlowEndpointRoutingConfig[];
   /**
    * @remarks
-   * 工作流端点的标签信息
-   * 
-   * @example
-   * production
-   */
-  tags?: string[];
-  /**
-   * @remarks
    * 工作流端点指向的目标版本号
    * 
    * @example
@@ -49,7 +41,6 @@ export class UpdateFlowEndpointInput extends $dara.Model {
       description: 'description',
       flowEndpointName: 'flowEndpointName',
       routingConfiguration: 'routingConfiguration',
-      tags: 'tags',
       targetVersion: 'targetVersion',
     };
   }
@@ -59,7 +50,6 @@ export class UpdateFlowEndpointInput extends $dara.Model {
       description: 'string',
       flowEndpointName: 'string',
       routingConfiguration: { 'type': 'array', 'itemType': FlowEndpointRoutingConfig },
-      tags: { 'type': 'array', 'itemType': 'string' },
       targetVersion: 'string',
     };
   }
@@ -67,9 +57,6 @@ export class UpdateFlowEndpointInput extends $dara.Model {
   validate() {
     if(Array.isArray(this.routingConfiguration)) {
       $dara.Model.validateArray(this.routingConfiguration);
-    }
-    if(Array.isArray(this.tags)) {
-      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

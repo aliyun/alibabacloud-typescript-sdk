@@ -387,7 +387,7 @@ export class ConvertFlowDSLDataToolsetInstallations extends $dara.Model {
    * 
    * This parameter is required.
    */
-  spec?: { [key: string]: string };
+  spec?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       description: 'description',
@@ -400,7 +400,7 @@ export class ConvertFlowDSLDataToolsetInstallations extends $dara.Model {
     return {
       description: 'string',
       name: 'string',
-      spec: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      spec: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
