@@ -2078,7 +2078,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the configurations of the administrator account, such as whether the resource expiration reminder feature is enabled.
    * 
-   * @param request - ListTenantConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTenantConfigResponse
    */
@@ -2446,6 +2445,10 @@ export default class Client extends OpenApi {
       request.policyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.policy, "Policy", "json");
     }
 
+    if (!$dara.isNull(tmpReq.storagePolicy)) {
+      request.storagePolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.storagePolicy, "StoragePolicy", "json");
+    }
+
     if (!$dara.isNull(tmpReq.timers)) {
       request.timersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.timers, "Timers", "json");
     }
@@ -2472,8 +2475,16 @@ export default class Client extends OpenApi {
       body["CloudBrowserName"] = request.cloudBrowserName;
     }
 
+    if (!$dara.isNull(request.maxAmount)) {
+      body["MaxAmount"] = request.maxAmount;
+    }
+
     if (!$dara.isNull(request.networkShrink)) {
       body["Network"] = request.networkShrink;
+    }
+
+    if (!$dara.isNull(request.storagePolicyShrink)) {
+      body["StoragePolicy"] = request.storagePolicyShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

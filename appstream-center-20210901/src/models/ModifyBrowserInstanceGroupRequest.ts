@@ -73,6 +73,11 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
    */
   bookmarks?: ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks[];
   /**
+   * @example
+   * cn-hangzhou/aig_upm/xxx/temp/BrowserBookmarks/浏览器书签模版.csv
+   */
+  bookmarksFilePath?: string;
+  /**
    * @remarks
    * The startup parameter.
    * 
@@ -80,6 +85,11 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
    * --incognito
    */
   browserParam?: string;
+  /**
+   * @example
+   * true
+   */
+  cookiesSync?: string;
   /**
    * @remarks
    * The home page.
@@ -96,7 +106,9 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       bookmarks: 'Bookmarks',
+      bookmarksFilePath: 'BookmarksFilePath',
       browserParam: 'BrowserParam',
+      cookiesSync: 'CookiesSync',
       homepage: 'Homepage',
       removeBookmarks: 'RemoveBookmarks',
     };
@@ -105,7 +117,9 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       bookmarks: { 'type': 'array', 'itemType': ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks },
+      bookmarksFilePath: 'string',
       browserParam: 'string',
+      cookiesSync: 'string',
       homepage: 'string',
       removeBookmarks: { 'type': 'array', 'itemType': 'string' },
     };
@@ -189,11 +203,17 @@ export class ModifyBrowserInstanceGroupRequestNetwork extends $dara.Model {
    * The domain restriction configurations.
    */
   restrictedURLs?: ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs[];
+  /**
+   * @example
+   * cn-hangzhou/aig_upm/xxx/temp/BrowserRestrictionUrls/URL白名单模版.csv
+   */
+  restrictedURLsFilePath?: string;
   static names(): { [key: string]: string } {
     return {
       accessRestriction: 'AccessRestriction',
       removeRestrictedURLIds: 'RemoveRestrictedURLIds',
       restrictedURLs: 'RestrictedURLs',
+      restrictedURLsFilePath: 'RestrictedURLsFilePath',
     };
   }
 
@@ -202,6 +222,7 @@ export class ModifyBrowserInstanceGroupRequestNetwork extends $dara.Model {
       accessRestriction: 'string',
       removeRestrictedURLIds: { 'type': 'array', 'itemType': 'string' },
       restrictedURLs: { 'type': 'array', 'itemType': ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs },
+      restrictedURLsFilePath: 'string',
     };
   }
 
@@ -257,6 +278,10 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
    * global
    */
   clipboardScope?: string;
+  /**
+   * @example
+   * B
+   */
   clipboardSizeUnit?: string;
   /**
    * @remarks
@@ -296,7 +321,15 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
    * off
    */
   richTextClipboard?: string;
+  /**
+   * @example
+   * 1
+   */
   richTextClipboardLimit?: number;
+  /**
+   * @example
+   * B
+   */
   richTextClipboardSizeUnit?: string;
   /**
    * @remarks
@@ -462,7 +495,15 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
    * off
    */
   html5FileTransfer?: string;
+  /**
+   * @example
+   * on
+   */
   noOperationDisconnect?: string;
+  /**
+   * @example
+   * 1
+   */
   noOperationDisconnectTime?: number;
   /**
    * @remarks
@@ -542,6 +583,55 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   }
 }
 
+export class ModifyBrowserInstanceGroupRequestStoragePolicyUserProfile extends $dara.Model {
+  userProfileSwitch?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      userProfileSwitch: 'UserProfileSwitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userProfileSwitch: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyBrowserInstanceGroupRequestStoragePolicy extends $dara.Model {
+  userProfile?: ModifyBrowserInstanceGroupRequestStoragePolicyUserProfile;
+  static names(): { [key: string]: string } {
+    return {
+      userProfile: 'UserProfile',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      userProfile: ModifyBrowserInstanceGroupRequestStoragePolicyUserProfile,
+    };
+  }
+
+  validate() {
+    if(this.userProfile && typeof (this.userProfile as any).validate === 'function') {
+      (this.userProfile as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyBrowserInstanceGroupRequestTimers extends $dara.Model {
   /**
    * @remarks
@@ -611,6 +701,11 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
    */
   cloudBrowserName?: string;
   /**
+   * @example
+   * 5
+   */
+  maxAmount?: number;
+  /**
    * @remarks
    * The network configurations.
    */
@@ -620,6 +715,7 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
    * The access policy.
    */
   policy?: ModifyBrowserInstanceGroupRequestPolicy;
+  storagePolicy?: ModifyBrowserInstanceGroupRequestStoragePolicy;
   /**
    * @remarks
    * The timer.
@@ -630,8 +726,10 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
       browserConfig: 'BrowserConfig',
       browserInstanceGroupId: 'BrowserInstanceGroupId',
       cloudBrowserName: 'CloudBrowserName',
+      maxAmount: 'MaxAmount',
       network: 'Network',
       policy: 'Policy',
+      storagePolicy: 'StoragePolicy',
       timers: 'Timers',
     };
   }
@@ -641,8 +739,10 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
       browserConfig: ModifyBrowserInstanceGroupRequestBrowserConfig,
       browserInstanceGroupId: 'string',
       cloudBrowserName: 'string',
+      maxAmount: 'number',
       network: ModifyBrowserInstanceGroupRequestNetwork,
       policy: ModifyBrowserInstanceGroupRequestPolicy,
+      storagePolicy: ModifyBrowserInstanceGroupRequestStoragePolicy,
       timers: { 'type': 'array', 'itemType': ModifyBrowserInstanceGroupRequestTimers },
     };
   }
@@ -656,6 +756,9 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
     }
     if(this.policy && typeof (this.policy as any).validate === 'function') {
       (this.policy as any).validate();
+    }
+    if(this.storagePolicy && typeof (this.storagePolicy as any).validate === 'function') {
+      (this.storagePolicy as any).validate();
     }
     if(Array.isArray(this.timers)) {
       $dara.Model.validateArray(this.timers);

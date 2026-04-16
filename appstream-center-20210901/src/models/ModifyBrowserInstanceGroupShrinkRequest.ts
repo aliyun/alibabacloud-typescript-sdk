@@ -27,6 +27,11 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
    */
   cloudBrowserName?: string;
   /**
+   * @example
+   * 5
+   */
+  maxAmount?: number;
+  /**
    * @remarks
    * The network configurations.
    */
@@ -36,6 +41,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
    * The access policy.
    */
   policyShrink?: string;
+  storagePolicyShrink?: string;
   /**
    * @remarks
    * The timer.
@@ -46,8 +52,10 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
       browserConfigShrink: 'BrowserConfig',
       browserInstanceGroupId: 'BrowserInstanceGroupId',
       cloudBrowserName: 'CloudBrowserName',
+      maxAmount: 'MaxAmount',
       networkShrink: 'Network',
       policyShrink: 'Policy',
+      storagePolicyShrink: 'StoragePolicy',
       timersShrink: 'Timers',
     };
   }
@@ -57,8 +65,10 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
       browserConfigShrink: 'string',
       browserInstanceGroupId: 'string',
       cloudBrowserName: 'string',
+      maxAmount: 'number',
       networkShrink: 'string',
       policyShrink: 'string',
+      storagePolicyShrink: 'string',
       timersShrink: 'string',
     };
   }

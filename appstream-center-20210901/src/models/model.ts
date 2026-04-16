@@ -86,6 +86,8 @@ export { ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy } from './Modify
 export { ModifyBrowserInstanceGroupRequestPolicyVideoPolicy } from './ModifyBrowserInstanceGroupRequest';
 export { ModifyBrowserInstanceGroupRequestPolicyWatermarkPolicy } from './ModifyBrowserInstanceGroupRequest';
 export { ModifyBrowserInstanceGroupRequestPolicy } from './ModifyBrowserInstanceGroupRequest';
+export { ModifyBrowserInstanceGroupRequestStoragePolicyUserProfile } from './ModifyBrowserInstanceGroupRequest';
+export { ModifyBrowserInstanceGroupRequestStoragePolicy } from './ModifyBrowserInstanceGroupRequest';
 export { ModifyBrowserInstanceGroupRequestTimers } from './ModifyBrowserInstanceGroupRequest';
 export { ModifyNodePoolAmountRequestNodePool } from './ModifyNodePoolAmountRequest';
 export { ModifyNodePoolAmountResponseBodyData } from './ModifyNodePoolAmountResponseBody';
