@@ -13,6 +13,7 @@ export class BroadcastAudio extends $dara.Model {
    * 2026-01-22T01:59:03
    */
   createTime?: string;
+  errorCode?: string;
   /**
    * @example
    * M1Ju6XhHog_e-lSeb80Slp9g
@@ -33,6 +34,7 @@ export class BroadcastAudio extends $dara.Model {
     return {
       audioLength: 'audioLength',
       createTime: 'createTime',
+      errorCode: 'errorCode',
       id: 'id',
       modifiedTime: 'modifiedTime',
       name: 'name',
@@ -44,6 +46,7 @@ export class BroadcastAudio extends $dara.Model {
     return {
       audioLength: 'number',
       createTime: 'string',
+      errorCode: 'string',
       id: 'string',
       modifiedTime: 'string',
       name: 'string',
