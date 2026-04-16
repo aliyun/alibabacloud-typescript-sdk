@@ -2628,6 +2628,10 @@ export default class Client extends OpenApi {
       body["contact"] = request.contact;
     }
 
+    if (!$dara.isNull(request.discount)) {
+      body["discount"] = request.discount;
+    }
+
     if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
     }
@@ -3819,6 +3823,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.contact)) {
       body["contact"] = request.contact;
+    }
+
+    if (!$dara.isNull(request.discount)) {
+      body["discount"] = request.discount;
     }
 
     if (!$dara.isNull(request.name)) {

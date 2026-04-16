@@ -86,6 +86,14 @@ export class ModelRouterQueryModelListResponseBody extends $dara.Model {
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * maxResults
+   * 
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
    * @example
    * xxxx-xxxx-xxxx-xxxxxxxx
    */
@@ -101,6 +109,7 @@ export class ModelRouterQueryModelListResponseBody extends $dara.Model {
       errCode: 'errCode',
       errMessage: 'errMessage',
       httpStatusCode: 'httpStatusCode',
+      maxResults: 'maxResults',
       requestId: 'requestId',
       success: 'success',
     };
@@ -112,6 +121,7 @@ export class ModelRouterQueryModelListResponseBody extends $dara.Model {
       errCode: 'string',
       errMessage: 'string',
       httpStatusCode: 'number',
+      maxResults: 'number',
       requestId: 'string',
       success: 'boolean',
     };

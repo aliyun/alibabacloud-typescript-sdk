@@ -20,6 +20,11 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
   contact?: string;
   /**
    * @example
+   * 1.0
+   */
+  discount?: number;
+  /**
+   * @example
    * 我的客户
    */
   name?: string;
@@ -38,6 +43,7 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
       address: 'address',
       allowedModels: 'allowedModels',
       contact: 'contact',
+      discount: 'discount',
       name: 'name',
       parentId: 'parentId',
       remark: 'remark',
@@ -49,6 +55,7 @@ export class ModelRouterCreateClientRequest extends $dara.Model {
       address: 'string',
       allowedModels: 'string',
       contact: 'string',
+      discount: 'number',
       name: 'string',
       parentId: 'number',
       remark: 'string',

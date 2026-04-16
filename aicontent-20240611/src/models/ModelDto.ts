@@ -34,6 +34,11 @@ export class ModelDTO extends $dara.Model {
    */
   gmtModified?: string;
   /**
+   * @example
+   * false
+   */
+  hasBillingRule?: boolean;
+  /**
    * @remarks
    * ID
    * 
@@ -93,6 +98,7 @@ export class ModelDTO extends $dara.Model {
       extensions: 'extensions',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
+      hasBillingRule: 'hasBillingRule',
       id: 'id',
       inOut: 'inOut',
       isCustom: 'isCustom',
@@ -117,6 +123,7 @@ export class ModelDTO extends $dara.Model {
       extensions: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
+      hasBillingRule: 'boolean',
       id: 'number',
       inOut: 'string',
       isCustom: 'boolean',

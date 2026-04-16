@@ -35,6 +35,11 @@ export class ClientTreeDTO extends $dara.Model {
   deleteTag?: number;
   /**
    * @example
+   * 1.0
+   */
+  discount?: number;
+  /**
+   * @example
    * 2024-01-01T00:00:00Z
    */
   gmtCreate?: string;
@@ -81,6 +86,7 @@ export class ClientTreeDTO extends $dara.Model {
       clientUuid: 'clientUuid',
       contact: 'contact',
       deleteTag: 'deleteTag',
+      discount: 'discount',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       id: 'id',
@@ -100,6 +106,7 @@ export class ClientTreeDTO extends $dara.Model {
       clientUuid: 'string',
       contact: 'string',
       deleteTag: 'number',
+      discount: 'number',
       gmtCreate: 'string',
       gmtModified: 'string',
       id: 'number',

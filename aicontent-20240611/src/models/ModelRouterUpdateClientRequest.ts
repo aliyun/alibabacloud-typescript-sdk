@@ -20,6 +20,11 @@ export class ModelRouterUpdateClientRequest extends $dara.Model {
   contact?: string;
   /**
    * @example
+   * 1.0
+   */
+  discount?: number;
+  /**
+   * @example
    * 我的客户
    */
   name?: string;
@@ -38,6 +43,7 @@ export class ModelRouterUpdateClientRequest extends $dara.Model {
       address: 'address',
       allowedModels: 'allowedModels',
       contact: 'contact',
+      discount: 'discount',
       name: 'name',
       remark: 'remark',
       status: 'status',
@@ -49,6 +55,7 @@ export class ModelRouterUpdateClientRequest extends $dara.Model {
       address: 'string',
       allowedModels: 'string',
       contact: 'string',
+      discount: 'number',
       name: 'string',
       remark: 'string',
       status: 'number',
