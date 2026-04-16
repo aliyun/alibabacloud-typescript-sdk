@@ -2,66 +2,47 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class QueryVirtualNumberRequest extends $dara.Model {
+export class CloudStartTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 呼叫中心 id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 8001654
+   */
+  enterpriseId?: number;
   ownerId?: number;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNo?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The service name. Default value: **dyvms**.
-   * 
-   * @example
-   * dyvms
-   */
-  prodCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The route type. Valid values:
+   * 外呼任务id
    * 
-   * *   **0**: number location first.
-   * *   **1**: random.
+   * This parameter is required.
    * 
    * @example
-   * 0
+   * 32
    */
-  routeType?: number;
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
+      enterpriseId: 'EnterpriseId',
       ownerId: 'OwnerId',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      prodCode: 'ProdCode',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
-      routeType: 'RouteType',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      enterpriseId: 'number',
       ownerId: 'number',
-      pageNo: 'number',
-      pageSize: 'number',
-      prodCode: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
-      routeType: 'number',
+      taskId: 'number',
     };
   }
 

@@ -2,47 +2,64 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetHotlineQualificationByOrderResponseBodyData extends $dara.Model {
+export class CloudImportTaskTelResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the qualification application ticket.
+   * 批次Id
    * 
    * @example
-   * 22456****
+   * 0
    */
-  orderId?: string;
+  fileId?: string;
   /**
    * @remarks
-   * The qualification ID.
+   * 请求号码总数
    * 
    * @example
-   * 1478*****
+   * 30
    */
-  qualificationId?: string;
+  importTotal?: string;
   /**
    * @remarks
-   * The qualification state. Valid values:
-   * 
-   * *   **NORMAL**
-   * *   **OTHER**
+   * 非法号码数
    * 
    * @example
-   * NORMAL
+   * 0
    */
-  status?: string;
+  invalidTotal?: string;
+  /**
+   * @remarks
+   * 成功导入号码数
+   * 
+   * @example
+   * 30
+   */
+  successTotal?: string;
+  /**
+   * @remarks
+   * 任务Id
+   * 
+   * @example
+   * 13322333
+   */
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      orderId: 'OrderId',
-      qualificationId: 'QualificationId',
-      status: 'Status',
+      fileId: 'FileId',
+      importTotal: 'ImportTotal',
+      invalidTotal: 'InvalidTotal',
+      successTotal: 'SuccessTotal',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      orderId: 'string',
-      qualificationId: 'string',
-      status: 'string',
+      fileId: 'string',
+      importTotal: 'string',
+      invalidTotal: 'string',
+      successTotal: 'string',
+      taskId: 'string',
     };
   }
 
@@ -55,41 +72,27 @@ export class GetHotlineQualificationByOrderResponseBodyData extends $dara.Model 
   }
 }
 
-export class GetHotlineQualificationByOrderResponseBody extends $dara.Model {
+export class CloudImportTaskTelResponseBody extends $dara.Model {
+  accessDeniedDetail?: string;
   /**
-   * @remarks
-   * The response code.
-   * 
-   * *   The value OK indicates that the request was successful.
-   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/112502.html).
-   * 
    * @example
    * OK
    */
   code?: string;
+  data?: CloudImportTaskTelResponseBodyData;
   /**
-   * @remarks
-   * The response parameters.
-   */
-  data?: GetHotlineQualificationByOrderResponseBodyData;
-  /**
-   * @remarks
-   * The returned message.
-   * 
    * @example
    * OK
    */
   message?: string;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * 6086693B-2250-17CE-A41F-06259AB6DB1B
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       code: 'Code',
       data: 'Data',
       message: 'Message',
@@ -99,8 +102,9 @@ export class GetHotlineQualificationByOrderResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       code: 'string',
-      data: GetHotlineQualificationByOrderResponseBodyData,
+      data: CloudImportTaskTelResponseBodyData,
       message: 'string',
       requestId: 'string',
     };

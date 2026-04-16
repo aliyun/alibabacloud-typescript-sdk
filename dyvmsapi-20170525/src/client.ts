@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the association relationship between a virtual number and real numbers in batches.
+   * Binds multiple real numbers to a service instance at a time.
    * 
    * @remarks
    * ### QPS limits
@@ -93,7 +93,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the association relationship between a virtual number and real numbers in batches.
+   * Binds multiple real numbers to a service instance at a time.
    * 
    * @remarks
    * ### QPS limits
@@ -108,7 +108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates an outbound robocall task.
+   * Initiates outbound robocall tasks in a batch. You can set up to 100 numbers in a task.
    * 
    * @remarks
    *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
@@ -200,7 +200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates an outbound robocall task.
+   * Initiates outbound robocall tasks in a batch. You can set up to 100 numbers in a task.
    * 
    * @remarks
    *   In an intelligent speech interaction task, you can use the robot communication scripts preset in the Voice Messaging Service console, or invoke the callback function to return the response mode configured by the business party in each call.
@@ -220,6 +220,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancels the two-way call that is initiated by calling the ClickToDial operation.
+   * 
    * @param request - CancelCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelCallResponse
@@ -261,6 +263,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancels the two-way call that is initiated by calling the ClickToDial operation.
+   * 
    * @param request - CancelCallRequest
    * @returns CancelCallResponse
    */
@@ -462,7 +466,657 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a task for sending voice notifications or voice verification codes.
+   * 新增任务
+   * 
+   * @param request - CloudCreateTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudCreateTaskResponse
+   */
+  async cloudCreateTaskWithOptions(request: $_model.CloudCreateTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudCreateTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentGroup)) {
+      query["AgentGroup"] = request.agentGroup;
+    }
+
+    if (!$dara.isNull(request.agentTimeout)) {
+      query["AgentTimeout"] = request.agentTimeout;
+    }
+
+    if (!$dara.isNull(request.answerRate)) {
+      query["AnswerRate"] = request.answerRate;
+    }
+
+    if (!$dara.isNull(request.autoComplete)) {
+      query["AutoComplete"] = request.autoComplete;
+    }
+
+    if (!$dara.isNull(request.autoDelete)) {
+      query["AutoDelete"] = request.autoDelete;
+    }
+
+    if (!$dara.isNull(request.autoStart)) {
+      query["AutoStart"] = request.autoStart;
+    }
+
+    if (!$dara.isNull(request.autoStartDay)) {
+      query["AutoStartDay"] = request.autoStartDay;
+    }
+
+    if (!$dara.isNull(request.autoStartTime)) {
+      query["AutoStartTime"] = request.autoStartTime;
+    }
+
+    if (!$dara.isNull(request.autoStop)) {
+      query["AutoStop"] = request.autoStop;
+    }
+
+    if (!$dara.isNull(request.autoStopDay)) {
+      query["AutoStopDay"] = request.autoStopDay;
+    }
+
+    if (!$dara.isNull(request.autoStopTime)) {
+      query["AutoStopTime"] = request.autoStopTime;
+    }
+
+    if (!$dara.isNull(request.autoTaskType)) {
+      query["AutoTaskType"] = request.autoTaskType;
+    }
+
+    if (!$dara.isNull(request.autoTriggerTimeStrategy)) {
+      query["AutoTriggerTimeStrategy"] = request.autoTriggerTimeStrategy;
+    }
+
+    if (!$dara.isNull(request.callGroupType)) {
+      query["CallGroupType"] = request.callGroupType;
+    }
+
+    if (!$dara.isNull(request.callLimitStrategy)) {
+      query["CallLimitStrategy"] = request.callLimitStrategy;
+    }
+
+    if (!$dara.isNull(request.callPriorityStrategy)) {
+      query["CallPriorityStrategy"] = request.callPriorityStrategy;
+    }
+
+    if (!$dara.isNull(request.callRouteStrategy)) {
+      query["CallRouteStrategy"] = request.callRouteStrategy;
+    }
+
+    if (!$dara.isNull(request.callStrategy)) {
+      query["CallStrategy"] = request.callStrategy;
+    }
+
+    if (!$dara.isNull(request.callVariables)) {
+      query["CallVariables"] = request.callVariables;
+    }
+
+    if (!$dara.isNull(request.clidProperty)) {
+      query["ClidProperty"] = request.clidProperty;
+    }
+
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.concurrency)) {
+      query["Concurrency"] = request.concurrency;
+    }
+
+    if (!$dara.isNull(request.customerClidType)) {
+      query["CustomerClidType"] = request.customerClidType;
+    }
+
+    if (!$dara.isNull(request.customerClidWeight)) {
+      query["CustomerClidWeight"] = request.customerClidWeight;
+    }
+
+    if (!$dara.isNull(request.customerClidWeightFlag)) {
+      query["CustomerClidWeightFlag"] = request.customerClidWeightFlag;
+    }
+
+    if (!$dara.isNull(request.customerClids)) {
+      query["CustomerClids"] = request.customerClids;
+    }
+
+    if (!$dara.isNull(request.customerClidsCategory)) {
+      query["CustomerClidsCategory"] = request.customerClidsCategory;
+    }
+
+    if (!$dara.isNull(request.customerClidsGroup)) {
+      query["CustomerClidsGroup"] = request.customerClidsGroup;
+    }
+
+    if (!$dara.isNull(request.customerMoh)) {
+      query["CustomerMoh"] = request.customerMoh;
+    }
+
+    if (!$dara.isNull(request.customerTimeout)) {
+      query["CustomerTimeout"] = request.customerTimeout;
+    }
+
+    if (!$dara.isNull(request.customerVoice)) {
+      query["CustomerVoice"] = request.customerVoice;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.forceEndFlag)) {
+      query["ForceEndFlag"] = request.forceEndFlag;
+    }
+
+    if (!$dara.isNull(request.isRewarm)) {
+      query["IsRewarm"] = request.isRewarm;
+    }
+
+    if (!$dara.isNull(request.ivrId)) {
+      query["IvrId"] = request.ivrId;
+    }
+
+    if (!$dara.isNull(request.ivrName)) {
+      query["IvrName"] = request.ivrName;
+    }
+
+    if (!$dara.isNull(request.maxWaitTime)) {
+      query["MaxWaitTime"] = request.maxWaitTime;
+    }
+
+    if (!$dara.isNull(request.minAvailableAgentCount)) {
+      query["MinAvailableAgentCount"] = request.minAvailableAgentCount;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.predictAdjust)) {
+      query["PredictAdjust"] = request.predictAdjust;
+    }
+
+    if (!$dara.isNull(request.quotiety)) {
+      query["Quotiety"] = request.quotiety;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.retryStrategy)) {
+      query["RetryStrategy"] = request.retryStrategy;
+    }
+
+    if (!$dara.isNull(request.retryStrategyOnlyToday)) {
+      query["RetryStrategyOnlyToday"] = request.retryStrategyOnlyToday;
+    }
+
+    if (!$dara.isNull(request.retryStrategyTimeType)) {
+      query["RetryStrategyTimeType"] = request.retryStrategyTimeType;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.timeStrategy)) {
+      query["TimeStrategy"] = request.timeStrategy;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.userFields)) {
+      query["UserFields"] = request.userFields;
+    }
+
+    if (!$dara.isNull(request.warmUpDuration)) {
+      query["WarmUpDuration"] = request.warmUpDuration;
+    }
+
+    if (!$dara.isNull(request.wrapup)) {
+      query["Wrapup"] = request.wrapup;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudCreateTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudCreateTaskResponse>(await this.callApi(params, req, runtime), new $_model.CloudCreateTaskResponse({}));
+  }
+
+  /**
+   * 新增任务
+   * 
+   * @param request - CloudCreateTaskRequest
+   * @returns CloudCreateTaskResponse
+   */
+  async cloudCreateTask(request: $_model.CloudCreateTaskRequest): Promise<$_model.CloudCreateTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudCreateTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 任务号码导入
+   * 
+   * @param tmpReq - CloudImportTaskTelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudImportTaskTelResponse
+   */
+  async cloudImportTaskTelWithOptions(tmpReq: $_model.CloudImportTaskTelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudImportTaskTelResponse> {
+    tmpReq.validate();
+    let request = new $_model.CloudImportTaskTelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.taskTelList)) {
+      request.taskTelListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskTelList, "TaskTelList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bridgeVoicePath)) {
+      query["BridgeVoicePath"] = request.bridgeVoicePath;
+    }
+
+    if (!$dara.isNull(request.bridgeVoiceType)) {
+      query["BridgeVoiceType"] = request.bridgeVoiceType;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      query["FileId"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.importTelAutoStart)) {
+      query["ImportTelAutoStart"] = request.importTelAutoStart;
+    }
+
+    if (!$dara.isNull(request.isRepeat)) {
+      query["IsRepeat"] = request.isRepeat;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.taskTelListShrink)) {
+      query["TaskTelList"] = request.taskTelListShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudImportTaskTel",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudImportTaskTelResponse>(await this.callApi(params, req, runtime), new $_model.CloudImportTaskTelResponse({}));
+  }
+
+  /**
+   * 任务号码导入
+   * 
+   * @param request - CloudImportTaskTelRequest
+   * @returns CloudImportTaskTelResponse
+   */
+  async cloudImportTaskTel(request: $_model.CloudImportTaskTelRequest): Promise<$_model.CloudImportTaskTelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudImportTaskTelWithOptions(request, runtime);
+  }
+
+  /**
+   * 任务启动
+   * 
+   * @param request - CloudStartTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudStartTaskResponse
+   */
+  async cloudStartTaskWithOptions(request: $_model.CloudStartTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudStartTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudStartTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudStartTaskResponse>(await this.callApi(params, req, runtime), new $_model.CloudStartTaskResponse({}));
+  }
+
+  /**
+   * 任务启动
+   * 
+   * @param request - CloudStartTaskRequest
+   * @returns CloudStartTaskResponse
+   */
+  async cloudStartTask(request: $_model.CloudStartTaskRequest): Promise<$_model.CloudStartTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudStartTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新任务
+   * 
+   * @param request - CloudUpdateTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudUpdateTaskResponse
+   */
+  async cloudUpdateTaskWithOptions(request: $_model.CloudUpdateTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudUpdateTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentGroup)) {
+      query["AgentGroup"] = request.agentGroup;
+    }
+
+    if (!$dara.isNull(request.agentTimeout)) {
+      query["AgentTimeout"] = request.agentTimeout;
+    }
+
+    if (!$dara.isNull(request.answerRate)) {
+      query["AnswerRate"] = request.answerRate;
+    }
+
+    if (!$dara.isNull(request.autoComplete)) {
+      query["AutoComplete"] = request.autoComplete;
+    }
+
+    if (!$dara.isNull(request.autoStart)) {
+      query["AutoStart"] = request.autoStart;
+    }
+
+    if (!$dara.isNull(request.autoStartDay)) {
+      query["AutoStartDay"] = request.autoStartDay;
+    }
+
+    if (!$dara.isNull(request.autoStartTime)) {
+      query["AutoStartTime"] = request.autoStartTime;
+    }
+
+    if (!$dara.isNull(request.autoStop)) {
+      query["AutoStop"] = request.autoStop;
+    }
+
+    if (!$dara.isNull(request.autoStopDay)) {
+      query["AutoStopDay"] = request.autoStopDay;
+    }
+
+    if (!$dara.isNull(request.autoStopTime)) {
+      query["AutoStopTime"] = request.autoStopTime;
+    }
+
+    if (!$dara.isNull(request.autoTaskType)) {
+      query["AutoTaskType"] = request.autoTaskType;
+    }
+
+    if (!$dara.isNull(request.autoTriggerTimeStrategy)) {
+      query["AutoTriggerTimeStrategy"] = request.autoTriggerTimeStrategy;
+    }
+
+    if (!$dara.isNull(request.callLimitStrategy)) {
+      query["CallLimitStrategy"] = request.callLimitStrategy;
+    }
+
+    if (!$dara.isNull(request.callPriorityStrategy)) {
+      query["CallPriorityStrategy"] = request.callPriorityStrategy;
+    }
+
+    if (!$dara.isNull(request.callRouteStrategy)) {
+      query["CallRouteStrategy"] = request.callRouteStrategy;
+    }
+
+    if (!$dara.isNull(request.callStrategy)) {
+      query["CallStrategy"] = request.callStrategy;
+    }
+
+    if (!$dara.isNull(request.callVariables)) {
+      query["CallVariables"] = request.callVariables;
+    }
+
+    if (!$dara.isNull(request.clidProperty)) {
+      query["ClidProperty"] = request.clidProperty;
+    }
+
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.concurrency)) {
+      query["Concurrency"] = request.concurrency;
+    }
+
+    if (!$dara.isNull(request.customerClidType)) {
+      query["CustomerClidType"] = request.customerClidType;
+    }
+
+    if (!$dara.isNull(request.customerClidWeight)) {
+      query["CustomerClidWeight"] = request.customerClidWeight;
+    }
+
+    if (!$dara.isNull(request.customerClidWeightFlag)) {
+      query["CustomerClidWeightFlag"] = request.customerClidWeightFlag;
+    }
+
+    if (!$dara.isNull(request.customerClids)) {
+      query["CustomerClids"] = request.customerClids;
+    }
+
+    if (!$dara.isNull(request.customerClidsCategory)) {
+      query["CustomerClidsCategory"] = request.customerClidsCategory;
+    }
+
+    if (!$dara.isNull(request.customerClidsGroup)) {
+      query["CustomerClidsGroup"] = request.customerClidsGroup;
+    }
+
+    if (!$dara.isNull(request.customerMoh)) {
+      query["CustomerMoh"] = request.customerMoh;
+    }
+
+    if (!$dara.isNull(request.customerTimeout)) {
+      query["CustomerTimeout"] = request.customerTimeout;
+    }
+
+    if (!$dara.isNull(request.customerVoice)) {
+      query["CustomerVoice"] = request.customerVoice;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.forceEndFlag)) {
+      query["ForceEndFlag"] = request.forceEndFlag;
+    }
+
+    if (!$dara.isNull(request.isRewarm)) {
+      query["IsRewarm"] = request.isRewarm;
+    }
+
+    if (!$dara.isNull(request.ivrId)) {
+      query["IvrId"] = request.ivrId;
+    }
+
+    if (!$dara.isNull(request.ivrName)) {
+      query["IvrName"] = request.ivrName;
+    }
+
+    if (!$dara.isNull(request.maxWaitTime)) {
+      query["MaxWaitTime"] = request.maxWaitTime;
+    }
+
+    if (!$dara.isNull(request.minAvailableAgentCount)) {
+      query["MinAvailableAgentCount"] = request.minAvailableAgentCount;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.predictAdjust)) {
+      query["PredictAdjust"] = request.predictAdjust;
+    }
+
+    if (!$dara.isNull(request.quotiety)) {
+      query["Quotiety"] = request.quotiety;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.retryStrategy)) {
+      query["RetryStrategy"] = request.retryStrategy;
+    }
+
+    if (!$dara.isNull(request.retryStrategyOnlyToday)) {
+      query["RetryStrategyOnlyToday"] = request.retryStrategyOnlyToday;
+    }
+
+    if (!$dara.isNull(request.retryStrategyTimeType)) {
+      query["RetryStrategyTimeType"] = request.retryStrategyTimeType;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.timeStrategy)) {
+      query["TimeStrategy"] = request.timeStrategy;
+    }
+
+    if (!$dara.isNull(request.userFields)) {
+      query["UserFields"] = request.userFields;
+    }
+
+    if (!$dara.isNull(request.warmUpDuration)) {
+      query["WarmUpDuration"] = request.warmUpDuration;
+    }
+
+    if (!$dara.isNull(request.wrapup)) {
+      query["Wrapup"] = request.wrapup;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudUpdateTask",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudUpdateTaskResponse>(await this.callApi(params, req, runtime), new $_model.CloudUpdateTaskResponse({}));
+  }
+
+  /**
+   * 更新任务
+   * 
+   * @param request - CloudUpdateTaskRequest
+   * @returns CloudUpdateTaskResponse
+   */
+  async cloudUpdateTask(request: $_model.CloudUpdateTaskRequest): Promise<$_model.CloudUpdateTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudUpdateTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Uses a service instance to create a text-to-speech (TTS) task, a voice notification task, or a voice verification code task for multiple called numbers.
    * 
    * @remarks
    * You can create up to 1,000 voice notifications for each task.
@@ -550,7 +1204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a task for sending voice notifications or voice verification codes.
+   * Uses a service instance to create a text-to-speech (TTS) task, a voice notification task, or a voice verification code task for multiple called numbers.
    * 
    * @remarks
    * You can create up to 1,000 voice notifications for each task.
@@ -666,7 +1320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DegradeVideoFile
+   * Downgrades from a video call to a voice call.
    * 
    * @param request - DegradeVideoFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -721,7 +1375,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DegradeVideoFile
+   * Downgrades from a video call to a voice call.
    * 
    * @param request - DegradeVideoFileRequest
    * @returns DegradeVideoFileResponse
@@ -866,7 +1520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetCallMediaType
+   * Obtains the call type during a call.
    * 
    * @param request - GetCallMediaTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -913,7 +1567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetCallMediaType
+   * Obtains the call type during a call.
    * 
    * @param request - GetCallMediaTypeRequest
    * @returns GetCallMediaTypeResponse
@@ -1044,7 +1698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetTemporaryFileUrl
+   * Obtains a temporary URL of a video or audio file. You can view the video or audio file immediately by using this temporary URL.
    * 
    * @param request - GetTemporaryFileUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1087,7 +1741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetTemporaryFileUrl
+   * Obtains a temporary URL of a video or audio file. You can view the video or audio file immediately by using this temporary URL.
    * 
    * @param request - GetTemporaryFileUrlRequest
    * @returns GetTemporaryFileUrlResponse
@@ -1318,7 +1972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries task information.
+   * Queries the information about a voice call task after the task is created, including the task ID, task status, and templates used by the task.
    * 
    * @remarks
    * ### QPS limits
@@ -1389,7 +2043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries task information.
+   * Queries the information about a voice call task after the task is created, including the task ID, task status, and templates used by the task.
    * 
    * @remarks
    * ### QPS limits
@@ -1404,7 +2058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a task based on the task ID.
+   * Queries the details of call tasks based on task IDs after call tasks are complete.
    * 
    * @remarks
    * ### QPS limits
@@ -1467,7 +2121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a task based on the task ID.
+   * Queries the details of call tasks based on task IDs after call tasks are complete.
    * 
    * @remarks
    * ### QPS limits
@@ -1632,7 +2286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * PauseVideoFile
+   * Pauses video playback when a video file is played back during a voice call.
    * 
    * @param request - PauseVideoFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1679,7 +2333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * PauseVideoFile
+   * Pauses video playback when a video file is played back during a voice call.
    * 
    * @param request - PauseVideoFileRequest
    * @returns PauseVideoFileResponse
@@ -1690,7 +2344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * PlayVideoFile
+   * Plays back a video file during a voice call.
    * 
    * @param request - PlayVideoFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1749,7 +2403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * PlayVideoFile
+   * Plays back a video file during a voice call.
    * 
    * @param request - PlayVideoFileRequest
    * @returns PlayVideoFileResponse
@@ -2034,7 +2688,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of robots.
+   * Queries a list of robots to obtain their details.
    * 
    * @param request - QueryRobotInfoListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2077,7 +2731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of robots.
+   * Queries a list of robots to obtain their details.
    * 
    * @param request - QueryRobotInfoListRequest
    * @returns QueryRobotInfoListResponse
@@ -2088,7 +2742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the call details of a called number in a robocall task.
+   * Queries the call details of a called number.
    * 
    * @remarks
    * ### QPS limits
@@ -2143,7 +2797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the call details of a called number in a robocall task.
+   * Queries the call details of a called number.
    * 
    * @remarks
    * ### QPS limits
@@ -2454,7 +3108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * QueryVideoPlayProgress
+   * Queries the video playback progress after you play a video file during a voice call.
    * 
    * @param request - QueryVideoPlayProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2501,7 +3155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * QueryVideoPlayProgress
+   * Queries the video playback progress after you play a video file during a voice call.
    * 
    * @param request - QueryVideoPlayProgressRequest
    * @returns QueryVideoPlayProgressResponse
@@ -2512,81 +3166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of virtual numbers.
-   * 
-   * @remarks
-   * ### QPS limits
-   * You can call this operation up to 100 times per second per account.
-   * 
-   * @param request - QueryVirtualNumberRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns QueryVirtualNumberResponse
-   */
-  async queryVirtualNumberWithOptions(request: $_model.QueryVirtualNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryVirtualNumberResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!$dara.isNull(request.pageNo)) {
-      query["PageNo"] = request.pageNo;
-    }
-
-    if (!$dara.isNull(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!$dara.isNull(request.prodCode)) {
-      query["ProdCode"] = request.prodCode;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!$dara.isNull(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    if (!$dara.isNull(request.routeType)) {
-      query["RouteType"] = request.routeType;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "QueryVirtualNumber",
-      version: "2017-05-25",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.QueryVirtualNumberResponse>(await this.callApi(params, req, runtime), new $_model.QueryVirtualNumberResponse({}));
-  }
-
-  /**
-   * Queries a list of virtual numbers.
-   * 
-   * @remarks
-   * ### QPS limits
-   * You can call this operation up to 100 times per second per account.
-   * 
-   * @param request - QueryVirtualNumberRequest
-   * @returns QueryVirtualNumberResponse
-   */
-  async queryVirtualNumber(request: $_model.QueryVirtualNumberRequest): Promise<$_model.QueryVirtualNumberResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.queryVirtualNumberWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries a list of associations between virtual numbers and real numbers.
+   * Lists real numbers bound to service instances. The returned data includes the binding time, the number activation time, and the number of real numbers bound to a service instance.
    * 
    * @remarks
    * ### QPS limits
@@ -2665,7 +3245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of associations between virtual numbers and real numbers.
+   * Lists real numbers bound to service instances. The returned data includes the binding time, the number activation time, and the number of real numbers bound to a service instance.
    * 
    * @remarks
    * ### QPS limits
@@ -2932,7 +3512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ResumeVideoFile
+   * Resumes video playback after you pause video playback during a voice call.
    * 
    * @param request - ResumeVideoFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2979,7 +3559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ResumeVideoFile
+   * Resumes video playback after you pause video playback during a voice call.
    * 
    * @param request - ResumeVideoFileRequest
    * @returns ResumeVideoFileResponse
@@ -3290,7 +3870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 语音视频单呼接口
+   * Sends voice file notifications or video file notifications to a single called number.
    * 
    * @param request - SingleCallByVideoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3361,7 +3941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 语音视频单呼接口
+   * Sends voice file notifications or video file notifications to a single called number.
    * 
    * @param request - SingleCallByVideoRequest
    * @returns SingleCallByVideoResponse
@@ -3462,7 +4042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SkipVideoFile
+   * Fast forwards or rewinds a video when you play the video.
    * 
    * @param request - SkipVideoFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3517,7 +4097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SkipVideoFile
+   * Fast forwards or rewinds a video when you play the video.
    * 
    * @param request - SkipVideoFileRequest
    * @returns SkipVideoFileResponse
@@ -3956,7 +4536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a China 400 number for registration.
+   * Submits a 400 number for registration.
    * 
    * @remarks
    * ### QPS limits
@@ -4039,7 +4619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a China 400 number for registration.
+   * Submits a 400 number for registration.
    * 
    * @remarks
    * ### QPS limits
@@ -4054,7 +4634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpgradeVideoFile
+   * Upgrades from a voice call to a video call.
    * 
    * @param request - UpgradeVideoFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4109,7 +4689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpgradeVideoFile
+   * Upgrades from a voice call to a video call.
    * 
    * @param request - UpgradeVideoFileRequest
    * @returns UpgradeVideoFileResponse
