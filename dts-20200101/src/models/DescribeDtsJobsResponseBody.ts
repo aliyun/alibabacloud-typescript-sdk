@@ -2799,6 +2799,7 @@ export class DescribeDtsJobsResponseBodyDtsJobList extends $dara.Model {
    * The state information about the incremental data verification task.
    */
   incDataCheckStatus?: DescribeDtsJobsResponseBodyDtsJobListIncDataCheckStatus;
+  insightModule?: boolean;
   /**
    * @remarks
    * The type of the DTS task. Valid values:
@@ -3017,6 +3018,7 @@ export class DescribeDtsJobsResponseBodyDtsJobList extends $dara.Model {
       expireTime: 'ExpireTime',
       fullDataCheckStatus: 'FullDataCheckStatus',
       incDataCheckStatus: 'IncDataCheckStatus',
+      insightModule: 'InsightModule',
       jobType: 'JobType',
       maxDu: 'MaxDu',
       memUsage: 'MemUsage',
@@ -3077,6 +3079,7 @@ export class DescribeDtsJobsResponseBodyDtsJobList extends $dara.Model {
       expireTime: 'string',
       fullDataCheckStatus: DescribeDtsJobsResponseBodyDtsJobListFullDataCheckStatus,
       incDataCheckStatus: DescribeDtsJobsResponseBodyDtsJobListIncDataCheckStatus,
+      insightModule: 'boolean',
       jobType: 'string',
       maxDu: 'number',
       memUsage: 'string',

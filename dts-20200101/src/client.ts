@@ -108,11 +108,13 @@ export default class Client extends OpenApi {
       try {
         let request_ = new $dara.Request();
         let boundary = $dara.Form.getBoundary();
+        let tmp = String(form["host"]);
+        let host = `${bucketName}.${tmp}`;
         request_.protocol = "HTTPS";
         request_.method = "POST";
         request_.pathname = `/`;
         request_.headers = {
-          host: String(form["host"]),
+          host: host,
           date: OpenApiUtil.getDateUTCString(),
           'user-agent': OpenApiUtil.getUserAgent(""),
         };
@@ -538,7 +540,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -1842,7 +1844,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -6760,7 +6762,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
