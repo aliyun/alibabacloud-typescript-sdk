@@ -4,15 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeInstancesResponseBodyInstancesInstanceAdditionalInfo extends $dara.Model {
   enableHighDensityMode?: boolean;
+  nodeSerialNumber?: string;
   static names(): { [key: string]: string } {
     return {
       enableHighDensityMode: 'EnableHighDensityMode',
+      nodeSerialNumber: 'NodeSerialNumber',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       enableHighDensityMode: 'boolean',
+      nodeSerialNumber: 'string',
     };
   }
 
@@ -52,6 +55,11 @@ export class DescribeInstancesResponseBodyInstancesInstanceCpuOptions extends $d
   coreCount?: number;
   enableVISST?: boolean;
   enableVRDT?: boolean;
+  /**
+   * @example
+   * enabled
+   */
+  nestedVirtualization?: string;
   numa?: string;
   threadsPerCore?: number;
   topologyType?: string;
@@ -61,6 +69,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceCpuOptions extends $d
       coreCount: 'CoreCount',
       enableVISST: 'EnableVISST',
       enableVRDT: 'EnableVRDT',
+      nestedVirtualization: 'NestedVirtualization',
       numa: 'Numa',
       threadsPerCore: 'ThreadsPerCore',
       topologyType: 'TopologyType',
@@ -73,6 +82,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceCpuOptions extends $d
       coreCount: 'number',
       enableVISST: 'boolean',
       enableVRDT: 'boolean',
+      nestedVirtualization: 'string',
       numa: 'string',
       threadsPerCore: 'number',
       topologyType: 'string',
