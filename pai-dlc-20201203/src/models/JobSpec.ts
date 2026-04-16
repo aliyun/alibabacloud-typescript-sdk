@@ -23,6 +23,7 @@ export class JobSpec extends $dara.Model {
    * The auto scaling configurations.
    */
   autoScalingSpec?: AutoScalingSpec;
+  considerInSuccessPolicy?: boolean;
   /**
    * @remarks
    * The hardware specifications of the worker. For more information, see [Billing of DLC](https://help.aliyun.com/document_detail/171758.html) of PAI.
@@ -132,6 +133,7 @@ export class JobSpec extends $dara.Model {
     return {
       assignNodeSpec: 'AssignNodeSpec',
       autoScalingSpec: 'AutoScalingSpec',
+      considerInSuccessPolicy: 'ConsiderInSuccessPolicy',
       ecsSpec: 'EcsSpec',
       extraPodSpec: 'ExtraPodSpec',
       image: 'Image',
@@ -156,6 +158,7 @@ export class JobSpec extends $dara.Model {
     return {
       assignNodeSpec: AssignNodeSpec,
       autoScalingSpec: AutoScalingSpec,
+      considerInSuccessPolicy: 'boolean',
       ecsSpec: 'string',
       extraPodSpec: ExtraPodSpec,
       image: 'string',
