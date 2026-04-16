@@ -492,6 +492,11 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
    */
   category?: string;
   /**
+   * @example
+   * OFF
+   */
+  columnTable?: string;
+  /**
    * @remarks
    * Whether storage compression is enabled. Values are as follows:
    * - ON: Enabled
@@ -1030,6 +1035,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       branch: 'Branch',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
+      columnTable: 'ColumnTable',
       compressStorageMode: 'CompressStorageMode',
       compressStorageUsed: 'CompressStorageUsed',
       creationTime: 'CreationTime',
@@ -1105,6 +1111,7 @@ export class DescribeDBClusterAttributeResponseBody extends $dara.Model {
       branch: DescribeDBClusterAttributeResponseBodyBranch,
       burstingEnabled: 'string',
       category: 'string',
+      columnTable: 'string',
       compressStorageMode: 'string',
       compressStorageUsed: 'number',
       creationTime: 'string',
