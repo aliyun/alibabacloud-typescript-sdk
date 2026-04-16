@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DataZoneSupportCompactionServiceValue } from "./DataZoneSupportCompactionServiceValue";
 
 
 export class DescribeResourceConstraintsResponseBodyDataBeNumber extends $dara.Model {
@@ -689,6 +690,7 @@ export class DescribeResourceConstraintsResponseBodyData extends $dara.Model {
   zoneSupportedEedTypes?: { [key: string]: string[] };
   zoneSupportedSpecTypes?: { [key: string]: string[] };
   compactionServiceCuConstraint?: DescribeResourceConstraintsResponseBodyDataCompactionServiceCuConstraint;
+  zoneSupportCompactionService?: { [key: string]: DataZoneSupportCompactionServiceValue[] };
   static names(): { [key: string]: string } {
     return {
       agentCu: 'AgentCu',
@@ -711,6 +713,7 @@ export class DescribeResourceConstraintsResponseBodyData extends $dara.Model {
       zoneSupportedEedTypes: 'ZoneSupportedEedTypes',
       zoneSupportedSpecTypes: 'ZoneSupportedSpecTypes',
       compactionServiceCuConstraint: 'compactionServiceCuConstraint',
+      zoneSupportCompactionService: 'zoneSupportCompactionService',
     };
   }
 
@@ -736,6 +739,7 @@ export class DescribeResourceConstraintsResponseBodyData extends $dara.Model {
       zoneSupportedEedTypes: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       zoneSupportedSpecTypes: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       compactionServiceCuConstraint: DescribeResourceConstraintsResponseBodyDataCompactionServiceCuConstraint,
+      zoneSupportCompactionService: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': DataZoneSupportCompactionServiceValue } },
     };
   }
 
@@ -799,6 +803,9 @@ export class DescribeResourceConstraintsResponseBodyData extends $dara.Model {
     }
     if(this.compactionServiceCuConstraint && typeof (this.compactionServiceCuConstraint as any).validate === 'function') {
       (this.compactionServiceCuConstraint as any).validate();
+    }
+    if(this.zoneSupportCompactionService) {
+      $dara.Model.validateMap(this.zoneSupportCompactionService);
     }
     super.validate();
   }

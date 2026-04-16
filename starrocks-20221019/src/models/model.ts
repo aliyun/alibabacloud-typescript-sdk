@@ -127,6 +127,7 @@ export { RestoreInstanceResponseBodyData } from './RestoreInstanceResponseBody';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { InstanceConfigDto } from './InstanceConfigDto';
 export { ResourceSpec } from './ResourceSpec';
+export { DataZoneSupportCompactionServiceValue } from './DataZoneSupportCompactionServiceValue';
 export { AddBackupPolicyRequest } from './AddBackupPolicyRequest';
 export { AddBackupPolicyResponseBody } from './AddBackupPolicyResponseBody';
 export { AddBackupPolicyResponse } from './AddBackupPolicyResponse';
