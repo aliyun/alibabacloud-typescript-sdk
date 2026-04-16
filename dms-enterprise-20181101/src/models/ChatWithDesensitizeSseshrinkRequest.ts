@@ -200,6 +200,16 @@ export class ChatWithDesensitizeSSEShrinkRequest extends $dara.Model {
    */
   thinkingBudget?: number;
   /**
+   * @example
+   * {}
+   */
+  toolChoice?: string;
+  /**
+   * @example
+   * {}
+   */
+  tools?: string;
+  /**
    * @remarks
    * Specifies the number of candidate tokens to consider during sampling. Higher values increase randomness, while lower values make the output more deterministic. Set to null or a value greater than 100 to disable.
    * 
@@ -265,6 +275,8 @@ export class ChatWithDesensitizeSSEShrinkRequest extends $dara.Model {
       stream: 'Stream',
       temperature: 'Temperature',
       thinkingBudget: 'ThinkingBudget',
+      toolChoice: 'ToolChoice',
+      tools: 'Tools',
       topK: 'TopK',
       topLogprobs: 'TopLogprobs',
       topP: 'TopP',
@@ -299,6 +311,8 @@ export class ChatWithDesensitizeSSEShrinkRequest extends $dara.Model {
       stream: 'boolean',
       temperature: 'string',
       thinkingBudget: 'number',
+      toolChoice: 'string',
+      tools: 'string',
       topK: 'number',
       topLogprobs: 'number',
       topP: 'string',

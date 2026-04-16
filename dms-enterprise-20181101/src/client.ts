@@ -1617,6 +1617,14 @@ export default class Client extends OpenApi {
       query["ThinkingBudget"] = request.thinkingBudget;
     }
 
+    if (!$dara.isNull(request.toolChoice)) {
+      query["ToolChoice"] = request.toolChoice;
+    }
+
+    if (!$dara.isNull(request.tools)) {
+      query["Tools"] = request.tools;
+    }
+
     if (!$dara.isNull(request.topK)) {
       query["TopK"] = request.topK;
     }
@@ -1795,6 +1803,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.thinkingBudget)) {
       query["ThinkingBudget"] = request.thinkingBudget;
+    }
+
+    if (!$dara.isNull(request.toolChoice)) {
+      query["ToolChoice"] = request.toolChoice;
+    }
+
+    if (!$dara.isNull(request.tools)) {
+      query["Tools"] = request.tools;
     }
 
     if (!$dara.isNull(request.topK)) {
