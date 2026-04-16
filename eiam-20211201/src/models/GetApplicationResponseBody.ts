@@ -229,6 +229,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
    * true
    */
   serviceManaged?: boolean;
+  smartConfigCapabilities?: string[];
   /**
    * @remarks
    * The type of the single sign-on (SSO) protocol. Valid values:
@@ -285,6 +286,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       resourceServerSourceType: 'ResourceServerSourceType',
       resourceServerStatus: 'ResourceServerStatus',
       serviceManaged: 'ServiceManaged',
+      smartConfigCapabilities: 'SmartConfigCapabilities',
       ssoType: 'SsoType',
       status: 'Status',
       updateTime: 'UpdateTime',
@@ -317,6 +319,7 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
       resourceServerSourceType: 'string',
       resourceServerStatus: 'string',
       serviceManaged: 'boolean',
+      smartConfigCapabilities: { 'type': 'array', 'itemType': 'string' },
       ssoType: 'string',
       status: 'string',
       updateTime: 'number',
@@ -332,6 +335,9 @@ export class GetApplicationResponseBodyApplication extends $dara.Model {
     }
     if(Array.isArray(this.customFields)) {
       $dara.Model.validateArray(this.customFields);
+    }
+    if(Array.isArray(this.smartConfigCapabilities)) {
+      $dara.Model.validateArray(this.smartConfigCapabilities);
     }
     super.validate();
   }
