@@ -49,6 +49,7 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
    */
   id?: string;
   ipPool?: ConfigSetListResponseBodyConfigSetsIpPool;
+  isPublicChannelBackoff?: boolean;
   /**
    * @example
    * xxx
@@ -60,6 +61,7 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
       fromAddresses: 'FromAddresses',
       id: 'Id',
       ipPool: 'IpPool',
+      isPublicChannelBackoff: 'IsPublicChannelBackoff',
       name: 'Name',
     };
   }
@@ -70,6 +72,7 @@ export class ConfigSetListResponseBodyConfigSets extends $dara.Model {
       fromAddresses: { 'type': 'array', 'itemType': 'string' },
       id: 'string',
       ipPool: ConfigSetListResponseBodyConfigSetsIpPool,
+      isPublicChannelBackoff: 'boolean',
       name: 'string',
     };
   }

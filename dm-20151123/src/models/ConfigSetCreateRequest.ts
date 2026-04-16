@@ -13,6 +13,7 @@ export class ConfigSetCreateRequest extends $dara.Model {
    * XXX
    */
   ipPoolId?: string;
+  isPublicChannelBackoff?: boolean;
   /**
    * @example
    * XXX
@@ -22,6 +23,7 @@ export class ConfigSetCreateRequest extends $dara.Model {
     return {
       description: 'Description',
       ipPoolId: 'IpPoolId',
+      isPublicChannelBackoff: 'IsPublicChannelBackoff',
       name: 'Name',
     };
   }
@@ -30,6 +32,7 @@ export class ConfigSetCreateRequest extends $dara.Model {
     return {
       description: 'string',
       ipPoolId: 'string',
+      isPublicChannelBackoff: 'boolean',
       name: 'string',
     };
   }

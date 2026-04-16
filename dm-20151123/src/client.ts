@@ -603,6 +603,10 @@ export default class Client extends OpenApi {
       query["IpPoolId"] = request.ipPoolId;
     }
 
+    if (!$dara.isNull(request.isPublicChannelBackoff)) {
+      query["IsPublicChannelBackoff"] = request.isPublicChannelBackoff;
+    }
+
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
     }
@@ -843,6 +847,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ipPoolId)) {
       query["IpPoolId"] = request.ipPoolId;
+    }
+
+    if (!$dara.isNull(request.isPublicChannelBackoff)) {
+      query["IsPublicChannelBackoff"] = request.isPublicChannelBackoff;
     }
 
     if (!$dara.isNull(request.name)) {
