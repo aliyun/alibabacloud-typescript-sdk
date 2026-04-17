@@ -36,6 +36,11 @@ export class SearchMemoriesRequest extends $dara.Model {
   runId?: string;
   /**
    * @example
+   * experience
+   */
+  searchType?: string;
+  /**
+   * @example
    * 0.3
    */
   threshold?: number;
@@ -58,6 +63,7 @@ export class SearchMemoriesRequest extends $dara.Model {
       rerank: 'rerank',
       retrieveLevel: 'retrieveLevel',
       runId: 'runId',
+      searchType: 'searchType',
       threshold: 'threshold',
       topK: 'topK',
       userId: 'userId',
@@ -73,6 +79,7 @@ export class SearchMemoriesRequest extends $dara.Model {
       rerank: 'boolean',
       retrieveLevel: 'string',
       runId: 'string',
+      searchType: 'string',
       threshold: 'number',
       topK: 'number',
       userId: 'string',

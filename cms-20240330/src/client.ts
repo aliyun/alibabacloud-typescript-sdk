@@ -6115,6 +6115,10 @@ export default class Client extends OpenApi {
       body["runId"] = request.runId;
     }
 
+    if (!$dara.isNull(request.searchType)) {
+      body["searchType"] = request.searchType;
+    }
+
     if (!$dara.isNull(request.threshold)) {
       body["threshold"] = request.threshold;
     }
