@@ -1,3 +1,5 @@
+export { CheckCreateLindormV2InstanceRequestEngineListNodeGroupList } from './CheckCreateLindormV2instanceRequest';
+export { CheckCreateLindormV2InstanceRequestEngineList } from './CheckCreateLindormV2instanceRequest';
 export { CreateAutoScalingConfigRequestScaleRuleList } from './CreateAutoScalingConfigRequest';
 export { CreateLindormInstanceRequestTag } from './CreateLindormInstanceRequest';
 export { CreateLindormV2InstanceRequestEngineListNodeGroupList } from './CreateLindormV2instanceRequest';
@@ -58,9 +60,15 @@ export { UpdateLindormV2WhiteIpListRequestWhiteIpGroupList } from './UpdateLindo
 export { ChangeResourceGroupRequest } from './ChangeResourceGroupRequest';
 export { ChangeResourceGroupResponseBody } from './ChangeResourceGroupResponseBody';
 export { ChangeResourceGroupResponse } from './ChangeResourceGroupResponse';
+export { CheckCreateLindormV2InstanceRequest } from './CheckCreateLindormV2instanceRequest';
+export { CheckCreateLindormV2InstanceResponseBody } from './CheckCreateLindormV2instanceResponseBody';
+export { CheckCreateLindormV2InstanceResponse } from './CheckCreateLindormV2instanceResponse';
 export { CheckLdpsColumnarIndexStatusRequest } from './CheckLdpsColumnarIndexStatusRequest';
 export { CheckLdpsColumnarIndexStatusResponseBody } from './CheckLdpsColumnarIndexStatusResponseBody';
 export { CheckLdpsColumnarIndexStatusResponse } from './CheckLdpsColumnarIndexStatusResponse';
+export { CreateAdditionalVpcLinkRequest } from './CreateAdditionalVpcLinkRequest';
+export { CreateAdditionalVpcLinkResponseBody } from './CreateAdditionalVpcLinkResponseBody';
+export { CreateAdditionalVpcLinkResponse } from './CreateAdditionalVpcLinkResponse';
 export { CreateAutoScalingConfigRequest } from './CreateAutoScalingConfigRequest';
 export { CreateAutoScalingConfigShrinkRequest } from './CreateAutoScalingConfigShrinkRequest';
 export { CreateAutoScalingConfigResponseBody } from './CreateAutoScalingConfigResponseBody';

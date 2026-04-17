@@ -80,6 +80,132 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lindormv2创建预校验
+   * 
+   * @param request - CheckCreateLindormV2InstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckCreateLindormV2InstanceResponse
+   */
+  async checkCreateLindormV2InstanceWithOptions(request: $_model.CheckCreateLindormV2InstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckCreateLindormV2InstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.arbiterVSwitchId)) {
+      query["ArbiterVSwitchId"] = request.arbiterVSwitchId;
+    }
+
+    if (!$dara.isNull(request.arbiterZoneId)) {
+      query["ArbiterZoneId"] = request.arbiterZoneId;
+    }
+
+    if (!$dara.isNull(request.archVersion)) {
+      query["ArchVersion"] = request.archVersion;
+    }
+
+    if (!$dara.isNull(request.cloudStorageSize)) {
+      query["CloudStorageSize"] = request.cloudStorageSize;
+    }
+
+    if (!$dara.isNull(request.cloudStorageType)) {
+      query["CloudStorageType"] = request.cloudStorageType;
+    }
+
+    if (!$dara.isNull(request.clusterPattern)) {
+      query["ClusterPattern"] = request.clusterPattern;
+    }
+
+    if (!$dara.isNull(request.engineList)) {
+      query["EngineList"] = request.engineList;
+    }
+
+    if (!$dara.isNull(request.instanceAlias)) {
+      query["InstanceAlias"] = request.instanceAlias;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.primaryVSwitchId)) {
+      query["PrimaryVSwitchId"] = request.primaryVSwitchId;
+    }
+
+    if (!$dara.isNull(request.primaryZoneId)) {
+      query["PrimaryZoneId"] = request.primaryZoneId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.standbyVSwitchId)) {
+      query["StandbyVSwitchId"] = request.standbyVSwitchId;
+    }
+
+    if (!$dara.isNull(request.standbyZoneId)) {
+      query["StandbyZoneId"] = request.standbyZoneId;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckCreateLindormV2Instance",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckCreateLindormV2InstanceResponse>(await this.callApi(params, req, runtime), new $_model.CheckCreateLindormV2InstanceResponse({}));
+  }
+
+  /**
+   * Lindormv2创建预校验
+   * 
+   * @param request - CheckCreateLindormV2InstanceRequest
+   * @returns CheckCreateLindormV2InstanceResponse
+   */
+  async checkCreateLindormV2Instance(request: $_model.CheckCreateLindormV2InstanceRequest): Promise<$_model.CheckCreateLindormV2InstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkCreateLindormV2InstanceWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CheckLdpsColumnarIndexStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckLdpsColumnarIndexStatusResponse
@@ -135,6 +261,64 @@ export default class Client extends OpenApi {
   async checkLdpsColumnarIndexStatus(request: $_model.CheckLdpsColumnarIndexStatusRequest): Promise<$_model.CheckLdpsColumnarIndexStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkLdpsColumnarIndexStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * vpc打通
+   * 
+   * @param request - CreateAdditionalVpcLinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAdditionalVpcLinkResponse
+   */
+  async createAdditionalVpcLinkWithOptions(request: $_model.CreateAdditionalVpcLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAdditionalVpcLinkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.additionalVpcId)) {
+      query["AdditionalVpcId"] = request.additionalVpcId;
+    }
+
+    if (!$dara.isNull(request.additionalVswitchId)) {
+      query["AdditionalVswitchId"] = request.additionalVswitchId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAdditionalVpcLink",
+      version: "2020-06-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAdditionalVpcLinkResponse>(await this.callApi(params, req, runtime), new $_model.CreateAdditionalVpcLinkResponse({}));
+  }
+
+  /**
+   * vpc打通
+   * 
+   * @param request - CreateAdditionalVpcLinkRequest
+   * @returns CreateAdditionalVpcLinkResponse
+   */
+  async createAdditionalVpcLink(request: $_model.CreateAdditionalVpcLinkRequest): Promise<$_model.CreateAdditionalVpcLinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAdditionalVpcLinkWithOptions(request, runtime);
   }
 
   /**
@@ -4274,7 +4458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates tags with a single or multiple Lindorm instances.
+   * Adds tags to one or more Lindorm instances.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4337,7 +4521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates tags with a single or multiple Lindorm instances.
+   * Adds tags to one or more Lindorm instances.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse

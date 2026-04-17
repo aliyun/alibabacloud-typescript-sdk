@@ -91,6 +91,7 @@ export class GetLindormV2InstanceResponseBodyEngineList extends $dara.Model {
   connectAddressList?: GetLindormV2InstanceResponseBodyEngineListConnectAddressList[];
   enableBackup?: string;
   enableCDC?: string;
+  enableMaaS?: string;
   engine?: string;
   isLastVersion?: boolean;
   latestVersion?: string;
@@ -101,6 +102,7 @@ export class GetLindormV2InstanceResponseBodyEngineList extends $dara.Model {
       connectAddressList: 'ConnectAddressList',
       enableBackup: 'EnableBackup',
       enableCDC: 'EnableCDC',
+      enableMaaS: 'EnableMaaS',
       engine: 'Engine',
       isLastVersion: 'IsLastVersion',
       latestVersion: 'LatestVersion',
@@ -114,6 +116,7 @@ export class GetLindormV2InstanceResponseBodyEngineList extends $dara.Model {
       connectAddressList: { 'type': 'array', 'itemType': GetLindormV2InstanceResponseBodyEngineListConnectAddressList },
       enableBackup: 'string',
       enableCDC: 'string',
+      enableMaaS: 'string',
       engine: 'string',
       isLastVersion: 'boolean',
       latestVersion: 'string',

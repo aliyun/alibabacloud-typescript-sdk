@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateAutoScalingConfigRequestScaleRuleList extends $dara.Model {
   configId?: string;
   enabled?: boolean;
