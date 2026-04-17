@@ -1018,6 +1018,7 @@ export { CreateDiagnosticMetricSetRequest } from './CreateDiagnosticMetricSetReq
 export { CreateDiagnosticMetricSetResponseBody } from './CreateDiagnosticMetricSetResponseBody';
 export { CreateDiagnosticMetricSetResponse } from './CreateDiagnosticMetricSetResponse';
 export { CreateDiagnosticReportRequest } from './CreateDiagnosticReportRequest';
+export { CreateDiagnosticReportShrinkRequest } from './CreateDiagnosticReportShrinkRequest';
 export { CreateDiagnosticReportResponseBody } from './CreateDiagnosticReportResponseBody';
 export { CreateDiagnosticReportResponse } from './CreateDiagnosticReportResponse';
 export { CreateDiskRequest } from './CreateDiskRequest';

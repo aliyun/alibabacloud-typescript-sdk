@@ -3891,13 +3891,23 @@ export default class Client extends OpenApi {
   /**
    * Creates a diagnostic report for a resource. When you call this operation, you can configure the MetricSetId parameter to create a diagnostic report based on the specified diagnostic metric set. Then, you can call the DescribeDiagnosticReportAttributes operation based on the returned diagnostic report ID to view the details of the diagnostic report.
    * 
-   * @param request - CreateDiagnosticReportRequest
+   * @param tmpReq - CreateDiagnosticReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDiagnosticReportResponse
    */
-  async createDiagnosticReportWithOptions(request: $_model.CreateDiagnosticReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDiagnosticReportResponse> {
-    request.validate();
+  async createDiagnosticReportWithOptions(tmpReq: $_model.CreateDiagnosticReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDiagnosticReportResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateDiagnosticReportShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.additionalOptions)) {
+      request.additionalOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.additionalOptions, "AdditionalOptions", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.additionalOptionsShrink)) {
+      query["AdditionalOptions"] = request.additionalOptionsShrink;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["EndTime"] = request.endTime;
     }

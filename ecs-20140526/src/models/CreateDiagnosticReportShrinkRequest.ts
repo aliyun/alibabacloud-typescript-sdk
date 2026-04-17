@@ -2,8 +2,8 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateDiagnosticReportRequest extends $dara.Model {
-  additionalOptions?: { [key: string]: string };
+export class CreateDiagnosticReportShrinkRequest extends $dara.Model {
+  additionalOptionsShrink?: string;
   /**
    * @remarks
    * The end time. This parameter takes effect only for diagnostic metrics that do not need to be assessed by running Cloud Assistant commands in guest operating systems.
@@ -50,7 +50,7 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
-      additionalOptions: 'AdditionalOptions',
+      additionalOptionsShrink: 'AdditionalOptions',
       endTime: 'EndTime',
       metricSetId: 'MetricSetId',
       regionId: 'RegionId',
@@ -61,7 +61,7 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      additionalOptions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      additionalOptionsShrink: 'string',
       endTime: 'string',
       metricSetId: 'string',
       regionId: 'string',
@@ -71,9 +71,6 @@ export class CreateDiagnosticReportRequest extends $dara.Model {
   }
 
   validate() {
-    if(this.additionalOptions) {
-      $dara.Model.validateMap(this.additionalOptions);
-    }
     super.validate();
   }
 
