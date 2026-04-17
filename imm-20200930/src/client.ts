@@ -6330,6 +6330,10 @@ export default class Client extends OpenApi {
       query["MaxResults"] = request.maxResults;
     }
 
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
     }

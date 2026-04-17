@@ -27,8 +27,6 @@ export class DeleteBindingRequest extends $dara.Model {
    * 
    * Specify the value in the oss://${Bucket} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project.
    * 
-   * This parameter is required.
-   * 
    * @example
    * oss://examplebucket
    */

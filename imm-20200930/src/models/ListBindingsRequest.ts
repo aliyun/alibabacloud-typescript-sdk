@@ -21,6 +21,11 @@ export class ListBindingsRequest extends $dara.Model {
    */
   maxResults?: number;
   /**
+   * @example
+   * imm
+   */
+  name?: string;
+  /**
    * @remarks
    * *   The pagination token that is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
    * *   The next call to the operation returns results lexicographically after the NextToken parameter value.
@@ -44,6 +49,7 @@ export class ListBindingsRequest extends $dara.Model {
     return {
       datasetName: 'DatasetName',
       maxResults: 'MaxResults',
+      name: 'Name',
       nextToken: 'NextToken',
       projectName: 'ProjectName',
     };
@@ -53,6 +59,7 @@ export class ListBindingsRequest extends $dara.Model {
     return {
       datasetName: 'string',
       maxResults: 'number',
+      name: 'string',
       nextToken: 'string',
       projectName: 'string',
     };
