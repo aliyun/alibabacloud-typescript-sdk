@@ -3,45 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSaslUsersResponseBodySaslUserListSaslUserVO extends $dara.Model {
-  /**
-   * @remarks
-   * The encryption method.
-   * 
-   * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
-   * 
-   * @example
-   * SCRAM-SHA-256
-   */
   mechanism?: string;
-  /**
-   * @remarks
-   * The password.
-   * 
-   * @example
-   * ******
-   */
   password?: string;
-  /**
-   * @remarks
-   * The type of the SASL user. Valid values:
-   * 
-   * *   **plain**: a simple mechanism that uses usernames and passwords to verify user identities. ApsaraMQ for Kafka provides an improved PLAIN mechanism that allows you to dynamically add SASL users without the need to restart an instance.
-   * *   **SCRAM**: a mechanism that uses usernames and passwords to verify user identities. Compared with the PLAIN mechanism, this mechanism provides better security protection. ApsaraMQ for Kafka uses the SCRAM-SHA-256 algorithm.
-   * *   **LDAP**: This value is available only for the SASL users of ApsaraMQ for Confluent instances.
-   * 
-   * Default value: **plain**.
-   * 
-   * @example
-   * scram
-   */
   type?: string;
-  /**
-   * @remarks
-   * The username.
-   * 
-   * @example
-   * test12***
-   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,10 +85,6 @@ export class DescribeSaslUsersResponseBody extends $dara.Model {
    * 9E3B3592-5994-4F65-A61E-E62A77A****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The Simple Authentication and Security Layer (SASL) users.
-   */
   saslUserList?: DescribeSaslUsersResponseBodySaslUserList;
   /**
    * @remarks

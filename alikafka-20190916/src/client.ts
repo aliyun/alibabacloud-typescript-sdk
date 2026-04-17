@@ -326,7 +326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建后付费实例。
+   * Creates a pay-as-you-go instance and returns the instance ID and order ID.
    * 
    * @param tmpReq - CreatePostPayInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -407,7 +407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建后付费实例。
+   * Creates a pay-as-you-go instance and returns the instance ID and order ID.
    * 
    * @param request - CreatePostPayInstanceRequest
    * @returns CreatePostPayInstanceResponse
@@ -524,7 +524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建预付费实例
+   * Creates a subscription instance and returns the instance ID and order ID.
    * 
    * @param tmpReq - CreatePrePayInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -609,7 +609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建预付费实例
+   * Creates a subscription instance and returns the instance ID and order ID.
    * 
    * @param request - CreatePrePayInstanceRequest
    * @returns CreatePrePayInstanceResponse
@@ -1376,7 +1376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询acl资源名
+   * Queries the name of the resource with which an access control list (ACL) is associated.
    * 
    * @param request - DescribeAclResourceNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1419,7 +1419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询acl资源名
+   * Queries the name of the resource with which an access control list (ACL) is associated.
    * 
    * @param request - DescribeAclResourceNameRequest
    * @returns DescribeAclResourceNameResponse
@@ -2556,7 +2556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Rebalance详情
+   * Obtains the rebalance details of a consumer group.
    * 
    * @param request - ListRebalanceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2595,7 +2595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Rebalance详情
+   * Obtains the rebalance details of a consumer group.
    * 
    * @param request - ListRebalanceInfoRequest
    * @returns ListRebalanceInfoResponse
@@ -3814,7 +3814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+   * Upgrade Prepaid Instance
    * 
    * @remarks
    * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).
@@ -3898,7 +3898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades a Message Queue for Apache Kafka instance that uses the subscription billing method.
+   * Upgrade Prepaid Instance
    * 
    * @remarks
    * Before you call this operation, make sure that you understand the billing method and pricing of subscription Message Queue for Apache Kafka instances. For more information, see [Billing overview](https://help.aliyun.com/document_detail/84737.html).

@@ -2,6 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreatePrePayInstanceRequestConfluentConfigKsqlList extends $dara.Model {
+  internalId?: string;
+  cu?: number;
+  replica?: number;
+  storage?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      internalId: 'InternalId',
+      cu: 'cu',
+      replica: 'replica',
+      storage: 'storage',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      internalId: 'string',
+      cu: 'number',
+      replica: 'number',
+      storage: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   /**
    * @example
@@ -58,6 +93,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
    * 4
    */
   ksqlCU?: number;
+  ksqlList?: CreatePrePayInstanceRequestConfluentConfigKsqlList[];
   /**
    * @example
    * 2
@@ -106,6 +142,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
       kafkaRestProxyReplica: 'KafkaRestProxyReplica',
       kafkaStorage: 'KafkaStorage',
       ksqlCU: 'KsqlCU',
+      ksqlList: 'KsqlList',
       ksqlReplica: 'KsqlReplica',
       ksqlStorage: 'KsqlStorage',
       schemaRegistryCU: 'SchemaRegistryCU',
@@ -129,6 +166,7 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
       kafkaRestProxyReplica: 'number',
       kafkaStorage: 'number',
       ksqlCU: 'number',
+      ksqlList: { 'type': 'array', 'itemType': CreatePrePayInstanceRequestConfluentConfigKsqlList },
       ksqlReplica: 'number',
       ksqlStorage: 'number',
       schemaRegistryCU: 'number',
@@ -140,6 +178,9 @@ export class CreatePrePayInstanceRequestConfluentConfig extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ksqlList)) {
+      $dara.Model.validateArray(this.ksqlList);
+    }
     super.validate();
   }
 

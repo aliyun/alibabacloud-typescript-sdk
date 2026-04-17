@@ -2,6 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpgradePrePayOrderRequestConfluentConfigKsqlList extends $dara.Model {
+  cu?: number;
+  internalId?: string;
+  replica?: number;
+  storage?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      internalId: 'InternalId',
+      replica: 'Replica',
+      storage: 'Storage',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'number',
+      internalId: 'string',
+      replica: 'number',
+      storage: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradePrePayOrderRequestConfluentConfig extends $dara.Model {
   connectCU?: number;
   connectReplica?: number;
@@ -14,6 +49,7 @@ export class UpgradePrePayOrderRequestConfluentConfig extends $dara.Model {
   kafkaRestProxyReplica?: number;
   kafkaStorage?: number;
   ksqlCU?: number;
+  ksqlList?: UpgradePrePayOrderRequestConfluentConfigKsqlList[];
   ksqlReplica?: number;
   ksqlStorage?: number;
   schemaRegistryCU?: number;
@@ -34,6 +70,7 @@ export class UpgradePrePayOrderRequestConfluentConfig extends $dara.Model {
       kafkaRestProxyReplica: 'KafkaRestProxyReplica',
       kafkaStorage: 'KafkaStorage',
       ksqlCU: 'KsqlCU',
+      ksqlList: 'KsqlList',
       ksqlReplica: 'KsqlReplica',
       ksqlStorage: 'KsqlStorage',
       schemaRegistryCU: 'SchemaRegistryCU',
@@ -57,6 +94,7 @@ export class UpgradePrePayOrderRequestConfluentConfig extends $dara.Model {
       kafkaRestProxyReplica: 'number',
       kafkaStorage: 'number',
       ksqlCU: 'number',
+      ksqlList: { 'type': 'array', 'itemType': UpgradePrePayOrderRequestConfluentConfigKsqlList },
       ksqlReplica: 'number',
       ksqlStorage: 'number',
       schemaRegistryCU: 'number',
@@ -68,6 +106,9 @@ export class UpgradePrePayOrderRequestConfluentConfig extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ksqlList)) {
+      $dara.Model.validateArray(this.ksqlList);
+    }
     super.validate();
   }
 

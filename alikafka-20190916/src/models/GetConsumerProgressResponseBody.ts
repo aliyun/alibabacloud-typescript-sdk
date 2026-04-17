@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoListRebalanceInfoList extends $dara.Model {
-  /**
-   * @remarks
-   * The number of rebalances.
-   * 
-   * @example
-   * 100
-   */
   generation?: number;
-  /**
-   * @remarks
-   * The group ID of the subscriber.
-   * 
-   * @example
-   * falcon-uat
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The time when the last rebalance occurred. Unit: milliseconds.
-   * 
-   * @example
-   * 1709199270
-   */
   lastRebalanceTimestamp?: number;
-  /**
-   * @remarks
-   * The cause of the rebalance.
-   * 
-   * @example
-   * removing member consumer-1-cd14eb9c-379b-4b8e-9bbd-76f147f8536f on LeaveGroup
-   */
   reason?: string;
-  /**
-   * @remarks
-   * Indicates whether new members are added to the consumer group in the rebalance.
-   * 
-   * @example
-   * true
-   */
   rebalanceSuccess?: boolean;
-  /**
-   * @remarks
-   * The duration of the rebalance. Unit: milliseconds.
-   * 
-   * @example
-   * 1
-   */
   rebalanceTimeConsuming?: number;
   static names(): { [key: string]: string } {
     return {
@@ -110,61 +68,12 @@ export class GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList ex
 
 export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOffsetListOffsetList extends $dara.Model {
   accumulate?: number;
-  /**
-   * @remarks
-   * The latest offset in the partition of the topic.
-   * 
-   * @example
-   * 9
-   */
   brokerOffset?: number;
-  /**
-   * @remarks
-   * Client ID of the application.
-   * 
-   * @example
-   * client-id-KafkaConsumerDemo
-   */
   clientId?: string;
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 172.16.11.3
-   */
   clientIp?: string;
-  /**
-   * @remarks
-   * The consumer offset in the partition of the topic.
-   * 
-   * @example
-   * 9
-   */
   consumerOffset?: number;
-  /**
-   * @remarks
-   * The time when the last consumed message in the partition was generated.
-   * 
-   * @example
-   * 1566874931649
-   */
   lastTimestamp?: number;
-  /**
-   * @remarks
-   * Member ID.
-   * 
-   * @example
-   * client-id-KafkaConsumerDemo-70b64883-a911-4882-8084-598b958848b4
-   */
   memberId?: string;
-  /**
-   * @remarks
-   * The partition ID.
-   * 
-   * @example
-   * 0
-   */
   partition?: number;
   static names(): { [key: string]: string } {
     return {
@@ -228,34 +137,9 @@ export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOf
 }
 
 export class GetConsumerProgressResponseBodyConsumerProgressTopicListTopicList extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the last consumed message in the topic was generated.
-   * 
-   * @example
-   * 1566874931649
-   */
   lastTimestamp?: number;
-  /**
-   * @remarks
-   * The consumer offsets.
-   */
   offsetList?: GetConsumerProgressResponseBodyConsumerProgressTopicListTopicListOffsetList;
-  /**
-   * @remarks
-   * The topic name.
-   * 
-   * @example
-   * kafka-test
-   */
   topic?: string;
-  /**
-   * @remarks
-   * The number of unconsumed messages in the topic to which the consumer group subscribes.
-   * 
-   * @example
-   * 0
-   */
   totalDiff?: number;
   static names(): { [key: string]: string } {
     return {
@@ -322,15 +206,7 @@ export class GetConsumerProgressResponseBodyConsumerProgress extends $dara.Model
    * 1566874931671
    */
   lastTimestamp?: number;
-  /**
-   * @remarks
-   * The details of rebalances in the consumer group.
-   */
   rebalanceInfoList?: GetConsumerProgressResponseBodyConsumerProgressRebalanceInfoList;
-  /**
-   * @remarks
-   * The consumer progress of each topic to which the consumer group subscribes.
-   */
   topicList?: GetConsumerProgressResponseBodyConsumerProgressTopicList;
   /**
    * @remarks

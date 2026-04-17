@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetTopicStatusResponseBodyTopicStatusOffsetTableOffsetTable extends $dara.Model {
-  /**
-   * @remarks
-   * The last time when the partition was modified.
-   * 
-   * @example
-   * 1566470063547
-   */
   lastUpdateTimestamp?: number;
-  /**
-   * @remarks
-   * The latest offset in the partition of the topic.
-   * 
-   * @example
-   * 76
-   */
   maxOffset?: number;
-  /**
-   * @remarks
-   * The earliest offset in the partition of the topic.
-   * 
-   * @example
-   * 0
-   */
   minOffset?: number;
-  /**
-   * @remarks
-   * The ID of the partition.
-   * 
-   * @example
-   * 0
-   */
   partition?: number;
-  /**
-   * @remarks
-   * The name of the topic.
-   * 
-   * @example
-   * testkafka
-   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -107,10 +72,6 @@ export class GetTopicStatusResponseBodyTopicStatus extends $dara.Model {
    * 1566470063575
    */
   lastTimeStamp?: number;
-  /**
-   * @remarks
-   * The information about offsets in the topic.
-   */
   offsetTable?: GetTopicStatusResponseBodyTopicStatusOffsetTable;
   /**
    * @remarks

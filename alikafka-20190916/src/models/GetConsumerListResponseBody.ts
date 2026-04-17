@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetConsumerListResponseBodyConsumerListConsumerVOTagsTagVO extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * test
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * test
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,58 +55,12 @@ export class GetConsumerListResponseBodyConsumerListConsumerVOTags extends $dara
 }
 
 export class GetConsumerListResponseBodyConsumerListConsumerVO extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates that the consumer group was automatically created by the system.
-   * 
-   * @example
-   * false
-   */
   automaticallyCreatedGroup?: boolean;
-  /**
-   * @remarks
-   * The consumer group ID.
-   * 
-   * @example
-   * kafka-test
-   */
   consumerId?: string;
-  /**
-   * @remarks
-   * The timestamp that indicates when the consumer group was created. Unit: milliseconds.
-   * 
-   * @example
-   * 1729736584002
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * alikafka_post-cn-v0h18sav****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the region where the instance resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The instance description.
-   * 
-   * @example
-   * test
-   */
   remark?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: GetConsumerListResponseBodyConsumerListConsumerVOTags;
   static names(): { [key: string]: string } {
     return {
@@ -193,10 +133,6 @@ export class GetConsumerListResponseBody extends $dara.Model {
    * 200
    */
   code?: number;
-  /**
-   * @remarks
-   * The consumer groups.
-   */
   consumerList?: GetConsumerListResponseBodyConsumerList;
   /**
    * @remarks

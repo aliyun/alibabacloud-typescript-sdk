@@ -2,6 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreatePrePayOrderRequestConfluentConfigKsqlList extends $dara.Model {
+  cu?: number;
+  internalId?: string;
+  replica?: number;
+  storage?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      internalId: 'InternalId',
+      replica: 'Replica',
+      storage: 'Storage',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'number',
+      internalId: 'string',
+      replica: 'number',
+      storage: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   /**
    * @remarks
@@ -91,6 +126,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
    * 4
    */
   ksqlCU?: number;
+  ksqlList?: CreatePrePayOrderRequestConfluentConfigKsqlList[];
   /**
    * @remarks
    * The number of replicas of ksqlDB.
@@ -160,6 +196,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
       kafkaRestProxyReplica: 'KafkaRestProxyReplica',
       kafkaStorage: 'KafkaStorage',
       ksqlCU: 'KsqlCU',
+      ksqlList: 'KsqlList',
       ksqlReplica: 'KsqlReplica',
       ksqlStorage: 'KsqlStorage',
       schemaRegistryCU: 'SchemaRegistryCU',
@@ -183,6 +220,7 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
       kafkaRestProxyReplica: 'number',
       kafkaStorage: 'number',
       ksqlCU: 'number',
+      ksqlList: { 'type': 'array', 'itemType': CreatePrePayOrderRequestConfluentConfigKsqlList },
       ksqlReplica: 'number',
       ksqlStorage: 'number',
       schemaRegistryCU: 'number',
@@ -194,6 +232,9 @@ export class CreatePrePayOrderRequestConfluentConfig extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ksqlList)) {
+      $dara.Model.validateArray(this.ksqlList);
+    }
     super.validate();
   }
 

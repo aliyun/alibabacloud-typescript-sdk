@@ -3,23 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetKafkaClientIpResponseBodyDataDataDataDataData extends $dara.Model {
-  /**
-   * @remarks
-   * The IP address of the client.
-   * 
-   * @example
-   * 58.210.117.154
-   */
   ip?: string;
-  /**
-   * @remarks
-   * The statistics.
-   * 
-   * >  The value of this parameter indicates the number of connections on different ports of the IP address within the specified period of time.
-   * 
-   * @example
-   * 3
-   */
   num?: number;
   static names(): { [key: string]: string } {
     return {
@@ -71,20 +55,7 @@ export class GetKafkaClientIpResponseBodyDataDataDataData extends $dara.Model {
 }
 
 export class GetKafkaClientIpResponseBodyDataDataData extends $dara.Model {
-  /**
-   * @remarks
-   * The response parameters.
-   */
   data?: GetKafkaClientIpResponseBodyDataDataDataData;
-  /**
-   * @remarks
-   * The request name.
-   * 
-   * >  The value of this parameter indicates the type of request that the client sends to the broker within the specified period of time.
-   * 
-   * @example
-   * OFFSET_COMMIT
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,10 +120,6 @@ export class GetKafkaClientIpResponseBodyData extends $dara.Model {
    * true
    */
   alert?: boolean;
-  /**
-   * @remarks
-   * The data returned.
-   */
   data?: GetKafkaClientIpResponseBodyDataData;
   /**
    * @remarks

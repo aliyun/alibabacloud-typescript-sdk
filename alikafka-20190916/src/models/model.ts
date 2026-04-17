@@ -6,10 +6,12 @@ export { CreatePostPayInstanceResponseBodyData } from './CreatePostPayInstanceRe
 export { CreatePostPayOrderRequestServerlessConfig } from './CreatePostPayOrderRequest';
 export { CreatePostPayOrderRequestTag } from './CreatePostPayOrderRequest';
 export { CreatePostPayOrderShrinkRequestTag } from './CreatePostPayOrderShrinkRequest';
+export { CreatePrePayInstanceRequestConfluentConfigKsqlList } from './CreatePrePayInstanceRequest';
 export { CreatePrePayInstanceRequestConfluentConfig } from './CreatePrePayInstanceRequest';
 export { CreatePrePayInstanceRequestTag } from './CreatePrePayInstanceRequest';
 export { CreatePrePayInstanceShrinkRequestTag } from './CreatePrePayInstanceShrinkRequest';
 export { CreatePrePayInstanceResponseBodyData } from './CreatePrePayInstanceResponseBody';
+export { CreatePrePayOrderRequestConfluentConfigKsqlList } from './CreatePrePayOrderRequest';
 export { CreatePrePayOrderRequestConfluentConfig } from './CreatePrePayOrderRequest';
 export { CreatePrePayOrderRequestTag } from './CreatePrePayOrderRequest';
 export { CreatePrePayOrderShrinkRequestTag } from './CreatePrePayOrderShrinkRequest';
@@ -40,6 +42,8 @@ export { GetConsumerProgressResponseBodyConsumerProgressTopicListTopicList } fro
 export { GetConsumerProgressResponseBodyConsumerProgressTopicList } from './GetConsumerProgressResponseBody';
 export { GetConsumerProgressResponseBodyConsumerProgress } from './GetConsumerProgressResponseBody';
 export { GetInstanceListRequestTag } from './GetInstanceListRequest';
+export { GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfigKsqlListConfluentInstanceComponentResourceVO } from './GetInstanceListResponseBody';
+export { GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfigKsqlList } from './GetInstanceListResponseBody';
 export { GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig } from './GetInstanceListResponseBody';
 export { GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponentsConfluentInstanceComponentVO } from './GetInstanceListResponseBody';
 export { GetInstanceListResponseBodyInstanceListInstanceVOConfluentInstanceComponents } from './GetInstanceListResponseBody';
@@ -74,6 +78,7 @@ export { QueryMessageResponseBodyMessageList } from './QueryMessageResponseBody'
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { UpdateConsumerOffsetRequestOffsets } from './UpdateConsumerOffsetRequest';
 export { UpgradePostPayOrderRequestServerlessConfig } from './UpgradePostPayOrderRequest';
+export { UpgradePrePayOrderRequestConfluentConfigKsqlList } from './UpgradePrePayOrderRequest';
 export { UpgradePrePayOrderRequestConfluentConfig } from './UpgradePrePayOrderRequest';
 export { AddUserDefinedSgRequest } from './AddUserDefinedSgRequest';
 export { AddUserDefinedSgShrinkRequest } from './AddUserDefinedSgShrinkRequest';
