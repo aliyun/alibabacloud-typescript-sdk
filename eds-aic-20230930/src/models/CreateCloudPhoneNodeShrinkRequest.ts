@@ -139,6 +139,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
    * node_name
    */
   nodeName?: string;
+  paidCallBackUrl?: string;
   /**
    * @remarks
    * The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
@@ -246,6 +247,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
       networkInfoShrink: 'NetworkInfo',
       networkType: 'NetworkType',
       nodeName: 'NodeName',
+      paidCallBackUrl: 'PaidCallBackUrl',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       phoneCount: 'PhoneCount',
@@ -282,6 +284,7 @@ export class CreateCloudPhoneNodeShrinkRequest extends $dara.Model {
       networkInfoShrink: 'string',
       networkType: 'string',
       nodeName: 'string',
+      paidCallBackUrl: 'string',
       period: 'number',
       periodUnit: 'string',
       phoneCount: 'number',

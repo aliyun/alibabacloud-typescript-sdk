@@ -14,6 +14,7 @@ export class ExpandDataVolumeRequest extends $dara.Model {
    */
   bizRegionId?: string;
   nodeIds?: string[];
+  paidCallBackUrl?: string;
   phoneDataVolume?: number;
   promotionId?: string;
   /**
@@ -26,6 +27,7 @@ export class ExpandDataVolumeRequest extends $dara.Model {
       autoPay: 'AutoPay',
       bizRegionId: 'BizRegionId',
       nodeIds: 'NodeIds',
+      paidCallBackUrl: 'PaidCallBackUrl',
       phoneDataVolume: 'PhoneDataVolume',
       promotionId: 'PromotionId',
       shareDataVolume: 'ShareDataVolume',
@@ -37,6 +39,7 @@ export class ExpandDataVolumeRequest extends $dara.Model {
       autoPay: 'boolean',
       bizRegionId: 'string',
       nodeIds: { 'type': 'array', 'itemType': 'string' },
+      paidCallBackUrl: 'string',
       phoneDataVolume: 'number',
       promotionId: 'string',
       shareDataVolume: 'number',

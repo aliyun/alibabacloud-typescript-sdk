@@ -22,6 +22,7 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
    * The cloud phone matrix IDs.
    */
   nodeIds?: string[];
+  paidCallBackUrl?: string;
   /**
    * @remarks
    * The subscription duration. The unit is specified by `PeriodUnit`. Valid values:
@@ -52,6 +53,7 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       nodeIds: 'NodeIds',
+      paidCallBackUrl: 'PaidCallBackUrl',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
@@ -63,6 +65,7 @@ export class RenewCloudPhoneNodesRequest extends $dara.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       nodeIds: { 'type': 'array', 'itemType': 'string' },
+      paidCallBackUrl: 'string',
       period: 'number',
       periodUnit: 'string',
       promotionId: 'string',

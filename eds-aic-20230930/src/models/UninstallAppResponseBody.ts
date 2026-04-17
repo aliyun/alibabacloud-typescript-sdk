@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UninstallAppResponseBodyChildTaskInfo extends $dara.Model {
+  appId?: string;
   /**
    * @example
    * t-ybde48cevxxxx
@@ -15,6 +16,7 @@ export class UninstallAppResponseBodyChildTaskInfo extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      appId: 'AppId',
       childTaskId: 'ChildTaskId',
       instanceId: 'InstanceId',
     };
@@ -22,6 +24,7 @@ export class UninstallAppResponseBodyChildTaskInfo extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appId: 'string',
       childTaskId: 'string',
       instanceId: 'string',
     };

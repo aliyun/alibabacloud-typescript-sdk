@@ -408,6 +408,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消云手机实例上正在运行的Agent任务。
+   * 
+   * @param request - CancelAgentTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAgentTaskResponse
+   */
+  async cancelAgentTaskWithOptions(request: $_model.CancelAgentTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelAgentTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskIds)) {
+      query["TaskIds"] = request.taskIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelAgentTask",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelAgentTaskResponse>(await this.callApi(params, req, runtime), new $_model.CancelAgentTaskResponse({}));
+  }
+
+  /**
+   * 取消云手机实例上正在运行的Agent任务。
+   * 
+   * @param request - CancelAgentTaskRequest
+   * @returns CancelAgentTaskResponse
+   */
+  async cancelAgentTask(request: $_model.CancelAgentTaskRequest): Promise<$_model.CancelAgentTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelAgentTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 修改云手机矩阵的配置
    * 
    * @param request - ChangeCloudPhoneNodeRequest
@@ -905,6 +947,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nodeName)) {
       query["NodeName"] = request.nodeName;
+    }
+
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
     }
 
     if (!$dara.isNull(request.period)) {
@@ -3237,6 +3283,10 @@ export default class Client extends OpenApi {
       query["NodeIds"] = request.nodeIds;
     }
 
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
+    }
+
     if (!$dara.isNull(request.phoneDataVolume)) {
       query["PhoneDataVolume"] = request.phoneDataVolume;
     }
@@ -3297,6 +3347,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
     }
 
     if (!$dara.isNull(request.phoneDataVolume)) {
@@ -4833,6 +4887,10 @@ export default class Client extends OpenApi {
       query["InstanceGroupIds"] = request.instanceGroupIds;
     }
 
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
+    }
+
     if (!$dara.isNull(request.period)) {
       query["Period"] = request.period;
     }
@@ -4885,6 +4943,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
     }
 
     if (!$dara.isNull(request.promotionId)) {
@@ -5966,6 +6028,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.instanceGroupId)) {
       query["InstanceGroupId"] = request.instanceGroupId;
+    }
+
+    if (!$dara.isNull(request.paidCallBackUrl)) {
+      query["PaidCallBackUrl"] = request.paidCallBackUrl;
     }
 
     if (!$dara.isNull(request.promotionId)) {

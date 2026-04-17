@@ -32,12 +32,14 @@ export class UpgradeAndroidInstanceGroupRequest extends $dara.Model {
    * ag-asguicdjh****
    */
   instanceGroupId?: string;
+  paidCallBackUrl?: string;
   promotionId?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
       increaseNumberOfInstance: 'IncreaseNumberOfInstance',
       instanceGroupId: 'InstanceGroupId',
+      paidCallBackUrl: 'PaidCallBackUrl',
       promotionId: 'PromotionId',
     };
   }
@@ -47,6 +49,7 @@ export class UpgradeAndroidInstanceGroupRequest extends $dara.Model {
       autoPay: 'boolean',
       increaseNumberOfInstance: 'number',
       instanceGroupId: 'string',
+      paidCallBackUrl: 'string',
       promotionId: 'string',
     };
   }

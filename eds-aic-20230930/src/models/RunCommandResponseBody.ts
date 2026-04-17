@@ -3,10 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunCommandResponseBodyRunCommandInfos extends $dara.Model {
+  childTaskId?: string;
   instanceId?: string;
   invokeId?: string;
   static names(): { [key: string]: string } {
     return {
+      childTaskId: 'ChildTaskId',
       instanceId: 'InstanceId',
       invokeId: 'InvokeId',
     };
@@ -14,6 +16,7 @@ export class RunCommandResponseBodyRunCommandInfos extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      childTaskId: 'string',
       instanceId: 'string',
       invokeId: 'string',
     };
@@ -46,11 +49,13 @@ export class RunCommandResponseBody extends $dara.Model {
    */
   requestId?: string;
   runCommandInfos?: RunCommandResponseBodyRunCommandInfos[];
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       invokeId: 'InvokeId',
       requestId: 'RequestId',
       runCommandInfos: 'RunCommandInfos',
+      taskId: 'TaskId',
     };
   }
 
@@ -59,6 +64,7 @@ export class RunCommandResponseBody extends $dara.Model {
       invokeId: 'string',
       requestId: 'string',
       runCommandInfos: { 'type': 'array', 'itemType': RunCommandResponseBodyRunCommandInfos },
+      taskId: 'string',
     };
   }
 

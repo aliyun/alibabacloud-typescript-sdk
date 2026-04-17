@@ -21,6 +21,7 @@ export class RenewAndroidInstanceGroupsRequest extends $dara.Model {
    * The IDs of the instance groups.
    */
   instanceGroupIds?: string[];
+  paidCallBackUrl?: string;
   /**
    * @remarks
    * The duration of the renewal, measured in units defined by PeriodUnit.
@@ -47,6 +48,7 @@ export class RenewAndroidInstanceGroupsRequest extends $dara.Model {
     return {
       autoPay: 'AutoPay',
       instanceGroupIds: 'InstanceGroupIds',
+      paidCallBackUrl: 'PaidCallBackUrl',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
@@ -57,6 +59,7 @@ export class RenewAndroidInstanceGroupsRequest extends $dara.Model {
     return {
       autoPay: 'boolean',
       instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
+      paidCallBackUrl: 'string',
       period: 'number',
       periodUnit: 'string',
       promotionId: 'string',
