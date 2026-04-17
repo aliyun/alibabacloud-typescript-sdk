@@ -14186,8 +14186,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.targetMemberIp)) {
+      query["TargetMemberIp"] = request.targetMemberIp;
+    }
+
     if (!$dara.isNull(request.targetOfficeSiteId)) {
       query["TargetOfficeSiteId"] = request.targetOfficeSiteId;
+    }
+
+    if (!$dara.isNull(request.targetSubnetId)) {
+      query["TargetSubnetId"] = request.targetSubnetId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

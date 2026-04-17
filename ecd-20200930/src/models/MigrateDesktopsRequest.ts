@@ -20,6 +20,7 @@ export class MigrateDesktopsRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  targetMemberIp?: string;
   /**
    * @remarks
    * The ID of the destination office network.
@@ -30,11 +31,21 @@ export class MigrateDesktopsRequest extends $dara.Model {
    * cn-shenzhen+dir-388505****
    */
   targetOfficeSiteId?: string;
+  /**
+   * @remarks
+   * > This parameter is for internal use only.
+   * 
+   * @example
+   * null
+   */
+  targetSubnetId?: string;
   static names(): { [key: string]: string } {
     return {
       desktopId: 'DesktopId',
       regionId: 'RegionId',
+      targetMemberIp: 'TargetMemberIp',
       targetOfficeSiteId: 'TargetOfficeSiteId',
+      targetSubnetId: 'TargetSubnetId',
     };
   }
 
@@ -42,7 +53,9 @@ export class MigrateDesktopsRequest extends $dara.Model {
     return {
       desktopId: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      targetMemberIp: 'string',
       targetOfficeSiteId: 'string',
+      targetSubnetId: 'string',
     };
   }
 
