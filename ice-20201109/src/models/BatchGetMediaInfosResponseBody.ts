@@ -2,6 +2,80 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListAudioStreamInfoList extends $dara.Model {
+  bitrate?: string;
+  channelLayout?: string;
+  channels?: string;
+  codecLongName?: string;
+  codecName?: string;
+  codecTag?: string;
+  codecTagString?: string;
+  codecTimeBase?: string;
+  duration?: string;
+  fps?: string;
+  index?: string;
+  lang?: string;
+  numFrames?: string;
+  profile?: string;
+  sampleFmt?: string;
+  sampleRate?: string;
+  startTime?: string;
+  timebase?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bitrate: 'Bitrate',
+      channelLayout: 'ChannelLayout',
+      channels: 'Channels',
+      codecLongName: 'CodecLongName',
+      codecName: 'CodecName',
+      codecTag: 'CodecTag',
+      codecTagString: 'CodecTagString',
+      codecTimeBase: 'CodecTimeBase',
+      duration: 'Duration',
+      fps: 'Fps',
+      index: 'Index',
+      lang: 'Lang',
+      numFrames: 'NumFrames',
+      profile: 'Profile',
+      sampleFmt: 'SampleFmt',
+      sampleRate: 'SampleRate',
+      startTime: 'StartTime',
+      timebase: 'Timebase',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bitrate: 'string',
+      channelLayout: 'string',
+      channels: 'string',
+      codecLongName: 'string',
+      codecName: 'string',
+      codecTag: 'string',
+      codecTagString: 'string',
+      codecTimeBase: 'string',
+      duration: 'string',
+      fps: 'string',
+      index: 'string',
+      lang: 'string',
+      numFrames: 'string',
+      profile: 'string',
+      sampleFmt: 'string',
+      sampleRate: 'string',
+      startTime: 'string',
+      timebase: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo extends $dara.Model {
   /**
    * @remarks
@@ -132,27 +206,187 @@ export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo e
   }
 }
 
-export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $dara.Model {
-  /**
-   * @remarks
-   * The basic information of the file, including the duration and size.
-   */
-  fileBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
+export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListSubtitleStreamInfoList extends $dara.Model {
+  codecLongName?: string;
+  codecName?: string;
+  codecTag?: string;
+  codecTagString?: string;
+  codecTimeBase?: string;
+  duration?: string;
+  index?: string;
+  lang?: string;
+  startTime?: string;
+  timebase?: string;
   static names(): { [key: string]: string } {
     return {
-      fileBasicInfo: 'FileBasicInfo',
+      codecLongName: 'CodecLongName',
+      codecName: 'CodecName',
+      codecTag: 'CodecTag',
+      codecTagString: 'CodecTagString',
+      codecTimeBase: 'CodecTimeBase',
+      duration: 'Duration',
+      index: 'Index',
+      lang: 'Lang',
+      startTime: 'StartTime',
+      timebase: 'Timebase',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      fileBasicInfo: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo,
+      codecLongName: 'string',
+      codecName: 'string',
+      codecTag: 'string',
+      codecTagString: 'string',
+      codecTimeBase: 'string',
+      duration: 'string',
+      index: 'string',
+      lang: 'string',
+      startTime: 'string',
+      timebase: 'string',
     };
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoListVideoStreamInfoList extends $dara.Model {
+  avgFPS?: string;
+  bitrate?: string;
+  codecLongName?: string;
+  codecName?: string;
+  codecTag?: string;
+  codecTagString?: string;
+  codecTimeBase?: string;
+  dar?: string;
+  duration?: string;
+  fps?: string;
+  hasBFrames?: string;
+  height?: string;
+  index?: string;
+  lang?: string;
+  level?: string;
+  nbFrames?: string;
+  numFrames?: string;
+  pixFmt?: string;
+  profile?: string;
+  rotate?: string;
+  sar?: string;
+  startTime?: string;
+  timebase?: string;
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      avgFPS: 'AvgFPS',
+      bitrate: 'Bitrate',
+      codecLongName: 'CodecLongName',
+      codecName: 'CodecName',
+      codecTag: 'CodecTag',
+      codecTagString: 'CodecTagString',
+      codecTimeBase: 'CodecTimeBase',
+      dar: 'Dar',
+      duration: 'Duration',
+      fps: 'Fps',
+      hasBFrames: 'HasBFrames',
+      height: 'Height',
+      index: 'Index',
+      lang: 'Lang',
+      level: 'Level',
+      nbFrames: 'Nb_frames',
+      numFrames: 'NumFrames',
+      pixFmt: 'PixFmt',
+      profile: 'Profile',
+      rotate: 'Rotate',
+      sar: 'Sar',
+      startTime: 'StartTime',
+      timebase: 'Timebase',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      avgFPS: 'string',
+      bitrate: 'string',
+      codecLongName: 'string',
+      codecName: 'string',
+      codecTag: 'string',
+      codecTagString: 'string',
+      codecTimeBase: 'string',
+      dar: 'string',
+      duration: 'string',
+      fps: 'string',
+      hasBFrames: 'string',
+      height: 'string',
+      index: 'string',
+      lang: 'string',
+      level: 'string',
+      nbFrames: 'string',
+      numFrames: 'string',
+      pixFmt: 'string',
+      profile: 'string',
+      rotate: 'string',
+      sar: 'string',
+      startTime: 'string',
+      timebase: 'string',
+      width: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetMediaInfosResponseBodyMediaInfosFileInfoList extends $dara.Model {
+  audioStreamInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListAudioStreamInfoList[];
+  /**
+   * @remarks
+   * The basic information of the file, including the duration and size.
+   */
+  fileBasicInfo?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo;
+  subtitleStreamInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListSubtitleStreamInfoList[];
+  videoStreamInfoList?: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListVideoStreamInfoList[];
+  static names(): { [key: string]: string } {
+    return {
+      audioStreamInfoList: 'AudioStreamInfoList',
+      fileBasicInfo: 'FileBasicInfo',
+      subtitleStreamInfoList: 'SubtitleStreamInfoList',
+      videoStreamInfoList: 'VideoStreamInfoList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioStreamInfoList: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfosFileInfoListAudioStreamInfoList },
+      fileBasicInfo: BatchGetMediaInfosResponseBodyMediaInfosFileInfoListFileBasicInfo,
+      subtitleStreamInfoList: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfosFileInfoListSubtitleStreamInfoList },
+      videoStreamInfoList: { 'type': 'array', 'itemType': BatchGetMediaInfosResponseBodyMediaInfosFileInfoListVideoStreamInfoList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.audioStreamInfoList)) {
+      $dara.Model.validateArray(this.audioStreamInfoList);
+    }
     if(this.fileBasicInfo && typeof (this.fileBasicInfo as any).validate === 'function') {
       (this.fileBasicInfo as any).validate();
+    }
+    if(Array.isArray(this.subtitleStreamInfoList)) {
+      $dara.Model.validateArray(this.subtitleStreamInfoList);
+    }
+    if(Array.isArray(this.videoStreamInfoList)) {
+      $dara.Model.validateArray(this.videoStreamInfoList);
     }
     super.validate();
   }
