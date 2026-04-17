@@ -4388,6 +4388,81 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询机器人
+   * 
+   * @param tmpReq - ListAlertRobotsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertRobotsResponse
+   */
+  async listAlertRobotsWithOptions(tmpReq: $_model.ListAlertRobotsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAlertRobotsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAlertRobotsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.robotIds)) {
+      request.robotIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.robotIds, "robotIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.types)) {
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "types", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.robotIdsShrink)) {
+      query["robotIds"] = request.robotIdsShrink;
+    }
+
+    if (!$dara.isNull(request.typesShrink)) {
+      query["types"] = request.typesShrink;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAlertRobots",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/robots`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAlertRobotsResponse>(await this.callApi(params, req, runtime), new $_model.ListAlertRobotsResponse({}));
+  }
+
+  /**
+   * 查询机器人
+   * 
+   * @param request - ListAlertRobotsRequest
+   * @returns ListAlertRobotsResponse
+   */
+  async listAlertRobots(request: $_model.ListAlertRobotsRequest): Promise<$_model.ListAlertRobotsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAlertRobotsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询Webhook
    * 
    * @param tmpReq - ListAlertWebhooksRequest
@@ -4505,6 +4580,156 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listBizTracesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询联系人组
+   * 
+   * @param tmpReq - ListContactGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContactGroupsResponse
+   */
+  async listContactGroupsWithOptions(tmpReq: $_model.ListContactGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListContactGroupsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListContactGroupsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contactGroupIds)) {
+      request.contactGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contactGroupIds, "contactGroupIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contactGroupIdsShrink)) {
+      query["contactGroupIds"] = request.contactGroupIdsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContactGroups",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contactGroups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContactGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListContactGroupsResponse({}));
+  }
+
+  /**
+   * 查询联系人组
+   * 
+   * @param request - ListContactGroupsRequest
+   * @returns ListContactGroupsResponse
+   */
+  async listContactGroups(request: $_model.ListContactGroupsRequest): Promise<$_model.ListContactGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listContactGroupsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询联系人
+   * 
+   * @param tmpReq - ListContactsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContactsResponse
+   */
+  async listContactsWithOptions(tmpReq: $_model.ListContactsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListContactsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListContactsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.contactIds)) {
+      request.contactIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contactIds, "contactIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contactIdsShrink)) {
+      query["contactIds"] = request.contactIdsShrink;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.groupId)) {
+      query["groupId"] = request.groupId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.phone)) {
+      query["phone"] = request.phone;
+    }
+
+    if (!$dara.isNull(request.queryUngroupedContacts)) {
+      query["queryUngroupedContacts"] = request.queryUngroupedContacts;
+    }
+
+    if (!$dara.isNull(request.workspace)) {
+      query["workspace"] = request.workspace;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContacts",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/contact`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContactsResponse>(await this.callApi(params, req, runtime), new $_model.ListContactsResponse({}));
+  }
+
+  /**
+   * 查询联系人
+   * 
+   * @param request - ListContactsRequest
+   * @returns ListContactsResponse
+   */
+  async listContacts(request: $_model.ListContactsRequest): Promise<$_model.ListContactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listContactsWithOptions(request, headers, runtime);
   }
 
   /**
