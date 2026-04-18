@@ -18128,6 +18128,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询历史活跃用户数量
+   * 
+   * @param request - QueryHistoryActiveUserCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHistoryActiveUserCountResponse
+   */
+  async queryHistoryActiveUserCountWithOptions(request: $_model.QueryHistoryActiveUserCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryHistoryActiveUserCountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dataDate)) {
+      query["DataDate"] = request.dataDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryHistoryActiveUserCount",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryHistoryActiveUserCountResponse>(await this.callApi(params, req, runtime), new $_model.QueryHistoryActiveUserCountResponse({}));
+  }
+
+  /**
+   * 查询历史活跃用户数量
+   * 
+   * @param request - QueryHistoryActiveUserCountRequest
+   * @returns QueryHistoryActiveUserCountResponse
+   */
+  async queryHistoryActiveUserCount(request: $_model.QueryHistoryActiveUserCountRequest): Promise<$_model.QueryHistoryActiveUserCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryHistoryActiveUserCountWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询桌面历史指标分布
+   * 
+   * @param request - QueryHistoryMetricDistributionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHistoryMetricDistributionResponse
+   */
+  async queryHistoryMetricDistributionWithOptions(request: $_model.QueryHistoryMetricDistributionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryHistoryMetricDistributionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.ranges)) {
+      query["Ranges"] = request.ranges;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryHistoryMetricDistribution",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryHistoryMetricDistributionResponse>(await this.callApi(params, req, runtime), new $_model.QueryHistoryMetricDistributionResponse({}));
+  }
+
+  /**
+   * 查询桌面历史指标分布
+   * 
+   * @param request - QueryHistoryMetricDistributionRequest
+   * @returns QueryHistoryMetricDistributionResponse
+   */
+  async queryHistoryMetricDistribution(request: $_model.QueryHistoryMetricDistributionRequest): Promise<$_model.QueryHistoryMetricDistributionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryHistoryMetricDistributionWithOptions(request, runtime);
+  }
+
+  /**
    * Restart cloud computers.
    * 
    * @remarks
