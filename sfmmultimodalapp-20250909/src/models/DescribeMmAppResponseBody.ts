@@ -2,6 +2,204 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeMmAppResponseBodyAppConfig extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  enableTransition?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableTransition: 'EnableTransition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableTransition: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMmAppResponseBodyBindingConfigCommands extends $dara.Model {
+  /**
+   * @example
+   * xxx
+   */
+  domainCode?: string;
+  tools?: string[];
+  /**
+   * @example
+   * BAILIAN
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainCode: 'DomainCode',
+      tools: 'Tools',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainCode: 'string',
+      tools: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.tools)) {
+      $dara.Model.validateArray(this.tools);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMmAppResponseBodyBindingConfigMcps extends $dara.Model {
+  /**
+   * @example
+   * mcp-xxxx
+   */
+  code?: string;
+  toolList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      toolList: 'ToolList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      toolList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.toolList)) {
+      $dara.Model.validateArray(this.toolList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMmAppResponseBodyBindingConfigRagConfig extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  enableSearch?: string;
+  knowledgeBaseCodeList?: string[];
+  /**
+   * @example
+   * top_k
+   */
+  promptStrategy?: string;
+  rankWeights?: { [key: string]: number };
+  /**
+   * @example
+   * 1000
+   */
+  retrieveMaxLength?: number;
+  /**
+   * @example
+   * 5
+   */
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableSearch: 'EnableSearch',
+      knowledgeBaseCodeList: 'KnowledgeBaseCodeList',
+      promptStrategy: 'PromptStrategy',
+      rankWeights: 'RankWeights',
+      retrieveMaxLength: 'RetrieveMaxLength',
+      topK: 'TopK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSearch: 'string',
+      knowledgeBaseCodeList: { 'type': 'array', 'itemType': 'string' },
+      promptStrategy: 'string',
+      rankWeights: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      retrieveMaxLength: 'number',
+      topK: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.knowledgeBaseCodeList)) {
+      $dara.Model.validateArray(this.knowledgeBaseCodeList);
+    }
+    if(this.rankWeights) {
+      $dara.Model.validateMap(this.rankWeights);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeMmAppResponseBodyBindingConfig extends $dara.Model {
+  commands?: DescribeMmAppResponseBodyBindingConfigCommands[];
+  mcps?: DescribeMmAppResponseBodyBindingConfigMcps[];
+  ragConfig?: DescribeMmAppResponseBodyBindingConfigRagConfig;
+  static names(): { [key: string]: string } {
+    return {
+      commands: 'Commands',
+      mcps: 'Mcps',
+      ragConfig: 'RagConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commands: { 'type': 'array', 'itemType': DescribeMmAppResponseBodyBindingConfigCommands },
+      mcps: { 'type': 'array', 'itemType': DescribeMmAppResponseBodyBindingConfigMcps },
+      ragConfig: DescribeMmAppResponseBodyBindingConfigRagConfig,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.commands)) {
+      $dara.Model.validateArray(this.commands);
+    }
+    if(Array.isArray(this.mcps)) {
+      $dara.Model.validateArray(this.mcps);
+    }
+    if(this.ragConfig && typeof (this.ragConfig as any).validate === 'function') {
+      (this.ragConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeMmAppResponseBodyConversationConfig extends $dara.Model {
   /**
    * @example
@@ -53,6 +251,7 @@ export class DescribeMmAppResponseBodyModelConfig extends $dara.Model {
    * MMH
    */
   modelType?: string;
+  openMemory?: boolean;
   openWebSearch?: boolean;
   /**
    * @example
@@ -63,6 +262,7 @@ export class DescribeMmAppResponseBodyModelConfig extends $dara.Model {
     return {
       historyLimit: 'HistoryLimit',
       modelType: 'ModelType',
+      openMemory: 'OpenMemory',
       openWebSearch: 'OpenWebSearch',
       textModal: 'TextModal',
     };
@@ -72,6 +272,7 @@ export class DescribeMmAppResponseBodyModelConfig extends $dara.Model {
     return {
       historyLimit: 'number',
       modelType: 'string',
+      openMemory: 'boolean',
       openWebSearch: 'boolean',
       textModal: 'string',
     };
@@ -87,6 +288,7 @@ export class DescribeMmAppResponseBodyModelConfig extends $dara.Model {
 }
 
 export class DescribeMmAppResponseBody extends $dara.Model {
+  appConfig?: DescribeMmAppResponseBodyAppConfig;
   /**
    * @example
    * mm_xxxx
@@ -97,6 +299,7 @@ export class DescribeMmAppResponseBody extends $dara.Model {
    * 多模态应用xxxx
    */
   appName?: string;
+  bindingConfig?: DescribeMmAppResponseBodyBindingConfig;
   conversationConfig?: DescribeMmAppResponseBodyConversationConfig;
   /**
    * @example
@@ -140,6 +343,9 @@ export class DescribeMmAppResponseBody extends $dara.Model {
    */
   publishVersion?: number;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * xxxx
    */
@@ -151,8 +357,10 @@ export class DescribeMmAppResponseBody extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      appConfig: 'AppConfig',
       appId: 'AppId',
       appName: 'AppName',
+      bindingConfig: 'BindingConfig',
       conversationConfig: 'ConversationConfig',
       createUserId: 'CreateUserId',
       createUserName: 'CreateUserName',
@@ -170,8 +378,10 @@ export class DescribeMmAppResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      appConfig: DescribeMmAppResponseBodyAppConfig,
       appId: 'string',
       appName: 'string',
+      bindingConfig: DescribeMmAppResponseBodyBindingConfig,
       conversationConfig: DescribeMmAppResponseBodyConversationConfig,
       createUserId: 'string',
       createUserName: 'string',
@@ -188,6 +398,12 @@ export class DescribeMmAppResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.appConfig && typeof (this.appConfig as any).validate === 'function') {
+      (this.appConfig as any).validate();
+    }
+    if(this.bindingConfig && typeof (this.bindingConfig as any).validate === 'function') {
+      (this.bindingConfig as any).validate();
+    }
     if(this.conversationConfig && typeof (this.conversationConfig as any).validate === 'function') {
       (this.conversationConfig as any).validate();
     }

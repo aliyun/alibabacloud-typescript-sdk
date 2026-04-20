@@ -816,6 +816,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 多模态应用绑定MCP
+   * 
+   * @param tmpReq - MmAppBindingMcpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MmAppBindingMcpResponse
+   */
+  async mmAppBindingMcpWithOptions(tmpReq: $_model.MmAppBindingMcpRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MmAppBindingMcpResponse> {
+    tmpReq.validate();
+    let request = new $_model.MmAppBindingMcpShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.mcps)) {
+      request.mcpsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.mcps, "Mcps", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.mcpsShrink)) {
+      query["Mcps"] = request.mcpsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MmAppBindingMcp",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MmAppBindingMcpResponse>(await this.callApi(params, req, runtime), new $_model.MmAppBindingMcpResponse({}));
+  }
+
+  /**
+   * 多模态应用绑定MCP
+   * 
+   * @param request - MmAppBindingMcpRequest
+   * @returns MmAppBindingMcpResponse
+   */
+  async mmAppBindingMcp(request: $_model.MmAppBindingMcpRequest): Promise<$_model.MmAppBindingMcpResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.mmAppBindingMcpWithOptions(request, runtime);
+  }
+
+  /**
+   * 多模态应用绑定知识库
+   * 
+   * @param tmpReq - MmAppBindingRagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MmAppBindingRagResponse
+   */
+  async mmAppBindingRagWithOptions(tmpReq: $_model.MmAppBindingRagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MmAppBindingRagResponse> {
+    tmpReq.validate();
+    let request = new $_model.MmAppBindingRagShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.knowledgeBaseCodeList)) {
+      request.knowledgeBaseCodeListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.knowledgeBaseCodeList, "KnowledgeBaseCodeList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseCodeListShrink)) {
+      query["KnowledgeBaseCodeList"] = request.knowledgeBaseCodeListShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MmAppBindingRag",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MmAppBindingRagResponse>(await this.callApi(params, req, runtime), new $_model.MmAppBindingRagResponse({}));
+  }
+
+  /**
+   * 多模态应用绑定知识库
+   * 
+   * @param request - MmAppBindingRagRequest
+   * @returns MmAppBindingRagResponse
+   */
+  async mmAppBindingRag(request: $_model.MmAppBindingRagRequest): Promise<$_model.MmAppBindingRagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.mmAppBindingRagWithOptions(request, runtime);
+  }
+
+  /**
    * 变更用户记忆配置
    * 
    * @param request - PatchMemoryConfigRequest
@@ -1381,6 +1493,270 @@ export default class Client extends OpenApi {
   async updateMmApp(request: $_model.UpdateMmAppRequest): Promise<$_model.UpdateMmAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMmAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改多模态应用长期记忆开关
+   * 
+   * @param request - UpdateMmAppMemoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmAppMemoryResponse
+   */
+  async updateMmAppMemoryWithOptions(request: $_model.UpdateMmAppMemoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmAppMemoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmAppMemory",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmAppMemoryResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmAppMemoryResponse({}));
+  }
+
+  /**
+   * 修改多模态应用长期记忆开关
+   * 
+   * @param request - UpdateMmAppMemoryRequest
+   * @returns UpdateMmAppMemoryResponse
+   */
+  async updateMmAppMemory(request: $_model.UpdateMmAppMemoryRequest): Promise<$_model.UpdateMmAppMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMmAppMemoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改知识库开关
+   * 
+   * @param request - UpdateMmAppRagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmAppRagResponse
+   */
+  async updateMmAppRagWithOptions(request: $_model.UpdateMmAppRagRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmAppRagResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmAppRag",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmAppRagResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmAppRagResponse({}));
+  }
+
+  /**
+   * 修改知识库开关
+   * 
+   * @param request - UpdateMmAppRagRequest
+   * @returns UpdateMmAppRagResponse
+   */
+  async updateMmAppRag(request: $_model.UpdateMmAppRagRequest): Promise<$_model.UpdateMmAppRagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMmAppRagWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改知识库配置
+   * 
+   * @param request - UpdateMmAppRagConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmAppRagConfigResponse
+   */
+  async updateMmAppRagConfigWithOptions(request: $_model.UpdateMmAppRagConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmAppRagConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.promptStrategy)) {
+      query["PromptStrategy"] = request.promptStrategy;
+    }
+
+    if (!$dara.isNull(request.retrieveMaxLength)) {
+      query["RetrieveMaxLength"] = request.retrieveMaxLength;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmAppRagConfig",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmAppRagConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmAppRagConfigResponse({}));
+  }
+
+  /**
+   * 修改知识库配置
+   * 
+   * @param request - UpdateMmAppRagConfigRequest
+   * @returns UpdateMmAppRagConfigResponse
+   */
+  async updateMmAppRagConfig(request: $_model.UpdateMmAppRagConfigRequest): Promise<$_model.UpdateMmAppRagConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMmAppRagConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改知识库权重
+   * 
+   * @param tmpReq - UpdateMmAppRagWeightRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmAppRagWeightResponse
+   */
+  async updateMmAppRagWeightWithOptions(tmpReq: $_model.UpdateMmAppRagWeightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmAppRagWeightResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMmAppRagWeightShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rankWeights)) {
+      request.rankWeightsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rankWeights, "RankWeights", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.rankWeightsShrink)) {
+      query["RankWeights"] = request.rankWeightsShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmAppRagWeight",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmAppRagWeightResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmAppRagWeightResponse({}));
+  }
+
+  /**
+   * 修改知识库权重
+   * 
+   * @param request - UpdateMmAppRagWeightRequest
+   * @returns UpdateMmAppRagWeightResponse
+   */
+  async updateMmAppRagWeight(request: $_model.UpdateMmAppRagWeightRequest): Promise<$_model.UpdateMmAppRagWeightResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMmAppRagWeightWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改应用承接语开关
+   * 
+   * @param request - UpdateMmAppTransitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmAppTransitionResponse
+   */
+  async updateMmAppTransitionWithOptions(request: $_model.UpdateMmAppTransitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmAppTransitionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmAppTransition",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmAppTransitionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmAppTransitionResponse({}));
+  }
+
+  /**
+   * 修改应用承接语开关
+   * 
+   * @param request - UpdateMmAppTransitionRequest
+   * @returns UpdateMmAppTransitionResponse
+   */
+  async updateMmAppTransition(request: $_model.UpdateMmAppTransitionRequest): Promise<$_model.UpdateMmAppTransitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMmAppTransitionWithOptions(request, runtime);
   }
 
   /**
