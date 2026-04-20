@@ -65,15 +65,24 @@ export class ConvertFlowDSLInputOptions extends $dara.Model {
    * true
    */
   compatibilityCheck?: boolean;
+  credentialName?: string;
+  flowName?: string;
+  vpcEndpointName?: string;
   static names(): { [key: string]: string } {
     return {
       compatibilityCheck: 'compatibilityCheck',
+      credentialName: 'credentialName',
+      flowName: 'flowName',
+      vpcEndpointName: 'vpcEndpointName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       compatibilityCheck: 'boolean',
+      credentialName: 'string',
+      flowName: 'string',
+      vpcEndpointName: 'string',
     };
   }
 
