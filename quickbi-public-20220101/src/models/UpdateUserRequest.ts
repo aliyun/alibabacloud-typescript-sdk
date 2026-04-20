@@ -28,6 +28,7 @@ export class UpdateUserRequest extends $dara.Model {
    * true
    */
   authAdminUser?: boolean;
+  copilotModules?: string;
   /**
    * @remarks
    * User status: 
@@ -83,6 +84,7 @@ export class UpdateUserRequest extends $dara.Model {
     return {
       adminUser: 'AdminUser',
       authAdminUser: 'AuthAdminUser',
+      copilotModules: 'CopilotModules',
       isDeleted: 'IsDeleted',
       nickName: 'NickName',
       roleIds: 'RoleIds',
@@ -95,6 +97,7 @@ export class UpdateUserRequest extends $dara.Model {
     return {
       adminUser: 'boolean',
       authAdminUser: 'boolean',
+      copilotModules: 'string',
       isDeleted: 'boolean',
       nickName: 'string',
       roleIds: 'string',

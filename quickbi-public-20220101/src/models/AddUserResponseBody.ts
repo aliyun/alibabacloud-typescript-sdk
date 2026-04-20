@@ -39,6 +39,7 @@ export class AddUserResponseBodyResult extends $dara.Model {
    * true
    */
   authAdminUser?: boolean;
+  copilotModules?: string[];
   /**
    * @remarks
    * Aliyun account nickname.
@@ -76,6 +77,7 @@ export class AddUserResponseBodyResult extends $dara.Model {
       accountName: 'AccountName',
       adminUser: 'AdminUser',
       authAdminUser: 'AuthAdminUser',
+      copilotModules: 'CopilotModules',
       nickName: 'NickName',
       roleIdList: 'RoleIdList',
       userId: 'UserId',
@@ -88,6 +90,7 @@ export class AddUserResponseBodyResult extends $dara.Model {
       accountName: 'string',
       adminUser: 'boolean',
       authAdminUser: 'boolean',
+      copilotModules: { 'type': 'array', 'itemType': 'string' },
       nickName: 'string',
       roleIdList: { 'type': 'array', 'itemType': 'number' },
       userId: 'string',
@@ -96,6 +99,9 @@ export class AddUserResponseBodyResult extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.copilotModules)) {
+      $dara.Model.validateArray(this.copilotModules);
+    }
     if(Array.isArray(this.roleIdList)) {
       $dara.Model.validateArray(this.roleIdList);
     }

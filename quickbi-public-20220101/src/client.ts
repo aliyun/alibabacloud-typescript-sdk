@@ -78,7 +78,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 43342***435,1553a****41231
+   * Modifies the whitelist of the row and column permissions for a specified dataset.
    * 
    * @remarks
    * ROW_LEVEL
@@ -128,7 +128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 43342***435,1553a****41231
+   * Modifies the whitelist of the row and column permissions for a specified dataset.
    * 
    * @remarks
    * ROW_LEVEL
@@ -265,6 +265,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.authAdminUser)) {
       query["AuthAdminUser"] = request.authAdminUser;
+    }
+
+    if (!$dara.isNull(request.copilotModules)) {
+      query["CopilotModules"] = request.copilotModules;
     }
 
     if (!$dara.isNull(request.nickName)) {
@@ -495,6 +499,68 @@ export default class Client extends OpenApi {
   async addUserToWorkspace(request: $_model.AddUserToWorkspaceRequest): Promise<$_model.AddUserToWorkspaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addUserToWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
+   * 新增作品的协同授权记录
+   * 
+   * @param request - AddWorksAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddWorksAuthorizationResponse
+   */
+  async addWorksAuthorizationWithOptions(request: $_model.AddWorksAuthorizationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddWorksAuthorizationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authPoints)) {
+      query["AuthPoints"] = request.authPoints;
+    }
+
+    if (!$dara.isNull(request.authorizeScope)) {
+      query["AuthorizeScope"] = request.authorizeScope;
+    }
+
+    if (!$dara.isNull(request.authorizedId)) {
+      query["AuthorizedId"] = request.authorizedId;
+    }
+
+    if (!$dara.isNull(request.expireDay)) {
+      query["ExpireDay"] = request.expireDay;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddWorksAuthorization",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddWorksAuthorizationResponse>(await this.callApi(params, req, runtime), new $_model.AddWorksAuthorizationResponse({}));
+  }
+
+  /**
+   * 新增作品的协同授权记录
+   * 
+   * @param request - AddWorksAuthorizationRequest
+   * @returns AddWorksAuthorizationResponse
+   */
+  async addWorksAuthorization(request: $_model.AddWorksAuthorizationRequest): Promise<$_model.AddWorksAuthorizationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addWorksAuthorizationWithOptions(request, runtime);
   }
 
   /**
@@ -1623,7 +1689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+   * Deletes a selected group of people for a single row and column permission rule.
    * 
    * @remarks
    * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
@@ -1657,7 +1723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * { "ruleId": "a5bb24da- ***-a891683e14da", // The ID of the row-column permission rule. "cubeId": "7c7223ae- ***-3c744528014b", // The ID of the dataset. "delModel": { "userGroups": [ "0d5fb19b- ***-1248 fc27ca51", // Delete the user group ID of the user group. "3d2c23d4-***-f6390f325c2d" ], "users": [ "4334 ***358", // Delete the UserID of the user group. "Huang***3fa822" ] } }
+   * Deletes a selected group of people for a single row and column permission rule.
    * 
    * @remarks
    * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}
@@ -1671,7 +1737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the request.
+   * Deletes a single row or column permission rule.
    * 
    * @remarks
    * The ID of the training dataset that you want to remove from the specified custom linguistic model.
@@ -1709,7 +1775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The ID of the request.
+   * Deletes a single row or column permission rule.
    * 
    * @remarks
    * The ID of the training dataset that you want to remove from the specified custom linguistic model.
@@ -2737,7 +2803,6 @@ export default class Client extends OpenApi {
   /**
    * Retrieve the list of custom roles at the organization level.
    * 
-   * @param request - ListOrganizationRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListOrganizationRolesResponse
    */
@@ -4129,8 +4194,8 @@ export default class Client extends OpenApi {
 
   /**
    * Indicates whether the table is a custom SQL table. Valid values:
-   * \\*   true: custom SQL table
-   * \\*   false: non-custom SQL table
+   * \\\\*   true: custom SQL table
+   * \\\\*   false: non-custom SQL table
    * 
    * @param request - QueryDatasetInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4162,8 +4227,8 @@ export default class Client extends OpenApi {
 
   /**
    * Indicates whether the table is a custom SQL table. Valid values:
-   * \\*   true: custom SQL table
-   * \\*   false: non-custom SQL table
+   * \\\\*   true: custom SQL table
+   * \\\\*   false: non-custom SQL table
    * 
    * @param request - QueryDatasetInfoRequest
    * @returns QueryDatasetInfoResponse
@@ -4174,7 +4239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The name of the training dataset.
+   * Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
    * 
    * @param request - QueryDatasetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4225,7 +4290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The name of the training dataset.
+   * Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
    * 
    * @param request - QueryDatasetListRequest
    * @returns QueryDatasetListResponse
@@ -4328,7 +4393,6 @@ export default class Client extends OpenApi {
   /**
    * Obtain the embedding configuration in the organization, including the maximum number of embeddings and the number of embeddings.
    * 
-   * @param request - QueryEmbeddedInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryEmbeddedInfoResponse
    */
@@ -5223,7 +5287,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the metadata list of member tags in an organization.
    * 
-   * @param request - QueryUserTagMetaListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryUserTagMetaListResponse
    */
@@ -5885,7 +5948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Management of Smart Q\\\\\\&A Authorizations
+   * Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations
    * 
    * @remarks
    * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
@@ -5939,7 +6002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Management of Smart Q\\\\\\&A Authorizations
+   * Batch Management of Smart Q\\\\\\\\\\\\&A Authorizations
    * 
    * @remarks
    * Used for batch management of smart Q&A authorizations. Repeatedly adding an authorization will be treated as a new addition; repeatedly deleting an authorization will be skipped by default and will not be recorded in the audit log.
@@ -6071,9 +6134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether the request is successful. Valid values:
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * Updates the status of the row and column permission switch for a dataset.
    * 
    * @remarks
    * The execution result of the interface. Valid values:
@@ -6117,9 +6178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Indicates whether the request is successful. Valid values:
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * Updates the status of the row and column permission switch for a dataset.
    * 
    * @remarks
    * The execution result of the interface. Valid values:
@@ -6284,6 +6343,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.authAdminUser)) {
       query["AuthAdminUser"] = request.authAdminUser;
+    }
+
+    if (!$dara.isNull(request.copilotModules)) {
+      query["CopilotModules"] = request.copilotModules;
     }
 
     if (!$dara.isNull(request.isDeleted)) {

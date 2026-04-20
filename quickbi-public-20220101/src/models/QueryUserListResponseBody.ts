@@ -41,6 +41,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
    * true
    */
   authAdminUser?: boolean;
+  copilotModules?: string[];
   /**
    * @remarks
    * User status: 
@@ -106,6 +107,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
       accountName: 'AccountName',
       adminUser: 'AdminUser',
       authAdminUser: 'AuthAdminUser',
+      copilotModules: 'CopilotModules',
       isDeleted: 'IsDeleted',
       joinedDate: 'JoinedDate',
       lastLoginTime: 'LastLoginTime',
@@ -122,6 +124,7 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
       accountName: 'string',
       adminUser: 'boolean',
       authAdminUser: 'boolean',
+      copilotModules: { 'type': 'array', 'itemType': 'string' },
       isDeleted: 'boolean',
       joinedDate: 'number',
       lastLoginTime: 'number',
@@ -133,6 +136,9 @@ export class QueryUserListResponseBodyResultData extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.copilotModules)) {
+      $dara.Model.validateArray(this.copilotModules);
+    }
     if(Array.isArray(this.roleIdList)) {
       $dara.Model.validateArray(this.roleIdList);
     }

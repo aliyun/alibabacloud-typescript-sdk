@@ -60,6 +60,7 @@ export class AddUserRequest extends $dara.Model {
    * @deprecated
    */
   authAdminUser?: boolean;
+  copilotModules?: string;
   /**
    * @remarks
    * Aliyun account nickname.
@@ -103,6 +104,7 @@ export class AddUserRequest extends $dara.Model {
       accountName: 'AccountName',
       adminUser: 'AdminUser',
       authAdminUser: 'AuthAdminUser',
+      copilotModules: 'CopilotModules',
       nickName: 'NickName',
       roleIds: 'RoleIds',
       userType: 'UserType',
@@ -115,6 +117,7 @@ export class AddUserRequest extends $dara.Model {
       accountName: 'string',
       adminUser: 'boolean',
       authAdminUser: 'boolean',
+      copilotModules: 'string',
       nickName: 'string',
       roleIds: 'string',
       userType: 'number',

@@ -41,6 +41,7 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
    * true
    */
   authAdminUser?: boolean;
+  copilotModules?: string[];
   /**
    * @remarks
    * The email address of the user.
@@ -92,6 +93,7 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
       accountName: 'AccountName',
       adminUser: 'AdminUser',
       authAdminUser: 'AuthAdminUser',
+      copilotModules: 'CopilotModules',
       email: 'Email',
       nickName: 'NickName',
       phone: 'Phone',
@@ -107,6 +109,7 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
       accountName: 'string',
       adminUser: 'boolean',
       authAdminUser: 'boolean',
+      copilotModules: { 'type': 'array', 'itemType': 'string' },
       email: 'string',
       nickName: 'string',
       phone: 'string',
@@ -117,6 +120,9 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.copilotModules)) {
+      $dara.Model.validateArray(this.copilotModules);
+    }
     if(Array.isArray(this.roleIdList)) {
       $dara.Model.validateArray(this.roleIdList);
     }
