@@ -295,6 +295,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加用户
+   * 
+   * @param request - CreateUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUserResponse
+   */
+  async createUserWithOptions(instanceId: string, request: $_model.CreateUserRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUserResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.superUser)) {
+      body["superUser"] = request.superUser;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["userName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateUser",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/createUser`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateUserResponse>(await this.callApi(params, req, runtime), new $_model.CreateUserResponse({}));
+  }
+
+  /**
+   * 添加用户
+   * 
+   * @param request - CreateUserRequest
+   * @returns CreateUserResponse
+   */
+  async createUser(instanceId: string, request: $_model.CreateUserRequest): Promise<$_model.CreateUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createUserWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a virtual warehouse.
    * 
    * @param request - DeleteHoloWarehouseRequest
@@ -472,6 +521,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableSSLWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * 删除用户
+   * 
+   * @param request - DropUserRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DropUserResponse
+   */
+  async dropUserWithOptions(instanceId: string, request: $_model.DropUserRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DropUserResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.superUser)) {
+      body["superUser"] = request.superUser;
+    }
+
+    if (!$dara.isNull(request.userName)) {
+      body["userName"] = request.userName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DropUser",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/dropUser`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DropUserResponse>(await this.callApi(params, req, runtime), new $_model.DropUserResponse({}));
+  }
+
+  /**
+   * 删除用户
+   * 
+   * @param request - DropUserRequest
+   * @returns DropUserResponse
+   */
+  async dropUser(instanceId: string, request: $_model.DropUserRequest): Promise<$_model.DropUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.dropUserWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
