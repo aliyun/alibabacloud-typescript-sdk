@@ -3134,6 +3134,18 @@ export default class Client extends OpenApi {
       query["TargetFacePictureUrl"] = request.targetFacePictureUrl;
     }
 
+    if (!$dara.isNull(request.templateConfig)) {
+      query["TemplateConfig"] = request.templateConfig;
+    }
+
+    if (!$dara.isNull(request.templateRanCount)) {
+      query["TemplateRanCount"] = request.templateRanCount;
+    }
+
+    if (!$dara.isNull(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
     if (!$dara.isNull(request.useNFC)) {
       query["UseNFC"] = request.useNFC;
     }

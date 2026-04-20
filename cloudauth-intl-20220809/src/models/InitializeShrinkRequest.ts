@@ -492,6 +492,9 @@ export class InitializeShrinkRequest extends $dara.Model {
    * https://www.xxxxx.com/1.jpg
    */
   targetFacePictureUrl?: string;
+  templateConfig?: string;
+  templateRanCount?: string;
+  templateType?: string;
   /**
    * @remarks
    * Optional to enable NFC verification when **DocType**=01000000 (global passport).
@@ -562,6 +565,9 @@ export class InitializeShrinkRequest extends $dara.Model {
       styleConfig: 'StyleConfig',
       targetFacePicture: 'TargetFacePicture',
       targetFacePictureUrl: 'TargetFacePictureUrl',
+      templateConfig: 'TemplateConfig',
+      templateRanCount: 'TemplateRanCount',
+      templateType: 'TemplateType',
       useNFC: 'UseNFC',
       verifyModel: 'VerifyModel',
     };
@@ -619,6 +625,9 @@ export class InitializeShrinkRequest extends $dara.Model {
       styleConfig: 'string',
       targetFacePicture: 'string',
       targetFacePictureUrl: 'string',
+      templateConfig: 'string',
+      templateRanCount: 'string',
+      templateType: 'string',
       useNFC: 'string',
       verifyModel: 'string',
     };
