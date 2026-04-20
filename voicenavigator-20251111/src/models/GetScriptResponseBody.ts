@@ -516,6 +516,32 @@ export class GetScriptResponseBodyDataDraftVersionSynthesizerConfig extends $dar
   }
 }
 
+export class GetScriptResponseBodyDataDraftVersionTranscriberConfigCorrectionRules extends $dara.Model {
+  pattern?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'Pattern',
+      replacement: 'Replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: 'string',
+      replacement: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetScriptResponseBodyDataDraftVersionTranscriberConfigNlsAccessProfile extends $dara.Model {
   /**
    * @example
@@ -544,6 +570,7 @@ export class GetScriptResponseBodyDataDraftVersionTranscriberConfigNlsAccessProf
 }
 
 export class GetScriptResponseBodyDataDraftVersionTranscriberConfig extends $dara.Model {
+  correctionRules?: GetScriptResponseBodyDataDraftVersionTranscriberConfigCorrectionRules[];
   /**
    * @example
    * 0c4f978a-73bb-4841-bd84-75c0398edd6f
@@ -582,6 +609,7 @@ export class GetScriptResponseBodyDataDraftVersionTranscriberConfig extends $dar
   vocabularyId?: string;
   static names(): { [key: string]: string } {
     return {
+      correctionRules: 'CorrectionRules',
       customizationId: 'CustomizationId',
       endSilenceTimeout: 'EndSilenceTimeout',
       model: 'Model',
@@ -595,6 +623,7 @@ export class GetScriptResponseBodyDataDraftVersionTranscriberConfig extends $dar
 
   static types(): { [key: string]: any } {
     return {
+      correctionRules: { 'type': 'array', 'itemType': GetScriptResponseBodyDataDraftVersionTranscriberConfigCorrectionRules },
       customizationId: 'string',
       endSilenceTimeout: 'number',
       model: 'string',
@@ -607,6 +636,9 @@ export class GetScriptResponseBodyDataDraftVersionTranscriberConfig extends $dar
   }
 
   validate() {
+    if(Array.isArray(this.correctionRules)) {
+      $dara.Model.validateArray(this.correctionRules);
+    }
     if(this.nlsAccessProfile && typeof (this.nlsAccessProfile as any).validate === 'function') {
       (this.nlsAccessProfile as any).validate();
     }
@@ -1199,6 +1231,32 @@ export class GetScriptResponseBodyDataPublishedVersionSynthesizerConfig extends 
   }
 }
 
+export class GetScriptResponseBodyDataPublishedVersionTranscriberConfigCorrectionRules extends $dara.Model {
+  pattern?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'Pattern',
+      replacement: 'Replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: 'string',
+      replacement: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetScriptResponseBodyDataPublishedVersionTranscriberConfigNlsAccessProfile extends $dara.Model {
   /**
    * @example
@@ -1227,6 +1285,7 @@ export class GetScriptResponseBodyDataPublishedVersionTranscriberConfigNlsAccess
 }
 
 export class GetScriptResponseBodyDataPublishedVersionTranscriberConfig extends $dara.Model {
+  correctionRules?: GetScriptResponseBodyDataPublishedVersionTranscriberConfigCorrectionRules[];
   /**
    * @example
    * cd97223f-42f2-4cd9-95af-e734e2fe1fe4
@@ -1265,6 +1324,7 @@ export class GetScriptResponseBodyDataPublishedVersionTranscriberConfig extends 
   vocabularyId?: string;
   static names(): { [key: string]: string } {
     return {
+      correctionRules: 'CorrectionRules',
       customizationId: 'CustomizationId',
       endSilenceTimeout: 'EndSilenceTimeout',
       model: 'Model',
@@ -1278,6 +1338,7 @@ export class GetScriptResponseBodyDataPublishedVersionTranscriberConfig extends 
 
   static types(): { [key: string]: any } {
     return {
+      correctionRules: { 'type': 'array', 'itemType': GetScriptResponseBodyDataPublishedVersionTranscriberConfigCorrectionRules },
       customizationId: 'string',
       endSilenceTimeout: 'number',
       model: 'string',
@@ -1290,6 +1351,9 @@ export class GetScriptResponseBodyDataPublishedVersionTranscriberConfig extends 
   }
 
   validate() {
+    if(Array.isArray(this.correctionRules)) {
+      $dara.Model.validateArray(this.correctionRules);
+    }
     if(this.nlsAccessProfile && typeof (this.nlsAccessProfile as any).validate === 'function') {
       (this.nlsAccessProfile as any).validate();
     }

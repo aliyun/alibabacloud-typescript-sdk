@@ -513,6 +513,32 @@ export class CreateScriptVersionRequestSynthesizerConfig extends $dara.Model {
   }
 }
 
+export class CreateScriptVersionRequestTranscriberConfigCorrectionRules extends $dara.Model {
+  pattern?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'Pattern',
+      replacement: 'Replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: 'string',
+      replacement: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScriptVersionRequestTranscriberConfigNlsAccessProfile extends $dara.Model {
   /**
    * @example
@@ -541,6 +567,7 @@ export class CreateScriptVersionRequestTranscriberConfigNlsAccessProfile extends
 }
 
 export class CreateScriptVersionRequestTranscriberConfig extends $dara.Model {
+  correctionRules?: CreateScriptVersionRequestTranscriberConfigCorrectionRules[];
   /**
    * @example
    * cd97223f-42f2-4cd9-95af-e734e2fe1fe4
@@ -579,6 +606,7 @@ export class CreateScriptVersionRequestTranscriberConfig extends $dara.Model {
   vocabularyId?: string;
   static names(): { [key: string]: string } {
     return {
+      correctionRules: 'CorrectionRules',
       customizationId: 'CustomizationId',
       endSilenceTimeout: 'EndSilenceTimeout',
       model: 'Model',
@@ -592,6 +620,7 @@ export class CreateScriptVersionRequestTranscriberConfig extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      correctionRules: { 'type': 'array', 'itemType': CreateScriptVersionRequestTranscriberConfigCorrectionRules },
       customizationId: 'string',
       endSilenceTimeout: 'number',
       model: 'string',
@@ -604,6 +633,9 @@ export class CreateScriptVersionRequestTranscriberConfig extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.correctionRules)) {
+      $dara.Model.validateArray(this.correctionRules);
+    }
     if(this.nlsAccessProfile && typeof (this.nlsAccessProfile as any).validate === 'function') {
       (this.nlsAccessProfile as any).validate();
     }

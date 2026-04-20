@@ -15,6 +15,7 @@ export { CreateScriptVersionRequestScriptProfile } from './CreateScriptVersionRe
 export { CreateScriptVersionRequestSynthesizerConfigNlsAccessProfile } from './CreateScriptVersionRequest';
 export { CreateScriptVersionRequestSynthesizerConfigPronRules } from './CreateScriptVersionRequest';
 export { CreateScriptVersionRequestSynthesizerConfig } from './CreateScriptVersionRequest';
+export { CreateScriptVersionRequestTranscriberConfigCorrectionRules } from './CreateScriptVersionRequest';
 export { CreateScriptVersionRequestTranscriberConfigNlsAccessProfile } from './CreateScriptVersionRequest';
 export { CreateScriptVersionRequestTranscriberConfig } from './CreateScriptVersionRequest';
 export { CreateVoiceAccessProfileRequestProfile } from './CreateVoiceAccessProfileRequest';
@@ -39,6 +40,7 @@ export { GetScriptResponseBodyDataDraftVersionScriptProfile } from './GetScriptR
 export { GetScriptResponseBodyDataDraftVersionSynthesizerConfigNlsAccessProfile } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataDraftVersionSynthesizerConfigPronRules } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataDraftVersionSynthesizerConfig } from './GetScriptResponseBody';
+export { GetScriptResponseBodyDataDraftVersionTranscriberConfigCorrectionRules } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataDraftVersionTranscriberConfigNlsAccessProfile } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataDraftVersionTranscriberConfig } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataDraftVersion } from './GetScriptResponseBody';
@@ -54,6 +56,7 @@ export { GetScriptResponseBodyDataPublishedVersionScriptProfile } from './GetScr
 export { GetScriptResponseBodyDataPublishedVersionSynthesizerConfigNlsAccessProfile } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataPublishedVersionSynthesizerConfigPronRules } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataPublishedVersionSynthesizerConfig } from './GetScriptResponseBody';
+export { GetScriptResponseBodyDataPublishedVersionTranscriberConfigCorrectionRules } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataPublishedVersionTranscriberConfigNlsAccessProfile } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataPublishedVersionTranscriberConfig } from './GetScriptResponseBody';
 export { GetScriptResponseBodyDataPublishedVersion } from './GetScriptResponseBody';
