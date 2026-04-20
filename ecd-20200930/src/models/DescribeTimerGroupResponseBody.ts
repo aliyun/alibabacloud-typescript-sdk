@@ -8,6 +8,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
    * 1764660600967
    */
   appointmentTimer?: number;
+  createSnapshot?: boolean;
   endCronExpression?: string;
   enforce?: boolean;
   /**
@@ -23,6 +24,11 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   lockScreenTime?: number;
   notificationTime?: number;
   operationType?: string;
+  /**
+   * @example
+   * KB5082063
+   */
+  patchId?: string;
   processWhitelist?: string[];
   resetType?: string;
   startCronExpression?: string;
@@ -32,6 +38,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   static names(): { [key: string]: string } {
     return {
       appointmentTimer: 'AppointmentTimer',
+      createSnapshot: 'CreateSnapshot',
       endCronExpression: 'EndCronExpression',
       enforce: 'Enforce',
       imageId: 'ImageId',
@@ -39,6 +46,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
       lockScreenTime: 'LockScreenTime',
       notificationTime: 'NotificationTime',
       operationType: 'OperationType',
+      patchId: 'PatchId',
       processWhitelist: 'ProcessWhitelist',
       resetType: 'ResetType',
       startCronExpression: 'StartCronExpression',
@@ -51,6 +59,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   static types(): { [key: string]: any } {
     return {
       appointmentTimer: 'number',
+      createSnapshot: 'boolean',
       endCronExpression: 'string',
       enforce: 'boolean',
       imageId: 'string',
@@ -58,6 +67,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
       lockScreenTime: 'number',
       notificationTime: 'number',
       operationType: 'string',
+      patchId: 'string',
       processWhitelist: { 'type': 'array', 'itemType': 'string' },
       resetType: 'string',
       startCronExpression: 'string',

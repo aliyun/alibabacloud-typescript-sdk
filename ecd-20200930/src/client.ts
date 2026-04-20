@@ -18236,12 +18236,20 @@ export default class Client extends OpenApi {
   async rebootDesktopsWithOptions(request: $_model.RebootDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RebootDesktopsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.createSnapshot)) {
+      query["CreateSnapshot"] = request.createSnapshot;
+    }
+
     if (!$dara.isNull(request.desktopId)) {
       query["DesktopId"] = request.desktopId;
     }
 
     if (!$dara.isNull(request.osUpdate)) {
       query["OsUpdate"] = request.osUpdate;
+    }
+
+    if (!$dara.isNull(request.patchId)) {
+      query["PatchId"] = request.patchId;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -19748,12 +19756,20 @@ export default class Client extends OpenApi {
   async stopDesktopsWithOptions(request: $_model.StopDesktopsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopDesktopsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.createSnapshot)) {
+      query["CreateSnapshot"] = request.createSnapshot;
+    }
+
     if (!$dara.isNull(request.desktopId)) {
       query["DesktopId"] = request.desktopId;
     }
 
     if (!$dara.isNull(request.osUpdate)) {
       query["OsUpdate"] = request.osUpdate;
+    }
+
+    if (!$dara.isNull(request.patchId)) {
+      query["PatchId"] = request.patchId;
     }
 
     if (!$dara.isNull(request.regionId)) {
