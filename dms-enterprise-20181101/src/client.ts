@@ -571,6 +571,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 工作空间添加用户
+   * 
+   * @param request - AddWorkspaceUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddWorkspaceUserResponse
+   */
+  async addWorkspaceUserWithOptions(request: $_model.AddWorkspaceUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddWorkspaceUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dmsUserIds)) {
+      query["DmsUserIds"] = request.dmsUserIds;
+    }
+
+    if (!$dara.isNull(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    if (!$dara.isNull(request.roleSource)) {
+      query["RoleSource"] = request.roleSource;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddWorkspaceUser",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddWorkspaceUserResponse>(await this.callApi(params, req, runtime), new $_model.AddWorkspaceUserResponse({}));
+  }
+
+  /**
+   * 工作空间添加用户
+   * 
+   * @param request - AddWorkspaceUserRequest
+   * @returns AddWorkspaceUserResponse
+   */
+  async addWorkspaceUser(request: $_model.AddWorkspaceUserRequest): Promise<$_model.AddWorkspaceUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addWorkspaceUserWithOptions(request, runtime);
+  }
+
+  /**
    * Analyzes the lineage (dependencies and influence) between tables and between fields in SQL statements.
    * 
    * @remarks
@@ -14774,6 +14828,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出工作空间内的用户
+   * 
+   * @param request - ListWorkspaceUsersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspaceUsersResponse
+   */
+  async listWorkspaceUsersWithOptions(request: $_model.ListWorkspaceUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkspaceUsersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkspaceUsers",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkspaceUsersResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkspaceUsersResponse({}));
+  }
+
+  /**
+   * 列出工作空间内的用户
+   * 
+   * @param request - ListWorkspaceUsersRequest
+   * @returns ListWorkspaceUsersResponse
+   */
+  async listWorkspaceUsers(request: $_model.ListWorkspaceUsersRequest): Promise<$_model.ListWorkspaceUsersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkspaceUsersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of workspaces of the tenant.
    * 
    * @param request - ListWorkspacesRequest
@@ -16148,6 +16256,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 工作空间添加用户
+   * 
+   * @param request - RemoveWorkspaceUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveWorkspaceUserResponse
+   */
+  async removeWorkspaceUserWithOptions(request: $_model.RemoveWorkspaceUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveWorkspaceUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dmsUserIds)) {
+      query["DmsUserIds"] = request.dmsUserIds;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveWorkspaceUser",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveWorkspaceUserResponse>(await this.callApi(params, req, runtime), new $_model.RemoveWorkspaceUserResponse({}));
+  }
+
+  /**
+   * 工作空间添加用户
+   * 
+   * @param request - RemoveWorkspaceUserRequest
+   * @returns RemoveWorkspaceUserResponse
+   */
+  async removeWorkspaceUser(request: $_model.RemoveWorkspaceUserRequest): Promise<$_model.RemoveWorkspaceUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeWorkspaceUserWithOptions(request, runtime);
+  }
+
+  /**
    * Reruns a failed SQL task for data change.
    * 
    * @param request - RestartDataCorrectSQLJobRequest
@@ -16787,6 +16941,66 @@ export default class Client extends OpenApi {
   async searchTableKnowledge(request: $_model.SearchTableKnowledgeRequest): Promise<$_model.SearchTableKnowledgeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.searchTableKnowledgeWithOptions(request, runtime);
+  }
+
+  /**
+   * 搜索工作空间内的角色
+   * 
+   * @param request - SearchWorkspaceRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchWorkspaceRolesResponse
+   */
+  async searchWorkspaceRolesWithOptions(request: $_model.SearchWorkspaceRolesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchWorkspaceRolesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchWorkspaceRoles",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchWorkspaceRolesResponse>(await this.callApi(params, req, runtime), new $_model.SearchWorkspaceRolesResponse({}));
+  }
+
+  /**
+   * 搜索工作空间内的角色
+   * 
+   * @param request - SearchWorkspaceRolesRequest
+   * @returns SearchWorkspaceRolesResponse
+   */
+  async searchWorkspaceRoles(request: $_model.SearchWorkspaceRolesRequest): Promise<$_model.SearchWorkspaceRolesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchWorkspaceRolesWithOptions(request, runtime);
   }
 
   /**
@@ -19235,6 +19449,56 @@ export default class Client extends OpenApi {
   async updateWorkspace(request: $_model.UpdateWorkspaceRequest): Promise<$_model.UpdateWorkspaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改工作空间的用户权限等信息
+   * 
+   * @param request - UpdateWorkspaceUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWorkspaceUserResponse
+   */
+  async updateWorkspaceUserWithOptions(request: $_model.UpdateWorkspaceUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkspaceUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dmsUserId)) {
+      query["DmsUserId"] = request.dmsUserId;
+    }
+
+    if (!$dara.isNull(request.roleIds)) {
+      query["RoleIds"] = request.roleIds;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWorkspaceUser",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWorkspaceUserResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWorkspaceUserResponse({}));
+  }
+
+  /**
+   * 修改工作空间的用户权限等信息
+   * 
+   * @param request - UpdateWorkspaceUserRequest
+   * @returns UpdateWorkspaceUserResponse
+   */
+  async updateWorkspaceUser(request: $_model.UpdateWorkspaceUserRequest): Promise<$_model.UpdateWorkspaceUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWorkspaceUserWithOptions(request, runtime);
   }
 
 }
