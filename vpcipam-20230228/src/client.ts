@@ -1474,6 +1474,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询VPC或VSwitch下已使用IP信息。
+   * 
+   * @param request - ListIpamDiscoveredIpAddressesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIpamDiscoveredIpAddressesResponse
+   */
+  async listIpamDiscoveredIpAddressesWithOptions(request: $_model.ListIpamDiscoveredIpAddressesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListIpamDiscoveredIpAddressesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cidr)) {
+      query["Cidr"] = request.cidr;
+    }
+
+    if (!$dara.isNull(request.ipVersion)) {
+      query["IpVersion"] = request.ipVersion;
+    }
+
+    if (!$dara.isNull(request.ipamResourceDiscoveryId)) {
+      query["IpamResourceDiscoveryId"] = request.ipamResourceDiscoveryId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIpamDiscoveredIpAddresses",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIpamDiscoveredIpAddressesResponse>(await this.callApi(params, req, runtime), new $_model.ListIpamDiscoveredIpAddressesResponse({}));
+  }
+
+  /**
+   * 查询VPC或VSwitch下已使用IP信息。
+   * 
+   * @param request - ListIpamDiscoveredIpAddressesRequest
+   * @returns ListIpamDiscoveredIpAddressesResponse
+   */
+  async listIpamDiscoveredIpAddresses(request: $_model.ListIpamDiscoveredIpAddressesRequest): Promise<$_model.ListIpamDiscoveredIpAddressesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listIpamDiscoveredIpAddressesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries discovered resources.
    * 
    * @param request - ListIpamDiscoveredResourceRequest
@@ -2628,7 +2698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an IP Address Manager (IPAM).
+   * Modifies an IPAM instance.
    * 
    * @param request - UpdateIpamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2703,7 +2773,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an IP Address Manager (IPAM).
+   * Modifies an IPAM instance.
    * 
    * @param request - UpdateIpamRequest
    * @returns UpdateIpamResponse

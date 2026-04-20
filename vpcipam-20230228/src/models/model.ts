@@ -3,6 +3,7 @@ export { CreateIpamRequestTag } from './CreateIpamRequest';
 export { CreateIpamPoolRequestTag } from './CreateIpamPoolRequest';
 export { CreateIpamResourceDiscoveryRequestTag } from './CreateIpamResourceDiscoveryRequest';
 export { CreateIpamScopeRequestTag } from './CreateIpamScopeRequest';
+export { ListIpamDiscoveredIpAddressesResponseBodyIpamDiscoveredIpAddresses } from './ListIpamDiscoveredIpAddressesResponseBody';
 export { ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResourcesIpCountDetail } from './ListIpamDiscoveredResourceResponseBody';
 export { ListIpamDiscoveredResourceResponseBodyIpamDiscoveredResources } from './ListIpamDiscoveredResourceResponseBody';
 export { ListIpamMembersResponseBodyMemberInfos } from './ListIpamMembersResponseBody';
@@ -85,6 +86,9 @@ export { GetIpamPoolNextAvailableCidrResponse } from './GetIpamPoolNextAvailable
 export { GetVpcIpamServiceStatusRequest } from './GetVpcIpamServiceStatusRequest';
 export { GetVpcIpamServiceStatusResponseBody } from './GetVpcIpamServiceStatusResponseBody';
 export { GetVpcIpamServiceStatusResponse } from './GetVpcIpamServiceStatusResponse';
+export { ListIpamDiscoveredIpAddressesRequest } from './ListIpamDiscoveredIpAddressesRequest';
+export { ListIpamDiscoveredIpAddressesResponseBody } from './ListIpamDiscoveredIpAddressesResponseBody';
+export { ListIpamDiscoveredIpAddressesResponse } from './ListIpamDiscoveredIpAddressesResponse';
 export { ListIpamDiscoveredResourceRequest } from './ListIpamDiscoveredResourceRequest';
 export { ListIpamDiscoveredResourceResponseBody } from './ListIpamDiscoveredResourceResponseBody';
 export { ListIpamDiscoveredResourceResponse } from './ListIpamDiscoveredResourceResponse';
