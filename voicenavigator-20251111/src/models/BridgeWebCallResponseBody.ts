@@ -2,28 +2,55 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateCloneVoiceResponseBodyData extends $dara.Model {
+export class BridgeWebCallResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 8ee1160a-6999-478f-8df6-f33ef21f27d5
+   * 1515602866088888___5ec8446df1e2495a97969e887ab9e748
    */
-  cloneVoiceId?: string;
+  channelId?: string;
   /**
    * @example
-   * cosyvoice-v3-plus-voicebot2-3666e4bbb2b94832ac4f4107b5804c34
+   * 1774794266093
    */
-  voice?: string;
+  expirationTime?: string;
+  /**
+   * @example
+   * 36e9a4cd-a821-4f78-86fa-a9a4aefeea2e
+   */
+  instanceId?: string;
+  serverUrl?: string;
+  /**
+   * @example
+   * f814f3ae-b2a7-44fb-883c-771221274673
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * token
+   * 
+   * @example
+   * 57aa3e9b11d2fa5736787cacf0408c1a
+   */
+  token?: string;
   static names(): { [key: string]: string } {
     return {
-      cloneVoiceId: 'CloneVoiceId',
-      voice: 'Voice',
+      channelId: 'ChannelId',
+      expirationTime: 'ExpirationTime',
+      instanceId: 'InstanceId',
+      serverUrl: 'ServerUrl',
+      sessionId: 'SessionId',
+      token: 'Token',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cloneVoiceId: 'string',
-      voice: 'string',
+      channelId: 'string',
+      expirationTime: 'string',
+      instanceId: 'string',
+      serverUrl: 'string',
+      sessionId: 'string',
+      token: 'string',
     };
   }
 
@@ -36,13 +63,13 @@ export class CreateCloneVoiceResponseBodyData extends $dara.Model {
   }
 }
 
-export class CreateCloneVoiceResponseBody extends $dara.Model {
+export class BridgeWebCallResponseBody extends $dara.Model {
   /**
    * @example
    * OK
    */
   code?: string;
-  data?: CreateCloneVoiceResponseBodyData;
+  data?: BridgeWebCallResponseBodyData;
   /**
    * @example
    * 200
@@ -50,14 +77,13 @@ export class CreateCloneVoiceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @example
-   * Instance af81a389-91f0-4157-8d82-720edd02b66a
-   *  does not exist.
+   * SUCCESS
    */
   message?: string;
   params?: string[];
   /**
    * @example
-   * F132DDBA-66C4-5BD3-BF7E-9642FE877158
+   * 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -74,7 +100,7 @@ export class CreateCloneVoiceResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: CreateCloneVoiceResponseBodyData,
+      data: BridgeWebCallResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       params: { 'type': 'array', 'itemType': 'string' },

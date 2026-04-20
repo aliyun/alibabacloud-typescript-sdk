@@ -2,28 +2,63 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateCloneVoiceResponseBodyData extends $dara.Model {
+export class GetDataChannelCredentialResponseBodyData extends $dara.Model {
   /**
    * @example
-   * 8ee1160a-6999-478f-8df6-f33ef21f27d5
+   * GID_rtc-datachannel@@@*******
    */
-  cloneVoiceId?: string;
+  clientId?: string;
   /**
    * @example
-   * cosyvoice-v3-plus-voicebot2-3666e4bbb2b94832ac4f4107b5804c34
+   * d4c38420-****-43bc-b001-56bfc274****
    */
-  voice?: string;
+  deviceId?: string;
+  /**
+   * @example
+   * mqtt.***.aliyuncs.com
+   */
+  endpoint?: string;
+  /**
+   * @example
+   * 1774794266093
+   */
+  expirationTime?: number;
+  /**
+   * @example
+   * *********
+   */
+  password?: string;
+  /**
+   * @example
+   * datachannel-hz/****
+   */
+  topic?: string;
+  /**
+   * @example
+   * Token|LTAI****|mqtt-***
+   */
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
-      cloneVoiceId: 'CloneVoiceId',
-      voice: 'Voice',
+      clientId: 'ClientId',
+      deviceId: 'DeviceId',
+      endpoint: 'Endpoint',
+      expirationTime: 'ExpirationTime',
+      password: 'Password',
+      topic: 'Topic',
+      userName: 'UserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      cloneVoiceId: 'string',
-      voice: 'string',
+      clientId: 'string',
+      deviceId: 'string',
+      endpoint: 'string',
+      expirationTime: 'number',
+      password: 'string',
+      topic: 'string',
+      userName: 'string',
     };
   }
 
@@ -36,13 +71,13 @@ export class CreateCloneVoiceResponseBodyData extends $dara.Model {
   }
 }
 
-export class CreateCloneVoiceResponseBody extends $dara.Model {
+export class GetDataChannelCredentialResponseBody extends $dara.Model {
   /**
    * @example
    * OK
    */
   code?: string;
-  data?: CreateCloneVoiceResponseBodyData;
+  data?: GetDataChannelCredentialResponseBodyData;
   /**
    * @example
    * 200
@@ -50,14 +85,13 @@ export class CreateCloneVoiceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @example
-   * Instance af81a389-91f0-4157-8d82-720edd02b66a
-   *  does not exist.
+   * SUCCESS
    */
   message?: string;
   params?: string[];
   /**
    * @example
-   * F132DDBA-66C4-5BD3-BF7E-9642FE877158
+   * A8AED3C8-F57B-5D71-9A34-4A170287533F
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -74,7 +108,7 @@ export class CreateCloneVoiceResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: CreateCloneVoiceResponseBodyData,
+      data: GetDataChannelCredentialResponseBodyData,
       httpStatusCode: 'number',
       message: 'string',
       params: { 'type': 'array', 'itemType': 'string' },

@@ -30,6 +30,271 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启会话
+   * 
+   * @param request - BeginSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BeginSessionResponse
+   */
+  async *beginSessionWithSSE(request: $_model.BeginSessionRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.BeginSessionResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.vendorParams)) {
+      query["VendorParams"] = request.vendorParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BeginSession",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.BeginSessionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.BeginSessionResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 开启会话
+   * 
+   * @param request - BeginSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BeginSessionResponse
+   */
+  async beginSessionWithOptions(request: $_model.BeginSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BeginSessionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.vendorParams)) {
+      query["VendorParams"] = request.vendorParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BeginSession",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BeginSessionResponse>(await this.callApi(params, req, runtime), new $_model.BeginSessionResponse({}));
+  }
+
+  /**
+   * 开启会话
+   * 
+   * @param request - BeginSessionRequest
+   * @returns BeginSessionResponse
+   */
+  async beginSession(request: $_model.BeginSessionRequest): Promise<$_model.BeginSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.beginSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * 发起呼叫
+   * 
+   * @param request - BridgeWebCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BridgeWebCallResponse
+   */
+  async bridgeWebCallWithOptions(request: $_model.BridgeWebCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BridgeWebCallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accessChannelId)) {
+      query["AccessChannelId"] = request.accessChannelId;
+    }
+
+    if (!$dara.isNull(request.accessChannelType)) {
+      query["AccessChannelType"] = request.accessChannelType;
+    }
+
+    if (!$dara.isNull(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.sampleRate)) {
+      query["SampleRate"] = request.sampleRate;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BridgeWebCall",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BridgeWebCallResponse>(await this.callApi(params, req, runtime), new $_model.BridgeWebCallResponse({}));
+  }
+
+  /**
+   * 发起呼叫
+   * 
+   * @param request - BridgeWebCallRequest
+   * @returns BridgeWebCallResponse
+   */
+  async bridgeWebCall(request: $_model.BridgeWebCallRequest): Promise<$_model.BridgeWebCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bridgeWebCallWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建服务提供商
+   * 
+   * @param request - CreateCallCenterProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCallCenterProviderResponse
+   */
+  async createCallCenterProviderWithOptions(request: $_model.CreateCallCenterProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCallCenterProviderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.destination)) {
+      body["Destination"] = request.destination;
+    }
+
+    if (!$dara.isNull(request.extras)) {
+      body["Extras"] = request.extras;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.originator)) {
+      body["Originator"] = request.originator;
+    }
+
+    if (!$dara.isNull(request.providerType)) {
+      body["ProviderType"] = request.providerType;
+    }
+
+    if (!$dara.isNull(request.referTo)) {
+      body["ReferTo"] = request.referTo;
+    }
+
+    if (!$dara.isNull(request.trunkId)) {
+      body["TrunkId"] = request.trunkId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCallCenterProvider",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCallCenterProviderResponse>(await this.callApi(params, req, runtime), new $_model.CreateCallCenterProviderResponse({}));
+  }
+
+  /**
+   * 创建服务提供商
+   * 
+   * @param request - CreateCallCenterProviderRequest
+   * @returns CreateCallCenterProviderResponse
+   */
+  async createCallCenterProvider(request: $_model.CreateCallCenterProviderRequest): Promise<$_model.CreateCallCenterProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCallCenterProviderWithOptions(request, runtime);
+  }
+
+  /**
    * 创建实例
    * 
    * @param request - CreateCloneVoiceRequest
@@ -77,6 +342,64 @@ export default class Client extends OpenApi {
   async createCloneVoice(request: $_model.CreateCloneVoiceRequest): Promise<$_model.CreateCloneVoiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建指令
+   * 
+   * @param request - CreateInstructionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstructionResponse
+   */
+  async createInstructionWithOptions(request: $_model.CreateInstructionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstructionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInstruction",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInstructionResponse>(await this.callApi(params, req, runtime), new $_model.CreateInstructionResponse({}));
+  }
+
+  /**
+   * 创建指令
+   * 
+   * @param request - CreateInstructionRequest
+   * @returns CreateInstructionResponse
+   */
+  async createInstruction(request: $_model.CreateInstructionRequest): Promise<$_model.CreateInstructionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInstructionWithOptions(request, runtime);
   }
 
   /**
@@ -452,6 +775,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除服务提供商
+   * 
+   * @param request - DeleteCallCenterProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCallCenterProviderResponse
+   */
+  async deleteCallCenterProviderWithOptions(request: $_model.DeleteCallCenterProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCallCenterProviderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.providerId)) {
+      body["ProviderId"] = request.providerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCallCenterProvider",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCallCenterProviderResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCallCenterProviderResponse({}));
+  }
+
+  /**
+   * 删除服务提供商
+   * 
+   * @param request - DeleteCallCenterProviderRequest
+   * @returns DeleteCallCenterProviderResponse
+   */
+  async deleteCallCenterProvider(request: $_model.DeleteCallCenterProviderRequest): Promise<$_model.DeleteCallCenterProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCallCenterProviderWithOptions(request, runtime);
+  }
+
+  /**
    * 删除场景
    * 
    * @param request - DeleteCloneVoiceRequest
@@ -495,6 +864,52 @@ export default class Client extends OpenApi {
   async deleteCloneVoice(request: $_model.DeleteCloneVoiceRequest): Promise<$_model.DeleteCloneVoiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除指令
+   * 
+   * @param request - DeleteInstructionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstructionResponse
+   */
+  async deleteInstructionWithOptions(request: $_model.DeleteInstructionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteInstructionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteInstruction",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteInstructionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteInstructionResponse({}));
+  }
+
+  /**
+   * 删除指令
+   * 
+   * @param request - DeleteInstructionRequest
+   * @returns DeleteInstructionResponse
+   */
+  async deleteInstruction(request: $_model.DeleteInstructionRequest): Promise<$_model.DeleteInstructionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteInstructionWithOptions(request, runtime);
   }
 
   /**
@@ -728,6 +1143,125 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启会话
+   * 
+   * @param request - DialogueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DialogueResponse
+   */
+  async *dialogueWithSSE(request: $_model.DialogueRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.DialogueResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extras)) {
+      query["Extras"] = request.extras;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.utterance)) {
+      query["Utterance"] = request.utterance;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Dialogue",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.DialogueResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.DialogueResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 开启会话
+   * 
+   * @param request - DialogueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DialogueResponse
+   */
+  async dialogueWithOptions(request: $_model.DialogueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DialogueResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extras)) {
+      query["Extras"] = request.extras;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.utterance)) {
+      query["Utterance"] = request.utterance;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Dialogue",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DialogueResponse>(await this.callApi(params, req, runtime), new $_model.DialogueResponse({}));
+  }
+
+  /**
+   * 开启会话
+   * 
+   * @param request - DialogueRequest
+   * @returns DialogueResponse
+   */
+  async dialogue(request: $_model.DialogueRequest): Promise<$_model.DialogueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dialogueWithOptions(request, runtime);
+  }
+
+  /**
    * 禁用消息订阅
    * 
    * @param request - DisableSubscriptionRequest
@@ -767,6 +1301,56 @@ export default class Client extends OpenApi {
   async disableSubscription(request: $_model.DisableSubscriptionRequest): Promise<$_model.DisableSubscriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableSubscriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 结束会话
+   * 
+   * @param request - EndSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EndSessionResponse
+   */
+  async endSessionWithOptions(request: $_model.EndSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EndSessionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EndSession",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EndSessionResponse>(await this.callApi(params, req, runtime), new $_model.EndSessionResponse({}));
+  }
+
+  /**
+   * 结束会话
+   * 
+   * @param request - EndSessionRequest
+   * @returns EndSessionResponse
+   */
+  async endSession(request: $_model.EndSessionRequest): Promise<$_model.EndSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.endSessionWithOptions(request, runtime);
   }
 
   /**
@@ -961,6 +1545,52 @@ export default class Client extends OpenApi {
   async getCallDetailRecord(request: $_model.GetCallDetailRecordRequest): Promise<$_model.GetCallDetailRecordResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCallDetailRecordWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取语音对话参数
+   * 
+   * @param request - GetDataChannelCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataChannelCredentialResponse
+   */
+  async getDataChannelCredentialWithOptions(request: $_model.GetDataChannelCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataChannelCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataChannelCredential",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataChannelCredentialResponse>(await this.callApi(params, req, runtime), new $_model.GetDataChannelCredentialResponse({}));
+  }
+
+  /**
+   * 获取语音对话参数
+   * 
+   * @param request - GetDataChannelCredentialRequest
+   * @returns GetDataChannelCredentialResponse
+   */
+  async getDataChannelCredential(request: $_model.GetDataChannelCredentialRequest): Promise<$_model.GetDataChannelCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataChannelCredentialWithOptions(request, runtime);
   }
 
   /**
@@ -1282,6 +1912,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询服务提供商
+   * 
+   * @param request - ListCallCenterProvidersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCallCenterProvidersResponse
+   */
+  async listCallCenterProvidersWithOptions(request: $_model.ListCallCenterProvidersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCallCenterProvidersResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.providerId)) {
+      body["ProviderId"] = request.providerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCallCenterProviders",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCallCenterProvidersResponse>(await this.callApi(params, req, runtime), new $_model.ListCallCenterProvidersResponse({}));
+  }
+
+  /**
+   * 查询服务提供商
+   * 
+   * @param request - ListCallCenterProvidersRequest
+   * @returns ListCallCenterProvidersResponse
+   */
+  async listCallCenterProviders(request: $_model.ListCallCenterProvidersRequest): Promise<$_model.ListCallCenterProvidersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCallCenterProvidersWithOptions(request, runtime);
+  }
+
+  /**
    * 获取实例详情
    * 
    * @param tmpReq - ListCallDetailRecordsRequest
@@ -1501,6 +2185,60 @@ export default class Client extends OpenApi {
   async listCloneVoiceModels(request: $_model.ListCloneVoiceModelsRequest): Promise<$_model.ListCloneVoiceModelsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCloneVoiceModelsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指令
+   * 
+   * @param request - ListInstructionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstructionsResponse
+   */
+  async listInstructionsWithOptions(request: $_model.ListInstructionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstructionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.providerId)) {
+      body["ProviderId"] = request.providerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstructions",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstructionsResponse>(await this.callApi(params, req, runtime), new $_model.ListInstructionsResponse({}));
+  }
+
+  /**
+   * 查询指令
+   * 
+   * @param request - ListInstructionsRequest
+   * @returns ListInstructionsResponse
+   */
+  async listInstructions(request: $_model.ListInstructionsRequest): Promise<$_model.ListInstructionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstructionsWithOptions(request, runtime);
   }
 
   /**
@@ -2094,6 +2832,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改服务提供商
+   * 
+   * @param request - UpdateCallCenterProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCallCenterProviderResponse
+   */
+  async updateCallCenterProviderWithOptions(request: $_model.UpdateCallCenterProviderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCallCenterProviderResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.destination)) {
+      body["Destination"] = request.destination;
+    }
+
+    if (!$dara.isNull(request.extras)) {
+      body["Extras"] = request.extras;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.originator)) {
+      body["Originator"] = request.originator;
+    }
+
+    if (!$dara.isNull(request.providerId)) {
+      body["ProviderId"] = request.providerId;
+    }
+
+    if (!$dara.isNull(request.providerType)) {
+      body["ProviderType"] = request.providerType;
+    }
+
+    if (!$dara.isNull(request.referTo)) {
+      body["ReferTo"] = request.referTo;
+    }
+
+    if (!$dara.isNull(request.trunkId)) {
+      body["TrunkId"] = request.trunkId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCallCenterProvider",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCallCenterProviderResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCallCenterProviderResponse({}));
+  }
+
+  /**
+   * 修改服务提供商
+   * 
+   * @param request - UpdateCallCenterProviderRequest
+   * @returns UpdateCallCenterProviderResponse
+   */
+  async updateCallCenterProvider(request: $_model.UpdateCallCenterProviderRequest): Promise<$_model.UpdateCallCenterProviderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCallCenterProviderWithOptions(request, runtime);
+  }
+
+  /**
    * 更新实例
    * 
    * @param request - UpdateCloneVoiceRequest
@@ -2141,6 +2959,64 @@ export default class Client extends OpenApi {
   async updateCloneVoice(request: $_model.UpdateCloneVoiceRequest): Promise<$_model.UpdateCloneVoiceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCloneVoiceWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改指令
+   * 
+   * @param request - UpdateInstructionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstructionResponse
+   */
+  async updateInstructionWithOptions(request: $_model.UpdateInstructionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstructionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInstruction",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInstructionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstructionResponse({}));
+  }
+
+  /**
+   * 修改指令
+   * 
+   * @param request - UpdateInstructionRequest
+   * @returns UpdateInstructionResponse
+   */
+  async updateInstruction(request: $_model.UpdateInstructionRequest): Promise<$_model.UpdateInstructionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateInstructionWithOptions(request, runtime);
   }
 
   /**
