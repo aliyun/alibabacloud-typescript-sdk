@@ -254,6 +254,117 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+   * 
+   * @param request - DescribeChatMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChatMessageResponse
+   */
+  async *describeChatMessageWithSSE(request: $_model.DescribeChatMessageRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.DescribeChatMessageResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      query["Timezone"] = request.timezone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeChatMessage",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.DescribeChatMessageResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.DescribeChatMessageResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+   * 
+   * @param request - DescribeChatMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeChatMessageResponse
+   */
+  async describeChatMessageWithOptions(request: $_model.DescribeChatMessageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeChatMessageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      query["Timezone"] = request.timezone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeChatMessage",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeChatMessageResponse>(await this.callApi(params, req, runtime), new $_model.DescribeChatMessageResponse({}));
+  }
+
+  /**
+   * 对ADB-MySQL提供产品RAG检索和实例分析、运维诊断
+   * 
+   * @param request - DescribeChatMessageRequest
+   * @returns DescribeChatMessageResponse
+   */
+  async describeChatMessage(request: $_model.DescribeChatMessageRequest): Promise<$_model.DescribeChatMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeChatMessageWithOptions(request, runtime);
+  }
+
+  /**
    * 查询具身智能平台
    * 
    * @param request - DescribeEmbodiedAIPlatformsRequest
