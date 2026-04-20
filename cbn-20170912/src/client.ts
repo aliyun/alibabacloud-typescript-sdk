@@ -1078,6 +1078,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.consoleDryRun)) {
+      query["ConsoleDryRun"] = request.consoleDryRun;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }

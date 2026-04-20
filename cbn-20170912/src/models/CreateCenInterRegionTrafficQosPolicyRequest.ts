@@ -116,6 +116,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequest extends $dara.Model {
    * 123e4567-e89b-12d3-a456-426655****
    */
   clientToken?: string;
+  consoleDryRun?: boolean;
   /**
    * @remarks
    * Specifies whether only to precheck the API request. Valid values:
@@ -182,6 +183,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequest extends $dara.Model {
     return {
       bandwidthGuaranteeMode: 'BandwidthGuaranteeMode',
       clientToken: 'ClientToken',
+      consoleDryRun: 'ConsoleDryRun',
       dryRun: 'DryRun',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -199,6 +201,7 @@ export class CreateCenInterRegionTrafficQosPolicyRequest extends $dara.Model {
     return {
       bandwidthGuaranteeMode: 'string',
       clientToken: 'string',
+      consoleDryRun: 'boolean',
       dryRun: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',
