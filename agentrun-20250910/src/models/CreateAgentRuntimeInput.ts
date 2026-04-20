@@ -210,6 +210,14 @@ export class CreateAgentRuntimeInput extends $dara.Model {
   sessionIdleTimeoutSeconds?: number;
   /**
    * @remarks
+   * 智能体运行时的系统标签信息，用于系统级别的资源分类和管理
+   * 
+   * @example
+   * system-tag-1,system-tag-2
+   */
+  systemTags?: string[];
+  /**
+   * @remarks
    * 智能体运行时所属的工作空间标识符，用于资源隔离和权限管理
    * 
    * @example
@@ -243,6 +251,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
       resourceGroupId: 'resourceGroupId',
       sessionConcurrencyLimitPerInstance: 'sessionConcurrencyLimitPerInstance',
       sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
+      systemTags: 'systemTags',
       workspaceId: 'workspaceId',
     };
   }
@@ -274,6 +283,7 @@ export class CreateAgentRuntimeInput extends $dara.Model {
       resourceGroupId: 'string',
       sessionConcurrencyLimitPerInstance: 'number',
       sessionIdleTimeoutSeconds: 'number',
+      systemTags: { 'type': 'array', 'itemType': 'string' },
       workspaceId: 'string',
     };
   }
@@ -308,6 +318,9 @@ export class CreateAgentRuntimeInput extends $dara.Model {
     }
     if(this.protocolConfiguration && typeof (this.protocolConfiguration as any).validate === 'function') {
       (this.protocolConfiguration as any).validate();
+    }
+    if(Array.isArray(this.systemTags)) {
+      $dara.Model.validateArray(this.systemTags);
     }
     super.validate();
   }

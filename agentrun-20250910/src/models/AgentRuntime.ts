@@ -242,6 +242,14 @@ export class AgentRuntime extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
+   * 智能体运行时的系统标签信息，用于系统级别的资源分类和管理
+   * 
+   * @example
+   * system-tag-1,system-tag-2
+   */
+  systemTags?: string[];
+  /**
+   * @remarks
    * 智能体运行时所属的工作空间标识符，用于资源隔离和权限管理
    * 
    * @example
@@ -280,6 +288,7 @@ export class AgentRuntime extends $dara.Model {
       sessionIdleTimeoutSeconds: 'sessionIdleTimeoutSeconds',
       status: 'status',
       statusReason: 'statusReason',
+      systemTags: 'systemTags',
       workspaceId: 'workspaceId',
     };
   }
@@ -316,6 +325,7 @@ export class AgentRuntime extends $dara.Model {
       sessionIdleTimeoutSeconds: 'number',
       status: 'string',
       statusReason: 'string',
+      systemTags: { 'type': 'array', 'itemType': 'string' },
       workspaceId: 'string',
     };
   }
@@ -347,6 +357,9 @@ export class AgentRuntime extends $dara.Model {
     }
     if(this.protocolConfiguration && typeof (this.protocolConfiguration as any).validate === 'function') {
       (this.protocolConfiguration as any).validate();
+    }
+    if(Array.isArray(this.systemTags)) {
+      $dara.Model.validateArray(this.systemTags);
     }
     super.validate();
   }
