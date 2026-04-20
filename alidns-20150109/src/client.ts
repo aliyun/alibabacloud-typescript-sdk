@@ -3250,7 +3250,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - DescribeCloudGtmSystemLinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudGtmSystemLinesResponse
    */

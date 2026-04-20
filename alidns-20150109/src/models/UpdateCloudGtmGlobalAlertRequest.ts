@@ -39,6 +39,11 @@ export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $dara.Model {
    */
   noticeType?: string;
   /**
+   * @example
+   * 10
+   */
+  qpsThreshold?: number;
+  /**
    * @remarks
    * Specifies whether to configure text message notifications. Valid values:
    * 
@@ -61,6 +66,7 @@ export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $dara.Model {
       dingtalkNotice: 'DingtalkNotice',
       emailNotice: 'EmailNotice',
       noticeType: 'NoticeType',
+      qpsThreshold: 'QpsThreshold',
       smsNotice: 'SmsNotice',
       threshold: 'Threshold',
     };
@@ -71,6 +77,7 @@ export class UpdateCloudGtmGlobalAlertRequestAlertConfig extends $dara.Model {
       dingtalkNotice: 'boolean',
       emailNotice: 'boolean',
       noticeType: 'string',
+      qpsThreshold: 'number',
       smsNotice: 'boolean',
       threshold: 'number',
     };

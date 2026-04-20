@@ -6,6 +6,11 @@ export class DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig exten
   dingtalkNotice?: boolean;
   emailNotice?: boolean;
   noticeType?: string;
+  /**
+   * @example
+   * 10
+   */
+  qpsThreshold?: number;
   smsNotice?: boolean;
   /**
    * @example
@@ -17,6 +22,7 @@ export class DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig exten
       dingtalkNotice: 'DingtalkNotice',
       emailNotice: 'EmailNotice',
       noticeType: 'NoticeType',
+      qpsThreshold: 'QpsThreshold',
       smsNotice: 'SmsNotice',
       threshold: 'Threshold',
     };
@@ -27,6 +33,7 @@ export class DescribeCloudGtmGlobalAlertResponseBodyAlertConfigAlertConfig exten
       dingtalkNotice: 'boolean',
       emailNotice: 'boolean',
       noticeType: 'string',
+      qpsThreshold: 'number',
       smsNotice: 'boolean',
       threshold: 'number',
     };
