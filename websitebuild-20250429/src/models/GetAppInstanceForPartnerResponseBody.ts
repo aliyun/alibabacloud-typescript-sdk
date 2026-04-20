@@ -804,6 +804,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
    * ServiceSpecText
    */
   serviceSpecText?: string;
+  upgradeStatus?: string;
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
@@ -816,6 +817,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
       orderId: 'OrderId',
       serviceSpec: 'ServiceSpec',
       serviceSpecText: 'ServiceSpecText',
+      upgradeStatus: 'UpgradeStatus',
     };
   }
 
@@ -831,6 +833,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleAppServiceListProfile ext
       orderId: 'string',
       serviceSpec: 'string',
       serviceSpecText: 'string',
+      upgradeStatus: 'string',
     };
   }
 
@@ -1279,6 +1282,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
    * https://aloss-recruit-aiinterview.oss-cn-beijing.aliyuncs.com/thumbnail-1753495551714-10000.png
    */
   thumbnail?: string;
+  upgradeStatus?: string;
   static names(): { [key: string]: string } {
     return {
       adminUrl: 'AdminUrl',
@@ -1311,6 +1315,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
       templateId: 'TemplateId',
       textList: 'TextList',
       thumbnail: 'Thumbnail',
+      upgradeStatus: 'UpgradeStatus',
     };
   }
 
@@ -1346,6 +1351,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleProfile extends $dara.Mod
       templateId: 'string',
       textList: 'string',
       thumbnail: 'string',
+      upgradeStatus: 'string',
     };
   }
 
@@ -1509,6 +1515,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
    * https://aloss-recruit-aiinterview.oss-cn-beijing.aliyuncs.com/thumbnail-1766456326256-0.png
    */
   thumbnail?: string;
+  upgradeStatus?: string;
   static names(): { [key: string]: string } {
     return {
       adminUrl: 'AdminUrl',
@@ -1541,6 +1548,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
       templateId: 'TemplateId',
       textList: 'TextList',
       thumbnail: 'Thumbnail',
+      upgradeStatus: 'UpgradeStatus',
     };
   }
 
@@ -1576,6 +1584,7 @@ export class GetAppInstanceForPartnerResponseBodyModuleRelatedInstanceListProfil
       templateId: 'string',
       textList: 'string',
       thumbnail: 'string',
+      upgradeStatus: 'string',
     };
   }
 

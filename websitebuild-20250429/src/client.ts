@@ -1362,7 +1362,6 @@ export default class Client extends OpenApi {
   /**
    * 查询万小智灵感值服务
    * 
-   * @param request - GetAppTokenServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAppTokenServiceResponse
    */
@@ -1728,10 +1727,12 @@ export default class Client extends OpenApi {
   /**
    * 获取商品配置信息
    * 
-   * @param request - ListAppCommoditySpecificationsForPartnerRequest
+   * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
+   * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAppCommoditySpecificationsForPartnerResponse
    */
+  // Deprecated
   async listAppCommoditySpecificationsForPartnerWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListAppCommoditySpecificationsForPartnerResponse> {
     let req = new $OpenApiUtil.OpenApiRequest({ });
     let params = new $OpenApiUtil.Params({
@@ -1750,8 +1751,11 @@ export default class Client extends OpenApi {
 
   /**
    * 获取商品配置信息
+   * 
+   * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
    * @returns ListAppCommoditySpecificationsForPartnerResponse
    */
+  // Deprecated
   async listAppCommoditySpecificationsForPartner(): Promise<$_model.ListAppCommoditySpecificationsForPartnerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listAppCommoditySpecificationsForPartnerWithOptions(runtime);
@@ -2668,7 +2672,6 @@ export default class Client extends OpenApi {
   /**
    * 查询灵感值余额总览
    * 
-   * @param request - QueryInspirationBalanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryInspirationBalanceResponse
    */
