@@ -488,6 +488,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文件上传信息
+   * 
+   * @param request - GenerateFileUploadParamsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateFileUploadParamsResponse
+   */
+  async generateFileUploadParamsWithOptions(request: $_model.GenerateFileUploadParamsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateFileUploadParamsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessType)) {
+      body["BusinessType"] = request.businessType;
+    }
+
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateFileUploadParams",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateFileUploadParamsResponse>(await this.callApi(params, req, runtime), new $_model.GenerateFileUploadParamsResponse({}));
+  }
+
+  /**
+   * 获取文件上传信息
+   * 
+   * @param request - GenerateFileUploadParamsRequest
+   * @returns GenerateFileUploadParamsResponse
+   */
+  async generateFileUploadParams(request: $_model.GenerateFileUploadParamsRequest): Promise<$_model.GenerateFileUploadParamsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateFileUploadParamsWithOptions(request, runtime);
+  }
+
+  /**
    * Get应用
    * 
    * @param request - GetApplicationRequest

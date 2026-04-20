@@ -6,6 +6,7 @@ export { CreateApplicationVersionRequestScriptProfile } from './CreateApplicatio
 export { CreateApplicationVersionRequestSynthesizerConfig } from './CreateApplicationVersionRequest';
 export { CreateApplicationVersionRequestTranscriberConfig } from './CreateApplicationVersionRequest';
 export { CreateCloneVoiceResponseBodyData } from './CreateCloneVoiceResponseBody';
+export { GenerateFileUploadParamsResponseBodyData } from './GenerateFileUploadParamsResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionInteractionConfigSilenceDetectionConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionInteractionConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionScriptProfileAgentProfile } from './GetApplicationResponseBody';
@@ -59,6 +60,9 @@ export { DeleteCloneVoiceResponse } from './DeleteCloneVoiceResponse';
 export { DeleteVariableRequest } from './DeleteVariableRequest';
 export { DeleteVariableResponseBody } from './DeleteVariableResponseBody';
 export { DeleteVariableResponse } from './DeleteVariableResponse';
+export { GenerateFileUploadParamsRequest } from './GenerateFileUploadParamsRequest';
+export { GenerateFileUploadParamsResponseBody } from './GenerateFileUploadParamsResponseBody';
+export { GenerateFileUploadParamsResponse } from './GenerateFileUploadParamsResponse';
 export { GetApplicationRequest } from './GetApplicationRequest';
 export { GetApplicationResponseBody } from './GetApplicationResponseBody';
 export { GetApplicationResponse } from './GetApplicationResponse';
