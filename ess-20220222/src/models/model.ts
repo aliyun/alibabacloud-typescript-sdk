@@ -143,6 +143,7 @@ export { DescribeScalingActivityStatisticsResponseBodyScalingActivityErrorCodeSt
 export { DescribeScalingActivityStatisticsResponseBodyScalingActivityErrorCodeStatistics } from './DescribeScalingActivityStatisticsResponseBody';
 export { DescribeScalingActivityStatisticsResponseBodyScalingActivityStatusStatisticsStatistic } from './DescribeScalingActivityStatisticsResponseBody';
 export { DescribeScalingActivityStatisticsResponseBodyScalingActivityStatusStatistics } from './DescribeScalingActivityStatisticsResponseBody';
+export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsCpuOptions } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsCustomPriorities } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstancePatternInfos } from './DescribeScalingConfigurationsResponseBody';

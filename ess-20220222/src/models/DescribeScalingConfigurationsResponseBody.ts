@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsCpuOptions extends $dara.Model {
+  nestedVirtualization?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nestedVirtualization: 'NestedVirtualization',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nestedVirtualization: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsCustomPriorities extends $dara.Model {
   /**
    * @remarks
@@ -842,6 +865,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
    * 2
    */
   cpu?: number;
+  cpuOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsCpuOptions;
   /**
    * @remarks
    * The time at which the scaling configuration was created.
@@ -1460,6 +1484,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
     return {
       affinity: 'Affinity',
       cpu: 'Cpu',
+      cpuOptions: 'CpuOptions',
       creationTime: 'CreationTime',
       creditSpecification: 'CreditSpecification',
       customPriorities: 'CustomPriorities',
@@ -1539,6 +1564,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
     return {
       affinity: 'string',
       cpu: 'number',
+      cpuOptions: DescribeScalingConfigurationsResponseBodyScalingConfigurationsCpuOptions,
       creationTime: 'string',
       creditSpecification: 'string',
       customPriorities: { 'type': 'array', 'itemType': DescribeScalingConfigurationsResponseBodyScalingConfigurationsCustomPriorities },
@@ -1615,6 +1641,9 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   }
 
   validate() {
+    if(this.cpuOptions && typeof (this.cpuOptions as any).validate === 'function') {
+      (this.cpuOptions as any).validate();
+    }
     if(Array.isArray(this.customPriorities)) {
       $dara.Model.validateArray(this.customPriorities);
     }
