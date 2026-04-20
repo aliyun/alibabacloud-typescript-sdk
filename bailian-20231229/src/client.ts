@@ -55,6 +55,10 @@ export default class Client extends OpenApi {
       body["CategoryType"] = request.categoryType;
     }
 
+    if (!$dara.isNull(request.connectorId)) {
+      body["ConnectorId"] = request.connectorId;
+    }
+
     if (!$dara.isNull(request.parentCategoryId)) {
       body["ParentCategoryId"] = request.parentCategoryId;
     }

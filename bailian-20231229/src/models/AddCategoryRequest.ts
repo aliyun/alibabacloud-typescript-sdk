@@ -16,6 +16,7 @@ export class AddCategoryRequest extends $dara.Model {
    * UNSTRUCTURED
    */
   categoryType?: string;
+  connectorId?: string;
   /**
    * @example
    * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
@@ -25,6 +26,7 @@ export class AddCategoryRequest extends $dara.Model {
     return {
       categoryName: 'CategoryName',
       categoryType: 'CategoryType',
+      connectorId: 'ConnectorId',
       parentCategoryId: 'ParentCategoryId',
     };
   }
@@ -33,6 +35,7 @@ export class AddCategoryRequest extends $dara.Model {
     return {
       categoryName: 'string',
       categoryType: 'string',
+      connectorId: 'string',
       parentCategoryId: 'string',
     };
   }
