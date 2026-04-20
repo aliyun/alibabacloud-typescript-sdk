@@ -1435,6 +1435,198 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建数据集
+   * 
+   * @param request - CreateAIDBClusterDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAIDBClusterDatasetResponse
+   */
+  async createAIDBClusterDatasetWithOptions(request: $_model.CreateAIDBClusterDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAIDBClusterDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetName)) {
+      query["DatasetName"] = request.datasetName;
+    }
+
+    if (!$dara.isNull(request.datasetType)) {
+      query["DatasetType"] = request.datasetType;
+    }
+
+    if (!$dara.isNull(request.importMode)) {
+      query["ImportMode"] = request.importMode;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.trainMode)) {
+      query["TrainMode"] = request.trainMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAIDBClusterDataset",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAIDBClusterDatasetResponse>(await this.callApi(params, req, runtime), new $_model.CreateAIDBClusterDatasetResponse({}));
+  }
+
+  /**
+   * 创建数据集
+   * 
+   * @param request - CreateAIDBClusterDatasetRequest
+   * @returns CreateAIDBClusterDatasetResponse
+   */
+  async createAIDBClusterDataset(request: $_model.CreateAIDBClusterDatasetRequest): Promise<$_model.CreateAIDBClusterDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAIDBClusterDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建模型评测任务
+   * 
+   * @param request - CreateAIDBClusterTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAIDBClusterTaskResponse
+   */
+  async createAIDBClusterTaskWithOptions(request: $_model.CreateAIDBClusterTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAIDBClusterTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBInstanceClass)) {
+      query["DBInstanceClass"] = request.DBInstanceClass;
+    }
+
+    if (!$dara.isNull(request.datasetPath)) {
+      query["DatasetPath"] = request.datasetPath;
+    }
+
+    if (!$dara.isNull(request.evalDatasetPath)) {
+      query["EvalDatasetPath"] = request.evalDatasetPath;
+    }
+
+    if (!$dara.isNull(request.kubeType)) {
+      query["KubeType"] = request.kubeType;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelSource)) {
+      query["ModelSource"] = request.modelSource;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      query["ModelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.runningParameter)) {
+      query["RunningParameter"] = request.runningParameter;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAIDBClusterTask",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAIDBClusterTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateAIDBClusterTaskResponse({}));
+  }
+
+  /**
+   * 创建模型评测任务
+   * 
+   * @param request - CreateAIDBClusterTaskRequest
+   * @returns CreateAIDBClusterTaskResponse
+   */
+  async createAIDBClusterTask(request: $_model.CreateAIDBClusterTaskRequest): Promise<$_model.CreateAIDBClusterTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAIDBClusterTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 创建AI节点
    * 
    * @param request - CreateAINodesRequest
@@ -4059,6 +4251,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除数据集
+   * 
+   * @param request - DeleteAIDBClusterDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAIDBClusterDatasetResponse
+   */
+  async deleteAIDBClusterDatasetWithOptions(request: $_model.DeleteAIDBClusterDatasetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAIDBClusterDatasetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAIDBClusterDataset",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAIDBClusterDatasetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAIDBClusterDatasetResponse({}));
+  }
+
+  /**
+   * 删除数据集
+   * 
+   * @param request - DeleteAIDBClusterDatasetRequest
+   * @returns DeleteAIDBClusterDatasetResponse
+   */
+  async deleteAIDBClusterDataset(request: $_model.DeleteAIDBClusterDatasetRequest): Promise<$_model.DeleteAIDBClusterDatasetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAIDBClusterDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除任务实例
+   * 
+   * @param request - DeleteAIDBClusterTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAIDBClusterTaskResponse
+   */
+  async deleteAIDBClusterTaskWithOptions(request: $_model.DeleteAIDBClusterTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAIDBClusterTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.relativeDBClusterId)) {
+      query["RelativeDBClusterId"] = request.relativeDBClusterId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAIDBClusterTask",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAIDBClusterTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAIDBClusterTaskResponse({}));
+  }
+
+  /**
+   * 删除任务实例
+   * 
+   * @param request - DeleteAIDBClusterTaskRequest
+   * @returns DeleteAIDBClusterTaskResponse
+   */
+  async deleteAIDBClusterTask(request: $_model.DeleteAIDBClusterTaskRequest): Promise<$_model.DeleteAIDBClusterTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAIDBClusterTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 删除ai实例子节点
    * 
    * @param request - DeleteAINodesRequest
@@ -5819,6 +6143,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据集列表
+   * 
+   * @param request - DescribeAIDBClusterDatasetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIDBClusterDatasetsResponse
+   */
+  async describeAIDBClusterDatasetsWithOptions(request: $_model.DescribeAIDBClusterDatasetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterDatasetsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.continuationToken)) {
+      query["ContinuationToken"] = request.continuationToken;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.datasetId)) {
+      query["DatasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.datasetType)) {
+      query["DatasetType"] = request.datasetType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.trainMode)) {
+      query["TrainMode"] = request.trainMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIDBClusterDatasets",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIDBClusterDatasetsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClusterDatasetsResponse({}));
+  }
+
+  /**
+   * 查询数据集列表
+   * 
+   * @param request - DescribeAIDBClusterDatasetsRequest
+   * @returns DescribeAIDBClusterDatasetsResponse
+   */
+  async describeAIDBClusterDatasets(request: $_model.DescribeAIDBClusterDatasetsRequest): Promise<$_model.DescribeAIDBClusterDatasetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIDBClusterDatasetsWithOptions(request, runtime);
+  }
+
+  /**
    * 获取ai容器性能指标
    * 
    * @param request - DescribeAIDBClusterPerformanceRequest
@@ -5874,6 +6284,72 @@ export default class Client extends OpenApi {
   async describeAIDBClusterPerformance(request: $_model.DescribeAIDBClusterPerformanceRequest): Promise<$_model.DescribeAIDBClusterPerformanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAIDBClusterPerformanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取任务实例详情
+   * 
+   * @param request - DescribeAIDBClusterTaskAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIDBClusterTaskAttributeResponse
+   */
+  async describeAIDBClusterTaskAttributeWithOptions(request: $_model.DescribeAIDBClusterTaskAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterTaskAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.describeType)) {
+      query["DescribeType"] = request.describeType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIDBClusterTaskAttribute",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIDBClusterTaskAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClusterTaskAttributeResponse({}));
+  }
+
+  /**
+   * 获取任务实例详情
+   * 
+   * @param request - DescribeAIDBClusterTaskAttributeRequest
+   * @returns DescribeAIDBClusterTaskAttributeResponse
+   */
+  async describeAIDBClusterTaskAttribute(request: $_model.DescribeAIDBClusterTaskAttributeRequest): Promise<$_model.DescribeAIDBClusterTaskAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIDBClusterTaskAttributeWithOptions(request, runtime);
   }
 
   /**
@@ -6014,6 +6490,72 @@ export default class Client extends OpenApi {
   async describeAIDBClusterTaskMetrics(request: $_model.DescribeAIDBClusterTaskMetricsRequest): Promise<$_model.DescribeAIDBClusterTaskMetricsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAIDBClusterTaskMetricsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取任务实例列表
+   * 
+   * @param request - DescribeAIDBClusterTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeAIDBClusterTasksResponse
+   */
+  async describeAIDBClusterTasksWithOptions(request: $_model.DescribeAIDBClusterTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.kubeType)) {
+      query["KubeType"] = request.kubeType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.relativeDBClusterId)) {
+      query["RelativeDBClusterId"] = request.relativeDBClusterId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeAIDBClusterTasks",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeAIDBClusterTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClusterTasksResponse({}));
+  }
+
+  /**
+   * 获取任务实例列表
+   * 
+   * @param request - DescribeAIDBClusterTasksRequest
+   * @returns DescribeAIDBClusterTasksResponse
+   */
+  async describeAIDBClusterTasks(request: $_model.DescribeAIDBClusterTasksRequest): Promise<$_model.DescribeAIDBClusterTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeAIDBClusterTasksWithOptions(request, runtime);
   }
 
   /**
