@@ -287,6 +287,35 @@ export class UpdateEventStreamingRequestRunOptions extends $dara.Model {
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkApacheKafkaParametersDynamicTopic extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkApacheKafkaParametersHeaders extends $dara.Model {
   form?: string;
   template?: string;
@@ -403,6 +432,32 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSecurityGro
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSslKeystoreKey extends $dara.Model {
+  kmsArn?: string;
+  kmsSecretValueKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kmsArn: 'KmsArn',
+      kmsSecretValueKey: 'KmsSecretValueKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kmsArn: 'string',
+      kmsSecretValueKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkApacheKafkaParametersVSwitchIds extends $dara.Model {
   form?: string;
   template?: string;
@@ -494,6 +549,7 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
   acks?: string;
   bootstraps?: string;
   compressionType?: string;
+  dynamicTopic?: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersDynamicTopic;
   headers?: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersHeaders;
   key?: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersKey;
   networkType?: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersNetworkType;
@@ -502,6 +558,9 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
   saslUser?: string;
   securityGroupId?: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSecurityGroupId;
   securityProtocol?: string;
+  sslKeyPassword?: string;
+  sslKeystoreCertificateChain?: string;
+  sslKeystoreKey?: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSslKeystoreKey;
   sslTruststoreCertificates?: string;
   topic?: string;
   vSwitchIds?: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersVSwitchIds;
@@ -512,6 +571,7 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
       acks: 'Acks',
       bootstraps: 'Bootstraps',
       compressionType: 'CompressionType',
+      dynamicTopic: 'DynamicTopic',
       headers: 'Headers',
       key: 'Key',
       networkType: 'NetworkType',
@@ -520,6 +580,9 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
       saslUser: 'SaslUser',
       securityGroupId: 'SecurityGroupId',
       securityProtocol: 'SecurityProtocol',
+      sslKeyPassword: 'SslKeyPassword',
+      sslKeystoreCertificateChain: 'SslKeystoreCertificateChain',
+      sslKeystoreKey: 'SslKeystoreKey',
       sslTruststoreCertificates: 'SslTruststoreCertificates',
       topic: 'Topic',
       vSwitchIds: 'VSwitchIds',
@@ -533,6 +596,7 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
       acks: 'string',
       bootstraps: 'string',
       compressionType: 'string',
+      dynamicTopic: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersDynamicTopic,
       headers: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersHeaders,
       key: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersKey,
       networkType: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersNetworkType,
@@ -541,6 +605,9 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
       saslUser: 'string',
       securityGroupId: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSecurityGroupId,
       securityProtocol: 'string',
+      sslKeyPassword: 'string',
+      sslKeystoreCertificateChain: 'string',
+      sslKeystoreKey: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSslKeystoreKey,
       sslTruststoreCertificates: 'string',
       topic: 'string',
       vSwitchIds: UpdateEventStreamingRequestSinkSinkApacheKafkaParametersVSwitchIds,
@@ -550,6 +617,9 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
   }
 
   validate() {
+    if(this.dynamicTopic && typeof (this.dynamicTopic as any).validate === 'function') {
+      (this.dynamicTopic as any).validate();
+    }
     if(this.headers && typeof (this.headers as any).validate === 'function') {
       (this.headers as any).validate();
     }
@@ -561,6 +631,9 @@ export class UpdateEventStreamingRequestSinkSinkApacheKafkaParameters extends $d
     }
     if(this.securityGroupId && typeof (this.securityGroupId as any).validate === 'function') {
       (this.securityGroupId as any).validate();
+    }
+    if(this.sslKeystoreKey && typeof (this.sslKeystoreKey as any).validate === 'function') {
+      (this.sslKeystoreKey as any).validate();
     }
     if(this.vSwitchIds && typeof (this.vSwitchIds as any).validate === 'function') {
       (this.vSwitchIds as any).validate();
@@ -3176,6 +3249,35 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParametersAcks extends $dar
   }
 }
 
+export class UpdateEventStreamingRequestSinkSinkKafkaParametersDynamicTopic extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSinkSinkKafkaParametersHeaders extends $dara.Model {
   /**
    * @remarks
@@ -3437,6 +3539,7 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
    */
   acks?: UpdateEventStreamingRequestSinkSinkKafkaParametersAcks;
   compressionType?: string;
+  dynamicTopic?: UpdateEventStreamingRequestSinkSinkKafkaParametersDynamicTopic;
   /**
    * @remarks
    * The metadata added to messages in the ApsaraMQ for Kafka instance.
@@ -3466,6 +3569,7 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
     return {
       acks: 'Acks',
       compressionType: 'CompressionType',
+      dynamicTopic: 'DynamicTopic',
       headers: 'Headers',
       instanceId: 'InstanceId',
       key: 'Key',
@@ -3478,6 +3582,7 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
     return {
       acks: UpdateEventStreamingRequestSinkSinkKafkaParametersAcks,
       compressionType: 'string',
+      dynamicTopic: UpdateEventStreamingRequestSinkSinkKafkaParametersDynamicTopic,
       headers: UpdateEventStreamingRequestSinkSinkKafkaParametersHeaders,
       instanceId: UpdateEventStreamingRequestSinkSinkKafkaParametersInstanceId,
       key: UpdateEventStreamingRequestSinkSinkKafkaParametersKey,
@@ -3489,6 +3594,9 @@ export class UpdateEventStreamingRequestSinkSinkKafkaParameters extends $dara.Mo
   validate() {
     if(this.acks && typeof (this.acks as any).validate === 'function') {
       (this.acks as any).validate();
+    }
+    if(this.dynamicTopic && typeof (this.dynamicTopic as any).validate === 'function') {
+      (this.dynamicTopic as any).validate();
     }
     if(this.headers && typeof (this.headers as any).validate === 'function') {
       (this.headers as any).validate();
@@ -7124,6 +7232,32 @@ export class UpdateEventStreamingRequestSink extends $dara.Model {
   }
 }
 
+export class UpdateEventStreamingRequestSourceSourceApacheKafkaParametersSslKeystoreKey extends $dara.Model {
+  kmsArn?: string;
+  kmsSecretValueKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kmsArn: 'KmsArn',
+      kmsSecretValueKey: 'KmsSecretValueKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kmsArn: 'string',
+      kmsSecretValueKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters extends $dara.Model {
   bootstraps?: string;
   consumerGroup?: string;
@@ -7134,6 +7268,9 @@ export class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters extend
   saslUser?: string;
   securityGroupId?: string;
   securityProtocol?: string;
+  sslKeyPassword?: string;
+  sslKeystoreCertificateChain?: string;
+  sslKeystoreKey?: UpdateEventStreamingRequestSourceSourceApacheKafkaParametersSslKeystoreKey;
   sslTruststoreCertificates?: string;
   topic?: string;
   vSwitchIds?: string;
@@ -7150,6 +7287,9 @@ export class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters extend
       saslUser: 'SaslUser',
       securityGroupId: 'SecurityGroupId',
       securityProtocol: 'SecurityProtocol',
+      sslKeyPassword: 'SslKeyPassword',
+      sslKeystoreCertificateChain: 'SslKeystoreCertificateChain',
+      sslKeystoreKey: 'SslKeystoreKey',
       sslTruststoreCertificates: 'SslTruststoreCertificates',
       topic: 'Topic',
       vSwitchIds: 'VSwitchIds',
@@ -7169,6 +7309,9 @@ export class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters extend
       saslUser: 'string',
       securityGroupId: 'string',
       securityProtocol: 'string',
+      sslKeyPassword: 'string',
+      sslKeystoreCertificateChain: 'string',
+      sslKeystoreKey: UpdateEventStreamingRequestSourceSourceApacheKafkaParametersSslKeystoreKey,
       sslTruststoreCertificates: 'string',
       topic: 'string',
       vSwitchIds: 'string',
@@ -7178,6 +7321,9 @@ export class UpdateEventStreamingRequestSourceSourceApacheKafkaParameters extend
   }
 
   validate() {
+    if(this.sslKeystoreKey && typeof (this.sslKeystoreKey as any).validate === 'function') {
+      (this.sslKeystoreKey as any).validate();
+    }
     super.validate();
   }
 

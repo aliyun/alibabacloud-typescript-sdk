@@ -57,10 +57,12 @@ export { CreateEventStreamingRequestRunOptionsBusinessOption } from './CreateEve
 export { CreateEventStreamingRequestRunOptionsDeadLetterQueue } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestRunOptionsRetryStrategy } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestRunOptions } from './CreateEventStreamingRequest';
+export { CreateEventStreamingRequestSinkSinkApacheKafkaParametersDynamicTopic } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkApacheKafkaParametersHeaders } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkApacheKafkaParametersKey } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkApacheKafkaParametersNetworkType } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkApacheKafkaParametersSecurityGroupId } from './CreateEventStreamingRequest';
+export { CreateEventStreamingRequestSinkSinkApacheKafkaParametersSslKeystoreKey } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkApacheKafkaParametersVSwitchIds } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkApacheKafkaParametersValue } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkApacheKafkaParametersVpcId } from './CreateEventStreamingRequest';
@@ -117,6 +119,7 @@ export { CreateEventStreamingRequestSinkSinkFnfParametersInput } from './CreateE
 export { CreateEventStreamingRequestSinkSinkFnfParametersRoleName } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkFnfParameters } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkKafkaParametersAcks } from './CreateEventStreamingRequest';
+export { CreateEventStreamingRequestSinkSinkKafkaParametersDynamicTopic } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkKafkaParametersHeaders } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkKafkaParametersInstanceId } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkKafkaParametersKey } from './CreateEventStreamingRequest';
@@ -183,6 +186,7 @@ export { CreateEventStreamingRequestSinkSinkSLSParametersRoleName } from './Crea
 export { CreateEventStreamingRequestSinkSinkSLSParametersTopic } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSinkSinkSLSParameters } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSink } from './CreateEventStreamingRequest';
+export { CreateEventStreamingRequestSourceSourceApacheKafkaParametersSslKeystoreKey } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSourceSourceApacheKafkaParameters } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters } from './CreateEventStreamingRequest';
 export { CreateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters } from './CreateEventStreamingRequest';
@@ -247,10 +251,12 @@ export { GetEventStreamingResponseBodyDataRunOptionsBusinessOption } from './Get
 export { GetEventStreamingResponseBodyDataRunOptionsDeadLetterQueue } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataRunOptionsRetryStrategy } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataRunOptions } from './GetEventStreamingResponseBody';
+export { GetEventStreamingResponseBodyDataSinkSinkApacheKafkaParametersDynamicTopic } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkApacheKafkaParametersHeaders } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkApacheKafkaParametersKey } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkApacheKafkaParametersNetworkType } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkApacheKafkaParametersSecurityGroupId } from './GetEventStreamingResponseBody';
+export { GetEventStreamingResponseBodyDataSinkSinkApacheKafkaParametersSslKeystoreKey } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkApacheKafkaParametersVSwitchIds } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkApacheKafkaParametersValue } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkApacheKafkaParametersVpcId } from './GetEventStreamingResponseBody';
@@ -304,6 +310,7 @@ export { GetEventStreamingResponseBodyDataSinkSinkFnfParametersInput } from './G
 export { GetEventStreamingResponseBodyDataSinkSinkFnfParametersRoleName } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkFnfParameters } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkKafkaParametersAcks } from './GetEventStreamingResponseBody';
+export { GetEventStreamingResponseBodyDataSinkSinkKafkaParametersDynamicTopic } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkKafkaParametersHeaders } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkKafkaParametersInstanceId } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkKafkaParametersKey } from './GetEventStreamingResponseBody';
@@ -359,6 +366,7 @@ export { GetEventStreamingResponseBodyDataSinkSinkSLSParametersRoleName } from '
 export { GetEventStreamingResponseBodyDataSinkSinkSLSParametersTopic } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSinkSinkSLSParameters } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSink } from './GetEventStreamingResponseBody';
+export { GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParametersSslKeystoreKey } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSourceSourceApacheKafkaParameters } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSourceSourceApacheRocketMQCheckpointParameters } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataSourceSourceCustomizedKafkaConnectorParametersConnectorParameters } from './GetEventStreamingResponseBody';
@@ -462,6 +470,7 @@ export { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters
 export { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParametersRoleName } from './ListEventStreamingsResponseBody';
 export { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkFnfParameters } from './ListEventStreamingsResponseBody';
 export { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersAcks } from './ListEventStreamingsResponseBody';
+export { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersDynamicTopic } from './ListEventStreamingsResponseBody';
 export { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersInstanceId } from './ListEventStreamingsResponseBody';
 export { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersKey } from './ListEventStreamingsResponseBody';
 export { ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersTopic } from './ListEventStreamingsResponseBody';
@@ -592,10 +601,12 @@ export { UpdateEventStreamingRequestRunOptionsBusinessOption } from './UpdateEve
 export { UpdateEventStreamingRequestRunOptionsDeadLetterQueue } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestRunOptionsRetryStrategy } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestRunOptions } from './UpdateEventStreamingRequest';
+export { UpdateEventStreamingRequestSinkSinkApacheKafkaParametersDynamicTopic } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkApacheKafkaParametersHeaders } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkApacheKafkaParametersKey } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkApacheKafkaParametersNetworkType } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSecurityGroupId } from './UpdateEventStreamingRequest';
+export { UpdateEventStreamingRequestSinkSinkApacheKafkaParametersSslKeystoreKey } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkApacheKafkaParametersVSwitchIds } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkApacheKafkaParametersValue } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkApacheKafkaParametersVpcId } from './UpdateEventStreamingRequest';
@@ -654,6 +665,7 @@ export { UpdateEventStreamingRequestSinkSinkFnfParametersInput } from './UpdateE
 export { UpdateEventStreamingRequestSinkSinkFnfParametersRoleName } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkFnfParameters } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkKafkaParametersAcks } from './UpdateEventStreamingRequest';
+export { UpdateEventStreamingRequestSinkSinkKafkaParametersDynamicTopic } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkKafkaParametersHeaders } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkKafkaParametersInstanceId } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkKafkaParametersKey } from './UpdateEventStreamingRequest';
@@ -720,6 +732,7 @@ export { UpdateEventStreamingRequestSinkSinkSLSParametersRoleName } from './Upda
 export { UpdateEventStreamingRequestSinkSinkSLSParametersTopic } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSinkSinkSLSParameters } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSink } from './UpdateEventStreamingRequest';
+export { UpdateEventStreamingRequestSourceSourceApacheKafkaParametersSslKeystoreKey } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSourceSourceApacheKafkaParameters } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSourceSourceApacheRocketMQCheckpointParameters } from './UpdateEventStreamingRequest';
 export { UpdateEventStreamingRequestSourceSourceCustomizedKafkaConnectorParametersConnectorParameters } from './UpdateEventStreamingRequest';

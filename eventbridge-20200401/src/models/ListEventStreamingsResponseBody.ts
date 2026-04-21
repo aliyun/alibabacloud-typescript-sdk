@@ -2464,6 +2464,35 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
   }
 }
 
+export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersDynamicTopic extends $dara.Model {
+  form?: string;
+  template?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      form: 'Form',
+      template: 'Template',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      form: 'string',
+      template: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersInstanceId extends $dara.Model {
   /**
    * @remarks
@@ -2668,6 +2697,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
    */
   acks?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersAcks;
   compressionType?: string;
+  dynamicTopic?: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersDynamicTopic;
   /**
    * @remarks
    * The ID of the ApsaraMQ for Kafka instance.
@@ -2692,6 +2722,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
     return {
       acks: 'Acks',
       compressionType: 'CompressionType',
+      dynamicTopic: 'DynamicTopic',
       instanceId: 'InstanceId',
       key: 'Key',
       topic: 'Topic',
@@ -2703,6 +2734,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
     return {
       acks: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersAcks,
       compressionType: 'string',
+      dynamicTopic: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersDynamicTopic,
       instanceId: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersInstanceId,
       key: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersKey,
       topic: ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaParametersTopic,
@@ -2713,6 +2745,9 @@ export class ListEventStreamingsResponseBodyDataEventStreamingsSinkSinkKafkaPara
   validate() {
     if(this.acks && typeof (this.acks as any).validate === 'function') {
       (this.acks as any).validate();
+    }
+    if(this.dynamicTopic && typeof (this.dynamicTopic as any).validate === 'function') {
+      (this.dynamicTopic as any).validate();
     }
     if(this.instanceId && typeof (this.instanceId as any).validate === 'function') {
       (this.instanceId as any).validate();
