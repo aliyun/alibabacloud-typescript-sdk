@@ -35,6 +35,8 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   timerOrder?: number;
   timezone?: string;
   triggerType?: string;
+  verificationNotificationTime?: number;
+  verificationTime?: number;
   static names(): { [key: string]: string } {
     return {
       appointmentTimer: 'AppointmentTimer',
@@ -53,6 +55,8 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
       timerOrder: 'TimerOrder',
       timezone: 'Timezone',
       triggerType: 'TriggerType',
+      verificationNotificationTime: 'VerificationNotificationTime',
+      verificationTime: 'VerificationTime',
     };
   }
 
@@ -74,6 +78,8 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
       timerOrder: 'number',
       timezone: 'string',
       triggerType: 'string',
+      verificationNotificationTime: 'number',
+      verificationTime: 'number',
     };
   }
 

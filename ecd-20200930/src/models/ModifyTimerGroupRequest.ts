@@ -29,6 +29,8 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
   timerOrder?: number;
   timezone?: string;
   triggerType?: string;
+  verificationNotificationTime?: number;
+  verificationTime?: number;
   static names(): { [key: string]: string } {
     return {
       appointmentTimer: 'AppointmentTimer',
@@ -45,6 +47,8 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
       timerOrder: 'TimerOrder',
       timezone: 'Timezone',
       triggerType: 'TriggerType',
+      verificationNotificationTime: 'VerificationNotificationTime',
+      verificationTime: 'VerificationTime',
     };
   }
 
@@ -64,6 +68,8 @@ export class ModifyTimerGroupRequestConfigTimersSegmentTimers extends $dara.Mode
       timerOrder: 'number',
       timezone: 'string',
       triggerType: 'string',
+      verificationNotificationTime: 'number',
+      verificationTime: 'number',
     };
   }
 
