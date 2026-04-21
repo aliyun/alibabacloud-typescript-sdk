@@ -44,6 +44,7 @@ export class CreateKyuubiTokenRequest extends $dara.Model {
    * dev_serverless_spark
    */
   name?: string;
+  sparkRole?: string[];
   /**
    * @example
    * rjy7ejhej9gkzjjuun49jnx2xk8if2cu
@@ -59,6 +60,7 @@ export class CreateKyuubiTokenRequest extends $dara.Model {
       autoExpireConfiguration: 'autoExpireConfiguration',
       memberArns: 'memberArns',
       name: 'name',
+      sparkRole: 'sparkRole',
       token: 'token',
       regionId: 'regionId',
     };
@@ -69,6 +71,7 @@ export class CreateKyuubiTokenRequest extends $dara.Model {
       autoExpireConfiguration: CreateKyuubiTokenRequestAutoExpireConfiguration,
       memberArns: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      sparkRole: { 'type': 'array', 'itemType': 'string' },
       token: 'string',
       regionId: 'string',
     };
@@ -80,6 +83,9 @@ export class CreateKyuubiTokenRequest extends $dara.Model {
     }
     if(Array.isArray(this.memberArns)) {
       $dara.Model.validateArray(this.memberArns);
+    }
+    if(Array.isArray(this.sparkRole)) {
+      $dara.Model.validateArray(this.sparkRole);
     }
     super.validate();
   }

@@ -336,6 +336,10 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!$dara.isNull(request.sparkRole)) {
+      body["sparkRole"] = request.sparkRole;
+    }
+
     if (!$dara.isNull(request.token)) {
       body["token"] = request.token;
     }
@@ -3887,6 +3891,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.sparkRole)) {
+      body["sparkRole"] = request.sparkRole;
     }
 
     if (!$dara.isNull(request.token)) {

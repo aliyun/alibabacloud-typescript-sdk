@@ -64,6 +64,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
    * dev_serverless_spark
    */
   name?: string;
+  sparkRole?: string[];
   /**
    * @example
    * dxj**********wfg
@@ -86,6 +87,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
       lastUsedTime: 'lastUsedTime',
       memberArns: 'memberArns',
       name: 'name',
+      sparkRole: 'sparkRole',
       token: 'token',
       tokenId: 'tokenId',
     };
@@ -100,6 +102,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
       lastUsedTime: 'number',
       memberArns: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
+      sparkRole: { 'type': 'array', 'itemType': 'string' },
       token: 'string',
       tokenId: 'string',
     };
@@ -111,6 +114,9 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.memberArns)) {
       $dara.Model.validateArray(this.memberArns);
+    }
+    if(Array.isArray(this.sparkRole)) {
+      $dara.Model.validateArray(this.sparkRole);
     }
     super.validate();
   }
