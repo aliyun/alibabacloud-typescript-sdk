@@ -84,6 +84,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建用户自动处置配置
+   * 
+   * @param request - CreateAutoDisposeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAutoDisposeConfigResponse
+   */
+  async createAutoDisposeConfigWithOptions(request: $_model.CreateAutoDisposeConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAutoDisposeConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoDecisionStatus)) {
+      body["AutoDecisionStatus"] = request.autoDecisionStatus;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAutoDisposeConfig",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAutoDisposeConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateAutoDisposeConfigResponse({}));
+  }
+
+  /**
+   * 创建用户自动处置配置
+   * 
+   * @param request - CreateAutoDisposeConfigRequest
+   * @returns CreateAutoDisposeConfigResponse
+   */
+  async createAutoDisposeConfig(request: $_model.CreateAutoDisposeConfigRequest): Promise<$_model.CreateAutoDisposeConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAutoDisposeConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 创建数据源
    * 
    * @param request - CreateDataIngestionRequest
@@ -1810,6 +1860,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 手动处置告警
+   * 
+   * @param request - ExecuteAutoDisposeRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteAutoDisposeRecordsResponse
+   */
+  async executeAutoDisposeRecordsWithOptions(request: $_model.ExecuteAutoDisposeRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteAutoDisposeRecordsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.selectedEntityList)) {
+      bodyFlat["SelectedEntityList"] = request.selectedEntityList;
+    }
+
+    if (!$dara.isNull(request.unSelectedEntityList)) {
+      bodyFlat["UnSelectedEntityList"] = request.unSelectedEntityList;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteAutoDisposeRecords",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteAutoDisposeRecordsResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteAutoDisposeRecordsResponse({}));
+  }
+
+  /**
+   * 手动处置告警
+   * 
+   * @param request - ExecuteAutoDisposeRecordsRequest
+   * @returns ExecuteAutoDisposeRecordsResponse
+   */
+  async executeAutoDisposeRecords(request: $_model.ExecuteAutoDisposeRecordsRequest): Promise<$_model.ExecuteAutoDisposeRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.executeAutoDisposeRecordsWithOptions(request, runtime);
+  }
+
+  /**
    * 查看LogStore
    * 
    * @param request - ExecuteLogQueryRequest
@@ -1943,6 +2048,52 @@ export default class Client extends OpenApi {
   async executeUpgrade(request: $_model.ExecuteUpgradeRequest): Promise<$_model.ExecuteUpgradeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.executeUpgradeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户自动处置配置
+   * 
+   * @param request - GetAutoDisposeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAutoDisposeConfigResponse
+   */
+  async getAutoDisposeConfigWithOptions(request: $_model.GetAutoDisposeConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAutoDisposeConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAutoDisposeConfig",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAutoDisposeConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetAutoDisposeConfigResponse({}));
+  }
+
+  /**
+   * 获取用户自动处置配置
+   * 
+   * @param request - GetAutoDisposeConfigRequest
+   * @returns GetAutoDisposeConfigResponse
+   */
+  async getAutoDisposeConfig(request: $_model.GetAutoDisposeConfigRequest): Promise<$_model.GetAutoDisposeConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAutoDisposeConfigWithOptions(request, runtime);
   }
 
   /**
@@ -2475,6 +2626,82 @@ export default class Client extends OpenApi {
   async getUserConfig(request: $_model.GetUserConfigRequest): Promise<$_model.GetUserConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUserConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取AI研判实体列表
+   * 
+   * @param tmpReq - ListAutoDisposeEntitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAutoDisposeEntitiesResponse
+   */
+  async listAutoDisposeEntitiesWithOptions(tmpReq: $_model.ListAutoDisposeEntitiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAutoDisposeEntitiesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAutoDisposeEntitiesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.autoDisposeRecordIds)) {
+      request.autoDisposeRecordIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoDisposeRecordIds, "AutoDisposeRecordIds", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoDisposeRecordIdsShrink)) {
+      body["AutoDisposeRecordIds"] = request.autoDisposeRecordIdsShrink;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.dataSourceType)) {
+      body["DataSourceType"] = request.dataSourceType;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAutoDisposeEntities",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAutoDisposeEntitiesResponse>(await this.callApi(params, req, runtime), new $_model.ListAutoDisposeEntitiesResponse({}));
+  }
+
+  /**
+   * 获取AI研判实体列表
+   * 
+   * @param request - ListAutoDisposeEntitiesRequest
+   * @returns ListAutoDisposeEntitiesResponse
+   */
+  async listAutoDisposeEntities(request: $_model.ListAutoDisposeEntitiesRequest): Promise<$_model.ListAutoDisposeEntitiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAutoDisposeEntitiesWithOptions(request, runtime);
   }
 
   /**
@@ -4425,6 +4652,114 @@ export default class Client extends OpenApi {
   async setDefaultNormalizationRuleVersion(request: $_model.SetDefaultNormalizationRuleVersionRequest): Promise<$_model.SetDefaultNormalizationRuleVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setDefaultNormalizationRuleVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新用户自动处置配置
+   * 
+   * @param request - UpdateAutoDisposeConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAutoDisposeConfigResponse
+   */
+  async updateAutoDisposeConfigWithOptions(request: $_model.UpdateAutoDisposeConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAutoDisposeConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoDecisionStatus)) {
+      body["AutoDecisionStatus"] = request.autoDecisionStatus;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      body["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAutoDisposeConfig",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAutoDisposeConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAutoDisposeConfigResponse({}));
+  }
+
+  /**
+   * 更新用户自动处置配置
+   * 
+   * @param request - UpdateAutoDisposeConfigRequest
+   * @returns UpdateAutoDisposeConfigResponse
+   */
+  async updateAutoDisposeConfig(request: $_model.UpdateAutoDisposeConfigRequest): Promise<$_model.UpdateAutoDisposeConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAutoDisposeConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 同步研判结果
+   * 
+   * @param request - UpdateAutoDisposeRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAutoDisposeRecordResponse
+   */
+  async updateAutoDisposeRecordWithOptions(request: $_model.UpdateAutoDisposeRecordRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAutoDisposeRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoDecisionConclusion)) {
+      body["AutoDecisionConclusion"] = request.autoDecisionConclusion;
+    }
+
+    if (!$dara.isNull(request.autoDecisionEntityList)) {
+      body["AutoDecisionEntityList"] = request.autoDecisionEntityList;
+    }
+
+    if (!$dara.isNull(request.autoDecisionResult)) {
+      body["AutoDecisionResult"] = request.autoDecisionResult;
+    }
+
+    if (!$dara.isNull(request.autoDisposeRecordId)) {
+      body["AutoDisposeRecordId"] = request.autoDisposeRecordId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      body["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAutoDisposeRecord",
+      version: "2024-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAutoDisposeRecordResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAutoDisposeRecordResponse({}));
+  }
+
+  /**
+   * 同步研判结果
+   * 
+   * @param request - UpdateAutoDisposeRecordRequest
+   * @returns UpdateAutoDisposeRecordResponse
+   */
+  async updateAutoDisposeRecord(request: $_model.UpdateAutoDisposeRecordRequest): Promise<$_model.UpdateAutoDisposeRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAutoDisposeRecordWithOptions(request, runtime);
   }
 
   /**
