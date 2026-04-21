@@ -29,6 +29,8 @@ export { ListCloneVoiceResponseBodyDataCloneVoices } from './ListCloneVoiceRespo
 export { ListCloneVoiceResponseBodyData } from './ListCloneVoiceResponseBody';
 export { ListVariableResponseBodyDataVariables } from './ListVariableResponseBody';
 export { ListVariableResponseBodyData } from './ListVariableResponseBody';
+export { ListVoicesResponseBodyDataVoices } from './ListVoicesResponseBody';
+export { ListVoicesResponseBodyData } from './ListVoicesResponseBody';
 export { UpdateApplicationVersionRequestInteractionConfigSilenceDetectionConfig } from './UpdateApplicationVersionRequest';
 export { UpdateApplicationVersionRequestInteractionConfig } from './UpdateApplicationVersionRequest';
 export { UpdateApplicationVersionRequestScriptProfileAgentProfile } from './UpdateApplicationVersionRequest';
@@ -78,6 +80,9 @@ export { ListCloneVoiceResponse } from './ListCloneVoiceResponse';
 export { ListVariableRequest } from './ListVariableRequest';
 export { ListVariableResponseBody } from './ListVariableResponseBody';
 export { ListVariableResponse } from './ListVariableResponse';
+export { ListVoicesRequest } from './ListVoicesRequest';
+export { ListVoicesResponseBody } from './ListVoicesResponseBody';
+export { ListVoicesResponse } from './ListVoicesResponse';
 export { PublishApplicationVersionRequest } from './PublishApplicationVersionRequest';
 export { PublishApplicationVersionResponseBody } from './PublishApplicationVersionResponseBody';
 export { PublishApplicationVersionResponse } from './PublishApplicationVersionResponse';

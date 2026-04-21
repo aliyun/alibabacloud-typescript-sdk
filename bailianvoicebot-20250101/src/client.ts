@@ -792,6 +792,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取音色列表
+   * 
+   * @param request - ListVoicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListVoicesResponse
+   */
+  async listVoicesWithOptions(request: $_model.ListVoicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListVoicesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.businessUnitId)) {
+      body["BusinessUnitId"] = request.businessUnitId;
+    }
+
+    if (!$dara.isNull(request.nlsAccessType)) {
+      body["NlsAccessType"] = request.nlsAccessType;
+    }
+
+    if (!$dara.isNull(request.nlsEngine)) {
+      body["NlsEngine"] = request.nlsEngine;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListVoices",
+      version: "2025-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListVoicesResponse>(await this.callApi(params, req, runtime), new $_model.ListVoicesResponse({}));
+  }
+
+  /**
+   * 获取音色列表
+   * 
+   * @param request - ListVoicesRequest
+   * @returns ListVoicesResponse
+   */
+  async listVoices(request: $_model.ListVoicesRequest): Promise<$_model.ListVoicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listVoicesWithOptions(request, runtime);
+  }
+
+  /**
    * 发布版本
    * 
    * @param request - PublishApplicationVersionRequest
