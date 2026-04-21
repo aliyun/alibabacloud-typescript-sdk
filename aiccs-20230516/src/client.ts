@@ -252,6 +252,10 @@ export default class Client extends OpenApi {
       request.sendSmsPlanShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sendSmsPlan, "SendSmsPlan", "json");
     }
 
+    if (!$dara.isNull(tmpReq.weekTag)) {
+      request.weekTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.weekTag, "WeekTag", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.callTimeListShrink)) {
       query["CallTimeList"] = request.callTimeListShrink;
@@ -343,6 +347,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
+    }
+
+    if (!$dara.isNull(request.weekTagShrink)) {
+      query["WeekTag"] = request.weekTagShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1014,6 +1022,10 @@ export default class Client extends OpenApi {
       request.sendSmsPlanShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sendSmsPlan, "SendSmsPlan", "json");
     }
 
+    if (!$dara.isNull(tmpReq.weekTag)) {
+      request.weekTagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.weekTag, "WeekTag", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.callTimeListShrink)) {
       query["CallTimeList"] = request.callTimeListShrink;
@@ -1105,6 +1117,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.templateType)) {
       query["TemplateType"] = request.templateType;
+    }
+
+    if (!$dara.isNull(request.weekTagShrink)) {
+      query["WeekTag"] = request.weekTagShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -11,9 +11,6 @@ export class AddTaskShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
-   * 
-   * @example
-   * [["08:31","12:05"]["13:33","19:00"]]
    */
   callTimeStrListShrink?: string;
   /**
@@ -60,7 +57,7 @@ export class AddTaskShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @example
-   * 1234567890
+   * 无需填写
    */
   ownerId?: number;
   /**
@@ -123,12 +120,12 @@ export class AddTaskShrinkRequest extends $dara.Model {
   repeatTimesShrink?: string;
   /**
    * @example
-   * example@aliyun.com
+   * 无需填写
    */
   resourceOwnerAccount?: string;
   /**
    * @example
-   * 1885017412614451
+   * 无需填写
    */
   resourceOwnerId?: number;
   /**
@@ -170,6 +167,11 @@ export class AddTaskShrinkRequest extends $dara.Model {
    * 1
    */
   templateType?: number;
+  /**
+   * @remarks
+   * 外呼时间需要的按星期几进行外呼，例：“1,2,3,4,5,6,7”，代表周一到周日都外呼
+   */
+  weekTagShrink?: string;
   static names(): { [key: string]: string } {
     return {
       callTimeListShrink: 'CallTimeList',
@@ -195,6 +197,7 @@ export class AddTaskShrinkRequest extends $dara.Model {
       taskType: 'TaskType',
       templateId: 'TemplateId',
       templateType: 'TemplateType',
+      weekTagShrink: 'WeekTag',
     };
   }
 
@@ -223,6 +226,7 @@ export class AddTaskShrinkRequest extends $dara.Model {
       taskType: 'number',
       templateId: 'number',
       templateType: 'number',
+      weekTagShrink: 'string',
     };
   }
 

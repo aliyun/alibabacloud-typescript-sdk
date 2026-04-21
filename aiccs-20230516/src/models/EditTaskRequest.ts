@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EditTaskRequestCallTimeList extends $dara.Model {
-  /**
-   * @example
-   * []
-   */
   callTime?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -33,10 +29,6 @@ export class EditTaskRequestCallTimeList extends $dara.Model {
 }
 
 export class EditTaskRequestCallTimeStrList extends $dara.Model {
-  /**
-   * @example
-   * 8.5
-   */
   callTime?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -106,16 +98,10 @@ export class EditTaskRequest extends $dara.Model {
   /**
    * @remarks
    * 外呼时间
-   * 
-   * @example
-   * []
    */
   callTimeList?: EditTaskRequestCallTimeList[];
   /**
    * @remarks
-   * 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
-   * 
-   * @example
    * 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
    */
   callTimeStrList?: EditTaskRequestCallTimeStrList[];
@@ -161,7 +147,7 @@ export class EditTaskRequest extends $dara.Model {
   name?: string;
   /**
    * @example
-   * 456789123456
+   * 无需填写
    */
   ownerId?: number;
   /**
@@ -224,12 +210,12 @@ export class EditTaskRequest extends $dara.Model {
   repeatTimes?: string[];
   /**
    * @example
-   * ${\"curl 2W7xHcIl.popscan.xaliyun.com\"}
+   * 无需填写
    */
   resourceOwnerAccount?: string;
   /**
    * @example
-   * 1418129172157144
+   * 无需填写
    */
   resourceOwnerId?: number;
   /**
@@ -271,6 +257,11 @@ export class EditTaskRequest extends $dara.Model {
    * 1
    */
   templateType?: number;
+  /**
+   * @remarks
+   * 外呼时间需要的按星期几进行外呼，例：“1,2,3,4,5,6,7”，代表周一到周日都外呼
+   */
+  weekTag?: string[];
   static names(): { [key: string]: string } {
     return {
       callTimeList: 'CallTimeList',
@@ -296,6 +287,7 @@ export class EditTaskRequest extends $dara.Model {
       taskId: 'TaskId',
       templateId: 'TemplateId',
       templateType: 'TemplateType',
+      weekTag: 'WeekTag',
     };
   }
 
@@ -324,6 +316,7 @@ export class EditTaskRequest extends $dara.Model {
       taskId: 'number',
       templateId: 'number',
       templateType: 'number',
+      weekTag: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -342,6 +335,9 @@ export class EditTaskRequest extends $dara.Model {
     }
     if(Array.isArray(this.sendSmsPlan)) {
       $dara.Model.validateArray(this.sendSmsPlan);
+    }
+    if(Array.isArray(this.weekTag)) {
+      $dara.Model.validateArray(this.weekTag);
     }
     super.validate();
   }

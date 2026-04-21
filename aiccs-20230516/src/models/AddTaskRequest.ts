@@ -29,10 +29,6 @@ export class AddTaskRequestCallTimeList extends $dara.Model {
 }
 
 export class AddTaskRequestCallTimeStrList extends $dara.Model {
-  /**
-   * @example
-   * ["08:31","12:05"]
-   */
   callTime?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -107,9 +103,6 @@ export class AddTaskRequest extends $dara.Model {
   /**
    * @remarks
    * 外呼时间:精确到分钟.如果两个字段都存在值，以该字段为准。建议用该字段，精确到分钟, 08:31-12:05 13:33-19:00 则传[["08:31","12:05"]["13:33","19:00"]]；默认为[["08:00","20:00"]]
-   * 
-   * @example
-   * [["08:31","12:05"]["13:33","19:00"]]
    */
   callTimeStrList?: AddTaskRequestCallTimeStrList[];
   /**
@@ -156,7 +149,7 @@ export class AddTaskRequest extends $dara.Model {
   name?: string;
   /**
    * @example
-   * 1234567890
+   * 无需填写
    */
   ownerId?: number;
   /**
@@ -219,12 +212,12 @@ export class AddTaskRequest extends $dara.Model {
   repeatTimes?: string[];
   /**
    * @example
-   * example@aliyun.com
+   * 无需填写
    */
   resourceOwnerAccount?: string;
   /**
    * @example
-   * 1885017412614451
+   * 无需填写
    */
   resourceOwnerId?: number;
   /**
@@ -266,6 +259,11 @@ export class AddTaskRequest extends $dara.Model {
    * 1
    */
   templateType?: number;
+  /**
+   * @remarks
+   * 外呼时间需要的按星期几进行外呼，例：“1,2,3,4,5,6,7”，代表周一到周日都外呼
+   */
+  weekTag?: string[];
   static names(): { [key: string]: string } {
     return {
       callTimeList: 'CallTimeList',
@@ -291,6 +289,7 @@ export class AddTaskRequest extends $dara.Model {
       taskType: 'TaskType',
       templateId: 'TemplateId',
       templateType: 'TemplateType',
+      weekTag: 'WeekTag',
     };
   }
 
@@ -319,6 +318,7 @@ export class AddTaskRequest extends $dara.Model {
       taskType: 'number',
       templateId: 'number',
       templateType: 'number',
+      weekTag: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -337,6 +337,9 @@ export class AddTaskRequest extends $dara.Model {
     }
     if(Array.isArray(this.sendSmsPlan)) {
       $dara.Model.validateArray(this.sendSmsPlan);
+    }
+    if(Array.isArray(this.weekTag)) {
+      $dara.Model.validateArray(this.weekTag);
     }
     super.validate();
   }
