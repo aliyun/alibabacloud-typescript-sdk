@@ -679,7 +679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板版本
+   * Publish a template version.
    * 
    * @param request - CreateModuleVersionRequest
    * @param headers - map
@@ -720,7 +720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建模板版本
+   * Publish a template version.
    * 
    * @param request - CreateModuleVersionRequest
    * @returns CreateModuleVersionResponse

@@ -20,6 +20,7 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
    * https://vpc.console.aliyun.com/vpc/${RegionId}/route-tables
    */
   resourceListPageUrl?: string;
+  resourceType?: string;
   /**
    * @example
    * Available
@@ -58,6 +59,7 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
       productName: 'productName',
       resourceDetailPageUrl: 'resourceDetailPageUrl',
       resourceListPageUrl: 'resourceListPageUrl',
+      resourceType: 'resourceType',
       status: 'status',
       statusStartVersion: 'statusStartVersion',
       subcategory: 'subcategory',
@@ -75,6 +77,7 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
       productName: 'string',
       resourceDetailPageUrl: 'string',
       resourceListPageUrl: 'string',
+      resourceType: 'string',
       status: 'string',
       statusStartVersion: 'string',
       subcategory: 'string',
