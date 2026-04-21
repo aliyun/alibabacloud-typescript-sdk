@@ -458,6 +458,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
    * 2023-08-17T09:58Z
    */
   gmtModified?: string;
+  langfuseInstanceIds?: string[];
   /**
    * @remarks
    * The lock mode of the instance. Set the value to **lock**, which specifies that the instance is locked when it automatically expires or has an overdue payment.
@@ -620,6 +621,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       engineVersion: 'EngineVersion',
       expireTime: 'ExpireTime',
       gmtModified: 'GmtModified',
+      langfuseInstanceIds: 'LangfuseInstanceIds',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
       maintainEndtime: 'MaintainEndtime',
@@ -660,6 +662,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
       engineVersion: 'string',
       expireTime: 'string',
       gmtModified: 'string',
+      langfuseInstanceIds: { 'type': 'array', 'itemType': 'string' },
       lockMode: 'number',
       lockReason: 'string',
       maintainEndtime: 'string',
@@ -691,6 +694,9 @@ export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.DBClusterList)) {
       $dara.Model.validateArray(this.DBClusterList);
+    }
+    if(Array.isArray(this.langfuseInstanceIds)) {
+      $dara.Model.validateArray(this.langfuseInstanceIds);
     }
     if(Array.isArray(this.multiZone)) {
       $dara.Model.validateArray(this.multiZone);
