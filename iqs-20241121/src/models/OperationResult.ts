@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperationResult extends $dara.Model {
+  /**
+   * @example
+   * True
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

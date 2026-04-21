@@ -2,28 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ExpendExpiredTimeRequest extends $dara.Model {
+export class ListLimitationsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
-   * 280451935746041600
+   * 7CE283B7-50EC-5ABD-9EE5-FC94C38BE37F
    */
-  accountId?: string;
-  /**
-   * @example
-   * 2025:02:24 00:00:00
-   */
-  testStartTime?: string;
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      accountId: 'accountId',
-      testStartTime: 'testStartTime',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      accountId: 'string',
-      testStartTime: 'string',
+      requestId: 'string',
     };
   }
 

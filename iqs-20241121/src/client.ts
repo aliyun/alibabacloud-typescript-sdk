@@ -356,6 +356,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询转正用户调用量信息
+   * 
+   * @param request - GetNormalServiceConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNormalServiceConfigResponse
+   */
+  async getNormalServiceConfigWithOptions(request: $_model.GetNormalServiceConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetNormalServiceConfigResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNormalServiceConfig",
+      version: "2024-11-21",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-admin/console/v1/services/commands/normalServiceConfig`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNormalServiceConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetNormalServiceConfigResponse({}));
+  }
+
+  /**
+   * 查询转正用户调用量信息
+   * 
+   * @param request - GetNormalServiceConfigRequest
+   * @returns GetNormalServiceConfigResponse
+   */
+  async getNormalServiceConfig(request: $_model.GetNormalServiceConfigRequest): Promise<$_model.GetNormalServiceConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getNormalServiceConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询服务额度信息
    * 
    * @param headers - map
@@ -456,6 +495,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * api基础信息
+   * 
+   * @param request - ListApiInfosRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApiInfosResponse
+   */
+  async listApiInfosWithOptions(request: $_model.ListApiInfosRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListApiInfosResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApiInfos",
+      version: "2024-11-21",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-admin/console/v1/monitors/commands/apiInfos`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApiInfosResponse>(await this.callApi(params, req, runtime), new $_model.ListApiInfosResponse({}));
+  }
+
+  /**
+   * api基础信息
+   * 
+   * @param request - ListApiInfosRequest
+   * @returns ListApiInfosResponse
+   */
+  async listApiInfos(request: $_model.ListApiInfosRequest): Promise<$_model.ListApiInfosResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listApiInfosWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Api名称列表
    * 
    * @param headers - map
@@ -488,6 +566,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listApiNamesWithOptions(headers, runtime);
+  }
+
+  /**
+   * api基础信息
+   * 
+   * @param request - ListLimitationsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLimitationsResponse
+   */
+  async listLimitationsWithOptions(request: $_model.ListLimitationsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListLimitationsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLimitations",
+      version: "2024-11-21",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-admin/openService/v1/console/limitation/commands/list/account`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLimitationsResponse>(await this.callApi(params, req, runtime), new $_model.ListLimitationsResponse({}));
+  }
+
+  /**
+   * api基础信息
+   * 
+   * @param request - ListLimitationsRequest
+   * @returns ListLimitationsResponse
+   */
+  async listLimitations(request: $_model.ListLimitationsRequest): Promise<$_model.ListLimitationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLimitationsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -632,6 +749,84 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.manageSearchAccountInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 停止自动转正
+   * 
+   * @param request - OpenAutoNormalReviewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OpenAutoNormalReviewResponse
+   */
+  async openAutoNormalReviewWithOptions(request: $_model.OpenAutoNormalReviewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.OpenAutoNormalReviewResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OpenAutoNormalReview",
+      version: "2024-11-21",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-admin/openService/v1/account/commands/openAutoNormalReview`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OpenAutoNormalReviewResponse>(await this.callApi(params, req, runtime), new $_model.OpenAutoNormalReviewResponse({}));
+  }
+
+  /**
+   * 停止自动转正
+   * 
+   * @param request - OpenAutoNormalReviewRequest
+   * @returns OpenAutoNormalReviewResponse
+   */
+  async openAutoNormalReview(request: $_model.OpenAutoNormalReviewRequest): Promise<$_model.OpenAutoNormalReviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.openAutoNormalReviewWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 停止自动转正
+   * 
+   * @param request - StopAutoNormalReviewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAutoNormalReviewResponse
+   */
+  async stopAutoNormalReviewWithOptions(request: $_model.StopAutoNormalReviewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopAutoNormalReviewResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopAutoNormalReview",
+      version: "2024-11-21",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-admin/openService/v1/account/commands/stopAutoNormalReview`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopAutoNormalReviewResponse>(await this.callApi(params, req, runtime), new $_model.StopAutoNormalReviewResponse({}));
+  }
+
+  /**
+   * 停止自动转正
+   * 
+   * @param request - StopAutoNormalReviewRequest
+   * @returns StopAutoNormalReviewResponse
+   */
+  async stopAutoNormalReview(request: $_model.StopAutoNormalReviewRequest): Promise<$_model.StopAutoNormalReviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopAutoNormalReviewWithOptions(request, headers, runtime);
   }
 
 }
