@@ -412,6 +412,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 医疗问答
+   * 
+   * @param request - MedicalAnswerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MedicalAnswerResponse
+   */
+  async medicalAnswerWithOptions(request: $_model.MedicalAnswerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.MedicalAnswerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MedicalAnswer",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/medical/answer`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MedicalAnswerResponse>(await this.callApi(params, req, runtime), new $_model.MedicalAnswerResponse({}));
+  }
+
+  /**
+   * 医疗问答
+   * 
+   * @param request - MedicalAnswerRequest
+   * @returns MedicalAnswerResponse
+   */
+  async medicalAnswer(request: $_model.MedicalAnswerRequest): Promise<$_model.MedicalAnswerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.medicalAnswerWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 医疗图谱
+   * 
+   * @param request - MedicalKnowledgeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MedicalKnowledgeResponse
+   */
+  async medicalKnowledgeWithOptions(request: $_model.MedicalKnowledgeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.MedicalKnowledgeResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MedicalKnowledge",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/medical/know`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MedicalKnowledgeResponse>(await this.callApi(params, req, runtime), new $_model.MedicalKnowledgeResponse({}));
+  }
+
+  /**
+   * 医疗图谱
+   * 
+   * @param request - MedicalKnowledgeRequest
+   * @returns MedicalKnowledgeResponse
+   */
+  async medicalKnowledge(request: $_model.MedicalKnowledgeRequest): Promise<$_model.MedicalKnowledgeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.medicalKnowledgeWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 多模态搜索
    * 
    * @param request - MultimodalSearchRequest
@@ -449,6 +529,88 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.multimodalSearchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 通用问答
+   * 
+   * @param request - OmniAnswerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OmniAnswerResponse
+   */
+  async *omniAnswerWithSSE(request: $_model.OmniAnswerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.OmniAnswerResponse, any, unknown> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OmniAnswer",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/answer/omni/search`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.OmniAnswerResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.OmniAnswerResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 通用问答
+   * 
+   * @param request - OmniAnswerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OmniAnswerResponse
+   */
+  async omniAnswerWithOptions(request: $_model.OmniAnswerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.OmniAnswerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OmniAnswer",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/answer/omni/search`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "string",
+    });
+    return $dara.cast<$_model.OmniAnswerResponse>(await this.callApi(params, req, runtime), new $_model.OmniAnswerResponse({}));
+  }
+
+  /**
+   * 通用问答
+   * 
+   * @param request - OmniAnswerRequest
+   * @returns OmniAnswerResponse
+   */
+  async omniAnswer(request: $_model.OmniAnswerRequest): Promise<$_model.OmniAnswerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.omniAnswerWithOptions(request, headers, runtime);
   }
 
   /**

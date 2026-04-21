@@ -14,6 +14,7 @@ export class GetIqsUsageResultRecords extends $dara.Model {
   mainAccountId?: string;
   subAccountId?: string;
   successCalls?: number;
+  totalBillStatCalls?: number;
   totalCalls?: number;
   valueAddedAdvanced?: number;
   valueAddedSummary?: number;
@@ -28,6 +29,7 @@ export class GetIqsUsageResultRecords extends $dara.Model {
       mainAccountId: 'mainAccountId',
       subAccountId: 'subAccountId',
       successCalls: 'successCalls',
+      totalBillStatCalls: 'totalBillStatCalls',
       totalCalls: 'totalCalls',
       valueAddedAdvanced: 'valueAddedAdvanced',
       valueAddedSummary: 'valueAddedSummary',
@@ -45,6 +47,7 @@ export class GetIqsUsageResultRecords extends $dara.Model {
       mainAccountId: 'string',
       subAccountId: 'string',
       successCalls: 'number',
+      totalBillStatCalls: 'number',
       totalCalls: 'number',
       valueAddedAdvanced: 'number',
       valueAddedSummary: 'number',
