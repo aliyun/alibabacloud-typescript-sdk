@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DeployHttpApiResponseBodyData extends $dara.Model {
+  httpApiId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      httpApiId: 'httpApiId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      httpApiId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeployHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +34,7 @@ export class DeployHttpApiResponseBody extends $dara.Model {
    * Ok
    */
   code?: string;
+  data?: DeployHttpApiResponseBodyData;
   /**
    * @remarks
    * Response message.
@@ -30,6 +54,7 @@ export class DeployHttpApiResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'code',
+      data: 'data',
       message: 'message',
       requestId: 'requestId',
     };
@@ -38,12 +63,16 @@ export class DeployHttpApiResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: DeployHttpApiResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
   }
 
   validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
     super.validate();
   }
 
