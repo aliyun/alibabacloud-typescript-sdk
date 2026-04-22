@@ -210,6 +210,7 @@ export { GetTopicSelectionPerspectiveAnalysisTaskResponseBodyData } from './GetT
 export { ImportInterveneFileResponseBodyData } from './ImportInterveneFileResponseBody';
 export { ImportInterveneFileAsyncResponseBodyData } from './ImportInterveneFileAsyncResponseBody';
 export { InitiatePptCreationResponseBodyData } from './InitiatePptCreationResponseBody';
+export { InitiatePptCreationV2ResponseBodyData } from './InitiatePptCreationV2responseBody';
 export { InsertInterveneGlobalReplyRequestReplyMessagList } from './InsertInterveneGlobalReplyRequest';
 export { InsertInterveneGlobalReplyResponseBodyData } from './InsertInterveneGlobalReplyResponseBody';
 export { InsertInterveneRuleRequestInterveneRuleConfigAnswerConfig } from './InsertInterveneRuleRequest';
@@ -241,6 +242,7 @@ export { ListDatasetsResponseBodyThirdSearchConfig } from './ListDatasetsRespons
 export { ListDialoguesResponseBodyData } from './ListDialoguesResponseBody';
 export { ListDocsResponseBodyData } from './ListDocsResponseBody';
 export { ListDocumentRetrieveResponseBodyData } from './ListDocumentRetrieveResponseBody';
+export { ListEnterprisePptTemplatesResponseBodyData } from './ListEnterprisePptTemplatesResponseBody';
 export { ListFreshViewPointsResponseBodyDataOutlines } from './ListFreshViewPointsResponseBody';
 export { ListFreshViewPointsResponseBodyData } from './ListFreshViewPointsResponseBody';
 export { ListGeneralConfigsResponseBodyData } from './ListGeneralConfigsResponseBody';
@@ -982,6 +984,9 @@ export { ImportInterveneFileAsyncResponse } from './ImportInterveneFileAsyncResp
 export { InitiatePptCreationRequest } from './InitiatePptCreationRequest';
 export { InitiatePptCreationResponseBody } from './InitiatePptCreationResponseBody';
 export { InitiatePptCreationResponse } from './InitiatePptCreationResponse';
+export { InitiatePptCreationV2Request } from './InitiatePptCreationV2request';
+export { InitiatePptCreationV2ResponseBody } from './InitiatePptCreationV2responseBody';
+export { InitiatePptCreationV2Response } from './InitiatePptCreationV2response';
 export { InsertInterveneGlobalReplyRequest } from './InsertInterveneGlobalReplyRequest';
 export { InsertInterveneGlobalReplyShrinkRequest } from './InsertInterveneGlobalReplyShrinkRequest';
 export { InsertInterveneGlobalReplyResponseBody } from './InsertInterveneGlobalReplyResponseBody';
@@ -1040,6 +1045,9 @@ export { ListDocsResponse } from './ListDocsResponse';
 export { ListDocumentRetrieveRequest } from './ListDocumentRetrieveRequest';
 export { ListDocumentRetrieveResponseBody } from './ListDocumentRetrieveResponseBody';
 export { ListDocumentRetrieveResponse } from './ListDocumentRetrieveResponse';
+export { ListEnterprisePptTemplatesRequest } from './ListEnterprisePptTemplatesRequest';
+export { ListEnterprisePptTemplatesResponseBody } from './ListEnterprisePptTemplatesResponseBody';
+export { ListEnterprisePptTemplatesResponse } from './ListEnterprisePptTemplatesResponse';
 export { ListFreshViewPointsRequest } from './ListFreshViewPointsRequest';
 export { ListFreshViewPointsResponseBody } from './ListFreshViewPointsResponseBody';
 export { ListFreshViewPointsResponse } from './ListFreshViewPointsResponse';

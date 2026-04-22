@@ -5364,6 +5364,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 初始化PPT创建操作V2
+   * 
+   * @param request - InitiatePptCreationV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InitiatePptCreationV2Response
+   */
+  async initiatePptCreationV2WithOptions(request: $_model.InitiatePptCreationV2Request, runtime: $dara.RuntimeOptions): Promise<$_model.InitiatePptCreationV2Response> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
+    if (!$dara.isNull(request.isMobile)) {
+      body["IsMobile"] = request.isMobile;
+    }
+
+    if (!$dara.isNull(request.outline)) {
+      body["Outline"] = request.outline;
+    }
+
+    if (!$dara.isNull(request.pptTemplateId)) {
+      body["PptTemplateId"] = request.pptTemplateId;
+    }
+
+    if (!$dara.isNull(request.pptTemplateType)) {
+      body["PptTemplateType"] = request.pptTemplateType;
+    }
+
+    if (!$dara.isNull(request.processType)) {
+      body["ProcessType"] = request.processType;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InitiatePptCreationV2",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InitiatePptCreationV2Response>(await this.callApi(params, req, runtime), new $_model.InitiatePptCreationV2Response({}));
+  }
+
+  /**
+   * 初始化PPT创建操作V2
+   * 
+   * @param request - InitiatePptCreationV2Request
+   * @returns InitiatePptCreationV2Response
+   */
+  async initiatePptCreationV2(request: $_model.InitiatePptCreationV2Request): Promise<$_model.InitiatePptCreationV2Response> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.initiatePptCreationV2WithOptions(request, runtime);
+  }
+
+  /**
    * 设置干预全局回复
    * 
    * @param tmpReq - InsertInterveneGlobalReplyRequest
@@ -6623,6 +6693,62 @@ export default class Client extends OpenApi {
   async listDocumentRetrieve(request: $_model.ListDocumentRetrieveRequest): Promise<$_model.ListDocumentRetrieveResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDocumentRetrieveWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询PPT模板列表
+   * 
+   * @param request - ListEnterprisePptTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnterprisePptTemplatesResponse
+   */
+  async listEnterprisePptTemplatesWithOptions(request: $_model.ListEnterprisePptTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListEnterprisePptTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.skip)) {
+      query["Skip"] = request.skip;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEnterprisePptTemplates",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEnterprisePptTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListEnterprisePptTemplatesResponse({}));
+  }
+
+  /**
+   * 查询PPT模板列表
+   * 
+   * @param request - ListEnterprisePptTemplatesRequest
+   * @returns ListEnterprisePptTemplatesResponse
+   */
+  async listEnterprisePptTemplates(request: $_model.ListEnterprisePptTemplatesRequest): Promise<$_model.ListEnterprisePptTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listEnterprisePptTemplatesWithOptions(request, runtime);
   }
 
   /**
