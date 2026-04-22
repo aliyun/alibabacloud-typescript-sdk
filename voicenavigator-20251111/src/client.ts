@@ -1594,6 +1594,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例指标趋势详情
+   * 
+   * @param request - GetInstanceTrendingReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceTrendingReportResponse
+   */
+  async getInstanceTrendingReportWithOptions(request: $_model.GetInstanceTrendingReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceTrendingReportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.timeInterval)) {
+      body["TimeInterval"] = request.timeInterval;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceTrendingReport",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceTrendingReportResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceTrendingReportResponse({}));
+  }
+
+  /**
+   * 获取实例指标趋势详情
+   * 
+   * @param request - GetInstanceTrendingReportRequest
+   * @returns GetInstanceTrendingReportResponse
+   */
+  async getInstanceTrendingReport(request: $_model.GetInstanceTrendingReportRequest): Promise<$_model.GetInstanceTrendingReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInstanceTrendingReportWithOptions(request, runtime);
+  }
+
+  /**
    * 获取实例实时指标
    * 
    * @param request - GetRealtimeInstanceStatsRequest
@@ -1633,6 +1687,52 @@ export default class Client extends OpenApi {
   async getRealtimeInstanceStats(request: $_model.GetRealtimeInstanceStatsRequest): Promise<$_model.GetRealtimeInstanceStatsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getRealtimeInstanceStatsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取场景实时指标
+   * 
+   * @param request - GetRealtimeScriptStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRealtimeScriptStatsResponse
+   */
+  async getRealtimeScriptStatsWithOptions(request: $_model.GetRealtimeScriptStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRealtimeScriptStatsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRealtimeScriptStats",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRealtimeScriptStatsResponse>(await this.callApi(params, req, runtime), new $_model.GetRealtimeScriptStatsResponse({}));
+  }
+
+  /**
+   * 获取场景实时指标
+   * 
+   * @param request - GetRealtimeScriptStatsRequest
+   * @returns GetRealtimeScriptStatsResponse
+   */
+  async getRealtimeScriptStats(request: $_model.GetRealtimeScriptStatsRequest): Promise<$_model.GetRealtimeScriptStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRealtimeScriptStatsWithOptions(request, runtime);
   }
 
   /**
@@ -1725,6 +1825,64 @@ export default class Client extends OpenApi {
   async getScript(request: $_model.GetScriptRequest): Promise<$_model.GetScriptResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getScriptWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取场景指标趋势详情
+   * 
+   * @param request - GetScriptTrendingReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScriptTrendingReportResponse
+   */
+  async getScriptTrendingReportWithOptions(request: $_model.GetScriptTrendingReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetScriptTrendingReportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      body["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.timeInterval)) {
+      body["TimeInterval"] = request.timeInterval;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScriptTrendingReport",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScriptTrendingReportResponse>(await this.callApi(params, req, runtime), new $_model.GetScriptTrendingReportResponse({}));
+  }
+
+  /**
+   * 获取场景指标趋势详情
+   * 
+   * @param request - GetScriptTrendingReportRequest
+   * @returns GetScriptTrendingReportResponse
+   */
+  async getScriptTrendingReport(request: $_model.GetScriptTrendingReportRequest): Promise<$_model.GetScriptTrendingReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getScriptTrendingReportWithOptions(request, runtime);
   }
 
   /**
@@ -2188,6 +2346,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例指标汇总数据
+   * 
+   * @param tmpReq - ListHistoricalInstanceReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHistoricalInstanceReportResponse
+   */
+  async listHistoricalInstanceReportWithOptions(tmpReq: $_model.ListHistoricalInstanceReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHistoricalInstanceReportResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListHistoricalInstanceReportShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      body["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHistoricalInstanceReport",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHistoricalInstanceReportResponse>(await this.callApi(params, req, runtime), new $_model.ListHistoricalInstanceReportResponse({}));
+  }
+
+  /**
+   * 获取实例指标汇总数据
+   * 
+   * @param request - ListHistoricalInstanceReportRequest
+   * @returns ListHistoricalInstanceReportResponse
+   */
+  async listHistoricalInstanceReport(request: $_model.ListHistoricalInstanceReportRequest): Promise<$_model.ListHistoricalInstanceReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listHistoricalInstanceReportWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取场景指标汇总数据
+   * 
+   * @param tmpReq - ListHistoricalScriptReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHistoricalScriptReportResponse
+   */
+  async listHistoricalScriptReportWithOptions(tmpReq: $_model.ListHistoricalScriptReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHistoricalScriptReportResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListHistoricalScriptReportShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.scriptIds)) {
+      request.scriptIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scriptIds, "ScriptIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scriptIdsShrink)) {
+      body["ScriptIds"] = request.scriptIdsShrink;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHistoricalScriptReport",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHistoricalScriptReportResponse>(await this.callApi(params, req, runtime), new $_model.ListHistoricalScriptReportResponse({}));
+  }
+
+  /**
+   * 获取场景指标汇总数据
+   * 
+   * @param request - ListHistoricalScriptReportRequest
+   * @returns ListHistoricalScriptReportResponse
+   */
+  async listHistoricalScriptReport(request: $_model.ListHistoricalScriptReportRequest): Promise<$_model.ListHistoricalScriptReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listHistoricalScriptReportWithOptions(request, runtime);
+  }
+
+  /**
    * 查询指令
    * 
    * @param request - ListInstructionsRequest
@@ -2331,6 +2621,62 @@ export default class Client extends OpenApi {
   async listNluModels(request: $_model.ListNluModelsRequest): Promise<$_model.ListNluModelsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listNluModelsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例实时指标
+   * 
+   * @param tmpReq - ListRealtimeInstanceStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRealtimeInstanceStatsResponse
+   */
+  async listRealtimeInstanceStatsWithOptions(tmpReq: $_model.ListRealtimeInstanceStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRealtimeInstanceStatsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListRealtimeInstanceStatsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      body["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRealtimeInstanceStats",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRealtimeInstanceStatsResponse>(await this.callApi(params, req, runtime), new $_model.ListRealtimeInstanceStatsResponse({}));
+  }
+
+  /**
+   * 获取实例实时指标
+   * 
+   * @param request - ListRealtimeInstanceStatsRequest
+   * @returns ListRealtimeInstanceStatsResponse
+   */
+  async listRealtimeInstanceStats(request: $_model.ListRealtimeInstanceStatsRequest): Promise<$_model.ListRealtimeInstanceStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRealtimeInstanceStatsWithOptions(request, runtime);
   }
 
   /**
