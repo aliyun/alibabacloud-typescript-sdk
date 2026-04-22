@@ -4,10 +4,12 @@ export { CreateEmbodiedAIPlatformRequestRayConfig } from './CreateEmbodiedAiplat
 export { DescribeChatMessageResponseBodyContentData } from './DescribeChatMessageResponseBody';
 export { DescribeChatMessageResponseBodyContent } from './DescribeChatMessageResponseBody';
 export { DescribeChatMessageResponseBodyData } from './DescribeChatMessageResponseBody';
+export { DescribeEapDeviceResourceAllocationResponseBodyItems } from './DescribeEapDeviceResourceAllocationResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsEapConfig } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfigWorkerGroups } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfig } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatforms } from './DescribeEmbodiedAiplatformsResponseBody';
+export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyAcuDetails } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
 export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
 export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodySlbTraffic } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
 export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsageNas } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
@@ -33,6 +35,9 @@ export { DeleteEmbodiedAIPlatformResponse } from './DeleteEmbodiedAiplatformResp
 export { DescribeChatMessageRequest } from './DescribeChatMessageRequest';
 export { DescribeChatMessageResponseBody } from './DescribeChatMessageResponseBody';
 export { DescribeChatMessageResponse } from './DescribeChatMessageResponse';
+export { DescribeEapDeviceResourceAllocationRequest } from './DescribeEapDeviceResourceAllocationRequest';
+export { DescribeEapDeviceResourceAllocationResponseBody } from './DescribeEapDeviceResourceAllocationResponseBody';
+export { DescribeEapDeviceResourceAllocationResponse } from './DescribeEapDeviceResourceAllocationResponse';
 export { DescribeEmbodiedAIPlatformsRequest } from './DescribeEmbodiedAiplatformsRequest';
 export { DescribeEmbodiedAIPlatformsResponseBody } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponse } from './DescribeEmbodiedAiplatformsResponse';

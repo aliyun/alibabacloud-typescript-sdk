@@ -2,6 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyAcuDetails extends $dara.Model {
+  eapWebserverACUCount?: number;
+  rayHeadACUCount?: number;
+  rayWorkerACUCount?: number;
+  totalACUCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eapWebserverACUCount: 'EapWebserverACUCount',
+      rayHeadACUCount: 'RayHeadACUCount',
+      rayWorkerACUCount: 'RayWorkerACUCount',
+      totalACUCount: 'TotalACUCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eapWebserverACUCount: 'number',
+      rayHeadACUCount: 'number',
+      rayWorkerACUCount: 'number',
+      totalACUCount: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails extends $dara.Model {
   allocatedUnit?: number;
   /**
@@ -160,6 +192,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsage exte
 }
 
 export class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends $dara.Model {
+  acuDetails?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyAcuDetails;
   gpuDetails?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails[];
   /**
    * @example
@@ -183,6 +216,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends $dara.Mo
   storageUsage?: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsage;
   static names(): { [key: string]: string } {
     return {
+      acuDetails: 'AcuDetails',
       gpuDetails: 'GpuDetails',
       maxRegisteredDevices: 'MaxRegisteredDevices',
       registeredDeviceCount: 'RegisteredDeviceCount',
@@ -194,6 +228,7 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends $dara.Mo
 
   static types(): { [key: string]: any } {
     return {
+      acuDetails: GetEmbodiedAIPlatformResourceUsageInfoResponseBodyAcuDetails,
       gpuDetails: { 'type': 'array', 'itemType': GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails },
       maxRegisteredDevices: 'number',
       registeredDeviceCount: 'number',
@@ -204,6 +239,9 @@ export class GetEmbodiedAIPlatformResourceUsageInfoResponseBody extends $dara.Mo
   }
 
   validate() {
+    if(this.acuDetails && typeof (this.acuDetails as any).validate === 'function') {
+      (this.acuDetails as any).validate();
+    }
     if(Array.isArray(this.gpuDetails)) {
       $dara.Model.validateArray(this.gpuDetails);
     }

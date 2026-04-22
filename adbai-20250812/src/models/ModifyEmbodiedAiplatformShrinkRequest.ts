@@ -11,6 +11,7 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
    * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
+  deviceCount?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -19,10 +20,6 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
    * eap_platform
    */
   platformName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   rayConfigShrink?: string;
   /**
    * @remarks
@@ -33,9 +30,6 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
    */
   regionId?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * large
    */
@@ -43,6 +37,7 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      deviceCount: 'DeviceCount',
       platformName: 'PlatformName',
       rayConfigShrink: 'RayConfig',
       regionId: 'RegionId',
@@ -53,6 +48,7 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      deviceCount: 'string',
       platformName: 'string',
       rayConfigShrink: 'string',
       regionId: 'string',

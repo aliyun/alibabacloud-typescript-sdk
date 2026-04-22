@@ -109,6 +109,10 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.deviceCount)) {
+      query["DeviceCount"] = request.deviceCount;
+    }
+
     if (!$dara.isNull(request.platformName)) {
       query["PlatformName"] = request.platformName;
     }
@@ -362,6 +366,56 @@ export default class Client extends OpenApi {
   async describeChatMessage(request: $_model.DescribeChatMessageRequest): Promise<$_model.DescribeChatMessageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeChatMessageWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询具身智能平台设备资源分配方案
+   * 
+   * @param request - DescribeEapDeviceResourceAllocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEapDeviceResourceAllocationResponse
+   */
+  async describeEapDeviceResourceAllocationWithOptions(request: $_model.DescribeEapDeviceResourceAllocationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEapDeviceResourceAllocationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.deviceCount)) {
+      query["DeviceCount"] = request.deviceCount;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeEapDeviceResourceAllocation",
+      version: "2025-08-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeEapDeviceResourceAllocationResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEapDeviceResourceAllocationResponse({}));
+  }
+
+  /**
+   * 查询具身智能平台设备资源分配方案
+   * 
+   * @param request - DescribeEapDeviceResourceAllocationRequest
+   * @returns DescribeEapDeviceResourceAllocationResponse
+   */
+  async describeEapDeviceResourceAllocation(request: $_model.DescribeEapDeviceResourceAllocationRequest): Promise<$_model.DescribeEapDeviceResourceAllocationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeEapDeviceResourceAllocationWithOptions(request, runtime);
   }
 
   /**
@@ -628,6 +682,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.deviceCount)) {
+      query["DeviceCount"] = request.deviceCount;
     }
 
     if (!$dara.isNull(request.platformName)) {

@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
+export class DescribeEapDeviceResourceAllocationRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11,16 +11,11 @@ export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
    * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
-  deviceCount?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
-   * platform1
+   * 3
    */
-  platformName?: string;
-  rayConfigShrink?: string;
+  deviceCount?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -29,19 +24,11 @@ export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
-  /**
-   * @example
-   * large
-   */
-  webserverSpecName?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
       deviceCount: 'DeviceCount',
-      platformName: 'PlatformName',
-      rayConfigShrink: 'RayConfig',
       regionId: 'RegionId',
-      webserverSpecName: 'WebserverSpecName',
     };
   }
 
@@ -49,10 +36,7 @@ export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       deviceCount: 'number',
-      platformName: 'string',
-      rayConfigShrink: 'string',
       regionId: 'string',
-      webserverSpecName: 'string',
     };
   }
 
