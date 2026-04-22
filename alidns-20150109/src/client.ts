@@ -6280,6 +6280,270 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 公网权威解析统计信息全局总览
+   * 
+   * @param request - DescribeInterAuthStatisticsGlobalOverviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInterAuthStatisticsGlobalOverviewResponse
+   */
+  async describeInterAuthStatisticsGlobalOverviewWithOptions(request: $_model.DescribeInterAuthStatisticsGlobalOverviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInterAuthStatisticsGlobalOverviewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.overviewPeriod)) {
+      query["OverviewPeriod"] = request.overviewPeriod;
+    }
+
+    if (!$dara.isNull(request.serverRegion)) {
+      query["ServerRegion"] = request.serverRegion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInterAuthStatisticsGlobalOverview",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInterAuthStatisticsGlobalOverviewResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInterAuthStatisticsGlobalOverviewResponse({}));
+  }
+
+  /**
+   * 公网权威解析统计信息全局总览
+   * 
+   * @param request - DescribeInterAuthStatisticsGlobalOverviewRequest
+   * @returns DescribeInterAuthStatisticsGlobalOverviewResponse
+   */
+  async describeInterAuthStatisticsGlobalOverview(request: $_model.DescribeInterAuthStatisticsGlobalOverviewRequest): Promise<$_model.DescribeInterAuthStatisticsGlobalOverviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInterAuthStatisticsGlobalOverviewWithOptions(request, runtime);
+  }
+
+  /**
+   * 公网权威解析统计信息趋势
+   * 
+   * @param request - DescribeInterAuthStatisticsHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInterAuthStatisticsHistoryResponse
+   */
+  async describeInterAuthStatisticsHistoryWithOptions(request: $_model.DescribeInterAuthStatisticsHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInterAuthStatisticsHistoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!$dara.isNull(request.rcode)) {
+      query["Rcode"] = request.rcode;
+    }
+
+    if (!$dara.isNull(request.serverRegion)) {
+      query["ServerRegion"] = request.serverRegion;
+    }
+
+    if (!$dara.isNull(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    if (!$dara.isNull(request.statisticalType)) {
+      query["StatisticalType"] = request.statisticalType;
+    }
+
+    if (!$dara.isNull(request.zoneName)) {
+      query["ZoneName"] = request.zoneName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInterAuthStatisticsHistory",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInterAuthStatisticsHistoryResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInterAuthStatisticsHistoryResponse({}));
+  }
+
+  /**
+   * 公网权威解析统计信息趋势
+   * 
+   * @param request - DescribeInterAuthStatisticsHistoryRequest
+   * @returns DescribeInterAuthStatisticsHistoryResponse
+   */
+  async describeInterAuthStatisticsHistory(request: $_model.DescribeInterAuthStatisticsHistoryRequest): Promise<$_model.DescribeInterAuthStatisticsHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInterAuthStatisticsHistoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 公网权威解析统计信息摘要列表
+   * 
+   * @param request - DescribeInterAuthStatisticsSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInterAuthStatisticsSummaryResponse
+   */
+  async describeInterAuthStatisticsSummaryWithOptions(request: $_model.DescribeInterAuthStatisticsSummaryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInterAuthStatisticsSummaryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!$dara.isNull(request.growType)) {
+      query["GrowType"] = request.growType;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.rcode)) {
+      query["Rcode"] = request.rcode;
+    }
+
+    if (!$dara.isNull(request.serverRegion)) {
+      query["ServerRegion"] = request.serverRegion;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    if (!$dara.isNull(request.statisticalType)) {
+      query["StatisticalType"] = request.statisticalType;
+    }
+
+    if (!$dara.isNull(request.zoneName)) {
+      query["ZoneName"] = request.zoneName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInterAuthStatisticsSummary",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInterAuthStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInterAuthStatisticsSummaryResponse({}));
+  }
+
+  /**
+   * 公网权威解析统计信息摘要列表
+   * 
+   * @param request - DescribeInterAuthStatisticsSummaryRequest
+   * @returns DescribeInterAuthStatisticsSummaryResponse
+   */
+  async describeInterAuthStatisticsSummary(request: $_model.DescribeInterAuthStatisticsSummaryRequest): Promise<$_model.DescribeInterAuthStatisticsSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInterAuthStatisticsSummaryWithOptions(request, runtime);
+  }
+
+  /**
+   * 公网权威解析统计信息Zone维度总览
+   * 
+   * @param request - DescribeInterAuthStatisticsZoneOverviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInterAuthStatisticsZoneOverviewResponse
+   */
+  async describeInterAuthStatisticsZoneOverviewWithOptions(request: $_model.DescribeInterAuthStatisticsZoneOverviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInterAuthStatisticsZoneOverviewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.overviewPeriod)) {
+      query["OverviewPeriod"] = request.overviewPeriod;
+    }
+
+    if (!$dara.isNull(request.serverRegion)) {
+      query["ServerRegion"] = request.serverRegion;
+    }
+
+    if (!$dara.isNull(request.zoneName)) {
+      query["ZoneName"] = request.zoneName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInterAuthStatisticsZoneOverview",
+      version: "2015-01-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInterAuthStatisticsZoneOverviewResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInterAuthStatisticsZoneOverviewResponse({}));
+  }
+
+  /**
+   * 公网权威解析统计信息Zone维度总览
+   * 
+   * @param request - DescribeInterAuthStatisticsZoneOverviewRequest
+   * @returns DescribeInterAuthStatisticsZoneOverviewResponse
+   */
+  async describeInterAuthStatisticsZoneOverview(request: $_model.DescribeInterAuthStatisticsZoneOverviewRequest): Promise<$_model.DescribeInterAuthStatisticsZoneOverviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInterAuthStatisticsZoneOverviewWithOptions(request, runtime);
+  }
+
+  /**
    * 查询解析日志
    * 
    * @param request - DescribeInternetDnsLogsRequest
