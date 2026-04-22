@@ -450,6 +450,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消并停止Agent当前正在进行中的Session会话
+   * 
+   * @param tmpReq - CancelAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelAgentSessionResponse
+   */
+  async cancelAgentSessionWithOptions(tmpReq: $_model.CancelAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelAgentSessionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CancelAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelAgentSession",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.CancelAgentSessionResponse({}));
+  }
+
+  /**
+   * 取消并停止Agent当前正在进行中的Session会话
+   * 
+   * @param request - CancelAgentSessionRequest
+   * @returns CancelAgentSessionResponse
+   */
+  async cancelAgentSession(request: $_model.CancelAgentSessionRequest): Promise<$_model.CancelAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelAgentSessionWithOptions(request, runtime);
+  }
+
+  /**
    * Clones an existing data source.
    * 
    * @remarks
@@ -503,6 +559,62 @@ export default class Client extends OpenApi {
   async cloneDataSource(request: $_model.CloneDataSourceRequest): Promise<$_model.CloneDataSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cloneDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个Agent Session会话
+   * 
+   * @param tmpReq - CreateAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentSessionResponse
+   */
+  async createAgentSessionWithOptions(tmpReq: $_model.CreateAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentSessionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgentSession",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentSessionResponse({}));
+  }
+
+  /**
+   * 创建一个Agent Session会话
+   * 
+   * @param request - CreateAgentSessionRequest
+   * @returns CreateAgentSessionResponse
+   */
+  async createAgentSession(request: $_model.CreateAgentSessionRequest): Promise<$_model.CreateAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgentSessionWithOptions(request, runtime);
   }
 
   /**
@@ -2508,7 +2620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建参数。
+   * Creates a parameter.
    * 
    * @param tmpReq - CreateParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2569,7 +2681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建参数。
+   * Creates a parameter.
    * 
    * @param request - CreateParameterRequest
    * @returns CreateParameterResponse
@@ -4714,7 +4826,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除参数。
+   * Remove specified parameters.
    * 
    * @param request - DeleteParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4745,7 +4857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除参数。
+   * Remove specified parameters.
    * 
    * @param request - DeleteParameterRequest
    * @returns DeleteParameterResponse
@@ -5528,6 +5640,118 @@ export default class Client extends OpenApi {
   async executeAdhocWorkflowInstance(request: $_model.ExecuteAdhocWorkflowInstanceRequest): Promise<$_model.ExecuteAdhocWorkflowInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.executeAdhocWorkflowInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Agent指定Session下的模型产出物详情
+   * 
+   * @param tmpReq - GetAgentSessionArtifactMetaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentSessionArtifactMetaResponse
+   */
+  async getAgentSessionArtifactMetaWithOptions(tmpReq: $_model.GetAgentSessionArtifactMetaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentSessionArtifactMetaResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetAgentSessionArtifactMetaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentSessionArtifactMeta",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentSessionArtifactMetaResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentSessionArtifactMetaResponse({}));
+  }
+
+  /**
+   * 获取Agent指定Session下的模型产出物详情
+   * 
+   * @param request - GetAgentSessionArtifactMetaRequest
+   * @returns GetAgentSessionArtifactMetaResponse
+   */
+  async getAgentSessionArtifactMeta(request: $_model.GetAgentSessionArtifactMetaRequest): Promise<$_model.GetAgentSessionArtifactMetaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentSessionArtifactMetaWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Agent指定Session下的Token用量
+   * 
+   * @param tmpReq - GetAgentSessionTokenUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentSessionTokenUsageResponse
+   */
+  async getAgentSessionTokenUsageWithOptions(tmpReq: $_model.GetAgentSessionTokenUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentSessionTokenUsageResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetAgentSessionTokenUsageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentSessionTokenUsage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentSessionTokenUsageResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentSessionTokenUsageResponse({}));
+  }
+
+  /**
+   * 获取Agent指定Session下的Token用量
+   * 
+   * @param request - GetAgentSessionTokenUsageRequest
+   * @returns GetAgentSessionTokenUsageResponse
+   */
+  async getAgentSessionTokenUsage(request: $_model.GetAgentSessionTokenUsageRequest): Promise<$_model.GetAgentSessionTokenUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentSessionTokenUsageWithOptions(request, runtime);
   }
 
   /**
@@ -7061,7 +7285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据参数ID获取参数的详细信息。
+   * Obtains the details of a parameter by parameter ID.
    * 
    * @param request - GetParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7092,7 +7316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据参数ID获取参数的详细信息。
+   * Obtains the details of a parameter by parameter ID.
    * 
    * @param request - GetParameterRequest
    * @returns GetParameterResponse
@@ -8094,6 +8318,174 @@ export default class Client extends OpenApi {
   async importWorkflowDefinition(request: $_model.ImportWorkflowDefinitionRequest): Promise<$_model.ImportWorkflowDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.importWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Agent指定Session下的模型产出物清单列表
+   * 
+   * @param tmpReq - ListAgentSessionArtifactsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentSessionArtifactsResponse
+   */
+  async listAgentSessionArtifactsWithOptions(tmpReq: $_model.ListAgentSessionArtifactsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentSessionArtifactsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAgentSessionArtifactsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgentSessionArtifacts",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgentSessionArtifactsResponse>(await this.callApi(params, req, runtime), new $_model.ListAgentSessionArtifactsResponse({}));
+  }
+
+  /**
+   * 获取Agent指定Session下的模型产出物清单列表
+   * 
+   * @param request - ListAgentSessionArtifactsRequest
+   * @returns ListAgentSessionArtifactsResponse
+   */
+  async listAgentSessionArtifacts(request: $_model.ListAgentSessionArtifactsRequest): Promise<$_model.ListAgentSessionArtifactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgentSessionArtifactsWithOptions(request, runtime);
+  }
+
+  /**
+   * 加载Agent Session对话历史列表
+   * 
+   * @param tmpReq - ListAgentSessionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentSessionsResponse
+   */
+  async listAgentSessionsWithOptions(tmpReq: $_model.ListAgentSessionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentSessionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAgentSessionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgentSessions",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgentSessionsResponse>(await this.callApi(params, req, runtime), new $_model.ListAgentSessionsResponse({}));
+  }
+
+  /**
+   * 加载Agent Session对话历史列表
+   * 
+   * @param request - ListAgentSessionsRequest
+   * @returns ListAgentSessionsResponse
+   */
+  async listAgentSessions(request: $_model.ListAgentSessionsRequest): Promise<$_model.ListAgentSessionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgentSessionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取DataAgent的Agent定义列表
+   * 
+   * @param tmpReq - ListAgentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentsResponse
+   */
+  async listAgentsWithOptions(tmpReq: $_model.ListAgentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAgentsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgents",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgentsResponse>(await this.callApi(params, req, runtime), new $_model.ListAgentsResponse({}));
+  }
+
+  /**
+   * 获取DataAgent的Agent定义列表
+   * 
+   * @param request - ListAgentsRequest
+   * @returns ListAgentsResponse
+   */
+  async listAgents(request: $_model.ListAgentsRequest): Promise<$_model.ListAgentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgentsWithOptions(request, runtime);
   }
 
   /**
@@ -10435,7 +10827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询参数版本列表。
+   * Queries the list of parameter versions.
    * 
    * @param request - ListParameterVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10478,7 +10870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询参数版本列表。
+   * Queries the list of parameter versions.
    * 
    * @param request - ListParameterVersionsRequest
    * @returns ListParameterVersionsResponse
@@ -10489,7 +10881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询参数列表。
+   * Queries a list of parameters.
    * 
    * @param tmpReq - ListParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10562,7 +10954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询参数列表。
+   * Queries a list of parameters.
    * 
    * @param request - ListParametersRequest
    * @returns ListParametersResponse
@@ -11919,6 +12311,121 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 加载Agent Session对话历史
+   * 
+   * @param tmpReq - LoadAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LoadAgentSessionResponse
+   */
+  async *loadAgentSessionWithSSE(tmpReq: $_model.LoadAgentSessionRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.LoadAgentSessionResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.LoadAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LoadAgentSession",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.LoadAgentSessionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.LoadAgentSessionResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 加载Agent Session对话历史
+   * 
+   * @param tmpReq - LoadAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LoadAgentSessionResponse
+   */
+  async loadAgentSessionWithOptions(tmpReq: $_model.LoadAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LoadAgentSessionResponse> {
+    tmpReq.validate();
+    let request = new $_model.LoadAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LoadAgentSession",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LoadAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.LoadAgentSessionResponse({}));
+  }
+
+  /**
+   * 加载Agent Session对话历史
+   * 
+   * @param request - LoadAgentSessionRequest
+   * @returns LoadAgentSessionResponse
+   */
+  async loadAgentSession(request: $_model.LoadAgentSessionRequest): Promise<$_model.LoadAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.loadAgentSessionWithOptions(request, runtime);
+  }
+
+  /**
    * Moves a user-defined function (UDF) to a path in DataStudio.
    * 
    * @param request - MoveFunctionRequest
@@ -12158,6 +12665,121 @@ export default class Client extends OpenApi {
   async previewDatasetVersion(request: $_model.PreviewDatasetVersionRequest): Promise<$_model.PreviewDatasetVersionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.previewDatasetVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 在当前的Agent Session中发起一轮新的对话
+   * 
+   * @param tmpReq - PromptAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PromptAgentSessionResponse
+   */
+  async *promptAgentSessionWithSSE(tmpReq: $_model.PromptAgentSessionRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.PromptAgentSessionResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.PromptAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PromptAgentSession",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.PromptAgentSessionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.PromptAgentSessionResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 在当前的Agent Session中发起一轮新的对话
+   * 
+   * @param tmpReq - PromptAgentSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PromptAgentSessionResponse
+   */
+  async promptAgentSessionWithOptions(tmpReq: $_model.PromptAgentSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PromptAgentSessionResponse> {
+    tmpReq.validate();
+    let request = new $_model.PromptAgentSessionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.params)) {
+      request.paramsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.params, "Params", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.jsonrpc)) {
+      body["Jsonrpc"] = request.jsonrpc;
+    }
+
+    if (!$dara.isNull(request.paramsShrink)) {
+      body["Params"] = request.paramsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PromptAgentSession",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PromptAgentSessionResponse>(await this.callApi(params, req, runtime), new $_model.PromptAgentSessionResponse({}));
+  }
+
+  /**
+   * 在当前的Agent Session中发起一轮新的对话
+   * 
+   * @param request - PromptAgentSessionRequest
+   * @returns PromptAgentSessionResponse
+   */
+  async promptAgentSession(request: $_model.PromptAgentSessionRequest): Promise<$_model.PromptAgentSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.promptAgentSessionWithOptions(request, runtime);
   }
 
   /**
@@ -12741,7 +13363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回滚参数版本。
+   * Rolls back the specified parameter.
    * 
    * @param request - RollbackParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12776,7 +13398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回滚参数版本。
+   * Rolls back the specified parameter.
    * 
    * @param request - RollbackParameterRequest
    * @returns RollbackParameterResponse
@@ -15156,7 +15778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新参数。
+   * Updates a parameter. Incremental modification. Only the specified columns are modified.
    * 
    * @param tmpReq - UpdateParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15205,7 +15827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新参数。
+   * Updates a parameter. Incremental modification. Only the specified columns are modified.
    * 
    * @param request - UpdateParameterRequest
    * @returns UpdateParameterResponse
