@@ -91,6 +91,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建白名单分组
+   * 
+   * @param request - CreateAclGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAclGroupResponse
+   */
+  async createAclGroupWithOptions(request: $_model.CreateAclGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAclGroupResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cidrs)) {
+      query["cidrs"] = request.cidrs;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["groupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAclGroup",
+      version: "2023-10-12",
+      protocol: "HTTPS",
+      pathname: `/webapi/milvus/createAclGroup`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAclGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateAclGroupResponse({}));
+  }
+
+  /**
+   * 创建白名单分组
+   * 
+   * @param request - CreateAclGroupRequest
+   * @returns CreateAclGroupResponse
+   */
+  async createAclGroup(request: $_model.CreateAclGroupRequest): Promise<$_model.CreateAclGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAclGroupWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Create a service role for Milvus to access other cloud products
    * 
    * @param headers - map
@@ -510,6 +567,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取当前用户下的分组信息和内容
+   * 
+   * @param request - ListAclGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAclGroupsResponse
+   */
+  async listAclGroupsWithOptions(request: $_model.ListAclGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAclGroupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAclGroups",
+      version: "2023-10-12",
+      protocol: "HTTPS",
+      pathname: `/webapi/milvus/listAclGroups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAclGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListAclGroupsResponse({}));
+  }
+
+  /**
+   * 获取当前用户下的分组信息和内容
+   * 
+   * @param request - ListAclGroupsRequest
+   * @returns ListAclGroupsResponse
+   */
+  async listAclGroups(request: $_model.ListAclGroupsRequest): Promise<$_model.ListAclGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAclGroupsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Get the list of Milvus instances under the current account.
    * 
    * @param tmpReq - ListInstancesRequest
@@ -899,6 +1005,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAccessControlListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改分组内的白名单
+   * 
+   * @param request - UpdateAclGroupCidrsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAclGroupCidrsResponse
+   */
+  async updateAclGroupCidrsWithOptions(request: $_model.UpdateAclGroupCidrsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAclGroupCidrsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.groupName)) {
+      query["groupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.newCidrs)) {
+      query["newCidrs"] = request.newCidrs;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAclGroupCidrs",
+      version: "2023-10-12",
+      protocol: "HTTPS",
+      pathname: `/webapi/milvus/updateAclGroupCidrs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAclGroupCidrsResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAclGroupCidrsResponse({}));
+  }
+
+  /**
+   * 修改分组内的白名单
+   * 
+   * @param request - UpdateAclGroupCidrsRequest
+   * @returns UpdateAclGroupCidrsResponse
+   */
+  async updateAclGroupCidrs(request: $_model.UpdateAclGroupCidrsRequest): Promise<$_model.UpdateAclGroupCidrsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAclGroupCidrsWithOptions(request, headers, runtime);
   }
 
   /**
