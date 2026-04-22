@@ -296,6 +296,16 @@ export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $dara.Model {
    */
   diskRedirection?: string;
   /**
+   * @example
+   * Enable
+   */
+  diskRedirectionDownload?: string;
+  /**
+   * @example
+   * Enable
+   */
+  diskRedirectionUpload?: string;
+  /**
    * @remarks
    * Indicates whether keyboard recording is enabled. Valid values:
    * 
@@ -311,6 +321,8 @@ export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $dara.Model {
       clipboardDownload: 'ClipboardDownload',
       clipboardUpload: 'ClipboardUpload',
       diskRedirection: 'DiskRedirection',
+      diskRedirectionDownload: 'DiskRedirectionDownload',
+      diskRedirectionUpload: 'DiskRedirectionUpload',
       recordKeyboard: 'RecordKeyboard',
     };
   }
@@ -320,6 +332,8 @@ export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $dara.Model {
       clipboardDownload: 'string',
       clipboardUpload: 'string',
       diskRedirection: 'string',
+      diskRedirectionDownload: 'string',
+      diskRedirectionUpload: 'string',
       recordKeyboard: 'string',
     };
   }
@@ -334,6 +348,16 @@ export class GetPolicyResponseBodyPolicyProtocolConfigRDP extends $dara.Model {
 }
 
 export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
+  /**
+   * @example
+   * Enable
+   */
+  allowDirectTcp?: string;
+  /**
+   * @example
+   * Enable
+   */
+  allowTcpForwarding?: string;
   /**
    * @remarks
    * Indicates whether remote command execution is enabled. Valid values:
@@ -434,6 +458,11 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
    */
   SSHChannel?: string;
   /**
+   * @example
+   * Enable
+   */
+  tcpForwarding?: string;
+  /**
    * @remarks
    * Indicates whether X11 forwarding is enabled. Valid values:
    * 
@@ -446,6 +475,8 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
   x11Forwarding?: string;
   static names(): { [key: string]: string } {
     return {
+      allowDirectTcp: 'AllowDirectTcp',
+      allowTcpForwarding: 'AllowTcpForwarding',
       execCommand: 'ExecCommand',
       SFTPChannel: 'SFTPChannel',
       SFTPDownloadFile: 'SFTPDownloadFile',
@@ -455,12 +486,15 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
       SFTPRmdir: 'SFTPRmdir',
       SFTPUploadFile: 'SFTPUploadFile',
       SSHChannel: 'SSHChannel',
+      tcpForwarding: 'TcpForwarding',
       x11Forwarding: 'X11Forwarding',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      allowDirectTcp: 'string',
+      allowTcpForwarding: 'string',
       execCommand: 'string',
       SFTPChannel: 'string',
       SFTPDownloadFile: 'string',
@@ -470,6 +504,7 @@ export class GetPolicyResponseBodyPolicyProtocolConfigSSH extends $dara.Model {
       SFTPRmdir: 'string',
       SFTPUploadFile: 'string',
       SSHChannel: 'string',
+      tcpForwarding: 'string',
       x11Forwarding: 'string',
     };
   }

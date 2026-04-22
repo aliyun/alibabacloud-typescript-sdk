@@ -237,6 +237,11 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
    */
   SSHChannel?: string;
   /**
+   * @example
+   * Enable
+   */
+  tcpForwarding?: string;
+  /**
    * @remarks
    * Specifies whether to enable X11 forwarding. Valid values:
    * 
@@ -262,6 +267,7 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
       SFTPRmdir: 'SFTPRmdir',
       SFTPUploadFile: 'SFTPUploadFile',
       SSHChannel: 'SSHChannel',
+      tcpForwarding: 'TcpForwarding',
       x11Forwarding: 'X11Forwarding',
     };
   }
@@ -279,6 +285,7 @@ export class SetPolicyProtocolConfigRequestProtocolConfigSSH extends $dara.Model
       SFTPRmdir: 'string',
       SFTPUploadFile: 'string',
       SSHChannel: 'string',
+      tcpForwarding: 'string',
       x11Forwarding: 'string',
     };
   }

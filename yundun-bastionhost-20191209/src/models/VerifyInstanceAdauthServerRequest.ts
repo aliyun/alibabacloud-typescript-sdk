@@ -49,9 +49,6 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
    */
   isSSL?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * ******
    */
