@@ -229,6 +229,7 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig exten
   priority?: number;
   recallManagementTableId?: string;
   recallType?: string;
+  sortFields?: string;
   userVectorField?: string;
   userVectorRecallManagementTableId?: string;
   static names(): { [key: string]: string } {
@@ -244,6 +245,7 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig exten
       priority: 'Priority',
       recallManagementTableId: 'RecallManagementTableId',
       recallType: 'RecallType',
+      sortFields: 'SortFields',
       userVectorField: 'UserVectorField',
       userVectorRecallManagementTableId: 'UserVectorRecallManagementTableId',
     };
@@ -262,6 +264,7 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig exten
       priority: 'number',
       recallManagementTableId: 'string',
       recallType: 'string',
+      sortFields: 'string',
       userVectorField: 'string',
       userVectorRecallManagementTableId: 'string',
     };

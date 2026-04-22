@@ -328,6 +328,7 @@ export class CreateRecallManagementServiceVersionConfigRequestRecallConfig exten
    * X2I
    */
   recallType?: string;
+  sortFields?: string;
   /**
    * @example
    * user_embedding
@@ -351,6 +352,7 @@ export class CreateRecallManagementServiceVersionConfigRequestRecallConfig exten
       priority: 'Priority',
       recallManagementTableId: 'RecallManagementTableId',
       recallType: 'RecallType',
+      sortFields: 'SortFields',
       userVectorField: 'UserVectorField',
       userVectorRecallManagementTableId: 'UserVectorRecallManagementTableId',
     };
@@ -369,6 +371,7 @@ export class CreateRecallManagementServiceVersionConfigRequestRecallConfig exten
       priority: 'number',
       recallManagementTableId: 'string',
       recallType: 'string',
+      sortFields: 'string',
       userVectorField: 'string',
       userVectorRecallManagementTableId: 'string',
     };

@@ -333,6 +333,7 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigs e
    * X2I
    */
   recallType?: string;
+  sortFields?: string;
   /**
    * @example
    * user_embedding
@@ -357,6 +358,7 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigs e
       recallManagementServiceVersionConfigId: 'RecallManagementServiceVersionConfigId',
       recallManagementTableId: 'RecallManagementTableId',
       recallType: 'RecallType',
+      sortFields: 'SortFields',
       userVectorField: 'UserVectorField',
       userVectorRecallManagementTableId: 'UserVectorRecallManagementTableId',
     };
@@ -376,6 +378,7 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigs e
       recallManagementServiceVersionConfigId: 'string',
       recallManagementTableId: 'string',
       recallType: 'string',
+      sortFields: 'string',
       userVectorField: 'string',
       userVectorRecallManagementTableId: 'string',
     };
