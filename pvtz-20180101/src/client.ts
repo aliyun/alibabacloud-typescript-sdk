@@ -1154,6 +1154,356 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户可以分析的VPC列表
+   * 
+   * @param request - DescribeIntranetUserCanAnalysisVpcsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeIntranetUserCanAnalysisVpcsResponse
+   */
+  async describeIntranetUserCanAnalysisVpcsWithOptions(request: $_model.DescribeIntranetUserCanAnalysisVpcsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeIntranetUserCanAnalysisVpcsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.queryTreeLevel)) {
+      query["QueryTreeLevel"] = request.queryTreeLevel;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.vpcOwner)) {
+      query["VpcOwner"] = request.vpcOwner;
+    }
+
+    if (!$dara.isNull(request.vpcType)) {
+      query["VpcType"] = request.vpcType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeIntranetUserCanAnalysisVpcs",
+      version: "2018-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeIntranetUserCanAnalysisVpcsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeIntranetUserCanAnalysisVpcsResponse({}));
+  }
+
+  /**
+   * 获取用户可以分析的VPC列表
+   * 
+   * @param request - DescribeIntranetUserCanAnalysisVpcsRequest
+   * @returns DescribeIntranetUserCanAnalysisVpcsResponse
+   */
+  async describeIntranetUserCanAnalysisVpcs(request: $_model.DescribeIntranetUserCanAnalysisVpcsRequest): Promise<$_model.DescribeIntranetUserCanAnalysisVpcsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeIntranetUserCanAnalysisVpcsWithOptions(request, runtime);
+  }
+
+  /**
+   * Pvtz解析统计信息全局总览
+   * 
+   * @param request - DescribePvtzStatisticsGlobalOverviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePvtzStatisticsGlobalOverviewResponse
+   */
+  async describePvtzStatisticsGlobalOverviewWithOptions(request: $_model.DescribePvtzStatisticsGlobalOverviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePvtzStatisticsGlobalOverviewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.networkParams)) {
+      query["NetworkParams"] = request.networkParams;
+    }
+
+    if (!$dara.isNull(request.overviewPeriod)) {
+      query["OverviewPeriod"] = request.overviewPeriod;
+    }
+
+    if (!$dara.isNull(request.serverRegion)) {
+      query["ServerRegion"] = request.serverRegion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePvtzStatisticsGlobalOverview",
+      version: "2018-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePvtzStatisticsGlobalOverviewResponse>(await this.callApi(params, req, runtime), new $_model.DescribePvtzStatisticsGlobalOverviewResponse({}));
+  }
+
+  /**
+   * Pvtz解析统计信息全局总览
+   * 
+   * @param request - DescribePvtzStatisticsGlobalOverviewRequest
+   * @returns DescribePvtzStatisticsGlobalOverviewResponse
+   */
+  async describePvtzStatisticsGlobalOverview(request: $_model.DescribePvtzStatisticsGlobalOverviewRequest): Promise<$_model.DescribePvtzStatisticsGlobalOverviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePvtzStatisticsGlobalOverviewWithOptions(request, runtime);
+  }
+
+  /**
+   * Pvtz解析统计信息趋势
+   * 
+   * @param request - DescribePvtzStatisticsHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePvtzStatisticsHistoryResponse
+   */
+  async describePvtzStatisticsHistoryWithOptions(request: $_model.DescribePvtzStatisticsHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePvtzStatisticsHistoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!$dara.isNull(request.module)) {
+      query["Module"] = request.module;
+    }
+
+    if (!$dara.isNull(request.networkParams)) {
+      query["NetworkParams"] = request.networkParams;
+    }
+
+    if (!$dara.isNull(request.rcode)) {
+      query["Rcode"] = request.rcode;
+    }
+
+    if (!$dara.isNull(request.serverRegion)) {
+      query["ServerRegion"] = request.serverRegion;
+    }
+
+    if (!$dara.isNull(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    if (!$dara.isNull(request.statisticalType)) {
+      query["StatisticalType"] = request.statisticalType;
+    }
+
+    if (!$dara.isNull(request.zoneName)) {
+      query["ZoneName"] = request.zoneName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePvtzStatisticsHistory",
+      version: "2018-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePvtzStatisticsHistoryResponse>(await this.callApi(params, req, runtime), new $_model.DescribePvtzStatisticsHistoryResponse({}));
+  }
+
+  /**
+   * Pvtz解析统计信息趋势
+   * 
+   * @param request - DescribePvtzStatisticsHistoryRequest
+   * @returns DescribePvtzStatisticsHistoryResponse
+   */
+  async describePvtzStatisticsHistory(request: $_model.DescribePvtzStatisticsHistoryRequest): Promise<$_model.DescribePvtzStatisticsHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePvtzStatisticsHistoryWithOptions(request, runtime);
+  }
+
+  /**
+   * Pvtz解析统计信息摘要列表
+   * 
+   * @param request - DescribePvtzStatisticsSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePvtzStatisticsSummaryResponse
+   */
+  async describePvtzStatisticsSummaryWithOptions(request: $_model.DescribePvtzStatisticsSummaryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePvtzStatisticsSummaryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.endTimestamp)) {
+      query["EndTimestamp"] = request.endTimestamp;
+    }
+
+    if (!$dara.isNull(request.growType)) {
+      query["GrowType"] = request.growType;
+    }
+
+    if (!$dara.isNull(request.module)) {
+      query["Module"] = request.module;
+    }
+
+    if (!$dara.isNull(request.networkParams)) {
+      query["NetworkParams"] = request.networkParams;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.rcode)) {
+      query["Rcode"] = request.rcode;
+    }
+
+    if (!$dara.isNull(request.serverRegion)) {
+      query["ServerRegion"] = request.serverRegion;
+    }
+
+    if (!$dara.isNull(request.startTimestamp)) {
+      query["StartTimestamp"] = request.startTimestamp;
+    }
+
+    if (!$dara.isNull(request.statisticalType)) {
+      query["StatisticalType"] = request.statisticalType;
+    }
+
+    if (!$dara.isNull(request.zoneName)) {
+      query["ZoneName"] = request.zoneName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePvtzStatisticsSummary",
+      version: "2018-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePvtzStatisticsSummaryResponse>(await this.callApi(params, req, runtime), new $_model.DescribePvtzStatisticsSummaryResponse({}));
+  }
+
+  /**
+   * Pvtz解析统计信息摘要列表
+   * 
+   * @param request - DescribePvtzStatisticsSummaryRequest
+   * @returns DescribePvtzStatisticsSummaryResponse
+   */
+  async describePvtzStatisticsSummary(request: $_model.DescribePvtzStatisticsSummaryRequest): Promise<$_model.DescribePvtzStatisticsSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePvtzStatisticsSummaryWithOptions(request, runtime);
+  }
+
+  /**
+   * Pvtz解析统计信息Zone维度总览
+   * 
+   * @param request - DescribePvtzStatisticsZoneOverviewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePvtzStatisticsZoneOverviewResponse
+   */
+  async describePvtzStatisticsZoneOverviewWithOptions(request: $_model.DescribePvtzStatisticsZoneOverviewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePvtzStatisticsZoneOverviewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.module)) {
+      query["Module"] = request.module;
+    }
+
+    if (!$dara.isNull(request.networkParams)) {
+      query["NetworkParams"] = request.networkParams;
+    }
+
+    if (!$dara.isNull(request.overviewPeriod)) {
+      query["OverviewPeriod"] = request.overviewPeriod;
+    }
+
+    if (!$dara.isNull(request.serverRegion)) {
+      query["ServerRegion"] = request.serverRegion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePvtzStatisticsZoneOverview",
+      version: "2018-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePvtzStatisticsZoneOverviewResponse>(await this.callApi(params, req, runtime), new $_model.DescribePvtzStatisticsZoneOverviewResponse({}));
+  }
+
+  /**
+   * Pvtz解析统计信息Zone维度总览
+   * 
+   * @param request - DescribePvtzStatisticsZoneOverviewRequest
+   * @returns DescribePvtzStatisticsZoneOverviewResponse
+   */
+  async describePvtzStatisticsZoneOverview(request: $_model.DescribePvtzStatisticsZoneOverviewRequest): Promise<$_model.DescribePvtzStatisticsZoneOverviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePvtzStatisticsZoneOverviewWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
    * 
    * @param request - DescribeRegionsRequest
