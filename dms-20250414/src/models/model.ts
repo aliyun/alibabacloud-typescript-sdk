@@ -100,6 +100,7 @@ export { OneMetaTableIndex } from './OneMetaTableIndex';
 export { OpenClawInstanceQuotaVO } from './OpenClawInstanceQuotaVo';
 export { OpenClawInstanceVO } from './OpenClawInstanceVo';
 export { PartitionError } from './PartitionError';
+export { TrialOrderEligibilityVO } from './TrialOrderEligibilityVo';
 export { AddUserToDataAgentWorkspaceRequest } from './AddUserToDataAgentWorkspaceRequest';
 export { AddUserToDataAgentWorkspaceResponseBody } from './AddUserToDataAgentWorkspaceResponseBody';
 export { AddUserToDataAgentWorkspaceResponse } from './AddUserToDataAgentWorkspaceResponse';

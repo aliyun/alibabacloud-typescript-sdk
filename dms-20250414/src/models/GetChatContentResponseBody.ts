@@ -33,6 +33,7 @@ export class GetChatContentResponseBody extends $dara.Model {
    * 20
    */
   level?: number;
+  timestamp?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'category',
@@ -41,6 +42,7 @@ export class GetChatContentResponseBody extends $dara.Model {
       contentType: 'content_type',
       eventType: 'event_type',
       level: 'level',
+      timestamp: 'timestamp',
     };
   }
 
@@ -52,6 +54,7 @@ export class GetChatContentResponseBody extends $dara.Model {
       contentType: 'string',
       eventType: 'string',
       level: 'number',
+      timestamp: 'string',
     };
   }
 
