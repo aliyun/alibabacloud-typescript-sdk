@@ -1368,6 +1368,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取oss结果v2
+   * 
+   * @param request - DescribeOssV2ResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOssV2ResultResponse
+   */
+  async describeOssV2ResultWithOptions(request: $_model.DescribeOssV2ResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOssV2ResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bucket)) {
+      query["Bucket"] = request.bucket;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.riskLevel)) {
+      query["RiskLevel"] = request.riskLevel;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOssV2Result",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOssV2ResultResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOssV2ResultResponse({}));
+  }
+
+  /**
+   * 获取oss结果v2
+   * 
+   * @param request - DescribeOssV2ResultRequest
+   * @returns DescribeOssV2ResultResponse
+   */
+  async describeOssV2Result(request: $_model.DescribeOssV2ResultRequest): Promise<$_model.DescribeOssV2ResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOssV2ResultWithOptions(request, runtime);
+  }
+
+  /**
    * 导出代答答案
    * 
    * @param request - ExportAnswerSampleRequest
@@ -3992,6 +4058,68 @@ export default class Client extends OpenApi {
   async llmStreamChat(request: $_model.LlmStreamChatRequest): Promise<$_model.LlmStreamChatResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.llmStreamChatWithOptions(request, runtime);
+  }
+
+  /**
+   * oss结果反馈
+   * 
+   * @param request - MarkOssV2ResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MarkOssV2ResultResponse
+   */
+  async markOssV2ResultWithOptions(request: $_model.MarkOssV2ResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MarkOssV2ResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.freezeType)) {
+      query["FreezeType"] = request.freezeType;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.requestIds)) {
+      query["RequestIds"] = request.requestIds;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MarkOssV2Result",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MarkOssV2ResultResponse>(await this.callApi(params, req, runtime), new $_model.MarkOssV2ResultResponse({}));
+  }
+
+  /**
+   * oss结果反馈
+   * 
+   * @param request - MarkOssV2ResultRequest
+   * @returns MarkOssV2ResultResponse
+   */
+  async markOssV2Result(request: $_model.MarkOssV2ResultRequest): Promise<$_model.MarkOssV2ResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.markOssV2ResultWithOptions(request, runtime);
   }
 
   /**
