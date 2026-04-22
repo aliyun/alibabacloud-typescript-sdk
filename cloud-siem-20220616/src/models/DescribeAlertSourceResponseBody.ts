@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAlertSourceResponseBodyData extends $dara.Model {
+  modules?: string[];
   /**
    * @remarks
    * The internal code of the alert data source.
@@ -21,6 +22,7 @@ export class DescribeAlertSourceResponseBodyData extends $dara.Model {
   sourceName?: string;
   static names(): { [key: string]: string } {
     return {
+      modules: 'Modules',
       source: 'Source',
       sourceName: 'SourceName',
     };
@@ -28,12 +30,16 @@ export class DescribeAlertSourceResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      modules: { 'type': 'array', 'itemType': 'string' },
       source: 'string',
       sourceName: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.modules)) {
+      $dara.Model.validateArray(this.modules);
+    }
     super.validate();
   }
 
