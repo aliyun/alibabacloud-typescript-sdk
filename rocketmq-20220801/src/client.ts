@@ -407,6 +407,10 @@ export default class Client extends OpenApi {
       body["password"] = request.password;
     }
 
+    if (!$dara.isNull(request.remark)) {
+      body["remark"] = request.remark;
+    }
+
     if (!$dara.isNull(request.username)) {
       body["username"] = request.username;
     }
@@ -3340,6 +3344,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.password)) {
       query["password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["remark"] = request.remark;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

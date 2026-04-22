@@ -25,6 +25,11 @@ export class GetInstanceAccountResponseBodyData extends $dara.Model {
    */
   password?: string;
   /**
+   * @example
+   * test
+   */
+  remark?: string;
+  /**
    * @remarks
    * The username of the account.
    * 
@@ -36,6 +41,7 @@ export class GetInstanceAccountResponseBodyData extends $dara.Model {
     return {
       accountStatus: 'accountStatus',
       password: 'password',
+      remark: 'remark',
       username: 'username',
     };
   }
@@ -44,6 +50,7 @@ export class GetInstanceAccountResponseBodyData extends $dara.Model {
     return {
       accountStatus: 'string',
       password: 'string',
+      remark: 'string',
       username: 'string',
     };
   }

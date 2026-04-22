@@ -41,6 +41,11 @@ export class ListInstanceAccountResponseBodyDataList extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @example
+   * test
+   */
+  remark?: string;
+  /**
    * @remarks
    * The username of the account.
    * 
@@ -54,6 +59,7 @@ export class ListInstanceAccountResponseBodyDataList extends $dara.Model {
       accountType: 'accountType',
       instanceId: 'instanceId',
       regionId: 'regionId',
+      remark: 'remark',
       username: 'username',
     };
   }
@@ -64,6 +70,7 @@ export class ListInstanceAccountResponseBodyDataList extends $dara.Model {
       accountType: 'string',
       instanceId: 'string',
       regionId: 'string',
+      remark: 'string',
       username: 'string',
     };
   }

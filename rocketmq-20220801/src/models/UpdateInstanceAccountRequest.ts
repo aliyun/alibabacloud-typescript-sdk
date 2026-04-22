@@ -24,10 +24,16 @@ export class UpdateInstanceAccountRequest extends $dara.Model {
    * test
    */
   password?: string;
+  /**
+   * @example
+   * test
+   */
+  remark?: string;
   static names(): { [key: string]: string } {
     return {
       accountStatus: 'accountStatus',
       password: 'password',
+      remark: 'remark',
     };
   }
 
@@ -35,6 +41,7 @@ export class UpdateInstanceAccountRequest extends $dara.Model {
     return {
       accountStatus: 'string',
       password: 'string',
+      remark: 'string',
     };
   }
 
