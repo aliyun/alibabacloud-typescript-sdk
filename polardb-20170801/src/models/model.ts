@@ -52,6 +52,8 @@ export { DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribu
 export { DescribeApplicationAttributeResponseBodySecurityGroups } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodySecurityIPArrays } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponseBodyStorages } from './DescribeApplicationAttributeResponseBody';
+export { DescribeApplicationLogsResponseBodyItemsLogRecords } from './DescribeApplicationLogsResponseBody';
+export { DescribeApplicationLogsResponseBodyItems } from './DescribeApplicationLogsResponseBody';
 export { DescribeApplicationParametersResponseBodyParameterTemplatesComponentParameterTemplatesParameters } from './DescribeApplicationParametersResponseBody';
 export { DescribeApplicationParametersResponseBodyParameterTemplatesComponentParameterTemplates } from './DescribeApplicationParametersResponseBody';
 export { DescribeApplicationParametersResponseBodyParameterTemplates } from './DescribeApplicationParametersResponseBody';
@@ -562,6 +564,9 @@ export { DescribeActiveOperationTasksResponse } from './DescribeActiveOperationT
 export { DescribeApplicationAttributeRequest } from './DescribeApplicationAttributeRequest';
 export { DescribeApplicationAttributeResponseBody } from './DescribeApplicationAttributeResponseBody';
 export { DescribeApplicationAttributeResponse } from './DescribeApplicationAttributeResponse';
+export { DescribeApplicationLogsRequest } from './DescribeApplicationLogsRequest';
+export { DescribeApplicationLogsResponseBody } from './DescribeApplicationLogsResponseBody';
+export { DescribeApplicationLogsResponse } from './DescribeApplicationLogsResponse';
 export { DescribeApplicationParametersRequest } from './DescribeApplicationParametersRequest';
 export { DescribeApplicationParametersShrinkRequest } from './DescribeApplicationParametersShrinkRequest';
 export { DescribeApplicationParametersResponseBody } from './DescribeApplicationParametersResponseBody';

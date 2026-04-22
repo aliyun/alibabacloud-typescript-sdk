@@ -7185,6 +7185,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AI 应用日志明细
+   * 
+   * @param request - DescribeApplicationLogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationLogsResponse
+   */
+  async describeApplicationLogsWithOptions(request: $_model.DescribeApplicationLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationLogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.componentName)) {
+      query["ComponentName"] = request.componentName;
+    }
+
+    if (!$dara.isNull(request.containerName)) {
+      query["ContainerName"] = request.containerName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationLogs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationLogsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationLogsResponse({}));
+  }
+
+  /**
+   * AI 应用日志明细
+   * 
+   * @param request - DescribeApplicationLogsRequest
+   * @returns DescribeApplicationLogsResponse
+   */
+  async describeApplicationLogs(request: $_model.DescribeApplicationLogsRequest): Promise<$_model.DescribeApplicationLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationLogsWithOptions(request, runtime);
+  }
+
+  /**
    * 获取应用组件参数
    * 
    * @param tmpReq - DescribeApplicationParametersRequest
