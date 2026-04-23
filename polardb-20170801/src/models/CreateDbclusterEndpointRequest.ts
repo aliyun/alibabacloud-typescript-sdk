@@ -152,6 +152,16 @@ export class CreateDBClusterEndpointRequest extends $dara.Model {
    * on
    */
   sccMode?: string;
+  /**
+   * @example
+   * vpc-2zehr7ghqovftils0****
+   */
+  VPCId?: string;
+  /**
+   * @example
+   * vsw-2ze775gnf7jn33ua****
+   */
+  vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       autoAddNewNodes: 'AutoAddNewNodes',
@@ -170,6 +180,8 @@ export class CreateDBClusterEndpointRequest extends $dara.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sccMode: 'SccMode',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
     };
   }
 
@@ -191,6 +203,8 @@ export class CreateDBClusterEndpointRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sccMode: 'string',
+      VPCId: 'string',
+      vSwitchId: 'string',
     };
   }
 
