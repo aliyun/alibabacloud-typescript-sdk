@@ -6929,6 +6929,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取智能体当前通话并发数
+   * 
+   * @param request - GetAIAgentConcurrencyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAIAgentConcurrencyResponse
+   */
+  async getAIAgentConcurrencyWithOptions(request: $_model.GetAIAgentConcurrencyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAIAgentConcurrencyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.AIAgentId)) {
+      query["AIAgentId"] = request.AIAgentId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAIAgentConcurrency",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAIAgentConcurrencyResponse>(await this.callApi(params, req, runtime), new $_model.GetAIAgentConcurrencyResponse({}));
+  }
+
+  /**
+   * 获取智能体当前通话并发数
+   * 
+   * @param request - GetAIAgentConcurrencyRequest
+   * @returns GetAIAgentConcurrencyResponse
+   */
+  async getAIAgentConcurrency(request: $_model.GetAIAgentConcurrencyRequest): Promise<$_model.GetAIAgentConcurrencyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAIAgentConcurrencyWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the details of a workflow task.
    * 
    * @param request - GetAIWorkflowTaskRequest
