@@ -11,6 +11,7 @@ export class UpdateInstanceRequestComponents extends $dara.Model {
    * 8
    */
   cuNum?: number;
+  cuType?: string;
   payType?: string;
   /**
    * @remarks
@@ -31,6 +32,7 @@ export class UpdateInstanceRequestComponents extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       cuNum: 'cuNum',
+      cuType: 'cuType',
       payType: 'payType',
       replica: 'replica',
       type: 'type',
@@ -40,6 +42,7 @@ export class UpdateInstanceRequestComponents extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       cuNum: 'number',
+      cuType: 'string',
       payType: 'string',
       replica: 'number',
       type: 'string',
