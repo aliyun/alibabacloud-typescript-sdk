@@ -53,6 +53,7 @@ export { GetNodeGroupFeatureGateResponseBodyData } from './GetNodeGroupFeatureGa
 export { ListGatewayResponseBodyData } from './ListGatewayResponseBody';
 export { ListOperationActivityResponseBodyData } from './ListOperationActivityResponseBody';
 export { ListOperationHistoryResponseBodyData } from './ListOperationHistoryResponseBody';
+export { ListSSLDetailsResponseBodyData } from './ListSsldetailsResponseBody';
 export { ModifyCuPreCheckResponseBodyData } from './ModifyCuPreCheckResponseBody';
 export { ModifyHostAliasRequestHostAliases } from './ModifyHostAliasRequest';
 export { ModifyNodeNumberPreCheckResponseBodyData } from './ModifyNodeNumberPreCheckResponseBody';
@@ -241,6 +242,9 @@ export { ListOperationActivityResponse } from './ListOperationActivityResponse';
 export { ListOperationHistoryRequest } from './ListOperationHistoryRequest';
 export { ListOperationHistoryResponseBody } from './ListOperationHistoryResponseBody';
 export { ListOperationHistoryResponse } from './ListOperationHistoryResponse';
+export { ListSSLDetailsRequest } from './ListSsldetailsRequest';
+export { ListSSLDetailsResponseBody } from './ListSsldetailsResponseBody';
+export { ListSSLDetailsResponse } from './ListSsldetailsResponse';
 export { ModifyChargeTypeRequest } from './ModifyChargeTypeRequest';
 export { ModifyChargeTypeResponseBody } from './ModifyChargeTypeResponseBody';
 export { ModifyChargeTypeResponse } from './ModifyChargeTypeResponse';

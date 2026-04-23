@@ -331,7 +331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建StarRocks集群
+   * Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
    * 
    * @param request - CreateInstanceV1Request
    * @param headers - map
@@ -488,7 +488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建StarRocks集群
+   * Restarts an E-MapReduce (EMR) Serverless StarRocks instance.
    * 
    * @param request - CreateInstanceV1Request
    * @returns CreateInstanceV1Response
@@ -2202,6 +2202,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listOperationHistoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取集群SSL详情
+   * 
+   * @param request - ListSSLDetailsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSSLDetailsResponse
+   */
+  async listSSLDetailsWithOptions(request: $_model.ListSSLDetailsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListSSLDetailsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSSLDetails",
+      version: "2022-10-19",
+      protocol: "HTTPS",
+      pathname: `/webapi/starrocks/listSSLDetails`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSSLDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ListSSLDetailsResponse({}));
+  }
+
+  /**
+   * 获取集群SSL详情
+   * 
+   * @param request - ListSSLDetailsRequest
+   * @returns ListSSLDetailsResponse
+   */
+  async listSSLDetails(request: $_model.ListSSLDetailsRequest): Promise<$_model.ListSSLDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listSSLDetailsWithOptions(request, headers, runtime);
   }
 
   /**
