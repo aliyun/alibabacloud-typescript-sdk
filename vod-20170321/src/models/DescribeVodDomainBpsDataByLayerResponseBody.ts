@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainBpsDataByLayerResponseBodyBpsDataIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2024-02-08T10:09:19Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The total traffic. Unit: bytes.
-   * 
-   * @example
-   * 1000
-   */
   trafficValue?: number;
-  /**
-   * @remarks
-   * The peak bandwidth. Unit: bit/s.
-   * 
-   * @example
-   * 75.33
-   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval extends 
 }
 
 export class DescribeVodDomainBpsDataByLayerResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth returned at each time interval. Unit: bit/s.
-   */
   bpsDataInterval?: DescribeVodDomainBpsDataByLayerResponseBodyBpsDataInterval;
   /**
    * @remarks

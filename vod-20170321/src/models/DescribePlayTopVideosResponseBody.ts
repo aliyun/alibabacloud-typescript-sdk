@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePlayTopVideosResponseBodyTopPlayVideosTopPlayVideoStatis extends $dara.Model {
-  /**
-   * @remarks
-   * The total playback duration. Unit: milliseconds.
-   * 
-   * @example
-   * 4640369
-   */
   playDuration?: string;
-  /**
-   * @remarks
-   * The title of the video.
-   * 
-   * @example
-   * Four streams (two streams encrypted): LD-HLS-encrypted + SD-MP4 + HD-H
-   */
   title?: string;
-  /**
-   * @remarks
-   * The number of unique visitors.
-   * 
-   * @example
-   * 1
-   */
   UV?: string;
-  /**
-   * @remarks
-   * The number of video views.
-   * 
-   * @example
-   * 107
-   */
   VV?: string;
-  /**
-   * @remarks
-   * The ID of the video.
-   * 
-   * @example
-   * 2a8d4cb9ecbb487681473a15****8fda
-   */
   videoId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,10 +88,6 @@ export class DescribePlayTopVideosResponseBody extends $dara.Model {
    * 4B0BCF9F-2FD5-4817-****-7BEBBE3AF90B"
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The daily playback statistics on each top video.
-   */
   topPlayVideos?: DescribePlayTopVideosResponseBodyTopPlayVideos;
   /**
    * @remarks

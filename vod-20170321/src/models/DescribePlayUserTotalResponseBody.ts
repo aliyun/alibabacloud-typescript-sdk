@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePlayUserTotalResponseBodyUserPlayStatisTotalsUserPlayStatisTotalUV extends $dara.Model {
-  /**
-   * @remarks
-   * The total number of unique visitors who use ApsaraVideo Player SDK for Android.
-   * 
-   * @example
-   * 2
-   */
   android?: string;
-  /**
-   * @remarks
-   * The total number of unique visitors who use the Flash player.
-   * 
-   * @example
-   * 1
-   */
   flash?: string;
-  /**
-   * @remarks
-   * The total number of unique visitors who use the HTML5 player.
-   * 
-   * @example
-   * 1
-   */
   HTML5?: string;
-  /**
-   * @remarks
-   * The total number of unique visitors who use ApsaraVideo Player SDK for iOS.
-   * 
-   * @example
-   * 0
-   */
   iOS?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,37 +35,9 @@ export class DescribePlayUserTotalResponseBodyUserPlayStatisTotalsUserPlayStatis
 }
 
 export class DescribePlayUserTotalResponseBodyUserPlayStatisTotalsUserPlayStatisTotalVV extends $dara.Model {
-  /**
-   * @remarks
-   * The total number of video views played by using ApsaraVideo Player SDK for Android.
-   * 
-   * @example
-   * 161
-   */
   android?: string;
-  /**
-   * @remarks
-   * The total number of video views played by using the Flash player.
-   * 
-   * @example
-   * 2
-   */
   flash?: string;
-  /**
-   * @remarks
-   * The total number of video views played by using the HTML5 player.
-   * 
-   * @example
-   * 2
-   */
   HTML5?: string;
-  /**
-   * @remarks
-   * The total number of video views played by using ApsaraVideo Player SDK for iOS.
-   * 
-   * @example
-   * 0
-   */
   iOS?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,39 +67,10 @@ export class DescribePlayUserTotalResponseBodyUserPlayStatisTotalsUserPlayStatis
 }
 
 export class DescribePlayUserTotalResponseBodyUserPlayStatisTotalsUserPlayStatisTotal extends $dara.Model {
-  /**
-   * @remarks
-   * The date. The date is displayed in the yyyy-MM-dd format.
-   * 
-   * @example
-   * 20170120
-   */
   date?: string;
-  /**
-   * @remarks
-   * The total playback duration. Unit: milliseconds.
-   * 
-   * @example
-   * 9340070
-   */
   playDuration?: string;
-  /**
-   * @remarks
-   * The distribution of the playback duration.
-   * 
-   * @example
-   * "<=1m:74.3%;>1<=5m:22.8%;>5<=10m:1.0%;>10<=15m:1.0%;>15<=30m:1.0%"
-   */
   playRange?: string;
-  /**
-   * @remarks
-   * The total number of unique visitors.
-   */
   UV?: DescribePlayUserTotalResponseBodyUserPlayStatisTotalsUserPlayStatisTotalUV;
-  /**
-   * @remarks
-   * The total number of video views.
-   */
   VV?: DescribePlayUserTotalResponseBodyUserPlayStatisTotalsUserPlayStatisTotalVV;
   static names(): { [key: string]: string } {
     return {
@@ -227,10 +142,6 @@ export class DescribePlayUserTotalResponseBody extends $dara.Model {
    * 1FAFB884-D5A7-47D1-****-8928AA9C8720
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The daily playback statistics.
-   */
   userPlayStatisTotals?: DescribePlayUserTotalResponseBodyUserPlayStatisTotals;
   static names(): { [key: string]: string } {
     return {

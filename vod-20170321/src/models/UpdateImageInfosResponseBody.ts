@@ -29,10 +29,6 @@ export class UpdateImageInfosResponseBodyNonExistImageIds extends $dara.Model {
 }
 
 export class UpdateImageInfosResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the images that do not exist.
-   */
   nonExistImageIds?: UpdateImageInfosResponseBodyNonExistImageIds;
   /**
    * @remarks

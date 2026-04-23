@@ -3,58 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainDetailResponseBodyDomainDetailSourcesSource extends $dara.Model {
-  /**
-   * @remarks
-   * The address of the origin server.
-   * 
-   * @example
-   * ****.oss-cn-hangzhou.aliyuncs.com
-   */
   content?: string;
-  /**
-   * @remarks
-   * The status of the origin server. Valid values:
-   * *   **online**: indicates that the origin server is enabled.
-   * *   **offline**: indicates that the origin server is disabled.
-   * 
-   * @example
-   * online
-   */
   enabled?: string;
-  /**
-   * @remarks
-   * The port number. Valid values: 443 and 80.
-   * 
-   * @example
-   * 80
-   */
   port?: number;
-  /**
-   * @remarks
-   * The priority of the origin server.
-   * 
-   * @example
-   * 50
-   */
   priority?: string;
-  /**
-   * @remarks
-   * The type of the origin server. Valid values:
-   * *   **ipaddr**: a server that you can access by using an IP address.
-   * *   **domain**: a server that you can access by using a domain name.
-   * *   **oss**: the URL of an Object Storage Service (OSS) bucket.
-   * 
-   * @example
-   * oss
-   */
   type?: string;
-  /**
-   * @remarks
-   * The weight of the origin server if multiple origin servers have been specified.
-   * 
-   * @example
-   * 10
-   */
   weight?: string;
   static names(): { [key: string]: string } {
     return {
@@ -205,10 +158,6 @@ export class DescribeVodDomainDetailResponseBodyDomainDetail extends $dara.Model
    * domestic
    */
   scope?: string;
-  /**
-   * @remarks
-   * The information about the origin server.
-   */
   sources?: DescribeVodDomainDetailResponseBodyDomainDetailSources;
   /**
    * @remarks

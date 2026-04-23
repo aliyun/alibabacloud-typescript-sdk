@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainRealTimeBpsDataResponseBodyDataBpsModel extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth. Unit: bit/s.
-   * 
-   * @example
-   * 16710625.733333332
-   */
   bps?: number;
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-11-30T05:41:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeVodDomainRealTimeBpsDataResponseBodyData extends $dara.Mode
 }
 
 export class DescribeVodDomainRealTimeBpsDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
   data?: DescribeVodDomainRealTimeBpsDataResponseBodyData;
   /**
    * @remarks

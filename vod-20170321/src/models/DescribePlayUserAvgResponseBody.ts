@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePlayUserAvgResponseBodyUserPlayStatisAvgsUserPlayStatisAvg extends $dara.Model {
-  /**
-   * @remarks
-   * The average number of video views.
-   * 
-   * @example
-   * 170
-   */
   avgPlayCount?: string;
-  /**
-   * @remarks
-   * The average playback duration. Unit: milliseconds.
-   * 
-   * @example
-   * 1035902.8
-   */
   avgPlayDuration?: string;
-  /**
-   * @remarks
-   * The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
-   * 
-   * @example
-   * 20170120
-   */
   date?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,10 +66,6 @@ export class DescribePlayUserAvgResponseBody extends $dara.Model {
    * 6C7F90B2-BDA4-4FAC-****-A38A121DFE19
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The statistics on average playback each day.
-   */
   userPlayStatisAvgs?: DescribePlayUserAvgResponseBodyUserPlayStatisAvgs;
   static names(): { [key: string]: string } {
     return {

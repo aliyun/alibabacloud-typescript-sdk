@@ -3,61 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainTrafficDataResponseBodyTrafficDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The amount of network traffic in the Chinese mainland. Unit: bytes.
-   * 
-   * @example
-   * 0
-   */
   domesticValue?: string;
-  /**
-   * @remarks
-   * The amount of HTTPS network traffic on points of presence (POPs) in the Chinese mainland. Unit: bytes.
-   * 
-   * @example
-   * 0
-   */
   httpsDomesticValue?: string;
-  /**
-   * @remarks
-   * The amount of HTTPS network traffic on POPs outside the Chinese mainland. Unit: bytes.
-   * 
-   * @example
-   * 0
-   */
   httpsOverseasValue?: string;
-  /**
-   * @remarks
-   * The total amount of HTTPS network traffic on POPs. Unit: bytes.
-   * 
-   * @example
-   * 0
-   */
   httpsValue?: string;
-  /**
-   * @remarks
-   * The amount of network traffic outside the Chinese mainland. Unit: bytes.
-   * 
-   * @example
-   * 0
-   */
   overseasValue?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-01-15T19:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The total traffic. Unit: bytes.
-   * 
-   * @example
-   * 0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -167,10 +118,6 @@ export class DescribeVodDomainTrafficDataResponseBody extends $dara.Model {
    * 5906662826
    */
   totalTraffic?: string;
-  /**
-   * @remarks
-   * The amount of network traffic at each time interval.
-   */
   trafficDataPerInterval?: DescribeVodDomainTrafficDataResponseBodyTrafficDataPerInterval;
   static names(): { [key: string]: string } {
     return {

@@ -164,10 +164,6 @@ export class GetVideoInfoResponseBodyVideo extends $dara.Model {
    * 10897890
    */
   size?: number;
-  /**
-   * @remarks
-   * The video snapshot URLs.
-   */
   snapshots?: GetVideoInfoResponseBodyVideoSnapshots;
   /**
    * @remarks

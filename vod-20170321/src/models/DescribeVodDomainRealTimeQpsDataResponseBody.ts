@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainRealTimeQpsDataResponseBodyDataQpsModel extends $dara.Model {
-  /**
-   * @remarks
-   * The number of queries per second.
-   * 
-   * @example
-   * 1851.25
-   */
   qps?: number;
-  /**
-   * @remarks
-   * The timestamp of the returned data. The time follows the ISO 8601 standard. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-12-02T11:25:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeVodDomainRealTimeQpsDataResponseBodyData extends $dara.Mode
 }
 
 export class DescribeVodDomainRealTimeQpsDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
   data?: DescribeVodDomainRealTimeQpsDataResponseBodyData;
   /**
    * @remarks

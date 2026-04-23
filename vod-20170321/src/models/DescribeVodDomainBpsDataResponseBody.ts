@@ -3,61 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainBpsDataResponseBodyBpsDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth in mainland China. Unit: bit/s. When the bandwidth data is queried by ISP, no value is returned.
-   * 
-   * @example
-   * 11286111
-   */
   domesticValue?: string;
-  /**
-   * @remarks
-   * The HTTPS bandwidth on L1 nodes in mainland China. Unit: bit/s. When the bandwidth data is queried by ISP, no value is returned.
-   * 
-   * @example
-   * 11286111
-   */
   httpsDomesticValue?: string;
-  /**
-   * @remarks
-   * The HTTPS bandwidth on L1 nodes outside mainland China. Unit: bit/s. When the bandwidth data is queried by ISP, no value is returned.
-   * 
-   * @example
-   * 2000
-   */
   httpsOverseasValue?: string;
-  /**
-   * @remarks
-   * The total HTTPS bandwidth on L1 nodes. Unit: bit/s.
-   * 
-   * @example
-   * 11288111
-   */
   httpsValue?: string;
-  /**
-   * @remarks
-   * The bandwidth outside mainland China. Unit: bit/s. When the bandwidth data is queried by ISP, no value is returned.
-   * 
-   * @example
-   * 2000
-   */
   overseasValue?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-12-10T13:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The bandwidth. Unit: bit/s.
-   * 
-   * @example
-   * 11288111
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -119,10 +70,6 @@ export class DescribeVodDomainBpsDataResponseBodyBpsDataPerInterval extends $dar
 }
 
 export class DescribeVodDomainBpsDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth data that is collected for each interval.
-   */
   bpsDataPerInterval?: DescribeVodDomainBpsDataResponseBodyBpsDataPerInterval;
   /**
    * @remarks

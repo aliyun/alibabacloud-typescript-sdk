@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The bandwidth consumed for fetching resources from the origin over HTTPS.
-   * 
-   * @example
-   * 0
-   */
   httpsValue?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2022-08-23T02:02:57Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The total origin bandwidth data. Unit: bit/s.
-   * 
-   * @example
-   * 0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -111,10 +90,6 @@ export class DescribeVodDomainSrcBpsDataResponseBody extends $dara.Model {
    * 25818875-5F78-4A13-BEF6-****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The origin bandwidth data at each time interval.
-   */
   srcBpsDataPerInterval?: DescribeVodDomainSrcBpsDataResponseBodySrcBpsDataPerInterval;
   /**
    * @remarks

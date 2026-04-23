@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainHitRateDataResponseBodyHitRateIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The HTTPS byte hit rate.
-   * 
-   * @example
-   * 50
-   */
   httpsValue?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2024-01-20T13:59:58Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The total byte hit rate.
-   * 
-   * @example
-   * 100
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,10 +82,6 @@ export class DescribeVodDomainHitRateDataResponseBody extends $dara.Model {
    * 2024-01-20T14:59:58Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The byte hit rate data at each time interval.
-   */
   hitRateInterval?: DescribeVodDomainHitRateDataResponseBodyHitRateInterval;
   /**
    * @remarks

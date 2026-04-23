@@ -3,109 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodCertificateListResponseBodyCertificateListModelCertListCert extends $dara.Model {
-  /**
-   * @remarks
-   * The algorithm.
-   * 
-   * @example
-   * RSA
-   */
   algorithm?: string;
-  /**
-   * @remarks
-   * The ID of the certificate.
-   * 
-   * @example
-   * 235437
-   */
   certId?: number;
-  /**
-   * @remarks
-   * The ID of the certificate.
-   * 
-   * @example
-   * 14173772-cn-hangzhou
-   */
   certIdentifier?: string;
-  /**
-   * @remarks
-   * The name of the certificate.
-   * 
-   * @example
-   * certificate
-   */
   certName?: string;
-  /**
-   * @remarks
-   * The common name of the certificate.
-   * 
-   * @example
-   * test
-   */
   common?: string;
-  /**
-   * @remarks
-   * The time when the certificate was created.
-   * 
-   * @example
-   * 1725206400000
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * DomainMatchCert.
-   * 
-   * @example
-   * false
-   */
   domainMatchCert?: boolean;
-  /**
-   * @remarks
-   * The time when the certificate expired.
-   * 
-   * @example
-   * 1759507200000
-   */
   endTime?: number;
-  /**
-   * @remarks
-   * The fingerprint of the certificate.
-   * 
-   * @example
-   * ****
-   */
   fingerprint?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * cert-cn-cd806ae0fdfbfa60
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The certificate authority (CA) that issued the certificate.
-   * 
-   * @example
-   * ****
-   */
   issuer?: string;
-  /**
-   * @remarks
-   * The time when the certificate was issued. Unit: seconds.
-   * 
-   * @example
-   * 1512388610
-   */
   lastTime?: number;
-  /**
-   * @remarks
-   * The signAlgorithm.
-   * 
-   * @example
-   * sha256withrsa
-   */
   signAlgorithm?: string;
   static names(): { [key: string]: string } {
     return {
@@ -179,10 +88,6 @@ export class DescribeVodCertificateListResponseBodyCertificateListModelCertList 
 }
 
 export class DescribeVodCertificateListResponseBodyCertificateListModel extends $dara.Model {
-  /**
-   * @remarks
-   * The list of certificates.
-   */
   certList?: DescribeVodCertificateListResponseBodyCertificateListModelCertList;
   /**
    * @remarks

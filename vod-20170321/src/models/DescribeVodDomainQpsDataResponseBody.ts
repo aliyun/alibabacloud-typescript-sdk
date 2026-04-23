@@ -3,109 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainQpsDataResponseBodyQpsDataIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The number of requests in the Chinese mainland.
-   * 
-   * @example
-   * 0
-   */
   accDomesticValue?: string;
-  /**
-   * @remarks
-   * The number of requests outside the Chinese mainland.
-   * 
-   * @example
-   * 0
-   */
   accOverseasValue?: string;
-  /**
-   * @remarks
-   * The total number of requests.
-   * 
-   * @example
-   * 0
-   */
   accValue?: string;
-  /**
-   * @remarks
-   * The QPS data in the Chinese mainland.
-   * 
-   * @example
-   * 0
-   */
   domesticValue?: string;
-  /**
-   * @remarks
-   * The QPS that is calculated based on the HTTPS requests sent to POPs in the Chinese mainland.
-   * 
-   * @example
-   * 1
-   */
   httpsAccDomesticValue?: string;
-  /**
-   * @remarks
-   * The number of HTTPS requests sent to POPs outside the Chinese mainland.
-   * 
-   * @example
-   * 1
-   */
   httpsAccOverseasValue?: string;
-  /**
-   * @remarks
-   * The number of HTTPS requests sent to POPs.
-   * 
-   * @example
-   * 1
-   */
   httpsAccValue?: string;
-  /**
-   * @remarks
-   * The QPS that is calculated based on the HTTPS requests sent to POPs in the Chinese mainland.
-   * 
-   * @example
-   * 1
-   */
   httpsDomesticValue?: string;
-  /**
-   * @remarks
-   * The QPS that is calculated based on the HTTPS requests sent to POPs outside the Chinese mainland.
-   * 
-   * @example
-   * 1
-   */
   httpsOverseasValue?: string;
-  /**
-   * @remarks
-   * The QPS that is calculated based on the HTTPS requests sent to points of presence (POPs).
-   * 
-   * @example
-   * 1
-   */
   httpsValue?: string;
-  /**
-   * @remarks
-   * The QPS data outside the Chinese mainland.
-   * 
-   * @example
-   * 0
-   */
   overseasValue?: string;
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-06-27 10:10:58
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The total QPS.
-   * 
-   * @example
-   * 0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -203,10 +112,6 @@ export class DescribeVodDomainQpsDataResponseBody extends $dara.Model {
    * 2024-05-02T15:59:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The list of QPS records at each interval.
-   */
   qpsDataInterval?: DescribeVodDomainQpsDataResponseBodyQpsDataInterval;
   /**
    * @remarks

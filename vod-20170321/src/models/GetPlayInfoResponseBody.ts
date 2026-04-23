@@ -3,249 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPlayInfoResponseBodyPlayInfoListPlayInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The color depth. This value is an integer.
-   * 
-   * @example
-   * 8
-   */
   bitDepth?: number;
-  /**
-   * @remarks
-   * The bitrate of the media stream. Unit: Kbit/s.
-   * 
-   * @example
-   * 450.878
-   */
   bitrate?: string;
-  /**
-   * @remarks
-   * The encoding type. The possible values are:
-   * 
-   * - H264
-   * 
-   * - H265
-   * 
-   * @example
-   * H264
-   */
   codecName?: string;
-  /**
-   * @remarks
-   * The time when the audio or video stream was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2022-04-18T07:37:15Z
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The quality of the video stream. Valid values:
-   * 
-   * *   **FD**: low definition
-   * *   **LD**: standard definition
-   * *   **SD**: high definition
-   * *   **HD**: ultra-high definition
-   * *   **OD**: original definition
-   * *   **2K**
-   * *   **4K**
-   * *   **SQ**: standard sound quality
-   * *   **HQ**: high sound quality
-   * *   **AUTO**: adaptive bitrate
-   * 
-   * @example
-   * LD
-   */
   definition?: string;
-  /**
-   * @remarks
-   * The duration of the media stream. Unit: seconds.
-   * 
-   * @example
-   * 9.0464
-   */
   duration?: string;
-  /**
-   * @remarks
-   * Indicates whether the media stream is encrypted. Valid values:
-   * 
-   * *   **0**: The media stream is not encrypted.
-   * *   **1**: The media stream is encrypted.
-   * 
-   * @example
-   * 1
-   */
   encrypt?: number;
-  /**
-   * @remarks
-   * The encryption type of the media stream. Valid values:
-   * 
-   * *   **License**: decryption on local devices
-   * 
-   * >  If the encryption type is **License**, only ApsaraVideo Player SDK can be used to play videos.
-   * 
-   * @example
-   * License
-   */
   encryptMode?: string;
-  /**
-   * @remarks
-   * The encryption type of the media stream. Valid values:
-   * 
-   * *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
-   * *   **HLSEncryption**: HTTP-Live-Streaming (HLS) encryption
-   * 
-   * >  If the encryption type is AliyunVoDEncryption, only ApsaraVideo Player SDK can be used to play videos.
-   * 
-   * @example
-   * AliyunVoDEncryption
-   */
   encryptType?: string;
-  /**
-   * @remarks
-   * The format of the media stream.
-   * 
-   * *   If the media file is a video file, the valid values are **mp4** and **m3u8**.
-   * *   If the media asset is an audio-only file, the value is **mp3**.
-   * 
-   * @example
-   * m3u8
-   */
   format?: string;
-  /**
-   * @remarks
-   * The frame rate of the media stream. Unit: frames per second.
-   * 
-   * @example
-   * 25
-   */
   fps?: string;
-  /**
-   * @remarks
-   * The HDR type of the media stream. Valid values:
-   * 
-   * *   HDR
-   * *   HDR10
-   * *   HLG
-   * *   DolbyVision
-   * *   HDRVivid
-   * *   SDR+
-   * 
-   * @example
-   * HLG
-   */
   HDRType?: string;
-  /**
-   * @remarks
-   * The height of the media stream. Unit: pixels.
-   * 
-   * @example
-   * 640
-   */
   height?: number;
-  /**
-   * @remarks
-   * The custom watermark information of the copyright watermark. This parameter is returned if you set `JobType` to `2`.
-   * 
-   * @example
-   * CopyrightMarkTest
-   */
   jobExt?: string;
-  /**
-   * @remarks
-   * The job ID for transcoding the media stream. This ID uniquely identifies a media stream.
-   * 
-   * @example
-   * 80e9c6580e754a798c3c19c59b16****
-   */
   jobId?: string;
-  /**
-   * @remarks
-   * The type of the digital watermark. Valid values:
-   * 
-   * *   **1**: user-tracing watermark
-   * *   **2**: copyright watermark
-   * 
-   * @example
-   * 2
-   */
   jobType?: number;
-  /**
-   * @remarks
-   * The time when the audio or video file was last updated. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2022-04-20T06:32:19Z
-   */
   modificationTime?: string;
-  /**
-   * @remarks
-   * The transcoding type. Valid values:
-   * 
-   * *   **0**: regular transcoding
-   * *   **1.0**: Narrowband HD™ 1.0 transcoding
-   * *   **2.0**: Narrowband HD™ 2.0 transcoding
-   * 
-   * @example
-   * 0
-   */
   narrowBandType?: string;
-  /**
-   * @remarks
-   * The playback URL of the video stream.
-   */
   playURL?: string;
-  /**
-   * @remarks
-   * The size of the media stream. Unit: bytes.
-   * 
-   * @example
-   * 418112
-   */
   size?: number;
-  /**
-   * @remarks
-   * The specifications of transcoded audio and video streams. For more information about the valid values, see [Output specifications](~~124671#section-6bv-l0g-opq~~).
-   * 
-   * @example
-   * H264.LD
-   */
   specification?: string;
-  /**
-   * @remarks
-   * The status of the audio or video stream. Valid values:
-   * 
-   * *   **Normal**: The latest transcoded stream in each quality and format is in the Normal status.
-   * *   **Invisible**: If multiple streams are transcoded in the same quality and format, the latest transcoded stream is in the Normal status and other streams are in the Invisible status.
-   * 
-   * @example
-   * Normal
-   */
   status?: string;
-  /**
-   * @remarks
-   * The type of the media stream. If the media stream is a video stream, the value is **video**. If the media stream is an audio-only stream, the value is **audio**.
-   * 
-   * @example
-   * video
-   */
   streamType?: string;
-  /**
-   * @remarks
-   * The ID of the watermark that is associated with the media stream.
-   * 
-   * @example
-   * dgfn26457856****
-   */
   watermarkId?: string;
-  /**
-   * @remarks
-   * The width of the media stream. Unit: pixels.
-   * 
-   * @example
-   * 360
-   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -466,10 +247,6 @@ export class GetPlayInfoResponseBodyVideoBase extends $dara.Model {
 }
 
 export class GetPlayInfoResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the audio or video stream.
-   */
   playInfoList?: GetPlayInfoResponseBodyPlayInfoList;
   /**
    * @remarks

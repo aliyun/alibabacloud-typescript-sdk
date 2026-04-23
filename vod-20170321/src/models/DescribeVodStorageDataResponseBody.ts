@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodStorageDataResponseBodyStorageDataStorageDataItem extends $dara.Model {
-  /**
-   * @remarks
-   * The outbound traffic. Unit: bytes. The outbound traffic is generated when videos are directly downloaded or played from OSS buckets without Alibaba Cloud CDN acceleration.
-   * 
-   * @example
-   * 111111
-   */
   networkOut?: string;
-  /**
-   * @remarks
-   * The detailed usage data of storage-related resources. Unit: bytes.
-   * 
-   * @example
-   * 111111
-   */
   storageUtilization?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-02-01T15:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -98,10 +77,6 @@ export class DescribeVodStorageDataResponseBody extends $dara.Model {
    * C370DAF1-C838-4288-****-9A87633D248E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The storage usage data returned.
-   */
   storageData?: DescribeVodStorageDataResponseBodyStorageData;
   static names(): { [key: string]: string } {
     return {

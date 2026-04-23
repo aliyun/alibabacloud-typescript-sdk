@@ -55,141 +55,22 @@ export class GetEditingProjectMaterialsResponseBodyMaterialListMaterialSprites e
 }
 
 export class GetEditingProjectMaterialsResponseBodyMaterialListMaterial extends $dara.Model {
-  /**
-   * @remarks
-   * The category ID of the material.
-   * 
-   * @example
-   * 100005****
-   */
   cateId?: number;
-  /**
-   * @remarks
-   * The category name of the material.
-   * 
-   * @example
-   * test1
-   */
   cateName?: string;
-  /**
-   * @remarks
-   * The thumbnail URL of the material.
-   */
   coverURL?: string;
-  /**
-   * @remarks
-   * The time when the material was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-10-19 10:48:17
-   */
   creationTime?: string;
-  /**
-   * @remarks
-   * The description of the material.
-   * 
-   * @example
-   * test2
-   */
   description?: string;
-  /**
-   * @remarks
-   * The duration of the material. The value is rounded to four decimal places. Unit: seconds.
-   * 
-   * @example
-   * 15.16
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The ID of the material.
-   * 
-   * @example
-   * 85befc4118b84c6723e53b80b1****
-   */
   materialId?: string;
-  /**
-   * @remarks
-   * The type of the material. Valid values:
-   * 
-   * *   **video**
-   * *   **audio**
-   * *   **image**
-   * 
-   * @example
-   * video
-   */
   materialType?: string;
-  /**
-   * @remarks
-   * The time when the material was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2017-10-19 10:48:17
-   */
   modifiedTime?: string;
-  /**
-   * @remarks
-   * The size of the mezzanine file. Unit: byte.
-   * 
-   * @example
-   * 1682694
-   */
   size?: number;
-  /**
-   * @remarks
-   * The URLs of material snapshots. The value is an array.
-   */
   snapshots?: GetEditingProjectMaterialsResponseBodyMaterialListMaterialSnapshots;
-  /**
-   * @remarks
-   * The source of the sprite.
-   * 
-   * @example
-   * xxx
-   */
   source?: string;
-  /**
-   * @remarks
-   * The configuration of the sprite.
-   * 
-   * @example
-   * xxx
-   */
   spriteConfig?: string;
-  /**
-   * @remarks
-   * The URLs of material sprites. The value is an array.
-   */
   sprites?: GetEditingProjectMaterialsResponseBodyMaterialListMaterialSprites;
-  /**
-   * @remarks
-   * The status of the material. Valid values:
-   * 
-   * *   **Normal**: The material is in draft.
-   * *   **Producing**: The material is being produced.
-   * *   **Produced**: The material was produced.
-   * *   **ProduceFailed**: The material failed to be produced.
-   * 
-   * @example
-   * Normal
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tag of the material. Multiple tags are separated by commas (,).
-   * 
-   * @example
-   * editing test
-   */
   tags?: string;
-  /**
-   * @remarks
-   * The title of the material.
-   * 
-   * @example
-   * test
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -277,10 +158,6 @@ export class GetEditingProjectMaterialsResponseBodyMaterialList extends $dara.Mo
 }
 
 export class GetEditingProjectMaterialsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The materials.
-   */
   materialList?: GetEditingProjectMaterialsResponseBodyMaterialList;
   /**
    * @remarks

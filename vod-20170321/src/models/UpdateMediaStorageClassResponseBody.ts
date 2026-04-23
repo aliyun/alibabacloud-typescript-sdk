@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateMediaStorageClassResponseBodyForbiddenListMediaForbiddenReasonDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the media asset.
-   * 
-   * @example
-   * 19e231ee6e3e417fbf2e92ec2680****
-   */
   mediaId?: string;
-  /**
-   * @remarks
-   * The reason for the failure.
-   * 
-   * @example
-   * TargetStorageClassInconsistent
-   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,15 +81,7 @@ export class UpdateMediaStorageClassResponseBodyIgnoredList extends $dara.Model 
 }
 
 export class UpdateMediaStorageClassResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the media assets that failed to be processed.
-   */
   forbiddenList?: UpdateMediaStorageClassResponseBodyForbiddenList;
-  /**
-   * @remarks
-   * The IDs of the media assets that failed to be obtained.
-   */
   ignoredList?: UpdateMediaStorageClassResponseBodyIgnoredList;
   /**
    * @remarks

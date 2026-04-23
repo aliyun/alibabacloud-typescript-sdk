@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainRealTimeReqHitRateDataResponseBodyDataReqHitRateDataModel extends $dara.Model {
-  /**
-   * @remarks
-   * The cache hit ratio that is calculated based on requests. The cache hit ratio is measured in percentage.
-   * 
-   * @example
-   * 0.8956940476262277
-   */
   reqHitRate?: number;
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard. The time is displayed in UTC.
-   * 
-   * @example
-   * 2024-01-02T11:26:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeVodDomainRealTimeReqHitRateDataResponseBodyData extends $da
 }
 
 export class DescribeVodDomainRealTimeReqHitRateDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned results.
-   */
   data?: DescribeVodDomainRealTimeReqHitRateDataResponseBodyData;
   /**
    * @remarks

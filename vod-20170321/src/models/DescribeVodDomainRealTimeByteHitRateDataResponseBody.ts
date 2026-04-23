@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainRealTimeByteHitRateDataResponseBodyDataByteHitRateDataModel extends $dara.Model {
-  /**
-   * @remarks
-   * The byte hit ratio in percentage.
-   * 
-   * @example
-   * 0.8956940476262277
-   */
   byteHitRate?: number;
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard. The time is displayed in UTC.
-   * 
-   * @example
-   * 2020-05-15T09:13:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeVodDomainRealTimeByteHitRateDataResponseBodyData extends $d
 }
 
 export class DescribeVodDomainRealTimeByteHitRateDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The returned data.
-   */
   data?: DescribeVodDomainRealTimeByteHitRateDataResponseBodyData;
   /**
    * @remarks

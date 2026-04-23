@@ -3,25 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodAIDataResponseBodyAIDataAIDataItemDataDataItem extends $dara.Model {
-  /**
-   * @remarks
-   * The type of video AI. Valid values:
-   * 
-   * *   **AIVideoCensor**: automated review
-   * *   **AIVideoFPShot**: media fingerprinting
-   * *   **AIVideoTag**: smart tagging
-   * 
-   * @example
-   * AIVideoCensor
-   */
   name?: string;
-  /**
-   * @remarks
-   * The processing duration. Unit: seconds.
-   * 
-   * @example
-   * 111
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,18 +55,7 @@ export class DescribeVodAIDataResponseBodyAIDataAIDataItemData extends $dara.Mod
 }
 
 export class DescribeVodAIDataResponseBodyAIDataAIDataItem extends $dara.Model {
-  /**
-   * @remarks
-   * The statistics on video AI of each type.
-   */
   data?: DescribeVodAIDataResponseBodyAIDataAIDataItemData;
-  /**
-   * @remarks
-   * The timestamp of the returned data. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-02-01T13:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,10 +110,6 @@ export class DescribeVodAIDataResponseBodyAIData extends $dara.Model {
 }
 
 export class DescribeVodAIDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The statistics on video AI.
-   */
   AIData?: DescribeVodAIDataResponseBodyAIData;
   /**
    * @remarks

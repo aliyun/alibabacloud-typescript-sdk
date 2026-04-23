@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValueRealTimeCodeProportionData extends $dara.Model {
-  /**
-   * @remarks
-   * The HTTP status code.
-   * 
-   * @example
-   * 500
-   */
   code?: string;
-  /**
-   * @remarks
-   * The number of the HTTP status codes.
-   * 
-   * @example
-   * 100
-   */
   count?: string;
-  /**
-   * @remarks
-   * The proportion of the HTTP status code in percentage.
-   * 
-   * @example
-   * 28.4496124031008
-   */
   proportion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,18 +58,7 @@ export class DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDa
 }
 
 export class DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageData extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2019-11-30T05:39:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The proportion of each HTTP status code is displayed in a data list.
-   */
   value?: DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeDataUsageDataValue;
   static names(): { [key: string]: string } {
     return {
@@ -171,10 +139,6 @@ export class DescribeVodDomainRealTimeHttpCodeDataResponseBody extends $dara.Mod
    * 2019-11-30T05:40:00Z
    */
   endTime?: string;
-  /**
-   * @remarks
-   * The proportion of each HTTP status code in each time interval.
-   */
   realTimeHttpCodeData?: DescribeVodDomainRealTimeHttpCodeDataResponseBodyRealTimeHttpCodeData;
   /**
    * @remarks

@@ -13,10 +13,12 @@ export class DescribeVodDomainCertificateInfoRequest extends $dara.Model {
    * example.com
    */
   domainName?: string;
+  heraApiAutoVersion?: string;
   ownerId?: number;
   static names(): { [key: string]: string } {
     return {
       domainName: 'DomainName',
+      heraApiAutoVersion: 'HeraApiAutoVersion',
       ownerId: 'OwnerId',
     };
   }
@@ -24,6 +26,7 @@ export class DescribeVodDomainCertificateInfoRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       domainName: 'string',
+      heraApiAutoVersion: 'string',
       ownerId: 'number',
     };
   }

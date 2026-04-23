@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainMax95BpsDataResponseBodyDetailDataMax95Detail extends $dara.Model {
-  /**
-   * @remarks
-   * The billable region where the peak 95 data was collected.
-   * 
-   * @example
-   * CN
-   */
   area?: string;
-  /**
-   * @remarks
-   * The 95th percentile bandwidth.
-   * 
-   * @example
-   * 16777590.28
-   */
   max95Bps?: number;
-  /**
-   * @remarks
-   * The time corresponding to the 95th percentile bandwidth peak.
-   * 
-   * @example
-   * 2015-12-11T21:05:00Z
-   */
   max95BpsPeakTime?: string;
-  /**
-   * @remarks
-   * The timestamp of the returned data.
-   * 
-   * @example
-   * 2024-01-18 10:11:32
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +61,6 @@ export class DescribeVodDomainMax95BpsDataResponseBodyDetailData extends $dara.M
 }
 
 export class DescribeVodDomainMax95BpsDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details of the 95th percentile bandwidth.
-   */
   detailData?: DescribeVodDomainMax95BpsDataResponseBodyDetailData;
   /**
    * @remarks

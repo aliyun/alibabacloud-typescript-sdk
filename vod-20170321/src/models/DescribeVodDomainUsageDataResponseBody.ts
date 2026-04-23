@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainUsageDataResponseBodyUsageDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp of the returned data. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2015-12-10T10:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @remarks
-   * The traffic or bandwidth data. Unit: bit/s.
-   * 
-   * @example
-   * 2592.3920000000003
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -128,10 +114,6 @@ export class DescribeVodDomainUsageDataResponseBody extends $dara.Model {
    * static
    */
   type?: string;
-  /**
-   * @remarks
-   * The traffic or bandwidth data returned at each interval.
-   */
   usageDataPerInterval?: DescribeVodDomainUsageDataResponseBodyUsageDataPerInterval;
   static names(): { [key: string]: string } {
     return {

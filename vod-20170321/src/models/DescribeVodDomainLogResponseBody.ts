@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The end of the time range during which data was queried. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-05-31T05:00:00Z
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The name of the log file.
-   * 
-   * @example
-   * example.com_2018_03_25_180000_19****.gz
-   */
   logName?: string;
-  /**
-   * @remarks
-   * The path of the log file.
-   * 
-   * @example
-   * example.com/2018_03_25/example.com_2018_03_25_180000_19****.gz?Expires=1522659931&OSSAccessKeyId=****&Signature=****
-   */
   logPath?: string;
-  /**
-   * @remarks
-   * The size of the log file.
-   * 
-   * @example
-   * 2645401
-   */
   logSize?: number;
-  /**
-   * @remarks
-   * The beginning of the time range during which data was queried. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2018-05-31T04:00:00Z
-   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,29 +64,8 @@ export class DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogI
 }
 
 export class DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 300
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 2
-   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -149,31 +93,9 @@ export class DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetailPage
 }
 
 export class DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The total number of entries returned on the current page.
-   * 
-   * @example
-   * 2
-   */
   logCount?: number;
-  /**
-   * @remarks
-   * The queried CDN logs.
-   */
   logInfos?: DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetailLogInfos;
-  /**
-   * @remarks
-   * The pagination information.
-   */
   pageInfos?: DescribeVodDomainLogResponseBodyDomainLogDetailsDomainLogDetailPageInfos;
   static names(): { [key: string]: string } {
     return {
@@ -235,10 +157,6 @@ export class DescribeVodDomainLogResponseBodyDomainLogDetails extends $dara.Mode
 }
 
 export class DescribeVodDomainLogResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of CDN logs.
-   */
   domainLogDetails?: DescribeVodDomainLogResponseBodyDomainLogDetails;
   /**
    * @remarks

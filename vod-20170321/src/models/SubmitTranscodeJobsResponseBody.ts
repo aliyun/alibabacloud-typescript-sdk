@@ -3,15 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitTranscodeJobsResponseBodyTranscodeJobsTranscodeJob extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the transcoding job.
-   * 
-   * >  This parameter is not returned for HLS packaging tasks. You must asynchronously receive the transcoding result.
-   * 
-   * @example
-   * d8921ce8505716cfe86fb112c4****
-   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,12 +60,6 @@ export class SubmitTranscodeJobsResponseBody extends $dara.Model {
    * E4EBD2BF-5EB0-4476-8829-9D94E1B1****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the transcoding job.
-   * 
-   * >  This parameter is not returned for HLS packaging tasks. You must asynchronously receive the transcoding result.
-   */
   transcodeJobs?: SubmitTranscodeJobsResponseBodyTranscodeJobs;
   /**
    * @remarks

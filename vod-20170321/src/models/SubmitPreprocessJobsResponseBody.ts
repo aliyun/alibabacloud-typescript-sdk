@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitPreprocessJobsResponseBodyPreprocessJobsPreprocessJob extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the job.
-   * 
-   * @example
-   * bb396607fd11fee9effbb99c4****
-   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +52,6 @@ export class SubmitPreprocessJobsResponseBodyPreprocessJobs extends $dara.Model 
 }
 
 export class SubmitPreprocessJobsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the job.
-   */
   preprocessJobs?: SubmitPreprocessJobsResponseBodyPreprocessJobs;
   /**
    * @remarks

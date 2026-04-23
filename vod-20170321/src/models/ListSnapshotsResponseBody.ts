@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSnapshotsResponseBodyMediaSnapshotSnapshotsSnapshot extends $dara.Model {
-  /**
-   * @remarks
-   * The index of the snapshot.
-   * 
-   * @example
-   * 1
-   */
   index?: number;
-  /**
-   * @remarks
-   * The URL of the snapshot.
-   * 
-   * @example
-   * http://example.aliyundoc.com/snapshot/sample00001****.jpg
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -93,10 +79,6 @@ export class ListSnapshotsResponseBodyMediaSnapshot extends $dara.Model {
    * http://example.aliyundoc.com/snapshot/sample{SnapshotCount}.jpg
    */
   regular?: string;
-  /**
-   * @remarks
-   * The details of the snapshot.
-   */
   snapshots?: ListSnapshotsResponseBodyMediaSnapshotSnapshots;
   /**
    * @remarks

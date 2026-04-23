@@ -80,60 +80,11 @@ export class GetCategoriesResponseBodyCategory extends $dara.Model {
 }
 
 export class GetCategoriesResponseBodySubCategoriesCategory extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the category.
-   * 
-   * @example
-   * 100
-   */
   cateId?: number;
-  /**
-   * @remarks
-   * The name of the category.
-   * 
-   * @example
-   * film
-   */
   cateName?: string;
-  /**
-   * @remarks
-   * The level of the category. Valid values:
-   * 
-   * *   **0**: level 1 category
-   * *   **1**: level 2 category
-   * *   **2**: level 3 category
-   * 
-   * @example
-   * 1
-   */
   level?: number;
-  /**
-   * @remarks
-   * The ID of the parent category.
-   * 
-   * @example
-   * 10020****
-   */
   parentId?: number;
-  /**
-   * @remarks
-   * The total number of subcategories.
-   * 
-   * @example
-   * 1
-   */
   subTotal?: number;
-  /**
-   * @remarks
-   * The type of the subcategory. Valid values:
-   * 
-   * *   **default**: audio, video, and image files
-   * *   **material**: short video materials
-   * 
-   * @example
-   * default
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -206,10 +157,6 @@ export class GetCategoriesResponseBody extends $dara.Model {
    * 25818875-5F78-4AF6-D7393642CA58****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The details of the subcategory.
-   */
   subCategories?: GetCategoriesResponseBodySubCategories;
   /**
    * @remarks

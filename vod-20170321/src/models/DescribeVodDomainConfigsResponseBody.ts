@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVodDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgsFunctionArg extends $dara.Model {
-  /**
-   * @remarks
-   * The parameter name.
-   * 
-   * @example
-   * file_type
-   */
   argName?: string;
-  /**
-   * @remarks
-   * The parameter value.
-   * 
-   * @example
-   * txt
-   */
   argValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,39 +55,9 @@ export class DescribeVodDomainConfigsResponseBodyDomainConfigsDomainConfigFuncti
 }
 
 export class DescribeVodDomainConfigsResponseBodyDomainConfigsDomainConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 5003576
-   */
   configId?: string;
-  /**
-   * @remarks
-   * The feature parameters.
-   */
   functionArgs?: DescribeVodDomainConfigsResponseBodyDomainConfigsDomainConfigFunctionArgs;
-  /**
-   * @remarks
-   * The feature name.
-   * 
-   * @example
-   * set_req_host_header
-   */
   functionName?: string;
-  /**
-   * @remarks
-   * The configuration status. Valid values:
-   * 
-   * *   **success**
-   * *   **testing**
-   * *   **failed**
-   * *   **configuring**
-   * 
-   * @example
-   * success
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -160,10 +116,6 @@ export class DescribeVodDomainConfigsResponseBodyDomainConfigs extends $dara.Mod
 }
 
 export class DescribeVodDomainConfigsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of the domain name.
-   */
   domainConfigs?: DescribeVodDomainConfigsResponseBodyDomainConfigs;
   /**
    * @remarks

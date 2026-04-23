@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RestoreMediaResponseBodyForbiddenListMediaForbiddenReasonDTO extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the media asset.
-   * 
-   * @example
-   * fa10ee70898671edb99f6eb3690d****
-   */
   mediaId?: string;
-  /**
-   * @remarks
-   * The reason for the failure.
-   * 
-   * @example
-   * Forbidden.RestoreMedia
-   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,15 +81,7 @@ export class RestoreMediaResponseBodyIgnoredList extends $dara.Model {
 }
 
 export class RestoreMediaResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the media asset that failed to be processed.
-   */
   forbiddenList?: RestoreMediaResponseBodyForbiddenList;
-  /**
-   * @remarks
-   * The IDs of the media assets that failed to be obtained.
-   */
   ignoredList?: RestoreMediaResponseBodyIgnoredList;
   /**
    * @remarks
