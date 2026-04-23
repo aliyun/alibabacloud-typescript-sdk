@@ -3,36 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryDomainGroupListResponseBodyDataDomainGroup extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   beingDeleted?: boolean;
-  /**
-   * @example
-   * 2018-04-02 15:59:06
-   */
   creationDate?: string;
-  /**
-   * @example
-   * -1
-   */
   domainGroupId?: string;
   domainGroupName?: string;
-  /**
-   * @example
-   * COMPLETE
-   */
   domainGroupStatus?: string;
-  /**
-   * @example
-   * 2018-04-02 15:59:06
-   */
   modificationDate?: string;
-  /**
-   * @example
-   * 20
-   */
   totalNumber?: number;
   static names(): { [key: string]: string } {
     return {

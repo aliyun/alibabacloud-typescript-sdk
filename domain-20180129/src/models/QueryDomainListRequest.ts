@@ -43,6 +43,7 @@ export class QueryDomainListRequestTag extends $dara.Model {
 }
 
 export class QueryDomainListRequest extends $dara.Model {
+  autoRenewEnabled?: boolean;
   /**
    * @remarks
    * The name of the domain name registrant.
@@ -206,6 +207,7 @@ export class QueryDomainListRequest extends $dara.Model {
   userClientIp?: string;
   static names(): { [key: string]: string } {
     return {
+      autoRenewEnabled: 'AutoRenewEnabled',
       ccompany: 'Ccompany',
       dns: 'Dns',
       domainGroupId: 'DomainGroupId',
@@ -230,6 +232,7 @@ export class QueryDomainListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoRenewEnabled: 'boolean',
       ccompany: 'string',
       dns: 'string',
       domainGroupId: 'string',

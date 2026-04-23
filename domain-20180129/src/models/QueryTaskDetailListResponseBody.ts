@@ -3,139 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTaskDetailListResponseBodyDataTaskDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the task was created.
-   * 
-   * @example
-   * 2018-01-25 20:46:57
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The error message returned when the task failed.
-   * 
-   * @example
-   * The operation is successful.
-   */
   errorMsg?: string;
-  /**
-   * @remarks
-   * The cause of a domain name task failure.
-   * 
-   * @example
-   * Purchase record exists for the domain name in Aliyun
-   */
   failReason?: string;
-  /**
-   * @remarks
-   * The instance ID of the domain name.
-   * 
-   * @example
-   * S20179H1BBI9test
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the task details.
-   * 
-   * @example
-   * 75addb07-28a3-450e-b5ec-test
-   */
   taskDetailNo?: string;
-  /**
-   * @remarks
-   * The task ID.
-   * 
-   * @example
-   * 60d6e201-8ee5-47ab-8fdc-test
-   */
   taskNo?: string;
-  /**
-   * @remarks
-   * The result of the task.
-   * 
-   * @example
-   * 12345
-   */
   taskResult?: string;
-  /**
-   * @remarks
-   * The task status. Valid values:
-   * 
-   * *   **WAITING_EXECUTE**: To be executed
-   * *   **EXECUTING**: being executed
-   * *   **EXECUTE_SUCCESS**: successful
-   * *   **EXECUTE_FAILURE**: failed
-   * 
-   * @example
-   * EXECUTE_SUCCESS
-   */
   taskStatus?: string;
-  /**
-   * @remarks
-   * The status code of the task. Valid values:
-   * 
-   * *   **0**: waiting for execution
-   * *   **1**: being executed
-   * *   **2**: successful
-   * *   **3**: failed
-   * 
-   * @example
-   * 2
-   */
   taskStatusCode?: number;
-  /**
-   * @remarks
-   * The task type. Valid values:
-   * 
-   * *   **CHG_HOLDER**: The task is run to modify the domain name registrant.
-   * *   **CHG_DNS**: The task is run to change the Domain Name System (DNS) servers.
-   * *   **SET_WHOIS_PROTECT**: The task is run to configure privacy protection for the domain name.
-   * *   **UPDATE_ADMIN_CONTACT**: The task is run to modify the information about the administrator of the domain name.
-   * *   **UPDATE_BILLING_CONTACT**: The task is run to modify the information about the payer for the domain name.
-   * *   **UPDATE_TECH_CONTACT**: The task is run to modify the information about the technical support for the domain name.
-   * *   **SET_UPDATE_PROHIBITED**: The task is run to configure the security lock for the domain name.
-   * *   **SET_TRANSFER_PROHIBITED**: The task is run to configure the transfer lock for the domain name.
-   * *   **ORDER_ACTIVATE**: The task is run to create a registration order for the domain name.
-   * *   **ORDER_RENEW**: The task is run to create a renewal order for the domain name.
-   * *   **ORDER_REDEEM**: The task is run to create a redemption order for the domain name.
-   * *   **CREATE_DNSHOST**: The task is run to create a DNS server for the domain name.
-   * *   **UPDATE_DNSHOST**: The task is run to update the information about a DNS server for the domain name.
-   * *   **SYNC_DNSHOST**: The task is run to synchronize a DNS server for the domain name.
-   * 
-   * @example
-   * ORDER_RENEW
-   */
   taskType?: string;
-  /**
-   * @remarks
-   * The description of the task type.
-   */
   taskTypeDescription?: string;
-  /**
-   * @remarks
-   * The number of times the task was retried.
-   * 
-   * @example
-   * 0
-   */
   tryCount?: number;
-  /**
-   * @remarks
-   * The last time when the task was run.
-   * 
-   * @example
-   * 2018-01-25 20:47:01
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -219,10 +99,6 @@ export class QueryTaskDetailListResponseBody extends $dara.Model {
    * 1
    */
   currentPageNum?: number;
-  /**
-   * @remarks
-   * The tasks.
-   */
   data?: QueryTaskDetailListResponseBodyData;
   /**
    * @remarks

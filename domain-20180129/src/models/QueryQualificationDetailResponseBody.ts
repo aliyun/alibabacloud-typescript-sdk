@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryQualificationDetailResponseBodyCredentialsQualificationCredential extends $dara.Model {
-  /**
-   * @example
-   * 92610725MA7G2E****
-   */
   credentialNo?: string;
-  /**
-   * @example
-   * SHSQB
-   */
   credentialType?: string;
   credentialUrl?: string;
   static names(): { [key: string]: string } {

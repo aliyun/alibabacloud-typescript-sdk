@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FuzzyMatchDomainSensitiveWordResponseBodyMatchedSentiveWordsMatchedSensitiveWord extends $dara.Model {
-  /**
-   * @example
-   * xxx
-   */
   word?: string;
   static names(): { [key: string]: string } {
     return {

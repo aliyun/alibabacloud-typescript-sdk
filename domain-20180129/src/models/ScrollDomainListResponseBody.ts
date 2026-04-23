@@ -29,21 +29,7 @@ export class ScrollDomainListResponseBodyDataDomainDnsList extends $dara.Model {
 }
 
 export class ScrollDomainListResponseBodyDataDomainTagTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * testKey
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * testValue
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,207 +81,28 @@ export class ScrollDomainListResponseBodyDataDomainTag extends $dara.Model {
 }
 
 export class ScrollDomainListResponseBodyDataDomain extends $dara.Model {
-  /**
-   * @remarks
-   * The Domain Name System (DNS) servers of the domain name.
-   */
   dnsList?: ScrollDomainListResponseBodyDataDomainDnsList;
-  /**
-   * @remarks
-   * The status of real-name verification for the domain name. Valid values:
-   * 
-   * *   **FAILED**: Real-name verification for the domain name fails.
-   * *   **SUCCEED**: Real-name verification for the domain name is successful.
-   * *   **NONAUDIT**: Real-name verification for the domain name is not performed.
-   * *   **AUDITING**: Real-name verification for the domain name is in progress.
-   * 
-   * @example
-   * NONAUDIT
-   */
   domainAuditStatus?: string;
-  /**
-   * @remarks
-   * The ID of the domain name group.
-   * 
-   * @example
-   * 1234
-   */
   domainGroupId?: string;
-  /**
-   * @remarks
-   * The name of the domain name group.
-   * 
-   * @example
-   * test group
-   */
   domainGroupName?: string;
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @remarks
-   * The status of the domain name. Valid values:
-   * 
-   * *   **1**: The domain name needs to be renewed.
-   * *   **2**: The domain name needs to be redeemed.
-   * *   **3**: The domain name is normal.
-   * *   **4**: The domain name is being transferred out.
-   * *   **5**: The information about the domain name registrant is being modified.
-   * *   **6**: Real-name verification is not performed on the domain name.
-   * *   **7**: Real-name verification for the domain name fails.
-   * *   **8**: The real-name verification is being reviewed.
-   * 
-   * @example
-   * 3
-   */
   domainStatus?: string;
-  /**
-   * @remarks
-   * The type of the domain name. Valid values:
-   * 
-   * *   **New gTLD**
-   * *   **gTLD**
-   * *   **ccTLD**
-   * 
-   * @example
-   * gTLD
-   */
   domainType?: string;
-  /**
-   * @remarks
-   * The email address.
-   * 
-   * @example
-   * username@example.com
-   */
   email?: string;
-  /**
-   * @remarks
-   * The number of days from the expiration date of the domain name to the current date.
-   * 
-   * @example
-   * 10
-   */
   expirationCurrDateDiff?: number;
-  /**
-   * @remarks
-   * The time when the domain name expires.
-   * 
-   * @example
-   * 2019-02-15 17:30:35
-   */
   expirationDate?: string;
-  /**
-   * @remarks
-   * The time when the domain name expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1550223035000
-   */
   expirationDateLong?: number;
-  /**
-   * @remarks
-   * Indicates whether the domain name expires. Valid values:
-   * 
-   * *   **1**: The domain name does not expire.
-   * *   **2**: The domain name expires.
-   * 
-   * @example
-   * 1
-   */
   expirationDateStatus?: string;
-  /**
-   * @remarks
-   * The instance ID of the domain name.
-   * 
-   * @example
-   * S1234
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * Indicates whether the domain name is a premium domain name.
-   * 
-   * @example
-   * false
-   */
   premium?: boolean;
-  /**
-   * @remarks
-   * The service ID.
-   * 
-   * @example
-   * 2a
-   */
   productId?: string;
-  /**
-   * @remarks
-   * The registrant of the domain name.
-   * 
-   * @example
-   * alibaba cloud
-   */
   registrantOrganization?: string;
-  /**
-   * @remarks
-   * The registration type of the domain name. Valid values:
-   * 
-   * *   **1**: individual.
-   * *   **2**: enterprise.
-   * 
-   * @example
-   * 1
-   */
   registrantType?: string;
-  /**
-   * @remarks
-   * The time when the domain name was registered.
-   * 
-   * @example
-   * 2017-02-15 00:00:00
-   */
   registrationDate?: string;
-  /**
-   * @remarks
-   * The time when the domain name was registered. This value is a UNIX timestamp that indicates the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1487088000000
-   */
   registrationDateLong?: number;
-  /**
-   * @remarks
-   * The remarks on the domain name.
-   * 
-   * @example
-   * test domain
-   */
   remark?: string;
-  /**
-   * @remarks
-   * The ID of the resource group.
-   * 
-   * @example
-   * rg-aek2yyciz557g3q
-   */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The resource tag.
-   */
   tag?: ScrollDomainListResponseBodyDataDomainTag;
-  /**
-   * @remarks
-   * The Chinese name of the domain name registrant.
-   * 
-   * @example
-   * 阿里云
-   */
   zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
@@ -395,10 +202,6 @@ export class ScrollDomainListResponseBodyData extends $dara.Model {
 }
 
 export class ScrollDomainListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The domain names.
-   */
   data?: ScrollDomainListResponseBodyData;
   /**
    * @remarks

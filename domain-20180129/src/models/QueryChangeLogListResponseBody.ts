@@ -3,36 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryChangeLogListResponseBodyDataChangeLog extends $dara.Model {
-  /**
-   * @example
-   * dns1;dns2 -> dns3;dns4
-   */
   details?: string;
-  /**
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @example
-   * DNS modification
-   */
   operation?: string;
-  /**
-   * @example
-   * 127.0.0.1
-   */
   operationIPAddress?: string;
   remark?: string;
-  /**
-   * @example
-   * Failed
-   */
   result?: string;
-  /**
-   * @example
-   * 2017-12-26 12:00:00
-   */
   time?: string;
   static names(): { [key: string]: string } {
     return {

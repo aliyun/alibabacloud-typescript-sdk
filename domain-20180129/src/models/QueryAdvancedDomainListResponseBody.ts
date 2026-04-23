@@ -82,103 +82,27 @@ export class QueryAdvancedDomainListResponseBodyDataDomainTag extends $dara.Mode
 
 export class QueryAdvancedDomainListResponseBodyDataDomain extends $dara.Model {
   dnsList?: QueryAdvancedDomainListResponseBodyDataDomainDnsList;
-  /**
-   * @example
-   * SUCCEED
-   */
   domainAuditStatus?: string;
-  /**
-   * @example
-   * -1
-   */
   domainGroupId?: string;
   domainGroupName?: string;
-  /**
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @example
-   * 5
-   */
   domainStatus?: string;
-  /**
-   * @example
-   * gTLD
-   */
   domainType?: string;
-  /**
-   * @example
-   * username@example.com
-   */
   email?: string;
-  /**
-   * @example
-   * 356
-   */
   expirationCurrDateDiff?: number;
-  /**
-   * @example
-   * 2019-04-09 17:07:03
-   */
   expirationDate?: string;
-  /**
-   * @example
-   * 1554800823000
-   */
   expirationDateLong?: number;
-  /**
-   * @example
-   * 1
-   */
   expirationDateStatus?: string;
-  /**
-   * @example
-   * S20182000000000
-   */
   instanceId?: string;
-  /**
-   * @example
-   * false
-   */
   premium?: boolean;
-  /**
-   * @example
-   * 2a
-   */
   productId?: string;
-  /**
-   * @example
-   * Tom
-   */
   registrantOrganization?: string;
-  /**
-   * @example
-   * 1
-   */
   registrantType?: string;
-  /**
-   * @example
-   * 2018-04-09 17:07:03
-   */
   registrationDate?: string;
-  /**
-   * @example
-   * 1523264823000
-   */
   registrationDateLong?: number;
   remark?: string;
-  /**
-   * @example
-   * rg-aek2yyciz557g3q
-   */
   resourceGroupId?: string;
   tag?: QueryAdvancedDomainListResponseBodyDataDomainTag;
-  /**
-   * @example
-   * Tom
-   */
   zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {

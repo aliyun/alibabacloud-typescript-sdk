@@ -3,52 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTaskListResponseBodyDataTaskInfo extends $dara.Model {
-  /**
-   * @example
-   * 127.0.0.1
-   */
   clientip?: string;
-  /**
-   * @example
-   * Dec 26,2017 11:00:54
-   */
   createTime?: string;
   taskBizType?: string;
-  /**
-   * @example
-   * INIT
-   */
   taskCancelStatus?: string;
-  /**
-   * @example
-   * 0
-   */
   taskCancelStatusCode?: number;
-  /**
-   * @example
-   * 8b1cd755-4928-4b02-adee-e5d41d7b1939
-   */
   taskNo?: string;
-  /**
-   * @example
-   * 1
-   */
   taskNum?: number;
   taskResult?: string;
-  /**
-   * @example
-   * COMPLETE
-   */
   taskStatus?: string;
-  /**
-   * @example
-   * 1
-   */
   taskStatusCode?: number;
-  /**
-   * @example
-   * CREATE_DNSHOST
-   */
   taskType?: string;
   taskTypeCode?: number;
   taskTypeDescription?: string;

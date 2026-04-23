@@ -5,10 +5,6 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWordsMatchedSensitiveWord extends $dara.Model {
-  /**
-   * @example
-   * xxx
-   */
   word?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,15 +54,7 @@ export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchRes
 }
 
 export class BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResult extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   exist?: boolean;
-  /**
-   * @example
-   * example.com,aliyundoc.com
-   */
   keyword?: string;
   matchedSentiveWords?: BatchFuzzyMatchDomainSensitiveWordResponseBodySensitiveWordMatchResultListSensitiveWordMatchResultMatchedSentiveWords;
   static names(): { [key: string]: string } {

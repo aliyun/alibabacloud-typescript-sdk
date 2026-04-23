@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LookupTmchNoticeResponseBodyClaimsClaimClassDescsClassDesc extends $dara.Model {
-  /**
-   * @example
-   * 18
-   */
   classNum?: number;
-  /**
-   * @example
-   * New Zealand
-   */
   desc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,25 +81,9 @@ export class LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet ex
 }
 
 export class LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr extends $dara.Model {
-  /**
-   * @example
-   * NZ
-   */
   cc?: string;
-  /**
-   * @example
-   * Auckland
-   */
   city?: string;
-  /**
-   * @example
-   * 1010
-   */
   pc?: string;
-  /**
-   * @example
-   * Auckland
-   */
   sp?: string;
   street?: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddrStreet;
   static names(): { [key: string]: string } {
@@ -144,35 +120,11 @@ export class LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr extends 
 
 export class LookupTmchNoticeResponseBodyClaimsClaimContactsContact extends $dara.Model {
   addr?: LookupTmchNoticeResponseBodyClaimsClaimContactsContactAddr;
-  /**
-   * @example
-   * username@example.com
-   */
   email?: string;
-  /**
-   * @example
-   * 4472335**8
-   */
   fax?: string;
-  /**
-   * @example
-   * Tom
-   */
   name?: string;
-  /**
-   * @example
-   * Tom
-   */
   org?: string;
-  /**
-   * @example
-   * agent
-   */
   type?: string;
-  /**
-   * @example
-   * 1390000****
-   */
   voice?: string;
   static names(): { [key: string]: string } {
     return {
@@ -263,25 +215,9 @@ export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddrStreet exte
 }
 
 export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr extends $dara.Model {
-  /**
-   * @example
-   * NZ
-   */
   cc?: string;
-  /**
-   * @example
-   * Wellington
-   */
   city?: string;
-  /**
-   * @example
-   * 6011
-   */
   pc?: string;
-  /**
-   * @example
-   * Wellington
-   */
   sp?: string;
   street?: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddrStreet;
   static names(): { [key: string]: string } {
@@ -318,15 +254,7 @@ export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr extends $d
 
 export class LookupTmchNoticeResponseBodyClaimsClaimHoldersHolder extends $dara.Model {
   addr?: LookupTmchNoticeResponseBodyClaimsClaimHoldersHolderAddr;
-  /**
-   * @example
-   * owner
-   */
   entitlement?: string;
-  /**
-   * @example
-   * Whitcoulls 2011 Limited
-   */
   org?: string;
   static names(): { [key: string]: string } {
     return {
@@ -383,15 +311,7 @@ export class LookupTmchNoticeResponseBodyClaimsClaimHolders extends $dara.Model 
 }
 
 export class LookupTmchNoticeResponseBodyClaimsClaimJurDesc extends $dara.Model {
-  /**
-   * @example
-   * New Zealand
-   */
   desc?: string;
-  /**
-   * @example
-   * NZ
-   */
   jurCC?: string;
   static names(): { [key: string]: string } {
     return {
@@ -419,17 +339,9 @@ export class LookupTmchNoticeResponseBodyClaimsClaimJurDesc extends $dara.Model 
 export class LookupTmchNoticeResponseBodyClaimsClaim extends $dara.Model {
   classDescs?: LookupTmchNoticeResponseBodyClaimsClaimClassDescs;
   contacts?: LookupTmchNoticeResponseBodyClaimsClaimContacts;
-  /**
-   * @example
-   * Class 9: Calculators; bags, coverings,containers, carriers and holders for mobile phones, personal handheld computers and notebooks; headphones; speakers; blank storage media;batteries. Class 16: Paper
-   */
   goodsAndServices?: string;
   holders?: LookupTmchNoticeResponseBodyClaimsClaimHolders;
   jurDesc?: LookupTmchNoticeResponseBodyClaimsClaimJurDesc;
-  /**
-   * @example
-   * POTED
-   */
   markName?: string;
   static names(): { [key: string]: string } {
     return {

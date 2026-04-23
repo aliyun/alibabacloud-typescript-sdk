@@ -3,106 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryTransferInListResponseBodyDataTransferInInfo extends $dara.Model {
-  /**
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @example
-   * username@example.com
-   */
   email?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
   expirationDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
   expirationDateLong?: number;
-  /**
-   * @example
-   * S20181T0WLI85212
-   */
   instanceId?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
   modificationDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
   modificationDateLong?: number;
-  /**
-   * @example
-   * true
-   */
   needMailCheck?: boolean;
-  /**
-   * @example
-   * 0
-   */
   progressBarType?: number;
-  /**
-   * @example
-   * clientCancelled
-   */
   resultCode?: string;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
   resultDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
   resultDateLong?: number;
   resultMsg?: string;
-  /**
-   * @example
-   * FAIL
-   */
   simpleTransferInStatus?: string;
-  /**
-   * @example
-   * 11
-   */
   status?: number;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
   submissionDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
   submissionDateLong?: number;
-  /**
-   * @example
-   * 2018-03-28 00:41:42
-   */
   transferAuthorizationCodeSubmissionDate?: string;
-  /**
-   * @example
-   * 1514428524669
-   */
   transferAuthorizationCodeSubmissionDateLong?: number;
-  /**
-   * @example
-   * 123456
-   */
   userId?: string;
-  /**
-   * @example
-   * true
-   */
   whoisMailStatus?: boolean;
   static names(): { [key: string]: string } {
     return {

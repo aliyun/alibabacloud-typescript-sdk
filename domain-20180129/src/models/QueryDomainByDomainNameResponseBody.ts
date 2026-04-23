@@ -29,15 +29,7 @@ export class QueryDomainByDomainNameResponseBodyDnsList extends $dara.Model {
 }
 
 export class QueryDomainByDomainNameResponseBodyTagTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   */
   vaue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +81,6 @@ export class QueryDomainByDomainNameResponseBodyTag extends $dara.Model {
 }
 
 export class QueryDomainByDomainNameResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The Domain Name System (DNS) servers of the domain name.
-   */
   dnsList?: QueryDomainByDomainNameResponseBodyDnsList;
   /**
    * @remarks
@@ -289,6 +277,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
    * NORMAL
    */
   registrantUpdatingStatus?: string;
+  registrar?: string;
   /**
    * @remarks
    * The time when the domain name was registered.
@@ -326,10 +315,6 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
    * rg-acfmw6bpc6n7zai
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tag?: QueryDomainByDomainNameResponseBodyTag;
   /**
    * @remarks
@@ -408,6 +393,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
       registrantOrganization: 'RegistrantOrganization',
       registrantType: 'RegistrantType',
       registrantUpdatingStatus: 'RegistrantUpdatingStatus',
+      registrar: 'Registrar',
       registrationDate: 'RegistrationDate',
       registrationDateLong: 'RegistrationDateLong',
       remark: 'Remark',
@@ -447,6 +433,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
       registrantOrganization: 'string',
       registrantType: 'string',
       registrantUpdatingStatus: 'string',
+      registrar: 'string',
       registrationDate: 'string',
       registrationDateLong: 'number',
       remark: 'string',

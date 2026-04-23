@@ -3,66 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PollTaskResultResponseBodyDataTaskDetail extends $dara.Model {
-  /**
-   * @example
-   * 2018-03-26 15:08:20
-   */
   createTime?: string;
-  /**
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @example
-   * The operation is successful.
-   */
   errorMsg?: string;
-  /**
-   * @example
-   * S201817141000000
-   */
   instanceId?: string;
-  /**
-   * @example
-   * 15fee9d10d514bada66bd08c5723c583
-   */
   taskDetailNo?: string;
-  /**
-   * @example
-   * b95bc334-f7d8-4f39-8a62-4c4302a243d8
-   */
   taskNo?: string;
-  /**
-   * @example
-   * test
-   */
   taskResult?: string;
-  /**
-   * @example
-   * EXECUTE_SUCCESS
-   */
   taskStatus?: string;
-  /**
-   * @example
-   * 2
-   */
   taskStatusCode?: number;
-  /**
-   * @example
-   * CHG_DNS
-   */
   taskType?: string;
   taskTypeDescription?: string;
-  /**
-   * @example
-   * 0
-   */
   tryCount?: number;
-  /**
-   * @example
-   * 2018-03-26 15:22:18
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
