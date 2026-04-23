@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OneMetaKnowledgeBase extends $dara.Model {
   creator?: string;
   description?: string;
+  domain?: string;
+  extraInfo?: string;
   gmtCreate?: string;
   gmtModified?: string;
   kbUuid?: string;
@@ -15,6 +17,8 @@ export class OneMetaKnowledgeBase extends $dara.Model {
     return {
       creator: 'Creator',
       description: 'Description',
+      domain: 'Domain',
+      extraInfo: 'ExtraInfo',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
       kbUuid: 'KbUuid',
@@ -28,6 +32,8 @@ export class OneMetaKnowledgeBase extends $dara.Model {
     return {
       creator: 'string',
       description: 'string',
+      domain: 'string',
+      extraInfo: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       kbUuid: 'string',

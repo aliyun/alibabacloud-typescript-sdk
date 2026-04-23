@@ -170,12 +170,14 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
    * ENGLISH
    */
   language?: string;
+  mode?: string;
   reportWaterMark?: string;
   static names(): { [key: string]: string } {
     return {
       customAgentId: 'CustomAgentId',
       customAgentStage: 'CustomAgentStage',
       language: 'Language',
+      mode: 'Mode',
       reportWaterMark: 'ReportWaterMark',
     };
   }
@@ -185,6 +187,7 @@ export class SendChatMessageRequestSessionConfig extends $dara.Model {
       customAgentId: 'string',
       customAgentStage: 'string',
       language: 'string',
+      mode: 'string',
       reportWaterMark: 'string',
     };
   }
