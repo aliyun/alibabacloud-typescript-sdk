@@ -2444,6 +2444,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 计费管理/获取成本监控Tab配置
+   * 
+   * @param request - ModelRouterBillingCostTabsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterBillingCostTabsResponse
+   */
+  async modelRouterBillingCostTabsWithOptions(request: $_model.ModelRouterBillingCostTabsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterBillingCostTabsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterBillingCostTabs",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/cost/tabs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterBillingCostTabsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterBillingCostTabsResponse({}));
+  }
+
+  /**
+   * 计费管理/获取成本监控Tab配置
+   * 
+   * @param request - ModelRouterBillingCostTabsRequest
+   * @returns ModelRouterBillingCostTabsResponse
+   */
+  async modelRouterBillingCostTabs(request: $_model.ModelRouterBillingCostTabsRequest): Promise<$_model.ModelRouterBillingCostTabsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterBillingCostTabsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 聊天/聊天接口
    * 
    * @param request - ModelRouterChatCompletionsRequest
@@ -2603,6 +2652,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterCreateApiKeyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 计费管理/创建计费规则
+   * 
+   * @param request - ModelRouterCreateBillingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateBillingRuleResponse
+   */
+  async modelRouterCreateBillingRuleWithOptions(request: $_model.ModelRouterCreateBillingRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateBillingRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billingType)) {
+      body["billingType"] = request.billingType;
+    }
+
+    if (!$dara.isNull(request.effectiveTime)) {
+      body["effectiveTime"] = request.effectiveTime;
+    }
+
+    if (!$dara.isNull(request.expireTime)) {
+      body["expireTime"] = request.expireTime;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.pricingConfig)) {
+      body["pricingConfig"] = request.pricingConfig;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateBillingRule",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/rules`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateBillingRuleResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateBillingRuleResponse({}));
+  }
+
+  /**
+   * 计费管理/创建计费规则
+   * 
+   * @param request - ModelRouterCreateBillingRuleRequest
+   * @returns ModelRouterCreateBillingRuleResponse
+   */
+  async modelRouterCreateBillingRule(request: $_model.ModelRouterCreateBillingRuleRequest): Promise<$_model.ModelRouterCreateBillingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateBillingRuleWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3077,6 +3191,132 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 计费管理/查询计费规则列表
+   * 
+   * @param request - ModelRouterQueryBillingRuleListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryBillingRuleListResponse
+   */
+  async modelRouterQueryBillingRuleListWithOptions(request: $_model.ModelRouterQueryBillingRuleListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryBillingRuleListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.activeOnly)) {
+      query["activeOnly"] = request.activeOnly;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      query["modelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      query["modelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryBillingRuleList",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/rules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryBillingRuleListResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryBillingRuleListResponse({}));
+  }
+
+  /**
+   * 计费管理/查询计费规则列表
+   * 
+   * @param request - ModelRouterQueryBillingRuleListRequest
+   * @returns ModelRouterQueryBillingRuleListResponse
+   */
+  async modelRouterQueryBillingRuleList(request: $_model.ModelRouterQueryBillingRuleListRequest): Promise<$_model.ModelRouterQueryBillingRuleListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryBillingRuleListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 客户管理/获取部门折扣修改历史
+   * 
+   * @param request - ModelRouterQueryClientDiscountLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryClientDiscountLogsResponse
+   */
+  async modelRouterQueryClientDiscountLogsWithOptions(id: string, request: $_model.ModelRouterQueryClientDiscountLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryClientDiscountLogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryClientDiscountLogs",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/discount-logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryClientDiscountLogsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryClientDiscountLogsResponse({}));
+  }
+
+  /**
+   * 客户管理/获取部门折扣修改历史
+   * 
+   * @param request - ModelRouterQueryClientDiscountLogsRequest
+   * @returns ModelRouterQueryClientDiscountLogsResponse
+   */
+  async modelRouterQueryClientDiscountLogs(id: string, request: $_model.ModelRouterQueryClientDiscountLogsRequest): Promise<$_model.ModelRouterQueryClientDiscountLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryClientDiscountLogsWithOptions(id, request, headers, runtime);
+  }
+
+  /**
    * 客户管理/获取客户列表
    * 
    * @param request - ModelRouterQueryClientListRequest
@@ -3155,6 +3395,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterQueryClientListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 客户管理/获取客户树
+   * 
+   * @param request - ModelRouterQueryClientTreeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryClientTreeResponse
+   */
+  async modelRouterQueryClientTreeWithOptions(request: $_model.ModelRouterQueryClientTreeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryClientTreeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryClientTree",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/tree`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryClientTreeResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryClientTreeResponse({}));
+  }
+
+  /**
+   * 客户管理/获取客户树
+   * 
+   * @param request - ModelRouterQueryClientTreeRequest
+   * @returns ModelRouterQueryClientTreeResponse
+   */
+  async modelRouterQueryClientTree(request: $_model.ModelRouterQueryClientTreeRequest): Promise<$_model.ModelRouterQueryClientTreeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryClientTreeWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3271,6 +3560,294 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterQueryConversationListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 计费管理/获取模型明细
+   * 
+   * @param request - ModelRouterQueryCostModelDetailRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryCostModelDetailResponse
+   */
+  async modelRouterQueryCostModelDetailWithOptions(request: $_model.ModelRouterQueryCostModelDetailRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryCostModelDetailResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["pageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryCostModelDetail",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/cost/model-detail`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryCostModelDetailResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryCostModelDetailResponse({}));
+  }
+
+  /**
+   * 计费管理/获取模型明细
+   * 
+   * @param request - ModelRouterQueryCostModelDetailRequest
+   * @returns ModelRouterQueryCostModelDetailResponse
+   */
+  async modelRouterQueryCostModelDetail(request: $_model.ModelRouterQueryCostModelDetailRequest): Promise<$_model.ModelRouterQueryCostModelDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryCostModelDetailWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 计费管理/获取调用模型列表
+   * 
+   * @param request - ModelRouterQueryCostModelListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryCostModelListResponse
+   */
+  async modelRouterQueryCostModelListWithOptions(request: $_model.ModelRouterQueryCostModelListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryCostModelListResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.granularity)) {
+      query["granularity"] = request.granularity;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelTypes)) {
+      query["modelTypes"] = request.modelTypes;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.search)) {
+      query["search"] = request.search;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryCostModelList",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/cost/models`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryCostModelListResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryCostModelListResponse({}));
+  }
+
+  /**
+   * 计费管理/获取调用模型列表
+   * 
+   * @param request - ModelRouterQueryCostModelListRequest
+   * @returns ModelRouterQueryCostModelListResponse
+   */
+  async modelRouterQueryCostModelList(request: $_model.ModelRouterQueryCostModelListRequest): Promise<$_model.ModelRouterQueryCostModelListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryCostModelListWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 计费管理/获取成本概览指标
+   * 
+   * @param request - ModelRouterQueryCostOverviewMetricsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryCostOverviewMetricsResponse
+   */
+  async modelRouterQueryCostOverviewMetricsWithOptions(request: $_model.ModelRouterQueryCostOverviewMetricsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryCostOverviewMetricsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.granularity)) {
+      query["granularity"] = request.granularity;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelTypes)) {
+      query["modelTypes"] = request.modelTypes;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryCostOverviewMetrics",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/cost/overview`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryCostOverviewMetricsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryCostOverviewMetricsResponse({}));
+  }
+
+  /**
+   * 计费管理/获取成本概览指标
+   * 
+   * @param request - ModelRouterQueryCostOverviewMetricsRequest
+   * @returns ModelRouterQueryCostOverviewMetricsResponse
+   */
+  async modelRouterQueryCostOverviewMetrics(request: $_model.ModelRouterQueryCostOverviewMetricsRequest): Promise<$_model.ModelRouterQueryCostOverviewMetricsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryCostOverviewMetricsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 计费管理/获取费用趋势
+   * 
+   * @param request - ModelRouterQueryCostTrendMetricsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryCostTrendMetricsResponse
+   */
+  async modelRouterQueryCostTrendMetricsWithOptions(request: $_model.ModelRouterQueryCostTrendMetricsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryCostTrendMetricsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.granularity)) {
+      query["granularity"] = request.granularity;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelTypes)) {
+      query["modelTypes"] = request.modelTypes;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryCostTrendMetrics",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/cost/trend`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryCostTrendMetricsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryCostTrendMetricsResponse({}));
+  }
+
+  /**
+   * 计费管理/获取费用趋势
+   * 
+   * @param request - ModelRouterQueryCostTrendMetricsRequest
+   * @returns ModelRouterQueryCostTrendMetricsResponse
+   */
+  async modelRouterQueryCostTrendMetrics(request: $_model.ModelRouterQueryCostTrendMetricsRequest): Promise<$_model.ModelRouterQueryCostTrendMetricsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryCostTrendMetricsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3800,6 +4377,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterQueryObservationMetricsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 计费管理/更新计费规则
+   * 
+   * @param request - ModelRouterUpdateBillingRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterUpdateBillingRuleResponse
+   */
+  async modelRouterUpdateBillingRuleWithOptions(id: string, request: $_model.ModelRouterUpdateBillingRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterUpdateBillingRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.billingType)) {
+      body["billingType"] = request.billingType;
+    }
+
+    if (!$dara.isNull(request.effectiveTime)) {
+      body["effectiveTime"] = request.effectiveTime;
+    }
+
+    if (!$dara.isNull(request.expireTime)) {
+      body["expireTime"] = request.expireTime;
+    }
+
+    if (!$dara.isNull(request.pricingConfig)) {
+      body["pricingConfig"] = request.pricingConfig;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterUpdateBillingRule",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/rules/${$dara.URL.percentEncode(id)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterUpdateBillingRuleResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterUpdateBillingRuleResponse({}));
+  }
+
+  /**
+   * 计费管理/更新计费规则
+   * 
+   * @param request - ModelRouterUpdateBillingRuleRequest
+   * @returns ModelRouterUpdateBillingRuleResponse
+   */
+  async modelRouterUpdateBillingRule(id: string, request: $_model.ModelRouterUpdateBillingRuleRequest): Promise<$_model.ModelRouterUpdateBillingRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterUpdateBillingRuleWithOptions(id, request, headers, runtime);
   }
 
   /**

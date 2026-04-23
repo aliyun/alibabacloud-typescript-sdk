@@ -13,11 +13,11 @@ export class ModelRowDTO extends $dara.Model {
    * 1
    */
   modelId?: number;
+  modelName?: string;
   /**
    * @example
-   * 通义千问-Plus
+   * "{\\"total_calls\\":21,\\"video_duration\\":210,\\"total_amount\\":126,\\"image_count\\":0}"
    */
-  modelName?: string;
   values?: string;
   static names(): { [key: string]: string } {
     return {

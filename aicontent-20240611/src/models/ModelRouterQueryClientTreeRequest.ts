@@ -2,28 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TrendPointDTO extends $dara.Model {
+export class ModelRouterQueryClientTreeRequest extends $dara.Model {
   /**
+   * @remarks
+   * maxResults
+   * 
    * @example
-   * 1700000000
+   * 10
    */
-  timestamp?: number;
+  maxResults?: number;
   /**
+   * @remarks
+   * nextToken
+   * 
    * @example
-   * "{\\"total_calls\\":0,\\"video_duration\\":0,\\"total_amount\\":0,\\"model_count\\":0,\\"image_count\\":0}"
+   * xxxx-xxx-xxxxx
    */
-  values?: string;
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
-      timestamp: 'timestamp',
-      values: 'values',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      timestamp: 'number',
-      values: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
     };
   }
 

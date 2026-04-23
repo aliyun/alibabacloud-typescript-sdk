@@ -16,10 +16,6 @@ export class CostModelDetailRespDTO extends $dara.Model {
    * 1
    */
   modelId?: number;
-  /**
-   * @example
-   * 通义千问-Plus
-   */
   modelName?: string;
   /**
    * @example

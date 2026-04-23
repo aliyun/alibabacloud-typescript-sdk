@@ -8,15 +8,7 @@ export class MetricValueDTO extends $dara.Model {
    * total_calls
    */
   key?: string;
-  /**
-   * @example
-   * 调用次数
-   */
   label?: string;
-  /**
-   * @example
-   * 次
-   */
   unit?: string;
   /**
    * @example

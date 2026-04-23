@@ -8,20 +8,12 @@ export class MetricDefRespDTO extends $dara.Model {
    * total_calls
    */
   key?: string;
-  /**
-   * @example
-   * 调用次数
-   */
   label?: string;
   /**
    * @example
    * true
    */
   sortable?: boolean;
-  /**
-   * @example
-   * 次
-   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {

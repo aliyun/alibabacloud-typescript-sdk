@@ -8,10 +8,6 @@ export class CostTabDTO extends $dara.Model {
    * all
    */
   key?: string;
-  /**
-   * @example
-   * 全部
-   */
   label?: string;
   modelTypes?: string[];
   static names(): { [key: string]: string } {
