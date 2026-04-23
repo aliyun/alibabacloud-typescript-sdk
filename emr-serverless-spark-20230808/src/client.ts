@@ -2071,6 +2071,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出作业executor的日志文件列表
+   * 
+   * @param request - ListExecutorLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExecutorLogsResponse
+   */
+  async listExecutorLogsWithOptions(workspaceId: string, jobRunId: string, executorId: string, request: $_model.ListExecutorLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListExecutorLogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.logType)) {
+      query["logType"] = request.logType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListExecutorLogs",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${$dara.URL.percentEncode(workspaceId)}/jobRuns/${$dara.URL.percentEncode(jobRunId)}/executors/${$dara.URL.percentEncode(executorId)}/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListExecutorLogsResponse>(await this.callApi(params, req, runtime), new $_model.ListExecutorLogsResponse({}));
+  }
+
+  /**
+   * 列出作业executor的日志文件列表
+   * 
+   * @param request - ListExecutorLogsRequest
+   * @returns ListExecutorLogsResponse
+   */
+  async listExecutorLogs(workspaceId: string, jobRunId: string, executorId: string, request: $_model.ListExecutorLogsRequest): Promise<$_model.ListExecutorLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listExecutorLogsWithOptions(workspaceId, jobRunId, executorId, request, headers, runtime);
+  }
+
+  /**
    * 列出作业的executors
    * 
    * @param request - ListJobExecutorsRequest

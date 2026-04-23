@@ -60,6 +60,7 @@ export { GetSessionClusterResponseBodySessionCluster } from './GetSessionCluster
 export { GetSqlStatementResponseBodyDataSqlOutputs } from './GetSqlStatementResponseBody';
 export { GetSqlStatementResponseBodyData } from './GetSqlStatementResponseBody';
 export { ListCatalogsResponseBodyCatalogs } from './ListCatalogsResponseBody';
+export { ListExecutorLogsResponseBodyLogs } from './ListExecutorLogsResponseBody';
 export { ListJobExecutorsResponseBodyExexutors } from './ListJobExecutorsResponseBody';
 export { ListJobRunsRequestEndTime } from './ListJobRunsRequest';
 export { ListJobRunsRequestStartTime } from './ListJobRunsRequest';
@@ -243,6 +244,9 @@ export { GrantRoleToUsersResponse } from './GrantRoleToUsersResponse';
 export { ListCatalogsRequest } from './ListCatalogsRequest';
 export { ListCatalogsResponseBody } from './ListCatalogsResponseBody';
 export { ListCatalogsResponse } from './ListCatalogsResponse';
+export { ListExecutorLogsRequest } from './ListExecutorLogsRequest';
+export { ListExecutorLogsResponseBody } from './ListExecutorLogsResponseBody';
+export { ListExecutorLogsResponse } from './ListExecutorLogsResponse';
 export { ListJobExecutorsRequest } from './ListJobExecutorsRequest';
 export { ListJobExecutorsResponseBody } from './ListJobExecutorsResponseBody';
 export { ListJobExecutorsResponse } from './ListJobExecutorsResponse';
