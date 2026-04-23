@@ -1995,6 +1995,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询资产盘点任务的执行状态与进度信息
+   * 
+   * @remarks
+   * 查询资产盘点任务的执行状态与进度信息，包含子任务列表、进度百分比、知识统计等
+   * 
+   * @param request - CheckInventoryJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckInventoryJobResponse
+   */
+  async checkInventoryJobWithOptions(request: $_model.CheckInventoryJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckInventoryJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckInventoryJob",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckInventoryJobResponse>(await this.callApi(params, req, runtime), new $_model.CheckInventoryJobResponse({}));
+  }
+
+  /**
+   * 查询资产盘点任务的执行状态与进度信息
+   * 
+   * @remarks
+   * 查询资产盘点任务的执行状态与进度信息，包含子任务列表、进度百分比、知识统计等
+   * 
+   * @param request - CheckInventoryJobRequest
+   * @returns CheckInventoryJobResponse
+   */
+  async checkInventoryJob(request: $_model.CheckInventoryJobRequest): Promise<$_model.CheckInventoryJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkInventoryJobWithOptions(request, runtime);
+  }
+
+  /**
    * Closes a ticket.
    * 
    * @param request - CloseOrderRequest
@@ -2042,6 +2090,62 @@ export default class Client extends OpenApi {
   async closeOrder(request: $_model.CloseOrderRequest): Promise<$_model.CloseOrderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.closeOrderWithOptions(request, runtime);
+  }
+
+  /**
+   * 确认盘点任务中的单条知识，将其标记为已认证
+   * 
+   * @remarks
+   * 确认盘点任务中的单条知识，将其标记为已认证状态（解锁级别）
+   * 
+   * @param request - ConfirmInventoryKnowledgeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfirmInventoryKnowledgeResponse
+   */
+  async confirmInventoryKnowledgeWithOptions(request: $_model.ConfirmInventoryKnowledgeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfirmInventoryKnowledgeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.knowledgeType)) {
+      query["KnowledgeType"] = request.knowledgeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfirmInventoryKnowledge",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfirmInventoryKnowledgeResponse>(await this.callApi(params, req, runtime), new $_model.ConfirmInventoryKnowledgeResponse({}));
+  }
+
+  /**
+   * 确认盘点任务中的单条知识，将其标记为已认证
+   * 
+   * @remarks
+   * 确认盘点任务中的单条知识，将其标记为已认证状态（解锁级别）
+   * 
+   * @param request - ConfirmInventoryKnowledgeRequest
+   * @returns ConfirmInventoryKnowledgeResponse
+   */
+  async confirmInventoryKnowledge(request: $_model.ConfirmInventoryKnowledgeRequest): Promise<$_model.ConfirmInventoryKnowledgeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.confirmInventoryKnowledgeWithOptions(request, runtime);
   }
 
   /**
@@ -3428,6 +3532,54 @@ export default class Client extends OpenApi {
   async createFreeLockCorrectOrder(request: $_model.CreateFreeLockCorrectOrderRequest): Promise<$_model.CreateFreeLockCorrectOrderResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createFreeLockCorrectOrderWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建资产盘点任务，对指定实例/数据库/表进行知识盘点
+   * 
+   * @remarks
+   * 创建资产盘点任务，支持选择实例、数据库、表维度进行知识盘点，返回任务ID
+   * 
+   * @param request - CreateInventoryJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInventoryJobResponse
+   */
+  async createInventoryJobWithOptions(request: $_model.CreateInventoryJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInventoryJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInventoryJob",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInventoryJobResponse>(await this.callApi(params, req, runtime), new $_model.CreateInventoryJobResponse({}));
+  }
+
+  /**
+   * 创建资产盘点任务，对指定实例/数据库/表进行知识盘点
+   * 
+   * @remarks
+   * 创建资产盘点任务，支持选择实例、数据库、表维度进行知识盘点，返回任务ID
+   * 
+   * @param request - CreateInventoryJobRequest
+   * @returns CreateInventoryJobResponse
+   */
+  async createInventoryJob(request: $_model.CreateInventoryJobRequest): Promise<$_model.CreateInventoryJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createInventoryJobWithOptions(request, runtime);
   }
 
   /**
@@ -16805,6 +16957,78 @@ export default class Client extends OpenApi {
   async searchDatabase(request: $_model.SearchDatabaseRequest): Promise<$_model.SearchDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.searchDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询盘点任务产出的知识列表，支持按关键词、知识类型等条件筛选
+   * 
+   * @remarks
+   * 分页查询盘点任务产出的知识列表，支持按关键词、知识类型、排序方式等条件筛选
+   * 
+   * @param request - SearchInventoryKnowledgeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchInventoryKnowledgeResponse
+   */
+  async searchInventoryKnowledgeWithOptions(request: $_model.SearchInventoryKnowledgeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchInventoryKnowledgeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.showType)) {
+      query["ShowType"] = request.showType;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchInventoryKnowledge",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchInventoryKnowledgeResponse>(await this.callApi(params, req, runtime), new $_model.SearchInventoryKnowledgeResponse({}));
+  }
+
+  /**
+   * 分页查询盘点任务产出的知识列表，支持按关键词、知识类型等条件筛选
+   * 
+   * @remarks
+   * 分页查询盘点任务产出的知识列表，支持按关键词、知识类型、排序方式等条件筛选
+   * 
+   * @param request - SearchInventoryKnowledgeRequest
+   * @returns SearchInventoryKnowledgeResponse
+   */
+  async searchInventoryKnowledge(request: $_model.SearchInventoryKnowledgeRequest): Promise<$_model.SearchInventoryKnowledgeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchInventoryKnowledgeWithOptions(request, runtime);
   }
 
   /**
