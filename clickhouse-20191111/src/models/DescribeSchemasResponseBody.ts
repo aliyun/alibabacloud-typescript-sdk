@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSchemasResponseBodyItemsSchema extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp108z124a8o7****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * database
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeSchemasResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeSchemasResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the databases of the cluster.
-   */
   items?: DescribeSchemasResponseBodyItems;
   /**
    * @remarks

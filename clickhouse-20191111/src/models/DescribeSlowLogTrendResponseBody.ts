@@ -3,30 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSlowLogTrendResponseBodySlowLogTrendDataResultSet extends $dara.Model {
-  /**
-   * @example
-   * 2000
-   */
   avgQueryDurationMs?: string;
-  /**
-   * @example
-   * 4000
-   */
   count?: string;
-  /**
-   * @example
-   * 3000
-   */
   maxQueryDurationMs?: string;
-  /**
-   * @example
-   * 1000
-   */
   minQueryDurationMs?: string;
-  /**
-   * @example
-   * 2022-05-22 20:00:01
-   */
   queryStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,15 +105,7 @@ export class DescribeSlowLogTrendResponseBodySlowLogTrendStatistics extends $dar
 }
 
 export class DescribeSlowLogTrendResponseBodySlowLogTrendTableSchemaResultSet extends $dara.Model {
-  /**
-   * @example
-   * query_start_time
-   */
   name?: string;
-  /**
-   * @example
-   * UInt64
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,67 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAllDataSourcesResponseBodyColumnsColumn extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the column is an auto-increment column. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   autoIncrementColumn?: boolean;
-  /**
-   * @remarks
-   * The column name.
-   * 
-   * @example
-   * name
-   */
   columnName?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp108z124a8o7****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * Indicates whether the column is the primary key of the table. Valid values:
-   * 
-   * *   **true**: The column is the primary key of the table.
-   * *   **false**: The column is not the primary key of the table.
-   * 
-   * @example
-   * true
-   */
   primaryKey?: boolean;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * database
-   */
   schemaName?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * table
-   */
   tableName?: string;
-  /**
-   * @remarks
-   * The column type.
-   * 
-   * @example
-   * String
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,21 +70,7 @@ export class DescribeAllDataSourcesResponseBodyColumns extends $dara.Model {
 }
 
 export class DescribeAllDataSourcesResponseBodySchemasSchema extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp108z124a8o7****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * database
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -191,29 +122,8 @@ export class DescribeAllDataSourcesResponseBodySchemas extends $dara.Model {
 }
 
 export class DescribeAllDataSourcesResponseBodyTablesTable extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp108z124a8o7****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * database
-   */
   schemaName?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * table
-   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -267,10 +177,6 @@ export class DescribeAllDataSourcesResponseBodyTables extends $dara.Model {
 }
 
 export class DescribeAllDataSourcesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Details of the columns.
-   */
   columns?: DescribeAllDataSourcesResponseBodyColumns;
   /**
    * @remarks
@@ -280,15 +186,7 @@ export class DescribeAllDataSourcesResponseBody extends $dara.Model {
    * 75EA41D7-025A-50A6-9287-359A91399F1E
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the databases.
-   */
   schemas?: DescribeAllDataSourcesResponseBodySchemas;
-  /**
-   * @remarks
-   * The information about the tables.
-   */
   tables?: DescribeAllDataSourcesResponseBodyTables;
   static names(): { [key: string]: string } {
     return {

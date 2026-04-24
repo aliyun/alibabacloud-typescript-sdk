@@ -5,40 +5,9 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class CheckScaleOutBalancedResponseBodyTableDetailsTableDetail extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster. The value is fixed as **default**.
-   * 
-   * @example
-   * default
-   */
   cluster?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * db_name
-   */
   database?: string;
-  /**
-   * @remarks
-   * The error details. Valid values:
-   * 
-   * *   **1**: The unique distributed table is missing.
-   * *   **2**: More than one distributed table exists for the local table.
-   * 
-   * @example
-   * 1
-   */
   detail?: number;
-  /**
-   * @remarks
-   * The name of the local table.
-   * 
-   * @example
-   * test
-   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -133,10 +102,6 @@ export class CheckScaleOutBalancedResponseBody extends $dara.Model {
    * F5178C10-1407-4987-9133-DE4DC9119F75
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The error information returned for a check failure.
-   */
   tableDetails?: CheckScaleOutBalancedResponseBodyTableDetails;
   /**
    * @remarks

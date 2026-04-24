@@ -47,21 +47,7 @@ export class DescribeDBClusterAttributeResponseBodyDBClusterScaleOutStatus exten
 }
 
 export class DescribeDBClusterAttributeResponseBodyDBClusterTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag name.
-   * 
-   * @example
-   * department
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * it
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -556,10 +542,6 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
    * 1
    */
   supportOss?: number;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: DescribeDBClusterAttributeResponseBodyDBClusterTags;
   /**
    * @remarks
@@ -593,6 +575,16 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
    * 192.168.xx.xx
    */
   vpcIpAddr?: string;
+  /**
+   * @example
+   * active
+   */
+  webUISnatStatus?: string;
+  /**
+   * @example
+   * active
+   */
+  webUIStatus?: string;
   /**
    * @remarks
    * The zone ID.
@@ -673,6 +665,8 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
       vpcCloudInstanceId: 'VpcCloudInstanceId',
       vpcId: 'VpcId',
       vpcIpAddr: 'VpcIpAddr',
+      webUISnatStatus: 'WebUISnatStatus',
+      webUIStatus: 'WebUIStatus',
       zoneId: 'ZoneId',
       zoneIdVswitchMap: 'ZoneIdVswitchMap',
       zookeeperClass: 'ZookeeperClass',
@@ -735,6 +729,8 @@ export class DescribeDBClusterAttributeResponseBodyDBCluster extends $dara.Model
       vpcCloudInstanceId: 'string',
       vpcId: 'string',
       vpcIpAddr: 'string',
+      webUISnatStatus: 'string',
+      webUIStatus: 'string',
       zoneId: 'string',
       zoneIdVswitchMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       zookeeperClass: 'string',

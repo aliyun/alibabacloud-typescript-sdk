@@ -3,67 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAllDataSourceResponseBodyColumnsColumn extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the column is an auto-increment column. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   autoIncrementColumn?: boolean;
-  /**
-   * @remarks
-   * The column name.
-   * 
-   * @example
-   * name
-   */
   columnName?: string;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp108z124a8o7****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * Indicates whether the column is the primary key of the table. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   primaryKey?: boolean;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * database
-   */
   schemaName?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * table
-   */
   tableName?: string;
-  /**
-   * @remarks
-   * The type of the column.
-   * 
-   * @example
-   * String
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,21 +70,7 @@ export class DescribeAllDataSourceResponseBodyColumns extends $dara.Model {
 }
 
 export class DescribeAllDataSourceResponseBodySchemasSchema extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp108z124a8o7****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * database
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -191,29 +122,8 @@ export class DescribeAllDataSourceResponseBodySchemas extends $dara.Model {
 }
 
 export class DescribeAllDataSourceResponseBodyTablesTable extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp108z124a8o7****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * database
-   */
   schemaName?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * table
-   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -267,10 +177,6 @@ export class DescribeAllDataSourceResponseBodyTables extends $dara.Model {
 }
 
 export class DescribeAllDataSourceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the columns.
-   */
   columns?: DescribeAllDataSourceResponseBodyColumns;
   /**
    * @remarks
@@ -280,15 +186,7 @@ export class DescribeAllDataSourceResponseBody extends $dara.Model {
    * 05321590-BB65-4720-8CB6-8218E041CDD0
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the databases.
-   */
   schemas?: DescribeAllDataSourceResponseBodySchemas;
-  /**
-   * @remarks
-   * The information about the tables.
-   */
   tables?: DescribeAllDataSourceResponseBodyTables;
   static names(): { [key: string]: string } {
     return {

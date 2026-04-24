@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTablesResponseBodyItemsTable extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * cc-bp108z124a8o7****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The database name.
-   * 
-   * @example
-   * database
-   */
   schemaName?: string;
-  /**
-   * @remarks
-   * The table name.
-   * 
-   * @example
-   * test
-   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,10 +58,6 @@ export class DescribeTablesResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeTablesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the tables.
-   */
   items?: DescribeTablesResponseBodyItems;
   /**
    * @remarks

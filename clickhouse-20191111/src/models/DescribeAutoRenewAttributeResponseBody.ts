@@ -4,30 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAutoRenewAttributeResponseBodyItemsAutoRenewAttribute extends $dara.Model {
   autoRenewEnabled?: boolean;
-  /**
-   * @example
-   * cc-2ze57pg09*****
-   */
   DBClusterId?: string;
-  /**
-   * @example
-   * 1
-   */
   duration?: number;
-  /**
-   * @example
-   * Year
-   */
   periodUnit?: string;
-  /**
-   * @example
-   * cn-beijing
-   */
   regionId?: string;
-  /**
-   * @example
-   * AutoRenewal
-   */
   renewalStatus?: string;
   static names(): { [key: string]: string } {
     return {
