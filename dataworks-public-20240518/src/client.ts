@@ -275,6 +275,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds a custom image to a workspace.
+   * 
+   * @param request - AssociateProjectToImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateProjectToImageResponse
+   */
+  async associateProjectToImageWithOptions(request: $_model.AssociateProjectToImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssociateProjectToImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssociateProjectToImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssociateProjectToImageResponse>(await this.callApi(params, req, runtime), new $_model.AssociateProjectToImageResponse({}));
+  }
+
+  /**
+   * Adds a custom image to a workspace.
+   * 
+   * @param request - AssociateProjectToImageRequest
+   * @returns AssociateProjectToImageResponse
+   */
+  async associateProjectToImage(request: $_model.AssociateProjectToImageRequest): Promise<$_model.AssociateProjectToImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.associateProjectToImageWithOptions(request, runtime);
+  }
+
+  /**
    * Associates a resource group with a workspace.
    * 
    * @remarks
@@ -450,7 +496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消并停止Agent当前正在进行中的Session会话
+   * Interrupts an agent call for a specified session. Streaming response interruption is supported.
    * 
    * @param tmpReq - CancelAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -495,7 +541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消并停止Agent当前正在进行中的Session会话
+   * Interrupts an agent call for a specified session. Streaming response interruption is supported.
    * 
    * @param request - CancelAgentSessionRequest
    * @returns CancelAgentSessionResponse
@@ -562,7 +608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个Agent Session会话
+   * Creates a new Agent session and returns the session ID.
    * 
    * @param tmpReq - CreateAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -607,7 +653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个Agent Session会话
+   * Creates a new Agent session and returns the session ID.
    * 
    * @param request - CreateAgentSessionRequest
    * @returns CreateAgentSessionResponse
@@ -5395,6 +5441,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disassociates an image from a workspace.
+   * 
+   * @param request - DissociateProjectFromImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DissociateProjectFromImageResponse
+   */
+  async dissociateProjectFromImageWithOptions(request: $_model.DissociateProjectFromImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DissociateProjectFromImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DissociateProjectFromImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DissociateProjectFromImageResponse>(await this.callApi(params, req, runtime), new $_model.DissociateProjectFromImageResponse({}));
+  }
+
+  /**
+   * Disassociates an image from a workspace.
+   * 
+   * @param request - DissociateProjectFromImageRequest
+   * @returns DissociateProjectFromImageResponse
+   */
+  async dissociateProjectFromImage(request: $_model.DissociateProjectFromImageRequest): Promise<$_model.DissociateProjectFromImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dissociateProjectFromImageWithOptions(request, runtime);
+  }
+
+  /**
    * Disassociates a resource group from a workspace.
    * 
    * @remarks
@@ -5643,7 +5735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Agent指定Session下的模型产出物详情
+   * Obtains the metadata and body content of an Artifact based on the session ID and file path.
    * 
    * @param tmpReq - GetAgentSessionArtifactMetaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5688,7 +5780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Agent指定Session下的模型产出物详情
+   * Obtains the metadata and body content of an Artifact based on the session ID and file path.
    * 
    * @param request - GetAgentSessionArtifactMetaRequest
    * @returns GetAgentSessionArtifactMetaResponse
@@ -5699,7 +5791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Agent指定Session下的Token用量
+   * Queries the cumulative AI token usage of a session aggregated by session ID.
    * 
    * @param tmpReq - GetAgentSessionTokenUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5744,7 +5836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Agent指定Session下的Token用量
+   * Queries the cumulative AI token usage of a session aggregated by session ID.
    * 
    * @param request - GetAgentSessionTokenUsageRequest
    * @returns GetAgentSessionTokenUsageResponse
@@ -7089,6 +7181,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtains the details of a specified image by image ID.
+   * 
+   * @param request - GetImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageResponse
+   */
+  async getImageWithOptions(request: $_model.GetImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetImageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.imageVersion)) {
+      query["ImageVersion"] = request.imageVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetImage",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetImageResponse>(await this.callApi(params, req, runtime), new $_model.GetImageResponse({}));
+  }
+
+  /**
+   * Obtains the details of a specified image by image ID.
+   * 
+   * @param request - GetImageRequest
+   * @returns GetImageResponse
+   */
+  async getImage(request: $_model.GetImageRequest): Promise<$_model.GetImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getImageWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
    * 
    * @param request - GetJobStatusRequest
@@ -8321,7 +8459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Agent指定Session下的模型产出物清单列表
+   * Queries the Artifact files that are produced by a specified session.
    * 
    * @param tmpReq - ListAgentSessionArtifactsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8366,7 +8504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Agent指定Session下的模型产出物清单列表
+   * Queries the Artifact files that are produced by a specified session.
    * 
    * @param request - ListAgentSessionArtifactsRequest
    * @returns ListAgentSessionArtifactsResponse
@@ -8377,7 +8515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 加载Agent Session对话历史列表
+   * Loads the conversation history list of an Agent Session.
    * 
    * @param tmpReq - ListAgentSessionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8422,7 +8560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 加载Agent Session对话历史列表
+   * Loads the conversation history list of an Agent Session.
    * 
    * @param request - ListAgentSessionsRequest
    * @returns ListAgentSessionsResponse
@@ -8433,7 +8571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取DataAgent的Agent定义列表
+   * Queries the list of agents available for the current tenant. Supports filtering by name and pagination.
    * 
    * @param tmpReq - ListAgentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8478,7 +8616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取DataAgent的Agent定义列表
+   * Queries the list of agents available for the current tenant. Supports filtering by name and pagination.
    * 
    * @param request - ListAgentsRequest
    * @returns ListAgentsResponse
@@ -10593,6 +10731,214 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the workspaces associated with an image.
+   * 
+   * @param request - ListImageAssociatedProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImageAssociatedProjectsResponse
+   */
+  async listImageAssociatedProjectsWithOptions(request: $_model.ListImageAssociatedProjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImageAssociatedProjectsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImageAssociatedProjects",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListImageAssociatedProjectsResponse>(await this.callApi(params, req, runtime), new $_model.ListImageAssociatedProjectsResponse({}));
+  }
+
+  /**
+   * Queries the workspaces associated with an image.
+   * 
+   * @param request - ListImageAssociatedProjectsRequest
+   * @returns ListImageAssociatedProjectsResponse
+   */
+  async listImageAssociatedProjects(request: $_model.ListImageAssociatedProjectsRequest): Promise<$_model.ListImageAssociatedProjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImageAssociatedProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a specified image version.
+   * 
+   * @param request - ListImageVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImageVersionsResponse
+   */
+  async listImageVersionsWithOptions(request: $_model.ListImageVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImageVersionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImageVersions",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListImageVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListImageVersionsResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified image version.
+   * 
+   * @param request - ListImageVersionsRequest
+   * @returns ListImageVersionsResponse
+   */
+  async listImageVersions(request: $_model.ListImageVersionsRequest): Promise<$_model.ListImageVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImageVersionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of images.
+   * 
+   * @param tmpReq - ListImagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImagesResponse
+   */
+  async listImagesWithOptions(tmpReq: $_model.ListImagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImagesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListImagesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.projectIds)) {
+      request.projectIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.projectIds, "ProjectIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.providerTypes)) {
+      request.providerTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.providerTypes, "ProviderTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.stages)) {
+      request.stagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stages, "Stages", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "Statuses", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.supportedModules)) {
+      request.supportedModulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.supportedModules, "SupportedModules", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.supportedTaskTypes)) {
+      request.supportedTaskTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.supportedTaskTypes, "SupportedTaskTypes", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.accessibility)) {
+      query["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.official)) {
+      query["Official"] = request.official;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectIdsShrink)) {
+      query["ProjectIds"] = request.projectIdsShrink;
+    }
+
+    if (!$dara.isNull(request.providerTypesShrink)) {
+      query["ProviderTypes"] = request.providerTypesShrink;
+    }
+
+    if (!$dara.isNull(request.searchAll)) {
+      query["SearchAll"] = request.searchAll;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.stagesShrink)) {
+      query["Stages"] = request.stagesShrink;
+    }
+
+    if (!$dara.isNull(request.statusesShrink)) {
+      query["Statuses"] = request.statusesShrink;
+    }
+
+    if (!$dara.isNull(request.supportedModulesShrink)) {
+      query["SupportedModules"] = request.supportedModulesShrink;
+    }
+
+    if (!$dara.isNull(request.supportedTaskTypesShrink)) {
+      query["SupportedTaskTypes"] = request.supportedTaskTypesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImages",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListImagesResponse>(await this.callApi(params, req, runtime), new $_model.ListImagesResponse({}));
+  }
+
+  /**
+   * Queries a list of images.
+   * 
+   * @param request - ListImagesRequest
+   * @returns ListImagesResponse
+   */
+  async listImages(request: $_model.ListImagesRequest): Promise<$_model.ListImagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImagesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the lineage between two entities, such as tables, fields, and Object Storage Service (OSS) files, in Data Map.
    * 
    * @param request - ListLineageRelationshipsRequest
@@ -12311,7 +12657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 加载Agent Session对话历史
+   * Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
    * 
    * @param tmpReq - LoadAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12370,7 +12716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 加载Agent Session对话历史
+   * Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
    * 
    * @param tmpReq - LoadAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12415,7 +12761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 加载Agent Session对话历史
+   * Loads historical messages of an existing session and returns them in SSE streaming mode. If the session does not exist, a JSONRPCResponse.error with code 400 is output through SSE. Content-Type is text/event-stream. Applicable to scenarios where the session context needs to be restored.
    * 
    * @param request - LoadAgentSessionRequest
    * @returns LoadAgentSessionResponse
@@ -12668,7 +13014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在当前的Agent Session中发起一轮新的对话
+   * Sends a user prompt to an existing session and streams back the agent response.
    * 
    * @param tmpReq - PromptAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12727,7 +13073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在当前的Agent Session中发起一轮新的对话
+   * Sends a user prompt to an existing session and streams back the agent response.
    * 
    * @param tmpReq - PromptAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12772,7 +13118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在当前的Agent Session中发起一轮新的对话
+   * Sends a user prompt to an existing session and streams back the agent response.
    * 
    * @param request - PromptAgentSessionRequest
    * @returns PromptAgentSessionResponse

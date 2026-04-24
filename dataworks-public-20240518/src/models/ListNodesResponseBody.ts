@@ -51,15 +51,18 @@ export class ListNodesResponseBodyPagingInfoNodesInputsNodeOutputs extends $dara
    * 623731286945488XXXX
    */
   data?: string;
+  refTableName?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      refTableName: 'RefTableName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       data: 'string',
+      refTableName: 'string',
     };
   }
 
@@ -294,15 +297,18 @@ export class ListNodesResponseBodyPagingInfoNodesOutputsNodeOutputs extends $dar
    * 860438872620113XXXX
    */
   data?: string;
+  refTableName?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      refTableName: 'RefTableName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       data: 'string',
+      refTableName: 'string',
     };
   }
 

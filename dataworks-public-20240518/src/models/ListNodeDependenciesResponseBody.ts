@@ -51,15 +51,18 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesInputsNodeOutputs ex
    * 860438872620113XXXX
    */
   data?: string;
+  refTableName?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      refTableName: 'RefTableName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       data: 'string',
+      refTableName: 'string',
     };
   }
 
@@ -294,15 +297,18 @@ export class ListNodeDependenciesResponseBodyPagingInfoNodesOutputsNodeOutputs e
    * 463497880880954XXXX
    */
   data?: string;
+  refTableName?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
+      refTableName: 'RefTableName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       data: 'string',
+      refTableName: 'string',
     };
   }
 
