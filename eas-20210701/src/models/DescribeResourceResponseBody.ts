@@ -154,6 +154,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
    * Dedicated
    */
   resourceType?: string;
+  serviceCount?: string;
   /**
    * @remarks
    * The state of the resource group.
@@ -195,6 +196,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
       resourceType: 'ResourceType',
+      serviceCount: 'ServiceCount',
       status: 'Status',
       updateTime: 'UpdateTime',
       usageMode: 'UsageMode',
@@ -225,6 +227,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
       resourceId: 'string',
       resourceName: 'string',
       resourceType: 'string',
+      serviceCount: 'string',
       status: 'string',
       updateTime: 'string',
       usageMode: 'string',

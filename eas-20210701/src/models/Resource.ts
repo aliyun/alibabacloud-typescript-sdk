@@ -110,6 +110,7 @@ export class Resource extends $dara.Model {
    * Dedicated
    */
   resourceType?: string;
+  serviceCount?: number;
   /**
    * @remarks
    * The status of the resource group.
@@ -162,6 +163,7 @@ export class Resource extends $dara.Model {
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
       resourceType: 'ResourceType',
+      serviceCount: 'ServiceCount',
       status: 'Status',
       updateTime: 'UpdateTime',
       usageMode: 'UsageMode',
@@ -191,6 +193,7 @@ export class Resource extends $dara.Model {
       resourceId: 'string',
       resourceName: 'string',
       resourceType: 'string',
+      serviceCount: 'number',
       status: 'string',
       updateTime: 'string',
       usageMode: 'string',
