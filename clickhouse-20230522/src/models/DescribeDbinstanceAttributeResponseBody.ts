@@ -401,6 +401,11 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
    */
   vpcId?: string;
   /**
+   * @example
+   * active
+   */
+  webUISnatStatus?: string;
+  /**
    * @remarks
    * The zone ID.
    * 
@@ -448,6 +453,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
+      webUISnatStatus: 'WebUISnatStatus',
       zoneId: 'ZoneId',
     };
   }
@@ -492,6 +498,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
       tags: { 'type': 'array', 'itemType': DescribeDBInstanceAttributeResponseBodyDataTags },
       vSwitchId: 'string',
       vpcId: 'string',
+      webUISnatStatus: 'string',
       zoneId: 'string',
     };
   }
