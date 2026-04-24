@@ -612,6 +612,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询一刻口播视频生成任务
+   * 
+   * @param request - GetYikeVoiceNarratorJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikeVoiceNarratorJobResponse
+   */
+  async getYikeVoiceNarratorJobWithOptions(request: $_model.GetYikeVoiceNarratorJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikeVoiceNarratorJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikeVoiceNarratorJob",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikeVoiceNarratorJobResponse>(await this.callApi(params, req, runtime), new $_model.GetYikeVoiceNarratorJobResponse({}));
+  }
+
+  /**
+   * 查询一刻口播视频生成任务
+   * 
+   * @param request - GetYikeVoiceNarratorJobRequest
+   * @returns GetYikeVoiceNarratorJobResponse
+   */
+  async getYikeVoiceNarratorJob(request: $_model.GetYikeVoiceNarratorJobRequest): Promise<$_model.GetYikeVoiceNarratorJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikeVoiceNarratorJobWithOptions(request, runtime);
+  }
+
+  /**
    * 获取一刻文件夹列表
    * 
    * @param request - ListYikeAssetFoldersRequest
@@ -1147,6 +1189,52 @@ export default class Client extends OpenApi {
   async submitYikeStoryboardJob(request: $_model.SubmitYikeStoryboardJobRequest): Promise<$_model.SubmitYikeStoryboardJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitYikeStoryboardJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交一刻口播视频生成任务
+   * 
+   * @param request - SubmitYikeVoiceNarratorJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitYikeVoiceNarratorJobResponse
+   */
+  async submitYikeVoiceNarratorJobWithOptions(request: $_model.SubmitYikeVoiceNarratorJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitYikeVoiceNarratorJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobParams)) {
+      body["JobParams"] = request.jobParams;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitYikeVoiceNarratorJob",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitYikeVoiceNarratorJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitYikeVoiceNarratorJobResponse({}));
+  }
+
+  /**
+   * 提交一刻口播视频生成任务
+   * 
+   * @param request - SubmitYikeVoiceNarratorJobRequest
+   * @returns SubmitYikeVoiceNarratorJobResponse
+   */
+  async submitYikeVoiceNarratorJob(request: $_model.SubmitYikeVoiceNarratorJobRequest): Promise<$_model.SubmitYikeVoiceNarratorJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitYikeVoiceNarratorJobWithOptions(request, runtime);
   }
 
 }
