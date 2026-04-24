@@ -35,6 +35,7 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
    * Monday
    */
   frequency?: string;
+  inspectionItems?: string;
   /**
    * @remarks
    * The number of instances covered by the task.
@@ -77,6 +78,7 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
       createTime: 'CreateTime',
       description: 'Description',
       frequency: 'Frequency',
+      inspectionItems: 'InspectionItems',
       instanceCount: 'InstanceCount',
       name: 'Name',
       regionId: 'RegionId',
@@ -93,6 +95,7 @@ export class ListScheduledTasksResponseBodySchedules extends $dara.Model {
       createTime: 'string',
       description: 'string',
       frequency: 'string',
+      inspectionItems: 'string',
       instanceCount: 'number',
       name: 'string',
       regionId: 'string',

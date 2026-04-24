@@ -2,21 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteEdgeFunctionResponseBody extends $dara.Model {
+export class EnableAgentRuntimeResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * fc-xxxx
-   * 
    * @example
-   * ef-****
-   */
-  edgeFunctionName?: string;
-  /**
-   * @remarks
-   * The ID of the RDS Supabase instance.
-   * 
-   * @example
-   * ra-supabase-8moov5lxba***
+   * ra-supabase-8moov5lxba****
    */
   instanceName?: string;
   /**
@@ -24,12 +13,11 @@ export class DeleteEdgeFunctionResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * FE9C65D7-930F-57A5-A207-8C396329241C
+   * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      edgeFunctionName: 'EdgeFunctionName',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
     };
@@ -37,7 +25,6 @@ export class DeleteEdgeFunctionResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      edgeFunctionName: 'string',
       instanceName: 'string',
       requestId: 'string',
     };

@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeEdgeFunctionsResponseBody } from "./DescribeEdgeFunctionsResponseBody";
+import { ResetApiKeyResponseBody } from "./ResetApiKeyResponseBody";
 
 
-export class DescribeEdgeFunctionsResponse extends $dara.Model {
+export class ResetApiKeyResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: DescribeEdgeFunctionsResponseBody;
+  body?: ResetApiKeyResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class DescribeEdgeFunctionsResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: DescribeEdgeFunctionsResponseBody,
+      body: ResetApiKeyResponseBody,
     };
   }
 

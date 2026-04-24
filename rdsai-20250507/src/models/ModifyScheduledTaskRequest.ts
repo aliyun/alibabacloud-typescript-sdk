@@ -27,6 +27,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
    * Monday
    */
   frequency?: string;
+  inspectionItems?: string;
   /**
    * @remarks
    * The new list of related instances. Separate multiple instances with commas (,).
@@ -71,6 +72,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
     return {
       description: 'Description',
       frequency: 'Frequency',
+      inspectionItems: 'InspectionItems',
       instanceIds: 'InstanceIds',
       name: 'Name',
       reportLanguage: 'ReportLanguage',
@@ -84,6 +86,7 @@ export class ModifyScheduledTaskRequest extends $dara.Model {
     return {
       description: 'string',
       frequency: 'string',
+      inspectionItems: 'string',
       instanceIds: 'string',
       name: 'string',
       reportLanguage: 'string',

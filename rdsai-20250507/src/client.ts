@@ -203,6 +203,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建实例密钥
+   * 
+   * @param request - CreateApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApiKeyResponse
+   */
+  async createApiKeyWithOptions(request: $_model.CreateApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyName)) {
+      query["KeyName"] = request.keyName;
+    }
+
+    if (!$dara.isNull(request.limitRate)) {
+      query["LimitRate"] = request.limitRate;
+    }
+
+    if (!$dara.isNull(request.limitType)) {
+      query["LimitType"] = request.limitType;
+    }
+
+    if (!$dara.isNull(request.quantity)) {
+      query["Quantity"] = request.quantity;
+    }
+
+    if (!$dara.isNull(request.tokenQuota)) {
+      query["TokenQuota"] = request.tokenQuota;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApiKey",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateApiKeyResponse({}));
+  }
+
+  /**
+   * 创建实例密钥
+   * 
+   * @param request - CreateApiKeyRequest
+   * @returns CreateApiKeyResponse
+   */
+  async createApiKey(request: $_model.CreateApiKeyRequest): Promise<$_model.CreateApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApiKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an RDS Supabase instance.
    * 
    * @remarks
@@ -397,92 +459,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an edge function.
-   * 
-   * @remarks
-   * Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
-   * 
-   * @param tmpReq - CreateEdgeFunctionRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateEdgeFunctionResponse
-   */
-  async createEdgeFunctionWithOptions(tmpReq: $_model.CreateEdgeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEdgeFunctionResponse> {
-    tmpReq.validate();
-    let request = new $_model.CreateEdgeFunctionShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.code)) {
-      request.codeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.code, "Code", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.customConfig)) {
-      request.customConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customConfig, "CustomConfig", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.envs)) {
-      request.envsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.envs, "Envs", "json");
-    }
-
-    let query = { };
-    if (!$dara.isNull(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
-    if (!$dara.isNull(request.codeShrink)) {
-      query["Code"] = request.codeShrink;
-    }
-
-    if (!$dara.isNull(request.customConfigShrink)) {
-      query["CustomConfig"] = request.customConfigShrink;
-    }
-
-    if (!$dara.isNull(request.edgeFunctionName)) {
-      query["EdgeFunctionName"] = request.edgeFunctionName;
-    }
-
-    if (!$dara.isNull(request.envsShrink)) {
-      query["Envs"] = request.envsShrink;
-    }
-
-    if (!$dara.isNull(request.instanceName)) {
-      query["InstanceName"] = request.instanceName;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "CreateEdgeFunction",
-      version: "2025-05-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.CreateEdgeFunctionResponse>(await this.callApi(params, req, runtime), new $_model.CreateEdgeFunctionResponse({}));
-  }
-
-  /**
-   * Creates an edge function.
-   * 
-   * @remarks
-   * Creates an edge function, compresses the code into a zip file, and uploads it to Supabase Storage.
-   * 
-   * @param request - CreateEdgeFunctionRequest
-   * @returns CreateEdgeFunctionResponse
-   */
-  async createEdgeFunction(request: $_model.CreateEdgeFunctionRequest): Promise<$_model.CreateEdgeFunctionResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.createEdgeFunctionWithOptions(request, runtime);
-  }
-
-  /**
    * Creates an inspection task for multiple instances.
    * 
    * @param request - CreateInspectionTaskRequest
@@ -568,6 +544,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.frequency)) {
       query["Frequency"] = request.frequency;
+    }
+
+    if (!$dara.isNull(request.inspectionItems)) {
+      query["InspectionItems"] = request.inspectionItems;
     }
 
     if (!$dara.isNull(request.instanceIds)) {
@@ -695,6 +675,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除apiKey
+   * 
+   * @param request - DeleteApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApiKeyResponse
+   */
+  async deleteApiKeyWithOptions(request: $_model.DeleteApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApiKey",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApiKeyResponse({}));
+  }
+
+  /**
+   * 删除apiKey
+   * 
+   * @param request - DeleteApiKeyRequest
+   * @returns DeleteApiKeyResponse
+   */
+  async deleteApiKey(request: $_model.DeleteApiKeyRequest): Promise<$_model.DeleteApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApiKeyWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an RDS Supabase instance.
    * 
    * @remarks
@@ -800,66 +826,6 @@ export default class Client extends OpenApi {
   async deleteCustomAgent(request: $_model.DeleteCustomAgentRequest): Promise<$_model.DeleteCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCustomAgentWithOptions(request, runtime);
-  }
-
-  /**
-   * Deletes an edge function.
-   * 
-   * @remarks
-   * Deletes an edge function.
-   * 
-   * @param request - DeleteEdgeFunctionRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteEdgeFunctionResponse
-   */
-  async deleteEdgeFunctionWithOptions(request: $_model.DeleteEdgeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEdgeFunctionResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
-    if (!$dara.isNull(request.edgeFunctionName)) {
-      query["EdgeFunctionName"] = request.edgeFunctionName;
-    }
-
-    if (!$dara.isNull(request.instanceName)) {
-      query["InstanceName"] = request.instanceName;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DeleteEdgeFunction",
-      version: "2025-05-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DeleteEdgeFunctionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEdgeFunctionResponse({}));
-  }
-
-  /**
-   * Deletes an edge function.
-   * 
-   * @remarks
-   * Deletes an edge function.
-   * 
-   * @param request - DeleteEdgeFunctionRequest
-   * @returns DeleteEdgeFunctionResponse
-   */
-  async deleteEdgeFunction(request: $_model.DeleteEdgeFunctionRequest): Promise<$_model.DeleteEdgeFunctionResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.deleteEdgeFunctionWithOptions(request, runtime);
   }
 
   /**
@@ -1072,66 +1038,6 @@ export default class Client extends OpenApi {
   async describeAppInstances(request: $_model.DescribeAppInstancesRequest): Promise<$_model.DescribeAppInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAppInstancesWithOptions(request, runtime);
-  }
-
-  /**
-   * Query the list of edge functions or a specified edge function.
-   * 
-   * @remarks
-   * Query the list of edge functions or a specified edge function.
-   * 
-   * @param request - DescribeEdgeFunctionsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeEdgeFunctionsResponse
-   */
-  async describeEdgeFunctionsWithOptions(request: $_model.DescribeEdgeFunctionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEdgeFunctionsResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
-    if (!$dara.isNull(request.edgeFunctionName)) {
-      query["EdgeFunctionName"] = request.edgeFunctionName;
-    }
-
-    if (!$dara.isNull(request.instanceName)) {
-      query["InstanceName"] = request.instanceName;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeEdgeFunctions",
-      version: "2025-05-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeEdgeFunctionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeEdgeFunctionsResponse({}));
-  }
-
-  /**
-   * Query the list of edge functions or a specified edge function.
-   * 
-   * @remarks
-   * Query the list of edge functions or a specified edge function.
-   * 
-   * @param request - DescribeEdgeFunctionsRequest
-   * @returns DescribeEdgeFunctionsResponse
-   */
-  async describeEdgeFunctions(request: $_model.DescribeEdgeFunctionsRequest): Promise<$_model.DescribeEdgeFunctionsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeEdgeFunctionsWithOptions(request, runtime);
   }
 
   /**
@@ -1539,6 +1445,186 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看 model operator 实例具体 token 使用情况
+   * 
+   * @param request - DescribeMOTokenUsageDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMOTokenUsageDetailResponse
+   */
+  async describeMOTokenUsageDetailWithOptions(request: $_model.DescribeMOTokenUsageDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMOTokenUsageDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerName)) {
+      query["ConsumerName"] = request.consumerName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMOTokenUsageDetail",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMOTokenUsageDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMOTokenUsageDetailResponse({}));
+  }
+
+  /**
+   * 查看 model operator 实例具体 token 使用情况
+   * 
+   * @param request - DescribeMOTokenUsageDetailRequest
+   * @returns DescribeMOTokenUsageDetailResponse
+   */
+  async describeMOTokenUsageDetail(request: $_model.DescribeMOTokenUsageDetailRequest): Promise<$_model.DescribeMOTokenUsageDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMOTokenUsageDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询MO实例信息
+   * 
+   * @param request - DescribeModelOperatorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeModelOperatorResponse
+   */
+  async describeModelOperatorWithOptions(request: $_model.DescribeModelOperatorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeModelOperatorResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeModelOperator",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeModelOperatorResponse>(await this.callApi(params, req, runtime), new $_model.DescribeModelOperatorResponse({}));
+  }
+
+  /**
+   * 查询MO实例信息
+   * 
+   * @param request - DescribeModelOperatorRequest
+   * @returns DescribeModelOperatorResponse
+   */
+  async describeModelOperator(request: $_model.DescribeModelOperatorRequest): Promise<$_model.DescribeModelOperatorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeModelOperatorWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询监控数据
+   * 
+   * @param tmpReq - DescribeMonitorDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMonitorDataResponse
+   */
+  async describeMonitorDataWithOptions(tmpReq: $_model.DescribeMonitorDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMonitorDataResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeMonitorDataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.apiKeyName)) {
+      request.apiKeyNameShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.apiKeyName, "ApiKeyName", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.apiKeyNameShrink)) {
+      query["ApiKeyName"] = request.apiKeyNameShrink;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.metric)) {
+      query["Metric"] = request.metric;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMonitorData",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMonitorDataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMonitorDataResponse({}));
+  }
+
+  /**
+   * 查询监控数据
+   * 
+   * @param request - DescribeMonitorDataRequest
+   * @returns DescribeMonitorDataResponse
+   */
+  async describeMonitorData(request: $_model.DescribeMonitorDataRequest): Promise<$_model.DescribeMonitorDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMonitorDataWithOptions(request, runtime);
+  }
+
+  /**
    * 查询沙箱模板列表
    * 
    * @param request - DescribeSandboxTemplatesRequest
@@ -1602,6 +1688,106 @@ export default class Client extends OpenApi {
   async describeSandboxTemplates(request: $_model.DescribeSandboxTemplatesRequest): Promise<$_model.DescribeSandboxTemplatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeSandboxTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新旗舰版白名单
+   * 
+   * @param request - DescribeWhitelistIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWhitelistIpsResponse
+   */
+  async describeWhitelistIpsWithOptions(request: $_model.DescribeWhitelistIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeWhitelistIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeWhitelistIps",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeWhitelistIpsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeWhitelistIpsResponse({}));
+  }
+
+  /**
+   * 更新旗舰版白名单
+   * 
+   * @param request - DescribeWhitelistIpsRequest
+   * @returns DescribeWhitelistIpsResponse
+   */
+  async describeWhitelistIps(request: $_model.DescribeWhitelistIpsRequest): Promise<$_model.DescribeWhitelistIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeWhitelistIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用Supabase的沙箱和边缘函数能力
+   * 
+   * @param request - EnableAgentRuntimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableAgentRuntimeResponse
+   */
+  async enableAgentRuntimeWithOptions(request: $_model.EnableAgentRuntimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableAgentRuntimeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableAgentRuntime",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableAgentRuntimeResponse>(await this.callApi(params, req, runtime), new $_model.EnableAgentRuntimeResponse({}));
+  }
+
+  /**
+   * 启用Supabase的沙箱和边缘函数能力
+   * 
+   * @param request - EnableAgentRuntimeRequest
+   * @returns EnableAgentRuntimeResponse
+   */
+  async enableAgentRuntime(request: $_model.EnableAgentRuntimeRequest): Promise<$_model.EnableAgentRuntimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableAgentRuntimeWithOptions(request, runtime);
   }
 
   /**
@@ -1802,6 +1988,41 @@ export default class Client extends OpenApi {
   async getMessages(request: $_model.GetMessagesRequest): Promise<$_model.GetMessagesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getMessagesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询MO订单信息
+   * 
+   * @param request - GetModelOperatorOrderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelOperatorOrderResponse
+   */
+  async getModelOperatorOrderWithOptions(request: $_model.GetModelOperatorOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelOperatorOrderResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelOperatorOrder",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelOperatorOrderResponse>(await this.callApi(params, req, runtime), new $_model.GetModelOperatorOrderResponse({}));
+  }
+
+  /**
+   * 查询MO订单信息
+   * 
+   * @param request - GetModelOperatorOrderRequest
+   * @returns GetModelOperatorOrderResponse
+   */
+  async getModelOperatorOrder(request: $_model.GetModelOperatorOrderRequest): Promise<$_model.GetModelOperatorOrderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getModelOperatorOrderWithOptions(request, runtime);
   }
 
   /**
@@ -2014,6 +2235,56 @@ export default class Client extends OpenApi {
   async getStandAloneReports(request: $_model.GetStandAloneReportsRequest): Promise<$_model.GetStandAloneReportsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getStandAloneReportsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询实例密钥信息
+   * 
+   * @param request - ListApiKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApiKeysResponse
+   */
+  async listApiKeysWithOptions(request: $_model.ListApiKeysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApiKeysResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApiKeys",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApiKeysResponse>(await this.callApi(params, req, runtime), new $_model.ListApiKeysResponse({}));
+  }
+
+  /**
+   * 查询实例密钥信息
+   * 
+   * @param request - ListApiKeysRequest
+   * @returns ListApiKeysResponse
+   */
+  async listApiKeys(request: $_model.ListApiKeysRequest): Promise<$_model.ListApiKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApiKeysWithOptions(request, runtime);
   }
 
   /**
@@ -2753,6 +3024,10 @@ export default class Client extends OpenApi {
       query["Frequency"] = request.frequency;
     }
 
+    if (!$dara.isNull(request.inspectionItems)) {
+      query["InspectionItems"] = request.inspectionItems;
+    }
+
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
     }
@@ -2803,6 +3078,148 @@ export default class Client extends OpenApi {
   async modifyScheduledTask(request: $_model.ModifyScheduledTaskRequest): Promise<$_model.ModifyScheduledTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyScheduledTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新旗舰版白名单
+   * 
+   * @param request - ModifyWhitelistIpsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWhitelistIpsResponse
+   */
+  async modifyWhitelistIpsWithOptions(request: $_model.ModifyWhitelistIpsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyWhitelistIpsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ipWhitelist)) {
+      query["IpWhitelist"] = request.ipWhitelist;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyWhitelistIps",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyWhitelistIpsResponse>(await this.callApi(params, req, runtime), new $_model.ModifyWhitelistIpsResponse({}));
+  }
+
+  /**
+   * 更新旗舰版白名单
+   * 
+   * @param request - ModifyWhitelistIpsRequest
+   * @returns ModifyWhitelistIpsResponse
+   */
+  async modifyWhitelistIps(request: $_model.ModifyWhitelistIpsRequest): Promise<$_model.ModifyWhitelistIpsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyWhitelistIpsWithOptions(request, runtime);
+  }
+
+  /**
+   * 重命名实例密钥
+   * 
+   * @param request - RenameApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenameApiKeyResponse
+   */
+  async renameApiKeyWithOptions(request: $_model.RenameApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenameApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keyName)) {
+      query["KeyName"] = request.keyName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenameApiKey",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RenameApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.RenameApiKeyResponse({}));
+  }
+
+  /**
+   * 重命名实例密钥
+   * 
+   * @param request - RenameApiKeyRequest
+   * @returns RenameApiKeyResponse
+   */
+  async renameApiKey(request: $_model.RenameApiKeyRequest): Promise<$_model.RenameApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renameApiKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * 重置apiKey
+   * 
+   * @param request - ResetApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetApiKeyResponse
+   */
+  async resetApiKeyWithOptions(request: $_model.ResetApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetApiKey",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ResetApiKeyResponse({}));
+  }
+
+  /**
+   * 重置apiKey
+   * 
+   * @param request - ResetApiKeyRequest
+   * @returns ResetApiKeyResponse
+   */
+  async resetApiKey(request: $_model.ResetApiKeyRequest): Promise<$_model.ResetApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetApiKeyWithOptions(request, runtime);
   }
 
   /**
@@ -3048,6 +3465,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改实例密钥配额
+   * 
+   * @param tmpReq - UpdateApiKeyQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApiKeyQuotaResponse
+   */
+  async updateApiKeyQuotaWithOptions(tmpReq: $_model.UpdateApiKeyQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApiKeyQuotaResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateApiKeyQuotaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.keys)) {
+      request.keysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.keys, "Keys", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.keysShrink)) {
+      query["Keys"] = request.keysShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApiKeyQuota",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApiKeyQuotaResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApiKeyQuotaResponse({}));
+  }
+
+  /**
+   * 修改实例密钥配额
+   * 
+   * @param request - UpdateApiKeyQuotaRequest
+   * @returns UpdateApiKeyQuotaResponse
+   */
+  async updateApiKeyQuota(request: $_model.UpdateApiKeyQuotaRequest): Promise<$_model.UpdateApiKeyQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApiKeyQuotaWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the custom agent.
    * 
    * @param tmpReq - UpdateCustomAgentRequest
@@ -3117,92 +3586,6 @@ export default class Client extends OpenApi {
   async updateCustomAgent(request: $_model.UpdateCustomAgentRequest): Promise<$_model.UpdateCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCustomAgentWithOptions(request, runtime);
-  }
-
-  /**
-   * Updates an edge function
-   * 
-   * @remarks
-   * Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
-   * 
-   * @param tmpReq - UpdateEdgeFunctionRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateEdgeFunctionResponse
-   */
-  async updateEdgeFunctionWithOptions(tmpReq: $_model.UpdateEdgeFunctionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateEdgeFunctionResponse> {
-    tmpReq.validate();
-    let request = new $_model.UpdateEdgeFunctionShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.code)) {
-      request.codeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.code, "Code", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.customConfig)) {
-      request.customConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customConfig, "CustomConfig", "json");
-    }
-
-    if (!$dara.isNull(tmpReq.envs)) {
-      request.envsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.envs, "Envs", "json");
-    }
-
-    let query = { };
-    if (!$dara.isNull(request.clientToken)) {
-      query["ClientToken"] = request.clientToken;
-    }
-
-    if (!$dara.isNull(request.codeShrink)) {
-      query["Code"] = request.codeShrink;
-    }
-
-    if (!$dara.isNull(request.customConfigShrink)) {
-      query["CustomConfig"] = request.customConfigShrink;
-    }
-
-    if (!$dara.isNull(request.edgeFunctionName)) {
-      query["EdgeFunctionName"] = request.edgeFunctionName;
-    }
-
-    if (!$dara.isNull(request.envsShrink)) {
-      query["Envs"] = request.envsShrink;
-    }
-
-    if (!$dara.isNull(request.instanceName)) {
-      query["InstanceName"] = request.instanceName;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "UpdateEdgeFunction",
-      version: "2025-05-07",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.UpdateEdgeFunctionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateEdgeFunctionResponse({}));
-  }
-
-  /**
-   * Updates an edge function
-   * 
-   * @remarks
-   * Updates an edge function, including updating code versions, adding environment variables, and modifying configurations.
-   * 
-   * @param request - UpdateEdgeFunctionRequest
-   * @returns UpdateEdgeFunctionResponse
-   */
-  async updateEdgeFunction(request: $_model.UpdateEdgeFunctionRequest): Promise<$_model.UpdateEdgeFunctionResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.updateEdgeFunctionWithOptions(request, runtime);
   }
 
   /**

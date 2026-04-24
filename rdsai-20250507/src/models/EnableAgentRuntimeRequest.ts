@@ -2,27 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeEdgeFunctionsRequest extends $dara.Model {
+export class EnableAgentRuntimeRequest extends $dara.Model {
   /**
-   * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
    * @example
-   * ETnLKlblzczshOTUbOCz****
+   * 0c593ea1-3bea-11e9-b96b-88e9fe637760
    */
   clientToken?: string;
   /**
    * @remarks
-   * fc-xxxx
-   * 
-   * @example
-   * ef-****
-   */
-  edgeFunctionName?: string;
-  /**
-   * @remarks
-   * The ID of the RDS Supabase instance.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -30,28 +17,37 @@ export class DescribeEdgeFunctionsRequest extends $dara.Model {
    */
   instanceName?: string;
   /**
-   * @remarks
-   * The region ID.
-   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @example
+   * sg-bp179qkbvlj8ym*****
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * vsw-9dp2hkpm22gxscfgy****
+   */
+  vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
-      edgeFunctionName: 'EdgeFunctionName',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+      vSwitchId: 'VSwitchId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
-      edgeFunctionName: 'string',
       instanceName: 'string',
       regionId: 'string',
+      securityGroupId: 'string',
+      vSwitchId: 'string',
     };
   }
 

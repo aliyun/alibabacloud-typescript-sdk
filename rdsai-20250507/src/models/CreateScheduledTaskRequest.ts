@@ -26,6 +26,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
    * Monday
    */
   frequency?: string;
+  inspectionItems?: string;
   /**
    * @remarks
    * The IDs of the related instances. Separate multiple IDs with commas (,).
@@ -65,6 +66,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
     return {
       description: 'Description',
       frequency: 'Frequency',
+      inspectionItems: 'InspectionItems',
       instanceIds: 'InstanceIds',
       name: 'Name',
       regionId: 'RegionId',
@@ -80,6 +82,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
     return {
       description: 'string',
       frequency: 'string',
+      inspectionItems: 'string',
       instanceIds: 'string',
       name: 'string',
       regionId: 'string',

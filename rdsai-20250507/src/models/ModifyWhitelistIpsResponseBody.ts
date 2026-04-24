@@ -2,44 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateEdgeFunctionResponseBody extends $dara.Model {
+export class ModifyWhitelistIpsResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * fc-xxxx
-   * 
    * @example
-   * ef-****
+   * success
    */
-  edgeFunctionName?: string;
+  message?: string;
   /**
    * @remarks
-   * The ID of the RDS Supabase instance.
-   * 
-   * @example
-   * ra-supabase-8moov5lxba****
-   */
-  instanceName?: string;
-  /**
-   * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * FE9C65D7-930F-57A5-A207-8C396329241C
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      edgeFunctionName: 'EdgeFunctionName',
-      instanceName: 'InstanceName',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      edgeFunctionName: 'string',
-      instanceName: 'string',
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

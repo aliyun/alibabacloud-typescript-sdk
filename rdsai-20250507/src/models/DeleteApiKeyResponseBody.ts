@@ -2,23 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateEdgeFunctionResponseBody extends $dara.Model {
+export class DeleteApiKeyResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The name of the edge function.
-   * 
    * @example
-   * ef-****
+   * success
    */
-  edgeFunctionName?: string;
-  /**
-   * @remarks
-   * The ID of the RDS Supabase instance.
-   * 
-   * @example
-   * ra-supabase-8moov5lxba****
-   */
-  instanceName?: string;
+  message?: string;
   /**
    * @remarks
    * Id of the request
@@ -27,19 +16,24 @@ export class CreateEdgeFunctionResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      edgeFunctionName: 'EdgeFunctionName',
-      instanceName: 'InstanceName',
+      message: 'Message',
       requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      edgeFunctionName: 'string',
-      instanceName: 'string',
+      message: 'string',
       requestId: 'string',
+      success: 'boolean',
     };
   }
 

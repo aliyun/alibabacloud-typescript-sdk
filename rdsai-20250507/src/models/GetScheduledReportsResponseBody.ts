@@ -19,6 +19,7 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
    * 2025-01-01T23:59:59Z
    */
   endTime?: string;
+  inspectionItems?: string;
   regionId?: string;
   reportLanguage?: string;
   reportType?: string;
@@ -50,6 +51,7 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
     return {
       createdTime: 'CreatedTime',
       endTime: 'EndTime',
+      inspectionItems: 'InspectionItems',
       regionId: 'RegionId',
       reportLanguage: 'ReportLanguage',
       reportType: 'ReportType',
@@ -63,6 +65,7 @@ export class GetScheduledReportsResponseBodyReports extends $dara.Model {
     return {
       createdTime: 'string',
       endTime: 'string',
+      inspectionItems: 'string',
       regionId: 'string',
       reportLanguage: 'string',
       reportType: 'string',
