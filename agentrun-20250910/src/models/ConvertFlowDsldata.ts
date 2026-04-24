@@ -20,7 +20,7 @@ export class ConvertFlowDSLDataConversionPlanIssues extends $dara.Model {
    * @remarks
    * 问题的详细信息（JSON对象）
    */
-  details?: { [key: string]: string };
+  details?: { [key: string]: any };
   /**
    * @remarks
    * 问题类型：needs_config, needs_conversion, unsupported
@@ -93,7 +93,7 @@ export class ConvertFlowDSLDataConversionPlanIssues extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
-      details: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      details: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       issueType: 'string',
       level: 'string',
       nodeId: 'string',

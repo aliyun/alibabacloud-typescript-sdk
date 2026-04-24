@@ -67,13 +67,26 @@ export class ConvertFlowDSLInputOptions extends $dara.Model {
   compatibilityCheck?: boolean;
   credentialName?: string;
   flowName?: string;
+  /**
+   * @remarks
+   * 全局VPC端点名称，对所有节点统一生效。如果指定了vpcEndpoints映射，则映射中的节点优先使用映射值
+   */
   vpcEndpointName?: string;
+  /**
+   * @remarks
+   * 按节点名称指定VPC端点，key为节点名称(stateName)，value为该节点使用的VPC端点名称。优先级高于vpcEndpointName
+   * 
+   * @example
+   * {"LLM节点":"vpc-endpoint-1","Agent节点":"vpc-endpoint-2"}
+   */
+  vpcEndpoints?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       compatibilityCheck: 'compatibilityCheck',
       credentialName: 'credentialName',
       flowName: 'flowName',
       vpcEndpointName: 'vpcEndpointName',
+      vpcEndpoints: 'vpcEndpoints',
     };
   }
 
@@ -83,10 +96,14 @@ export class ConvertFlowDSLInputOptions extends $dara.Model {
       credentialName: 'string',
       flowName: 'string',
       vpcEndpointName: 'string',
+      vpcEndpoints: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
   validate() {
+    if(this.vpcEndpoints) {
+      $dara.Model.validateMap(this.vpcEndpoints);
+    }
     super.validate();
   }
 
