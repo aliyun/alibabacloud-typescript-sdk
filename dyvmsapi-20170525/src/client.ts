@@ -466,6 +466,144 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 座席新增
+   * 
+   * @param request - CloudCreateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudCreateAgentResponse
+   */
+  async cloudCreateAgentWithOptions(request: $_model.CloudCreateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudCreateAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!$dara.isNull(request.areaCode)) {
+      query["AreaCode"] = request.areaCode;
+    }
+
+    if (!$dara.isNull(request.callPower)) {
+      query["CallPower"] = request.callPower;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ibRecord)) {
+      query["IbRecord"] = request.ibRecord;
+    }
+
+    if (!$dara.isNull(request.isAsr)) {
+      query["IsAsr"] = request.isAsr;
+    }
+
+    if (!$dara.isNull(request.isOb)) {
+      query["IsOb"] = request.isOb;
+    }
+
+    if (!$dara.isNull(request.isObRemember)) {
+      query["IsObRemember"] = request.isObRemember;
+    }
+
+    if (!$dara.isNull(request.isQualityCheck)) {
+      query["IsQualityCheck"] = request.isQualityCheck;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.obClid)) {
+      query["ObClid"] = request.obClid;
+    }
+
+    if (!$dara.isNull(request.obClidProperty)) {
+      query["ObClidProperty"] = request.obClidProperty;
+    }
+
+    if (!$dara.isNull(request.obClidType)) {
+      query["ObClidType"] = request.obClidType;
+    }
+
+    if (!$dara.isNull(request.obRecord)) {
+      query["ObRecord"] = request.obRecord;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.permitObPreviewTime)) {
+      query["PermitObPreviewTime"] = request.permitObPreviewTime;
+    }
+
+    if (!$dara.isNull(request.power)) {
+      query["Power"] = request.power;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.skillIds)) {
+      query["SkillIds"] = request.skillIds;
+    }
+
+    if (!$dara.isNull(request.skillLevels)) {
+      query["SkillLevels"] = request.skillLevels;
+    }
+
+    if (!$dara.isNull(request.webrtcUrlType)) {
+      query["WebrtcUrlType"] = request.webrtcUrlType;
+    }
+
+    if (!$dara.isNull(request.wrapup)) {
+      query["Wrapup"] = request.wrapup;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudCreateAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudCreateAgentResponse>(await this.callApi(params, req, runtime), new $_model.CloudCreateAgentResponse({}));
+  }
+
+  /**
+   * 座席新增
+   * 
+   * @param request - CloudCreateAgentRequest
+   * @returns CloudCreateAgentResponse
+   */
+  async cloudCreateAgent(request: $_model.CloudCreateAgentRequest): Promise<$_model.CloudCreateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudCreateAgentWithOptions(request, runtime);
+  }
+
+  /**
    * 新增任务
    * 
    * @param request - CloudCreateTaskRequest

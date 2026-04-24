@@ -1,3 +1,6 @@
+export { CloudCreateAgentResponseBodyDataAgent } from './CloudCreateAgentResponseBody';
+export { CloudCreateAgentResponseBodyDataAgentSkills } from './CloudCreateAgentResponseBody';
+export { CloudCreateAgentResponseBodyData } from './CloudCreateAgentResponseBody';
 export { CloudCreateTaskResponseBodyData } from './CloudCreateTaskResponseBody';
 export { CloudImportTaskTelRequestTaskTelList } from './CloudImportTaskTelRequest';
 export { CloudImportTaskTelResponseBodyData } from './CloudImportTaskTelResponseBody';
@@ -40,6 +43,9 @@ export { CancelRobotTaskResponse } from './CancelRobotTaskResponse';
 export { ChangeMediaTypeRequest } from './ChangeMediaTypeRequest';
 export { ChangeMediaTypeResponseBody } from './ChangeMediaTypeResponseBody';
 export { ChangeMediaTypeResponse } from './ChangeMediaTypeResponse';
+export { CloudCreateAgentRequest } from './CloudCreateAgentRequest';
+export { CloudCreateAgentResponseBody } from './CloudCreateAgentResponseBody';
+export { CloudCreateAgentResponse } from './CloudCreateAgentResponse';
 export { CloudCreateTaskRequest } from './CloudCreateTaskRequest';
 export { CloudCreateTaskResponseBody } from './CloudCreateTaskResponseBody';
 export { CloudCreateTaskResponse } from './CloudCreateTaskResponse';
