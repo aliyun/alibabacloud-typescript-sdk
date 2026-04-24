@@ -2157,6 +2157,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询元数据meta
+   * 
+   * @param tmpReq - DescribeMetricMetaListRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMetricMetaListResponse
+   */
+  async describeMetricMetaListWithOptions(tmpReq: $_model.DescribeMetricMetaListRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMetricMetaListResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeMetricMetaListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.labels)) {
+      request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "labels", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.labelsShrink)) {
+      query["labels"] = request.labelsShrink;
+    }
+
+    if (!$dara.isNull(request.metaFormat)) {
+      query["metaFormat"] = request.metaFormat;
+    }
+
+    if (!$dara.isNull(request.metricName)) {
+      query["metricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMetricMetaList",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/describe-metric-meta-list`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMetricMetaListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMetricMetaListResponse({}));
+  }
+
+  /**
+   * 查询元数据meta
+   * 
+   * @param request - DescribeMetricMetaListRequest
+   * @returns DescribeMetricMetaListResponse
+   */
+  async describeMetricMetaList(request: $_model.DescribeMetricMetaListRequest): Promise<$_model.DescribeMetricMetaListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeMetricMetaListWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询地域信息列表
    * 
    * @param request - DescribeRegionsRequest
