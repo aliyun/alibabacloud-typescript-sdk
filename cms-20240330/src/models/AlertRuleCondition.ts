@@ -563,6 +563,102 @@ export class AlertRuleConditionSimpleEscalation extends $dara.Model {
   }
 }
 
+export class AlertRuleConditionTriggersExpressionConditions extends $dara.Model {
+  expressionType?: string;
+  operator?: string;
+  queryName?: string;
+  threshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      expressionType: 'expressionType',
+      operator: 'operator',
+      queryName: 'queryName',
+      threshold: 'threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expressionType: 'string',
+      operator: 'string',
+      queryName: 'string',
+      threshold: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlertRuleConditionTriggersExpression extends $dara.Model {
+  conditions?: AlertRuleConditionTriggersExpressionConditions[];
+  expressionType?: string;
+  logicOperator?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conditions: 'conditions',
+      expressionType: 'expressionType',
+      logicOperator: 'logicOperator',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conditions: { 'type': 'array', 'itemType': AlertRuleConditionTriggersExpressionConditions },
+      expressionType: 'string',
+      logicOperator: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.conditions)) {
+      $dara.Model.validateArray(this.conditions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AlertRuleConditionTriggers extends $dara.Model {
+  durationSecs?: number;
+  expression?: AlertRuleConditionTriggersExpression;
+  severity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      durationSecs: 'durationSecs',
+      expression: 'expression',
+      severity: 'severity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      durationSecs: 'number',
+      expression: AlertRuleConditionTriggersExpression,
+      severity: 'string',
+    };
+  }
+
+  validate() {
+    if(this.expression && typeof (this.expression as any).validate === 'function') {
+      (this.expression as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AlertRuleCondition extends $dara.Model {
   /**
    * @remarks
@@ -591,6 +687,7 @@ export class AlertRuleCondition extends $dara.Model {
    * Valid only when escalationType=composite; composite metric alert condition.
    */
   compositeEscalation?: AlertRuleConditionCompositeEscalation;
+  enableSeveritySuppression?: boolean;
   /**
    * @remarks
    * Applicable condition type: CMS_BASIC_CONDITION.
@@ -672,6 +769,7 @@ export class AlertRuleCondition extends $dara.Model {
    * Only valid when escalationType=simple; specifies the alert condition for a single metric.
    */
   simpleEscalation?: AlertRuleConditionSimpleEscalation;
+  triggers?: AlertRuleConditionTriggers[];
   /**
    * @remarks
    * Rule condition type, valid values:
@@ -700,6 +798,7 @@ export class AlertRuleCondition extends $dara.Model {
       caseList: 'caseList',
       compareList: 'compareList',
       compositeEscalation: 'compositeEscalation',
+      enableSeveritySuppression: 'enableSeveritySuppression',
       escalationType: 'escalationType',
       expressEscalation: 'expressEscalation',
       noDataAlertLevel: 'noDataAlertLevel',
@@ -708,6 +807,7 @@ export class AlertRuleCondition extends $dara.Model {
       oper: 'oper',
       relation: 'relation',
       simpleEscalation: 'simpleEscalation',
+      triggers: 'triggers',
       type: 'type',
       value: 'value',
     };
@@ -719,6 +819,7 @@ export class AlertRuleCondition extends $dara.Model {
       caseList: { 'type': 'array', 'itemType': AlertRuleConditionCaseList },
       compareList: { 'type': 'array', 'itemType': AlertRuleConditionCompareList },
       compositeEscalation: AlertRuleConditionCompositeEscalation,
+      enableSeveritySuppression: 'boolean',
       escalationType: 'string',
       expressEscalation: AlertRuleConditionExpressEscalation,
       noDataAlertLevel: 'string',
@@ -727,6 +828,7 @@ export class AlertRuleCondition extends $dara.Model {
       oper: 'string',
       relation: 'string',
       simpleEscalation: AlertRuleConditionSimpleEscalation,
+      triggers: { 'type': 'array', 'itemType': AlertRuleConditionTriggers },
       type: 'string',
       value: 'number',
     };
@@ -747,6 +849,9 @@ export class AlertRuleCondition extends $dara.Model {
     }
     if(this.simpleEscalation && typeof (this.simpleEscalation as any).validate === 'function') {
       (this.simpleEscalation as any).validate();
+    }
+    if(Array.isArray(this.triggers)) {
+      $dara.Model.validateArray(this.triggers);
     }
     super.validate();
   }

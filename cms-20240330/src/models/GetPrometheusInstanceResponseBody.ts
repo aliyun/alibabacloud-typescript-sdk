@@ -171,6 +171,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
    * http://workspace-default-cms-xxxxxxx
    */
   httpApiInterUrl?: string;
+  httpApiInternalUrl?: string;
   /**
    * @remarks
    * HTTP intranet address.
@@ -237,6 +238,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
    * http://workspace-default-cms-xxxxxxx
    */
   pushGatewayInterUrl?: string;
+  pushGatewayInternalUrl?: string;
   /**
    * @remarks
    * Intranet address of PushGateway.
@@ -261,6 +263,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
    * http://workspace-default-cms-xxxxxxx
    */
   remoteReadInterUrl?: string;
+  remoteReadInternalUrl?: string;
   /**
    * @remarks
    * Intranet read address.
@@ -277,6 +280,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
    * https://workspace-default-cms-xxxxxxxxxx
    */
   remoteWriteInterUrl?: string;
+  remoteWriteInternalUrl?: string;
   /**
    * @remarks
    * Intranet write address.
@@ -367,6 +371,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
       grafanaInstanceId: 'grafanaInstanceId',
       grafanaInstanceName: 'grafanaInstanceName',
       httpApiInterUrl: 'httpApiInterUrl',
+      httpApiInternalUrl: 'httpApiInternalUrl',
       httpApiIntraUrl: 'httpApiIntraUrl',
       instanceType: 'instanceType',
       paymentType: 'paymentType',
@@ -375,11 +380,14 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
       prometheusInstanceId: 'prometheusInstanceId',
       prometheusInstanceName: 'prometheusInstanceName',
       pushGatewayInterUrl: 'pushGatewayInterUrl',
+      pushGatewayInternalUrl: 'pushGatewayInternalUrl',
       pushGatewayIntraUrl: 'pushGatewayIntraUrl',
       regionId: 'regionId',
       remoteReadInterUrl: 'remoteReadInterUrl',
+      remoteReadInternalUrl: 'remoteReadInternalUrl',
       remoteReadIntraUrl: 'remoteReadIntraUrl',
       remoteWriteInterUrl: 'remoteWriteInterUrl',
+      remoteWriteInternalUrl: 'remoteWriteInternalUrl',
       remoteWriteIntraUrl: 'remoteWriteIntraUrl',
       resourceGroupId: 'resourceGroupId',
       resourceType: 'resourceType',
@@ -409,6 +417,7 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
       grafanaInstanceId: 'string',
       grafanaInstanceName: 'string',
       httpApiInterUrl: 'string',
+      httpApiInternalUrl: 'string',
       httpApiIntraUrl: 'string',
       instanceType: 'string',
       paymentType: 'string',
@@ -417,11 +426,14 @@ export class GetPrometheusInstanceResponseBodyPrometheusInstance extends $dara.M
       prometheusInstanceId: 'string',
       prometheusInstanceName: 'string',
       pushGatewayInterUrl: 'string',
+      pushGatewayInternalUrl: 'string',
       pushGatewayIntraUrl: 'string',
       regionId: 'string',
       remoteReadInterUrl: 'string',
+      remoteReadInternalUrl: 'string',
       remoteReadIntraUrl: 'string',
       remoteWriteInterUrl: 'string',
+      remoteWriteInternalUrl: 'string',
       remoteWriteIntraUrl: 'string',
       resourceGroupId: 'string',
       resourceType: 'string',

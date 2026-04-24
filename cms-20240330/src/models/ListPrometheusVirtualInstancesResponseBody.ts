@@ -92,6 +92,8 @@ export class ListPrometheusVirtualInstancesResponseBody extends $dara.Model {
    * Instance information.
    */
   instances?: ListPrometheusVirtualInstancesResponseBodyInstances[];
+  maxResults?: string;
+  nextToken?: string;
   /**
    * @remarks
    * ID of the request
@@ -100,17 +102,24 @@ export class ListPrometheusVirtualInstancesResponseBody extends $dara.Model {
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */
   requestId?: string;
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
       instances: 'instances',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
       requestId: 'requestId',
+      totalCount: 'totalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instances: { 'type': 'array', 'itemType': ListPrometheusVirtualInstancesResponseBodyInstances },
+      maxResults: 'string',
+      nextToken: 'string',
       requestId: 'string',
+      totalCount: 'string',
     };
   }
 

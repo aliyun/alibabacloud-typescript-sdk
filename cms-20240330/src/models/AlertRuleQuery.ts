@@ -292,6 +292,8 @@ export class AlertRuleQueryQueries extends $dara.Model {
    * sum by (rpc,acs_arms_service_id,pid,rpcType) (sum_over_time_lorc(arms_app_requests_count_ign_destid_endpoint_parent_ppid_prpc{callKind=~\\"http|rpc|custom_entry|server|consumer\\",pid=\\"gaddp9ap8q@cb005ffdf44b8ac\\",source=\\"apm\\"}[1m]))
    */
   expr?: string;
+  name?: string;
+  promQl?: string;
   /**
    * @remarks
    * Applicable query type: SLS_MULTI_QUERY.
@@ -328,6 +330,8 @@ export class AlertRuleQueryQueries extends $dara.Model {
       duration: 'duration',
       end: 'end',
       expr: 'expr',
+      name: 'name',
+      promQl: 'promQl',
       start: 'start',
       timeUnit: 'timeUnit',
       window: 'window',
@@ -342,6 +346,8 @@ export class AlertRuleQueryQueries extends $dara.Model {
       duration: 'number',
       end: 'number',
       expr: 'string',
+      name: 'string',
+      promQl: 'string',
       start: 'number',
       timeUnit: 'string',
       window: 'number',

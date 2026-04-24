@@ -35,6 +35,7 @@ export class AlertRuleNotification extends $dara.Model {
    * Notification time window; notifications are sent only during this period.
    */
   notifyTime?: AlertRuleTimeSpan;
+  qwencloudContacts?: { [key: string]: {[key: string]: any} };
   /**
    * @remarks
    * Notification silence duration, in seconds.
@@ -62,6 +63,7 @@ export class AlertRuleNotification extends $dara.Model {
       fsWebhooks: 'fsWebhooks',
       groups: 'groups',
       notifyTime: 'notifyTime',
+      qwencloudContacts: 'qwencloudContacts',
       silenceTime: 'silenceTime',
       slackWebhooks: 'slackWebhooks',
       wxWebhooks: 'wxWebhooks',
@@ -77,6 +79,7 @@ export class AlertRuleNotification extends $dara.Model {
       fsWebhooks: { 'type': 'array', 'itemType': 'string' },
       groups: { 'type': 'array', 'itemType': 'string' },
       notifyTime: AlertRuleTimeSpan,
+      qwencloudContacts: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       silenceTime: 'number',
       slackWebhooks: { 'type': 'array', 'itemType': 'string' },
       wxWebhooks: { 'type': 'array', 'itemType': 'string' },
@@ -104,6 +107,9 @@ export class AlertRuleNotification extends $dara.Model {
     }
     if(this.notifyTime && typeof (this.notifyTime as any).validate === 'function') {
       (this.notifyTime as any).validate();
+    }
+    if(this.qwencloudContacts) {
+      $dara.Model.validateMap(this.qwencloudContacts);
     }
     if(Array.isArray(this.slackWebhooks)) {
       $dara.Model.validateArray(this.slackWebhooks);

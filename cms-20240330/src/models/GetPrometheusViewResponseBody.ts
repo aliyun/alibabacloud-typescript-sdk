@@ -174,6 +174,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
    * http://xxxxxxxx
    */
   httpApiInterUrl?: string;
+  httpApiInternalUrl?: string;
   /**
    * @remarks
    * Private HTTP address.
@@ -243,6 +244,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
    * http://workspace-default-cms-xxx-cn-hangzhou.cn-hangzhou.log.aliyuncs.com/prometheus/workspace-default-cms-xxx-cn-hangzhou/xxx/api/v1/read
    */
   remoteReadInterUrl?: string;
+  remoteReadInternalUrl?: string;
   /**
    * @remarks
    * Remote read intranet URL.
@@ -320,6 +322,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
       grafanaInstanceId: 'grafanaInstanceId',
       grafanaInstanceName: 'grafanaInstanceName',
       httpApiInterUrl: 'httpApiInterUrl',
+      httpApiInternalUrl: 'httpApiInternalUrl',
       httpApiIntraUrl: 'httpApiIntraUrl',
       instanceType: 'instanceType',
       paymentType: 'paymentType',
@@ -329,6 +332,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
       prometheusViewName: 'prometheusViewName',
       regionId: 'regionId',
       remoteReadInterUrl: 'remoteReadInterUrl',
+      remoteReadInternalUrl: 'remoteReadInternalUrl',
       remoteReadIntraUrl: 'remoteReadIntraUrl',
       resourceGroupId: 'resourceGroupId',
       resourceType: 'resourceType',
@@ -352,6 +356,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
       grafanaInstanceId: 'string',
       grafanaInstanceName: 'string',
       httpApiInterUrl: 'string',
+      httpApiInternalUrl: 'string',
       httpApiIntraUrl: 'string',
       instanceType: 'string',
       paymentType: 'string',
@@ -361,6 +366,7 @@ export class GetPrometheusViewResponseBodyPrometheusView extends $dara.Model {
       prometheusViewName: 'string',
       regionId: 'string',
       remoteReadInterUrl: 'string',
+      remoteReadInternalUrl: 'string',
       remoteReadIntraUrl: 'string',
       resourceGroupId: 'string',
       resourceType: 'string',

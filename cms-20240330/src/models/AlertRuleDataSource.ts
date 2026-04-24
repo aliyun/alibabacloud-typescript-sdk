@@ -110,6 +110,7 @@ export class AlertRuleDataSource extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  tenantId?: string;
   /**
    * @remarks
    * Data source type.
@@ -133,6 +134,7 @@ export class AlertRuleDataSource extends $dara.Model {
       instanceId: 'instanceId',
       namespace: 'namespace',
       regionId: 'regionId',
+      tenantId: 'tenantId',
       type: 'type',
     };
   }
@@ -144,6 +146,7 @@ export class AlertRuleDataSource extends $dara.Model {
       instanceId: 'string',
       namespace: 'string',
       regionId: 'string',
+      tenantId: 'string',
       type: 'string',
     };
   }

@@ -5044,8 +5044,16 @@ export default class Client extends OpenApi {
   async listPrometheusVirtualInstancesWithOptions(request: $_model.ListPrometheusVirtualInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPrometheusVirtualInstancesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
     if (!$dara.isNull(request.namespace)) {
       query["namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
     }
 
     if (!$dara.isNull(request.tenantId)) {
