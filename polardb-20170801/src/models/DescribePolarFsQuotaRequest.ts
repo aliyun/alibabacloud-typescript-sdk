@@ -9,6 +9,11 @@ export class DescribePolarFsQuotaRequest extends $dara.Model {
    */
   DBClusterId?: string;
   /**
+   * @example
+   * /data
+   */
+  path?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -18,13 +23,20 @@ export class DescribePolarFsQuotaRequest extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @example
+   * quotaPolicy
+   */
+  quotaType?: string;
+  /**
+   * @example
    * cn-beijing
    */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      path: 'Path',
       polarFsInstanceId: 'PolarFsInstanceId',
+      quotaType: 'QuotaType',
       regionId: 'RegionId',
     };
   }
@@ -32,7 +44,9 @@ export class DescribePolarFsQuotaRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      path: 'string',
       polarFsInstanceId: 'string',
+      quotaType: 'string',
       regionId: 'string',
     };
   }

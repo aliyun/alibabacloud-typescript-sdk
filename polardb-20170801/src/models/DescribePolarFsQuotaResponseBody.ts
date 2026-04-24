@@ -99,6 +99,61 @@ export class DescribePolarFsQuotaResponseBodyPolicyItems extends $dara.Model {
   }
 }
 
+export class DescribePolarFsQuotaResponseBodyQuotaItems extends $dara.Model {
+  /**
+   * @example
+   * 1073741824
+   */
+  capacity?: number;
+  /**
+   * @example
+   * 100
+   */
+  inodes?: number;
+  /**
+   * @example
+   * /data
+   */
+  path?: string;
+  /**
+   * @example
+   * 104857600
+   */
+  usedCapacity?: number;
+  /**
+   * @example
+   * 1
+   */
+  usedInodes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      inodes: 'Inodes',
+      path: 'Path',
+      usedCapacity: 'UsedCapacity',
+      usedInodes: 'UsedInodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'number',
+      inodes: 'number',
+      path: 'string',
+      usedCapacity: 'number',
+      usedInodes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   /**
    * @example
@@ -117,10 +172,16 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @example
+   * /data
+   */
+  path?: string;
+  /**
+   * @example
    * pfs-2ze0i74ka607*****
    */
   polarFsInstanceId?: string;
   policyItems?: DescribePolarFsQuotaResponseBodyPolicyItems[];
+  quotaItems?: DescribePolarFsQuotaResponseBodyQuotaItems[];
   /**
    * @remarks
    * Id of the request
@@ -139,8 +200,10 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
       pageNumber: 'PageNumber',
       pageRecordCount: 'PageRecordCount',
       pageSize: 'PageSize',
+      path: 'Path',
       polarFsInstanceId: 'PolarFsInstanceId',
       policyItems: 'PolicyItems',
+      quotaItems: 'QuotaItems',
       requestId: 'RequestId',
       totalRecordCount: 'TotalRecordCount',
     };
@@ -151,8 +214,10 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
       pageNumber: 'string',
       pageRecordCount: 'string',
       pageSize: 'string',
+      path: 'string',
       polarFsInstanceId: 'string',
       policyItems: { 'type': 'array', 'itemType': DescribePolarFsQuotaResponseBodyPolicyItems },
+      quotaItems: { 'type': 'array', 'itemType': DescribePolarFsQuotaResponseBodyQuotaItems },
       requestId: 'string',
       totalRecordCount: 'string',
     };
@@ -161,6 +226,9 @@ export class DescribePolarFsQuotaResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.policyItems)) {
       $dara.Model.validateArray(this.policyItems);
+    }
+    if(Array.isArray(this.quotaItems)) {
+      $dara.Model.validateArray(this.quotaItems);
     }
     super.validate();
   }

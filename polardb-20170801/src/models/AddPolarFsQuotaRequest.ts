@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class AddPolarFsQuotaRequestQuotas extends $dara.Model {
   /**
    * @example

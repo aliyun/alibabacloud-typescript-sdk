@@ -5,9 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
   /**
    * @example
+   * 100
+   */
+  capacity?: number;
+  /**
+   * @example
    * /a/project
    */
   filePathId?: string;
+  /**
+   * @example
+   * 100
+   */
+  inodes?: number;
   /**
    * @example
    * 1
@@ -25,7 +35,9 @@ export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
   strategy?: string;
   static names(): { [key: string]: string } {
     return {
+      capacity: 'Capacity',
       filePathId: 'FilePathId',
+      inodes: 'Inodes',
       maxDepth: 'MaxDepth',
       quotaIds: 'QuotaIds',
       strategy: 'Strategy',
@@ -34,7 +46,9 @@ export class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      capacity: 'number',
       filePathId: 'string',
+      inodes: 'number',
       maxDepth: 'number',
       quotaIds: 'string',
       strategy: 'string',

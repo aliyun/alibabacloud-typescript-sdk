@@ -269,6 +269,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增polarfs bucket路径
+   * 
+   * @param request - AddPolarFsPathMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddPolarFsPathMappingResponse
+   */
+  async addPolarFsPathMappingWithOptions(request: $_model.AddPolarFsPathMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddPolarFsPathMappingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customBucketPathList)) {
+      query["CustomBucketPathList"] = request.customBucketPathList;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddPolarFsPathMapping",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddPolarFsPathMappingResponse>(await this.callApi(params, req, runtime), new $_model.AddPolarFsPathMappingResponse({}));
+  }
+
+  /**
+   * 新增polarfs bucket路径
+   * 
+   * @param request - AddPolarFsPathMappingRequest
+   * @returns AddPolarFsPathMappingResponse
+   */
+  async addPolarFsPathMapping(request: $_model.AddPolarFsPathMappingRequest): Promise<$_model.AddPolarFsPathMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addPolarFsPathMappingWithOptions(request, runtime);
+  }
+
+  /**
    * 新增PolarFs Quota规则
    * 
    * @param request - AddPolarFsQuotaRequest
@@ -5978,6 +6028,56 @@ export default class Client extends OpenApi {
   async deletePolarFsObjects(request: $_model.DeletePolarFsObjectsRequest): Promise<$_model.DeletePolarFsObjectsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolarFsObjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除polar fs bucket路径
+   * 
+   * @param request - DeletePolarFsPathMappingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePolarFsPathMappingResponse
+   */
+  async deletePolarFsPathMappingWithOptions(request: $_model.DeletePolarFsPathMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePolarFsPathMappingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customBucketPathList)) {
+      query["CustomBucketPathList"] = request.customBucketPathList;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePolarFsPathMapping",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePolarFsPathMappingResponse>(await this.callApi(params, req, runtime), new $_model.DeletePolarFsPathMappingResponse({}));
+  }
+
+  /**
+   * 删除polar fs bucket路径
+   * 
+   * @param request - DeletePolarFsPathMappingRequest
+   * @returns DeletePolarFsPathMappingResponse
+   */
+  async deletePolarFsPathMapping(request: $_model.DeletePolarFsPathMappingRequest): Promise<$_model.DeletePolarFsPathMappingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deletePolarFsPathMappingWithOptions(request, runtime);
   }
 
   /**
@@ -13044,8 +13144,16 @@ export default class Client extends OpenApi {
       query["DBClusterId"] = request.DBClusterId;
     }
 
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
     if (!$dara.isNull(request.polarFsInstanceId)) {
       query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.quotaType)) {
+      query["QuotaType"] = request.quotaType;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -21363,7 +21471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为目录应用配额规则
+   * 为目录配置配额或应用配额规则
    * 
    * @param request - SetPolarFsFileQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21402,7 +21510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为目录应用配额规则
+   * 为目录配置配额或应用配额规则
    * 
    * @param request - SetPolarFsFileQuotaRequest
    * @returns SetPolarFsFileQuotaResponse
