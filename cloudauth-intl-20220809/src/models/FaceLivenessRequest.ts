@@ -44,6 +44,11 @@ export class FaceLivenessRequest extends $dara.Model {
    */
   faceQuality?: string;
   /**
+   * @example
+   * Y
+   */
+  faceQualityCheck?: string;
+  /**
    * @remarks
    * A custom unique business identifier. You can use this identifier to track and troubleshoot issues. The identifier can be up to 32 characters in length and can contain letters and digits. Make sure the identifier is unique.
    * 
@@ -87,6 +92,7 @@ export class FaceLivenessRequest extends $dara.Model {
       facePictureBase64: 'FacePictureBase64',
       facePictureUrl: 'FacePictureUrl',
       faceQuality: 'FaceQuality',
+      faceQualityCheck: 'FaceQualityCheck',
       merchantBizId: 'MerchantBizId',
       merchantUserId: 'MerchantUserId',
       occlusion: 'Occlusion',
@@ -100,6 +106,7 @@ export class FaceLivenessRequest extends $dara.Model {
       facePictureBase64: 'string',
       facePictureUrl: 'string',
       faceQuality: 'string',
+      faceQualityCheck: 'string',
       merchantBizId: 'string',
       merchantUserId: 'string',
       occlusion: 'string',

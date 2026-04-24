@@ -22,6 +22,11 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
    */
   faceGroupCodes?: string;
   /**
+   * @example
+   * Y
+   */
+  faceQualityCheck?: string;
+  /**
    * @remarks
    * Face registration library.
    * 
@@ -154,6 +159,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
     return {
       autoRegistration: 'AutoRegistration',
       faceGroupCodes: 'FaceGroupCodes',
+      faceQualityCheck: 'FaceQualityCheck',
       faceRegisterGroupCode: 'FaceRegisterGroupCode',
       faceVerifyThreshold: 'FaceVerifyThreshold',
       liveness: 'Liveness',
@@ -175,6 +181,7 @@ export class FaceDuplicationCheckIntlRequest extends $dara.Model {
     return {
       autoRegistration: 'string',
       faceGroupCodes: 'string',
+      faceQualityCheck: 'string',
       faceRegisterGroupCode: 'string',
       faceVerifyThreshold: 'string',
       liveness: 'string',

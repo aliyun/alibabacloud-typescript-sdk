@@ -2186,6 +2186,10 @@ export default class Client extends OpenApi {
       query["FacePictureQualityCheck"] = request.facePictureQualityCheck;
     }
 
+    if (!$dara.isNull(request.faceQualityCheck)) {
+      query["FaceQualityCheck"] = request.faceQualityCheck;
+    }
+
     if (!$dara.isNull(request.merchantBizId)) {
       query["MerchantBizId"] = request.merchantBizId;
     }
@@ -2248,6 +2252,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.facePictureQualityCheck)) {
       query["FacePictureQualityCheck"] = request.facePictureQualityCheck;
+    }
+
+    if (!$dara.isNull(request.faceQualityCheck)) {
+      query["FaceQualityCheck"] = request.faceQualityCheck;
     }
 
     if (!$dara.isNull(request.merchantBizId)) {
@@ -2524,6 +2532,10 @@ export default class Client extends OpenApi {
       body["FaceGroupCodes"] = request.faceGroupCodes;
     }
 
+    if (!$dara.isNull(request.faceQualityCheck)) {
+      body["FaceQualityCheck"] = request.faceQualityCheck;
+    }
+
     if (!$dara.isNull(request.faceRegisterGroupCode)) {
       body["FaceRegisterGroupCode"] = request.faceRegisterGroupCode;
     }
@@ -2683,6 +2695,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.faceQuality)) {
       query["FaceQuality"] = request.faceQuality;
+    }
+
+    if (!$dara.isNull(request.faceQualityCheck)) {
+      query["FaceQualityCheck"] = request.faceQualityCheck;
     }
 
     if (!$dara.isNull(request.merchantBizId)) {

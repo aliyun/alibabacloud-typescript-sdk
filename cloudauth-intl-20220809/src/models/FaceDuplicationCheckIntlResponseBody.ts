@@ -2,6 +2,61 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class FaceDuplicationCheckIntlResponseBodyResultExtFaceInfo extends $dara.Model {
+  /**
+   * @example
+   * 39.04
+   */
+  faceQualityScore?: number;
+  /**
+   * @example
+   * 0.02
+   */
+  illuminationScore?: number;
+  /**
+   * @example
+   * 20
+   */
+  kaOcclusionScore?: number;
+  /**
+   * @example
+   * 50.26
+   */
+  occlusionScore?: number;
+  /**
+   * @example
+   * 86.47
+   */
+  sharpnessScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      faceQualityScore: 'FaceQualityScore',
+      illuminationScore: 'IlluminationScore',
+      kaOcclusionScore: 'KaOcclusionScore',
+      occlusionScore: 'OcclusionScore',
+      sharpnessScore: 'SharpnessScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      faceQualityScore: 'number',
+      illuminationScore: 'number',
+      kaOcclusionScore: 'number',
+      occlusionScore: 'number',
+      sharpnessScore: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
@@ -13,6 +68,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
    * ]
    */
   duplicateFace?: string;
+  extFaceInfo?: FaceDuplicationCheckIntlResponseBodyResultExtFaceInfo;
   /**
    * @remarks
    * The estimated age of the face, which may not be returned if the prediction fails.
@@ -105,6 +161,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       duplicateFace: 'DuplicateFace',
+      extFaceInfo: 'ExtFaceInfo',
       faceAge: 'FaceAge',
       faceAttack: 'FaceAttack',
       faceAttackScore: 'FaceAttackScore',
@@ -121,6 +178,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       duplicateFace: 'string',
+      extFaceInfo: FaceDuplicationCheckIntlResponseBodyResultExtFaceInfo,
       faceAge: 'string',
       faceAttack: 'string',
       faceAttackScore: 'string',
@@ -135,6 +193,9 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   }
 
   validate() {
+    if(this.extFaceInfo && typeof (this.extFaceInfo as any).validate === 'function') {
+      (this.extFaceInfo as any).validate();
+    }
     super.validate();
   }
 

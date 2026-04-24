@@ -12,6 +12,11 @@ export class FaceCompareRequest extends $dara.Model {
    */
   facePictureQualityCheck?: string;
   /**
+   * @example
+   * Y
+   */
+  faceQualityCheck?: string;
+  /**
    * @remarks
    * A custom unique business ID used for troubleshooting. It can be a combination of up to 32 letters and digits. Make sure that the ID is unique.
    * 
@@ -64,6 +69,7 @@ export class FaceCompareRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       facePictureQualityCheck: 'FacePictureQualityCheck',
+      faceQualityCheck: 'FaceQualityCheck',
       merchantBizId: 'MerchantBizId',
       sourceFacePicture: 'SourceFacePicture',
       sourceFacePictureUrl: 'SourceFacePictureUrl',
@@ -75,6 +81,7 @@ export class FaceCompareRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       facePictureQualityCheck: 'string',
+      faceQualityCheck: 'string',
       merchantBizId: 'string',
       sourceFacePicture: 'string',
       sourceFacePictureUrl: 'string',

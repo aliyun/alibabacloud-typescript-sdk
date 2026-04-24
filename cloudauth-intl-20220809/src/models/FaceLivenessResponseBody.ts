@@ -40,6 +40,16 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
    */
   faceQualityScore?: number;
   /**
+   * @example
+   * 0.02
+   */
+  illuminationScore?: number;
+  /**
+   * @example
+   * 20
+   */
+  kaOcclusionScore?: number;
+  /**
    * @remarks
    * Optional. Indicates whether the face is occluded. Y means the face is occluded. N means the face is not occluded.
    * 
@@ -47,13 +57,27 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
    * Y
    */
   occlusionResult?: string;
+  /**
+   * @example
+   * 50.26
+   */
+  occlusionScore?: number;
+  /**
+   * @example
+   * 86.47
+   */
+  sharpnessScore?: number;
   static names(): { [key: string]: string } {
     return {
       faceAge: 'FaceAge',
       faceAttack: 'FaceAttack',
       faceGender: 'FaceGender',
       faceQualityScore: 'FaceQualityScore',
+      illuminationScore: 'IlluminationScore',
+      kaOcclusionScore: 'KaOcclusionScore',
       occlusionResult: 'OcclusionResult',
+      occlusionScore: 'OcclusionScore',
+      sharpnessScore: 'SharpnessScore',
     };
   }
 
@@ -63,7 +87,11 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
       faceAttack: 'string',
       faceGender: 'string',
       faceQualityScore: 'number',
+      illuminationScore: 'number',
+      kaOcclusionScore: 'number',
       occlusionResult: 'string',
+      occlusionScore: 'number',
+      sharpnessScore: 'number',
     };
   }
 

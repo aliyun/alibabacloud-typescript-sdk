@@ -10,6 +10,11 @@ export class FaceCompareV2Request extends $dara.Model {
   facePictureQualityCheck?: string;
   /**
    * @example
+   * Y
+   */
+  faceQualityCheck?: string;
+  /**
+   * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
    */
   merchantBizId?: string;
@@ -46,6 +51,7 @@ export class FaceCompareV2Request extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       facePictureQualityCheck: 'FacePictureQualityCheck',
+      faceQualityCheck: 'FaceQualityCheck',
       merchantBizId: 'MerchantBizId',
       sourceFacePicture: 'SourceFacePicture',
       sourceFacePictureFile: 'SourceFacePictureFile',
@@ -59,6 +65,7 @@ export class FaceCompareV2Request extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       facePictureQualityCheck: 'string',
+      faceQualityCheck: 'string',
       merchantBizId: 'string',
       sourceFacePicture: 'string',
       sourceFacePictureFile: 'string',
