@@ -81,6 +81,9 @@ export { RegisterYikeAssetMediaInfoResponse } from './RegisterYikeAssetMediaInfo
 export { ResumeYikeStoryboardJobRequest } from './ResumeYikeStoryboardJobRequest';
 export { ResumeYikeStoryboardJobResponseBody } from './ResumeYikeStoryboardJobResponseBody';
 export { ResumeYikeStoryboardJobResponse } from './ResumeYikeStoryboardJobResponse';
+export { SetYikeCallbackConfigRequest } from './SetYikeCallbackConfigRequest';
+export { SetYikeCallbackConfigResponseBody } from './SetYikeCallbackConfigResponseBody';
+export { SetYikeCallbackConfigResponse } from './SetYikeCallbackConfigResponse';
 export { SetYikeUserRoleRequest } from './SetYikeUserRoleRequest';
 export { SetYikeUserRoleResponseBody } from './SetYikeUserRoleResponseBody';
 export { SetYikeUserRoleResponse } from './SetYikeUserRoleResponse';

@@ -862,6 +862,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 配置一刻事件回调
+   * 
+   * @param request - SetYikeCallbackConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetYikeCallbackConfigResponse
+   */
+  async setYikeCallbackConfigWithOptions(request: $_model.SetYikeCallbackConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetYikeCallbackConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callbackConfig)) {
+      query["CallbackConfig"] = request.callbackConfig;
+    }
+
+    if (!$dara.isNull(request.callbackUrl)) {
+      query["CallbackUrl"] = request.callbackUrl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetYikeCallbackConfig",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetYikeCallbackConfigResponse>(await this.callApi(params, req, runtime), new $_model.SetYikeCallbackConfigResponse({}));
+  }
+
+  /**
+   * 配置一刻事件回调
+   * 
+   * @param request - SetYikeCallbackConfigRequest
+   * @returns SetYikeCallbackConfigResponse
+   */
+  async setYikeCallbackConfig(request: $_model.SetYikeCallbackConfigRequest): Promise<$_model.SetYikeCallbackConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setYikeCallbackConfigWithOptions(request, runtime);
+  }
+
+  /**
    * 设置用户角色
    * 
    * @param request - SetYikeUserRoleRequest
