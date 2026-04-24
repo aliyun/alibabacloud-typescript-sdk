@@ -52,6 +52,8 @@ export class AddRecursionRecordRequest extends $dara.Model {
    * @remarks
    * Zone ID。
    * 
+   * This parameter is required.
+   * 
    * @example
    * 173671468000011
    */

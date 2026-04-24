@@ -9,6 +9,9 @@ export class DeleteRecursionRecordRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 17432432424
    */

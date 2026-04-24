@@ -65,6 +65,9 @@ export class ListRecursionRecordsRequest extends $dara.Model {
    */
   weight?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 17832322323
    */

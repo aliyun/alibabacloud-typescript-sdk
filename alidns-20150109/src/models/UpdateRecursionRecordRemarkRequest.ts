@@ -12,6 +12,8 @@ export class UpdateRecursionRecordRemarkRequest extends $dara.Model {
    * @remarks
    * record id
    * 
+   * This parameter is required.
+   * 
    * @example
    * 173671468000010
    */

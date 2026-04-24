@@ -80,6 +80,9 @@ export class SearchRecursionRecordsRequest extends $dara.Model {
    */
   weight?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 169438909000011
    */

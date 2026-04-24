@@ -43,6 +43,9 @@ export class UpdateRecursionZoneEffectiveScopeRequest extends $dara.Model {
   clientToken?: string;
   effectiveScopes?: UpdateRecursionZoneEffectiveScopeRequestEffectiveScopes[];
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 173671468000011
    */

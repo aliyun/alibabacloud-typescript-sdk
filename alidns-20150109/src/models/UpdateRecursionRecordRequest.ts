@@ -14,6 +14,9 @@ export class UpdateRecursionRecordRequest extends $dara.Model {
    */
   priority?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 9*******
    */

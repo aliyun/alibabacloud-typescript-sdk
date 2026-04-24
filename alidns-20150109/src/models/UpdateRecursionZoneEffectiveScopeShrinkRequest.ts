@@ -10,6 +10,9 @@ export class UpdateRecursionZoneEffectiveScopeShrinkRequest extends $dara.Model 
   clientToken?: string;
   effectiveScopesShrink?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 173671468000011
    */

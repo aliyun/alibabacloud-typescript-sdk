@@ -9,6 +9,9 @@ export class UpdateRecursionRecordWeightRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 17363242424
    */

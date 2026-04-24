@@ -14,6 +14,9 @@ export class UpdateRecursionRecordEnableStatusRequest extends $dara.Model {
    */
   enableStatus?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 1781234321
    */

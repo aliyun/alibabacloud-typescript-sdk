@@ -29,6 +29,9 @@ export class UpdateRecursionRecordWeightEnableStatusRequest extends $dara.Model 
    */
   type?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 176432424234
    */
