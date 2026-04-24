@@ -56,6 +56,8 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
 
 export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionImagePipelineExecutionSet extends $dara.Model {
   creationTime?: string;
+  errorCode?: string;
+  errorInfo?: string;
   executionId?: string;
   imageId?: string;
   imagePipelineId?: string;
@@ -67,6 +69,8 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
   static names(): { [key: string]: string } {
     return {
       creationTime: 'CreationTime',
+      errorCode: 'ErrorCode',
+      errorInfo: 'ErrorInfo',
       executionId: 'ExecutionId',
       imageId: 'ImageId',
       imagePipelineId: 'ImagePipelineId',
@@ -81,6 +85,8 @@ export class DescribeImagePipelineExecutionsResponseBodyImagePipelineExecutionIm
   static types(): { [key: string]: any } {
     return {
       creationTime: 'string',
+      errorCode: 'string',
+      errorInfo: 'string',
       executionId: 'string',
       imageId: 'string',
       imagePipelineId: 'string',
