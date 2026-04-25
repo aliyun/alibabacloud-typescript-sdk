@@ -85,11 +85,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
    * --incognito
    */
   browserParam?: string;
-  /**
-   * @example
-   * true
-   */
-  cookiesSync?: string;
+  cookiesSync?: boolean;
   /**
    * @remarks
    * The home page.
@@ -119,7 +115,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
       bookmarks: { 'type': 'array', 'itemType': ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks },
       bookmarksFilePath: 'string',
       browserParam: 'string',
-      cookiesSync: 'string',
+      cookiesSync: 'boolean',
       homepage: 'string',
       removeBookmarks: { 'type': 'array', 'itemType': 'string' },
     };
