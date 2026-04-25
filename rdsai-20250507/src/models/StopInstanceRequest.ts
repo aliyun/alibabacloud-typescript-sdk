@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StopInstanceRequest extends $dara.Model {
+  force?: boolean;
   /**
    * @remarks
    * The region ID of the instance.
@@ -23,6 +24,7 @@ export class StopInstanceRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      force: 'Force',
       instanceName: 'InstanceName',
       regionId: 'RegionId',
     };
@@ -30,6 +32,7 @@ export class StopInstanceRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      force: 'boolean',
       instanceName: 'string',
       regionId: 'string',
     };

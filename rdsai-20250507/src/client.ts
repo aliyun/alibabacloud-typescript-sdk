@@ -3422,6 +3422,10 @@ export default class Client extends OpenApi {
   async stopInstanceWithOptions(request: $_model.StopInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopInstanceResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
