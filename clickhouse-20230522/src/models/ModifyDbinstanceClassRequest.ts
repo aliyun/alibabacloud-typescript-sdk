@@ -2,7 +2,85 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ModifyDBInstanceClassRequestAutoScaleConfigVSwitchInfos extends $dara.Model {
+  vSwitchIds?: string[];
+  /**
+   * @example
+   * cn-beijing-XXX
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchIds: 'VSwitchIds',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+      zoneId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitchIds)) {
+      $dara.Model.validateArray(this.vSwitchIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceClassRequestAutoScaleConfig extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  burstNum?: number;
+  /**
+   * @example
+   * enable
+   */
+  status?: string;
+  vSwitchInfos?: ModifyDBInstanceClassRequestAutoScaleConfigVSwitchInfos[];
+  static names(): { [key: string]: string } {
+    return {
+      burstNum: 'BurstNum',
+      status: 'Status',
+      vSwitchInfos: 'VSwitchInfos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      burstNum: 'number',
+      status: 'string',
+      vSwitchInfos: { 'type': 'array', 'itemType': ModifyDBInstanceClassRequestAutoScaleConfigVSwitchInfos },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.vSwitchInfos)) {
+      $dara.Model.validateArray(this.vSwitchInfos);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBInstanceClassRequest extends $dara.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  autoScaleConfig?: ModifyDBInstanceClassRequestAutoScaleConfig;
   computingGroupId?: string;
   /**
    * @remarks
@@ -65,6 +143,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   storageType?: string;
   static names(): { [key: string]: string } {
     return {
+      autoScaleConfig: 'AutoScaleConfig',
       computingGroupId: 'ComputingGroupId',
       DBInstanceId: 'DBInstanceId',
       nodeCount: 'NodeCount',
@@ -80,6 +159,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoScaleConfig: ModifyDBInstanceClassRequestAutoScaleConfig,
       computingGroupId: 'string',
       DBInstanceId: 'string',
       nodeCount: 'number',
@@ -94,6 +174,9 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.autoScaleConfig && typeof (this.autoScaleConfig as any).validate === 'function') {
+      (this.autoScaleConfig as any).validate();
+    }
     super.validate();
   }
 

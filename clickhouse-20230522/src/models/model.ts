@@ -69,6 +69,8 @@ export { ListWhitelistTemplatesResponseBodyData } from './ListWhitelistTemplates
 export { ModifyAccountAuthorityRequestDmlAuthSetting } from './ModifyAccountAuthorityRequest';
 export { ModifyAccountAuthorityResponseBodyData } from './ModifyAccountAuthorityResponseBody';
 export { ModifyAccountDescriptionResponseBodyData } from './ModifyAccountDescriptionResponseBody';
+export { ModifyDBInstanceClassRequestAutoScaleConfigVSwitchInfos } from './ModifyDbinstanceClassRequest';
+export { ModifyDBInstanceClassRequestAutoScaleConfig } from './ModifyDbinstanceClassRequest';
 export { ModifyDBInstanceClassResponseBodyData } from './ModifyDbinstanceClassResponseBody';
 export { ModifyDBInstanceConfigResponseBodyData } from './ModifyDbinstanceConfigResponseBody';
 export { ModifyDBInstanceConnectionStringResponseBodyData } from './ModifyDbinstanceConnectionStringResponseBody';
@@ -201,6 +203,7 @@ export { ModifyDBInstanceAttributeRequest } from './ModifyDbinstanceAttributeReq
 export { ModifyDBInstanceAttributeResponseBody } from './ModifyDbinstanceAttributeResponseBody';
 export { ModifyDBInstanceAttributeResponse } from './ModifyDbinstanceAttributeResponse';
 export { ModifyDBInstanceClassRequest } from './ModifyDbinstanceClassRequest';
+export { ModifyDBInstanceClassShrinkRequest } from './ModifyDbinstanceClassShrinkRequest';
 export { ModifyDBInstanceClassResponseBody } from './ModifyDbinstanceClassResponseBody';
 export { ModifyDBInstanceClassResponse } from './ModifyDbinstanceClassResponse';
 export { ModifyDBInstanceConfigRequest } from './ModifyDbinstanceConfigRequest';

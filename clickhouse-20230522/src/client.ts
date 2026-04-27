@@ -2257,13 +2257,23 @@ export default class Client extends OpenApi {
   /**
    * Modifies the elastic scaling settings of an ApsaraDB for ClickHouse cluster.
    * 
-   * @param request - ModifyDBInstanceClassRequest
+   * @param tmpReq - ModifyDBInstanceClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDBInstanceClassResponse
    */
-  async modifyDBInstanceClassWithOptions(request: $_model.ModifyDBInstanceClassRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceClassResponse> {
-    request.validate();
+  async modifyDBInstanceClassWithOptions(tmpReq: $_model.ModifyDBInstanceClassRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBInstanceClassResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyDBInstanceClassShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.autoScaleConfig)) {
+      request.autoScaleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoScaleConfig, "AutoScaleConfig", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.autoScaleConfigShrink)) {
+      query["AutoScaleConfig"] = request.autoScaleConfigShrink;
+    }
+
     if (!$dara.isNull(request.computingGroupId)) {
       query["ComputingGroupId"] = request.computingGroupId;
     }
