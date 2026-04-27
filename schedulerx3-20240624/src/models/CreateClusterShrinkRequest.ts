@@ -43,22 +43,21 @@ export class CreateClusterShrinkRequest extends $dara.Model {
    */
   clusterName?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * scx.dev.x1
    */
   clusterSpec?: string;
   /**
    * @example
+   * 1
+   */
+  clusterType?: number;
+  /**
+   * @example
    * 3
    */
   duration?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * xxljob
    */
@@ -69,16 +68,10 @@ export class CreateClusterShrinkRequest extends $dara.Model {
    */
   pricingCycle?: string;
   tag?: CreateClusterShrinkRequestTag[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   vSwitchesShrink?: string;
   /**
    * @remarks
    * VPC id
-   * 
-   * This parameter is required.
    * 
    * @example
    * vpc-aa1a18236n90rqhuhhnhh
@@ -89,6 +82,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
       chargeType: 'ChargeType',
       clusterName: 'ClusterName',
       clusterSpec: 'ClusterSpec',
+      clusterType: 'ClusterType',
       duration: 'Duration',
       engineType: 'EngineType',
       pricingCycle: 'PricingCycle',
@@ -103,6 +97,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
       chargeType: 'string',
       clusterName: 'string',
       clusterSpec: 'string',
+      clusterType: 'number',
       duration: 'number',
       engineType: 'string',
       pricingCycle: 'string',

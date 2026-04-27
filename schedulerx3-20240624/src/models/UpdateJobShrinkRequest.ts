@@ -129,6 +129,11 @@ export class UpdateJobShrinkRequest extends $dara.Model {
    * 1
    */
   weight?: number;
+  /**
+   * @example
+   * {"reponseMode":"streaming"}
+   */
+  XAttrs?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -156,6 +161,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
       timeType: 'TimeType',
       timezone: 'Timezone',
       weight: 'Weight',
+      XAttrs: 'XAttrs',
     };
   }
 
@@ -186,6 +192,7 @@ export class UpdateJobShrinkRequest extends $dara.Model {
       timeType: 'number',
       timezone: 'string',
       weight: 'number',
+      XAttrs: 'string',
     };
   }
 

@@ -29,6 +29,10 @@ export class UpdateAppRequest extends $dara.Model {
    * true
    */
   enableLog?: boolean;
+  /**
+   * @example
+   * 1
+   */
   labelRouteStrategy?: number;
   /**
    * @example
@@ -40,6 +44,11 @@ export class UpdateAppRequest extends $dara.Model {
    * This parameter is required.
    */
   title?: string;
+  /**
+   * @example
+   * 1
+   */
+  workerId?: number;
   static names(): { [key: string]: string } {
     return {
       accessToken: 'AccessToken',
@@ -49,6 +58,7 @@ export class UpdateAppRequest extends $dara.Model {
       labelRouteStrategy: 'LabelRouteStrategy',
       maxConcurrency: 'MaxConcurrency',
       title: 'Title',
+      workerId: 'WorkerId',
     };
   }
 
@@ -61,6 +71,7 @@ export class UpdateAppRequest extends $dara.Model {
       labelRouteStrategy: 'number',
       maxConcurrency: 'number',
       title: 'string',
+      workerId: 'number',
     };
   }
 

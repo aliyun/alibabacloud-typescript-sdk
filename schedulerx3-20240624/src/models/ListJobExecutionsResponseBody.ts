@@ -118,6 +118,11 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
    * myWorkflow
    */
   workflowName?: string;
+  /**
+   * @example
+   * {"sessionId":"ac21f9f6-5a88-4f97-abd1-b51989166035"}
+   */
+  XAttrs?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -143,6 +148,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
       workflowExecutionId: 'WorkflowExecutionId',
       workflowId: 'WorkflowId',
       workflowName: 'WorkflowName',
+      XAttrs: 'XAttrs',
     };
   }
 
@@ -171,6 +177,7 @@ export class ListJobExecutionsResponseBodyDataRecords extends $dara.Model {
       workflowExecutionId: 'string',
       workflowId: 'number',
       workflowName: 'string',
+      XAttrs: 'string',
     };
   }
 

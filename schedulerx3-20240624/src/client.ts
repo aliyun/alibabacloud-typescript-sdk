@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用
+   * Creates an application.
    * 
    * @param request - CreateAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -89,7 +89,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用
+   * Creates an application.
    * 
    * @param request - CreateAppRequest
    * @returns CreateAppResponse
@@ -158,7 +158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集群
+   * Creates a cluster.
    * 
    * @param tmpReq - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -188,6 +188,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clusterSpec)) {
       body["ClusterSpec"] = request.clusterSpec;
+    }
+
+    if (!$dara.isNull(request.clusterType)) {
+      body["ClusterType"] = request.clusterType;
     }
 
     if (!$dara.isNull(request.duration)) {
@@ -229,7 +233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建集群
+   * Creates a cluster.
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -302,6 +306,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加执行器组
+   * 
+   * @param request - CreateExecutorGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExecutorGroupResponse
+   */
+  async createExecutorGroupWithOptions(request: $_model.CreateExecutorGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExecutorGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      body["AuthType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.network)) {
+      body["Network"] = request.network;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      body["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.workerType)) {
+      body["WorkerType"] = request.workerType;
+    }
+
+    if (!$dara.isNull(request.workers)) {
+      body["Workers"] = request.workers;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateExecutorGroup",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateExecutorGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateExecutorGroupResponse({}));
+  }
+
+  /**
+   * 添加执行器组
+   * 
+   * @param request - CreateExecutorGroupRequest
+   * @returns CreateExecutorGroupResponse
+   */
+  async createExecutorGroup(request: $_model.CreateExecutorGroupRequest): Promise<$_model.CreateExecutorGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createExecutorGroupWithOptions(request, runtime);
+  }
+
+  /**
    * 添加执行器
    * 
    * @param request - CreateExecutorsRequest
@@ -356,7 +434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务
+   * Creates a job.
    * 
    * @param tmpReq - CreateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -487,6 +565,10 @@ export default class Client extends OpenApi {
       body["Weight"] = request.weight;
     }
 
+    if (!$dara.isNull(request.XAttrs)) {
+      body["XAttrs"] = request.XAttrs;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -505,7 +587,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务
+   * Creates a job.
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -598,7 +680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用分组
+   * Deletes an application group.
    * 
    * @param request - DeleteAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -633,7 +715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除应用分组
+   * Deletes an application group.
    * 
    * @param request - DeleteAppRequest
    * @returns DeleteAppResponse
@@ -694,7 +776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 释放删除集群
+   * Deletes a cluster.
    * 
    * @param request - DeleteClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -725,7 +807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 释放删除集群
+   * Deletes a cluster.
    * 
    * @param request - DeleteClusterRequest
    * @returns DeleteClusterResponse
@@ -782,7 +864,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除任务
+   * 添加执行器组
+   * 
+   * @param request - DeleteExecutorGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteExecutorGroupResponse
+   */
+  async deleteExecutorGroupWithOptions(request: $_model.DeleteExecutorGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteExecutorGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteExecutorGroup",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteExecutorGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteExecutorGroupResponse({}));
+  }
+
+  /**
+   * 添加执行器组
+   * 
+   * @param request - DeleteExecutorGroupRequest
+   * @returns DeleteExecutorGroupResponse
+   */
+  async deleteExecutorGroup(request: $_model.DeleteExecutorGroupRequest): Promise<$_model.DeleteExecutorGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteExecutorGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes multiple jobs at a time.
    * 
    * @param tmpReq - DeleteJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -827,7 +955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除任务
+   * Deletes multiple jobs at a time.
    * 
    * @param request - DeleteJobsRequest
    * @returns DeleteJobsResponse
@@ -952,7 +1080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导出任务信息
+   * Exports the information about jobs at a time.
    * 
    * @param tmpReq - ExportJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1001,7 +1129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导出任务信息
+   * Exports the information about jobs at a time.
    * 
    * @param request - ExportJobsRequest
    * @returns ExportJobsResponse
@@ -1164,7 +1292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群详细信息
+   * Queries the details of a cluster.
    * 
    * @param request - GetClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1191,7 +1319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群详细信息
+   * Queries the details of a cluster.
    * 
    * @param request - GetClusterRequest
    * @returns GetClusterResponse
@@ -1202,7 +1330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定机器信息
+   * Queries a specified machine.
    * 
    * @param request - GetDesigateInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1229,7 +1357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定机器信息
+   * Queries a specified machine.
    * 
    * @param request - GetDesigateInfoRequest
    * @returns GetDesigateInfoResponse
@@ -1340,7 +1468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务执行的详情
+   * Obtains the execution details of a job.
    * 
    * @param request - GetJobExecutionProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1367,7 +1495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务执行的详情
+   * Obtains the execution details of a job.
    * 
    * @param request - GetJobExecutionProgressRequest
    * @returns GetJobExecutionProgressResponse
@@ -1416,7 +1544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询日志
+   * Queries logs.
    * 
    * @param request - GetLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1443,7 +1571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询日志
+   * Queries logs.
    * 
    * @param request - GetLogRequest
    * @returns GetLogResponse
@@ -1489,6 +1617,88 @@ export default class Client extends OpenApi {
   async getLogEvent(request: $_model.GetLogEventRequest): Promise<$_model.GetLogEventResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getLogEventWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取分页日志
+   * 
+   * @param request - GetPageLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPageLogResponse
+   */
+  async getPageLogWithOptions(request: $_model.GetPageLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPageLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.jobExecutionId)) {
+      query["JobExecutionId"] = request.jobExecutionId;
+    }
+
+    if (!$dara.isNull(request.jobName)) {
+      query["JobName"] = request.jobName;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.reverse)) {
+      query["Reverse"] = request.reverse;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.workerAddr)) {
+      query["WorkerAddr"] = request.workerAddr;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPageLog",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPageLogResponse>(await this.callApi(params, req, runtime), new $_model.GetPageLogResponse({}));
+  }
+
+  /**
+   * 获取分页日志
+   * 
+   * @param request - GetPageLogRequest
+   * @returns GetPageLogResponse
+   */
+  async getPageLog(request: $_model.GetPageLogRequest): Promise<$_model.GetPageLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPageLogWithOptions(request, runtime);
   }
 
   /**
@@ -1696,7 +1906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入日历
+   * Imports a calendar.
    * 
    * @param request - ImportCalendarRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1739,7 +1949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入日历
+   * Imports a calendar.
    * 
    * @param request - ImportCalendarRequest
    * @returns ImportCalendarResponse
@@ -1750,7 +1960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导入任务
+   * Imports jobs at a time.
    * 
    * @param request - ImportJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1793,7 +2003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导入任务
+   * Imports jobs at a time.
    * 
    * @param request - ImportJobsRequest
    * @returns ImportJobsResponse
@@ -1858,7 +2068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取报警事件
+   * Obtains a list of alert events.
    * 
    * @param request - ListAlarmEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1885,7 +2095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取报警事件
+   * Obtains a list of alert events.
    * 
    * @param request - ListAlarmEventRequest
    * @returns ListAlarmEventResponse
@@ -1896,7 +2106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用名字列表
+   * Obtains a list of application names.
    * 
    * @param request - ListAppNamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1923,7 +2133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用名字列表
+   * Obtains a list of application names.
    * 
    * @param request - ListAppNamesRequest
    * @returns ListAppNamesResponse
@@ -1934,7 +2144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用列表
+   * Queries a list of applications.
    * 
    * @param request - ListAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1961,7 +2171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用列表
+   * Queries a list of applications.
    * 
    * @param request - ListAppsRequest
    * @returns ListAppsResponse
@@ -1972,7 +2182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日历名字列表
+   * Obtains a list of calendar names.
    * 
    * @param request - ListCalendarNamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1999,7 +2209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日历名字列表
+   * Obtains a list of calendar names.
    * 
    * @param request - ListCalendarNamesRequest
    * @returns ListCalendarNamesResponse
@@ -2072,7 +2282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例列表
+   * Queries a list of instances.
    * 
    * @param request - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2099,7 +2309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例列表
+   * Queries a list of instances.
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -2176,7 +2386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Executor列表
+   * Queries a list of executors.
    * 
    * @param request - ListExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2203,7 +2413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Executor列表
+   * Queries a list of executors.
    * 
    * @param request - ListExecutorsRequest
    * @returns ListExecutorsResponse
@@ -2214,7 +2424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务实例列表
+   * Obtains a list of job instances.
    * 
    * @param request - ListJobExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2285,7 +2495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务实例列表
+   * Obtains a list of job instances.
    * 
    * @param request - ListJobExecutionsRequest
    * @returns ListJobExecutionsResponse
@@ -2354,7 +2564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务列表
+   * Queries a list of jobs.
    * 
    * @param request - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2421,7 +2631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务列表
+   * Queries a list of jobs.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -2490,7 +2700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取executor的label列表
+   * Obtains a list of tags of an executor.
    * 
    * @param request - ListLablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2517,7 +2727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取executor的label列表
+   * Obtains a list of tags of an executor.
    * 
    * @param request - ListLablesRequest
    * @returns ListLablesResponse
@@ -2528,9 +2738,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取可用区列表
+   * Obtains a list of zones.
    * 
-   * @param request - ListRegionZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegionZoneResponse
    */
@@ -2551,7 +2760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取可用区列表
+   * Obtains a list of zones.
    * @returns ListRegionZoneResponse
    */
   async listRegionZone(): Promise<$_model.ListRegionZoneResponse> {
@@ -2560,9 +2769,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取所有region列表
+   * Obtains a list of all regions.
    * 
-   * @param request - ListRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegionsResponse
    */
@@ -2583,7 +2791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取所有region列表
+   * Obtains a list of all regions.
    * @returns ListRegionsResponse
    */
   async listRegions(): Promise<$_model.ListRegionsResponse> {
@@ -2592,7 +2800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询调度事件
+   * Queries scheduling events.
    * 
    * @param request - ListScheduleEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2619,7 +2827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询调度事件
+   * Queries scheduling events.
    * 
    * @param request - ListScheduleEventRequest
    * @returns ListScheduleEventResponse
@@ -2630,7 +2838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定时间类型和表达式未来5次调度时间
+   * Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
    * 
    * @param request - ListScheduleTimesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2657,7 +2865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取指定时间类型和表达式未来5次调度时间
+   * Obtains the scheduling time points of the next five jobs. The scheduling time points are specified by time types or expressions.
    * 
    * @param request - ListScheduleTimesRequest
    * @returns ListScheduleTimesResponse
@@ -3002,7 +3210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 指定执行器
+   * Designates executors.
    * 
    * @param tmpReq - OperateDesignateExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3059,7 +3267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 指定执行器
+   * Designates executors.
    * 
    * @param request - OperateDesignateExecutorsRequest
    * @returns OperateDesignateExecutorsResponse
@@ -3070,7 +3278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量禁用任务
+   * Disables multiple jobs at a time.
    * 
    * @param tmpReq - OperateDisableJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3115,7 +3323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量禁用任务
+   * Disables multiple jobs at a time.
    * 
    * @param request - OperateDisableJobsRequest
    * @returns OperateDisableJobsResponse
@@ -3182,7 +3390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量启用任务
+   * Enables multiple jobs at a time.
    * 
    * @param tmpReq - OperateEnableJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3227,7 +3435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量启用任务
+   * Enables multiple jobs at a time.
    * 
    * @param request - OperateEnableJobsRequest
    * @returns OperateEnableJobsResponse
@@ -3294,7 +3502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行一次任务
+   * Runs a job once.
    * 
    * @param request - OperateExecuteJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3345,7 +3553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行一次任务
+   * Runs a job once.
    * 
    * @param request - OperateExecuteJobRequest
    * @returns OperateExecuteJobResponse
@@ -3606,7 +3814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重刷任务历史数据
+   * Reprocesses the historical data of a job.
    * 
    * @param request - OperateRerunJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3657,7 +3865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重刷任务历史数据
+   * Reprocesses the historical data of a job.
    * 
    * @param request - OperateRerunJobRequest
    * @returns OperateRerunJobResponse
@@ -3668,7 +3876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重跑失败的任务实例
+   * Reruns failed job instances.
    * 
    * @param tmpReq - OperateRetryJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3721,7 +3929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重跑失败的任务实例
+   * Reruns failed job instances.
    * 
    * @param request - OperateRetryJobExecutionRequest
    * @returns OperateRetryJobExecutionResponse
@@ -3836,7 +4044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止运行中的任务实例
+   * Stops running instances.
    * 
    * @param tmpReq - OperateStopJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3885,7 +4093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止运行中的任务实例
+   * Stops running instances.
    * 
    * @param request - OperateStopJobExecutionRequest
    * @returns OperateStopJobExecutionResponse
@@ -4160,7 +4368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用分组
+   * Updates an application group.
    * 
    * @param request - UpdateAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4197,6 +4405,10 @@ export default class Client extends OpenApi {
       body["Title"] = request.title;
     }
 
+    if (!$dara.isNull(request.workerId)) {
+      body["WorkerId"] = request.workerId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -4215,7 +4427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新应用分组
+   * Updates an application group.
    * 
    * @param request - UpdateAppRequest
    * @returns UpdateAppResponse
@@ -4288,7 +4500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集群
+   * Updates a cluster.
    * 
    * @param request - UpdateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4327,7 +4539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集群
+   * Updates a cluster.
    * 
    * @param request - UpdateClusterRequest
    * @returns UpdateClusterResponse
@@ -4400,6 +4612,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新执行器组
+   * 
+   * @param request - UpdateExecutorGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateExecutorGroupResponse
+   */
+  async updateExecutorGroupWithOptions(request: $_model.UpdateExecutorGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateExecutorGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      body["AuthType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.network)) {
+      body["Network"] = request.network;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      body["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.workerType)) {
+      body["WorkerType"] = request.workerType;
+    }
+
+    if (!$dara.isNull(request.workers)) {
+      body["Workers"] = request.workers;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateExecutorGroup",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateExecutorGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateExecutorGroupResponse({}));
+  }
+
+  /**
+   * 更新执行器组
+   * 
+   * @param request - UpdateExecutorGroupRequest
+   * @returns UpdateExecutorGroupResponse
+   */
+  async updateExecutorGroup(request: $_model.UpdateExecutorGroupRequest): Promise<$_model.UpdateExecutorGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateExecutorGroupWithOptions(request, runtime);
+  }
+
+  /**
    * 更新执行器
    * 
    * @param request - UpdateExecutorsRequest
@@ -4454,7 +4740,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务信息
+   * Updates the job information.
    * 
    * @param tmpReq - UpdateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4573,6 +4859,10 @@ export default class Client extends OpenApi {
       body["Weight"] = request.weight;
     }
 
+    if (!$dara.isNull(request.XAttrs)) {
+      body["XAttrs"] = request.XAttrs;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -4591,7 +4881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务信息
+   * Updates the job information.
    * 
    * @param request - UpdateJobRequest
    * @returns UpdateJobResponse

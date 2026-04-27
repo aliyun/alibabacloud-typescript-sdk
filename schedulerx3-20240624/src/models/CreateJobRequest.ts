@@ -309,6 +309,11 @@ export class CreateJobRequest extends $dara.Model {
    * 1
    */
   weight?: number;
+  /**
+   * @example
+   * {"responseMode":"streaming"}
+   */
+  XAttrs?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -338,6 +343,7 @@ export class CreateJobRequest extends $dara.Model {
       timeType: 'TimeType',
       timezone: 'Timezone',
       weight: 'Weight',
+      XAttrs: 'XAttrs',
     };
   }
 
@@ -370,6 +376,7 @@ export class CreateJobRequest extends $dara.Model {
       timeType: 'number',
       timezone: 'string',
       weight: 'number',
+      XAttrs: 'string',
     };
   }
 

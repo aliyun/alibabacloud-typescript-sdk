@@ -59,6 +59,11 @@ export class GetClusterResponseBodyData extends $dara.Model {
   clusterSpec?: string;
   /**
    * @example
+   * 1
+   */
+  clusterType?: number;
+  /**
+   * @example
    * 2024-10-29 15:56:36
    */
   createTime?: string;
@@ -174,6 +179,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       clusterSpec: 'ClusterSpec',
+      clusterType: 'ClusterType',
       createTime: 'CreateTime',
       endTime: 'EndTime',
       engineType: 'EngineType',
@@ -204,6 +210,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
       clusterId: 'string',
       clusterName: 'string',
       clusterSpec: 'string',
+      clusterType: 'number',
       createTime: 'string',
       endTime: 'string',
       engineType: 'string',

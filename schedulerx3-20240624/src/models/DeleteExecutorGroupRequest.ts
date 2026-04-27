@@ -2,38 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateClusterRequest extends $dara.Model {
+export class DeleteExecutorGroupRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * xxljob-c20f7ec9a78
+   * xxljob-b6ec1xxxx
    */
   clusterId?: string;
   /**
+   * @remarks
+   * ID。
+   * 
+   * This parameter is required.
+   * 
    * @example
-   * xx-test-1107
+   * 83163
    */
-  clusterName?: string;
-  /**
-   * @example
-   * 192.168.1.0/24
-   */
-  ipWhitelist?: string;
+  id?: number;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
-      clusterName: 'ClusterName',
-      ipWhitelist: 'IpWhitelist',
+      id: 'Id',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
-      clusterName: 'string',
-      ipWhitelist: 'string',
+      id: 'number',
     };
   }
 

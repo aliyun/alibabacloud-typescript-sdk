@@ -41,6 +41,11 @@ export class ListClustersRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @example
+   * 1
+   */
+  clusterType?: number;
+  /**
+   * @example
    * 5
    */
   pageNum?: number;
@@ -54,6 +59,7 @@ export class ListClustersRequest extends $dara.Model {
     return {
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
+      clusterType: 'ClusterType',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       tag: 'Tag',
@@ -64,6 +70,7 @@ export class ListClustersRequest extends $dara.Model {
     return {
       clusterId: 'string',
       clusterName: 'string',
+      clusterType: 'number',
       pageNum: 'number',
       pageSize: 'number',
       tag: { 'type': 'array', 'itemType': ListClustersRequestTag },

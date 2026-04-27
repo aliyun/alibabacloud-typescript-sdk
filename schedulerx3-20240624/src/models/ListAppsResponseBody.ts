@@ -46,6 +46,10 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
    * 10
    */
   jobNum?: number;
+  /**
+   * @example
+   * 1
+   */
   labelRouteStrategy?: number;
   /**
    * @example
@@ -72,9 +76,18 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
   updater?: string;
   /**
    * @example
-   * k8s_service
+   * 1
+   */
+  workerId?: number;
+  /**
+   * @deprecated
    */
   workerRegistry?: string;
+  /**
+   * @example
+   * openclaw
+   */
+  workerType?: string;
   /**
    * @example
    * 3
@@ -96,7 +109,9 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
       maxJobs: 'MaxJobs',
       title: 'Title',
       updater: 'Updater',
+      workerId: 'WorkerId',
       workerRegistry: 'WorkerRegistry',
+      workerType: 'WorkerType',
       workflowNum: 'WorkflowNum',
     };
   }
@@ -117,7 +132,9 @@ export class ListAppsResponseBodyDataRecords extends $dara.Model {
       maxJobs: 'number',
       title: 'string',
       updater: 'string',
+      workerId: 'number',
       workerRegistry: 'string',
+      workerType: 'string',
       workflowNum: 'number',
     };
   }
