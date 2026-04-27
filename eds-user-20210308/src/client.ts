@@ -924,6 +924,10 @@ export default class Client extends OpenApi {
       query["BusinessChannel"] = request.businessChannel;
     }
 
+    if (!$dara.isNull(request.includeOrgIds)) {
+      query["IncludeOrgIds"] = request.includeOrgIds;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -1043,6 +1047,56 @@ export default class Client extends OpenApi {
   async describeResourceGroups(request: $_model.DescribeResourceGroupsRequest): Promise<$_model.DescribeResourceGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeResourceGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Query basic user information
+   * 
+   * @param request - DescribeUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserResponse
+   */
+  async describeUserWithOptions(request: $_model.DescribeUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
+    if (!$dara.isNull(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!$dara.isNull(request.requireExtraAttributes)) {
+      query["RequireExtraAttributes"] = request.requireExtraAttributes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUser",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUserResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserResponse({}));
+  }
+
+  /**
+   * Query basic user information
+   * 
+   * @param request - DescribeUserRequest
+   * @returns DescribeUserResponse
+   */
+  async describeUser(request: $_model.DescribeUserRequest): Promise<$_model.DescribeUserResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserWithOptions(request, runtime);
   }
 
   /**
@@ -1257,6 +1311,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.propertyKeyValueFilterParam)) {
       query["PropertyKeyValueFilterParam"] = request.propertyKeyValueFilterParam;
+    }
+
+    if (!$dara.isNull(request.showExtras)) {
+      query["ShowExtras"] = request.showExtras;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -2228,7 +2286,6 @@ export default class Client extends OpenApi {
   /**
    * Synchronizes all education information.
    * 
-   * @param request - SyncAllEduInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SyncAllEduInfoResponse
    */

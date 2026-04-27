@@ -2,23 +2,55 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeUsersResponseBodyUsersExtrasResourcePolicyList extends $dara.Model {
+  policyId?: string;
+  policyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      policyName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUsersResponseBodyUsersExtras extends $dara.Model {
   assignedResourceCount?: { [key: string]: any };
+  resourcePolicyList?: DescribeUsersResponseBodyUsersExtrasResourcePolicyList[];
   static names(): { [key: string]: string } {
     return {
       assignedResourceCount: 'AssignedResourceCount',
+      resourcePolicyList: 'ResourcePolicyList',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       assignedResourceCount: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      resourcePolicyList: { 'type': 'array', 'itemType': DescribeUsersResponseBodyUsersExtrasResourcePolicyList },
     };
   }
 
   validate() {
     if(this.assignedResourceCount) {
       $dara.Model.validateMap(this.assignedResourceCount);
+    }
+    if(Array.isArray(this.resourcePolicyList)) {
+      $dara.Model.validateArray(this.resourcePolicyList);
     }
     super.validate();
   }

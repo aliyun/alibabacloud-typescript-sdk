@@ -273,6 +273,7 @@ export class FilterUsersRequest extends $dara.Model {
    * The list of property names and property values.
    */
   propertyKeyValueFilterParam?: FilterUsersRequestPropertyKeyValueFilterParam[];
+  showExtras?: { [key: string]: string };
   /**
    * @remarks
    * The status.
@@ -300,6 +301,7 @@ export class FilterUsersRequest extends $dara.Model {
       ownerType: 'OwnerType',
       propertyFilterParam: 'PropertyFilterParam',
       propertyKeyValueFilterParam: 'PropertyKeyValueFilterParam',
+      showExtras: 'ShowExtras',
       status: 'Status',
     };
   }
@@ -323,6 +325,7 @@ export class FilterUsersRequest extends $dara.Model {
       ownerType: 'string',
       propertyFilterParam: { 'type': 'array', 'itemType': FilterUsersRequestPropertyFilterParam },
       propertyKeyValueFilterParam: { 'type': 'array', 'itemType': FilterUsersRequestPropertyKeyValueFilterParam },
+      showExtras: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       status: 'number',
     };
   }
@@ -345,6 +348,9 @@ export class FilterUsersRequest extends $dara.Model {
     }
     if(Array.isArray(this.propertyKeyValueFilterParam)) {
       $dara.Model.validateArray(this.propertyKeyValueFilterParam);
+    }
+    if(this.showExtras) {
+      $dara.Model.validateMap(this.showExtras);
     }
     super.validate();
   }

@@ -222,6 +222,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
    * The list of property names and property values.
    */
   propertyKeyValueFilterParam?: FilterUsersShrinkRequestPropertyKeyValueFilterParam[];
+  showExtras?: { [key: string]: string };
   /**
    * @remarks
    * The status.
@@ -249,6 +250,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
       ownerType: 'OwnerType',
       propertyFilterParam: 'PropertyFilterParam',
       propertyKeyValueFilterParam: 'PropertyKeyValueFilterParam',
+      showExtras: 'ShowExtras',
       status: 'Status',
     };
   }
@@ -272,6 +274,7 @@ export class FilterUsersShrinkRequest extends $dara.Model {
       ownerType: 'string',
       propertyFilterParam: { 'type': 'array', 'itemType': FilterUsersShrinkRequestPropertyFilterParam },
       propertyKeyValueFilterParam: { 'type': 'array', 'itemType': FilterUsersShrinkRequestPropertyKeyValueFilterParam },
+      showExtras: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       status: 'number',
     };
   }
@@ -288,6 +291,9 @@ export class FilterUsersShrinkRequest extends $dara.Model {
     }
     if(Array.isArray(this.propertyKeyValueFilterParam)) {
       $dara.Model.validateArray(this.propertyKeyValueFilterParam);
+    }
+    if(this.showExtras) {
+      $dara.Model.validateMap(this.showExtras);
     }
     super.validate();
   }

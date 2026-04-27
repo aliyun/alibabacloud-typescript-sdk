@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeOrgsResponseBodyOrgsResourcePolicyList extends $dara.Model {
+  policyId?: string;
+  policyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      policyName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
   /**
    * @remarks
@@ -28,12 +54,14 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
    * org-****
    */
   parentOrgId?: string;
+  resourcePolicyList?: DescribeOrgsResponseBodyOrgsResourcePolicyList[];
   static names(): { [key: string]: string } {
     return {
       orgId: 'OrgId',
       orgName: 'OrgName',
       orgNamePath: 'OrgNamePath',
       parentOrgId: 'ParentOrgId',
+      resourcePolicyList: 'ResourcePolicyList',
     };
   }
 
@@ -43,10 +71,14 @@ export class DescribeOrgsResponseBodyOrgs extends $dara.Model {
       orgName: 'string',
       orgNamePath: 'string',
       parentOrgId: 'string',
+      resourcePolicyList: { 'type': 'array', 'itemType': DescribeOrgsResponseBodyOrgsResourcePolicyList },
     };
   }
 
   validate() {
+    if(Array.isArray(this.resourcePolicyList)) {
+      $dara.Model.validateArray(this.resourcePolicyList);
+    }
     super.validate();
   }
 

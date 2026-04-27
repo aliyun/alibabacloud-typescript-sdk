@@ -109,6 +109,32 @@ export class FilterUsersResponseBodyUsersOrgList extends $dara.Model {
   }
 }
 
+export class FilterUsersResponseBodyUsersResourcePolicyList extends $dara.Model {
+  policyId?: string;
+  policyName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyId: 'string',
+      policyName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class FilterUsersResponseBodyUsersSupportLoginIdps extends $dara.Model {
   /**
    * @remarks
@@ -430,6 +456,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
    * 1
    */
   remark?: string;
+  resourcePolicyList?: FilterUsersResponseBodyUsersResourcePolicyList[];
   /**
    * @remarks
    * The remarks on the convenience account.
@@ -472,6 +499,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
       phone: 'Phone',
       realNickName: 'RealNickName',
       remark: 'Remark',
+      resourcePolicyList: 'ResourcePolicyList',
       status: 'Status',
       supportLoginIdps: 'SupportLoginIdps',
       userSetPropertiesModels: 'UserSetPropertiesModels',
@@ -497,6 +525,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
       phone: 'string',
       realNickName: 'string',
       remark: 'string',
+      resourcePolicyList: { 'type': 'array', 'itemType': FilterUsersResponseBodyUsersResourcePolicyList },
       status: 'number',
       supportLoginIdps: { 'type': 'array', 'itemType': FilterUsersResponseBodyUsersSupportLoginIdps },
       userSetPropertiesModels: { 'type': 'array', 'itemType': FilterUsersResponseBodyUsersUserSetPropertiesModels },
@@ -512,6 +541,9 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
     }
     if(Array.isArray(this.orgList)) {
       $dara.Model.validateArray(this.orgList);
+    }
+    if(Array.isArray(this.resourcePolicyList)) {
+      $dara.Model.validateArray(this.resourcePolicyList);
     }
     if(Array.isArray(this.supportLoginIdps)) {
       $dara.Model.validateArray(this.supportLoginIdps);

@@ -8,6 +8,7 @@ export class DescribeOrgsRequest extends $dara.Model {
    * ENTERPRISE
    */
   businessChannel?: string;
+  includeOrgIds?: string[];
   /**
    * @remarks
    * The maximum number of entries to return. Valid values: 1 to 100.\\
@@ -45,6 +46,7 @@ export class DescribeOrgsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       businessChannel: 'BusinessChannel',
+      includeOrgIds: 'IncludeOrgIds',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orgName: 'OrgName',
@@ -56,6 +58,7 @@ export class DescribeOrgsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       businessChannel: 'string',
+      includeOrgIds: { 'type': 'array', 'itemType': 'string' },
       maxResults: 'number',
       nextToken: 'string',
       orgName: 'string',
@@ -65,6 +68,9 @@ export class DescribeOrgsRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.includeOrgIds)) {
+      $dara.Model.validateArray(this.includeOrgIds);
+    }
     if(this.showExtras) {
       $dara.Model.validateMap(this.showExtras);
     }
