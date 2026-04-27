@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateQosRuleRequest extends $dara.Model {
   authAndroidId?: string[];
+  authDesktopGroupId?: string[];
   authDesktopId?: string[];
   /**
    * @remarks
@@ -37,6 +38,7 @@ export class CreateQosRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       authAndroidId: 'AuthAndroidId',
+      authDesktopGroupId: 'AuthDesktopGroupId',
       authDesktopId: 'AuthDesktopId',
       download: 'Download',
       networkPackageId: 'NetworkPackageId',
@@ -48,6 +50,7 @@ export class CreateQosRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       authAndroidId: { 'type': 'array', 'itemType': 'string' },
+      authDesktopGroupId: { 'type': 'array', 'itemType': 'string' },
       authDesktopId: { 'type': 'array', 'itemType': 'string' },
       download: 'number',
       networkPackageId: 'string',
@@ -59,6 +62,9 @@ export class CreateQosRuleRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.authAndroidId)) {
       $dara.Model.validateArray(this.authAndroidId);
+    }
+    if(Array.isArray(this.authDesktopGroupId)) {
+      $dara.Model.validateArray(this.authDesktopGroupId);
     }
     if(Array.isArray(this.authDesktopId)) {
       $dara.Model.validateArray(this.authDesktopId);

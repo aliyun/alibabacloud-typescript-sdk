@@ -8,6 +8,7 @@ export class DescribeQosRulesResponseBodyQosRules extends $dara.Model {
    * 0
    */
   desktopCount?: string;
+  desktopGroupCount?: number;
   /**
    * @example
    * 10
@@ -36,6 +37,7 @@ export class DescribeQosRulesResponseBodyQosRules extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       desktopCount: 'DesktopCount',
+      desktopGroupCount: 'DesktopGroupCount',
       download: 'Download',
       networkPackageId: 'NetworkPackageId',
       qosRuleId: 'QosRuleId',
@@ -47,6 +49,7 @@ export class DescribeQosRulesResponseBodyQosRules extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       desktopCount: 'string',
+      desktopGroupCount: 'number',
       download: 'string',
       networkPackageId: 'string',
       qosRuleId: 'string',

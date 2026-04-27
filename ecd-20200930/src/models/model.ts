@@ -32,6 +32,7 @@ export { CreateDesktopsRequestBundleModels } from './CreateDesktopsRequest';
 export { CreateDesktopsRequestDesktopAttachment } from './CreateDesktopsRequest';
 export { CreateDesktopsRequestDesktopTimers } from './CreateDesktopsRequest';
 export { CreateDesktopsRequestMonthDesktopSetting } from './CreateDesktopsRequest';
+export { CreateDesktopsRequestPurchaseOptions } from './CreateDesktopsRequest';
 export { CreateDesktopsRequestTag } from './CreateDesktopsRequest';
 export { CreateDesktopsRequestUserCommands } from './CreateDesktopsRequest';
 export { CreateDesktopsShrinkRequestBundleModels } from './CreateDesktopsShrinkRequest';

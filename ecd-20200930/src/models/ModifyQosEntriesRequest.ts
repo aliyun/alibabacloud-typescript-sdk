@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyQosEntriesRequest extends $dara.Model {
   authAndroidId?: string[];
+  authDesktopGroupId?: string[];
   authDesktopId?: string[];
   /**
    * @remarks
@@ -14,13 +15,16 @@ export class ModifyQosEntriesRequest extends $dara.Model {
    */
   qosRuleId?: string;
   revokeAndroidId?: string[];
+  revokeDesktopGroupId?: string[];
   revokeDesktopId?: string[];
   static names(): { [key: string]: string } {
     return {
       authAndroidId: 'AuthAndroidId',
+      authDesktopGroupId: 'AuthDesktopGroupId',
       authDesktopId: 'AuthDesktopId',
       qosRuleId: 'QosRuleId',
       revokeAndroidId: 'RevokeAndroidId',
+      revokeDesktopGroupId: 'RevokeDesktopGroupId',
       revokeDesktopId: 'RevokeDesktopId',
     };
   }
@@ -28,9 +32,11 @@ export class ModifyQosEntriesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       authAndroidId: { 'type': 'array', 'itemType': 'string' },
+      authDesktopGroupId: { 'type': 'array', 'itemType': 'string' },
       authDesktopId: { 'type': 'array', 'itemType': 'string' },
       qosRuleId: 'string',
       revokeAndroidId: { 'type': 'array', 'itemType': 'string' },
+      revokeDesktopGroupId: { 'type': 'array', 'itemType': 'string' },
       revokeDesktopId: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -39,11 +45,17 @@ export class ModifyQosEntriesRequest extends $dara.Model {
     if(Array.isArray(this.authAndroidId)) {
       $dara.Model.validateArray(this.authAndroidId);
     }
+    if(Array.isArray(this.authDesktopGroupId)) {
+      $dara.Model.validateArray(this.authDesktopGroupId);
+    }
     if(Array.isArray(this.authDesktopId)) {
       $dara.Model.validateArray(this.authDesktopId);
     }
     if(Array.isArray(this.revokeAndroidId)) {
       $dara.Model.validateArray(this.revokeAndroidId);
+    }
+    if(Array.isArray(this.revokeDesktopGroupId)) {
+      $dara.Model.validateArray(this.revokeDesktopGroupId);
     }
     if(Array.isArray(this.revokeDesktopId)) {
       $dara.Model.validateArray(this.revokeDesktopId);

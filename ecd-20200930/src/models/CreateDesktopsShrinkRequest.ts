@@ -669,6 +669,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
    * 23141
    */
   promotionId?: string;
+  purchaseOptionsShrink?: string;
   qosRuleId?: string;
   /**
    * @remarks
@@ -812,6 +813,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
       promotionId: 'PromotionId',
+      purchaseOptionsShrink: 'PurchaseOptions',
       qosRuleId: 'QosRuleId',
       regionId: 'RegionId',
       resellerOwnerUid: 'ResellerOwnerUid',
@@ -856,6 +858,7 @@ export class CreateDesktopsShrinkRequest extends $dara.Model {
       periodUnit: 'string',
       policyGroupId: 'string',
       promotionId: 'string',
+      purchaseOptionsShrink: 'string',
       qosRuleId: 'string',
       regionId: 'string',
       resellerOwnerUid: 'number',

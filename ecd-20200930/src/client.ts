@@ -3703,6 +3703,10 @@ export default class Client extends OpenApi {
       request.desktopAttachmentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.desktopAttachment, "DesktopAttachment", "json");
     }
 
+    if (!$dara.isNull(tmpReq.purchaseOptions)) {
+      request.purchaseOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.purchaseOptions, "PurchaseOptions", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.amount)) {
       query["Amount"] = request.amount;
@@ -3798,6 +3802,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.promotionId)) {
       query["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.purchaseOptionsShrink)) {
+      query["PurchaseOptions"] = request.purchaseOptionsShrink;
     }
 
     if (!$dara.isNull(request.qosRuleId)) {
@@ -4797,6 +4805,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.authAndroidId)) {
       query["AuthAndroidId"] = request.authAndroidId;
+    }
+
+    if (!$dara.isNull(request.authDesktopGroupId)) {
+      query["AuthDesktopGroupId"] = request.authDesktopGroupId;
     }
 
     if (!$dara.isNull(request.authDesktopId)) {
@@ -8102,6 +8114,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.protocolType)) {
       query["ProtocolType"] = request.protocolType;
+    }
+
+    if (!$dara.isNull(request.qosRuleId)) {
+      query["QosRuleId"] = request.qosRuleId;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -17476,6 +17492,10 @@ export default class Client extends OpenApi {
       query["AuthAndroidId"] = request.authAndroidId;
     }
 
+    if (!$dara.isNull(request.authDesktopGroupId)) {
+      query["AuthDesktopGroupId"] = request.authDesktopGroupId;
+    }
+
     if (!$dara.isNull(request.authDesktopId)) {
       query["AuthDesktopId"] = request.authDesktopId;
     }
@@ -17486,6 +17506,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.revokeAndroidId)) {
       query["RevokeAndroidId"] = request.revokeAndroidId;
+    }
+
+    if (!$dara.isNull(request.revokeDesktopGroupId)) {
+      query["RevokeDesktopGroupId"] = request.revokeDesktopGroupId;
     }
 
     if (!$dara.isNull(request.revokeDesktopId)) {

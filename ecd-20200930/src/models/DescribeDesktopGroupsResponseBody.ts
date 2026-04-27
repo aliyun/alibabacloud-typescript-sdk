@@ -518,6 +518,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
    * ASP
    */
   protocolType?: string;
+  qosRuleId?: string;
   /**
    * @remarks
    * The threshold for the ratio of connected sessions, which triggers automatic scaling of cloud computers within the multi-session many-to-many share. To calculate the ratio of connected sessions, use the following formula:
@@ -683,6 +684,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       policyGroupName: 'PolicyGroupName',
       policyGroupNameList: 'PolicyGroupNameList',
       protocolType: 'ProtocolType',
+      qosRuleId: 'QosRuleId',
       ratioThreshold: 'RatioThreshold',
       resetType: 'ResetType',
       simpleUserGroupId: 'SimpleUserGroupId',
@@ -747,6 +749,7 @@ export class DescribeDesktopGroupsResponseBodyDesktopGroups extends $dara.Model 
       policyGroupName: 'string',
       policyGroupNameList: { 'type': 'array', 'itemType': 'string' },
       protocolType: 'string',
+      qosRuleId: 'string',
       ratioThreshold: 'number',
       resetType: 'number',
       simpleUserGroupId: 'string',

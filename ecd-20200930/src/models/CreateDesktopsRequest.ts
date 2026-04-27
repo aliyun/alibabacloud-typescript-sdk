@@ -430,6 +430,29 @@ export class CreateDesktopsRequestMonthDesktopSetting extends $dara.Model {
   }
 }
 
+export class CreateDesktopsRequestPurchaseOptions extends $dara.Model {
+  monthlyCredits?: number;
+  static names(): { [key: string]: string } {
+    return {
+      monthlyCredits: 'MonthlyCredits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      monthlyCredits: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDesktopsRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -796,6 +819,7 @@ export class CreateDesktopsRequest extends $dara.Model {
    * 23141
    */
   promotionId?: string;
+  purchaseOptions?: CreateDesktopsRequestPurchaseOptions;
   qosRuleId?: string;
   /**
    * @remarks
@@ -939,6 +963,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
       promotionId: 'PromotionId',
+      purchaseOptions: 'PurchaseOptions',
       qosRuleId: 'QosRuleId',
       regionId: 'RegionId',
       resellerOwnerUid: 'ResellerOwnerUid',
@@ -983,6 +1008,7 @@ export class CreateDesktopsRequest extends $dara.Model {
       periodUnit: 'string',
       policyGroupId: 'string',
       promotionId: 'string',
+      purchaseOptions: CreateDesktopsRequestPurchaseOptions,
       qosRuleId: 'string',
       regionId: 'string',
       resellerOwnerUid: 'number',
@@ -1016,6 +1042,9 @@ export class CreateDesktopsRequest extends $dara.Model {
     }
     if(this.monthDesktopSetting && typeof (this.monthDesktopSetting as any).validate === 'function') {
       (this.monthDesktopSetting as any).validate();
+    }
+    if(this.purchaseOptions && typeof (this.purchaseOptions as any).validate === 'function') {
+      (this.purchaseOptions as any).validate();
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);

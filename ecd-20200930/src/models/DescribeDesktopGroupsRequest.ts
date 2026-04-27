@@ -205,6 +205,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
    * ASP
    */
   protocolType?: string;
+  qosRuleId?: string;
   /**
    * @remarks
    * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
@@ -253,6 +254,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
       protocolType: 'ProtocolType',
+      qosRuleId: 'QosRuleId',
       regionId: 'RegionId',
       status: 'Status',
       tag: 'Tag',
@@ -278,6 +280,7 @@ export class DescribeDesktopGroupsRequest extends $dara.Model {
       periodUnit: 'string',
       policyGroupId: 'string',
       protocolType: 'string',
+      qosRuleId: 'string',
       regionId: 'string',
       status: 'number',
       tag: { 'type': 'array', 'itemType': DescribeDesktopGroupsRequestTag },
