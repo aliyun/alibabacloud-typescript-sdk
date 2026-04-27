@@ -3191,6 +3191,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 计费管理/批量查询计费明细
+   * 
+   * @param request - ModelRouterQueryBillingCostBreakdownRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryBillingCostBreakdownResponse
+   */
+  async modelRouterQueryBillingCostBreakdownWithOptions(request: $_model.ModelRouterQueryBillingCostBreakdownRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryBillingCostBreakdownResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.granularity)) {
+      query["granularity"] = request.granularity;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryBillingCostBreakdown",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/billing/cost/breakdown`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryBillingCostBreakdownResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryBillingCostBreakdownResponse({}));
+  }
+
+  /**
+   * 计费管理/批量查询计费明细
+   * 
+   * @param request - ModelRouterQueryBillingCostBreakdownRequest
+   * @returns ModelRouterQueryBillingCostBreakdownResponse
+   */
+  async modelRouterQueryBillingCostBreakdown(request: $_model.ModelRouterQueryBillingCostBreakdownRequest): Promise<$_model.ModelRouterQueryBillingCostBreakdownResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryBillingCostBreakdownWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 计费管理/查询计费规则列表
    * 
    * @param request - ModelRouterQueryBillingRuleListRequest
@@ -4377,6 +4446,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterQueryObservationMetricsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 用量管理/批量查询用量明细
+   * 
+   * @param request - ModelRouterQueryUsageBreakdownRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterQueryUsageBreakdownResponse
+   */
+  async modelRouterQueryUsageBreakdownWithOptions(request: $_model.ModelRouterQueryUsageBreakdownRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryUsageBreakdownResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.granularity)) {
+      query["granularity"] = request.granularity;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterQueryUsageBreakdown",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/usage/breakdown`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterQueryUsageBreakdownResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterQueryUsageBreakdownResponse({}));
+  }
+
+  /**
+   * 用量管理/批量查询用量明细
+   * 
+   * @param request - ModelRouterQueryUsageBreakdownRequest
+   * @returns ModelRouterQueryUsageBreakdownResponse
+   */
+  async modelRouterQueryUsageBreakdown(request: $_model.ModelRouterQueryUsageBreakdownRequest): Promise<$_model.ModelRouterQueryUsageBreakdownResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterQueryUsageBreakdownWithOptions(request, headers, runtime);
   }
 
   /**
