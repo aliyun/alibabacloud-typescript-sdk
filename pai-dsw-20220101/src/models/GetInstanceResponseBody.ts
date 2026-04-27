@@ -1339,6 +1339,7 @@ export class GetInstanceResponseBody extends $dara.Model {
    * The tags.
    */
   tags?: GetInstanceResponseBodyTags[];
+  tenantId?: string;
   /**
    * @remarks
    * The terminal URL.
@@ -1450,6 +1451,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       status: 'Status',
       success: 'Success',
       tags: 'Tags',
+      tenantId: 'TenantId',
       terminalUrl: 'TerminalUrl',
       userCommandId: 'UserCommandId',
       userId: 'UserId',
@@ -1511,6 +1513,7 @@ export class GetInstanceResponseBody extends $dara.Model {
       status: 'string',
       success: 'boolean',
       tags: { 'type': 'array', 'itemType': GetInstanceResponseBodyTags },
+      tenantId: 'string',
       terminalUrl: 'string',
       userCommandId: 'string',
       userId: 'string',

@@ -1110,6 +1110,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * The tags.
    */
   tags?: ListInstancesResponseBodyInstancesTags[];
+  tenantId?: string;
   /**
    * @remarks
    * The terminal URL.
@@ -1211,6 +1212,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       serviceConfig: 'ServiceConfig',
       status: 'Status',
       tags: 'Tags',
+      tenantId: 'TenantId',
       terminalUrl: 'TerminalUrl',
       userId: 'UserId',
       userName: 'UserName',
@@ -1262,6 +1264,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
       serviceConfig: ServiceConfig,
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesTags },
+      tenantId: 'string',
       terminalUrl: 'string',
       userId: 'string',
       userName: 'string',
