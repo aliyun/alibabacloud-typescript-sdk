@@ -15,6 +15,11 @@ export class ListWorkspacesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @example
+   * ws-32klhjk2312334jkh
+   */
+  workspaceId?: string;
+  /**
+   * @example
    * ws_test
    */
   workspaceName?: string;
@@ -22,6 +27,7 @@ export class ListWorkspacesRequest extends $dara.Model {
     return {
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      workspaceId: 'workspaceId',
       workspaceName: 'workspaceName',
     };
   }
@@ -30,6 +36,7 @@ export class ListWorkspacesRequest extends $dara.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      workspaceId: 'string',
       workspaceName: 'string',
     };
   }

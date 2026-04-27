@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateWorkspaceRequest extends $dara.Model {
   /**
+   * @example
+   * global
+   */
+  serviceSite?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -13,12 +18,14 @@ export class CreateWorkspaceRequest extends $dara.Model {
   workspaceName?: string;
   static names(): { [key: string]: string } {
     return {
+      serviceSite: 'serviceSite',
       workspaceName: 'workspaceName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      serviceSite: 'string',
       workspaceName: 'string',
     };
   }

@@ -89,6 +89,10 @@ export default class Client extends OpenApi {
   async createWorkspaceWithOptions(request: $_model.CreateWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkspaceResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.serviceSite)) {
+      query["serviceSite"] = request.serviceSite;
+    }
+
     if (!$dara.isNull(request.workspaceName)) {
       query["workspaceName"] = request.workspaceName;
     }
@@ -271,6 +275,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["workspaceId"] = request.workspaceId;
     }
 
     if (!$dara.isNull(request.workspaceName)) {
