@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
+export class CloudGetAgentResponseBodyDataAgent extends $dara.Model {
   /**
    * @remarks
    * 是否启用，0：停用，1：启用，默认启用
@@ -10,7 +10,15 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * @example
    * 1
    */
-  active?: string;
+  active?: number;
+  /**
+   * @remarks
+   * 座席类型，1：电话座席，2：电脑座席，默认电话座席
+   * 
+   * @example
+   * 1
+   */
+  agentType?: number;
   /**
    * @remarks
    * 区号格式
@@ -21,10 +29,18 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
   areaCode?: string;
   /**
    * @remarks
+   * 允许语音识别的通话类型，1:呼入 4：预览外呼 9：主叫外呼 5：预测外呼 2：webcall
+   * 
+   * @example
+   * 2
+   */
+  asrCallType?: string;
+  /**
+   * @remarks
    * 座席绑定电话
    * 
    * @example
-   * 2222333
+   * 22223333
    */
   bindTel?: string;
   /**
@@ -34,7 +50,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * @example
    * 1
    */
-  bindTelType?: string;
+  bindTelType?: number;
   /**
    * @remarks
    * 呼叫权限，0：无限制，1：国内长途，2：国内本市，3：内部呼叫，默认无限制
@@ -42,7 +58,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * @example
    * 0
    */
-  callPower?: string;
+  callPower?: number;
   /**
    * @remarks
    * 座席工号
@@ -53,10 +69,18 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
   cno?: string;
   /**
    * @remarks
+   * 备注
+   * 
+   * @example
+   * 示例值示例值示例值
+   */
+  comment?: string;
+  /**
+   * @remarks
    * 创建时间，格式: yyyy-MM-dd HH:mm:ss
    * 
    * @example
-   * 2026-01-30 08:00:00
+   * 2026-04-20 10:00:00
    */
   createTime?: string;
   /**
@@ -66,7 +90,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * @example
    * 7000002
    */
-  enterpriseId?: string;
+  enterpriseId?: number;
   /**
    * @remarks
    * 呼入是否录音，0：不录用，1：录音，默认录音
@@ -74,23 +98,31 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * @example
    * 1
    */
-  ibRecord?: string;
+  ibRecord?: number;
   /**
    * @remarks
    * 座席id
    * 
    * @example
-   * 355
+   * 123
    */
-  id?: string;
+  id?: number;
   /**
    * @remarks
    * 是否开启ASR转写：0：不开启，1：开启，默认不开启
    * 
    * @example
+   * 1
+   */
+  isAsr?: number;
+  /**
+   * @remarks
+   * 是否允许axb外呼，默认1开启 0关闭
+   * 
+   * @example
    * 0
    */
-  isAsr?: string;
+  isAxbCall?: string;
   /**
    * @remarks
    * 是否允许外呼，0：不允许，1：可以，默认允许
@@ -98,18 +130,37 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * @example
    * 1
    */
-  isOb?: string;
+  isOb?: number;
   /**
+   * @remarks
+   * 外呼主叫记忆 1：开启 0：关闭
+   * 
    * @example
    * 1
    */
-  isQualityCheck?: string;
+  isObRemember?: string;
+  /**
+   * @remarks
+   * 坐席最后一次登陆的时间
+   * 
+   * @example
+   * 1774821736
+   */
+  loginTime?: string;
+  /**
+   * @remarks
+   * 座席axb外呼是否使用mrcp方式推送语音流配置JSON Str格式数据
+   * 
+   * @example
+   * {}
+   */
+  mrcpProperty?: string;
   /**
    * @remarks
    * 座席姓名
    * 
    * @example
-   * 示例值
+   * 示例值示例值
    */
   name?: string;
   /**
@@ -117,7 +168,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 外显号码
    * 
    * @example
-   * xxxxxxxx
+   * 22223333
    */
   obClid?: string;
   /**
@@ -135,7 +186,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * @example
    * 1
    */
-  obClidType?: string;
+  obClidType?: number;
   /**
    * @remarks
    * 外呼是否录音，0：不录音，1：录音，默认录音
@@ -143,29 +194,58 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * @example
    * 1
    */
-  obRecord?: string;
+  obRecord?: number;
+  /**
+   * @remarks
+   * 可外呼时间段用,号分割
+   * 
+   * @example
+   * 08:00,20:00
+   */
+  permitObPreviewTime?: string;
   /**
    * @remarks
    * 1：班长席，0：普通座席，默认普通座席
    * 
    * @example
+   * 1
+   */
+  power?: number;
+  /**
+   * @remarks
+   * 座席主动挂机配置Json Str 格式数据 unLink 是否允许主动挂断, 0:关, 1:开，prohibitDuration禁止时长
+   * 
+   * @example
    * 0
    */
-  power?: string;
+  property?: string;
+  /**
+   * @remarks
+   * 坐席所属队列
+   */
+  queueList?: string[];
   /**
    * @remarks
    * 座席状态，0:离线，1：在线
    * 
    * @example
-   * 0
+   * 1
    */
-  status?: string;
+  status?: number;
+  /**
+   * @remarks
+   * 更新时间，格式: yyyy-MM-dd HH:mm:ss
+   * 
+   * @example
+   * 2026-04-20 10:00:00
+   */
+  updateTime?: string;
   /**
    * @remarks
    * webrtc软电话返回地址，0：企业默认 1：公网域名 2：专线域名 3：公网IP 4：专线IP
    * 
    * @example
-   * 0
+   * 1
    */
   webrtcUrlType?: string;
   /**
@@ -173,31 +253,41 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 整理时间，秒数，默认10秒
    * 
    * @example
-   * 10
+   * 20
    */
-  wrapup?: string;
+  wrapup?: number;
   static names(): { [key: string]: string } {
     return {
       active: 'Active',
+      agentType: 'AgentType',
       areaCode: 'AreaCode',
+      asrCallType: 'AsrCallType',
       bindTel: 'BindTel',
       bindTelType: 'BindTelType',
       callPower: 'CallPower',
       cno: 'Cno',
+      comment: 'Comment',
       createTime: 'CreateTime',
       enterpriseId: 'EnterpriseId',
       ibRecord: 'IbRecord',
       id: 'Id',
       isAsr: 'IsAsr',
+      isAxbCall: 'IsAxbCall',
       isOb: 'IsOb',
-      isQualityCheck: 'IsQualityCheck',
+      isObRemember: 'IsObRemember',
+      loginTime: 'LoginTime',
+      mrcpProperty: 'MrcpProperty',
       name: 'Name',
       obClid: 'ObClid',
       obClidProperty: 'ObClidProperty',
       obClidType: 'ObClidType',
       obRecord: 'ObRecord',
+      permitObPreviewTime: 'PermitObPreviewTime',
       power: 'Power',
+      property: 'Property',
+      queueList: 'QueueList',
       status: 'Status',
+      updateTime: 'UpdateTime',
       webrtcUrlType: 'WebrtcUrlType',
       wrapup: 'Wrapup',
     };
@@ -205,32 +295,45 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      active: 'string',
+      active: 'number',
+      agentType: 'number',
       areaCode: 'string',
+      asrCallType: 'string',
       bindTel: 'string',
-      bindTelType: 'string',
-      callPower: 'string',
+      bindTelType: 'number',
+      callPower: 'number',
       cno: 'string',
+      comment: 'string',
       createTime: 'string',
-      enterpriseId: 'string',
-      ibRecord: 'string',
-      id: 'string',
-      isAsr: 'string',
-      isOb: 'string',
-      isQualityCheck: 'string',
+      enterpriseId: 'number',
+      ibRecord: 'number',
+      id: 'number',
+      isAsr: 'number',
+      isAxbCall: 'string',
+      isOb: 'number',
+      isObRemember: 'string',
+      loginTime: 'string',
+      mrcpProperty: 'string',
       name: 'string',
       obClid: 'string',
       obClidProperty: 'string',
-      obClidType: 'string',
-      obRecord: 'string',
-      power: 'string',
-      status: 'string',
+      obClidType: 'number',
+      obRecord: 'number',
+      permitObPreviewTime: 'string',
+      power: 'number',
+      property: 'string',
+      queueList: { 'type': 'array', 'itemType': 'string' },
+      status: 'number',
+      updateTime: 'string',
       webrtcUrlType: 'string',
-      wrapup: 'string',
+      wrapup: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.queueList)) {
+      $dara.Model.validateArray(this.queueList);
+    }
     super.validate();
   }
 
@@ -239,124 +342,27 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
   }
 }
 
-export class CloudCreateAgentResponseBodyDataAgentSkills extends $dara.Model {
+export class CloudGetAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 座席id
-   * 
-   * @example
-   * 2333
+   * 座席列表数组
    */
-  agentId?: string;
-  /**
-   * @example
-   * 1111
-   */
-  cno?: string;
-  /**
-   * @remarks
-   * 创建时间，格式: yyyy-MM-dd HH:mm:ss
-   * 
-   * @example
-   * 2026-01-30 08:00:00
-   */
-  createTime?: string;
-  /**
-   * @remarks
-   * 企业编号
-   * 
-   * @example
-   * 7000002
-   */
-  enterpriseId?: string;
-  /**
-   * @remarks
-   * queueSkill关系表中id
-   * 
-   * @example
-   * 355
-   */
-  id?: string;
-  /**
-   * @remarks
-   * skill的id
-   * 
-   * @example
-   * 233
-   */
-  skillId?: string;
-  /**
-   * @remarks
-   * 技能值
-   * 
-   * @example
-   * 2
-   */
-  skillLevel?: string;
-  static names(): { [key: string]: string } {
-    return {
-      agentId: 'AgentId',
-      cno: 'Cno',
-      createTime: 'CreateTime',
-      enterpriseId: 'EnterpriseId',
-      id: 'Id',
-      skillId: 'SkillId',
-      skillLevel: 'SkillLevel',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      agentId: 'string',
-      cno: 'string',
-      createTime: 'string',
-      enterpriseId: 'string',
-      id: 'string',
-      skillId: 'string',
-      skillLevel: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CloudCreateAgentResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * 座席配置信息
-   */
-  agent?: CloudCreateAgentResponseBodyDataAgent;
-  /**
-   * @remarks
-   * 座席所需技能数组
-   */
-  agentSkills?: CloudCreateAgentResponseBodyDataAgentSkills[];
+  agent?: CloudGetAgentResponseBodyDataAgent[];
   static names(): { [key: string]: string } {
     return {
       agent: 'Agent',
-      agentSkills: 'AgentSkills',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      agent: CloudCreateAgentResponseBodyDataAgent,
-      agentSkills: { 'type': 'array', 'itemType': CloudCreateAgentResponseBodyDataAgentSkills },
+      agent: { 'type': 'array', 'itemType': CloudGetAgentResponseBodyDataAgent },
     };
   }
 
   validate() {
-    if(this.agent && typeof (this.agent as any).validate === 'function') {
-      (this.agent as any).validate();
-    }
-    if(Array.isArray(this.agentSkills)) {
-      $dara.Model.validateArray(this.agentSkills);
+    if(Array.isArray(this.agent)) {
+      $dara.Model.validateArray(this.agent);
     }
     super.validate();
   }
@@ -366,14 +372,14 @@ export class CloudCreateAgentResponseBodyData extends $dara.Model {
   }
 }
 
-export class CloudCreateAgentResponseBody extends $dara.Model {
+export class CloudGetAgentResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
    * OK
    */
   code?: string;
-  data?: CloudCreateAgentResponseBodyData;
+  data?: CloudGetAgentResponseBodyData;
   /**
    * @example
    * OK
@@ -381,7 +387,7 @@ export class CloudCreateAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @example
-   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   * 53D0F0Fe-cbbB-De28-6FCd-DdbBcefA46dD
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -398,7 +404,7 @@ export class CloudCreateAgentResponseBody extends $dara.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: CloudCreateAgentResponseBodyData,
+      data: CloudGetAgentResponseBodyData,
       message: 'string',
       requestId: 'string',
     };

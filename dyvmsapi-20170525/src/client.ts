@@ -466,6 +466,568 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 座席上线
+   * 
+   * @param request - CloudAgentLoginRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudAgentLoginResponse
+   */
+  async cloudAgentLoginWithOptions(request: $_model.CloudAgentLoginRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudAgentLoginResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bindTel)) {
+      query["BindTel"] = request.bindTel;
+    }
+
+    if (!$dara.isNull(request.bindType)) {
+      query["BindType"] = request.bindType;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.loginStatus)) {
+      query["LoginStatus"] = request.loginStatus;
+    }
+
+    if (!$dara.isNull(request.pauseDescription)) {
+      query["PauseDescription"] = request.pauseDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudAgentLogin",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudAgentLoginResponse>(await this.callApi(params, req, runtime), new $_model.CloudAgentLoginResponse({}));
+  }
+
+  /**
+   * 座席上线
+   * 
+   * @param request - CloudAgentLoginRequest
+   * @returns CloudAgentLoginResponse
+   */
+  async cloudAgentLogin(request: $_model.CloudAgentLoginRequest): Promise<$_model.CloudAgentLoginResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudAgentLoginWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席下线
+   * 
+   * @param request - CloudAgentLogoutRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudAgentLogoutResponse
+   */
+  async cloudAgentLogoutWithOptions(request: $_model.CloudAgentLogoutRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudAgentLogoutResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ignoreOffline)) {
+      query["IgnoreOffline"] = request.ignoreOffline;
+    }
+
+    if (!$dara.isNull(request.isKickout)) {
+      query["IsKickout"] = request.isKickout;
+    }
+
+    if (!$dara.isNull(request.removeBinding)) {
+      query["RemoveBinding"] = request.removeBinding;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudAgentLogout",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudAgentLogoutResponse>(await this.callApi(params, req, runtime), new $_model.CloudAgentLogoutResponse({}));
+  }
+
+  /**
+   * 座席下线
+   * 
+   * @param request - CloudAgentLogoutRequest
+   * @returns CloudAgentLogoutResponse
+   */
+  async cloudAgentLogout(request: $_model.CloudAgentLogoutRequest): Promise<$_model.CloudAgentLogoutResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudAgentLogoutWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席设置随路数据
+   * 
+   * @param request - CloudAgentSetUserDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudAgentSetUserDataResponse
+   */
+  async cloudAgentSetUserDataWithOptions(request: $_model.CloudAgentSetUserDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudAgentSetUserDataResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.direction)) {
+      query["Direction"] = request.direction;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudAgentSetUserData",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudAgentSetUserDataResponse>(await this.callApi(params, req, runtime), new $_model.CloudAgentSetUserDataResponse({}));
+  }
+
+  /**
+   * 座席设置随路数据
+   * 
+   * @param request - CloudAgentSetUserDataRequest
+   * @returns CloudAgentSetUserDataResponse
+   */
+  async cloudAgentSetUserData(request: $_model.CloudAgentSetUserDataRequest): Promise<$_model.CloudAgentSetUserDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudAgentSetUserDataWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席挂机
+   * 
+   * @param request - CloudAgentUnlinkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudAgentUnlinkResponse
+   */
+  async cloudAgentUnlinkWithOptions(request: $_model.CloudAgentUnlinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudAgentUnlinkResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.requestUniqueId)) {
+      query["RequestUniqueId"] = request.requestUniqueId;
+    }
+
+    if (!$dara.isNull(request.side)) {
+      query["Side"] = request.side;
+    }
+
+    if (!$dara.isNull(request.uniqueId)) {
+      query["UniqueId"] = request.uniqueId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudAgentUnlink",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudAgentUnlinkResponse>(await this.callApi(params, req, runtime), new $_model.CloudAgentUnlinkResponse({}));
+  }
+
+  /**
+   * 座席挂机
+   * 
+   * @param request - CloudAgentUnlinkRequest
+   * @returns CloudAgentUnlinkResponse
+   */
+  async cloudAgentUnlink(request: $_model.CloudAgentUnlinkRequest): Promise<$_model.CloudAgentUnlinkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudAgentUnlinkWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量新增座席,单次批量创建不能超过100个
+   * 
+   * @param request - CloudBatchCreateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudBatchCreateAgentResponse
+   */
+  async cloudBatchCreateAgentWithOptions(request: $_model.CloudBatchCreateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudBatchCreateAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!$dara.isNull(request.areaCode)) {
+      query["AreaCode"] = request.areaCode;
+    }
+
+    if (!$dara.isNull(request.callPower)) {
+      query["CallPower"] = request.callPower;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.endCno)) {
+      query["EndCno"] = request.endCno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ibRecord)) {
+      query["IbRecord"] = request.ibRecord;
+    }
+
+    if (!$dara.isNull(request.isAsr)) {
+      query["IsAsr"] = request.isAsr;
+    }
+
+    if (!$dara.isNull(request.isOb)) {
+      query["IsOb"] = request.isOb;
+    }
+
+    if (!$dara.isNull(request.isQualityCheck)) {
+      query["IsQualityCheck"] = request.isQualityCheck;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.obClid)) {
+      query["ObClid"] = request.obClid;
+    }
+
+    if (!$dara.isNull(request.obClidProperty)) {
+      query["ObClidProperty"] = request.obClidProperty;
+    }
+
+    if (!$dara.isNull(request.obClidType)) {
+      query["ObClidType"] = request.obClidType;
+    }
+
+    if (!$dara.isNull(request.obRecord)) {
+      query["ObRecord"] = request.obRecord;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.power)) {
+      query["Power"] = request.power;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.skillIds)) {
+      query["SkillIds"] = request.skillIds;
+    }
+
+    if (!$dara.isNull(request.skillLevels)) {
+      query["SkillLevels"] = request.skillLevels;
+    }
+
+    if (!$dara.isNull(request.webrtcUrlType)) {
+      query["WebrtcUrlType"] = request.webrtcUrlType;
+    }
+
+    if (!$dara.isNull(request.wrapup)) {
+      query["Wrapup"] = request.wrapup;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudBatchCreateAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudBatchCreateAgentResponse>(await this.callApi(params, req, runtime), new $_model.CloudBatchCreateAgentResponse({}));
+  }
+
+  /**
+   * 批量新增座席,单次批量创建不能超过100个
+   * 
+   * @param request - CloudBatchCreateAgentRequest
+   * @returns CloudBatchCreateAgentResponse
+   */
+  async cloudBatchCreateAgent(request: $_model.CloudBatchCreateAgentRequest): Promise<$_model.CloudBatchCreateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudBatchCreateAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席实时状态批量获取
+   * 
+   * @param request - CloudBatchGetAgentStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudBatchGetAgentStatusResponse
+   */
+  async cloudBatchGetAgentStatusWithOptions(request: $_model.CloudBatchGetAgentStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudBatchGetAgentStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudBatchGetAgentStatus",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudBatchGetAgentStatusResponse>(await this.callApi(params, req, runtime), new $_model.CloudBatchGetAgentStatusResponse({}));
+  }
+
+  /**
+   * 座席实时状态批量获取
+   * 
+   * @param request - CloudBatchGetAgentStatusRequest
+   * @returns CloudBatchGetAgentStatusResponse
+   */
+  async cloudBatchGetAgentStatus(request: $_model.CloudBatchGetAgentStatusRequest): Promise<$_model.CloudBatchGetAgentStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudBatchGetAgentStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+   * 
+   * @param request - CloudBatchUpdateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudBatchUpdateAgentResponse
+   */
+  async cloudBatchUpdateAgentWithOptions(request: $_model.CloudBatchUpdateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudBatchUpdateAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
+    if (!$dara.isNull(request.areaCode)) {
+      query["AreaCode"] = request.areaCode;
+    }
+
+    if (!$dara.isNull(request.callPower)) {
+      query["CallPower"] = request.callPower;
+    }
+
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ibRecord)) {
+      query["IbRecord"] = request.ibRecord;
+    }
+
+    if (!$dara.isNull(request.isAsr)) {
+      query["IsAsr"] = request.isAsr;
+    }
+
+    if (!$dara.isNull(request.isOb)) {
+      query["IsOb"] = request.isOb;
+    }
+
+    if (!$dara.isNull(request.isObRemember)) {
+      query["IsObRemember"] = request.isObRemember;
+    }
+
+    if (!$dara.isNull(request.isQualityCheck)) {
+      query["IsQualityCheck"] = request.isQualityCheck;
+    }
+
+    if (!$dara.isNull(request.isRandom)) {
+      query["IsRandom"] = request.isRandom;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.obClid)) {
+      query["ObClid"] = request.obClid;
+    }
+
+    if (!$dara.isNull(request.obClidProperty)) {
+      query["ObClidProperty"] = request.obClidProperty;
+    }
+
+    if (!$dara.isNull(request.obClidType)) {
+      query["ObClidType"] = request.obClidType;
+    }
+
+    if (!$dara.isNull(request.obRecord)) {
+      query["ObRecord"] = request.obRecord;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.permitObPreviewTime)) {
+      query["PermitObPreviewTime"] = request.permitObPreviewTime;
+    }
+
+    if (!$dara.isNull(request.power)) {
+      query["Power"] = request.power;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.webrtcUrlType)) {
+      query["WebrtcUrlType"] = request.webrtcUrlType;
+    }
+
+    if (!$dara.isNull(request.wrapup)) {
+      query["Wrapup"] = request.wrapup;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudBatchUpdateAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudBatchUpdateAgentResponse>(await this.callApi(params, req, runtime), new $_model.CloudBatchUpdateAgentResponse({}));
+  }
+
+  /**
+   * 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+   * 
+   * @param request - CloudBatchUpdateAgentRequest
+   * @returns CloudBatchUpdateAgentResponse
+   */
+  async cloudBatchUpdateAgent(request: $_model.CloudBatchUpdateAgentRequest): Promise<$_model.CloudBatchUpdateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudBatchUpdateAgentWithOptions(request, runtime);
+  }
+
+  /**
    * 座席新增
    * 
    * @param request - CloudCreateAgentRequest
@@ -858,6 +1420,242 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 座席删除
+   * 
+   * @param request - CloudDeleteAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudDeleteAgentResponse
+   */
+  async cloudDeleteAgentWithOptions(request: $_model.CloudDeleteAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudDeleteAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudDeleteAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudDeleteAgentResponse>(await this.callApi(params, req, runtime), new $_model.CloudDeleteAgentResponse({}));
+  }
+
+  /**
+   * 座席删除
+   * 
+   * @param request - CloudDeleteAgentRequest
+   * @returns CloudDeleteAgentResponse
+   */
+  async cloudDeleteAgent(request: $_model.CloudDeleteAgentRequest): Promise<$_model.CloudDeleteAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudDeleteAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除座席电话
+   * 
+   * @param request - CloudDeleteAgentTelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudDeleteAgentTelResponse
+   */
+  async cloudDeleteAgentTelWithOptions(request: $_model.CloudDeleteAgentTelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudDeleteAgentTelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tel)) {
+      query["Tel"] = request.tel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudDeleteAgentTel",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudDeleteAgentTelResponse>(await this.callApi(params, req, runtime), new $_model.CloudDeleteAgentTelResponse({}));
+  }
+
+  /**
+   * 删除座席电话
+   * 
+   * @param request - CloudDeleteAgentTelRequest
+   * @returns CloudDeleteAgentTelResponse
+   */
+  async cloudDeleteAgentTel(request: $_model.CloudDeleteAgentTelRequest): Promise<$_model.CloudDeleteAgentTelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudDeleteAgentTelWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席详细信息获取
+   * 
+   * @param request - CloudGetAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudGetAgentResponse
+   */
+  async cloudGetAgentWithOptions(request: $_model.CloudGetAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudGetAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudGetAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudGetAgentResponse>(await this.callApi(params, req, runtime), new $_model.CloudGetAgentResponse({}));
+  }
+
+  /**
+   * 座席详细信息获取
+   * 
+   * @param request - CloudGetAgentRequest
+   * @returns CloudGetAgentResponse
+   */
+  async cloudGetAgent(request: $_model.CloudGetAgentRequest): Promise<$_model.CloudGetAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudGetAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席实时状态获取
+   * 
+   * @param request - CloudGetAgentStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudGetAgentStatusResponse
+   */
+  async cloudGetAgentStatusWithOptions(request: $_model.CloudGetAgentStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudGetAgentStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudGetAgentStatus",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudGetAgentStatusResponse>(await this.callApi(params, req, runtime), new $_model.CloudGetAgentStatusResponse({}));
+  }
+
+  /**
+   * 座席实时状态获取
+   * 
+   * @param request - CloudGetAgentStatusRequest
+   * @returns CloudGetAgentStatusResponse
+   */
+  async cloudGetAgentStatus(request: $_model.CloudGetAgentStatusRequest): Promise<$_model.CloudGetAgentStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudGetAgentStatusWithOptions(request, runtime);
+  }
+
+  /**
    * 任务号码导入
    * 
    * @param tmpReq - CloudImportTaskTelRequest
@@ -954,6 +1752,632 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * IVR等待打断
+   * 
+   * @param request - CloudInterruptIvrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudInterruptIvrResponse
+   */
+  async cloudInterruptIvrWithOptions(request: $_model.CloudInterruptIvrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudInterruptIvrResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.checkName)) {
+      query["CheckName"] = request.checkName;
+    }
+
+    if (!$dara.isNull(request.checkValue)) {
+      query["CheckValue"] = request.checkValue;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.uniqueId)) {
+      query["UniqueId"] = request.uniqueId;
+    }
+
+    if (!$dara.isNull(request.userField)) {
+      query["UserField"] = request.userField;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudInterruptIvr",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudInterruptIvrResponse>(await this.callApi(params, req, runtime), new $_model.CloudInterruptIvrResponse({}));
+  }
+
+  /**
+   * IVR等待打断
+   * 
+   * @param request - CloudInterruptIvrRequest
+   * @returns CloudInterruptIvrResponse
+   */
+  async cloudInterruptIvr(request: $_model.CloudInterruptIvrRequest): Promise<$_model.CloudInterruptIvrResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudInterruptIvrWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取座席电话
+   * 
+   * @param request - CloudListAgentTelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudListAgentTelResponse
+   */
+  async cloudListAgentTelWithOptions(request: $_model.CloudListAgentTelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudListAgentTelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tel)) {
+      query["Tel"] = request.tel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudListAgentTel",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudListAgentTelResponse>(await this.callApi(params, req, runtime), new $_model.CloudListAgentTelResponse({}));
+  }
+
+  /**
+   * 获取座席电话
+   * 
+   * @param request - CloudListAgentTelRequest
+   * @returns CloudListAgentTelResponse
+   */
+  async cloudListAgentTel(request: $_model.CloudListAgentTelRequest): Promise<$_model.CloudListAgentTelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudListAgentTelWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取在线空闲座席
+   * 
+   * @param request - CloudListFreeAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudListFreeAgentResponse
+   */
+  async cloudListFreeAgentWithOptions(request: $_model.CloudListFreeAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudListFreeAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudListFreeAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudListFreeAgentResponse>(await this.callApi(params, req, runtime), new $_model.CloudListFreeAgentResponse({}));
+  }
+
+  /**
+   * 获取在线空闲座席
+   * 
+   * @param request - CloudListFreeAgentRequest
+   * @returns CloudListFreeAgentResponse
+   */
+  async cloudListFreeAgent(request: $_model.CloudListFreeAgentRequest): Promise<$_model.CloudListFreeAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudListFreeAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 在线座席信息
+   * 
+   * @param request - CloudListOnlineAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudListOnlineAgentResponse
+   */
+  async cloudListOnlineAgentWithOptions(request: $_model.CloudListOnlineAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudListOnlineAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pauseDescription)) {
+      query["PauseDescription"] = request.pauseDescription;
+    }
+
+    if (!$dara.isNull(request.pauseType)) {
+      query["PauseType"] = request.pauseType;
+    }
+
+    if (!$dara.isNull(request.qnos)) {
+      query["Qnos"] = request.qnos;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.stateCode)) {
+      query["StateCode"] = request.stateCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudListOnlineAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudListOnlineAgentResponse>(await this.callApi(params, req, runtime), new $_model.CloudListOnlineAgentResponse({}));
+  }
+
+  /**
+   * 在线座席信息
+   * 
+   * @param request - CloudListOnlineAgentRequest
+   * @returns CloudListOnlineAgentResponse
+   */
+  async cloudListOnlineAgent(request: $_model.CloudListOnlineAgentRequest): Promise<$_model.CloudListOnlineAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudListOnlineAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席外呼
+   * 
+   * @param request - CloudPreviewoutcallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudPreviewoutcallResponse
+   */
+  async cloudPreviewoutcallWithOptions(request: $_model.CloudPreviewoutcallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudPreviewoutcallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupTels)) {
+      query["BackupTels"] = request.backupTels;
+    }
+
+    if (!$dara.isNull(request.callVariables)) {
+      query["CallVariables"] = request.callVariables;
+    }
+
+    if (!$dara.isNull(request.cdrIsAsr)) {
+      query["CdrIsAsr"] = request.cdrIsAsr;
+    }
+
+    if (!$dara.isNull(request.clidList)) {
+      query["ClidList"] = request.clidList;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.crnId)) {
+      query["CrnId"] = request.crnId;
+    }
+
+    if (!$dara.isNull(request.dialTelTimeout)) {
+      query["DialTelTimeout"] = request.dialTelTimeout;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.isInvestigation)) {
+      query["IsInvestigation"] = request.isInvestigation;
+    }
+
+    if (!$dara.isNull(request.obClid)) {
+      query["ObClid"] = request.obClid;
+    }
+
+    if (!$dara.isNull(request.obClidAreaCode)) {
+      query["ObClidAreaCode"] = request.obClidAreaCode;
+    }
+
+    if (!$dara.isNull(request.obClidGroup)) {
+      query["ObClidGroup"] = request.obClidGroup;
+    }
+
+    if (!$dara.isNull(request.requestUniqueId)) {
+      query["RequestUniqueId"] = request.requestUniqueId;
+    }
+
+    if (!$dara.isNull(request.tel)) {
+      query["Tel"] = request.tel;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudPreviewoutcall",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudPreviewoutcallResponse>(await this.callApi(params, req, runtime), new $_model.CloudPreviewoutcallResponse({}));
+  }
+
+  /**
+   * 座席外呼
+   * 
+   * @param request - CloudPreviewoutcallRequest
+   * @returns CloudPreviewoutcallResponse
+   */
+  async cloudPreviewoutcall(request: $_model.CloudPreviewoutcallRequest): Promise<$_model.CloudPreviewoutcallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudPreviewoutcallWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席详细信息列表获取
+   * 
+   * @param request - CloudQueryAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudQueryAgentResponse
+   */
+  async cloudQueryAgentWithOptions(request: $_model.CloudQueryAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudQueryAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qno)) {
+      query["Qno"] = request.qno;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.returnQueue)) {
+      query["ReturnQueue"] = request.returnQueue;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.webrtcUrlType)) {
+      query["WebrtcUrlType"] = request.webrtcUrlType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudQueryAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudQueryAgentResponse>(await this.callApi(params, req, runtime), new $_model.CloudQueryAgentResponse({}));
+  }
+
+  /**
+   * 座席详细信息列表获取
+   * 
+   * @param request - CloudQueryAgentRequest
+   * @returns CloudQueryAgentResponse
+   */
+  async cloudQueryAgent(request: $_model.CloudQueryAgentRequest): Promise<$_model.CloudQueryAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudQueryAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席列表获取
+   * 
+   * @param request - CloudQueryAgentCnoAndNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudQueryAgentCnoAndNameResponse
+   */
+  async cloudQueryAgentCnoAndNameWithOptions(request: $_model.CloudQueryAgentCnoAndNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudQueryAgentCnoAndNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudQueryAgentCnoAndName",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudQueryAgentCnoAndNameResponse>(await this.callApi(params, req, runtime), new $_model.CloudQueryAgentCnoAndNameResponse({}));
+  }
+
+  /**
+   * 座席列表获取
+   * 
+   * @param request - CloudQueryAgentCnoAndNameRequest
+   * @returns CloudQueryAgentCnoAndNameResponse
+   */
+  async cloudQueryAgentCnoAndName(request: $_model.CloudQueryAgentCnoAndNameRequest): Promise<$_model.CloudQueryAgentCnoAndNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudQueryAgentCnoAndNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取座席外呼组
+   * 
+   * @param request - CloudQueryAgentGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudQueryAgentGroupResponse
+   */
+  async cloudQueryAgentGroupWithOptions(request: $_model.CloudQueryAgentGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudQueryAgentGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudQueryAgentGroup",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudQueryAgentGroupResponse>(await this.callApi(params, req, runtime), new $_model.CloudQueryAgentGroupResponse({}));
+  }
+
+  /**
+   * 获取座席外呼组
+   * 
+   * @param request - CloudQueryAgentGroupRequest
+   * @returns CloudQueryAgentGroupResponse
+   */
+  async cloudQueryAgentGroup(request: $_model.CloudQueryAgentGroupRequest): Promise<$_model.CloudQueryAgentGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudQueryAgentGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取座席技能
+   * 
+   * @param request - CloudQueryAgentSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudQueryAgentSkillResponse
+   */
+  async cloudQueryAgentSkillWithOptions(request: $_model.CloudQueryAgentSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudQueryAgentSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudQueryAgentSkill",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudQueryAgentSkillResponse>(await this.callApi(params, req, runtime), new $_model.CloudQueryAgentSkillResponse({}));
+  }
+
+  /**
+   * 获取座席技能
+   * 
+   * @param request - CloudQueryAgentSkillRequest
+   * @returns CloudQueryAgentSkillResponse
+   */
+  async cloudQueryAgentSkill(request: $_model.CloudQueryAgentSkillRequest): Promise<$_model.CloudQueryAgentSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudQueryAgentSkillWithOptions(request, runtime);
+  }
+
+  /**
    * 任务启动
    * 
    * @param request - CloudStartTaskRequest
@@ -1009,6 +2433,152 @@ export default class Client extends OpenApi {
   async cloudStartTask(request: $_model.CloudStartTaskRequest): Promise<$_model.CloudStartTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cloudStartTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 座席更新
+   * 
+   * @param request - CloudUpdateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudUpdateAgentResponse
+   */
+  async cloudUpdateAgentWithOptions(request: $_model.CloudUpdateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudUpdateAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
+    if (!$dara.isNull(request.areaCode)) {
+      query["AreaCode"] = request.areaCode;
+    }
+
+    if (!$dara.isNull(request.callPower)) {
+      query["CallPower"] = request.callPower;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ibRecord)) {
+      query["IbRecord"] = request.ibRecord;
+    }
+
+    if (!$dara.isNull(request.isAsr)) {
+      query["IsAsr"] = request.isAsr;
+    }
+
+    if (!$dara.isNull(request.isOb)) {
+      query["IsOb"] = request.isOb;
+    }
+
+    if (!$dara.isNull(request.isObRemember)) {
+      query["IsObRemember"] = request.isObRemember;
+    }
+
+    if (!$dara.isNull(request.isQualityCheck)) {
+      query["IsQualityCheck"] = request.isQualityCheck;
+    }
+
+    if (!$dara.isNull(request.isRandom)) {
+      query["IsRandom"] = request.isRandom;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.obClid)) {
+      query["ObClid"] = request.obClid;
+    }
+
+    if (!$dara.isNull(request.obClidProperty)) {
+      query["ObClidProperty"] = request.obClidProperty;
+    }
+
+    if (!$dara.isNull(request.obClidType)) {
+      query["ObClidType"] = request.obClidType;
+    }
+
+    if (!$dara.isNull(request.obRecord)) {
+      query["ObRecord"] = request.obRecord;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.permitObPreviewTime)) {
+      query["PermitObPreviewTime"] = request.permitObPreviewTime;
+    }
+
+    if (!$dara.isNull(request.power)) {
+      query["Power"] = request.power;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.skillIds)) {
+      query["SkillIds"] = request.skillIds;
+    }
+
+    if (!$dara.isNull(request.skillLevels)) {
+      query["SkillLevels"] = request.skillLevels;
+    }
+
+    if (!$dara.isNull(request.webrtcUrlType)) {
+      query["WebrtcUrlType"] = request.webrtcUrlType;
+    }
+
+    if (!$dara.isNull(request.wrapup)) {
+      query["Wrapup"] = request.wrapup;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudUpdateAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudUpdateAgentResponse>(await this.callApi(params, req, runtime), new $_model.CloudUpdateAgentResponse({}));
+  }
+
+  /**
+   * 座席更新
+   * 
+   * @param request - CloudUpdateAgentRequest
+   * @returns CloudUpdateAgentResponse
+   */
+  async cloudUpdateAgent(request: $_model.CloudUpdateAgentRequest): Promise<$_model.CloudUpdateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudUpdateAgentWithOptions(request, runtime);
   }
 
   /**
@@ -1251,6 +2821,120 @@ export default class Client extends OpenApi {
   async cloudUpdateTask(request: $_model.CloudUpdateTaskRequest): Promise<$_model.CloudUpdateTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cloudUpdateTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * webcall
+   * 
+   * @param request - CloudWebcallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudWebcallResponse
+   */
+  async cloudWebcallWithOptions(request: $_model.CloudWebcallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudWebcallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.amd)) {
+      query["Amd"] = request.amd;
+    }
+
+    if (!$dara.isNull(request.clid)) {
+      query["Clid"] = request.clid;
+    }
+
+    if (!$dara.isNull(request.clidAreaCode)) {
+      query["ClidAreaCode"] = request.clidAreaCode;
+    }
+
+    if (!$dara.isNull(request.clidGroup)) {
+      query["ClidGroup"] = request.clidGroup;
+    }
+
+    if (!$dara.isNull(request.clidList)) {
+      query["ClidList"] = request.clidList;
+    }
+
+    if (!$dara.isNull(request.crnId)) {
+      query["CrnId"] = request.crnId;
+    }
+
+    if (!$dara.isNull(request.delay)) {
+      query["Delay"] = request.delay;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.expirTime)) {
+      query["ExpirTime"] = request.expirTime;
+    }
+
+    if (!$dara.isNull(request.ivrId)) {
+      query["IvrId"] = request.ivrId;
+    }
+
+    if (!$dara.isNull(request.multiTelDelay)) {
+      query["MultiTelDelay"] = request.multiTelDelay;
+    }
+
+    if (!$dara.isNull(request.multiTelPush)) {
+      query["MultiTelPush"] = request.multiTelPush;
+    }
+
+    if (!$dara.isNull(request.requestUniqueId)) {
+      query["RequestUniqueId"] = request.requestUniqueId;
+    }
+
+    if (!$dara.isNull(request.retry)) {
+      query["Retry"] = request.retry;
+    }
+
+    if (!$dara.isNull(request.retryInterval)) {
+      query["RetryInterval"] = request.retryInterval;
+    }
+
+    if (!$dara.isNull(request.tel)) {
+      query["Tel"] = request.tel;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    if (!$dara.isNull(request.userField)) {
+      query["UserField"] = request.userField;
+    }
+
+    if (!$dara.isNull(request.vid)) {
+      query["Vid"] = request.vid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudWebcall",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudWebcallResponse>(await this.callApi(params, req, runtime), new $_model.CloudWebcallResponse({}));
+  }
+
+  /**
+   * webcall
+   * 
+   * @param request - CloudWebcallRequest
+   * @returns CloudWebcallResponse
+   */
+  async cloudWebcall(request: $_model.CloudWebcallRequest): Promise<$_model.CloudWebcallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudWebcallWithOptions(request, runtime);
   }
 
   /**

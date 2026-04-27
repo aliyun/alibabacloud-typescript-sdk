@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
+export class CloudUpdateAgentResponseBodyDataAgent extends $dara.Model {
   /**
    * @remarks
    * 是否启用，0：停用，1：启用，默认启用
@@ -11,6 +11,14 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 1
    */
   active?: string;
+  /**
+   * @remarks
+   * 座席类型，1：电话座席，2：电脑座席，默认电话座席
+   * 
+   * @example
+   * 1
+   */
+  agentType?: string;
   /**
    * @remarks
    * 区号格式
@@ -24,7 +32,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 座席绑定电话
    * 
    * @example
-   * 2222333
+   * 22223333
    */
   bindTel?: string;
   /**
@@ -40,7 +48,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 呼叫权限，0：无限制，1：国内长途，2：国内本市，3：内部呼叫，默认无限制
    * 
    * @example
-   * 0
+   * 1
    */
   callPower?: string;
   /**
@@ -56,7 +64,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 创建时间，格式: yyyy-MM-dd HH:mm:ss
    * 
    * @example
-   * 2026-01-30 08:00:00
+   * 2026-04-20 10:00:00
    */
   createTime?: string;
   /**
@@ -80,7 +88,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 座席id
    * 
    * @example
-   * 355
+   * 100012
    */
   id?: string;
   /**
@@ -88,7 +96,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 是否开启ASR转写：0：不开启，1：开启，默认不开启
    * 
    * @example
-   * 0
+   * 1
    */
   isAsr?: string;
   /**
@@ -109,7 +117,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 座席姓名
    * 
    * @example
-   * 示例值
+   * 示例值示例值示例值
    */
   name?: string;
   /**
@@ -117,7 +125,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 外显号码
    * 
    * @example
-   * xxxxxxxx
+   * 22223333
    */
   obClid?: string;
   /**
@@ -125,7 +133,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 外显规则属性，JSON格式
    * 
    * @example
-   * {"isMatchCapital":0,"areaCodeRule":1,"isRandom":1}
+   * {"isMatchCapital":0,"areaCodeRule":1}
    */
   obClidProperty?: string;
   /**
@@ -149,7 +157,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 1：班长席，0：普通座席，默认普通座席
    * 
    * @example
-   * 0
+   * 1
    */
   power?: string;
   /**
@@ -165,7 +173,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * webrtc软电话返回地址，0：企业默认 1：公网域名 2：专线域名 3：公网IP 4：专线IP
    * 
    * @example
-   * 0
+   * 1
    */
   webrtcUrlType?: string;
   /**
@@ -173,12 +181,13 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
    * 整理时间，秒数，默认10秒
    * 
    * @example
-   * 10
+   * 22
    */
   wrapup?: string;
   static names(): { [key: string]: string } {
     return {
       active: 'Active',
+      agentType: 'AgentType',
       areaCode: 'AreaCode',
       bindTel: 'BindTel',
       bindTelType: 'BindTelType',
@@ -206,6 +215,7 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       active: 'string',
+      agentType: 'string',
       areaCode: 'string',
       bindTel: 'string',
       bindTelType: 'string',
@@ -239,13 +249,13 @@ export class CloudCreateAgentResponseBodyDataAgent extends $dara.Model {
   }
 }
 
-export class CloudCreateAgentResponseBodyDataAgentSkills extends $dara.Model {
+export class CloudUpdateAgentResponseBodyDataAgentSkills extends $dara.Model {
   /**
    * @remarks
    * 座席id
    * 
    * @example
-   * 2333
+   * 1234
    */
   agentId?: string;
   /**
@@ -258,7 +268,7 @@ export class CloudCreateAgentResponseBodyDataAgentSkills extends $dara.Model {
    * 创建时间，格式: yyyy-MM-dd HH:mm:ss
    * 
    * @example
-   * 2026-01-30 08:00:00
+   * 2026-04-20 10:00:00
    */
   createTime?: string;
   /**
@@ -274,7 +284,7 @@ export class CloudCreateAgentResponseBodyDataAgentSkills extends $dara.Model {
    * queueSkill关系表中id
    * 
    * @example
-   * 355
+   * 123
    */
   id?: string;
   /**
@@ -282,7 +292,7 @@ export class CloudCreateAgentResponseBodyDataAgentSkills extends $dara.Model {
    * skill的id
    * 
    * @example
-   * 233
+   * 111
    */
   skillId?: string;
   /**
@@ -326,17 +336,17 @@ export class CloudCreateAgentResponseBodyDataAgentSkills extends $dara.Model {
   }
 }
 
-export class CloudCreateAgentResponseBodyData extends $dara.Model {
+export class CloudUpdateAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * 座席配置信息
    */
-  agent?: CloudCreateAgentResponseBodyDataAgent;
+  agent?: CloudUpdateAgentResponseBodyDataAgent;
   /**
    * @remarks
    * 座席所需技能数组
    */
-  agentSkills?: CloudCreateAgentResponseBodyDataAgentSkills[];
+  agentSkills?: CloudUpdateAgentResponseBodyDataAgentSkills[];
   static names(): { [key: string]: string } {
     return {
       agent: 'Agent',
@@ -346,8 +356,8 @@ export class CloudCreateAgentResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      agent: CloudCreateAgentResponseBodyDataAgent,
-      agentSkills: { 'type': 'array', 'itemType': CloudCreateAgentResponseBodyDataAgentSkills },
+      agent: CloudUpdateAgentResponseBodyDataAgent,
+      agentSkills: { 'type': 'array', 'itemType': CloudUpdateAgentResponseBodyDataAgentSkills },
     };
   }
 
@@ -366,14 +376,14 @@ export class CloudCreateAgentResponseBodyData extends $dara.Model {
   }
 }
 
-export class CloudCreateAgentResponseBody extends $dara.Model {
+export class CloudUpdateAgentResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
    * OK
    */
   code?: string;
-  data?: CloudCreateAgentResponseBodyData;
+  data?: CloudUpdateAgentResponseBodyData;
   /**
    * @example
    * OK
@@ -398,7 +408,7 @@ export class CloudCreateAgentResponseBody extends $dara.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: CloudCreateAgentResponseBodyData,
+      data: CloudUpdateAgentResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
