@@ -1,5 +1,10 @@
+export { DocumentParseOnlineApiResponseBodyDataUsage } from './DocumentParseOnlineApiResponseBody';
+export { DocumentParseOnlineApiResponseBodyData } from './DocumentParseOnlineApiResponseBody';
 export { DocumentParseTestApiResponseBodyDataUsage } from './DocumentParseTestApiResponseBody';
 export { DocumentParseTestApiResponseBodyData } from './DocumentParseTestApiResponseBody';
+export { DocumentParseOnlineApiRequest } from './DocumentParseOnlineApiRequest';
+export { DocumentParseOnlineApiResponseBody } from './DocumentParseOnlineApiResponseBody';
+export { DocumentParseOnlineApiResponse } from './DocumentParseOnlineApiResponse';
 export { DocumentParseTestApiRequest } from './DocumentParseTestApiRequest';
 export { DocumentParseTestApiResponseBody } from './DocumentParseTestApiResponseBody';
 export { DocumentParseTestApiResponse } from './DocumentParseTestApiResponse';

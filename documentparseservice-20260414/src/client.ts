@@ -32,6 +32,52 @@ export default class Client extends OpenApi {
   /**
    * 文档解析测试接口
    * 
+   * @param request - DocumentParseOnlineApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DocumentParseOnlineApiResponse
+   */
+  async documentParseOnlineApiWithOptions(request: $_model.DocumentParseOnlineApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DocumentParseOnlineApiResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.imageUrl)) {
+      query["ImageUrl"] = request.imageUrl;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DocumentParseOnlineApi",
+      version: "2026-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DocumentParseOnlineApiResponse>(await this.callApi(params, req, runtime), new $_model.DocumentParseOnlineApiResponse({}));
+  }
+
+  /**
+   * 文档解析测试接口
+   * 
+   * @param request - DocumentParseOnlineApiRequest
+   * @returns DocumentParseOnlineApiResponse
+   */
+  async documentParseOnlineApi(request: $_model.DocumentParseOnlineApiRequest): Promise<$_model.DocumentParseOnlineApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.documentParseOnlineApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 文档解析测试接口
+   * 
    * @param request - DocumentParseTestApiRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DocumentParseTestApiResponse

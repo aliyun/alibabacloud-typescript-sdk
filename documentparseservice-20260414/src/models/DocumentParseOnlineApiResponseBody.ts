@@ -2,7 +2,9 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DocumentParseTestApiResponseBodyDataUsage extends $dara.Model {
+/**
+ */
+export class DocumentParseOnlineApiResponseBodyDataUsage extends $dara.Model {
   /**
    * @example
    * 1000
@@ -43,7 +45,7 @@ export class DocumentParseTestApiResponseBodyDataUsage extends $dara.Model {
   }
 }
 
-export class DocumentParseTestApiResponseBodyData extends $dara.Model {
+export class DocumentParseOnlineApiResponseBodyData extends $dara.Model {
   /**
    * @example
    * [\\"LTAI5tQcqrTt1jrRbZf7mHFs\\"]
@@ -54,7 +56,7 @@ export class DocumentParseTestApiResponseBodyData extends $dara.Model {
    * BAA69D16-9453-5A8F-AE3C-498D956A0A73
    */
   requestId?: string;
-  usage?: DocumentParseTestApiResponseBodyDataUsage;
+  usage?: DocumentParseOnlineApiResponseBodyDataUsage;
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
@@ -67,7 +69,7 @@ export class DocumentParseTestApiResponseBodyData extends $dara.Model {
     return {
       content: 'string',
       requestId: 'string',
-      usage: DocumentParseTestApiResponseBodyDataUsage,
+      usage: DocumentParseOnlineApiResponseBodyDataUsage,
     };
   }
 
@@ -83,22 +85,19 @@ export class DocumentParseTestApiResponseBodyData extends $dara.Model {
   }
 }
 
-export class DocumentParseTestApiResponseBody extends $dara.Model {
+export class DocumentParseOnlineApiResponseBody extends $dara.Model {
   /**
    * @example
    * 200
    */
   code?: string;
-  data?: DocumentParseTestApiResponseBodyData;
+  data?: DocumentParseOnlineApiResponseBodyData;
   /**
    * @example
    * OK
    */
   message?: string;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
    */
@@ -121,7 +120,7 @@ export class DocumentParseTestApiResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
-      data: DocumentParseTestApiResponseBodyData,
+      data: DocumentParseOnlineApiResponseBodyData,
       message: 'string',
       requestId: 'string',
       success: 'boolean',
