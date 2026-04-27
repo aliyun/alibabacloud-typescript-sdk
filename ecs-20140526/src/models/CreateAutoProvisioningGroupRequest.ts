@@ -1096,6 +1096,36 @@ export class CreateAutoProvisioningGroupRequestLaunchConfiguration extends $dara
   }
 }
 
+export class CreateAutoProvisioningGroupRequestCandidateOptions extends $dara.Model {
+  evaluate?: boolean;
+  /**
+   * @example
+   * 60
+   */
+  timeoutMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      evaluate: 'Evaluate',
+      timeoutMinutes: 'TimeoutMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evaluate: 'boolean',
+      timeoutMinutes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAutoProvisioningGroupRequestDataDiskConfig extends $dara.Model {
   /**
    * @remarks
@@ -1523,6 +1553,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
    * maintain
    */
   autoProvisioningGroupType?: string;
+  candidateOptions?: CreateAutoProvisioningGroupRequestCandidateOptions;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
@@ -1802,6 +1833,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
       launchConfiguration: 'LaunchConfiguration',
       autoProvisioningGroupName: 'AutoProvisioningGroupName',
       autoProvisioningGroupType: 'AutoProvisioningGroupType',
+      candidateOptions: 'CandidateOptions',
       clientToken: 'ClientToken',
       dataDiskConfig: 'DataDiskConfig',
       defaultTargetCapacityType: 'DefaultTargetCapacityType',
@@ -1843,6 +1875,7 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
       launchConfiguration: CreateAutoProvisioningGroupRequestLaunchConfiguration,
       autoProvisioningGroupName: 'string',
       autoProvisioningGroupType: 'string',
+      candidateOptions: CreateAutoProvisioningGroupRequestCandidateOptions,
       clientToken: 'string',
       dataDiskConfig: { 'type': 'array', 'itemType': CreateAutoProvisioningGroupRequestDataDiskConfig },
       defaultTargetCapacityType: 'string',
@@ -1882,6 +1915,9 @@ export class CreateAutoProvisioningGroupRequest extends $dara.Model {
   validate() {
     if(this.launchConfiguration && typeof (this.launchConfiguration as any).validate === 'function') {
       (this.launchConfiguration as any).validate();
+    }
+    if(this.candidateOptions && typeof (this.candidateOptions as any).validate === 'function') {
+      (this.candidateOptions as any).validate();
     }
     if(Array.isArray(this.dataDiskConfig)) {
       $dara.Model.validateArray(this.dataDiskConfig);

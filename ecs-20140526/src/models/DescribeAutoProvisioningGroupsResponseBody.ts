@@ -2,6 +2,81 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupCandidateOptions extends $dara.Model {
+  /**
+   * @example
+   * 60
+   */
+  timeoutMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeoutMinutes: 'TimeoutMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeoutMinutes: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupCapacitySpecification extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  payAsYouGoCapacity?: number;
+  /**
+   * @example
+   * 0
+   */
+  prePaidCapacity?: number;
+  /**
+   * @example
+   * 3
+   */
+  spotCapacity?: number;
+  /**
+   * @example
+   * 5
+   */
+  totalCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      payAsYouGoCapacity: 'PayAsYouGoCapacity',
+      prePaidCapacity: 'PrePaidCapacity',
+      spotCapacity: 'SpotCapacity',
+      totalCapacity: 'TotalCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payAsYouGoCapacity: 'number',
+      prePaidCapacity: 'number',
+      spotCapacity: 'number',
+      totalCapacity: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupLaunchTemplateConfigsLaunchTemplateConfig extends $dara.Model {
   instanceType?: string;
   maxPrice?: number;
@@ -115,6 +190,32 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
   }
 }
 
+export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSuspendedProcesses extends $dara.Model {
+  suspendedProcess?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      suspendedProcess: 'SuspendedProcess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      suspendedProcess: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.suspendedProcess)) {
+      $dara.Model.validateArray(this.suspendedProcess);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTagsTag extends $dara.Model {
   tagKey?: string;
   tagValue?: string;
@@ -203,6 +304,8 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
   autoProvisioningGroupId?: string;
   autoProvisioningGroupName?: string;
   autoProvisioningGroupType?: string;
+  candidateOptions?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupCandidateOptions;
+  capacitySpecification?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupCapacitySpecification;
   creationTime?: string;
   excessCapacityTerminationPolicy?: string;
   launchTemplateConfigs?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupLaunchTemplateConfigs;
@@ -215,6 +318,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
   spotOptions?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSpotOptions;
   state?: string;
   status?: string;
+  suspendedProcesses?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSuspendedProcesses;
   tags?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTags;
   targetCapacitySpecification?: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTargetCapacitySpecification;
   terminateInstances?: boolean;
@@ -226,6 +330,8 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
       autoProvisioningGroupId: 'AutoProvisioningGroupId',
       autoProvisioningGroupName: 'AutoProvisioningGroupName',
       autoProvisioningGroupType: 'AutoProvisioningGroupType',
+      candidateOptions: 'CandidateOptions',
+      capacitySpecification: 'CapacitySpecification',
       creationTime: 'CreationTime',
       excessCapacityTerminationPolicy: 'ExcessCapacityTerminationPolicy',
       launchTemplateConfigs: 'LaunchTemplateConfigs',
@@ -238,6 +344,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
       spotOptions: 'SpotOptions',
       state: 'State',
       status: 'Status',
+      suspendedProcesses: 'SuspendedProcesses',
       tags: 'Tags',
       targetCapacitySpecification: 'TargetCapacitySpecification',
       terminateInstances: 'TerminateInstances',
@@ -252,6 +359,8 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
       autoProvisioningGroupId: 'string',
       autoProvisioningGroupName: 'string',
       autoProvisioningGroupType: 'string',
+      candidateOptions: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupCandidateOptions,
+      capacitySpecification: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupCapacitySpecification,
       creationTime: 'string',
       excessCapacityTerminationPolicy: 'string',
       launchTemplateConfigs: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupLaunchTemplateConfigs,
@@ -264,6 +373,7 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
       spotOptions: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSpotOptions,
       state: 'string',
       status: 'string',
+      suspendedProcesses: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupSuspendedProcesses,
       tags: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTags,
       targetCapacitySpecification: DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAutoProvisioningGroupTargetCapacitySpecification,
       terminateInstances: 'boolean',
@@ -274,6 +384,12 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
   }
 
   validate() {
+    if(this.candidateOptions && typeof (this.candidateOptions as any).validate === 'function') {
+      (this.candidateOptions as any).validate();
+    }
+    if(this.capacitySpecification && typeof (this.capacitySpecification as any).validate === 'function') {
+      (this.capacitySpecification as any).validate();
+    }
     if(this.launchTemplateConfigs && typeof (this.launchTemplateConfigs as any).validate === 'function') {
       (this.launchTemplateConfigs as any).validate();
     }
@@ -282,6 +398,9 @@ export class DescribeAutoProvisioningGroupsResponseBodyAutoProvisioningGroupsAut
     }
     if(this.spotOptions && typeof (this.spotOptions as any).validate === 'function') {
       (this.spotOptions as any).validate();
+    }
+    if(this.suspendedProcesses && typeof (this.suspendedProcesses as any).validate === 'function') {
+      (this.suspendedProcesses as any).validate();
     }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();

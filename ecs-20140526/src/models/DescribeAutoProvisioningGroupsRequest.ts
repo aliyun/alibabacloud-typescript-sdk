@@ -71,6 +71,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
    * active
    */
   autoProvisioningGroupStatus?: string[];
+  autoProvisioningGroupTypes?: string[];
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -127,6 +128,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
       autoProvisioningGroupId: 'AutoProvisioningGroupId',
       autoProvisioningGroupName: 'AutoProvisioningGroupName',
       autoProvisioningGroupStatus: 'AutoProvisioningGroupStatus',
+      autoProvisioningGroupTypes: 'AutoProvisioningGroupTypes',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       pageNumber: 'PageNumber',
@@ -144,6 +146,7 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
       autoProvisioningGroupId: { 'type': 'array', 'itemType': 'string' },
       autoProvisioningGroupName: 'string',
       autoProvisioningGroupStatus: { 'type': 'array', 'itemType': 'string' },
+      autoProvisioningGroupTypes: { 'type': 'array', 'itemType': 'string' },
       ownerAccount: 'string',
       ownerId: 'number',
       pageNumber: 'number',
@@ -162,6 +165,9 @@ export class DescribeAutoProvisioningGroupsRequest extends $dara.Model {
     }
     if(Array.isArray(this.autoProvisioningGroupStatus)) {
       $dara.Model.validateArray(this.autoProvisioningGroupStatus);
+    }
+    if(Array.isArray(this.autoProvisioningGroupTypes)) {
+      $dara.Model.validateArray(this.autoProvisioningGroupTypes);
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);

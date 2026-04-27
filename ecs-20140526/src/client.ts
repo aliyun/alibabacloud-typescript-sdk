@@ -3105,6 +3105,10 @@ export default class Client extends OpenApi {
       query["AutoProvisioningGroupType"] = request.autoProvisioningGroupType;
     }
 
+    if (!$dara.isNull(request.candidateOptions)) {
+      query["CandidateOptions"] = request.candidateOptions;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -10983,6 +10987,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.autoProvisioningGroupStatus)) {
       query["AutoProvisioningGroupStatus"] = request.autoProvisioningGroupStatus;
+    }
+
+    if (!$dara.isNull(request.autoProvisioningGroupTypes)) {
+      query["AutoProvisioningGroupTypes"] = request.autoProvisioningGroupTypes;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {

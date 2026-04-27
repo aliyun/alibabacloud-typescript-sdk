@@ -2,24 +2,186 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailCreatedInstanceIds extends $dara.Model {
+  createdInstanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      createdInstanceId: 'CreatedInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdInstanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.createdInstanceId)) {
+      $dara.Model.validateArray(this.createdInstanceId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailDestroyedInstanceIds extends $dara.Model {
+  destroyedInstanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      destroyedInstanceId: 'DestroyedInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destroyedInstanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.destroyedInstanceId)) {
+      $dara.Model.validateArray(this.destroyedInstanceId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailErrorMessagesErrorMessageFailedInstanceIds extends $dara.Model {
+  failedInstanceId?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      failedInstanceId: 'FailedInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedInstanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.failedInstanceId)) {
+      $dara.Model.validateArray(this.failedInstanceId);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailErrorMessagesErrorMessage extends $dara.Model {
+  /**
+   * @example
+   * InvalidSecurityGroupId.NotFound
+   */
+  code?: string;
+  failedInstanceIds?: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailErrorMessagesErrorMessageFailedInstanceIds;
+  /**
+   * @example
+   * The specified SecurityGroupId "sg-bp1d8modxxxxx" is not found.
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      failedInstanceIds: 'FailedInstanceIds',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      failedInstanceIds: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailErrorMessagesErrorMessageFailedInstanceIds,
+      message: 'string',
+    };
+  }
+
+  validate() {
+    if(this.failedInstanceIds && typeof (this.failedInstanceIds as any).validate === 'function') {
+      (this.failedInstanceIds as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailErrorMessages extends $dara.Model {
+  errorMessage?: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailErrorMessagesErrorMessage[];
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: { 'type': 'array', 'itemType': DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailErrorMessagesErrorMessage },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.errorMessage)) {
+      $dara.Model.validateArray(this.errorMessage);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetail extends $dara.Model {
+  createdInstanceIds?: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailCreatedInstanceIds;
+  destroyedInstanceIds?: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailDestroyedInstanceIds;
   detail?: string;
+  errorMessages?: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailErrorMessages;
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      createdInstanceIds: 'CreatedInstanceIds',
+      destroyedInstanceIds: 'DestroyedInstanceIds',
       detail: 'Detail',
+      errorMessages: 'ErrorMessages',
       status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createdInstanceIds: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailCreatedInstanceIds,
+      destroyedInstanceIds: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailDestroyedInstanceIds,
       detail: 'string',
+      errorMessages: DescribeAutoProvisioningGroupHistoryResponseBodyAutoProvisioningGroupHistoriesAutoProvisioningGroupHistoryActivityDetailsActivityDetailErrorMessages,
       status: 'string',
     };
   }
 
   validate() {
+    if(this.createdInstanceIds && typeof (this.createdInstanceIds as any).validate === 'function') {
+      (this.createdInstanceIds as any).validate();
+    }
+    if(this.destroyedInstanceIds && typeof (this.destroyedInstanceIds as any).validate === 'function') {
+      (this.destroyedInstanceIds as any).validate();
+    }
+    if(this.errorMessages && typeof (this.errorMessages as any).validate === 'function') {
+      (this.errorMessages as any).validate();
+    }
     super.validate();
   }
 

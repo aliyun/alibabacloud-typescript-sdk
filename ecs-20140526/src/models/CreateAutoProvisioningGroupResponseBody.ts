@@ -30,6 +30,11 @@ export class CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResultIns
 
 export class CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResult extends $dara.Model {
   amount?: number;
+  /**
+   * @example
+   * Low
+   */
+  candidateEvaluateLevel?: string;
   errorCode?: string;
   errorMsg?: string;
   instanceIds?: CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResultInstanceIds;
@@ -39,6 +44,7 @@ export class CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResult ex
   static names(): { [key: string]: string } {
     return {
       amount: 'Amount',
+      candidateEvaluateLevel: 'CandidateEvaluateLevel',
       errorCode: 'ErrorCode',
       errorMsg: 'ErrorMsg',
       instanceIds: 'InstanceIds',
@@ -51,6 +57,7 @@ export class CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResult ex
   static types(): { [key: string]: any } {
     return {
       amount: 'number',
+      candidateEvaluateLevel: 'string',
       errorCode: 'string',
       errorMsg: 'string',
       instanceIds: CreateAutoProvisioningGroupResponseBodyLaunchResultsLaunchResultInstanceIds,

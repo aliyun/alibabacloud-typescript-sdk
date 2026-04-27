@@ -107,6 +107,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOption
   core?: number;
   coreFactor?: number;
   hyperThreadingAdjustable?: boolean;
+  nestedVirtualizationSupport?: string;
   supportedTopologyTypes?: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOptionsSupportedTopologyTypes;
   threadsPerCore?: number;
   static names(): { [key: string]: string } {
@@ -114,6 +115,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOption
       core: 'Core',
       coreFactor: 'CoreFactor',
       hyperThreadingAdjustable: 'HyperThreadingAdjustable',
+      nestedVirtualizationSupport: 'NestedVirtualizationSupport',
       supportedTopologyTypes: 'SupportedTopologyTypes',
       threadsPerCore: 'ThreadsPerCore',
     };
@@ -124,6 +126,7 @@ export class DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOption
       core: 'number',
       coreFactor: 'number',
       hyperThreadingAdjustable: 'boolean',
+      nestedVirtualizationSupport: 'string',
       supportedTopologyTypes: DescribeInstanceTypesResponseBodyInstanceTypesInstanceTypeCpuOptionsSupportedTopologyTypes,
       threadsPerCore: 'number',
     };
