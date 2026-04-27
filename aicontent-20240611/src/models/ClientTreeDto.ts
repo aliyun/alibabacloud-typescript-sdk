@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ClientBalanceDTO } from "./ClientBalanceDto";
 
 
 export class ClientTreeDTO extends $dara.Model {
@@ -13,6 +14,11 @@ export class ClientTreeDTO extends $dara.Model {
    * 1,2,3
    */
   allowedModels?: string;
+  /**
+   * @example
+   * null
+   */
+  balance?: ClientBalanceDTO;
   /**
    * @example
    * []
@@ -82,6 +88,7 @@ export class ClientTreeDTO extends $dara.Model {
     return {
       address: 'address',
       allowedModels: 'allowedModels',
+      balance: 'balance',
       children: 'children',
       clientUuid: 'clientUuid',
       contact: 'contact',
@@ -102,6 +109,7 @@ export class ClientTreeDTO extends $dara.Model {
     return {
       address: 'string',
       allowedModels: 'string',
+      balance: ClientBalanceDTO,
       children: { 'type': 'array', 'itemType': ClientTreeDTO },
       clientUuid: 'string',
       contact: 'string',
@@ -119,6 +127,9 @@ export class ClientTreeDTO extends $dara.Model {
   }
 
   validate() {
+    if(this.balance && typeof (this.balance as any).validate === 'function') {
+      (this.balance as any).validate();
+    }
     if(Array.isArray(this.children)) {
       $dara.Model.validateArray(this.children);
     }

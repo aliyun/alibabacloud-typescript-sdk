@@ -4518,6 +4518,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 流控管理/写入流控配置
+   * 
+   * @param request - ModelRouterSaveFlowConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterSaveFlowConfigResponse
+   */
+  async modelRouterSaveFlowConfigWithOptions(request: $_model.ModelRouterSaveFlowConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterSaveFlowConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.rpm)) {
+      body["rpm"] = request.rpm;
+    }
+
+    if (!$dara.isNull(request.smoothFlowEnabled)) {
+      body["smoothFlowEnabled"] = request.smoothFlowEnabled;
+    }
+
+    if (!$dara.isNull(request.tpm)) {
+      body["tpm"] = request.tpm;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterSaveFlowConfig",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/flow-config`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterSaveFlowConfigResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterSaveFlowConfigResponse({}));
+  }
+
+  /**
+   * 流控管理/写入流控配置
+   * 
+   * @param request - ModelRouterSaveFlowConfigRequest
+   * @returns ModelRouterSaveFlowConfigResponse
+   */
+  async modelRouterSaveFlowConfig(request: $_model.ModelRouterSaveFlowConfigRequest): Promise<$_model.ModelRouterSaveFlowConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterSaveFlowConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 计费管理/更新计费规则
    * 
    * @param request - ModelRouterUpdateBillingRuleRequest
