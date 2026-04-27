@@ -24,6 +24,7 @@ export class TableKnowledgeInfo extends $dara.Model {
    * Table description in the CREAT TABLE statement.
    */
   description?: string;
+  level?: number;
   /**
    * @remarks
    * Table business description, which can be edited via EditMetaKnowledgeAsset.
@@ -40,6 +41,7 @@ export class TableKnowledgeInfo extends $dara.Model {
       assetModifiedGmt: 'AssetModifiedGmt',
       columnList: 'ColumnList',
       description: 'Description',
+      level: 'Level',
       summary: 'Summary',
       tableName: 'TableName',
     };
@@ -51,6 +53,7 @@ export class TableKnowledgeInfo extends $dara.Model {
       assetModifiedGmt: 'string',
       columnList: { 'type': 'array', 'itemType': ColumnKnowledgeInfo },
       description: 'string',
+      level: 'number',
       summary: 'string',
       tableName: 'string',
     };

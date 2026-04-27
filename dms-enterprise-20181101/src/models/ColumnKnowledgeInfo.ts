@@ -28,6 +28,7 @@ export class ColumnKnowledgeInfo extends $dara.Model {
    * Field description in the CREATE TABLE statement.
    */
   description?: string;
+  level?: number;
   /**
    * @remarks
    * The field order in the CREATE TABLE statement.
@@ -40,6 +41,7 @@ export class ColumnKnowledgeInfo extends $dara.Model {
       columnName: 'ColumnName',
       columnType: 'ColumnType',
       description: 'Description',
+      level: 'Level',
       position: 'Position',
     };
   }
@@ -51,6 +53,7 @@ export class ColumnKnowledgeInfo extends $dara.Model {
       columnName: 'string',
       columnType: 'string',
       description: 'string',
+      level: 'number',
       position: 'number',
     };
   }
