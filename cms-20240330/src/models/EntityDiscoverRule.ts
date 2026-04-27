@@ -83,15 +83,7 @@ export class EntityDiscoverRuleFieldRules extends $dara.Model {
 }
 
 export class EntityDiscoverRuleIpMatchRule extends $dara.Model {
-  /**
-   * @example
-   * 192.168.0.1/10
-   */
   ipCIDR?: string;
-  /**
-   * @example
-   * hostIp
-   */
   ipFieldKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -201,7 +193,7 @@ export class EntityDiscoverRule extends $dara.Model {
   entityTypes?: string[];
   fieldRules?: EntityDiscoverRuleFieldRules[];
   instanceIds?: string[];
-  ipMatchRule?: EntityDiscoverRuleIpMatchRule[];
+  ipMatchRule?: EntityDiscoverRuleIpMatchRule;
   labels?: EntityDiscoverRuleLabels[];
   regionIds?: string[];
   /**
@@ -230,7 +222,7 @@ export class EntityDiscoverRule extends $dara.Model {
       entityTypes: { 'type': 'array', 'itemType': 'string' },
       fieldRules: { 'type': 'array', 'itemType': EntityDiscoverRuleFieldRules },
       instanceIds: { 'type': 'array', 'itemType': 'string' },
-      ipMatchRule: { 'type': 'array', 'itemType': EntityDiscoverRuleIpMatchRule },
+      ipMatchRule: EntityDiscoverRuleIpMatchRule,
       labels: { 'type': 'array', 'itemType': EntityDiscoverRuleLabels },
       regionIds: { 'type': 'array', 'itemType': 'string' },
       resourceGroupId: 'string',
@@ -251,8 +243,8 @@ export class EntityDiscoverRule extends $dara.Model {
     if(Array.isArray(this.instanceIds)) {
       $dara.Model.validateArray(this.instanceIds);
     }
-    if(Array.isArray(this.ipMatchRule)) {
-      $dara.Model.validateArray(this.ipMatchRule);
+    if(this.ipMatchRule && typeof (this.ipMatchRule as any).validate === 'function') {
+      (this.ipMatchRule as any).validate();
     }
     if(Array.isArray(this.labels)) {
       $dara.Model.validateArray(this.labels);

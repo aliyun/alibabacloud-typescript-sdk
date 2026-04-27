@@ -5573,8 +5573,8 @@ export default class Client extends OpenApi {
       body["rerank"] = request.rerank;
     }
 
-    if (!$dara.isNull(request.retrieveLevel)) {
-      body["retrieveLevel"] = request.retrieveLevel;
+    if (!$dara.isNull(request.retrievalOption)) {
+      body["retrievalOption"] = request.retrievalOption;
     }
 
     if (!$dara.isNull(request.runId)) {

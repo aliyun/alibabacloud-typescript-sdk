@@ -26,9 +26,9 @@ export class SearchMemoriesRequest extends $dara.Model {
   rerank?: boolean;
   /**
    * @example
-   * L1
+   * reranker,llm_rank
    */
-  retrieveLevel?: string;
+  retrievalOption?: string;
   /**
    * @example
    * test_session_001
@@ -61,7 +61,7 @@ export class SearchMemoriesRequest extends $dara.Model {
       filters: 'filters',
       query: 'query',
       rerank: 'rerank',
-      retrieveLevel: 'retrieveLevel',
+      retrievalOption: 'retrievalOption',
       runId: 'runId',
       searchType: 'searchType',
       threshold: 'threshold',
@@ -77,7 +77,7 @@ export class SearchMemoriesRequest extends $dara.Model {
       filters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       query: 'string',
       rerank: 'boolean',
-      retrieveLevel: 'string',
+      retrievalOption: 'string',
       runId: 'string',
       searchType: 'string',
       threshold: 'number',
