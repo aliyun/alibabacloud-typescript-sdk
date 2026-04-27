@@ -560,7 +560,6 @@ export default class Client extends OpenApi {
   /**
    * 查询高级查询历史记录
    * 
-   * @param request - DescribeAdvancedQueryHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAdvancedQueryHistoryResponse
    */
@@ -826,6 +825,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取投递监控指标
+   * 
+   * @param request - DescribeTrailDeliveryMetricDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTrailDeliveryMetricDataResponse
+   */
+  async describeTrailDeliveryMetricDataWithOptions(request: $_model.DescribeTrailDeliveryMetricDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTrailDeliveryMetricDataResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTrailDeliveryMetricData",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTrailDeliveryMetricDataResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTrailDeliveryMetricDataResponse({}));
+  }
+
+  /**
+   * 获取投递监控指标
+   * 
+   * @param request - DescribeTrailDeliveryMetricDataRequest
+   * @returns DescribeTrailDeliveryMetricDataResponse
+   */
+  async describeTrailDeliveryMetricData(request: $_model.DescribeTrailDeliveryMetricDataRequest): Promise<$_model.DescribeTrailDeliveryMetricDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTrailDeliveryMetricDataWithOptions(request, runtime);
+  }
+
+  /**
    * Queries created trails.
    * 
    * @remarks
@@ -971,6 +1008,41 @@ export default class Client extends OpenApi {
   async describeUserLogCount(request: $_model.DescribeUserLogCountRequest): Promise<$_model.DescribeUserLogCountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUserLogCountWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询用户跟踪量
+   * 
+   * @param request - DescribeUserTrailCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserTrailCountResponse
+   */
+  async describeUserTrailCountWithOptions(request: $_model.DescribeUserTrailCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserTrailCountResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserTrailCount",
+      version: "2020-07-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUserTrailCountResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserTrailCountResponse({}));
+  }
+
+  /**
+   * 查询用户跟踪量
+   * 
+   * @param request - DescribeUserTrailCountRequest
+   * @returns DescribeUserTrailCountResponse
+   */
+  async describeUserTrailCount(request: $_model.DescribeUserTrailCountRequest): Promise<$_model.DescribeUserTrailCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserTrailCountWithOptions(request, runtime);
   }
 
   /**
@@ -1472,7 +1544,6 @@ export default class Client extends OpenApi {
    * By default, global events are stored in the Singapore region.
    * To obtain the permissions to call the API operation, you must submit a ticket.
    * 
-   * @param request - GetGlobalEventsStorageRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetGlobalEventsStorageRegionResponse
    */
@@ -1508,7 +1579,6 @@ export default class Client extends OpenApi {
   /**
    * 操作审计成熟度查询接口
    * 
-   * @param request - GetGovernanceMetricsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetGovernanceMetricsResponse
    */
@@ -1582,7 +1652,6 @@ export default class Client extends OpenApi {
   /**
    * 获取查询账号开启insight的类型
    * 
-   * @param request - GetInsightTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInsightTypesResponse
    */
