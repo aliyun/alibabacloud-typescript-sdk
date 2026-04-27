@@ -175,6 +175,9 @@ export { ListDynamicRoutesResponseBodyDynamicRoutes } from './ListDynamicRoutesR
 export { ListEnterpriseAccelerateLogsResponseBodyLogs } from './ListEnterpriseAccelerateLogsResponseBody';
 export { ListEnterpriseAcceleratePoliciesResponseBodyPolicies } from './ListEnterpriseAcceleratePoliciesResponseBody';
 export { ListExcessiveDeviceRegistrationApplicationsResponseBodyApplications } from './ListExcessiveDeviceRegistrationApplicationsResponseBody';
+export { ListForwardStrategiesResponseBodyForwardStrategies } from './ListForwardStrategiesResponseBody';
+export { ListForwardStrategyBindingItemsResponseBodyForwardStrategyBindingItemsListItems } from './ListForwardStrategyBindingItemsResponseBody';
+export { ListForwardStrategyBindingItemsResponseBodyForwardStrategyBindingItemsList } from './ListForwardStrategyBindingItemsResponseBody';
 export { ListIdpConfigsResponseBodyDataDataList } from './ListIdpConfigsResponseBody';
 export { ListIdpConfigsResponseBodyData } from './ListIdpConfigsResponseBody';
 export { ListIdpDepartmentsResponseBodyDataDataList } from './ListIdpDepartmentsResponseBody';
@@ -542,6 +545,12 @@ export { ListEnterpriseAccelerateTargetsResponse } from './ListEnterpriseAcceler
 export { ListExcessiveDeviceRegistrationApplicationsRequest } from './ListExcessiveDeviceRegistrationApplicationsRequest';
 export { ListExcessiveDeviceRegistrationApplicationsResponseBody } from './ListExcessiveDeviceRegistrationApplicationsResponseBody';
 export { ListExcessiveDeviceRegistrationApplicationsResponse } from './ListExcessiveDeviceRegistrationApplicationsResponse';
+export { ListForwardStrategiesRequest } from './ListForwardStrategiesRequest';
+export { ListForwardStrategiesResponseBody } from './ListForwardStrategiesResponseBody';
+export { ListForwardStrategiesResponse } from './ListForwardStrategiesResponse';
+export { ListForwardStrategyBindingItemsRequest } from './ListForwardStrategyBindingItemsRequest';
+export { ListForwardStrategyBindingItemsResponseBody } from './ListForwardStrategyBindingItemsResponseBody';
+export { ListForwardStrategyBindingItemsResponse } from './ListForwardStrategyBindingItemsResponse';
 export { ListIdpConfigsRequest } from './ListIdpConfigsRequest';
 export { ListIdpConfigsResponseBody } from './ListIdpConfigsResponseBody';
 export { ListIdpConfigsResponse } from './ListIdpConfigsResponse';

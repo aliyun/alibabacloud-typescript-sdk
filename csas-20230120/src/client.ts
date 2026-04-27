@@ -82,7 +82,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 挂载业务策略至指定审批流程
+   * Mount a business policy to a specified approval flow
    * 
    * @param request - AttachPolicy2ApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -121,7 +121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 挂载业务策略至指定审批流程
+   * Mount a business policy to a specified approval flow
    * 
    * @param request - AttachPolicy2ApprovalProcessRequest
    * @returns AttachPolicy2ApprovalProcessResponse
@@ -132,7 +132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建审批流程
+   * Create an approval flow under the current Alibaba Cloud account.
    * 
    * @param tmpReq - CreateApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -186,7 +186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建审批流程
+   * Create an approval flow under the current Alibaba Cloud account.
    * 
    * @param request - CreateApprovalProcessRequest
    * @returns CreateApprovalProcessResponse
@@ -346,7 +346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建加速策略
+   * Create an enterprise acceleration policy.
    * 
    * @param request - CreateEnterpriseAcceleratePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -409,7 +409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建加速策略
+   * Create an enterprise acceleration policy.
    * 
    * @param request - CreateEnterpriseAcceleratePolicyRequest
    * @returns CreateEnterpriseAcceleratePolicyResponse
@@ -420,7 +420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建加速对象
+   * Create an enterprise acceleration address.
    * 
    * @param request - CreateEnterpriseAccelerateTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -460,7 +460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建加速对象
+   * Create an enterprise acceleration address.
    * 
    * @param request - CreateEnterpriseAccelerateTargetRequest
    * @returns CreateEnterpriseAccelerateTargetResponse
@@ -517,7 +517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建内网访问诊断任务
+   * Create an internal network access diagnostic task
    * 
    * @param tmpReq - CreatePADiagnosisTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -590,7 +590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建内网访问诊断任务
+   * Create an internal network access diagnostic task
    * 
    * @param request - CreatePADiagnosisTaskRequest
    * @returns CreatePADiagnosisTaskResponse
@@ -1385,7 +1385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除审批流程
+   * Batch delete approval flows under the current Alibaba Cloud account.
    * 
    * @param request - DeleteApprovalProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1421,7 +1421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除审批流程
+   * Batch delete approval flows under the current Alibaba Cloud account.
    * 
    * @param request - DeleteApprovalProcessesRequest
    * @returns DeleteApprovalProcessesResponse
@@ -1516,7 +1516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除加速策略
+   * Delete an enterprise acceleration policy.
    * 
    * @param request - DeleteEnterpriseAcceleratePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1547,7 +1547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除加速策略
+   * Delete an enterprise acceleration policy.
    * 
    * @param request - DeleteEnterpriseAcceleratePolicyRequest
    * @returns DeleteEnterpriseAcceleratePolicyResponse
@@ -1558,7 +1558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除加速对象
+   * Delete an enterprise acceleration address.
    * 
    * @param request - DeleteEnterpriseAccelerateTargetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1598,7 +1598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除加速对象
+   * Delete an enterprise acceleration address.
    * 
    * @param request - DeleteEnterpriseAccelerateTargetRequest
    * @returns DeleteEnterpriseAccelerateTargetResponse
@@ -1655,7 +1655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteOtpConfig
+   * Delete the employee OTP configuration.
    * 
    * @param request - DeleteOtpConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1686,7 +1686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteOtpConfig
+   * Delete the employee OTP configuration.
    * 
    * @param request - DeleteOtpConfigRequest
    * @returns DeleteOtpConfigResponse
@@ -2016,7 +2016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑业务策略与审批流程
+   * Detach business policies from approval flows
    * 
    * @param request - DetachPolicy2ApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2055,7 +2055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑业务策略与审批流程
+   * Detach business policies from approval flows
    * 
    * @param request - DetachPolicy2ApprovalProcessRequest
    * @returns DetachPolicy2ApprovalProcessResponse
@@ -2066,7 +2066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用加速策略
+   * Disable enterprise acceleration policy.
    * 
    * @param request - DisableEnterpriseAcceleratePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2097,7 +2097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用加速策略
+   * Disable enterprise acceleration policy.
    * 
    * @param request - DisableEnterpriseAcceleratePolicyRequest
    * @returns DisableEnterpriseAcceleratePolicyResponse
@@ -2108,7 +2108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用加速策略
+   * Enable enterprise acceleration policy.
    * 
    * @param request - EnableEnterpriseAcceleratePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2139,7 +2139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启用加速策略
+   * Enable enterprise acceleration policy.
    * 
    * @param request - EnableEnterpriseAcceleratePolicyRequest
    * @returns EnableEnterpriseAcceleratePolicyResponse
@@ -2255,7 +2255,6 @@ export default class Client extends OpenApi {
   /**
    * 查询已启用的身份源配置
    * 
-   * @param request - GetActiveIdpConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetActiveIdpConfigResponse
    */
@@ -2285,7 +2284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批
+   * Queries the details of an approval instance within your Alibaba Cloud account.
    * 
    * @param request - GetApprovalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2312,7 +2311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批
+   * Queries the details of an approval instance within your Alibaba Cloud account.
    * 
    * @param request - GetApprovalRequest
    * @returns GetApprovalResponse
@@ -2323,7 +2322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批流程
+   * Queries the details of an approval flow under the current Alibaba Cloud account.
    * 
    * @param request - GetApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2350,7 +2349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批流程
+   * Queries the details of an approval flow under the current Alibaba Cloud account.
    * 
    * @param request - GetApprovalProcessRequest
    * @returns GetApprovalProcessResponse
@@ -2361,7 +2360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批动态模板
+   * Queries the details of an approval template within your Alibaba Cloud account.
    * 
    * @param request - GetApprovalSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2388,7 +2387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批动态模板
+   * Queries the details of an approval template within your Alibaba Cloud account.
    * 
    * @param request - GetApprovalSchemaRequest
    * @returns GetApprovalSchemaResponse
@@ -2399,9 +2398,8 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自启动与防卸载策略配置
+   * Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
    * 
-   * @param request - GetBootAndAntiUninstallPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBootAndAntiUninstallPolicyResponse
    */
@@ -2422,7 +2420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自启动与防卸载策略配置
+   * Queries the details of the Startup and anti-uninstall policy under the current Alibaba Cloud account.
    * @returns GetBootAndAntiUninstallPolicyResponse
    */
   async getBootAndAntiUninstallPolicy(): Promise<$_model.GetBootAndAntiUninstallPolicyResponse> {
@@ -2545,7 +2543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询内网访问诊断任务详情
+   * Query the details of an internal network access diagnostic task
    * 
    * @param request - GetPADiagnosisTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2572,7 +2570,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询内网访问诊断任务详情
+   * Query the details of an internal network access diagnostic task
    * 
    * @param request - GetPADiagnosisTaskRequest
    * @returns GetPADiagnosisTaskResponse
@@ -2849,7 +2847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导入加速对象异步任务
+   * Batch import accelerated address List.
    * 
    * @param request - ImportEnterpriseAccelerateTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2884,7 +2882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量导入加速对象异步任务
+   * Batch import accelerated address List.
    * 
    * @param request - ImportEnterpriseAccelerateTargetsRequest
    * @returns ImportEnterpriseAccelerateTargetsResponse
@@ -2895,7 +2893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询内网访问策略的应用
+   * Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
    * 
    * @param request - ListApplicationsForPrivateAccessPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2922,7 +2920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询内网访问策略的应用
+   * Batch queries the applications of internal network access policies under the current Alibaba Cloud account.
    * 
    * @param request - ListApplicationsForPrivateAccessPolicyRequest
    * @returns ListApplicationsForPrivateAccessPolicyResponse
@@ -2971,7 +2969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询审批流程
+   * Queries the approval flow list under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2998,7 +2996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询审批流程
+   * Queries the approval flow list under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalProcessesRequest
    * @returns ListApprovalProcessesResponse
@@ -3009,7 +3007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批渲染模板关联的流程
+   * Query flows associated with an approval rendering template
    * 
    * @param request - ListApprovalProcessesForApprovalSchemasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3036,7 +3034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批渲染模板关联的流程
+   * Query flows associated with an approval rendering template
    * 
    * @param request - ListApprovalProcessesForApprovalSchemasRequest
    * @returns ListApprovalProcessesForApprovalSchemasResponse
@@ -3047,7 +3045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询审批动态模板
+   * Queries the list of approval templates under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalSchemasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3074,7 +3072,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询审批动态模板
+   * Queries the list of approval templates under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalSchemasRequest
    * @returns ListApprovalSchemasResponse
@@ -3085,7 +3083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批流程关联的渲染模板
+   * Query rendering templates associated with an approval flow
    * 
    * @param request - ListApprovalSchemasForApprovalProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3112,7 +3110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询审批流程关联的渲染模板
+   * Query rendering templates associated with an approval flow
    * 
    * @param request - ListApprovalSchemasForApprovalProcessesRequest
    * @returns ListApprovalSchemasForApprovalProcessesResponse
@@ -3123,7 +3121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询审批
+   * Queries the approval instance list under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3150,7 +3148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询审批
+   * Queries the approval instance list under the current Alibaba Cloud account.
    * 
    * @param request - ListApprovalsRequest
    * @returns ListApprovalsResponse
@@ -3237,7 +3235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Query Dynamic Policy Disposal Processes
+   * Batch query Dynamic policy handling flows.
    * 
    * @param request - ListDynamicDisposalProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3264,7 +3262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Query Dynamic Policy Disposal Processes
+   * Batch query Dynamic policy handling flows.
    * 
    * @param request - ListDynamicDisposalProcessesRequest
    * @returns ListDynamicDisposalProcessesResponse
@@ -3277,7 +3275,6 @@ export default class Client extends OpenApi {
   /**
    * 批量查询动态路由的地域
    * 
-   * @param request - ListDynamicRouteRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDynamicRouteRegionsResponse
    */
@@ -3345,7 +3342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询加速策略日志列表
+   * Queries enterprise acceleration Audit logs.
    * 
    * @param request - ListEnterpriseAccelerateLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3372,7 +3369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询加速策略日志列表
+   * Queries enterprise acceleration Audit logs.
    * 
    * @param request - ListEnterpriseAccelerateLogsRequest
    * @returns ListEnterpriseAccelerateLogsResponse
@@ -3383,7 +3380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询加速策略列表
+   * Query acceleration policy list
    * 
    * @param request - ListEnterpriseAcceleratePoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3410,7 +3407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询加速策略列表
+   * Query acceleration policy list
    * 
    * @param request - ListEnterpriseAcceleratePoliciesRequest
    * @returns ListEnterpriseAcceleratePoliciesResponse
@@ -3421,7 +3418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询加速对象列表
+   * Query the enterprise acceleration address list.
    * 
    * @param request - ListEnterpriseAccelerateTargetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3448,7 +3445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询加速对象列表
+   * Query the enterprise acceleration address list.
    * 
    * @param request - ListEnterpriseAccelerateTargetsRequest
    * @returns ListEnterpriseAccelerateTargetsResponse
@@ -3494,6 +3491,82 @@ export default class Client extends OpenApi {
   async listExcessiveDeviceRegistrationApplications(request: $_model.ListExcessiveDeviceRegistrationApplicationsRequest): Promise<$_model.ListExcessiveDeviceRegistrationApplicationsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listExcessiveDeviceRegistrationApplicationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量查询转发策略
+   * 
+   * @param request - ListForwardStrategiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListForwardStrategiesResponse
+   */
+  async listForwardStrategiesWithOptions(request: $_model.ListForwardStrategiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListForwardStrategiesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListForwardStrategies",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListForwardStrategiesResponse>(await this.callApi(params, req, runtime), new $_model.ListForwardStrategiesResponse({}));
+  }
+
+  /**
+   * 批量查询转发策略
+   * 
+   * @param request - ListForwardStrategiesRequest
+   * @returns ListForwardStrategiesResponse
+   */
+  async listForwardStrategies(request: $_model.ListForwardStrategiesRequest): Promise<$_model.ListForwardStrategiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listForwardStrategiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量查询转发策略绑定项目
+   * 
+   * @param request - ListForwardStrategyBindingItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListForwardStrategyBindingItemsResponse
+   */
+  async listForwardStrategyBindingItemsWithOptions(request: $_model.ListForwardStrategyBindingItemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListForwardStrategyBindingItemsResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListForwardStrategyBindingItems",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListForwardStrategyBindingItemsResponse>(await this.callApi(params, req, runtime), new $_model.ListForwardStrategyBindingItemsResponse({}));
+  }
+
+  /**
+   * 批量查询转发策略绑定项目
+   * 
+   * @param request - ListForwardStrategyBindingItemsRequest
+   * @returns ListForwardStrategyBindingItemsResponse
+   */
+  async listForwardStrategyBindingItems(request: $_model.ListForwardStrategyBindingItemsRequest): Promise<$_model.ListForwardStrategyBindingItemsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listForwardStrategyBindingItemsWithOptions(request, runtime);
   }
 
   /**
@@ -3573,7 +3646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 入网用户列表
+   * Network User List.
    * 
    * @param request - ListNacUserCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3632,7 +3705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 入网用户列表
+   * Network User List.
    * 
    * @param request - ListNacUserCertRequest
    * @returns ListNacUserCertResponse
@@ -4215,7 +4288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询卸载申请列表
+   * Batch queries the uninstall request list under the current Alibaba Cloud account.
    * 
    * @param request - ListUninstallApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4242,7 +4315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询卸载申请列表
+   * Batch queries the uninstall request list under the current Alibaba Cloud account.
    * 
    * @param request - ListUninstallApplicationsRequest
    * @returns ListUninstallApplicationsResponse
@@ -4253,7 +4326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询用户应用权限
+   * Queries the application permissions of a logon user under the current Alibaba Cloud account.
    * 
    * @param request - ListUserApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4280,7 +4353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列表查询用户应用权限
+   * Queries the application permissions of a logon user under the current Alibaba Cloud account.
    * 
    * @param request - ListUserApplicationsRequest
    * @returns ListUserApplicationsResponse
@@ -4443,7 +4516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List query of user zero trust policies
+   * Query the zero trust policies of a User in a List.
    * 
    * @param request - ListUserPrivateAccessPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4470,7 +4543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List query of user zero trust policies
+   * Query the zero trust policies of a User in a List.
    * 
    * @param request - ListUserPrivateAccessPoliciesRequest
    * @returns ListUserPrivateAccessPoliciesResponse
@@ -4557,7 +4630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改加速策略
+   * Modify enterprise acceleration policy.
    * 
    * @param request - ModifyEnterpriseAcceleratePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4628,7 +4701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改加速策略
+   * Modify enterprise acceleration policy.
    * 
    * @param request - ModifyEnterpriseAcceleratePolicyRequest
    * @returns ModifyEnterpriseAcceleratePolicyResponse
@@ -4639,7 +4712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 吊销用户登录会话
+   * Revoke a User logon session.
    * 
    * @deprecated OpenAPI RevokeUserSession is deprecated
    * 
@@ -4676,7 +4749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 吊销用户登录会话
+   * Revoke a User logon session.
    * 
    * @deprecated OpenAPI RevokeUserSession is deprecated
    * 
@@ -4690,7 +4763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新审批流程
+   * Update an approval flow under the current Alibaba Cloud account.
    * 
    * @param tmpReq - UpdateApprovalProcessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4770,7 +4843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新审批流程
+   * Update an approval flow under the current Alibaba Cloud account.
    * 
    * @param request - UpdateApprovalProcessRequest
    * @returns UpdateApprovalProcessResponse
@@ -4781,7 +4854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改审批状态
+   * Update the approval instance status under the current Alibaba Cloud account.
    * 
    * @param request - UpdateApprovalStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4816,7 +4889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改审批状态
+   * Update the approval instance status under the current Alibaba Cloud account.
    * 
    * @param request - UpdateApprovalStatusRequest
    * @returns UpdateApprovalStatusResponse
@@ -4827,7 +4900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自启动与防卸载策略配置
+   * Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
    * 
    * @param tmpReq - UpdateBootAndAntiUninstallPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4889,7 +4962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自启动与防卸载策略配置
+   * Update the Startup and anti-uninstall policy under the current Alibaba Cloud account.
    * 
    * @param request - UpdateBootAndAntiUninstallPolicyRequest
    * @returns UpdateBootAndAntiUninstallPolicyResponse
@@ -5246,7 +5319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新NAC User 状态
+   * Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
    * 
    * @param request - UpdateNacUserCertStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5286,7 +5359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新NAC User 状态
+   * Batch modifies the Status of network access certificates for Users under the current Alibaba Cloud account.
    * 
    * @param request - UpdateNacUserCertStatusRequest
    * @returns UpdateNacUserCertStatusResponse
@@ -5638,7 +5711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量修改卸载申请状态
+   * Batch updates the uninstall request status under the current Alibaba Cloud account.
    * 
    * @param request - UpdateUninstallApplicationsStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5678,7 +5751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量修改卸载申请状态
+   * Batch updates the uninstall request status under the current Alibaba Cloud account.
    * 
    * @param request - UpdateUninstallApplicationsStatusRequest
    * @returns UpdateUninstallApplicationsStatusResponse
