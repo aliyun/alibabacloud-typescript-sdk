@@ -10265,7 +10265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of API keys for a Supabase project.
+   * Queries the API keys and JWT secrets of a Supabase instance.
    * 
    * @remarks
    * You can call this operation to query a list of API keys for a Supabase project.
@@ -10303,7 +10303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of API keys for a Supabase project.
+   * Queries the API keys and JWT secrets of a Supabase instance.
    * 
    * @remarks
    * You can call this operation to query a list of API keys for a Supabase project.
@@ -13977,7 +13977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Supabase自动启停策略
+   * Modify the auto pause/resume policy of Supabase.
    * 
    * @param request - ModifySupabaseAutoScalePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14016,7 +14016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改Supabase自动启停策略
+   * Modify the auto pause/resume policy of Supabase.
    * 
    * @param request - ModifySupabaseAutoScalePolicyRequest
    * @returns ModifySupabaseAutoScalePolicyResponse
@@ -14024,6 +14024,64 @@ export default class Client extends OpenApi {
   async modifySupabaseAutoScalePolicy(request: $_model.ModifySupabaseAutoScalePolicyRequest): Promise<$_model.ModifySupabaseAutoScalePolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifySupabaseAutoScalePolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+   * 
+   * @param request - ModifySupabaseProjectResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySupabaseProjectResourceResponse
+   */
+  async modifySupabaseProjectResourceWithOptions(request: $_model.ModifySupabaseProjectResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySupabaseProjectResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.modifyType)) {
+      query["ModifyType"] = request.modifyType;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.projectSpec)) {
+      query["ProjectSpec"] = request.projectSpec;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.storageSize)) {
+      query["StorageSize"] = request.storageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySupabaseProjectResource",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySupabaseProjectResourceResponse>(await this.callApi(params, req, runtime), new $_model.ModifySupabaseProjectResourceResponse({}));
+  }
+
+  /**
+   * Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
+   * 
+   * @param request - ModifySupabaseProjectResourceRequest
+   * @returns ModifySupabaseProjectResourceResponse
+   */
+  async modifySupabaseProjectResource(request: $_model.ModifySupabaseProjectResourceRequest): Promise<$_model.ModifySupabaseProjectResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySupabaseProjectResourceWithOptions(request, runtime);
   }
 
   /**
