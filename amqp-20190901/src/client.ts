@@ -1006,6 +1006,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取region列表
+   * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
@@ -1035,6 +1037,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取region列表
+   * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
    */
@@ -1444,6 +1448,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取购买页地址
+   * 
    * @param request - GetCommonBuyUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCommonBuyUrlResponse
@@ -1481,6 +1487,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取购买页地址
+   * 
    * @param request - GetCommonBuyUrlRequest
    * @returns GetCommonBuyUrlResponse
    */
@@ -2549,6 +2557,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.consoleSessionId)) {
       query["ConsoleSessionId"] = request.consoleSessionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!$dara.isNull(request.tags)) {

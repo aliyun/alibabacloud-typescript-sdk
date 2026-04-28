@@ -4,10 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class InstancePreivewRequest extends $dara.Model {
   consoleSessionId?: string;
+  resourceGroupId?: string;
   tags?: string;
   static names(): { [key: string]: string } {
     return {
       consoleSessionId: 'ConsoleSessionId',
+      resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
     };
   }
@@ -15,6 +17,7 @@ export class InstancePreivewRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       consoleSessionId: 'string',
+      resourceGroupId: 'string',
       tags: 'string',
     };
   }
