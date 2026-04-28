@@ -13,6 +13,7 @@ export { GetDataBatchIngestionResponseBodyDataBatchIngestion } from './GetDataBa
 export { GetDataStorageResponseBodyDataNormalizationLogStores } from './GetDataStorageResponseBody';
 export { GetDataStorageResponseBodyDataNormalizationLogViews } from './GetDataStorageResponseBody';
 export { GetDataStorageResponseBodyDataSasLogStores } from './GetDataStorageResponseBody';
+export { GetDataStorageResponseBodyDataUnusedLogStores } from './GetDataStorageResponseBody';
 export { GetDataStorageResponseBodyData } from './GetDataStorageResponseBody';
 export { GetDetectionStatisticResponseBodyDetectionStatistic } from './GetDetectionStatisticResponseBody';
 export { GetIncidentResponseBodyIncident } from './GetIncidentResponseBody';

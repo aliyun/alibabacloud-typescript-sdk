@@ -13,10 +13,16 @@ export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.
    * 180
    */
   logStoreTtl?: number;
+  /**
+   * @example
+   * 10.333
+   */
+  usedCapacity?: number;
   static names(): { [key: string]: string } {
     return {
       logStoreName: 'LogStoreName',
       logStoreTtl: 'LogStoreTtl',
+      usedCapacity: 'UsedCapacity',
     };
   }
 
@@ -24,6 +30,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.
     return {
       logStoreName: 'string',
       logStoreTtl: 'number',
+      usedCapacity: 'number',
     };
   }
 
@@ -162,6 +169,11 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
    * 180
    */
   logStoreTtl?: number;
+  /**
+   * @example
+   * 10.333
+   */
+  usedCapacity?: number;
   static names(): { [key: string]: string } {
     return {
       logCode: 'LogCode',
@@ -174,6 +186,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
       logStoreExisted: 'LogStoreExisted',
       logStoreName: 'LogStoreName',
       logStoreTtl: 'LogStoreTtl',
+      usedCapacity: 'UsedCapacity',
     };
   }
 
@@ -189,6 +202,48 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
       logStoreExisted: 'boolean',
       logStoreName: 'string',
       logStoreTtl: 'number',
+      usedCapacity: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataStorageResponseBodyDataUnusedLogStores extends $dara.Model {
+  /**
+   * @example
+   * cloud-siem
+   */
+  logStoreName?: string;
+  /**
+   * @example
+   * 180
+   */
+  logStoreTtl?: number;
+  /**
+   * @example
+   * 10.333
+   */
+  usedCapacity?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logStoreName: 'LogStoreName',
+      logStoreTtl: 'LogStoreTtl',
+      usedCapacity: 'UsedCapacity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logStoreName: 'string',
+      logStoreTtl: 'number',
+      usedCapacity: 'number',
     };
   }
 
@@ -240,6 +295,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   normalizationLogStores?: GetDataStorageResponseBodyDataNormalizationLogStores[];
   normalizationLogViews?: GetDataStorageResponseBodyDataNormalizationLogViews[];
   sasLogStores?: GetDataStorageResponseBodyDataSasLogStores[];
+  unusedLogStores?: GetDataStorageResponseBodyDataUnusedLogStores[];
   static names(): { [key: string]: string } {
     return {
       coldStorageUsedCapacity: 'ColdStorageUsedCapacity',
@@ -252,6 +308,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
       normalizationLogStores: 'NormalizationLogStores',
       normalizationLogViews: 'NormalizationLogViews',
       sasLogStores: 'SasLogStores',
+      unusedLogStores: 'UnusedLogStores',
     };
   }
 
@@ -267,6 +324,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
       normalizationLogStores: { 'type': 'array', 'itemType': GetDataStorageResponseBodyDataNormalizationLogStores },
       normalizationLogViews: { 'type': 'array', 'itemType': GetDataStorageResponseBodyDataNormalizationLogViews },
       sasLogStores: { 'type': 'array', 'itemType': GetDataStorageResponseBodyDataSasLogStores },
+      unusedLogStores: { 'type': 'array', 'itemType': GetDataStorageResponseBodyDataUnusedLogStores },
     };
   }
 
@@ -279,6 +337,9 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.sasLogStores)) {
       $dara.Model.validateArray(this.sasLogStores);
+    }
+    if(Array.isArray(this.unusedLogStores)) {
+      $dara.Model.validateArray(this.unusedLogStores);
     }
     super.validate();
   }
