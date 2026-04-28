@@ -1173,6 +1173,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用于检查PolarFS实例中配额设置的一致性状态。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
+   * ### 注意事项
+   * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
+   * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
+   * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
+   * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+   * 
+   * @param request - CheckPolarFsQuotaConsistencyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckPolarFsQuotaConsistencyResponse
+   */
+  async checkPolarFsQuotaConsistencyWithOptions(request: $_model.CheckPolarFsQuotaConsistencyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckPolarFsQuotaConsistencyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enableRepair)) {
+      query["EnableRepair"] = request.enableRepair;
+    }
+
+    if (!$dara.isNull(request.enableStrictCalculate)) {
+      query["EnableStrictCalculate"] = request.enableStrictCalculate;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckPolarFsQuotaConsistency",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckPolarFsQuotaConsistencyResponse>(await this.callApi(params, req, runtime), new $_model.CheckPolarFsQuotaConsistencyResponse({}));
+  }
+
+  /**
+   * 用于检查PolarFS实例中配额设置的一致性状态。
+   * 
+   * @remarks
+   * ## 请求说明
+   * 该API允许用户验证指定PolarFS实例内的配额配置是否一致，包括但不限于目录路径上的存储容量和inode限制。如果存在不一致的情况，将返回具体的不一致路径列表及可能的错误信息。
+   * ### 注意事项
+   * - 确保`PolarFsInstanceId`参数正确无误地指向了目标PolarFS实例。
+   * - 当系统检测到配额不一致时，除了返回`IsConsistent=false`外，还会提供`InconsistentPaths`数组来指示具体哪些路径存在问题。
+   * - 如果请求成功但没有发现任何不一致，则`InconsistentPaths`为空数组，并且`IsConsistent=true`。
+   * - 错误处理：若请求过程中遇到权限不足、资源不存在等问题，请参考提供的错误码定义部分以获取更详细的错误信息。
+   * 
+   * @param request - CheckPolarFsQuotaConsistencyRequest
+   * @returns CheckPolarFsQuotaConsistencyResponse
+   */
+  async checkPolarFsQuotaConsistency(request: $_model.CheckPolarFsQuotaConsistencyRequest): Promise<$_model.CheckPolarFsQuotaConsistencyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkPolarFsQuotaConsistencyWithOptions(request, runtime);
+  }
+
+  /**
    * Checks whether a service-linked role (SLR) is created.
    * 
    * @param request - CheckServiceLinkedRoleRequest
@@ -2379,6 +2451,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建预算策略
+   * 
+   * @param request - CreateBudgetPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBudgetPolicyResponse
+   */
+  async createBudgetPolicyWithOptions(request: $_model.CreateBudgetPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBudgetPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertThresholdPct)) {
+      query["AlertThresholdPct"] = request.alertThresholdPct;
+    }
+
+    if (!$dara.isNull(request.budgetDimensionRefId)) {
+      query["BudgetDimensionRefId"] = request.budgetDimensionRefId;
+    }
+
+    if (!$dara.isNull(request.budgetPoints)) {
+      query["BudgetPoints"] = request.budgetPoints;
+    }
+
+    if (!$dara.isNull(request.budgetType)) {
+      query["BudgetType"] = request.budgetType;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resetDayOfMonth)) {
+      query["ResetDayOfMonth"] = request.resetDayOfMonth;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBudgetPolicy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBudgetPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateBudgetPolicyResponse({}));
+  }
+
+  /**
+   * 创建预算策略
+   * 
+   * @param request - CreateBudgetPolicyRequest
+   * @returns CreateBudgetPolicyResponse
+   */
+  async createBudgetPolicy(request: $_model.CreateBudgetPolicyRequest): Promise<$_model.CreateBudgetPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBudgetPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a cluster that is used to store cold data.
    * 
    * @param request - CreateColdStorageInstanceRequest
@@ -2446,6 +2584,192 @@ export default class Client extends OpenApi {
   async createColdStorageInstance(request: $_model.CreateColdStorageInstanceRequest): Promise<$_model.CreateColdStorageInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createColdStorageInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建消费者
+   * 
+   * @param request - CreateConsumerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConsumerResponse
+   */
+  async createConsumerWithOptions(request: $_model.CreateConsumerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConsumerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerGroupName)) {
+      query["ConsumerGroupName"] = request.consumerGroupName;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.keyType)) {
+      query["KeyType"] = request.keyType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nickName)) {
+      query["NickName"] = request.nickName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConsumer",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateConsumerResponse>(await this.callApi(params, req, runtime), new $_model.CreateConsumerResponse({}));
+  }
+
+  /**
+   * 创建消费者
+   * 
+   * @param request - CreateConsumerRequest
+   * @returns CreateConsumerResponse
+   */
+  async createConsumer(request: $_model.CreateConsumerRequest): Promise<$_model.CreateConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createConsumerWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建消费者组
+   * 
+   * @param request - CreateConsumerGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConsumerGroupResponse
+   */
+  async createConsumerGroupWithOptions(request: $_model.CreateConsumerGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConsumerGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerGroupName)) {
+      query["ConsumerGroupName"] = request.consumerGroupName;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.isDefault)) {
+      query["IsDefault"] = request.isDefault;
+    }
+
+    if (!$dara.isNull(request.nickName)) {
+      query["NickName"] = request.nickName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConsumerGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateConsumerGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateConsumerGroupResponse({}));
+  }
+
+  /**
+   * 创建消费者组
+   * 
+   * @param request - CreateConsumerGroupRequest
+   * @returns CreateConsumerGroupResponse
+   */
+  async createConsumerGroup(request: $_model.CreateConsumerGroupRequest): Promise<$_model.CreateConsumerGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createConsumerGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建限流策略
+   * 
+   * @param request - CreateCostRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCostRuleResponse
+   */
+  async createCostRuleWithOptions(request: $_model.CreateCostRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCostRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cacheCostPointsPerMillion)) {
+      query["CacheCostPointsPerMillion"] = request.cacheCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.inputCostPointsPerMillion)) {
+      query["InputCostPointsPerMillion"] = request.inputCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelServiceId)) {
+      query["ModelServiceId"] = request.modelServiceId;
+    }
+
+    if (!$dara.isNull(request.outputCostPointsPerMillion)) {
+      query["OutputCostPointsPerMillion"] = request.outputCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCostRule",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCostRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateCostRuleResponse({}));
+  }
+
+  /**
+   * 创建限流策略
+   * 
+   * @param request - CreateCostRuleRequest
+   * @returns CreateCostRuleResponse
+   */
+  async createCostRule(request: $_model.CreateCostRuleRequest): Promise<$_model.CreateCostRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCostRuleWithOptions(request, runtime);
   }
 
   /**
@@ -3653,6 +3977,88 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建网关地址
+   * 
+   * @param request - CreateGatewayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGatewayResponse
+   */
+  async createGatewayWithOptions(request: $_model.CreateGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGatewayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.DBClusterClass)) {
+      query["DBClusterClass"] = request.DBClusterClass;
+    }
+
+    if (!$dara.isNull(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGateway",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGatewayResponse>(await this.callApi(params, req, runtime), new $_model.CreateGatewayResponse({}));
+  }
+
+  /**
+   * 创建网关地址
+   * 
+   * @param request - CreateGatewayRequest
+   * @returns CreateGatewayResponse
+   */
+  async createGateway(request: $_model.CreateGatewayRequest): Promise<$_model.CreateGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGatewayWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a global data network (GDN).
    * 
    * @param request - CreateGlobalDataNetworkRequest
@@ -3886,6 +4292,166 @@ export default class Client extends OpenApi {
   async createGlobalSecurityIPGroup(request: $_model.CreateGlobalSecurityIPGroupRequest): Promise<$_model.CreateGlobalSecurityIPGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createGlobalSecurityIPGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建路由规则
+   * 
+   * @param request - CreateModelApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelApiResponse
+   */
+  async createModelApiWithOptions(request: $_model.CreateModelApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelApiResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.forceModel)) {
+      query["ForceModel"] = request.forceModel;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.modelCategory)) {
+      query["ModelCategory"] = request.modelCategory;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pathPrefix)) {
+      query["PathPrefix"] = request.pathPrefix;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.recordInput)) {
+      query["RecordInput"] = request.recordInput;
+    }
+
+    if (!$dara.isNull(request.recordOutput)) {
+      query["RecordOutput"] = request.recordOutput;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeRules)) {
+      query["RouteRules"] = request.routeRules;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelApi",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelApiResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelApiResponse({}));
+  }
+
+  /**
+   * 创建路由规则
+   * 
+   * @param request - CreateModelApiRequest
+   * @returns CreateModelApiResponse
+   */
+  async createModelApi(request: $_model.CreateModelApiRequest): Promise<$_model.CreateModelApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createModelApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建模型服务
+   * 
+   * @param request - CreateModelServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelServiceResponse
+   */
+  async createModelServiceWithOptions(request: $_model.CreateModelServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.baseUrl)) {
+      query["BaseUrl"] = request.baseUrl;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.inputCostPointsPerMillion)) {
+      query["InputCostPointsPerMillion"] = request.inputCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.modelCategory)) {
+      query["ModelCategory"] = request.modelCategory;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.outputCostPointsPerMillion)) {
+      query["OutputCostPointsPerMillion"] = request.outputCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.requestCostPoints)) {
+      query["RequestCostPoints"] = request.requestCostPoints;
+    }
+
+    if (!$dara.isNull(request.vendor)) {
+      query["Vendor"] = request.vendor;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelService",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelServiceResponse({}));
+  }
+
+  /**
+   * 创建模型服务
+   * 
+   * @param request - CreateModelServiceRequest
+   * @returns CreateModelServiceResponse
+   */
+  async createModelService(request: $_model.CreateModelServiceRequest): Promise<$_model.CreateModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createModelServiceWithOptions(request, runtime);
   }
 
   /**
@@ -4128,6 +4694,130 @@ export default class Client extends OpenApi {
   async createParameterGroup(request: $_model.CreateParameterGroupRequest): Promise<$_model.CreateParameterGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 用于在指定PolarFS实例中创建新的目录。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - **Path**：需要创建的目录绝对路径。
+   * - **Recursive**：是否递归创建父目录，默认为 `false`。
+   * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
+   * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
+   * - 创建目录时，请确保具有足够的权限。
+   * 
+   * @param request - CreatePolarFsObjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePolarFsObjectResponse
+   */
+  async createPolarFsObjectWithOptions(request: $_model.CreatePolarFsObjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePolarFsObjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePolarFsObject",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePolarFsObjectResponse>(await this.callApi(params, req, runtime), new $_model.CreatePolarFsObjectResponse({}));
+  }
+
+  /**
+   * 用于在指定PolarFS实例中创建新的目录。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - **Path**：需要创建的目录绝对路径。
+   * - **Recursive**：是否递归创建父目录，默认为 `false`。
+   * - 该接口支持在指定的PolarFS实例中创建单个或多个层级的目录结构。
+   * - 如果设置 `Recursive` 为 `true`，则会自动创建所有不存在的父目录。
+   * - 创建目录时，请确保具有足够的权限。
+   * 
+   * @param request - CreatePolarFsObjectRequest
+   * @returns CreatePolarFsObjectResponse
+   */
+  async createPolarFsObject(request: $_model.CreatePolarFsObjectRequest): Promise<$_model.CreatePolarFsObjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPolarFsObjectWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建限流策略
+   * 
+   * @param request - CreateRateLimitPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRateLimitPolicyResponse
+   */
+  async createRateLimitPolicyWithOptions(request: $_model.CreateRateLimitPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRateLimitPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.rateLimitRpm)) {
+      query["RateLimitRpm"] = request.rateLimitRpm;
+    }
+
+    if (!$dara.isNull(request.rateLimitTpm)) {
+      query["RateLimitTpm"] = request.rateLimitTpm;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scopeRefId)) {
+      query["ScopeRefId"] = request.scopeRefId;
+    }
+
+    if (!$dara.isNull(request.scopeType)) {
+      query["ScopeType"] = request.scopeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRateLimitPolicy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRateLimitPolicyResponse>(await this.callApi(params, req, runtime), new $_model.CreateRateLimitPolicyResponse({}));
+  }
+
+  /**
+   * 创建限流策略
+   * 
+   * @param request - CreateRateLimitPolicyRequest
+   * @returns CreateRateLimitPolicyResponse
+   */
+  async createRateLimitPolicy(request: $_model.CreateRateLimitPolicyRequest): Promise<$_model.CreateRateLimitPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createRateLimitPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -4828,6 +5518,206 @@ export default class Client extends OpenApi {
   async deleteBackup(request: $_model.DeleteBackupRequest): Promise<$_model.DeleteBackupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteBackupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除预算策略
+   * 
+   * @param request - DeleteBudgetPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBudgetPolicyResponse
+   */
+  async deleteBudgetPolicyWithOptions(request: $_model.DeleteBudgetPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBudgetPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.budgetPolicyId)) {
+      query["BudgetPolicyId"] = request.budgetPolicyId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBudgetPolicy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBudgetPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBudgetPolicyResponse({}));
+  }
+
+  /**
+   * 删除预算策略
+   * 
+   * @param request - DeleteBudgetPolicyRequest
+   * @returns DeleteBudgetPolicyResponse
+   */
+  async deleteBudgetPolicy(request: $_model.DeleteBudgetPolicyRequest): Promise<$_model.DeleteBudgetPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBudgetPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除消费者
+   * 
+   * @param request - DeleteConsumerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConsumerResponse
+   */
+  async deleteConsumerWithOptions(request: $_model.DeleteConsumerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConsumerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerId)) {
+      query["ConsumerId"] = request.consumerId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConsumer",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConsumerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConsumerResponse({}));
+  }
+
+  /**
+   * 删除消费者
+   * 
+   * @param request - DeleteConsumerRequest
+   * @returns DeleteConsumerResponse
+   */
+  async deleteConsumer(request: $_model.DeleteConsumerRequest): Promise<$_model.DeleteConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteConsumerWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除消费者组
+   * 
+   * @param request - DeleteConsumerGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConsumerGroupResponse
+   */
+  async deleteConsumerGroupWithOptions(request: $_model.DeleteConsumerGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConsumerGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerGroupName)) {
+      query["ConsumerGroupName"] = request.consumerGroupName;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConsumerGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConsumerGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConsumerGroupResponse({}));
+  }
+
+  /**
+   * 删除消费者组
+   * 
+   * @param request - DeleteConsumerGroupRequest
+   * @returns DeleteConsumerGroupResponse
+   */
+  async deleteConsumerGroup(request: $_model.DeleteConsumerGroupRequest): Promise<$_model.DeleteConsumerGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteConsumerGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除限流策略
+   * 
+   * @param request - DeleteCostRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCostRuleResponse
+   */
+  async deleteCostRuleWithOptions(request: $_model.DeleteCostRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCostRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.costRuleId)) {
+      query["CostRuleId"] = request.costRuleId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCostRule",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCostRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCostRuleResponse({}));
+  }
+
+  /**
+   * 删除限流策略
+   * 
+   * @param request - DeleteCostRuleRequest
+   * @returns DeleteCostRuleResponse
+   */
+  async deleteCostRule(request: $_model.DeleteCostRuleRequest): Promise<$_model.DeleteCostRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCostRuleWithOptions(request, runtime);
   }
 
   /**
@@ -5573,6 +6463,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除网关实例
+   * 
+   * @param request - DeleteGatewayRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayResponse
+   */
+  async deleteGatewayWithOptions(request: $_model.DeleteGatewayRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGatewayResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGateway",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGatewayResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGatewayResponse({}));
+  }
+
+  /**
+   * 删除网关实例
+   * 
+   * @param request - DeleteGatewayRequest
+   * @returns DeleteGatewayResponse
+   */
+  async deleteGateway(request: $_model.DeleteGatewayRequest): Promise<$_model.DeleteGatewayResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteGatewayWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a global data network (GDN).
    * 
    * @param request - DeleteGlobalDataNetworkRequest
@@ -5808,6 +6744,106 @@ export default class Client extends OpenApi {
   async deleteMaskingRules(request: $_model.DeleteMaskingRulesRequest): Promise<$_model.DeleteMaskingRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMaskingRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除路由规则
+   * 
+   * @param request - DeleteModelApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelApiResponse
+   */
+  async deleteModelApiWithOptions(request: $_model.DeleteModelApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelApiResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.modelApiId)) {
+      query["ModelApiId"] = request.modelApiId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelApi",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelApiResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelApiResponse({}));
+  }
+
+  /**
+   * 删除路由规则
+   * 
+   * @param request - DeleteModelApiRequest
+   * @returns DeleteModelApiResponse
+   */
+  async deleteModelApi(request: $_model.DeleteModelApiRequest): Promise<$_model.DeleteModelApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteModelApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除模型服务
+   * 
+   * @param request - DeleteModelServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelServiceResponse
+   */
+  async deleteModelServiceWithOptions(request: $_model.DeleteModelServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelService",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelServiceResponse({}));
+  }
+
+  /**
+   * 删除模型服务
+   * 
+   * @param request - DeleteModelServiceRequest
+   * @returns DeleteModelServiceResponse
+   */
+  async deleteModelService(request: $_model.DeleteModelServiceRequest): Promise<$_model.DeleteModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteModelServiceWithOptions(request, runtime);
   }
 
   /**
@@ -6128,6 +7164,56 @@ export default class Client extends OpenApi {
   async deletePolarFsQuota(request: $_model.DeletePolarFsQuotaRequest): Promise<$_model.DeletePolarFsQuotaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deletePolarFsQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除限流策略
+   * 
+   * @param request - DeleteRateLimitPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRateLimitPolicyResponse
+   */
+  async deleteRateLimitPolicyWithOptions(request: $_model.DeleteRateLimitPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRateLimitPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRateLimitPolicy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRateLimitPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRateLimitPolicyResponse({}));
+  }
+
+  /**
+   * 删除限流策略
+   * 
+   * @param request - DeleteRateLimitPolicyRequest
+   * @returns DeleteRateLimitPolicyResponse
+   */
+  async deleteRateLimitPolicy(request: $_model.DeleteRateLimitPolicyRequest): Promise<$_model.DeleteRateLimitPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteRateLimitPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -8129,6 +9215,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询预算策略
+   * 
+   * @param request - DescribeBudgetPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBudgetPoliciesResponse
+   */
+  async describeBudgetPoliciesWithOptions(request: $_model.DescribeBudgetPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBudgetPoliciesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.budgetDimensionRefId)) {
+      query["BudgetDimensionRefId"] = request.budgetDimensionRefId;
+    }
+
+    if (!$dara.isNull(request.budgetDimensionType)) {
+      query["BudgetDimensionType"] = request.budgetDimensionType;
+    }
+
+    if (!$dara.isNull(request.budgetPolicyId)) {
+      query["BudgetPolicyId"] = request.budgetPolicyId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBudgetPolicies",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBudgetPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBudgetPoliciesResponse({}));
+  }
+
+  /**
+   * 查询预算策略
+   * 
+   * @param request - DescribeBudgetPoliciesRequest
+   * @returns DescribeBudgetPoliciesResponse
+   */
+  async describeBudgetPolicies(request: $_model.DescribeBudgetPoliciesRequest): Promise<$_model.DescribeBudgetPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBudgetPoliciesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries character sets that are supported by a PolarDB for MySQL cluster.
    * 
    * @param request - DescribeCharacterSetNameRequest
@@ -8360,6 +9516,188 @@ export default class Client extends OpenApi {
   async describeColdStorageInstance(request: $_model.DescribeColdStorageInstanceRequest): Promise<$_model.DescribeColdStorageInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeColdStorageInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询消费者组列表
+   * 
+   * @param request - DescribeConsumerGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeConsumerGroupsResponse
+   */
+  async describeConsumerGroupsWithOptions(request: $_model.DescribeConsumerGroupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeConsumerGroupsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerGroupId)) {
+      query["ConsumerGroupId"] = request.consumerGroupId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeConsumerGroups",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeConsumerGroupsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeConsumerGroupsResponse({}));
+  }
+
+  /**
+   * 查询消费者组列表
+   * 
+   * @param request - DescribeConsumerGroupsRequest
+   * @returns DescribeConsumerGroupsResponse
+   */
+  async describeConsumerGroups(request: $_model.DescribeConsumerGroupsRequest): Promise<$_model.DescribeConsumerGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeConsumerGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询消费者列表
+   * 
+   * @param request - DescribeConsumersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeConsumersResponse
+   */
+  async describeConsumersWithOptions(request: $_model.DescribeConsumersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeConsumersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerGroupId)) {
+      query["ConsumerGroupId"] = request.consumerGroupId;
+    }
+
+    if (!$dara.isNull(request.consumerId)) {
+      query["ConsumerId"] = request.consumerId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeConsumers",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeConsumersResponse>(await this.callApi(params, req, runtime), new $_model.DescribeConsumersResponse({}));
+  }
+
+  /**
+   * 查询消费者列表
+   * 
+   * @param request - DescribeConsumersRequest
+   * @returns DescribeConsumersResponse
+   */
+  async describeConsumers(request: $_model.DescribeConsumersRequest): Promise<$_model.DescribeConsumersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeConsumersWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询限流策略
+   * 
+   * @param request - DescribeCostRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCostRulesResponse
+   */
+  async describeCostRulesWithOptions(request: $_model.DescribeCostRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCostRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelServiceId)) {
+      query["ModelServiceId"] = request.modelServiceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCostRules",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCostRulesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCostRulesResponse({}));
+  }
+
+  /**
+   * 查询限流策略
+   * 
+   * @param request - DescribeCostRulesRequest
+   * @returns DescribeCostRulesResponse
+   */
+  async describeCostRules(request: $_model.DescribeCostRulesRequest): Promise<$_model.DescribeCostRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCostRulesWithOptions(request, runtime);
   }
 
   /**
@@ -11331,6 +12669,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询网关实例详情
+   * 
+   * @param request - DescribeGatewayAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGatewayAttributeResponse
+   */
+  async describeGatewayAttributeWithOptions(request: $_model.DescribeGatewayAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGatewayAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGatewayAttribute",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGatewayAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGatewayAttributeResponse({}));
+  }
+
+  /**
+   * 查询网关实例详情
+   * 
+   * @param request - DescribeGatewayAttributeRequest
+   * @returns DescribeGatewayAttributeResponse
+   */
+  async describeGatewayAttribute(request: $_model.DescribeGatewayAttributeRequest): Promise<$_model.DescribeGatewayAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGatewayAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询网关实例列表
+   * 
+   * @param request - DescribeGatewayListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGatewayListResponse
+   */
+  async describeGatewayListWithOptions(request: $_model.DescribeGatewayListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGatewayListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.gwDescription)) {
+      query["GwDescription"] = request.gwDescription;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeGatewayList",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeGatewayListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeGatewayListResponse({}));
+  }
+
+  /**
+   * 查询网关实例列表
+   * 
+   * @param request - DescribeGatewayListRequest
+   * @returns DescribeGatewayListResponse
+   */
+  async describeGatewayList(request: $_model.DescribeGatewayListRequest): Promise<$_model.DescribeGatewayListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeGatewayListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the PolarFS global data network (GDN) details in all regions.
    * 
    * @param request - DescribeGlobalDataNetworkListRequest
@@ -12425,6 +13867,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询路由规则列表
+   * 
+   * @param request - DescribeModelApisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeModelApisResponse
+   */
+  async describeModelApisWithOptions(request: $_model.DescribeModelApisRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeModelApisResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.modelApiIds)) {
+      query["ModelApiIds"] = request.modelApiIds;
+    }
+
+    if (!$dara.isNull(request.modelCategory)) {
+      query["ModelCategory"] = request.modelCategory;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.pathPrefix)) {
+      query["PathPrefix"] = request.pathPrefix;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeModelApis",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeModelApisResponse>(await this.callApi(params, req, runtime), new $_model.DescribeModelApisResponse({}));
+  }
+
+  /**
+   * 查询路由规则列表
+   * 
+   * @param request - DescribeModelApisRequest
+   * @returns DescribeModelApisResponse
+   */
+  async describeModelApis(request: $_model.DescribeModelApisRequest): Promise<$_model.DescribeModelApisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeModelApisWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模型服务列表
+   * 
+   * @param request - DescribeModelServicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeModelServicesResponse
+   */
+  async describeModelServicesWithOptions(request: $_model.DescribeModelServicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeModelServicesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.modelCategory)) {
+      query["ModelCategory"] = request.modelCategory;
+    }
+
+    if (!$dara.isNull(request.modelServiceIds)) {
+      query["ModelServiceIds"] = request.modelServiceIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeModelServices",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeModelServicesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeModelServicesResponse({}));
+  }
+
+  /**
+   * 查询模型服务列表
+   * 
+   * @param request - DescribeModelServicesRequest
+   * @returns DescribeModelServicesResponse
+   */
+  async describeModelServices(request: $_model.DescribeModelServicesRequest): Promise<$_model.DescribeModelServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeModelServicesWithOptions(request, runtime);
+  }
+
+  /**
    * 查询参数修改历史
    * 
    * @param request - DescribeModifyParameterLogRequest
@@ -13131,6 +14725,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出指定路径下的文件和子目录信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - **Path** 参数必须提供一个绝对路径。
+   * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+   * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+   * - **Filter** 参数支持通配符或正则表达式过滤结果。
+   * 
+   * @param request - DescribePolarFsObjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarFsObjectsResponse
+   */
+  async describePolarFsObjectsWithOptions(request: $_model.DescribePolarFsObjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsObjectsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarFsObjects",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarFsObjectsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarFsObjectsResponse({}));
+  }
+
+  /**
+   * 列出指定路径下的文件和子目录信息。
+   * 
+   * @remarks
+   * ## 请求说明
+   * - **Path** 参数必须提供一个绝对路径。
+   * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
+   * - **Depth** 参数用于限制递归深度，默认值为 `1`。
+   * - **Filter** 参数支持通配符或正则表达式过滤结果。
+   * 
+   * @param request - DescribePolarFsObjectsRequest
+   * @returns DescribePolarFsObjectsResponse
+   */
+  async describePolarFsObjects(request: $_model.DescribePolarFsObjectsRequest): Promise<$_model.DescribePolarFsObjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarFsObjectsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询配额规则
    * 
    * @param request - DescribePolarFsQuotaRequest
@@ -13224,6 +14878,72 @@ export default class Client extends OpenApi {
   async describePolarSQLCollectorPolicy(request: $_model.DescribePolarSQLCollectorPolicyRequest): Promise<$_model.DescribePolarSQLCollectorPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describePolarSQLCollectorPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询限流策略
+   * 
+   * @param request - DescribeRateLimitPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRateLimitPolicyResponse
+   */
+  async describeRateLimitPolicyWithOptions(request: $_model.DescribeRateLimitPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRateLimitPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.scopeRefId)) {
+      query["ScopeRefId"] = request.scopeRefId;
+    }
+
+    if (!$dara.isNull(request.scopeType)) {
+      query["ScopeType"] = request.scopeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRateLimitPolicy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRateLimitPolicyResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRateLimitPolicyResponse({}));
+  }
+
+  /**
+   * 查询限流策略
+   * 
+   * @param request - DescribeRateLimitPolicyRequest
+   * @returns DescribeRateLimitPolicyResponse
+   */
+  async describeRateLimitPolicy(request: $_model.DescribeRateLimitPolicyRequest): Promise<$_model.DescribeRateLimitPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRateLimitPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -16803,6 +18523,258 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改预算策略
+   * 
+   * @param request - ModifyBudgetPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyBudgetPolicyResponse
+   */
+  async modifyBudgetPolicyWithOptions(request: $_model.ModifyBudgetPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyBudgetPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertThresholdPct)) {
+      query["AlertThresholdPct"] = request.alertThresholdPct;
+    }
+
+    if (!$dara.isNull(request.budgetPoints)) {
+      query["BudgetPoints"] = request.budgetPoints;
+    }
+
+    if (!$dara.isNull(request.budgetPolicyId)) {
+      query["BudgetPolicyId"] = request.budgetPolicyId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resetDayOfMonth)) {
+      query["ResetDayOfMonth"] = request.resetDayOfMonth;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyBudgetPolicy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyBudgetPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyBudgetPolicyResponse({}));
+  }
+
+  /**
+   * 修改预算策略
+   * 
+   * @param request - ModifyBudgetPolicyRequest
+   * @returns ModifyBudgetPolicyResponse
+   */
+  async modifyBudgetPolicy(request: $_model.ModifyBudgetPolicyRequest): Promise<$_model.ModifyBudgetPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyBudgetPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改消费者
+   * 
+   * @param request - ModifyConsumerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyConsumerResponse
+   */
+  async modifyConsumerWithOptions(request: $_model.ModifyConsumerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyConsumerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerGroupName)) {
+      query["ConsumerGroupName"] = request.consumerGroupName;
+    }
+
+    if (!$dara.isNull(request.consumerId)) {
+      query["ConsumerId"] = request.consumerId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.isDefault)) {
+      query["IsDefault"] = request.isDefault;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyConsumer",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyConsumerResponse>(await this.callApi(params, req, runtime), new $_model.ModifyConsumerResponse({}));
+  }
+
+  /**
+   * 修改消费者
+   * 
+   * @param request - ModifyConsumerRequest
+   * @returns ModifyConsumerResponse
+   */
+  async modifyConsumer(request: $_model.ModifyConsumerRequest): Promise<$_model.ModifyConsumerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyConsumerWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改消费者组
+   * 
+   * @param request - ModifyConsumerGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyConsumerGroupResponse
+   */
+  async modifyConsumerGroupWithOptions(request: $_model.ModifyConsumerGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyConsumerGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerGroupName)) {
+      query["ConsumerGroupName"] = request.consumerGroupName;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.isDefault)) {
+      query["IsDefault"] = request.isDefault;
+    }
+
+    if (!$dara.isNull(request.nickName)) {
+      query["NickName"] = request.nickName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyConsumerGroup",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyConsumerGroupResponse>(await this.callApi(params, req, runtime), new $_model.ModifyConsumerGroupResponse({}));
+  }
+
+  /**
+   * 修改消费者组
+   * 
+   * @param request - ModifyConsumerGroupRequest
+   * @returns ModifyConsumerGroupResponse
+   */
+  async modifyConsumerGroup(request: $_model.ModifyConsumerGroupRequest): Promise<$_model.ModifyConsumerGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyConsumerGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改限流策略
+   * 
+   * @param request - ModifyCostRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCostRuleResponse
+   */
+  async modifyCostRuleWithOptions(request: $_model.ModifyCostRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyCostRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cacheCostPointsPerMillion)) {
+      query["CacheCostPointsPerMillion"] = request.cacheCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.costRuleId)) {
+      query["CostRuleId"] = request.costRuleId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.inputCostPointsPerMillion)) {
+      query["InputCostPointsPerMillion"] = request.inputCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelServiceId)) {
+      query["ModelServiceId"] = request.modelServiceId;
+    }
+
+    if (!$dara.isNull(request.outputCostPointsPerMillion)) {
+      query["OutputCostPointsPerMillion"] = request.outputCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyCostRule",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyCostRuleResponse>(await this.callApi(params, req, runtime), new $_model.ModifyCostRuleResponse({}));
+  }
+
+  /**
+   * 修改限流策略
+   * 
+   * @param request - ModifyCostRuleRequest
+   * @returns ModifyCostRuleResponse
+   */
+  async modifyCostRule(request: $_model.ModifyCostRuleRequest): Promise<$_model.ModifyCostRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyCostRuleWithOptions(request, runtime);
+  }
+
+  /**
    * 修改周期任务策略
    * 
    * @param request - ModifyCronJobPolicyServerlessRequest
@@ -20199,6 +22171,162 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改模型API
+   * 
+   * @param request - ModifyModelApiRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyModelApiResponse
+   */
+  async modifyModelApiWithOptions(request: $_model.ModifyModelApiRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyModelApiResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.modelApiId)) {
+      query["ModelApiId"] = request.modelApiId;
+    }
+
+    if (!$dara.isNull(request.modelCategory)) {
+      query["ModelCategory"] = request.modelCategory;
+    }
+
+    if (!$dara.isNull(request.pathPrefix)) {
+      query["PathPrefix"] = request.pathPrefix;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.recordInput)) {
+      query["RecordInput"] = request.recordInput;
+    }
+
+    if (!$dara.isNull(request.recordOutput)) {
+      query["RecordOutput"] = request.recordOutput;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.routeRules)) {
+      query["RouteRules"] = request.routeRules;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyModelApi",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyModelApiResponse>(await this.callApi(params, req, runtime), new $_model.ModifyModelApiResponse({}));
+  }
+
+  /**
+   * 修改模型API
+   * 
+   * @param request - ModifyModelApiRequest
+   * @returns ModifyModelApiResponse
+   */
+  async modifyModelApi(request: $_model.ModifyModelApiRequest): Promise<$_model.ModifyModelApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyModelApiWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改模型服务
+   * 
+   * @param request - ModifyModelServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyModelServiceResponse
+   */
+  async modifyModelServiceWithOptions(request: $_model.ModifyModelServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyModelServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.baseUrl)) {
+      query["BaseUrl"] = request.baseUrl;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.inputCostPointsPerMillion)) {
+      query["InputCostPointsPerMillion"] = request.inputCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.modelCategory)) {
+      query["ModelCategory"] = request.modelCategory;
+    }
+
+    if (!$dara.isNull(request.modelServiceId)) {
+      query["ModelServiceId"] = request.modelServiceId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.outputCostPointsPerMillion)) {
+      query["OutputCostPointsPerMillion"] = request.outputCostPointsPerMillion;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.requestCostPoints)) {
+      query["RequestCostPoints"] = request.requestCostPoints;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyModelService",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.ModifyModelServiceResponse({}));
+  }
+
+  /**
+   * 修改模型服务
+   * 
+   * @param request - ModifyModelServiceRequest
+   * @returns ModifyModelServiceResponse
+   */
+  async modifyModelService(request: $_model.ModifyModelServiceRequest): Promise<$_model.ModifyModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyModelServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the switching time of a pending event.
    * 
    * @param request - ModifyPendingMaintenanceActionRequest
@@ -20270,6 +22398,64 @@ export default class Client extends OpenApi {
   async modifyPendingMaintenanceAction(request: $_model.ModifyPendingMaintenanceActionRequest): Promise<$_model.ModifyPendingMaintenanceActionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyPendingMaintenanceActionWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改限流策略
+   * 
+   * @param request - ModifyRateLimitPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRateLimitPolicyResponse
+   */
+  async modifyRateLimitPolicyWithOptions(request: $_model.ModifyRateLimitPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyRateLimitPolicyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!$dara.isNull(request.rateLimitRpm)) {
+      query["RateLimitRpm"] = request.rateLimitRpm;
+    }
+
+    if (!$dara.isNull(request.rateLimitTpm)) {
+      query["RateLimitTpm"] = request.rateLimitTpm;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyRateLimitPolicy",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyRateLimitPolicyResponse>(await this.callApi(params, req, runtime), new $_model.ModifyRateLimitPolicyResponse({}));
+  }
+
+  /**
+   * 修改限流策略
+   * 
+   * @param request - ModifyRateLimitPolicyRequest
+   * @returns ModifyRateLimitPolicyResponse
+   */
+  async modifyRateLimitPolicy(request: $_model.ModifyRateLimitPolicyRequest): Promise<$_model.ModifyRateLimitPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyRateLimitPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -20456,6 +22642,52 @@ export default class Client extends OpenApi {
   async modifyScheduleTask(request: $_model.ModifyScheduleTaskRequest): Promise<$_model.ModifyScheduleTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyScheduleTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 重命名或移动文件
+   * 
+   * @param request - MovePolarFsObjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MovePolarFsObjectsResponse
+   */
+  async movePolarFsObjectsWithOptions(request: $_model.MovePolarFsObjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MovePolarFsObjectsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.objectsToMove)) {
+      query["ObjectsToMove"] = request.objectsToMove;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MovePolarFsObjects",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MovePolarFsObjectsResponse>(await this.callApi(params, req, runtime), new $_model.MovePolarFsObjectsResponse({}));
+  }
+
+  /**
+   * 重命名或移动文件
+   * 
+   * @param request - MovePolarFsObjectsRequest
+   * @returns MovePolarFsObjectsResponse
+   */
+  async movePolarFsObjects(request: $_model.MovePolarFsObjectsRequest): Promise<$_model.MovePolarFsObjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.movePolarFsObjectsWithOptions(request, runtime);
   }
 
   /**
@@ -20920,6 +23152,56 @@ export default class Client extends OpenApi {
   async resetAccountZonal(request: $_model.ResetAccountZonalRequest): Promise<$_model.ResetAccountZonalResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetAccountZonalWithOptions(request, runtime);
+  }
+
+  /**
+   * 重置API密钥
+   * 
+   * @param request - ResetConsumerApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetConsumerApiKeyResponse
+   */
+  async resetConsumerApiKeyWithOptions(request: $_model.ResetConsumerApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResetConsumerApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.consumerId)) {
+      query["ConsumerId"] = request.consumerId;
+    }
+
+    if (!$dara.isNull(request.gwClusterId)) {
+      query["GwClusterId"] = request.gwClusterId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetConsumerApiKey",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetConsumerApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ResetConsumerApiKeyResponse({}));
+  }
+
+  /**
+   * 重置API密钥
+   * 
+   * @param request - ResetConsumerApiKeyRequest
+   * @returns ResetConsumerApiKeyResponse
+   */
+  async resetConsumerApiKey(request: $_model.ResetConsumerApiKeyRequest): Promise<$_model.ResetConsumerApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resetConsumerApiKeyWithOptions(request, runtime);
   }
 
   /**
