@@ -8767,6 +8767,10 @@ export default class Client extends OpenApi {
   async getInstanceControlConfigurationWithOptions(request: $_model.GetInstanceControlConfigurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceControlConfigurationResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.elementName)) {
+      query["ElementName"] = request.elementName;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

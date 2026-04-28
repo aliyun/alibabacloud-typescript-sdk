@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetInstanceControlConfigurationRequest extends $dara.Model {
+  elementName?: string;
   /**
    * @remarks
    * IDaaS EIAM实例的ID。
@@ -15,12 +16,14 @@ export class GetInstanceControlConfigurationRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      elementName: 'ElementName',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      elementName: 'string',
       instanceId: 'string',
     };
   }
