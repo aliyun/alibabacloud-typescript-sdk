@@ -34,6 +34,7 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
    * 2740966
    */
   dmsInstanceId?: number;
+  downloadLink?: string;
   /**
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -49,16 +50,19 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
    * f-ean8u5881qk4*********xh5y
    */
   instanceName?: string;
+  intranetDownloadLink?: string;
   /**
    * @example
    * N
    */
   isInternal?: string;
+  ossBucket?: string;
   /**
    * @example
    * 999
    */
   size?: number;
+  useUserOssBucket?: boolean;
   static names(): { [key: string]: string } {
     return {
       databaseDesc: 'DatabaseDesc',
@@ -68,11 +72,15 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
       descUpdateTime: 'DescUpdateTime',
       dmsDbId: 'DmsDbId',
       dmsInstanceId: 'DmsInstanceId',
+      downloadLink: 'DownloadLink',
       gmtCreated: 'GmtCreated',
       importType: 'ImportType',
       instanceName: 'InstanceName',
+      intranetDownloadLink: 'IntranetDownloadLink',
       isInternal: 'IsInternal',
+      ossBucket: 'OssBucket',
       size: 'Size',
+      useUserOssBucket: 'UseUserOssBucket',
     };
   }
 
@@ -85,11 +93,15 @@ export class ListDataCenterDatabaseResponseBodyData extends $dara.Model {
       descUpdateTime: 'string',
       dmsDbId: 'number',
       dmsInstanceId: 'number',
+      downloadLink: 'string',
       gmtCreated: 'string',
       importType: 'string',
       instanceName: 'string',
+      intranetDownloadLink: 'string',
       isInternal: 'string',
+      ossBucket: 'string',
       size: 'number',
+      useUserOssBucket: 'boolean',
     };
   }
 
