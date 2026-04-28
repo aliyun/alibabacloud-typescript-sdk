@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UserTag extends $dara.Model {
   /**
    * @remarks
+   * The tag key. This parameter must be specified and the tag key cannot contain number signs (#). The tag key and tag value cannot exceed 2,000 bytes in length in total.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * k1
    */
   key?: string;
   /**

@@ -18,7 +18,7 @@ export class GetFileRequest extends $dara.Model {
    * 
    * 1.  If this parameter is set to \\*, all fields of the file except the fields that must be specified are returned.
    * 2.  If only specific fields are required, you can specify the following fields: url, thumbnail, exif, cropping_suggestion, characteristic_hash, video_metadata, and video_preview_metadata. If multiple fields are required, separate them with commas (,). Example: url,thumbnail.
-   * 3.  The investigation_info field is returned only if you specify this field.
+   * 3.  The investigation_info field is returned only if it is specified.
    * 
    * By default, all fields except the fields that must be specified are returned.
    * 
@@ -38,7 +38,7 @@ export class GetFileRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The share ID. If you want to manage a file by using a share link, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
+   * The share ID. If you want to share a file, carry the `x-share-token` header for authentication in the request and specify share_id. In this case, `drive_id` is invalid. Otherwise, use an `AccessKey pair` or `access token` for authentication and specify `drive_id`. You must specify one of `share_id` and `drive_id`.
    * 
    * @example
    * 7JQX1FswpQ8
@@ -46,7 +46,7 @@ export class GetFileRequest extends $dara.Model {
   shareId?: string;
   /**
    * @remarks
-   * 缩略图配置，可一次性返回最多5个缩略图，map的key可以自定义，返回时按key返回对应的缩略图链接
+   * The thumbnail configurations. Up to five thumbnails can be returned at a time. The value contains key-value pairs. You can customize the keys. The URL of a thumbnail is returned based on the key.
    */
   thumbnailProcesses?: { [key: string]: ImageProcess };
   /**

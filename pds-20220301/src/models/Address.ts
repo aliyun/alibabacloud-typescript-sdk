@@ -4,28 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class Address extends $dara.Model {
   /**
+   * @remarks
+   * The city.
+   * 
    * @example
-   * 杭州市
+   * None
    */
   city?: string;
   /**
+   * @remarks
+   * The country or region.
+   * 
    * @example
-   * 中国
+   * None
    */
   country?: string;
   /**
+   * @remarks
+   * The district.
+   * 
    * @example
-   * 余杭区
+   * None
    */
   district?: string;
   /**
+   * @remarks
+   * The province.
+   * 
    * @example
-   * 浙江省
+   * None
    */
   province?: string;
   /**
+   * @remarks
+   * The street.
+   * 
    * @example
-   * 文一西路
+   * None
    */
   township?: string;
   static names(): { [key: string]: string } {

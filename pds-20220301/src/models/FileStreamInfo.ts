@@ -7,7 +7,7 @@ export class FileStreamInfo extends $dara.Model {
   contentHash?: string;
   contentHashName?: string;
   contentMd5?: string;
-  partInfoList?: UploadPartInfo;
+  partInfoList?: UploadPartInfo[];
   preHash?: string;
   proofCode?: string;
   proofVersion?: string;
@@ -30,7 +30,7 @@ export class FileStreamInfo extends $dara.Model {
       contentHash: 'string',
       contentHashName: 'string',
       contentMd5: 'string',
-      partInfoList: UploadPartInfo,
+      partInfoList: { 'type': 'array', 'itemType': UploadPartInfo },
       preHash: 'string',
       proofCode: 'string',
       proofVersion: 'string',
@@ -39,8 +39,8 @@ export class FileStreamInfo extends $dara.Model {
   }
 
   validate() {
-    if(this.partInfoList && typeof (this.partInfoList as any).validate === 'function') {
-      (this.partInfoList as any).validate();
+    if(Array.isArray(this.partInfoList)) {
+      $dara.Model.validateArray(this.partInfoList);
     }
     super.validate();
   }

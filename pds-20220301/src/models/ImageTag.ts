@@ -4,38 +4,56 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImageTag extends $dara.Model {
   /**
+   * @remarks
+   * The number of files in the group.
+   * 
    * @example
-   * 10
+   * 1
    */
   count?: number;
   /**
+   * @remarks
+   * The category of the cover image.
+   * 
    * @example
    * image
    */
   coverFileCategory?: string;
   /**
+   * @remarks
+   * The ID of the cover file.
+   * 
    * @example
    * 5d79206586bb5dd69fb34c349282718146c55da7
    */
   coverFileId?: string;
   /**
+   * @remarks
+   * The score of the cover image.
+   * 
    * @example
    * 0.736
    */
   coverOverallScore?: number;
   /**
+   * @remarks
+   * The confidence level of the cover image tag.
+   * 
    * @example
    * 1
    */
   coverTagConfidence?: number;
   /**
+   * @remarks
+   * The URL of the cover image.
+   * 
    * @example
    * https://data.aliyunpds.com/hz22%2F5d5b986facbec311ef844c25954f96821497b383%2F5d5b986f955410dd991646bb87c6b4e899eff525?Expires=xxx&OSSAccessKeyId=xxx&Signature=xxx
    */
   coverUrl?: string;
   /**
-   * @example
-   * 动物
+   * @remarks
+   * The name of the tag.
    */
   name?: string;
   static names(): { [key: string]: string } {

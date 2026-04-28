@@ -2,23 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ReceivedMsgMsgContent extends $dara.Model {
-  msgData?: { [key: string]: any };
+export class PunishFileResponse extends $dara.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
   static names(): { [key: string]: string } {
     return {
-      msgData: 'msg_data',
+      headers: 'headers',
+      statusCode: 'statusCode',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      msgData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
     };
   }
 
   validate() {
-    if(this.msgData) {
-      $dara.Model.validateMap(this.msgData);
+    if(this.headers) {
+      $dara.Model.validateMap(this.headers);
     }
     super.validate();
   }

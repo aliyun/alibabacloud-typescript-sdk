@@ -2,27 +2,15 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class InvestigateFileRequestDriveFileIds extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
+export class FileIDInfo extends $dara.Model {
   driveId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 9520943DC264
-   */
   fileId?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       driveId: 'drive_id',
       fileId: 'file_id',
+      type: 'type',
     };
   }
 
@@ -30,6 +18,7 @@ export class InvestigateFileRequestDriveFileIds extends $dara.Model {
     return {
       driveId: 'string',
       fileId: 'string',
+      type: 'string',
     };
   }
 

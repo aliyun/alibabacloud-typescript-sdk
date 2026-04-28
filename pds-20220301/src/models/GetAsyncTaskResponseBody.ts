@@ -118,6 +118,7 @@ export class GetAsyncTaskResponseBody extends $dara.Model {
    * Succeed
    */
   status?: string;
+  taskType?: string;
   /**
    * @remarks
    * The total amount of work to be done in the asynchronous task, such as the number of files to be packaged for package download on the server.
@@ -155,6 +156,7 @@ export class GetAsyncTaskResponseBody extends $dara.Model {
       startedAt: 'started_at',
       state: 'state',
       status: 'status',
+      taskType: 'task_type',
       totalProcess: 'total_process',
       uncompressFileList: 'uncompress_file_list',
       url: 'url',
@@ -177,6 +179,7 @@ export class GetAsyncTaskResponseBody extends $dara.Model {
       startedAt: 'string',
       state: 'string',
       status: 'string',
+      taskType: 'string',
       totalProcess: 'number',
       uncompressFileList: { 'type': 'array', 'itemType': UncompressedFileInfo },
       url: 'string',

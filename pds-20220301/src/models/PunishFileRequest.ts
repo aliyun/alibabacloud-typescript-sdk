@@ -2,31 +2,51 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddStoryFilesRequestFiles extends $dara.Model {
+export class PunishFileRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * 63e5e4340f76cb3ead5f40f68163f0f967c1a7bf
+   * pds_file_meta_frozen
+   */
+  actionCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  driveId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2498DZ2
    */
   fileId?: string;
   /**
    * @example
-   * 642a88dd06e49d9c0a14411ebae606f70edd9a59
+   * illegal
    */
-  revisionId?: string;
+  punishReason?: string;
   static names(): { [key: string]: string } {
     return {
+      actionCode: 'action_code',
+      driveId: 'drive_id',
       fileId: 'file_id',
-      revisionId: 'revision_id',
+      punishReason: 'punish_reason',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      actionCode: 'string',
+      driveId: 'string',
       fileId: 'string',
-      revisionId: 'string',
+      punishReason: 'string',
     };
   }
 

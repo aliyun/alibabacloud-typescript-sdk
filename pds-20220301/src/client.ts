@@ -727,7 +727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * test_domain
+   * Creates a domain.
    * 
    * @remarks
    * The description of the domain.
@@ -764,6 +764,10 @@ export default class Client extends OpenApi {
       body["size_quota"] = request.sizeQuota;
     }
 
+    if (!$dara.isNull(request.storeRedundancyType)) {
+      body["store_redundancy_type"] = request.storeRedundancyType;
+    }
+
     if (!$dara.isNull(request.userCountQuota)) {
       body["user_count_quota"] = request.userCountQuota;
     }
@@ -787,7 +791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * test_domain
+   * Creates a domain.
    * 
    * @remarks
    * The description of the domain.
@@ -917,10 +921,6 @@ export default class Client extends OpenApi {
       body["hidden"] = request.hidden;
     }
 
-    if (!$dara.isNull(request.imageMediaMetadata)) {
-      body["image_media_metadata"] = request.imageMediaMetadata;
-    }
-
     if (!$dara.isNull(request.localCreatedAt)) {
       body["local_created_at"] = request.localCreatedAt;
     }
@@ -963,10 +963,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.userTags)) {
       body["user_tags"] = request.userTags;
-    }
-
-    if (!$dara.isNull(request.videoMediaMetadata)) {
-      body["video_media_metadata"] = request.videoMediaMetadata;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2494,7 +2490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
+   * Obtains the download URL of the file.
    * 
    * @param request - GetDownloadUrlRequest
    * @param headers - map
@@ -2547,7 +2543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the download URL of a file. For more information about best practices, visit https://help.aliyun.com/document_detail/175889.html.
+   * Obtains the download URL of the file.
    * 
    * @param request - GetDownloadUrlRequest
    * @returns GetDownloadUrlResponse
@@ -4912,6 +4908,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Penalizes files.
+   * 
+   * @param request - PunishFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PunishFileResponse
+   */
+  async punishFileWithOptions(request: $_model.PunishFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PunishFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.actionCode)) {
+      body["action_code"] = request.actionCode;
+    }
+
+    if (!$dara.isNull(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!$dara.isNull(request.fileId)) {
+      body["file_id"] = request.fileId;
+    }
+
+    if (!$dara.isNull(request.punishReason)) {
+      body["punish_reason"] = request.punishReason;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PunishFile",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/csi/business/punish_file`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PunishFileResponse>(await this.execute(params, req, runtime), new $_model.PunishFileResponse({}));
+  }
+
+  /**
+   * Penalizes files.
+   * 
+   * @param request - PunishFileRequest
+   * @returns PunishFileResponse
+   */
+  async punishFile(request: $_model.PunishFileRequest): Promise<$_model.PunishFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.punishFileWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询凌霄订单价格
    * 
    * @param request - QueryOrderPriceRequest
@@ -5372,7 +5425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search domain with specified attributes
+   * Searches for domains
    * 
    * @param request - SearchDomainsRequest
    * @param headers - map
@@ -5417,7 +5470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Search domain with specified attributes
+   * Searches for domains
    * 
    * @param request - SearchDomainsRequest
    * @returns SearchDomainsResponse

@@ -1,10 +1,104 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { ImageMediaMetadata } from "./ImageMediaMetadata";
-import { CreateFileRequestPartInfoList } from "./CreateFileRequestPartInfoList";
 import { UserTag } from "./UserTag";
-import { VideoMediaMetadata } from "./VideoMediaMetadata";
 
+
+export class CreateFileRequestPartInfoListParallelSha1Ctx extends $dara.Model {
+  /**
+   * @remarks
+   * The first to fifth 32-bit variables of the SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
+   */
+  h?: number[];
+  /**
+   * @remarks
+   * The size of the file content before the file part. Unit: bytes. The value must be a multiple of 64. This parameter takes effect only if the parallel upload feature is enabled.
+   * 
+   * @example
+   * 10240
+   */
+  partOffset?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'h',
+      partOffset: 'part_offset',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: { 'type': 'array', 'itemType': 'number' },
+      partOffset: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.h)) {
+      $dara.Model.validateArray(this.h);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateFileRequestPartInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * The MD5 hash value of the file part. This parameter is required when the MD5 hash value of the file part needs to be verified during part upload.
+   * 
+   * @example
+   * ASKJDJSKDJJSJDJS
+   */
+  contentMd5?: string;
+  /**
+   * @example
+   * application/json
+   */
+  contentType?: string;
+  /**
+   * @remarks
+   * The SHA-1 hash value of the file content before the file part. This parameter takes effect only if the parallel upload feature is enabled.
+   */
+  parallelSha1Ctx?: CreateFileRequestPartInfoListParallelSha1Ctx;
+  /**
+   * @remarks
+   * The serial number of a file part. The number starts from 1.
+   * 
+   * @example
+   * 1
+   */
+  partNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      contentMd5: 'content_md5',
+      contentType: 'content_type',
+      parallelSha1Ctx: 'parallel_sha1_ctx',
+      partNumber: 'part_number',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentMd5: 'string',
+      contentType: 'string',
+      parallelSha1Ctx: CreateFileRequestPartInfoListParallelSha1Ctx,
+      partNumber: 'number',
+    };
+  }
+
+  validate() {
+    if(this.parallelSha1Ctx && typeof (this.parallelSha1Ctx as any).validate === 'function') {
+      (this.parallelSha1Ctx as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CreateFileRequest extends $dara.Model {
   /**
@@ -100,11 +194,6 @@ export class CreateFileRequest extends $dara.Model {
    * true
    */
   hidden?: boolean;
-  /**
-   * @remarks
-   * The information about the image specified by the client.
-   */
-  imageMediaMetadata?: ImageMediaMetadata;
   /**
    * @remarks
    * The time when the local file was created. By default, this parameter is left empty. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format based on the UTC+0 time zone.
@@ -216,11 +305,6 @@ export class CreateFileRequest extends $dara.Model {
    * The custom tags. You can specify up to 1,000 tags.
    */
   userTags?: UserTag[];
-  /**
-   * @remarks
-   * The information about the video specified by the client.
-   */
-  videoMediaMetadata?: VideoMediaMetadata;
   static names(): { [key: string]: string } {
     return {
       checkNameMode: 'check_name_mode',
@@ -231,7 +315,6 @@ export class CreateFileRequest extends $dara.Model {
       driveId: 'drive_id',
       fileId: 'file_id',
       hidden: 'hidden',
-      imageMediaMetadata: 'image_media_metadata',
       localCreatedAt: 'local_created_at',
       localModifiedAt: 'local_modified_at',
       name: 'name',
@@ -243,7 +326,6 @@ export class CreateFileRequest extends $dara.Model {
       size: 'size',
       type: 'type',
       userTags: 'user_tags',
-      videoMediaMetadata: 'video_media_metadata',
     };
   }
 
@@ -257,7 +339,6 @@ export class CreateFileRequest extends $dara.Model {
       driveId: 'string',
       fileId: 'string',
       hidden: 'boolean',
-      imageMediaMetadata: ImageMediaMetadata,
       localCreatedAt: 'string',
       localModifiedAt: 'string',
       name: 'string',
@@ -269,22 +350,15 @@ export class CreateFileRequest extends $dara.Model {
       size: 'number',
       type: 'string',
       userTags: { 'type': 'array', 'itemType': UserTag },
-      videoMediaMetadata: VideoMediaMetadata,
     };
   }
 
   validate() {
-    if(this.imageMediaMetadata && typeof (this.imageMediaMetadata as any).validate === 'function') {
-      (this.imageMediaMetadata as any).validate();
-    }
     if(Array.isArray(this.partInfoList)) {
       $dara.Model.validateArray(this.partInfoList);
     }
     if(Array.isArray(this.userTags)) {
       $dara.Model.validateArray(this.userTags);
-    }
-    if(this.videoMediaMetadata && typeof (this.videoMediaMetadata as any).validate === 'function') {
-      (this.videoMediaMetadata as any).validate();
     }
     super.validate();
   }

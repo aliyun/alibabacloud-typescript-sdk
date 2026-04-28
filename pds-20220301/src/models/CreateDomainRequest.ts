@@ -5,25 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * domain 描述
+   * The description of the domain.
    * 
    * @example
-   * 你好企业网盘开发环境
+   * cloud drive dev
    */
   description?: string;
   /**
    * @remarks
-   * If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+   * The name of the domain.
    * 
    * This parameter is required.
    * 
    * @example
-   * 你好企业网盘
+   * cloud drive
    */
   domainName?: string;
   /**
    * @remarks
-   * https
+   * Specifies whether to enable the default drive feature. A value of true specifies that all users are assigned a drive by default on the first logon. Default value: false.
    * 
    * @example
    * true
@@ -31,7 +31,7 @@ export class CreateDomainRequest extends $dara.Model {
   initDriveEnable?: boolean;
   /**
    * @remarks
-   * http
+   * This parameter is required when the init_drive_enable is set to true. The size of the default drive. Unit: bytes. The default is 0, meaning the created drive size is 0, and files cannot be uploaded. If you need to initialize the drive, set this value. A value of -1 indicates that the size is unlimited.
    * 
    * @example
    * 1073741824
@@ -39,7 +39,7 @@ export class CreateDomainRequest extends $dara.Model {
   initDriveSize?: number;
   /**
    * @remarks
-   * Create domain.
+   * The ID of the parent domain. If you want to create a child domain, specify parent_domain_id. In most cases, you do not need to create a child domain. If you want to perform secondary operations based on Drive and Photo Service, contact the customer service.
    * 
    * @example
    * bj1
@@ -47,7 +47,7 @@ export class CreateDomainRequest extends $dara.Model {
   parentDomainId?: string;
   /**
    * @remarks
-   * The ID of the parent domain. If you want to create a child domain, specify parent_domain_id. In most cases, you do not need to create a child domain. If you want to perform secondary operations based on Drive and Photo Service, contact the customer service.
+   * The total storage quota for all drives in the domain. A value of 0 indicates that the quota is unlimited.
    * 
    * @example
    * 1099511627776
@@ -55,7 +55,18 @@ export class CreateDomainRequest extends $dara.Model {
   sizeQuota?: number;
   /**
    * @remarks
-   * The information about the domain.
+   * Specifies the storage redundancy type. Valid values:
+   * 
+   * *   LRS: locally redundant storage
+   * *   ZRS: zone-redundant storage
+   * 
+   * @example
+   * LRS
+   */
+  storeRedundancyType?: string;
+  /**
+   * @remarks
+   * The largest number of users that can be created in the domain. A value of 0 specifies that the number is unlimited.
    * 
    * @example
    * 50
@@ -69,6 +80,7 @@ export class CreateDomainRequest extends $dara.Model {
       initDriveSize: 'init_drive_size',
       parentDomainId: 'parent_domain_id',
       sizeQuota: 'size_quota',
+      storeRedundancyType: 'store_redundancy_type',
       userCountQuota: 'user_count_quota',
     };
   }
@@ -81,6 +93,7 @@ export class CreateDomainRequest extends $dara.Model {
       initDriveSize: 'number',
       parentDomainId: 'string',
       sizeQuota: 'number',
+      storeRedundancyType: 'string',
       userCountQuota: 'number',
     };
   }

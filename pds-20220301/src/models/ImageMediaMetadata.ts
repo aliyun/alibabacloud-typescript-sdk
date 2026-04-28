@@ -7,61 +7,106 @@ import { SystemTag } from "./SystemTag";
 
 export class ImageMediaMetadata extends $dara.Model {
   /**
+   * @remarks
+   * The full address.
+   * 
    * @example
-   * 浙江省杭州市滨江区西兴街道江陵路
+   * Jiangling Road, Xixing Street, Binjiang District, Hangzhou, Zhejiang
    */
   addressLine?: string;
   /**
+   * @remarks
+   * The city in which the image was taken.
+   * 
    * @example
-   * 杭州市
+   * Hangzhou
    */
   city?: string;
   /**
+   * @remarks
+   * The country or region in which the image was taken.
+   * 
    * @example
-   * 中国
+   * China
    */
   country?: string;
   /**
+   * @remarks
+   * The district in which the image was taken.
+   * 
    * @example
-   * 滨江区
+   * Binjiang District
    */
   district?: string;
   /**
+   * @remarks
+   * The EXIF information about the image.
+   * 
    * @example
    * {"Compression":{"value":"6"},"DateTime":{"value":"2020:08:19 17:11:11"}}
    */
   exif?: string;
+  /**
+   * @remarks
+   * The thumbnails of the faces.
+   */
   facesThumbnail?: FaceThumbnail[];
   /**
+   * @remarks
+   * The height of the image. Unit: pixel.
+   * 
    * @example
-   * 1080
+   * 1024
    */
   height?: number;
+  /**
+   * @remarks
+   * The rating of the image.
+   */
   imageQuality?: ImageQuality;
+  /**
+   * @remarks
+   * The details of the image tags.
+   */
   imageTags?: SystemTag[];
   /**
+   * @remarks
+   * The location of the image.
+   * 
    * @example
    * 30.185453,120.218522
    */
   location?: string;
   /**
+   * @remarks
+   * The province in which the image was taken.
+   * 
    * @example
-   * 浙江省
+   * Zhejiang
    */
   province?: string;
   /**
+   * @remarks
+   * The time when the image was taken. The time follows the RFC3339 standard.
+   * 
    * @example
    * 2006-01-02T15:04:05.000Z07:00
    */
   time?: string;
   /**
+   * @remarks
+   * The street in which the image was taken.
+   * 
    * @example
-   * 西兴街道
+   * Xixing Street
    */
   township?: string;
   /**
+   * @remarks
+   * The width of the image. Unit: pixel.
+   * 
    * @example
-   * 1920
+   * 1024
    */
   width?: number;
   static names(): { [key: string]: string } {

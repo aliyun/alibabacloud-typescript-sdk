@@ -6,13 +6,27 @@ import { VideoMediaVideoStream } from "./VideoMediaVideoStream";
 
 export class VideoMediaMetadata extends $dara.Model {
   /**
+   * @remarks
+   * The height of the video image. Unit: pixel.
+   * 
    * @example
    * 1080
    */
   height?: number;
+  /**
+   * @remarks
+   * The information about the audio stream.
+   */
   videoMediaAudioStream?: VideoMediaAudioStream[];
+  /**
+   * @remarks
+   * The information about the video stream.
+   */
   videoMediaVideoStream?: VideoMediaVideoStream[];
   /**
+   * @remarks
+   * The width of the video image. Unit: pixel.
+   * 
    * @example
    * 1920
    */

@@ -2,32 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SearchStoriesRequestStoryEndTimeRange extends $dara.Model {
+export class CopyUserTagsDirective extends $dara.Model {
   /**
    * @example
-   * 2022-12-31T00:00:00+08:00
+   * all, include, none, exclude
    */
-  end?: string;
-  /**
-   * @example
-   * 2016-12-31T00:00:00+08:00
-   */
-  start?: string;
+  directive?: string;
+  keys?: string[];
   static names(): { [key: string]: string } {
     return {
-      end: 'end',
-      start: 'start',
+      directive: 'directive',
+      keys: 'keys',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      end: 'string',
-      start: 'string',
+      directive: 'string',
+      keys: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.keys)) {
+      $dara.Model.validateArray(this.keys);
+    }
     super.validate();
   }
 

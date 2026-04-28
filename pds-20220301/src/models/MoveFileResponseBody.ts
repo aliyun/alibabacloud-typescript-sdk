@@ -47,6 +47,9 @@ export class MoveFileResponseBody extends $dara.Model {
    * fileid1
    */
   fileId?: string;
+  fileName?: string;
+  revisionId?: string;
+  updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
       asyncTaskId: 'async_task_id',
@@ -54,6 +57,9 @@ export class MoveFileResponseBody extends $dara.Model {
       driveId: 'drive_id',
       exist: 'exist',
       fileId: 'file_id',
+      fileName: 'file_name',
+      revisionId: 'revision_id',
+      updatedAt: 'updated_at',
     };
   }
 
@@ -64,6 +70,9 @@ export class MoveFileResponseBody extends $dara.Model {
       driveId: 'string',
       exist: 'boolean',
       fileId: 'string',
+      fileName: 'string',
+      revisionId: 'string',
+      updatedAt: 'string',
     };
   }
 
