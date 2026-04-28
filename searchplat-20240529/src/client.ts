@@ -171,6 +171,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 存储 Memory 内容
+   * 
+   * @param request - CreateMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMemoryResponse
+   */
+  async createMemoryWithOptions(workspaceName: string, serviceId: string, request: $_model.CreateMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMemoryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agent_id"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.enhancements)) {
+      body["enhancements"] = request.enhancements;
+    }
+
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      body["run_id"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMemory",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/memories`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMemoryResponse>(await this.execute(params, req, runtime), new $_model.CreateMemoryResponse({}));
+  }
+
+  /**
+   * 存储 Memory 内容
+   * 
+   * @param request - CreateMemoryRequest
+   * @returns CreateMemoryResponse
+   */
+  async createMemory(workspaceName: string, serviceId: string, request: $_model.CreateMemoryRequest): Promise<$_model.CreateMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMemoryWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 上传skill
+   * 
+   * @param request - CreateMemorySkillRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMemorySkillResponse
+   */
+  async createMemorySkillWithOptions(workspaceName: string, serviceId: string, request: $_model.CreateMemorySkillRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMemorySkillResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agent_id"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.zipBase64)) {
+      body["zip_base64"] = request.zipBase64;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMemorySkill",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/skills`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMemorySkillResponse>(await this.execute(params, req, runtime), new $_model.CreateMemorySkillResponse({}));
+  }
+
+  /**
+   * 上传skill
+   * 
+   * @param request - CreateMemorySkillRequest
+   * @returns CreateMemorySkillResponse
+   */
+  async createMemorySkill(workspaceName: string, serviceId: string, request: $_model.CreateMemorySkillRequest): Promise<$_model.CreateMemorySkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMemorySkillWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
    * 创建视频切割异步任务
    * 
    * @param request - CreateVideoSegmentationTaskRequest
@@ -327,6 +441,84 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVideoSummarizationTaskWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 删除一条 Memory
+   * 
+   * @param request - DeleteMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemoryResponse
+   */
+  async deleteMemoryWithOptions(workspaceName: string, serviceId: string, memoryId: string, request: $_model.DeleteMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMemory",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/memories/${memoryId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMemoryResponse>(await this.execute(params, req, runtime), new $_model.DeleteMemoryResponse({}));
+  }
+
+  /**
+   * 删除一条 Memory
+   * 
+   * @param request - DeleteMemoryRequest
+   * @returns DeleteMemoryResponse
+   */
+  async deleteMemory(workspaceName: string, serviceId: string, memoryId: string, request: $_model.DeleteMemoryRequest): Promise<$_model.DeleteMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMemoryWithOptions(workspaceName, serviceId, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * 删除skill
+   * 
+   * @param request - DeleteMemorySkillRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemorySkillResponse
+   */
+  async deleteMemorySkillWithOptions(workspaceName: string, serviceId: string, skillId: string, request: $_model.DeleteMemorySkillRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemorySkillResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMemorySkill",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/skills/${skillId}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMemorySkillResponse>(await this.execute(params, req, runtime), new $_model.DeleteMemorySkillResponse({}));
+  }
+
+  /**
+   * 删除skill
+   * 
+   * @param request - DeleteMemorySkillRequest
+   * @returns DeleteMemorySkillResponse
+   */
+  async deleteMemorySkill(workspaceName: string, serviceId: string, skillId: string, request: $_model.DeleteMemorySkillRequest): Promise<$_model.DeleteMemorySkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMemorySkillWithOptions(workspaceName, serviceId, skillId, request, headers, runtime);
   }
 
   /**
@@ -658,6 +850,162 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getImageObjectDetectionWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 查看memory详情
+   * 
+   * @param request - GetMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryResponse
+   */
+  async getMemoryWithOptions(workspaceName: string, serviceId: string, memoryId: string, request: $_model.GetMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemory",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/memories/${memoryId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryResponse>(await this.execute(params, req, runtime), new $_model.GetMemoryResponse({}));
+  }
+
+  /**
+   * 查看memory详情
+   * 
+   * @param request - GetMemoryRequest
+   * @returns GetMemoryResponse
+   */
+  async getMemory(workspaceName: string, serviceId: string, memoryId: string, request: $_model.GetMemoryRequest): Promise<$_model.GetMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryWithOptions(workspaceName, serviceId, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * 检查 Memory 服务健康状态
+   * 
+   * @param request - GetMemoryHealthRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryHealthResponse
+   */
+  async getMemoryHealthWithOptions(workspaceName: string, serviceId: string, request: $_model.GetMemoryHealthRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryHealthResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemoryHealth",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/health`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryHealthResponse>(await this.execute(params, req, runtime), new $_model.GetMemoryHealthResponse({}));
+  }
+
+  /**
+   * 检查 Memory 服务健康状态
+   * 
+   * @param request - GetMemoryHealthRequest
+   * @returns GetMemoryHealthResponse
+   */
+  async getMemoryHealth(workspaceName: string, serviceId: string, request: $_model.GetMemoryHealthRequest): Promise<$_model.GetMemoryHealthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryHealthWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 查看skill详情
+   * 
+   * @param request - GetMemorySkillRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemorySkillResponse
+   */
+  async getMemorySkillWithOptions(workspaceName: string, serviceId: string, skillId: string, request: $_model.GetMemorySkillRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemorySkillResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemorySkill",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/skills/${skillId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemorySkillResponse>(await this.execute(params, req, runtime), new $_model.GetMemorySkillResponse({}));
+  }
+
+  /**
+   * 查看skill详情
+   * 
+   * @param request - GetMemorySkillRequest
+   * @returns GetMemorySkillResponse
+   */
+  async getMemorySkill(workspaceName: string, serviceId: string, skillId: string, request: $_model.GetMemorySkillRequest): Promise<$_model.GetMemorySkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemorySkillWithOptions(workspaceName, serviceId, skillId, request, headers, runtime);
+  }
+
+  /**
+   * 查询memory异步任务的处理状态
+   * 
+   * @param request - GetMemoryTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryTaskResponse
+   */
+  async getMemoryTaskWithOptions(workspaceName: string, serviceId: string, taskId: string, request: $_model.GetMemoryTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemoryTask",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/tasks/${taskId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryTaskResponse>(await this.execute(params, req, runtime), new $_model.GetMemoryTaskResponse({}));
+  }
+
+  /**
+   * 查询memory异步任务的处理状态
+   * 
+   * @param request - GetMemoryTaskRequest
+   * @returns GetMemoryTaskResponse
+   */
+  async getMemoryTask(workspaceName: string, serviceId: string, taskId: string, request: $_model.GetMemoryTaskRequest): Promise<$_model.GetMemoryTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryTaskWithOptions(workspaceName, serviceId, taskId, request, headers, runtime);
   }
 
   /**
@@ -1225,6 +1573,177 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWebSearchWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 根据查询条件搜索 Memory
+   * 
+   * @param request - SearchMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchMemoryResponse
+   */
+  async searchMemoryWithOptions(workspaceName: string, serviceId: string, request: $_model.SearchMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SearchMemoryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agent_id"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.enhancements)) {
+      body["enhancements"] = request.enhancements;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      body["run_id"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      body["size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchMemory",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/search`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchMemoryResponse>(await this.execute(params, req, runtime), new $_model.SearchMemoryResponse({}));
+  }
+
+  /**
+   * 根据查询条件搜索 Memory
+   * 
+   * @param request - SearchMemoryRequest
+   * @returns SearchMemoryResponse
+   */
+  async searchMemory(workspaceName: string, serviceId: string, request: $_model.SearchMemoryRequest): Promise<$_model.SearchMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.searchMemoryWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新 Memory
+   * 
+   * @param request - UpdateMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemoryResponse
+   */
+  async updateMemoryWithOptions(workspaceName: string, serviceId: string, memoryId: string, request: $_model.UpdateMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemoryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.memory)) {
+      body["memory"] = request.memory;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMemory",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/memories/${memoryId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMemoryResponse>(await this.execute(params, req, runtime), new $_model.UpdateMemoryResponse({}));
+  }
+
+  /**
+   * 更新 Memory
+   * 
+   * @param request - UpdateMemoryRequest
+   * @returns UpdateMemoryResponse
+   */
+  async updateMemory(workspaceName: string, serviceId: string, memoryId: string, request: $_model.UpdateMemoryRequest): Promise<$_model.UpdateMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMemoryWithOptions(workspaceName, serviceId, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * 更新 Skill
+   * 
+   * @param request - UpdateMemorySkillRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemorySkillResponse
+   */
+  async updateMemorySkillWithOptions(workspaceName: string, serviceId: string, skillId: string, request: $_model.UpdateMemorySkillRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemorySkillResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      body["agent_id"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.files)) {
+      body["files"] = request.files;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      body["user_id"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMemorySkill",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/memory/${serviceId}/skills/${skillId}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMemorySkillResponse>(await this.execute(params, req, runtime), new $_model.UpdateMemorySkillResponse({}));
+  }
+
+  /**
+   * 更新 Skill
+   * 
+   * @param request - UpdateMemorySkillRequest
+   * @returns UpdateMemorySkillResponse
+   */
+  async updateMemorySkill(workspaceName: string, serviceId: string, skillId: string, request: $_model.UpdateMemorySkillRequest): Promise<$_model.UpdateMemorySkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMemorySkillWithOptions(workspaceName, serviceId, skillId, request, headers, runtime);
   }
 
 }
