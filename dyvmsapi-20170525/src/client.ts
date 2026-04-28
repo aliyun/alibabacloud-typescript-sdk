@@ -1656,6 +1656,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取座席外呼通话记录详情
+   * 
+   * @param request - CloudGetObCdrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudGetObCdrResponse
+   */
+  async cloudGetObCdrWithOptions(request: $_model.CloudGetObCdrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudGetObCdrResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.uniqueId)) {
+      query["UniqueId"] = request.uniqueId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudGetObCdr",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudGetObCdrResponse>(await this.callApi(params, req, runtime), new $_model.CloudGetObCdrResponse({}));
+  }
+
+  /**
+   * 获取座席外呼通话记录详情
+   * 
+   * @param request - CloudGetObCdrRequest
+   * @returns CloudGetObCdrResponse
+   */
+  async cloudGetObCdr(request: $_model.CloudGetObCdrRequest): Promise<$_model.CloudGetObCdrResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudGetObCdrWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取通话录音地址
+   * 
+   * @param request - CloudGetRecordUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudGetRecordUrlResponse
+   */
+  async cloudGetRecordUrlWithOptions(request: $_model.CloudGetRecordUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudGetRecordUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callType)) {
+      query["CallType"] = request.callType;
+    }
+
+    if (!$dara.isNull(request.download)) {
+      query["Download"] = request.download;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.recordFile)) {
+      query["RecordFile"] = request.recordFile;
+    }
+
+    if (!$dara.isNull(request.recordFormat)) {
+      query["RecordFormat"] = request.recordFormat;
+    }
+
+    if (!$dara.isNull(request.recordSide)) {
+      query["RecordSide"] = request.recordSide;
+    }
+
+    if (!$dara.isNull(request.recordType)) {
+      query["RecordType"] = request.recordType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudGetRecordUrl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudGetRecordUrlResponse>(await this.callApi(params, req, runtime), new $_model.CloudGetRecordUrlResponse({}));
+  }
+
+  /**
+   * 获取通话录音地址
+   * 
+   * @param request - CloudGetRecordUrlRequest
+   * @returns CloudGetRecordUrlResponse
+   */
+  async cloudGetRecordUrl(request: $_model.CloudGetRecordUrlRequest): Promise<$_model.CloudGetRecordUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudGetRecordUrlWithOptions(request, runtime);
+  }
+
+  /**
    * 任务号码导入
    * 
    * @param tmpReq - CloudImportTaskTelRequest
@@ -1997,6 +2109,162 @@ export default class Client extends OpenApi {
   async cloudListOnlineAgent(request: $_model.CloudListOnlineAgentRequest): Promise<$_model.CloudListOnlineAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cloudListOnlineAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取预览外呼主叫号码报表
+   * 
+   * @param request - CloudOutboundObClidReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudOutboundObClidReportResponse
+   */
+  async cloudOutboundObClidReportWithOptions(request: $_model.CloudOutboundObClidReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudOutboundObClidReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.areaCodes)) {
+      query["AreaCodes"] = request.areaCodes;
+    }
+
+    if (!$dara.isNull(request.endHour)) {
+      query["EndHour"] = request.endHour;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.startHour)) {
+      query["StartHour"] = request.startHour;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statisticMethod)) {
+      query["StatisticMethod"] = request.statisticMethod;
+    }
+
+    if (!$dara.isNull(request.timeRangeType)) {
+      query["TimeRangeType"] = request.timeRangeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudOutboundObClidReport",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudOutboundObClidReportResponse>(await this.callApi(params, req, runtime), new $_model.CloudOutboundObClidReportResponse({}));
+  }
+
+  /**
+   * 获取预览外呼主叫号码报表
+   * 
+   * @param request - CloudOutboundObClidReportRequest
+   * @returns CloudOutboundObClidReportResponse
+   */
+  async cloudOutboundObClidReport(request: $_model.CloudOutboundObClidReportRequest): Promise<$_model.CloudOutboundObClidReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudOutboundObClidReportWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取预览外呼报表
+   * 
+   * @param request - CloudOutboundPreviewObReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudOutboundPreviewObReportResponse
+   */
+  async cloudOutboundPreviewObReportWithOptions(request: $_model.CloudOutboundPreviewObReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudOutboundPreviewObReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.endHour)) {
+      query["EndHour"] = request.endHour;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.startHour)) {
+      query["StartHour"] = request.startHour;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statisticMethod)) {
+      query["StatisticMethod"] = request.statisticMethod;
+    }
+
+    if (!$dara.isNull(request.timeRangeType)) {
+      query["TimeRangeType"] = request.timeRangeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudOutboundPreviewObReport",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudOutboundPreviewObReportResponse>(await this.callApi(params, req, runtime), new $_model.CloudOutboundPreviewObReportResponse({}));
+  }
+
+  /**
+   * 获取预览外呼报表
+   * 
+   * @param request - CloudOutboundPreviewObReportRequest
+   * @returns CloudOutboundPreviewObReportResponse
+   */
+  async cloudOutboundPreviewObReport(request: $_model.CloudOutboundPreviewObReportRequest): Promise<$_model.CloudOutboundPreviewObReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudOutboundPreviewObReportWithOptions(request, runtime);
   }
 
   /**
@@ -2375,6 +2643,518 @@ export default class Client extends OpenApi {
   async cloudQueryAgentSkill(request: $_model.CloudQueryAgentSkillRequest): Promise<$_model.CloudQueryAgentSkillResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cloudQueryAgentSkillWithOptions(request, runtime);
+  }
+
+  /**
+   * 来电通话记录
+   * 
+   * @param request - CloudQueryIbCdrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudQueryIbCdrResponse
+   */
+  async cloudQueryIbCdrWithOptions(request: $_model.CloudQueryIbCdrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudQueryIbCdrResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.calleeNumber)) {
+      query["CalleeNumber"] = request.calleeNumber;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.customerNumber)) {
+      query["CustomerNumber"] = request.customerNumber;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hotline)) {
+      query["Hotline"] = request.hotline;
+    }
+
+    if (!$dara.isNull(request.joinQueueCode)) {
+      query["JoinQueueCode"] = request.joinQueueCode;
+    }
+
+    if (!$dara.isNull(request.leaveQueueCode)) {
+      query["LeaveQueueCode"] = request.leaveQueueCode;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!$dara.isNull(request.qno)) {
+      query["Qno"] = request.qno;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.timeRangeType)) {
+      query["TimeRangeType"] = request.timeRangeType;
+    }
+
+    if (!$dara.isNull(request.uniqueId)) {
+      query["UniqueId"] = request.uniqueId;
+    }
+
+    if (!$dara.isNull(request.userFieldValue)) {
+      query["UserFieldValue"] = request.userFieldValue;
+    }
+
+    if (!$dara.isNull(request.userFieldkey)) {
+      query["UserFieldkey"] = request.userFieldkey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudQueryIbCdr",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudQueryIbCdrResponse>(await this.callApi(params, req, runtime), new $_model.CloudQueryIbCdrResponse({}));
+  }
+
+  /**
+   * 来电通话记录
+   * 
+   * @param request - CloudQueryIbCdrRequest
+   * @returns CloudQueryIbCdrResponse
+   */
+  async cloudQueryIbCdr(request: $_model.CloudQueryIbCdrRequest): Promise<$_model.CloudQueryIbCdrResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudQueryIbCdrWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取座席外呼通话记录
+   * 
+   * @param request - CloudQueryObCdrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudQueryObCdrResponse
+   */
+  async cloudQueryObCdrWithOptions(request: $_model.CloudQueryObCdrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudQueryObCdrResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.agentNumber)) {
+      query["AgentNumber"] = request.agentNumber;
+    }
+
+    if (!$dara.isNull(request.callType)) {
+      query["CallType"] = request.callType;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.clid)) {
+      query["Clid"] = request.clid;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.customerNumber)) {
+      query["CustomerNumber"] = request.customerNumber;
+    }
+
+    if (!$dara.isNull(request.downGrade)) {
+      query["DownGrade"] = request.downGrade;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.gno)) {
+      query["Gno"] = request.gno;
+    }
+
+    if (!$dara.isNull(request.isRealAnswer)) {
+      query["IsRealAnswer"] = request.isRealAnswer;
+    }
+
+    if (!$dara.isNull(request.leftDisplayNumber)) {
+      query["LeftDisplayNumber"] = request.leftDisplayNumber;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!$dara.isNull(request.requestUniqueId)) {
+      query["RequestUniqueId"] = request.requestUniqueId;
+    }
+
+    if (!$dara.isNull(request.returnCount)) {
+      query["ReturnCount"] = request.returnCount;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.timeRangeType)) {
+      query["TimeRangeType"] = request.timeRangeType;
+    }
+
+    if (!$dara.isNull(request.uniqueId)) {
+      query["UniqueId"] = request.uniqueId;
+    }
+
+    if (!$dara.isNull(request.userFieldValue)) {
+      query["UserFieldValue"] = request.userFieldValue;
+    }
+
+    if (!$dara.isNull(request.userFieldkey)) {
+      query["UserFieldkey"] = request.userFieldkey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudQueryObCdr",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudQueryObCdrResponse>(await this.callApi(params, req, runtime), new $_model.CloudQueryObCdrResponse({}));
+  }
+
+  /**
+   * 获取座席外呼通话记录
+   * 
+   * @param request - CloudQueryObCdrRequest
+   * @returns CloudQueryObCdrResponse
+   */
+  async cloudQueryObCdr(request: $_model.CloudQueryObCdrRequest): Promise<$_model.CloudQueryObCdrResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudQueryObCdrWithOptions(request, runtime);
+  }
+
+  /**
+   * 预测式外呼通话记录
+   * 
+   * @param request - CloudQueryPredictiveCallCdrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudQueryPredictiveCallCdrResponse
+   */
+  async cloudQueryPredictiveCallCdrWithOptions(request: $_model.CloudQueryPredictiveCallCdrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudQueryPredictiveCallCdrResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.clid)) {
+      query["Clid"] = request.clid;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.customerNumber)) {
+      query["CustomerNumber"] = request.customerNumber;
+    }
+
+    if (!$dara.isNull(request.displayNumber)) {
+      query["DisplayNumber"] = request.displayNumber;
+    }
+
+    if (!$dara.isNull(request.downGrade)) {
+      query["DownGrade"] = request.downGrade;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.gno)) {
+      query["Gno"] = request.gno;
+    }
+
+    if (!$dara.isNull(request.isRealAnswer)) {
+      query["IsRealAnswer"] = request.isRealAnswer;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!$dara.isNull(request.requestUniqueId)) {
+      query["RequestUniqueId"] = request.requestUniqueId;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskFileId)) {
+      query["TaskFileId"] = request.taskFileId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.timeRangeType)) {
+      query["TimeRangeType"] = request.timeRangeType;
+    }
+
+    if (!$dara.isNull(request.uniqueId)) {
+      query["UniqueId"] = request.uniqueId;
+    }
+
+    if (!$dara.isNull(request.userFieldValue)) {
+      query["UserFieldValue"] = request.userFieldValue;
+    }
+
+    if (!$dara.isNull(request.userFieldkey)) {
+      query["UserFieldkey"] = request.userFieldkey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudQueryPredictiveCallCdr",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudQueryPredictiveCallCdrResponse>(await this.callApi(params, req, runtime), new $_model.CloudQueryPredictiveCallCdrResponse({}));
+  }
+
+  /**
+   * 预测式外呼通话记录
+   * 
+   * @param request - CloudQueryPredictiveCallCdrRequest
+   * @returns CloudQueryPredictiveCallCdrResponse
+   */
+  async cloudQueryPredictiveCallCdr(request: $_model.CloudQueryPredictiveCallCdrRequest): Promise<$_model.CloudQueryPredictiveCallCdrResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudQueryPredictiveCallCdrWithOptions(request, runtime);
+  }
+
+  /**
+   * webcall通话记录
+   * 
+   * @param request - CloudQueryWebcallCdrRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloudQueryWebcallCdrResponse
+   */
+  async cloudQueryWebcallCdrWithOptions(request: $_model.CloudQueryWebcallCdrRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CloudQueryWebcallCdrResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.calleeClid)) {
+      query["CalleeClid"] = request.calleeClid;
+    }
+
+    if (!$dara.isNull(request.calleeDisplayNumber)) {
+      query["CalleeDisplayNumber"] = request.calleeDisplayNumber;
+    }
+
+    if (!$dara.isNull(request.calleeNumber)) {
+      query["CalleeNumber"] = request.calleeNumber;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.clid)) {
+      query["Clid"] = request.clid;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.customerNumber)) {
+      query["CustomerNumber"] = request.customerNumber;
+    }
+
+    if (!$dara.isNull(request.displayNumber)) {
+      query["DisplayNumber"] = request.displayNumber;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.gno)) {
+      query["Gno"] = request.gno;
+    }
+
+    if (!$dara.isNull(request.isRealAnswer)) {
+      query["IsRealAnswer"] = request.isRealAnswer;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!$dara.isNull(request.requestUniqueId)) {
+      query["RequestUniqueId"] = request.requestUniqueId;
+    }
+
+    if (!$dara.isNull(request.returnCount)) {
+      query["ReturnCount"] = request.returnCount;
+    }
+
+    if (!$dara.isNull(request.start)) {
+      query["Start"] = request.start;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.timeRangeType)) {
+      query["TimeRangeType"] = request.timeRangeType;
+    }
+
+    if (!$dara.isNull(request.uniqueId)) {
+      query["UniqueId"] = request.uniqueId;
+    }
+
+    if (!$dara.isNull(request.userFieldValue)) {
+      query["UserFieldValue"] = request.userFieldValue;
+    }
+
+    if (!$dara.isNull(request.userFieldkey)) {
+      query["UserFieldkey"] = request.userFieldkey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CloudQueryWebcallCdr",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CloudQueryWebcallCdrResponse>(await this.callApi(params, req, runtime), new $_model.CloudQueryWebcallCdrResponse({}));
+  }
+
+  /**
+   * webcall通话记录
+   * 
+   * @param request - CloudQueryWebcallCdrRequest
+   * @returns CloudQueryWebcallCdrResponse
+   */
+  async cloudQueryWebcallCdr(request: $_model.CloudQueryWebcallCdrRequest): Promise<$_model.CloudQueryWebcallCdrResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cloudQueryWebcallCdrWithOptions(request, runtime);
   }
 
   /**
