@@ -138,6 +138,8 @@ export { DescribeElbAvailableResourceInfoResponseBodyElbAvailableResourceInfo } 
 export { DescribeEnsCommodityCodeResponseBodyCommodityCodeInfo } from './DescribeEnsCommodityCodeResponseBody';
 export { DescribeEnsCommodityModuleCodeResponseBodyCommodityCodesInfoModuleCodesInfo } from './DescribeEnsCommodityModuleCodeResponseBody';
 export { DescribeEnsCommodityModuleCodeResponseBodyCommodityCodesInfo } from './DescribeEnsCommodityModuleCodeResponseBody';
+export { DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressOperationLocksLock } from './DescribeEnsEipAddressesResponseBody';
+export { DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressOperationLocks } from './DescribeEnsEipAddressesResponseBody';
 export { DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag } from './DescribeEnsEipAddressesResponseBody';
 export { DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags } from './DescribeEnsEipAddressesResponseBody';
 export { DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress } from './DescribeEnsEipAddressesResponseBody';

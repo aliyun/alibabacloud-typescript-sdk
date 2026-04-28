@@ -61,6 +61,11 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
   ensRegionIds?: string[];
   icmpReplyEnabled?: boolean;
   /**
+   * @example
+   * financial
+   */
+  lockReason?: string;
+  /**
    * @remarks
    * The page number. Default value: 1.
    * 
@@ -87,6 +92,7 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
    * true
    */
   standby?: string;
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
@@ -97,9 +103,11 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
       ensRegionId: 'EnsRegionId',
       ensRegionIds: 'EnsRegionIds',
       icmpReplyEnabled: 'IcmpReplyEnabled',
+      lockReason: 'LockReason',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       standby: 'Standby',
+      status: 'Status',
     };
   }
 
@@ -113,9 +121,11 @@ export class DescribeEnsEipAddressesRequest extends $dara.Model {
       ensRegionId: 'string',
       ensRegionIds: { 'type': 'array', 'itemType': 'string' },
       icmpReplyEnabled: 'boolean',
+      lockReason: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       standby: 'string',
+      status: 'string',
     };
   }
 

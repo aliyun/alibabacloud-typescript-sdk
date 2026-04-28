@@ -2,6 +2,59 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressOperationLocksLock extends $dara.Model {
+  /**
+   * @example
+   * financial
+   */
+  lockReason?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lockReason: 'LockReason',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lockReason: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressOperationLocks extends $dara.Model {
+  lock?: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressOperationLocksLock[];
+  static names(): { [key: string]: string } {
+    return {
+      lock: 'Lock',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lock: { 'type': 'array', 'itemType': DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressOperationLocksLock },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.lock)) {
+      $dara.Model.validateArray(this.lock);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTagsTag extends $dara.Model {
   /**
    * @remarks
@@ -118,6 +171,16 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
    */
   bandwidth?: number;
   /**
+   * @example
+   * 100
+   */
+  bandwidthPackageBandwidth?: number;
+  /**
+   * @example
+   * cbwp-5***
+   */
+  bandwidthPackageId?: string;
+  /**
    * @remarks
    * EIP的计费模式。
    * 
@@ -218,6 +281,7 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
    * test
    */
   name?: string;
+  operationLocks?: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressOperationLocks;
   /**
    * @remarks
    * 该EIP是否是备用。
@@ -252,6 +316,8 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       allocationId: 'AllocationId',
       allocationTime: 'AllocationTime',
       bandwidth: 'Bandwidth',
+      bandwidthPackageBandwidth: 'BandwidthPackageBandwidth',
+      bandwidthPackageId: 'BandwidthPackageId',
       chargeType: 'ChargeType',
       description: 'Description',
       ensRegionId: 'EnsRegionId',
@@ -263,6 +329,7 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       ipStatus: 'IpStatus',
       isp: 'Isp',
       name: 'Name',
+      operationLocks: 'OperationLocks',
       standby: 'Standby',
       status: 'Status',
       tags: 'Tags',
@@ -274,6 +341,8 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       allocationId: 'string',
       allocationTime: 'string',
       bandwidth: 'number',
+      bandwidthPackageBandwidth: 'number',
+      bandwidthPackageId: 'string',
       chargeType: 'string',
       description: 'string',
       ensRegionId: 'string',
@@ -285,6 +354,7 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
       ipStatus: 'string',
       isp: 'string',
       name: 'string',
+      operationLocks: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressOperationLocks,
       standby: 'boolean',
       status: 'string',
       tags: DescribeEnsEipAddressesResponseBodyEipAddressesEipAddressTags,
@@ -292,6 +362,9 @@ export class DescribeEnsEipAddressesResponseBodyEipAddressesEipAddress extends $
   }
 
   validate() {
+    if(this.operationLocks && typeof (this.operationLocks as any).validate === 'function') {
+      (this.operationLocks as any).validate();
+    }
     if(this.tags && typeof (this.tags as any).validate === 'function') {
       (this.tags as any).validate();
     }

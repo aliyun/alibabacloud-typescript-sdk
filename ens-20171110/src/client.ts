@@ -7150,6 +7150,10 @@ export default class Client extends OpenApi {
       query["IcmpReplyEnabled"] = request.icmpReplyEnabled;
     }
 
+    if (!$dara.isNull(request.lockReason)) {
+      query["LockReason"] = request.lockReason;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["PageNumber"] = request.pageNumber;
     }
@@ -7160,6 +7164,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.standby)) {
       query["Standby"] = request.standby;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
