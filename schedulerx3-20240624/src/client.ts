@@ -2386,6 +2386,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取执行器组列表
+   * 
+   * @param request - ListExecutorGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListExecutorGroupResponse
+   */
+  async listExecutorGroupWithOptions(request: $_model.ListExecutorGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListExecutorGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workerType)) {
+      query["WorkerType"] = request.workerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListExecutorGroup",
+      version: "2024-06-24",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListExecutorGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListExecutorGroupResponse({}));
+  }
+
+  /**
+   * 获取执行器组列表
+   * 
+   * @param request - ListExecutorGroupRequest
+   * @returns ListExecutorGroupResponse
+   */
+  async listExecutorGroup(request: $_model.ListExecutorGroupRequest): Promise<$_model.ListExecutorGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listExecutorGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of executors.
    * 
    * @param request - ListExecutorsRequest
