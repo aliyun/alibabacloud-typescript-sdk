@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { ContainerSpec } from "./ContainerSpec";
 import { Lifecycle } from "./Lifecycle";
+import { SecurityContext } from "./SecurityContext";
 
 
 export class ExtraPodSpec extends $dara.Model {
@@ -15,6 +16,7 @@ export class ExtraPodSpec extends $dara.Model {
    * The lifecycle object.
    */
   lifecycle?: Lifecycle;
+  mainContainerSecurityContext?: SecurityContext;
   /**
    * @remarks
    * The pod annotations.
@@ -43,6 +45,7 @@ export class ExtraPodSpec extends $dara.Model {
     return {
       initContainers: 'InitContainers',
       lifecycle: 'Lifecycle',
+      mainContainerSecurityContext: 'MainContainerSecurityContext',
       podAnnotations: 'PodAnnotations',
       podLabels: 'PodLabels',
       sharedVolumeMountPaths: 'SharedVolumeMountPaths',
@@ -54,6 +57,7 @@ export class ExtraPodSpec extends $dara.Model {
     return {
       initContainers: { 'type': 'array', 'itemType': ContainerSpec },
       lifecycle: Lifecycle,
+      mainContainerSecurityContext: SecurityContext,
       podAnnotations: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       podLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       sharedVolumeMountPaths: { 'type': 'array', 'itemType': 'string' },
@@ -67,6 +71,9 @@ export class ExtraPodSpec extends $dara.Model {
     }
     if(this.lifecycle && typeof (this.lifecycle as any).validate === 'function') {
       (this.lifecycle as any).validate();
+    }
+    if(this.mainContainerSecurityContext && typeof (this.mainContainerSecurityContext as any).validate === 'function') {
+      (this.mainContainerSecurityContext as any).validate();
     }
     if(this.podAnnotations) {
       $dara.Model.validateMap(this.podAnnotations);
