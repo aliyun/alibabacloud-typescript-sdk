@@ -13,6 +13,11 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   dataSetId?: string;
   /**
    * @example
+   * {"field1":"value1","field2":"value2"}
+   */
+  filter?: string;
+  /**
+   * @example
    * zh
    */
   lang?: string;
@@ -26,6 +31,16 @@ export class ListDataSetRecordsRequest extends $dara.Model {
    * AAAAAUqcj6VO4E3ECWIrFczs****
    */
   nextToken?: string;
+  /**
+   * @example
+   * desc
+   */
+  order?: string;
+  /**
+   * @example
+   * updatetime
+   */
+  orderField?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -55,9 +70,12 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dataSetId: 'DataSetId',
+      filter: 'Filter',
       lang: 'Lang',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      order: 'Order',
+      orderField: 'OrderField',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -68,9 +86,12 @@ export class ListDataSetRecordsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dataSetId: 'string',
+      filter: 'string',
       lang: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      order: 'string',
+      orderField: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',

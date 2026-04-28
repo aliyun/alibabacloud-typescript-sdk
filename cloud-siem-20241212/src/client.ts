@@ -449,12 +449,20 @@ export default class Client extends OpenApi {
       body["AlertAttCk"] = request.alertAttCk;
     }
 
+    if (!$dara.isNull(request.alertAttCkMapping)) {
+      body["AlertAttCkMapping"] = request.alertAttCkMapping;
+    }
+
     if (!$dara.isNull(request.alertDescription)) {
       body["AlertDescription"] = request.alertDescription;
     }
 
     if (!$dara.isNull(request.alertLevel)) {
       body["AlertLevel"] = request.alertLevel;
+    }
+
+    if (!$dara.isNull(request.alertLevelMapping)) {
+      body["AlertLevelMapping"] = request.alertLevelMapping;
     }
 
     if (!$dara.isNull(request.alertName)) {
@@ -483,6 +491,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.alertType)) {
       body["AlertType"] = request.alertType;
+    }
+
+    if (!$dara.isNull(request.alertTypeMapping)) {
+      body["AlertTypeMapping"] = request.alertTypeMapping;
     }
 
     if (!$dara.isNull(request.detectionExpressionContent)) {
@@ -2872,6 +2884,10 @@ export default class Client extends OpenApi {
       body["DataSetId"] = request.dataSetId;
     }
 
+    if (!$dara.isNull(request.filter)) {
+      body["Filter"] = request.filter;
+    }
+
     if (!$dara.isNull(request.lang)) {
       body["Lang"] = request.lang;
     }
@@ -2882,6 +2898,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.orderField)) {
+      body["OrderField"] = request.orderField;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -5496,12 +5520,20 @@ export default class Client extends OpenApi {
       body["AlertAttCk"] = request.alertAttCk;
     }
 
+    if (!$dara.isNull(request.alertAttCkMapping)) {
+      body["AlertAttCkMapping"] = request.alertAttCkMapping;
+    }
+
     if (!$dara.isNull(request.alertDescription)) {
       body["AlertDescription"] = request.alertDescription;
     }
 
     if (!$dara.isNull(request.alertLevel)) {
       body["AlertLevel"] = request.alertLevel;
+    }
+
+    if (!$dara.isNull(request.alertLevelMapping)) {
+      body["AlertLevelMapping"] = request.alertLevelMapping;
     }
 
     if (!$dara.isNull(request.alertName)) {
@@ -5530,6 +5562,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.alertType)) {
       body["AlertType"] = request.alertType;
+    }
+
+    if (!$dara.isNull(request.alertTypeMapping)) {
+      body["AlertTypeMapping"] = request.alertTypeMapping;
     }
 
     if (!$dara.isNull(request.detectionExpressionContent)) {

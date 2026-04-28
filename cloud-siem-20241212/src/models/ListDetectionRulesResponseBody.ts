@@ -145,12 +145,14 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
    * Discovery
    */
   alertAttCk?: string;
+  alertAttCkMapping?: string;
   alertDescription?: string;
   /**
    * @example
    * 1
    */
   alertLevel?: string;
+  alertLevelMapping?: string;
   alertName?: string;
   /**
    * @example
@@ -182,6 +184,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
    * WebShell
    */
   alertType?: string;
+  alertTypeMapping?: string;
   /**
    * @example
    * 2023-03-21 13:47:01
@@ -309,8 +312,10 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       alertAttCk: 'AlertAttCk',
+      alertAttCkMapping: 'AlertAttCkMapping',
       alertDescription: 'AlertDescription',
       alertLevel: 'AlertLevel',
+      alertLevelMapping: 'AlertLevelMapping',
       alertName: 'AlertName',
       alertSchemaId: 'AlertSchemaId',
       alertTacticId: 'AlertTacticId',
@@ -318,6 +323,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
       alertThresholdGroup: 'AlertThresholdGroup',
       alertThresholdPeriod: 'AlertThresholdPeriod',
       alertType: 'AlertType',
+      alertTypeMapping: 'AlertTypeMapping',
       createTime: 'CreateTime',
       detectionExpressionContent: 'DetectionExpressionContent',
       detectionExpressionType: 'DetectionExpressionType',
@@ -347,8 +353,10 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       alertAttCk: 'string',
+      alertAttCkMapping: 'string',
       alertDescription: 'string',
       alertLevel: 'string',
+      alertLevelMapping: 'string',
       alertName: 'string',
       alertSchemaId: 'string',
       alertTacticId: 'string',
@@ -356,6 +364,7 @@ export class ListDetectionRulesResponseBodyDetectionRules extends $dara.Model {
       alertThresholdGroup: 'string',
       alertThresholdPeriod: 'string',
       alertType: 'string',
+      alertTypeMapping: 'string',
       createTime: 'number',
       detectionExpressionContent: 'string',
       detectionExpressionType: 'string',
