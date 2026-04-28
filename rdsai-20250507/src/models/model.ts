@@ -141,6 +141,9 @@ export { DescribeSandboxTemplatesResponse } from './DescribeSandboxTemplatesResp
 export { DescribeWhitelistIpsRequest } from './DescribeWhitelistIpsRequest';
 export { DescribeWhitelistIpsResponseBody } from './DescribeWhitelistIpsResponseBody';
 export { DescribeWhitelistIpsResponse } from './DescribeWhitelistIpsResponse';
+export { DisableAgentRuntimeRequest } from './DisableAgentRuntimeRequest';
+export { DisableAgentRuntimeResponseBody } from './DisableAgentRuntimeResponseBody';
+export { DisableAgentRuntimeResponse } from './DisableAgentRuntimeResponse';
 export { EnableAgentRuntimeRequest } from './EnableAgentRuntimeRequest';
 export { EnableAgentRuntimeResponseBody } from './EnableAgentRuntimeResponseBody';
 export { EnableAgentRuntimeResponse } from './EnableAgentRuntimeResponse';

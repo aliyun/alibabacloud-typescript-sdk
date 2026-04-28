@@ -1733,6 +1733,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭Supabase的沙箱和边缘函数能力
+   * 
+   * @param request - DisableAgentRuntimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableAgentRuntimeResponse
+   */
+  async disableAgentRuntimeWithOptions(request: $_model.DisableAgentRuntimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableAgentRuntimeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableAgentRuntime",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableAgentRuntimeResponse>(await this.callApi(params, req, runtime), new $_model.DisableAgentRuntimeResponse({}));
+  }
+
+  /**
+   * 关闭Supabase的沙箱和边缘函数能力
+   * 
+   * @param request - DisableAgentRuntimeRequest
+   * @returns DisableAgentRuntimeResponse
+   */
+  async disableAgentRuntime(request: $_model.DisableAgentRuntimeRequest): Promise<$_model.DisableAgentRuntimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableAgentRuntimeWithOptions(request, runtime);
+  }
+
+  /**
    * 启用Supabase的沙箱和边缘函数能力
    * 
    * @param request - EnableAgentRuntimeRequest
@@ -1991,7 +2041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询MO订单信息
+   * Obtain RDS AI Assistant Ultimate order information
    * 
    * @param request - GetModelOperatorOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2015,7 +2065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询MO订单信息
+   * Obtain RDS AI Assistant Ultimate order information
    * 
    * @param request - GetModelOperatorOrderRequest
    * @returns GetModelOperatorOrderResponse

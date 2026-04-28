@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetModelOperatorOrderResponseBodyDataInstanceList extends $dara.Model {
   /**
+   * @remarks
+   * The instance end time (format: Timestamp).
+   * 
    * @example
    * 1775145600000
    */
   endTime?: number;
   /**
+   * @remarks
+   * instance type
+   * 
    * @example
    * xlarge
    */
   instanceClass?: string;
   /**
+   * @remarks
+   * The instance name.
+   * 
    * @example
    * rds_copilot***_public_cn-*********6
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The instance start time (format: Timestamp).
+   * 
    * @example
    * 1772439028000
    */
   startTime?: number;
   /**
+   * @remarks
+   * The instance status.
+   * 
    * @example
    * active/creating
    */
@@ -59,10 +74,17 @@ export class GetModelOperatorOrderResponseBodyDataInstanceList extends $dara.Mod
 
 export class GetModelOperatorOrderResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether a valid order exists.
+   * 
    * @example
    * true
    */
   hasValidOrder?: boolean;
+  /**
+   * @remarks
+   * The instance list.
+   */
   instanceList?: GetModelOperatorOrderResponseBodyDataInstanceList[];
   static names(): { [key: string]: string } {
     return {
@@ -91,8 +113,15 @@ export class GetModelOperatorOrderResponseBodyData extends $dara.Model {
 }
 
 export class GetModelOperatorOrderResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The query result.
+   */
   data?: GetModelOperatorOrderResponseBodyData;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
@@ -106,6 +135,9 @@ export class GetModelOperatorOrderResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Request result.
+   * 
    * @example
    * true
    */

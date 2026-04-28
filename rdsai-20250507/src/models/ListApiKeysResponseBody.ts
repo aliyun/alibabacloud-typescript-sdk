@@ -27,6 +27,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
    * fixed
    */
   limitType?: string;
+  thresholdPercent?: number;
   /**
    * @example
    * 10000
@@ -39,6 +40,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
       keyName: 'KeyName',
       limitRate: 'LimitRate',
       limitType: 'LimitType',
+      thresholdPercent: 'ThresholdPercent',
       tokenQuota: 'TokenQuota',
     };
   }
@@ -50,6 +52,7 @@ export class ListApiKeysResponseBodyDataCustomKeyList extends $dara.Model {
       keyName: 'string',
       limitRate: 'number',
       limitType: 'string',
+      thresholdPercent: 'number',
       tokenQuota: 'number',
     };
   }
@@ -86,6 +89,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
    * sk-rds-xxx
    */
   systemApiKey?: string;
+  thresholdPercent?: number;
   /**
    * @example
    * 138
@@ -99,6 +103,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
       page: 'Page',
       pageSize: 'PageSize',
       systemApiKey: 'SystemApiKey',
+      thresholdPercent: 'ThresholdPercent',
       total: 'Total',
     };
   }
@@ -111,6 +116,7 @@ export class ListApiKeysResponseBodyData extends $dara.Model {
       page: 'number',
       pageSize: 'number',
       systemApiKey: 'string',
+      thresholdPercent: 'number',
       total: 'number',
     };
   }
