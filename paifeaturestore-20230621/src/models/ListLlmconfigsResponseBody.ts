@@ -23,6 +23,7 @@ export class ListLLMConfigsResponseBodyLLMConfigs extends $dara.Model {
    * 1024
    */
   embeddingDimension?: number;
+  enableFusion?: boolean;
   /**
    * @example
    * 2023-07-04T11:26:09.036+08:00
@@ -48,6 +49,7 @@ export class ListLLMConfigsResponseBodyLLMConfigs extends $dara.Model {
    * text-embedding-v1
    */
   model?: string;
+  modelType?: string;
   /**
    * @example
    * llm_config_name1
@@ -74,11 +76,13 @@ export class ListLLMConfigsResponseBodyLLMConfigs extends $dara.Model {
       baseUrl: 'BaseUrl',
       batchSize: 'BatchSize',
       embeddingDimension: 'EmbeddingDimension',
+      enableFusion: 'EnableFusion',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
       LLMConfigId: 'LLMConfigId',
       maxTokens: 'MaxTokens',
       model: 'Model',
+      modelType: 'ModelType',
       name: 'Name',
       resourceGroupId: 'ResourceGroupId',
       rps: 'Rps',
@@ -92,11 +96,13 @@ export class ListLLMConfigsResponseBodyLLMConfigs extends $dara.Model {
       baseUrl: 'string',
       batchSize: 'number',
       embeddingDimension: 'number',
+      enableFusion: 'boolean',
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
       LLMConfigId: 'string',
       maxTokens: 'number',
       model: 'string',
+      modelType: 'string',
       name: 'string',
       resourceGroupId: 'string',
       rps: 'number',

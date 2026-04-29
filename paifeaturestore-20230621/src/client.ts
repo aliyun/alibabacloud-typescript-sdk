@@ -118,7 +118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据源。
+   * Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
    * 
    * @param request - CreateDatasourceRequest
    * @param headers - map
@@ -167,7 +167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据源。
+   * Register a datasource under a FeatureStore Instance. A datasource provides offline storage (**MaxCompute**) or online storage (**Hologres**, **TableStore**, or **FeatureDB**) for projects in the Instance.
    * 
    * @param request - CreateDatasourceRequest
    * @returns CreateDatasourceResponse
@@ -400,12 +400,20 @@ export default class Client extends OpenApi {
       body["EmbeddingDimension"] = request.embeddingDimension;
     }
 
+    if (!$dara.isNull(request.enableFusion)) {
+      body["EnableFusion"] = request.enableFusion;
+    }
+
     if (!$dara.isNull(request.maxTokens)) {
       body["MaxTokens"] = request.maxTokens;
     }
 
     if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      body["ModelType"] = request.modelType;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -573,7 +581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建FeatureStore项目
+   * Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
    * 
    * @param request - CreateProjectRequest
    * @param headers - map
@@ -626,7 +634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建FeatureStore项目
+   * Create a FeatureStore project under a PAI workspace. A project groups FeatureEntities, FeatureViews, and ModelFeatures sharing one **MaxCompute** offline datasource and one online datasource (**Hologres**, **TableStore**, or **FeatureDB**).
    * 
    * @param request - CreateProjectRequest
    * @returns CreateProjectResponse
@@ -683,7 +691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定数据源。
+   * Delete a datasource from a FeatureStore Instance.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -708,7 +716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定数据源。
+   * Delete a datasource from a FeatureStore Instance.
    * @returns DeleteDatasourceResponse
    */
   async deleteDatasource(InstanceId: string, DatasourceId: string): Promise<$_model.DeleteDatasourceResponse> {
@@ -989,7 +997,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源详细信息。
+   * Get the details of a datasource, including its type, connection info, and Config.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1014,7 +1022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源详细信息。
+   * Get the details of a datasource, including its type, connection info, and Config.
    * @returns GetDatasourceResponse
    */
   async getDatasource(InstanceId: string, DatasourceId: string): Promise<$_model.GetDatasourceResponse> {
@@ -1621,7 +1629,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源列表。
+   * List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
    * 
    * @param request - ListDatasourcesRequest
    * @param headers - map
@@ -1678,7 +1686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据源列表。
+   * List datasources under a FeatureStore Instance, filtered by workspace, type, or name.
    * 
    * @param request - ListDatasourcesRequest
    * @returns ListDatasourcesResponse
@@ -2729,7 +2737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据源信息。
+   * Update a datasource\\"s info. The datasource type and workspace cannot be changed.
    * 
    * @param request - UpdateDatasourceRequest
    * @param headers - map
@@ -2770,7 +2778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据源信息。
+   * Update a datasource\\"s info. The datasource type and workspace cannot be changed.
    * 
    * @param request - UpdateDatasourceRequest
    * @returns UpdateDatasourceResponse
@@ -2779,6 +2787,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDatasourceWithOptions(InstanceId, DatasourceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新特征视图。
+   * 
+   * @param request - UpdateFeatureViewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFeatureViewResponse
+   */
+  async updateFeatureViewWithOptions(InstanceId: string, FeatureViewId: string, request: $_model.UpdateFeatureViewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFeatureViewResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fields)) {
+      body["Fields"] = request.fields;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFeatureView",
+      version: "2023-06-21",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(InstanceId)}/featureviews/${$dara.URL.percentEncode(FeatureViewId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFeatureViewResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFeatureViewResponse({}));
+  }
+
+  /**
+   * 更新特征视图。
+   * 
+   * @param request - UpdateFeatureViewRequest
+   * @returns UpdateFeatureViewResponse
+   */
+  async updateFeatureView(InstanceId: string, FeatureViewId: string, request: $_model.UpdateFeatureViewRequest): Promise<$_model.UpdateFeatureViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateFeatureViewWithOptions(InstanceId, FeatureViewId, request, headers, runtime);
   }
 
   /**
@@ -2808,12 +2861,20 @@ export default class Client extends OpenApi {
       body["EmbeddingDimension"] = request.embeddingDimension;
     }
 
+    if (!$dara.isNull(request.enableFusion)) {
+      body["EnableFusion"] = request.enableFusion;
+    }
+
     if (!$dara.isNull(request.maxTokens)) {
       body["MaxTokens"] = request.maxTokens;
     }
 
     if (!$dara.isNull(request.model)) {
       body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      body["ModelType"] = request.modelType;
     }
 
     if (!$dara.isNull(request.name)) {

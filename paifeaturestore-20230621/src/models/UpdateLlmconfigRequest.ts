@@ -29,6 +29,7 @@ export class UpdateLLMConfigRequest extends $dara.Model {
    * 1024
    */
   embeddingDimension?: number;
+  enableFusion?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -45,6 +46,7 @@ export class UpdateLLMConfigRequest extends $dara.Model {
    * text-embedding-v1
    */
   model?: string;
+  modelType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -67,8 +69,10 @@ export class UpdateLLMConfigRequest extends $dara.Model {
       baseUrl: 'BaseUrl',
       batchSize: 'BatchSize',
       embeddingDimension: 'EmbeddingDimension',
+      enableFusion: 'EnableFusion',
       maxTokens: 'MaxTokens',
       model: 'Model',
+      modelType: 'ModelType',
       name: 'Name',
       rps: 'Rps',
     };
@@ -80,8 +84,10 @@ export class UpdateLLMConfigRequest extends $dara.Model {
       baseUrl: 'string',
       batchSize: 'number',
       embeddingDimension: 'number',
+      enableFusion: 'boolean',
       maxTokens: 'number',
       model: 'string',
+      modelType: 'string',
       name: 'string',
       rps: 'number',
     };

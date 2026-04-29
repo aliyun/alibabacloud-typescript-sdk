@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetFeatureViewResponseBodyFieldsTransformInput extends $dara.Model {
+  modality?: string;
   /**
    * @example
    * f1
@@ -15,6 +16,7 @@ export class GetFeatureViewResponseBodyFieldsTransformInput extends $dara.Model 
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      modality: 'Modality',
       name: 'Name',
       type: 'Type',
     };
@@ -22,6 +24,7 @@ export class GetFeatureViewResponseBodyFieldsTransformInput extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      modality: 'string',
       name: 'string',
       type: 'string',
     };
