@@ -179,6 +179,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
    */
   instanceId?: string;
   keyUsageList?: DescribeModelOperatorResponseBodyDataKeyUsageList[];
+  prefixCacheEnabled?: boolean;
   /**
    * @example
    * 1772439028000
@@ -210,6 +211,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
       instanceClass: 'InstanceClass',
       instanceId: 'InstanceId',
       keyUsageList: 'KeyUsageList',
+      prefixCacheEnabled: 'PrefixCacheEnabled',
       startTime: 'StartTime',
       status: 'Status',
       totalQuota: 'TotalQuota',
@@ -228,6 +230,7 @@ export class DescribeModelOperatorResponseBodyData extends $dara.Model {
       instanceClass: 'string',
       instanceId: 'string',
       keyUsageList: { 'type': 'array', 'itemType': DescribeModelOperatorResponseBodyDataKeyUsageList },
+      prefixCacheEnabled: 'boolean',
       startTime: 'number',
       status: 'string',
       totalQuota: 'number',

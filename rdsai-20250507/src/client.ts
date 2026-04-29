@@ -3643,6 +3643,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新 API key 的告警百分比阈值
+   * 
+   * @param tmpReq - UpdateMOQuotaAlertThresholdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMOQuotaAlertThresholdResponse
+   */
+  async updateMOQuotaAlertThresholdWithOptions(tmpReq: $_model.UpdateMOQuotaAlertThresholdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMOQuotaAlertThresholdResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMOQuotaAlertThresholdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.apikey)) {
+      request.apikeyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.apikey, "Apikey", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.apikeyShrink)) {
+      query["Apikey"] = request.apikeyShrink;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMOQuotaAlertThreshold",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMOQuotaAlertThresholdResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMOQuotaAlertThresholdResponse({}));
+  }
+
+  /**
+   * 更新 API key 的告警百分比阈值
+   * 
+   * @param request - UpdateMOQuotaAlertThresholdRequest
+   * @returns UpdateMOQuotaAlertThresholdResponse
+   */
+  async updateMOQuotaAlertThreshold(request: $_model.UpdateMOQuotaAlertThresholdRequest): Promise<$_model.UpdateMOQuotaAlertThresholdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMOQuotaAlertThresholdWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the information about a specified skill.
    * 
    * @param tmpReq - UpdateSkillRequest
