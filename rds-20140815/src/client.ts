@@ -11908,6 +11908,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例切换日志
+   * 
+   * @param request - DescribeDBInstanceSwitchLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstanceSwitchLogResponse
+   */
+  async describeDBInstanceSwitchLogWithOptions(request: $_model.DescribeDBInstanceSwitchLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstanceSwitchLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBInstanceSwitchLog",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBInstanceSwitchLogResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstanceSwitchLogResponse({}));
+  }
+
+  /**
+   * 查询实例切换日志
+   * 
+   * @param request - DescribeDBInstanceSwitchLogRequest
+   * @returns DescribeDBInstanceSwitchLogResponse
+   */
+  async describeDBInstanceSwitchLog(request: $_model.DescribeDBInstanceSwitchLogRequest): Promise<$_model.DescribeDBInstanceSwitchLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBInstanceSwitchLogWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the status of the Transparent Data Encryption (TDE) feature for an instance.
    * 
    * @remarks
@@ -27329,7 +27407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改块存储属性
+   * Modifies the attributes of a block storage device, such as the names and descriptions of the devices, whether to release the devices together with the associated Elastic Compute Service (ECS) instances, whether its automatically-generated snapshots are deleted with the device, and whether automatic snapshot or I/O performance burst is enabled.
    * 
    * @param request - ModifyRCDiskAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27380,7 +27458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改块存储属性
+   * Modifies the attributes of a block storage device, such as the names and descriptions of the devices, whether to release the devices together with the associated Elastic Compute Service (ECS) instances, whether its automatically-generated snapshots are deleted with the device, and whether automatic snapshot or I/O performance burst is enabled.
    * 
    * @param request - ModifyRCDiskAttributeRequest
    * @returns ModifyRCDiskAttributeResponse

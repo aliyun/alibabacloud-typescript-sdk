@@ -123,6 +123,8 @@ export { DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceKeyV
 export { DescribeDBInstancePerformanceResponseBodyPerformanceKeysPerformanceKey } from './DescribeDbinstancePerformanceResponseBody';
 export { DescribeDBInstancePerformanceResponseBodyPerformanceKeys } from './DescribeDbinstancePerformanceResponseBody';
 export { DescribeDBInstanceReplicationResponseBodySlaveStatusList } from './DescribeDbinstanceReplicationResponseBody';
+export { DescribeDBInstanceSwitchLogResponseBodyItemsItem } from './DescribeDbinstanceSwitchLogResponseBody';
+export { DescribeDBInstanceSwitchLogResponseBodyItems } from './DescribeDbinstanceSwitchLogResponseBody';
 export { DescribeDBInstanceTDEResponseBodyDatabasesDatabase } from './DescribeDbinstanceTderesponseBody';
 export { DescribeDBInstanceTDEResponseBodyDatabases } from './DescribeDbinstanceTderesponseBody';
 export { DescribeDBInstancesResponseBodyItemsDBInstanceReadOnlyDBInstanceIdsReadOnlyDBInstanceId } from './DescribeDbinstancesResponseBody';
@@ -859,6 +861,9 @@ export { DescribeDBInstanceSSLResponse } from './DescribeDbinstanceSslresponse';
 export { DescribeDBInstanceSecurityGroupRuleRequest } from './DescribeDbinstanceSecurityGroupRuleRequest';
 export { DescribeDBInstanceSecurityGroupRuleResponseBody } from './DescribeDbinstanceSecurityGroupRuleResponseBody';
 export { DescribeDBInstanceSecurityGroupRuleResponse } from './DescribeDbinstanceSecurityGroupRuleResponse';
+export { DescribeDBInstanceSwitchLogRequest } from './DescribeDbinstanceSwitchLogRequest';
+export { DescribeDBInstanceSwitchLogResponseBody } from './DescribeDbinstanceSwitchLogResponseBody';
+export { DescribeDBInstanceSwitchLogResponse } from './DescribeDbinstanceSwitchLogResponse';
 export { DescribeDBInstanceTDERequest } from './DescribeDbinstanceTderequest';
 export { DescribeDBInstanceTDEResponseBody } from './DescribeDbinstanceTderesponseBody';
 export { DescribeDBInstanceTDEResponse } from './DescribeDbinstanceTderesponse';
