@@ -187,12 +187,12 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOp
    * @example
    * 20
    */
-  fieldQuantityLimit?: string;
+  fieldQuantityLimit?: number;
   /**
    * @example
    * false
    */
-  isRandSort?: string;
+  isRandSort?: boolean;
   /**
    * @example
    * create_time
@@ -210,8 +210,8 @@ export class GetRecallManagementServiceVersionResponseBodyConfigsRecallConfigsOp
   static types(): { [key: string]: any } {
     return {
       field: 'string',
-      fieldQuantityLimit: 'string',
-      isRandSort: 'string',
+      fieldQuantityLimit: 'number',
+      isRandSort: 'boolean',
       sortField: 'string',
     };
   }
@@ -440,11 +440,6 @@ export class GetRecallManagementServiceVersionResponseBody extends $dara.Model {
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtModifiedTime?: string;
-  /**
-   * @example
-   * false
-   */
-  isDefault?: string;
   isEffective?: boolean;
   /**
    * @example
@@ -469,7 +464,6 @@ export class GetRecallManagementServiceVersionResponseBody extends $dara.Model {
       configs: 'Configs',
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
-      isDefault: 'IsDefault',
       isEffective: 'IsEffective',
       name: 'Name',
       recallManagementServiceVersionId: 'RecallManagementServiceVersionId',
@@ -482,7 +476,6 @@ export class GetRecallManagementServiceVersionResponseBody extends $dara.Model {
       configs: GetRecallManagementServiceVersionResponseBodyConfigs,
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
-      isDefault: 'string',
       isEffective: 'boolean',
       name: 'string',
       recallManagementServiceVersionId: 'string',

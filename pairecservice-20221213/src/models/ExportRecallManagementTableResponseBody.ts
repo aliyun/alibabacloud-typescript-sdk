@@ -2,21 +2,28 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetRecallManagementServiceRequest extends $dara.Model {
+export class ExportRecallManagementTableResponseBody extends $dara.Model {
   /**
    * @example
-   * pairec-cn-test123
+   * 1
    */
-  instanceId?: string;
+  recallManagementJobId?: string;
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      instanceId: 'InstanceId',
+      recallManagementJobId: 'RecallManagementJobId',
+      requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      instanceId: 'string',
+      recallManagementJobId: 'string',
+      requestId: 'string',
     };
   }
 

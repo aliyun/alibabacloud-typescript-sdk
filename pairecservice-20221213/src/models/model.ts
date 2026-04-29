@@ -122,6 +122,7 @@ export { UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsJ
 export { UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsTriggerConfig } from './UpdateRecallManagementServiceVersionConfigRequest';
 export { UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperators } from './UpdateRecallManagementServiceVersionConfigRequest';
 export { UpdateRecallManagementServiceVersionConfigRequestRecallConfig } from './UpdateRecallManagementServiceVersionConfigRequest';
+export { UpdateRecallManagementTableRequestFields } from './UpdateRecallManagementTableRequest';
 export { UpdateSceneRequestFlows } from './UpdateSceneRequest';
 export { UpdateTableMetaRequestFields } from './UpdateTableMetaRequest';
 export { UpdateTrafficControlTaskRequestTrafficControlTargets } from './UpdateTrafficControlTaskRequest';
@@ -326,6 +327,9 @@ export { DeleteTrafficControlTaskResponse } from './DeleteTrafficControlTaskResp
 export { DeployTrafficControlTaskCodeRequest } from './DeployTrafficControlTaskCodeRequest';
 export { DeployTrafficControlTaskCodeResponseBody } from './DeployTrafficControlTaskCodeResponseBody';
 export { DeployTrafficControlTaskCodeResponse } from './DeployTrafficControlTaskCodeResponse';
+export { ExportRecallManagementTableRequest } from './ExportRecallManagementTableRequest';
+export { ExportRecallManagementTableResponseBody } from './ExportRecallManagementTableResponseBody';
+export { ExportRecallManagementTableResponse } from './ExportRecallManagementTableResponse';
 export { GenerateAlgorithmCustomizationScriptRequest } from './GenerateAlgorithmCustomizationScriptRequest';
 export { GenerateAlgorithmCustomizationScriptResponseBody } from './GenerateAlgorithmCustomizationScriptResponseBody';
 export { GenerateAlgorithmCustomizationScriptResponse } from './GenerateAlgorithmCustomizationScriptResponse';
@@ -564,6 +568,9 @@ export { PushResourceRuleResponse } from './PushResourceRuleResponse';
 export { QueryDataDiagnosisStatisticsRequest } from './QueryDataDiagnosisStatisticsRequest';
 export { QueryDataDiagnosisStatisticsResponseBody } from './QueryDataDiagnosisStatisticsResponseBody';
 export { QueryDataDiagnosisStatisticsResponse } from './QueryDataDiagnosisStatisticsResponse';
+export { QueryRecallManagementTableRecordsRequest } from './QueryRecallManagementTableRecordsRequest';
+export { QueryRecallManagementTableRecordsResponseBody } from './QueryRecallManagementTableRecordsResponseBody';
+export { QueryRecallManagementTableRecordsResponse } from './QueryRecallManagementTableRecordsResponse';
 export { QuerySampleConsistencyJobDifferenceRequest } from './QuerySampleConsistencyJobDifferenceRequest';
 export { QuerySampleConsistencyJobDifferenceResponseBody } from './QuerySampleConsistencyJobDifferenceResponseBody';
 export { QuerySampleConsistencyJobDifferenceResponse } from './QuerySampleConsistencyJobDifferenceResponse';

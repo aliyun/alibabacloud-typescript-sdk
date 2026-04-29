@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OnlineRecallManagementServiceRequest extends $dara.Model {
+  /**
+   * @example
+   * pairec-cn-test123
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {

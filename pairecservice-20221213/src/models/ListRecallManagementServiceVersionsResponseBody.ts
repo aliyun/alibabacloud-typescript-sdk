@@ -13,11 +13,7 @@ export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServ
    * 2021-12-15T23:24:33.132+08:00
    */
   gmtModifiedTime?: string;
-  /**
-   * @example
-   * false
-   */
-  isDefault?: string;
+  isEffective?: boolean;
   /**
    * @example
    * version-1
@@ -32,7 +28,7 @@ export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServ
     return {
       gmtCreateTime: 'GmtCreateTime',
       gmtModifiedTime: 'GmtModifiedTime',
-      isDefault: 'IsDefault',
+      isEffective: 'IsEffective',
       name: 'Name',
       recallManagementServiceVersionId: 'RecallManagementServiceVersionId',
     };
@@ -42,7 +38,7 @@ export class ListRecallManagementServiceVersionsResponseBodyRecallManagementServ
     return {
       gmtCreateTime: 'string',
       gmtModifiedTime: 'string',
-      isDefault: 'string',
+      isEffective: 'boolean',
       name: 'string',
       recallManagementServiceVersionId: 'string',
     };

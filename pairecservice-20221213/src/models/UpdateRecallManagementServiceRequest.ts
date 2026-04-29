@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateRecallManagementServiceRequest extends $dara.Model {
+  /**
+   * @example
+   * reso-2s416t146ffjc3yefx
+   */
   description?: string;
+  /**
+   * @example
+   * pairec-cn-test123
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {

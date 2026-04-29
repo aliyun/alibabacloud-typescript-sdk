@@ -187,12 +187,12 @@ export class CreateRecallManagementServiceVersionConfigRequestRecallConfigOperat
    * @example
    * 20
    */
-  fieldQuantityLimit?: string;
+  fieldQuantityLimit?: number;
   /**
    * @example
    * false
    */
-  isRandSort?: string;
+  isRandSort?: boolean;
   /**
    * @example
    * create_time
@@ -210,8 +210,8 @@ export class CreateRecallManagementServiceVersionConfigRequestRecallConfigOperat
   static types(): { [key: string]: any } {
     return {
       field: 'string',
-      fieldQuantityLimit: 'string',
-      isRandSort: 'string',
+      fieldQuantityLimit: 'number',
+      isRandSort: 'boolean',
       sortField: 'string',
     };
   }

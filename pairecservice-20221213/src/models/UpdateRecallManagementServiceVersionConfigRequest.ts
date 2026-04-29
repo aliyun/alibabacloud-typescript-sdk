@@ -3,12 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateRecallManagementServiceVersionConfigRequestMergeConfig extends $dara.Model {
+  /**
+   * @example
+   * {"":""}
+   */
   extendedConfig?: string;
+  /**
+   * @example
+   * age>20
+   */
   filterExpression?: string;
   filterRecallManagementTableIds?: string[];
+  /**
+   * @example
+   * 2
+   */
   itemRecallManagementTableId?: string;
   itemTableFields?: string[];
+  /**
+   * @example
+   * Weight
+   */
   mergeType?: string;
+  /**
+   * @example
+   * 4
+   */
   recallManagementServiceVersionConfigId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,8 +70,20 @@ export class UpdateRecallManagementServiceVersionConfigRequestMergeConfig extend
 }
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFeatureConfig extends $dara.Model {
+  /**
+   * @example
+   * category=3
+   */
   expression?: string;
+  /**
+   * @example
+   * city
+   */
   name?: string;
+  /**
+   * @example
+   * string
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -79,6 +111,10 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 }
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFilterConfig extends $dara.Model {
+  /**
+   * @example
+   * age>20
+   */
   experession?: string;
   static names(): { [key: string]: string } {
     return {
@@ -102,8 +138,16 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 }
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsJoinConfig extends $dara.Model {
+  /**
+   * @example
+   * item_id
+   */
   field?: string;
-  outputFields?: string;
+  outputFields?: string[];
+  /**
+   * @example
+   * 3
+   */
   recallManagementTableId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -116,12 +160,15 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
   static types(): { [key: string]: any } {
     return {
       field: 'string',
-      outputFields: 'string',
+      outputFields: { 'type': 'array', 'itemType': 'string' },
       recallManagementTableId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.outputFields)) {
+      $dara.Model.validateArray(this.outputFields);
+    }
     super.validate();
   }
 
@@ -131,9 +178,25 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 }
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsTriggerConfig extends $dara.Model {
+  /**
+   * @example
+   * user_id
+   */
   field?: string;
-  fieldQuantityLimit?: string;
-  isRandSort?: string;
+  /**
+   * @example
+   * 20
+   */
+  fieldQuantityLimit?: number;
+  /**
+   * @example
+   * false
+   */
+  isRandSort?: boolean;
+  /**
+   * @example
+   * create_time
+   */
   sortField?: string;
   static names(): { [key: string]: string } {
     return {
@@ -147,8 +210,8 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
   static types(): { [key: string]: any } {
     return {
       field: 'string',
-      fieldQuantityLimit: 'string',
-      isRandSort: 'string',
+      fieldQuantityLimit: 'number',
+      isRandSort: 'boolean',
       sortField: 'string',
     };
   }
@@ -166,14 +229,18 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
   featureConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFeatureConfig;
   filterConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFilterConfig;
   joinConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsJoinConfig;
-  operatorsType?: string;
+  /**
+   * @example
+   * Filter
+   */
+  operatorType?: string;
   triggerConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsTriggerConfig;
   static names(): { [key: string]: string } {
     return {
       featureConfig: 'FeatureConfig',
       filterConfig: 'FilterConfig',
       joinConfig: 'JoinConfig',
-      operatorsType: 'OperatorsType',
+      operatorType: 'OperatorType',
       triggerConfig: 'TriggerConfig',
     };
   }
@@ -183,7 +250,7 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
       featureConfig: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFeatureConfig,
       filterConfig: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsFilterConfig,
       joinConfig: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsJoinConfig,
-      operatorsType: 'string',
+      operatorType: 'string',
       triggerConfig: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperatorsTriggerConfig,
     };
   }
@@ -210,7 +277,15 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperat
 }
 
 export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig extends $dara.Model {
+  /**
+   * @example
+   * this is etrec recall
+   */
   description?: string;
+  /**
+   * @example
+   * {"":""}
+   */
   extendedConfig?: string;
   /**
    * @example
@@ -222,15 +297,51 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig exten
    * age>20
    */
   itemConditionExpression?: string;
+  /**
+   * @example
+   * item_embedding
+   */
   itemVectorField?: string;
+  /**
+   * @example
+   * 2
+   */
   itemVectorRecallManagementTableId?: string;
+  /**
+   * @example
+   * etrec
+   */
   name?: string;
   operators?: UpdateRecallManagementServiceVersionConfigRequestRecallConfigOperators[];
+  /**
+   * @example
+   * 2
+   */
   priority?: number;
+  /**
+   * @example
+   * 1
+   */
   recallManagementTableId?: string;
+  /**
+   * @example
+   * X2I
+   */
   recallType?: string;
+  /**
+   * @example
+   * name
+   */
   sortFields?: string;
+  /**
+   * @example
+   * user_embedding
+   */
   userVectorField?: string;
+  /**
+   * @example
+   * 3
+   */
   userVectorRecallManagementTableId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -283,14 +394,20 @@ export class UpdateRecallManagementServiceVersionConfigRequestRecallConfig exten
 }
 
 export class UpdateRecallManagementServiceVersionConfigRequest extends $dara.Model {
-  regionId?: string;
+  /**
+   * @example
+   * Recall
+   */
   configType?: string;
+  /**
+   * @example
+   * pairec-cn-test123
+   */
   instanceId?: string;
   mergeConfig?: UpdateRecallManagementServiceVersionConfigRequestMergeConfig;
   recallConfig?: UpdateRecallManagementServiceVersionConfigRequestRecallConfig;
   static names(): { [key: string]: string } {
     return {
-      regionId: 'RegionId',
       configType: 'ConfigType',
       instanceId: 'InstanceId',
       mergeConfig: 'MergeConfig',
@@ -300,7 +417,6 @@ export class UpdateRecallManagementServiceVersionConfigRequest extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
-      regionId: 'string',
       configType: 'string',
       instanceId: 'string',
       mergeConfig: UpdateRecallManagementServiceVersionConfigRequestMergeConfig,

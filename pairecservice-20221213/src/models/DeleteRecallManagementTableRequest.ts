@@ -6,6 +6,9 @@ export class DeleteRecallManagementTableRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * pairec-cn-test123
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

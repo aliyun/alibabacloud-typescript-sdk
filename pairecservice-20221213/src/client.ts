@@ -4023,6 +4023,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 召回管理表导出
+   * 
+   * @param request - ExportRecallManagementTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportRecallManagementTableResponse
+   */
+  async exportRecallManagementTableWithOptions(RecallManagementTableId: string, request: $_model.ExportRecallManagementTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExportRecallManagementTableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxcomputeProjectName)) {
+      body["MaxcomputeProjectName"] = request.maxcomputeProjectName;
+    }
+
+    if (!$dara.isNull(request.maxcomputeSchema)) {
+      body["MaxcomputeSchema"] = request.maxcomputeSchema;
+    }
+
+    if (!$dara.isNull(request.maxcomputeTableName)) {
+      body["MaxcomputeTableName"] = request.maxcomputeTableName;
+    }
+
+    if (!$dara.isNull(request.partitions)) {
+      body["Partitions"] = request.partitions;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExportRecallManagementTable",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementtables/${$dara.URL.percentEncode(RecallManagementTableId)}/action/export`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExportRecallManagementTableResponse>(await this.callApi(params, req, runtime), new $_model.ExportRecallManagementTableResponse({}));
+  }
+
+  /**
+   * 召回管理表导出
+   * 
+   * @param request - ExportRecallManagementTableRequest
+   * @returns ExportRecallManagementTableResponse
+   */
+  async exportRecallManagementTable(RecallManagementTableId: string, request: $_model.ExportRecallManagementTableRequest): Promise<$_model.ExportRecallManagementTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.exportRecallManagementTableWithOptions(RecallManagementTableId, request, headers, runtime);
+  }
+
+  /**
    * 生成算法定制脚本
    * 
    * @param request - GenerateAlgorithmCustomizationScriptRequest
@@ -8155,6 +8216,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询召回管理表数据
+   * 
+   * @param request - QueryRecallManagementTableRecordsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryRecallManagementTableRecordsResponse
+   */
+  async queryRecallManagementTableRecordsWithOptions(RecallManagementTableId: string, request: $_model.QueryRecallManagementTableRecordsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryRecallManagementTableRecordsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.primaryKeys)) {
+      query["PrimaryKeys"] = request.primaryKeys;
+    }
+
+    if (!$dara.isNull(request.recallManagementTableVersionId)) {
+      query["RecallManagementTableVersionId"] = request.recallManagementTableVersionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryRecallManagementTableRecords",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/recallmanagementtables/${$dara.URL.percentEncode(RecallManagementTableId)}/queryrecords`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryRecallManagementTableRecordsResponse>(await this.callApi(params, req, runtime), new $_model.QueryRecallManagementTableRecordsResponse({}));
+  }
+
+  /**
+   * 查询召回管理表数据
+   * 
+   * @param request - QueryRecallManagementTableRecordsRequest
+   * @returns QueryRecallManagementTableRecordsResponse
+   */
+  async queryRecallManagementTableRecords(RecallManagementTableId: string, request: $_model.QueryRecallManagementTableRecordsRequest): Promise<$_model.QueryRecallManagementTableRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryRecallManagementTableRecordsWithOptions(RecallManagementTableId, request, headers, runtime);
+  }
+
+  /**
    * 查看样本一致性任务差异的详情
    * 
    * @param request - QuerySampleConsistencyJobDifferenceRequest
@@ -10095,11 +10209,6 @@ export default class Client extends OpenApi {
    */
   async updateRecallManagementServiceVersionConfigWithOptions(RecallManagementServiceId: string, RecallManagementServiceVersionId: string, RecallManagementServiceVersionConfigId: string, request: $_model.UpdateRecallManagementServiceVersionConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateRecallManagementServiceVersionConfigResponse> {
     request.validate();
-    let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.configType)) {
       body["ConfigType"] = request.configType;
@@ -10119,7 +10228,6 @@ export default class Client extends OpenApi {
 
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -10165,6 +10273,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableRowCountFluctuationThreshold)) {
       body["EnableRowCountFluctuationThreshold"] = request.enableRowCountFluctuationThreshold;
+    }
+
+    if (!$dara.isNull(request.fields)) {
+      body["Fields"] = request.fields;
     }
 
     if (!$dara.isNull(request.indexVersionId)) {

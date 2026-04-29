@@ -2,25 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateRecallManagementServiceVersionConfigResponseBody extends $dara.Model {
+export class QueryRecallManagementTableRecordsResponseBody extends $dara.Model {
+  records?: { [key: string]: any }[];
   /**
    * @example
-   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   * 7D59453C-48AA-5FC5-8848-2D373BD1A17F
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      records: 'Records',
       requestId: 'RequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      records: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       requestId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.records)) {
+      $dara.Model.validateArray(this.records);
+    }
     super.validate();
   }
 

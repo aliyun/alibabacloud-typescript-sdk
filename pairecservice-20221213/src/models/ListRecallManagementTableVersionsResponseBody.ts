@@ -3,13 +3,45 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableVersions extends $dara.Model {
+  /**
+   * @example
+   * ds=20250701
+   */
   dataVersion?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132
+   */
   effectiveTime?: string;
+  /**
+   * @example
+   * 2021-12-15T23:24:33.132
+   */
   publishEndTime?: string;
+  /**
+   * @example
+   * 2021-12-15T22:24:33.132
+   */
   publishStartTime?: string;
+  /**
+   * @example
+   * 202507010000
+   */
   recallManagementTableVersionId?: string;
+  /**
+   * @example
+   * 1000
+   */
   sourceTableDataSize?: number;
+  /**
+   * @example
+   * 100
+   */
   sourceTableRowCount?: number;
+  /**
+   * @example
+   * Online
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,7 +80,15 @@ export class ListRecallManagementTableVersionsResponseBodyRecallManagementTableV
 
 export class ListRecallManagementTableVersionsResponseBody extends $dara.Model {
   recallManagementTableVersions?: ListRecallManagementTableVersionsResponseBodyRecallManagementTableVersions[];
+  /**
+   * @example
+   * 728C5E01-ABF6-5AA8-B9FC-B3BA05DECC77
+   */
   requestId?: string;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

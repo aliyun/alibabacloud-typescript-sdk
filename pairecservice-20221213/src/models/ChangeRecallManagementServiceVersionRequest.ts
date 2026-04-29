@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChangeRecallManagementServiceVersionRequest extends $dara.Model {
+  /**
+   * @example
+   * pairec-cn-test123
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   recallManagementServiceVersionId?: string;
   static names(): { [key: string]: string } {
     return {

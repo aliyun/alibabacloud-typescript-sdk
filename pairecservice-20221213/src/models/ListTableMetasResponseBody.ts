@@ -95,6 +95,16 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
   resourceId?: string;
   /**
    * @example
+   * Maxcompute
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * test
+   */
+  resourceUri?: string;
+  /**
+   * @example
    * 3
    */
   tableMetaId?: string;
@@ -125,6 +135,8 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
       module: 'Module',
       name: 'Name',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      resourceUri: 'ResourceUri',
       tableMetaId: 'TableMetaId',
       tableName: 'TableName',
       type: 'Type',
@@ -144,6 +156,8 @@ export class ListTableMetasResponseBodyTableMetas extends $dara.Model {
       module: 'string',
       name: 'string',
       resourceId: 'string',
+      resourceType: 'string',
+      resourceUri: 'string',
       tableMetaId: 'string',
       tableName: 'string',
       type: 'string',

@@ -276,6 +276,11 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfig ext
   priority?: number;
   /**
    * @example
+   * 4
+   */
+  recallManagementServiceVersionConfigId?: string;
+  /**
+   * @example
    * 3
    */
   recallManagementTableId?: string;
@@ -306,6 +311,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfig ext
       name: 'Name',
       operators: 'Operators',
       priority: 'Priority',
+      recallManagementServiceVersionConfigId: 'RecallManagementServiceVersionConfigId',
       recallManagementTableId: 'RecallManagementTableId',
       recallType: 'RecallType',
       sortFields: 'SortFields',
@@ -325,6 +331,7 @@ export class GetRecallManagementServiceVersionConfigResponseBodyRecallConfig ext
       name: 'string',
       operators: { 'type': 'array', 'itemType': GetRecallManagementServiceVersionConfigResponseBodyRecallConfigOperators },
       priority: 'number',
+      recallManagementServiceVersionConfigId: 'string',
       recallManagementTableId: 'string',
       recallType: 'string',
       sortFields: 'string',

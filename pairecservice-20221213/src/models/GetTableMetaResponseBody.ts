@@ -94,6 +94,16 @@ export class GetTableMetaResponseBody extends $dara.Model {
    * reso-wkgo***
    */
   resourceId?: string;
+  /**
+   * @example
+   * Maxcompute
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * test
+   */
+  resourceUri?: string;
   tableMetaId?: string;
   /**
    * @example
@@ -123,6 +133,8 @@ export class GetTableMetaResponseBody extends $dara.Model {
       name: 'Name',
       requestId: 'RequestId',
       resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      resourceUri: 'ResourceUri',
       tableMetaId: 'TableMetaId',
       tableName: 'TableName',
       type: 'Type',
@@ -143,6 +155,8 @@ export class GetTableMetaResponseBody extends $dara.Model {
       name: 'string',
       requestId: 'string',
       resourceId: 'string',
+      resourceType: 'string',
+      resourceUri: 'string',
       tableMetaId: 'string',
       tableName: 'string',
       type: 'string',
