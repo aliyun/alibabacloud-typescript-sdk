@@ -47,6 +47,7 @@ export class DescribeNatGatewaysRequestTag extends $dara.Model {
 }
 
 export class DescribeNatGatewaysRequest extends $dara.Model {
+  availabilityMode?: string;
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
@@ -190,6 +191,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      availabilityMode: 'AvailabilityMode',
       dryRun: 'DryRun',
       instanceChargeType: 'InstanceChargeType',
       name: 'Name',
@@ -214,6 +216,7 @@ export class DescribeNatGatewaysRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      availabilityMode: 'string',
       dryRun: 'boolean',
       instanceChargeType: 'string',
       name: 'string',

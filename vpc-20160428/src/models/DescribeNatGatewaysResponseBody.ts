@@ -315,6 +315,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayTags extends $d
 export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.Model {
   accessMode?: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode;
   autoPay?: boolean;
+  availabilityMode?: string;
   businessStatus?: string;
   creationTime?: string;
   deletionProtection?: boolean;
@@ -353,6 +354,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
     return {
       accessMode: 'AccessMode',
       autoPay: 'AutoPay',
+      availabilityMode: 'AvailabilityMode',
       businessStatus: 'BusinessStatus',
       creationTime: 'CreationTime',
       deletionProtection: 'DeletionProtection',
@@ -390,6 +392,7 @@ export class DescribeNatGatewaysResponseBodyNatGatewaysNatGateway extends $dara.
     return {
       accessMode: DescribeNatGatewaysResponseBodyNatGatewaysNatGatewayAccessMode,
       autoPay: 'boolean',
+      availabilityMode: 'string',
       businessStatus: 'string',
       creationTime: 'string',
       deletionProtection: 'boolean',

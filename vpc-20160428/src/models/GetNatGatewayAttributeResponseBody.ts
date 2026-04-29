@@ -466,6 +466,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
    * Access mode for reverse access to VPC NAT gateway.
    */
   accessMode?: GetNatGatewayAttributeResponseBodyAccessMode;
+  availabilityMode?: string;
   /**
    * @remarks
    * The billing information.
@@ -668,6 +669,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessMode: 'AccessMode',
+      availabilityMode: 'AvailabilityMode',
       billingConfig: 'BillingConfig',
       businessStatus: 'BusinessStatus',
       creationTime: 'CreationTime',
@@ -699,6 +701,7 @@ export class GetNatGatewayAttributeResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessMode: GetNatGatewayAttributeResponseBodyAccessMode,
+      availabilityMode: 'string',
       billingConfig: GetNatGatewayAttributeResponseBodyBillingConfig,
       businessStatus: 'string',
       creationTime: 'string',

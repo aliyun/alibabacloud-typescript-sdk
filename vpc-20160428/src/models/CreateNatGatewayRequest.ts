@@ -109,6 +109,7 @@ export class CreateNatGatewayRequest extends $dara.Model {
    * Invalid parameter.
    */
   autoPay?: boolean;
+  availabilityMode?: string;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -320,6 +321,7 @@ export class CreateNatGatewayRequest extends $dara.Model {
     return {
       accessMode: 'AccessMode',
       autoPay: 'AutoPay',
+      availabilityMode: 'AvailabilityMode',
       clientToken: 'ClientToken',
       description: 'Description',
       duration: 'Duration',
@@ -351,6 +353,7 @@ export class CreateNatGatewayRequest extends $dara.Model {
     return {
       accessMode: CreateNatGatewayRequestAccessMode,
       autoPay: 'boolean',
+      availabilityMode: 'string',
       clientToken: 'string',
       description: 'string',
       duration: 'string',

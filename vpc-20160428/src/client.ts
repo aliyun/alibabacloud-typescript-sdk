@@ -5983,6 +5983,10 @@ export default class Client extends OpenApi {
       query["AutoPay"] = request.autoPay;
     }
 
+    if (!$dara.isNull(request.availabilityMode)) {
+      query["AvailabilityMode"] = request.availabilityMode;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -17327,6 +17331,10 @@ export default class Client extends OpenApi {
   async describeNatGatewaysWithOptions(request: $_model.DescribeNatGatewaysRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNatGatewaysResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.availabilityMode)) {
+      query["AvailabilityMode"] = request.availabilityMode;
+    }
+
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
     }
