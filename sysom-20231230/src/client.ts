@@ -338,6 +338,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建实例巡检
+   * 
+   * @param request - CreateInstanceInspectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateInstanceInspectionResponse
+   */
+  async createInstanceInspectionWithOptions(request: $_model.CreateInstanceInspectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateInstanceInspectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instance)) {
+      body["instance"] = request.instance;
+    }
+
+    if (!$dara.isNull(request.items)) {
+      body["items"] = request.items;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      body["region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateInstanceInspection",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/inspection/createInstanceInspection`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateInstanceInspectionResponse>(await this.callApi(params, req, runtime), new $_model.CreateInstanceInspectionResponse({}));
+  }
+
+  /**
+   * 创建实例巡检
+   * 
+   * @param request - CreateInstanceInspectionRequest
+   * @returns CreateInstanceInspectionResponse
+   */
+  async createInstanceInspection(request: $_model.CreateInstanceInspectionRequest): Promise<$_model.CreateInstanceInspectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createInstanceInspectionWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建宕机诊断任务
    * 
    * @param request - CreateVmcoreDiagnosisTaskRequest
@@ -1568,6 +1625,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getHotspotTrackingWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取巡检报告
+   * 
+   * @param request - GetInspectionReportRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInspectionReportResponse
+   */
+  async getInspectionReportWithOptions(request: $_model.GetInspectionReportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInspectionReportResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.reportId)) {
+      query["reportId"] = request.reportId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInspectionReport",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/inspection/getInspectionReport`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInspectionReportResponse>(await this.callApi(params, req, runtime), new $_model.GetInspectionReportResponse({}));
+  }
+
+  /**
+   * 获取巡检报告
+   * 
+   * @param request - GetInspectionReportRequest
+   * @returns GetInspectionReportResponse
+   */
+  async getInspectionReport(request: $_model.GetInspectionReportRequest): Promise<$_model.GetInspectionReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInspectionReportWithOptions(request, headers, runtime);
   }
 
   /**
