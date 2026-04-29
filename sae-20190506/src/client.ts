@@ -8437,6 +8437,10 @@ export default class Client extends OpenApi {
       query["ScalingRuleTimer"] = request.scalingRuleTimer;
     }
 
+    if (!$dara.isNull(request.scalingRuleType)) {
+      query["ScalingRuleType"] = request.scalingRuleType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),

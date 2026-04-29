@@ -144,6 +144,7 @@ export class UpdateApplicationScalingRuleRequest extends $dara.Model {
    * {"beginDate":null,"endDate":null,"period":"* * *","schedules":[{"atTime":"08:00","targetReplicas":10},{"atTime":"20:00","targetReplicas":3}]}
    */
   scalingRuleTimer?: string;
+  scalingRuleType?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -153,6 +154,7 @@ export class UpdateApplicationScalingRuleRequest extends $dara.Model {
       scalingRuleMetric: 'ScalingRuleMetric',
       scalingRuleName: 'ScalingRuleName',
       scalingRuleTimer: 'ScalingRuleTimer',
+      scalingRuleType: 'ScalingRuleType',
     };
   }
 
@@ -165,6 +167,7 @@ export class UpdateApplicationScalingRuleRequest extends $dara.Model {
       scalingRuleMetric: 'string',
       scalingRuleName: 'string',
       scalingRuleTimer: 'string',
+      scalingRuleType: 'string',
     };
   }
 
