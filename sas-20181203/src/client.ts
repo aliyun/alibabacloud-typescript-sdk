@@ -1353,6 +1353,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增未知威胁分析进程
+   * 
+   * @param request - AddUnknownThreatDetectProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddUnknownThreatDetectProcessResponse
+   */
+  async addUnknownThreatDetectProcessWithOptions(request: $_model.AddUnknownThreatDetectProcessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddUnknownThreatDetectProcessResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventIdList)) {
+      query["EventIdList"] = request.eventIdList;
+    }
+
+    if (!$dara.isNull(request.processList)) {
+      query["ProcessList"] = request.processList;
+    }
+
+    if (!$dara.isNull(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddUnknownThreatDetectProcess",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddUnknownThreatDetectProcessResponse>(await this.callApi(params, req, runtime), new $_model.AddUnknownThreatDetectProcessResponse({}));
+  }
+
+  /**
+   * 新增未知威胁分析进程
+   * 
+   * @param request - AddUnknownThreatDetectProcessRequest
+   * @returns AddUnknownThreatDetectProcessResponse
+   */
+  async addUnknownThreatDetectProcess(request: $_model.AddUnknownThreatDetectProcessRequest): Promise<$_model.AddUnknownThreatDetectProcessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addUnknownThreatDetectProcessWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a honeypot.
    * 
    * @param request - AddVpcHoneyPotRequest
@@ -2139,7 +2189,6 @@ export default class Client extends OpenApi {
   /**
    * Checks a Security Token Service (STS) token and returns the ID of the Alibaba Cloud account.
    * 
-   * @param request - CheckStsTokenAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckStsTokenAuthResponse
    */
@@ -5628,6 +5677,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建未知威胁发现的策略
+   * 
+   * @param request - CreateUnknownThreatDetectStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUnknownThreatDetectStrategyResponse
+   */
+  async createUnknownThreatDetectStrategyWithOptions(request: $_model.CreateUnknownThreatDetectStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUnknownThreatDetectStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.assetSelectionType)) {
+      query["AssetSelectionType"] = request.assetSelectionType;
+    }
+
+    if (!$dara.isNull(request.durationDaysAfterInit)) {
+      query["DurationDaysAfterInit"] = request.durationDaysAfterInit;
+    }
+
+    if (!$dara.isNull(request.durationDaysAfterStop)) {
+      query["DurationDaysAfterStop"] = request.durationDaysAfterStop;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.studyMode)) {
+      query["StudyMode"] = request.studyMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateUnknownThreatDetectStrategy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateUnknownThreatDetectStrategyResponse>(await this.callApi(params, req, runtime), new $_model.CreateUnknownThreatDetectStrategyResponse({}));
+  }
+
+  /**
+   * 创建未知威胁发现的策略
+   * 
+   * @param request - CreateUnknownThreatDetectStrategyRequest
+   * @returns CreateUnknownThreatDetectStrategyResponse
+   */
+  async createUnknownThreatDetectStrategy(request: $_model.CreateUnknownThreatDetectStrategyRequest): Promise<$_model.CreateUnknownThreatDetectStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createUnknownThreatDetectStrategyWithOptions(request, runtime);
+  }
+
+  /**
    * Creates the risk level settings for baseline check items.
    * 
    * @param request - CreateUserSettingRequest
@@ -8193,6 +8300,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除未知威胁发现进程
+   * 
+   * @param request - DeleteUnknownThreatDetectProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUnknownThreatDetectProcessResponse
+   */
+  async deleteUnknownThreatDetectProcessWithOptions(request: $_model.DeleteUnknownThreatDetectProcessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUnknownThreatDetectProcessResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.processIdList)) {
+      query["ProcessIdList"] = request.processIdList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteUnknownThreatDetectProcess",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteUnknownThreatDetectProcessResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUnknownThreatDetectProcessResponse({}));
+  }
+
+  /**
+   * 删除未知威胁发现进程
+   * 
+   * @param request - DeleteUnknownThreatDetectProcessRequest
+   * @returns DeleteUnknownThreatDetectProcessResponse
+   */
+  async deleteUnknownThreatDetectProcess(request: $_model.DeleteUnknownThreatDetectProcessRequest): Promise<$_model.DeleteUnknownThreatDetectProcessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteUnknownThreatDetectProcessWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除未知威胁发现策略
+   * 
+   * @param request - DeleteUnknownThreatDetectStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteUnknownThreatDetectStrategyResponse
+   */
+  async deleteUnknownThreatDetectStrategyWithOptions(request: $_model.DeleteUnknownThreatDetectStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteUnknownThreatDetectStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.idList)) {
+      query["IdList"] = request.idList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteUnknownThreatDetectStrategy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteUnknownThreatDetectStrategyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteUnknownThreatDetectStrategyResponse({}));
+  }
+
+  /**
+   * 删除未知威胁发现策略
+   * 
+   * @param request - DeleteUnknownThreatDetectStrategyRequest
+   * @returns DeleteUnknownThreatDetectStrategyResponse
+   */
+  async deleteUnknownThreatDetectStrategy(request: $_model.DeleteUnknownThreatDetectStrategyRequest): Promise<$_model.DeleteUnknownThreatDetectStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteUnknownThreatDetectStrategyWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a honeypot.
    * 
    * @param request - DeleteVpcHoneyPotRequest
@@ -8333,7 +8524,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the overview of user AI assets.
    * 
-   * @param request - DescribeAIAssetSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAIAssetSummaryResponse
    */
@@ -8866,7 +9056,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about all assets. The information includes asset group IDs and asset names.
    * 
-   * @param request - DescribeAllEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAllEntityResponse
    */
@@ -9098,7 +9287,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the scan cycle for application vulnerabilities.
    * 
-   * @param request - DescribeAppVulScanCycleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAppVulScanCycleResponse
    */
@@ -9241,7 +9429,6 @@ export default class Client extends OpenApi {
   /**
    * The ID of the request, which is used to locate and troubleshoot issues.
    * 
-   * @param request - DescribeAssetSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAssetSummaryResponse
    */
@@ -9377,6 +9564,8 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistics of attack analysis.
    * 
+   * @deprecated OpenAPI DescribeAttackAnalysisData is deprecated, please use Sas::2018-12-03::ListAttackEventInfo instead.
+   * 
    * @param request - DescribeAttackAnalysisDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAttackAnalysisDataResponse
@@ -9436,9 +9625,12 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistics of attack analysis.
    * 
+   * @deprecated OpenAPI DescribeAttackAnalysisData is deprecated, please use Sas::2018-12-03::ListAttackEventInfo instead.
+   * 
    * @param request - DescribeAttackAnalysisDataRequest
    * @returns DescribeAttackAnalysisDataResponse
    */
+  // Deprecated
   async describeAttackAnalysisData(request: $_model.DescribeAttackAnalysisDataRequest): Promise<$_model.DescribeAttackAnalysisDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAttackAnalysisDataWithOptions(request, runtime);
@@ -9505,7 +9697,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the number of days during which a detected vulnerability is retained before the vulnerability is automatically deleted.
    * 
-   * @param request - DescribeAutoDelConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAutoDelConfigResponse
    */
@@ -9850,7 +10041,6 @@ export default class Client extends OpenApi {
    * @remarks
    * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
    * 
-   * @param request - DescribeBackupRestoreCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeBackupRestoreCountResponse
    */
@@ -10059,7 +10249,6 @@ export default class Client extends OpenApi {
   /**
    * Check if the asset can be sold by VPC
    * 
-   * @param request - DescribeCanAccessVpcSaleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCanAccessVpcSaleResponse
    */
@@ -10237,7 +10426,6 @@ export default class Client extends OpenApi {
   /**
    * Checks the permissions on the trial use of Security Center.
    * 
-   * @param request - DescribeCanTrySasRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCanTrySasResponse
    */
@@ -10473,7 +10661,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the result of the ISO 27001 compliance check.
    * 
-   * @param request - DescribeCheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCheckResultResponse
    */
@@ -11115,7 +11302,6 @@ export default class Client extends OpenApi {
    * 
    * @deprecated OpenAPI DescribeCloudProductFieldStatistics is deprecated, please use Sas::2018-12-03::GetCloudAssetSummary instead.
    * 
-   * @param request - DescribeCloudProductFieldStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCloudProductFieldStatisticsResponse
    */
@@ -11219,7 +11405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the cloud product access template for vendors
+   * Multicloud configuration management queries the CTDR cloud vendor product access template configuration.
    * 
    * @param request - DescribeCloudVendorProductTemplateConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11254,7 +11440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the cloud product access template for vendors
+   * Multicloud configuration management queries the CTDR cloud vendor product access template configuration.
    * 
    * @param request - DescribeCloudVendorProductTemplateConfigRequest
    * @returns DescribeCloudVendorProductTemplateConfigResponse
@@ -12005,7 +12191,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistical information about containers.
    * 
-   * @param request - DescribeContainerFieldStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeContainerFieldStatisticsResponse
    */
@@ -12439,7 +12624,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the number of images that are not scanned.
    * 
-   * @param request - DescribeCountNotScannedImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCountNotScannedImageResponse
    */
@@ -12471,7 +12655,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the number of images that are scanned.
    * 
-   * @param request - DescribeCountScannedImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCountScannedImageResponse
    */
@@ -13065,7 +13248,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the default installation version of the proxy that is used in hybrid-cloud scenarios.
    * 
-   * @param request - DescribeDefaultProxyInstallVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDefaultProxyInstallVersionResponse
    */
@@ -13679,7 +13861,6 @@ export default class Client extends OpenApi {
   /**
    * Queries whether Security Center is authorized to scan for urgent vulnerabilities.
    * 
-   * @param request - DescribeEmgUserAgreementRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEmgUserAgreementResponse
    */
@@ -14221,7 +14402,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the exposure statistics of the assets on the Internet.
    * 
-   * @param request - DescribeExposedStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeExposedStatisticsResponse
    */
@@ -14381,7 +14561,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the number of vulnerabilities that are fixed by the pay-as-you-go vulnerability fixing feature.
    * 
-   * @param request - DescribeFixUsedCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFixUsedCountResponse
    */
@@ -16123,7 +16302,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the configurations of the scheduled fix of image risks.
    * 
-   * @param request - DescribeImageFixCycleConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeImageFixCycleConfigResponse
    */
@@ -16923,7 +17101,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the number of images on which security alerts are generated. Security alerts are generated for risks such as vulnerabilities, baselines risks, and malicious samples.
    * 
-   * @param request - DescribeImageRiskLevelStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeImageRiskLevelStatisticResponse
    */
@@ -16955,7 +17132,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the details of the quota for container image scan.
    * 
-   * @param request - DescribeImageScanAuthCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeImageScanAuthCountResponse
    */
@@ -17217,7 +17393,6 @@ export default class Client extends OpenApi {
    * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
    * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
    * 
-   * @param request - DescribeImageStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeImageStatisticsResponse
    */
@@ -17521,7 +17696,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the installation verification code that is used to run the installation command of the Security Center agent.
    * 
-   * @param request - DescribeInstallCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstallCodeResponse
    */
@@ -17558,7 +17732,6 @@ export default class Client extends OpenApi {
    * ### QPS limit
    * You can call this operation up to 10 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
    * 
-   * @param request - DescribeInstallCodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstallCodesResponse
    */
@@ -17795,7 +17968,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the progress of the last virus scan task.
    * 
-   * @param request - DescribeLatestScanTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLatestScanTaskResponse
    */
@@ -17977,7 +18149,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the alerting status for unapproved logon IP addresses, unapproved logon time ranges, or unapproved logon accounts.
    * 
-   * @param request - DescribeLoginSwitchConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLoginSwitchConfigsResponse
    */
@@ -18147,7 +18318,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the configurations of the asset fingerprint module.
    * 
-   * @param request - DescribeModuleConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeModuleConfigResponse
    */
@@ -18179,7 +18349,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the list of accounts that are added to the multi-account management feature as members.
    * 
-   * @param request - DescribeMonitorAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMonitorAccountsResponse
    */
@@ -18681,7 +18850,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Asset Fingerprint Scheduled Task Details
+   * Queries the detailed info of the Schedule Job List in host Assets.
    * 
    * @param request - DescribePropertyCronDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18744,7 +18913,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Asset Fingerprint Scheduled Task Details
+   * Queries the detailed info of the Schedule Job List in host Assets.
    * 
    * @param request - DescribePropertyCronDetailRequest
    * @returns DescribePropertyCronDetailResponse
@@ -21993,7 +22162,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the time when a system vulnerability was last detected.
    * 
-   * @param request - DescribeSupervisonInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSupervisonInfoResponse
    */
@@ -22025,7 +22193,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the regions in which the anti-ransomware feature is supported.
    * 
-   * @param request - DescribeSupportRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSupportRegionResponse
    */
@@ -22517,7 +22684,6 @@ export default class Client extends OpenApi {
   /**
    * Query Alarm Security Event Statistics
    * 
-   * @param request - DescribeSuspiciousSecurityEventyStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSuspiciousSecurityEventyStatisticsResponse
    */
@@ -23139,7 +23305,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistics on backups based on anti-ransomware policies.
    * 
-   * @param request - DescribeUniBackupStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUniBackupStatisticsResponse
    */
@@ -23225,7 +23390,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the region that is supported by anti-ransomware for databases.
    * 
-   * @param request - DescribeUniSupportRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUniSupportRegionResponse
    */
@@ -23257,7 +23421,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about the servers to which an anti-ransomware policy is applied.
    * 
-   * @param request - DescribeUserBackupMachinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserBackupMachinesResponse
    */
@@ -23479,7 +23642,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the service providers whose assets can be added to Security Center.
    * 
-   * @param request - DescribeVendorListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVendorListResponse
    */
@@ -23713,7 +23875,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about virtual private clouds (VPCs).
    * 
-   * @param request - DescribeVpcListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVpcListResponse
    */
@@ -23993,7 +24154,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistics of vulnerability fixes.
    * 
-   * @param request - DescribeVulFixStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVulFixStatisticsResponse
    */
@@ -24209,7 +24369,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistics of vulnerabilities in Security Center.
    * 
-   * @param request - DescribeVulMetaCountStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeVulMetaCountStatisticsResponse
    */
@@ -24681,7 +24840,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the types of files that are excluded from web tamper proofing.
    * 
-   * @param request - DescribeWebLockExclusiveFileTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeWebLockExclusiveFileTypeResponse
    */
@@ -24825,7 +24983,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the summary information about the types of files for which web tamper proofing is enabled.
    * 
-   * @param request - DescribeWebLockFileTypeSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeWebLockFileTypeSummaryResponse
    */
@@ -24857,7 +25014,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the types of files that can be protected by web tamper proofing.
    * 
-   * @param request - DescribeWebLockInclusiveFileTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeWebLockInclusiveFileTypeResponse
    */
@@ -25039,7 +25195,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the number of times that the files protected by web tamper proofing are changed.
    * 
-   * @param request - DescribeWebLockTotalFileChangeCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeWebLockTotalFileChangeCountResponse
    */
@@ -25896,7 +26051,6 @@ export default class Client extends OpenApi {
    * @remarks
    * You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
    * 
-   * @param request - EnableServiceAccessResourceDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EnableServiceAccessResourceDirectoryResponse
    */
@@ -27528,7 +27682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Attack Path Event Details.
+   * Query attack path management event details.
    * 
    * @param request - GetAttackPathEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27567,7 +27721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Attack Path Event Details.
+   * Query attack path management event details.
    * 
    * @param request - GetAttackPathEventDetailRequest
    * @returns GetAttackPathEventDetailResponse
@@ -27580,7 +27734,6 @@ export default class Client extends OpenApi {
   /**
    * Query Attack Path Event Statistics.
    * 
-   * @param request - GetAttackPathEventStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAttackPathEventStatisticsResponse
    */
@@ -27700,7 +27853,6 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of attack types on the Attack Analysis page.
    * 
-   * @param request - GetAttackTypeListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAttackTypeListResponse
    */
@@ -27732,7 +27884,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistics of asset protection quota.
    * 
-   * @param request - GetAuthSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAuthSummaryResponse
    */
@@ -27764,7 +27915,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistics about the numbers of assets protected by each edition of Security Center.
    * 
-   * @param request - GetAuthVersionStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAuthVersionStatisticResponse
    */
@@ -27796,7 +27946,6 @@ export default class Client extends OpenApi {
   /**
    * Checks whether the managed anti-ransomware feature can automatically configure an anti-ransomware policy for servers.
    * 
-   * @param request - GetBackupAutoConfigStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBackupAutoConfigStatusResponse
    */
@@ -27828,7 +27977,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the anti-ransomware capacity that is used.
    * 
-   * @param request - GetBackupStorageCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetBackupStorageCountResponse
    */
@@ -27948,7 +28096,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about an automatic configuration check on cloud services.
    * 
-   * @param request - GetCheckConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCheckConfigResponse
    */
@@ -28808,7 +28955,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the number of policies in each cluster.
    * 
-   * @param request - GetClusterStrategyCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetClusterStrategyCountResponse
    */
@@ -29020,7 +29166,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the publish details of the Security Center agent.
    * 
-   * @param request - GetCurrentVersionPublishRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCurrentVersionPublishResponse
    */
@@ -29106,7 +29251,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the numbers of handled alerts of the precision defense type and the web tamper proofing type.
    * 
-   * @param request - GetDefenceCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDefenceCountResponse
    */
@@ -29222,7 +29366,6 @@ export default class Client extends OpenApi {
   /**
    * Obtains the usage information of the malicious file detection SDK.
    * 
-   * @param request - GetFileDetectApiInvokeInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFileDetectApiInvokeInfoResponse
    */
@@ -29368,7 +29511,6 @@ export default class Client extends OpenApi {
   /**
    * Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
    * 
-   * @param request - GetFileProtectDashboardRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFileProtectDashboardResponse
    */
@@ -29526,7 +29668,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the queries per second (QPS) limit on the files uploaded from the client.
    * 
-   * @param request - GetFileUploadLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetFileUploadLimitResponse
    */
@@ -30148,7 +30289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Count the number of security events for a single instance
+   * Queries the alerting statistics information of a server.
    * 
    * @param request - GetInstanceAlarmStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30183,7 +30324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Count the number of security events for a single instance
+   * Queries the alerting statistics information of a server.
    * 
    * @param request - GetInstanceAlarmStatisticsRequest
    * @returns GetInstanceAlarmStatisticsResponse
@@ -30196,7 +30337,6 @@ export default class Client extends OpenApi {
   /**
    * Get Instance Authorization Value Range
    * 
-   * @param request - GetInstanceAuthRangeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceAuthRangeResponse
    */
@@ -30774,7 +30914,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the baselines that are supported by at-risk image blocking.
    * 
-   * @param request - GetOpaClusterBaseLineListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOpaClusterBaseLineListResponse
    */
@@ -31052,7 +31191,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the usage statistics about the templates provided in the feature of proactive defense for containers for rules of the at-risk image blocking type.
    * 
-   * @param request - GetOpaStrategyTemplateSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetOpaStrategyTemplateSummaryResponse
    */
@@ -31222,7 +31360,6 @@ export default class Client extends OpenApi {
   /**
    * Get Publish Time Configuration
    * 
-   * @param request - GetPublishCronRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPublishCronResponse
    */
@@ -31257,7 +31394,6 @@ export default class Client extends OpenApi {
    * @remarks
    * You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
    * 
-   * @param request - GetRdTreeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRdTreeResponse
    */
@@ -31292,7 +31428,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the time range of image scans.
    * 
-   * @param request - GetRegistryScanDayNumRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRegistryScanDayNumResponse
    */
@@ -31324,7 +31459,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the numbers of system defense rules and custom defense rules.
    * 
-   * @param request - GetRulesCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRulesCountResponse
    */
@@ -31896,7 +32030,6 @@ export default class Client extends OpenApi {
   /**
    * Checks whether you can submit a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
    * 
-   * @param request - GetTenantCheckAvailableRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTenantCheckAvailableResponse
    */
@@ -31926,9 +32059,43 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取未知威胁发现的统计信息
+   * 
+   * @param request - GetUnknownThreatDetectStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUnknownThreatDetectStatisticResponse
+   */
+  async getUnknownThreatDetectStatisticWithOptions(request: $_model.GetUnknownThreatDetectStatisticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUnknownThreatDetectStatisticResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUnknownThreatDetectStatistic",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUnknownThreatDetectStatisticResponse>(await this.callApi(params, req, runtime), new $_model.GetUnknownThreatDetectStatisticResponse({}));
+  }
+
+  /**
+   * 获取未知威胁发现的统计信息
+   * 
+   * @param request - GetUnknownThreatDetectStatisticRequest
+   * @returns GetUnknownThreatDetectStatisticResponse
+   */
+  async getUnknownThreatDetectStatistic(request: $_model.GetUnknownThreatDetectStatisticRequest): Promise<$_model.GetUnknownThreatDetectStatisticResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUnknownThreatDetectStatisticWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the language settings of log analysis.
    * 
-   * @param request - GetUserLangRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserLangResponse
    */
@@ -32052,7 +32219,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about the latest virus scan task.
    * 
-   * @param request - GetVirusScanLatestTaskStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVirusScanLatestTaskStatisticResponse
    */
@@ -32282,6 +32448,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 文件检测告警处理操作
+   * 
+   * @param request - HandleObjectScanEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HandleObjectScanEventResponse
+   */
+  async handleObjectScanEventWithOptions(request: $_model.HandleObjectScanEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.HandleObjectScanEventResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.batchType)) {
+      query["BatchType"] = request.batchType;
+    }
+
+    if (!$dara.isNull(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!$dara.isNull(request.eventIdList)) {
+      query["EventIdList"] = request.eventIdList;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.ruleConditionList)) {
+      query["RuleConditionList"] = request.ruleConditionList;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "HandleObjectScanEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.HandleObjectScanEventResponse>(await this.callApi(params, req, runtime), new $_model.HandleObjectScanEventResponse({}));
+  }
+
+  /**
+   * 文件检测告警处理操作
+   * 
+   * @param request - HandleObjectScanEventRequest
+   * @returns HandleObjectScanEventResponse
+   */
+  async handleObjectScanEvent(request: $_model.HandleObjectScanEventRequest): Promise<$_model.HandleObjectScanEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.handleObjectScanEventWithOptions(request, runtime);
+  }
+
+  /**
    * Handles alert events.
    * 
    * @param request - HandleSecurityEventsRequest
@@ -32479,6 +32711,52 @@ export default class Client extends OpenApi {
   async handleSimilarSecurityEvents(request: $_model.HandleSimilarSecurityEventsRequest): Promise<$_model.HandleSimilarSecurityEventsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.handleSimilarSecurityEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * 处理未知威胁分析告警
+   * 
+   * @param request - HandleUnknownThreatDetectEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HandleUnknownThreatDetectEventResponse
+   */
+  async handleUnknownThreatDetectEventWithOptions(request: $_model.HandleUnknownThreatDetectEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.HandleUnknownThreatDetectEventResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.eventIdList)) {
+      query["EventIdList"] = request.eventIdList;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "HandleUnknownThreatDetectEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.HandleUnknownThreatDetectEventResponse>(await this.callApi(params, req, runtime), new $_model.HandleUnknownThreatDetectEventResponse({}));
+  }
+
+  /**
+   * 处理未知威胁分析告警
+   * 
+   * @param request - HandleUnknownThreatDetectEventRequest
+   * @returns HandleUnknownThreatDetectEventResponse
+   */
+  async handleUnknownThreatDetectEvent(request: $_model.HandleUnknownThreatDetectEventRequest): Promise<$_model.HandleUnknownThreatDetectEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.handleUnknownThreatDetectEventWithOptions(request, runtime);
   }
 
   /**
@@ -33028,7 +33306,6 @@ export default class Client extends OpenApi {
    * @remarks
    * You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
    * 
-   * @param request - ListAccountsInResourceDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAccountsInResourceDirectoryResponse
    */
@@ -33325,7 +33602,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the regions that are supported by the agentless detection feature.
    * 
-   * @param request - ListAgentlessRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAgentlessRegionResponse
    */
@@ -33591,7 +33867,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the configurations for cleaning offline hosts whose provider cannot be identified.
    * 
-   * @param request - ListAssetCleanConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAssetCleanConfigResponse
    */
@@ -34657,7 +34932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List User Policies
+   * In the custom check items feature of Cloud Security Posture Management, query the attribution standard, attribution regulation, or attribution section in the check item categorization settings.
    * 
    * @param request - ListCheckPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34684,7 +34959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List User Policies
+   * In the custom check items feature of Cloud Security Posture Management, query the attribution standard, attribution regulation, or attribution section in the check item categorization settings.
    * 
    * @param request - ListCheckPoliciesRequest
    * @returns ListCheckPoliciesResponse
@@ -35057,7 +35332,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the supported types of custom defense rules.
    * 
-   * @param request - ListClientUserDefineRuleTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListClientUserDefineRuleTypesResponse
    */
@@ -35715,7 +35989,6 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of clusters that are included in a rule for non-image program defense.
    * 
-   * @param request - ListContainerDefenseRuleClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListContainerDefenseRuleClustersResponse
    */
@@ -37325,7 +37598,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the regions supported by the log delivery feature that uses the pay-as-you-go billing method.
    * 
-   * @param request - ListLogShipperRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListLogShipperRegionsResponse
    */
@@ -38191,7 +38463,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the information about the self-managed Kubernetes clusters that are added to Security Center.
    * 
-   * @param request - ListPrivateK8sRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListPrivateK8sResponse
    */
@@ -38364,7 +38635,6 @@ export default class Client extends OpenApi {
    * @remarks
    * You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
    * 
-   * @param request - ListRdDefaultSyncListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRdDefaultSyncListResponse
    */
@@ -38549,7 +38819,6 @@ export default class Client extends OpenApi {
   /**
    * Queries supported file suffixes.
    * 
-   * @param request - ListSupportObjectSuffixRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSupportObjectSuffixResponse
    */
@@ -38619,7 +38888,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the types of system rules.
    * 
-   * @param request - ListSystemClientRuleTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSystemClientRuleTypesResponse
    */
@@ -38982,6 +39250,286 @@ export default class Client extends OpenApi {
   async listUninstallAegisMachines(request: $_model.ListUninstallAegisMachinesRequest): Promise<$_model.ListUninstallAegisMachinesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listUninstallAegisMachinesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询未知威胁发现事件
+   * 
+   * @param request - ListUnknownThreatDetectEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUnknownThreatDetectEventResponse
+   */
+  async listUnknownThreatDetectEventWithOptions(request: $_model.ListUnknownThreatDetectEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUnknownThreatDetectEventResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.hashKey)) {
+      query["HashKey"] = request.hashKey;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.parentProcessPath)) {
+      query["ParentProcessPath"] = request.parentProcessPath;
+    }
+
+    if (!$dara.isNull(request.processPath)) {
+      query["ProcessPath"] = request.processPath;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUnknownThreatDetectEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUnknownThreatDetectEventResponse>(await this.callApi(params, req, runtime), new $_model.ListUnknownThreatDetectEventResponse({}));
+  }
+
+  /**
+   * 查询未知威胁发现事件
+   * 
+   * @param request - ListUnknownThreatDetectEventRequest
+   * @returns ListUnknownThreatDetectEventResponse
+   */
+  async listUnknownThreatDetectEvent(request: $_model.ListUnknownThreatDetectEventRequest): Promise<$_model.ListUnknownThreatDetectEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUnknownThreatDetectEventWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询未知威胁发现的机器列表
+   * 
+   * @param request - ListUnknownThreatDetectMachineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUnknownThreatDetectMachineResponse
+   */
+  async listUnknownThreatDetectMachineWithOptions(request: $_model.ListUnknownThreatDetectMachineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUnknownThreatDetectMachineResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.studyMode)) {
+      query["StudyMode"] = request.studyMode;
+    }
+
+    if (!$dara.isNull(request.studyTimeEnd)) {
+      query["StudyTimeEnd"] = request.studyTimeEnd;
+    }
+
+    if (!$dara.isNull(request.studyTimeStart)) {
+      query["StudyTimeStart"] = request.studyTimeStart;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUnknownThreatDetectMachine",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUnknownThreatDetectMachineResponse>(await this.callApi(params, req, runtime), new $_model.ListUnknownThreatDetectMachineResponse({}));
+  }
+
+  /**
+   * 查询未知威胁发现的机器列表
+   * 
+   * @param request - ListUnknownThreatDetectMachineRequest
+   * @returns ListUnknownThreatDetectMachineResponse
+   */
+  async listUnknownThreatDetectMachine(request: $_model.ListUnknownThreatDetectMachineRequest): Promise<$_model.ListUnknownThreatDetectMachineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUnknownThreatDetectMachineWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询未知威胁发现进程列表
+   * 
+   * @param request - ListUnknownThreatDetectProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUnknownThreatDetectProcessResponse
+   */
+  async listUnknownThreatDetectProcessWithOptions(request: $_model.ListUnknownThreatDetectProcessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUnknownThreatDetectProcessResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.analyzeResult)) {
+      query["AnalyzeResult"] = request.analyzeResult;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.firstTimeEnd)) {
+      query["FirstTimeEnd"] = request.firstTimeEnd;
+    }
+
+    if (!$dara.isNull(request.firstTimeStart)) {
+      query["FirstTimeStart"] = request.firstTimeStart;
+    }
+
+    if (!$dara.isNull(request.md5)) {
+      query["Md5"] = request.md5;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.processPath)) {
+      query["ProcessPath"] = request.processPath;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.sha256)) {
+      query["Sha256"] = request.sha256;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUnknownThreatDetectProcess",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUnknownThreatDetectProcessResponse>(await this.callApi(params, req, runtime), new $_model.ListUnknownThreatDetectProcessResponse({}));
+  }
+
+  /**
+   * 查询未知威胁发现进程列表
+   * 
+   * @param request - ListUnknownThreatDetectProcessRequest
+   * @returns ListUnknownThreatDetectProcessResponse
+   */
+  async listUnknownThreatDetectProcess(request: $_model.ListUnknownThreatDetectProcessRequest): Promise<$_model.ListUnknownThreatDetectProcessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUnknownThreatDetectProcessWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询未知威胁发现策略列表
+   * 
+   * @param request - ListUnknownThreatDetectStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUnknownThreatDetectStrategyResponse
+   */
+  async listUnknownThreatDetectStrategyWithOptions(request: $_model.ListUnknownThreatDetectStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUnknownThreatDetectStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.studyMode)) {
+      query["StudyMode"] = request.studyMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUnknownThreatDetectStrategy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUnknownThreatDetectStrategyResponse>(await this.callApi(params, req, runtime), new $_model.ListUnknownThreatDetectStrategyResponse({}));
+  }
+
+  /**
+   * 查询未知威胁发现策略列表
+   * 
+   * @param request - ListUnknownThreatDetectStrategyRequest
+   * @returns ListUnknownThreatDetectStrategyResponse
+   */
+  async listUnknownThreatDetectStrategy(request: $_model.ListUnknownThreatDetectStrategyRequest): Promise<$_model.ListUnknownThreatDetectStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listUnknownThreatDetectStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -42622,7 +43170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manage Serverless Asset Authorization
+   * Serverless Asset authorization Management.
    * 
    * @param request - ModifyServerlessAuthToMachineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42709,7 +43257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Manage Serverless Asset Authorization
+   * Serverless Asset authorization Management.
    * 
    * @param request - ModifyServerlessAuthToMachineRequest
    * @returns ModifyServerlessAuthToMachineResponse
@@ -44571,6 +45119,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改未知威胁发现的机器状态
+   * 
+   * @param request - OperateUnknownThreatDetectMachineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateUnknownThreatDetectMachineResponse
+   */
+  async operateUnknownThreatDetectMachineWithOptions(request: $_model.OperateUnknownThreatDetectMachineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OperateUnknownThreatDetectMachineResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.operateType)) {
+      query["OperateType"] = request.operateType;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.uuidList)) {
+      query["UuidList"] = request.uuidList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "OperateUnknownThreatDetectMachine",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.OperateUnknownThreatDetectMachineResponse>(await this.callApi(params, req, runtime), new $_model.OperateUnknownThreatDetectMachineResponse({}));
+  }
+
+  /**
+   * 修改未知威胁发现的机器状态
+   * 
+   * @param request - OperateUnknownThreatDetectMachineRequest
+   * @returns OperateUnknownThreatDetectMachineResponse
+   */
+  async operateUnknownThreatDetectMachine(request: $_model.OperateUnknownThreatDetectMachineRequest): Promise<$_model.OperateUnknownThreatDetectMachineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.operateUnknownThreatDetectMachineWithOptions(request, runtime);
+  }
+
+  /**
    * Handles alert events that are generated by the antivirus feature. You can perform in-depth detection and removal, add alert events to the whitelist, ignore alert events, or manually handle alert events.
    * 
    * @param request - OperateVirusEventsRequest
@@ -45477,7 +46075,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the list of beginner tasks. Security Center provides rewards for users who complete tasks. The rewards include the quota for a value-added feature and log storage capacity.
    * 
-   * @param request - QueryGuidTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryGuidTaskListResponse
    */
@@ -45785,7 +46382,6 @@ export default class Client extends OpenApi {
   /**
    * Refreshes the list of Object Storage Service (OSS) buckets.
    * 
-   * @param request - RefreshOssBucketScanInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RefreshOssBucketScanInfoResponse
    */
@@ -47082,7 +47678,6 @@ export default class Client extends OpenApi {
   /**
    * Starts a database scan task.
    * 
-   * @param request - StartDiscoverDatabaseTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartDiscoverDatabaseTaskResponse
    */
@@ -47160,7 +47755,6 @@ export default class Client extends OpenApi {
   /**
    * Starts an IDC scan task.
    * 
-   * @param request - StartIdcProbeScanRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartIdcProbeScanResponse
    */
@@ -47438,7 +48032,6 @@ export default class Client extends OpenApi {
   /**
    * Submits a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
    * 
-   * @param request - SubmitTenantCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitTenantCheckResponse
    */
@@ -47470,7 +48063,6 @@ export default class Client extends OpenApi {
   /**
    * Triggers ISO 27001 compliance checks of Security Center.
    * 
-   * @param request - TriggerCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TriggerCheckResponse
    */
@@ -49843,6 +50435,110 @@ export default class Client extends OpenApi {
   async updateTargetListByBatch(request: $_model.UpdateTargetListByBatchRequest): Promise<$_model.UpdateTargetListByBatchResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTargetListByBatchWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新未知威胁发现的进程详情
+   * 
+   * @param request - UpdateUnknownThreatDetectProcessRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUnknownThreatDetectProcessResponse
+   */
+  async updateUnknownThreatDetectProcessWithOptions(request: $_model.UpdateUnknownThreatDetectProcessRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUnknownThreatDetectProcessResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.processId)) {
+      query["ProcessId"] = request.processId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateUnknownThreatDetectProcess",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateUnknownThreatDetectProcessResponse>(await this.callApi(params, req, runtime), new $_model.UpdateUnknownThreatDetectProcessResponse({}));
+  }
+
+  /**
+   * 更新未知威胁发现的进程详情
+   * 
+   * @param request - UpdateUnknownThreatDetectProcessRequest
+   * @returns UpdateUnknownThreatDetectProcessResponse
+   */
+  async updateUnknownThreatDetectProcess(request: $_model.UpdateUnknownThreatDetectProcessRequest): Promise<$_model.UpdateUnknownThreatDetectProcessResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateUnknownThreatDetectProcessWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新未知威胁发现策略
+   * 
+   * @param request - UpdateUnknownThreatDetectStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUnknownThreatDetectStrategyResponse
+   */
+  async updateUnknownThreatDetectStrategyWithOptions(request: $_model.UpdateUnknownThreatDetectStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateUnknownThreatDetectStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.durationDaysAfterInit)) {
+      query["DurationDaysAfterInit"] = request.durationDaysAfterInit;
+    }
+
+    if (!$dara.isNull(request.durationDaysAfterStop)) {
+      query["DurationDaysAfterStop"] = request.durationDaysAfterStop;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.studyMode)) {
+      query["StudyMode"] = request.studyMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateUnknownThreatDetectStrategy",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateUnknownThreatDetectStrategyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateUnknownThreatDetectStrategyResponse({}));
+  }
+
+  /**
+   * 更新未知威胁发现策略
+   * 
+   * @param request - UpdateUnknownThreatDetectStrategyRequest
+   * @returns UpdateUnknownThreatDetectStrategyResponse
+   */
+  async updateUnknownThreatDetectStrategy(request: $_model.UpdateUnknownThreatDetectStrategyRequest): Promise<$_model.UpdateUnknownThreatDetectStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateUnknownThreatDetectStrategyWithOptions(request, runtime);
   }
 
   /**
