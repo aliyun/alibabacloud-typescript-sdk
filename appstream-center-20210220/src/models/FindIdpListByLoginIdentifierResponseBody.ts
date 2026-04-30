@@ -82,6 +82,7 @@ export class FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo extends $dar
    * cn-shanghai+dir-448204****
    */
   officeSiteId?: string;
+  preferVpcAccess?: boolean;
   /**
    * @example
    * 26842
@@ -93,13 +94,16 @@ export class FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo extends $dar
    */
   regionId?: string;
   ssoServiceUrl?: string;
+  vpcAccessAddress?: string;
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
       officeSiteId: 'OfficeSiteId',
+      preferVpcAccess: 'PreferVpcAccess',
       providerId: 'ProviderId',
       regionId: 'RegionId',
       ssoServiceUrl: 'SsoServiceUrl',
+      vpcAccessAddress: 'VpcAccessAddress',
     };
   }
 
@@ -107,9 +111,11 @@ export class FindIdpListByLoginIdentifierResponseBodyOfficeSiteInfo extends $dar
     return {
       accessType: 'string',
       officeSiteId: 'string',
+      preferVpcAccess: 'boolean',
       providerId: 'string',
       regionId: 'string',
       ssoServiceUrl: 'string',
+      vpcAccessAddress: 'string',
     };
   }
 
@@ -128,22 +134,28 @@ export class FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo extends $da
    * INTERNET
    */
   accessType?: string;
+  preferVpcAccess?: boolean;
   /**
    * @example
    * Or09****
    */
   tenantAlias?: string;
+  vpcAccessAddress?: string;
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
+      preferVpcAccess: 'PreferVpcAccess',
       tenantAlias: 'TenantAlias',
+      vpcAccessAddress: 'VpcAccessAddress',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessType: 'string',
+      preferVpcAccess: 'boolean',
       tenantAlias: 'string',
+      vpcAccessAddress: 'string',
     };
   }
 
