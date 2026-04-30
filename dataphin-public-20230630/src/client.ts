@@ -5242,6 +5242,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据目录资产详情。
+   * 
+   * @param tmpReq - GetCatalogAssetDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCatalogAssetDetailsResponse
+   */
+  async getCatalogAssetDetailsWithOptions(tmpReq: $_model.GetCatalogAssetDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogAssetDetailsResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetCatalogAssetDetailsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.getCatalogAssetDetailsQuery)) {
+      request.getCatalogAssetDetailsQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.getCatalogAssetDetailsQuery, "GetCatalogAssetDetailsQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.getCatalogAssetDetailsQueryShrink)) {
+      body["GetCatalogAssetDetailsQuery"] = request.getCatalogAssetDetailsQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCatalogAssetDetails",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCatalogAssetDetailsResponse>(await this.callApi(params, req, runtime), new $_model.GetCatalogAssetDetailsResponse({}));
+  }
+
+  /**
+   * 查询数据目录资产详情。
+   * 
+   * @param request - GetCatalogAssetDetailsRequest
+   * @returns GetCatalogAssetDetailsResponse
+   */
+  async getCatalogAssetDetails(request: $_model.GetCatalogAssetDetailsRequest): Promise<$_model.GetCatalogAssetDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCatalogAssetDetailsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询数据源连通性检查任务。
    * 
    * @param request - GetCheckConnectivityJobsRequest
@@ -9861,6 +9915,60 @@ export default class Client extends OpenApi {
   async listBizUnits(request: $_model.ListBizUnitsRequest): Promise<$_model.ListBizUnitsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBizUnitsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据目录资产列表。
+   * 
+   * @param tmpReq - ListCatalogAssetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCatalogAssetsResponse
+   */
+  async listCatalogAssetsWithOptions(tmpReq: $_model.ListCatalogAssetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCatalogAssetsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListCatalogAssetsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.listCatalogAssetsQuery)) {
+      request.listCatalogAssetsQueryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.listCatalogAssetsQuery, "ListCatalogAssetsQuery", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.opTenantId)) {
+      query["OpTenantId"] = request.opTenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.listCatalogAssetsQueryShrink)) {
+      body["ListCatalogAssetsQuery"] = request.listCatalogAssetsQueryShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCatalogAssets",
+      version: "2023-06-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCatalogAssetsResponse>(await this.callApi(params, req, runtime), new $_model.ListCatalogAssetsResponse({}));
+  }
+
+  /**
+   * 查询数据目录资产列表。
+   * 
+   * @param request - ListCatalogAssetsRequest
+   * @returns ListCatalogAssetsResponse
+   */
+  async listCatalogAssets(request: $_model.ListCatalogAssetsRequest): Promise<$_model.ListCatalogAssetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCatalogAssetsWithOptions(request, runtime);
   }
 
   /**
