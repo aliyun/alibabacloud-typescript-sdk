@@ -127,6 +127,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 文件打包下载
+   * 
+   * @param request - ArchiveFilesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ArchiveFilesResponse
+   */
+  async archiveFilesWithOptions(request: $_model.ArchiveFilesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ArchiveFilesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.driveId)) {
+      body["drive_id"] = request.driveId;
+    }
+
+    if (!$dara.isNull(request.fileIds)) {
+      body["file_ids"] = request.fileIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.shareId)) {
+      body["share_id"] = request.shareId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ArchiveFiles",
+      version: "2022-03-01",
+      protocol: "HTTPS",
+      pathname: `/v2/file/archive_files`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ArchiveFilesResponse>(await this.execute(params, req, runtime), new $_model.ArchiveFilesResponse({}));
+  }
+
+  /**
+   * 文件打包下载
+   * 
+   * @param request - ArchiveFilesRequest
+   * @returns ArchiveFilesResponse
+   */
+  async archiveFiles(request: $_model.ArchiveFilesRequest): Promise<$_model.ArchiveFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.archiveFilesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Assigns a group administrator role to a user.
    * 
    * @remarks
