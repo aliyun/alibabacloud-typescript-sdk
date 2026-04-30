@@ -324,9 +324,29 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardLimit?: number;
   /**
    * @example
+   * 1
+   */
+  richTextClipboardReadLimit?: number;
+  /**
+   * @example
+   * KB
+   */
+  richTextClipboardReadSizeUnit?: string;
+  /**
+   * @example
    * B
    */
   richTextClipboardSizeUnit?: string;
+  /**
+   * @example
+   * 1
+   */
+  richTextClipboardWriteLimit?: number;
+  /**
+   * @example
+   * KB
+   */
+  richTextClipboardWriteSizeUnit?: string;
   /**
    * @remarks
    * The text clipboard policy.
@@ -342,6 +362,26 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
    * off
    */
   textClipboard?: string;
+  /**
+   * @example
+   * 1
+   */
+  textClipboardReadLimit?: number;
+  /**
+   * @example
+   * KB
+   */
+  textClipboardReadSizeUnit?: string;
+  /**
+   * @example
+   * 1
+   */
+  textClipboardWriteLimit?: number;
+  /**
+   * @example
+   * KB
+   */
+  textClipboardWriteSizeUnit?: string;
   static names(): { [key: string]: string } {
     return {
       clipboard: 'Clipboard',
@@ -352,8 +392,16 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
       fileClipboard: 'FileClipboard',
       richTextClipboard: 'RichTextClipboard',
       richTextClipboardLimit: 'RichTextClipboardLimit',
+      richTextClipboardReadLimit: 'RichTextClipboardReadLimit',
+      richTextClipboardReadSizeUnit: 'RichTextClipboardReadSizeUnit',
       richTextClipboardSizeUnit: 'RichTextClipboardSizeUnit',
+      richTextClipboardWriteLimit: 'RichTextClipboardWriteLimit',
+      richTextClipboardWriteSizeUnit: 'RichTextClipboardWriteSizeUnit',
       textClipboard: 'TextClipboard',
+      textClipboardReadLimit: 'TextClipboardReadLimit',
+      textClipboardReadSizeUnit: 'TextClipboardReadSizeUnit',
+      textClipboardWriteLimit: 'TextClipboardWriteLimit',
+      textClipboardWriteSizeUnit: 'TextClipboardWriteSizeUnit',
     };
   }
 
@@ -367,8 +415,16 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
       fileClipboard: 'string',
       richTextClipboard: 'string',
       richTextClipboardLimit: 'number',
+      richTextClipboardReadLimit: 'number',
+      richTextClipboardReadSizeUnit: 'string',
       richTextClipboardSizeUnit: 'string',
+      richTextClipboardWriteLimit: 'number',
+      richTextClipboardWriteSizeUnit: 'string',
       textClipboard: 'string',
+      textClipboardReadLimit: 'number',
+      textClipboardReadSizeUnit: 'string',
+      textClipboardWriteLimit: 'number',
+      textClipboardWriteSizeUnit: 'string',
     };
   }
 
@@ -484,6 +540,11 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
    */
   disconnectKeepSessionTime?: number;
   /**
+   * @example
+   * off
+   */
+  fileManager?: string;
+  /**
    * @remarks
    * The file transfer policy on the web client.
    * 
@@ -536,6 +597,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
       clipboardPolicy: 'ClipboardPolicy',
       disconnectKeepSession: 'DisconnectKeepSession',
       disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
+      fileManager: 'FileManager',
       html5FileTransfer: 'Html5FileTransfer',
       noOperationDisconnect: 'NoOperationDisconnect',
       noOperationDisconnectTime: 'NoOperationDisconnectTime',
@@ -551,6 +613,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
       clipboardPolicy: ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy,
       disconnectKeepSession: 'string',
       disconnectKeepSessionTime: 'number',
+      fileManager: 'string',
       html5FileTransfer: 'string',
       noOperationDisconnect: 'string',
       noOperationDisconnectTime: 'number',
