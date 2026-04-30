@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryAliasesResponseBodyAliasInfosAliasInfo extends $dara.Model {
-  /**
-   * @example
-   * test_alias1
-   */
   aliasName?: string;
   static names(): { [key: string]: string } {
     return {

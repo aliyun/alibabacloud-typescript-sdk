@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class PushTaskMessage extends $dara.Model {
+  /**
+   * @example
+   * {"key": "value"}
+   */
   body?: string;
+  /**
+   * @example
+   * title
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,12 +39,40 @@ export class PushTaskMessage extends $dara.Model {
 }
 
 export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   customStyle?: number;
+  /**
+   * @example
+   * NONE
+   */
   notifyType?: string;
+  /**
+   * @example
+   * com.alibaba.cloudpushdemo.bizactivity
+   */
   openActivity?: string;
+  /**
+   * @example
+   * APPLICATION
+   */
   openType?: string;
+  /**
+   * @example
+   * www.example.com
+   */
   openUrl?: string;
+  /**
+   * @example
+   * 0
+   */
   priority?: number;
+  /**
+   * @example
+   * order_ORD20231201001
+   */
   threadId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,6 +108,10 @@ export class PushTaskNotificationAndroidOptionsAccs extends $dara.Model {
 }
 
 export class PushTaskNotificationAndroidOptionsHonor extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
   importance?: number;
   static names(): { [key: string]: string } {
     return {
@@ -96,10 +136,26 @@ export class PushTaskNotificationAndroidOptionsHonor extends $dara.Model {
 
 export class PushTaskNotificationAndroidOptionsHuawei extends $dara.Model {
   businessType?: number;
+  /**
+   * @example
+   * VOIP
+   */
   category?: string;
+  /**
+   * @example
+   * 0
+   */
   importance?: number;
   liveNotificationPayload?: string;
+  /**
+   * @example
+   * RCP4C123456
+   */
   receiptId?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   urgency?: string;
   static names(): { [key: string]: string } {
     return {
@@ -156,9 +212,17 @@ export class PushTaskNotificationAndroidOptionsMeizu extends $dara.Model {
 }
 
 export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
+  /**
+   * @example
+   * NEWS
+   */
   category?: string;
   deleteIntentData?: string;
   intelligentIntent?: string;
+  /**
+   * @example
+   * 1
+   */
   notifyLevel?: number;
   privateContentParameters?: string;
   privateMsgTemplateId?: string;
@@ -197,13 +261,27 @@ export class PushTaskNotificationAndroidOptionsOppo extends $dara.Model {
 }
 
 export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
+  /**
+   * @example
+   * MARKETING
+   */
   category?: string;
+  /**
+   * @example
+   * 0
+   */
   importance?: number;
+  liveMessage?: string;
+  /**
+   * @example
+   * 1232221
+   */
   receiptId?: string;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
       importance: 'Importance',
+      liveMessage: 'LiveMessage',
       receiptId: 'ReceiptId',
     };
   }
@@ -212,6 +290,7 @@ export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
     return {
       category: 'string',
       importance: 'number',
+      liveMessage: 'string',
       receiptId: 'string',
     };
   }
@@ -226,6 +305,10 @@ export class PushTaskNotificationAndroidOptionsVivo extends $dara.Model {
 }
 
 export class PushTaskNotificationAndroidOptionsXiaomi extends $dara.Model {
+  /**
+   * @example
+   * michannel
+   */
   channel?: string;
   static names(): { [key: string]: string } {
     return {
@@ -311,20 +394,72 @@ export class PushTaskNotificationAndroidOptions extends $dara.Model {
 }
 
 export class PushTaskNotificationAndroid extends $dara.Model {
+  /**
+   * @example
+   * com.alibaba.cloudpushdemo.bizactivity
+   */
   badgeActivity?: string;
+  /**
+   * @example
+   * 1
+   */
   badgeAddNum?: number;
+  /**
+   * @example
+   * 4
+   */
   badgeSetNum?: number;
+  /**
+   * @example
+   * 8.0up
+   */
   channelId?: string;
+  /**
+   * @example
+   * {"key1":"value1"}
+   */
   extParameters?: string;
+  /**
+   * @example
+   * group-1
+   */
   groupId?: string;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
   imageUrl?: string;
   inboxContent?: string[];
+  /**
+   * @example
+   * alicloud_notification_sound
+   */
   music?: string;
+  /**
+   * @example
+   * 233856727
+   */
   notifyId?: number;
   options?: PushTaskNotificationAndroidOptions;
+  /**
+   * @example
+   * https://imag.example.com/image.png
+   */
   pictureUrl?: string;
+  /**
+   * @example
+   * 0
+   */
   renderStyle?: string;
+  /**
+   * @example
+   * false
+   */
   testMessage?: boolean;
+  /**
+   * @example
+   * com.alibaba.cloudpushdemo.bizactivity
+   */
   vendorChannelActivity?: string;
   static names(): { [key: string]: string } {
     return {
@@ -382,23 +517,79 @@ export class PushTaskNotificationAndroid extends $dara.Model {
 }
 
 export class PushTaskNotificationHmos extends $dara.Model {
+  /**
+   * @example
+   * com.example.action
+   */
   action?: string;
+  /**
+   * @example
+   * 1
+   */
   badgeAddNum?: number;
+  /**
+   * @example
+   * 1
+   */
   badgeSetNum?: number;
+  /**
+   * @example
+   * IM
+   */
   category?: string;
+  /**
+   * @example
+   * {"key": "value"}
+   */
   extParameters?: string;
+  /**
+   * @example
+   * text
+   */
   extensionExtraData?: string;
+  /**
+   * @example
+   * false
+   */
   extensionPush?: boolean;
+  /**
+   * @example
+   * https://example.com/xxx.png
+   */
   imageUrl?: string;
   inboxContent?: string[];
   liveViewPayload?: string;
+  /**
+   * @example
+   * 123456
+   */
   notifyId?: number;
+  /**
+   * @example
+   * RCPB***DFD5
+   */
   receiptId?: string;
+  /**
+   * @example
+   * NORMAL
+   */
   renderStyle?: string;
+  /**
+   * @example
+   * SOCIAL_COMMUNICATION
+   */
   slotType?: string;
   sound?: string;
   soundDuration?: number;
+  /**
+   * @example
+   * true
+   */
   testMessage?: boolean;
+  /**
+   * @example
+   * https://www.example.com:8080/push/example
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -460,11 +651,31 @@ export class PushTaskNotificationHmos extends $dara.Model {
 
 export class PushTaskNotificationIosLiveActivity extends $dara.Model {
   attributes?: string;
+  /**
+   * @example
+   * OrderActivityAttributes
+   */
   attributesType?: string;
   contentState?: string;
+  /**
+   * @example
+   * 1701439800
+   */
   dismissalDate?: number;
+  /**
+   * @example
+   * start
+   */
   event?: string;
+  /**
+   * @example
+   * FOOD_DELIVERY_ORD20231201001
+   */
   id?: string;
+  /**
+   * @example
+   * 1701425400
+   */
   staleDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -500,19 +711,67 @@ export class PushTaskNotificationIosLiveActivity extends $dara.Model {
 }
 
 export class PushTaskNotificationIos extends $dara.Model {
+  /**
+   * @example
+   * DEV
+   */
   apnsEnv?: string;
+  /**
+   * @example
+   * 1
+   */
   badge?: number;
+  /**
+   * @example
+   * false
+   */
   badgeAutoIncrement?: boolean;
+  /**
+   * @example
+   * MESSAGE_REPLY
+   */
   category?: string;
+  /**
+   * @example
+   * order_status_update_12345
+   */
   collapseId?: string;
+  /**
+   * @example
+   * {"attachment": "https://xxxx.xxx/notification_pic.png"}
+   */
   extParameters?: string;
+  /**
+   * @example
+   * active
+   */
   interruptionLevel?: string;
   liveActivity?: PushTaskNotificationIosLiveActivity;
+  /**
+   * @example
+   * default
+   */
   music?: string;
+  /**
+   * @example
+   * true
+   */
   mutable?: boolean;
+  /**
+   * @example
+   * 0.5
+   */
   relevanceScore?: number;
+  /**
+   * @example
+   * false
+   */
   silent?: boolean;
   subtitle?: string;
+  /**
+   * @example
+   * news_category_tech
+   */
   threadId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -609,10 +868,26 @@ export class PushTaskNotification extends $dara.Model {
 }
 
 export class PushTaskOptionsSms extends $dara.Model {
+  /**
+   * @example
+   * 150
+   */
   delaySecs?: number;
+  /**
+   * @example
+   * key1=value1&key2=value2
+   */
   params?: string;
+  /**
+   * @example
+   * PUSH_NOT_RECEIVED
+   */
   sendPolicy?: string;
   signName?: string;
+  /**
+   * @example
+   * SMS_123456789
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -644,12 +919,36 @@ export class PushTaskOptionsSms extends $dara.Model {
 }
 
 export class PushTaskOptions extends $dara.Model {
+  /**
+   * @example
+   * 2025-06-21T12:00:00Z
+   */
   expireTime?: string;
+  /**
+   * @example
+   * jobkey1727749697913
+   */
   jobKey?: string;
+  /**
+   * @example
+   * 1174754033128****
+   */
   messageId?: number;
+  /**
+   * @example
+   * 2025-06-19T12:00:00Z
+   */
   pushTime?: string;
   sms?: PushTaskOptionsSms;
+  /**
+   * @example
+   * false
+   */
   trim?: boolean;
+  /**
+   * @example
+   * accs,apns
+   */
   useChannels?: string;
   static names(): { [key: string]: string } {
     return {
@@ -688,8 +987,20 @@ export class PushTaskOptions extends $dara.Model {
 }
 
 export class PushTaskTarget extends $dara.Model {
+  /**
+   * @example
+   * IOS
+   */
   platform?: string;
+  /**
+   * @example
+   * DEVICE
+   */
   type?: string;
+  /**
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -717,6 +1028,10 @@ export class PushTaskTarget extends $dara.Model {
 }
 
 export class PushTask extends $dara.Model {
+  /**
+   * @example
+   * PUSH_IMMEDIATELY
+   */
   action?: string;
   message?: PushTaskMessage;
   notification?: PushTaskNotification;

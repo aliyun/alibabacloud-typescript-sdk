@@ -3,55 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryPushRecordsResponseBodyPushInfosPushInfo extends $dara.Model {
-  /**
-   * @example
-   * 333526247
-   */
   appKey?: number;
-  /**
-   * @example
-   * abcd
-   */
   body?: string;
-  /**
-   * @example
-   * ANDROID
-   */
   deviceType?: string;
-  /**
-   * @example
-   * 510431
-   */
   messageId?: string;
-  /**
-   * @example
-   * 2021-09-15T02:05:24Z
-   */
   pushTime?: string;
-  /**
-   * @example
-   * NOTICE
-   */
   pushType?: string;
-  /**
-   * @example
-   * DEVICE
-   */
   source?: string;
-  /**
-   * @example
-   * SENT
-   */
   status?: string;
-  /**
-   * @example
-   * DEVICE
-   */
   target?: string;
-  /**
-   * @example
-   * sssss
-   */
   title?: string;
   static names(): { [key: string]: string } {
     return {

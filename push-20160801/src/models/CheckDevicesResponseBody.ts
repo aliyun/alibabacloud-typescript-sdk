@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CheckDevicesResponseBodyDeviceCheckInfosDeviceCheckInfo extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   available?: boolean;
-  /**
-   * @example
-   * ae296f3b04a58a05b30c95f****
-   */
   deviceId?: string;
   static names(): { [key: string]: string } {
     return {

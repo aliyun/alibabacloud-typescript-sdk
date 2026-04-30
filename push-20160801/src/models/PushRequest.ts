@@ -161,6 +161,7 @@ export class PushRequest extends $dara.Model {
    */
   androidRenderStyle?: number;
   androidTargetUserType?: number;
+  androidVivoLiveMessage?: string;
   /**
    * @example
    * 0
@@ -445,6 +446,7 @@ export class PushRequest extends $dara.Model {
       androidRemind: 'AndroidRemind',
       androidRenderStyle: 'AndroidRenderStyle',
       androidTargetUserType: 'AndroidTargetUserType',
+      androidVivoLiveMessage: 'AndroidVivoLiveMessage',
       androidVivoPushMode: 'AndroidVivoPushMode',
       androidVivoReceiptId: 'AndroidVivoReceiptId',
       androidXiaoMiActivity: 'AndroidXiaoMiActivity',
@@ -566,6 +568,7 @@ export class PushRequest extends $dara.Model {
       androidRemind: 'boolean',
       androidRenderStyle: 'number',
       androidTargetUserType: 'number',
+      androidVivoLiveMessage: 'string',
       androidVivoPushMode: 'number',
       androidVivoReceiptId: 'string',
       androidXiaoMiActivity: 'string',

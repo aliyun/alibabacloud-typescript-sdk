@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryUniqueDeviceStatResponseBodyAppDeviceStatsAppDeviceStat extends $dara.Model {
-  /**
-   * @example
-   * 100
-   */
   count?: number;
-  /**
-   * @example
-   * 2016-07-25T00:00:00Z
-   */
   time?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSummaryAppsResponseBodySummaryAppInfosSummaryAppInfo extends $dara.Model {
-  /**
-   * @example
-   * 23****07
-   */
   appKey?: number;
-  /**
-   * @example
-   * abc
-   */
   appName?: string;
   static names(): { [key: string]: string } {
     return {

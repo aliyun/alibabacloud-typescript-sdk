@@ -525,7 +525,6 @@ export default class Client extends OpenApi {
    * 
    * @deprecated OpenAPI ListSummaryApps is deprecated, please use Mhub::2017-08-25::ListApps instead.
    * 
-   * @param request - ListSummaryAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSummaryAppsResponse
    */
@@ -914,6 +913,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.androidTargetUserType)) {
       query["AndroidTargetUserType"] = request.androidTargetUserType;
+    }
+
+    if (!$dara.isNull(request.androidVivoLiveMessage)) {
+      query["AndroidVivoLiveMessage"] = request.androidVivoLiveMessage;
     }
 
     if (!$dara.isNull(request.androidVivoPushMode)) {

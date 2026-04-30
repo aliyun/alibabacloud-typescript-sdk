@@ -3,60 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryPushStatByMsgResponseBodyPushStatsPushStat extends $dara.Model {
-  /**
-   * @example
-   * 120
-   */
   acceptCount?: number;
-  /**
-   * @example
-   * 10
-   */
   deletedCount?: number;
-  /**
-   * @example
-   * 510427
-   */
   messageId?: string;
-  /**
-   * @example
-   * 30
-   */
   openedCount?: number;
-  /**
-   * @example
-   * 60
-   */
   receivedCount?: number;
-  /**
-   * @example
-   * 100
-   */
   sentCount?: number;
-  /**
-   * @example
-   * 0
-   */
   smsFailedCount?: number;
-  /**
-   * @example
-   * 0
-   */
   smsReceiveFailedCount?: number;
-  /**
-   * @example
-   * 0
-   */
   smsReceiveSuccessCount?: number;
-  /**
-   * @example
-   * 0
-   */
   smsSentCount?: number;
-  /**
-   * @example
-   * 0
-   */
   smsSkipCount?: number;
   static names(): { [key: string]: string } {
     return {

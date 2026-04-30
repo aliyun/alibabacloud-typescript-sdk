@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagsResponseBodyTagInfosTagInfo extends $dara.Model {
-  /**
-   * @example
-   * test_tag2
-   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
