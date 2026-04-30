@@ -33,6 +33,7 @@ export class QueryConfigUnified extends $dara.Model {
    * 实体类型
    */
   entityType?: string;
+  expr?: string;
   /**
    * @remarks
    * APM 过滤条件列表
@@ -82,6 +83,7 @@ export class QueryConfigUnified extends $dara.Model {
       entityFields: 'entityFields',
       entityFilters: 'entityFilters',
       entityType: 'entityType',
+      expr: 'expr',
       filterList: 'filterList',
       labelFilters: 'labelFilters',
       measureList: 'measureList',
@@ -100,6 +102,7 @@ export class QueryConfigUnified extends $dara.Model {
       entityFields: { 'type': 'array', 'itemType': UmodelEntityField },
       entityFilters: { 'type': 'array', 'itemType': UmodelEntityFilter },
       entityType: 'string',
+      expr: 'string',
       filterList: { 'type': 'array', 'itemType': ApmFilterConfig },
       labelFilters: { 'type': 'array', 'itemType': UmodelLabelFilter },
       measureList: { 'type': 'array', 'itemType': ApmMeasureConfig },
