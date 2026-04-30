@@ -38,10 +38,6 @@ export class ClientBalanceLogDTO extends $dara.Model {
    * 1
    */
   id?: number;
-  /**
-   * @example
-   * 充值
-   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {

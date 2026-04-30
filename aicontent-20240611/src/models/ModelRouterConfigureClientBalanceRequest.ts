@@ -2,12 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ClientBalanceDTO extends $dara.Model {
-  /**
-   * @example
-   * 100.00
-   */
-  balance?: number;
+export class ModelRouterConfigureClientBalanceRequest extends $dara.Model {
   /**
    * @example
    * amount
@@ -15,53 +10,27 @@ export class ClientBalanceDTO extends $dara.Model {
   balanceType?: string;
   /**
    * @example
-   * 1
-   */
-  clientId?: number;
-  /**
-   * @example
    * true
    */
   enableBalance?: boolean;
   /**
    * @example
-   * 2024-01-01T00:00:00Z
+   * 100.00
    */
-  gmtCreate?: string;
-  /**
-   * @example
-   * 2024-01-01T00:00:00Z
-   */
-  gmtModified?: string;
-  /**
-   * @remarks
-   * ID
-   * 
-   * @example
-   * 1
-   */
-  id?: number;
+  initialBalance?: number;
   static names(): { [key: string]: string } {
     return {
-      balance: 'balance',
       balanceType: 'balanceType',
-      clientId: 'clientId',
       enableBalance: 'enableBalance',
-      gmtCreate: 'gmtCreate',
-      gmtModified: 'gmtModified',
-      id: 'id',
+      initialBalance: 'initialBalance',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      balance: 'number',
       balanceType: 'string',
-      clientId: 'number',
       enableBalance: 'boolean',
-      gmtCreate: 'string',
-      gmtModified: 'string',
-      id: 'number',
+      initialBalance: 'number',
     };
   }
 

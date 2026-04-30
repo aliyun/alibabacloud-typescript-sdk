@@ -2575,6 +2575,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 客户管理/启用部门余额限流
+   * 
+   * @param request - ModelRouterConfigureClientBalanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterConfigureClientBalanceResponse
+   */
+  async modelRouterConfigureClientBalanceWithOptions(id: string, request: $_model.ModelRouterConfigureClientBalanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterConfigureClientBalanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.balanceType)) {
+      body["balanceType"] = request.balanceType;
+    }
+
+    if (!$dara.isNull(request.enableBalance)) {
+      body["enableBalance"] = request.enableBalance;
+    }
+
+    if (!$dara.isNull(request.initialBalance)) {
+      body["initialBalance"] = request.initialBalance;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterConfigureClientBalance",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/balance`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterConfigureClientBalanceResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterConfigureClientBalanceResponse({}));
+  }
+
+  /**
+   * 客户管理/启用部门余额限流
+   * 
+   * @param request - ModelRouterConfigureClientBalanceRequest
+   * @returns ModelRouterConfigureClientBalanceResponse
+   */
+  async modelRouterConfigureClientBalance(id: string, request: $_model.ModelRouterConfigureClientBalanceRequest): Promise<$_model.ModelRouterConfigureClientBalanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterConfigureClientBalanceWithOptions(id, request, headers, runtime);
+  }
+
+  /**
    * API密钥管理/复制API密钥
    * 
    * @param headers - map
@@ -2652,6 +2705,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterCreateApiKeyWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 客户管理/创建余额交易
+   * 
+   * @param request - ModelRouterCreateBalanceTransactionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterCreateBalanceTransactionResponse
+   */
+  async modelRouterCreateBalanceTransactionWithOptions(id: string, request: $_model.ModelRouterCreateBalanceTransactionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterCreateBalanceTransactionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.amount)) {
+      body["amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      body["remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterCreateBalanceTransaction",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/balance/transactions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterCreateBalanceTransactionResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterCreateBalanceTransactionResponse({}));
+  }
+
+  /**
+   * 客户管理/创建余额交易
+   * 
+   * @param request - ModelRouterCreateBalanceTransactionRequest
+   * @returns ModelRouterCreateBalanceTransactionResponse
+   */
+  async modelRouterCreateBalanceTransaction(id: string, request: $_model.ModelRouterCreateBalanceTransactionRequest): Promise<$_model.ModelRouterCreateBalanceTransactionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterCreateBalanceTransactionWithOptions(id, request, headers, runtime);
   }
 
   /**
@@ -3068,6 +3174,106 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.modelRouterDeleteModelWithOptions(id, headers, runtime);
+  }
+
+  /**
+   * 客户管理/获取部门余额
+   * 
+   * @param request - ModelRouterGetClientBalanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterGetClientBalanceResponse
+   */
+  async modelRouterGetClientBalanceWithOptions(id: string, request: $_model.ModelRouterGetClientBalanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterGetClientBalanceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterGetClientBalance",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/balance`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterGetClientBalanceResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterGetClientBalanceResponse({}));
+  }
+
+  /**
+   * 客户管理/获取部门余额
+   * 
+   * @param request - ModelRouterGetClientBalanceRequest
+   * @returns ModelRouterGetClientBalanceResponse
+   */
+  async modelRouterGetClientBalance(id: string, request: $_model.ModelRouterGetClientBalanceRequest): Promise<$_model.ModelRouterGetClientBalanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterGetClientBalanceWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 客户管理/获取部门余额变更日志
+   * 
+   * @param request - ModelRouterGetClientBalanceLogsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModelRouterGetClientBalanceLogsResponse
+   */
+  async modelRouterGetClientBalanceLogsWithOptions(id: string, request: $_model.ModelRouterGetClientBalanceLogsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterGetClientBalanceLogsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.changeType)) {
+      query["changeType"] = request.changeType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModelRouterGetClientBalanceLogs",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/modelRouter/open/clients/${$dara.URL.percentEncode(id)}/balance/logs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModelRouterGetClientBalanceLogsResponse>(await this.callApi(params, req, runtime), new $_model.ModelRouterGetClientBalanceLogsResponse({}));
+  }
+
+  /**
+   * 客户管理/获取部门余额变更日志
+   * 
+   * @param request - ModelRouterGetClientBalanceLogsRequest
+   * @returns ModelRouterGetClientBalanceLogsResponse
+   */
+  async modelRouterGetClientBalanceLogs(id: string, request: $_model.ModelRouterGetClientBalanceLogsRequest): Promise<$_model.ModelRouterGetClientBalanceLogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.modelRouterGetClientBalanceLogsWithOptions(id, request, headers, runtime);
   }
 
   /**
