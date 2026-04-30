@@ -9778,6 +9778,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询表的字段知识列表，包含字段元信息、业务描述、安全信息等
+   * 
+   * @remarks
+   * 查询表的字段知识列表，返回每个字段的元信息（类型、可空、自增等）、业务描述、术语、数据标准、安全等级与索引信息
+   * 
+   * @param request - GetTableColumnListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableColumnListResponse
+   */
+  async getTableColumnListWithOptions(request: $_model.GetTableColumnListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableColumnListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableColumnList",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableColumnListResponse>(await this.callApi(params, req, runtime), new $_model.GetTableColumnListResponse({}));
+  }
+
+  /**
+   * 查询表的字段知识列表，包含字段元信息、业务描述、安全信息等
+   * 
+   * @remarks
+   * 查询表的字段知识列表，返回每个字段的元信息（类型、可空、自增等）、业务描述、术语、数据标准、安全等级与索引信息
+   * 
+   * @param request - GetTableColumnListRequest
+   * @returns GetTableColumnListResponse
+   */
+  async getTableColumnList(request: $_model.GetTableColumnListRequest): Promise<$_model.GetTableColumnListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableColumnListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the topology of a data table.
    * 
    * @param request - GetTableDBTopologyRequest
@@ -9913,6 +9965,58 @@ export default class Client extends OpenApi {
   async getTableDesignProjectInfo(request: $_model.GetTableDesignProjectInfoRequest): Promise<$_model.GetTableDesignProjectInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getTableDesignProjectInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询表的业务知识/使用说明（业务描述、摘要、关联资产）
+   * 
+   * @remarks
+   * 查询表的业务知识/使用说明，返回 AI 增强业务描述、表业务摘要、关联资产列表，用于辅助语义找表与表用法说明
+   * 
+   * @param request - GetTableInstructionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableInstructionsResponse
+   */
+  async getTableInstructionsWithOptions(request: $_model.GetTableInstructionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableInstructionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableInstructions",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableInstructionsResponse>(await this.callApi(params, req, runtime), new $_model.GetTableInstructionsResponse({}));
+  }
+
+  /**
+   * 查询表的业务知识/使用说明（业务描述、摘要、关联资产）
+   * 
+   * @remarks
+   * 查询表的业务知识/使用说明，返回 AI 增强业务描述、表业务摘要、关联资产列表，用于辅助语义找表与表用法说明
+   * 
+   * @param request - GetTableInstructionsRequest
+   * @returns GetTableInstructionsResponse
+   */
+  async getTableInstructions(request: $_model.GetTableInstructionsRequest): Promise<$_model.GetTableInstructionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableInstructionsWithOptions(request, runtime);
   }
 
   /**
@@ -17109,6 +17213,74 @@ export default class Client extends OpenApi {
   async searchTable(request: $_model.SearchTableRequest): Promise<$_model.SearchTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.searchTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询某张表相关的资产知识列表（含表/字段/SQL/片段等）
+   * 
+   * @remarks
+   * 分页查询某张表相关的资产知识列表，支持按知识类型、关键词等条件筛选，返回 KnowledgeBaseVO 分页结果
+   * 
+   * @param request - SearchTableAssetKnowledgeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchTableAssetKnowledgeResponse
+   */
+  async searchTableAssetKnowledgeWithOptions(request: $_model.SearchTableAssetKnowledgeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchTableAssetKnowledgeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!$dara.isNull(request.showType)) {
+      query["ShowType"] = request.showType;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchTableAssetKnowledge",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchTableAssetKnowledgeResponse>(await this.callApi(params, req, runtime), new $_model.SearchTableAssetKnowledgeResponse({}));
+  }
+
+  /**
+   * 分页查询某张表相关的资产知识列表（含表/字段/SQL/片段等）
+   * 
+   * @remarks
+   * 分页查询某张表相关的资产知识列表，支持按知识类型、关键词等条件筛选，返回 KnowledgeBaseVO 分页结果
+   * 
+   * @param request - SearchTableAssetKnowledgeRequest
+   * @returns SearchTableAssetKnowledgeResponse
+   */
+  async searchTableAssetKnowledge(request: $_model.SearchTableAssetKnowledgeRequest): Promise<$_model.SearchTableAssetKnowledgeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchTableAssetKnowledgeWithOptions(request, runtime);
   }
 
   /**
