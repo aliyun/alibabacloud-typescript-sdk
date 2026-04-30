@@ -220,6 +220,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
    * ga-bp1astu3yrplkzoo2****
    */
   acceleratorId?: string;
+  accessAttribute?: string;
   accountType?: string;
   /**
    * @remarks
@@ -716,6 +717,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
     return {
       ADConnectors: 'ADConnectors',
       acceleratorId: 'AcceleratorId',
+      accessAttribute: 'AccessAttribute',
       accountType: 'AccountType',
       adHostname: 'AdHostname',
       authorityHost: 'AuthorityHost',
@@ -787,6 +789,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $dara.Model {
     return {
       ADConnectors: { 'type': 'array', 'itemType': DescribeOfficeSitesResponseBodyOfficeSitesADConnectors },
       acceleratorId: 'string',
+      accessAttribute: 'string',
       accountType: 'string',
       adHostname: 'string',
       authorityHost: 'string',

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSimpleOfficeSiteRequest extends $dara.Model {
+  accessAttribute?: string;
   accountType?: string;
   authorityHost?: string;
   /**
@@ -180,6 +181,7 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
   vpcType?: string;
   static names(): { [key: string]: string } {
     return {
+      accessAttribute: 'AccessAttribute',
       accountType: 'AccountType',
       authorityHost: 'AuthorityHost',
       bandwidth: 'Bandwidth',
@@ -206,6 +208,7 @@ export class CreateSimpleOfficeSiteRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessAttribute: 'string',
       accountType: 'string',
       authorityHost: 'string',
       bandwidth: 'number',

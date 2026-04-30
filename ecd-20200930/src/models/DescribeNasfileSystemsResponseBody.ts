@@ -263,6 +263,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
    * The office networks.
    */
   officeSites?: DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites[];
+  productType?: string;
   /**
    * @remarks
    * Indicates whether the User Profile Management (UPM) feature is supported.
@@ -292,6 +293,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
    * Upm
    */
   scene?: string;
+  sizeQuota?: number;
   /**
    * @remarks
    * The storage type of the NAS file system. Valid values:
@@ -338,9 +340,11 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
       officeSites: 'OfficeSites',
+      productType: 'ProductType',
       profileCompatible: 'ProfileCompatible',
       regionId: 'RegionId',
       scene: 'Scene',
+      sizeQuota: 'SizeQuota',
       storageType: 'StorageType',
       supportAcl: 'SupportAcl',
       zoneId: 'ZoneId',
@@ -366,9 +370,11 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
       officeSiteId: 'string',
       officeSiteName: 'string',
       officeSites: { 'type': 'array', 'itemType': DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites },
+      productType: 'string',
       profileCompatible: 'boolean',
       regionId: 'string',
       scene: 'string',
+      sizeQuota: 'number',
       storageType: 'string',
       supportAcl: 'boolean',
       zoneId: 'string',

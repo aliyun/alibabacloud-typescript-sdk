@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
+  accessAttribute?: string;
   /**
    * @remarks
    * The hostname of the domain controller. The hostname must comply with the naming conventions for Windows hosts.
@@ -259,6 +260,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
   verifyCode?: string;
   static names(): { [key: string]: string } {
     return {
+      accessAttribute: 'AccessAttribute',
       adHostname: 'AdHostname',
       backupDCHostname: 'BackupDCHostname',
       backupDns: 'BackupDns',
@@ -287,6 +289,7 @@ export class CreateADConnectorOfficeSiteRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessAttribute: 'string',
       adHostname: 'string',
       backupDCHostname: 'string',
       backupDns: 'string',

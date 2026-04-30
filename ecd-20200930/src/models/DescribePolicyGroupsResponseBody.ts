@@ -849,6 +849,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * on
    */
   endUserApplyAdminCoordinate?: string;
+  endUserCount?: string;
   /**
    * @remarks
    * Indicates whether the User Stream Collaboration switch is turned on.
@@ -1094,6 +1095,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * >  This parameter is in invitational preview for specific users and not available to the public.
    */
   netRedirectRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule[];
+  networkPrinter?: string;
+  organizationCount?: string;
   /**
    * @remarks
    * The ID of the cloud computer policy.
@@ -1734,6 +1737,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       domainResolveRuleType: 'DomainResolveRuleType',
       edsCount: 'EdsCount',
       endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
+      endUserCount: 'EndUserCount',
       endUserGroupCoordinate: 'EndUserGroupCoordinate',
       externalDrive: 'ExternalDrive',
       fileMigrate: 'FileMigrate',
@@ -1770,6 +1774,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
+      networkPrinter: 'NetworkPrinter',
+      organizationCount: 'OrganizationCount',
       policyGroupId: 'PolicyGroupId',
       policyGroupType: 'PolicyGroupType',
       policyStatus: 'PolicyStatus',
@@ -1879,6 +1885,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       domainResolveRuleType: 'string',
       edsCount: 'number',
       endUserApplyAdminCoordinate: 'string',
+      endUserCount: 'string',
       endUserGroupCoordinate: 'string',
       externalDrive: 'string',
       fileMigrate: 'string',
@@ -1915,6 +1922,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule },
+      networkPrinter: 'string',
+      organizationCount: 'string',
       policyGroupId: 'string',
       policyGroupType: 'string',
       policyStatus: 'string',

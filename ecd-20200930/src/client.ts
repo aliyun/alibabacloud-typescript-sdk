@@ -1830,6 +1830,10 @@ export default class Client extends OpenApi {
   async createADConnectorOfficeSiteWithOptions(request: $_model.CreateADConnectorOfficeSiteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateADConnectorOfficeSiteResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accessAttribute)) {
+      query["AccessAttribute"] = request.accessAttribute;
+    }
+
     if (!$dara.isNull(request.adHostname)) {
       query["AdHostname"] = request.adHostname;
     }
@@ -5065,6 +5069,10 @@ export default class Client extends OpenApi {
   async createSimpleOfficeSiteWithOptions(request: $_model.CreateSimpleOfficeSiteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSimpleOfficeSiteResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.accessAttribute)) {
+      query["AccessAttribute"] = request.accessAttribute;
+    }
+
     if (!$dara.isNull(request.accountType)) {
       query["AccountType"] = request.accountType;
     }
