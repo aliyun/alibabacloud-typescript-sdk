@@ -1667,6 +1667,172 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建AI集群
+   * 
+   * @param request - CreateAIDBClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAIDBClusterResponse
+   */
+  async createAIDBClusterWithOptions(request: $_model.CreateAIDBClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAIDBClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ackAdmin)) {
+      query["AckAdmin"] = request.ackAdmin;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!$dara.isNull(request.DBClusterDescription)) {
+      query["DBClusterDescription"] = request.DBClusterDescription;
+    }
+
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.DBNodeClass)) {
+      query["DBNodeClass"] = request.DBNodeClass;
+    }
+
+    if (!$dara.isNull(request.extension)) {
+      query["Extension"] = request.extension;
+    }
+
+    if (!$dara.isNull(request.inferenceEngine)) {
+      query["InferenceEngine"] = request.inferenceEngine;
+    }
+
+    if (!$dara.isNull(request.kubeClusterId)) {
+      query["KubeClusterId"] = request.kubeClusterId;
+    }
+
+    if (!$dara.isNull(request.kubeConfig)) {
+      query["KubeConfig"] = request.kubeConfig;
+    }
+
+    if (!$dara.isNull(request.kubeManagement)) {
+      query["KubeManagement"] = request.kubeManagement;
+    }
+
+    if (!$dara.isNull(request.kubeType)) {
+      query["KubeType"] = request.kubeType;
+    }
+
+    if (!$dara.isNull(request.kubernetesConfig)) {
+      query["KubernetesConfig"] = request.kubernetesConfig;
+    }
+
+    if (!$dara.isNull(request.managementMode)) {
+      query["ManagementMode"] = request.managementMode;
+    }
+
+    if (!$dara.isNull(request.modeName)) {
+      query["ModeName"] = request.modeName;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!$dara.isNull(request.storageSpace)) {
+      query["StorageSpace"] = request.storageSpace;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!$dara.isNull(request.timeSlices)) {
+      query["TimeSlices"] = request.timeSlices;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAIDBCluster",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAIDBClusterResponse>(await this.callApi(params, req, runtime), new $_model.CreateAIDBClusterResponse({}));
+  }
+
+  /**
+   * 创建AI集群
+   * 
+   * @param request - CreateAIDBClusterRequest
+   * @returns CreateAIDBClusterResponse
+   */
+  async createAIDBCluster(request: $_model.CreateAIDBClusterRequest): Promise<$_model.CreateAIDBClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAIDBClusterWithOptions(request, runtime);
+  }
+
+  /**
    * 创建数据集
    * 
    * @param request - CreateAIDBClusterDatasetRequest

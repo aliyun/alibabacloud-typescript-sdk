@@ -2,6 +2,7 @@ export { AddPolarFsPathMappingRequestCustomBucketPathList } from './AddPolarFsPa
 export { AddPolarFsQuotaRequestQuotas } from './AddPolarFsQuotaRequest';
 export { BindPolarClawAgentResponseBodyBinding } from './BindPolarClawAgentResponseBody';
 export { CheckPolarFsQuotaConsistencyResponseBodyQuotaItem } from './CheckPolarFsQuotaConsistencyResponseBody';
+export { CreateAIDBClusterRequestTimeSlices } from './CreateAidbclusterRequest';
 export { CreateAINodesRequestDBNodes } from './CreateAinodesRequest';
 export { CreateApplicationRequestComponents } from './CreateApplicationRequest';
 export { CreateApplicationRequestEndpoints } from './CreateApplicationRequest';
@@ -408,6 +409,9 @@ export { CloseDBClusterMigrationResponse } from './CloseDbclusterMigrationRespon
 export { ContinueDBClusterMigrationRequest } from './ContinueDbclusterMigrationRequest';
 export { ContinueDBClusterMigrationResponseBody } from './ContinueDbclusterMigrationResponseBody';
 export { ContinueDBClusterMigrationResponse } from './ContinueDbclusterMigrationResponse';
+export { CreateAIDBClusterRequest } from './CreateAidbclusterRequest';
+export { CreateAIDBClusterResponseBody } from './CreateAidbclusterResponseBody';
+export { CreateAIDBClusterResponse } from './CreateAidbclusterResponse';
 export { CreateAIDBClusterDatasetRequest } from './CreateAidbclusterDatasetRequest';
 export { CreateAIDBClusterDatasetResponseBody } from './CreateAidbclusterDatasetResponseBody';
 export { CreateAIDBClusterDatasetResponse } from './CreateAidbclusterDatasetResponse';
