@@ -2,41 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class RunAgentTaskRequest extends $dara.Model {
-  /**
-   * @example
-   * cn-shanghai
-   */
-  bizRegionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+export class DescribeJVSInstanceRequest extends $dara.Model {
   instanceIds?: string[];
-  maxSteps?: number;
-  timeoutSeconds?: number;
   /**
    * @remarks
-   * This parameter is required.
+   * 分页大小，最大值100，默认值10
+   * 
+   * @example
+   * 10
    */
-  userPrompt?: string;
+  maxResults?: number;
+  /**
+   * @remarks
+   * 分页游标，首次查询无需传入
+   * 
+   * @example
+   * AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
+   */
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
-      bizRegionId: 'BizRegionId',
       instanceIds: 'InstanceIds',
-      maxSteps: 'MaxSteps',
-      timeoutSeconds: 'TimeoutSeconds',
-      userPrompt: 'UserPrompt',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      bizRegionId: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
-      maxSteps: 'number',
-      timeoutSeconds: 'number',
-      userPrompt: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
     };
   }
 

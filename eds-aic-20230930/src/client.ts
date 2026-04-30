@@ -2458,6 +2458,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询JVS实例信息
+   * 
+   * @param request - DescribeJVSInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeJVSInstanceResponse
+   */
+  async describeJVSInstanceWithOptions(request: $_model.DescribeJVSInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeJVSInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeJVSInstance",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeJVSInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeJVSInstanceResponse({}));
+  }
+
+  /**
+   * 查询JVS实例信息
+   * 
+   * @param request - DescribeJVSInstanceRequest
+   * @returns DescribeJVSInstanceResponse
+   */
+  async describeJVSInstance(request: $_model.DescribeJVSInstanceRequest): Promise<$_model.DescribeJVSInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeJVSInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries one or more key pairs.
    * 
    * @param request - DescribeKeyPairsRequest
@@ -4365,6 +4415,60 @@ export default class Client extends OpenApi {
   async modifyInstanceChargeType(request: $_model.ModifyInstanceChargeTypeRequest): Promise<$_model.ModifyInstanceChargeTypeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstanceChargeTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改JVS信息
+   * 
+   * @param request - ModifyJVSInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyJVSInstanceResponse
+   */
+  async modifyJVSInstanceWithOptions(request: $_model.ModifyJVSInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyJVSInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applyToAll)) {
+      query["ApplyToAll"] = request.applyToAll;
+    }
+
+    if (!$dara.isNull(request.creditConfig)) {
+      query["CreditConfig"] = request.creditConfig;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyJVSInstance",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyJVSInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ModifyJVSInstanceResponse({}));
+  }
+
+  /**
+   * 修改JVS信息
+   * 
+   * @param request - ModifyJVSInstanceRequest
+   * @returns ModifyJVSInstanceResponse
+   */
+  async modifyJVSInstance(request: $_model.ModifyJVSInstanceRequest): Promise<$_model.ModifyJVSInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyJVSInstanceWithOptions(request, runtime);
   }
 
   /**
