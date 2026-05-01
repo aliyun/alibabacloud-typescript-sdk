@@ -173,6 +173,170 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 配置资源组模型模板
+   * 
+   * @param request - ConfigResourceGroupModelTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigResourceGroupModelTemplateResponse
+   */
+  async configResourceGroupModelTemplateWithOptions(request: $_model.ConfigResourceGroupModelTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigResourceGroupModelTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelTemplateId)) {
+      body["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigResourceGroupModelTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigResourceGroupModelTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ConfigResourceGroupModelTemplateResponse({}));
+  }
+
+  /**
+   * 配置资源组模型模板
+   * 
+   * @param request - ConfigResourceGroupModelTemplateRequest
+   * @returns ConfigResourceGroupModelTemplateResponse
+   */
+  async configResourceGroupModelTemplate(request: $_model.ConfigResourceGroupModelTemplateRequest): Promise<$_model.ConfigResourceGroupModelTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configResourceGroupModelTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置Runtime通道
+   * 
+   * @param request - ConfigRuntimeChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigRuntimeChannelResponse
+   */
+  async configRuntimeChannelWithOptions(request: $_model.ConfigRuntimeChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigRuntimeChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentProvider)) {
+      body["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.runtimeIds)) {
+      body["RuntimeIds"] = request.runtimeIds;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      body["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigRuntimeChannel",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigRuntimeChannelResponse>(await this.callApi(params, req, runtime), new $_model.ConfigRuntimeChannelResponse({}));
+  }
+
+  /**
+   * 配置Runtime通道
+   * 
+   * @param request - ConfigRuntimeChannelRequest
+   * @returns ConfigRuntimeChannelResponse
+   */
+  async configRuntimeChannel(request: $_model.ConfigRuntimeChannelRequest): Promise<$_model.ConfigRuntimeChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configRuntimeChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过RuntimeIds配置模型模板
+   * 
+   * @param request - ConfigRuntimeModelTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigRuntimeModelTemplateResponse
+   */
+  async configRuntimeModelTemplateWithOptions(request: $_model.ConfigRuntimeModelTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigRuntimeModelTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelTemplateId)) {
+      body["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.runtimeIds)) {
+      body["RuntimeIds"] = request.runtimeIds;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      body["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigRuntimeModelTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigRuntimeModelTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ConfigRuntimeModelTemplateResponse({}));
+  }
+
+  /**
+   * 通过RuntimeIds配置模型模板
+   * 
+   * @param request - ConfigRuntimeModelTemplateRequest
+   * @returns ConfigRuntimeModelTemplateResponse
+   */
+  async configRuntimeModelTemplate(request: $_model.ConfigRuntimeModelTemplateRequest): Promise<$_model.ConfigRuntimeModelTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configRuntimeModelTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a delivery group.
    * 
    * @remarks
@@ -494,6 +658,64 @@ export default class Client extends OpenApi {
   async createImageFromAppInstanceGroup(request: $_model.CreateImageFromAppInstanceGroupRequest): Promise<$_model.CreateImageFromAppInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createImageFromAppInstanceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建模型模板
+   * 
+   * @param request - CreateModelTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelTemplateResponse
+   */
+  async createModelTemplateWithOptions(request: $_model.CreateModelTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelTemplateResponse({}));
+  }
+
+  /**
+   * 创建模型模板
+   * 
+   * @param request - CreateModelTemplateRequest
+   * @returns CreateModelTemplateResponse
+   */
+  async createModelTemplate(request: $_model.CreateModelTemplateRequest): Promise<$_model.CreateModelTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createModelTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -1278,6 +1500,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Runtime通道配置
+   * 
+   * @param request - GetRuntimeChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRuntimeChannelResponse
+   */
+  async getRuntimeChannelWithOptions(request: $_model.GetRuntimeChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRuntimeChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.includeRiskInfo)) {
+      query["IncludeRiskInfo"] = request.includeRiskInfo;
+    }
+
+    if (!$dara.isNull(request.runtimeId)) {
+      query["RuntimeId"] = request.runtimeId;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      query["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRuntimeChannel",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRuntimeChannelResponse>(await this.callApi(params, req, runtime), new $_model.GetRuntimeChannelResponse({}));
+  }
+
+  /**
+   * 查询Runtime通道配置
+   * 
+   * @param request - GetRuntimeChannelRequest
+   * @returns GetRuntimeChannelResponse
+   */
+  async getRuntimeChannel(request: $_model.GetRuntimeChannelRequest): Promise<$_model.GetRuntimeChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRuntimeChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询云电脑模型配置详情
+   * 
+   * @param request - GetRuntimeModelConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRuntimeModelConfigResponse
+   */
+  async getRuntimeModelConfigWithOptions(request: $_model.GetRuntimeModelConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRuntimeModelConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.includeRiskInfo)) {
+      query["IncludeRiskInfo"] = request.includeRiskInfo;
+    }
+
+    if (!$dara.isNull(request.runtimeId)) {
+      query["RuntimeId"] = request.runtimeId;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      query["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRuntimeModelConfig",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRuntimeModelConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetRuntimeModelConfigResponse({}));
+  }
+
+  /**
+   * 查询云电脑模型配置详情
+   * 
+   * @param request - GetRuntimeModelConfigRequest
+   * @returns GetRuntimeModelConfigResponse
+   */
+  async getRuntimeModelConfig(request: $_model.GetRuntimeModelConfigRequest): Promise<$_model.GetRuntimeModelConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRuntimeModelConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of multiple delivery groups that meet the query conditions.
    * 
    * @param request - ListAppInstanceGroupRequest
@@ -1574,6 +1912,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询桌面Agent运行时列表
+   * 
+   * @param request - ListDesktopAgentRuntimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDesktopAgentRuntimeResponse
+   */
+  async listDesktopAgentRuntimeWithOptions(request: $_model.ListDesktopAgentRuntimeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDesktopAgentRuntimeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentInstanceStatuses)) {
+      query["AgentInstanceStatuses"] = request.agentInstanceStatuses;
+    }
+
+    if (!$dara.isNull(request.agentInstanceVersions)) {
+      query["AgentInstanceVersions"] = request.agentInstanceVersions;
+    }
+
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.authUsers)) {
+      query["AuthUsers"] = request.authUsers;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.channelConfigure)) {
+      query["ChannelConfigure"] = request.channelConfigure;
+    }
+
+    if (!$dara.isNull(request.deploymentSource)) {
+      query["DeploymentSource"] = request.deploymentSource;
+    }
+
+    if (!$dara.isNull(request.desktopIds)) {
+      query["DesktopIds"] = request.desktopIds;
+    }
+
+    if (!$dara.isNull(request.desktopNames)) {
+      query["DesktopNames"] = request.desktopNames;
+    }
+
+    if (!$dara.isNull(request.desktopStatuses)) {
+      query["DesktopStatuses"] = request.desktopStatuses;
+    }
+
+    if (!$dara.isNull(request.hasAuthUser)) {
+      query["HasAuthUser"] = request.hasAuthUser;
+    }
+
+    if (!$dara.isNull(request.hasRisk)) {
+      query["HasRisk"] = request.hasRisk;
+    }
+
+    if (!$dara.isNull(request.includeRiskInfo)) {
+      query["IncludeRiskInfo"] = request.includeRiskInfo;
+    }
+
+    if (!$dara.isNull(request.modelConfigure)) {
+      query["ModelConfigure"] = request.modelConfigure;
+    }
+
+    if (!$dara.isNull(request.modelTemplateId)) {
+      query["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDesktopAgentRuntime",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDesktopAgentRuntimeResponse>(await this.callApi(params, req, runtime), new $_model.ListDesktopAgentRuntimeResponse({}));
+  }
+
+  /**
+   * 查询桌面Agent运行时列表
+   * 
+   * @param request - ListDesktopAgentRuntimeRequest
+   * @returns ListDesktopAgentRuntimeResponse
+   */
+  async listDesktopAgentRuntime(request: $_model.ListDesktopAgentRuntimeRequest): Promise<$_model.ListDesktopAgentRuntimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDesktopAgentRuntimeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the image information about an ECS instance.
    * 
    * @param request - ListImageRequest
@@ -1695,6 +2147,60 @@ export default class Client extends OpenApi {
   async listImage(request: $_model.ListImageRequest): Promise<$_model.ListImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listImageWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模型分组绑定的资源组列表
+   * 
+   * @param request - ListModelTemplateResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelTemplateResourceGroupResponse
+   */
+  async listModelTemplateResourceGroupWithOptions(request: $_model.ListModelTemplateResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelTemplateResourceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.modelTemplateId)) {
+      query["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIds)) {
+      query["ResourceGroupIds"] = request.resourceGroupIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelTemplateResourceGroup",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelTemplateResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListModelTemplateResourceGroupResponse({}));
+  }
+
+  /**
+   * 查询模型分组绑定的资源组列表
+   * 
+   * @param request - ListModelTemplateResourceGroupRequest
+   * @returns ListModelTemplateResourceGroupResponse
+   */
+  async listModelTemplateResourceGroup(request: $_model.ListModelTemplateResourceGroupRequest): Promise<$_model.ListModelTemplateResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listModelTemplateResourceGroupWithOptions(request, runtime);
   }
 
   /**
@@ -2801,6 +3307,160 @@ export default class Client extends OpenApi {
   async pageListAppInstanceGroupUser(request: $_model.PageListAppInstanceGroupUserRequest): Promise<$_model.PageListAppInstanceGroupUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.pageListAppInstanceGroupUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 移除资源组模型模板配置
+   * 
+   * @param request - RemoveResourceGroupModelTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveResourceGroupModelTemplateResponse
+   */
+  async removeResourceGroupModelTemplateWithOptions(request: $_model.RemoveResourceGroupModelTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveResourceGroupModelTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelTemplateId)) {
+      body["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIds)) {
+      body["ResourceGroupIds"] = request.resourceGroupIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveResourceGroupModelTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveResourceGroupModelTemplateResponse>(await this.callApi(params, req, runtime), new $_model.RemoveResourceGroupModelTemplateResponse({}));
+  }
+
+  /**
+   * 移除资源组模型模板配置
+   * 
+   * @param request - RemoveResourceGroupModelTemplateRequest
+   * @returns RemoveResourceGroupModelTemplateResponse
+   */
+  async removeResourceGroupModelTemplate(request: $_model.RemoveResourceGroupModelTemplateRequest): Promise<$_model.RemoveResourceGroupModelTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeResourceGroupModelTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 移除Runtime通道
+   * 
+   * @param request - RemoveRuntimeChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveRuntimeChannelResponse
+   */
+  async removeRuntimeChannelWithOptions(request: $_model.RemoveRuntimeChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveRuntimeChannelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      body["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      body["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.runtimeIds)) {
+      body["RuntimeIds"] = request.runtimeIds;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      body["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveRuntimeChannel",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveRuntimeChannelResponse>(await this.callApi(params, req, runtime), new $_model.RemoveRuntimeChannelResponse({}));
+  }
+
+  /**
+   * 移除Runtime通道
+   * 
+   * @param request - RemoveRuntimeChannelRequest
+   * @returns RemoveRuntimeChannelResponse
+   */
+  async removeRuntimeChannel(request: $_model.RemoveRuntimeChannelRequest): Promise<$_model.RemoveRuntimeChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeRuntimeChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * 通过RuntimeIds移除模型模板配置
+   * 
+   * @param request - RemoveRuntimeModelTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveRuntimeModelTemplateResponse
+   */
+  async removeRuntimeModelTemplateWithOptions(request: $_model.RemoveRuntimeModelTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveRuntimeModelTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelTemplateId)) {
+      body["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.runtimeIds)) {
+      body["RuntimeIds"] = request.runtimeIds;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      body["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveRuntimeModelTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveRuntimeModelTemplateResponse>(await this.callApi(params, req, runtime), new $_model.RemoveRuntimeModelTemplateResponse({}));
+  }
+
+  /**
+   * 通过RuntimeIds移除模型模板配置
+   * 
+   * @param request - RemoveRuntimeModelTemplateRequest
+   * @returns RemoveRuntimeModelTemplateResponse
+   */
+  async removeRuntimeModelTemplate(request: $_model.RemoveRuntimeModelTemplateRequest): Promise<$_model.RemoveRuntimeModelTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeRuntimeModelTemplateWithOptions(request, runtime);
   }
 
   /**
