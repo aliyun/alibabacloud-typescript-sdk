@@ -119,6 +119,10 @@ export default class Client extends OpenApi {
       body["ProductType"] = request.productType;
     }
 
+    if (!$dara.isNull(request.requireUuidValidation)) {
+      body["RequireUuidValidation"] = request.requireUuidValidation;
+    }
+
     if (!$dara.isNull(request.resourceId)) {
       body["ResourceId"] = request.resourceId;
     }

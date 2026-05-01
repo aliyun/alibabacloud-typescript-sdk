@@ -85,6 +85,11 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * CloudApp
    */
   productType?: string;
+  /**
+   * @example
+   * true
+   */
+  requireUuidValidation?: boolean;
   resourceId?: string;
   /**
    * @example
@@ -128,6 +133,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
       loginToken: 'LoginToken',
       param: 'Param',
       productType: 'ProductType',
+      requireUuidValidation: 'RequireUuidValidation',
       resourceId: 'ResourceId',
       sessionId: 'SessionId',
       taskId: 'TaskId',
@@ -158,6 +164,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
       loginToken: 'string',
       param: 'string',
       productType: 'string',
+      requireUuidValidation: 'boolean',
       resourceId: 'string',
       sessionId: 'string',
       taskId: 'string',
