@@ -102,6 +102,7 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
    * 2025-01-01 12:00:00
    */
   gmtCreate?: number;
+  nickName?: string;
   orgIds?: string[];
   orgPaths?: string[];
   /**
@@ -132,6 +133,7 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
       externalInfo: 'ExternalInfo',
       extras: 'Extras',
       gmtCreate: 'GmtCreate',
+      nickName: 'NickName',
       orgIds: 'OrgIds',
       orgPaths: 'OrgPaths',
       phone: 'Phone',
@@ -149,6 +151,7 @@ export class DescribeUserResponseBodyUser extends $dara.Model {
       externalInfo: DescribeUserResponseBodyUserExternalInfo,
       extras: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       gmtCreate: 'number',
+      nickName: 'string',
       orgIds: { 'type': 'array', 'itemType': 'string' },
       orgPaths: { 'type': 'array', 'itemType': 'string' },
       phone: 'string',
