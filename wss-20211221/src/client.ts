@@ -90,9 +90,174 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询积分包Agent列表
+   * 
+   * @param request - DescribeCreditPackageAgentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCreditPackageAgentsResponse
+   */
+  async describeCreditPackageAgentsWithOptions(request: $_model.DescribeCreditPackageAgentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCreditPackageAgentsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentIds)) {
+      query["AgentIds"] = request.agentIds;
+    }
+
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCreditPackageAgents",
+      version: "2021-12-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCreditPackageAgentsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCreditPackageAgentsResponse({}));
+  }
+
+  /**
+   * 查询积分包Agent列表
+   * 
+   * @param request - DescribeCreditPackageAgentsRequest
+   * @returns DescribeCreditPackageAgentsResponse
+   */
+  async describeCreditPackageAgents(request: $_model.DescribeCreditPackageAgentsRequest): Promise<$_model.DescribeCreditPackageAgentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCreditPackageAgentsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询积分包用量信息
+   * 
+   * @param request - DescribeCreditUsageInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCreditUsageInfoResponse
+   */
+  async describeCreditUsageInfoWithOptions(request: $_model.DescribeCreditUsageInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCreditUsageInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.usageType)) {
+      query["UsageType"] = request.usageType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCreditUsageInfo",
+      version: "2021-12-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCreditUsageInfoResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCreditUsageInfoResponse({}));
+  }
+
+  /**
+   * 查询积分包用量信息
+   * 
+   * @param request - DescribeCreditUsageInfoRequest
+   * @returns DescribeCreditUsageInfoResponse
+   */
+  async describeCreditUsageInfo(request: $_model.DescribeCreditUsageInfoRequest): Promise<$_model.DescribeCreditUsageInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCreditUsageInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询计量消耗信息
+   * 
+   * @param request - DescribeDeductionStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDeductionStatisticResponse
+   */
+  async describeDeductionStatisticWithOptions(request: $_model.DescribeDeductionStatisticRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDeductionStatisticResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.periods)) {
+      query["Periods"] = request.periods;
+    }
+
+    if (!$dara.isNull(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDeductionStatistic",
+      version: "2021-12-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDeductionStatisticResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDeductionStatisticResponse({}));
+  }
+
+  /**
+   * 查询计量消耗信息
+   * 
+   * @param request - DescribeDeductionStatisticRequest
+   * @returns DescribeDeductionStatisticResponse
+   */
+  async describeDeductionStatistic(request: $_model.DescribeDeductionStatisticRequest): Promise<$_model.DescribeDeductionStatisticResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDeductionStatisticWithOptions(request, runtime);
+  }
+
+  /**
    * 查询物流地址
    * 
-   * @param request - DescribeDeliveryAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDeliveryAddressResponse
    */
@@ -301,6 +466,60 @@ export default class Client extends OpenApi {
   async modifyInstanceProperties(request: $_model.ModifyInstancePropertiesRequest): Promise<$_model.ModifyInstancePropertiesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyInstancePropertiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量设置Agent积分配额
+   * 
+   * @param request - SetAgentCreditQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAgentCreditQuotaResponse
+   */
+  async setAgentCreditQuotaWithOptions(request: $_model.SetAgentCreditQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAgentCreditQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentIds)) {
+      query["AgentIds"] = request.agentIds;
+    }
+
+    if (!$dara.isNull(request.agentType)) {
+      query["AgentType"] = request.agentType;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.creditQuota)) {
+      query["CreditQuota"] = request.creditQuota;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetAgentCreditQuota",
+      version: "2021-12-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetAgentCreditQuotaResponse>(await this.callApi(params, req, runtime), new $_model.SetAgentCreditQuotaResponse({}));
+  }
+
+  /**
+   * 批量设置Agent积分配额
+   * 
+   * @param request - SetAgentCreditQuotaRequest
+   * @returns SetAgentCreditQuotaResponse
+   */
+  async setAgentCreditQuota(request: $_model.SetAgentCreditQuotaRequest): Promise<$_model.SetAgentCreditQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setAgentCreditQuotaWithOptions(request, runtime);
   }
 
 }

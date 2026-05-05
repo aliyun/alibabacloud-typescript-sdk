@@ -56,6 +56,7 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
   autoRenew?: boolean;
   buyChange?: boolean;
   components?: CreateMultiOrderRequestOrderItemsComponents[];
+  instanceIds?: string[];
   /**
    * @example
    * 1
@@ -87,6 +88,7 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
       autoRenew: 'AutoRenew',
       buyChange: 'BuyChange',
       components: 'Components',
+      instanceIds: 'InstanceIds',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
@@ -102,6 +104,7 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
       autoRenew: 'boolean',
       buyChange: 'boolean',
       components: { 'type': 'array', 'itemType': CreateMultiOrderRequestOrderItemsComponents },
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       period: 'number',
       periodUnit: 'string',
       promotionId: 'string',
@@ -113,6 +116,9 @@ export class CreateMultiOrderRequestOrderItems extends $dara.Model {
   validate() {
     if(Array.isArray(this.components)) {
       $dara.Model.validateArray(this.components);
+    }
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
     }
     if(Array.isArray(this.resourceIds)) {
       $dara.Model.validateArray(this.resourceIds);

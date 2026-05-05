@@ -43,6 +43,7 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
    */
   amount?: number;
   components?: DescribeMultiPriceRequestOrderItemsComponents[];
+  data?: string;
   instanceIds?: string[];
   /**
    * @example
@@ -70,6 +71,7 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
     return {
       amount: 'Amount',
       components: 'Components',
+      data: 'Data',
       instanceIds: 'InstanceIds',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -84,6 +86,7 @@ export class DescribeMultiPriceRequestOrderItems extends $dara.Model {
     return {
       amount: 'number',
       components: { 'type': 'array', 'itemType': DescribeMultiPriceRequestOrderItemsComponents },
+      data: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       period: 'number',
       periodUnit: 'string',
