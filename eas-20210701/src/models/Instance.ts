@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Instance extends $dara.Model {
+  createTime?: string;
   /**
    * @remarks
    * The current hourly price of the spot instance.
@@ -225,6 +226,7 @@ export class Instance extends $dara.Model {
   zone?: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       currentAmount: 'CurrentAmount',
       detached: 'Detached',
       externalIP: 'ExternalIP',
@@ -260,6 +262,7 @@ export class Instance extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       currentAmount: 'number',
       detached: 'boolean',
       externalIP: 'string',
