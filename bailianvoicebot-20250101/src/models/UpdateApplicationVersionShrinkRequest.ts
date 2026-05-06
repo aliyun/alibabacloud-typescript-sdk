@@ -20,6 +20,7 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
    */
   businessUnitId?: string;
   interactionConfigShrink?: string;
+  ragConfigShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -48,6 +49,7 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
       applicationId: 'ApplicationId',
       businessUnitId: 'BusinessUnitId',
       interactionConfigShrink: 'InteractionConfig',
+      ragConfigShrink: 'RagConfig',
       scriptProfileShrink: 'ScriptProfile',
       synthesizerConfigShrink: 'SynthesizerConfig',
       transcriberConfigShrink: 'TranscriberConfig',
@@ -60,6 +62,7 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
       applicationId: 'string',
       businessUnitId: 'string',
       interactionConfigShrink: 'string',
+      ragConfigShrink: 'string',
       scriptProfileShrink: 'string',
       synthesizerConfigShrink: 'string',
       transcriberConfigShrink: 'string',

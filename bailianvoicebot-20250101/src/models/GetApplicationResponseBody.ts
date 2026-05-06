@@ -55,6 +55,44 @@ export class GetApplicationResponseBodyDataDraftVersionInteractionConfig extends
   }
 }
 
+export class GetApplicationResponseBodyDataDraftVersionRagConfig extends $dara.Model {
+  enabled?: boolean;
+  knowledgeBaseIds?: string[];
+  maxContentLength?: number;
+  ragEngine?: string;
+  topN?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      knowledgeBaseIds: 'KnowledgeBaseIds',
+      maxContentLength: 'MaxContentLength',
+      ragEngine: 'RagEngine',
+      topN: 'TopN',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      knowledgeBaseIds: { 'type': 'array', 'itemType': 'string' },
+      maxContentLength: 'number',
+      ragEngine: 'string',
+      topN: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.knowledgeBaseIds)) {
+      $dara.Model.validateArray(this.knowledgeBaseIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationResponseBodyDataDraftVersionScriptProfileAgentProfile extends $dara.Model {
   /**
    * @example
@@ -240,6 +278,7 @@ export class GetApplicationResponseBodyDataDraftVersionTranscriberConfig extends
 
 export class GetApplicationResponseBodyDataDraftVersion extends $dara.Model {
   interactionConfig?: GetApplicationResponseBodyDataDraftVersionInteractionConfig;
+  ragConfig?: GetApplicationResponseBodyDataDraftVersionRagConfig;
   scriptProfile?: GetApplicationResponseBodyDataDraftVersionScriptProfile;
   synthesizerConfig?: GetApplicationResponseBodyDataDraftVersionSynthesizerConfig;
   transcriberConfig?: GetApplicationResponseBodyDataDraftVersionTranscriberConfig;
@@ -251,6 +290,7 @@ export class GetApplicationResponseBodyDataDraftVersion extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       interactionConfig: 'InteractionConfig',
+      ragConfig: 'RagConfig',
       scriptProfile: 'ScriptProfile',
       synthesizerConfig: 'SynthesizerConfig',
       transcriberConfig: 'TranscriberConfig',
@@ -261,6 +301,7 @@ export class GetApplicationResponseBodyDataDraftVersion extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       interactionConfig: GetApplicationResponseBodyDataDraftVersionInteractionConfig,
+      ragConfig: GetApplicationResponseBodyDataDraftVersionRagConfig,
       scriptProfile: GetApplicationResponseBodyDataDraftVersionScriptProfile,
       synthesizerConfig: GetApplicationResponseBodyDataDraftVersionSynthesizerConfig,
       transcriberConfig: GetApplicationResponseBodyDataDraftVersionTranscriberConfig,
@@ -271,6 +312,9 @@ export class GetApplicationResponseBodyDataDraftVersion extends $dara.Model {
   validate() {
     if(this.interactionConfig && typeof (this.interactionConfig as any).validate === 'function') {
       (this.interactionConfig as any).validate();
+    }
+    if(this.ragConfig && typeof (this.ragConfig as any).validate === 'function') {
+      (this.ragConfig as any).validate();
     }
     if(this.scriptProfile && typeof (this.scriptProfile as any).validate === 'function') {
       (this.scriptProfile as any).validate();
@@ -333,6 +377,44 @@ export class GetApplicationResponseBodyDataPublishedVersionInteractionConfig ext
   validate() {
     if(this.silenceDetectionConfig && typeof (this.silenceDetectionConfig as any).validate === 'function') {
       (this.silenceDetectionConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyDataPublishedVersionRagConfig extends $dara.Model {
+  enabled?: boolean;
+  knowledgeBaseIds?: string[];
+  maxContentLength?: number;
+  ragEngine?: string;
+  topN?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      knowledgeBaseIds: 'KnowledgeBaseIds',
+      maxContentLength: 'MaxContentLength',
+      ragEngine: 'RagEngine',
+      topN: 'TopN',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      knowledgeBaseIds: { 'type': 'array', 'itemType': 'string' },
+      maxContentLength: 'number',
+      ragEngine: 'string',
+      topN: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.knowledgeBaseIds)) {
+      $dara.Model.validateArray(this.knowledgeBaseIds);
     }
     super.validate();
   }
@@ -527,6 +609,7 @@ export class GetApplicationResponseBodyDataPublishedVersionTranscriberConfig ext
 
 export class GetApplicationResponseBodyDataPublishedVersion extends $dara.Model {
   interactionConfig?: GetApplicationResponseBodyDataPublishedVersionInteractionConfig;
+  ragConfig?: GetApplicationResponseBodyDataPublishedVersionRagConfig;
   scriptProfile?: GetApplicationResponseBodyDataPublishedVersionScriptProfile;
   synthesizerConfig?: GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig;
   transcriberConfig?: GetApplicationResponseBodyDataPublishedVersionTranscriberConfig;
@@ -538,6 +621,7 @@ export class GetApplicationResponseBodyDataPublishedVersion extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       interactionConfig: 'InteractionConfig',
+      ragConfig: 'RagConfig',
       scriptProfile: 'ScriptProfile',
       synthesizerConfig: 'SynthesizerConfig',
       transcriberConfig: 'TranscriberConfig',
@@ -548,6 +632,7 @@ export class GetApplicationResponseBodyDataPublishedVersion extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       interactionConfig: GetApplicationResponseBodyDataPublishedVersionInteractionConfig,
+      ragConfig: GetApplicationResponseBodyDataPublishedVersionRagConfig,
       scriptProfile: GetApplicationResponseBodyDataPublishedVersionScriptProfile,
       synthesizerConfig: GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig,
       transcriberConfig: GetApplicationResponseBodyDataPublishedVersionTranscriberConfig,
@@ -558,6 +643,9 @@ export class GetApplicationResponseBodyDataPublishedVersion extends $dara.Model 
   validate() {
     if(this.interactionConfig && typeof (this.interactionConfig as any).validate === 'function') {
       (this.interactionConfig as any).validate();
+    }
+    if(this.ragConfig && typeof (this.ragConfig as any).validate === 'function') {
+      (this.ragConfig as any).validate();
     }
     if(this.scriptProfile && typeof (this.scriptProfile as any).validate === 'function') {
       (this.scriptProfile as any).validate();

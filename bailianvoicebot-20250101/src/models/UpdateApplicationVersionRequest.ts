@@ -55,6 +55,44 @@ export class UpdateApplicationVersionRequestInteractionConfig extends $dara.Mode
   }
 }
 
+export class UpdateApplicationVersionRequestRagConfig extends $dara.Model {
+  enabled?: boolean;
+  knowledgeBaseIds?: string[];
+  maxContentLength?: number;
+  ragEngine?: string;
+  topN?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      knowledgeBaseIds: 'KnowledgeBaseIds',
+      maxContentLength: 'MaxContentLength',
+      ragEngine: 'RagEngine',
+      topN: 'TopN',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      knowledgeBaseIds: { 'type': 'array', 'itemType': 'string' },
+      maxContentLength: 'number',
+      ragEngine: 'string',
+      topN: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.knowledgeBaseIds)) {
+      $dara.Model.validateArray(this.knowledgeBaseIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApplicationVersionRequestScriptProfileAgentProfile extends $dara.Model {
   description?: string;
   name?: string;
@@ -238,6 +276,7 @@ export class UpdateApplicationVersionRequest extends $dara.Model {
    */
   businessUnitId?: string;
   interactionConfig?: UpdateApplicationVersionRequestInteractionConfig;
+  ragConfig?: UpdateApplicationVersionRequestRagConfig;
   /**
    * @remarks
    * This parameter is required.
@@ -266,6 +305,7 @@ export class UpdateApplicationVersionRequest extends $dara.Model {
       applicationId: 'ApplicationId',
       businessUnitId: 'BusinessUnitId',
       interactionConfig: 'InteractionConfig',
+      ragConfig: 'RagConfig',
       scriptProfile: 'ScriptProfile',
       synthesizerConfig: 'SynthesizerConfig',
       transcriberConfig: 'TranscriberConfig',
@@ -278,6 +318,7 @@ export class UpdateApplicationVersionRequest extends $dara.Model {
       applicationId: 'string',
       businessUnitId: 'string',
       interactionConfig: UpdateApplicationVersionRequestInteractionConfig,
+      ragConfig: UpdateApplicationVersionRequestRagConfig,
       scriptProfile: UpdateApplicationVersionRequestScriptProfile,
       synthesizerConfig: UpdateApplicationVersionRequestSynthesizerConfig,
       transcriberConfig: UpdateApplicationVersionRequestTranscriberConfig,
@@ -288,6 +329,9 @@ export class UpdateApplicationVersionRequest extends $dara.Model {
   validate() {
     if(this.interactionConfig && typeof (this.interactionConfig as any).validate === 'function') {
       (this.interactionConfig as any).validate();
+    }
+    if(this.ragConfig && typeof (this.ragConfig as any).validate === 'function') {
+      (this.ragConfig as any).validate();
     }
     if(this.scriptProfile && typeof (this.scriptProfile as any).validate === 'function') {
       (this.scriptProfile as any).validate();
