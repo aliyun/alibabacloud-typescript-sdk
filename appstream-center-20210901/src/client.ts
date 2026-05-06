@@ -173,6 +173,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量创建LLM模板
+   * 
+   * @param request - BatchCreateLlmTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateLlmTemplatesResponse
+   */
+  async batchCreateLlmTemplatesWithOptions(request: $_model.BatchCreateLlmTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCreateLlmTemplatesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.llmTemplateItems)) {
+      body["LlmTemplateItems"] = request.llmTemplateItems;
+    }
+
+    if (!$dara.isNull(request.modelTemplateId)) {
+      body["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.providerTemplateId)) {
+      body["ProviderTemplateId"] = request.providerTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCreateLlmTemplates",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchCreateLlmTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.BatchCreateLlmTemplatesResponse({}));
+  }
+
+  /**
+   * 批量创建LLM模板
+   * 
+   * @param request - BatchCreateLlmTemplatesRequest
+   * @returns BatchCreateLlmTemplatesResponse
+   */
+  async batchCreateLlmTemplates(request: $_model.BatchCreateLlmTemplatesRequest): Promise<$_model.BatchCreateLlmTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchCreateLlmTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * 配置资源组模型模板
    * 
    * @param request - ConfigResourceGroupModelTemplateRequest
@@ -661,6 +711,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建模型提供商模板
+   * 
+   * @param request - CreateModelProviderTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelProviderTemplateResponse
+   */
+  async createModelProviderTemplateWithOptions(request: $_model.CreateModelProviderTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelProviderTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableWuyingProxy)) {
+      query["EnableWuyingProxy"] = request.enableWuyingProxy;
+    }
+
+    if (!$dara.isNull(request.modelTemplateId)) {
+      query["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.providerName)) {
+      query["ProviderName"] = request.providerName;
+    }
+
+    if (!$dara.isNull(request.providerType)) {
+      query["ProviderType"] = request.providerType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelProviderTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelProviderTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelProviderTemplateResponse({}));
+  }
+
+  /**
+   * 创建模型提供商模板
+   * 
+   * @param request - CreateModelProviderTemplateRequest
+   * @returns CreateModelProviderTemplateResponse
+   */
+  async createModelProviderTemplate(request: $_model.CreateModelProviderTemplateRequest): Promise<$_model.CreateModelProviderTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createModelProviderTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * 创建模型模板
    * 
    * @param request - CreateModelTemplateRequest
@@ -1048,6 +1176,132 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除LLM模板
+   * 
+   * @param request - DeleteLlmTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLlmTemplateResponse
+   */
+  async deleteLlmTemplateWithOptions(request: $_model.DeleteLlmTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLlmTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.llmTemplateId)) {
+      query["LlmTemplateId"] = request.llmTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLlmTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLlmTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLlmTemplateResponse({}));
+  }
+
+  /**
+   * 删除LLM模板
+   * 
+   * @param request - DeleteLlmTemplateRequest
+   * @returns DeleteLlmTemplateResponse
+   */
+  async deleteLlmTemplate(request: $_model.DeleteLlmTemplateRequest): Promise<$_model.DeleteLlmTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteLlmTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除模型提供商模板
+   * 
+   * @param request - DeleteModelProviderTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelProviderTemplateResponse
+   */
+  async deleteModelProviderTemplateWithOptions(request: $_model.DeleteModelProviderTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelProviderTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.providerTemplateId)) {
+      query["ProviderTemplateId"] = request.providerTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelProviderTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelProviderTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelProviderTemplateResponse({}));
+  }
+
+  /**
+   * 删除模型提供商模板
+   * 
+   * @param request - DeleteModelProviderTemplateRequest
+   * @returns DeleteModelProviderTemplateResponse
+   */
+  async deleteModelProviderTemplate(request: $_model.DeleteModelProviderTemplateRequest): Promise<$_model.DeleteModelProviderTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteModelProviderTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除模型模板
+   * 
+   * @param request - DeleteModelTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelTemplateResponse
+   */
+  async deleteModelTemplateWithOptions(request: $_model.DeleteModelTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.modelTemplateId)) {
+      query["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelTemplateResponse({}));
+  }
+
+  /**
+   * 删除模型模板
+   * 
+   * @param request - DeleteModelTemplateRequest
+   * @returns DeleteModelTemplateResponse
+   */
+  async deleteModelTemplate(request: $_model.DeleteModelTemplateRequest): Promise<$_model.DeleteModelTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteModelTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * 删除工作站
    * 
    * @remarks
@@ -1331,6 +1585,48 @@ export default class Client extends OpenApi {
   async getDebugAppInstance(request: $_model.GetDebugAppInstanceRequest): Promise<$_model.GetDebugAppInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getDebugAppInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模型提供商模板详情
+   * 
+   * @param request - GetModelProviderTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelProviderTemplateResponse
+   */
+  async getModelProviderTemplateWithOptions(request: $_model.GetModelProviderTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelProviderTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.providerTemplateId)) {
+      query["ProviderTemplateId"] = request.providerTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelProviderTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelProviderTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetModelProviderTemplateResponse({}));
+  }
+
+  /**
+   * 查询模型提供商模板详情
+   * 
+   * @param request - GetModelProviderTemplateRequest
+   * @returns GetModelProviderTemplateResponse
+   */
+  async getModelProviderTemplate(request: $_model.GetModelProviderTemplateRequest): Promise<$_model.GetModelProviderTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getModelProviderTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -2150,6 +2446,150 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询LLM模板列表
+   * 
+   * @param tmpReq - ListLlmTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLlmTemplatesResponse
+   */
+  async listLlmTemplatesWithOptions(tmpReq: $_model.ListLlmTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLlmTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListLlmTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.llmTemplateIds)) {
+      request.llmTemplateIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.llmTemplateIds, "LlmTemplateIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.llmCode)) {
+      query["LlmCode"] = request.llmCode;
+    }
+
+    if (!$dara.isNull(request.llmTemplateIdsShrink)) {
+      query["LlmTemplateIds"] = request.llmTemplateIdsShrink;
+    }
+
+    if (!$dara.isNull(request.modelTemplateId)) {
+      query["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.providerTemplateId)) {
+      query["ProviderTemplateId"] = request.providerTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLlmTemplates",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLlmTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListLlmTemplatesResponse({}));
+  }
+
+  /**
+   * 查询LLM模板列表
+   * 
+   * @param request - ListLlmTemplatesRequest
+   * @returns ListLlmTemplatesResponse
+   */
+  async listLlmTemplates(request: $_model.ListLlmTemplatesRequest): Promise<$_model.ListLlmTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLlmTemplatesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模型提供商模板列表
+   * 
+   * @param tmpReq - ListModelProviderTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelProviderTemplatesResponse
+   */
+  async listModelProviderTemplatesWithOptions(tmpReq: $_model.ListModelProviderTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelProviderTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListModelProviderTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.providerTemplateIds)) {
+      request.providerTemplateIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.providerTemplateIds, "ProviderTemplateIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.modelTemplateId)) {
+      query["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.providerName)) {
+      query["ProviderName"] = request.providerName;
+    }
+
+    if (!$dara.isNull(request.providerTemplateIdsShrink)) {
+      query["ProviderTemplateIds"] = request.providerTemplateIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelProviderTemplates",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelProviderTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListModelProviderTemplatesResponse({}));
+  }
+
+  /**
+   * 查询模型提供商模板列表
+   * 
+   * @param request - ListModelProviderTemplatesRequest
+   * @returns ListModelProviderTemplatesResponse
+   */
+  async listModelProviderTemplates(request: $_model.ListModelProviderTemplatesRequest): Promise<$_model.ListModelProviderTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listModelProviderTemplatesWithOptions(request, runtime);
+  }
+
+  /**
    * 查询模型分组绑定的资源组列表
    * 
    * @param request - ListModelTemplateResourceGroupRequest
@@ -2201,6 +2641,78 @@ export default class Client extends OpenApi {
   async listModelTemplateResourceGroup(request: $_model.ListModelTemplateResourceGroupRequest): Promise<$_model.ListModelTemplateResourceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listModelTemplateResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询模型模板列表
+   * 
+   * @param tmpReq - ListModelTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelTemplatesResponse
+   */
+  async listModelTemplatesWithOptions(tmpReq: $_model.ListModelTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListModelTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.modelTemplateIdList)) {
+      request.modelTemplateIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modelTemplateIdList, "ModelTemplateIdList", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.hasModel)) {
+      query["HasModel"] = request.hasModel;
+    }
+
+    if (!$dara.isNull(request.modelTemplateIdListShrink)) {
+      query["ModelTemplateIdList"] = request.modelTemplateIdListShrink;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelTemplates",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListModelTemplatesResponse({}));
+  }
+
+  /**
+   * 查询模型模板列表
+   * 
+   * @param request - ListModelTemplatesRequest
+   * @returns ListModelTemplatesResponse
+   */
+  async listModelTemplates(request: $_model.ListModelTemplatesRequest): Promise<$_model.ListModelTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listModelTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -4046,6 +4558,126 @@ export default class Client extends OpenApi {
   async updateAppInstanceGroupImage(request: $_model.UpdateAppInstanceGroupImageRequest): Promise<$_model.UpdateAppInstanceGroupImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAppInstanceGroupImageWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新模型提供商模板
+   * 
+   * @param tmpReq - UpdateModelProviderTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelProviderTemplateResponse
+   */
+  async updateModelProviderTemplateWithOptions(tmpReq: $_model.UpdateModelProviderTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelProviderTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateModelProviderTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.config)) {
+      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.configShrink)) {
+      query["Config"] = request.configShrink;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableWuyingProxy)) {
+      body["EnableWuyingProxy"] = request.enableWuyingProxy;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.providerTemplateId)) {
+      body["ProviderTemplateId"] = request.providerTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelProviderTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelProviderTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelProviderTemplateResponse({}));
+  }
+
+  /**
+   * 更新模型提供商模板
+   * 
+   * @param request - UpdateModelProviderTemplateRequest
+   * @returns UpdateModelProviderTemplateResponse
+   */
+  async updateModelProviderTemplate(request: $_model.UpdateModelProviderTemplateRequest): Promise<$_model.UpdateModelProviderTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateModelProviderTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新模型模板
+   * 
+   * @param request - UpdateModelTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelTemplateResponse
+   */
+  async updateModelTemplateWithOptions(request: $_model.UpdateModelTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.modelTemplateId)) {
+      query["ModelTemplateId"] = request.modelTemplateId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelTemplate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelTemplateResponse({}));
+  }
+
+  /**
+   * 更新模型模板
+   * 
+   * @param request - UpdateModelTemplateRequest
+   * @returns UpdateModelTemplateResponse
+   */
+  async updateModelTemplate(request: $_model.UpdateModelTemplateRequest): Promise<$_model.UpdateModelTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateModelTemplateWithOptions(request, runtime);
   }
 
   /**
