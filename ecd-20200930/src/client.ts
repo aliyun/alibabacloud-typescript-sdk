@@ -10627,6 +10627,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeOnlineUserCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOnlineUserCountResponse
+   */
+  async describeOnlineUserCountWithOptions(request: $_model.DescribeOnlineUserCountRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeOnlineUserCountResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeOnlineUserCount",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeOnlineUserCountResponse>(await this.callApi(params, req, runtime), new $_model.DescribeOnlineUserCountResponse({}));
+  }
+
+  /**
+   * @param request - DescribeOnlineUserCountRequest
+   * @returns DescribeOnlineUserCountResponse
+   */
+  async describeOnlineUserCount(request: $_model.DescribeOnlineUserCountRequest): Promise<$_model.DescribeOnlineUserCountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeOnlineUserCountWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a cloud computer policy.
    * 
    * @param request - DescribePolicyGroupsRequest
@@ -18199,6 +18249,82 @@ export default class Client extends OpenApi {
   async queryHistoryActiveUserCount(request: $_model.QueryHistoryActiveUserCountRequest): Promise<$_model.QueryHistoryActiveUserCountResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryHistoryActiveUserCountWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询桌面平均指标列表
+   * 
+   * @param tmpReq - QueryHistoryAvgMetricListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHistoryAvgMetricListResponse
+   */
+  async queryHistoryAvgMetricListWithOptions(tmpReq: $_model.QueryHistoryAvgMetricListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryHistoryAvgMetricListResponse> {
+    tmpReq.validate();
+    let request = new $_model.QueryHistoryAvgMetricListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.range)) {
+      request.rangeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.range, "Range", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.dataDate)) {
+      query["DataDate"] = request.dataDate;
+    }
+
+    if (!$dara.isNull(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!$dara.isNull(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.rangeShrink)) {
+      query["Range"] = request.rangeShrink;
+    }
+
+    if (!$dara.isNull(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    if (!$dara.isNull(request.sortType)) {
+      query["SortType"] = request.sortType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryHistoryAvgMetricList",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryHistoryAvgMetricListResponse>(await this.callApi(params, req, runtime), new $_model.QueryHistoryAvgMetricListResponse({}));
+  }
+
+  /**
+   * 查询桌面平均指标列表
+   * 
+   * @param request - QueryHistoryAvgMetricListRequest
+   * @returns QueryHistoryAvgMetricListResponse
+   */
+  async queryHistoryAvgMetricList(request: $_model.QueryHistoryAvgMetricListRequest): Promise<$_model.QueryHistoryAvgMetricListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryHistoryAvgMetricListWithOptions(request, runtime);
   }
 
   /**
