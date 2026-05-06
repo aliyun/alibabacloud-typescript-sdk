@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WafSiteSettingsAddBotProtectionHeaders extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the parameter is enabled.
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26,6 +30,10 @@ export class WafSiteSettingsAddBotProtectionHeaders extends $dara.Model {
 }
 
 export class WafSiteSettingsAddSecurityHeaders extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the parameter is enabled.
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -78,7 +86,21 @@ export class WafSiteSettingsBandwidthAbuseProtection extends $dara.Model {
 }
 
 export class WafSiteSettingsBotManagementDefiniteBots extends $dara.Model {
+  /**
+   * @remarks
+   * The action that you want to perform on requests that match the rule.
+   * 
+   * @example
+   * captcha
+   */
   action?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * 20000001
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -104,6 +126,10 @@ export class WafSiteSettingsBotManagementDefiniteBots extends $dara.Model {
 }
 
 export class WafSiteSettingsBotManagementEffectOnStatic extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the parameter is enabled.
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -127,6 +153,10 @@ export class WafSiteSettingsBotManagementEffectOnStatic extends $dara.Model {
 }
 
 export class WafSiteSettingsBotManagementJSDetection extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the parameter is enabled.
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -150,7 +180,21 @@ export class WafSiteSettingsBotManagementJSDetection extends $dara.Model {
 }
 
 export class WafSiteSettingsBotManagementLikelyBots extends $dara.Model {
+  /**
+   * @remarks
+   * The action that you want to perform on requests that match the rule.
+   * 
+   * @example
+   * deny
+   */
   action?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * 20000002
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -176,7 +220,21 @@ export class WafSiteSettingsBotManagementLikelyBots extends $dara.Model {
 }
 
 export class WafSiteSettingsBotManagementVerifiedBots extends $dara.Model {
+  /**
+   * @remarks
+   * The action that you want to perform on requests that match the rule.
+   * 
+   * @example
+   * bypass
+   */
   action?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * 20000003
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -202,10 +260,30 @@ export class WafSiteSettingsBotManagementVerifiedBots extends $dara.Model {
 }
 
 export class WafSiteSettingsBotManagement extends $dara.Model {
+  /**
+   * @remarks
+   * Definite Bots
+   */
   definiteBots?: WafSiteSettingsBotManagementDefiniteBots;
+  /**
+   * @remarks
+   * Takes effect on static resource requests.
+   */
   effectOnStatic?: WafSiteSettingsBotManagementEffectOnStatic;
+  /**
+   * @remarks
+   * JavaScript detection.
+   */
   JSDetection?: WafSiteSettingsBotManagementJSDetection;
+  /**
+   * @remarks
+   * Likely Bots
+   */
   likelyBots?: WafSiteSettingsBotManagementLikelyBots;
+  /**
+   * @remarks
+   * Verified Bots
+   */
   verifiedBots?: WafSiteSettingsBotManagementVerifiedBots;
   static names(): { [key: string]: string } {
     return {
@@ -252,7 +330,23 @@ export class WafSiteSettingsBotManagement extends $dara.Model {
 }
 
 export class WafSiteSettingsClientIpIdentifier extends $dara.Model {
+  /**
+   * @remarks
+   * Specify headers.
+   */
   headers?: string[];
+  /**
+   * @remarks
+   * Identifies the mode.
+   * 
+   * Enumerated values:
+   * 
+   * *   headers: specifies the headers.
+   * *   connection_ip: the IP address for establishing a connection.
+   * 
+   * @example
+   * headers
+   */
   mode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -303,7 +397,52 @@ export class WafSiteSettingsDisableSecurityModule extends $dara.Model {
   }
 }
 
+export class WafSiteSettingsRequestBodyInspection extends $dara.Model {
+  action?: string;
+  id?: number;
+  sizeLimit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+      sizeLimit: 'SizeLimit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+      sizeLimit: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WafSiteSettingsSecurityLevel extends $dara.Model {
+  /**
+   * @remarks
+   * The security level value.
+   * 
+   * Enumerated values:
+   * 
+   * *   high: high.
+   * *   low: low.
+   * *   under_attack: I am under attack.
+   * *   medium: medium.
+   * *   essentially_off: essentially off.
+   * *   off: completely off.
+   * 
+   * @example
+   * low
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -327,12 +466,33 @@ export class WafSiteSettingsSecurityLevel extends $dara.Model {
 }
 
 export class WafSiteSettings extends $dara.Model {
+  /**
+   * @remarks
+   * Adds a bot protection header.
+   */
   addBotProtectionHeaders?: WafSiteSettingsAddBotProtectionHeaders;
+  /**
+   * @remarks
+   * Adds security request header.
+   */
   addSecurityHeaders?: WafSiteSettingsAddSecurityHeaders;
   bandwidthAbuseProtection?: WafSiteSettingsBandwidthAbuseProtection;
+  /**
+   * @remarks
+   * Bot management.
+   */
   botManagement?: WafSiteSettingsBotManagement;
+  /**
+   * @remarks
+   * Identifies the IP address of the client.
+   */
   clientIpIdentifier?: WafSiteSettingsClientIpIdentifier;
   disableSecurityModule?: WafSiteSettingsDisableSecurityModule;
+  requestBodyInspection?: WafSiteSettingsRequestBodyInspection;
+  /**
+   * @remarks
+   * The security level.
+   */
   securityLevel?: WafSiteSettingsSecurityLevel;
   static names(): { [key: string]: string } {
     return {
@@ -342,6 +502,7 @@ export class WafSiteSettings extends $dara.Model {
       botManagement: 'BotManagement',
       clientIpIdentifier: 'ClientIpIdentifier',
       disableSecurityModule: 'DisableSecurityModule',
+      requestBodyInspection: 'RequestBodyInspection',
       securityLevel: 'SecurityLevel',
     };
   }
@@ -354,6 +515,7 @@ export class WafSiteSettings extends $dara.Model {
       botManagement: WafSiteSettingsBotManagement,
       clientIpIdentifier: WafSiteSettingsClientIpIdentifier,
       disableSecurityModule: WafSiteSettingsDisableSecurityModule,
+      requestBodyInspection: WafSiteSettingsRequestBodyInspection,
       securityLevel: WafSiteSettingsSecurityLevel,
     };
   }
@@ -376,6 +538,9 @@ export class WafSiteSettings extends $dara.Model {
     }
     if(this.disableSecurityModule && typeof (this.disableSecurityModule as any).validate === 'function') {
       (this.disableSecurityModule as any).validate();
+    }
+    if(this.requestBodyInspection && typeof (this.requestBodyInspection as any).validate === 'function') {
+      (this.requestBodyInspection as any).validate();
     }
     if(this.securityLevel && typeof (this.securityLevel as any).validate === 'function') {
       (this.securityLevel as any).validate();

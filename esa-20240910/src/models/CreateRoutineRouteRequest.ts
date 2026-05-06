@@ -80,6 +80,11 @@ export class CreateRoutineRouteRequest extends $dara.Model {
    * 123456****
    */
   siteId?: number;
+  /**
+   * @example
+   * 5
+   */
+  timeout?: string;
   static names(): { [key: string]: string } {
     return {
       bypass: 'Bypass',
@@ -90,6 +95,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
       rule: 'Rule',
       sequence: 'Sequence',
       siteId: 'SiteId',
+      timeout: 'Timeout',
     };
   }
 
@@ -103,6 +109,7 @@ export class CreateRoutineRouteRequest extends $dara.Model {
       rule: 'string',
       sequence: 'number',
       siteId: 'number',
+      timeout: 'string',
     };
   }
 

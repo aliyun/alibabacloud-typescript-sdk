@@ -7,6 +7,8 @@ export class CreateCustomResponseCodeRuleRequest extends $dara.Model {
    * @remarks
    * Response page.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 0
    */
@@ -14,6 +16,8 @@ export class CreateCustomResponseCodeRuleRequest extends $dara.Model {
   /**
    * @remarks
    * Response code.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 400

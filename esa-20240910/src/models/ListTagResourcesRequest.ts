@@ -61,7 +61,6 @@ export class ListTagResourcesRequest extends $dara.Model {
    * AAAAAZjtYxxxxxxxx
    */
   nextToken?: string;
-  ownerId?: number;
   /**
    * @remarks
    * The ID of the region where the resources reside.
@@ -97,7 +96,6 @@ export class ListTagResourcesRequest extends $dara.Model {
     return {
       maxItem: 'MaxItem',
       nextToken: 'NextToken',
-      ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
@@ -110,7 +108,6 @@ export class ListTagResourcesRequest extends $dara.Model {
     return {
       maxItem: 'number',
       nextToken: 'string',
-      ownerId: 'number',
       regionId: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',

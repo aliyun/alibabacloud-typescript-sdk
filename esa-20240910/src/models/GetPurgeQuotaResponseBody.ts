@@ -11,6 +11,7 @@ export class GetPurgeQuotaResponseBody extends $dara.Model {
    * 100000
    */
   quota?: string;
+  quota30Day?: string;
   /**
    * @remarks
    * The request ID.
@@ -27,19 +28,24 @@ export class GetPurgeQuotaResponseBody extends $dara.Model {
    * 10
    */
   usage?: string;
+  usage30Day?: string;
   static names(): { [key: string]: string } {
     return {
       quota: 'Quota',
+      quota30Day: 'Quota30Day',
       requestId: 'RequestId',
       usage: 'Usage',
+      usage30Day: 'Usage30Day',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       quota: 'string',
+      quota30Day: 'string',
       requestId: 'string',
       usage: 'string',
+      usage30Day: 'string',
     };
   }
 

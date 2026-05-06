@@ -96,6 +96,7 @@ export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
    * 1
    */
   siteVersion?: number;
+  timeout?: string;
   static names(): { [key: string]: string } {
     return {
       bypass: 'Bypass',
@@ -109,6 +110,7 @@ export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
       rule: 'Rule',
       sequence: 'Sequence',
       siteVersion: 'SiteVersion',
+      timeout: 'Timeout',
     };
   }
 
@@ -125,6 +127,7 @@ export class ListSiteRoutesResponseBodyConfigs extends $dara.Model {
       rule: 'string',
       sequence: 'number',
       siteVersion: 'number',
+      timeout: 'string',
     };
   }
 

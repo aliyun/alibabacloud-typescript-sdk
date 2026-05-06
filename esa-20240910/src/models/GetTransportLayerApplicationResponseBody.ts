@@ -181,6 +181,7 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
    * on
    */
   ipv6?: string;
+  keepAliveProtection?: string;
   /**
    * @remarks
    * Query Transport Layer Acceleration Application
@@ -239,6 +240,7 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
       crossBorderOptimization: 'CrossBorderOptimization',
       ipAccessRule: 'IpAccessRule',
       ipv6: 'Ipv6',
+      keepAliveProtection: 'KeepAliveProtection',
       recordName: 'RecordName',
       requestId: 'RequestId',
       rules: 'Rules',
@@ -257,6 +259,7 @@ export class GetTransportLayerApplicationResponseBody extends $dara.Model {
       crossBorderOptimization: 'string',
       ipAccessRule: 'string',
       ipv6: 'string',
+      keepAliveProtection: 'string',
       recordName: 'string',
       requestId: 'string',
       rules: { 'type': 'array', 'itemType': GetTransportLayerApplicationResponseBodyRules },

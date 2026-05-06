@@ -5,10 +5,33 @@ import { WafRatelimitCharacteristics } from "./WafRatelimitCharacteristics";
 
 
 export class WafRuleConfigActionsBypass extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of custom rules.
+   */
   customRules?: number[];
+  /**
+   * @remarks
+   * The IDs of managed rules.
+   */
   regularRules?: number[];
+  /**
+   * @remarks
+   * The types of managed rules.
+   */
   regularTypes?: string[];
+  /**
+   * @remarks
+   * The skip scope applied when requests match conditions defined in the whitelist rule.
+   * 
+   * @example
+   * part
+   */
   skip?: string;
+  /**
+   * @remarks
+   * The skipped rule categories when requests match conditions defined in the whitelist rule.
+   */
   tags?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -52,7 +75,21 @@ export class WafRuleConfigActionsBypass extends $dara.Model {
 }
 
 export class WafRuleConfigActionsResponse extends $dara.Model {
+  /**
+   * @remarks
+   * The custom response code.
+   * 
+   * @example
+   * 403
+   */
   code?: number;
+  /**
+   * @remarks
+   * The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+   * 
+   * @example
+   * 50000001
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -78,7 +115,15 @@ export class WafRuleConfigActionsResponse extends $dara.Model {
 }
 
 export class WafRuleConfigActions extends $dara.Model {
+  /**
+   * @remarks
+   * The skip configuration specified by the whitelist rule.
+   */
   bypass?: WafRuleConfigActionsBypass;
+  /**
+   * @remarks
+   * The custom error page.
+   */
   response?: WafRuleConfigActionsResponse;
   static names(): { [key: string]: string } {
     return {
@@ -110,7 +155,21 @@ export class WafRuleConfigActions extends $dara.Model {
 }
 
 export class WafRuleConfigAppPackagePackageSigns extends $dara.Model {
+  /**
+   * @remarks
+   * The valid package name.
+   * 
+   * @example
+   * name
+   */
   name?: string;
+  /**
+   * @remarks
+   * The valid package signature.
+   * 
+   * @example
+   * sign
+   */
   sign?: string;
   static names(): { [key: string]: string } {
     return {
@@ -136,6 +195,10 @@ export class WafRuleConfigAppPackagePackageSigns extends $dara.Model {
 }
 
 export class WafRuleConfigAppPackage extends $dara.Model {
+  /**
+   * @remarks
+   * The package signatures.
+   */
   packageSigns?: WafRuleConfigAppPackagePackageSigns[];
   static names(): { [key: string]: string } {
     return {
@@ -162,7 +225,21 @@ export class WafRuleConfigAppPackage extends $dara.Model {
 }
 
 export class WafRuleConfigAppSdkCustomSign extends $dara.Model {
+  /**
+   * @remarks
+   * The field name.
+   * 
+   * @example
+   * sign
+   */
   key?: string;
+  /**
+   * @remarks
+   * The field value.
+   * 
+   * @example
+   * examplesignvalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -188,8 +265,23 @@ export class WafRuleConfigAppSdkCustomSign extends $dara.Model {
 }
 
 export class WafRuleConfigAppSdk extends $dara.Model {
+  /**
+   * @remarks
+   * The custom signature field.
+   */
   customSign?: WafRuleConfigAppSdkCustomSign;
+  /**
+   * @remarks
+   * Indicates whether to configure the custom signature field.
+   * 
+   * @example
+   * on
+   */
   customSignStatus?: string;
+  /**
+   * @remarks
+   * The app anomalies.
+   */
   featureAbnormal?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -223,8 +315,29 @@ export class WafRuleConfigAppSdk extends $dara.Model {
 }
 
 export class WafRuleConfigManagedRulesetsManagedRules extends $dara.Model {
+  /**
+   * @remarks
+   * The action performed on requests that match the managed rule.
+   * 
+   * @example
+   * deny
+   */
   action?: string;
+  /**
+   * @remarks
+   * The ID of the managed rule.
+   * 
+   * @example
+   * 100001
+   */
   id?: number;
+  /**
+   * @remarks
+   * The status of the managed rule.
+   * 
+   * @example
+   * on
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -252,11 +365,50 @@ export class WafRuleConfigManagedRulesetsManagedRules extends $dara.Model {
 }
 
 export class WafRuleConfigManagedRulesets extends $dara.Model {
+  /**
+   * @remarks
+   * The action.
+   * 
+   * @example
+   * deny
+   */
   action?: string;
+  /**
+   * @remarks
+   * The attack type.
+   * 
+   * @example
+   * 11
+   */
   attackType?: number;
+  /**
+   * @remarks
+   * The managed rules.
+   */
   managedRules?: WafRuleConfigManagedRulesetsManagedRules[];
+  /**
+   * @remarks
+   * The number of enabled rules.
+   * 
+   * @example
+   * 50
+   */
   numberEnabled?: number;
+  /**
+   * @remarks
+   * The total number of rules.
+   * 
+   * @example
+   * 100
+   */
   numberTotal?: number;
+  /**
+   * @remarks
+   * The protection level.
+   * 
+   * @example
+   * 4
+   */
   protectionLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -293,8 +445,29 @@ export class WafRuleConfigManagedRulesets extends $dara.Model {
 }
 
 export class WafRuleConfigRateLimitThresholdResponseStatus extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP status code.
+   * 
+   * @example
+   * 404
+   */
   code?: number;
+  /**
+   * @remarks
+   * The maximum number of times that the status code is returned.
+   * 
+   * @example
+   * 10
+   */
   count?: number;
+  /**
+   * @remarks
+   * The percentage of the occurrences of the status code to total status codes.
+   * 
+   * @example
+   * 10
+   */
   ratio?: number;
   static names(): { [key: string]: string } {
     return {
@@ -322,10 +495,42 @@ export class WafRuleConfigRateLimitThresholdResponseStatus extends $dara.Model {
 }
 
 export class WafRuleConfigRateLimitThreshold extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of managed rules that are triggered.
+   * 
+   * @example
+   * 10
+   */
   distinctManagedRules?: number;
+  /**
+   * @remarks
+   * The maximum number of times that the managed rule is triggered.
+   * 
+   * @example
+   * 10
+   */
   managedRulesBlocked?: number;
+  /**
+   * @remarks
+   * The request threshold.
+   * 
+   * @example
+   * 10
+   */
   request?: number;
+  /**
+   * @remarks
+   * The configuration of the status code threshold.
+   */
   responseStatus?: WafRuleConfigRateLimitThresholdResponseStatus;
+  /**
+   * @remarks
+   * The traffic threshold, which is deprecated.
+   * 
+   * @example
+   * 10Gb
+   */
   traffic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -360,10 +565,39 @@ export class WafRuleConfigRateLimitThreshold extends $dara.Model {
 }
 
 export class WafRuleConfigRateLimit extends $dara.Model {
+  /**
+   * @remarks
+   * The statistical objects to which the rule applies.
+   */
   characteristics?: WafRatelimitCharacteristics;
+  /**
+   * @remarks
+   * The statistical interval.
+   * 
+   * @example
+   * 10
+   */
   interval?: number;
+  /**
+   * @remarks
+   * Indicates whether to apply the rule to requests that hit the cache.
+   * 
+   * @example
+   * true
+   */
   onHit?: boolean;
+  /**
+   * @remarks
+   * The timeout period for creating the stack.
+   * 
+   * @example
+   * 10
+   */
   TTL?: number;
+  /**
+   * @remarks
+   * The thresholds.
+   */
   threshold?: WafRuleConfigRateLimitThreshold;
   static names(): { [key: string]: string } {
     return {
@@ -401,6 +635,20 @@ export class WafRuleConfigRateLimit extends $dara.Model {
 }
 
 export class WafRuleConfigSecurityLevel extends $dara.Model {
+  /**
+   * @remarks
+   * Valid value:
+   * 
+   * *   off
+   * *   essentially_off
+   * *   low
+   * *   medium
+   * *   high
+   * *   under_attack
+   * 
+   * @example
+   * low
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -424,23 +672,125 @@ export class WafRuleConfigSecurityLevel extends $dara.Model {
 }
 
 export class WafRuleConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The operation to perform after the WAF rule is matched.
+   * 
+   * @example
+   * deny
+   */
   action?: string;
+  /**
+   * @remarks
+   * The extended action configurations.
+   */
   actions?: WafRuleConfigActions;
+  /**
+   * @remarks
+   * The configuration of secondary package detection.
+   */
   appPackage?: WafRuleConfigAppPackage;
+  /**
+   * @remarks
+   * The SDK configuration for apps.
+   */
   appSdk?: WafRuleConfigAppSdk;
+  /**
+   * @remarks
+   * The match expression.
+   * 
+   * @example
+   * ip.src eq 1.1.1.1
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The ID of the WAF rule.
+   * 
+   * @example
+   * 20000001
+   */
   id?: number;
+  /**
+   * @remarks
+   * The ID of the managed rule group, which is deprecated.
+   * 
+   * @example
+   * 30000001
+   */
   managedGroupId?: number;
+  /**
+   * @remarks
+   * The managed list.
+   * 
+   * @example
+   * intelligence_crawler
+   */
   managedList?: string;
+  /**
+   * @remarks
+   * The managed rulesets.
+   */
   managedRulesets?: WafRuleConfigManagedRulesets[];
+  /**
+   * @remarks
+   * The name of the WAF rule.
+   * 
+   * @example
+   * example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * example notes
+   */
   notes?: string;
+  /**
+   * @remarks
+   * The configuration of the rate limiting rule.
+   */
   rateLimit?: WafRuleConfigRateLimit;
+  /**
+   * @remarks
+   * The security level.
+   */
   securityLevel?: WafRuleConfigSecurityLevel;
+  /**
+   * @remarks
+   * The token verification configurations.
+   */
   sigchl?: string[];
+  /**
+   * @remarks
+   * The status of the WAF rule.
+   * 
+   * @example
+   * on
+   */
   status?: string;
+  /**
+   * @remarks
+   * The timer.
+   */
   timer?: WafTimer;
+  /**
+   * @remarks
+   * The name of the WAF rule.
+   * 
+   * @example
+   * http_custom
+   */
   type?: string;
+  /**
+   * @remarks
+   * Defines whether the IP can access.
+   * 
+   * @example
+   * 10.0.0.1
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

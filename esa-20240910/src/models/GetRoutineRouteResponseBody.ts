@@ -114,6 +114,11 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
    * 0
    */
   siteVersion?: number;
+  /**
+   * @example
+   * 5
+   */
+  timeout?: string;
   static names(): { [key: string]: string } {
     return {
       bypass: 'Bypass',
@@ -128,6 +133,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
       rule: 'Rule',
       sequence: 'Sequence',
       siteVersion: 'SiteVersion',
+      timeout: 'Timeout',
     };
   }
 
@@ -145,6 +151,7 @@ export class GetRoutineRouteResponseBody extends $dara.Model {
       rule: 'string',
       sequence: 'number',
       siteVersion: 'number',
+      timeout: 'string',
     };
   }
 

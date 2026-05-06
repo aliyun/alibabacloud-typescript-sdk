@@ -51,11 +51,13 @@ export default class Client extends OpenApi {
       try {
         let request_ = new $dara.Request();
         let boundary = $dara.Form.getBoundary();
+        let tmp = String(form["host"]);
+        let host = `${bucketName}.${tmp}`;
         request_.protocol = "HTTPS";
         request_.method = "POST";
         request_.pathname = `/`;
         request_.headers = {
-          host: String(form["host"]),
+          host: host,
           date: OpenApiUtil.getDateUTCString(),
           'user-agent': OpenApiUtil.getUserAgent(""),
         };
@@ -661,7 +663,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -1007,7 +1009,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -1117,10 +1119,6 @@ export default class Client extends OpenApi {
       query["Content"] = request.contentShrink;
     }
 
-    if (!$dara.isNull(request.extension)) {
-      query["Extension"] = request.extension;
-    }
-
     if (!$dara.isNull(request.maxage)) {
       query["Maxage"] = request.maxage;
     }
@@ -1164,7 +1162,6 @@ export default class Client extends OpenApi {
   /**
    * 检查实时日志slr角色是否已创建
    * 
-   * @param request - CheckAssumeSlrRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CheckAssumeSlrRoleResponse
    */
@@ -3226,12 +3223,18 @@ export default class Client extends OpenApi {
   /**
    * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
    * 
-   * @param request - CreatePageRequest
+   * @param tmpReq - CreatePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreatePageResponse
    */
-  async createPageWithOptions(request: $_model.CreatePageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePageResponse> {
-    request.validate();
+  async createPageWithOptions(tmpReq: $_model.CreatePageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePageResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreatePageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.siteIds)) {
+      request.siteIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.siteIds, "SiteIds", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.content)) {
       body["Content"] = request.content;
@@ -3247,6 +3250,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.siteIdsShrink)) {
+      body["SiteIds"] = request.siteIdsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3737,6 +3744,10 @@ export default class Client extends OpenApi {
       query["SiteId"] = request.siteId;
     }
 
+    if (!$dara.isNull(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4200,7 +4211,6 @@ export default class Client extends OpenApi {
   /**
    * 创建一个实时日志slr角色
    * 
-   * @param request - CreateSlrRoleForRealtimeLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateSlrRoleForRealtimeLogResponse
    */
@@ -4255,6 +4265,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ipv6)) {
       query["Ipv6"] = request.ipv6;
+    }
+
+    if (!$dara.isNull(request.keepAliveProtection)) {
+      query["KeepAliveProtection"] = request.keepAliveProtection;
     }
 
     if (!$dara.isNull(request.recordName)) {
@@ -6026,6 +6040,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除一个keyless server配置
+   * 
+   * @param request - DeleteKeylessServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKeylessServerResponse
+   */
+  async deleteKeylessServerWithOptions(request: $_model.DeleteKeylessServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKeylessServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKeylessServer",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKeylessServerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKeylessServerResponse({}));
+  }
+
+  /**
+   * 删除一个keyless server配置
+   * 
+   * @param request - DeleteKeylessServerRequest
+   * @returns DeleteKeylessServerResponse
+   */
+  async deleteKeylessServer(request: $_model.DeleteKeylessServerRequest): Promise<$_model.DeleteKeylessServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKeylessServerWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a key-value pair from a namespace.
    * 
    * @param request - DeleteKvRequest
@@ -6919,10 +6979,6 @@ export default class Client extends OpenApi {
   async deleteSiteWithOptions(request: $_model.DeleteSiteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSiteResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
@@ -8062,7 +8118,6 @@ export default class Client extends OpenApi {
   /**
    * Queries whether Edge KV is activated in your Alibaba Cloud account.
    * 
-   * @param request - DescribeKvAccountStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeKvAccountStatusResponse
    */
@@ -8213,6 +8268,56 @@ export default class Client extends OpenApi {
   async describeRatePlanInstanceStatus(request: $_model.DescribeRatePlanInstanceStatusRequest): Promise<$_model.DescribeRatePlanInstanceStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeRatePlanInstanceStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the prices, types, and status of plans.
+   * 
+   * @param request - DescribeRatePlanPriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRatePlanPriceResponse
+   */
+  async describeRatePlanPriceWithOptions(request: $_model.DescribeRatePlanPriceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRatePlanPriceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.planName)) {
+      query["PlanName"] = request.planName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRatePlanPrice",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRatePlanPriceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRatePlanPriceResponse({}));
+  }
+
+  /**
+   * Queries the prices, types, and status of plans.
+   * 
+   * @param request - DescribeRatePlanPriceRequest
+   * @returns DescribeRatePlanPriceResponse
+   */
+  async describeRatePlanPrice(request: $_model.DescribeRatePlanPriceRequest): Promise<$_model.DescribeRatePlanPriceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeRatePlanPriceWithOptions(request, runtime);
   }
 
   /**
@@ -8738,9 +8843,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询站点智能限频阈值
+   * 
+   * @param request - GetAutomaticFrequencyControlConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAutomaticFrequencyControlConfigResponse
+   */
+  async getAutomaticFrequencyControlConfigWithOptions(request: $_model.GetAutomaticFrequencyControlConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAutomaticFrequencyControlConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAutomaticFrequencyControlConfig",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAutomaticFrequencyControlConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetAutomaticFrequencyControlConfigResponse({}));
+  }
+
+  /**
+   * 查询站点智能限频阈值
+   * 
+   * @param request - GetAutomaticFrequencyControlConfigRequest
+   * @returns GetAutomaticFrequencyControlConfigResponse
+   */
+  async getAutomaticFrequencyControlConfig(request: $_model.GetAutomaticFrequencyControlConfigRequest): Promise<$_model.GetAutomaticFrequencyControlConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAutomaticFrequencyControlConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the available specifications of cache reserve instances.
    * 
-   * @param request - GetCacheReserveSpecificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCacheReserveSpecificationResponse
    */
@@ -8965,6 +9115,52 @@ export default class Client extends OpenApi {
   async getClientCaCertificate(request: $_model.GetClientCaCertificateRequest): Promise<$_model.GetClientCaCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getClientCaCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取客户端CA证书绑定的域名列表
+   * 
+   * @param request - GetClientCaCertificateHostnamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClientCaCertificateHostnamesResponse
+   */
+  async getClientCaCertificateHostnamesWithOptions(request: $_model.GetClientCaCertificateHostnamesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetClientCaCertificateHostnamesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetClientCaCertificateHostnames",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetClientCaCertificateHostnamesResponse>(await this.callApi(params, req, runtime), new $_model.GetClientCaCertificateHostnamesResponse({}));
+  }
+
+  /**
+   * 获取客户端CA证书绑定的域名列表
+   * 
+   * @param request - GetClientCaCertificateHostnamesRequest
+   * @returns GetClientCaCertificateHostnamesResponse
+   */
+  async getClientCaCertificateHostnames(request: $_model.GetClientCaCertificateHostnamesRequest): Promise<$_model.GetClientCaCertificateHostnamesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getClientCaCertificateHostnamesWithOptions(request, runtime);
   }
 
   /**
@@ -10072,6 +10268,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取一个keyless server配置
+   * 
+   * @param request - GetKeylessServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKeylessServerResponse
+   */
+  async getKeylessServerWithOptions(request: $_model.GetKeylessServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKeylessServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKeylessServer",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKeylessServerResponse>(await this.callApi(params, req, runtime), new $_model.GetKeylessServerResponse({}));
+  }
+
+  /**
+   * 获取一个keyless server配置
+   * 
+   * @param request - GetKeylessServerRequest
+   * @returns GetKeylessServerResponse
+   */
+  async getKeylessServer(request: $_model.GetKeylessServerRequest): Promise<$_model.GetKeylessServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKeylessServerWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the value of a key in a key-value pair.
    * 
    * @param request - GetKvRequest
@@ -10112,7 +10354,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
    * 
-   * @param request - GetKvAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetKvAccountResponse
    */
@@ -10658,6 +10899,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据质量采集配置
+   * 
+   * @param request - GetPerformanceDataCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPerformanceDataCollectionResponse
+   */
+  async getPerformanceDataCollectionWithOptions(request: $_model.GetPerformanceDataCollectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPerformanceDataCollectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPerformanceDataCollection",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPerformanceDataCollectionResponse>(await this.callApi(params, req, runtime), new $_model.GetPerformanceDataCollectionResponse({}));
+  }
+
+  /**
+   * 查询数据质量采集配置
+   * 
+   * @param request - GetPerformanceDataCollectionRequest
+   * @returns GetPerformanceDataCollectionResponse
+   */
+  async getPerformanceDataCollection(request: $_model.GetPerformanceDataCollectionRequest): Promise<$_model.GetPerformanceDataCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPerformanceDataCollectionWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the quotas and quota usage for different cache purge options.
    * 
    * @param request - GetPurgeQuotaRequest
@@ -10666,7 +10949,15 @@ export default class Client extends OpenApi {
    */
   async getPurgeQuotaWithOptions(request: $_model.GetPurgeQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPurgeQuotaResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -10675,7 +10966,7 @@ export default class Client extends OpenApi {
       version: "2024-09-10",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -11080,7 +11371,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the IP addresses of staging environments for Edge Routine.
    * 
-   * @param request - GetRoutineStagingEnvIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRoutineStagingEnvIpResponse
    */
@@ -11112,7 +11402,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
    * 
-   * @param request - GetRoutineUserInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRoutineUserInfoResponse
    */
@@ -11900,7 +12189,6 @@ export default class Client extends OpenApi {
   /**
    * This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
    * 
-   * @param request - GetWafBotAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWafBotAppKeyResponse
    */
@@ -12594,6 +12882,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询DDoS安全实例列表
+   * 
+   * @param request - ListDDoSInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDDoSInstancesResponse
+   */
+  async listDDoSInstancesWithOptions(request: $_model.ListDDoSInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDDoSInstancesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.siteInstanceId)) {
+      query["SiteInstanceId"] = request.siteInstanceId;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDDoSInstances",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDDoSInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListDDoSInstancesResponse({}));
+  }
+
+  /**
+   * 查询DDoS安全实例列表
+   * 
+   * @param request - ListDDoSInstancesRequest
+   * @returns ListDDoSInstancesResponse
+   */
+  async listDDoSInstances(request: $_model.ListDDoSInstancesRequest): Promise<$_model.ListDDoSInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDDoSInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Batch query whether the IP address is included in the ESA resolution result.
    * 
    * @remarks
@@ -12858,7 +13212,6 @@ export default class Client extends OpenApi {
   /**
    * Queries Edge Routine plans.
    * 
-   * @param request - ListEdgeRoutinePlansRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEdgeRoutinePlansResponse
    */
@@ -13271,6 +13624,56 @@ export default class Client extends OpenApi {
   async listInstanceQuotasWithUsage(request: $_model.ListInstanceQuotasWithUsageRequest): Promise<$_model.ListInstanceQuotasWithUsageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstanceQuotasWithUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取站点下keyless server列表
+   * 
+   * @param request - ListKeylessServersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKeylessServersResponse
+   */
+  async listKeylessServersWithOptions(request: $_model.ListKeylessServersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKeylessServersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKeylessServers",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKeylessServersResponse>(await this.callApi(params, req, runtime), new $_model.ListKeylessServersResponse({}));
+  }
+
+  /**
+   * 获取站点下keyless server列表
+   * 
+   * @param request - ListKeylessServersRequest
+   * @returns ListKeylessServersResponse
+   */
+  async listKeylessServers(request: $_model.ListKeylessServersRequest): Promise<$_model.ListKeylessServersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKeylessServersWithOptions(request, runtime);
   }
 
   /**
@@ -13916,7 +14319,6 @@ export default class Client extends OpenApi {
   /**
    * Lists the regions to which Edge Routine code can be released for canary deployment.
    * 
-   * @param request - ListRoutineCanaryAreasRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRoutineCanaryAreasResponse
    */
@@ -14393,10 +14795,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -15365,10 +15763,6 @@ export default class Client extends OpenApi {
   async openErServiceWithOptions(request: $_model.OpenErServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.OpenErServiceResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
     if (!$dara.isNull(request.securityToken)) {
       query["SecurityToken"] = request.securityToken;
     }
@@ -15746,7 +16140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cache Refresh
+   * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
    * 
    * @param tmpReq - PurgeCachesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15799,7 +16193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cache Refresh
+   * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
    * 
    * @param request - PurgeCachesRequest
    * @returns PurgeCachesResponse
@@ -16069,7 +16463,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -16125,6 +16519,48 @@ export default class Client extends OpenApi {
   async rebuildEdgeContainerAppStagingEnv(request: $_model.RebuildEdgeContainerAppStagingEnvRequest): Promise<$_model.RebuildEdgeContainerAppStagingEnvResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.rebuildEdgeContainerAppStagingEnvWithOptions(request, runtime);
+  }
+
+  /**
+   * 预约释放安全实例
+   * 
+   * @param request - ReleaseInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseInstanceResponse
+   */
+  async releaseInstanceWithOptions(request: $_model.ReleaseInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ReleaseInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ReleaseInstance",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ReleaseInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ReleaseInstanceResponse({}));
+  }
+
+  /**
+   * 预约释放安全实例
+   * 
+   * @param request - ReleaseInstanceRequest
+   * @returns ReleaseInstanceResponse
+   */
+  async releaseInstance(request: $_model.ReleaseInstanceRequest): Promise<$_model.ReleaseInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.releaseInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -16268,6 +16704,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置站点智能限频阈值
+   * 
+   * @param request - SetAutomaticFrequencyControlConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetAutomaticFrequencyControlConfigResponse
+   */
+  async setAutomaticFrequencyControlConfigWithOptions(request: $_model.SetAutomaticFrequencyControlConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetAutomaticFrequencyControlConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.actionType)) {
+      query["ActionType"] = request.actionType;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetAutomaticFrequencyControlConfig",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetAutomaticFrequencyControlConfigResponse>(await this.callApi(params, req, runtime), new $_model.SetAutomaticFrequencyControlConfigResponse({}));
+  }
+
+  /**
+   * 设置站点智能限频阈值
+   * 
+   * @param request - SetAutomaticFrequencyControlConfigRequest
+   * @returns SetAutomaticFrequencyControlConfigResponse
+   */
+  async setAutomaticFrequencyControlConfig(request: $_model.SetAutomaticFrequencyControlConfigRequest): Promise<$_model.SetAutomaticFrequencyControlConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setAutomaticFrequencyControlConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Configures whether to enable certificates and update certificate information for a website.
    * 
    * @param request - SetCertificateRequest
@@ -16279,10 +16773,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.keyServerId)) {
       query["KeyServerId"] = request.keyServerId;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.securityToken)) {
@@ -16349,6 +16839,64 @@ export default class Client extends OpenApi {
   async setCertificate(request: $_model.SetCertificateRequest): Promise<$_model.SetCertificateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 为客户端CA证书绑定域名
+   * 
+   * @param tmpReq - SetClientCaCertificateHostnamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetClientCaCertificateHostnamesResponse
+   */
+  async setClientCaCertificateHostnamesWithOptions(tmpReq: $_model.SetClientCaCertificateHostnamesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetClientCaCertificateHostnamesResponse> {
+    tmpReq.validate();
+    let request = new $_model.SetClientCaCertificateHostnamesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.hostnames)) {
+      request.hostnamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hostnames, "Hostnames", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hostnamesShrink)) {
+      body["Hostnames"] = request.hostnamesShrink;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetClientCaCertificateHostnames",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetClientCaCertificateHostnamesResponse>(await this.callApi(params, req, runtime), new $_model.SetClientCaCertificateHostnamesResponse({}));
+  }
+
+  /**
+   * 为客户端CA证书绑定域名
+   * 
+   * @param request - SetClientCaCertificateHostnamesRequest
+   * @returns SetClientCaCertificateHostnamesResponse
+   */
+  async setClientCaCertificateHostnames(request: $_model.SetClientCaCertificateHostnamesRequest): Promise<$_model.SetClientCaCertificateHostnamesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setClientCaCertificateHostnamesWithOptions(request, runtime);
   }
 
   /**
@@ -16652,6 +17200,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建/更新一个keyless server
+   * 
+   * @param request - SetKeylessServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetKeylessServerResponse
+   */
+  async setKeylessServerWithOptions(request: $_model.SetKeylessServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetKeylessServerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.caCertificate)) {
+      body["CaCertificate"] = request.caCertificate;
+    }
+
+    if (!$dara.isNull(request.clientCertificate)) {
+      body["ClientCertificate"] = request.clientCertificate;
+    }
+
+    if (!$dara.isNull(request.clientPrivateKey)) {
+      body["ClientPrivateKey"] = request.clientPrivateKey;
+    }
+
+    if (!$dara.isNull(request.host)) {
+      body["Host"] = request.host;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      body["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.verify)) {
+      body["Verify"] = request.verify;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetKeylessServer",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetKeylessServerResponse>(await this.callApi(params, req, runtime), new $_model.SetKeylessServerResponse({}));
+  }
+
+  /**
+   * 创建/更新一个keyless server
+   * 
+   * @param request - SetKeylessServerRequest
+   * @returns SetKeylessServerResponse
+   */
+  async setKeylessServer(request: $_model.SetKeylessServerRequest): Promise<$_model.SetKeylessServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setKeylessServerWithOptions(request, runtime);
+  }
+
+  /**
    * 为域名回源客户端证书绑定域名
    * 
    * @param tmpReq - SetOriginClientCertificateHostnamesRequest
@@ -16865,10 +17489,6 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.all)) {
       query["All"] = request.all;
-    }
-
-    if (!$dara.isNull(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -18940,12 +19560,18 @@ export default class Client extends OpenApi {
   /**
    * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
    * 
-   * @param request - UpdatePageRequest
+   * @param tmpReq - UpdatePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdatePageResponse
    */
-  async updatePageWithOptions(request: $_model.UpdatePageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePageResponse> {
-    request.validate();
+  async updatePageWithOptions(tmpReq: $_model.UpdatePageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePageResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdatePageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.siteIds)) {
+      request.siteIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.siteIds, "SiteIds", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.content)) {
       body["Content"] = request.content;
@@ -18965,6 +19591,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.siteIdsShrink)) {
+      body["SiteIds"] = request.siteIdsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18996,7 +19626,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 套餐变配
+   * 修改网页数据质量采集配置
+   * 
+   * @param request - UpdatePerformanceDataCollectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePerformanceDataCollectionResponse
+   */
+  async updatePerformanceDataCollectionWithOptions(request: $_model.UpdatePerformanceDataCollectionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePerformanceDataCollectionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enable)) {
+      query["Enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePerformanceDataCollection",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePerformanceDataCollectionResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePerformanceDataCollectionResponse({}));
+  }
+
+  /**
+   * 修改网页数据质量采集配置
+   * 
+   * @param request - UpdatePerformanceDataCollectionRequest
+   * @returns UpdatePerformanceDataCollectionResponse
+   */
+  async updatePerformanceDataCollection(request: $_model.UpdatePerformanceDataCollectionRequest): Promise<$_model.UpdatePerformanceDataCollectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updatePerformanceDataCollectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Plan Adjustment
    * 
    * @param request - UpdateRatePlanSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19047,7 +19723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 套餐变配
+   * Plan Adjustment
    * 
    * @param request - UpdateRatePlanSpecRequest
    * @returns UpdateRatePlanSpecResponse
@@ -19409,6 +20085,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.siteId)) {
       query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      query["Timeout"] = request.timeout;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -20029,6 +20709,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.ipv6)) {
       query["Ipv6"] = request.ipv6;
+    }
+
+    if (!$dara.isNull(request.keepAliveProtection)) {
+      query["KeepAliveProtection"] = request.keepAliveProtection;
     }
 
     if (!$dara.isNull(request.rulesShrink)) {
@@ -21031,7 +21715,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],

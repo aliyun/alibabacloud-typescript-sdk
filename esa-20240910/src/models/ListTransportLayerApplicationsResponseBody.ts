@@ -193,6 +193,7 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
    * on
    */
   ipv6?: string;
+  keepAliveProtection?: string;
   /**
    * @remarks
    * Domain name of the Layer 4 application.
@@ -246,6 +247,7 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
       crossBorderOptimization: 'CrossBorderOptimization',
       ipAccessRule: 'IpAccessRule',
       ipv6: 'Ipv6',
+      keepAliveProtection: 'KeepAliveProtection',
       recordName: 'RecordName',
       rules: 'Rules',
       rulesCount: 'RulesCount',
@@ -263,6 +265,7 @@ export class ListTransportLayerApplicationsResponseBodyApplications extends $dar
       crossBorderOptimization: 'string',
       ipAccessRule: 'string',
       ipv6: 'string',
+      keepAliveProtection: 'string',
       recordName: 'string',
       rules: { 'type': 'array', 'itemType': ListTransportLayerApplicationsResponseBodyApplicationsRules },
       rulesCount: 'number',

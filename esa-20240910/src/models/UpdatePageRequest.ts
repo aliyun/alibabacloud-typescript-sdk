@@ -56,6 +56,7 @@ export class UpdatePageRequest extends $dara.Model {
    * example
    */
   name?: string;
+  siteIds?: number[];
   static names(): { [key: string]: string } {
     return {
       content: 'Content',
@@ -63,6 +64,7 @@ export class UpdatePageRequest extends $dara.Model {
       description: 'Description',
       id: 'Id',
       name: 'Name',
+      siteIds: 'SiteIds',
     };
   }
 
@@ -73,10 +75,14 @@ export class UpdatePageRequest extends $dara.Model {
       description: 'string',
       id: 'number',
       name: 'string',
+      siteIds: { 'type': 'array', 'itemType': 'number' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.siteIds)) {
+      $dara.Model.validateArray(this.siteIds);
+    }
     super.validate();
   }
 

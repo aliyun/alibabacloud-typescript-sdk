@@ -222,6 +222,35 @@ export class GetWafQuotaResponseBodyQuotaScenePolicy extends $dara.Model {
   }
 }
 
+export class GetWafQuotaResponseBodyQuotaSliderCaptchaPage extends $dara.Model {
+  enable?: boolean;
+  numberTotal?: WafQuotaInteger;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      numberTotal: 'NumberTotal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      numberTotal: WafQuotaInteger,
+    };
+  }
+
+  validate() {
+    if(this.numberTotal && typeof (this.numberTotal as any).validate === 'function') {
+      (this.numberTotal as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWafQuotaResponseBodyQuota extends $dara.Model {
   captcha?: GetWafQuotaResponseBodyQuotaCaptcha;
   /**
@@ -244,6 +273,7 @@ export class GetWafQuotaResponseBodyQuota extends $dara.Model {
    * Quota information related to scene protection.
    */
   scenePolicy?: GetWafQuotaResponseBodyQuotaScenePolicy;
+  sliderCaptchaPage?: GetWafQuotaResponseBodyQuotaSliderCaptchaPage;
   static names(): { [key: string]: string } {
     return {
       captcha: 'Captcha',
@@ -251,6 +281,7 @@ export class GetWafQuotaResponseBodyQuota extends $dara.Model {
       managedRulesGroup: 'ManagedRulesGroup',
       page: 'Page',
       scenePolicy: 'ScenePolicy',
+      sliderCaptchaPage: 'SliderCaptchaPage',
     };
   }
 
@@ -261,6 +292,7 @@ export class GetWafQuotaResponseBodyQuota extends $dara.Model {
       managedRulesGroup: GetWafQuotaResponseBodyQuotaManagedRulesGroup,
       page: GetWafQuotaResponseBodyQuotaPage,
       scenePolicy: GetWafQuotaResponseBodyQuotaScenePolicy,
+      sliderCaptchaPage: GetWafQuotaResponseBodyQuotaSliderCaptchaPage,
     };
   }
 
@@ -279,6 +311,9 @@ export class GetWafQuotaResponseBodyQuota extends $dara.Model {
     }
     if(this.scenePolicy && typeof (this.scenePolicy as any).validate === 'function') {
       (this.scenePolicy as any).validate();
+    }
+    if(this.sliderCaptchaPage && typeof (this.sliderCaptchaPage as any).validate === 'function') {
+      (this.sliderCaptchaPage as any).validate();
     }
     super.validate();
   }

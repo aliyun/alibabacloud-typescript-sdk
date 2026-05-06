@@ -3,15 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPagesRequestQueryArgs extends $dara.Model {
+  /**
+   * @example
+   * application/json
+   */
+  contentType?: string;
   nameDescriptionLike?: string;
   static names(): { [key: string]: string } {
     return {
+      contentType: 'ContentType',
       nameDescriptionLike: 'NameDescriptionLike',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      contentType: 'string',
       nameDescriptionLike: 'string',
     };
   }

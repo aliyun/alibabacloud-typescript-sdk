@@ -12,14 +12,6 @@ export class BlockObjectShrinkRequest extends $dara.Model {
   contentShrink?: string;
   /**
    * @remarks
-   * The blocking period that you can extend. Set the value to 2year.
-   * 
-   * @example
-   * 2year
-   */
-  extension?: string;
-  /**
-   * @remarks
    * The period of time during which the URL is blocked. Unit: seconds. Specify this parameter if Type is set to block.
    * 
    * @example
@@ -52,7 +44,6 @@ export class BlockObjectShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       contentShrink: 'Content',
-      extension: 'Extension',
       maxage: 'Maxage',
       siteId: 'SiteId',
       type: 'Type',
@@ -62,7 +53,6 @@ export class BlockObjectShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       contentShrink: 'string',
-      extension: 'string',
       maxage: 'number',
       siteId: 'number',
       type: 'string',

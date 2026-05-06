@@ -16,7 +16,6 @@ export class UntagResourcesRequest extends $dara.Model {
    * false
    */
   all?: boolean;
-  ownerId?: number;
   /**
    * @remarks
    * The ID of the region where the resources reside. Set the value to **cn-hangzhou**.
@@ -53,7 +52,6 @@ export class UntagResourcesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       all: 'All',
-      ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
@@ -65,7 +63,6 @@ export class UntagResourcesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       all: 'boolean',
-      ownerId: 'number',
       regionId: 'string',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',

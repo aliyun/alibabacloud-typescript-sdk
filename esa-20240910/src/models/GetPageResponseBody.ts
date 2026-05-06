@@ -65,6 +65,7 @@ export class GetPageResponseBody extends $dara.Model {
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  siteIds?: number[];
   /**
    * @remarks
    * The time when the custom error page was last modified.
@@ -82,6 +83,7 @@ export class GetPageResponseBody extends $dara.Model {
       kind: 'Kind',
       name: 'Name',
       requestId: 'RequestId',
+      siteIds: 'SiteIds',
       updateTime: 'UpdateTime',
     };
   }
@@ -95,11 +97,15 @@ export class GetPageResponseBody extends $dara.Model {
       kind: 'string',
       name: 'string',
       requestId: 'string',
+      siteIds: { 'type': 'array', 'itemType': 'number' },
       updateTime: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.siteIds)) {
+      $dara.Model.validateArray(this.siteIds);
+    }
     super.validate();
   }
 

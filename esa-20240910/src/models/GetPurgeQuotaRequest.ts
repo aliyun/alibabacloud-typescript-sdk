@@ -7,6 +7,8 @@ export class GetPurgeQuotaRequest extends $dara.Model {
    * @remarks
    * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 123456789****
    */
@@ -21,6 +23,8 @@ export class GetPurgeQuotaRequest extends $dara.Model {
    * *   **ignoreParams**: purges the cache by URL with specific parameters ignored.
    * *   **hostname**: purges the cache by hostname.
    * *   **purgeall**: purges all cache.
+   * 
+   * This parameter is required.
    * 
    * @example
    * file

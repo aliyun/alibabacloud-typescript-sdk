@@ -143,10 +143,6 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
    * ver-123123123123****
    */
   publishingVersion?: string;
-  /**
-   * @remarks
-   * The regions to which the version is released.
-   */
   regions?: GetEdgeContainerAppStatusResponseBodyAppStatusRegions;
   /**
    * @remarks

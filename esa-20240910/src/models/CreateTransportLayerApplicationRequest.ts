@@ -154,6 +154,7 @@ export class CreateTransportLayerApplicationRequest extends $dara.Model {
    * off
    */
   ipv6?: string;
+  keepAliveProtection?: string;
   /**
    * @remarks
    * Domain name of the transport layer application.
@@ -187,6 +188,7 @@ export class CreateTransportLayerApplicationRequest extends $dara.Model {
       crossBorderOptimization: 'CrossBorderOptimization',
       ipAccessRule: 'IpAccessRule',
       ipv6: 'Ipv6',
+      keepAliveProtection: 'KeepAliveProtection',
       recordName: 'RecordName',
       rules: 'Rules',
       siteId: 'SiteId',
@@ -199,6 +201,7 @@ export class CreateTransportLayerApplicationRequest extends $dara.Model {
       crossBorderOptimization: 'string',
       ipAccessRule: 'string',
       ipv6: 'string',
+      keepAliveProtection: 'string',
       recordName: 'string',
       rules: { 'type': 'array', 'itemType': CreateTransportLayerApplicationRequestRules },
       siteId: 'number',

@@ -43,6 +43,7 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
    * on
    */
   ipv6?: string;
+  keepAliveProtection?: string;
   /**
    * @remarks
    * Forwarding rule list. Details of each rule. Except for the comment, all other parameters are required.
@@ -65,6 +66,7 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
       crossBorderOptimization: 'CrossBorderOptimization',
       ipAccessRule: 'IpAccessRule',
       ipv6: 'Ipv6',
+      keepAliveProtection: 'KeepAliveProtection',
       rulesShrink: 'Rules',
       siteId: 'SiteId',
       staticIp: 'StaticIp',
@@ -77,6 +79,7 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
       crossBorderOptimization: 'string',
       ipAccessRule: 'string',
       ipv6: 'string',
+      keepAliveProtection: 'string',
       rulesShrink: 'string',
       siteId: 'number',
       staticIp: 'string',

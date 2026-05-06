@@ -3,7 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteSiteRequest extends $dara.Model {
-  ownerId?: number;
   securityToken?: string;
   /**
    * @remarks
@@ -15,7 +14,6 @@ export class DeleteSiteRequest extends $dara.Model {
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
-      ownerId: 'OwnerId',
       securityToken: 'SecurityToken',
       siteId: 'SiteId',
     };
@@ -23,7 +21,6 @@ export class DeleteSiteRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      ownerId: 'number',
       securityToken: 'string',
       siteId: 'number',
     };
