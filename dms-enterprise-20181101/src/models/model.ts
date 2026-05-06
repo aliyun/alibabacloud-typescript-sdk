@@ -923,6 +923,9 @@ export { GetTableDesignProjectInfoResponse } from './GetTableDesignProjectInfoRe
 export { GetTableInstructionsRequest } from './GetTableInstructionsRequest';
 export { GetTableInstructionsResponseBody } from './GetTableInstructionsResponseBody';
 export { GetTableInstructionsResponse } from './GetTableInstructionsResponse';
+export { GetTableKnowledgeDetailsRequest } from './GetTableKnowledgeDetailsRequest';
+export { GetTableKnowledgeDetailsResponseBody } from './GetTableKnowledgeDetailsResponseBody';
+export { GetTableKnowledgeDetailsResponse } from './GetTableKnowledgeDetailsResponse';
 export { GetTableKnowledgeInfoRequest } from './GetTableKnowledgeInfoRequest';
 export { GetTableKnowledgeInfoResponseBody } from './GetTableKnowledgeInfoResponseBody';
 export { GetTableKnowledgeInfoResponse } from './GetTableKnowledgeInfoResponse';

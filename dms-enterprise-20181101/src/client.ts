@@ -10020,6 +10020,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询表的资产知识详情，包含表元信息、业务描述、字段列表等
+   * 
+   * @remarks
+   * 查询表的资产知识详情，返回表的基本元信息、AI 增强的业务描述、汇总信息以及字段知识列表
+   * 
+   * @param request - GetTableKnowledgeDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableKnowledgeDetailsResponse
+   */
+  async getTableKnowledgeDetailsWithOptions(request: $_model.GetTableKnowledgeDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableKnowledgeDetailsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTableKnowledgeDetails",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableKnowledgeDetailsResponse>(await this.callApi(params, req, runtime), new $_model.GetTableKnowledgeDetailsResponse({}));
+  }
+
+  /**
+   * 查询表的资产知识详情，包含表元信息、业务描述、字段列表等
+   * 
+   * @remarks
+   * 查询表的资产知识详情，返回表的基本元信息、AI 增强的业务描述、汇总信息以及字段知识列表
+   * 
+   * @param request - GetTableKnowledgeDetailsRequest
+   * @returns GetTableKnowledgeDetailsResponse
+   */
+  async getTableKnowledgeDetails(request: $_model.GetTableKnowledgeDetailsRequest): Promise<$_model.GetTableKnowledgeDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableKnowledgeDetailsWithOptions(request, runtime);
+  }
+
+  /**
    * Gets metadata knowledge for a specified GUID.
    * 
    * @remarks
