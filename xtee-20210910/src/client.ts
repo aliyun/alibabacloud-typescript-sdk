@@ -294,6 +294,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建任务组
+   * 
+   * @param request - CancelSubTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelSubTaskResponse
+   */
+  async cancelSubTaskWithOptions(request: $_model.CancelSubTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelSubTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.subTaskId)) {
+      query["SubTaskId"] = request.subTaskId;
+    }
+
+    if (!$dara.isNull(request.tab)) {
+      query["Tab"] = request.tab;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelSubTask",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelSubTaskResponse>(await this.callApi(params, req, runtime), new $_model.CancelSubTaskResponse({}));
+  }
+
+  /**
+   * 创建任务组
+   * 
+   * @param request - CancelSubTaskRequest
+   * @returns CancelSubTaskResponse
+   */
+  async cancelSubTask(request: $_model.CancelSubTaskRequest): Promise<$_model.CancelSubTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelSubTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Policy Replication Lineage Check
    * 
    * @param request - CheckCopyRuleVariableRequest
@@ -499,6 +553,106 @@ export default class Client extends OpenApi {
   async checkFieldLimit(request: $_model.CheckFieldLimitRequest): Promise<$_model.CheckFieldLimitResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkFieldLimitWithOptions(request, runtime);
+  }
+
+  /**
+   * 样本名称唯一性校验
+   * 
+   * @param request - CheckSampleNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckSampleNameResponse
+   */
+  async checkSampleNameWithOptions(request: $_model.CheckSampleNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckSampleNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.sampleName)) {
+      query["SampleName"] = request.sampleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckSampleName",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckSampleNameResponse>(await this.callApi(params, req, runtime), new $_model.CheckSampleNameResponse({}));
+  }
+
+  /**
+   * 样本名称唯一性校验
+   * 
+   * @param request - CheckSampleNameRequest
+   * @returns CheckSampleNameResponse
+   */
+  async checkSampleName(request: $_model.CheckSampleNameRequest): Promise<$_model.CheckSampleNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkSampleNameWithOptions(request, runtime);
+  }
+
+  /**
+   * 任务组名称唯一性校验
+   * 
+   * @param request - CheckTaskGroupNameRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckTaskGroupNameResponse
+   */
+  async checkTaskGroupNameWithOptions(request: $_model.CheckTaskGroupNameRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckTaskGroupNameResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.taskGroupName)) {
+      query["TaskGroupName"] = request.taskGroupName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckTaskGroupName",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckTaskGroupNameResponse>(await this.callApi(params, req, runtime), new $_model.CheckTaskGroupNameResponse({}));
+  }
+
+  /**
+   * 任务组名称唯一性校验
+   * 
+   * @param request - CheckTaskGroupNameRequest
+   * @returns CheckTaskGroupNameResponse
+   */
+  async checkTaskGroupName(request: $_model.CheckTaskGroupNameRequest): Promise<$_model.CheckTaskGroupNameResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkTaskGroupNameWithOptions(request, runtime);
   }
 
   /**
@@ -1420,6 +1574,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建样本记录
+   * 
+   * @param request - CreatePocSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePocSampleResponse
+   */
+  async createPocSampleWithOptions(request: $_model.CreatePocSampleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePocSampleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.sampleName)) {
+      query["SampleName"] = request.sampleName;
+    }
+
+    if (!$dara.isNull(request.tab)) {
+      query["Tab"] = request.tab;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePocSample",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePocSampleResponse>(await this.callApi(params, req, runtime), new $_model.CreatePocSampleResponse({}));
+  }
+
+  /**
+   * 创建样本记录
+   * 
+   * @param request - CreatePocSampleRequest
+   * @returns CreatePocSampleResponse
+   */
+  async createPocSample(request: $_model.CreatePocSampleRequest): Promise<$_model.CreatePocSampleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createPocSampleWithOptions(request, runtime);
+  }
+
+  /**
    * Add New Custom Query Variable
    * 
    * @param request - CreateQueryVariableRequest
@@ -2086,6 +2310,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消子任务
+   * 
+   * @param request - CreateTaskGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTaskGroupResponse
+   */
+  async createTaskGroupWithOptions(request: $_model.CreateTaskGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTaskGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.sampleIds)) {
+      query["SampleIds"] = request.sampleIds;
+    }
+
+    if (!$dara.isNull(request.scenes)) {
+      query["Scenes"] = request.scenes;
+    }
+
+    if (!$dara.isNull(request.serviceCodes)) {
+      query["ServiceCodes"] = request.serviceCodes;
+    }
+
+    if (!$dara.isNull(request.serviceNames)) {
+      query["ServiceNames"] = request.serviceNames;
+    }
+
+    if (!$dara.isNull(request.tab)) {
+      query["Tab"] = request.tab;
+    }
+
+    if (!$dara.isNull(request.taskGroupName)) {
+      query["TaskGroupName"] = request.taskGroupName;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTaskGroup",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTaskGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateTaskGroupResponse({}));
+  }
+
+  /**
+   * 取消子任务
+   * 
+   * @param request - CreateTaskGroupRequest
+   * @returns CreateTaskGroupResponse
+   */
+  async createTaskGroup(request: $_model.CreateTaskGroupRequest): Promise<$_model.CreateTaskGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTaskGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Policy Replication
    * 
    * @param request - DeepCopyRuleRequest
@@ -2484,7 +2782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除字段
+   * Delete Field
    * 
    * @param request - DeleteFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2527,7 +2825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除字段
+   * Delete Field
    * 
    * @param request - DeleteFieldRequest
    * @returns DeleteFieldResponse
@@ -2746,6 +3044,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除样本
+   * 
+   * @param request - DeleteSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSampleResponse
+   */
+  async deleteSampleWithOptions(request: $_model.DeleteSampleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSampleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.sampleId)) {
+      query["SampleId"] = request.sampleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSample",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSampleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSampleResponse({}));
+  }
+
+  /**
+   * 删除样本
+   * 
+   * @param request - DeleteSampleRequest
+   * @returns DeleteSampleResponse
+   */
+  async deleteSample(request: $_model.DeleteSampleRequest): Promise<$_model.DeleteSampleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSampleWithOptions(request, runtime);
+  }
+
+  /**
    * Batch Delete Samples
    * 
    * @param request - DeleteSampleBatchRequest
@@ -2950,7 +3298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 高级查询获取左变量接口
+   * Advanced Query to Get Left Variables Interface
    * 
    * @param request - DescribeAdvanceSearchLeftVariableListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2993,7 +3341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 高级查询获取左变量接口
+   * Advanced Query to Get Left Variables Interface
    * 
    * @param request - DescribeAdvanceSearchLeftVariableListRequest
    * @returns DescribeAdvanceSearchLeftVariableListResponse
@@ -3082,7 +3430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 数据源列表
+   * Data Source List
    * 
    * @param request - DescribeAllDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3117,7 +3465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 数据源列表
+   * Data Source List
    * 
    * @param request - DescribeAllDataSourceRequest
    * @returns DescribeAllDataSourceResponse
@@ -4014,7 +4362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 策略列表
+   * Policy List
    * 
    * @param request - DescribeAuthRulePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4061,7 +4409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 策略列表
+   * Policy List
    * 
    * @param request - DescribeAuthRulePageListRequest
    * @returns DescribeAuthRulePageListResponse
@@ -4072,7 +4420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 场景列表
+   * List of Scenarios
    * 
    * @param request - DescribeAuthSceneListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4107,7 +4455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 场景列表
+   * List of Scenarios
    * 
    * @param request - DescribeAuthSceneListRequest
    * @returns DescribeAuthSceneListResponse
@@ -4334,7 +4682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 基础统计
+   * Basic Statistics
    * 
    * @param request - DescribeBasicStartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4381,7 +4729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 基础统计
+   * Basic Statistics
    * 
    * @param request - DescribeBasicStartRequest
    * @returns DescribeBasicStartResponse
@@ -8754,7 +9102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询变量列表查询
+   * Query Variable List Query
    * 
    * @param request - DescribeQueryVariablePageListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8809,7 +9157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询变量列表查询
+   * Query Variable List Query
    * 
    * @param request - DescribeQueryVariablePageListRequest
    * @returns DescribeQueryVariablePageListResponse
@@ -13148,6 +13496,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 下载样本文件
+   * 
+   * @param request - DownloadSampleFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadSampleFileResponse
+   */
+  async downloadSampleFileWithOptions(request: $_model.DownloadSampleFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadSampleFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.sampleId)) {
+      query["SampleId"] = request.sampleId;
+    }
+
+    if (!$dara.isNull(request.tab)) {
+      query["Tab"] = request.tab;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadSampleFile",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadSampleFileResponse>(await this.callApi(params, req, runtime), new $_model.DownloadSampleFileResponse({}));
+  }
+
+  /**
+   * 下载样本文件
+   * 
+   * @param request - DownloadSampleFileRequest
+   * @returns DownloadSampleFileResponse
+   */
+  async downloadSampleFile(request: $_model.DownloadSampleFileRequest): Promise<$_model.DownloadSampleFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadSampleFileWithOptions(request, runtime);
+  }
+
+  /**
    * Sample List Data Download
    * 
    * @param request - DownloadSmapleBatchRequest
@@ -13195,6 +13597,56 @@ export default class Client extends OpenApi {
   async downloadSmapleBatch(request: $_model.DownloadSmapleBatchRequest): Promise<$_model.DownloadSmapleBatchResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.downloadSmapleBatchWithOptions(request, runtime);
+  }
+
+  /**
+   * 下载子任务结果
+   * 
+   * @param request - DownloadSubTaskResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DownloadSubTaskResultResponse
+   */
+  async downloadSubTaskResultWithOptions(request: $_model.DownloadSubTaskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DownloadSubTaskResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.subTaskId)) {
+      query["SubTaskId"] = request.subTaskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DownloadSubTaskResult",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DownloadSubTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.DownloadSubTaskResultResponse({}));
+  }
+
+  /**
+   * 下载子任务结果
+   * 
+   * @param request - DownloadSubTaskResultRequest
+   * @returns DownloadSubTaskResultResponse
+   */
+  async downloadSubTaskResult(request: $_model.DownloadSubTaskResultRequest): Promise<$_model.DownloadSubTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.downloadSubTaskResultWithOptions(request, runtime);
   }
 
   /**
@@ -13315,6 +13767,106 @@ export default class Client extends OpenApi {
   async fileUpload(request: $_model.FileUploadRequest): Promise<$_model.FileUploadResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.fileUploadWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建样本记录
+   * 
+   * @param request - GetSampleDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSampleDetailResponse
+   */
+  async getSampleDetailWithOptions(request: $_model.GetSampleDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSampleDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.sampleId)) {
+      query["SampleId"] = request.sampleId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSampleDetail",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSampleDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetSampleDetailResponse({}));
+  }
+
+  /**
+   * 创建样本记录
+   * 
+   * @param request - GetSampleDetailRequest
+   * @returns GetSampleDetailResponse
+   */
+  async getSampleDetail(request: $_model.GetSampleDetailRequest): Promise<$_model.GetSampleDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSampleDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看子任务结果
+   * 
+   * @param request - GetSubTaskResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSubTaskResultResponse
+   */
+  async getSubTaskResultWithOptions(request: $_model.GetSubTaskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSubTaskResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.subTaskId)) {
+      query["SubTaskId"] = request.subTaskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSubTaskResult",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSubTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.GetSubTaskResultResponse({}));
+  }
+
+  /**
+   * 查看子任务结果
+   * 
+   * @param request - GetSubTaskResultRequest
+   * @returns GetSubTaskResultResponse
+   */
+  async getSubTaskResult(request: $_model.GetSubTaskResultRequest): Promise<$_model.GetSubTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSubTaskResultWithOptions(request, runtime);
   }
 
   /**
@@ -13496,6 +14048,146 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 样本列表查询
+   * 
+   * @param request - ListSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSampleResponse
+   */
+  async listSampleWithOptions(request: $_model.ListSampleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSampleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.sampleName)) {
+      query["SampleName"] = request.sampleName;
+    }
+
+    if (!$dara.isNull(request.tab)) {
+      query["Tab"] = request.tab;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.uploadTimeEnd)) {
+      query["UploadTimeEnd"] = request.uploadTimeEnd;
+    }
+
+    if (!$dara.isNull(request.uploadTimeStart)) {
+      query["UploadTimeStart"] = request.uploadTimeStart;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSample",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSampleResponse>(await this.callApi(params, req, runtime), new $_model.ListSampleResponse({}));
+  }
+
+  /**
+   * 样本列表查询
+   * 
+   * @param request - ListSampleRequest
+   * @returns ListSampleResponse
+   */
+  async listSample(request: $_model.ListSampleRequest): Promise<$_model.ListSampleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSampleWithOptions(request, runtime);
+  }
+
+  /**
+   * 任务组列表查询
+   * 
+   * @param request - ListTaskGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskGroupResponse
+   */
+  async listTaskGroupWithOptions(request: $_model.ListTaskGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTaskGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.sampleName)) {
+      query["SampleName"] = request.sampleName;
+    }
+
+    if (!$dara.isNull(request.taskGroupName)) {
+      query["TaskGroupName"] = request.taskGroupName;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTaskGroup",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTaskGroupResponse>(await this.callApi(params, req, runtime), new $_model.ListTaskGroupResponse({}));
+  }
+
+  /**
+   * 任务组列表查询
+   * 
+   * @param request - ListTaskGroupRequest
+   * @returns ListTaskGroupResponse
+   */
+  async listTaskGroup(request: $_model.ListTaskGroupRequest): Promise<$_model.ListTaskGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTaskGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Query Variable Definition
    * 
    * @param request - ListVariableDefineRequest
@@ -13587,6 +14279,56 @@ export default class Client extends OpenApi {
   async listVariableDefine(request: $_model.ListVariableDefineRequest): Promise<$_model.ListVariableDefineResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listVariableDefineWithOptions(request, runtime);
+  }
+
+  /**
+   * 合并下载
+   * 
+   * @param request - MergeDownloadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MergeDownloadResponse
+   */
+  async mergeDownloadWithOptions(request: $_model.MergeDownloadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MergeDownloadResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.subTaskIds)) {
+      query["SubTaskIds"] = request.subTaskIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MergeDownload",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MergeDownloadResponse>(await this.callApi(params, req, runtime), new $_model.MergeDownloadResponse({}));
+  }
+
+  /**
+   * 合并下载
+   * 
+   * @param request - MergeDownloadRequest
+   * @returns MergeDownloadResponse
+   */
+  async mergeDownload(request: $_model.MergeDownloadRequest): Promise<$_model.MergeDownloadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.mergeDownloadWithOptions(request, runtime);
   }
 
   /**
@@ -15082,6 +15824,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 样本列表查询
+   * 
+   * @param request - SearchSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchSampleResponse
+   */
+  async searchSampleWithOptions(request: $_model.SearchSampleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchSampleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.tab)) {
+      query["Tab"] = request.tab;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.uploadTimeEnd)) {
+      query["UploadTimeEnd"] = request.uploadTimeEnd;
+    }
+
+    if (!$dara.isNull(request.uploadTimeStart)) {
+      query["UploadTimeStart"] = request.uploadTimeStart;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchSample",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchSampleResponse>(await this.callApi(params, req, runtime), new $_model.SearchSampleResponse({}));
+  }
+
+  /**
+   * 样本列表查询
+   * 
+   * @param request - SearchSampleRequest
+   * @returns SearchSampleResponse
+   */
+  async searchSample(request: $_model.SearchSampleRequest): Promise<$_model.SearchSampleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchSampleWithOptions(request, runtime);
+  }
+
+  /**
    * Start/Stop Bypass Event
    * 
    * @param request - StartOrStopByPassShuntEventRequest
@@ -16273,6 +17081,68 @@ export default class Client extends OpenApi {
   async uploadFileCheck(request: $_model.UploadFileCheckRequest): Promise<$_model.UploadFileCheckResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.uploadFileCheckWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传并校验样本文件
+   * 
+   * @param request - UploadSampleFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadSampleFileResponse
+   */
+  async uploadSampleFileWithOptions(request: $_model.UploadSampleFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadSampleFileResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileUrl)) {
+      query["FileUrl"] = request.fileUrl;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.regId)) {
+      query["RegId"] = request.regId;
+    }
+
+    if (!$dara.isNull(request.tab)) {
+      query["Tab"] = request.tab;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadSampleFile",
+      version: "2021-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UploadSampleFileResponse>(await this.callApi(params, req, runtime), new $_model.UploadSampleFileResponse({}));
+  }
+
+  /**
+   * 上传并校验样本文件
+   * 
+   * @param request - UploadSampleFileRequest
+   * @returns UploadSampleFileResponse
+   */
+  async uploadSampleFile(request: $_model.UploadSampleFileRequest): Promise<$_model.UploadSampleFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadSampleFileWithOptions(request, runtime);
   }
 
 }

@@ -2,64 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DescribeListPocRequest extends $dara.Model {
+export class ListTaskGroupRequest extends $dara.Model {
   /**
-   * @remarks
-   * Current page number.
-   * 
    * @example
    * 1
    */
   currentPage?: number;
   /**
-   * @remarks
-   * Sets the language type for requests and received messages, with a default value of **zh**. Values:
-   * - **zh**: Chinese
-   * - **en**: English
-   * 
    * @example
    * zh
    */
   lang?: string;
   /**
-   * @remarks
-   * Page size.
-   * 
    * @example
-   * 30
+   * 10
    */
   pageSize?: number;
   /**
-   * @remarks
-   * Region code
-   * 
    * @example
    * cn-hangzhou
    */
   regId?: string;
   /**
-   * @remarks
-   * Task name.
-   * 
    * @example
-   * Task_001
+   * TEst
    */
-  taskName?: string;
+  sampleName?: string;
   /**
-   * @remarks
-   * The status of the import task. Valid values:
-   * 
-   * *   DOING
-   * *   FINISH
-   * 
    * @example
-   * FINISH
+   * TeskGroupTest
    */
-  taskStatus?: string;
+  taskGroupName?: string;
   /**
-   * @remarks
-   * Type
-   * 
    * @example
    * SAF_CONSOLE
    */
@@ -70,8 +44,8 @@ export class DescribeListPocRequest extends $dara.Model {
       lang: 'Lang',
       pageSize: 'PageSize',
       regId: 'RegId',
-      taskName: 'TaskName',
-      taskStatus: 'TaskStatus',
+      sampleName: 'SampleName',
+      taskGroupName: 'TaskGroupName',
       type: 'Type',
     };
   }
@@ -82,8 +56,8 @@ export class DescribeListPocRequest extends $dara.Model {
       lang: 'string',
       pageSize: 'number',
       regId: 'string',
-      taskName: 'string',
-      taskStatus: 'string',
+      sampleName: 'string',
+      taskGroupName: 'string',
       type: 'string',
     };
   }
