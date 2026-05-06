@@ -11,6 +11,7 @@ export { GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimens
 export { GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview } from './GetEnterpriseVocAnalysisTaskResponseBody';
 export { GetEnterpriseVocAnalysisTaskResponseBodyDataUsage } from './GetEnterpriseVocAnalysisTaskResponseBody';
 export { GetEnterpriseVocAnalysisTaskResponseBodyData } from './GetEnterpriseVocAnalysisTaskResponseBody';
+export { GetEssayCorrectionTaskResponseBodyDataResultsDimensionResults } from './GetEssayCorrectionTaskResponseBody';
 export { GetEssayCorrectionTaskResponseBodyDataResults } from './GetEssayCorrectionTaskResponseBody';
 export { GetEssayCorrectionTaskResponseBodyData } from './GetEssayCorrectionTaskResponseBody';
 export { GetFileContentResponseBodyData } from './GetFileContentResponseBody';
@@ -75,7 +76,9 @@ export { RunEnterpriseVocAnalysisResponseBodyPayloadOutputFilterResult } from '.
 export { RunEnterpriseVocAnalysisResponseBodyPayloadOutput } from './RunEnterpriseVocAnalysisResponseBody';
 export { RunEnterpriseVocAnalysisResponseBodyPayloadUsage } from './RunEnterpriseVocAnalysisResponseBody';
 export { RunEnterpriseVocAnalysisResponseBodyPayload } from './RunEnterpriseVocAnalysisResponseBody';
+export { RunEssayCorrectionRequestDimensions } from './RunEssayCorrectionRequest';
 export { RunEssayCorrectionResponseBodyHeader } from './RunEssayCorrectionResponseBody';
+export { RunEssayCorrectionResponseBodyPayloadOutputDimensionResults } from './RunEssayCorrectionResponseBody';
 export { RunEssayCorrectionResponseBodyPayloadOutput } from './RunEssayCorrectionResponseBody';
 export { RunEssayCorrectionResponseBodyPayloadUsage } from './RunEssayCorrectionResponseBody';
 export { RunEssayCorrectionResponseBodyPayload } from './RunEssayCorrectionResponseBody';
@@ -187,6 +190,7 @@ export { SubmitEnterpriseVocAnalysisTaskRequestContents } from './SubmitEnterpri
 export { SubmitEnterpriseVocAnalysisTaskRequestFilterTags } from './SubmitEnterpriseVocAnalysisTaskRequest';
 export { SubmitEnterpriseVocAnalysisTaskRequestTags } from './SubmitEnterpriseVocAnalysisTaskRequest';
 export { SubmitEnterpriseVocAnalysisTaskResponseBodyData } from './SubmitEnterpriseVocAnalysisTaskResponseBody';
+export { SubmitEssayCorrectionTaskRequestDimensions } from './SubmitEssayCorrectionTaskRequest';
 export { SubmitEssayCorrectionTaskRequestTasks } from './SubmitEssayCorrectionTaskRequest';
 export { SubmitEssayCorrectionTaskResponseBodyData } from './SubmitEssayCorrectionTaskResponseBody';
 export { SubmitTagMiningAnalysisTaskRequestTags } from './SubmitTagMiningAnalysisTaskRequest';
@@ -257,6 +261,7 @@ export { RunEnterpriseVocAnalysisShrinkRequest } from './RunEnterpriseVocAnalysi
 export { RunEnterpriseVocAnalysisResponseBody } from './RunEnterpriseVocAnalysisResponseBody';
 export { RunEnterpriseVocAnalysisResponse } from './RunEnterpriseVocAnalysisResponse';
 export { RunEssayCorrectionRequest } from './RunEssayCorrectionRequest';
+export { RunEssayCorrectionShrinkRequest } from './RunEssayCorrectionShrinkRequest';
 export { RunEssayCorrectionResponseBody } from './RunEssayCorrectionResponseBody';
 export { RunEssayCorrectionResponse } from './RunEssayCorrectionResponse';
 export { RunHotTopicChatRequest } from './RunHotTopicChatRequest';

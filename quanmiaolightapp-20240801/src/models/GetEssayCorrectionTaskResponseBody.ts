@@ -3,6 +3,54 @@ import * as $dara from '@darabonba/typescript';
 import { ModelUsage } from "./ModelUsage";
 
 
+export class GetEssayCorrectionTaskResponseBodyDataResultsDimensionResults extends $dara.Model {
+  /**
+   * @example
+   * 文章内容较为完整，涵盖了题目的核心要求，但部分论述略显简略。
+   */
+  analysis?: string;
+  /**
+   * @example
+   * 30
+   */
+  maxScore?: number;
+  /**
+   * @example
+   * 内容完整度
+   */
+  name?: string;
+  /**
+   * @example
+   * 25.5
+   */
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      analysis: 'analysis',
+      maxScore: 'maxScore',
+      name: 'name',
+      score: 'score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysis: 'string',
+      maxScore: 'number',
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEssayCorrectionTaskResponseBodyDataResults extends $dara.Model {
   /**
    * @remarks
@@ -12,6 +60,26 @@ export class GetEssayCorrectionTaskResponseBodyDataResults extends $dara.Model {
    * 1
    */
   customId?: string;
+  dimensionResults?: GetEssayCorrectionTaskResponseBodyDataResultsDimensionResults[];
+  /**
+   * @example
+   * RateLimit
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 触发模型限流
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 整体表现良好，建议在论述深度上进一步加强。
+   */
+  overallComment?: string;
+  /**
+   * @example
+   * 本文整体结构清晰，语言流畅...
+   */
   result?: string;
   /**
    * @example
@@ -22,6 +90,10 @@ export class GetEssayCorrectionTaskResponseBodyDataResults extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       customId: 'customId',
+      dimensionResults: 'dimensionResults',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      overallComment: 'overallComment',
       result: 'result',
       score: 'score',
       usage: 'usage',
@@ -31,6 +103,10 @@ export class GetEssayCorrectionTaskResponseBodyDataResults extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       customId: 'string',
+      dimensionResults: { 'type': 'array', 'itemType': GetEssayCorrectionTaskResponseBodyDataResultsDimensionResults },
+      errorCode: 'string',
+      errorMessage: 'string',
+      overallComment: 'string',
       result: 'string',
       score: 'number',
       usage: ModelUsage,
@@ -38,6 +114,9 @@ export class GetEssayCorrectionTaskResponseBodyDataResults extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.dimensionResults)) {
+      $dara.Model.validateArray(this.dimensionResults);
+    }
     if(this.usage && typeof (this.usage as any).validate === 'function') {
       (this.usage as any).validate();
     }

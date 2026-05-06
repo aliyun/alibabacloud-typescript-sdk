@@ -2,7 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SubmitEssayCorrectionTaskShrinkRequest extends $dara.Model {
+export class RunEssayCorrectionShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * xxx
+   */
+  answer?: string;
   /**
    * @example
    * [{"name": "内容完整度", "rubric": "文章内容是否完整，是否涵盖了题目的核心要求", "maxScore": 30}]
@@ -10,12 +15,12 @@ export class SubmitEssayCorrectionTaskShrinkRequest extends $dara.Model {
   dimensionsShrink?: string;
   /**
    * @example
-   * 高中二年级
+   * 高一
    */
   grade?: string;
   /**
    * @example
-   * xxx
+   * qwen-custom-correction-v1
    */
   modelId?: string;
   /**
@@ -25,7 +30,7 @@ export class SubmitEssayCorrectionTaskShrinkRequest extends $dara.Model {
   otherReviewPoints?: string;
   /**
    * @example
-   * xxx
+   * xx
    */
   question?: string;
   /**
@@ -35,36 +40,31 @@ export class SubmitEssayCorrectionTaskShrinkRequest extends $dara.Model {
   subject?: string;
   /**
    * @example
-   * [{"grade": "高中二年级", "subject": "语文", "totalScore": 60, "question": "请以我的梦想为主题写一篇作文", "answer": "我的梦想是成为一名科学家...", "customId": "task-001"}]
-   */
-  tasksShrink?: string;
-  /**
-   * @example
    * 60
    */
   totalScore?: number;
   static names(): { [key: string]: string } {
     return {
+      answer: 'answer',
       dimensionsShrink: 'dimensions',
       grade: 'grade',
       modelId: 'modelId',
       otherReviewPoints: 'otherReviewPoints',
       question: 'question',
       subject: 'subject',
-      tasksShrink: 'tasks',
       totalScore: 'totalScore',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      answer: 'string',
       dimensionsShrink: 'string',
       grade: 'string',
       modelId: 'string',
       otherReviewPoints: 'string',
       question: 'string',
       subject: 'string',
-      tasksShrink: 'string',
       totalScore: 'number',
     };
   }

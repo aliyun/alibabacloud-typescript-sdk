@@ -64,15 +64,81 @@ export class RunEssayCorrectionResponseBodyHeader extends $dara.Model {
   }
 }
 
+export class RunEssayCorrectionResponseBodyPayloadOutputDimensionResults extends $dara.Model {
+  /**
+   * @example
+   * 文章内容较为完整，涵盖了题目的核心要求，但部分论述略显简略。
+   */
+  analysis?: string;
+  /**
+   * @example
+   * 30
+   */
+  maxScore?: number;
+  /**
+   * @example
+   * 内容完整度
+   */
+  name?: string;
+  /**
+   * @example
+   * 25.5
+   */
+  score?: number;
+  static names(): { [key: string]: string } {
+    return {
+      analysis: 'analysis',
+      maxScore: 'maxScore',
+      name: 'name',
+      score: 'score',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysis: 'string',
+      maxScore: 'number',
+      name: 'string',
+      score: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunEssayCorrectionResponseBodyPayloadOutput extends $dara.Model {
+  dimensionResults?: RunEssayCorrectionResponseBodyPayloadOutputDimensionResults[];
+  /**
+   * @example
+   * 整体表现良好，建议在论述深度上进一步加强。
+   */
+  overallComment?: string;
+  /**
+   * @example
+   * 首先分析文章结构，发现开头、正文、结尾完整...
+   */
+  reasoningContent?: string;
   /**
    * @example
    * 50
    */
   score?: number;
+  /**
+   * @example
+   * 本文整体结构清晰，语言流畅...
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
+      dimensionResults: 'dimensionResults',
+      overallComment: 'overallComment',
+      reasoningContent: 'reasoningContent',
       score: 'score',
       text: 'text',
     };
@@ -80,12 +146,18 @@ export class RunEssayCorrectionResponseBodyPayloadOutput extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dimensionResults: { 'type': 'array', 'itemType': RunEssayCorrectionResponseBodyPayloadOutputDimensionResults },
+      overallComment: 'string',
+      reasoningContent: 'string',
       score: 'number',
       text: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.dimensionResults)) {
+      $dara.Model.validateArray(this.dimensionResults);
+    }
     super.validate();
   }
 

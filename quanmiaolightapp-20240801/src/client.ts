@@ -939,16 +939,26 @@ export default class Client extends OpenApi {
   /**
    * 作业批改
    * 
-   * @param request - RunEssayCorrectionRequest
+   * @param tmpReq - RunEssayCorrectionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunEssayCorrectionResponse
    */
-  async *runEssayCorrectionWithSSE(workspaceId: string, request: $_model.RunEssayCorrectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunEssayCorrectionResponse, any, unknown> {
-    request.validate();
+  async *runEssayCorrectionWithSSE(workspaceId: string, tmpReq: $_model.RunEssayCorrectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunEssayCorrectionResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunEssayCorrectionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dimensions)) {
+      request.dimensionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dimensions, "dimensions", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.answer)) {
       body["answer"] = request.answer;
+    }
+
+    if (!$dara.isNull(request.dimensionsShrink)) {
+      body["dimensions"] = request.dimensionsShrink;
     }
 
     if (!$dara.isNull(request.grade)) {
@@ -1010,16 +1020,26 @@ export default class Client extends OpenApi {
   /**
    * 作业批改
    * 
-   * @param request - RunEssayCorrectionRequest
+   * @param tmpReq - RunEssayCorrectionRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunEssayCorrectionResponse
    */
-  async runEssayCorrectionWithOptions(workspaceId: string, request: $_model.RunEssayCorrectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunEssayCorrectionResponse> {
-    request.validate();
+  async runEssayCorrectionWithOptions(workspaceId: string, tmpReq: $_model.RunEssayCorrectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunEssayCorrectionResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunEssayCorrectionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dimensions)) {
+      request.dimensionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dimensions, "dimensions", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.answer)) {
       body["answer"] = request.answer;
+    }
+
+    if (!$dara.isNull(request.dimensionsShrink)) {
+      body["dimensions"] = request.dimensionsShrink;
     }
 
     if (!$dara.isNull(request.grade)) {
@@ -3463,11 +3483,19 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.SubmitEssayCorrectionTaskShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dimensions)) {
+      request.dimensionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dimensions, "dimensions", "json");
+    }
+
     if (!$dara.isNull(tmpReq.tasks)) {
       request.tasksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tasks, "tasks", "json");
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dimensionsShrink)) {
+      body["dimensions"] = request.dimensionsShrink;
+    }
+
     if (!$dara.isNull(request.grade)) {
       body["grade"] = request.grade;
     }
