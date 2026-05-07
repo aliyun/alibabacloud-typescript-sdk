@@ -119,6 +119,11 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
   outputUrl?: string;
   /**
    * @example
+   * https://bucket.oss-cn-shanghai.aliyuncs.com/test/110412818/6bf24c75285142f395464d4b9c2bcf07.srt?Expires=1778220836&OSSAccessKeyId=*******&Signature=*******
+   */
+  srtFileUrl?: string;
+  /**
+   * @example
    * [{\\"storyboardId\\":\\"st_1541525214\\",\\"title\\":\\"test_1\\",\\"status\\":\\"Produced\\",\\"subStatus\\":\\"ProduceSucc\\"},{\\"storyboardId\\":\\"st_1633435355\\",\\"title\\":\\"test_2\\",\\"status\\":\\"Produced\\",\\"subStatus\\":\\"ProduceSucc\\"}]
    */
   storyboardInfoList?: string;
@@ -137,6 +142,7 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
       exceptionStoryboardIds: 'ExceptionStoryboardIds',
       failureShotList: 'FailureShotList',
       outputUrl: 'OutputUrl',
+      srtFileUrl: 'SrtFileUrl',
       storyboardInfoList: 'StoryboardInfoList',
       successStoryboardIds: 'SuccessStoryboardIds',
       successStoryboardList: 'SuccessStoryboardList',
@@ -148,6 +154,7 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
       exceptionStoryboardIds: 'string',
       failureShotList: 'string',
       outputUrl: 'string',
+      srtFileUrl: 'string',
       storyboardInfoList: 'string',
       successStoryboardIds: 'string',
       successStoryboardList: 'string',
