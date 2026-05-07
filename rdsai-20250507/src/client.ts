@@ -1841,6 +1841,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetAvailableLLMModels
+   * 
+   * @param request - GetAvailableLLMModelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAvailableLLMModelsResponse
+   */
+  async getAvailableLLMModelsWithOptions(request: $_model.GetAvailableLLMModelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAvailableLLMModelsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAvailableLLMModels",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAvailableLLMModelsResponse>(await this.callApi(params, req, runtime), new $_model.GetAvailableLLMModelsResponse({}));
+  }
+
+  /**
+   * GetAvailableLLMModels
+   * 
+   * @param request - GetAvailableLLMModelsRequest
+   * @returns GetAvailableLLMModelsResponse
+   */
+  async getAvailableLLMModels(request: $_model.GetAvailableLLMModelsRequest): Promise<$_model.GetAvailableLLMModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAvailableLLMModelsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the history conversations of a user.
    * 
    * @param request - GetConversationsRequest
@@ -2412,6 +2462,64 @@ export default class Client extends OpenApi {
   async listCustomAgentTools(): Promise<$_model.ListCustomAgentToolsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCustomAgentToolsWithOptions(runtime);
+  }
+
+  /**
+   * ListLLMTokenUsage
+   * 
+   * @param request - ListLLMTokenUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLLMTokenUsageResponse
+   */
+  async listLLMTokenUsageWithOptions(request: $_model.ListLLMTokenUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListLLMTokenUsageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLLMTokenUsage",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLLMTokenUsageResponse>(await this.callApi(params, req, runtime), new $_model.ListLLMTokenUsageResponse({}));
+  }
+
+  /**
+   * ListLLMTokenUsage
+   * 
+   * @param request - ListLLMTokenUsageRequest
+   * @returns ListLLMTokenUsageResponse
+   */
+  async listLLMTokenUsage(request: $_model.ListLLMTokenUsageRequest): Promise<$_model.ListLLMTokenUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listLLMTokenUsageWithOptions(request, runtime);
   }
 
   /**
