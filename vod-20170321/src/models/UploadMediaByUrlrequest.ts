@@ -11,6 +11,8 @@ export class UploadMediaByURLRequest extends $dara.Model {
    * app-****
    */
   appId?: string;
+  enableFirstFrameCover?: boolean;
+  generateThumbnail?: boolean;
   /**
    * @remarks
    * The custom identifier for deduplication. If you specify this parameter and send a request, an error is returned if a request with the same identifier was sent in the last 10 minutes. A custom identifier can be up to 50 characters in length and can contain letters, digits, hyphens (-), and underscores (_). If you do not specify this parameter or leave this parameter empty, duplicate requests are not filtered.
@@ -100,6 +102,8 @@ export class UploadMediaByURLRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
+      enableFirstFrameCover: 'EnableFirstFrameCover',
+      generateThumbnail: 'GenerateThumbnail',
       sessionId: 'SessionId',
       storageLocation: 'StorageLocation',
       templateGroupId: 'TemplateGroupId',
@@ -113,6 +117,8 @@ export class UploadMediaByURLRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
+      enableFirstFrameCover: 'boolean',
+      generateThumbnail: 'boolean',
       sessionId: 'string',
       storageLocation: 'string',
       templateGroupId: 'string',

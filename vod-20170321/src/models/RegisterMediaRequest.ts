@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RegisterMediaRequest extends $dara.Model {
+  enableFirstFrameCover?: boolean;
+  generateThumbnail?: boolean;
   /**
    * @remarks
    * The metadata of the media files. The value must be a JSON string. You can specify the metadata for up to 10 media files at a time. For more information about the metadata of media files, see the **RegisterMetadata** section of this topic.
@@ -53,6 +55,8 @@ export class RegisterMediaRequest extends $dara.Model {
   workflowId?: string;
   static names(): { [key: string]: string } {
     return {
+      enableFirstFrameCover: 'EnableFirstFrameCover',
+      generateThumbnail: 'GenerateThumbnail',
       registerMetadatas: 'RegisterMetadatas',
       templateGroupId: 'TemplateGroupId',
       userData: 'UserData',
@@ -62,6 +66,8 @@ export class RegisterMediaRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableFirstFrameCover: 'boolean',
+      generateThumbnail: 'boolean',
       registerMetadatas: 'string',
       templateGroupId: 'string',
       userData: 'string',

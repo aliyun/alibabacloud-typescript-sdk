@@ -1410,12 +1410,20 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
+    if (!$dara.isNull(request.enableFirstFrameCover)) {
+      query["EnableFirstFrameCover"] = request.enableFirstFrameCover;
+    }
+
     if (!$dara.isNull(request.fileName)) {
       query["FileName"] = request.fileName;
     }
 
     if (!$dara.isNull(request.fileSize)) {
       query["FileSize"] = request.fileSize;
+    }
+
+    if (!$dara.isNull(request.generateThumbnail)) {
+      query["GenerateThumbnail"] = request.generateThumbnail;
     }
 
     if (!$dara.isNull(request.referenceId)) {
@@ -9230,6 +9238,14 @@ export default class Client extends OpenApi {
   async registerMediaWithOptions(request: $_model.RegisterMediaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RegisterMediaResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.enableFirstFrameCover)) {
+      query["EnableFirstFrameCover"] = request.enableFirstFrameCover;
+    }
+
+    if (!$dara.isNull(request.generateThumbnail)) {
+      query["GenerateThumbnail"] = request.generateThumbnail;
+    }
+
     if (!$dara.isNull(request.registerMetadatas)) {
       query["RegisterMetadatas"] = request.registerMetadatas;
     }
@@ -11721,6 +11737,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.appId)) {
       query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.enableFirstFrameCover)) {
+      query["EnableFirstFrameCover"] = request.enableFirstFrameCover;
+    }
+
+    if (!$dara.isNull(request.generateThumbnail)) {
+      query["GenerateThumbnail"] = request.generateThumbnail;
     }
 
     if (!$dara.isNull(request.sessionId)) {

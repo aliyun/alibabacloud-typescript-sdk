@@ -42,6 +42,7 @@ export class CreateUploadVideoRequest extends $dara.Model {
    * UploadTest
    */
   description?: string;
+  enableFirstFrameCover?: boolean;
   /**
    * @remarks
    * The name of the source file.
@@ -63,6 +64,7 @@ export class CreateUploadVideoRequest extends $dara.Model {
    * 123
    */
   fileSize?: number;
+  generateThumbnail?: boolean;
   /**
    * @example
    * 123-123
@@ -148,8 +150,10 @@ export class CreateUploadVideoRequest extends $dara.Model {
       cateId: 'CateId',
       coverURL: 'CoverURL',
       description: 'Description',
+      enableFirstFrameCover: 'EnableFirstFrameCover',
       fileName: 'FileName',
       fileSize: 'FileSize',
+      generateThumbnail: 'GenerateThumbnail',
       referenceId: 'ReferenceId',
       storageLocation: 'StorageLocation',
       tags: 'Tags',
@@ -166,8 +170,10 @@ export class CreateUploadVideoRequest extends $dara.Model {
       cateId: 'number',
       coverURL: 'string',
       description: 'string',
+      enableFirstFrameCover: 'boolean',
       fileName: 'string',
       fileSize: 'number',
+      generateThumbnail: 'boolean',
       referenceId: 'string',
       storageLocation: 'string',
       tags: 'string',
