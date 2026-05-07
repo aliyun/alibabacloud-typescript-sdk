@@ -4109,7 +4109,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
@@ -6635,6 +6634,174 @@ export default class Client extends OpenApi {
   async restartDataImportTask(request: $_model.RestartDataImportTaskRequest): Promise<$_model.RestartDataImportTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.restartDataImportTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 克隆PolarDB-X实例
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - RestoreDBInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestoreDBInstanceResponse
+   */
+  async restoreDBInstanceWithOptions(request: $_model.RestoreDBInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestoreDBInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.backupSetId)) {
+      query["BackupSetId"] = request.backupSetId;
+    }
+
+    if (!$dara.isNull(request.backupSetRegion)) {
+      query["BackupSetRegion"] = request.backupSetRegion;
+    }
+
+    if (!$dara.isNull(request.CNNodeCount)) {
+      query["CNNodeCount"] = request.CNNodeCount;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloneInstanceName)) {
+      query["CloneInstanceName"] = request.cloneInstanceName;
+    }
+
+    if (!$dara.isNull(request.cnClass)) {
+      query["CnClass"] = request.cnClass;
+    }
+
+    if (!$dara.isNull(request.DBNodeClass)) {
+      query["DBNodeClass"] = request.DBNodeClass;
+    }
+
+    if (!$dara.isNull(request.DBNodeCount)) {
+      query["DBNodeCount"] = request.DBNodeCount;
+    }
+
+    if (!$dara.isNull(request.DNNodeCount)) {
+      query["DNNodeCount"] = request.DNNodeCount;
+    }
+
+    if (!$dara.isNull(request.dnClass)) {
+      query["DnClass"] = request.dnClass;
+    }
+
+    if (!$dara.isNull(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!$dara.isNull(request.gdnRole)) {
+      query["GdnRole"] = request.gdnRole;
+    }
+
+    if (!$dara.isNull(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.primaryZone)) {
+      query["PrimaryZone"] = request.primaryZone;
+    }
+
+    if (!$dara.isNull(request.recoveryTypeCode)) {
+      query["RecoveryTypeCode"] = request.recoveryTypeCode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.restoreTime)) {
+      query["RestoreTime"] = request.restoreTime;
+    }
+
+    if (!$dara.isNull(request.secondaryZone)) {
+      query["SecondaryZone"] = request.secondaryZone;
+    }
+
+    if (!$dara.isNull(request.series)) {
+      query["Series"] = request.series;
+    }
+
+    if (!$dara.isNull(request.sourceInstanceRegion)) {
+      query["SourceInstanceRegion"] = request.sourceInstanceRegion;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!$dara.isNull(request.tertiaryZone)) {
+      query["TertiaryZone"] = request.tertiaryZone;
+    }
+
+    if (!$dara.isNull(request.topologyType)) {
+      query["TopologyType"] = request.topologyType;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RestoreDBInstance",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RestoreDBInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RestoreDBInstanceResponse({}));
+  }
+
+  /**
+   * 克隆PolarDB-X实例
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - RestoreDBInstanceRequest
+   * @returns RestoreDBInstanceResponse
+   */
+  async restoreDBInstance(request: $_model.RestoreDBInstanceRequest): Promise<$_model.RestoreDBInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.restoreDBInstanceWithOptions(request, runtime);
   }
 
   /**
