@@ -48,6 +48,7 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
    * 1684750028000
    */
   expireStartDate?: number;
+  includeShare?: boolean;
   maxResults?: number;
   /**
    * @example
@@ -63,6 +64,7 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  productCode?: string;
   /**
    * @example
    * AVAILABLE
@@ -80,10 +82,12 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
       effectiveStartTime: 'EffectiveStartTime',
       expireEndDate: 'ExpireEndDate',
       expireStartDate: 'ExpireStartDate',
+      includeShare: 'IncludeShare',
       maxResults: 'MaxResults',
       nbid: 'Nbid',
       nextToken: 'NextToken',
       pageSize: 'PageSize',
+      productCode: 'ProductCode',
       status: 'Status',
     };
   }
@@ -100,10 +104,12 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
       effectiveStartTime: 'number',
       expireEndDate: 'number',
       expireStartDate: 'number',
+      includeShare: 'boolean',
       maxResults: 'number',
       nbid: 'string',
       nextToken: 'string',
       pageSize: 'number',
+      productCode: 'string',
       status: 'string',
     };
   }

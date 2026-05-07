@@ -640,7 +640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a bill report subscription.
+   * Creates a billing report subscription.
    * 
    * @param request - CreateReportDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -721,7 +721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a bill report subscription.
+   * Creates a billing report subscription.
    * 
    * @param request - CreateReportDefinitionRequest
    * @returns CreateReportDefinitionResponse
@@ -950,7 +950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询优惠券列表
+   * Queries the list of coupons.
    * 
    * @param tmpReq - DescribeCouponRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1009,6 +1009,10 @@ export default class Client extends OpenApi {
       query["ExpireStartDate"] = request.expireStartDate;
     }
 
+    if (!$dara.isNull(request.includeShare)) {
+      query["IncludeShare"] = request.includeShare;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -1023,6 +1027,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
     }
 
     if (!$dara.isNull(request.status)) {
@@ -1047,7 +1055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询优惠券列表
+   * Queries the list of coupons.
    * 
    * @param request - DescribeCouponRequest
    * @returns DescribeCouponResponse
@@ -1058,7 +1066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询优惠券可用商品列表
+   * Query the list of products for which a coupon is applicable.
    * 
    * @param tmpReq - DescribeCouponItemListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1115,7 +1123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询优惠券可用商品列表
+   * Query the list of products for which a coupon is applicable.
    * 
    * @param request - DescribeCouponItemListRequest
    * @returns DescribeCouponItemListResponse
@@ -2126,7 +2134,6 @@ export default class Client extends OpenApi {
   /**
    * 发票抬头查询服务
    * 
-   * @param request - ListInvoiceTitleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInvoiceTitleResponse
    */
