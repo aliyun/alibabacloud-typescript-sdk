@@ -71,7 +71,77 @@ export class RunBookIntroductionResponseBodyHeader extends $dara.Model {
   }
 }
 
+export class RunBookIntroductionResponseBodyPayloadOutputIntroductionsBlocks extends $dara.Model {
+  /**
+   * @example
+   * 0
+   */
+  beginTime?: number;
+  /**
+   * @example
+   * 1200
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 600
+   */
+  height?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageId?: number;
+  /**
+   * @example
+   * 600
+   */
+  width?: number;
+  /**
+   * @example
+   * 10
+   */
+  x?: number;
+  /**
+   * @example
+   * 10
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      height: 'Height',
+      pageId: 'PageId',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      height: 'number',
+      pageId: 'number',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunBookIntroductionResponseBodyPayloadOutputIntroductions extends $dara.Model {
+  blocks?: RunBookIntroductionResponseBodyPayloadOutputIntroductionsBlocks[];
   /**
    * @example
    * 本段摘要内容
@@ -84,6 +154,7 @@ export class RunBookIntroductionResponseBodyPayloadOutputIntroductions extends $
   title?: string;
   static names(): { [key: string]: string } {
     return {
+      blocks: 'Blocks',
       summary: 'Summary',
       title: 'Title',
     };
@@ -91,12 +162,16 @@ export class RunBookIntroductionResponseBodyPayloadOutputIntroductions extends $
 
   static types(): { [key: string]: any } {
     return {
+      blocks: { 'type': 'array', 'itemType': RunBookIntroductionResponseBodyPayloadOutputIntroductionsBlocks },
       summary: 'string',
       title: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.blocks)) {
+      $dara.Model.validateArray(this.blocks);
+    }
     super.validate();
   }
 

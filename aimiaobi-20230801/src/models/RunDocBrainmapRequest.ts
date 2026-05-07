@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RunDocBrainmapRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   cleanCache?: boolean;
   /**
    * @remarks
@@ -12,9 +16,26 @@ export class RunDocBrainmapRequest extends $dara.Model {
    * 12345
    */
   docId?: string;
+  /**
+   * @example
+   * quanmiao-max、quanmiao-plus
+   */
   modelName?: string;
+  /**
+   * @example
+   * 3
+   */
   nodeNumber?: number;
+  /**
+   * @example
+   * 请按英文输出
+   */
   prompt?: string;
+  /**
+   * @example
+   * 0
+   */
+  responseFormat?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -23,15 +44,20 @@ export class RunDocBrainmapRequest extends $dara.Model {
    * 3f7045e099474ba28ceca1b4eb6d6e21
    */
   sessionId?: string;
+  /**
+   * @example
+   * 20
+   */
   wordNumber?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * llm-xxx
    */
   workspaceId?: string;
+  /**
+   * @example
+   * 要生成脑图的内容
+   */
   referenceContent?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,6 +66,7 @@ export class RunDocBrainmapRequest extends $dara.Model {
       modelName: 'ModelName',
       nodeNumber: 'NodeNumber',
       prompt: 'Prompt',
+      responseFormat: 'ResponseFormat',
       sessionId: 'SessionId',
       wordNumber: 'WordNumber',
       workspaceId: 'WorkspaceId',
@@ -54,6 +81,7 @@ export class RunDocBrainmapRequest extends $dara.Model {
       modelName: 'string',
       nodeNumber: 'number',
       prompt: 'string',
+      responseFormat: 'number',
       sessionId: 'string',
       wordNumber: 'number',
       workspaceId: 'string',

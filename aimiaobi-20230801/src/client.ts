@@ -8757,6 +8757,10 @@ export default class Client extends OpenApi {
       body["Prompt"] = request.prompt;
     }
 
+    if (!$dara.isNull(request.responseFormat)) {
+      body["ResponseFormat"] = request.responseFormat;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
@@ -8826,6 +8830,10 @@ export default class Client extends OpenApi {
       body["Prompt"] = request.prompt;
     }
 
+    if (!$dara.isNull(request.responseFormat)) {
+      body["ResponseFormat"] = request.responseFormat;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
@@ -8876,6 +8884,10 @@ export default class Client extends OpenApi {
   async *runBookIntroductionWithSSE(request: $_model.RunBookIntroductionRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunBookIntroductionResponse, any, unknown> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cleanCache)) {
+      body["CleanCache"] = request.cleanCache;
+    }
+
     if (!$dara.isNull(request.docId)) {
       body["DocId"] = request.docId;
     }
@@ -8937,6 +8949,10 @@ export default class Client extends OpenApi {
   async runBookIntroductionWithOptions(request: $_model.RunBookIntroductionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunBookIntroductionResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cleanCache)) {
+      body["CleanCache"] = request.cleanCache;
+    }
+
     if (!$dara.isNull(request.docId)) {
       body["DocId"] = request.docId;
     }
@@ -9813,6 +9829,10 @@ export default class Client extends OpenApi {
       body["Prompt"] = request.prompt;
     }
 
+    if (!$dara.isNull(request.responseFormat)) {
+      body["ResponseFormat"] = request.responseFormat;
+    }
+
     if (!$dara.isNull(request.sessionId)) {
       body["SessionId"] = request.sessionId;
     }
@@ -9888,6 +9908,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.prompt)) {
       body["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.responseFormat)) {
+      body["ResponseFormat"] = request.responseFormat;
     }
 
     if (!$dara.isNull(request.sessionId)) {

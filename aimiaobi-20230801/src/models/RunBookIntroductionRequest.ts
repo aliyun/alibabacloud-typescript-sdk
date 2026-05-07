@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class RunBookIntroductionRequest extends $dara.Model {
   /**
+   * @example
+   * true
+   */
+  cleanCache?: boolean;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -11,6 +16,10 @@ export class RunBookIntroductionRequest extends $dara.Model {
    * 3YQRatoe8phnpIsIE6z7DTPknhG8Fj
    */
   docId?: string;
+  /**
+   * @example
+   * 用英文输出
+   */
   keyPointPrompt?: string;
   /**
    * @remarks
@@ -20,6 +29,10 @@ export class RunBookIntroductionRequest extends $dara.Model {
    * 0f56f98a-f2d8-47ec-98e9-1cbdcffa9539
    */
   sessionId?: string;
+  /**
+   * @example
+   * 用英文输出
+   */
   summaryPrompt?: string;
   /**
    * @remarks
@@ -31,6 +44,7 @@ export class RunBookIntroductionRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      cleanCache: 'CleanCache',
       docId: 'DocId',
       keyPointPrompt: 'KeyPointPrompt',
       sessionId: 'SessionId',
@@ -41,6 +55,7 @@ export class RunBookIntroductionRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cleanCache: 'boolean',
       docId: 'string',
       keyPointPrompt: 'string',
       sessionId: 'string',

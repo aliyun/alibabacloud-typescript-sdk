@@ -317,6 +317,7 @@ export { RunBookBrainmapResponseBodyPayloadOutput } from './RunBookBrainmapRespo
 export { RunBookBrainmapResponseBodyPayloadUsage } from './RunBookBrainmapResponseBody';
 export { RunBookBrainmapResponseBodyPayload } from './RunBookBrainmapResponseBody';
 export { RunBookIntroductionResponseBodyHeader } from './RunBookIntroductionResponseBody';
+export { RunBookIntroductionResponseBodyPayloadOutputIntroductionsBlocks } from './RunBookIntroductionResponseBody';
 export { RunBookIntroductionResponseBodyPayloadOutputIntroductions } from './RunBookIntroductionResponseBody';
 export { RunBookIntroductionResponseBodyPayloadOutput } from './RunBookIntroductionResponseBody';
 export { RunBookIntroductionResponseBodyPayloadUsage } from './RunBookIntroductionResponseBody';

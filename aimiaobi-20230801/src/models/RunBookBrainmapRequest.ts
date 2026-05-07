@@ -21,7 +21,16 @@ export class RunBookBrainmapRequest extends $dara.Model {
    * 3
    */
   nodeNumber?: number;
+  /**
+   * @example
+   * 按英文输出
+   */
   prompt?: string;
+  /**
+   * @example
+   * 0
+   */
+  responseFormat?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -49,6 +58,7 @@ export class RunBookBrainmapRequest extends $dara.Model {
       docId: 'DocId',
       nodeNumber: 'NodeNumber',
       prompt: 'Prompt',
+      responseFormat: 'ResponseFormat',
       sessionId: 'SessionId',
       wordNumber: 'WordNumber',
       workspaceId: 'WorkspaceId',
@@ -61,6 +71,7 @@ export class RunBookBrainmapRequest extends $dara.Model {
       docId: 'string',
       nodeNumber: 'number',
       prompt: 'string',
+      responseFormat: 'number',
       sessionId: 'string',
       wordNumber: 'number',
       workspaceId: 'string',
