@@ -627,6 +627,10 @@ export default class Client extends OpenApi {
       query["DMSUnit"] = request.DMSUnit;
     }
 
+    if (!$dara.isNull(request.isSessionShareEnabled)) {
+      query["IsSessionShareEnabled"] = request.isSessionShareEnabled;
+    }
+
     if (!$dara.isNull(request.workspaceDesc)) {
       query["WorkspaceDesc"] = request.workspaceDesc;
     }
@@ -3850,6 +3854,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DMSUnit)) {
       query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.isSessionShareEnabled)) {
+      query["IsSessionShareEnabled"] = request.isSessionShareEnabled;
     }
 
     if (!$dara.isNull(request.workspaceDesc)) {

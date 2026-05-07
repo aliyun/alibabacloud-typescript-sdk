@@ -8,6 +8,7 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
    * cn-hangzhou
    */
   DMSUnit?: string;
+  isSessionShareEnabled?: boolean;
   /**
    * @example
    * Space for test
@@ -21,6 +22,7 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DMSUnit: 'DMSUnit',
+      isSessionShareEnabled: 'IsSessionShareEnabled',
       workspaceDesc: 'WorkspaceDesc',
       workspaceName: 'WorkspaceName',
     };
@@ -29,6 +31,7 @@ export class CreateDataAgentWorkspaceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DMSUnit: 'string',
+      isSessionShareEnabled: 'boolean',
       workspaceDesc: 'string',
       workspaceName: 'string',
     };

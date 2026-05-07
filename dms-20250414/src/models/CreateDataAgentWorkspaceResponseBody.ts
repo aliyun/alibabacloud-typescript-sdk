@@ -13,6 +13,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
    * 20282*****7591
    */
   creator?: string;
+  isSessionShareEnabled?: boolean;
   /**
    * @example
    * 1765961516
@@ -52,6 +53,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
     return {
       createTime: 'CreateTime',
       creator: 'Creator',
+      isSessionShareEnabled: 'IsSessionShareEnabled',
       modifyTime: 'ModifyTime',
       roleName: 'RoleName',
       totalMember: 'TotalMember',
@@ -66,6 +68,7 @@ export class CreateDataAgentWorkspaceResponseBodyData extends $dara.Model {
     return {
       createTime: 'number',
       creator: 'string',
+      isSessionShareEnabled: 'boolean',
       modifyTime: 'number',
       roleName: 'string',
       totalMember: 'number',

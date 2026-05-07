@@ -18,6 +18,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
    * space for test
    */
   description?: string;
+  isSessionShareEnabled?: boolean;
   /**
    * @example
    * 1765961516
@@ -53,6 +54,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
       createTime: 'CreateTime',
       creator: 'Creator',
       description: 'Description',
+      isSessionShareEnabled: 'IsSessionShareEnabled',
       modifyTime: 'ModifyTime',
       roleName: 'RoleName',
       totalMember: 'TotalMember',
@@ -67,6 +69,7 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
       createTime: 'number',
       creator: 'string',
       description: 'string',
+      isSessionShareEnabled: 'boolean',
       modifyTime: 'number',
       roleName: 'string',
       totalMember: 'number',

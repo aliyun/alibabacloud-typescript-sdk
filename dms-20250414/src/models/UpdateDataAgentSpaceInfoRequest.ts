@@ -8,6 +8,7 @@ export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
    * cn-hangzhou
    */
   DMSUnit?: string;
+  isSessionShareEnabled?: boolean;
   /**
    * @example
    * space for test new
@@ -26,6 +27,7 @@ export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DMSUnit: 'DMSUnit',
+      isSessionShareEnabled: 'IsSessionShareEnabled',
       workspaceDesc: 'WorkspaceDesc',
       workspaceId: 'WorkspaceId',
       workspaceName: 'WorkspaceName',
@@ -35,6 +37,7 @@ export class UpdateDataAgentSpaceInfoRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DMSUnit: 'string',
+      isSessionShareEnabled: 'boolean',
       workspaceDesc: 'string',
       workspaceId: 'string',
       workspaceName: 'string',
