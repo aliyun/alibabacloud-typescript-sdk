@@ -429,12 +429,18 @@ export class CreateRecallManagementServiceVersionRequest extends $dara.Model {
   configs?: CreateRecallManagementServiceVersionRequestConfigs;
   /**
    * @example
+   * learn-pairec-xxx
+   */
+  instanceId?: string;
+  /**
+   * @example
    * 4
    */
   sourceRecallManagementServiceVersionId?: string;
   static names(): { [key: string]: string } {
     return {
       configs: 'Configs',
+      instanceId: 'InstanceId',
       sourceRecallManagementServiceVersionId: 'SourceRecallManagementServiceVersionId',
     };
   }
@@ -442,6 +448,7 @@ export class CreateRecallManagementServiceVersionRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       configs: CreateRecallManagementServiceVersionRequestConfigs,
+      instanceId: 'string',
       sourceRecallManagementServiceVersionId: 'string',
     };
   }

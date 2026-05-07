@@ -2017,6 +2017,10 @@ export default class Client extends OpenApi {
       body["Configs"] = request.configs;
     }
 
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
     if (!$dara.isNull(request.sourceRecallManagementServiceVersionId)) {
       body["SourceRecallManagementServiceVersionId"] = request.sourceRecallManagementServiceVersionId;
     }
@@ -3131,6 +3135,10 @@ export default class Client extends OpenApi {
   async deleteEngineConfigWithOptions(EngineConfigId: string, request: $_model.DeleteEngineConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEngineConfigResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deleteAll)) {
+      query["DeleteAll"] = request.deleteAll;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }

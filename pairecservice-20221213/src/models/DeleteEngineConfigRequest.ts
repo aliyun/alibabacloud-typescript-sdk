@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteEngineConfigRequest extends $dara.Model {
+  deleteAll?: boolean;
   /**
    * @example
    * pairec-cn-***test1
@@ -10,12 +11,14 @@ export class DeleteEngineConfigRequest extends $dara.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      deleteAll: 'DeleteAll',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      deleteAll: 'boolean',
       instanceId: 'string',
     };
   }

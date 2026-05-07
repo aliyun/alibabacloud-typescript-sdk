@@ -10,9 +10,19 @@ export class GetRecallManagementConfigResponseBodyNetworkConfigs extends $dara.M
   privateLinkAddress?: string;
   /**
    * @example
+   * ""
+   */
+  publicEndpoint?: string;
+  /**
+   * @example
    * Connecting
    */
   status?: string;
+  /**
+   * @example
+   * ""
+   */
+  token?: string;
   /**
    * @example
    * vpc-xxx
@@ -22,7 +32,9 @@ export class GetRecallManagementConfigResponseBodyNetworkConfigs extends $dara.M
   static names(): { [key: string]: string } {
     return {
       privateLinkAddress: 'PrivateLinkAddress',
+      publicEndpoint: 'PublicEndpoint',
       status: 'Status',
+      token: 'Token',
       vpcId: 'VpcId',
       vswitchIds: 'VswitchIds',
     };
@@ -31,7 +43,9 @@ export class GetRecallManagementConfigResponseBodyNetworkConfigs extends $dara.M
   static types(): { [key: string]: any } {
     return {
       privateLinkAddress: 'string',
+      publicEndpoint: 'string',
       status: 'string',
+      token: 'string',
       vpcId: 'string',
       vswitchIds: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
