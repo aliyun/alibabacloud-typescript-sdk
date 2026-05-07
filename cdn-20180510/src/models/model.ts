@@ -672,6 +672,9 @@ export { DisableRealtimeLogDeliveryResponse } from './DisableRealtimeLogDelivery
 export { EnableRealtimeLogDeliveryRequest } from './EnableRealtimeLogDeliveryRequest';
 export { EnableRealtimeLogDeliveryResponseBody } from './EnableRealtimeLogDeliveryResponseBody';
 export { EnableRealtimeLogDeliveryResponse } from './EnableRealtimeLogDeliveryResponse';
+export { GenerateCdnDiagnoseRequest } from './GenerateCdnDiagnoseRequest';
+export { GenerateCdnDiagnoseResponseBody } from './GenerateCdnDiagnoseResponseBody';
+export { GenerateCdnDiagnoseResponse } from './GenerateCdnDiagnoseResponse';
 export { GetGrayDomainFunctionRequest } from './GetGrayDomainFunctionRequest';
 export { GetGrayDomainFunctionResponseBody } from './GetGrayDomainFunctionResponseBody';
 export { GetGrayDomainFunctionResponse } from './GetGrayDomainFunctionResponse';

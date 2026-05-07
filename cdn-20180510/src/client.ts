@@ -1318,7 +1318,6 @@ export default class Client extends OpenApi {
    * @remarks
    * >  You can call this API operation up to three times per second per account.
    * 
-   * @param request - DeleteCdnSubTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCdnSubTaskResponse
    */
@@ -3192,7 +3191,6 @@ export default class Client extends OpenApi {
    *   By default, this operation queries all custom operations reports. However, only one operations report can be displayed. Therefore, only one operations report is returned.
    * *   You can call this operation up to three times per second per account.
    * 
-   * @param request - DescribeCdnSubListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCdnSubListResponse
    */
@@ -7693,7 +7691,6 @@ export default class Client extends OpenApi {
    * @remarks
    * >The maximum number of times that each user can call this operation per second is 30.
    * 
-   * @param request - DescribeStagingIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeStagingIpResponse
    */
@@ -7893,7 +7890,6 @@ export default class Client extends OpenApi {
    * @remarks
    * > You can call this operation up to 100 times per second per account.
    * 
-   * @param request - DescribeUserCertificateExpireCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserCertificateExpireCountResponse
    */
@@ -8087,7 +8083,6 @@ export default class Client extends OpenApi {
    * @remarks
    * > You can call this operation up to 100 times per second per account.
    * 
-   * @param request - DescribeUserTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserTagsResponse
    */
@@ -8400,6 +8395,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Generates a link to the detection tool based on the access URL.
+   * 
+   * @param request - GenerateCdnDiagnoseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateCdnDiagnoseResponse
+   */
+  async generateCdnDiagnoseWithOptions(request: $_model.GenerateCdnDiagnoseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateCdnDiagnoseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateCdnDiagnose",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateCdnDiagnoseResponse>(await this.callApi(params, req, runtime), new $_model.GenerateCdnDiagnoseResponse({}));
+  }
+
+  /**
+   * Generates a link to the detection tool based on the access URL.
+   * 
+   * @param request - GenerateCdnDiagnoseRequest
+   * @returns GenerateCdnDiagnoseResponse
+   */
+  async generateCdnDiagnose(request: $_model.GenerateCdnDiagnoseRequest): Promise<$_model.GenerateCdnDiagnoseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateCdnDiagnoseWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the canary release configurations, such as canary release status and progress, by domain name and function name.
    * 
    * @param request - GetGrayDomainFunctionRequest
@@ -8536,7 +8573,6 @@ export default class Client extends OpenApi {
   /**
    * Queries all real-time log delivery tasks within your Alibaba Cloud account.
    * 
-   * @param request - ListRealtimeLogDeliveryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRealtimeLogDeliveryResponse
    */
@@ -8615,7 +8651,6 @@ export default class Client extends OpenApi {
    * @remarks
    * > You can call this operation up to 100 times per second per account.
    * 
-   * @param request - ListRealtimeLogDeliveryInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRealtimeLogDeliveryInfosResponse
    */
@@ -8715,7 +8750,6 @@ export default class Client extends OpenApi {
    * @remarks
    * > You can call this operation up to 100 times per second per account.
    * 
-   * @param request - ListUserCustomLogConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUserCustomLogConfigResponse
    */
