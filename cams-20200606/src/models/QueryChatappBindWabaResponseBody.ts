@@ -59,6 +59,11 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
    */
   id?: string;
   /**
+   * @example
+   * N
+   */
+  isOnBizApp?: string;
+  /**
    * @remarks
    * The Marketing Messaging Lite status.
    * 
@@ -98,6 +103,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
       businessName: 'BusinessName',
       currency: 'Currency',
       id: 'Id',
+      isOnBizApp: 'IsOnBizApp',
       marketingMessageLiteStatus: 'MarketingMessageLiteStatus',
       messageTemplateNamespace: 'MessageTemplateNamespace',
       name: 'Name',
@@ -113,6 +119,7 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
       businessName: 'string',
       currency: 'string',
       id: 'string',
+      isOnBizApp: 'string',
       marketingMessageLiteStatus: 'string',
       messageTemplateNamespace: 'string',
       name: 'string',

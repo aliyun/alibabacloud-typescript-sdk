@@ -10048,6 +10048,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 同步business app历史记录等
+   * 
+   * @param request - SyncBusinessAppHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncBusinessAppHistoryResponse
+   */
+  async syncBusinessAppHistoryWithOptions(request: $_model.SyncBusinessAppHistoryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SyncBusinessAppHistoryResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.custSpaceId)) {
+      query["CustSpaceId"] = request.custSpaceId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.phoneNumber)) {
+      query["PhoneNumber"] = request.phoneNumber;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SyncBusinessAppHistory",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SyncBusinessAppHistoryResponse>(await this.callApi(params, req, runtime), new $_model.SyncBusinessAppHistoryResponse({}));
+  }
+
+  /**
+   * 同步business app历史记录等
+   * 
+   * @param request - SyncBusinessAppHistoryRequest
+   * @returns SyncBusinessAppHistoryResponse
+   */
+  async syncBusinessAppHistory(request: $_model.SyncBusinessAppHistoryRequest): Promise<$_model.SyncBusinessAppHistoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.syncBusinessAppHistoryWithOptions(request, runtime);
+  }
+
+  /**
    * 同步flow
    * 
    * @param request - SyncFlowRequest
