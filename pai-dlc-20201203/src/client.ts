@@ -222,6 +222,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建任务模板
+   * 
+   * @param request - CreateJobTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateJobTemplateResponse
+   */
+  async createJobTemplateWithOptions(request: $_model.CreateJobTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateJobTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.constraints)) {
+      body["Constraints"] = request.constraints;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.metadata)) {
+      body["Metadata"] = request.metadata;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateJobTemplate",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobtemplates`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateJobTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateJobTemplateResponse({}));
+  }
+
+  /**
+   * 创建任务模板
+   * 
+   * @param request - CreateJobTemplateRequest
+   * @returns CreateJobTemplateResponse
+   */
+  async createJobTemplate(request: $_model.CreateJobTemplateRequest): Promise<$_model.CreateJobTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createJobTemplateWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a TensorBoard by using a job or specifying a data source configuration.
    * 
    * @param request - CreateTensorboardRequest
@@ -379,6 +444,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteJobWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
+   * 删除任务模板
+   * 
+   * @param request - DeleteJobTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteJobTemplateResponse
+   */
+  async deleteJobTemplateWithOptions(TemplateId: string, request: $_model.DeleteJobTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteJobTemplateResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteJobTemplate",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobtemplates/${$dara.URL.percentEncode(TemplateId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteJobTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteJobTemplateResponse({}));
+  }
+
+  /**
+   * 删除任务模板
+   * 
+   * @param request - DeleteJobTemplateRequest
+   * @returns DeleteJobTemplateResponse
+   */
+  async deleteJobTemplate(TemplateId: string, request: $_model.DeleteJobTemplateRequest): Promise<$_model.DeleteJobTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteJobTemplateWithOptions(TemplateId, request, headers, runtime);
   }
 
   /**
@@ -691,6 +795,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getJobSanityCheckResultWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
+   * 获取任务模板详情
+   * 
+   * @param request - GetJobTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobTemplateResponse
+   */
+  async getJobTemplateWithOptions(TemplateId: string, request: $_model.GetJobTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetJobTemplateResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetJobTemplate",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobtemplates/${$dara.URL.percentEncode(TemplateId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetJobTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetJobTemplateResponse({}));
+  }
+
+  /**
+   * 获取任务模板详情
+   * 
+   * @param request - GetJobTemplateRequest
+   * @returns GetJobTemplateResponse
+   */
+  async getJobTemplate(TemplateId: string, request: $_model.GetJobTemplateRequest): Promise<$_model.GetJobTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getJobTemplateWithOptions(TemplateId, request, headers, runtime);
   }
 
   /**
@@ -1181,6 +1330,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出任务模板
+   * 
+   * @param request - ListJobTemplatesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobTemplatesResponse
+   */
+  async listJobTemplatesWithOptions(request: $_model.ListJobTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListJobTemplatesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListJobTemplates",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobtemplates`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListJobTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListJobTemplatesResponse({}));
+  }
+
+  /**
+   * 列出任务模板
+   * 
+   * @param request - ListJobTemplatesRequest
+   * @returns ListJobTemplatesResponse
+   */
+  async listJobTemplates(request: $_model.ListJobTemplatesRequest): Promise<$_model.ListJobTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listJobTemplatesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries a list of jobs and supports pagination, sorting, and filtering by conditions.
    * 
    * @param tmpReq - ListJobsRequest
@@ -1493,6 +1715,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置任务模板默认版本
+   * 
+   * @param request - SetJobTemplateDefaultVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetJobTemplateDefaultVersionResponse
+   */
+  async setJobTemplateDefaultVersionWithOptions(TemplateId: string, request: $_model.SetJobTemplateDefaultVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SetJobTemplateDefaultVersionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.version)) {
+      body["Version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetJobTemplateDefaultVersion",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobtemplates/${$dara.URL.percentEncode(TemplateId)}/defaultversion`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetJobTemplateDefaultVersionResponse>(await this.callApi(params, req, runtime), new $_model.SetJobTemplateDefaultVersionResponse({}));
+  }
+
+  /**
+   * 设置任务模板默认版本
+   * 
+   * @param request - SetJobTemplateDefaultVersionRequest
+   * @returns SetJobTemplateDefaultVersionResponse
+   */
+  async setJobTemplateDefaultVersion(TemplateId: string, request: $_model.SetJobTemplateDefaultVersionRequest): Promise<$_model.SetJobTemplateDefaultVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.setJobTemplateDefaultVersionWithOptions(TemplateId, request, headers, runtime);
+  }
+
+  /**
    * Starts a TensorBoard instance.
    * 
    * @param request - StartTensorboardRequest
@@ -1676,6 +1943,75 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateJobWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
+   * 更新任务模板
+   * 
+   * @param request - UpdateJobTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateJobTemplateResponse
+   */
+  async updateJobTemplateWithOptions(TemplateId: string, request: $_model.UpdateJobTemplateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateJobTemplateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.constraints)) {
+      body["Constraints"] = request.constraints;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.metadata)) {
+      body["Metadata"] = request.metadata;
+    }
+
+    if (!$dara.isNull(request.setAsDefault)) {
+      body["SetAsDefault"] = request.setAsDefault;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      body["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateJobTemplate",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobtemplates/${$dara.URL.percentEncode(TemplateId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateJobTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateJobTemplateResponse({}));
+  }
+
+  /**
+   * 更新任务模板
+   * 
+   * @param request - UpdateJobTemplateRequest
+   * @returns UpdateJobTemplateResponse
+   */
+  async updateJobTemplate(TemplateId: string, request: $_model.UpdateJobTemplateRequest): Promise<$_model.UpdateJobTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateJobTemplateWithOptions(TemplateId, request, headers, runtime);
   }
 
   /**
