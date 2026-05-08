@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryListDBNodeCategory extends $dara.Model {
-  /**
-   * @remarks
-   * The display value.
-   * 
-   * @example
-   * mixed_storage
-   */
   text?: string;
-  /**
-   * @remarks
-   * The real value.
-   * 
-   * @example
-   * mixed_storage
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,21 +55,7 @@ export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryList ext
 }
 
 export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassListDBNodeClass extends $dara.Model {
-  /**
-   * @remarks
-   * The display value.
-   * 
-   * @example
-   * E32
-   */
   text?: string;
-  /**
-   * @remarks
-   * The real value.
-   * 
-   * @example
-   * E32
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -135,21 +107,7 @@ export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassList extend
 }
 
 export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageListDBNodeStorage extends $dara.Model {
-  /**
-   * @remarks
-   * The display value.
-   * 
-   * @example
-   * 100
-   */
   text?: string;
-  /**
-   * @remarks
-   * The real value.
-   * 
-   * @example
-   * 100
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -201,21 +159,7 @@ export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageList exte
 }
 
 export class DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionListEngineVersion extends $dara.Model {
-  /**
-   * @remarks
-   * The display value.
-   * 
-   * @example
-   * 3.0
-   */
   text?: string;
-  /**
-   * @remarks
-   * The real value.
-   * 
-   * @example
-   * 3.0
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -267,21 +211,7 @@ export class DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionList exte
 }
 
 export class DescribeRdsAnalysisResourceQuotasResponseBodyModeListMode extends $dara.Model {
-  /**
-   * @remarks
-   * The display value.
-   * 
-   * @example
-   * flexible
-   */
   text?: string;
-  /**
-   * @remarks
-   * The real value.
-   * 
-   * @example
-   * flexible
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -333,21 +263,7 @@ export class DescribeRdsAnalysisResourceQuotasResponseBodyModeList extends $dara
 }
 
 export class DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeListStorageType extends $dara.Model {
-  /**
-   * @remarks
-   * The display value.
-   * 
-   * @example
-   * cloud_essd
-   */
   text?: string;
-  /**
-   * @remarks
-   * The real value.
-   * 
-   * @example
-   * cloud_essd
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -399,30 +315,10 @@ export class DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeList extend
 }
 
 export class DescribeRdsAnalysisResourceQuotasResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The editions of the MySQL analytic instances.
-   */
   DBNodeCategoryList?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryList;
-  /**
-   * @remarks
-   * The instance types of the MySQL analytic instances.
-   */
   DBNodeClassList?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassList;
-  /**
-   * @remarks
-   * The storage sizes of the MySQL analytic instances.
-   */
   DBNodeStorageList?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageList;
-  /**
-   * @remarks
-   * The versions of the MySQL analytic instances.
-   */
   engineVersionList?: DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionList;
-  /**
-   * @remarks
-   * The modes of the MySQL analytic instances.
-   */
   modeList?: DescribeRdsAnalysisResourceQuotasResponseBodyModeList;
   /**
    * @remarks
@@ -432,10 +328,6 @@ export class DescribeRdsAnalysisResourceQuotasResponseBody extends $dara.Model {
    * 1A31D7FA-1826-5843-8807-D2F715E70CB0
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The storage types of the MySQL analytic instances.
-   */
   storageTypeList?: DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeList;
   static names(): { [key: string]: string } {
     return {

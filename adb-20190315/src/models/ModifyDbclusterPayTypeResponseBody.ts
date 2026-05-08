@@ -21,13 +21,13 @@ export class ModifyDBClusterPayTypeResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method of the cluster. Valid values:
    * 
-   * *   **Postpaid**: pay-as-you-go.
-   * *   **Prepaid**: subscription.
+   * *   **Postpaid**: pay-as-you-go
+   * *   **Prepaid**: subscription
    * 
    * @example
-   * Prepaid
+   * Postpaid
    */
   payType?: string;
   /**

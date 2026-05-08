@@ -3,26 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsMixedResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The version of the cluster.
-   * 
-   * Valid values:
-   * 
-   * *   2.0
-   * *   3.0
-   * 
-   * @example
-   * 3.0
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,10 +55,6 @@ export class DescribeRegionsMixedResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsMixedResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried regions.
-   */
   regions?: DescribeRegionsMixedResponseBodyRegions;
   /**
    * @remarks

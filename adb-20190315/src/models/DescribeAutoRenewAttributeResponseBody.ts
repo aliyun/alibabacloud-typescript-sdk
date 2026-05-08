@@ -3,63 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAutoRenewAttributeResponseBodyItemsAutoRenewAttribute extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether auto-renewal is enabled for the cluster. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   autoRenewEnabled?: boolean;
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * am-bp11q28kvl688****
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The renewal duration.
-   * 
-   * @example
-   * 1
-   */
   duration?: number;
-  /**
-   * @remarks
-   * The unit of the renewal duration. Valid values:
-   * 
-   * *   **Year**
-   * *   **Month**
-   * 
-   * @example
-   * Year
-   */
   periodUnit?: string;
-  /**
-   * @remarks
-   * The region ID of the cluster.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The renewal status of the cluster. Valid values:
-   * 
-   * *   **AutoRenewal**: The cluster is automatically renewed.
-   * *   **Normal**: The cluster is manually renewed. Before the cluster expires, the system sends you a reminder by SMS message.
-   * *   **NotRenewal**: The cluster is not renewed. Three days before the cluster expires, the system sends you a reminder by SMS message to remind you that the cluster is not renewed. However, the system does not send you a reminder when the cluster expires.
-   * 
-   * @example
-   * AutoRenewal
-   */
   renewalStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -119,10 +67,6 @@ export class DescribeAutoRenewAttributeResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeAutoRenewAttributeResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The renewal information of the cluster.
-   */
   items?: DescribeAutoRenewAttributeResponseBodyItems;
   /**
    * @remarks

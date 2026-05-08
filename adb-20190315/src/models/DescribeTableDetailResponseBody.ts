@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeTableDetailResponseBodyItemsShard extends $dara.Model {
+  /**
+   * @remarks
+   * The partition ID. Only the numeric part of the partition name is returned.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * The number of rows in the partition.
+   * 
+   * @example
+   * 0
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {
@@ -29,6 +43,10 @@ export class DescribeTableDetailResponseBodyItemsShard extends $dara.Model {
 }
 
 export class DescribeTableDetailResponseBodyItems extends $dara.Model {
+  /**
+   * @remarks
+   * The queried shards.
+   */
   shard?: DescribeTableDetailResponseBodyItemsShard[];
   static names(): { [key: string]: string } {
     return {
@@ -65,12 +83,12 @@ export class DescribeTableDetailResponseBody extends $dara.Model {
   avgSize?: number;
   /**
    * @remarks
-   * The list of partitions.
+   * The queried shard.
    */
   items?: DescribeTableDetailResponseBodyItems;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF

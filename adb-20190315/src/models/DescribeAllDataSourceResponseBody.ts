@@ -3,67 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeAllDataSourceResponseBodyColumnsColumn extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the column is an auto-increment column. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
   autoIncrementColumn?: boolean;
-  /**
-   * @remarks
-   * The name of the column.
-   * 
-   * @example
-   * id
-   */
   columnName?: string;
-  /**
-   * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
-   * 
-   * @example
-   * am-bp1xxxxxxxx47
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * Indicates whether the column is the primary key of the table. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * false
-   */
   primaryKey?: boolean;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * adb_demo
-   */
   schemaName?: string;
-  /**
-   * @remarks
-   * The name of the table.
-   * 
-   * @example
-   * test
-   */
   tableName?: string;
-  /**
-   * @remarks
-   * The data type of the column.
-   * 
-   * @example
-   * bigint
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,21 +70,7 @@ export class DescribeAllDataSourceResponseBodyColumns extends $dara.Model {
 }
 
 export class DescribeAllDataSourceResponseBodySchemasSchema extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
-   * 
-   * @example
-   * am-bp1xxxxxxxx47
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * adb_demo
-   */
   schemaName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -191,29 +122,8 @@ export class DescribeAllDataSourceResponseBodySchemas extends $dara.Model {
 }
 
 export class DescribeAllDataSourceResponseBodyTablesTable extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
-   * 
-   * @example
-   * am-bp1xxxxxxxx47
-   */
   DBClusterId?: string;
-  /**
-   * @remarks
-   * The name of the database.
-   * 
-   * @example
-   * adb_demo
-   */
   schemaName?: string;
-  /**
-   * @remarks
-   * The name of the table.
-   * 
-   * @example
-   * test
-   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -267,10 +177,6 @@ export class DescribeAllDataSourceResponseBodyTables extends $dara.Model {
 }
 
 export class DescribeAllDataSourceResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried columns.
-   */
   columns?: DescribeAllDataSourceResponseBodyColumns;
   /**
    * @remarks
@@ -280,15 +186,7 @@ export class DescribeAllDataSourceResponseBody extends $dara.Model {
    * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The queried databases.
-   */
   schemas?: DescribeAllDataSourceResponseBodySchemas;
-  /**
-   * @remarks
-   * The queried tables.
-   */
   tables?: DescribeAllDataSourceResponseBodyTables;
   static names(): { [key: string]: string } {
     return {

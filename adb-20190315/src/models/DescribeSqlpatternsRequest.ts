@@ -113,6 +113,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  sqlPatternHash?: number;
   /**
    * @remarks
    * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
@@ -140,6 +141,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
+      sqlPatternHash: 'SqlPatternHash',
       startTime: 'StartTime',
       userName: 'UserName',
     };
@@ -155,6 +157,7 @@ export class DescribeSQLPatternsRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
+      sqlPatternHash: 'number',
       startTime: 'string',
       userName: 'string',
     };

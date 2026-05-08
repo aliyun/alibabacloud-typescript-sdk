@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.Model {
-  /**
-   * @remarks
-   * The cluster ID.
-   * 
-   * @example
-   * am-bp1l20nxxxxxxxxxx
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The type of the resource. A value of cluster indicates an AnalyticDB for MySQL cluster.
-   * 
-   * @example
-   * cluster
-   */
   resourceType?: string;
-  /**
-   * @remarks
-   * The key of the tag.
-   * 
-   * @example
-   * testkey1
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The value of the tag.
-   * 
-   * @example
-   * testvalue1
-   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -105,10 +77,6 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * 184DE106-CB2C-4DD2-B57F-396652E6C8F8
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The tags that are added to clusters.
-   */
   tagResources?: ListTagResourcesResponseBodyTagResources;
   static names(): { [key: string]: string } {
     return {

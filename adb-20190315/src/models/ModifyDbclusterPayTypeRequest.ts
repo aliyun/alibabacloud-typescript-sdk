@@ -15,15 +15,14 @@ export class ModifyDBClusterPayTypeRequest extends $dara.Model {
   dbClusterId?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
-   * 
+   * The billing method of the cluster. Valid values:
    * *   **Postpaid**: pay-as-you-go.
    * *   **Prepaid**: subscription.
    * 
    * This parameter is required.
    * 
    * @example
-   * Prepaid
+   * Postpaid
    */
   payType?: string;
   /**
@@ -33,7 +32,7 @@ export class ModifyDBClusterPayTypeRequest extends $dara.Model {
    * *   **Year**: subscription on a yearly basis.
    * *   **Month**: subscription on a monthly basis.
    * 
-   * > This parameter must be specified when PayType is set to Prepaid.
+   * >  This parameter must be specified when PayType is set to Prepaid.
    * 
    * @example
    * Year
@@ -41,9 +40,7 @@ export class ModifyDBClusterPayTypeRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * The order ID.
    * 
    * @example
    * cn-hangzhou
@@ -51,16 +48,13 @@ export class ModifyDBClusterPayTypeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The subscription duration of the subscription cluster.
+   * The subscription period of the subscription cluster.
    * 
-   * *   Valid values when Period is set to Year: 1, 2, 3, and 5 (integer).
-   * *   Valid values when Period is set to Month: 1 to 11 (integer).
+   * *   Valid values when Period is set to Year: 1, 2, and 3 (integer)
+   * *   Valid values when Period is set to Month: 1 to 9 (integer)
    * 
-   * > 
-   * 
-   * *   This parameter must be specified when PayType is set to Prepaid.
-   * 
-   * *   Longer subscription durations offer more savings. Purchasing a cluster for one year is more cost-effective than purchasing the cluster for 10 or 11 months.
+   * > * This parameter is required if the PayType parameter is set to Prepaid.
+   * > * Longer subscription periods offer more savings. Purchasing a cluster for one year is more cost-effective than purchasing the cluster for 10 or 11 months.
    * 
    * @example
    * 1

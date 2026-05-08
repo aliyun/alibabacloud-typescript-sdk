@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLoghubDetailResponseBodyLoghubInfoLogHubStoresLogHubStore extends $dara.Model {
-  /**
-   * @remarks
-   * The value of the log keyword.
-   * 
-   * @example
-   * channel_id
-   */
   fieldKey?: string;
-  /**
-   * @remarks
-   * The log keyword.
-   * 
-   * @example
-   * put_request
-   */
   logKey?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,10 +111,6 @@ export class DescribeLoghubDetailResponseBodyLoghubInfo extends $dara.Model {
    * true
    */
   filterDirtyData?: boolean;
-  /**
-   * @remarks
-   * The log keywords.
-   */
   logHubStores?: DescribeLoghubDetailResponseBodyLoghubInfoLogHubStores;
   /**
    * @remarks

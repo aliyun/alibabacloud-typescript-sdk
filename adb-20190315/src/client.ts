@@ -138,7 +138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ApplyAdviceById
+   * Applies an optimization suggestion.
    * 
    * @param request - ApplyAdviceByIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -189,7 +189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ApplyAdviceById
+   * Applies an optimization suggestion.
    * 
    * @param request - ApplyAdviceByIdRequest
    * @returns ApplyAdviceByIdResponse
@@ -264,7 +264,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * BatchApplyAdviceByIdList
+   * Applies multiple optimization suggestions at a time.
    * 
    * @param request - BatchApplyAdviceByIdListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -315,7 +315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * BatchApplyAdviceByIdList
+   * Applies multiple optimization suggestions at a time.
    * 
    * @param request - BatchApplyAdviceByIdListRequest
    * @returns BatchApplyAdviceByIdListResponse
@@ -406,7 +406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定资源组用户
+   * Associates a resource group with a database account. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
    * 
    * @remarks
    *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
@@ -469,7 +469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 绑定资源组用户
+   * Associates a resource group with a database account. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
    * 
    * @remarks
    *   This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
@@ -484,7 +484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels O\\&M events.
+   * Cancels O\\\\\\&M events.
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -539,7 +539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels O\\&M events.
+   * Cancels O\\\\\\&M events.
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @returns CancelActiveOperationTasksResponse
@@ -1508,7 +1508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源组
+   * Deletes a resource group. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
    * 
    * @remarks
    * *Precautions**
@@ -1564,7 +1564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除资源组
+   * Deletes a resource group. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
    * 
    * @remarks
    * *Precautions**
@@ -1786,7 +1786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information about O\\&M tasks.
+   * Queries the configuration information about O\\\\\\&M tasks.
    * 
    * @param request - DescribeActiveOperationMaintainConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1845,7 +1845,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration information about O\\&M tasks.
+   * Queries the configuration information about O\\\\\\&M tasks.
    * 
    * @param request - DescribeActiveOperationMaintainConfRequest
    * @returns DescribeActiveOperationMaintainConfResponse
@@ -2620,7 +2620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看备份策略
+   * Queries the backup settings of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2667,7 +2667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看备份策略
+   * Queries the backup settings of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeBackupPolicyRequest
    * @returns DescribeBackupPolicyResponse
@@ -3242,7 +3242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群健康检查状态
+   * Queries the health status of an AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
    * @param request - DescribeDBClusterHealthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3277,7 +3277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询集群健康检查状态
+   * Queries the health status of an AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
    * @param request - DescribeDBClusterHealthStatusRequest
    * @returns DescribeDBClusterHealthStatusResponse
@@ -3916,7 +3916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源组详情
+   * Queries the information about resource groups of an AnalyticDB for MySQL cluster. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
    * 
    * @remarks
    * This operation is applicable only for elastic clusters of 32 cores or more.
@@ -3970,7 +3970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询资源组详情
+   * Queries the information about resource groups of an AnalyticDB for MySQL cluster. You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition clusters in elastic mode for Cluster Edition.
    * 
    * @remarks
    * This operation is applicable only for elastic clusters of 32 cores or more.
@@ -5422,7 +5422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about O&M events.
+   * Queries the information about O\\&M events.
    * 
    * @param request - DescribeMaintenanceActionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5489,7 +5489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about O&M events.
+   * Queries the information about O\\&M events.
    * 
    * @param request - DescribeMaintenanceActionRequest
    * @returns DescribeMaintenanceActionResponse
@@ -6060,7 +6060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SQA状态
+   * Queries the short query acceleration (SQA) configuration of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeSQAConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6119,7 +6119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SQA状态
+   * Queries the short query acceleration (SQA) configuration of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeSQAConfigRequest
    * @returns DescribeSQAConfigResponse
@@ -6169,6 +6169,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.sqlPatternHash)) {
+      query["SqlPatternHash"] = request.sqlPatternHash;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -6784,7 +6788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询表详情
+   * Queries the distribution of data in a table among partitions.
    * 
    * @param request - DescribeTableDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6843,7 +6847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询表详情
+   * Queries the distribution of data in a table among partitions.
    * 
    * @param request - DescribeTableDetailRequest
    * @returns DescribeTableDetailResponse
@@ -7434,7 +7438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭用户ENI
+   * Detaches an elastic network interface (ENI) from an AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
    * @remarks
    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
@@ -7484,7 +7488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭用户ENI
+   * Detaches an elastic network interface (ENI) from an AnalyticDB for MySQL Data Warehouse Edition cluster.
    * 
    * @remarks
    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
@@ -7642,7 +7646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通建议服务
+   * Enables the suggestion feature.
    * 
    * @param request - EnableAdviceServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7677,7 +7681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通建议服务
+   * Enables the suggestion feature.
    * 
    * @param request - EnableAdviceServiceRequest
    * @returns EnableAdviceServiceResponse
@@ -7974,7 +7978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition cluster in AnalyticDB for MySQL.
+   * Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition or Enterprise Edition cluster in AnalyticDB for MySQL.
    * 
    * @param request - MigrateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8065,7 +8069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition cluster in AnalyticDB for MySQL.
+   * Migrates data from a Data Warehouse Edition cluster to a Data Lakehouse Edition or Enterprise Edition cluster in AnalyticDB for MySQL.
    * 
    * @param request - MigrateDBClusterRequest
    * @returns MigrateDBClusterResponse
@@ -8142,7 +8146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the time configuration of O\\&M events.
+   * Changes the time configuration of O\\\\\\&M events.
    * 
    * @param request - ModifyActiveOperationMaintainConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8213,7 +8217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the time configuration of O\\&M events.
+   * Changes the time configuration of O\\\\\\&M events.
    * 
    * @param request - ModifyActiveOperationMaintainConfRequest
    * @returns ModifyActiveOperationMaintainConfResponse
@@ -8224,7 +8228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the execution time of O&M events.
+   * Changes the execution time of O\\&M events.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8287,7 +8291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the execution time of O&M events.
+   * Changes the execution time of O\\&M events.
    * 
    * @param request - ModifyActiveOperationTasksRequest
    * @returns ModifyActiveOperationTasksResponse
@@ -8438,7 +8442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改全量备份策略
+   * Modifies the backup policy of an AnalyticDB for MySQL cluster.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8505,7 +8509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改全量备份策略
+   * Modifies the backup policy of an AnalyticDB for MySQL cluster.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse
@@ -8770,7 +8774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改备注
+   * Modifies the description of an AnalyticDB for MySQL cluster to facilitate the maintenance and management of the cluster.
    * 
    * @param request - ModifyDBClusterDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8821,7 +8825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改备注
+   * Modifies the description of an AnalyticDB for MySQL cluster to facilitate the maintenance and management of the cluster.
    * 
    * @param request - ModifyDBClusterDescriptionRequest
    * @returns ModifyDBClusterDescriptionResponse
@@ -9704,7 +9708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the switchover time of O&M events.
+   * Changes the switchover time of O\\&M events.
    * 
    * @param request - ModifyMaintenanceActionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9763,7 +9767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the switchover time of O&M events.
+   * Changes the switchover time of O\\&M events.
    * 
    * @param request - ModifyMaintenanceActionRequest
    * @returns ModifyMaintenanceActionResponse
@@ -10224,7 +10228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消服务帐号授权
+   * Revokes permissions from the service account of an AnalyticDB for MySQL cluster.
    * 
    * @param request - RevokeOperatorPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10271,7 +10275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消服务帐号授权
+   * Revokes permissions from the service account of an AnalyticDB for MySQL cluster.
    * 
    * @param request - RevokeOperatorPermissionRequest
    * @returns RevokeOperatorPermissionResponse

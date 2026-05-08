@@ -29,10 +29,6 @@ export class DescribeLogStoreKeysResponseBodyLogStoreKeys extends $dara.Model {
 }
 
 export class DescribeLogStoreKeysResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried log keywords.
-   */
   logStoreKeys?: DescribeLogStoreKeysResponseBodyLogStoreKeys;
   /**
    * @remarks

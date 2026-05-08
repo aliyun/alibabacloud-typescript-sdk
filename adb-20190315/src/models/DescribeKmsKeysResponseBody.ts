@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeKmsKeysResponseBodyKmsKeysKmsKey extends $dara.Model {
-  /**
-   * @remarks
-   * The alias of the key.
-   * 
-   * @example
-   * mykey
-   */
   keyAlias?: string;
-  /**
-   * @remarks
-   * The ID of the key.
-   * 
-   * @example
-   * 2e81355b-f8e7-4090-8082-a8f8124a621c
-   */
   keyId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,10 +55,6 @@ export class DescribeKmsKeysResponseBodyKmsKeys extends $dara.Model {
 }
 
 export class DescribeKmsKeysResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried KMS keys.
-   */
   kmsKeys?: DescribeKmsKeysResponseBodyKmsKeys;
   /**
    * @remarks
