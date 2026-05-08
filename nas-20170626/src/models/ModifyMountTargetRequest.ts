@@ -11,6 +11,7 @@ export class ModifyMountTargetRequest extends $dara.Model {
    * classic-test
    */
   accessGroupName?: string;
+  accessPointAccessOnly?: boolean;
   /**
    * @remarks
    * The dual-stack (IPv4 and IPv6) domain name of the mount target.
@@ -60,6 +61,7 @@ export class ModifyMountTargetRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       accessGroupName: 'AccessGroupName',
+      accessPointAccessOnly: 'AccessPointAccessOnly',
       dualStackMountTargetDomain: 'DualStackMountTargetDomain',
       fileSystemId: 'FileSystemId',
       mountTargetDomain: 'MountTargetDomain',
@@ -70,6 +72,7 @@ export class ModifyMountTargetRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       accessGroupName: 'string',
+      accessPointAccessOnly: 'boolean',
       dualStackMountTargetDomain: 'string',
       fileSystemId: 'string',
       mountTargetDomain: 'string',

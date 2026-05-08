@@ -4461,7 +4461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询生命周期策略日志
+   * Queries the operational logs of a lifecycle policy. You can query up to 1000 log entries in the last 90 days. Only CPFS for Lingjun supports this operation.
    * 
    * @param request - DescribeLifecyclePolicyLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4504,7 +4504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询生命周期策略日志
+   * Queries the operational logs of a lifecycle policy. You can query up to 1000 log entries in the last 90 days. Only CPFS for Lingjun supports this operation.
    * 
    * @param request - DescribeLifecyclePolicyLogsRequest
    * @returns DescribeLifecyclePolicyLogsResponse
@@ -6697,6 +6697,10 @@ export default class Client extends OpenApi {
       query["AccessGroupName"] = request.accessGroupName;
     }
 
+    if (!$dara.isNull(request.accessPointAccessOnly)) {
+      query["AccessPointAccessOnly"] = request.accessPointAccessOnly;
+    }
+
     if (!$dara.isNull(request.dualStackMountTargetDomain)) {
       query["DualStackMountTargetDomain"] = request.dualStackMountTargetDomain;
     }
@@ -6946,7 +6950,6 @@ export default class Client extends OpenApi {
   /**
    * Activates File Storage NAS.
    * 
-   * @param request - OpenNASServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenNASServiceResponse
    */
@@ -7365,7 +7368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动生命周期策略运行
+   * Starts the execution of lifecycle policies.
    * 
    * @param request - StartLifecyclePolicyExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7400,7 +7403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动生命周期策略运行
+   * Starts the execution of lifecycle policies.
    * 
    * @param request - StartLifecyclePolicyExecutionRequest
    * @returns StartLifecyclePolicyExecutionResponse
@@ -7481,7 +7484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止生命周期策略运行
+   * Stops the execution of lifecycle policies.
    * 
    * @param request - StopLifecyclePolicyExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7516,7 +7519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止生命周期策略运行
+   * Stops the execution of lifecycle policies.
    * 
    * @param request - StopLifecyclePolicyExecutionRequest
    * @returns StopLifecyclePolicyExecutionResponse
@@ -7631,7 +7634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新生命周期策略
+   * Updates a rule of a lifecycle management policy. Only CPFS for Lingjun supports this operation. The UpdateLifecyclePolicy specifies the overwriting semantics. If you do not specify an optional parameter, the corresponding field is deleted. If you want to configure a new lifecycle rule for a bucket, call the DescribeLifecyclePolicies operation to query the configurations of the existing lifecycle rule, add new lifecycle rules, and then call the UpdateLifecyclePolicy operation to update the configurations.
    * 
    * @param request - UpdateLifecyclePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7686,7 +7689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新生命周期策略
+   * Updates a rule of a lifecycle management policy. Only CPFS for Lingjun supports this operation. The UpdateLifecyclePolicy specifies the overwriting semantics. If you do not specify an optional parameter, the corresponding field is deleted. If you want to configure a new lifecycle rule for a bucket, call the DescribeLifecyclePolicies operation to query the configurations of the existing lifecycle rule, add new lifecycle rules, and then call the UpdateLifecyclePolicy operation to update the configurations.
    * 
    * @param request - UpdateLifecyclePolicyRequest
    * @returns UpdateLifecyclePolicyResponse

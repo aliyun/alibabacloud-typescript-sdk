@@ -111,6 +111,7 @@ export class DescribeMountTargetsResponseBodyMountTargetsMountTargetTags extends
 
 export class DescribeMountTargetsResponseBodyMountTargetsMountTarget extends $dara.Model {
   accessGroup?: string;
+  accessPointAccessOnly?: boolean;
   clientMasterNodes?: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes;
   dualStackMountTargetDomain?: string;
   IPVersion?: string;
@@ -123,6 +124,7 @@ export class DescribeMountTargetsResponseBodyMountTargetsMountTarget extends $da
   static names(): { [key: string]: string } {
     return {
       accessGroup: 'AccessGroup',
+      accessPointAccessOnly: 'AccessPointAccessOnly',
       clientMasterNodes: 'ClientMasterNodes',
       dualStackMountTargetDomain: 'DualStackMountTargetDomain',
       IPVersion: 'IPVersion',
@@ -138,6 +140,7 @@ export class DescribeMountTargetsResponseBodyMountTargetsMountTarget extends $da
   static types(): { [key: string]: any } {
     return {
       accessGroup: 'string',
+      accessPointAccessOnly: 'boolean',
       clientMasterNodes: DescribeMountTargetsResponseBodyMountTargetsMountTargetClientMasterNodes,
       dualStackMountTargetDomain: 'string',
       IPVersion: 'string',

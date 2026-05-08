@@ -220,10 +220,12 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemMountTargets ex
 export class DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions extends $dara.Model {
   enableABE?: boolean;
   enableOplock?: boolean;
+  vscAccessPointAccessOnly?: boolean;
   static names(): { [key: string]: string } {
     return {
       enableABE: 'EnableABE',
       enableOplock: 'EnableOplock',
+      vscAccessPointAccessOnly: 'VscAccessPointAccessOnly',
     };
   }
 
@@ -231,6 +233,7 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystemOptions extends
     return {
       enableABE: 'boolean',
       enableOplock: 'boolean',
+      vscAccessPointAccessOnly: 'boolean',
     };
   }
 
