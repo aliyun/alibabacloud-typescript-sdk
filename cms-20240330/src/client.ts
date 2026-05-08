@@ -840,6 +840,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建流水线
+   * 
+   * @param request - CreatePipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePipelineResponse
+   */
+  async createPipelineWithOptions(workspace: string, request: $_model.CreatePipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePipelineResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.executePolicy)) {
+      body["executePolicy"] = request.executePolicy;
+    }
+
+    if (!$dara.isNull(request.pipeline)) {
+      body["pipeline"] = request.pipeline;
+    }
+
+    if (!$dara.isNull(request.pipelineName)) {
+      body["pipelineName"] = request.pipelineName;
+    }
+
+    if (!$dara.isNull(request.sink)) {
+      body["sink"] = request.sink;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreatePipeline",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/pipeline`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreatePipelineResponse>(await this.callApi(params, req, runtime), new $_model.CreatePipelineResponse({}));
+  }
+
+  /**
+   * 创建流水线
+   * 
+   * @param request - CreatePipelineRequest
+   * @returns CreatePipelineResponse
+   */
+  async createPipeline(workspace: string, request: $_model.CreatePipelineRequest): Promise<$_model.CreatePipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createPipelineWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
    * Create a Prometheus monitoring instance
    * 
    * @param request - CreatePrometheusInstanceRequest
@@ -1798,6 +1863,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * 删除流水线
+   * 
+   * @param request - DeletePipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePipelineResponse
+   */
+  async deletePipelineWithOptions(workspace: string, pipelineName: string, request: $_model.DeletePipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeletePipelineResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeletePipeline",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/pipeline/${$dara.URL.percentEncode(pipelineName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeletePipelineResponse>(await this.callApi(params, req, runtime), new $_model.DeletePipelineResponse({}));
+  }
+
+  /**
+   * 删除流水线
+   * 
+   * @param request - DeletePipelineRequest
+   * @returns DeletePipelineResponse
+   */
+  async deletePipeline(workspace: string, pipelineName: string, request: $_model.DeletePipelineRequest): Promise<$_model.DeletePipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deletePipelineWithOptions(workspace, pipelineName, request, headers, runtime);
   }
 
   /**
@@ -3181,6 +3285,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getMemoryStoreWithOptions(workspace, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * 查询流水线
+   * 
+   * @param request - GetPipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPipelineResponse
+   */
+  async getPipelineWithOptions(workspace: string, pipelineName: string, request: $_model.GetPipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetPipelineResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPipeline",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/pipeline/${$dara.URL.percentEncode(pipelineName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPipelineResponse>(await this.callApi(params, req, runtime), new $_model.GetPipelineResponse({}));
+  }
+
+  /**
+   * 查询流水线
+   * 
+   * @param request - GetPipelineRequest
+   * @returns GetPipelineResponse
+   */
+  async getPipeline(workspace: string, pipelineName: string, request: $_model.GetPipelineRequest): Promise<$_model.GetPipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getPipelineWithOptions(workspace, pipelineName, request, headers, runtime);
   }
 
   /**
@@ -4861,6 +5004,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询流水线列表
+   * 
+   * @param request - ListPipelinesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPipelinesResponse
+   */
+  async listPipelinesWithOptions(workspace: string, request: $_model.ListPipelinesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListPipelinesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pipelineName)) {
+      query["pipelineName"] = request.pipelineName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPipelines",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/pipeline`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPipelinesResponse>(await this.callApi(params, req, runtime), new $_model.ListPipelinesResponse({}));
+  }
+
+  /**
+   * 查询流水线列表
+   * 
+   * @param request - ListPipelinesRequest
+   * @returns ListPipelinesResponse
+   */
+  async listPipelines(workspace: string, request: $_model.ListPipelinesRequest): Promise<$_model.ListPipelinesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listPipelinesWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
    * Get Prometheus Instance Dashboard List
    * 
    * @remarks
@@ -6405,6 +6601,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateNotifyStrategyWithOptions(notifyStrategyId, request, headers, runtime);
+  }
+
+  /**
+   * 更新流水线
+   * 
+   * @param request - UpdatePipelineRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePipelineResponse
+   */
+  async updatePipelineWithOptions(workspace: string, pipelineName: string, request: $_model.UpdatePipelineRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdatePipelineResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.executePolicy)) {
+      body["executePolicy"] = request.executePolicy;
+    }
+
+    if (!$dara.isNull(request.pipeline)) {
+      body["pipeline"] = request.pipeline;
+    }
+
+    if (!$dara.isNull(request.sink)) {
+      body["sink"] = request.sink;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      body["source"] = request.source;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdatePipeline",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/pipeline/${$dara.URL.percentEncode(pipelineName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdatePipelineResponse>(await this.callApi(params, req, runtime), new $_model.UpdatePipelineResponse({}));
+  }
+
+  /**
+   * 更新流水线
+   * 
+   * @param request - UpdatePipelineRequest
+   * @returns UpdatePipelineResponse
+   */
+  async updatePipeline(workspace: string, pipelineName: string, request: $_model.UpdatePipelineRequest): Promise<$_model.UpdatePipelineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updatePipelineWithOptions(workspace, pipelineName, request, headers, runtime);
   }
 
   /**
