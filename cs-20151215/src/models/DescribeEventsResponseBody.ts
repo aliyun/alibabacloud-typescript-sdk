@@ -62,7 +62,7 @@ export class DescribeEventsResponseBodyEvents extends $dara.Model {
    * The ID of the cluster.
    * 
    * @example
-   * cluster-id
+   * cf62854ac2130470897be7a27ed1f****
    */
   clusterId?: string;
   /**
@@ -75,12 +75,15 @@ export class DescribeEventsResponseBodyEvents extends $dara.Model {
    * The event ID.
    * 
    * @example
-   * A234-1234-1234
+   * e-dba703c8-953b-40d8-82e8-cb713590****
    */
   eventId?: string;
   /**
    * @remarks
    * The source of the event.
+   * 
+   * @example
+   * task
    */
   source?: string;
   /**
@@ -88,7 +91,7 @@ export class DescribeEventsResponseBodyEvents extends $dara.Model {
    * The subject of the event.
    * 
    * @example
-   * nodePool-id
+   * np6a5c86f4ecae436f8f4a3dc034a7****
    */
   subject?: string;
   /**
@@ -96,7 +99,7 @@ export class DescribeEventsResponseBodyEvents extends $dara.Model {
    * The time when the event started.
    * 
    * @example
-   * 2022-11-23T20:48:01+08:00
+   * 2025-04-23T20:48:01+08:00
    */
   time?: string;
   /**
@@ -216,6 +219,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
    * The details of the events.
    */
   events?: DescribeEventsResponseBodyEvents[];
+  nextToken?: string;
   /**
    * @remarks
    * The pagination information.
@@ -224,6 +228,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       events: 'events',
+      nextToken: 'next_token',
       pageInfo: 'page_info',
     };
   }
@@ -231,6 +236,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       events: { 'type': 'array', 'itemType': DescribeEventsResponseBodyEvents },
+      nextToken: 'string',
       pageInfo: DescribeEventsResponseBodyPageInfo,
     };
   }

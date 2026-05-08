@@ -224,6 +224,7 @@ export class DescribeClusterEventsResponseBody extends $dara.Model {
    * The list of events.
    */
   events?: DescribeClusterEventsResponseBodyEvents[];
+  nextToken?: string;
   /**
    * @remarks
    * The pagination information.
@@ -232,6 +233,7 @@ export class DescribeClusterEventsResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       events: 'events',
+      nextToken: 'next_token',
       pageInfo: 'page_info',
     };
   }
@@ -239,6 +241,7 @@ export class DescribeClusterEventsResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       events: { 'type': 'array', 'itemType': DescribeClusterEventsResponseBodyEvents },
+      nextToken: 'string',
       pageInfo: DescribeClusterEventsResponseBodyPageInfo,
     };
   }

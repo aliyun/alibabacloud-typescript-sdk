@@ -8,7 +8,7 @@ export class CreateTemplateResponseBody extends $dara.Model {
    * The ID of the orchestration template.
    * 
    * @example
-   * ba1fe77b-b01e-4640-b77e-8f1b80e3e3cf
+   * ba1fe77b-b01e-4640-b77e-8f1b80******
    */
   templateId?: string;
   static names(): { [key: string]: string } {

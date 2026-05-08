@@ -173,6 +173,7 @@ export class DescribeClusterTasksResponseBodyTasks extends $dara.Model {
 }
 
 export class DescribeClusterTasksResponseBody extends $dara.Model {
+  nextToken?: string;
   /**
    * @remarks
    * The pagination information.
@@ -193,6 +194,7 @@ export class DescribeClusterTasksResponseBody extends $dara.Model {
   tasks?: DescribeClusterTasksResponseBodyTasks[];
   static names(): { [key: string]: string } {
     return {
+      nextToken: 'next_token',
       pageInfo: 'page_info',
       requestId: 'requestId',
       tasks: 'tasks',
@@ -201,6 +203,7 @@ export class DescribeClusterTasksResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nextToken: 'string',
       pageInfo: DescribeClusterTasksResponseBodyPageInfo,
       requestId: 'string',
       tasks: { 'type': 'array', 'itemType': DescribeClusterTasksResponseBodyTasks },

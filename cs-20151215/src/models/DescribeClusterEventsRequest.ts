@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeClusterEventsRequest extends $dara.Model {
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The number of the page to return.
@@ -29,6 +31,8 @@ export class DescribeClusterEventsRequest extends $dara.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      maxResults: 'max_results',
+      nextToken: 'next_token',
       pageNumber: 'page_number',
       pageSize: 'page_size',
       taskId: 'task_id',
@@ -37,6 +41,8 @@ export class DescribeClusterEventsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      maxResults: 'number',
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       taskId: 'string',

@@ -195,6 +195,7 @@ export class DescribeEventsForRegionResponseBody extends $dara.Model {
    * The events.
    */
   events?: DescribeEventsForRegionResponseBodyEvents[];
+  nextToken?: string;
   /**
    * @remarks
    * The pagination details.
@@ -203,6 +204,7 @@ export class DescribeEventsForRegionResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       events: 'events',
+      nextToken: 'next_token',
       pageInfo: 'page_info',
     };
   }
@@ -210,6 +212,7 @@ export class DescribeEventsForRegionResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       events: { 'type': 'array', 'itemType': DescribeEventsForRegionResponseBodyEvents },
+      nextToken: 'string',
       pageInfo: DescribeEventsForRegionResponseBodyPageInfo,
     };
   }

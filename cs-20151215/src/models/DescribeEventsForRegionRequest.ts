@@ -11,6 +11,8 @@ export class DescribeEventsForRegionRequest extends $dara.Model {
    * cf62854ac2130470897be7a27ed1f****
    */
   clusterId?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @remarks
    * The number of pages.
@@ -30,6 +32,8 @@ export class DescribeEventsForRegionRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       clusterId: 'cluster_id',
+      maxResults: 'max_results',
+      nextToken: 'next_token',
       pageNumber: 'page_number',
       pageSize: 'page_size',
     };
@@ -38,6 +42,8 @@ export class DescribeEventsForRegionRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };

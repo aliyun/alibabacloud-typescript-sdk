@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * 华东1（杭州）
+   */
   localName?: string;
   /**
+   * @remarks
+   * The ID of the region.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -33,8 +43,15 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of available regions.
+   */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
+   * @remarks
+   * The unique ID of the request.
+   * 
    * @example
    * CE0F23E3-C5F5-5FB3-AA9F-134093C49C60
    */

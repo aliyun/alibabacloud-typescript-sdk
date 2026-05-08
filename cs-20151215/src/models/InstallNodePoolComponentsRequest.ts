@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Custom parameters for the component.
+   */
   customConfig?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +33,15 @@ export class InstallNodePoolComponentsRequestComponentsConfig extends $dara.Mode
 }
 
 export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration details for the component.
+   */
   config?: InstallNodePoolComponentsRequestComponentsConfig;
   /**
    * @remarks
+   * The name of the component.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +49,9 @@ export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The version of the component.
+   * 
    * @example
    * 1.28.9-aliyun.1
    */
@@ -73,16 +86,25 @@ export class InstallNodePoolComponentsRequestComponents extends $dara.Model {
 
 export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
   /**
+   * @remarks
+   * The time interval between update batches, in seconds.
+   * 
    * @example
    * 0
    */
   batchInterval?: number;
   /**
+   * @remarks
+   * The maximum number of nodes that can be updated concurrently in each batch. Default: 1.
+   * 
    * @example
    * 1
    */
   maxParallelism?: number;
   /**
+   * @remarks
+   * The strategy for automatic pausing during the update process. Valid values: NotPause, FirstBatchPause, EveryBatchPause.
+   * 
    * @example
    * NotPause
    */
@@ -113,8 +135,20 @@ export class InstallNodePoolComponentsRequestRollingPolicy extends $dara.Model {
 }
 
 export class InstallNodePoolComponentsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of node components to be installed.
+   */
   components?: InstallNodePoolComponentsRequestComponents[];
+  /**
+   * @remarks
+   * A list of specific node names where the component should be installed. If not specified, the component will be installed on all nodes in the node pool.
+   */
   nodeNames?: string[];
+  /**
+   * @remarks
+   * Configuration for the rolling update process.
+   */
   rollingPolicy?: InstallNodePoolComponentsRequestRollingPolicy;
   static names(): { [key: string]: string } {
     return {

@@ -8,7 +8,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
    * The ID of the resource.
    * 
    * @example
-   * i-xxx
+   * c2e39566adf23481fa1164ed510****
    */
   resourceId?: string;
   /**
@@ -16,7 +16,7 @@ export class ListTagResourcesResponseBodyTagResourcesTagResource extends $dara.M
    * The type of the resource. For more information, see [Labels](https://help.aliyun.com/document_detail/110425.html).
    * 
    * @example
-   * CLUSTER
+   * ALIYUN::CS::CLUSTER
    */
   resourceType?: string;
   /**
@@ -106,7 +106,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * E368C761-F8F6-4A36-9B58-BD53D5CD0CEB
+   * E368C761-F8F6-4A36-9B58-BD53D5******
    */
   requestId?: string;
   /**
