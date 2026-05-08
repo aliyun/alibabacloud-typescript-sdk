@@ -30,6 +30,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 写入上下文
+   * 
+   * @param request - AddContextsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddContextsResponse
+   */
+  async addContextsWithOptions(workspace: string, contextStoreName: string, request: $_model.AddContextsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddContextsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextType)) {
+      body["contextType"] = request.contextType;
+    }
+
+    if (!$dara.isNull(request.items)) {
+      body["items"] = request.items;
+    }
+
+    if (!$dara.isNull(request.memoryType)) {
+      body["memoryType"] = request.memoryType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddContexts",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}/context`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddContextsResponse>(await this.callApi(params, req, runtime), new $_model.AddContextsResponse({}));
+  }
+
+  /**
+   * 写入上下文
+   * 
+   * @param request - AddContextsRequest
+   * @returns AddContextsResponse
+   */
+  async addContexts(workspace: string, contextStoreName: string, request: $_model.AddContextsRequest): Promise<$_model.AddContextsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addContextsWithOptions(workspace, contextStoreName, request, headers, runtime);
+  }
+
+  /**
    * 添加记忆
    * 
    * @param request - AddMemoriesRequest
@@ -528,6 +581,112 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createCloudResourceWithOptions(headers, runtime);
+  }
+
+  /**
+   * 创建上下文库
+   * 
+   * @param request - CreateContextStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContextStoreResponse
+   */
+  async createContextStoreWithOptions(workspace: string, request: $_model.CreateContextStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContextStoreResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.contextStoreName)) {
+      body["contextStoreName"] = request.contextStoreName;
+    }
+
+    if (!$dara.isNull(request.contextType)) {
+      body["contextType"] = request.contextType;
+    }
+
+    if (!$dara.isNull(request.dataset)) {
+      body["dataset"] = request.dataset;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContextStore",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContextStoreResponse>(await this.callApi(params, req, runtime), new $_model.CreateContextStoreResponse({}));
+  }
+
+  /**
+   * 创建上下文库
+   * 
+   * @param request - CreateContextStoreRequest
+   * @returns CreateContextStoreResponse
+   */
+  async createContextStore(workspace: string, request: $_model.CreateContextStoreRequest): Promise<$_model.CreateContextStoreResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createContextStoreWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
+   * 创建 API Key
+   * 
+   * @param request - CreateContextStoreAPIKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateContextStoreAPIKeyResponse
+   */
+  async createContextStoreAPIKeyWithOptions(workspace: string, contextStoreName: string, request: $_model.CreateContextStoreAPIKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateContextStoreAPIKeyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateContextStoreAPIKey",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}/apikey`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateContextStoreAPIKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateContextStoreAPIKeyResponse({}));
+  }
+
+  /**
+   * 创建 API Key
+   * 
+   * @param request - CreateContextStoreAPIKeyRequest
+   * @returns CreateContextStoreAPIKeyResponse
+   */
+  async createContextStoreAPIKey(workspace: string, contextStoreName: string, request: $_model.CreateContextStoreAPIKeyRequest): Promise<$_model.CreateContextStoreAPIKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createContextStoreAPIKeyWithOptions(workspace, contextStoreName, request, headers, runtime);
   }
 
   /**
@@ -1566,6 +1725,172 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteCloudResourceWithOptions(headers, runtime);
+  }
+
+  /**
+   * 删除上下文
+   * 
+   * @param request - DeleteContextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextResponse
+   */
+  async deleteContextWithOptions(workspace: string, contextStoreName: string, contextId: string, request: $_model.DeleteContextRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContext",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}/context/${$dara.URL.percentEncode(contextId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextResponse({}));
+  }
+
+  /**
+   * 删除上下文
+   * 
+   * @param request - DeleteContextRequest
+   * @returns DeleteContextResponse
+   */
+  async deleteContext(workspace: string, contextStoreName: string, contextId: string, request: $_model.DeleteContextRequest): Promise<$_model.DeleteContextResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteContextWithOptions(workspace, contextStoreName, contextId, request, headers, runtime);
+  }
+
+  /**
+   * 删除上下文库
+   * 
+   * @param request - DeleteContextStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextStoreResponse
+   */
+  async deleteContextStoreWithOptions(workspace: string, contextStoreName: string, request: $_model.DeleteContextStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextStoreResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContextStore",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextStoreResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextStoreResponse({}));
+  }
+
+  /**
+   * 删除上下文库
+   * 
+   * @param request - DeleteContextStoreRequest
+   * @returns DeleteContextStoreResponse
+   */
+  async deleteContextStore(workspace: string, contextStoreName: string, request: $_model.DeleteContextStoreRequest): Promise<$_model.DeleteContextStoreResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteContextStoreWithOptions(workspace, contextStoreName, request, headers, runtime);
+  }
+
+  /**
+   * 删除 API Key
+   * 
+   * @param request - DeleteContextStoreAPIKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextStoreAPIKeyResponse
+   */
+  async deleteContextStoreAPIKeyWithOptions(workspace: string, contextStoreName: string, name: string, request: $_model.DeleteContextStoreAPIKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextStoreAPIKeyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContextStoreAPIKey",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}/apikey/${$dara.URL.percentEncode(name)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextStoreAPIKeyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextStoreAPIKeyResponse({}));
+  }
+
+  /**
+   * 删除 API Key
+   * 
+   * @param request - DeleteContextStoreAPIKeyRequest
+   * @returns DeleteContextStoreAPIKeyResponse
+   */
+  async deleteContextStoreAPIKey(workspace: string, contextStoreName: string, name: string, request: $_model.DeleteContextStoreAPIKeyRequest): Promise<$_model.DeleteContextStoreAPIKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteContextStoreAPIKeyWithOptions(workspace, contextStoreName, name, request, headers, runtime);
+  }
+
+  /**
+   * 批量删除上下文
+   * 
+   * @param request - DeleteContextsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteContextsResponse
+   */
+  async deleteContextsWithOptions(workspace: string, contextStoreName: string, request: $_model.DeleteContextsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteContextsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextIds)) {
+      query["contextIds"] = request.contextIds;
+    }
+
+    if (!$dara.isNull(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteContexts",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}/context`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteContextsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteContextsResponse({}));
+  }
+
+  /**
+   * 批量删除上下文
+   * 
+   * @param request - DeleteContextsRequest
+   * @returns DeleteContextsResponse
+   */
+  async deleteContexts(workspace: string, contextStoreName: string, request: $_model.DeleteContextsRequest): Promise<$_model.DeleteContextsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteContextsWithOptions(workspace, contextStoreName, request, headers, runtime);
   }
 
   /**
@@ -2832,6 +3157,90 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCmsServiceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询单条上下文
+   * 
+   * @param request - GetContextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextResponse
+   */
+  async getContextWithOptions(workspace: string, contextStoreName: string, contextId: string, request: $_model.GetContextRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.formatted)) {
+      query["formatted"] = request.formatted;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContext",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}/context/${$dara.URL.percentEncode(contextId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextResponse>(await this.callApi(params, req, runtime), new $_model.GetContextResponse({}));
+  }
+
+  /**
+   * 查询单条上下文
+   * 
+   * @param request - GetContextRequest
+   * @returns GetContextResponse
+   */
+  async getContext(workspace: string, contextStoreName: string, contextId: string, request: $_model.GetContextRequest): Promise<$_model.GetContextResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getContextWithOptions(workspace, contextStoreName, contextId, request, headers, runtime);
+  }
+
+  /**
+   * 查询上下文库
+   * 
+   * @param request - GetContextStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetContextStoreResponse
+   */
+  async getContextStoreWithOptions(workspace: string, contextStoreName: string, request: $_model.GetContextStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetContextStoreResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetContextStore",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetContextStoreResponse>(await this.callApi(params, req, runtime), new $_model.GetContextStoreResponse({}));
+  }
+
+  /**
+   * 查询上下文库
+   * 
+   * @param request - GetContextStoreRequest
+   * @returns GetContextStoreResponse
+   */
+  async getContextStore(workspace: string, contextStoreName: string, request: $_model.GetContextStoreRequest): Promise<$_model.GetContextStoreResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getContextStoreWithOptions(workspace, contextStoreName, request, headers, runtime);
   }
 
   /**
@@ -4343,6 +4752,112 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取 API Key 列表
+   * 
+   * @param request - ListContextStoreAPIKeysRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextStoreAPIKeysResponse
+   */
+  async listContextStoreAPIKeysWithOptions(workspace: string, contextStoreName: string, request: $_model.ListContextStoreAPIKeysRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextStoreAPIKeysResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextStoreAPIKeys",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}/apikey`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextStoreAPIKeysResponse>(await this.callApi(params, req, runtime), new $_model.ListContextStoreAPIKeysResponse({}));
+  }
+
+  /**
+   * 获取 API Key 列表
+   * 
+   * @param request - ListContextStoreAPIKeysRequest
+   * @returns ListContextStoreAPIKeysResponse
+   */
+  async listContextStoreAPIKeys(workspace: string, contextStoreName: string, request: $_model.ListContextStoreAPIKeysRequest): Promise<$_model.ListContextStoreAPIKeysResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listContextStoreAPIKeysWithOptions(workspace, contextStoreName, request, headers, runtime);
+  }
+
+  /**
+   * 查询上下文库列表
+   * 
+   * @param request - ListContextStoresRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListContextStoresResponse
+   */
+  async listContextStoresWithOptions(workspace: string, request: $_model.ListContextStoresRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListContextStoresResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contextStoreName)) {
+      query["contextStoreName"] = request.contextStoreName;
+    }
+
+    if (!$dara.isNull(request.contextType)) {
+      query["contextType"] = request.contextType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListContextStores",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListContextStoresResponse>(await this.callApi(params, req, runtime), new $_model.ListContextStoresResponse({}));
+  }
+
+  /**
+   * 查询上下文库列表
+   * 
+   * @param request - ListContextStoresRequest
+   * @returns ListContextStoresResponse
+   */
+  async listContextStores(workspace: string, request: $_model.ListContextStoresRequest): Promise<$_model.ListContextStoresResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listContextStoresWithOptions(workspace, request, headers, runtime);
+  }
+
+  /**
    * 查询数据集列表
    * 
    * @param request - ListDatasetsRequest
@@ -5739,6 +6254,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 搜索上下文
+   * 
+   * @param request - SearchContextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchContextResponse
+   */
+  async searchContextWithOptions(workspace: string, contextStoreName: string, request: $_model.SearchContextRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SearchContextResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filter)) {
+      body["filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.formatted)) {
+      body["formatted"] = request.formatted;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      body["limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.retrievalOption)) {
+      body["retrievalOption"] = request.retrievalOption;
+    }
+
+    if (!$dara.isNull(request.threshold)) {
+      body["threshold"] = request.threshold;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchContext",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}/context/search`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchContextResponse>(await this.callApi(params, req, runtime), new $_model.SearchContextResponse({}));
+  }
+
+  /**
+   * 搜索上下文
+   * 
+   * @param request - SearchContextRequest
+   * @returns SearchContextResponse
+   */
+  async searchContext(workspace: string, contextStoreName: string, request: $_model.SearchContextRequest): Promise<$_model.SearchContextResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.searchContextWithOptions(workspace, contextStoreName, request, headers, runtime);
+  }
+
+  /**
    * 搜索记忆
    * 
    * @param request - SearchMemoriesRequest
@@ -6270,6 +6850,124 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateBizTraceWithOptions(bizTraceId, request, headers, runtime);
+  }
+
+  /**
+   * 修改上下文
+   * 
+   * @param request - UpdateContextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextResponse
+   */
+  async updateContextWithOptions(workspace: string, contextStoreName: string, contextId: string, request: $_model.UpdateContextRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.experience)) {
+      body["experience"] = request.experience;
+    }
+
+    if (!$dara.isNull(request.metadata)) {
+      body["metadata"] = request.metadata;
+    }
+
+    if (!$dara.isNull(request.payload)) {
+      body["payload"] = request.payload;
+    }
+
+    if (!$dara.isNull(request.triggerCondition)) {
+      body["triggerCondition"] = request.triggerCondition;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContext",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}/context/${$dara.URL.percentEncode(contextId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextResponse({}));
+  }
+
+  /**
+   * 修改上下文
+   * 
+   * @param request - UpdateContextRequest
+   * @returns UpdateContextResponse
+   */
+  async updateContext(workspace: string, contextStoreName: string, contextId: string, request: $_model.UpdateContextRequest): Promise<$_model.UpdateContextResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateContextWithOptions(workspace, contextStoreName, contextId, request, headers, runtime);
+  }
+
+  /**
+   * 修改上下文库配置
+   * 
+   * @param request - UpdateContextStoreRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateContextStoreResponse
+   */
+  async updateContextStoreWithOptions(workspace: string, contextStoreName: string, request: $_model.UpdateContextStoreRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateContextStoreResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.contextType)) {
+      body["contextType"] = request.contextType;
+    }
+
+    if (!$dara.isNull(request.dataset)) {
+      body["dataset"] = request.dataset;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateContextStore",
+      version: "2024-03-30",
+      protocol: "HTTPS",
+      pathname: `/workspace/${$dara.URL.percentEncode(workspace)}/contextstore/${$dara.URL.percentEncode(contextStoreName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateContextStoreResponse>(await this.callApi(params, req, runtime), new $_model.UpdateContextStoreResponse({}));
+  }
+
+  /**
+   * 修改上下文库配置
+   * 
+   * @param request - UpdateContextStoreRequest
+   * @returns UpdateContextStoreResponse
+   */
+  async updateContextStore(workspace: string, contextStoreName: string, request: $_model.UpdateContextStoreRequest): Promise<$_model.UpdateContextStoreResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateContextStoreWithOptions(workspace, contextStoreName, request, headers, runtime);
   }
 
   /**
