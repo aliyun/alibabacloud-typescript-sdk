@@ -94,12 +94,14 @@ export class SinkApiDestinationParameters extends $dara.Model {
   headerParameters?: SinkApiDestinationParametersHeaderParameters;
   name?: string;
   queryStringParameters?: SinkApiDestinationParametersQueryStringParameters;
+  timeout?: number;
   static names(): { [key: string]: string } {
     return {
       bodyParameters: 'BodyParameters',
       headerParameters: 'HeaderParameters',
       name: 'Name',
       queryStringParameters: 'QueryStringParameters',
+      timeout: 'Timeout',
     };
   }
 
@@ -109,6 +111,7 @@ export class SinkApiDestinationParameters extends $dara.Model {
       headerParameters: SinkApiDestinationParametersHeaderParameters,
       name: 'string',
       queryStringParameters: SinkApiDestinationParametersQueryStringParameters,
+      timeout: 'number',
     };
   }
 
