@@ -2457,12 +2457,24 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.selectAppName)) {
+      query["SelectAppName"] = request.selectAppName;
+    }
+
+    if (!$dara.isNull(request.selectStreamName)) {
+      query["SelectStreamName"] = request.selectStreamName;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }
 
     if (!$dara.isNull(request.streamName)) {
       query["StreamName"] = request.streamName;
+    }
+
+    if (!$dara.isNull(request.switchMode)) {
+      query["SwitchMode"] = request.switchMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

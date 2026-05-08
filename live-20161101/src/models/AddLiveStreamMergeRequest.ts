@@ -92,6 +92,8 @@ export class AddLiveStreamMergeRequest extends $dara.Model {
    */
   protocol?: string;
   regionId?: string;
+  selectAppName?: string;
+  selectStreamName?: string;
   /**
    * @remarks
    * The start time of the stream mixing.
@@ -114,6 +116,7 @@ export class AddLiveStreamMergeRequest extends $dara.Model {
    * StreamName
    */
   streamName?: string;
+  switchMode?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -128,8 +131,11 @@ export class AddLiveStreamMergeRequest extends $dara.Model {
       ownerId: 'OwnerId',
       protocol: 'Protocol',
       regionId: 'RegionId',
+      selectAppName: 'SelectAppName',
+      selectStreamName: 'SelectStreamName',
       startTime: 'StartTime',
       streamName: 'StreamName',
+      switchMode: 'SwitchMode',
     };
   }
 
@@ -147,8 +153,11 @@ export class AddLiveStreamMergeRequest extends $dara.Model {
       ownerId: 'number',
       protocol: 'string',
       regionId: 'string',
+      selectAppName: 'string',
+      selectStreamName: 'string',
       startTime: 'string',
       streamName: 'string',
+      switchMode: 'string',
     };
   }
 

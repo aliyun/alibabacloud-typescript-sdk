@@ -18,6 +18,7 @@ export class DescribeLiveStreamMergeResponseBodyLiveStreamMergeListLiveStreamMer
   startTime?: string;
   streamName?: string;
   streamUsing?: string;
+  switchMode?: string;
   static names(): { [key: string]: string } {
     return {
       appName: 'AppName',
@@ -35,6 +36,7 @@ export class DescribeLiveStreamMergeResponseBodyLiveStreamMergeListLiveStreamMer
       startTime: 'StartTime',
       streamName: 'StreamName',
       streamUsing: 'StreamUsing',
+      switchMode: 'SwitchMode',
     };
   }
 
@@ -55,6 +57,7 @@ export class DescribeLiveStreamMergeResponseBodyLiveStreamMergeListLiveStreamMer
       startTime: 'string',
       streamName: 'string',
       streamUsing: 'string',
+      switchMode: 'string',
     };
   }
 
