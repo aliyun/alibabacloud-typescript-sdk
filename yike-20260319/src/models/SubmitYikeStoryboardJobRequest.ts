@@ -18,6 +18,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
    * http://test.oss-cn-shanghai.aliyuncs.com/test.mp4
    */
   fileURL?: string;
+  keepOriginDialogue?: boolean;
   /**
    * @example
    * {
@@ -82,6 +83,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
       aspectRatio: 'AspectRatio',
       execMode: 'ExecMode',
       fileURL: 'FileURL',
+      keepOriginDialogue: 'KeepOriginDialogue',
       modelParams: 'ModelParams',
       narrationVoiceId: 'NarrationVoiceId',
       resolution: 'Resolution',
@@ -101,6 +103,7 @@ export class SubmitYikeStoryboardJobRequest extends $dara.Model {
       aspectRatio: 'string',
       execMode: 'string',
       fileURL: 'string',
+      keepOriginDialogue: 'boolean',
       modelParams: 'string',
       narrationVoiceId: 'string',
       resolution: 'string',

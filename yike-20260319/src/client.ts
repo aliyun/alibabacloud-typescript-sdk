@@ -1188,7 +1188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交一刻故事板任务
+   * 提交一刻故事板全链路编排任务
    * 
    * @param request - SubmitYikeStoryboardJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1203,6 +1203,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.execMode)) {
       query["ExecMode"] = request.execMode;
+    }
+
+    if (!$dara.isNull(request.keepOriginDialogue)) {
+      query["KeepOriginDialogue"] = request.keepOriginDialogue;
     }
 
     if (!$dara.isNull(request.modelParams)) {
@@ -1273,7 +1277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交一刻故事板任务
+   * 提交一刻故事板全链路编排任务
    * 
    * @param request - SubmitYikeStoryboardJobRequest
    * @returns SubmitYikeStoryboardJobResponse
