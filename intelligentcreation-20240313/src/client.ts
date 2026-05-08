@@ -705,6 +705,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建离线评测任务
+   * 
+   * @param request - CreateAICoachTaskReportRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAICoachTaskReportResponse
+   */
+  async createAICoachTaskReportWithOptions(request: $_model.CreateAICoachTaskReportRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAICoachTaskReportResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dialogueList)) {
+      body["dialogueList"] = request.dialogueList;
+    }
+
+    if (!$dara.isNull(request.idempotentId)) {
+      body["idempotentId"] = request.idempotentId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAICoachTaskReport",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/startSessionReport`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAICoachTaskReportResponse>(await this.callApi(params, req, runtime), new $_model.CreateAICoachTaskReportResponse({}));
+  }
+
+  /**
+   * 创建离线评测任务
+   * 
+   * @param request - CreateAICoachTaskReportRequest
+   * @returns CreateAICoachTaskReportResponse
+   */
+  async createAICoachTaskReport(request: $_model.CreateAICoachTaskReportRequest): Promise<$_model.CreateAICoachTaskReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAICoachTaskReportWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 学员开启对练会话
    * 
    * @param request - CreateAICoachTaskSessionRequest
@@ -2263,16 +2316,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.InteractTextResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.InteractTextResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.InteractTextResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.InteractTextResponse({}));
+      }
+
     }
   }
 
@@ -3258,16 +3312,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.QueryTextStreamResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.QueryTextStreamResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.QueryTextStreamResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.QueryTextStreamResponse({}));
+      }
+
     }
   }
 
@@ -3630,16 +3685,17 @@ export default class Client extends OpenApi {
     let sseResp = await this.callSSEApi(params, req, runtime);
 
     for await (let resp of sseResp) {
-      let data = JSON.parse(resp.event.data);
-      yield $dara.cast<$_model.SendSdkStreamMessageResponse>({
-        statusCode: resp.statusCode,
-        headers: resp.headers,
-        body: {
-          ...data,
-          RequestId: resp.event.id,
-          Message: resp.event.event,
-        },
-      }, new $_model.SendSdkStreamMessageResponse({}));
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.SendSdkStreamMessageResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.SendSdkStreamMessageResponse({}));
+      }
+
     }
   }
 

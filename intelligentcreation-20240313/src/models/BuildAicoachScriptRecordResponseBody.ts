@@ -49,6 +49,10 @@ export class BuildAICoachScriptRecordResponseBody extends $dara.Model {
    * 4830493A-728F-5F19-BBCC-1443292E9C49
    */
   requestId?: string;
+  /**
+   * @example
+   * 1
+   */
   scriptRecordId?: string;
   /**
    * @example

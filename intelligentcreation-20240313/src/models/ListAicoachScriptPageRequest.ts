@@ -19,6 +19,10 @@ export class ListAICoachScriptPageRequest extends $dara.Model {
    * 1
    */
   status?: number;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {

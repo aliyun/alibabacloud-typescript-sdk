@@ -15,7 +15,7 @@ export class SaveAvatarProjectRequestFramesLayersMaterial extends $dara.Model {
   id?: string;
   /**
    * @example
-   * https://alidocs.dingtalk.com/i/nodes/vy20BglGWOxjGpq0C5G4DlN0VA7depqY
+   * https://xxx
    */
   url?: string;
   static names(): { [key: string]: string } {

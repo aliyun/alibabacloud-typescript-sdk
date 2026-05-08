@@ -8,6 +8,7 @@ export { BatchGetVideoClipTaskResponseBodyTaskList } from './BatchGetVideoClipTa
 export { BatchQueryIndividuationTextResponseBodyTextList } from './BatchQueryIndividuationTextResponseBody';
 export { BuildAICoachScriptRecordResponseBodyData } from './BuildAicoachScriptRecordResponseBody';
 export { CountTextResponseBodyCountTextCmdList } from './CountTextResponseBody';
+export { CreateAICoachTaskReportRequestDialogueList } from './CreateAicoachTaskReportRequest';
 export { CreateAICoachTaskSessionResponseBodyScriptInfo } from './CreateAicoachTaskSessionResponseBody';
 export { GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesKeywordValues } from './GetAicoachAssessmentPointResponseBody';
 export { GetAICoachAssessmentPointResponseBodyAnswerListAnswerValuesScoringRules } from './GetAicoachAssessmentPointResponseBody';
@@ -145,6 +146,9 @@ export { CountTextResponse } from './CountTextResponse';
 export { CreateAICoachTaskRequest } from './CreateAicoachTaskRequest';
 export { CreateAICoachTaskResponseBody } from './CreateAicoachTaskResponseBody';
 export { CreateAICoachTaskResponse } from './CreateAicoachTaskResponse';
+export { CreateAICoachTaskReportRequest } from './CreateAicoachTaskReportRequest';
+export { CreateAICoachTaskReportResponseBody } from './CreateAicoachTaskReportResponseBody';
+export { CreateAICoachTaskReportResponse } from './CreateAicoachTaskReportResponse';
 export { CreateAICoachTaskSessionRequest } from './CreateAicoachTaskSessionRequest';
 export { CreateAICoachTaskSessionResponseBody } from './CreateAicoachTaskSessionResponseBody';
 export { CreateAICoachTaskSessionResponse } from './CreateAicoachTaskSessionResponse';

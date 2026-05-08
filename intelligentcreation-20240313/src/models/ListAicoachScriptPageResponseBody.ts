@@ -44,6 +44,10 @@ export class ListAICoachScriptPageResponseBodyListCompleteStrategy extends $dara
 }
 
 export class ListAICoachScriptPageResponseBodyListCustomReplyRulesActionParameters extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   assessPoint?: string;
   customContent?: string;
   static names(): { [key: string]: string } {
@@ -99,6 +103,10 @@ export class ListAICoachScriptPageResponseBodyListCustomReplyRulesAction extends
 }
 
 export class ListAICoachScriptPageResponseBodyListCustomReplyRulesMainConditionParameters extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   assessPoint?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,9 +183,22 @@ export class ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition e
 
 export class ListAICoachScriptPageResponseBodyListCustomReplyRules extends $dara.Model {
   action?: ListAICoachScriptPageResponseBodyListCustomReplyRulesAction;
+  /**
+   * @example
+   * and
+   * or
+   */
   logic?: string;
   mainCondition?: ListAICoachScriptPageResponseBodyListCustomReplyRulesMainCondition;
+  /**
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @example
+   * 1
+   */
   sortNo?: number;
   subCondition?: ListAICoachScriptPageResponseBodyListCustomReplyRulesSubCondition;
   static names(): { [key: string]: string } {
@@ -251,7 +272,15 @@ export class ListAICoachScriptPageResponseBodyListSampleDialogueList extends $da
 }
 
 export class ListAICoachScriptPageResponseBodyListScoreConfigLevels extends $dara.Model {
+  /**
+   * @example
+   * 80
+   */
   max?: number;
+  /**
+   * @example
+   * 60
+   */
   min?: number;
   name?: string;
   static names(): { [key: string]: string } {
@@ -280,9 +309,21 @@ export class ListAICoachScriptPageResponseBodyListScoreConfigLevels extends $dar
 }
 
 export class ListAICoachScriptPageResponseBodyListScoreConfig extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   enabled?: boolean;
+  /**
+   * @example
+   * true
+   */
   levelEnabled?: boolean;
   levels?: ListAICoachScriptPageResponseBodyListScoreConfigLevels[];
+  /**
+   * @example
+   * 60
+   */
   passScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -320,16 +361,40 @@ export class ListAICoachScriptPageResponseBodyListWeights extends $dara.Model {
    * 50
    */
   assessmentPoint?: number;
+  /**
+   * @example
+   * true
+   */
   assessmentPointEnabled?: boolean;
+  /**
+   * @example
+   * true
+   */
   customReplyRuleEnabled?: boolean;
   /**
    * @example
    * 30
    */
   expressiveness?: number;
+  /**
+   * @example
+   * true
+   */
   expressivenessEnabled?: boolean;
+  /**
+   * @example
+   * 20
+   */
   pointDeductionRule?: number;
+  /**
+   * @example
+   * true
+   */
   pointDeductionRuleEnabled?: boolean;
+  /**
+   * @example
+   * true
+   */
   similarPronunciationScoringEnabled?: boolean;
   /**
    * @example
@@ -381,21 +446,49 @@ export class ListAICoachScriptPageResponseBodyListWeights extends $dara.Model {
 }
 
 export class ListAICoachScriptPageResponseBodyList extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   appendQuestionFlag?: string;
+  /**
+   * @example
+   * point
+   */
   assessmentScope?: string;
   closingRemarks?: string;
   completeStrategy?: ListAICoachScriptPageResponseBodyListCompleteStrategy;
   /**
    * @example
-   * https://oss-ata.alibaba.com/front/live/banner1.png
+   * https://xxx/cover.png
    */
   coverUrl?: string;
   customReplyRules?: ListAICoachScriptPageResponseBodyListCustomReplyRules[];
+  /**
+   * @example
+   * true
+   */
   dialogueTextFlag?: boolean;
+  /**
+   * @example
+   * true
+   */
   dialogueTipFlag?: boolean;
+  /**
+   * @example
+   * true
+   */
   evaluateReportFlag?: boolean;
   expressiveness?: { [key: string]: string };
+  /**
+   * @example
+   * https://xxx.gif
+   */
   gifDynamicUrl?: string;
+  /**
+   * @example
+   * https://xxx.gif
+   */
   gifStaticUrl?: string;
   /**
    * @example
@@ -424,6 +517,10 @@ export class ListAICoachScriptPageResponseBodyList extends $dara.Model {
    */
   name?: string;
   openingRemarks?: string;
+  /**
+   * @example
+   * true
+   */
   orderAckFlag?: boolean;
   sampleDialogueList?: ListAICoachScriptPageResponseBodyListSampleDialogueList[];
   scoreConfig?: ListAICoachScriptPageResponseBodyListScoreConfig;
@@ -439,7 +536,15 @@ export class ListAICoachScriptPageResponseBodyList extends $dara.Model {
    * 1
    */
   status?: number;
+  /**
+   * @example
+   * true
+   */
   studentThinkTimeFlag?: boolean;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   weights?: ListAICoachScriptPageResponseBodyListWeights;
   static names(): { [key: string]: string } {

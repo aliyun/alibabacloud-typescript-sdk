@@ -41,7 +41,7 @@ export class SubmitProjectTaskRequestFramesLayersMaterial extends $dara.Model {
   speed?: string;
   /**
    * @example
-   * https://meeting.dingtalk.com/j/1COFppy0POR
+   * https://xxx
    */
   url?: string;
   volume?: number;
@@ -242,7 +242,7 @@ export class SubmitProjectTaskRequestFramesSubtitle extends $dara.Model {
 export class SubmitProjectTaskRequestFramesVideoScript extends $dara.Model {
   /**
    * @example
-   * https://meeting.dingtalk.com/j/1COFppy0POR
+   * https://xxx
    */
   audioUrl?: string;
   emotion?: string;

@@ -3,11 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAnchorRequest extends $dara.Model {
+  /**
+   * @remarks
+   * 类型
+   * 
+   * @example
+   * VIDEO_ANCHOR
+   */
   anchorCategory?: string;
   anchorMaterialName?: string;
   /**
    * @example
-   * https://yic-pre.oss-cn-hangzhou.aliyuncs.com/common/image/anchor/1733474220549-1733474198960image.png?Expires=3311144948&OSSAccessKeyId=LTAI5tPHLyFPhh4UoRias4Zg&Signature=qldDufvRDj9IUTmOtb9r2451RIU%3D
+   * https://xxx
    */
   coverUrl?: string;
   digitalHumanType?: string;
@@ -21,6 +28,13 @@ export class CreateAnchorRequest extends $dara.Model {
    * offlineSynthesis
    */
   useScene?: string;
+  /**
+   * @remarks
+   * 视频文件osskey
+   * 
+   * @example
+   * path/key.mp4
+   */
   videoOssKey?: string;
   static names(): { [key: string]: string } {
     return {
