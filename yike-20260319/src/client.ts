@@ -30,6 +30,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 增加一刻项目成员
+   * 
+   * @param request - AddYikeProductionMembersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddYikeProductionMembersResponse
+   */
+  async addYikeProductionMembersWithOptions(request: $_model.AddYikeProductionMembersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddYikeProductionMembersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    if (!$dara.isNull(request.yikeUserIds)) {
+      query["YikeUserIds"] = request.yikeUserIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddYikeProductionMembers",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddYikeProductionMembersResponse>(await this.callApi(params, req, runtime), new $_model.AddYikeProductionMembersResponse({}));
+  }
+
+  /**
+   * 增加一刻项目成员
+   * 
+   * @param request - AddYikeProductionMembersRequest
+   * @returns AddYikeProductionMembersResponse
+   */
+  async addYikeProductionMembers(request: $_model.AddYikeProductionMembersRequest): Promise<$_model.AddYikeProductionMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addYikeProductionMembersWithOptions(request, runtime);
+  }
+
+  /**
    * 增加用户积分
    * 
    * @param request - AddYikeUserCreditRequest
@@ -762,6 +808,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取一刻工作室列表
+   * 
+   * @param request - ListYikeWorkspacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListYikeWorkspacesResponse
+   */
+  async listYikeWorkspacesWithOptions(request: $_model.ListYikeWorkspacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListYikeWorkspacesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListYikeWorkspaces",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListYikeWorkspacesResponse>(await this.callApi(params, req, runtime), new $_model.ListYikeWorkspacesResponse({}));
+  }
+
+  /**
+   * 获取一刻工作室列表
+   * 
+   * @param request - ListYikeWorkspacesRequest
+   * @returns ListYikeWorkspacesResponse
+   */
+  async listYikeWorkspaces(request: $_model.ListYikeWorkspacesRequest): Promise<$_model.ListYikeWorkspacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listYikeWorkspacesWithOptions(request, runtime);
+  }
+
+  /**
    * 检查应用参数是否合法
    * 
    * @param request - PrecheckYikeAIAppJobRequest
@@ -1235,6 +1327,102 @@ export default class Client extends OpenApi {
   async submitYikeVoiceNarratorJob(request: $_model.SubmitYikeVoiceNarratorJobRequest): Promise<$_model.SubmitYikeVoiceNarratorJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitYikeVoiceNarratorJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新一刻项目
+   * 
+   * @param request - UpdateYikeProductionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateYikeProductionResponse
+   */
+  async updateYikeProductionWithOptions(request: $_model.UpdateYikeProductionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateYikeProductionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateYikeProduction",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateYikeProductionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateYikeProductionResponse({}));
+  }
+
+  /**
+   * 更新一刻项目
+   * 
+   * @param request - UpdateYikeProductionRequest
+   * @returns UpdateYikeProductionResponse
+   */
+  async updateYikeProduction(request: $_model.UpdateYikeProductionRequest): Promise<$_model.UpdateYikeProductionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateYikeProductionWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改一刻项目成员权限
+   * 
+   * @param request - UpdateYikeProductionMemberAuthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateYikeProductionMemberAuthResponse
+   */
+  async updateYikeProductionMemberAuthWithOptions(request: $_model.UpdateYikeProductionMemberAuthRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateYikeProductionMemberAuthResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.auth)) {
+      query["Auth"] = request.auth;
+    }
+
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    if (!$dara.isNull(request.yikeUserId)) {
+      query["YikeUserId"] = request.yikeUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateYikeProductionMemberAuth",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateYikeProductionMemberAuthResponse>(await this.callApi(params, req, runtime), new $_model.UpdateYikeProductionMemberAuthResponse({}));
+  }
+
+  /**
+   * 修改一刻项目成员权限
+   * 
+   * @param request - UpdateYikeProductionMemberAuthRequest
+   * @returns UpdateYikeProductionMemberAuthResponse
+   */
+  async updateYikeProductionMemberAuth(request: $_model.UpdateYikeProductionMemberAuthRequest): Promise<$_model.UpdateYikeProductionMemberAuthResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateYikeProductionMemberAuthWithOptions(request, runtime);
   }
 
 }
