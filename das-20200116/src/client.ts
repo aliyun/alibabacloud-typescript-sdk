@@ -133,6 +133,117 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DAS大模型能力异步逻辑接口
+   * 
+   * @param request - ChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatResponse
+   */
+  async *chatWithSSE(request: $_model.ChatRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ChatResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.summary)) {
+      query["Summary"] = request.summary;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Chat",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ChatResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ChatResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * DAS大模型能力异步逻辑接口
+   * 
+   * @param request - ChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatResponse
+   */
+  async chatWithOptions(request: $_model.ChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChatResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.summary)) {
+      query["Summary"] = request.summary;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Chat",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChatResponse>(await this.callApi(params, req, runtime), new $_model.ChatResponse({}));
+  }
+
+  /**
+   * DAS大模型能力异步逻辑接口
+   * 
+   * @param request - ChatRequest
+   * @returns ChatResponse
+   */
+  async chat(request: $_model.ChatRequest): Promise<$_model.ChatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.chatWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a cache analysis task.
    * 
    * @remarks
@@ -4420,72 +4531,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - GetEndpointSwitchTaskRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetEndpointSwitchTaskResponse
-   */
-  async getEndpointSwitchTaskWithOptions(request: $_model.GetEndpointSwitchTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetEndpointSwitchTaskResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.taskId)) {
-      query["TaskId"] = request.taskId;
-    }
-
-    if (!$dara.isNull(request.uid)) {
-      query["Uid"] = request.uid;
-    }
-
-    if (!$dara.isNull(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    if (!$dara.isNull(request.context)) {
-      query["__context"] = request.context;
-    }
-
-    if (!$dara.isNull(request.accessKey)) {
-      query["accessKey"] = request.accessKey;
-    }
-
-    if (!$dara.isNull(request.signature)) {
-      query["signature"] = request.signature;
-    }
-
-    if (!$dara.isNull(request.skipAuth)) {
-      query["skipAuth"] = request.skipAuth;
-    }
-
-    if (!$dara.isNull(request.timestamp)) {
-      query["timestamp"] = request.timestamp;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GetEndpointSwitchTask",
-      version: "2020-01-16",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GetEndpointSwitchTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetEndpointSwitchTaskResponse({}));
-  }
-
-  /**
-   * @param request - GetEndpointSwitchTaskRequest
-   * @returns GetEndpointSwitchTaskResponse
-   */
-  async getEndpointSwitchTask(request: $_model.GetEndpointSwitchTaskRequest): Promise<$_model.GetEndpointSwitchTaskResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.getEndpointSwitchTaskWithOptions(request, runtime);
-  }
-
-  /**
    * Asynchronously queries information about failed SQL queries in SQL Explorer data. You can query up to 20 failed SQL queries within the specific time range.
    * 
    * @remarks
@@ -4887,134 +4932,6 @@ export default class Client extends OpenApi {
   async getFullRequestStatResultByInstanceId(request: $_model.GetFullRequestStatResultByInstanceIdRequest): Promise<$_model.GetFullRequestStatResultByInstanceIdResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFullRequestStatResultByInstanceIdWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - GetHDMAliyunResourceSyncResultRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetHDMAliyunResourceSyncResultResponse
-   */
-  async getHDMAliyunResourceSyncResultWithOptions(request: $_model.GetHDMAliyunResourceSyncResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetHDMAliyunResourceSyncResultResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.taskId)) {
-      query["TaskId"] = request.taskId;
-    }
-
-    if (!$dara.isNull(request.uid)) {
-      query["Uid"] = request.uid;
-    }
-
-    if (!$dara.isNull(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    if (!$dara.isNull(request.context)) {
-      query["__context"] = request.context;
-    }
-
-    if (!$dara.isNull(request.accessKey)) {
-      query["accessKey"] = request.accessKey;
-    }
-
-    if (!$dara.isNull(request.signature)) {
-      query["signature"] = request.signature;
-    }
-
-    if (!$dara.isNull(request.skipAuth)) {
-      query["skipAuth"] = request.skipAuth;
-    }
-
-    if (!$dara.isNull(request.timestamp)) {
-      query["timestamp"] = request.timestamp;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GetHDMAliyunResourceSyncResult",
-      version: "2020-01-16",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GetHDMAliyunResourceSyncResultResponse>(await this.callApi(params, req, runtime), new $_model.GetHDMAliyunResourceSyncResultResponse({}));
-  }
-
-  /**
-   * @param request - GetHDMAliyunResourceSyncResultRequest
-   * @returns GetHDMAliyunResourceSyncResultResponse
-   */
-  async getHDMAliyunResourceSyncResult(request: $_model.GetHDMAliyunResourceSyncResultRequest): Promise<$_model.GetHDMAliyunResourceSyncResultResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.getHDMAliyunResourceSyncResultWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - GetHDMLastAliyunResourceSyncResultRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetHDMLastAliyunResourceSyncResultResponse
-   */
-  async getHDMLastAliyunResourceSyncResultWithOptions(request: $_model.GetHDMLastAliyunResourceSyncResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetHDMLastAliyunResourceSyncResultResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.uid)) {
-      query["Uid"] = request.uid;
-    }
-
-    if (!$dara.isNull(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    if (!$dara.isNull(request.context)) {
-      query["__context"] = request.context;
-    }
-
-    if (!$dara.isNull(request.accessKey)) {
-      query["accessKey"] = request.accessKey;
-    }
-
-    if (!$dara.isNull(request.signature)) {
-      query["signature"] = request.signature;
-    }
-
-    if (!$dara.isNull(request.skipAuth)) {
-      query["skipAuth"] = request.skipAuth;
-    }
-
-    if (!$dara.isNull(request.timestamp)) {
-      query["timestamp"] = request.timestamp;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "GetHDMLastAliyunResourceSyncResult",
-      version: "2020-01-16",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.GetHDMLastAliyunResourceSyncResultResponse>(await this.callApi(params, req, runtime), new $_model.GetHDMLastAliyunResourceSyncResultResponse({}));
-  }
-
-  /**
-   * @param request - GetHDMLastAliyunResourceSyncResultRequest
-   * @returns GetHDMLastAliyunResourceSyncResultResponse
-   */
-  async getHDMLastAliyunResourceSyncResult(request: $_model.GetHDMLastAliyunResourceSyncResultRequest): Promise<$_model.GetHDMLastAliyunResourceSyncResultResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.getHDMLastAliyunResourceSyncResultWithOptions(request, runtime);
   }
 
   /**

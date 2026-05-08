@@ -1,16 +1,20 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { GetHDMAliyunResourceSyncResultResponseBody } from "./GetHdmaliyunResourceSyncResultResponseBody";
+import { ChatResponseBody } from "./ChatResponseBody";
 
 
-export class GetHDMAliyunResourceSyncResultResponse extends $dara.Model {
+export class ChatResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: GetHDMAliyunResourceSyncResultResponseBody;
+  id?: string;
+  event?: string;
+  body?: ChatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      id: 'id',
+      event: 'event',
       body: 'body',
     };
   }
@@ -19,7 +23,9 @@ export class GetHDMAliyunResourceSyncResultResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: GetHDMAliyunResourceSyncResultResponseBody,
+      id: 'string',
+      event: 'string',
+      body: ChatResponseBody,
     };
   }
 
