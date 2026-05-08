@@ -111,6 +111,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
    * 2020-02-24T11:57:54Z
    */
   createTime?: string;
+  currentVersion?: string;
   /**
    * @example
    * MySQL
@@ -129,6 +130,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
    * xxx
    */
   gwDescription?: string;
+  latestVersion?: string;
   /**
    * @example
    * 2025-10-07T02:19:55Z
@@ -152,6 +154,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF
    */
   requestId?: string;
+  runningVersion?: string;
   securityIPArrays?: DescribeGatewayAttributeResponseBodySecurityIPArrays[];
   /**
    * @example
@@ -172,16 +175,19 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
     return {
       classCode: 'ClassCode',
       createTime: 'CreateTime',
+      currentVersion: 'CurrentVersion',
       dbType: 'DbType',
       endpoints: 'Endpoints',
       expireTime: 'ExpireTime',
       expired: 'Expired',
       gwClusterId: 'GwClusterId',
       gwDescription: 'GwDescription',
+      latestVersion: 'LatestVersion',
       modifyTime: 'ModifyTime',
       payType: 'PayType',
       regionId: 'RegionId',
       requestId: 'RequestId',
+      runningVersion: 'RunningVersion',
       securityIPArrays: 'SecurityIPArrays',
       status: 'Status',
       vSwitchId: 'VSwitchId',
@@ -193,16 +199,19 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
     return {
       classCode: 'string',
       createTime: 'string',
+      currentVersion: 'string',
       dbType: 'string',
       endpoints: { 'type': 'array', 'itemType': DescribeGatewayAttributeResponseBodyEndpoints },
       expireTime: 'string',
       expired: 'boolean',
       gwClusterId: 'string',
       gwDescription: 'string',
+      latestVersion: 'string',
       modifyTime: 'string',
       payType: 'string',
       regionId: 'string',
       requestId: 'string',
+      runningVersion: 'string',
       securityIPArrays: { 'type': 'array', 'itemType': DescribeGatewayAttributeResponseBodySecurityIPArrays },
       status: 'string',
       vSwitchId: 'string',

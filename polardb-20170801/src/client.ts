@@ -1688,6 +1688,10 @@ export default class Client extends OpenApi {
       query["AutoUseCoupon"] = request.autoUseCoupon;
     }
 
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.DBClusterDescription)) {
       query["DBClusterDescription"] = request.DBClusterDescription;
     }

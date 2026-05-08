@@ -52,6 +52,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
    * false
    */
   autoUseCoupon?: boolean;
+  clientToken?: string;
   /**
    * @example
    * test
@@ -154,9 +155,6 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * sg-bp**************
    */
@@ -206,6 +204,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
       ackAdmin: 'AckAdmin',
       autoRenew: 'AutoRenew',
       autoUseCoupon: 'AutoUseCoupon',
+      clientToken: 'ClientToken',
       DBClusterDescription: 'DBClusterDescription',
       DBClusterId: 'DBClusterId',
       DBNodeClass: 'DBNodeClass',
@@ -243,6 +242,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
       ackAdmin: 'string',
       autoRenew: 'string',
       autoUseCoupon: 'boolean',
+      clientToken: 'string',
       DBClusterDescription: 'string',
       DBClusterId: 'string',
       DBNodeClass: 'string',
