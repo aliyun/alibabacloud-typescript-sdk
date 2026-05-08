@@ -454,6 +454,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询新加坡千问大会票证信息
+   * 
+   * @param request - QueryQwenConferenceSgTicketPopRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryQwenConferenceSgTicketPopResponse
+   */
+  async queryQwenConferenceSgTicketPopWithOptions(request: $_model.QueryQwenConferenceSgTicketPopRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryQwenConferenceSgTicketPopResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ticketToken)) {
+      query["TicketToken"] = request.ticketToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryQwenConferenceSgTicketPop",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryQwenConferenceSgTicketPopResponse>(await this.callApi(params, req, runtime), new $_model.QueryQwenConferenceSgTicketPopResponse({}));
+  }
+
+  /**
+   * 查询新加坡千问大会票证信息
+   * 
+   * @param request - QueryQwenConferenceSgTicketPopRequest
+   * @returns QueryQwenConferenceSgTicketPopResponse
+   */
+  async queryQwenConferenceSgTicketPop(request: $_model.QueryQwenConferenceSgTicketPopRequest): Promise<$_model.QueryQwenConferenceSgTicketPopResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryQwenConferenceSgTicketPopWithOptions(request, runtime);
+  }
+
+  /**
+   * 千问大会搜索票据信息
+   * 
+   * @param request - QueryQwenConferenceSgTicketSearchPopRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryQwenConferenceSgTicketSearchPopResponse
+   */
+  async queryQwenConferenceSgTicketSearchPopWithOptions(request: $_model.QueryQwenConferenceSgTicketSearchPopRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryQwenConferenceSgTicketSearchPopResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryQwenConferenceSgTicketSearchPop",
+      version: "2021-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryQwenConferenceSgTicketSearchPopResponse>(await this.callApi(params, req, runtime), new $_model.QueryQwenConferenceSgTicketSearchPopResponse({}));
+  }
+
+  /**
+   * 千问大会搜索票据信息
+   * 
+   * @param request - QueryQwenConferenceSgTicketSearchPopRequest
+   * @returns QueryQwenConferenceSgTicketSearchPopResponse
+   */
+  async queryQwenConferenceSgTicketSearchPop(request: $_model.QueryQwenConferenceSgTicketSearchPopRequest): Promise<$_model.QueryQwenConferenceSgTicketSearchPopResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryQwenConferenceSgTicketSearchPopWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - QuerySessionByActivityIdPopRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySessionByActivityIdPopResponse
