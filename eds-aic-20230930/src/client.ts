@@ -2837,6 +2837,10 @@ export default class Client extends OpenApi {
       query["BizRegionId"] = request.bizRegionId;
     }
 
+    if (!$dara.isNull(request.chargeType)) {
+      query["ChargeType"] = request.chargeType;
+    }
+
     if (!$dara.isNull(request.matrixSpec)) {
       query["MatrixSpec"] = request.matrixSpec;
     }

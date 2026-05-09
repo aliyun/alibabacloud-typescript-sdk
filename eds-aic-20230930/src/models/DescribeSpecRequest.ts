@@ -8,6 +8,7 @@ export class DescribeSpecRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  chargeType?: string;
   /**
    * @remarks
    * The matrix specification.
@@ -73,6 +74,7 @@ export class DescribeSpecRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizRegionId: 'BizRegionId',
+      chargeType: 'ChargeType',
       matrixSpec: 'MatrixSpec',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -86,6 +88,7 @@ export class DescribeSpecRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizRegionId: 'string',
+      chargeType: 'string',
       matrixSpec: 'string',
       maxResults: 'number',
       nextToken: 'string',
