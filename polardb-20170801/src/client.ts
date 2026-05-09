@@ -2731,6 +2731,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建批量任务
+   * 
+   * @param tmpReq - CreateBatchTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBatchTaskResponse
+   */
+  async createBatchTaskWithOptions(tmpReq: $_model.CreateBatchTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBatchTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateBatchTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBatchTask",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBatchTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateBatchTaskResponse({}));
+  }
+
+  /**
+   * 创建批量任务
+   * 
+   * @param request - CreateBatchTaskRequest
+   * @returns CreateBatchTaskResponse
+   */
+  async createBatchTask(request: $_model.CreateBatchTaskRequest): Promise<$_model.CreateBatchTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 创建预算策略
    * 
    * @param request - CreateBudgetPolicyRequest
@@ -9896,6 +9960,116 @@ export default class Client extends OpenApi {
   async describeBackups(request: $_model.DescribeBackupsRequest): Promise<$_model.DescribeBackupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeBackupsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询批量任务状态详情
+   * 
+   * @param request - DescribeBatchTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBatchTaskResponse
+   */
+  async describeBatchTaskWithOptions(request: $_model.DescribeBatchTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBatchTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.batchId)) {
+      query["BatchId"] = request.batchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBatchTask",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBatchTaskResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBatchTaskResponse({}));
+  }
+
+  /**
+   * 查询批量任务状态详情
+   * 
+   * @param request - DescribeBatchTaskRequest
+   * @returns DescribeBatchTaskResponse
+   */
+  async describeBatchTask(request: $_model.DescribeBatchTaskRequest): Promise<$_model.DescribeBatchTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBatchTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询批量任务状态
+   * 
+   * @param tmpReq - DescribeBatchTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBatchTasksResponse
+   */
+  async describeBatchTasksWithOptions(tmpReq: $_model.DescribeBatchTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBatchTasksResponse> {
+    tmpReq.validate();
+    let request = new $_model.DescribeBatchTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.status)) {
+      request.statusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.status, "Status", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statusShrink)) {
+      query["Status"] = request.statusShrink;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBatchTasks",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBatchTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBatchTasksResponse({}));
+  }
+
+  /**
+   * 查询批量任务状态
+   * 
+   * @param request - DescribeBatchTasksRequest
+   * @returns DescribeBatchTasksResponse
+   */
+  async describeBatchTasks(request: $_model.DescribeBatchTasksRequest): Promise<$_model.DescribeBatchTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBatchTasksWithOptions(request, runtime);
   }
 
   /**
