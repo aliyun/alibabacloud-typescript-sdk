@@ -173,6 +173,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
    * 5.7
    */
   engineVersion?: string;
+  instanceClusterName?: string;
   /**
    * @example
    * 0
@@ -197,6 +198,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
    */
   nodeClass?: string;
   phyInstanceName?: string;
+  readType?: string;
   /**
    * @example
    * cn-hangzhou
@@ -235,6 +237,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       diskSize: 'DiskSize',
       engine: 'Engine',
       engineVersion: 'EngineVersion',
+      instanceClusterName: 'InstanceClusterName',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
       maintainEndTime: 'MaintainEndTime',
@@ -243,6 +246,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       maxIops: 'MaxIops',
       nodeClass: 'NodeClass',
       phyInstanceName: 'PhyInstanceName',
+      readType: 'ReadType',
       region: 'Region',
       role: 'Role',
       status: 'Status',
@@ -268,6 +272,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       diskSize: 'number',
       engine: 'string',
       engineVersion: 'string',
+      instanceClusterName: 'string',
       lockMode: 'number',
       lockReason: 'string',
       maintainEndTime: 'string',
@@ -276,6 +281,7 @@ export class DescribeDBInstanceTopologyResponseBodyDataLogicInstanceTopologyItem
       maxIops: 'number',
       nodeClass: 'string',
       phyInstanceName: 'string',
+      readType: 'string',
       region: 'string',
       role: 'string',
       status: 'string',

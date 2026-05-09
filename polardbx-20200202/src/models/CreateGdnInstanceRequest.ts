@@ -16,6 +16,10 @@ export class CreateGdnInstanceRequest extends $dara.Model {
    * FASTJSON 2.0.x has been released, faster and more secure, recommend you upgrade.
    */
   description?: string;
+  /**
+   * @example
+   * gdn_mode_master_slave, gdn_mode_bidirectional
+   */
   gdnMode?: string;
   /**
    * @remarks
@@ -25,7 +29,15 @@ export class CreateGdnInstanceRequest extends $dara.Model {
    * cn-beijing
    */
   regionId?: string;
+  /**
+   * @example
+   * DIRECT_OVERWRITE, OVERWRITE, IGNORE, INTERRUPT
+   */
   rplConflictStrategy?: string;
+  /**
+   * @example
+   * MERGE,  SERIAL, TRANSACTION, SPLIT
+   */
   rplDmlStrategy?: string;
   rplSyncDdl?: boolean;
   static names(): { [key: string]: string } {

@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyDBInstanceVipRequest extends $dara.Model {
+export class UpdateCustinsParamRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -11,13 +11,17 @@ export class ModifyDBInstanceVipRequest extends $dara.Model {
    * pxc-********
    */
   DBInstanceName?: string;
-  instanceClusterName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * cn-hangzhou
+   * cn-zhangjiakou
    */
   regionId?: string;
   /**
@@ -25,34 +29,24 @@ export class ModifyDBInstanceVipRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * vsw-*********
+   * load_test_4009266
    */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vpc-********
-   */
-  vpcId?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
-      instanceClusterName: 'InstanceClusterName',
+      name: 'Name',
       regionId: 'RegionId',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
+      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
-      instanceClusterName: 'string',
+      name: 'string',
       regionId: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
+      value: 'string',
     };
   }
 

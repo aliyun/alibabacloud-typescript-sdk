@@ -2,57 +2,45 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyDBInstanceVipRequest extends $dara.Model {
+export class DescribeDBInstanceEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * pxc-********
+   * pxc-hzjasd****
    */
   DBInstanceName?: string;
-  instanceClusterName?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
+   * @example
+   * 1000
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * xxdds
+   */
+  nextToken?: string;
+  /**
    * @example
    * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vsw-*********
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vpc-********
-   */
-  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
-      instanceClusterName: 'InstanceClusterName',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       regionId: 'RegionId',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
-      instanceClusterName: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       regionId: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
     };
   }
 

@@ -177,6 +177,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开通公网域名
+   * 
    * @param request - AllocateInstancePublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AllocateInstancePublicConnectionResponse
@@ -190,6 +192,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.instanceClusterName)) {
+      query["InstanceClusterName"] = request.instanceClusterName;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -234,6 +240,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开通公网域名
+   * 
    * @param request - AllocateInstancePublicConnectionRequest
    * @returns AllocateInstancePublicConnectionResponse
    */
@@ -1141,6 +1149,140 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建GDN从实例
+   * 
+   * @param request - CreateGdnStandbyMemberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGdnStandbyMemberResponse
+   */
+  async createGdnStandbyMemberWithOptions(request: $_model.CreateGdnStandbyMemberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGdnStandbyMemberResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.CNNodeCount)) {
+      query["CNNodeCount"] = request.CNNodeCount;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cloneInstanceName)) {
+      query["CloneInstanceName"] = request.cloneInstanceName;
+    }
+
+    if (!$dara.isNull(request.cnClass)) {
+      query["CnClass"] = request.cnClass;
+    }
+
+    if (!$dara.isNull(request.DNNodeCount)) {
+      query["DNNodeCount"] = request.DNNodeCount;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dnClass)) {
+      query["DnClass"] = request.dnClass;
+    }
+
+    if (!$dara.isNull(request.engineVersion)) {
+      query["EngineVersion"] = request.engineVersion;
+    }
+
+    if (!$dara.isNull(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.primaryZone)) {
+      query["PrimaryZone"] = request.primaryZone;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.secondaryZone)) {
+      query["SecondaryZone"] = request.secondaryZone;
+    }
+
+    if (!$dara.isNull(request.series)) {
+      query["Series"] = request.series;
+    }
+
+    if (!$dara.isNull(request.sourceInstanceRegion)) {
+      query["SourceInstanceRegion"] = request.sourceInstanceRegion;
+    }
+
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    if (!$dara.isNull(request.tertiaryZone)) {
+      query["TertiaryZone"] = request.tertiaryZone;
+    }
+
+    if (!$dara.isNull(request.topologyType)) {
+      query["TopologyType"] = request.topologyType;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    if (!$dara.isNull(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGdnStandbyMember",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateGdnStandbyMemberResponse>(await this.callApi(params, req, runtime), new $_model.CreateGdnStandbyMemberResponse({}));
+  }
+
+  /**
+   * 创建GDN从实例
+   * 
+   * @param request - CreateGdnStandbyMemberRequest
+   * @returns CreateGdnStandbyMemberResponse
+   */
+  async createGdnStandbyMember(request: $_model.CreateGdnStandbyMemberRequest): Promise<$_model.CreateGdnStandbyMemberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createGdnStandbyMemberWithOptions(request, runtime);
+  }
+
+  /**
    * 创建mem0
    * 
    * @param request - CreateMem0Request
@@ -1458,6 +1600,66 @@ export default class Client extends OpenApi {
   async createStructureImportTask(request: $_model.CreateStructureImportTaskRequest): Promise<$_model.CreateStructureImportTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createStructureImportTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 开通CN子实例
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - CreateSubCNInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSubCNInstanceResponse
+   */
+  async createSubCNInstanceWithOptions(request: $_model.CreateSubCNInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSubCNInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.isAutoCreate)) {
+      query["IsAutoCreate"] = request.isAutoCreate;
+    }
+
+    if (!$dara.isNull(request.readType)) {
+      query["ReadType"] = request.readType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSubCNInstance",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSubCNInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateSubCNInstanceResponse({}));
+  }
+
+  /**
+   * 开通CN子实例
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - CreateSubCNInstanceRequest
+   * @returns CreateSubCNInstanceResponse
+   */
+  async createSubCNInstance(request: $_model.CreateSubCNInstanceRequest): Promise<$_model.CreateSubCNInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSubCNInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -1896,6 +2098,58 @@ export default class Client extends OpenApi {
   async deleteMem0(request: $_model.DeleteMem0Request): Promise<$_model.DeleteMem0Response> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMem0WithOptions(request, runtime);
+  }
+
+  /**
+   * 删除CN子实例
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DeleteSubCNInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSubCNInstanceResponse
+   */
+  async deleteSubCNInstanceWithOptions(request: $_model.DeleteSubCNInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSubCNInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSubCNInstance",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSubCNInstanceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSubCNInstanceResponse({}));
+  }
+
+  /**
+   * 删除CN子实例
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DeleteSubCNInstanceRequest
+   * @returns DeleteSubCNInstanceResponse
+   */
+  async deleteSubCNInstance(request: $_model.DeleteSubCNInstanceRequest): Promise<$_model.DeleteSubCNInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSubCNInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -2944,6 +3198,60 @@ export default class Client extends OpenApi {
   async describeDBInstanceConfig(request: $_model.DescribeDBInstanceConfigRequest): Promise<$_model.DescribeDBInstanceConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDBInstanceConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询endpoint列表
+   * 
+   * @param request - DescribeDBInstanceEndpointRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDBInstanceEndpointResponse
+   */
+  async describeDBInstanceEndpointWithOptions(request: $_model.DescribeDBInstanceEndpointRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBInstanceEndpointResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDBInstanceEndpoint",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDBInstanceEndpointResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDBInstanceEndpointResponse({}));
+  }
+
+  /**
+   * 查询endpoint列表
+   * 
+   * @param request - DescribeDBInstanceEndpointRequest
+   * @returns DescribeDBInstanceEndpointResponse
+   */
+  async describeDBInstanceEndpoint(request: $_model.DescribeDBInstanceEndpointRequest): Promise<$_model.DescribeDBInstanceEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDBInstanceEndpointWithOptions(request, runtime);
   }
 
   /**
@@ -5933,6 +6241,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 切换交换机
+   * 
    * @remarks
    * ***
    * 
@@ -5945,6 +6255,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.instanceClusterName)) {
+      query["InstanceClusterName"] = request.instanceClusterName;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -5977,6 +6291,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 切换交换机
+   * 
    * @remarks
    * ***
    * 
@@ -7424,6 +7740,60 @@ export default class Client extends OpenApi {
   async updateBackupPolicy(request: $_model.UpdateBackupPolicyRequest): Promise<$_model.UpdateBackupPolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateBackupPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新实例的管控参数
+   * 
+   * @param request - UpdateCustinsParamRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustinsParamResponse
+   */
+  async updateCustinsParamWithOptions(request: $_model.UpdateCustinsParamRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustinsParamResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceName)) {
+      query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.value)) {
+      query["Value"] = request.value;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCustinsParam",
+      version: "2020-02-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCustinsParamResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCustinsParamResponse({}));
+  }
+
+  /**
+   * 更新实例的管控参数
+   * 
+   * @param request - UpdateCustinsParamRequest
+   * @returns UpdateCustinsParamResponse
+   */
+  async updateCustinsParam(request: $_model.UpdateCustinsParamRequest): Promise<$_model.UpdateCustinsParamResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCustinsParamWithOptions(request, runtime);
   }
 
   /**

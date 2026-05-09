@@ -19,6 +19,11 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
    * pxc-**************
    */
   DBInstanceName?: string;
+  /**
+   * @example
+   * default
+   */
+  instanceClusterName?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -40,6 +45,7 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
     return {
       connectionStringPrefix: 'ConnectionStringPrefix',
       DBInstanceName: 'DBInstanceName',
+      instanceClusterName: 'InstanceClusterName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       port: 'Port',
@@ -53,6 +59,7 @@ export class AllocateInstancePublicConnectionRequest extends $dara.Model {
     return {
       connectionStringPrefix: 'string',
       DBInstanceName: 'string',
+      instanceClusterName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       port: 'string',
