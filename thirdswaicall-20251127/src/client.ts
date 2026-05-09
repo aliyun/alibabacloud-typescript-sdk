@@ -30,6 +30,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询当前任务的并发数
+   * 
+   * @param request - QueryTaskConcurrencyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTaskConcurrencyResponse
+   */
+  async queryTaskConcurrencyWithOptions(request: $_model.QueryTaskConcurrencyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryTaskConcurrencyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryTaskConcurrency",
+      version: "2025-11-27",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryTaskConcurrencyResponse>(await this.callApi(params, req, runtime), new $_model.QueryTaskConcurrencyResponse({}));
+  }
+
+  /**
+   * 查询当前任务的并发数
+   * 
+   * @param request - QueryTaskConcurrencyRequest
+   * @returns QueryTaskConcurrencyResponse
+   */
+  async queryTaskConcurrency(request: $_model.QueryTaskConcurrencyRequest): Promise<$_model.QueryTaskConcurrencyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryTaskConcurrencyWithOptions(request, runtime);
+  }
+
+  /**
    * 外呼任务通话列表查询
    * 
    * @param tmpReq - ReadOutboundTaskCallListRequest
