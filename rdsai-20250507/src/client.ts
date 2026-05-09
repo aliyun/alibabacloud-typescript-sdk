@@ -2623,6 +2623,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改RDS AI应用实例
+   * 
+   * @param tmpReq - ModifyAppInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAppInstanceResponse
+   */
+  async modifyAppInstanceWithOptions(tmpReq: $_model.ModifyAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppInstanceResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyAppInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.components)) {
+      request.componentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.componentsShrink)) {
+      query["Components"] = request.componentsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyAppInstance",
+      version: "2025-05-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyAppInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ModifyAppInstanceResponse({}));
+  }
+
+  /**
+   * 修改RDS AI应用实例
+   * 
+   * @param request - ModifyAppInstanceRequest
+   * @returns ModifyAppInstanceResponse
+   */
+  async modifyAppInstance(request: $_model.ModifyAppInstanceRequest): Promise<$_model.ModifyAppInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyAppInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the authentication configurations of an RDS Supabase instance.
    * 
    * @remarks

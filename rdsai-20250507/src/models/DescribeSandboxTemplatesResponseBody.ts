@@ -28,6 +28,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
    * code-interpreter
    */
   name?: string;
+  replicas?: number;
   /**
    * @example
    * code-interpreter-asdxxxx
@@ -40,6 +41,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
       description: 'Description',
       enableVpcAccess: 'EnableVpcAccess',
       name: 'Name',
+      replicas: 'Replicas',
       templateId: 'TemplateId',
     };
   }
@@ -51,6 +53,7 @@ export class DescribeSandboxTemplatesResponseBodySandboxTemplates extends $dara.
       description: 'string',
       enableVpcAccess: 'string',
       name: 'string',
+      replicas: 'number',
       templateId: 'string',
     };
   }
