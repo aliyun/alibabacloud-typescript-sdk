@@ -6,6 +6,7 @@ import { CustomRuntimeConfig } from "./CustomRuntimeConfig";
 import { GPUConfig } from "./Gpuconfig";
 import { InstanceLifecycleConfig } from "./InstanceLifecycleConfig";
 import { FunctionRestriction } from "./FunctionRestriction";
+import { JuiceFsConfig } from "./JuiceFsConfig";
 import { FunctionLayer } from "./FunctionLayer";
 import { FunctionLockInfo } from "./FunctionLockInfo";
 import { LogConfig } from "./LogConfig";
@@ -160,6 +161,7 @@ export class Function extends $dara.Model {
    */
   internetAccess?: boolean;
   invocationRestriction?: FunctionRestriction;
+  juiceFsConfig?: JuiceFsConfig;
   /**
    * @remarks
    * The last time the function was updated.
@@ -322,6 +324,7 @@ export class Function extends $dara.Model {
       instanceLifecycleConfig: 'instanceLifecycleConfig',
       internetAccess: 'internetAccess',
       invocationRestriction: 'invocationRestriction',
+      juiceFsConfig: 'juiceFsConfig',
       lastModifiedTime: 'lastModifiedTime',
       lastUpdateStatus: 'lastUpdateStatus',
       lastUpdateStatusReason: 'lastUpdateStatusReason',
@@ -374,6 +377,7 @@ export class Function extends $dara.Model {
       instanceLifecycleConfig: InstanceLifecycleConfig,
       internetAccess: 'boolean',
       invocationRestriction: FunctionRestriction,
+      juiceFsConfig: JuiceFsConfig,
       lastModifiedTime: 'string',
       lastUpdateStatus: 'string',
       lastUpdateStatusReason: 'string',
@@ -421,6 +425,9 @@ export class Function extends $dara.Model {
     }
     if(this.invocationRestriction && typeof (this.invocationRestriction as any).validate === 'function') {
       (this.invocationRestriction as any).validate();
+    }
+    if(this.juiceFsConfig && typeof (this.juiceFsConfig as any).validate === 'function') {
+      (this.juiceFsConfig as any).validate();
     }
     if(Array.isArray(this.layers)) {
       $dara.Model.validateArray(this.layers);

@@ -57,6 +57,8 @@ export { InstanceEventItem } from './InstanceEventItem';
 export { InstanceInfo } from './InstanceInfo';
 export { InstanceLifecycleConfig } from './InstanceLifecycleConfig';
 export { JobConfig } from './JobConfig';
+export { JuiceFsConfig } from './JuiceFsConfig';
+export { JuiceFsMountConfig } from './JuiceFsMountConfig';
 export { Key } from './Key';
 export { Layer } from './Layer';
 export { LifecycleHook } from './LifecycleHook';

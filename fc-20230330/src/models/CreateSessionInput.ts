@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { JuiceFsConfig } from "./JuiceFsConfig";
 import { NASConfig } from "./Nasconfig";
 import { OSSMountConfig } from "./OssmountConfig";
 import { PolarFsConfig } from "./PolarFsConfig";
@@ -7,6 +8,7 @@ import { PolarFsConfig } from "./PolarFsConfig";
 
 export class CreateSessionInput extends $dara.Model {
   disableSessionIdReuse?: boolean;
+  juiceFsConfig?: JuiceFsConfig;
   nasConfig?: NASConfig;
   ossMountConfig?: OSSMountConfig;
   polarFsConfig?: PolarFsConfig;
@@ -28,6 +30,7 @@ export class CreateSessionInput extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       disableSessionIdReuse: 'disableSessionIdReuse',
+      juiceFsConfig: 'juiceFsConfig',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
       polarFsConfig: 'polarFsConfig',
@@ -40,6 +43,7 @@ export class CreateSessionInput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       disableSessionIdReuse: 'boolean',
+      juiceFsConfig: JuiceFsConfig,
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,
       polarFsConfig: PolarFsConfig,
@@ -50,6 +54,9 @@ export class CreateSessionInput extends $dara.Model {
   }
 
   validate() {
+    if(this.juiceFsConfig && typeof (this.juiceFsConfig as any).validate === 'function') {
+      (this.juiceFsConfig as any).validate();
+    }
     if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
       (this.nasConfig as any).validate();
     }

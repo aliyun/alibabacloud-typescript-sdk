@@ -6,6 +6,7 @@ import { CustomDNS } from "./CustomDns";
 import { CustomRuntimeConfig } from "./CustomRuntimeConfig";
 import { GPUConfig } from "./Gpuconfig";
 import { InstanceLifecycleConfig } from "./InstanceLifecycleConfig";
+import { JuiceFsConfig } from "./JuiceFsConfig";
 import { LogConfig } from "./LogConfig";
 import { NASConfig } from "./Nasconfig";
 import { OSSMountConfig } from "./OssmountConfig";
@@ -126,6 +127,7 @@ export class CreateFunctionInput extends $dara.Model {
    * true
    */
   internetAccess?: boolean;
+  juiceFsConfig?: JuiceFsConfig;
   /**
    * @remarks
    * The layers. Multiple layers are merged based on the order of array subscripts. If two layers have the same file name, the content of the layer with the smaller subscript will overwrite the content of the layer with the larger subscript.
@@ -224,6 +226,7 @@ export class CreateFunctionInput extends $dara.Model {
       instanceIsolationMode: 'instanceIsolationMode',
       instanceLifecycleConfig: 'instanceLifecycleConfig',
       internetAccess: 'internetAccess',
+      juiceFsConfig: 'juiceFsConfig',
       layers: 'layers',
       logConfig: 'logConfig',
       memorySize: 'memorySize',
@@ -263,6 +266,7 @@ export class CreateFunctionInput extends $dara.Model {
       instanceIsolationMode: 'string',
       instanceLifecycleConfig: InstanceLifecycleConfig,
       internetAccess: 'boolean',
+      juiceFsConfig: JuiceFsConfig,
       layers: { 'type': 'array', 'itemType': 'string' },
       logConfig: LogConfig,
       memorySize: 'number',
@@ -302,6 +306,9 @@ export class CreateFunctionInput extends $dara.Model {
     }
     if(this.instanceLifecycleConfig && typeof (this.instanceLifecycleConfig as any).validate === 'function') {
       (this.instanceLifecycleConfig as any).validate();
+    }
+    if(this.juiceFsConfig && typeof (this.juiceFsConfig as any).validate === 'function') {
+      (this.juiceFsConfig as any).validate();
     }
     if(Array.isArray(this.layers)) {
       $dara.Model.validateArray(this.layers);

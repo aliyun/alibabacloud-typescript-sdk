@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { JuiceFsConfig } from "./JuiceFsConfig";
 import { NASConfig } from "./Nasconfig";
 import { OSSMountConfig } from "./OssmountConfig";
 import { PolarFsConfig } from "./PolarFsConfig";
@@ -31,6 +32,7 @@ export class Session extends $dara.Model {
    * functionName1
    */
   functionName?: string;
+  juiceFsConfig?: JuiceFsConfig;
   /**
    * @remarks
    * The time when the session was last updated.
@@ -100,6 +102,7 @@ export class Session extends $dara.Model {
       createdTime: 'createdTime',
       disableSessionIdReuse: 'disableSessionIdReuse',
       functionName: 'functionName',
+      juiceFsConfig: 'juiceFsConfig',
       lastModifiedTime: 'lastModifiedTime',
       nasConfig: 'nasConfig',
       ossMountConfig: 'ossMountConfig',
@@ -119,6 +122,7 @@ export class Session extends $dara.Model {
       createdTime: 'string',
       disableSessionIdReuse: 'boolean',
       functionName: 'string',
+      juiceFsConfig: JuiceFsConfig,
       lastModifiedTime: 'string',
       nasConfig: NASConfig,
       ossMountConfig: OSSMountConfig,
@@ -133,6 +137,9 @@ export class Session extends $dara.Model {
   }
 
   validate() {
+    if(this.juiceFsConfig && typeof (this.juiceFsConfig as any).validate === 'function') {
+      (this.juiceFsConfig as any).validate();
+    }
     if(this.nasConfig && typeof (this.nasConfig as any).validate === 'function') {
       (this.nasConfig as any).validate();
     }
