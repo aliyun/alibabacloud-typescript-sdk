@@ -463,6 +463,7 @@ export class Service extends $dara.Model {
    * 100
    */
   weight?: number;
+  workloadType?: string;
   /**
    * @remarks
    * The ID of the workspace to which the service belongs.
@@ -524,6 +525,7 @@ export class Service extends $dara.Model {
       trafficState: 'TrafficState',
       updateTime: 'UpdateTime',
       weight: 'Weight',
+      workloadType: 'WorkloadType',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -581,6 +583,7 @@ export class Service extends $dara.Model {
       trafficState: 'string',
       updateTime: 'string',
       weight: 'number',
+      workloadType: 'string',
       workspaceId: 'string',
     };
   }
