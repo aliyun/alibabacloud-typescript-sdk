@@ -77,6 +77,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
    * rg-xxxx
    */
   resourceGroupId?: string;
+  resourceIds?: string[];
   static names(): { [key: string]: string } {
     return {
       agentInstanceStatuses: 'AgentInstanceStatuses',
@@ -98,6 +99,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       resourceGroupId: 'ResourceGroupId',
+      resourceIds: 'ResourceIds',
     };
   }
 
@@ -122,6 +124,7 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       resourceGroupId: 'string',
+      resourceIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -143,6 +146,9 @@ export class ListDesktopAgentRuntimeRequest extends $dara.Model {
     }
     if(Array.isArray(this.desktopStatuses)) {
       $dara.Model.validateArray(this.desktopStatuses);
+    }
+    if(Array.isArray(this.resourceIds)) {
+      $dara.Model.validateArray(this.resourceIds);
     }
     super.validate();
   }

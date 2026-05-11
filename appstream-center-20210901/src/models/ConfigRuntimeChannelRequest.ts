@@ -35,6 +35,15 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
    * }
    */
   config?: string;
+  /**
+   * @example
+   * Simple
+   */
+  configMode?: string;
+  /**
+   * @example
+   * 钉钉
+   */
   name?: string;
   /**
    * @remarks
@@ -55,6 +64,7 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
       agentProvider: 'AgentProvider',
       code: 'Code',
       config: 'Config',
+      configMode: 'ConfigMode',
       name: 'Name',
       runtimeIds: 'RuntimeIds',
       runtimeType: 'RuntimeType',
@@ -67,6 +77,7 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
       agentProvider: 'string',
       code: 'string',
       config: 'string',
+      configMode: 'string',
       name: 'string',
       runtimeIds: { 'type': 'array', 'itemType': 'string' },
       runtimeType: 'string',

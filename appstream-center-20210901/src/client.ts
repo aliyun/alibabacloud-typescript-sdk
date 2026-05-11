@@ -277,12 +277,11 @@ export default class Client extends OpenApi {
    */
   async configRuntimeChannelWithOptions(request: $_model.ConfigRuntimeChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigRuntimeChannelResponse> {
     request.validate();
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentPlatform)) {
-      query["AgentPlatform"] = request.agentPlatform;
+      body["AgentPlatform"] = request.agentPlatform;
     }
 
-    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentProvider)) {
       body["AgentProvider"] = request.agentProvider;
     }
@@ -293,6 +292,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.config)) {
       body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.configMode)) {
+      body["ConfigMode"] = request.configMode;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -308,7 +311,6 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2291,6 +2293,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      query["ResourceIds"] = request.resourceIds;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRuntimeChannelResponseBodyData extends $dara.Model {
+  avatarUrl?: string;
   /**
    * @example
    * dingtalk-connector
@@ -16,6 +17,9 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
    * }
    */
   config?: string;
+  configMode?: string;
+  qrCodeNotifyUrl?: string;
+  qrCodeStatus?: string;
   /**
    * @example
    * Normal
@@ -28,8 +32,12 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      avatarUrl: 'AvatarUrl',
       code: 'Code',
       config: 'Config',
+      configMode: 'ConfigMode',
+      qrCodeNotifyUrl: 'QrCodeNotifyUrl',
+      qrCodeStatus: 'QrCodeStatus',
       riskType: 'RiskType',
       status: 'Status',
     };
@@ -37,8 +45,12 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      avatarUrl: 'string',
       code: 'string',
       config: 'string',
+      configMode: 'string',
+      qrCodeNotifyUrl: 'string',
+      qrCodeStatus: 'string',
       riskType: 'string',
       status: 'string',
     };

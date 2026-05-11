@@ -214,6 +214,8 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
    * true
    */
   modelConfigure?: boolean;
+  osType?: string;
+  qrCodeConfiguringList?: string[];
   /**
    * @example
    * cn-hangzhou
@@ -238,6 +240,8 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
       desktopStatus: 'DesktopStatus',
       hasAuthUser: 'HasAuthUser',
       modelConfigure: 'ModelConfigure',
+      osType: 'OsType',
+      qrCodeConfiguringList: 'QrCodeConfiguringList',
       regionId: 'RegionId',
       resourceGroup: 'ResourceGroup',
       resourceId: 'ResourceId',
@@ -257,6 +261,8 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
       desktopStatus: 'string',
       hasAuthUser: 'boolean',
       modelConfigure: 'boolean',
+      osType: 'string',
+      qrCodeConfiguringList: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
       resourceGroup: ListDesktopAgentRuntimeResponseBodyDataResourceGroup,
       resourceId: 'string',
@@ -276,6 +282,9 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
     }
     if(Array.isArray(this.channelConfiguredList)) {
       $dara.Model.validateArray(this.channelConfiguredList);
+    }
+    if(Array.isArray(this.qrCodeConfiguringList)) {
+      $dara.Model.validateArray(this.qrCodeConfiguringList);
     }
     if(this.resourceGroup && typeof (this.resourceGroup as any).validate === 'function') {
       (this.resourceGroup as any).validate();
