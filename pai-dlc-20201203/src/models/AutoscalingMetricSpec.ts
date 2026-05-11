@@ -4,10 +4,12 @@ import * as $dara from '@darabonba/typescript';
 
 export class AutoscalingMetricSpec extends $dara.Model {
   metricName?: string;
+  stabilizationWindowSeconds?: number;
   targetValue?: number;
   static names(): { [key: string]: string } {
     return {
       metricName: 'MetricName',
+      stabilizationWindowSeconds: 'StabilizationWindowSeconds',
       targetValue: 'TargetValue',
     };
   }
@@ -15,6 +17,7 @@ export class AutoscalingMetricSpec extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       metricName: 'string',
+      stabilizationWindowSeconds: 'number',
       targetValue: 'number',
     };
   }

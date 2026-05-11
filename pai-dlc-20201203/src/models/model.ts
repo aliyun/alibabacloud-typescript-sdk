@@ -36,6 +36,7 @@ export { DebuggerConfig } from './DebuggerConfig';
 export { DebuggerJob } from './DebuggerJob';
 export { DebuggerJobIssue } from './DebuggerJobIssue';
 export { DebuggerResult } from './DebuggerResult';
+export { DownloadJobResult } from './DownloadJobResult';
 export { EcsSpec } from './EcsSpec';
 export { EnvVar } from './EnvVar';
 export { EventInfo } from './EventInfo';

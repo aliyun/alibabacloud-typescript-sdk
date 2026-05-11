@@ -821,6 +821,11 @@ export class GetJobResponseBody extends $dara.Model {
   restartTimes?: string;
   roleSystemEnvs?: { [key: string]: {[key: string]: any} };
   /**
+   * @example
+   * Auto
+   */
+  schedulingStrategy?: string;
+  /**
    * @remarks
    * The additional parameter configurations of the job.
    */
@@ -954,6 +959,7 @@ export class GetJobResponseBody extends $dara.Model {
       restartRecord: 'RestartRecord',
       restartTimes: 'RestartTimes',
       roleSystemEnvs: 'RoleSystemEnvs',
+      schedulingStrategy: 'SchedulingStrategy',
       settings: 'Settings',
       status: 'Status',
       statusHistory: 'StatusHistory',
@@ -1005,6 +1011,7 @@ export class GetJobResponseBody extends $dara.Model {
       restartRecord: { 'type': 'array', 'itemType': GetJobResponseBodyRestartRecord },
       restartTimes: 'string',
       roleSystemEnvs: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
+      schedulingStrategy: 'string',
       settings: JobSettings,
       status: 'string',
       statusHistory: { 'type': 'array', 'itemType': StatusTransitionItem },

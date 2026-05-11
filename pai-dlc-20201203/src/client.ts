@@ -152,6 +152,10 @@ export default class Client extends OpenApi {
       body["ResourceId"] = request.resourceId;
     }
 
+    if (!$dara.isNull(request.schedulingStrategy)) {
+      body["SchedulingStrategy"] = request.schedulingStrategy;
+    }
+
     if (!$dara.isNull(request.settings)) {
       body["Settings"] = request.settings;
     }
@@ -222,7 +226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务模板
+   * Create a Job Template
    * 
    * @param request - CreateJobTemplateRequest
    * @param headers - map
@@ -275,7 +279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务模板
+   * Create a Job Template
    * 
    * @param request - CreateJobTemplateRequest
    * @returns CreateJobTemplateResponse
@@ -447,7 +451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除任务模板
+   * Delete an unused job template. If the template is already used by a job, you cannot delete it.
    * 
    * @param request - DeleteJobTemplateRequest
    * @param headers - map
@@ -474,7 +478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除任务模板
+   * Delete an unused job template. If the template is already used by a job, you cannot delete it.
    * 
    * @param request - DeleteJobTemplateRequest
    * @returns DeleteJobTemplateResponse
@@ -798,7 +802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务模板详情
+   * Obtains the details of a job template.
    * 
    * @param request - GetJobTemplateRequest
    * @param headers - map
@@ -831,7 +835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务模板详情
+   * Obtains the details of a job template.
    * 
    * @param request - GetJobTemplateRequest
    * @returns GetJobTemplateResponse
@@ -1330,7 +1334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出任务模板
+   * List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
    * 
    * @param request - ListJobTemplatesRequest
    * @param headers - map
@@ -1391,7 +1395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出任务模板
+   * List job templates by workspace. Support paging and sorting. Filter by creator, TemplateId, or TemplateName.
    * 
    * @param request - ListJobTemplatesRequest
    * @returns ListJobTemplatesResponse
@@ -1715,7 +1719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置任务模板默认版本
+   * Sets the default version of the template.
    * 
    * @param request - SetJobTemplateDefaultVersionRequest
    * @param headers - map
@@ -1748,7 +1752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置任务模板默认版本
+   * Sets the default version of the template.
    * 
    * @param request - SetJobTemplateDefaultVersionRequest
    * @returns SetJobTemplateDefaultVersionResponse
@@ -1946,7 +1950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务模板
+   * Update a Job template
    * 
    * @param request - UpdateJobTemplateRequest
    * @param headers - map
@@ -2003,7 +2007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务模板
+   * Update a Job template
    * 
    * @param request - UpdateJobTemplateRequest
    * @returns UpdateJobTemplateResponse

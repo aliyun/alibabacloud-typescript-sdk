@@ -487,6 +487,7 @@ export class JobItem extends $dara.Model {
    * 1
    */
   restartTimes?: string;
+  schedulingStrategy?: string;
   /**
    * @remarks
    * The extra parameters of the job.
@@ -658,6 +659,7 @@ export class JobItem extends $dara.Model {
       resourceQuotaName: 'ResourceQuotaName',
       resourceType: 'ResourceType',
       restartTimes: 'RestartTimes',
+      schedulingStrategy: 'SchedulingStrategy',
       settings: 'Settings',
       status: 'Status',
       statusHistory: 'StatusHistory',
@@ -722,6 +724,7 @@ export class JobItem extends $dara.Model {
       resourceQuotaName: 'string',
       resourceType: 'string',
       restartTimes: 'string',
+      schedulingStrategy: 'string',
       settings: JobSettings,
       status: 'string',
       statusHistory: { 'type': 'array', 'itemType': StatusTransitionItem },

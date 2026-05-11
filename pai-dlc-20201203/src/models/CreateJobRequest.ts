@@ -391,6 +391,11 @@ export class CreateJobRequest extends $dara.Model {
    */
   resourceId?: string;
   /**
+   * @example
+   * Auto
+   */
+  schedulingStrategy?: string;
+  /**
    * @remarks
    * The additional parameter configurations of the job.
    */
@@ -476,6 +481,7 @@ export class CreateJobRequest extends $dara.Model {
       options: 'Options',
       priority: 'Priority',
       resourceId: 'ResourceId',
+      schedulingStrategy: 'SchedulingStrategy',
       settings: 'Settings',
       successPolicy: 'SuccessPolicy',
       templateId: 'TemplateId',
@@ -506,6 +512,7 @@ export class CreateJobRequest extends $dara.Model {
       options: 'string',
       priority: 'number',
       resourceId: 'string',
+      schedulingStrategy: 'string',
       settings: JobSettings,
       successPolicy: 'string',
       templateId: 'string',
