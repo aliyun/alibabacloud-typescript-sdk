@@ -83,6 +83,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
    * acl-bp1xc6b9vs013jjtp****
    */
   aclId?: string;
+  aiFunctionInstanceId?: string;
   /**
    * @example
    * onECS
@@ -223,6 +224,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       aclId: 'AclId',
+      aiFunctionInstanceId: 'AiFunctionInstanceId',
       architecture: 'Architecture',
       beginTime: 'BeginTime',
       enableAiFunction: 'EnableAiFunction',
@@ -259,6 +261,7 @@ export class DescribeInstancesResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       aclId: 'string',
+      aiFunctionInstanceId: 'string',
       architecture: 'string',
       beginTime: 'number',
       enableAiFunction: 'boolean',

@@ -95,6 +95,14 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
    */
   useComputeNode?: boolean;
   supportCompactionService?: boolean;
+  /**
+   * @remarks
+   * 是否支持Compaction Service白名单功能
+   * 
+   * @example
+   * true
+   */
+  supportCompactionServiceWhiteList?: boolean;
   static names(): { [key: string]: string } {
     return {
       consoleControlRestart: 'ConsoleControlRestart',
@@ -117,6 +125,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
       supportMultiAZ: 'SupportMultiAZ',
       useComputeNode: 'UseComputeNode',
       supportCompactionService: 'supportCompactionService',
+      supportCompactionServiceWhiteList: 'supportCompactionServiceWhiteList',
     };
   }
 
@@ -142,6 +151,7 @@ export class GetInstanceFeatureGateResponseBodyData extends $dara.Model {
       supportMultiAZ: 'boolean',
       useComputeNode: 'boolean',
       supportCompactionService: 'boolean',
+      supportCompactionServiceWhiteList: 'boolean',
     };
   }
 
