@@ -154,6 +154,46 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 自然语言通用查询
+   * 
+   * @param request - CommonQueryBySceneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CommonQueryBySceneResponse
+   */
+  async commonQueryBySceneWithOptions(request: $_model.CommonQueryBySceneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CommonQueryBySceneResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CommonQueryByScene",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/amap-function-call-agent/iqs-agent-service/v2/nl/common`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CommonQueryBySceneResponse>(await this.callApi(params, req, runtime), new $_model.CommonQueryBySceneResponse({}));
+  }
+
+  /**
+   * 自然语言通用查询
+   * 
+   * @param request - CommonQueryBySceneRequest
+   * @returns CommonQueryBySceneResponse
+   */
+  async commonQueryByScene(request: $_model.CommonQueryBySceneRequest): Promise<$_model.CommonQueryBySceneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.commonQueryBySceneWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 增强版通用搜索
    * 
    * @param request - GenericAdvancedSearchRequest
