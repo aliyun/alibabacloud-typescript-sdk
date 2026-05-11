@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPoolsResponseBodyPoolList extends $dara.Model {
   /**
+   * @example
+   * 2026-04-20 11:09:59
+   */
+  createTime?: string;
+  /**
    * @remarks
    * Indices whether the resource pool is the default resource pool. Valid values:
    * 
@@ -14,14 +19,7 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
    * true
    */
   isDefault?: boolean;
-  /**
-   * @remarks
-   * The maximum number of execution nodes that can run concurrently in a resource pool.
-   * 
-   * @example
-   * 2000
-   */
-  maxExectorNum?: number;
+  maxExecutorNum?: number;
   /**
    * @remarks
    * The name of the resource pool.
@@ -45,6 +43,11 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
    */
   priority?: number;
   /**
+   * @example
+   * policy-xxx
+   */
+  schedulingPolicyId?: string;
+  /**
    * @remarks
    * The status of the resource pool. Valid values:
    * 
@@ -58,23 +61,34 @@ export class ListPoolsResponseBodyPoolList extends $dara.Model {
    * Working
    */
   status?: string;
+  /**
+   * @example
+   * 2026-04-20 11:09:59
+   */
+  updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       isDefault: 'IsDefault',
-      maxExectorNum: 'MaxExectorNum',
+      maxExecutorNum: 'MaxExecutorNum',
       poolName: 'PoolName',
       priority: 'Priority',
+      schedulingPolicyId: 'SchedulingPolicyId',
       status: 'Status',
+      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       isDefault: 'boolean',
-      maxExectorNum: 'number',
+      maxExecutorNum: 'number',
       poolName: 'string',
       priority: 'number',
+      schedulingPolicyId: 'string',
       status: 'string',
+      updateTime: 'string',
     };
   }
 

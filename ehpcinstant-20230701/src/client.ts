@@ -311,6 +311,10 @@ export default class Client extends OpenApi {
       query["ResourceLimits"] = request.resourceLimitsShrink;
     }
 
+    if (!$dara.isNull(request.schedulingPolicyId)) {
+      query["SchedulingPolicyId"] = request.schedulingPolicyId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -917,6 +921,41 @@ export default class Client extends OpenApi {
   async getJob(request: $_model.GetJobRequest): Promise<$_model.GetJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询作业保留时长
+   * 
+   * @param request - GetJobRecordDurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobRecordDurationResponse
+   */
+  async getJobRecordDurationWithOptions(request: $_model.GetJobRecordDurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetJobRecordDurationResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetJobRecordDuration",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetJobRecordDurationResponse>(await this.callApi(params, req, runtime), new $_model.GetJobRecordDurationResponse({}));
+  }
+
+  /**
+   * 查询作业保留时长
+   * 
+   * @param request - GetJobRecordDurationRequest
+   * @returns GetJobRecordDurationResponse
+   */
+  async getJobRecordDuration(request: $_model.GetJobRecordDurationRequest): Promise<$_model.GetJobRecordDurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getJobRecordDurationWithOptions(request, runtime);
   }
 
   /**
@@ -1756,6 +1795,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新作业保留时长
+   * 
+   * @param request - UpdateJobRecordDurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateJobRecordDurationResponse
+   */
+  async updateJobRecordDurationWithOptions(request: $_model.UpdateJobRecordDurationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateJobRecordDurationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobRecordDuration)) {
+      query["JobRecordDuration"] = request.jobRecordDuration;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateJobRecordDuration",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateJobRecordDurationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateJobRecordDurationResponse({}));
+  }
+
+  /**
+   * 更新作业保留时长
+   * 
+   * @param request - UpdateJobRecordDurationRequest
+   * @returns UpdateJobRecordDurationResponse
+   */
+  async updateJobRecordDuration(request: $_model.UpdateJobRecordDurationRequest): Promise<$_model.UpdateJobRecordDurationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateJobRecordDurationWithOptions(request, runtime);
+  }
+
+  /**
    * Update the resource pool configuration.
    * 
    * @param tmpReq - UpdatePoolRequest
@@ -1781,6 +1862,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceLimitsShrink)) {
       query["ResourceLimits"] = request.resourceLimitsShrink;
+    }
+
+    if (!$dara.isNull(request.schedulingPolicyId)) {
+      query["SchedulingPolicyId"] = request.schedulingPolicyId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

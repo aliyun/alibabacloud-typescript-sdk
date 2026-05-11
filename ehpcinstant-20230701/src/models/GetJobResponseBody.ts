@@ -180,6 +180,11 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
    */
   network?: GetJobResponseBodyJobInfoDeploymentPolicyNetwork;
   /**
+   * @example
+   * testpool
+   */
+  pool?: string;
+  /**
    * @remarks
    * The list of job tags.
    */
@@ -189,6 +194,7 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
       allocationSpec: 'AllocationSpec',
       level: 'Level',
       network: 'Network',
+      pool: 'Pool',
       tags: 'Tags',
     };
   }
@@ -198,6 +204,7 @@ export class GetJobResponseBodyJobInfoDeploymentPolicy extends $dara.Model {
       allocationSpec: 'string',
       level: 'string',
       network: GetJobResponseBodyJobInfoDeploymentPolicyNetwork,
+      pool: 'string',
       tags: { 'type': 'array', 'itemType': GetJobResponseBodyJobInfoDeploymentPolicyTags },
     };
   }

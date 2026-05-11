@@ -32,11 +32,17 @@ export class UpdatePoolShrinkRequest extends $dara.Model {
    * The quota of resources that users are allowed to concurrently use in a resource pool.
    */
   resourceLimitsShrink?: string;
+  /**
+   * @example
+   * policy-xxxx
+   */
+  schedulingPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
       poolName: 'PoolName',
       priority: 'Priority',
       resourceLimitsShrink: 'ResourceLimits',
+      schedulingPolicyId: 'SchedulingPolicyId',
     };
   }
 
@@ -45,6 +51,7 @@ export class UpdatePoolShrinkRequest extends $dara.Model {
       poolName: 'string',
       priority: 'number',
       resourceLimitsShrink: 'string',
+      schedulingPolicyId: 'string',
     };
   }
 

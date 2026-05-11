@@ -11,14 +11,7 @@ export class GetPoolResponseBodyPoolInfo extends $dara.Model {
    * 2024-12-01 20:00:00
    */
   createTime?: string;
-  /**
-   * @remarks
-   * The usage of execution nodes that are running in a resource pool.
-   * 
-   * @example
-   * 1
-   */
-  exectorUsage?: number;
+  executorUsage?: number;
   /**
    * @remarks
    * Indices whether the resource pool is the default resource pool. Valid values:
@@ -30,14 +23,7 @@ export class GetPoolResponseBodyPoolInfo extends $dara.Model {
    * true
    */
   isDefault?: boolean;
-  /**
-   * @remarks
-   * The maximum number of execution nodes that can run concurrently in a resource pool.
-   * 
-   * @example
-   * 2000
-   */
-  maxExectorNum?: number;
+  maxExecutorNum?: number;
   /**
    * @remarks
    * The name of the resource group.
@@ -69,6 +55,11 @@ export class GetPoolResponseBodyPoolInfo extends $dara.Model {
    */
   reason?: string;
   /**
+   * @example
+   * policy-xxx
+   */
+  schedulingPolicyId?: string;
+  /**
    * @remarks
    * The status of the resource pool. Valid values:
    * 
@@ -93,12 +84,13 @@ export class GetPoolResponseBodyPoolInfo extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
-      exectorUsage: 'ExectorUsage',
+      executorUsage: 'ExecutorUsage',
       isDefault: 'IsDefault',
-      maxExectorNum: 'MaxExectorNum',
+      maxExecutorNum: 'MaxExecutorNum',
       poolName: 'PoolName',
       priority: 'Priority',
       reason: 'Reason',
+      schedulingPolicyId: 'SchedulingPolicyId',
       status: 'Status',
       updateTime: 'UpdateTime',
     };
@@ -107,12 +99,13 @@ export class GetPoolResponseBodyPoolInfo extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
-      exectorUsage: 'number',
+      executorUsage: 'number',
       isDefault: 'boolean',
-      maxExectorNum: 'number',
+      maxExecutorNum: 'number',
       poolName: 'string',
       priority: 'number',
       reason: 'string',
+      schedulingPolicyId: 'string',
       status: 'string',
       updateTime: 'string',
     };

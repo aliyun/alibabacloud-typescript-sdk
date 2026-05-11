@@ -3,23 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdatePoolRequestResourceLimits extends $dara.Model {
-  /**
-   * @remarks
-   * The maximum number of concurrent execution nodes in a resource pool.
-   * 
-   * @example
-   * 2000
-   */
-  maxExectorNum?: number;
+  maxExecutorNum?: number;
   static names(): { [key: string]: string } {
     return {
-      maxExectorNum: 'MaxExectorNum',
+      maxExecutorNum: 'MaxExecutorNum',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxExectorNum: 'number',
+      maxExecutorNum: 'number',
     };
   }
 
@@ -62,11 +55,17 @@ export class UpdatePoolRequest extends $dara.Model {
    * The quota of resources that users are allowed to concurrently use in a resource pool.
    */
   resourceLimits?: UpdatePoolRequestResourceLimits;
+  /**
+   * @example
+   * policy-xxxx
+   */
+  schedulingPolicyId?: string;
   static names(): { [key: string]: string } {
     return {
       poolName: 'PoolName',
       priority: 'Priority',
       resourceLimits: 'ResourceLimits',
+      schedulingPolicyId: 'SchedulingPolicyId',
     };
   }
 
@@ -75,6 +74,7 @@ export class UpdatePoolRequest extends $dara.Model {
       poolName: 'string',
       priority: 'number',
       resourceLimits: UpdatePoolRequestResourceLimits,
+      schedulingPolicyId: 'string',
     };
   }
 
