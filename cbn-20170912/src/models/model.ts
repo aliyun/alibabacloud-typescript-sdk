@@ -15,6 +15,7 @@ export { CreateTransitRouterPeerAttachmentRequestTag } from './CreateTransitRout
 export { CreateTransitRouterRouteTableRequestRouteTableOptions } from './CreateTransitRouterRouteTableRequest';
 export { CreateTransitRouterRouteTableRequestTag } from './CreateTransitRouterRouteTableRequest';
 export { CreateTransitRouterVbrAttachmentRequestTag } from './CreateTransitRouterVbrAttachmentRequest';
+export { CreateTransitRouterVpcAttachmentRequestOptions } from './CreateTransitRouterVpcAttachmentRequest';
 export { CreateTransitRouterVpcAttachmentRequestTag } from './CreateTransitRouterVpcAttachmentRequest';
 export { CreateTransitRouterVpcAttachmentRequestZoneMappings } from './CreateTransitRouterVpcAttachmentRequest';
 export { CreateTransitRouterVpcAttachmentShrinkRequestTag } from './CreateTransitRouterVpcAttachmentShrinkRequest';
@@ -148,6 +149,7 @@ export { ListTransitRouterVbrAttachmentsRequestTag } from './ListTransitRouterVb
 export { ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachmentsTags } from './ListTransitRouterVbrAttachmentsResponseBody';
 export { ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments } from './ListTransitRouterVbrAttachmentsResponseBody';
 export { ListTransitRouterVpcAttachmentsRequestTag } from './ListTransitRouterVpcAttachmentsRequest';
+export { ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsOptions } from './ListTransitRouterVpcAttachmentsResponseBody';
 export { ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsTags } from './ListTransitRouterVpcAttachmentsResponseBody';
 export { ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsZoneMappings } from './ListTransitRouterVpcAttachmentsResponseBody';
 export { ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments } from './ListTransitRouterVpcAttachmentsResponseBody';
@@ -165,6 +167,7 @@ export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules } from './UpdateTrafficMarkingPolicyAttributeRequest';
 export { UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules } from './UpdateTrafficMarkingPolicyAttributeRequest';
 export { UpdateTransitRouterRouteTableRequestRouteTableOptions } from './UpdateTransitRouterRouteTableRequest';
+export { UpdateTransitRouterVpcAttachmentAttributeRequestOptions } from './UpdateTransitRouterVpcAttachmentAttributeRequest';
 export { UpdateTransitRouterVpcAttachmentZonesRequestAddZoneMappings } from './UpdateTransitRouterVpcAttachmentZonesRequest';
 export { UpdateTransitRouterVpcAttachmentZonesRequestRemoveZoneMappings } from './UpdateTransitRouterVpcAttachmentZonesRequest';
 export { ActiveFlowLogRequest } from './ActiveFlowLogRequest';

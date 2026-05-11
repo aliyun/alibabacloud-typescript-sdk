@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsOptions extends $dara.Model {
+  applianceModeSupport?: string;
+  ipv6Support?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applianceModeSupport: 'ApplianceModeSupport',
+      ipv6Support: 'Ipv6Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applianceModeSupport: 'string',
+      ipv6Support: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsTags extends $dara.Model {
   /**
    * @remarks
@@ -133,6 +159,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
    */
   creationTime?: string;
   managedService?: string;
+  options?: ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsOptions;
   /**
    * @remarks
    * The entity that pays the fees of the network instance. Valid values:
@@ -244,6 +271,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
       chargeType: 'ChargeType',
       creationTime: 'CreationTime',
       managedService: 'ManagedService',
+      options: 'Options',
       orderType: 'OrderType',
       resourceType: 'ResourceType',
       status: 'Status',
@@ -267,6 +295,7 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
       chargeType: 'string',
       creationTime: 'string',
       managedService: 'string',
+      options: ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachmentsOptions,
       orderType: 'string',
       resourceType: 'string',
       status: 'string',
@@ -284,6 +313,9 @@ export class ListTransitRouterVpcAttachmentsResponseBodyTransitRouterAttachments
   }
 
   validate() {
+    if(this.options && typeof (this.options as any).validate === 'function') {
+      (this.options as any).validate();
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }

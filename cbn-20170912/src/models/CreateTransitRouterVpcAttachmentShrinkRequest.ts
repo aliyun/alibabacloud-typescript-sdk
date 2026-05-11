@@ -151,6 +151,7 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  optionsShrink?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -241,6 +242,7 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
       chargeType: 'ChargeType',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      optionsShrink: 'Options',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -264,6 +266,7 @@ export class CreateTransitRouterVpcAttachmentShrinkRequest extends $dara.Model {
       chargeType: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
+      optionsShrink: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',

@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class UpdateTransitRouterVpcAttachmentAttributeRequestOptions extends $dara.Model {
+  applianceModeSupport?: string;
+  ipv6Support?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applianceModeSupport: 'ApplianceModeSupport',
+      ipv6Support: 'Ipv6Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applianceModeSupport: 'string',
+      ipv6Support: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Model {
   /**
    * @remarks
@@ -37,6 +63,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Mode
    * false
    */
   dryRun?: boolean;
+  options?: UpdateTransitRouterVpcAttachmentAttributeRequestOptions;
   /**
    * @example
    * PayByCenOwner
@@ -86,6 +113,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Mode
       autoPublishRouteEnabled: 'AutoPublishRouteEnabled',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      options: 'Options',
       orderType: 'OrderType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -103,6 +131,7 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Mode
       autoPublishRouteEnabled: 'boolean',
       clientToken: 'string',
       dryRun: 'boolean',
+      options: UpdateTransitRouterVpcAttachmentAttributeRequestOptions,
       orderType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -116,6 +145,9 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $dara.Mode
   }
 
   validate() {
+    if(this.options && typeof (this.options as any).validate === 'function') {
+      (this.options as any).validate();
+    }
     if(this.transitRouterVPCAttachmentOptions) {
       $dara.Model.validateMap(this.transitRouterVPCAttachmentOptions);
     }

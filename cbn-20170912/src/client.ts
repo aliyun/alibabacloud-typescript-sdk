@@ -2807,6 +2807,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.CreateTransitRouterVpcAttachmentShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "Options", "json");
+    }
+
     if (!$dara.isNull(tmpReq.transitRouterVPCAttachmentOptions)) {
       request.transitRouterVPCAttachmentOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transitRouterVPCAttachmentOptions, "TransitRouterVPCAttachmentOptions", "json");
     }
@@ -2830,6 +2834,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.optionsShrink)) {
+      query["Options"] = request.optionsShrink;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -13115,6 +13123,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.UpdateTransitRouterVpcAttachmentAttributeShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.options)) {
+      request.optionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.options, "Options", "json");
+    }
+
     if (!$dara.isNull(tmpReq.transitRouterVPCAttachmentOptions)) {
       request.transitRouterVPCAttachmentOptionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transitRouterVPCAttachmentOptions, "TransitRouterVPCAttachmentOptions", "json");
     }
@@ -13130,6 +13142,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dryRun)) {
       query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.optionsShrink)) {
+      query["Options"] = request.optionsShrink;
     }
 
     if (!$dara.isNull(request.orderType)) {

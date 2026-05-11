@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateTransitRouterVpcAttachmentRequestOptions extends $dara.Model {
+  applianceModeSupport?: string;
+  ipv6Support?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applianceModeSupport: 'ApplianceModeSupport',
+      ipv6Support: 'Ipv6Support',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applianceModeSupport: 'string',
+      ipv6Support: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTransitRouterVpcAttachmentRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -151,6 +177,7 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  options?: CreateTransitRouterVpcAttachmentRequestOptions;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -241,6 +268,7 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
       chargeType: 'ChargeType',
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
+      options: 'Options',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -264,6 +292,7 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
       chargeType: 'string',
       clientToken: 'string',
       dryRun: 'boolean',
+      options: CreateTransitRouterVpcAttachmentRequestOptions,
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -281,6 +310,9 @@ export class CreateTransitRouterVpcAttachmentRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.options && typeof (this.options as any).validate === 'function') {
+      (this.options as any).validate();
+    }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);
     }
