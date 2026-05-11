@@ -1,4 +1,5 @@
 // This file is auto-generated, don't edit it
+import { Readable } from 'stream';
 import * as $dara from '@darabonba/typescript';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
@@ -345,6 +346,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建票据
+   * 
+   * @param request - CreateTicketRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTicketResponse
+   */
+  async createTicketWithOptions(request: $_model.CreateTicketRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTicketResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessTokenExpirationTime)) {
+      query["accessTokenExpirationTime"] = request.accessTokenExpirationTime;
+    }
+
+    if (!$dara.isNull(request.expirationTime)) {
+      query["expirationTime"] = request.expirationTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTicket",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/tickets`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTicketResponse>(await this.callApi(params, req, runtime), new $_model.CreateTicketResponse({}));
+  }
+
+  /**
+   * 创建票据
+   * 
+   * @param request - CreateTicketRequest
+   * @returns CreateTicketResponse
+   */
+  async createTicket(request: $_model.CreateTicketRequest): Promise<$_model.CreateTicketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createTicketWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 删除DigitalEmployee
    * 
    * @param request - DeleteDigitalEmployeeRequest
@@ -459,6 +509,68 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteThreadWithOptions(name, threadId, request, headers, runtime);
+  }
+
+  /**
+   * 下载产物文件
+   * 
+   * @param request - GetArtifactRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetArtifactResponse
+   */
+  async getArtifactWithOptions(name: string, request: $_model.GetArtifactRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetArtifactResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.artifactPath)) {
+      query["artifactPath"] = request.artifactPath;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetArtifact",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/artifact`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "binary",
+    });
+    let res = new $_model.GetArtifactResponse({ });
+    let tmp = await this.callApi(params, req, runtime);
+    if (!$dara.isNull(tmp["body"])) {
+      let respBody = tmp["body"] instanceof Readable ? tmp["body"] : Readable.from(tmp["body"]);
+      res.body = respBody;
+    }
+
+    if (!$dara.isNull(tmp["headers"])) {
+      let respHeaders = tmp["headers"];
+      res.headers = OpenApiUtil.stringifyMapValue(respHeaders);
+    }
+
+    if (!$dara.isNull(tmp["statusCode"])) {
+      let statusCode = parseInt(tmp["statusCode"]);
+      res.statusCode = statusCode;
+    }
+
+    return res;
+  }
+
+  /**
+   * 下载产物文件
+   * 
+   * @param request - GetArtifactRequest
+   * @returns GetArtifactResponse
+   */
+  async getArtifact(name: string, request: $_model.GetArtifactRequest): Promise<$_model.GetArtifactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getArtifactWithOptions(name, request, headers, runtime);
   }
 
   /**
@@ -631,6 +743,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getThreadDataWithOptions(name, threadId, request, headers, runtime);
+  }
+
+  /**
+   * 列出产物文件
+   * 
+   * @param request - ListArtifactsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListArtifactsResponse
+   */
+  async listArtifactsWithOptions(name: string, request: $_model.ListArtifactsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListArtifactsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.artifactPath)) {
+      query["artifactPath"] = request.artifactPath;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListArtifacts",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/artifacts`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListArtifactsResponse>(await this.callApi(params, req, runtime), new $_model.ListArtifactsResponse({}));
+  }
+
+  /**
+   * 列出产物文件
+   * 
+   * @param request - ListArtifactsRequest
+   * @returns ListArtifactsResponse
+   */
+  async listArtifacts(name: string, request: $_model.ListArtifactsRequest): Promise<$_model.ListArtifactsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listArtifactsWithOptions(name, request, headers, runtime);
   }
 
   /**

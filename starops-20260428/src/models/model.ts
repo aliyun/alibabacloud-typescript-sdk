@@ -11,6 +11,7 @@ export { GetDigitalEmployeeSkillResponseBodyFiles } from './GetDigitalEmployeeSk
 export { GetThreadResponseBodyVariables } from './GetThreadResponseBody';
 export { GetThreadDataResponseBodyDataMessages } from './GetThreadDataResponseBody';
 export { GetThreadDataResponseBodyData } from './GetThreadDataResponseBody';
+export { ListArtifactsResponseBodyArtifacts } from './ListArtifactsResponseBody';
 export { ListDigitalEmployeeSkillVersionsResponseBodyData } from './ListDigitalEmployeeSkillVersionsResponseBody';
 export { ListDigitalEmployeeSkillsResponseBodySkills } from './ListDigitalEmployeeSkillsResponseBody';
 export { ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledgesBailian } from './ListDigitalEmployeesResponseBody';
@@ -35,6 +36,9 @@ export { CreateDigitalEmployeeSkillResponse } from './CreateDigitalEmployeeSkill
 export { CreateThreadRequest } from './CreateThreadRequest';
 export { CreateThreadResponseBody } from './CreateThreadResponseBody';
 export { CreateThreadResponse } from './CreateThreadResponse';
+export { CreateTicketRequest } from './CreateTicketRequest';
+export { CreateTicketResponseBody } from './CreateTicketResponseBody';
+export { CreateTicketResponse } from './CreateTicketResponse';
 export { DeleteDigitalEmployeeRequest } from './DeleteDigitalEmployeeRequest';
 export { DeleteDigitalEmployeeResponseBody } from './DeleteDigitalEmployeeResponseBody';
 export { DeleteDigitalEmployeeResponse } from './DeleteDigitalEmployeeResponse';
@@ -44,6 +48,8 @@ export { DeleteDigitalEmployeeSkillResponse } from './DeleteDigitalEmployeeSkill
 export { DeleteThreadRequest } from './DeleteThreadRequest';
 export { DeleteThreadResponseBody } from './DeleteThreadResponseBody';
 export { DeleteThreadResponse } from './DeleteThreadResponse';
+export { GetArtifactRequest } from './GetArtifactRequest';
+export { GetArtifactResponse } from './GetArtifactResponse';
 export { GetDigitalEmployeeRequest } from './GetDigitalEmployeeRequest';
 export { GetDigitalEmployeeResponseBody } from './GetDigitalEmployeeResponseBody';
 export { GetDigitalEmployeeResponse } from './GetDigitalEmployeeResponse';
@@ -56,6 +62,9 @@ export { GetThreadResponse } from './GetThreadResponse';
 export { GetThreadDataRequest } from './GetThreadDataRequest';
 export { GetThreadDataResponseBody } from './GetThreadDataResponseBody';
 export { GetThreadDataResponse } from './GetThreadDataResponse';
+export { ListArtifactsRequest } from './ListArtifactsRequest';
+export { ListArtifactsResponseBody } from './ListArtifactsResponseBody';
+export { ListArtifactsResponse } from './ListArtifactsResponse';
 export { ListDigitalEmployeeSkillVersionsRequest } from './ListDigitalEmployeeSkillVersionsRequest';
 export { ListDigitalEmployeeSkillVersionsResponseBody } from './ListDigitalEmployeeSkillVersionsResponseBody';
 export { ListDigitalEmployeeSkillVersionsResponse } from './ListDigitalEmployeeSkillVersionsResponse';
