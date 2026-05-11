@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSkillGroupConfigResponseBodyDataSkillGroupConfigAllRuleListRuleNameInfo extends $dara.Model {
-  /**
-   * @example
-   * 221
-   */
   rid?: number;
-  /**
-   * @example
-   * test
-   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,15 +55,7 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfigAllRuleList ext
 }
 
 export class ListSkillGroupConfigResponseBodyDataSkillGroupConfigRuleListRuleNameInfo extends $dara.Model {
-  /**
-   * @example
-   * 2221
-   */
   rid?: number;
-  /**
-   * @example
-   * x\\"x\\"x
-   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,20 +107,8 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfigRuleList extend
 }
 
 export class ListSkillGroupConfigResponseBodyDataSkillGroupConfigSkillGroupScreensSkillGroupScreen extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   dataType?: number;
-  /**
-   * @example
-   * customerName
-   */
   name?: string;
-  /**
-   * @example
-   * 1
-   */
   symbol?: number;
   value?: string;
   static names(): { [key: string]: string } {
@@ -193,103 +165,27 @@ export class ListSkillGroupConfigResponseBodyDataSkillGroupConfigSkillGroupScree
 }
 
 export class ListSkillGroupConfigResponseBodyDataSkillGroupConfig extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   allContentQualityCheck?: number;
-  /**
-   * @example
-   * 223
-   */
   allRids?: string;
   allRuleList?: ListSkillGroupConfigResponseBodyDataSkillGroupConfigAllRuleList;
-  /**
-   * @example
-   * 2020-12-01T15:12Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 221
-   */
   id?: number;
-  /**
-   * @example
-   * xxx
-   */
   instanceId?: string;
-  /**
-   * @example
-   * 211
-   */
   modelId?: number;
-  /**
-   * @example
-   * xxx
-   */
   modelName?: string;
-  /**
-   * @example
-   * xxx
-   */
   name?: string;
-  /**
-   * @example
-   * 0
-   */
   qualityCheckType?: number;
-  /**
-   * @example
-   * 2221
-   */
   rid?: string;
   ruleList?: ListSkillGroupConfigResponseBodyDataSkillGroupConfigRuleList;
-  /**
-   * @example
-   * true
-   */
   screenSwitch?: boolean;
-  /**
-   * @example
-   * 0
-   */
   skillGroupFrom?: number;
-  /**
-   * @example
-   * 123
-   */
   skillGroupId?: string;
-  /**
-   * @example
-   * xxx
-   */
   skillGroupName?: string;
   skillGroupScreens?: ListSkillGroupConfigResponseBodyDataSkillGroupConfigSkillGroupScreens;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
-  /**
-   * @example
-   * 2020-12-01T19:28Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * 323
-   */
   vocabId?: number;
-  /**
-   * @example
-   * xxx
-   */
   vocabName?: string;
   static names(): { [key: string]: string } {
     return {

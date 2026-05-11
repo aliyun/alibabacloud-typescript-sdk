@@ -30,10 +30,6 @@ export class GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaSo
 
 export class GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaSource extends $dara.Model {
   line?: GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaSourceLine;
-  /**
-   * @example
-   * 5
-   */
   position?: number;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +85,6 @@ export class GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaTa
 
 export class GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaTarget extends $dara.Model {
   line?: GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaTargetLine;
-  /**
-   * @example
-   * 5
-   */
   position?: number;
   static names(): { [key: string]: string } {
     return {
@@ -123,10 +115,6 @@ export class GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaTa
 export class GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDelta extends $dara.Model {
   source?: GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaSource;
   target?: GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltasDeltaTarget;
-  /**
-   * @example
-   * CHANGE
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -186,50 +174,18 @@ export class GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltas extend
 }
 
 export class GetNextResultToVerifyResponseBodyDataDialoguesDialogue extends $dara.Model {
-  /**
-   * @example
-   * 980
-   */
   begin?: number;
-  /**
-   * @example
-   * XXX
-   */
   beginTime?: string;
   deltas?: GetNextResultToVerifyResponseBodyDataDialoguesDialogueDeltas;
-  /**
-   * @example
-   * 6
-   */
   emotionValue?: number;
-  /**
-   * @example
-   * 3422
-   */
   end?: number;
-  /**
-   * @example
-   * 00:00:07
-   */
   hourMinSec?: string;
   identity?: string;
-  /**
-   * @example
-   * 2
-   */
   incorrectWords?: number;
   role?: string;
-  /**
-   * @example
-   * 1
-   */
   silenceDuration?: number;
   sourceRole?: string;
   sourceWords?: string;
-  /**
-   * @example
-   * 332
-   */
   speechRate?: number;
   words?: string;
   static names(): { [key: string]: string } {

@@ -29,99 +29,27 @@ export class GetRuleResponseBodyDataRulesRuleInfoBusinessCategoryNameList extend
 }
 
 export class GetRuleResponseBodyDataRulesRuleInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   autoReview?: number;
   businessCategoryNameList?: GetRuleResponseBodyDataRulesRuleInfoBusinessCategoryNameList;
   comments?: string;
-  /**
-   * @example
-   * 123
-   */
   createEmpid?: string;
-  /**
-   * @example
-   * 2016-08-05 10:37:10
-   */
   createTime?: string;
-  /**
-   * @example
-   * 2016-08-05 10:37:10
-   */
   endTime?: string;
-  /**
-   * @example
-   * 0
-   */
   isDelete?: number;
-  /**
-   * @example
-   * 1
-   */
   isOnline?: number;
-  /**
-   * @example
-   * 123
-   */
   lastUpdateEmpid?: string;
-  /**
-   * @example
-   * 2019-10-28 14:23:28
-   */
   lastUpdateTime?: string;
-  /**
-   * @example
-   * demo
-   */
   name?: string;
-  /**
-   * @example
-   * 4
-   */
   rid?: string;
-  /**
-   * @example
-   * a && b
-   */
   ruleLambda?: string;
-  /**
-   * @example
-   * 1
-   */
   ruleScoreType?: number;
-  /**
-   * @example
-   * 123
-   */
   scoreId?: number;
   scoreName?: string;
-  /**
-   * @example
-   * 22
-   */
   scoreSubId?: number;
   scoreSubName?: string;
-  /**
-   * @example
-   * 2016-08-05 10:37:10
-   */
   startTime?: string;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
-  /**
-   * @example
-   * 1
-   */
   weight?: string;
   static names(): { [key: string]: string } {
     return {

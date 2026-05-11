@@ -3,50 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUsersResponseBodyDataUser extends $dara.Model {
-  /**
-   * @example
-   * 2951869706989****
-   */
   aliUid?: string;
-  /**
-   * @example
-   * 2020-03-11T16:54Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * XXX
-   */
   description?: string;
-  /**
-   * @example
-   * xxx
-   */
   displayName?: string;
-  /**
-   * @example
-   * 1
-   */
   id?: number;
-  /**
-   * @example
-   * 2
-   */
   loginUserType?: number;
-  /**
-   * @example
-   * AGENT
-   */
   roleName?: string;
-  /**
-   * @example
-   * 2020-03-11T16:54Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * xxx
-   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {

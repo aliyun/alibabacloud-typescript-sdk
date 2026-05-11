@@ -4,10 +4,30 @@ import { ConditionBasicInfo } from "./ConditionBasicInfo";
 
 
 export class GraphFlowNodeNextNodes extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   checkType?: number;
+  /**
+   * @example
+   * 1
+   */
   index?: number;
+  /**
+   * @example
+   * a
+   */
   lambda?: string;
+  /**
+   * @example
+   * a
+   */
   name?: string;
+  /**
+   * @example
+   * 31533
+   */
   nextNodeId?: number;
   triggers?: string[];
   static names(): { [key: string]: string } {
@@ -45,19 +65,63 @@ export class GraphFlowNodeNextNodes extends $dara.Model {
 }
 
 export class GraphFlowNodeProperties extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   autoReview?: number;
+  /**
+   * @example
+   * true
+   */
   branchJudge?: boolean;
+  /**
+   * @example
+   * 1
+   */
   checkMoreSize?: number;
+  /**
+   * @example
+   * 1
+   */
   checkType?: number;
+  /**
+   * @example
+   * a
+   */
   lambda?: string;
   role?: string;
+  /**
+   * @example
+   * 1
+   */
   ruleScoreType?: number;
   sayType?: string;
+  /**
+   * @example
+   * 1
+   */
   scoreNum?: number;
+  /**
+   * @example
+   * 1
+   */
   scoreNumType?: number;
+  /**
+   * @example
+   * 0
+   */
   scoreRuleHitType?: number;
+  /**
+   * @example
+   * 1
+   */
   scoreType?: number;
   triggers?: string[];
+  /**
+   * @example
+   * xx
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -111,14 +175,41 @@ export class GraphFlowNodeProperties extends $dara.Model {
 
 export class GraphFlowNode extends $dara.Model {
   conditions?: ConditionBasicInfo[];
+  /**
+   * @example
+   * {}
+   */
   content?: string;
+  /**
+   * @example
+   * 1
+   */
   id?: number;
+  /**
+   * @remarks
+   * index
+   * 
+   * @example
+   * 1
+   */
   index?: number;
   name?: string;
   nextNodes?: GraphFlowNodeNextNodes[];
+  /**
+   * @example
+   * startNode
+   */
   nodeType?: string;
   properties?: GraphFlowNodeProperties;
+  /**
+   * @example
+   * 1
+   */
   rid?: number;
+  /**
+   * @example
+   * true
+   */
   useConditions?: boolean;
   static names(): { [key: string]: string } {
     return {

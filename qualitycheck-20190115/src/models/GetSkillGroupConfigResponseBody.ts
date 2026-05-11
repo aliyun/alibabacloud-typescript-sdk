@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSkillGroupConfigResponseBodyDataAllRuleListRuleNameInfo extends $dara.Model {
-  /**
-   * @example
-   * 12
-   */
   rid?: number;
-  /**
-   * @example
-   * test
-   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,15 +55,7 @@ export class GetSkillGroupConfigResponseBodyDataAllRuleList extends $dara.Model 
 }
 
 export class GetSkillGroupConfigResponseBodyDataRuleListRuleNameInfo extends $dara.Model {
-  /**
-   * @example
-   * 222
-   */
   rid?: number;
-  /**
-   * @example
-   * test
-   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,26 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPrecisionTaskResponseBodyDataPrecisionsPrecision extends $dara.Model {
-  /**
-   * @example
-   * 2311
-   */
   modelId?: number;
   modelName?: string;
-  /**
-   * @example
-   * 0.98
-   */
   precision?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 593A04C0-E6E9-4CDC-8C99-B120C******
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

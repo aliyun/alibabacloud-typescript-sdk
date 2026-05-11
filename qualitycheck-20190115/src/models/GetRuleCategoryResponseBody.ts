@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRuleCategoryResponseBodyDataRuleCountInfo extends $dara.Model {
-  /**
-   * @example
-   * false
-   */
   select?: boolean;
-  /**
-   * @example
-   * 22
-   */
   type?: number;
   typeName?: string;
   static names(): { [key: string]: string } {

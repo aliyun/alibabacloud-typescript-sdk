@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAsrVocabResponseBodyDataWordsWord extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   weight?: number;
   word?: string;
   static names(): { [key: string]: string } {

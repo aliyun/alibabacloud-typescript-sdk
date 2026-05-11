@@ -11,13 +11,25 @@ export class RulesInfo extends $dara.Model {
    * true
    */
   conditions?: ConditionBasicInfo[];
+  /**
+   * @example
+   * 100
+   */
   count?: number;
   /**
    * **if can be null:**
    * true
    */
   dialogues?: RuleTestDialogue[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   rules?: RuleInfo[];
   static names(): { [key: string]: string } {

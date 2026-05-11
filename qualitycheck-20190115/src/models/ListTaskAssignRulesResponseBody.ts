@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoAgentsAgent extends $dara.Model {
-  /**
-   * @example
-   * 202526561358712105
-   */
   agentId?: string;
-  /**
-   * @example
-   * agent
-   */
   agentName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,10 +55,6 @@ export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoAgents extends
 }
 
 export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoReviewersReviewer extends $dara.Model {
-  /**
-   * @example
-   * 2337235457340978
-   */
   reviewerId?: string;
   reviewerName?: string;
   static names(): { [key: string]: string } {
@@ -120,10 +108,6 @@ export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoReviewers exte
 
 export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoRulesRuleBasicInfo extends $dara.Model {
   name?: string;
-  /**
-   * @example
-   * 2312
-   */
   rid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -175,15 +159,7 @@ export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoRules extends 
 }
 
 export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoSamplingModeSamplingModeAgentsSamplingModeAgent extends $dara.Model {
-  /**
-   * @example
-   * 123
-   */
   agentId?: string;
-  /**
-   * @example
-   * zhangsan
-   */
   agentName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -235,40 +211,12 @@ export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoSamplingModeSa
 }
 
 export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoSamplingMode extends $dara.Model {
-  /**
-   * @example
-   * 60
-   */
   anyNumberOfDraws?: number;
-  /**
-   * @example
-   * true
-   */
   designated?: boolean;
-  /**
-   * @example
-   * 0
-   */
   dimension?: number;
-  /**
-   * @example
-   * 30
-   */
   limit?: number;
-  /**
-   * @example
-   * 20
-   */
   numberOfDraws?: number;
-  /**
-   * @example
-   * 0.1
-   */
   proportion?: number;
-  /**
-   * @example
-   * 5
-   */
   randomInspectionNumber?: number;
   samplingModeAgents?: ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoSamplingModeSamplingModeAgents;
   static names(): { [key: string]: string } {
@@ -310,10 +258,6 @@ export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoSamplingMode e
 }
 
 export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoSkillGroupsSkillGroup extends $dara.Model {
-  /**
-   * @example
-   * XXX
-   */
   skillId?: string;
   skillName?: string;
   static names(): { [key: string]: string } {
@@ -367,75 +311,23 @@ export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoSkillGroups ex
 
 export class ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfo extends $dara.Model {
   agents?: ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoAgents;
-  /**
-   * @example
-   * XX
-   */
   agentsStr?: string;
-  /**
-   * @example
-   * 0
-   */
   assignmentType?: number;
-  /**
-   * @example
-   * 39600
-   */
   callTimeEnd?: number;
-  /**
-   * @example
-   * 39600
-   */
   callTimeStart?: number;
-  /**
-   * @example
-   * 1
-   */
   callType?: number;
-  /**
-   * @example
-   * 2019-07-12T14:47Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 400
-   */
   durationMax?: number;
-  /**
-   * @example
-   * 100
-   */
   durationMin?: number;
-  /**
-   * @example
-   * 1
-   */
   enabled?: number;
-  /**
-   * @example
-   * 1
-   */
   priority?: number;
   reviewers?: ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoReviewers;
-  /**
-   * @example
-   * 23
-   */
   ruleId?: number;
   ruleName?: string;
   rules?: ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoRules;
   samplingMode?: ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoSamplingMode;
   skillGroups?: ListTaskAssignRulesResponseBodyDataTaskAssignRuleInfoSkillGroups;
-  /**
-   * @example
-   * XX
-   */
   skillGroupsStr?: string;
-  /**
-   * @example
-   * 2019-07-12T14:47Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

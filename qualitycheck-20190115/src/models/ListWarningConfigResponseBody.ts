@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWarningConfigResponseBodyDataWarningConfigInfoChannelsChannel extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   type?: number;
-  /**
-   * @example
-   * oapi.dingtalk.com/robot/send?access_token=c55628f700eb9ad2a3ca
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +81,6 @@ export class ListWarningConfigResponseBodyDataWarningConfigInfoRidList extends $
 }
 
 export class ListWarningConfigResponseBodyDataWarningConfigInfoRuleListWarningRule extends $dara.Model {
-  /**
-   * @example
-   * 33452
-   */
   rid?: number;
   ruleName?: string;
   static names(): { [key: string]: string } {
@@ -146,28 +134,12 @@ export class ListWarningConfigResponseBodyDataWarningConfigInfoRuleList extends 
 
 export class ListWarningConfigResponseBodyDataWarningConfigInfo extends $dara.Model {
   channels?: ListWarningConfigResponseBodyDataWarningConfigInfoChannels;
-  /**
-   * @example
-   * 32
-   */
   configId?: number;
   configName?: string;
-  /**
-   * @example
-   * 2019-10-29T15:30Z
-   */
   createTime?: string;
   ridList?: ListWarningConfigResponseBodyDataWarningConfigInfoRidList;
   ruleList?: ListWarningConfigResponseBodyDataWarningConfigInfoRuleList;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 2019-10-29T17:24Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {

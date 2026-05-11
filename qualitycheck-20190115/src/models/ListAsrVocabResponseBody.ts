@@ -4,27 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAsrVocabResponseBodyDataAsrVocab extends $dara.Model {
   asrVersion?: number;
-  /**
-   * @example
-   * 2019-04-15T14:57Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 18
-   */
   id?: string;
   modelCustomizationId?: string;
   name?: string;
-  /**
-   * @example
-   * 2019-04-15T14:57Z
-   */
   updateTime?: string;
-  /**
-   * @example
-   * a01daaaxxxxxxxxx
-   */
   vocabularyId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,31 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPrecisionTaskResponseBodyDataPrecisionTaskPrecisionsPrecision extends $dara.Model {
-  /**
-   * @example
-   * 2020-03-10 20:26:29
-   */
   createTime?: string;
-  /**
-   * @example
-   * 2321
-   */
   modelId?: number;
   modelName?: string;
-  /**
-   * @example
-   * 0.98
-   */
   precision?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 7C1DEF5F-2C18-4D36-99C6-8C276F781796
-   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,58 +67,18 @@ export class ListPrecisionTaskResponseBodyDataPrecisionTaskPrecisions extends $d
 }
 
 export class ListPrecisionTaskResponseBodyDataPrecisionTask extends $dara.Model {
-  /**
-   * @example
-   * 2020-03-10 20:26:29
-   */
   createTime?: string;
-  /**
-   * @example
-   * 1212
-   */
   dataSetId?: number;
   dataSetName?: string;
-  /**
-   * @example
-   * 331311
-   */
   duration?: number;
-  /**
-   * @example
-   * 32
-   */
   incorrectWords?: number;
   name?: string;
   precisions?: ListPrecisionTaskResponseBodyDataPrecisionTaskPrecisions;
-  /**
-   * @example
-   * 3
-   */
   source?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 7C1DEF5F-2C18-4D36-99C6-8C276F781796
-   */
   taskId?: string;
-  /**
-   * @example
-   * 21
-   */
   totalCount?: number;
-  /**
-   * @example
-   * 2020-03-10 20:26:29
-   */
   updateTime?: string;
-  /**
-   * @example
-   * 3
-   */
   verifiedCount?: number;
   static names(): { [key: string]: string } {
     return {

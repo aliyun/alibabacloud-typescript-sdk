@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class BusinessCategoryBasicInfo extends $dara.Model {
   bid?: number;
   name?: string;
+  /**
+   * @remarks
+   * originalId
+   */
   originalId?: number;
   serviceType?: number;
   static names(): { [key: string]: string } {

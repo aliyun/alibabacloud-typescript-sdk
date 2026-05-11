@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetResultResponseBodyDataResultInfoAgent extends $dara.Model {
-  /**
-   * @example
-   * 28240****15643
-   */
   id?: string;
   name?: string;
   skillGroup?: string;
@@ -36,32 +32,12 @@ export class GetResultResponseBodyDataResultInfoAgent extends $dara.Model {
 }
 
 export class GetResultResponseBodyDataResultInfoAsrResultAsrResult extends $dara.Model {
-  /**
-   * @example
-   * 10000
-   */
   begin?: number;
-  /**
-   * @example
-   * 1
-   */
   emotionValue?: number;
-  /**
-   * @example
-   * 0
-   */
   end?: number;
   identity?: string;
   role?: string;
-  /**
-   * @example
-   * 50
-   */
   speechRate?: number;
-  /**
-   * @example
-   * xx
-   */
   words?: string;
   static names(): { [key: string]: string } {
     return {
@@ -123,20 +99,8 @@ export class GetResultResponseBodyDataResultInfoAsrResult extends $dara.Model {
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeAnchor extends $dara.Model {
-  /**
-   * @remarks
-   * 条件ID
-   */
   cid?: string;
-  /**
-   * @remarks
-   * 命中次数
-   */
   hitTime?: number;
-  /**
-   * @remarks
-   * 位置
-   */
   location?: string;
   static names(): { [key: string]: string } {
     return {
@@ -164,15 +128,7 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsCond
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeRange extends $dara.Model {
-  /**
-   * @remarks
-   * 对话开始索引
-   */
   from?: number;
-  /**
-   * @remarks
-   * 对话结束索引
-   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -224,35 +180,11 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsCond
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRange extends $dara.Model {
-  /**
-   * @remarks
-   * false: 相对位置; 会结合anchor以及角色来决定句子位置
-   */
   absolute?: boolean;
-  /**
-   * @remarks
-   * true: 每句话都必须满足条件；
-   */
   allSentencesSatisfy?: boolean;
-  /**
-   * @remarks
-   * 前置后置条件
-   */
   anchor?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeAnchor;
-  /**
-   * @remarks
-   * 相对范围
-   */
   range?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeRange;
-  /**
-   * @remarks
-   * 对应 RoleType.type
-   */
   role?: string;
-  /**
-   * @remarks
-   * 对应 RoleType.id
-   */
   roleId?: number;
   timeRange?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRangeTimeRange;
   static names(): { [key: string]: string } {
@@ -324,20 +256,8 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsCond
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamFlowNodePrerequisiteParam extends $dara.Model {
-  /**
-   * @remarks
-   * 节点id
-   */
   nodeId?: number;
-  /**
-   * @remarks
-   * 节点匹配状态。
-   */
   nodeMatchStatus?: number;
-  /**
-   * @remarks
-   * 冗余的节点名称
-   */
   nodeName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -365,15 +285,7 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsCond
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParmIntentsIntent extends $dara.Model {
-  /**
-   * @remarks
-   * 意图模型ID
-   */
   id?: number;
-  /**
-   * @remarks
-   * 意图模型名称
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -425,15 +337,7 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsCond
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParm extends $dara.Model {
-  /**
-   * @remarks
-   * 引用的意图模型
-   */
   intents?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParmIntents;
-  /**
-   * @remarks
-   * 模型应用的场景 AGENT:客户场景、CUSTOMER:客服场景 (CUSTOMER: 客户场景, AGENT: 坐席场景)
-   */
   modelScene?: string;
   static names(): { [key: string]: string } {
     return {
@@ -488,150 +392,34 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsCond
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParam extends $dara.Model {
-  /**
-   * @remarks
-   * 语速检测，是否计算整个对话平均语速，默认false
-   */
   average?: boolean;
-  /**
-   * @remarks
-   * 时长算子，时长计算开始类型，录音开始，还是某句对话开始
-   */
   beginType?: string;
-  /**
-   * @remarks
-   * 区分大小写
-   */
   caseSensitive?: boolean;
-  /**
-   * @remarks
-   * 静音检测：要不要检测第一句话
-   */
   checkFirstSentence?: boolean;
-  /**
-   * @remarks
-   * 检测方式，1 相邻句能量波动 2 最大能量跨度 默认1
-   */
   checkType?: number;
-  /**
-   * @remarks
-   * 大于，还是小于，gt/lt
-   */
   compareOperator?: string;
-  /**
-   * @remarks
-   * 是否单句话匹配；
-   */
   contextChatMatch?: boolean;
-  /**
-   * @remarks
-   * 抢话算子 延时时长
-   */
   delayTime?: number;
-  /**
-   * @remarks
-   * 时长算子，时长计算结束类型，录音结束，还是某句对话结束
-   */
   endType?: string;
-  /**
-   * @remarks
-   * 上下文重复算子：排除掉某些对话
-   */
   excludes?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamExcludes;
-  /**
-   * @remarks
-   * 流程节点前置条件参数
-   */
   flowNodePrerequisiteParam?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamFlowNodePrerequisiteParam;
-  /**
-   * @remarks
-   * 上下文重复算子：检测当前句的前from句是否有重复；0表示前面的所有句
-   */
   from?: number;
-  /**
-   * @remarks
-   * from_end
-   */
   fromEnd?: boolean;
-  /**
-   * @remarks
-   * 上下文重复算子：重复几次
-   */
   hitTime?: number;
-  /**
-   * @remarks
-   * 生效句子， true单个句子，false多个句子
-   */
   inSentence?: boolean;
-  /**
-   * @remarks
-   * 意图模型检查参数
-   */
   intentModelCheckParm?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamIntentModelCheckParm;
-  /**
-   * @remarks
-   * interval代表区间范围开始
-   */
   interval?: number;
-  /**
-   * @remarks
-   * intervalEnd 代表区间范围结束
-   */
   intervalEnd?: number;
-  /**
-   * @remarks
-   * 关键字扩展
-   */
   keywordExtension?: number;
-  /**
-   * @remarks
-   * 匹配到的关键字数量
-   */
   keywordMatchSize?: number;
-  /**
-   * @remarks
-   * 关键词
-   */
   keywords?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParamKeywords;
-  /**
-   * @remarks
-   * 能量值变化，默认3, 1~9
-   */
   maxEmotionChangeValue?: number;
-  /**
-   * @remarks
-   * 句子中最少字数，小于此字数的句子不检查
-   */
   minWordSize?: number;
-  /**
-   * @remarks
-   * true表示取不同角色相邻的两句话，false表示取不同角色的第一句话比较响应时间（默认）
-   */
   nearDialogue?: boolean;
-  /**
-   * @remarks
-   * 排除的正则表达式
-   */
   notRegex?: string;
-  /**
-   * @remarks
-   * 语句
-   */
   phrase?: string;
-  /**
-   * @remarks
-   * 正则表达式
-   */
   regex?: string;
-  /**
-   * @remarks
-   * target
-   */
   target?: number;
-  /**
-   * @remarks
-   * 阈值
-   */
   threshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -723,30 +511,10 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsCond
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperator extends $dara.Model {
-  /**
-   * @remarks
-   * 主键id
-   */
   id?: number;
-  /**
-   * @remarks
-   * 算子名
-   */
   name?: string;
-  /**
-   * @remarks
-   * 可能是主键id，也可能是前端生成的id
-   */
   oid?: string;
-  /**
-   * @remarks
-   * 算子参数
-   */
   param?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperatorsOperatorParam;
-  /**
-   * @remarks
-   * 算子类别
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -807,40 +575,12 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsCond
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditions extends $dara.Model {
-  /**
-   * @remarks
-   * 检测范围
-   */
   checkRange?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsCheckRange;
-  /**
-   * @remarks
-   * 条件id，可能是db中的主键，也可能是转换成的a, b, c
-   */
   cid?: string;
-  /**
-   * @remarks
-   * 排除
-   */
   exclusion?: number;
-  /**
-   * @remarks
-   * 在db中的主键
-   */
   id?: number;
-  /**
-   * @remarks
-   * Lambda表达式：例如:a&&b
-   */
   lambda?: string;
-  /**
-   * @remarks
-   * 算子列表
-   */
   operators?: GetResultResponseBodyDataResultInfoHitResultHitResultConditionsConditionsOperators;
-  /**
-   * @remarks
-   * 条件所属的规则id
-   */
   rid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -934,25 +674,9 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultHitsHitCid ext
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultHitsHitKeyWordsKeyWord extends $dara.Model {
-  /**
-   * @example
-   * xxxx
-   */
   cid?: string;
-  /**
-   * @example
-   * 1
-   */
   from?: number;
-  /**
-   * @example
-   * 2
-   */
   to?: number;
-  /**
-   * @example
-   * test
-   */
   val?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1008,26 +732,10 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResultHitsHitKeyWord
 }
 
 export class GetResultResponseBodyDataResultInfoHitResultHitResultHitsHitPhrase extends $dara.Model {
-  /**
-   * @example
-   * 300
-   */
   begin?: number;
-  /**
-   * @example
-   * 0
-   */
   emotionValue?: number;
-  /**
-   * @example
-   * 300
-   */
   end?: number;
   role?: string;
-  /**
-   * @example
-   * xxx
-   */
   words?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1141,25 +849,9 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $dara
    */
   machineHitResult?: string;
   name?: string;
-  /**
-   * @example
-   * 0
-   */
   reviewResult?: number;
-  /**
-   * @example
-   * 1276
-   */
   rid?: string;
-  /**
-   * @example
-   * 123xx
-   */
   schemeId?: number;
-  /**
-   * @example
-   * 11xx
-   */
   schemeVersion?: number;
   score?: number;
   type?: string;
@@ -1239,21 +931,9 @@ export class GetResultResponseBodyDataResultInfoHitResult extends $dara.Model {
 }
 
 export class GetResultResponseBodyDataResultInfoHitScoreHitScore extends $dara.Model {
-  /**
-   * @example
-   * 123
-   */
   ruleId?: string;
-  /**
-   * @example
-   * 123456
-   */
   scoreId?: string;
   scoreName?: string;
-  /**
-   * @example
-   * -20
-   */
   scoreNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1310,133 +990,33 @@ export class GetResultResponseBodyDataResultInfoHitScore extends $dara.Model {
 
 export class GetResultResponseBodyDataResultInfoRecording extends $dara.Model {
   business?: string;
-  /**
-   * @example
-   * XXXX
-   */
   callId?: string;
-  /**
-   * @example
-   * 1563967699000
-   */
   callTime?: string;
-  /**
-   * @example
-   * 1
-   */
   callType?: number;
-  /**
-   * @example
-   * 1888888****
-   */
   callee?: string;
-  /**
-   * @example
-   * 0108888****
-   */
   caller?: string;
   customerName?: string;
-  /**
-   * @example
-   * XXXX
-   */
   dataSetName?: string;
-  /**
-   * @example
-   * 32
-   */
   dialogueSize?: number;
-  /**
-   * @example
-   * 60
-   */
   duration?: number;
-  /**
-   * @example
-   * XXXXX
-   */
   id?: string;
-  /**
-   * @example
-   * 123456.mkv
-   */
   name?: string;
-  /**
-   * @example
-   * 3437500
-   */
   primaryId?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark1?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark10?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark11?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark12?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark13?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark2?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark3?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark4?: string;
-  /**
-   * @example
-   * 1232
-   */
   remark5?: number;
-  /**
-   * @example
-   * XXX
-   */
   remark6?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark7?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark8?: string;
-  /**
-   * @example
-   * XXX
-   */
   remark9?: string;
   taskConfigId?: number;
   taskConfigName?: string;
-  /**
-   * @example
-   * http://aliyun.com/audio.wav
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1788,97 +1368,29 @@ export class GetResultResponseBodyDataResultInfoSchemeNameList extends $dara.Mod
 export class GetResultResponseBodyDataResultInfo extends $dara.Model {
   agent?: GetResultResponseBodyDataResultInfoAgent;
   asrResult?: GetResultResponseBodyDataResultInfoAsrResult;
-  /**
-   * @example
-   * 2021-03-02T14:37Z
-   */
   assignmentTime?: string;
-  /**
-   * @example
-   * xx
-   */
   comments?: string;
-  /**
-   * @example
-   * 2019-07-24T19:31Z
-   */
   createTime?: string;
-  /**
-   * @example
-   * 1602743090
-   */
   createTimeLong?: string;
-  /**
-   * @example
-   * xxx
-   */
   errorMessage?: string;
   hitResult?: GetResultResponseBodyDataResultInfoHitResult;
   hitScore?: GetResultResponseBodyDataResultInfoHitScore;
-  /**
-   * @example
-   * 4498420@a_z@93EAADF1-01D3-44BD-8AC9-F57F447EFCE8_1614*****
-   */
   lastDataId?: string;
   recording?: GetResultResponseBodyDataResultInfoRecording;
-  /**
-   * @example
-   * XXX
-   */
   resolver?: string;
   reviewHistoryList?: GetResultResponseBodyDataResultInfoReviewHistoryList;
-  /**
-   * @example
-   * 0
-   */
   reviewResult?: number;
-  /**
-   * @example
-   * 1
-   */
   reviewStatus?: number;
-  /**
-   * @example
-   * 2019-07-24T19:31Z
-   */
   reviewTime?: string;
-  /**
-   * @example
-   * 1602743090
-   */
   reviewTimeLong?: string;
-  /**
-   * @example
-   * 1
-   */
   reviewType?: number;
   reviewTypeIdList?: GetResultResponseBodyDataResultInfoReviewTypeIdList;
-  /**
-   * @example
-   * xxx
-   */
   reviewer?: string;
   schemeIdList?: GetResultResponseBodyDataResultInfoSchemeIdList;
   schemeNameList?: GetResultResponseBodyDataResultInfoSchemeNameList;
-  /**
-   * @example
-   * 100
-   */
   score?: number;
-  /**
-   * @example
-   * 0
-   */
   status?: number;
-  /**
-   * @example
-   * A6BEC8D-9A5B-4BE5-8432-4F635E***
-   */
   taskId?: string;
-  /**
-   * @example
-   * test
-   */
   taskName?: string;
   vid?: string;
   static names(): { [key: string]: string } {

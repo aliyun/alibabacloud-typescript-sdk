@@ -49,11 +49,19 @@ export class OperatorBasicInfoParam extends $dara.Model {
   contextChatMatch?: boolean;
   customerParam?: JudgeNodeMetaDesc;
   delayTime?: number;
+  /**
+   * @remarks
+   * different_role
+   */
   differentRole?: boolean;
   dimensions?: OperatorBasicInfoParamDimensions[];
   endType?: string;
   excludes?: string[];
   from?: number;
+  /**
+   * @remarks
+   * from_end
+   */
   fromEnd?: boolean;
   hitCondition?: string;
   hitTime?: number;
@@ -88,11 +96,23 @@ export class OperatorBasicInfoParam extends $dara.Model {
   similarityThreshold?: number;
   similarlySentences?: string[];
   synonyms?: { [key: string]: string[] };
+  /**
+   * @remarks
+   * target
+   */
   target?: number;
+  /**
+   * @remarks
+   * target_role
+   */
   targetRole?: string;
   threshold?: number;
   useEasAlgorithm?: boolean;
   velocity?: number;
+  /**
+   * @remarks
+   * velocityInMint
+   */
   velocityInMint?: number;
   static names(): { [key: string]: string } {
     return {

@@ -3,16 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetBusinessCategoryListResponseBodyDataBusinessCategoryBasicInfo extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   bid?: number;
   businessName?: string;
-  /**
-   * @example
-   * 0
-   */
   serviceType?: number;
   static names(): { [key: string]: string } {
     return {

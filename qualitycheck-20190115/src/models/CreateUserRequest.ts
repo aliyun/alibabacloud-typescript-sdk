@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateUserRequest extends $dara.Model {
+  /**
+   * @remarks
+   * baseMeAgentId
+   */
   baseMeAgentId?: number;
   jsonStr?: string;
   static names(): { [key: string]: string } {

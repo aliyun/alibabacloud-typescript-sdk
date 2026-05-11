@@ -3,20 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoCheckRangeAnchor extends $dara.Model {
-  /**
-   * @example
-   * 7
-   */
   anchorCid?: string;
-  /**
-   * @example
-   * 1
-   */
   hitTime?: number;
-  /**
-   * @example
-   * AFTER
-   */
   location?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,15 +32,7 @@ export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoCheckRange
 }
 
 export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoCheckRangeRange extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   from?: number;
-  /**
-   * @example
-   * 10
-   */
   to?: number;
   static names(): { [key: string]: string } {
     return {
@@ -78,10 +58,6 @@ export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoCheckRange
 }
 
 export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoCheckRange extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   absolute?: boolean;
   anchor?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoCheckRangeAnchor;
   range?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoCheckRangeRange;
@@ -277,123 +253,35 @@ export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsO
 
 export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsOperatorBasicInfoParam extends $dara.Model {
   antModelInfo?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsOperatorBasicInfoParamAntModelInfo;
-  /**
-   * @example
-   * true
-   */
   average?: boolean;
-  /**
-   * @example
-   * DIALOGUE
-   */
   beginType?: string;
-  /**
-   * @example
-   * 1
-   */
   checkType?: number;
-  /**
-   * @example
-   * gt
-   */
   compareOperator?: string;
-  /**
-   * @example
-   * true
-   */
   contextChatMatch?: boolean;
-  /**
-   * @example
-   * 1000
-   */
   delayTime?: number;
-  /**
-   * @example
-   * true
-   */
   differentRole?: boolean;
   excludes?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsOperatorBasicInfoParamExcludes;
-  /**
-   * @example
-   * 3
-   */
   from?: number;
-  /**
-   * @example
-   * true
-   */
   fromEnd?: boolean;
-  /**
-   * @example
-   * 1
-   */
   hitTime?: number;
-  /**
-   * @example
-   * true
-   */
   inSentence?: boolean;
-  /**
-   * @example
-   * 5000
-   */
   interval?: number;
-  /**
-   * @example
-   * true
-   */
   keywordExtension?: boolean;
-  /**
-   * @example
-   * 3
-   */
   keywordMatchSize?: number;
-  /**
-   * @example
-   * 8
-   */
   maxEmotionChangeValue?: number;
-  /**
-   * @example
-   * 4
-   */
   minWordSize?: number;
   notRegex?: string;
   operKeyWords?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsOperatorBasicInfoParamOperKeyWords;
-  /**
-   * @example
-   * xxx
-   */
   phrase?: string;
   pvalues?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsOperatorBasicInfoParamPvalues;
   references?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsOperatorBasicInfoParamReferences;
   regex?: string;
-  /**
-   * @example
-   * 80
-   */
   score?: number;
-  /**
-   * @example
-   * 90
-   */
   similarityThreshold?: number;
   similarlySentences?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsOperatorBasicInfoParamSimilarlySentences;
-  /**
-   * @example
-   * 1
-   */
   target?: number;
   targetRole?: string;
-  /**
-   * @example
-   * 4
-   */
   threshold?: number;
-  /**
-   * @example
-   * 280
-   */
   velocityInMint?: number;
   static names(): { [key: string]: string } {
     return {
@@ -495,21 +383,9 @@ export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsO
 }
 
 export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsOperatorBasicInfo extends $dara.Model {
-  /**
-   * @example
-   * 8
-   */
   oid?: string;
-  /**
-   * @example
-   * operator demo
-   */
   operName?: string;
   param?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperatorsOperatorBasicInfoParam;
-  /**
-   * @example
-   * REGULAR_EXPRESSION
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -569,15 +445,7 @@ export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperators 
 
 export class GetRuleDetailResponseBodyDataConditionsConditionBasicInfo extends $dara.Model {
   checkRange?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoCheckRange;
-  /**
-   * @example
-   * 7
-   */
   conditionInfoCid?: string;
-  /**
-   * @example
-   * 7
-   */
   operLambda?: string;
   operators?: GetRuleDetailResponseBodyDataConditionsConditionBasicInfoOperators;
   static names(): { [key: string]: string } {
@@ -640,16 +508,8 @@ export class GetRuleDetailResponseBodyDataConditions extends $dara.Model {
 }
 
 export class GetRuleDetailResponseBodyDataRulesRuleBasicInfoBusinessCategoriesBusinessCategoryBasicInfo extends $dara.Model {
-  /**
-   * @example
-   * 264971810
-   */
   bid?: number;
   businessName?: string;
-  /**
-   * @example
-   * 1
-   */
   serviceType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -730,15 +590,7 @@ export class GetRuleDetailResponseBodyDataRulesRuleBasicInfoTriggers extends $da
 
 export class GetRuleDetailResponseBodyDataRulesRuleBasicInfo extends $dara.Model {
   businessCategories?: GetRuleDetailResponseBodyDataRulesRuleBasicInfoBusinessCategories;
-  /**
-   * @example
-   * 4
-   */
   rid?: string;
-  /**
-   * @example
-   * 7&&!8
-   */
   ruleLambda?: string;
   triggers?: GetRuleDetailResponseBodyDataRulesRuleBasicInfoTriggers;
   static names(): { [key: string]: string } {

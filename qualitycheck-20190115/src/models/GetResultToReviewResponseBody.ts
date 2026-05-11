@@ -3,43 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetResultToReviewResponseBodyDataDialoguesDialogue extends $dara.Model {
-  /**
-   * @example
-   * 72000
-   */
   begin?: number;
-  /**
-   * @example
-   * 2019-10-01 11:12:01
-   */
   beginTime?: string;
   beginTimeMs?: number;
-  /**
-   * @example
-   * 7
-   */
   emotionValue?: number;
-  /**
-   * @example
-   * 80000
-   */
   end?: number;
-  /**
-   * @example
-   * 00:08
-   */
   hourMinSec?: string;
   identity?: string;
   role?: string;
-  /**
-   * @example
-   * 1
-   */
   silenceDuration?: number;
-  /**
-   * @example
-   * 200
-   */
   speechRate?: number;
   words?: string;
   static names(): { [key: string]: string } {
@@ -111,20 +83,8 @@ export class GetResultToReviewResponseBodyDataDialogues extends $dara.Model {
 
 export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoComplainHistoriesComplainHistories extends $dara.Model {
   comments?: string;
-  /**
-   * @example
-   * 2020-10-16T11:13Z
-   */
   operationTime?: string;
-  /**
-   * @example
-   * 5
-   */
   operationType?: number;
-  /**
-   * @example
-   * 123456
-   */
   operator?: number;
   operatorName?: string;
   static names(): { [key: string]: string } {
@@ -209,36 +169,12 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
 }
 
 export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoListConditionHitInfoKeyWordsKeyWord extends $dara.Model {
-  /**
-   * @example
-   * 2000
-   */
   cid?: string;
-  /**
-   * @example
-   * xxx
-   */
   customizeCode?: string;
-  /**
-   * @example
-   * 1
-   */
   from?: number;
   isMatch?: boolean;
-  /**
-   * @example
-   * 2
-   */
   pid?: number;
-  /**
-   * @example
-   * 6fa76916-3ce6-45d8-ac64-01b7f31c7295
-   */
   tid?: string;
-  /**
-   * @example
-   * 3
-   */
   to?: number;
   val?: string;
   static names(): { [key: string]: string } {
@@ -303,26 +239,10 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
 }
 
 export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoListConditionHitInfoPhrase extends $dara.Model {
-  /**
-   * @example
-   * 72000
-   */
   begin?: number;
-  /**
-   * @example
-   * 7
-   */
   emotionValue?: number;
-  /**
-   * @example
-   * 80000
-   */
   end?: number;
   identity?: string;
-  /**
-   * @example
-   * 3
-   */
   pid?: number;
   role?: string;
   words?: string;
@@ -537,30 +457,10 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
 
 export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo extends $dara.Model {
   comment?: string;
-  /**
-   * @example
-   * 013c68142fec4f0899fa6ee0exxx
-   */
   hitId?: string;
-  /**
-   * @example
-   * 1
-   */
   reviewResult?: number;
-  /**
-   * @example
-   * 2019-10-12 17:06:00
-   */
   reviewTime?: string;
-  /**
-   * @example
-   * 123
-   */
   reviewer?: string;
-  /**
-   * @example
-   * 451
-   */
   rid?: number;
   sentenceReviewResults?: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfoSentenceReviewResults;
   static names(): { [key: string]: string } {
@@ -600,46 +500,18 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReview
 }
 
 export class GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfo extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   autoReview?: number;
   complainHistories?: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoComplainHistories;
-  /**
-   * @example
-   * true
-   */
   complainable?: boolean;
   conditionHitInfoList?: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoConditionHitInfoList;
   machineHitResult?: number;
   reviewHitResult?: number;
   reviewInfo?: GetResultToReviewResponseBodyDataHitRuleReviewInfoListHitRuleReviewInfoReviewInfo;
-  /**
-   * @example
-   * 451
-   */
   rid?: number;
   ruleName?: string;
-  /**
-   * @example
-   * xxx
-   */
   scoreId?: number;
-  /**
-   * @example
-   * -10
-   */
   scoreNum?: number;
-  /**
-   * @example
-   * xxx
-   */
   scoreSubId?: number;
-  /**
-   * @example
-   * xxx
-   */
   scoreSubName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -723,20 +595,8 @@ export class GetResultToReviewResponseBodyDataHitRuleReviewInfoList extends $dar
 
 export class GetResultToReviewResponseBodyDataManualScoreInfoListManualScoreInfoComplainHistoriesComplainHistories extends $dara.Model {
   comments?: string;
-  /**
-   * @example
-   * 2020-10-16T11:13Z
-   */
   operationTime?: string;
-  /**
-   * @example
-   * 5
-   */
   operationType?: number;
-  /**
-   * @example
-   * 123456
-   */
   operator?: number;
   operatorName?: string;
   static names(): { [key: string]: string } {
@@ -796,25 +656,9 @@ export class GetResultToReviewResponseBodyDataManualScoreInfoListManualScoreInfo
 
 export class GetResultToReviewResponseBodyDataManualScoreInfoListManualScoreInfo extends $dara.Model {
   complainHistories?: GetResultToReviewResponseBodyDataManualScoreInfoListManualScoreInfoComplainHistories;
-  /**
-   * @example
-   * true
-   */
   complainable?: boolean;
-  /**
-   * @example
-   * xxx
-   */
   scoreId?: number;
-  /**
-   * @example
-   * -10
-   */
   scoreNum?: number;
-  /**
-   * @example
-   * xxx
-   */
   scoreSubId?: number;
   scoreSubName?: string;
   static names(): { [key: string]: string } {
@@ -931,40 +775,16 @@ export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryRevi
 
 export class GetResultToReviewResponseBodyDataReviewHistoryListReviewHistory extends $dara.Model {
   comments?: string;
-  /**
-   * @example
-   * 1
-   */
   complainResult?: number;
-  /**
-   * @example
-   * 90
-   */
   oldScore?: number;
   operator?: number;
   operatorName?: string;
   reviewManagerType?: string;
-  /**
-   * @example
-   * 1
-   */
   reviewResult?: number;
   reviewRightRule?: GetResultToReviewResponseBodyDataReviewHistoryListReviewHistoryReviewRightRule;
-  /**
-   * @example
-   * 95
-   */
   score?: number;
   time?: number;
-  /**
-   * @example
-   * 2019-10-28 15:21:00
-   */
   timeStr?: string;
-  /**
-   * @example
-   * 1
-   */
   type?: number;
   static names(): { [key: string]: string } {
     return {

@@ -29,10 +29,6 @@ export class UploadDataSyncResponseBodyDataResultInfoHandScoreIdList extends $da
 }
 
 export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoConditionInfoConditionBasicInfo extends $dara.Model {
-  /**
-   * @example
-   * xxx
-   */
   conditionInfoCid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,30 +104,18 @@ export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHitConditio
 }
 
 export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoHitKeyWordsHitKeyWord extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
+  customizeCode?: string;
   from?: number;
-  /**
-   * @example
-   * 1
-   */
+  isMatch?: string;
   pid?: number;
-  /**
-   * @example
-   * 1
-   */
   tid?: string;
-  /**
-   * @example
-   * 1
-   */
   to?: number;
   val?: string;
   static names(): { [key: string]: string } {
     return {
+      customizeCode: 'CustomizeCode',
       from: 'From',
+      isMatch: 'IsMatch',
       pid: 'Pid',
       tid: 'Tid',
       to: 'To',
@@ -141,7 +125,9 @@ export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHitConditio
 
   static types(): { [key: string]: any } {
     return {
+      customizeCode: 'string',
       from: 'number',
+      isMatch: 'string',
       pid: 'number',
       tid: 'string',
       to: 'number',
@@ -185,25 +171,9 @@ export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHitConditio
 }
 
 export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHitConditionHitInfoPhrase extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
   begin?: number;
-  /**
-   * @example
-   * 1564574
-   */
   beginTime?: string;
-  /**
-   * @example
-   * 2090
-   */
   end?: number;
-  /**
-   * @example
-   * 1
-   */
   identity?: string;
   role?: string;
   words?: string;
@@ -305,20 +275,14 @@ export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHit extends
 export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfo extends $dara.Model {
   conditionInfo?: UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo;
   hit?: UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHit;
-  /**
-   * @example
-   * 801
-   */
+  llmResponse?: string;
   rid?: string;
-  /**
-   * @example
-   * 88888888
-   */
   tid?: string;
   static names(): { [key: string]: string } {
     return {
       conditionInfo: 'ConditionInfo',
       hit: 'Hit',
+      llmResponse: 'LlmResponse',
       rid: 'Rid',
       tid: 'Tid',
     };
@@ -328,6 +292,7 @@ export class UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfo extends $d
     return {
       conditionInfo: UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo,
       hit: UploadDataSyncResponseBodyDataResultInfoRulesRuleHitInfoHit,
+      llmResponse: 'string',
       rid: 'string',
       tid: 'string',
     };
@@ -377,10 +342,6 @@ export class UploadDataSyncResponseBodyDataResultInfoRules extends $dara.Model {
 export class UploadDataSyncResponseBodyDataResultInfo extends $dara.Model {
   handScoreIdList?: UploadDataSyncResponseBodyDataResultInfoHandScoreIdList;
   rules?: UploadDataSyncResponseBodyDataResultInfoRules;
-  /**
-   * @example
-   * 100
-   */
   score?: number;
   tyxmPlusCount?: string;
   tyxmTurboCount?: string;

@@ -185,62 +185,22 @@ export class ListSessionGroupResponseBodyDataDataSkillGroupNameList extends $dar
 }
 
 export class ListSessionGroupResponseBodyDataData extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   assignStatus?: number;
-  /**
-   * @example
-   * 2022-09-26 10:09:14
-   */
   callStartTime?: string;
   callerList?: ListSessionGroupResponseBodyDataDataCallerList;
   customerIdList?: ListSessionGroupResponseBodyDataDataCustomerIdList;
   customerNameList?: ListSessionGroupResponseBodyDataDataCustomerNameList;
   customerServiceIdList?: ListSessionGroupResponseBodyDataDataCustomerServiceIdList;
   customerServiceNameList?: ListSessionGroupResponseBodyDataDataCustomerServiceNameList;
-  /**
-   * @example
-   * 1
-   */
   hitSessionCount?: number;
-  /**
-   * @example
-   * 4498420@a_z@93EAADF1-01D3-44BD-8AC9-F57F447EFCE8_1614*****
-   */
   lastDataId?: string;
-  /**
-   * @example
-   * 1
-   */
   reviewStatus?: number;
   reviewerList?: ListSessionGroupResponseBodyDataDataReviewerList;
-  /**
-   * @example
-   * 123
-   */
   schemeTaskConfigId?: number;
   schemeTaskConfigName?: string;
-  /**
-   * @example
-   * 100
-   */
   score?: number;
-  /**
-   * @example
-   * 1
-   */
   sessionCount?: number;
-  /**
-   * @example
-   * SessionGroupA
-   */
   sessionGroupId?: string;
-  /**
-   * @example
-   * true
-   */
   sessionGroupReviewedOrComplained?: boolean;
   skillGroupNameList?: ListSessionGroupResponseBodyDataDataSkillGroupNameList;
   static names(): { [key: string]: string } {

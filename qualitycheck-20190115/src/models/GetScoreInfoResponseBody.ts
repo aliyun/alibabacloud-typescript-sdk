@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetScoreInfoResponseBodyDataScorePoScoreInfosScoreParam extends $dara.Model {
-  /**
-   * @example
-   * 32
-   */
   scoreNum?: number;
-  /**
-   * @example
-   * 3422
-   */
   scoreSubId?: number;
   scoreSubName?: string;
-  /**
-   * @example
-   * 1
-   */
   scoreType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -73,10 +61,6 @@ export class GetScoreInfoResponseBodyDataScorePoScoreInfos extends $dara.Model {
 }
 
 export class GetScoreInfoResponseBodyDataScorePo extends $dara.Model {
-  /**
-   * @example
-   * 34
-   */
   scoreId?: number;
   scoreInfos?: GetScoreInfoResponseBodyDataScorePoScoreInfos;
   scoreName?: string;

@@ -41,12 +41,36 @@ export class JudgeNodeMetaDescExpressionMetaDesc extends $dara.Model {
 }
 
 export class JudgeNodeMetaDesc extends $dara.Model {
+  /**
+   * @example
+   * xx
+   */
   actualValue?: string;
+  /**
+   * @example
+   * 1
+   */
   dataType?: number;
   expressionMetaDesc?: JudgeNodeMetaDescExpressionMetaDesc;
+  /**
+   * @example
+   * remark1
+   */
   field?: string;
+  /**
+   * @example
+   * 1
+   */
   fieldType?: number;
+  /**
+   * @example
+   * 1
+   */
   symbol?: number;
+  /**
+   * @example
+   * xxx
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

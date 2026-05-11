@@ -29,26 +29,10 @@ export class ListSchemeTaskConfigResponseBodyDataDataDataConfigAssignConfigsAssi
 }
 
 export class ListSchemeTaskConfigResponseBodyDataDataDataConfigAssignConfigsAssignConfigAssignConfigContestsAssignConfigContest extends $dara.Model {
-  /**
-   * @example
-   * 3
-   */
   dataType?: number;
   listObject?: ListSchemeTaskConfigResponseBodyDataDataDataConfigAssignConfigsAssignConfigAssignConfigContestsAssignConfigContestListObject;
-  /**
-   * @example
-   * callStartTime
-   */
   name?: string;
-  /**
-   * @example
-   * 4
-   */
   symbol?: number;
-  /**
-   * @example
-   * {\\"start\\":\\"2022-09-01 00:00:00\\",\\"end\\":\\"2022-09-30 00:00:00\\"}
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -162,20 +146,8 @@ export class ListSchemeTaskConfigResponseBodyDataDataDataConfigAssignConfigs ext
 
 export class ListSchemeTaskConfigResponseBodyDataDataDataConfig extends $dara.Model {
   assignConfigs?: ListSchemeTaskConfigResponseBodyDataDataDataConfigAssignConfigs;
-  /**
-   * @example
-   * []
-   */
   dataSets?: string;
-  /**
-   * @example
-   * 0
-   */
   index?: number;
-  /**
-   * @example
-   * {}
-   */
   resultParam?: string;
   static names(): { [key: string]: string } {
     return {
@@ -235,10 +207,6 @@ export class ListSchemeTaskConfigResponseBodyDataDataSchemeIdList extends $dara.
 
 export class ListSchemeTaskConfigResponseBodyDataDataSchemeListSchemeList extends $dara.Model {
   name?: string;
-  /**
-   * @example
-   * 158
-   */
   schemeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -290,111 +258,31 @@ export class ListSchemeTaskConfigResponseBodyDataDataSchemeList extends $dara.Mo
 }
 
 export class ListSchemeTaskConfigResponseBodyDataData extends $dara.Model {
-  /**
-   * @example
-   * 2
-   */
   asrTaskPriority?: number;
   asrVersion?: number;
-  /**
-   * @example
-   * 0
-   */
   assignType?: number;
-  /**
-   * @example
-   * 1650418039000
-   */
   createTime?: string;
-  /**
-   * @example
-   * 1
-   */
   createUser?: number;
   dataConfig?: ListSchemeTaskConfigResponseBodyDataDataDataConfig;
-  /**
-   * @example
-   * 100
-   */
   finishRate?: number;
-  /**
-   * @example
-   * 123
-   */
   id?: number;
-  /**
-   * @example
-   * 0
-   */
   manualReview?: number;
-  /**
-   * @example
-   * cdae396590b*****ec40f3476e274fc
-   */
   modeCustomizationId?: string;
   modelName?: string;
   name?: string;
-  /**
-   * @example
-   * 0
-   */
   numberExecuting?: number;
-  /**
-   * @example
-   * 0
-   */
   numberFail?: number;
-  /**
-   * @example
-   * 1000
-   */
   numberSuccess?: number;
-  /**
-   * @example
-   * 1000
-   */
   numberSum?: number;
   schemeIdList?: ListSchemeTaskConfigResponseBodyDataDataSchemeIdList;
   schemeList?: ListSchemeTaskConfigResponseBodyDataDataSchemeList;
-  /**
-   * @example
-   * 123
-   */
   schemeTaskConfigId?: number;
-  /**
-   * @example
-   * 2
-   */
   sourceDataType?: number;
-  /**
-   * @example
-   * 1
-   */
   status?: number;
-  /**
-   * @example
-   * 0
-   */
   type?: number;
-  /**
-   * @example
-   * 1650418039000
-   */
   updateTime?: string;
-  /**
-   * @example
-   * 1
-   */
   updateUser?: number;
-  /**
-   * @example
-   * 1
-   */
   userGroup?: string;
-  /**
-   * @example
-   * 9f90b3efa2****0a49acec226eafc17
-   */
   vocabId?: string;
   vocabName?: string;
   static names(): { [key: string]: string } {

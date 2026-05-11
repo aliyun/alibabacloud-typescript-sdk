@@ -30,10 +30,6 @@ export class VerifySentenceResponseBodyDataDeltaSourceLine extends $dara.Model {
 
 export class VerifySentenceResponseBodyDataDeltaSource extends $dara.Model {
   line?: VerifySentenceResponseBodyDataDeltaSourceLine;
-  /**
-   * @example
-   * 1
-   */
   position?: number;
   static names(): { [key: string]: string } {
     return {
@@ -89,10 +85,6 @@ export class VerifySentenceResponseBodyDataDeltaTargetLine extends $dara.Model {
 
 export class VerifySentenceResponseBodyDataDeltaTarget extends $dara.Model {
   line?: VerifySentenceResponseBodyDataDeltaTargetLine;
-  /**
-   * @example
-   * 1
-   */
   position?: number;
   static names(): { [key: string]: string } {
     return {
@@ -123,10 +115,6 @@ export class VerifySentenceResponseBodyDataDeltaTarget extends $dara.Model {
 export class VerifySentenceResponseBodyDataDelta extends $dara.Model {
   source?: VerifySentenceResponseBodyDataDeltaSource;
   target?: VerifySentenceResponseBodyDataDeltaTarget;
-  /**
-   * @example
-   * CHANGE
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
