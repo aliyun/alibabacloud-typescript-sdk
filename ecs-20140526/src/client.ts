@@ -689,7 +689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies an automatic snapshot policy to one or more cloud disks. You can call this operation to replace the automatic snapshot policy of a cloud disk.
+   * Applies an automatic snapshot policy to one or more disks.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -753,7 +753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies an automatic snapshot policy to one or more cloud disks. You can call this operation to replace the automatic snapshot policy of a cloud disk.
+   * Applies an automatic snapshot policy to one or more disks.
    * 
    * @remarks
    * ## [](#)Usage notes
@@ -2053,7 +2053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an automatic snapshot policy for one or more cloud disks.
+   * Disables automatic snapshot policies for one or more disks.
    * 
    * @param request - CancelAutoSnapshotPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2104,7 +2104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables an automatic snapshot policy for one or more cloud disks.
+   * Disables automatic snapshot policies for one or more disks.
    * 
    * @param request - CancelAutoSnapshotPolicyRequest
    * @returns CancelAutoSnapshotPolicyResponse
@@ -10820,7 +10820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scheduling tasks of an auto provisioning group.
+   * Call DescribeAutoProvisioningGroupHistory to query the schedule job info of an auto provisioning group.
    * 
    * @param request - DescribeAutoProvisioningGroupHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10887,7 +10887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scheduling tasks of an auto provisioning group.
+   * Call DescribeAutoProvisioningGroupHistory to query the schedule job info of an auto provisioning group.
    * 
    * @param request - DescribeAutoProvisioningGroupHistoryRequest
    * @returns DescribeAutoProvisioningGroupHistoryResponse
