@@ -180,7 +180,58 @@ export class GetApplicationResponseBodyDataDraftVersionScriptProfile extends $da
   }
 }
 
+export class GetApplicationResponseBodyDataDraftVersionSynthesizerConfigNlsAccessProfile extends $dara.Model {
+  accessProfileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessProfileId: 'AccessProfileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessProfileId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyDataDraftVersionSynthesizerConfigPronRules extends $dara.Model {
+  pattern?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'Pattern',
+      replacement: 'Replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: 'string',
+      replacement: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationResponseBodyDataDraftVersionSynthesizerConfig extends $dara.Model {
+  model?: string;
+  nlsAccessProfile?: GetApplicationResponseBodyDataDraftVersionSynthesizerConfigNlsAccessProfile;
   /**
    * @example
    * MANAGED
@@ -196,6 +247,7 @@ export class GetApplicationResponseBodyDataDraftVersionSynthesizerConfig extends
    * 5
    */
   pitchRate?: number;
+  pronRules?: GetApplicationResponseBodyDataDraftVersionSynthesizerConfigPronRules[];
   /**
    * @example
    * 1
@@ -213,9 +265,12 @@ export class GetApplicationResponseBodyDataDraftVersionSynthesizerConfig extends
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      model: 'Model',
+      nlsAccessProfile: 'NlsAccessProfile',
       nlsAccessType: 'NlsAccessType',
       nlsEngine: 'NlsEngine',
       pitchRate: 'PitchRate',
+      pronRules: 'PronRules',
       speechRate: 'SpeechRate',
       voice: 'Voice',
       volume: 'Volume',
@@ -224,9 +279,12 @@ export class GetApplicationResponseBodyDataDraftVersionSynthesizerConfig extends
 
   static types(): { [key: string]: any } {
     return {
+      model: 'string',
+      nlsAccessProfile: GetApplicationResponseBodyDataDraftVersionSynthesizerConfigNlsAccessProfile,
       nlsAccessType: 'string',
       nlsEngine: 'string',
       pitchRate: 'number',
+      pronRules: { 'type': 'array', 'itemType': GetApplicationResponseBodyDataDraftVersionSynthesizerConfigPronRules },
       speechRate: 'number',
       voice: 'string',
       volume: 'number',
@@ -234,6 +292,12 @@ export class GetApplicationResponseBodyDataDraftVersionSynthesizerConfig extends
   }
 
   validate() {
+    if(this.nlsAccessProfile && typeof (this.nlsAccessProfile as any).validate === 'function') {
+      (this.nlsAccessProfile as any).validate();
+    }
+    if(Array.isArray(this.pronRules)) {
+      $dara.Model.validateArray(this.pronRules);
+    }
     super.validate();
   }
 
@@ -511,7 +575,58 @@ export class GetApplicationResponseBodyDataPublishedVersionScriptProfile extends
   }
 }
 
+export class GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigNlsAccessProfile extends $dara.Model {
+  accessProfileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessProfileId: 'AccessProfileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessProfileId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigPronRules extends $dara.Model {
+  pattern?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'Pattern',
+      replacement: 'Replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: 'string',
+      replacement: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig extends $dara.Model {
+  model?: string;
+  nlsAccessProfile?: GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigNlsAccessProfile;
   /**
    * @example
    * MANAGED
@@ -527,6 +642,7 @@ export class GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig ext
    * 3
    */
   pitchRate?: number;
+  pronRules?: GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigPronRules[];
   /**
    * @example
    * -20
@@ -544,9 +660,12 @@ export class GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig ext
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      model: 'Model',
+      nlsAccessProfile: 'NlsAccessProfile',
       nlsAccessType: 'NlsAccessType',
       nlsEngine: 'NlsEngine',
       pitchRate: 'PitchRate',
+      pronRules: 'PronRules',
       speechRate: 'SpeechRate',
       voice: 'Voice',
       volume: 'Volume',
@@ -555,9 +674,12 @@ export class GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig ext
 
   static types(): { [key: string]: any } {
     return {
+      model: 'string',
+      nlsAccessProfile: GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigNlsAccessProfile,
       nlsAccessType: 'string',
       nlsEngine: 'string',
       pitchRate: 'number',
+      pronRules: { 'type': 'array', 'itemType': GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigPronRules },
       speechRate: 'number',
       voice: 'string',
       volume: 'number',
@@ -565,6 +687,12 @@ export class GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig ext
   }
 
   validate() {
+    if(this.nlsAccessProfile && typeof (this.nlsAccessProfile as any).validate === 'function') {
+      (this.nlsAccessProfile as any).validate();
+    }
+    if(Array.isArray(this.pronRules)) {
+      $dara.Model.validateArray(this.pronRules);
+    }
     super.validate();
   }
 

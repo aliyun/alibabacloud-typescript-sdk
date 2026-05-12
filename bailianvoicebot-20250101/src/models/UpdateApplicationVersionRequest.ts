@@ -162,7 +162,58 @@ export class UpdateApplicationVersionRequestScriptProfile extends $dara.Model {
   }
 }
 
+export class UpdateApplicationVersionRequestSynthesizerConfigNlsAccessProfile extends $dara.Model {
+  accessProfileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessProfileId: 'AccessProfileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessProfileId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationVersionRequestSynthesizerConfigPronRules extends $dara.Model {
+  pattern?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'Pattern',
+      replacement: 'Replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: 'string',
+      replacement: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApplicationVersionRequestSynthesizerConfig extends $dara.Model {
+  model?: string;
+  nlsAccessProfile?: UpdateApplicationVersionRequestSynthesizerConfigNlsAccessProfile;
   /**
    * @example
    * MANAGED
@@ -178,6 +229,7 @@ export class UpdateApplicationVersionRequestSynthesizerConfig extends $dara.Mode
    * 1
    */
   pitchRate?: number;
+  pronRules?: UpdateApplicationVersionRequestSynthesizerConfigPronRules[];
   /**
    * @example
    * 3
@@ -195,9 +247,12 @@ export class UpdateApplicationVersionRequestSynthesizerConfig extends $dara.Mode
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      model: 'Model',
+      nlsAccessProfile: 'NlsAccessProfile',
       nlsAccessType: 'NlsAccessType',
       nlsEngine: 'NlsEngine',
       pitchRate: 'PitchRate',
+      pronRules: 'PronRules',
       speechRate: 'SpeechRate',
       voice: 'Voice',
       volume: 'Volume',
@@ -206,9 +261,12 @@ export class UpdateApplicationVersionRequestSynthesizerConfig extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      model: 'string',
+      nlsAccessProfile: UpdateApplicationVersionRequestSynthesizerConfigNlsAccessProfile,
       nlsAccessType: 'string',
       nlsEngine: 'string',
       pitchRate: 'number',
+      pronRules: { 'type': 'array', 'itemType': UpdateApplicationVersionRequestSynthesizerConfigPronRules },
       speechRate: 'number',
       voice: 'string',
       volume: 'number',
@@ -216,6 +274,12 @@ export class UpdateApplicationVersionRequestSynthesizerConfig extends $dara.Mode
   }
 
   validate() {
+    if(this.nlsAccessProfile && typeof (this.nlsAccessProfile as any).validate === 'function') {
+      (this.nlsAccessProfile as any).validate();
+    }
+    if(Array.isArray(this.pronRules)) {
+      $dara.Model.validateArray(this.pronRules);
+    }
     super.validate();
   }
 

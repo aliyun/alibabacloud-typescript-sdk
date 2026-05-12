@@ -4,6 +4,8 @@ export { CreateApplicationVersionRequestInteractionConfig } from './CreateApplic
 export { CreateApplicationVersionRequestRagConfig } from './CreateApplicationVersionRequest';
 export { CreateApplicationVersionRequestScriptProfileAgentProfile } from './CreateApplicationVersionRequest';
 export { CreateApplicationVersionRequestScriptProfile } from './CreateApplicationVersionRequest';
+export { CreateApplicationVersionRequestSynthesizerConfigNlsAccessProfile } from './CreateApplicationVersionRequest';
+export { CreateApplicationVersionRequestSynthesizerConfigPronRules } from './CreateApplicationVersionRequest';
 export { CreateApplicationVersionRequestSynthesizerConfig } from './CreateApplicationVersionRequest';
 export { CreateApplicationVersionRequestTranscriberConfig } from './CreateApplicationVersionRequest';
 export { CreateCloneVoiceResponseBodyData } from './CreateCloneVoiceResponseBody';
@@ -14,6 +16,8 @@ export { GetApplicationResponseBodyDataDraftVersionInteractionConfig } from './G
 export { GetApplicationResponseBodyDataDraftVersionRagConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionScriptProfileAgentProfile } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionScriptProfile } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataDraftVersionSynthesizerConfigNlsAccessProfile } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataDraftVersionSynthesizerConfigPronRules } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionSynthesizerConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionTranscriberConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersion } from './GetApplicationResponseBody';
@@ -22,6 +26,8 @@ export { GetApplicationResponseBodyDataPublishedVersionInteractionConfig } from 
 export { GetApplicationResponseBodyDataPublishedVersionRagConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersionScriptProfileAgentProfile } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersionScriptProfile } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigNlsAccessProfile } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigPronRules } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersionTranscriberConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersion } from './GetApplicationResponseBody';
@@ -56,6 +62,8 @@ export { UpdateApplicationVersionRequestInteractionConfig } from './UpdateApplic
 export { UpdateApplicationVersionRequestRagConfig } from './UpdateApplicationVersionRequest';
 export { UpdateApplicationVersionRequestScriptProfileAgentProfile } from './UpdateApplicationVersionRequest';
 export { UpdateApplicationVersionRequestScriptProfile } from './UpdateApplicationVersionRequest';
+export { UpdateApplicationVersionRequestSynthesizerConfigNlsAccessProfile } from './UpdateApplicationVersionRequest';
+export { UpdateApplicationVersionRequestSynthesizerConfigPronRules } from './UpdateApplicationVersionRequest';
 export { UpdateApplicationVersionRequestSynthesizerConfig } from './UpdateApplicationVersionRequest';
 export { UpdateApplicationVersionRequestTranscriberConfig } from './UpdateApplicationVersionRequest';
 export { UpdateVoiceAccessProfileRequestProfile } from './UpdateVoiceAccessProfileRequest';
