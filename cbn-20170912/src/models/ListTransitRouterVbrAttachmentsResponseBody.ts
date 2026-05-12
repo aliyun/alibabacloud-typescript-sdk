@@ -72,6 +72,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
    * 2021-06-15T15:20Z
    */
   creationTime?: string;
+  managedService?: string;
   /**
    * @remarks
    * The entity that pays the fees of the network instance. Valid values:
@@ -175,6 +176,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
       autoPublishRouteEnabled: 'AutoPublishRouteEnabled',
       cenId: 'CenId',
       creationTime: 'CreationTime',
+      managedService: 'ManagedService',
       orderType: 'OrderType',
       resourceType: 'ResourceType',
       status: 'Status',
@@ -194,6 +196,7 @@ export class ListTransitRouterVbrAttachmentsResponseBodyTransitRouterAttachments
       autoPublishRouteEnabled: 'boolean',
       cenId: 'string',
       creationTime: 'string',
+      managedService: 'string',
       orderType: 'string',
       resourceType: 'string',
       status: 'string',
