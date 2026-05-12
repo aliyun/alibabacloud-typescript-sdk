@@ -76,7 +76,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an image building task of a repository.
+   * Cancels a repository building record.
    * 
    * @param request - CancelRepoBuildRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an image building task of a repository.
+   * Cancels a repository building record.
    * 
    * @param request - CancelRepoBuildRecordRequest
    * @returns CancelRepoBuildRecordResponse
@@ -1117,6 +1117,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.linkId)) {
+      query["LinkId"] = request.linkId;
+    }
+
     if (!$dara.isNull(request.namespaceName)) {
       query["NamespaceName"] = request.namespaceName;
     }
@@ -1194,6 +1198,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Manually creates an image synchronization task.
+   * 
    * @param request - CreateRepoSyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateRepoSyncTaskResponse
@@ -1259,6 +1265,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Manually creates an image synchronization task.
+   * 
    * @param request - CreateRepoSyncTaskRequest
    * @returns CreateRepoSyncTaskResponse
    */
@@ -1806,7 +1814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a delivery pipeline.
+   * Deletes a delivery chain.
    * 
    * @param request - DeleteChainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1841,7 +1849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a delivery pipeline.
+   * Deletes a delivery chain.
    * 
    * @param request - DeleteChainRequest
    * @returns DeleteChainResponse
@@ -2578,6 +2586,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of an artifact building rule.
+   * 
    * @param request - GetArtifactBuildRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetArtifactBuildRuleResponse
@@ -2603,6 +2613,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of an artifact building rule.
+   * 
    * @param request - GetArtifactBuildRuleRequest
    * @returns GetArtifactBuildRuleResponse
    */
@@ -2856,7 +2868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取交付链
+   * Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
    * 
    * @param request - GetChainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2891,7 +2903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取交付链
+   * Obtains the information of a delivery chain to understand the node execution sequence of the delivery chain.
    * 
    * @param request - GetChainRequest
    * @returns GetChainResponse
@@ -3042,7 +3054,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the number of instances.
    * 
-   * @param request - GetInstanceCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetInstanceCountResponse
    */
@@ -3072,7 +3083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the endpoint of an instance.
+   * Queries an endpoint of an instance.
    * 
    * @param request - GetInstanceEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3111,7 +3122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the endpoint of an instance.
+   * Queries an endpoint of an instance.
    * 
    * @param request - GetInstanceEndpointRequest
    * @returns GetInstanceEndpointResponse
@@ -3454,7 +3465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The version of the repository.
+   * Queries the information about an image tag.
    * 
    * @param request - GetRepoTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3481,7 +3492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The version of the repository.
+   * Queries the information about an image tag.
    * 
    * @param request - GetRepoTagRequest
    * @returns GetRepoTagResponse
@@ -3554,6 +3565,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+   * 
    * @param request - GetRepoTagScanSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRepoTagScanSummaryResponse
@@ -3599,6 +3612,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the number of vulnerabilities for each severity level. These vulnerabilities are detected in a security scan that is created for an image version.
+   * 
    * @param request - GetRepoTagScanSummaryRequest
    * @returns GetRepoTagScanSummaryResponse
    */
@@ -3662,7 +3677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a scan rule.
+   * Queries a scan rule.
    * 
    * @remarks
    * Get scan rule.
@@ -3700,7 +3715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a scan rule.
+   * Queries a scan rule.
    * 
    * @remarks
    * Get scan rule.
@@ -3976,7 +3991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The response code.
+   * Queries execution records of delivery chains.
    * 
    * @param request - ListChainInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4023,7 +4038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The response code.
+   * Queries execution records of delivery chains.
    * 
    * @param request - ListChainInstanceRequest
    * @returns ListChainInstanceResponse
@@ -4254,7 +4269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the names of event notification rules.
+   * Queries the name of an event rule.
    * 
    * @param request - ListEventCenterRuleNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4281,7 +4296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the names of event notification rules.
+   * Queries the name of an event rule.
    * 
    * @param request - ListEventCenterRuleNameRequest
    * @returns ListEventCenterRuleNameResponse
@@ -5724,7 +5739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an event notification rule.
+   * Updates an event rule.
    * 
    * @param tmpReq - UpdateEventCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5801,7 +5816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an event notification rule.
+   * Updates an event rule.
    * 
    * @param request - UpdateEventCenterRuleRequest
    * @returns UpdateEventCenterRuleResponse

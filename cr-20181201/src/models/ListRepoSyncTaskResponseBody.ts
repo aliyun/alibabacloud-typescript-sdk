@@ -182,14 +182,18 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
    * The information about the destination image.
    */
   imageTo?: ListRepoSyncTaskResponseBodySyncTasksImageTo;
+  linkId?: string;
   /**
    * @remarks
    * The time when the synchronization task was last modified.
    * 
    * @example
    * 1572839133000
+   * 
+   * @deprecated
    */
   modifedTime?: number;
+  modifiedTime?: number;
   /**
    * @remarks
    * The ID of the image synchronization batch tasks, which is the same as the value of SyncRecordId in the request.
@@ -271,7 +275,9 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
       customLink: 'CustomLink',
       imageFrom: 'ImageFrom',
       imageTo: 'ImageTo',
+      linkId: 'LinkId',
       modifedTime: 'ModifedTime',
+      modifiedTime: 'ModifiedTime',
       syncBatchTaskId: 'SyncBatchTaskId',
       syncRuleId: 'SyncRuleId',
       syncTaskId: 'SyncTaskId',
@@ -289,7 +295,9 @@ export class ListRepoSyncTaskResponseBodySyncTasks extends $dara.Model {
       customLink: 'boolean',
       imageFrom: ListRepoSyncTaskResponseBodySyncTasksImageFrom,
       imageTo: ListRepoSyncTaskResponseBodySyncTasksImageTo,
+      linkId: 'string',
       modifedTime: 'number',
+      modifiedTime: 'number',
       syncBatchTaskId: 'string',
       syncRuleId: 'string',
       syncTaskId: 'string',

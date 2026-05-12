@@ -13,6 +13,7 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
    * cri-hpdfkc6utbaq****
    */
   instanceId?: string;
+  linkId?: string;
   /**
    * @remarks
    * The namespace name of the source instance.
@@ -136,6 +137,7 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      linkId: 'LinkId',
       namespaceName: 'NamespaceName',
       repoName: 'RepoName',
       repoNameFilter: 'RepoNameFilter',
@@ -154,6 +156,7 @@ export class CreateRepoSyncRuleRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      linkId: 'string',
       namespaceName: 'string',
       repoName: 'string',
       repoNameFilter: 'string',

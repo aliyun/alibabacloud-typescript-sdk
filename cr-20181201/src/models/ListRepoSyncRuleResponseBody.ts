@@ -24,6 +24,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
    * true
    */
   crossUser?: boolean;
+  linkId?: string;
   /**
    * @remarks
    * The ID of the source instance.
@@ -167,6 +168,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
     return {
       createTime: 'CreateTime',
       crossUser: 'CrossUser',
+      linkId: 'LinkId',
       localInstanceId: 'LocalInstanceId',
       localNamespaceName: 'LocalNamespaceName',
       localRegionId: 'LocalRegionId',
@@ -190,6 +192,7 @@ export class ListRepoSyncRuleResponseBodySyncRules extends $dara.Model {
     return {
       createTime: 'number',
       crossUser: 'boolean',
+      linkId: 'string',
       localInstanceId: 'string',
       localNamespaceName: 'string',
       localRegionId: 'string',
