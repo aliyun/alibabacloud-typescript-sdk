@@ -1352,6 +1352,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 配置SLS日志投递
+   * 
+   * @param request - DeliverToUserSlsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeliverToUserSlsResponse
+   */
+  async deliverToUserSlsWithOptions(request: $_model.DeliverToUserSlsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeliverToUserSlsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deliveryScopes)) {
+      bodyFlat["DeliveryScopes"] = request.deliveryScopes;
+    }
+
+    if (!$dara.isNull(request.existedProjectName)) {
+      body["ExistedProjectName"] = request.existedProjectName;
+    }
+
+    if (!$dara.isNull(request.logStoreName)) {
+      body["LogStoreName"] = request.logStoreName;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      body["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.slsRegionId)) {
+      body["SlsRegionId"] = request.slsRegionId;
+    }
+
+    if (!$dara.isNull(request.ttl)) {
+      body["Ttl"] = request.ttl;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeliverToUserSls",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeliverToUserSlsResponse>(await this.callApi(params, req, runtime), new $_model.DeliverToUserSlsResponse({}));
+  }
+
+  /**
+   * 配置SLS日志投递
+   * 
+   * @param request - DeliverToUserSlsRequest
+   * @returns DeliverToUserSlsResponse
+   */
+  async deliverToUserSls(request: $_model.DeliverToUserSlsRequest): Promise<$_model.DeliverToUserSlsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deliverToUserSlsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the Elastic IP Addresses (EIPs) of workstations.
    * 
    * @param request - DescribeWuyingServerEipInfoRequest
