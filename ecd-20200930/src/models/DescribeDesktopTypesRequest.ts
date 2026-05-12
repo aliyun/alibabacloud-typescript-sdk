@@ -36,6 +36,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
    * ecd-gx2x1dhsmucyy****
    */
   desktopIdForModify?: string;
+  desktopScenario?: string;
   /**
    * @remarks
    * The specification ID.
@@ -219,6 +220,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
       cpuCount: 'CpuCount',
       desktopGroupIdForModify: 'DesktopGroupIdForModify',
       desktopIdForModify: 'DesktopIdForModify',
+      desktopScenario: 'DesktopScenario',
       desktopTypeId: 'DesktopTypeId',
       desktopTypeIdList: 'DesktopTypeIdList',
       gpuCount: 'GpuCount',
@@ -245,6 +247,7 @@ export class DescribeDesktopTypesRequest extends $dara.Model {
       cpuCount: 'number',
       desktopGroupIdForModify: 'string',
       desktopIdForModify: 'string',
+      desktopScenario: 'string',
       desktopTypeId: 'string',
       desktopTypeIdList: { 'type': 'array', 'itemType': 'string' },
       gpuCount: 'number',

@@ -8623,6 +8623,10 @@ export default class Client extends OpenApi {
       query["DesktopIdForModify"] = request.desktopIdForModify;
     }
 
+    if (!$dara.isNull(request.desktopScenario)) {
+      query["DesktopScenario"] = request.desktopScenario;
+    }
+
     if (!$dara.isNull(request.desktopTypeId)) {
       query["DesktopTypeId"] = request.desktopTypeId;
     }
