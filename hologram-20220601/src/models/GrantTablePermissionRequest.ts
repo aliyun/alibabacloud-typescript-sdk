@@ -8,6 +8,7 @@ export class GrantTablePermissionRequest extends $dara.Model {
    * true
    */
   allTable?: boolean;
+  columnNames?: string[];
   /**
    * @example
    * my_db
@@ -32,6 +33,7 @@ export class GrantTablePermissionRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       allTable: 'allTable',
+      columnNames: 'columnNames',
       databaseName: 'databaseName',
       privileges: 'privileges',
       schemaName: 'schemaName',
@@ -43,6 +45,7 @@ export class GrantTablePermissionRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       allTable: 'boolean',
+      columnNames: { 'type': 'array', 'itemType': 'string' },
       databaseName: 'string',
       privileges: { 'type': 'array', 'itemType': 'string' },
       schemaName: 'string',
@@ -52,6 +55,9 @@ export class GrantTablePermissionRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.columnNames)) {
+      $dara.Model.validateArray(this.columnNames);
+    }
     if(Array.isArray(this.privileges)) {
       $dara.Model.validateArray(this.privileges);
     }

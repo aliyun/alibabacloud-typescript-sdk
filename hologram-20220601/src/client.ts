@@ -917,6 +917,10 @@ export default class Client extends OpenApi {
       body["allTable"] = request.allTable;
     }
 
+    if (!$dara.isNull(request.columnNames)) {
+      body["columnNames"] = request.columnNames;
+    }
+
     if (!$dara.isNull(request.databaseName)) {
       body["databaseName"] = request.databaseName;
     }
@@ -1622,6 +1626,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.allTable)) {
       body["allTable"] = request.allTable;
+    }
+
+    if (!$dara.isNull(request.columnNames)) {
+      body["columnNames"] = request.columnNames;
     }
 
     if (!$dara.isNull(request.databaseName)) {
