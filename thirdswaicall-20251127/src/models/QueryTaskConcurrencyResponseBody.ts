@@ -9,16 +9,30 @@ export class QueryTaskConcurrencyResponseBodyData extends $dara.Model {
    * @example
    * 5
    */
+  availableConcurrency?: number;
+  /**
+   * @example
+   * 5
+   */
   currentConcurrency?: number;
+  /**
+   * @example
+   * 5
+   */
+  maxConcurrency?: number;
   static names(): { [key: string]: string } {
     return {
+      availableConcurrency: 'AvailableConcurrency',
       currentConcurrency: 'CurrentConcurrency',
+      maxConcurrency: 'MaxConcurrency',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      availableConcurrency: 'number',
       currentConcurrency: 'number',
+      maxConcurrency: 'number',
     };
   }
 
