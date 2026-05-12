@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AssignUsersRequest extends $dara.Model {
+  async?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -42,6 +43,7 @@ export class AssignUsersRequest extends $dara.Model {
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
+      async: 'Async',
       instanceId: 'InstanceId',
       ramIdList: 'RamIdList',
       roleId: 'RoleId',
@@ -52,6 +54,7 @@ export class AssignUsersRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      async: 'boolean',
       instanceId: 'string',
       ramIdList: 'string',
       roleId: 'string',

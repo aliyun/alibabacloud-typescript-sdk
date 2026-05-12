@@ -905,6 +905,10 @@ export default class Client extends OpenApi {
   async assignUsersWithOptions(request: $_model.AssignUsersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssignUsersResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.async)) {
+      query["Async"] = request.async;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -5373,6 +5377,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入管理员
+   * 
    * @param request - ImportAdminsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImportAdminsResponse
@@ -5406,6 +5412,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 导入管理员
+   * 
    * @param request - ImportAdminsRequest
    * @returns ImportAdminsResponse
    */
@@ -10291,6 +10299,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改实例
+   * 
    * @param request - ModifyInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceResponse
@@ -10324,6 +10334,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改实例
+   * 
    * @param request - ModifyInstanceRequest
    * @returns ModifyInstanceResponse
    */
