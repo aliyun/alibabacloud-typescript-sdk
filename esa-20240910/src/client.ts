@@ -2612,6 +2612,14 @@ export default class Client extends OpenApi {
   async createImageTransformWithOptions(request: $_model.CreateImageTransformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateImageTransformResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoAvif)) {
+      query["AutoAvif"] = request.autoAvif;
+    }
+
+    if (!$dara.isNull(request.autoWebp)) {
+      query["AutoWebp"] = request.autoWebp;
+    }
+
     if (!$dara.isNull(request.enable)) {
       query["Enable"] = request.enable;
     }
@@ -18897,6 +18905,14 @@ export default class Client extends OpenApi {
   async updateImageTransformWithOptions(request: $_model.UpdateImageTransformRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateImageTransformResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.autoAvif)) {
+      query["AutoAvif"] = request.autoAvif;
+    }
+
+    if (!$dara.isNull(request.autoWebp)) {
+      query["AutoWebp"] = request.autoWebp;
+    }
+
     if (!$dara.isNull(request.configId)) {
       query["ConfigId"] = request.configId;
     }

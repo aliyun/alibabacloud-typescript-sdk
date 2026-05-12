@@ -4,6 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetImageTransformResponseBody extends $dara.Model {
   /**
+   * @example
+   * on
+   */
+  autoAvif?: string;
+  /**
+   * @example
+   * on
+   */
+  autoWebp?: string;
+  /**
    * @remarks
    * Configuration ID.
    * 
@@ -85,6 +95,8 @@ export class GetImageTransformResponseBody extends $dara.Model {
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
+      autoAvif: 'AutoAvif',
+      autoWebp: 'AutoWebp',
       configId: 'ConfigId',
       configType: 'ConfigType',
       enable: 'Enable',
@@ -99,6 +111,8 @@ export class GetImageTransformResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoAvif: 'string',
+      autoWebp: 'string',
       configId: 'number',
       configType: 'string',
       enable: 'string',

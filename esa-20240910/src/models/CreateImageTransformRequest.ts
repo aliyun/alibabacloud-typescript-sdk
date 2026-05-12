@@ -4,6 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateImageTransformRequest extends $dara.Model {
   /**
+   * @example
+   * on
+   */
+  autoAvif?: string;
+  /**
+   * @example
+   * on
+   */
+  autoWebp?: string;
+  /**
    * @remarks
    * Indicates whether image transformation is enabled. Possible values:
    * - on: Enabled.
@@ -62,6 +72,8 @@ export class CreateImageTransformRequest extends $dara.Model {
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
+      autoAvif: 'AutoAvif',
+      autoWebp: 'AutoWebp',
       enable: 'Enable',
       rule: 'Rule',
       ruleEnable: 'RuleEnable',
@@ -74,6 +86,8 @@ export class CreateImageTransformRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoAvif: 'string',
+      autoWebp: 'string',
       enable: 'string',
       rule: 'string',
       ruleEnable: 'string',

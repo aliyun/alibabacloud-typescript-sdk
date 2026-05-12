@@ -4,6 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateImageTransformRequest extends $dara.Model {
   /**
+   * @example
+   * on
+   */
+  autoAvif?: string;
+  /**
+   * @example
+   * on
+   */
+  autoWebp?: string;
+  /**
    * @remarks
    * Configuration ID. It can be obtained by calling the [ListImageTransforms](https://help.aliyun.com/document_detail/2869056.html) interface.
    * 
@@ -65,6 +75,8 @@ export class UpdateImageTransformRequest extends $dara.Model {
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
+      autoAvif: 'AutoAvif',
+      autoWebp: 'AutoWebp',
       configId: 'ConfigId',
       enable: 'Enable',
       rule: 'Rule',
@@ -77,6 +89,8 @@ export class UpdateImageTransformRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoAvif: 'string',
+      autoWebp: 'string',
       configId: 'number',
       enable: 'string',
       rule: 'string',
