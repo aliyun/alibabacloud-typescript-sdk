@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListThreadsShrinkRequest extends $dara.Model {
   filterShrink?: string;
+  includeMission?: boolean;
   /**
    * @example
    * 20
@@ -27,6 +28,7 @@ export class ListThreadsShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       filterShrink: 'filter',
+      includeMission: 'includeMission',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
       status: 'status',
@@ -37,6 +39,7 @@ export class ListThreadsShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       filterShrink: 'string',
+      includeMission: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       status: 'string',

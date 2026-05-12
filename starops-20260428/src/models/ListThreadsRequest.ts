@@ -44,6 +44,7 @@ export class ListThreadsRequestFilter extends $dara.Model {
 
 export class ListThreadsRequest extends $dara.Model {
   filter?: ListThreadsRequestFilter[];
+  includeMission?: boolean;
   /**
    * @example
    * 20
@@ -67,6 +68,7 @@ export class ListThreadsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       filter: 'filter',
+      includeMission: 'includeMission',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
       status: 'status',
@@ -77,6 +79,7 @@ export class ListThreadsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       filter: { 'type': 'array', 'itemType': ListThreadsRequestFilter },
+      includeMission: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       status: 'string',

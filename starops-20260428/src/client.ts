@@ -986,6 +986,10 @@ export default class Client extends OpenApi {
       query["filter"] = request.filterShrink;
     }
 
+    if (!$dara.isNull(request.includeMission)) {
+      query["includeMission"] = request.includeMission;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
