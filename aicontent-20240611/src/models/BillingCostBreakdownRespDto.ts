@@ -1,9 +1,15 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { MetricDefRespDTO } from "./MetricDefRespDto";
 import { BillingCostBreakdownRowDTO } from "./BillingCostBreakdownRowDto";
 
 
 export class BillingCostBreakdownRespDTO extends $dara.Model {
+  /**
+   * @example
+   * []
+   */
+  columns?: MetricDefRespDTO[];
   /**
    * @example
    * hourly
@@ -31,6 +37,7 @@ export class BillingCostBreakdownRespDTO extends $dara.Model {
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      columns: 'columns',
       granularity: 'granularity',
       page: 'page',
       pageSize: 'pageSize',
@@ -41,6 +48,7 @@ export class BillingCostBreakdownRespDTO extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      columns: { 'type': 'array', 'itemType': MetricDefRespDTO },
       granularity: 'string',
       page: 'number',
       pageSize: 'number',
@@ -50,6 +58,9 @@ export class BillingCostBreakdownRespDTO extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.columns)) {
+      $dara.Model.validateArray(this.columns);
+    }
     if(Array.isArray(this.rows)) {
       $dara.Model.validateArray(this.rows);
     }

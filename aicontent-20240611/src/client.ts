@@ -3407,6 +3407,10 @@ export default class Client extends OpenApi {
   async modelRouterQueryBillingCostBreakdownWithOptions(request: $_model.ModelRouterQueryBillingCostBreakdownRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ModelRouterQueryBillingCostBreakdownResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientId)) {
+      query["clientId"] = request.clientId;
+    }
+
     if (!$dara.isNull(request.endTime)) {
       query["endTime"] = request.endTime;
     }
@@ -3417,6 +3421,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelId)) {
+      query["modelId"] = request.modelId;
+    }
+
+    if (!$dara.isNull(request.modelTypes)) {
+      query["modelTypes"] = request.modelTypes;
     }
 
     if (!$dara.isNull(request.nextToken)) {

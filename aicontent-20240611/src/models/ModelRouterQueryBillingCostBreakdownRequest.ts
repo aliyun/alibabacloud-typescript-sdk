@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   /**
+   * @example
+   * 5
+   */
+  clientId?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -24,6 +29,16 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
    * 20
    */
   maxResults?: number;
+  /**
+   * @example
+   * 12
+   */
+  modelId?: number;
+  /**
+   * @example
+   * Chat
+   */
+  modelTypes?: string;
   /**
    * @example
    * xxxx-xxx-xxxxx
@@ -49,9 +64,12 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
+      clientId: 'clientId',
       endTime: 'endTime',
       granularity: 'granularity',
       maxResults: 'maxResults',
+      modelId: 'modelId',
+      modelTypes: 'modelTypes',
       nextToken: 'nextToken',
       page: 'page',
       pageSize: 'pageSize',
@@ -61,9 +79,12 @@ export class ModelRouterQueryBillingCostBreakdownRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientId: 'number',
       endTime: 'number',
       granularity: 'string',
       maxResults: 'number',
+      modelId: 'number',
+      modelTypes: 'string',
       nextToken: 'string',
       page: 'number',
       pageSize: 'number',
