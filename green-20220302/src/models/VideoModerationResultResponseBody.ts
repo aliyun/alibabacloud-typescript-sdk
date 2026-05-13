@@ -709,6 +709,29 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResultsResult
   }
 }
 
+export class VideoModerationResultResponseBodyDataFrameResultFramesResultsVlContent extends $dara.Model {
+  outputText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outputText: 'OutputText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputText: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class VideoModerationResultResponseBodyDataFrameResultFramesResults extends $dara.Model {
   /**
    * @remarks
@@ -743,6 +766,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
    * The information about the text hit in the image is returned.
    */
   textInImage?: { [key: string]: any };
+  vlContent?: VideoModerationResultResponseBodyDataFrameResultFramesResultsVlContent;
   static names(): { [key: string]: string } {
     return {
       customImage: 'CustomImage',
@@ -751,6 +775,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
       result: 'Result',
       service: 'Service',
       textInImage: 'TextInImage',
+      vlContent: 'VlContent',
     };
   }
 
@@ -762,6 +787,7 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
       result: { 'type': 'array', 'itemType': VideoModerationResultResponseBodyDataFrameResultFramesResultsResult },
       service: 'string',
       textInImage: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      vlContent: VideoModerationResultResponseBodyDataFrameResultFramesResultsVlContent,
     };
   }
 
@@ -780,6 +806,9 @@ export class VideoModerationResultResponseBodyDataFrameResultFramesResults exten
     }
     if(this.textInImage) {
       $dara.Model.validateMap(this.textInImage);
+    }
+    if(this.vlContent && typeof (this.vlContent as any).validate === 'function') {
+      (this.vlContent as any).validate();
     }
     super.validate();
   }

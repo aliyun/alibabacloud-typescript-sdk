@@ -236,7 +236,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the token for uploading files.
    * 
-   * @param request - DescribeUploadTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUploadTokenResponse
    */
