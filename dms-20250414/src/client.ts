@@ -2231,6 +2231,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取工作空间发布配置
+   * 
+   * @param request - GetWorkspaceCodePublishSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceCodePublishSettingResponse
+   */
+  async getWorkspaceCodePublishSettingWithOptions(request: $_model.GetWorkspaceCodePublishSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceCodePublishSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspaceCodePublishSetting",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceCodePublishSettingResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceCodePublishSettingResponse({}));
+  }
+
+  /**
+   * 获取工作空间发布配置
+   * 
+   * @param request - GetWorkspaceCodePublishSettingRequest
+   * @returns GetWorkspaceCodePublishSettingResponse
+   */
+  async getWorkspaceCodePublishSetting(request: $_model.GetWorkspaceCodePublishSettingRequest): Promise<$_model.GetWorkspaceCodePublishSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkspaceCodePublishSettingWithOptions(request, runtime);
+  }
+
+  /**
    * 列出资源Airflow
    * 
    * @param request - ListAirflowsRequest
@@ -3765,6 +3807,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置工作空间代码发布配置
+   * 
+   * @param request - SetWorkspaceCodePublishSettingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetWorkspaceCodePublishSettingResponse
+   */
+  async setWorkspaceCodePublishSettingWithOptions(request: $_model.SetWorkspaceCodePublishSettingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetWorkspaceCodePublishSettingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetWorkspaceCodePublishSetting",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetWorkspaceCodePublishSettingResponse>(await this.callApi(params, req, runtime), new $_model.SetWorkspaceCodePublishSettingResponse({}));
+  }
+
+  /**
+   * 设置工作空间代码发布配置
+   * 
+   * @param request - SetWorkspaceCodePublishSettingRequest
+   * @returns SetWorkspaceCodePublishSettingResponse
+   */
+  async setWorkspaceCodePublishSetting(request: $_model.SetWorkspaceCodePublishSettingRequest): Promise<$_model.SetWorkspaceCodePublishSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setWorkspaceCodePublishSettingWithOptions(request, runtime);
+  }
+
+  /**
    * 更新UpdateAirflow
    * 
    * @param request - UpdateAirflowRequest
@@ -4238,6 +4328,146 @@ export default class Client extends OpenApi {
   async updateDataLakeTable(request: $_model.UpdateDataLakeTableRequest): Promise<$_model.UpdateDataLakeTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataLakeTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 工作空间异步操作日志查询接口
+   * 
+   * @param request - WorkspaceActionLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WorkspaceActionLogResponse
+   */
+  async workspaceActionLogWithOptions(request: $_model.WorkspaceActionLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.WorkspaceActionLogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "WorkspaceActionLog",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.WorkspaceActionLogResponse>(await this.callApi(params, req, runtime), new $_model.WorkspaceActionLogResponse({}));
+  }
+
+  /**
+   * 工作空间异步操作日志查询接口
+   * 
+   * @param request - WorkspaceActionLogRequest
+   * @returns WorkspaceActionLogResponse
+   */
+  async workspaceActionLog(request: $_model.WorkspaceActionLogRequest): Promise<$_model.WorkspaceActionLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.workspaceActionLogWithOptions(request, runtime);
+  }
+
+  /**
+   * 工作空间异步操作状态查询接口
+   * 
+   * @param request - WorkspaceActionStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WorkspaceActionStatusResponse
+   */
+  async workspaceActionStatusWithOptions(request: $_model.WorkspaceActionStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.WorkspaceActionStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "WorkspaceActionStatus",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.WorkspaceActionStatusResponse>(await this.callApi(params, req, runtime), new $_model.WorkspaceActionStatusResponse({}));
+  }
+
+  /**
+   * 工作空间异步操作状态查询接口
+   * 
+   * @param request - WorkspaceActionStatusRequest
+   * @returns WorkspaceActionStatusResponse
+   */
+  async workspaceActionStatus(request: $_model.WorkspaceActionStatusRequest): Promise<$_model.WorkspaceActionStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.workspaceActionStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+   * 
+   * @param request - WorkspaceCodePublishRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WorkspaceCodePublishResponse
+   */
+  async workspaceCodePublishWithOptions(request: $_model.WorkspaceCodePublishRequest, runtime: $dara.RuntimeOptions): Promise<$_model.WorkspaceCodePublishResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "WorkspaceCodePublish",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.WorkspaceCodePublishResponse>(await this.callApi(params, req, runtime), new $_model.WorkspaceCodePublishResponse({}));
+  }
+
+  /**
+   * 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+   * 
+   * @param request - WorkspaceCodePublishRequest
+   * @returns WorkspaceCodePublishResponse
+   */
+  async workspaceCodePublish(request: $_model.WorkspaceCodePublishRequest): Promise<$_model.WorkspaceCodePublishResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.workspaceCodePublishWithOptions(request, runtime);
   }
 
 }
