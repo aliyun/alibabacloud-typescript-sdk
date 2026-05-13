@@ -64,6 +64,7 @@ export class CreateUserExclusiveCredentialRequest extends $dara.Model {
    * This parameter is required.
    */
   credentialContent?: CreateUserExclusiveCredentialRequestCredentialContent;
+  credentialExternalId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -101,6 +102,7 @@ export class CreateUserExclusiveCredentialRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       credentialContent: 'credentialContent',
+      credentialExternalId: 'credentialExternalId',
       credentialIdentifier: 'credentialIdentifier',
       credentialName: 'credentialName',
       credentialScenarioLabel: 'credentialScenarioLabel',
@@ -112,6 +114,7 @@ export class CreateUserExclusiveCredentialRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       credentialContent: CreateUserExclusiveCredentialRequestCredentialContent,
+      credentialExternalId: 'string',
       credentialIdentifier: 'string',
       credentialName: 'string',
       credentialScenarioLabel: 'string',

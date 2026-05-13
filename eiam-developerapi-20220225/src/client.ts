@@ -378,6 +378,10 @@ export default class Client extends OpenApi {
       body["credentialContent"] = request.credentialContent;
     }
 
+    if (!$dara.isNull(request.credentialExternalId)) {
+      body["credentialExternalId"] = request.credentialExternalId;
+    }
+
     if (!$dara.isNull(request.credentialIdentifier)) {
       body["credentialIdentifier"] = request.credentialIdentifier;
     }

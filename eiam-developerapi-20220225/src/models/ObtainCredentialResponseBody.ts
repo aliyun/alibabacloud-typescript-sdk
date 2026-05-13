@@ -124,6 +124,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
    * user_custom
    */
   credentialCreationType?: string;
+  credentialExternalId?: string;
   /**
    * @remarks
    * 凭据ID。
@@ -233,6 +234,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
       createTime: 'createTime',
       credentialContent: 'credentialContent',
       credentialCreationType: 'credentialCreationType',
+      credentialExternalId: 'credentialExternalId',
       credentialId: 'credentialId',
       credentialIdentifier: 'credentialIdentifier',
       credentialName: 'credentialName',
@@ -254,6 +256,7 @@ export class ObtainCredentialResponseBody extends $dara.Model {
       createTime: 'number',
       credentialContent: ObtainCredentialResponseBodyCredentialContent,
       credentialCreationType: 'string',
+      credentialExternalId: 'string',
       credentialId: 'string',
       credentialIdentifier: 'string',
       credentialName: 'string',
