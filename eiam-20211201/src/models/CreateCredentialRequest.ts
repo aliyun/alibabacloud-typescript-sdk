@@ -130,6 +130,7 @@ export class CreateCredentialRequest extends $dara.Model {
    * This parameter is required.
    */
   credentialContent?: CreateCredentialRequestCredentialContent;
+  credentialExternalId?: string;
   /**
    * @remarks
    * 凭据标识。
@@ -208,6 +209,7 @@ export class CreateCredentialRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       credentialContent: 'CredentialContent',
+      credentialExternalId: 'CredentialExternalId',
       credentialIdentifier: 'CredentialIdentifier',
       credentialName: 'CredentialName',
       credentialScenarioLabel: 'CredentialScenarioLabel',
@@ -225,6 +227,7 @@ export class CreateCredentialRequest extends $dara.Model {
     return {
       clientToken: 'string',
       credentialContent: CreateCredentialRequestCredentialContent,
+      credentialExternalId: 'string',
       credentialIdentifier: 'string',
       credentialName: 'string',
       credentialScenarioLabel: 'string',

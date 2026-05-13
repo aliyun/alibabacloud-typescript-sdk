@@ -1843,6 +1843,10 @@ export default class Client extends OpenApi {
       query["CredentialContent"] = request.credentialContent;
     }
 
+    if (!$dara.isNull(request.credentialExternalId)) {
+      query["CredentialExternalId"] = request.credentialExternalId;
+    }
+
     if (!$dara.isNull(request.credentialIdentifier)) {
       query["CredentialIdentifier"] = request.credentialIdentifier;
     }
@@ -11301,6 +11305,10 @@ export default class Client extends OpenApi {
   async listCredentialsWithOptions(request: $_model.ListCredentialsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCredentialsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.credentialExternalIds)) {
+      query["CredentialExternalIds"] = request.credentialExternalIds;
+    }
+
     if (!$dara.isNull(request.credentialIds)) {
       query["CredentialIds"] = request.credentialIds;
     }
