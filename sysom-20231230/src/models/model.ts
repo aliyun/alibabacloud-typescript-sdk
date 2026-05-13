@@ -4,6 +4,7 @@ export { CreateAlertDestinationRequestParams } from './CreateAlertDestinationReq
 export { CreateAlertDestinationResponseBodyDataParams } from './CreateAlertDestinationResponseBody';
 export { CreateAlertDestinationResponseBodyData } from './CreateAlertDestinationResponseBody';
 export { CreateAlertStrategyRequestStrategy } from './CreateAlertStrategyRequest';
+export { CreateClusterVpcEndpointConnectionResponseBodyData } from './CreateClusterVpcEndpointConnectionResponseBody';
 export { CreateVmcoreDiagnosisTaskResponseBodyData } from './CreateVmcoreDiagnosisTaskResponseBody';
 export { DescribeMetricListResponseBodyData } from './DescribeMetricListResponseBody';
 export { GetAbnormalEventsCountResponseBodyData } from './GetAbnormalEventsCountResponseBody';
@@ -98,6 +99,9 @@ export { CreateAlertDestinationResponse } from './CreateAlertDestinationResponse
 export { CreateAlertStrategyRequest } from './CreateAlertStrategyRequest';
 export { CreateAlertStrategyResponseBody } from './CreateAlertStrategyResponseBody';
 export { CreateAlertStrategyResponse } from './CreateAlertStrategyResponse';
+export { CreateClusterVpcEndpointConnectionRequest } from './CreateClusterVpcEndpointConnectionRequest';
+export { CreateClusterVpcEndpointConnectionResponseBody } from './CreateClusterVpcEndpointConnectionResponseBody';
+export { CreateClusterVpcEndpointConnectionResponse } from './CreateClusterVpcEndpointConnectionResponse';
 export { CreateInstanceInspectionRequest } from './CreateInstanceInspectionRequest';
 export { CreateInstanceInspectionResponseBody } from './CreateInstanceInspectionResponseBody';
 export { CreateInstanceInspectionResponse } from './CreateInstanceInspectionResponse';

@@ -338,6 +338,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建集群Vpc端点连接
+   * 
+   * @param request - CreateClusterVpcEndpointConnectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClusterVpcEndpointConnectionResponse
+   */
+  async createClusterVpcEndpointConnectionWithOptions(request: $_model.CreateClusterVpcEndpointConnectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateClusterVpcEndpointConnectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clusterId)) {
+      body["clusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["dryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      body["region"] = request.region;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateClusterVpcEndpointConnection",
+      version: "2023-12-30",
+      protocol: "HTTPS",
+      pathname: `/api/v1/k8sProxy/access/createClusterVpcEndpointConnection`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateClusterVpcEndpointConnectionResponse>(await this.callApi(params, req, runtime), new $_model.CreateClusterVpcEndpointConnectionResponse({}));
+  }
+
+  /**
+   * 创建集群Vpc端点连接
+   * 
+   * @param request - CreateClusterVpcEndpointConnectionRequest
+   * @returns CreateClusterVpcEndpointConnectionResponse
+   */
+  async createClusterVpcEndpointConnection(request: $_model.CreateClusterVpcEndpointConnectionRequest): Promise<$_model.CreateClusterVpcEndpointConnectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createClusterVpcEndpointConnectionWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建实例巡检
    * 
    * @param request - CreateInstanceInspectionRequest
