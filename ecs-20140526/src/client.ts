@@ -7818,6 +7818,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Vsc
+   * 
+   * @param request - CreateVscRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateVscResponse
+   */
+  async createVscWithOptions(request: $_model.CreateVscRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateVscResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.vscName)) {
+      query["VscName"] = request.vscName;
+    }
+
+    if (!$dara.isNull(request.vscType)) {
+      query["VscType"] = request.vscType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateVsc",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateVscResponse>(await this.callApi(params, req, runtime), new $_model.CreateVscResponse({}));
+  }
+
+  /**
+   * 创建Vsc
+   * 
+   * @param request - CreateVscRequest
+   * @returns CreateVscResponse
+   */
+  async createVsc(request: $_model.CreateVscRequest): Promise<$_model.CreateVscResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createVscWithOptions(request, runtime);
+  }
+
+  /**
    * DeactivateRouterInterface
    * 
    * @deprecated OpenAPI DeactivateRouterInterface is deprecated, please use Vpc::2016-04-28::DeactivateRouterInterface instead.
@@ -10496,6 +10586,76 @@ export default class Client extends OpenApi {
   async deleteVpc(request: $_model.DeleteVpcRequest): Promise<$_model.DeleteVpcResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteVpcWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除虚拟存储通道
+   * 
+   * @param request - DeleteVscRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteVscResponse
+   */
+  async deleteVscWithOptions(request: $_model.DeleteVscRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteVscResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.vscId)) {
+      query["VscId"] = request.vscId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteVsc",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteVscResponse>(await this.callApi(params, req, runtime), new $_model.DeleteVscResponse({}));
+  }
+
+  /**
+   * 删除虚拟存储通道
+   * 
+   * @param request - DeleteVscRequest
+   * @returns DeleteVscResponse
+   */
+  async deleteVsc(request: $_model.DeleteVscRequest): Promise<$_model.DeleteVscResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteVscWithOptions(request, runtime);
   }
 
   /**
@@ -15229,12 +15389,32 @@ export default class Client extends OpenApi {
       query["DataDisk"] = request.dataDisk;
     }
 
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.ISP)) {
+      query["ISP"] = request.ISP;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
     if (!$dara.isNull(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!$dara.isNull(request.internetMaxBandwidthOut)) {
+      query["InternetMaxBandwidthOut"] = request.internetMaxBandwidthOut;
     }
 
     if (!$dara.isNull(request.ownerAccount)) {
@@ -15255,6 +15435,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
     }
 
     if (!$dara.isNull(request.systemDisk)) {
@@ -21744,6 +21928,92 @@ export default class Client extends OpenApi {
   async describeVpcs(request: $_model.DescribeVpcsRequest): Promise<$_model.DescribeVpcsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeVpcsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询虚拟存储通道
+   * 
+   * @param request - DescribeVscsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVscsResponse
+   */
+  async describeVscsWithOptions(request: $_model.DescribeVscsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeVscsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.vscIds)) {
+      query["VscIds"] = request.vscIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeVscs",
+      version: "2014-05-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeVscsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeVscsResponse({}));
+  }
+
+  /**
+   * 查询虚拟存储通道
+   * 
+   * @param request - DescribeVscsRequest
+   * @returns DescribeVscsResponse
+   */
+  async describeVscs(request: $_model.DescribeVscsRequest): Promise<$_model.DescribeVscsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeVscsWithOptions(request, runtime);
   }
 
   /**

@@ -134,6 +134,7 @@ export { CreateSimulatedSystemEventsResponseBodyEventIdSet } from './CreateSimul
 export { CreateSnapshotRequestTag } from './CreateSnapshotRequest';
 export { CreateSnapshotGroupRequestTag } from './CreateSnapshotGroupRequest';
 export { CreateStorageSetRequestTag } from './CreateStorageSetRequest';
+export { CreateVscRequestTag } from './CreateVscRequest';
 export { DeleteActivationResponseBodyActivation } from './DeleteActivationResponseBody';
 export { DeleteLaunchTemplateResponseBodyLaunchTemplateVersionNumbers } from './DeleteLaunchTemplateResponseBody';
 export { DeleteLaunchTemplateVersionResponseBodyLaunchTemplateVersionsLaunchTemplateVersion } from './DeleteLaunchTemplateVersionResponseBody';
@@ -438,6 +439,8 @@ export { DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfosD
 export { DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfosDetailInfo } from './DescribeInstanceModificationPriceResponseBody';
 export { DescribeInstanceModificationPriceResponseBodyPriceInfoPriceDetailInfos } from './DescribeInstanceModificationPriceResponseBody';
 export { DescribeInstanceModificationPriceResponseBodyPriceInfoPrice } from './DescribeInstanceModificationPriceResponseBody';
+export { DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice } from './DescribeInstanceModificationPriceResponseBody';
+export { DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice } from './DescribeInstanceModificationPriceResponseBody';
 export { DescribeInstanceModificationPriceResponseBodyPriceInfoRulesRule } from './DescribeInstanceModificationPriceResponseBody';
 export { DescribeInstanceModificationPriceResponseBodyPriceInfoRules } from './DescribeInstanceModificationPriceResponseBody';
 export { DescribeInstanceModificationPriceResponseBodyPriceInfo } from './DescribeInstanceModificationPriceResponseBody';
@@ -779,6 +782,9 @@ export { DescribeVpcsResponseBodyVpcsVpcUserCidrs } from './DescribeVpcsResponse
 export { DescribeVpcsResponseBodyVpcsVpcVSwitchIds } from './DescribeVpcsResponseBody';
 export { DescribeVpcsResponseBodyVpcsVpc } from './DescribeVpcsResponseBody';
 export { DescribeVpcsResponseBodyVpcs } from './DescribeVpcsResponseBody';
+export { DescribeVscsRequestTag } from './DescribeVscsRequest';
+export { DescribeVscsResponseBodyVscsTags } from './DescribeVscsResponseBody';
+export { DescribeVscsResponseBodyVscs } from './DescribeVscsResponseBody';
 export { DescribeZonesResponseBodyZonesZoneAvailableDedicatedHostTypes } from './DescribeZonesResponseBody';
 export { DescribeZonesResponseBodyZonesZoneAvailableDiskCategories } from './DescribeZonesResponseBody';
 export { DescribeZonesResponseBodyZonesZoneAvailableInstanceTypes } from './DescribeZonesResponseBody';
@@ -1122,6 +1128,9 @@ export { CreateVirtualBorderRouterResponse } from './CreateVirtualBorderRouterRe
 export { CreateVpcRequest } from './CreateVpcRequest';
 export { CreateVpcResponseBody } from './CreateVpcResponseBody';
 export { CreateVpcResponse } from './CreateVpcResponse';
+export { CreateVscRequest } from './CreateVscRequest';
+export { CreateVscResponseBody } from './CreateVscResponseBody';
+export { CreateVscResponse } from './CreateVscResponse';
 export { DeactivateRouterInterfaceRequest } from './DeactivateRouterInterfaceRequest';
 export { DeactivateRouterInterfaceResponseBody } from './DeactivateRouterInterfaceResponseBody';
 export { DeactivateRouterInterfaceResponse } from './DeactivateRouterInterfaceResponse';
@@ -1236,6 +1245,9 @@ export { DeleteVirtualBorderRouterResponse } from './DeleteVirtualBorderRouterRe
 export { DeleteVpcRequest } from './DeleteVpcRequest';
 export { DeleteVpcResponseBody } from './DeleteVpcResponseBody';
 export { DeleteVpcResponse } from './DeleteVpcResponse';
+export { DeleteVscRequest } from './DeleteVscRequest';
+export { DeleteVscResponseBody } from './DeleteVscResponseBody';
+export { DeleteVscResponse } from './DeleteVscResponse';
 export { DeregisterManagedInstanceRequest } from './DeregisterManagedInstanceRequest';
 export { DeregisterManagedInstanceResponseBody } from './DeregisterManagedInstanceResponseBody';
 export { DeregisterManagedInstanceResponse } from './DeregisterManagedInstanceResponse';
@@ -1609,6 +1621,9 @@ export { DescribeVirtualBorderRoutersForPhysicalConnectionResponse } from './Des
 export { DescribeVpcsRequest } from './DescribeVpcsRequest';
 export { DescribeVpcsResponseBody } from './DescribeVpcsResponseBody';
 export { DescribeVpcsResponse } from './DescribeVpcsResponse';
+export { DescribeVscsRequest } from './DescribeVscsRequest';
+export { DescribeVscsResponseBody } from './DescribeVscsResponseBody';
+export { DescribeVscsResponse } from './DescribeVscsResponse';
 export { DescribeZonesRequest } from './DescribeZonesRequest';
 export { DescribeZonesResponseBody } from './DescribeZonesResponseBody';
 export { DescribeZonesResponse } from './DescribeZonesResponse';

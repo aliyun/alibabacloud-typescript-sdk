@@ -3,30 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceModificationPriceRequestSystemDisk extends $dara.Model {
-  /**
-   * @remarks
-   * The category of the system disk. You must specify this parameter only when you upgrade a non-I/O optimized instance of a retired instance type to an I/O optimized instance of an available instance type. For more information about instance types, see [Instance families](https://help.aliyun.com/document_detail/25378.html) and [Retired instance types](https://help.aliyun.com/document_detail/55263.html).
-   * 
-   * Valid values:
-   * 
-   * *   cloud_efficiency: ultra disk
-   * *   cloud_ssd: standard SSD
-   * 
-   * This parameter is empty by default.
-   * 
-   * @example
-   * cloud_ssd
-   */
   category?: string;
+  /**
+   * @example
+   * PL0
+   */
+  performanceLevel?: string;
+  /**
+   * @example
+   * 40
+   */
+  size?: number;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      performanceLevel: 'string',
+      size: 'number',
     };
   }
 
@@ -57,6 +57,11 @@ export class DescribeInstanceModificationPriceRequestDataDisk extends $dara.Mode
    * cloud_essd
    */
   category?: string;
+  /**
+   * @example
+   * d-bf4rupt9****
+   */
+  diskId?: string;
   /**
    * @remarks
    * The performance level of data disk N that is an enhanced SSD (ESSD). The value of N must be the same as that in `DataDisk.N.Category` when DataDisk.N.Category is set to cloud_essd. Valid values:
@@ -100,6 +105,7 @@ export class DescribeInstanceModificationPriceRequestDataDisk extends $dara.Mode
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      diskId: 'DiskId',
       performanceLevel: 'PerformanceLevel',
       size: 'Size',
     };
@@ -108,6 +114,7 @@ export class DescribeInstanceModificationPriceRequestDataDisk extends $dara.Mode
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      diskId: 'string',
       performanceLevel: 'string',
       size: 'number',
     };
@@ -130,6 +137,21 @@ export class DescribeInstanceModificationPriceRequest extends $dara.Model {
    */
   dataDisk?: DescribeInstanceModificationPriceRequestDataDisk[];
   /**
+   * @example
+   * 2025-12-06T22Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * BGP
+   */
+  ISP?: string;
+  /**
+   * @example
+   * aliyun_2_1903_x64_20G_alibase_20200324.vhd
+   */
+  imageId?: string;
+  /**
    * @remarks
    * The ID of the instance for which you want to query pricing information for a configuration upgrade.
    * 
@@ -149,6 +171,16 @@ export class DescribeInstanceModificationPriceRequest extends $dara.Model {
    * ecs.g6e.large
    */
   instanceType?: string;
+  /**
+   * @example
+   * PayByTraffic
+   */
+  internetChargeType?: string;
+  /**
+   * @example
+   * 10
+   */
+  internetMaxBandwidthOut?: number;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -163,17 +195,28 @@ export class DescribeInstanceModificationPriceRequest extends $dara.Model {
   regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 2025-12-05T22:40Z
+   */
+  startTime?: string;
   static names(): { [key: string]: string } {
     return {
       systemDisk: 'SystemDisk',
       dataDisk: 'DataDisk',
+      endTime: 'EndTime',
+      ISP: 'ISP',
+      imageId: 'ImageId',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      startTime: 'StartTime',
     };
   }
 
@@ -181,13 +224,19 @@ export class DescribeInstanceModificationPriceRequest extends $dara.Model {
     return {
       systemDisk: DescribeInstanceModificationPriceRequestSystemDisk,
       dataDisk: { 'type': 'array', 'itemType': DescribeInstanceModificationPriceRequestDataDisk },
+      endTime: 'string',
+      ISP: 'string',
+      imageId: 'string',
       instanceId: 'string',
       instanceType: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      startTime: 'string',
     };
   }
 

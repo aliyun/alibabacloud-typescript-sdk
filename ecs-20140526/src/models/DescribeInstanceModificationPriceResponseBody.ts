@@ -187,6 +187,80 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfoPrice extends
   }
 }
 
+export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice extends $dara.Model {
+  /**
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @example
+   * 0
+   */
+  discountPrice?: number;
+  /**
+   * @example
+   * 100
+   */
+  originalPrice?: number;
+  /**
+   * @example
+   * 100
+   */
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      originalPrice: 'OriginalPrice',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      originalPrice: 'number',
+      tradePrice: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice extends $dara.Model {
+  marketplaceImagePrice?: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice;
+  static names(): { [key: string]: string } {
+    return {
+      marketplaceImagePrice: 'MarketplaceImagePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      marketplaceImagePrice: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice,
+    };
+  }
+
+  validate() {
+    if(this.marketplaceImagePrice && typeof (this.marketplaceImagePrice as any).validate === 'function') {
+      (this.marketplaceImagePrice as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceModificationPriceResponseBodyPriceInfoRulesRule extends $dara.Model {
   description?: string;
   ruleId?: number;
@@ -245,10 +319,12 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
    * The price.
    */
   price?: DescribeInstanceModificationPriceResponseBodyPriceInfoPrice;
+  relatedPrice?: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice;
   rules?: DescribeInstanceModificationPriceResponseBodyPriceInfoRules;
   static names(): { [key: string]: string } {
     return {
       price: 'Price',
+      relatedPrice: 'RelatedPrice',
       rules: 'Rules',
     };
   }
@@ -256,6 +332,7 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
   static types(): { [key: string]: any } {
     return {
       price: DescribeInstanceModificationPriceResponseBodyPriceInfoPrice,
+      relatedPrice: DescribeInstanceModificationPriceResponseBodyPriceInfoRelatedPrice,
       rules: DescribeInstanceModificationPriceResponseBodyPriceInfoRules,
     };
   }
@@ -263,6 +340,9 @@ export class DescribeInstanceModificationPriceResponseBodyPriceInfo extends $dar
   validate() {
     if(this.price && typeof (this.price as any).validate === 'function') {
       (this.price as any).validate();
+    }
+    if(this.relatedPrice && typeof (this.relatedPrice as any).validate === 'function') {
+      (this.relatedPrice as any).validate();
     }
     if(this.rules && typeof (this.rules as any).validate === 'function') {
       (this.rules as any).validate();
