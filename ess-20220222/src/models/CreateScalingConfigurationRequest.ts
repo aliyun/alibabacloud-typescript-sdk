@@ -975,12 +975,39 @@ export class CreateScalingConfigurationRequestNetworkInterfaces extends $dara.Mo
   }
 }
 
+export class CreateScalingConfigurationRequestResourcePoolOptionsPrivatePoolTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScalingConfigurationRequestResourcePoolOptions extends $dara.Model {
   /**
    * @remarks
    * The IDs of private pools. The ID of a private pool is the same as the ID of the elasticity assurance or capacity reservation that is associated with the private pool. You can specify the IDs of only targeted private pools for this parameter.
    */
   privatePoolIds?: string[];
+  privatePoolTags?: CreateScalingConfigurationRequestResourcePoolOptionsPrivatePoolTags[];
   /**
    * @remarks
    * The resource pool used for instance creation, which can be the public pool or a private pool associated with any active elasticity assurance or capacity reservation. Valid values:
@@ -998,6 +1025,7 @@ export class CreateScalingConfigurationRequestResourcePoolOptions extends $dara.
   static names(): { [key: string]: string } {
     return {
       privatePoolIds: 'PrivatePoolIds',
+      privatePoolTags: 'PrivatePoolTags',
       strategy: 'Strategy',
     };
   }
@@ -1005,6 +1033,7 @@ export class CreateScalingConfigurationRequestResourcePoolOptions extends $dara.
   static types(): { [key: string]: any } {
     return {
       privatePoolIds: { 'type': 'array', 'itemType': 'string' },
+      privatePoolTags: { 'type': 'array', 'itemType': CreateScalingConfigurationRequestResourcePoolOptionsPrivatePoolTags },
       strategy: 'string',
     };
   }
@@ -1012,6 +1041,9 @@ export class CreateScalingConfigurationRequestResourcePoolOptions extends $dara.
   validate() {
     if(Array.isArray(this.privatePoolIds)) {
       $dara.Model.validateArray(this.privatePoolIds);
+    }
+    if(Array.isArray(this.privatePoolTags)) {
+      $dara.Model.validateArray(this.privatePoolTags);
     }
     super.validate();
   }

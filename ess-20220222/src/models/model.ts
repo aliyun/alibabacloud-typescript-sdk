@@ -47,6 +47,7 @@ export { CreateScalingConfigurationRequestInstancePatternInfos } from './CreateS
 export { CreateScalingConfigurationRequestInstanceTypeCandidateOptions } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestInstanceTypeOverrides } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestNetworkInterfaces } from './CreateScalingConfigurationRequest';
+export { CreateScalingConfigurationRequestResourcePoolOptionsPrivatePoolTags } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestResourcePoolOptions } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestSecurityOptions } from './CreateScalingConfigurationRequest';
 export { CreateScalingConfigurationRequestSpotPriceLimits } from './CreateScalingConfigurationRequest';
@@ -59,6 +60,7 @@ export { CreateScalingConfigurationShrinkRequestInstancePatternInfos } from './C
 export { CreateScalingConfigurationShrinkRequestInstanceTypeCandidateOptions } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestInstanceTypeOverrides } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestNetworkInterfaces } from './CreateScalingConfigurationShrinkRequest';
+export { CreateScalingConfigurationShrinkRequestResourcePoolOptionsPrivatePoolTags } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestResourcePoolOptions } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestSecurityOptions } from './CreateScalingConfigurationShrinkRequest';
 export { CreateScalingConfigurationShrinkRequestSpotPriceLimits } from './CreateScalingConfigurationShrinkRequest';
@@ -149,6 +151,7 @@ export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataDisks
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstancePatternInfos } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstanceTypeCandidateOptions } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsNetworkInterfaces } from './DescribeScalingConfigurationsResponseBody';
+export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptionsPrivatePoolTags } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsResourcePoolOptions } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsSchedulerOptions } from './DescribeScalingConfigurationsResponseBody';
 export { DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions } from './DescribeScalingConfigurationsResponseBody';
@@ -237,6 +240,7 @@ export { ModifyScalingConfigurationRequestInstancePatternInfos } from './ModifyS
 export { ModifyScalingConfigurationRequestInstanceTypeCandidateOptions } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestInstanceTypeOverrides } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestNetworkInterfaces } from './ModifyScalingConfigurationRequest';
+export { ModifyScalingConfigurationRequestResourcePoolOptionsPrivatePoolTags } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestResourcePoolOptions } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestSecurityOptions } from './ModifyScalingConfigurationRequest';
 export { ModifyScalingConfigurationRequestSpotPriceLimits } from './ModifyScalingConfigurationRequest';
@@ -249,6 +253,7 @@ export { ModifyScalingConfigurationShrinkRequestInstancePatternInfos } from './M
 export { ModifyScalingConfigurationShrinkRequestInstanceTypeCandidateOptions } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestInstanceTypeOverrides } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestNetworkInterfaces } from './ModifyScalingConfigurationShrinkRequest';
+export { ModifyScalingConfigurationShrinkRequestResourcePoolOptionsPrivatePoolTags } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestResourcePoolOptions } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestSecurityOptions } from './ModifyScalingConfigurationShrinkRequest';
 export { ModifyScalingConfigurationShrinkRequestSpotPriceLimits } from './ModifyScalingConfigurationShrinkRequest';
