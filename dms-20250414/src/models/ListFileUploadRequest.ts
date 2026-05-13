@@ -9,6 +9,7 @@ export class ListFileUploadRequest extends $dara.Model {
    * cn-hangzhou
    */
   dmsUnit?: string;
+  downloadLinkExpire?: number;
   /**
    * @example
    * TextReport
@@ -43,6 +44,7 @@ export class ListFileUploadRequest extends $dara.Model {
     return {
       callFrom: 'CallFrom',
       dmsUnit: 'DmsUnit',
+      downloadLinkExpire: 'DownloadLinkExpire',
       fileCategory: 'FileCategory',
       fileFrom: 'FileFrom',
       fileId: 'FileId',
@@ -56,6 +58,7 @@ export class ListFileUploadRequest extends $dara.Model {
     return {
       callFrom: 'string',
       dmsUnit: 'string',
+      downloadLinkExpire: 'number',
       fileCategory: 'string',
       fileFrom: 'string',
       fileId: 'string',

@@ -3396,6 +3396,10 @@ export default class Client extends OpenApi {
       query["DmsUnit"] = request.dmsUnit;
     }
 
+    if (!$dara.isNull(request.downloadLinkExpire)) {
+      query["DownloadLinkExpire"] = request.downloadLinkExpire;
+    }
+
     if (!$dara.isNull(request.fileCategory)) {
       query["FileCategory"] = request.fileCategory;
     }
