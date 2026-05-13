@@ -11,6 +11,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
    * WD20250718165839000001
    */
   bizId?: string;
+  domainKeyword?: string;
   /**
    * @remarks
    * Number of results per query.
@@ -64,6 +65,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
+      domainKeyword: 'DomainKeyword',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orderColumn: 'OrderColumn',
@@ -76,6 +78,7 @@ export class ListAppInstanceDomainsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
+      domainKeyword: 'string',
       maxResults: 'number',
       nextToken: 'string',
       orderColumn: 'string',

@@ -1871,6 +1871,10 @@ export default class Client extends OpenApi {
       query["BizId"] = request.bizId;
     }
 
+    if (!$dara.isNull(request.domainKeyword)) {
+      query["DomainKeyword"] = request.domainKeyword;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
