@@ -471,6 +471,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * deny
    */
   adminAccess?: string;
+  adminKeyboardOnFullScreen?: string;
+  adminKeyboardOnWindows?: string;
+  adminMonitor?: number;
   /**
    * @remarks
    * Indicates whether anti-screenshot is enabled.
@@ -498,6 +501,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    */
   cameraRedirect?: string;
   clientControlMenu?: string;
+  clientCreateSnapshot?: string;
   clientHibernate?: string;
   clientRestart?: string;
   clientShutdown?: string;
@@ -531,6 +535,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * 30
    */
   cpuDownGradeDuration?: number;
+  cpuOverload?: string;
   /**
    * @remarks
    * The CPU processors.
@@ -614,6 +619,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * 120
    */
   disconnectKeepSessionTime?: number;
+  diskOverload?: string;
   /**
    * @remarks
    * The display mode.
@@ -651,6 +657,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * off
    */
   endUserApplyAdminCoordinate?: string;
+  endUserCount?: string;
   /**
    * @remarks
    * Indicates whether end users in the same office network can share cloud computers.
@@ -659,6 +666,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * off
    */
   endUserGroupCoordinate?: string;
+  externalDrive?: string;
   fileTransferAddress?: string;
   fileTransferSpeed?: string;
   fileTransferSpeedLocation?: string;
@@ -699,6 +707,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    */
   internetCommunicationProtocol?: string;
   internetPrinter?: string;
+  keyboardControl?: string;
+  kmsServer?: string;
+  kmsServerConfig?: string;
   /**
    * @remarks
    * The read/write permissions on the on-premises drive.
@@ -723,6 +734,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * 30
    */
   memoryDownGradeDuration?: number;
+  memoryOverload?: string;
   /**
    * @remarks
    * The memory processors.
@@ -810,6 +822,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * >  This parameter is in private preview and only available to specific users.
    */
   netRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule[];
+  networkPrinter?: string;
   /**
    * @remarks
    * Indicates whether a disconnection is enforced upon inactivity.
@@ -830,6 +843,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
    * 120
    */
   noOperationDisconnectTime?: number;
+  organizationCount?: string;
   /**
    * @remarks
    * The policy ID.
@@ -1251,11 +1265,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
     return {
       academicProxy: 'AcademicProxy',
       adminAccess: 'AdminAccess',
+      adminKeyboardOnFullScreen: 'AdminKeyboardOnFullScreen',
+      adminKeyboardOnWindows: 'AdminKeyboardOnWindows',
+      adminMonitor: 'AdminMonitor',
       appContentProtection: 'AppContentProtection',
       authorizeAccessPolicyRules: 'AuthorizeAccessPolicyRules',
       authorizeSecurityPolicyRules: 'AuthorizeSecurityPolicyRules',
       cameraRedirect: 'CameraRedirect',
       clientControlMenu: 'ClientControlMenu',
+      clientCreateSnapshot: 'ClientCreateSnapshot',
       clientHibernate: 'ClientHibernate',
       clientRestart: 'ClientRestart',
       clientShutdown: 'ClientShutdown',
@@ -1264,6 +1282,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       colorEnhancement: 'ColorEnhancement',
       cpdDriveClipboard: 'CpdDriveClipboard',
       cpuDownGradeDuration: 'CpuDownGradeDuration',
+      cpuOverload: 'CpuOverload',
       cpuProcessors: 'CpuProcessors',
       cpuProtectedMode: 'CpuProtectedMode',
       cpuRateLimit: 'CpuRateLimit',
@@ -1275,12 +1294,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       deviceRules: 'DeviceRules',
       disconnectKeepSession: 'DisconnectKeepSession',
       disconnectKeepSessionTime: 'DisconnectKeepSessionTime',
+      diskOverload: 'DiskOverload',
       displayMode: 'DisplayMode',
       domainRegisterValue: 'DomainRegisterValue',
       domainResolveRule: 'DomainResolveRule',
       domainResolveRuleType: 'DomainResolveRuleType',
       endUserApplyAdminCoordinate: 'EndUserApplyAdminCoordinate',
+      endUserCount: 'EndUserCount',
       endUserGroupCoordinate: 'EndUserGroupCoordinate',
+      externalDrive: 'ExternalDrive',
       fileTransferAddress: 'FileTransferAddress',
       fileTransferSpeed: 'FileTransferSpeed',
       fileTransferSpeedLocation: 'FileTransferSpeedLocation',
@@ -1293,9 +1315,13 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       html5FileTransfer: 'Html5FileTransfer',
       internetCommunicationProtocol: 'InternetCommunicationProtocol',
       internetPrinter: 'InternetPrinter',
+      keyboardControl: 'KeyboardControl',
+      kmsServer: 'KmsServer',
+      kmsServerConfig: 'KmsServerConfig',
       localDrive: 'LocalDrive',
       maxReconnectTime: 'MaxReconnectTime',
       memoryDownGradeDuration: 'MemoryDownGradeDuration',
+      memoryOverload: 'MemoryOverload',
       memoryProcessors: 'MemoryProcessors',
       memoryProtectedMode: 'MemoryProtectedMode',
       memoryRateLimit: 'MemoryRateLimit',
@@ -1311,8 +1337,10 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
+      networkPrinter: 'NetworkPrinter',
       noOperationDisconnect: 'NoOperationDisconnect',
       noOperationDisconnectTime: 'NoOperationDisconnectTime',
+      organizationCount: 'OrganizationCount',
       policyGroupId: 'PolicyGroupId',
       policyGroupType: 'PolicyGroupType',
       policyStatus: 'PolicyStatus',
@@ -1379,11 +1407,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
     return {
       academicProxy: 'string',
       adminAccess: 'string',
+      adminKeyboardOnFullScreen: 'string',
+      adminKeyboardOnWindows: 'string',
+      adminMonitor: 'number',
       appContentProtection: 'string',
       authorizeAccessPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules },
       authorizeSecurityPolicyRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules },
       cameraRedirect: 'string',
       clientControlMenu: 'string',
+      clientCreateSnapshot: 'string',
       clientHibernate: 'string',
       clientRestart: 'string',
       clientShutdown: 'string',
@@ -1392,6 +1424,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       colorEnhancement: 'string',
       cpdDriveClipboard: 'string',
       cpuDownGradeDuration: 'number',
+      cpuOverload: 'string',
       cpuProcessors: { 'type': 'array', 'itemType': 'string' },
       cpuProtectedMode: 'string',
       cpuRateLimit: 'number',
@@ -1403,12 +1436,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       deviceRules: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules },
       disconnectKeepSession: 'string',
       disconnectKeepSessionTime: 'number',
+      diskOverload: 'string',
       displayMode: 'string',
       domainRegisterValue: 'string',
       domainResolveRule: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule },
       domainResolveRuleType: 'string',
       endUserApplyAdminCoordinate: 'string',
+      endUserCount: 'string',
       endUserGroupCoordinate: 'string',
+      externalDrive: 'string',
       fileTransferAddress: 'string',
       fileTransferSpeed: 'string',
       fileTransferSpeedLocation: 'string',
@@ -1421,9 +1457,13 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       html5FileTransfer: 'string',
       internetCommunicationProtocol: 'string',
       internetPrinter: 'string',
+      keyboardControl: 'string',
+      kmsServer: 'string',
+      kmsServerConfig: 'string',
       localDrive: 'string',
       maxReconnectTime: 'number',
       memoryDownGradeDuration: 'number',
+      memoryOverload: 'string',
       memoryProcessors: { 'type': 'array', 'itemType': 'string' },
       memoryProtectedMode: 'string',
       memoryRateLimit: 'number',
@@ -1439,8 +1479,10 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule },
+      networkPrinter: 'string',
       noOperationDisconnect: 'string',
       noOperationDisconnectTime: 'number',
+      organizationCount: 'string',
       policyGroupId: 'string',
       policyGroupType: 'string',
       policyStatus: 'string',
