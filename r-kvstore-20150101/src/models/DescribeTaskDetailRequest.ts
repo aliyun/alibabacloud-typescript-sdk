@@ -2,30 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SwitchInstanceHAResponseBody extends $dara.Model {
+export class DescribeTaskDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * This parameter is required.
    * 
    * @example
-   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   * r-bp1zxszhcgatnx****
    */
-  requestId?: string;
+  instanceId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 674546459
    */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
-      requestId: 'RequestId',
+      instanceId: 'InstanceId',
       taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      requestId: 'string',
+      instanceId: 'string',
       taskId: 'string',
     };
   }

@@ -1833,6 +1833,198 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Tair Serverless 类型实例的Workspace
+   * 
+   * @param request - CreateTairSkvDdbTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTairSkvDdbTableResponse
+   */
+  async createTairSkvDdbTableWithOptions(request: $_model.CreateTairSkvDdbTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTairSkvDdbTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.schema)) {
+      query["Schema"] = request.schema;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.srcDBInstanceId)) {
+      query["SrcDBInstanceId"] = request.srcDBInstanceId;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.ttlSpec)) {
+      query["TtlSpec"] = request.ttlSpec;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTairSkvDdbTable",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTairSkvDdbTableResponse>(await this.callApi(params, req, runtime), new $_model.CreateTairSkvDdbTableResponse({}));
+  }
+
+  /**
+   * 创建Tair Serverless 类型实例的Workspace
+   * 
+   * @param request - CreateTairSkvDdbTableRequest
+   * @returns CreateTairSkvDdbTableResponse
+   */
+  async createTairSkvDdbTable(request: $_model.CreateTairSkvDdbTableRequest): Promise<$_model.CreateTairSkvDdbTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTairSkvDdbTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建Tair Serverless 类型实例的Workspace
+   * 
+   * @param request - CreateTairSkvDdbWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTairSkvDdbWorkspaceResponse
+   */
+  async createTairSkvDdbWorkspaceWithOptions(request: $_model.CreateTairSkvDdbWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTairSkvDdbWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.port)) {
+      query["Port"] = request.port;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTairSkvDdbWorkspace",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTairSkvDdbWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateTairSkvDdbWorkspaceResponse({}));
+  }
+
+  /**
+   * 创建Tair Serverless 类型实例的Workspace
+   * 
+   * @param request - CreateTairSkvDdbWorkspaceRequest
+   * @returns CreateTairSkvDdbWorkspaceResponse
+   */
+  async createTairSkvDdbWorkspace(request: $_model.CreateTairSkvDdbWorkspaceRequest): Promise<$_model.CreateTairSkvDdbWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTairSkvDdbWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an account from a Tair (Redis OSS-compatible) instance.
    * 
    * @remarks
@@ -7034,6 +7226,180 @@ export default class Client extends OpenApi {
   async describeTairKVCacheInferInstances(request: $_model.DescribeTairKVCacheInferInstancesRequest): Promise<$_model.DescribeTairKVCacheInferInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTairKVCacheInferInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Tair Serverless KV DDB实例的table
+   * 
+   * @param request - DescribeTairSkvDdbTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTairSkvDdbTableResponse
+   */
+  async describeTairSkvDdbTableWithOptions(request: $_model.DescribeTairSkvDdbTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTairSkvDdbTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTairSkvDdbTable",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTairSkvDdbTableResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTairSkvDdbTableResponse({}));
+  }
+
+  /**
+   * 查询Tair Serverless KV DDB实例的table
+   * 
+   * @param request - DescribeTairSkvDdbTableRequest
+   * @returns DescribeTairSkvDdbTableResponse
+   */
+  async describeTairSkvDdbTable(request: $_model.DescribeTairSkvDdbTableRequest): Promise<$_model.DescribeTairSkvDdbTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTairSkvDdbTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Tair Serverless KV DDB实例的table schema
+   * 
+   * @param request - DescribeTairSkvDdbTableSchemaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTairSkvDdbTableSchemaResponse
+   */
+  async describeTairSkvDdbTableSchemaWithOptions(request: $_model.DescribeTairSkvDdbTableSchemaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTairSkvDdbTableSchemaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.backupId)) {
+      query["BackupId"] = request.backupId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTairSkvDdbTableSchema",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTairSkvDdbTableSchemaResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTairSkvDdbTableSchemaResponse({}));
+  }
+
+  /**
+   * 查询Tair Serverless KV DDB实例的table schema
+   * 
+   * @param request - DescribeTairSkvDdbTableSchemaRequest
+   * @returns DescribeTairSkvDdbTableSchemaResponse
+   */
+  async describeTairSkvDdbTableSchema(request: $_model.DescribeTairSkvDdbTableSchemaRequest): Promise<$_model.DescribeTairSkvDdbTableSchemaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTairSkvDdbTableSchemaWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询任务详情
+   * 
+   * @param request - DescribeTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTaskDetailResponse
+   */
+  async describeTaskDetailWithOptions(request: $_model.DescribeTaskDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTaskDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTaskDetail",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTaskDetailResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTaskDetailResponse({}));
+  }
+
+  /**
+   * 查询任务详情
+   * 
+   * @param request - DescribeTaskDetailRequest
+   * @returns DescribeTaskDetailResponse
+   */
+  async describeTaskDetail(request: $_model.DescribeTaskDetailRequest): Promise<$_model.DescribeTaskDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTaskDetailWithOptions(request, runtime);
   }
 
   /**

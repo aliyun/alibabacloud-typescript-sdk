@@ -98,6 +98,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $dara
   userName?: string;
   vSwitchId?: string;
   vpcId?: string;
+  workspaceId?: string;
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -144,6 +145,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $dara
       userName: 'UserName',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
+      workspaceId: 'WorkspaceId',
       zoneId: 'ZoneId',
     };
   }
@@ -193,6 +195,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $dara
       userName: 'string',
       vSwitchId: 'string',
       vpcId: 'string',
+      workspaceId: 'string',
       zoneId: 'string',
     };
   }
