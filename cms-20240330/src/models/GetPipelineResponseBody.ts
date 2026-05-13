@@ -253,10 +253,12 @@ export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
    * test-project
    */
   project?: string;
+  query?: string;
   static names(): { [key: string]: string } {
     return {
       logstore: 'logstore',
       project: 'project',
+      query: 'query',
     };
   }
 
@@ -264,6 +266,7 @@ export class GetPipelineResponseBodySourceLogstore extends $dara.Model {
     return {
       logstore: 'string',
       project: 'string',
+      query: 'string',
     };
   }
 

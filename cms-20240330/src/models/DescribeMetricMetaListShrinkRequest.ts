@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMetricMetaListShrinkRequest extends $dara.Model {
+  keywords?: string;
   labelsShrink?: string;
   /**
    * @example
@@ -31,6 +32,7 @@ export class DescribeMetricMetaListShrinkRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      keywords: 'keywords',
       labelsShrink: 'labels',
       metaFormat: 'metaFormat',
       metricName: 'metricName',
@@ -42,6 +44,7 @@ export class DescribeMetricMetaListShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      keywords: 'string',
       labelsShrink: 'string',
       metaFormat: 'string',
       metricName: 'string',

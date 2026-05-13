@@ -2602,6 +2602,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keywords)) {
+      query["keywords"] = request.keywords;
+    }
+
     if (!$dara.isNull(request.labelsShrink)) {
       query["labels"] = request.labelsShrink;
     }

@@ -37,6 +37,7 @@ export class DescribeMetricMetaListRequestLabels extends $dara.Model {
 }
 
 export class DescribeMetricMetaListRequest extends $dara.Model {
+  keywords?: string;
   labels?: DescribeMetricMetaListRequestLabels[];
   /**
    * @example
@@ -65,6 +66,7 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
+      keywords: 'keywords',
       labels: 'labels',
       metaFormat: 'metaFormat',
       metricName: 'metricName',
@@ -76,6 +78,7 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      keywords: 'string',
       labels: { 'type': 'array', 'itemType': DescribeMetricMetaListRequestLabels },
       metaFormat: 'string',
       metricName: 'string',

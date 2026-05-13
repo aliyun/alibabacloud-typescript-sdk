@@ -30,6 +30,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
   dimensionDescription?: DescribeMetricMetaListResponseBodyResourcesDimensionDescription[];
   dimensions?: string[];
   labels?: { [key: string]: string };
+  metaFormat?: string;
   metricName?: string;
   namespace?: string;
   periods?: string;
@@ -42,6 +43,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
       dimensionDescription: 'dimensionDescription',
       dimensions: 'dimensions',
       labels: 'labels',
+      metaFormat: 'metaFormat',
       metricName: 'metricName',
       namespace: 'namespace',
       periods: 'periods',
@@ -57,6 +59,7 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
       dimensionDescription: { 'type': 'array', 'itemType': DescribeMetricMetaListResponseBodyResourcesDimensionDescription },
       dimensions: { 'type': 'array', 'itemType': 'string' },
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      metaFormat: 'string',
       metricName: 'string',
       namespace: 'string',
       periods: 'string',
