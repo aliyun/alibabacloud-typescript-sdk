@@ -79,6 +79,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建db
+   * 
+   * @param request - CreateDatabaseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatabaseResponse
+   */
+  async createDatabaseWithOptions(instanceId: string, request: $_model.CreateDatabaseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatabaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.databaseName)) {
+      body["databaseName"] = request.databaseName;
+    }
+
+    if (!$dara.isNull(request.permissionModel)) {
+      body["permissionModel"] = request.permissionModel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDatabase",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/createDatabase`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatabaseResponse({}));
+  }
+
+  /**
+   * 创建db
+   * 
+   * @param request - CreateDatabaseRequest
+   * @returns CreateDatabaseResponse
+   */
+  async createDatabase(instanceId: string, request: $_model.CreateDatabaseRequest): Promise<$_model.CreateDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDatabaseWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建外部db
+   * 
+   * @param request - CreateExternalDatabaseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateExternalDatabaseResponse
+   */
+  async createExternalDatabaseWithOptions(instanceId: string, request: $_model.CreateExternalDatabaseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExternalDatabaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.databaseName)) {
+      body["databaseName"] = request.databaseName;
+    }
+
+    if (!$dara.isNull(request.defaultUserMapping)) {
+      body["defaultUserMapping"] = request.defaultUserMapping;
+    }
+
+    if (!$dara.isNull(request.externalConfig)) {
+      body["externalConfig"] = request.externalConfig;
+    }
+
+    if (!$dara.isNull(request.metastoreType)) {
+      body["metastoreType"] = request.metastoreType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateExternalDatabase",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/createExternalDatabase`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateExternalDatabaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateExternalDatabaseResponse({}));
+  }
+
+  /**
+   * 创建外部db
+   * 
+   * @param request - CreateExternalDatabaseRequest
+   * @returns CreateExternalDatabaseResponse
+   */
+  async createExternalDatabase(instanceId: string, request: $_model.CreateExternalDatabaseRequest): Promise<$_model.CreateExternalDatabaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createExternalDatabaseWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Creates a virtual warehouse.
    * 
    * @param request - CreateHoloWarehouseRequest
@@ -295,6 +405,91 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建模型服务
+   * 
+   * @param request - CreateModelServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelServiceResponse
+   */
+  async createModelServiceWithOptions(instanceId: string, request: $_model.CreateModelServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.apiKey)) {
+      body["apiKey"] = request.apiKey;
+    }
+
+    if (!$dara.isNull(request.cpu)) {
+      body["cpu"] = request.cpu;
+    }
+
+    if (!$dara.isNull(request.gpu)) {
+      body["gpu"] = request.gpu;
+    }
+
+    if (!$dara.isNull(request.gpuMemory)) {
+      body["gpuMemory"] = request.gpuMemory;
+    }
+
+    if (!$dara.isNull(request.memory)) {
+      body["memory"] = request.memory;
+    }
+
+    if (!$dara.isNull(request.modelParams)) {
+      body["modelParams"] = request.modelParams;
+    }
+
+    if (!$dara.isNull(request.modelServiceName)) {
+      body["modelServiceName"] = request.modelServiceName;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      body["modelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      body["provider"] = request.provider;
+    }
+
+    if (!$dara.isNull(request.serviceCount)) {
+      body["serviceCount"] = request.serviceCount;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      body["taskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelService",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/createModelService`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelServiceResponse({}));
+  }
+
+  /**
+   * 创建模型服务
+   * 
+   * @param request - CreateModelServiceRequest
+   * @returns CreateModelServiceResponse
+   */
+  async createModelService(instanceId: string, request: $_model.CreateModelServiceRequest): Promise<$_model.CreateModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createModelServiceWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * 添加用户
    * 
    * @param request - CreateUserRequest
@@ -341,6 +536,126 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createUserWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建warehouse
+   * 
+   * @param request - CreateWarehouseRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWarehouseResponse
+   */
+  async createWarehouseWithOptions(instanceId: string, request: $_model.CreateWarehouseRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWarehouseResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.cpu)) {
+      body["cpu"] = request.cpu;
+    }
+
+    if (!$dara.isNull(request.warehouseName)) {
+      body["warehouseName"] = request.warehouseName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWarehouse",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/warehouse/${$dara.URL.percentEncode(instanceId)}/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWarehouseResponse>(await this.callApi(params, req, runtime), new $_model.CreateWarehouseResponse({}));
+  }
+
+  /**
+   * 创建warehouse
+   * 
+   * @param request - CreateWarehouseRequest
+   * @returns CreateWarehouseResponse
+   */
+  async createWarehouse(instanceId: string, request: $_model.CreateWarehouseRequest): Promise<$_model.CreateWarehouseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWarehouseWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建分时弹性计划
+   * 
+   * @param request - CreateWarehouseScheduleTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWarehouseScheduleTaskResponse
+   */
+  async createWarehouseScheduleTaskWithOptions(instanceId: string, request: $_model.CreateWarehouseScheduleTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWarehouseScheduleTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.elasticCu)) {
+      body["elasticCu"] = request.elasticCu;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.warehouseId)) {
+      body["warehouseId"] = request.warehouseId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWarehouseScheduleTask",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/createWarehouseScheduleTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWarehouseScheduleTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateWarehouseScheduleTaskResponse({}));
+  }
+
+  /**
+   * 创建分时弹性计划
+   * 
+   * @param request - CreateWarehouseScheduleTaskRequest
+   * @returns CreateWarehouseScheduleTaskResponse
+   */
+  async createWarehouseScheduleTask(instanceId: string, request: $_model.CreateWarehouseScheduleTaskRequest): Promise<$_model.CreateWarehouseScheduleTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -444,6 +759,145 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除模型资源
+   * 
+   * @param request - DeleteModelResourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelResourceResponse
+   */
+  async deleteModelResourceWithOptions(instanceId: string, request: $_model.DeleteModelResourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelResourceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aiInstanceId)) {
+      query["aiInstanceId"] = request.aiInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelResource",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/deleteModelResource`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelResourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelResourceResponse({}));
+  }
+
+  /**
+   * 删除模型资源
+   * 
+   * @param request - DeleteModelResourceRequest
+   * @returns DeleteModelResourceResponse
+   */
+  async deleteModelResource(instanceId: string, request: $_model.DeleteModelResourceRequest): Promise<$_model.DeleteModelResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteModelResourceWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建模型服务
+   * 
+   * @param request - DeleteModelServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelServiceResponse
+   */
+  async deleteModelServiceWithOptions(instanceId: string, request: $_model.DeleteModelServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelServiceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelServiceName)) {
+      query["modelServiceName"] = request.modelServiceName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelService",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/deleteModelService`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelServiceResponse({}));
+  }
+
+  /**
+   * 创建模型服务
+   * 
+   * @param request - DeleteModelServiceRequest
+   * @returns DeleteModelServiceResponse
+   */
+  async deleteModelService(instanceId: string, request: $_model.DeleteModelServiceRequest): Promise<$_model.DeleteModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteModelServiceWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 删除计算组弹性计划
+   * 
+   * @param request - DeleteWarehouseScheduleTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWarehouseScheduleTaskResponse
+   */
+  async deleteWarehouseScheduleTaskWithOptions(instanceId: string, request: $_model.DeleteWarehouseScheduleTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWarehouseScheduleTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.warehouseId)) {
+      body["warehouseId"] = request.warehouseId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWarehouseScheduleTask",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/deleteWarehouseScheduleTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWarehouseScheduleTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWarehouseScheduleTaskResponse({}));
+  }
+
+  /**
+   * 删除计算组弹性计划
+   * 
+   * @param request - DeleteWarehouseScheduleTaskRequest
+   * @returns DeleteWarehouseScheduleTaskResponse
+   */
+  async deleteWarehouseScheduleTask(instanceId: string, request: $_model.DeleteWarehouseScheduleTaskRequest): Promise<$_model.DeleteWarehouseScheduleTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Disables data lake acceleration.
    * 
    * @param request - DisableHiveAccessRequest
@@ -521,6 +975,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableSSLWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * 关闭自动弹性
+   * 
+   * @param request - DisableWarehouseAutoScaleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableWarehouseAutoScaleResponse
+   */
+  async disableWarehouseAutoScaleWithOptions(instanceId: string, request: $_model.DisableWarehouseAutoScaleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableWarehouseAutoScaleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableWarehouseAutoScale",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/disableWarehouseAutoScale`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableWarehouseAutoScaleResponse>(await this.callApi(params, req, runtime), new $_model.DisableWarehouseAutoScaleResponse({}));
+  }
+
+  /**
+   * 关闭自动弹性
+   * 
+   * @param request - DisableWarehouseAutoScaleRequest
+   * @returns DisableWarehouseAutoScaleResponse
+   */
+  async disableWarehouseAutoScale(instanceId: string, request: $_model.DisableWarehouseAutoScaleRequest): Promise<$_model.DisableWarehouseAutoScaleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableWarehouseAutoScaleWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -653,6 +1152,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启自动弹性
+   * 
+   * @param request - EnableWarehouseAutoScaleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableWarehouseAutoScaleResponse
+   */
+  async enableWarehouseAutoScaleWithOptions(instanceId: string, request: $_model.EnableWarehouseAutoScaleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableWarehouseAutoScaleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxClusterCount)) {
+      body["maxClusterCount"] = request.maxClusterCount;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableWarehouseAutoScale",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/enableWarehouseAutoScale`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableWarehouseAutoScaleResponse>(await this.callApi(params, req, runtime), new $_model.EnableWarehouseAutoScaleResponse({}));
+  }
+
+  /**
+   * 开启自动弹性
+   * 
+   * @param request - EnableWarehouseAutoScaleRequest
+   * @returns EnableWarehouseAutoScaleResponse
+   */
+  async enableWarehouseAutoScale(instanceId: string, request: $_model.EnableWarehouseAutoScaleRequest): Promise<$_model.EnableWarehouseAutoScaleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableWarehouseAutoScaleWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * 获得证书信息
    * 
    * @param headers - map
@@ -720,6 +1268,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getInstanceWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * 模型信息
+   * 
+   * @param request - GetInstanceModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceModelResponse
+   */
+  async getInstanceModelWithOptions(instanceId: string, request: $_model.GetInstanceModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetInstanceModelResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInstanceModel",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/getInstanceModel`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInstanceModelResponse>(await this.callApi(params, req, runtime), new $_model.GetInstanceModelResponse({}));
+  }
+
+  /**
+   * 模型信息
+   * 
+   * @param request - GetInstanceModelRequest
+   * @returns GetInstanceModelResponse
+   */
+  async getInstanceModel(instanceId: string, request: $_model.GetInstanceModelRequest): Promise<$_model.GetInstanceModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getInstanceModelWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -1066,6 +1653,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AI资源列表
+   * 
+   * @param request - ListInstanceModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceModelResponse
+   */
+  async listInstanceModelWithOptions(request: $_model.ListInstanceModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceModelResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceModel",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/rpc/listInstanceModel`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceModelResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceModelResponse({}));
+  }
+
+  /**
+   * AI资源列表
+   * 
+   * @param request - ListInstanceModelRequest
+   * @returns ListInstanceModelResponse
+   */
+  async listInstanceModel(request: $_model.ListInstanceModelRequest): Promise<$_model.ListInstanceModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstanceModelWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries a list of instances.
    * 
    * @param request - ListInstancesRequest
@@ -1116,6 +1742,155 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listInstancesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 列出模型列表
+   * 
+   * @param request - ListModelCatalogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelCatalogResponse
+   */
+  async listModelCatalogWithOptions(instanceId: string, request: $_model.ListModelCatalogRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelCatalogResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelCatalog",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/listModelCatalog`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelCatalogResponse>(await this.callApi(params, req, runtime), new $_model.ListModelCatalogResponse({}));
+  }
+
+  /**
+   * 列出模型列表
+   * 
+   * @param request - ListModelCatalogRequest
+   * @returns ListModelCatalogResponse
+   */
+  async listModelCatalog(instanceId: string, request: $_model.ListModelCatalogRequest): Promise<$_model.ListModelCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelCatalogWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 分时弹性日志
+   * 
+   * @param request - ListWarehouseScheduleEventRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWarehouseScheduleEventResponse
+   */
+  async listWarehouseScheduleEventWithOptions(instanceId: string, request: $_model.ListWarehouseScheduleEventRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWarehouseScheduleEventResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.elasticType)) {
+      body["elasticType"] = request.elasticType;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWarehouseScheduleEvent",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/listWarehouseScheduleEvent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWarehouseScheduleEventResponse>(await this.callApi(params, req, runtime), new $_model.ListWarehouseScheduleEventResponse({}));
+  }
+
+  /**
+   * 分时弹性日志
+   * 
+   * @param request - ListWarehouseScheduleEventRequest
+   * @returns ListWarehouseScheduleEventResponse
+   */
+  async listWarehouseScheduleEvent(instanceId: string, request: $_model.ListWarehouseScheduleEventRequest): Promise<$_model.ListWarehouseScheduleEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWarehouseScheduleEventWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 计算分时弹性计划列表
+   * 
+   * @param request - ListWarehouseScheduleTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWarehouseScheduleTaskResponse
+   */
+  async listWarehouseScheduleTaskWithOptions(instanceId: string, request: $_model.ListWarehouseScheduleTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWarehouseScheduleTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWarehouseScheduleTask",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/listWarehouseScheduleTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWarehouseScheduleTaskResponse>(await this.callApi(params, req, runtime), new $_model.ListWarehouseScheduleTaskResponse({}));
+  }
+
+  /**
+   * 计算分时弹性计划列表
+   * 
+   * @param request - ListWarehouseScheduleTaskRequest
+   * @returns ListWarehouseScheduleTaskResponse
+   */
+  async listWarehouseScheduleTask(instanceId: string, request: $_model.ListWarehouseScheduleTaskRequest): Promise<$_model.ListWarehouseScheduleTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -1998,6 +2773,132 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateInstanceNetworkTypeWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建模型服务
+   * 
+   * @param request - UpdateModelServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelServiceResponse
+   */
+  async updateModelServiceWithOptions(instanceId: string, request: $_model.UpdateModelServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.cpu)) {
+      body["cpu"] = request.cpu;
+    }
+
+    if (!$dara.isNull(request.gpu)) {
+      body["gpu"] = request.gpu;
+    }
+
+    if (!$dara.isNull(request.memory)) {
+      body["memory"] = request.memory;
+    }
+
+    if (!$dara.isNull(request.modelServiceName)) {
+      body["modelServiceName"] = request.modelServiceName;
+    }
+
+    if (!$dara.isNull(request.modelType)) {
+      body["modelType"] = request.modelType;
+    }
+
+    if (!$dara.isNull(request.serviceCount)) {
+      body["serviceCount"] = request.serviceCount;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelService",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/updateModelService`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelServiceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelServiceResponse({}));
+  }
+
+  /**
+   * 创建模型服务
+   * 
+   * @param request - UpdateModelServiceRequest
+   * @returns UpdateModelServiceResponse
+   */
+  async updateModelService(instanceId: string, request: $_model.UpdateModelServiceRequest): Promise<$_model.UpdateModelServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelServiceWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建分时弹性计划
+   * 
+   * @param request - UpdateWarehouseScheduleTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWarehouseScheduleTaskResponse
+   */
+  async updateWarehouseScheduleTaskWithOptions(instanceId: string, request: $_model.UpdateWarehouseScheduleTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWarehouseScheduleTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.elasticCu)) {
+      body["elasticCu"] = request.elasticCu;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.warehouseId)) {
+      body["warehouseId"] = request.warehouseId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWarehouseScheduleTask",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/updateWarehouseScheduleTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWarehouseScheduleTaskResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWarehouseScheduleTaskResponse({}));
+  }
+
+  /**
+   * 创建分时弹性计划
+   * 
+   * @param request - UpdateWarehouseScheduleTaskRequest
+   * @returns UpdateWarehouseScheduleTaskResponse
+   */
+  async updateWarehouseScheduleTask(instanceId: string, request: $_model.UpdateWarehouseScheduleTaskRequest): Promise<$_model.UpdateWarehouseScheduleTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
   }
 
 }
