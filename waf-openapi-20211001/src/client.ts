@@ -14730,12 +14730,18 @@ export default class Client extends OpenApi {
   /**
    * Enables or disables the log collection feature for a protected object.
    * 
-   * @param request - ModifyResourceLogStatusRequest
+   * @param tmpReq - ModifyResourceLogStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyResourceLogStatusResponse
    */
-  async modifyResourceLogStatusWithOptions(request: $_model.ModifyResourceLogStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyResourceLogStatusResponse> {
-    request.validate();
+  async modifyResourceLogStatusWithOptions(tmpReq: $_model.ModifyResourceLogStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyResourceLogStatusResponse> {
+    tmpReq.validate();
+    let request = new $_model.ModifyResourceLogStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.traceConfig)) {
+      request.traceConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.traceConfig, "TraceConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
@@ -14755,6 +14761,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.traceConfigShrink)) {
+      query["TraceConfig"] = request.traceConfigShrink;
+    }
+
+    if (!$dara.isNull(request.traceStatus)) {
+      query["TraceStatus"] = request.traceStatus;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

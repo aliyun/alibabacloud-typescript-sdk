@@ -139,6 +139,7 @@ export { DescribeProductInstancesResponseBodyProductInstances } from './Describe
 export { DescribeRelatedDefenseRulesResponseBodyRules } from './DescribeRelatedDefenseRulesResponseBody';
 export { DescribeResourceInstanceCertsResponseBodyCerts } from './DescribeResourceInstanceCertsResponseBody';
 export { DescribeResourceLogDeliveryStatusResponseBodyLogConfigs } from './DescribeResourceLogDeliveryStatusResponseBody';
+export { DescribeResourceLogStatusResponseBodyResultTraceConfig } from './DescribeResourceLogStatusResponseBody';
 export { DescribeResourceLogStatusResponseBodyResult } from './DescribeResourceLogStatusResponseBody';
 export { DescribeResponseCodeTrendGraphResponseBodyResponseCodes } from './DescribeResponseCodeTrendGraphResponseBody';
 export { DescribeRuleGroupsResponseBodyRuleGroups } from './DescribeRuleGroupsResponseBody';
@@ -208,6 +209,7 @@ export { ModifyDomainRequestRedirectBackendPorts } from './ModifyDomainRequest';
 export { ModifyDomainRequestRedirectRequestHeaders } from './ModifyDomainRequest';
 export { ModifyDomainRequestRedirect } from './ModifyDomainRequest';
 export { ModifyDomainResponseBodyDomainInfo } from './ModifyDomainResponseBody';
+export { ModifyResourceLogStatusRequestTraceConfig } from './ModifyResourceLogStatusRequest';
 export { TagResourcesRequestTag } from './TagResourcesRequest';
 export { VerifyDomainOwnerResponseBodyVerifyResult } from './VerifyDomainOwnerResponseBody';
 export { AddAddressRequest } from './AddAddressRequest';
@@ -912,6 +914,7 @@ export { ModifyResourceLogFieldConfigRequest } from './ModifyResourceLogFieldCon
 export { ModifyResourceLogFieldConfigResponseBody } from './ModifyResourceLogFieldConfigResponseBody';
 export { ModifyResourceLogFieldConfigResponse } from './ModifyResourceLogFieldConfigResponse';
 export { ModifyResourceLogStatusRequest } from './ModifyResourceLogStatusRequest';
+export { ModifyResourceLogStatusShrinkRequest } from './ModifyResourceLogStatusShrinkRequest';
 export { ModifyResourceLogStatusResponseBody } from './ModifyResourceLogStatusResponseBody';
 export { ModifyResourceLogStatusResponse } from './ModifyResourceLogStatusResponse';
 export { ModifyTemplateResourcesRequest } from './ModifyTemplateResourcesRequest';

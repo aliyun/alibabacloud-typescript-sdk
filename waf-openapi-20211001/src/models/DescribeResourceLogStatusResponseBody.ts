@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeResourceLogStatusResponseBodyResultTraceConfig extends $dara.Model {
+  ratePerMille?: number;
+  workspace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ratePerMille: 'RatePerMille',
+      workspace: 'Workspace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ratePerMille: 'number',
+      workspace: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
   /**
    * @remarks
@@ -22,10 +48,14 @@ export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
    * true
    */
   status?: boolean;
+  traceConfig?: DescribeResourceLogStatusResponseBodyResultTraceConfig;
+  traceStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
       resource: 'Resource',
       status: 'Status',
+      traceConfig: 'TraceConfig',
+      traceStatus: 'TraceStatus',
     };
   }
 
@@ -33,10 +63,15 @@ export class DescribeResourceLogStatusResponseBodyResult extends $dara.Model {
     return {
       resource: 'string',
       status: 'boolean',
+      traceConfig: DescribeResourceLogStatusResponseBodyResultTraceConfig,
+      traceStatus: 'boolean',
     };
   }
 
   validate() {
+    if(this.traceConfig && typeof (this.traceConfig as any).validate === 'function') {
+      (this.traceConfig as any).validate();
+    }
     super.validate();
   }
 

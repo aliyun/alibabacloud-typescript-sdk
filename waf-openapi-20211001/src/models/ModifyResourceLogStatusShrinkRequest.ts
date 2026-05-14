@@ -2,41 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ModifyResourceLogStatusRequestTraceConfig extends $dara.Model {
-  /**
-   * @example
-   * 0
-   */
-  ratePerMille?: number;
-  /**
-   * @example
-   * cms-test
-   */
-  workspace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ratePerMille: 'RatePerMille',
-      workspace: 'Workspace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ratePerMille: 'number',
-      workspace: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ModifyResourceLogStatusRequest extends $dara.Model {
+export class ModifyResourceLogStatusShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the Web Application Firewall (WAF) instance.
@@ -91,7 +57,7 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
    * true
    */
   status?: boolean;
-  traceConfig?: ModifyResourceLogStatusRequestTraceConfig;
+  traceConfigShrink?: string;
   traceStatus?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -100,7 +66,7 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
       resource: 'Resource',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       status: 'Status',
-      traceConfig: 'TraceConfig',
+      traceConfigShrink: 'TraceConfig',
       traceStatus: 'TraceStatus',
     };
   }
@@ -112,15 +78,12 @@ export class ModifyResourceLogStatusRequest extends $dara.Model {
       resource: 'string',
       resourceManagerResourceGroupId: 'string',
       status: 'boolean',
-      traceConfig: ModifyResourceLogStatusRequestTraceConfig,
+      traceConfigShrink: 'string',
       traceStatus: 'boolean',
     };
   }
 
   validate() {
-    if(this.traceConfig && typeof (this.traceConfig as any).validate === 'function') {
-      (this.traceConfig as any).validate();
-    }
     super.validate();
   }
 
