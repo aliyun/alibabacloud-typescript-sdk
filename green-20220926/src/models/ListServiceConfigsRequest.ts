@@ -11,6 +11,7 @@ export class ListServiceConfigsRequest extends $dara.Model {
    * guard-scene
    */
   classify?: string;
+  protectionType?: string;
   /**
    * @remarks
    * Region ID.
@@ -38,6 +39,7 @@ export class ListServiceConfigsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       classify: 'Classify',
+      protectionType: 'ProtectionType',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
       useStatus: 'UseStatus',
@@ -47,6 +49,7 @@ export class ListServiceConfigsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       classify: 'string',
+      protectionType: 'string',
       regionId: 'string',
       resourceType: 'string',
       useStatus: 'string',

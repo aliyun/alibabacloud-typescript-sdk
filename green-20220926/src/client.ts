@@ -3899,6 +3899,10 @@ export default class Client extends OpenApi {
       query["Classify"] = request.classify;
     }
 
+    if (!$dara.isNull(request.protectionType)) {
+      query["ProtectionType"] = request.protectionType;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
