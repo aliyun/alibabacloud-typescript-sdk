@@ -83,6 +83,11 @@ export class GetProjectResponseBody extends $dara.Model {
    * C33E160C-BFCA-5719-B958-942850E949F6
    */
   requestId?: string;
+  /**
+   * @example
+   * 35523
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -101,6 +106,7 @@ export class GetProjectResponseBody extends $dara.Model {
       onlineDatasourceType: 'OnlineDatasourceType',
       owner: 'Owner',
       requestId: 'RequestId',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -122,6 +128,7 @@ export class GetProjectResponseBody extends $dara.Model {
       onlineDatasourceType: 'string',
       owner: 'string',
       requestId: 'string',
+      workspaceId: 'string',
     };
   }
 

@@ -1832,6 +1832,10 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
     if (!$dara.isNull(request.joinIdsShrink)) {
       query["JoinIds"] = request.joinIdsShrink;
     }

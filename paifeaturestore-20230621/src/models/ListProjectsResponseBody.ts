@@ -83,6 +83,11 @@ export class ListProjectsResponseBodyProjects extends $dara.Model {
    * 3
    */
   projectId?: string;
+  /**
+   * @example
+   * 35523
+   */
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -101,6 +106,7 @@ export class ListProjectsResponseBodyProjects extends $dara.Model {
       onlineDatasourceType: 'OnlineDatasourceType',
       owner: 'Owner',
       projectId: 'ProjectId',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -122,6 +128,7 @@ export class ListProjectsResponseBodyProjects extends $dara.Model {
       onlineDatasourceType: 'string',
       owner: 'string',
       projectId: 'string',
+      workspaceId: 'string',
     };
   }
 

@@ -4,18 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListFeatureViewOnlineFeaturesRequest extends $dara.Model {
   /**
+   * @example
+   * {"dlrm_hstu": true}
+   */
+  config?: string;
+  /**
    * @remarks
    * This parameter is required.
    */
   joinIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      config: 'Config',
       joinIds: 'JoinIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      config: 'string',
       joinIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
