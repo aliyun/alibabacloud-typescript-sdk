@@ -1,0 +1,296 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class CreateBudgetRequestCycleQuota extends $dara.Model {
+  cyclePeriod?: string;
+  quota?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cyclePeriod: 'CyclePeriod',
+      quota: 'Quota',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cyclePeriod: 'string',
+      quota: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBudgetRequestEcIdAccountIds extends $dara.Model {
+  accountIds?: number[];
+  ecId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountIds: 'AccountIds',
+      ecId: 'EcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountIds: { 'type': 'array', 'itemType': 'number' },
+      ecId: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accountIds)) {
+      $dara.Model.validateArray(this.accountIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBudgetRequestQueryFilter extends $dara.Model {
+  /**
+   * @example
+   * RESOURCE_OWNER_ACCOUNT
+   */
+  code?: string;
+  /**
+   * @example
+   * IN
+   */
+  selectType?: string;
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      selectType: 'SelectType',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      selectType: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.values)) {
+      $dara.Model.validateArray(this.values);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBudgetRequestWarnConfs extends $dara.Model {
+  comment?: string;
+  /**
+   * @example
+   * true
+   */
+  eventBridge?: boolean;
+  mscChannels?: string[];
+  mscContacts?: string[];
+  /**
+   * @example
+   * Alter-1
+   */
+  name?: string;
+  /**
+   * @example
+   * FIXED
+   */
+  thresholdType?: string;
+  /**
+   * @example
+   * 2000
+   */
+  thresholdValue?: string;
+  /**
+   * @example
+   * FORECAST
+   */
+  warnTarget?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      eventBridge: 'EventBridge',
+      mscChannels: 'MscChannels',
+      mscContacts: 'MscContacts',
+      name: 'Name',
+      thresholdType: 'ThresholdType',
+      thresholdValue: 'ThresholdValue',
+      warnTarget: 'WarnTarget',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      eventBridge: 'boolean',
+      mscChannels: { 'type': 'array', 'itemType': 'string' },
+      mscContacts: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      thresholdType: 'string',
+      thresholdValue: 'string',
+      warnTarget: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mscChannels)) {
+      $dara.Model.validateArray(this.mscChannels);
+    }
+    if(Array.isArray(this.mscContacts)) {
+      $dara.Model.validateArray(this.mscContacts);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateBudgetRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Department_dev_budget
+   */
+  budgetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CONSUME
+   */
+  budgetType?: string;
+  comment?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2026-12
+   */
+  cycleEndPeriod?: string;
+  cycleQuota?: CreateBudgetRequestCycleQuota[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2026-01
+   */
+  cycleStartPeriod?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MONTHLY
+   */
+  cycleType?: string;
+  ecIdAccountIds?: CreateBudgetRequestEcIdAccountIds[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * REQUIRE_AMOUNT
+   */
+  metric?: string;
+  nbid?: string;
+  queryFilter?: CreateBudgetRequestQueryFilter[];
+  /**
+   * @example
+   * 1000
+   */
+  quota?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * FIXED
+   */
+  quotaType?: string;
+  warnConfs?: CreateBudgetRequestWarnConfs[];
+  static names(): { [key: string]: string } {
+    return {
+      budgetName: 'BudgetName',
+      budgetType: 'BudgetType',
+      comment: 'Comment',
+      cycleEndPeriod: 'CycleEndPeriod',
+      cycleQuota: 'CycleQuota',
+      cycleStartPeriod: 'CycleStartPeriod',
+      cycleType: 'CycleType',
+      ecIdAccountIds: 'EcIdAccountIds',
+      metric: 'Metric',
+      nbid: 'Nbid',
+      queryFilter: 'QueryFilter',
+      quota: 'Quota',
+      quotaType: 'QuotaType',
+      warnConfs: 'WarnConfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      budgetName: 'string',
+      budgetType: 'string',
+      comment: 'string',
+      cycleEndPeriod: 'string',
+      cycleQuota: { 'type': 'array', 'itemType': CreateBudgetRequestCycleQuota },
+      cycleStartPeriod: 'string',
+      cycleType: 'string',
+      ecIdAccountIds: { 'type': 'array', 'itemType': CreateBudgetRequestEcIdAccountIds },
+      metric: 'string',
+      nbid: 'string',
+      queryFilter: { 'type': 'array', 'itemType': CreateBudgetRequestQueryFilter },
+      quota: 'string',
+      quotaType: 'string',
+      warnConfs: { 'type': 'array', 'itemType': CreateBudgetRequestWarnConfs },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cycleQuota)) {
+      $dara.Model.validateArray(this.cycleQuota);
+    }
+    if(Array.isArray(this.ecIdAccountIds)) {
+      $dara.Model.validateArray(this.ecIdAccountIds);
+    }
+    if(Array.isArray(this.queryFilter)) {
+      $dara.Model.validateArray(this.queryFilter);
+    }
+    if(Array.isArray(this.warnConfs)) {
+      $dara.Model.validateArray(this.warnConfs);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

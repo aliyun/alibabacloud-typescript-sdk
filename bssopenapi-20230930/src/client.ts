@@ -318,6 +318,168 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检测budgetName是否存在
+   * 
+   * @param request - CheckBudgetNameExistsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckBudgetNameExistsResponse
+   */
+  async checkBudgetNameExistsWithOptions(request: $_model.CheckBudgetNameExistsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckBudgetNameExistsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.budgetName)) {
+      body["BudgetName"] = request.budgetName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckBudgetNameExists",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckBudgetNameExistsResponse>(await this.callApi(params, req, runtime), new $_model.CheckBudgetNameExistsResponse({}));
+  }
+
+  /**
+   * 检测budgetName是否存在
+   * 
+   * @param request - CheckBudgetNameExistsRequest
+   * @returns CheckBudgetNameExistsResponse
+   */
+  async checkBudgetNameExists(request: $_model.CheckBudgetNameExistsRequest): Promise<$_model.CheckBudgetNameExistsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkBudgetNameExistsWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建预算
+   * 
+   * @param tmpReq - CreateBudgetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateBudgetResponse
+   */
+  async createBudgetWithOptions(tmpReq: $_model.CreateBudgetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBudgetResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateBudgetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.cycleQuota)) {
+      request.cycleQuotaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cycleQuota, "CycleQuota", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.queryFilter)) {
+      request.queryFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryFilter, "QueryFilter", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.warnConfs)) {
+      request.warnConfsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.warnConfs, "WarnConfs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.budgetName)) {
+      body["BudgetName"] = request.budgetName;
+    }
+
+    if (!$dara.isNull(request.budgetType)) {
+      body["BudgetType"] = request.budgetType;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.cycleEndPeriod)) {
+      body["CycleEndPeriod"] = request.cycleEndPeriod;
+    }
+
+    if (!$dara.isNull(request.cycleQuotaShrink)) {
+      body["CycleQuota"] = request.cycleQuotaShrink;
+    }
+
+    if (!$dara.isNull(request.cycleStartPeriod)) {
+      body["CycleStartPeriod"] = request.cycleStartPeriod;
+    }
+
+    if (!$dara.isNull(request.cycleType)) {
+      body["CycleType"] = request.cycleType;
+    }
+
+    if (!$dara.isNull(request.metric)) {
+      body["Metric"] = request.metric;
+    }
+
+    if (!$dara.isNull(request.queryFilterShrink)) {
+      body["QueryFilter"] = request.queryFilterShrink;
+    }
+
+    if (!$dara.isNull(request.quota)) {
+      body["Quota"] = request.quota;
+    }
+
+    if (!$dara.isNull(request.quotaType)) {
+      body["QuotaType"] = request.quotaType;
+    }
+
+    if (!$dara.isNull(request.warnConfsShrink)) {
+      body["WarnConfs"] = request.warnConfsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateBudget",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateBudgetResponse>(await this.callApi(params, req, runtime), new $_model.CreateBudgetResponse({}));
+  }
+
+  /**
+   * 创建预算
+   * 
+   * @param request - CreateBudgetRequest
+   * @returns CreateBudgetResponse
+   */
+  async createBudget(request: $_model.CreateBudgetRequest): Promise<$_model.CreateBudgetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createBudgetWithOptions(request, runtime);
+  }
+
+  /**
    * 创建财务单元
    * 
    * @param tmpReq - CreateCostCenterRequest
@@ -947,6 +1109,118 @@ export default class Client extends OpenApi {
   async deleteReportDefinition(request: $_model.DeleteReportDefinitionRequest): Promise<$_model.DeleteReportDefinitionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteReportDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询单个Budget
+   * 
+   * @param request - DescribeBudgetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBudgetResponse
+   */
+  async describeBudgetWithOptions(request: $_model.DescribeBudgetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBudgetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.budgetName)) {
+      body["BudgetName"] = request.budgetName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBudget",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBudgetResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBudgetResponse({}));
+  }
+
+  /**
+   * 查询单个Budget
+   * 
+   * @param request - DescribeBudgetRequest
+   * @returns DescribeBudgetResponse
+   */
+  async describeBudget(request: $_model.DescribeBudgetRequest): Promise<$_model.DescribeBudgetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBudgetWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询预算列表
+   * 
+   * @param request - DescribeBudgetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeBudgetsResponse
+   */
+  async describeBudgetsWithOptions(request: $_model.DescribeBudgetsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBudgetsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.budgetName)) {
+      body["BudgetName"] = request.budgetName;
+    }
+
+    if (!$dara.isNull(request.budgetType)) {
+      body["BudgetType"] = request.budgetType;
+    }
+
+    if (!$dara.isNull(request.expireStatus)) {
+      body["ExpireStatus"] = request.expireStatus;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      body["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeBudgets",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeBudgetsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeBudgetsResponse({}));
+  }
+
+  /**
+   * 查询预算列表
+   * 
+   * @param request - DescribeBudgetsRequest
+   * @returns DescribeBudgetsResponse
+   */
+  async describeBudgets(request: $_model.DescribeBudgetsRequest): Promise<$_model.DescribeBudgetsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeBudgetsWithOptions(request, runtime);
   }
 
   /**
@@ -2858,6 +3132,124 @@ export default class Client extends OpenApi {
   async setSavingPlanUserDeductRule(request: $_model.SetSavingPlanUserDeductRuleRequest): Promise<$_model.SetSavingPlanUserDeductRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setSavingPlanUserDeductRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新预算
+   * 
+   * @param tmpReq - UpdateBudgetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBudgetResponse
+   */
+  async updateBudgetWithOptions(tmpReq: $_model.UpdateBudgetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBudgetResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateBudgetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.cycleQuota)) {
+      request.cycleQuotaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cycleQuota, "CycleQuota", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.queryFilter)) {
+      request.queryFilterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryFilter, "QueryFilter", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.warnConfs)) {
+      request.warnConfsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.warnConfs, "WarnConfs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.budgetName)) {
+      body["BudgetName"] = request.budgetName;
+    }
+
+    if (!$dara.isNull(request.budgetType)) {
+      body["BudgetType"] = request.budgetType;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.cycleEndPeriod)) {
+      body["CycleEndPeriod"] = request.cycleEndPeriod;
+    }
+
+    if (!$dara.isNull(request.cycleQuotaShrink)) {
+      body["CycleQuota"] = request.cycleQuotaShrink;
+    }
+
+    if (!$dara.isNull(request.cycleStartPeriod)) {
+      body["CycleStartPeriod"] = request.cycleStartPeriod;
+    }
+
+    if (!$dara.isNull(request.cycleType)) {
+      body["CycleType"] = request.cycleType;
+    }
+
+    if (!$dara.isNull(request.metric)) {
+      body["Metric"] = request.metric;
+    }
+
+    if (!$dara.isNull(request.originalBudgetName)) {
+      body["OriginalBudgetName"] = request.originalBudgetName;
+    }
+
+    if (!$dara.isNull(request.queryFilterShrink)) {
+      body["QueryFilter"] = request.queryFilterShrink;
+    }
+
+    if (!$dara.isNull(request.quota)) {
+      body["Quota"] = request.quota;
+    }
+
+    if (!$dara.isNull(request.quotaType)) {
+      body["QuotaType"] = request.quotaType;
+    }
+
+    if (!$dara.isNull(request.warnConfsShrink)) {
+      body["WarnConfs"] = request.warnConfsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBudget",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBudgetResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBudgetResponse({}));
+  }
+
+  /**
+   * 更新预算
+   * 
+   * @param request - UpdateBudgetRequest
+   * @returns UpdateBudgetResponse
+   */
+  async updateBudget(request: $_model.UpdateBudgetRequest): Promise<$_model.UpdateBudgetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateBudgetWithOptions(request, runtime);
   }
 
 }
