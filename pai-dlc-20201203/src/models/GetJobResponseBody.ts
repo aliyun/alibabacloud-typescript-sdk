@@ -489,6 +489,7 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
   reason?: string;
   restartDurationInSec?: number;
   restartFailReason?: string;
+  restartLevelType?: string;
   restartStatus?: string;
   triggerID?: string;
   static names(): { [key: string]: string } {
@@ -500,6 +501,7 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
       reason: 'Reason',
       restartDurationInSec: 'RestartDurationInSec',
       restartFailReason: 'RestartFailReason',
+      restartLevelType: 'RestartLevelType',
       restartStatus: 'RestartStatus',
       triggerID: 'TriggerID',
     };
@@ -514,6 +516,7 @@ export class GetJobResponseBodyRestartRecord extends $dara.Model {
       reason: 'string',
       restartDurationInSec: 'number',
       restartFailReason: 'string',
+      restartLevelType: 'string',
       restartStatus: 'string',
       triggerID: 'string',
     };

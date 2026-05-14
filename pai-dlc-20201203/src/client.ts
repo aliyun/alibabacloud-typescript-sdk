@@ -226,7 +226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Job Template
+   * Create a job template.
    * 
    * @param request - CreateJobTemplateRequest
    * @param headers - map
@@ -279,7 +279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a Job Template
+   * Create a job template.
    * 
    * @param request - CreateJobTemplateRequest
    * @returns CreateJobTemplateResponse
@@ -451,7 +451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete an unused job template. If the template is already used by a job, you cannot delete it.
+   * Deletes an unused job template. Templates that are used by jobs cannot be deleted.
    * 
    * @param request - DeleteJobTemplateRequest
    * @param headers - map
@@ -478,7 +478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete an unused job template. If the template is already used by a job, you cannot delete it.
+   * Deletes an unused job template. Templates that are used by jobs cannot be deleted.
    * 
    * @param request - DeleteJobTemplateRequest
    * @returns DeleteJobTemplateResponse
@@ -1950,7 +1950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a Job template
+   * Updates a job template.
    * 
    * @param request - UpdateJobTemplateRequest
    * @param headers - map
@@ -2007,7 +2007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update a Job template
+   * Updates a job template.
    * 
    * @param request - UpdateJobTemplateRequest
    * @returns UpdateJobTemplateResponse
