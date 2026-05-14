@@ -2,6 +2,47 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetProjectRoleResponseBodyProjectRoleModulePermissions extends $dara.Model {
+  /**
+   * @example
+   * 2
+   */
+  moduleId?: number;
+  /**
+   * @example
+   * HoloStudio
+   */
+  moduleName?: string;
+  /**
+   * @example
+   * Read
+   */
+  permissionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      moduleId: 'ModuleId',
+      moduleName: 'ModuleName',
+      permissionType: 'PermissionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      moduleId: 'number',
+      moduleName: 'string',
+      permissionType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
   /**
    * @remarks
@@ -11,6 +52,7 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
    * role_project_guest
    */
   code?: string;
+  modulePermissions?: GetProjectRoleResponseBodyProjectRoleModulePermissions[];
   /**
    * @remarks
    * The name of the role in the DataWorks workspace.
@@ -41,6 +83,7 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
+      modulePermissions: 'ModulePermissions',
       name: 'Name',
       projectId: 'ProjectId',
       type: 'Type',
@@ -50,6 +93,7 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      modulePermissions: { 'type': 'array', 'itemType': GetProjectRoleResponseBodyProjectRoleModulePermissions },
       name: 'string',
       projectId: 'number',
       type: 'string',
@@ -57,6 +101,9 @@ export class GetProjectRoleResponseBodyProjectRole extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.modulePermissions)) {
+      $dara.Model.validateArray(this.modulePermissions);
+    }
     super.validate();
   }
 

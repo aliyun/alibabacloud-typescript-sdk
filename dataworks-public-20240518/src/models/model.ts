@@ -297,6 +297,7 @@ export { GetProjectResponseBodyProjectAliyunResourceTags } from './GetProjectRes
 export { GetProjectResponseBodyProject } from './GetProjectResponseBody';
 export { GetProjectMemberResponseBodyProjectMemberRoles } from './GetProjectMemberResponseBody';
 export { GetProjectMemberResponseBodyProjectMember } from './GetProjectMemberResponseBody';
+export { GetProjectRoleResponseBodyProjectRoleModulePermissions } from './GetProjectRoleResponseBody';
 export { GetProjectRoleResponseBodyProjectRole } from './GetProjectRoleResponseBody';
 export { GetRerunWorkflowInstancesResultResponseBodyResult } from './GetRerunWorkflowInstancesResultResponseBody';
 export { GetResourceResponseBodyResource } from './GetResourceResponseBody';
@@ -586,6 +587,7 @@ export { ListPipelineRunsResponseBodyPagingInfo } from './ListPipelineRunsRespon
 export { ListProjectMembersResponseBodyPagingInfoProjectMembersRoles } from './ListProjectMembersResponseBody';
 export { ListProjectMembersResponseBodyPagingInfoProjectMembers } from './ListProjectMembersResponseBody';
 export { ListProjectMembersResponseBodyPagingInfo } from './ListProjectMembersResponseBody';
+export { ListProjectRolesResponseBodyPagingInfoProjectRolesModulePermissions } from './ListProjectRolesResponseBody';
 export { ListProjectRolesResponseBodyPagingInfoProjectRoles } from './ListProjectRolesResponseBody';
 export { ListProjectRolesResponseBodyPagingInfo } from './ListProjectRolesResponseBody';
 export { ListProjectsRequestAliyunResourceTags } from './ListProjectsRequest';
