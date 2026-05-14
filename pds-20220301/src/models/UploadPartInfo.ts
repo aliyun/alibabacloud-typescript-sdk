@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { UploadFormInfo } from "./UploadFormInfo";
 
 
 export class UploadPartInfoParallelSha1Ctx extends $dara.Model {
@@ -124,6 +125,7 @@ export class UploadPartInfo extends $dara.Model {
    * 1024
    */
   partSize?: number;
+  uploadFormInfo?: UploadFormInfo;
   /**
    * @remarks
    * The upload URL. By default, the validity period of the URL is 15 minutes. If the URL expires, you must call the GetUploadUrl operation to obtain another URL. If the intelligent domain name feature is enabled, the internal_upload_url value is returned within the parameter based on the request.
@@ -142,6 +144,7 @@ export class UploadPartInfo extends $dara.Model {
       parallelSha256Ctx: 'parallel_sha256_ctx',
       partNumber: 'part_number',
       partSize: 'part_size',
+      uploadFormInfo: 'upload_form_info',
       uploadUrl: 'upload_url',
     };
   }
@@ -154,6 +157,7 @@ export class UploadPartInfo extends $dara.Model {
       parallelSha256Ctx: UploadPartInfoParallelSha256Ctx,
       partNumber: 'number',
       partSize: 'number',
+      uploadFormInfo: UploadFormInfo,
       uploadUrl: 'string',
     };
   }
@@ -164,6 +168,9 @@ export class UploadPartInfo extends $dara.Model {
     }
     if(this.parallelSha256Ctx && typeof (this.parallelSha256Ctx as any).validate === 'function') {
       (this.parallelSha256Ctx as any).validate();
+    }
+    if(this.uploadFormInfo && typeof (this.uploadFormInfo as any).validate === 'function') {
+      (this.uploadFormInfo as any).validate();
     }
     super.validate();
   }

@@ -301,6 +301,11 @@ export class CreateFileRequest extends $dara.Model {
    */
   type?: string;
   /**
+   * @example
+   * multipart
+   */
+  uploadType?: string;
+  /**
    * @remarks
    * The custom tags. You can specify up to 1,000 tags.
    */
@@ -325,6 +330,7 @@ export class CreateFileRequest extends $dara.Model {
       shareId: 'share_id',
       size: 'size',
       type: 'type',
+      uploadType: 'upload_type',
       userTags: 'user_tags',
     };
   }
@@ -349,6 +355,7 @@ export class CreateFileRequest extends $dara.Model {
       shareId: 'string',
       size: 'number',
       type: 'string',
+      uploadType: 'string',
       userTags: { 'type': 'array', 'itemType': UserTag },
     };
   }

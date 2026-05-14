@@ -1018,6 +1018,10 @@ export default class Client extends OpenApi {
       body["type"] = request.type;
     }
 
+    if (!$dara.isNull(request.uploadType)) {
+      body["upload_type"] = request.uploadType;
+    }
+
     if (!$dara.isNull(request.userTags)) {
       body["user_tags"] = request.userTags;
     }
