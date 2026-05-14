@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DataMountInfo } from "./DataMountInfo";
 
 
 export class CreateAirflowResponseBodyRoot extends $dara.Model {
@@ -15,6 +16,11 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   airflowName?: string;
   /**
    * @example
+   * 3.1
+   */
+  airflowVersion?: string;
+  /**
+   * @example
    * SMALL
    */
   appSpec?: string;
@@ -23,11 +29,13 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
    * airflow
    */
   appType?: string;
+  customAirflowCfg?: string[];
   /**
    * @example
    * default/dags
    */
   dagsDir?: string;
+  dataMountInfoList?: DataMountInfo[];
   /**
    * @example
    * vpc not found
@@ -38,11 +46,17 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
    * order scheduler
    */
   description?: string;
+  enableServerless?: boolean;
   /**
    * @example
    * 2025-08-12T05:46:01.000+0000
    */
   gmtCreated?: string;
+  /**
+   * @example
+   * 60
+   */
+  gracefulShutdownTimeout?: number;
   /**
    * @example
    * oss-test
@@ -110,12 +124,17 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
     return {
       airflowId: 'AirflowId',
       airflowName: 'AirflowName',
+      airflowVersion: 'AirflowVersion',
       appSpec: 'AppSpec',
       appType: 'AppType',
+      customAirflowCfg: 'CustomAirflowCfg',
       dagsDir: 'DagsDir',
+      dataMountInfoList: 'DataMountInfoList',
       deployErrorMsg: 'DeployErrorMsg',
       description: 'Description',
+      enableServerless: 'EnableServerless',
       gmtCreated: 'GmtCreated',
+      gracefulShutdownTimeout: 'GracefulShutdownTimeout',
       ossBucketName: 'OssBucketName',
       ossPath: 'OssPath',
       pluginsDir: 'PluginsDir',
@@ -135,12 +154,17 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
     return {
       airflowId: 'string',
       airflowName: 'string',
+      airflowVersion: 'string',
       appSpec: 'string',
       appType: 'string',
+      customAirflowCfg: { 'type': 'array', 'itemType': 'string' },
       dagsDir: 'string',
+      dataMountInfoList: { 'type': 'array', 'itemType': DataMountInfo },
       deployErrorMsg: 'string',
       description: 'string',
+      enableServerless: 'boolean',
       gmtCreated: 'string',
+      gracefulShutdownTimeout: 'number',
       ossBucketName: 'string',
       ossPath: 'string',
       pluginsDir: 'string',
@@ -157,6 +181,12 @@ export class CreateAirflowResponseBodyRoot extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.customAirflowCfg)) {
+      $dara.Model.validateArray(this.customAirflowCfg);
+    }
+    if(Array.isArray(this.dataMountInfoList)) {
+      $dara.Model.validateArray(this.dataMountInfoList);
+    }
     super.validate();
   }
 

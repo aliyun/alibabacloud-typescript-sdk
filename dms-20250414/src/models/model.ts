@@ -89,6 +89,7 @@ export { DLStorageDescriptor } from './DlstorageDescriptor';
 export { DLTable } from './Dltable';
 export { DLTableInput } from './DltableInput';
 export { DLTablebaseInfo } from './DltablebaseInfo';
+export { DataMountInfo } from './DataMountInfo';
 export { DmsKnowledgeSearchOrderInfoDO } from './DmsKnowledgeSearchOrderInfoDo';
 export { ForeignInstance } from './ForeignInstance';
 export { ForeignInstanceCredInfo } from './ForeignInstanceCredInfo';
@@ -120,6 +121,7 @@ export { BatchUpdateDataLakePartitionsShrinkRequest } from './BatchUpdateDataLak
 export { BatchUpdateDataLakePartitionsResponseBody } from './BatchUpdateDataLakePartitionsResponseBody';
 export { BatchUpdateDataLakePartitionsResponse } from './BatchUpdateDataLakePartitionsResponse';
 export { CreateAirflowRequest } from './CreateAirflowRequest';
+export { CreateAirflowShrinkRequest } from './CreateAirflowShrinkRequest';
 export { CreateAirflowResponseBody } from './CreateAirflowResponseBody';
 export { CreateAirflowResponse } from './CreateAirflowResponse';
 export { CreateAirflowLoginTokenRequest } from './CreateAirflowLoginTokenRequest';
@@ -299,6 +301,7 @@ export { SetWorkspaceCodePublishSettingRequest } from './SetWorkspaceCodePublish
 export { SetWorkspaceCodePublishSettingResponseBody } from './SetWorkspaceCodePublishSettingResponseBody';
 export { SetWorkspaceCodePublishSettingResponse } from './SetWorkspaceCodePublishSettingResponse';
 export { UpdateAirflowRequest } from './UpdateAirflowRequest';
+export { UpdateAirflowShrinkRequest } from './UpdateAirflowShrinkRequest';
 export { UpdateAirflowResponseBody } from './UpdateAirflowResponseBody';
 export { UpdateAirflowResponse } from './UpdateAirflowResponse';
 export { UpdateDataAgentSpaceInfoRequest } from './UpdateDataAgentSpaceInfoRequest';

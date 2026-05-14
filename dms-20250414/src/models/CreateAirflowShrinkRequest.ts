@@ -1,9 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DataMountInfo } from "./DataMountInfo";
 
 
-export class CreateAirflowRequest extends $dara.Model {
+export class CreateAirflowShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -35,7 +34,7 @@ export class CreateAirflowRequest extends $dara.Model {
    * default/dags
    */
   dagsDir?: string;
-  dataMountInfoList?: DataMountInfo[];
+  dataMountInfoListShrink?: string;
   /**
    * @example
    * order scheduler
@@ -132,7 +131,7 @@ export class CreateAirflowRequest extends $dara.Model {
       appSpec: 'AppSpec',
       clientToken: 'ClientToken',
       dagsDir: 'DagsDir',
-      dataMountInfoList: 'DataMountInfoList',
+      dataMountInfoListShrink: 'DataMountInfoList',
       description: 'Description',
       enableServerless: 'EnableServerless',
       gracefulShutdownTimeout: 'GracefulShutdownTimeout',
@@ -157,7 +156,7 @@ export class CreateAirflowRequest extends $dara.Model {
       appSpec: 'string',
       clientToken: 'string',
       dagsDir: 'string',
-      dataMountInfoList: { 'type': 'array', 'itemType': DataMountInfo },
+      dataMountInfoListShrink: 'string',
       description: 'string',
       enableServerless: 'boolean',
       gracefulShutdownTimeout: 'number',
@@ -176,9 +175,6 @@ export class CreateAirflowRequest extends $dara.Model {
   }
 
   validate() {
-    if(Array.isArray(this.dataMountInfoList)) {
-      $dara.Model.validateArray(this.dataMountInfoList);
-    }
     super.validate();
   }
 

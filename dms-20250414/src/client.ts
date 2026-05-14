@@ -300,15 +300,25 @@ export default class Client extends OpenApi {
   /**
    * 创建Airflow
    * 
-   * @param request - CreateAirflowRequest
+   * @param tmpReq - CreateAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAirflowResponse
    */
-  async createAirflowWithOptions(request: $_model.CreateAirflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAirflowResponse> {
-    request.validate();
+  async createAirflowWithOptions(tmpReq: $_model.CreateAirflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAirflowResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAirflowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataMountInfoList)) {
+      request.dataMountInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataMountInfoList, "DataMountInfoList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.airflowName)) {
       query["AirflowName"] = request.airflowName;
+    }
+
+    if (!$dara.isNull(request.airflowVersion)) {
+      query["AirflowVersion"] = request.airflowVersion;
     }
 
     if (!$dara.isNull(request.appSpec)) {
@@ -323,8 +333,20 @@ export default class Client extends OpenApi {
       query["DagsDir"] = request.dagsDir;
     }
 
+    if (!$dara.isNull(request.dataMountInfoListShrink)) {
+      query["DataMountInfoList"] = request.dataMountInfoListShrink;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableServerless)) {
+      query["EnableServerless"] = request.enableServerless;
+    }
+
+    if (!$dara.isNull(request.gracefulShutdownTimeout)) {
+      query["GracefulShutdownTimeout"] = request.gracefulShutdownTimeout;
     }
 
     if (!$dara.isNull(request.ossBucketName)) {
@@ -3857,12 +3879,18 @@ export default class Client extends OpenApi {
   /**
    * 更新UpdateAirflow
    * 
-   * @param request - UpdateAirflowRequest
+   * @param tmpReq - UpdateAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateAirflowResponse
    */
-  async updateAirflowWithOptions(request: $_model.UpdateAirflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAirflowResponse> {
-    request.validate();
+  async updateAirflowWithOptions(tmpReq: $_model.UpdateAirflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAirflowResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAirflowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataMountInfoList)) {
+      request.dataMountInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataMountInfoList, "DataMountInfoList", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.airflowId)) {
       query["AirflowId"] = request.airflowId;
@@ -3884,8 +3912,20 @@ export default class Client extends OpenApi {
       query["DagsDir"] = request.dagsDir;
     }
 
+    if (!$dara.isNull(request.dataMountInfoListShrink)) {
+      query["DataMountInfoList"] = request.dataMountInfoListShrink;
+    }
+
     if (!$dara.isNull(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableServerless)) {
+      query["EnableServerless"] = request.enableServerless;
+    }
+
+    if (!$dara.isNull(request.gracefulShutdownTimeout)) {
+      query["GracefulShutdownTimeout"] = request.gracefulShutdownTimeout;
     }
 
     if (!$dara.isNull(request.pluginsDir)) {

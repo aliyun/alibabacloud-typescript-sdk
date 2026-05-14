@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { DataMountInfo } from "./DataMountInfo";
 
 
 export class UpdateAirflowRequest extends $dara.Model {
@@ -31,11 +32,18 @@ export class UpdateAirflowRequest extends $dara.Model {
    * default/dags
    */
   dagsDir?: string;
+  dataMountInfoList?: DataMountInfo[];
   /**
    * @example
    * test airflow
    */
   description?: string;
+  enableServerless?: boolean;
+  /**
+   * @example
+   * 60
+   */
+  gracefulShutdownTimeout?: number;
   /**
    * @example
    * default/plugins
@@ -71,7 +79,10 @@ export class UpdateAirflowRequest extends $dara.Model {
       appSpec: 'AppSpec',
       clientToken: 'ClientToken',
       dagsDir: 'DagsDir',
+      dataMountInfoList: 'DataMountInfoList',
       description: 'Description',
+      enableServerless: 'EnableServerless',
+      gracefulShutdownTimeout: 'GracefulShutdownTimeout',
       pluginsDir: 'PluginsDir',
       requirementFile: 'RequirementFile',
       startupFile: 'StartupFile',
@@ -87,7 +98,10 @@ export class UpdateAirflowRequest extends $dara.Model {
       appSpec: 'string',
       clientToken: 'string',
       dagsDir: 'string',
+      dataMountInfoList: { 'type': 'array', 'itemType': DataMountInfo },
       description: 'string',
+      enableServerless: 'boolean',
+      gracefulShutdownTimeout: 'number',
       pluginsDir: 'string',
       requirementFile: 'string',
       startupFile: 'string',
@@ -97,6 +111,9 @@ export class UpdateAirflowRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.dataMountInfoList)) {
+      $dara.Model.validateArray(this.dataMountInfoList);
+    }
     super.validate();
   }
 

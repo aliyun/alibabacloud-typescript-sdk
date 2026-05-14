@@ -1,26 +1,22 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DataMountInfo } from "./DataMountInfo";
 
 
-export class CreateAirflowRequest extends $dara.Model {
+export class UpdateAirflowShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    * 
+   * @example
+   * af-test****
+   */
+  airflowId?: string;
+  /**
    * @example
    * testairflow
    */
   airflowName?: string;
   /**
-   * @example
-   * 3.1
-   */
-  airflowVersion?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * SMALL
    */
@@ -35,10 +31,10 @@ export class CreateAirflowRequest extends $dara.Model {
    * default/dags
    */
   dagsDir?: string;
-  dataMountInfoList?: DataMountInfo[];
+  dataMountInfoListShrink?: string;
   /**
    * @example
-   * order scheduler
+   * test airflow
    */
   description?: string;
   enableServerless?: boolean;
@@ -47,22 +43,6 @@ export class CreateAirflowRequest extends $dara.Model {
    * 60
    */
   gracefulShutdownTimeout?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * oss-test
-   */
-  ossBucketName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * /airflow
-   */
-  ossPath?: string;
   /**
    * @example
    * default/plugins
@@ -74,40 +54,11 @@ export class CreateAirflowRequest extends $dara.Model {
    */
   requirementFile?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * sg-bp108t8ldzeyk1****
-   */
-  securityGroupId?: string;
-  /**
    * @example
    * default/startup.sh
    */
   startupFile?: string;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * vsw-8vbaf073jawozfp****
-   */
-  vSwitchId?: string;
-  /**
-   * @remarks
-   * VPC ID。
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * vpc-uf63r6coyiw9o5****
-   */
-  vpcId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 0
    */
@@ -117,68 +68,48 @@ export class CreateAirflowRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 8630242382****
+   * 863024238280****
    */
   workspaceId?: string;
-  /**
-   * @example
-   * cn-hangzhou-h
-   */
-  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      airflowId: 'AirflowId',
       airflowName: 'AirflowName',
-      airflowVersion: 'AirflowVersion',
       appSpec: 'AppSpec',
       clientToken: 'ClientToken',
       dagsDir: 'DagsDir',
-      dataMountInfoList: 'DataMountInfoList',
+      dataMountInfoListShrink: 'DataMountInfoList',
       description: 'Description',
       enableServerless: 'EnableServerless',
       gracefulShutdownTimeout: 'GracefulShutdownTimeout',
-      ossBucketName: 'OssBucketName',
-      ossPath: 'OssPath',
       pluginsDir: 'PluginsDir',
       requirementFile: 'RequirementFile',
-      securityGroupId: 'SecurityGroupId',
       startupFile: 'StartupFile',
-      vSwitchId: 'VSwitchId',
-      vpcId: 'VpcId',
       workerServerlessReplicas: 'WorkerServerlessReplicas',
       workspaceId: 'WorkspaceId',
-      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      airflowId: 'string',
       airflowName: 'string',
-      airflowVersion: 'string',
       appSpec: 'string',
       clientToken: 'string',
       dagsDir: 'string',
-      dataMountInfoList: { 'type': 'array', 'itemType': DataMountInfo },
+      dataMountInfoListShrink: 'string',
       description: 'string',
       enableServerless: 'boolean',
       gracefulShutdownTimeout: 'number',
-      ossBucketName: 'string',
-      ossPath: 'string',
       pluginsDir: 'string',
       requirementFile: 'string',
-      securityGroupId: 'string',
       startupFile: 'string',
-      vSwitchId: 'string',
-      vpcId: 'string',
       workerServerlessReplicas: 'number',
       workspaceId: 'string',
-      zoneId: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.dataMountInfoList)) {
-      $dara.Model.validateArray(this.dataMountInfoList);
-    }
     super.validate();
   }
 
