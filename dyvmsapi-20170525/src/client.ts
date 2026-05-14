@@ -466,6 +466,2706 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Agent status monitoring.
+   * 
+   * @param request - ClinkAgentStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkAgentStatusResponse
+   */
+  async clinkAgentStatusWithOptions(request: $_model.ClinkAgentStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkAgentStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkAgentStatus",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkAgentStatusResponse>(await this.callApi(params, req, runtime), new $_model.ClinkAgentStatusResponse({}));
+  }
+
+  /**
+   * Agent status monitoring.
+   * 
+   * @param request - ClinkAgentStatusRequest
+   * @returns ClinkAgentStatusResponse
+   */
+  async clinkAgentStatus(request: $_model.ClinkAgentStatusRequest): Promise<$_model.ClinkAgentStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkAgentStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the status details of an agent.
+   * 
+   * @param request - ClinkAgentStatusDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkAgentStatusDetailResponse
+   */
+  async clinkAgentStatusDetailWithOptions(request: $_model.ClinkAgentStatusDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkAgentStatusDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkAgentStatusDetail",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkAgentStatusDetailResponse>(await this.callApi(params, req, runtime), new $_model.ClinkAgentStatusDetailResponse({}));
+  }
+
+  /**
+   * Queries the status details of an agent.
+   * 
+   * @param request - ClinkAgentStatusDetailRequest
+   * @returns ClinkAgentStatusDetailResponse
+   */
+  async clinkAgentStatusDetail(request: $_model.ClinkAgentStatusDetailRequest): Promise<$_model.ClinkAgentStatusDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkAgentStatusDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Attach an agent phone.
+   * 
+   * @param request - ClinkBindClientTelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkBindClientTelResponse
+   */
+  async clinkBindClientTelWithOptions(request: $_model.ClinkBindClientTelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkBindClientTelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.isBind)) {
+      query["IsBind"] = request.isBind;
+    }
+
+    if (!$dara.isNull(request.isReserveTel)) {
+      query["IsReserveTel"] = request.isReserveTel;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.tel)) {
+      query["Tel"] = request.tel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkBindClientTel",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkBindClientTelResponse>(await this.callApi(params, req, runtime), new $_model.ClinkBindClientTelResponse({}));
+  }
+
+  /**
+   * Attach an agent phone.
+   * 
+   * @param request - ClinkBindClientTelRequest
+   * @returns ClinkBindClientTelResponse
+   */
+  async clinkBindClientTel(request: $_model.ClinkBindClientTelRequest): Promise<$_model.ClinkBindClientTelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkBindClientTelWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of an outbound call record.
+   * 
+   * @param request - ClinkCdrObDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkCdrObDetailsResponse
+   */
+  async clinkCdrObDetailsWithOptions(request: $_model.ClinkCdrObDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkCdrObDetailsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hiddenType)) {
+      query["HiddenType"] = request.hiddenType;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkCdrObDetails",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkCdrObDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ClinkCdrObDetailsResponse({}));
+  }
+
+  /**
+   * Queries the details of an outbound call record.
+   * 
+   * @param request - ClinkCdrObDetailsRequest
+   * @returns ClinkCdrObDetailsResponse
+   */
+  async clinkCdrObDetails(request: $_model.ClinkCdrObDetailsRequest): Promise<$_model.ClinkCdrObDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkCdrObDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * Add an agent.
+   * 
+   * @param tmpReq - ClinkCreateClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkCreateClientResponse
+   */
+  async clinkCreateClientWithOptions(tmpReq: $_model.ClinkCreateClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkCreateClientResponse> {
+    tmpReq.validate();
+    let request = new $_model.ClinkCreateClientShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.clid)) {
+      request.clidShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clid, "Clid", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.clidArea)) {
+      request.clidAreaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clidArea, "ClidArea", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.clidDefault)) {
+      request.clidDefaultShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clidDefault, "ClidDefault", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.cloudNumberModes)) {
+      request.cloudNumberModesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cloudNumberModes, "CloudNumberModes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.permission)) {
+      request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permission, "Permission", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.qnos)) {
+      request.qnosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.qnos, "Qnos", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.serveArea)) {
+      request.serveAreaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serveArea, "ServeArea", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!$dara.isNull(request.areaCode)) {
+      query["AreaCode"] = request.areaCode;
+    }
+
+    if (!$dara.isNull(request.assignType)) {
+      query["AssignType"] = request.assignType;
+    }
+
+    if (!$dara.isNull(request.clidShrink)) {
+      query["Clid"] = request.clidShrink;
+    }
+
+    if (!$dara.isNull(request.clidAreaShrink)) {
+      query["ClidArea"] = request.clidAreaShrink;
+    }
+
+    if (!$dara.isNull(request.clidDefaultShrink)) {
+      query["ClidDefault"] = request.clidDefaultShrink;
+    }
+
+    if (!$dara.isNull(request.clidRule)) {
+      query["ClidRule"] = request.clidRule;
+    }
+
+    if (!$dara.isNull(request.clidType)) {
+      query["ClidType"] = request.clidType;
+    }
+
+    if (!$dara.isNull(request.cloudNumberEnabled)) {
+      query["CloudNumberEnabled"] = request.cloudNumberEnabled;
+    }
+
+    if (!$dara.isNull(request.cloudNumberModesShrink)) {
+      query["CloudNumberModes"] = request.cloudNumberModesShrink;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.crmId)) {
+      query["CrmId"] = request.crmId;
+    }
+
+    if (!$dara.isNull(request.dynamicTelGroupIdDefault)) {
+      query["DynamicTelGroupIdDefault"] = request.dynamicTelGroupIdDefault;
+    }
+
+    if (!$dara.isNull(request.dynamicTelGroupName)) {
+      query["DynamicTelGroupName"] = request.dynamicTelGroupName;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hiddenTel)) {
+      query["HiddenTel"] = request.hiddenTel;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.obClidDefaultType)) {
+      query["ObClidDefaultType"] = request.obClidDefaultType;
+    }
+
+    if (!$dara.isNull(request.obHangupSms)) {
+      query["ObHangupSms"] = request.obHangupSms;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.pauseLogin)) {
+      query["PauseLogin"] = request.pauseLogin;
+    }
+
+    if (!$dara.isNull(request.permissionShrink)) {
+      query["Permission"] = request.permissionShrink;
+    }
+
+    if (!$dara.isNull(request.qnosShrink)) {
+      query["Qnos"] = request.qnosShrink;
+    }
+
+    if (!$dara.isNull(request.recurrentselectionType)) {
+      query["RecurrentselectionType"] = request.recurrentselectionType;
+    }
+
+    if (!$dara.isNull(request.recurrentselectionValue)) {
+      query["RecurrentselectionValue"] = request.recurrentselectionValue;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!$dara.isNull(request.serveAreaShrink)) {
+      query["ServeArea"] = request.serveAreaShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.wechatMiniProgramRtc)) {
+      query["WechatMiniProgramRtc"] = request.wechatMiniProgramRtc;
+    }
+
+    if (!$dara.isNull(request.wrapupTime)) {
+      query["WrapupTime"] = request.wrapupTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkCreateClient",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkCreateClientResponse>(await this.callApi(params, req, runtime), new $_model.ClinkCreateClientResponse({}));
+  }
+
+  /**
+   * Add an agent.
+   * 
+   * @param request - ClinkCreateClientRequest
+   * @returns ClinkCreateClientResponse
+   */
+  async clinkCreateClient(request: $_model.ClinkCreateClientRequest): Promise<$_model.ClinkCreateClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkCreateClientWithOptions(request, runtime);
+  }
+
+  /**
+   * Add a busy status.
+   * 
+   * @param request - ClinkCreateEnterprisePauseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkCreateEnterprisePauseResponse
+   */
+  async clinkCreateEnterprisePauseWithOptions(request: $_model.ClinkCreateEnterprisePauseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkCreateEnterprisePauseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.isDefault)) {
+      query["IsDefault"] = request.isDefault;
+    }
+
+    if (!$dara.isNull(request.isRest)) {
+      query["IsRest"] = request.isRest;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.pauseStatus)) {
+      query["PauseStatus"] = request.pauseStatus;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkCreateEnterprisePause",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkCreateEnterprisePauseResponse>(await this.callApi(params, req, runtime), new $_model.ClinkCreateEnterprisePauseResponse({}));
+  }
+
+  /**
+   * Add a busy status.
+   * 
+   * @param request - ClinkCreateEnterprisePauseRequest
+   * @returns ClinkCreateEnterprisePauseResponse
+   */
+  async clinkCreateEnterprisePause(request: $_model.ClinkCreateEnterprisePauseRequest): Promise<$_model.ClinkCreateEnterprisePauseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkCreateEnterprisePauseWithOptions(request, runtime);
+  }
+
+  /**
+   * Add a phone.
+   * 
+   * @param request - ClinkCreateExtenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkCreateExtenResponse
+   */
+  async clinkCreateExtenWithOptions(request: $_model.ClinkCreateExtenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkCreateExtenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allow)) {
+      query["Allow"] = request.allow;
+    }
+
+    if (!$dara.isNull(request.areaCode)) {
+      query["AreaCode"] = request.areaCode;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.extenNumber)) {
+      query["ExtenNumber"] = request.extenNumber;
+    }
+
+    if (!$dara.isNull(request.isDirect)) {
+      query["IsDirect"] = request.isDirect;
+    }
+
+    if (!$dara.isNull(request.jittBuffer)) {
+      query["JittBuffer"] = request.jittBuffer;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkCreateExten",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkCreateExtenResponse>(await this.callApi(params, req, runtime), new $_model.ClinkCreateExtenResponse({}));
+  }
+
+  /**
+   * Add a phone.
+   * 
+   * @param request - ClinkCreateExtenRequest
+   * @returns ClinkCreateExtenResponse
+   */
+  async clinkCreateExten(request: $_model.ClinkCreateExtenRequest): Promise<$_model.ClinkCreateExtenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkCreateExtenWithOptions(request, runtime);
+  }
+
+  /**
+   * Add a queue.
+   * 
+   * @param tmpReq - ClinkCreateQueueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkCreateQueueResponse
+   */
+  async clinkCreateQueueWithOptions(tmpReq: $_model.ClinkCreateQueueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkCreateQueueResponse> {
+    tmpReq.validate();
+    let request = new $_model.ClinkCreateQueueShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.queueMembers)) {
+      request.queueMembersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queueMembers, "QueueMembers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.chatLocation)) {
+      query["ChatLocation"] = request.chatLocation;
+    }
+
+    if (!$dara.isNull(request.chatMaxWait)) {
+      query["ChatMaxWait"] = request.chatMaxWait;
+    }
+
+    if (!$dara.isNull(request.chatStrategy)) {
+      query["ChatStrategy"] = request.chatStrategy;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ibAllowed)) {
+      query["IbAllowed"] = request.ibAllowed;
+    }
+
+    if (!$dara.isNull(request.joinEmpty)) {
+      query["JoinEmpty"] = request.joinEmpty;
+    }
+
+    if (!$dara.isNull(request.maxPauseClientFlag)) {
+      query["MaxPauseClientFlag"] = request.maxPauseClientFlag;
+    }
+
+    if (!$dara.isNull(request.maxPauseClientType)) {
+      query["MaxPauseClientType"] = request.maxPauseClientType;
+    }
+
+    if (!$dara.isNull(request.maxPauseClientValue)) {
+      query["MaxPauseClientValue"] = request.maxPauseClientValue;
+    }
+
+    if (!$dara.isNull(request.maxWait)) {
+      query["MaxWait"] = request.maxWait;
+    }
+
+    if (!$dara.isNull(request.memberTimeout)) {
+      query["MemberTimeout"] = request.memberTimeout;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qno)) {
+      query["Qno"] = request.qno;
+    }
+
+    if (!$dara.isNull(request.queueMembersShrink)) {
+      query["QueueMembers"] = request.queueMembersShrink;
+    }
+
+    if (!$dara.isNull(request.queueTimeout)) {
+      query["QueueTimeout"] = request.queueTimeout;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sayCno)) {
+      query["SayCno"] = request.sayCno;
+    }
+
+    if (!$dara.isNull(request.serviceLevel)) {
+      query["ServiceLevel"] = request.serviceLevel;
+    }
+
+    if (!$dara.isNull(request.strategy)) {
+      query["Strategy"] = request.strategy;
+    }
+
+    if (!$dara.isNull(request.vipSupport)) {
+      query["VipSupport"] = request.vipSupport;
+    }
+
+    if (!$dara.isNull(request.weight)) {
+      query["Weight"] = request.weight;
+    }
+
+    if (!$dara.isNull(request.wrapupTime)) {
+      query["WrapupTime"] = request.wrapupTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkCreateQueue",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkCreateQueueResponse>(await this.callApi(params, req, runtime), new $_model.ClinkCreateQueueResponse({}));
+  }
+
+  /**
+   * Add a queue.
+   * 
+   * @param request - ClinkCreateQueueRequest
+   * @returns ClinkCreateQueueResponse
+   */
+  async clinkCreateQueue(request: $_model.ClinkCreateQueueRequest): Promise<$_model.ClinkCreateQueueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkCreateQueueWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an agent.
+   * 
+   * @param request - ClinkDeleteClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDeleteClientResponse
+   */
+  async clinkDeleteClientWithOptions(request: $_model.ClinkDeleteClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDeleteClientResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDeleteClient",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDeleteClientResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDeleteClientResponse({}));
+  }
+
+  /**
+   * Deletes an agent.
+   * 
+   * @param request - ClinkDeleteClientRequest
+   * @returns ClinkDeleteClientResponse
+   */
+  async clinkDeleteClient(request: $_model.ClinkDeleteClientRequest): Promise<$_model.ClinkDeleteClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDeleteClientWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete the phone.
+   * 
+   * @param request - ClinkDeleteExtenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDeleteExtenResponse
+   */
+  async clinkDeleteExtenWithOptions(request: $_model.ClinkDeleteExtenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDeleteExtenResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.extenNumber)) {
+      query["ExtenNumber"] = request.extenNumber;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDeleteExten",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDeleteExtenResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDeleteExtenResponse({}));
+  }
+
+  /**
+   * Delete the phone.
+   * 
+   * @param request - ClinkDeleteExtenRequest
+   * @returns ClinkDeleteExtenResponse
+   */
+  async clinkDeleteExten(request: $_model.ClinkDeleteExtenRequest): Promise<$_model.ClinkDeleteExtenResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDeleteExtenWithOptions(request, runtime);
+  }
+
+  /**
+   * View incoming call records.
+   * 
+   * @param request - ClinkDescribeCdrIbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDescribeCdrIbResponse
+   */
+  async clinkDescribeCdrIbWithOptions(request: $_model.ClinkDescribeCdrIbRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDescribeCdrIbResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hiddenType)) {
+      query["HiddenType"] = request.hiddenType;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDescribeCdrIb",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDescribeCdrIbResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDescribeCdrIbResponse({}));
+  }
+
+  /**
+   * View incoming call records.
+   * 
+   * @param request - ClinkDescribeCdrIbRequest
+   * @returns ClinkDescribeCdrIbResponse
+   */
+  async clinkDescribeCdrIb(request: $_model.ClinkDescribeCdrIbRequest): Promise<$_model.ClinkDescribeCdrIbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDescribeCdrIbWithOptions(request, runtime);
+  }
+
+  /**
+   * View incoming call record details.
+   * 
+   * @param request - ClinkDescribeCdrIbDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDescribeCdrIbDetailsResponse
+   */
+  async clinkDescribeCdrIbDetailsWithOptions(request: $_model.ClinkDescribeCdrIbDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDescribeCdrIbDetailsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDescribeCdrIbDetails",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDescribeCdrIbDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDescribeCdrIbDetailsResponse({}));
+  }
+
+  /**
+   * View incoming call record details.
+   * 
+   * @param request - ClinkDescribeCdrIbDetailsRequest
+   * @returns ClinkDescribeCdrIbDetailsResponse
+   */
+  async clinkDescribeCdrIbDetails(request: $_model.ClinkDescribeCdrIbDetailsRequest): Promise<$_model.ClinkDescribeCdrIbDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDescribeCdrIbDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * View outbound call records.
+   * 
+   * @param request - ClinkDescribeCdrObRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDescribeCdrObResponse
+   */
+  async clinkDescribeCdrObWithOptions(request: $_model.ClinkDescribeCdrObRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDescribeCdrObResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hiddenType)) {
+      query["HiddenType"] = request.hiddenType;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDescribeCdrOb",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDescribeCdrObResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDescribeCdrObResponse({}));
+  }
+
+  /**
+   * View outbound call records.
+   * 
+   * @param request - ClinkDescribeCdrObRequest
+   * @returns ClinkDescribeCdrObResponse
+   */
+  async clinkDescribeCdrOb(request: $_model.ClinkDescribeCdrObRequest): Promise<$_model.ClinkDescribeCdrObResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDescribeCdrObWithOptions(request, runtime);
+  }
+
+  /**
+   * View outbound call record details.
+   * 
+   * @param request - ClinkDescribeCdrObDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDescribeCdrObDetailsResponse
+   */
+  async clinkDescribeCdrObDetailsWithOptions(request: $_model.ClinkDescribeCdrObDetailsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDescribeCdrObDetailsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDescribeCdrObDetails",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDescribeCdrObDetailsResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDescribeCdrObDetailsResponse({}));
+  }
+
+  /**
+   * View outbound call record details.
+   * 
+   * @param request - ClinkDescribeCdrObDetailsRequest
+   * @returns ClinkDescribeCdrObDetailsResponse
+   */
+  async clinkDescribeCdrObDetails(request: $_model.ClinkDescribeCdrObDetailsRequest): Promise<$_model.ClinkDescribeCdrObDetailsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDescribeCdrObDetailsWithOptions(request, runtime);
+  }
+
+  /**
+   * View the agent details.
+   * 
+   * @param request - ClinkDescribeClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDescribeClientResponse
+   */
+  async clinkDescribeClientWithOptions(request: $_model.ClinkDescribeClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDescribeClientResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDescribeClient",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDescribeClientResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDescribeClientResponse({}));
+  }
+
+  /**
+   * View the agent details.
+   * 
+   * @param request - ClinkDescribeClientRequest
+   * @returns ClinkDescribeClientResponse
+   */
+  async clinkDescribeClient(request: $_model.ClinkDescribeClientRequest): Promise<$_model.ClinkDescribeClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDescribeClientWithOptions(request, runtime);
+  }
+
+  /**
+   * View queue details.
+   * 
+   * @param request - ClinkDescribeQueueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDescribeQueueResponse
+   */
+  async clinkDescribeQueueWithOptions(request: $_model.ClinkDescribeQueueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDescribeQueueResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qno)) {
+      query["Qno"] = request.qno;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDescribeQueue",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDescribeQueueResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDescribeQueueResponse({}));
+  }
+
+  /**
+   * View queue details.
+   * 
+   * @param request - ClinkDescribeQueueRequest
+   * @returns ClinkDescribeQueueResponse
+   */
+  async clinkDescribeQueue(request: $_model.ClinkDescribeQueueRequest): Promise<$_model.ClinkDescribeQueueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDescribeQueueWithOptions(request, runtime);
+  }
+
+  /**
+   * View call recording address.
+   * 
+   * @param request - ClinkDescribeRecordFileUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDescribeRecordFileUrlResponse
+   */
+  async clinkDescribeRecordFileUrlWithOptions(request: $_model.ClinkDescribeRecordFileUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDescribeRecordFileUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.download)) {
+      query["Download"] = request.download;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.recordSide)) {
+      query["RecordSide"] = request.recordSide;
+    }
+
+    if (!$dara.isNull(request.recordType)) {
+      query["RecordType"] = request.recordType;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      query["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDescribeRecordFileUrl",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDescribeRecordFileUrlResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDescribeRecordFileUrlResponse({}));
+  }
+
+  /**
+   * View call recording address.
+   * 
+   * @param request - ClinkDescribeRecordFileUrlRequest
+   * @returns ClinkDescribeRecordFileUrlResponse
+   */
+  async clinkDescribeRecordFileUrl(request: $_model.ClinkDescribeRecordFileUrlRequest): Promise<$_model.ClinkDescribeRecordFileUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDescribeRecordFileUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the details of customer call records.
+   * 
+   * @param request - ClinkDetailCdrIbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkDetailCdrIbResponse
+   */
+  async clinkDetailCdrIbWithOptions(request: $_model.ClinkDetailCdrIbRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkDetailCdrIbResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hiddenType)) {
+      query["HiddenType"] = request.hiddenType;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkDetailCdrIb",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkDetailCdrIbResponse>(await this.callApi(params, req, runtime), new $_model.ClinkDetailCdrIbResponse({}));
+  }
+
+  /**
+   * Query the details of customer call records.
+   * 
+   * @param request - ClinkDetailCdrIbRequest
+   * @returns ClinkDetailCdrIbResponse
+   */
+  async clinkDetailCdrIb(request: $_model.ClinkDetailCdrIbRequest): Promise<$_model.ClinkDetailCdrIbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkDetailCdrIbWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the customer call record list.
+   * 
+   * @param request - ClinkListCdrIbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListCdrIbResponse
+   */
+  async clinkListCdrIbWithOptions(request: $_model.ClinkListCdrIbRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListCdrIbResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bridgeDuration)) {
+      query["BridgeDuration"] = request.bridgeDuration;
+    }
+
+    if (!$dara.isNull(request.bridgeDurationEnd)) {
+      query["BridgeDurationEnd"] = request.bridgeDurationEnd;
+    }
+
+    if (!$dara.isNull(request.bridgeTime)) {
+      query["BridgeTime"] = request.bridgeTime;
+    }
+
+    if (!$dara.isNull(request.bridgeTimeEnd)) {
+      query["BridgeTimeEnd"] = request.bridgeTimeEnd;
+    }
+
+    if (!$dara.isNull(request.clientNumber)) {
+      query["ClientNumber"] = request.clientNumber;
+    }
+
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.customerNumber)) {
+      query["CustomerNumber"] = request.customerNumber;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.endTimeEnd)) {
+      query["EndTimeEnd"] = request.endTimeEnd;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.firstCallCno)) {
+      query["FirstCallCno"] = request.firstCallCno;
+    }
+
+    if (!$dara.isNull(request.firstCallNumber)) {
+      query["FirstCallNumber"] = request.firstCallNumber;
+    }
+
+    if (!$dara.isNull(request.firstCallQno)) {
+      query["FirstCallQno"] = request.firstCallQno;
+    }
+
+    if (!$dara.isNull(request.hiddenType)) {
+      query["HiddenType"] = request.hiddenType;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qnos)) {
+      query["Qnos"] = request.qnos;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scrollId)) {
+      query["ScrollId"] = request.scrollId;
+    }
+
+    if (!$dara.isNull(request.scrollSearch)) {
+      query["ScrollSearch"] = request.scrollSearch;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.startTimeEnd)) {
+      query["StartTimeEnd"] = request.startTimeEnd;
+    }
+
+    if (!$dara.isNull(request.statuses)) {
+      query["Statuses"] = request.statuses;
+    }
+
+    if (!$dara.isNull(request.totalDuration)) {
+      query["TotalDuration"] = request.totalDuration;
+    }
+
+    if (!$dara.isNull(request.totalDurationEnd)) {
+      query["TotalDurationEnd"] = request.totalDurationEnd;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListCdrIb",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListCdrIbResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListCdrIbResponse({}));
+  }
+
+  /**
+   * Query the customer call record list.
+   * 
+   * @param request - ClinkListCdrIbRequest
+   * @returns ClinkListCdrIbResponse
+   */
+  async clinkListCdrIb(request: $_model.ClinkListCdrIbRequest): Promise<$_model.ClinkListCdrIbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListCdrIbWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of agent answering records.
+   * 
+   * @param request - ClinkListCdrIbAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListCdrIbAgentResponse
+   */
+  async clinkListCdrIbAgentWithOptions(request: $_model.ClinkListCdrIbAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListCdrIbAgentResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentAnswerInTime)) {
+      query["AgentAnswerInTime"] = request.agentAnswerInTime;
+    }
+
+    if (!$dara.isNull(request.bridgeDuration)) {
+      query["BridgeDuration"] = request.bridgeDuration;
+    }
+
+    if (!$dara.isNull(request.bridgeDurationEnd)) {
+      query["BridgeDurationEnd"] = request.bridgeDurationEnd;
+    }
+
+    if (!$dara.isNull(request.bridgeTime)) {
+      query["BridgeTime"] = request.bridgeTime;
+    }
+
+    if (!$dara.isNull(request.bridgeTimeEnd)) {
+      query["BridgeTimeEnd"] = request.bridgeTimeEnd;
+    }
+
+    if (!$dara.isNull(request.clientNumber)) {
+      query["ClientNumber"] = request.clientNumber;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.customerNumber)) {
+      query["CustomerNumber"] = request.customerNumber;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.endTimeEnd)) {
+      query["EndTimeEnd"] = request.endTimeEnd;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hiddenType)) {
+      query["HiddenType"] = request.hiddenType;
+    }
+
+    if (!$dara.isNull(request.hotlineName)) {
+      query["HotlineName"] = request.hotlineName;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qno)) {
+      query["Qno"] = request.qno;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scrollId)) {
+      query["ScrollId"] = request.scrollId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.startTimeEnd)) {
+      query["StartTimeEnd"] = request.startTimeEnd;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListCdrIbAgent",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListCdrIbAgentResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListCdrIbAgentResponse({}));
+  }
+
+  /**
+   * Queries the list of agent answering records.
+   * 
+   * @param request - ClinkListCdrIbAgentRequest
+   * @returns ClinkListCdrIbAgentResponse
+   */
+  async clinkListCdrIbAgent(request: $_model.ClinkListCdrIbAgentRequest): Promise<$_model.ClinkListCdrIbAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListCdrIbAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the list of inbound call records.
+   * 
+   * @param request - ClinkListCdrIbsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListCdrIbsResponse
+   */
+  async clinkListCdrIbsWithOptions(request: $_model.ClinkListCdrIbsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListCdrIbsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientNumber)) {
+      query["ClientNumber"] = request.clientNumber;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.customerNumber)) {
+      query["CustomerNumber"] = request.customerNumber;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hiddenType)) {
+      query["HiddenType"] = request.hiddenType;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qno)) {
+      query["Qno"] = request.qno;
+    }
+
+    if (!$dara.isNull(request.queueAnswerInTime)) {
+      query["QueueAnswerInTime"] = request.queueAnswerInTime;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListCdrIbs",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListCdrIbsResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListCdrIbsResponse({}));
+  }
+
+  /**
+   * Query the list of inbound call records.
+   * 
+   * @param request - ClinkListCdrIbsRequest
+   * @returns ClinkListCdrIbsResponse
+   */
+  async clinkListCdrIbs(request: $_model.ClinkListCdrIbsRequest): Promise<$_model.ClinkListCdrIbsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListCdrIbsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of outbound call records.
+   * 
+   * @param request - ClinkListCdrObRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListCdrObResponse
+   */
+  async clinkListCdrObWithOptions(request: $_model.ClinkListCdrObRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListCdrObResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bridgeDuration)) {
+      query["BridgeDuration"] = request.bridgeDuration;
+    }
+
+    if (!$dara.isNull(request.bridgeDurationEnd)) {
+      query["BridgeDurationEnd"] = request.bridgeDurationEnd;
+    }
+
+    if (!$dara.isNull(request.bridgeTime)) {
+      query["BridgeTime"] = request.bridgeTime;
+    }
+
+    if (!$dara.isNull(request.bridgeTimeEnd)) {
+      query["BridgeTimeEnd"] = request.bridgeTimeEnd;
+    }
+
+    if (!$dara.isNull(request.callType)) {
+      query["CallType"] = request.callType;
+    }
+
+    if (!$dara.isNull(request.clientNumber)) {
+      query["ClientNumber"] = request.clientNumber;
+    }
+
+    if (!$dara.isNull(request.cnos)) {
+      query["Cnos"] = request.cnos;
+    }
+
+    if (!$dara.isNull(request.customerNumber)) {
+      query["CustomerNumber"] = request.customerNumber;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.endTimeEnd)) {
+      query["EndTimeEnd"] = request.endTimeEnd;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hiddenType)) {
+      query["HiddenType"] = request.hiddenType;
+    }
+
+    if (!$dara.isNull(request.leftClid)) {
+      query["LeftClid"] = request.leftClid;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qnos)) {
+      query["Qnos"] = request.qnos;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.scrollId)) {
+      query["ScrollId"] = request.scrollId;
+    }
+
+    if (!$dara.isNull(request.scrollSearch)) {
+      query["ScrollSearch"] = request.scrollSearch;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.startTimeEnd)) {
+      query["StartTimeEnd"] = request.startTimeEnd;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    if (!$dara.isNull(request.totalDuration)) {
+      query["TotalDuration"] = request.totalDuration;
+    }
+
+    if (!$dara.isNull(request.totalDurationEnd)) {
+      query["TotalDurationEnd"] = request.totalDurationEnd;
+    }
+
+    if (!$dara.isNull(request.xnumber)) {
+      query["Xnumber"] = request.xnumber;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListCdrOb",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListCdrObResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListCdrObResponse({}));
+  }
+
+  /**
+   * Queries the list of outbound call records.
+   * 
+   * @param request - ClinkListCdrObRequest
+   * @returns ClinkListCdrObResponse
+   */
+  async clinkListCdrOb(request: $_model.ClinkListCdrObRequest): Promise<$_model.ClinkListCdrObResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListCdrObWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the outbound call record list.
+   * 
+   * @param request - ClinkListCdrObsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListCdrObsResponse
+   */
+  async clinkListCdrObsWithOptions(request: $_model.ClinkListCdrObsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListCdrObsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.associatedId)) {
+      query["AssociatedId"] = request.associatedId;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      query["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.clientNumber)) {
+      query["ClientNumber"] = request.clientNumber;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.customerNumber)) {
+      query["CustomerNumber"] = request.customerNumber;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.evaluation)) {
+      query["Evaluation"] = request.evaluation;
+    }
+
+    if (!$dara.isNull(request.hiddenType)) {
+      query["HiddenType"] = request.hiddenType;
+    }
+
+    if (!$dara.isNull(request.hotline)) {
+      query["Hotline"] = request.hotline;
+    }
+
+    if (!$dara.isNull(request.idType)) {
+      query["IdType"] = request.idType;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.mainUniqueId)) {
+      query["MainUniqueId"] = request.mainUniqueId;
+    }
+
+    if (!$dara.isNull(request.mark)) {
+      query["Mark"] = request.mark;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.province)) {
+      query["Province"] = request.province;
+    }
+
+    if (!$dara.isNull(request.queueAnswerInTime)) {
+      query["QueueAnswerInTime"] = request.queueAnswerInTime;
+    }
+
+    if (!$dara.isNull(request.requestUniqueId)) {
+      query["RequestUniqueId"] = request.requestUniqueId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListCdrObs",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListCdrObsResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListCdrObsResponse({}));
+  }
+
+  /**
+   * Queries the outbound call record list.
+   * 
+   * @param request - ClinkListCdrObsRequest
+   * @returns ClinkListCdrObsResponse
+   */
+  async clinkListCdrObs(request: $_model.ClinkListCdrObsRequest): Promise<$_model.ClinkListCdrObsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListCdrObsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of agents.
+   * 
+   * @param request - ClinkListClientsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListClientsResponse
+   */
+  async clinkListClientsWithOptions(request: $_model.ClinkListClientsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListClientsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!$dara.isNull(request.bindTel)) {
+      query["BindTel"] = request.bindTel;
+    }
+
+    if (!$dara.isNull(request.clid)) {
+      query["Clid"] = request.clid;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.qno)) {
+      query["Qno"] = request.qno;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.updateEndTime)) {
+      query["UpdateEndTime"] = request.updateEndTime;
+    }
+
+    if (!$dara.isNull(request.updateStartTime)) {
+      query["UpdateStartTime"] = request.updateStartTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListClients",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListClientsResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListClientsResponse({}));
+  }
+
+  /**
+   * Queries the list of agents.
+   * 
+   * @param request - ClinkListClientsRequest
+   * @returns ClinkListClientsResponse
+   */
+  async clinkListClients(request: $_model.ClinkListClientsRequest): Promise<$_model.ClinkListClientsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListClientsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the busy status list.
+   * 
+   * @param request - ClinkListEnterprisePausesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListEnterprisePausesResponse
+   */
+  async clinkListEnterprisePausesWithOptions(request: $_model.ClinkListEnterprisePausesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListEnterprisePausesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListEnterprisePauses",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListEnterprisePausesResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListEnterprisePausesResponse({}));
+  }
+
+  /**
+   * Queries the busy status list.
+   * 
+   * @param request - ClinkListEnterprisePausesRequest
+   * @returns ClinkListEnterprisePausesResponse
+   */
+  async clinkListEnterprisePauses(request: $_model.ClinkListEnterprisePausesRequest): Promise<$_model.ClinkListEnterprisePausesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListEnterprisePausesWithOptions(request, runtime);
+  }
+
+  /**
+   * Query the phone list.
+   * 
+   * @param request - ClinkListExtensRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListExtensResponse
+   */
+  async clinkListExtensWithOptions(request: $_model.ClinkListExtensRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListExtensResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.areaCode)) {
+      query["AreaCode"] = request.areaCode;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListExtens",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListExtensResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListExtensResponse({}));
+  }
+
+  /**
+   * Query the phone list.
+   * 
+   * @param request - ClinkListExtensRequest
+   * @returns ClinkListExtensResponse
+   */
+  async clinkListExtens(request: $_model.ClinkListExtensRequest): Promise<$_model.ClinkListExtensResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListExtensWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the voice navigation edge zone list.
+   * 
+   * @param request - ClinkListIvrNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListIvrNodesResponse
+   */
+  async clinkListIvrNodesWithOptions(request: $_model.ClinkListIvrNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListIvrNodesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ivrName)) {
+      query["IvrName"] = request.ivrName;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListIvrNodes",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListIvrNodesResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListIvrNodesResponse({}));
+  }
+
+  /**
+   * Queries the voice navigation edge zone list.
+   * 
+   * @param request - ClinkListIvrNodesRequest
+   * @returns ClinkListIvrNodesResponse
+   */
+  async clinkListIvrNodes(request: $_model.ClinkListIvrNodesRequest): Promise<$_model.ClinkListIvrNodesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListIvrNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the voice navigation list.
+   * 
+   * @param request - ClinkListIvrsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListIvrsResponse
+   */
+  async clinkListIvrsWithOptions(request: $_model.ClinkListIvrsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListIvrsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListIvrs",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListIvrsResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListIvrsResponse({}));
+  }
+
+  /**
+   * Queries the voice navigation list.
+   * 
+   * @param request - ClinkListIvrsRequest
+   * @returns ClinkListIvrsResponse
+   */
+  async clinkListIvrs(request: $_model.ClinkListIvrsRequest): Promise<$_model.ClinkListIvrsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListIvrsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the queue list.
+   * 
+   * @param request - ClinkListQueuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkListQueuesResponse
+   */
+  async clinkListQueuesWithOptions(request: $_model.ClinkListQueuesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkListQueuesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkListQueues",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkListQueuesResponse>(await this.callApi(params, req, runtime), new $_model.ClinkListQueuesResponse({}));
+  }
+
+  /**
+   * Queries the queue list.
+   * 
+   * @param request - ClinkListQueuesRequest
+   * @returns ClinkListQueuesResponse
+   */
+  async clinkListQueues(request: $_model.ClinkListQueuesRequest): Promise<$_model.ClinkListQueuesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkListQueuesWithOptions(request, runtime);
+  }
+
+  /**
+   * Inbound report - call statistics.
+   * 
+   * @param request - ClinkStatIbRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkStatIbResponse
+   */
+  async clinkStatIbWithOptions(request: $_model.ClinkStatIbRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkStatIbResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.date)) {
+      query["Date"] = request.date;
+    }
+
+    if (!$dara.isNull(request.dateEnd)) {
+      query["DateEnd"] = request.dateEnd;
+    }
+
+    if (!$dara.isNull(request.endHour)) {
+      query["EndHour"] = request.endHour;
+    }
+
+    if (!$dara.isNull(request.endMinute)) {
+      query["EndMinute"] = request.endMinute;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.fields)) {
+      query["Fields"] = request.fields;
+    }
+
+    if (!$dara.isNull(request.hotlines)) {
+      query["Hotlines"] = request.hotlines;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.startHour)) {
+      query["StartHour"] = request.startHour;
+    }
+
+    if (!$dara.isNull(request.startMinute)) {
+      query["StartMinute"] = request.startMinute;
+    }
+
+    if (!$dara.isNull(request.statisticMethod)) {
+      query["StatisticMethod"] = request.statisticMethod;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkStatIb",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkStatIbResponse>(await this.callApi(params, req, runtime), new $_model.ClinkStatIbResponse({}));
+  }
+
+  /**
+   * Inbound report - call statistics.
+   * 
+   * @param request - ClinkStatIbRequest
+   * @returns ClinkStatIbResponse
+   */
+  async clinkStatIb(request: $_model.ClinkStatIbRequest): Promise<$_model.ClinkStatIbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkStatIbWithOptions(request, runtime);
+  }
+
+  /**
+   * Update an agent.
+   * 
+   * @param tmpReq - ClinkUpdateClientRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ClinkUpdateClientResponse
+   */
+  async clinkUpdateClientWithOptions(tmpReq: $_model.ClinkUpdateClientRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ClinkUpdateClientResponse> {
+    tmpReq.validate();
+    let request = new $_model.ClinkUpdateClientShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.clid)) {
+      request.clidShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clid, "Clid", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.clidArea)) {
+      request.clidAreaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clidArea, "ClidArea", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.clidDefault)) {
+      request.clidDefaultShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clidDefault, "ClidDefault", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.cloudNumberModes)) {
+      request.cloudNumberModesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cloudNumberModes, "CloudNumberModes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.permission)) {
+      request.permissionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.permission, "Permission", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.qnos)) {
+      request.qnosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.qnos, "Qnos", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.serveArea)) {
+      request.serveAreaShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serveArea, "ServeArea", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.active)) {
+      query["Active"] = request.active;
+    }
+
+    if (!$dara.isNull(request.areaCode)) {
+      query["AreaCode"] = request.areaCode;
+    }
+
+    if (!$dara.isNull(request.assignType)) {
+      query["AssignType"] = request.assignType;
+    }
+
+    if (!$dara.isNull(request.clidShrink)) {
+      query["Clid"] = request.clidShrink;
+    }
+
+    if (!$dara.isNull(request.clidAreaShrink)) {
+      query["ClidArea"] = request.clidAreaShrink;
+    }
+
+    if (!$dara.isNull(request.clidDefaultShrink)) {
+      query["ClidDefault"] = request.clidDefaultShrink;
+    }
+
+    if (!$dara.isNull(request.clidRule)) {
+      query["ClidRule"] = request.clidRule;
+    }
+
+    if (!$dara.isNull(request.clidType)) {
+      query["ClidType"] = request.clidType;
+    }
+
+    if (!$dara.isNull(request.cloudNumberEnabled)) {
+      query["CloudNumberEnabled"] = request.cloudNumberEnabled;
+    }
+
+    if (!$dara.isNull(request.cloudNumberModesShrink)) {
+      query["CloudNumberModes"] = request.cloudNumberModesShrink;
+    }
+
+    if (!$dara.isNull(request.cno)) {
+      query["Cno"] = request.cno;
+    }
+
+    if (!$dara.isNull(request.crmId)) {
+      query["CrmId"] = request.crmId;
+    }
+
+    if (!$dara.isNull(request.dynamicTelGroupIdDefault)) {
+      query["DynamicTelGroupIdDefault"] = request.dynamicTelGroupIdDefault;
+    }
+
+    if (!$dara.isNull(request.dynamicTelGroupName)) {
+      query["DynamicTelGroupName"] = request.dynamicTelGroupName;
+    }
+
+    if (!$dara.isNull(request.enterpriseId)) {
+      query["EnterpriseId"] = request.enterpriseId;
+    }
+
+    if (!$dara.isNull(request.hiddenTel)) {
+      query["HiddenTel"] = request.hiddenTel;
+    }
+
+    if (!$dara.isNull(request.ibWrapupTime)) {
+      query["IbWrapupTime"] = request.ibWrapupTime;
+    }
+
+    if (!$dara.isNull(request.ibWrapupType)) {
+      query["IbWrapupType"] = request.ibWrapupType;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.obClidDefaultType)) {
+      query["ObClidDefaultType"] = request.obClidDefaultType;
+    }
+
+    if (!$dara.isNull(request.obHangupSms)) {
+      query["ObHangupSms"] = request.obHangupSms;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.pauseLogin)) {
+      query["PauseLogin"] = request.pauseLogin;
+    }
+
+    if (!$dara.isNull(request.permissionShrink)) {
+      query["Permission"] = request.permissionShrink;
+    }
+
+    if (!$dara.isNull(request.qnosShrink)) {
+      query["Qnos"] = request.qnosShrink;
+    }
+
+    if (!$dara.isNull(request.recurrentselectionType)) {
+      query["RecurrentselectionType"] = request.recurrentselectionType;
+    }
+
+    if (!$dara.isNull(request.recurrentselectionValue)) {
+      query["RecurrentselectionValue"] = request.recurrentselectionValue;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.role)) {
+      query["Role"] = request.role;
+    }
+
+    if (!$dara.isNull(request.serveAreaShrink)) {
+      query["ServeArea"] = request.serveAreaShrink;
+    }
+
+    if (!$dara.isNull(request.wechatMiniProgramRtc)) {
+      query["WechatMiniProgramRtc"] = request.wechatMiniProgramRtc;
+    }
+
+    if (!$dara.isNull(request.wrapupTime)) {
+      query["WrapupTime"] = request.wrapupTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ClinkUpdateClient",
+      version: "2017-05-25",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ClinkUpdateClientResponse>(await this.callApi(params, req, runtime), new $_model.ClinkUpdateClientResponse({}));
+  }
+
+  /**
+   * Update an agent.
+   * 
+   * @param request - ClinkUpdateClientRequest
+   * @returns ClinkUpdateClientResponse
+   */
+  async clinkUpdateClient(request: $_model.ClinkUpdateClientRequest): Promise<$_model.ClinkUpdateClientResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.clinkUpdateClientWithOptions(request, runtime);
+  }
+
+  /**
    * Publish the agent online through this interface.
    * 
    * @param request - CloudAgentLoginRequest
@@ -586,7 +3286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席实时统计
+   * Real-time statistics on agent call data.
    * 
    * @param request - CloudAgentMonitorStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -653,7 +3353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席实时统计
+   * Real-time statistics on agent call data.
    * 
    * @param request - CloudAgentMonitorStatisticsRequest
    * @returns CloudAgentMonitorStatisticsResponse
@@ -776,7 +3476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取座席工作量报表数据
+   * Gets agent workload report data.
    * 
    * @param request - CloudAgentWorkloadReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -851,7 +3551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取座席工作量报表数据
+   * Gets agent workload report data.
    * 
    * @param request - CloudAgentWorkloadReportRequest
    * @returns CloudAgentWorkloadReportResponse
@@ -924,7 +3624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量新增座席,单次批量创建不能超过100个
+   * Batch add agents. You can create up to 100 agents in a single batch.
    * 
    * @param request - CloudBatchCreateAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1047,7 +3747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量新增座席,单次批量创建不能超过100个
+   * Batch add agents. You can create up to 100 agents in a single batch.
    * 
    * @param request - CloudBatchCreateAgentRequest
    * @returns CloudBatchCreateAgentResponse
@@ -1116,7 +3816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+   * Batch update the basic info of agents, excluding the update of skill info attached to agents.
    * 
    * @param request - CloudBatchUpdateAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1243,7 +3943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新座席基本信息，不包含座席绑定的技能信息的更新
+   * Batch update the basic info of agents, excluding the update of skill info attached to agents.
    * 
    * @param request - CloudBatchUpdateAgentRequest
    * @returns CloudBatchUpdateAgentResponse
@@ -1254,7 +3954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席新增
+   * Creates an agent.
    * 
    * @param request - CloudCreateAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1381,7 +4081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席新增
+   * Creates an agent.
    * 
    * @param request - CloudCreateAgentRequest
    * @returns CloudCreateAgentResponse
@@ -1528,7 +4228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增时间条件设置
+   * Adds a time condition configuration.
    * 
    * @param request - CloudCreateEnterpriseTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1607,7 +4307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增时间条件设置
+   * Adds a time condition configuration.
    * 
    * @param request - CloudCreateEnterpriseTimeRequest
    * @returns CloudCreateEnterpriseTimeResponse
@@ -1618,7 +4318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增分机
+   * Add an extension through this interface.
    * 
    * @param request - CloudCreateExtenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1717,7 +4417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增分机
+   * Add an extension through this interface.
    * 
    * @param request - CloudCreateExtenRequest
    * @returns CloudCreateExtenResponse
@@ -1728,7 +4428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增队列
+   * Add a queue through this interface.
    * 
    * @param tmpReq - CloudCreateQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1789,7 +4489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增队列
+   * Add a queue through this interface.
    * 
    * @param request - CloudCreateQueueRequest
    * @returns CloudCreateQueueResponse
@@ -1928,7 +4628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增任务
+   * Creates an outbound call job.
    * 
    * @param request - CloudCreateTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2171,7 +4871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增任务
+   * Creates an outbound call job.
    * 
    * @param request - CloudCreateTaskRequest
    * @returns CloudCreateTaskResponse
@@ -2794,7 +5494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席详细信息获取
+   * Queries the details of an agent.
    * 
    * @param request - CloudGetAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2841,7 +5541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席详细信息获取
+   * Queries the details of an agent.
    * 
    * @param request - CloudGetAgentRequest
    * @returns CloudGetAgentResponse
@@ -2956,7 +5656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ASR数据获取
+   * Query ASR job task results and obtain data.
    * 
    * @param request - CloudGetAsrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2999,7 +5699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ASR数据获取
+   * Query ASR job task results and obtain data.
    * 
    * @param request - CloudGetAsrRequest
    * @returns CloudGetAsrResponse
@@ -3068,7 +5768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取座席外呼通话记录详情
+   * Queries the details of outbound call records of a specified agent based on the unique phone identity.
    * 
    * @param request - CloudGetObCdrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3103,7 +5803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取座席外呼通话记录详情
+   * Queries the details of outbound call records of a specified agent based on the unique phone identity.
    * 
    * @param request - CloudGetObCdrRequest
    * @returns CloudGetObCdrResponse
@@ -3114,7 +5814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取队列信息
+   * Query queue info.
    * 
    * @param request - CloudGetQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3161,7 +5861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取队列信息
+   * Query queue info.
    * 
    * @param request - CloudGetQueueRequest
    * @returns CloudGetQueueResponse
@@ -3172,7 +5872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取通话录音地址
+   * Obtains the audition or download URL of a recording based on the recording file name.
    * 
    * @param request - CloudGetRecordUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3227,7 +5927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取通话录音地址
+   * Obtains the audition or download URL of a recording based on the recording file name.
    * 
    * @param request - CloudGetRecordUrlRequest
    * @returns CloudGetRecordUrlResponse
@@ -3238,7 +5938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务信息
+   * Obtains the configuration info of a single job based on the job ID.
    * 
    * @param request - CloudGetTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3285,7 +5985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务信息
+   * Obtains the configuration info of a single job based on the job ID.
    * 
    * @param request - CloudGetTaskRequest
    * @returns CloudGetTaskResponse
@@ -3296,7 +5996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务号码导入
+   * Imports phone numbers for the outbound call task.
    * 
    * @param tmpReq - CloudImportTaskTelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3381,7 +6081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务号码导入
+   * Imports phone numbers for the outbound call task.
    * 
    * @param request - CloudImportTaskTelRequest
    * @returns CloudImportTaskTelResponse
@@ -3648,7 +6348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 推送日志查询
+   * Queries user push logs.
    * 
    * @param request - CloudListCurlLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3711,7 +6411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 推送日志查询
+   * Queries user push logs.
    * 
    * @param request - CloudListCurlLogRequest
    * @returns CloudListCurlLogResponse
@@ -3722,7 +6422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取时间条件设置列表
+   * Queries the list of time condition settings.
    * 
    * @param request - CloudListEnterpriseTimeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3777,7 +6477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取时间条件设置列表
+   * Queries the list of time condition settings.
    * 
    * @param request - CloudListEnterpriseTimeRequest
    * @returns CloudListEnterpriseTimeResponse
@@ -3788,7 +6488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取分机列表
+   * Queries the extension info list.
    * 
    * @param request - CloudListExtenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3875,7 +6575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取分机列表
+   * Queries the extension info list.
    * 
    * @param request - CloudListExtenRequest
    * @returns CloudListExtenResponse
@@ -3940,7 +6640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在线座席信息
+   * Queries the list of online agent info.
    * 
    * @param request - CloudListOnlineAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4003,7 +6703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在线座席信息
+   * Queries the list of online agent info.
    * 
    * @param request - CloudListOnlineAgentRequest
    * @returns CloudListOnlineAgentResponse
@@ -4014,7 +6714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取队列列表
+   * Queries the queue info list.
    * 
    * @param request - CloudListQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4085,7 +6785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取队列列表
+   * Queries the queue info list.
    * 
    * @param request - CloudListQueueRequest
    * @returns CloudListQueueResponse
@@ -4306,7 +7006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务监控
+   * Call job monitoring.
    * 
    * @param request - CloudMonitorTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4353,7 +7053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务监控
+   * Call job monitoring.
    * 
    * @param request - CloudMonitorTaskRequest
    * @returns CloudMonitorTaskResponse
@@ -4364,7 +7064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取预览外呼主叫号码报表
+   * Obtains preview outbound caller report data.
    * 
    * @param request - CloudOutboundObClidReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4431,7 +7131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取预览外呼主叫号码报表
+   * Obtains preview outbound caller report data.
    * 
    * @param request - CloudOutboundObClidReportRequest
    * @returns CloudOutboundObClidReportResponse
@@ -4442,7 +7142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取预览外呼报表
+   * Obtains a preview outbound report.
    * 
    * @param request - CloudOutboundPreviewObReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4509,7 +7209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取预览外呼报表
+   * Obtains a preview outbound report.
    * 
    * @param request - CloudOutboundPreviewObReportRequest
    * @returns CloudOutboundPreviewObReportResponse
@@ -4582,7 +7282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席外呼
+   * When the agent is online, make a call through this interface.
    * 
    * @param request - CloudPreviewoutcallRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4669,7 +7369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席外呼
+   * When the agent is online, make a call through this interface.
    * 
    * @param request - CloudPreviewoutcallRequest
    * @returns CloudPreviewoutcallResponse
@@ -4680,7 +7380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席详细信息列表获取
+   * Queries the list of agent details.
    * 
    * @param request - CloudQueryAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4775,7 +7475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席详细信息列表获取
+   * Queries the list of agent details.
    * 
    * @param request - CloudQueryAgentRequest
    * @returns CloudQueryAgentResponse
@@ -4960,7 +7660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 来电通话记录
+   * Query incoming call records based on specified conditions.
    * 
    * @param request - CloudQueryIbCdrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5063,7 +7763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 来电通话记录
+   * Query incoming call records based on specified conditions.
    * 
    * @param request - CloudQueryIbCdrRequest
    * @returns CloudQueryIbCdrResponse
@@ -5074,7 +7774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取座席外呼通话记录
+   * Query agent outbound call records based on conditions.
    * 
    * @param request - CloudQueryObCdrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5201,7 +7901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取座席外呼通话记录
+   * Query agent outbound call records based on conditions.
    * 
    * @param request - CloudQueryObCdrRequest
    * @returns CloudQueryObCdrResponse
@@ -5212,7 +7912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预测式外呼通话记录
+   * Query the call record info of predictive outbound calls.
    * 
    * @param request - CloudQueryPredictiveCallCdrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5331,7 +8031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预测式外呼通话记录
+   * Query the call record info of predictive outbound calls.
    * 
    * @param request - CloudQueryPredictiveCallCdrRequest
    * @returns CloudQueryPredictiveCallCdrResponse
@@ -5388,7 +8088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务列表
+   * Queries call jobs. Supports conditional query.
    * 
    * @param request - CloudQueryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5471,7 +8171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务列表
+   * Queries call jobs. Supports conditional query.
    * 
    * @param request - CloudQueryTaskRequest
    * @returns CloudQueryTaskResponse
@@ -5482,7 +8182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * webcall通话记录
+   * Query webCall call record info through this interface.
    * 
    * @param request - CloudQueryWebcallCdrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5601,7 +8301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * webcall通话记录
+   * Query webCall call record info through this interface.
    * 
    * @param request - CloudQueryWebcallCdrRequest
    * @returns CloudQueryWebcallCdrResponse
@@ -5612,7 +8312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务启动
+   * Starts an outbound call task.
    * 
    * @param request - CloudStartTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5659,7 +8359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务启动
+   * Starts an outbound call task.
    * 
    * @param request - CloudStartTaskRequest
    * @returns CloudStartTaskResponse
@@ -5732,7 +8432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席更新
+   * Update agent basic info.
    * 
    * @param request - CloudUpdateAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5867,7 +8567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 座席更新
+   * Update agent basic info.
    * 
    * @param request - CloudUpdateAgentRequest
    * @returns CloudUpdateAgentResponse
@@ -5878,7 +8578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务
+   * Modifies the basic information of an outbound call job.
    * 
    * @param request - CloudUpdateTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6109,7 +8809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新任务
+   * Modifies the basic information of an outbound call job.
    * 
    * @param request - CloudUpdateTaskRequest
    * @returns CloudUpdateTaskResponse
@@ -6120,7 +8820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * webcall
+   * Through this interface, a third-party platform can send a call request to a hosted call center. The system calls the customer first and then the agent, and connects both parties.
    * 
    * @param request - CloudWebcallRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6223,7 +8923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * webcall
+   * Through this interface, a third-party platform can send a call request to a hosted call center. The system calls the customer first and then the agent, and connects both parties.
    * 
    * @param request - CloudWebcallRequest
    * @returns CloudWebcallResponse

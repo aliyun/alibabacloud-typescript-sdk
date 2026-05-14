@@ -2,24 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CloudAgentLoginResponseBodyData extends $dara.Model {
+export class ClinkDeleteExtenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 结果
+   * 请求 id
    * 
    * @example
-   * 0
+   * xxx
    */
-  result?: number;
+  clinkRequestId?: string;
+  /**
+   * @remarks
+   * 话机号码
+   * 
+   * @example
+   * 333
+   */
+  exten?: string;
   static names(): { [key: string]: string } {
     return {
-      result: 'Result',
+      clinkRequestId: 'ClinkRequestId',
+      exten: 'Exten',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      result: 'number',
+      clinkRequestId: 'string',
+      exten: 'string',
     };
   }
 
@@ -32,14 +42,18 @@ export class CloudAgentLoginResponseBodyData extends $dara.Model {
   }
 }
 
-export class CloudAgentLoginResponseBody extends $dara.Model {
+export class ClinkDeleteExtenResponseBody extends $dara.Model {
+  /**
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @example
    * OK
    */
   code?: string;
-  data?: CloudAgentLoginResponseBodyData;
+  data?: ClinkDeleteExtenResponseBodyData;
   /**
    * @example
    * OK
@@ -47,7 +61,7 @@ export class CloudAgentLoginResponseBody extends $dara.Model {
   message?: string;
   /**
    * @example
-   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -64,7 +78,7 @@ export class CloudAgentLoginResponseBody extends $dara.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: CloudAgentLoginResponseBodyData,
+      data: ClinkDeleteExtenResponseBodyData,
       message: 'string',
       requestId: 'string',
     };

@@ -2,24 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CloudAgentLoginResponseBodyData extends $dara.Model {
+export class ClinkBindClientTelResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 结果
+   * 请求 id
    * 
    * @example
-   * 0
+   * null
    */
-  result?: number;
+  clinkRequestId?: string;
   static names(): { [key: string]: string } {
     return {
-      result: 'Result',
+      clinkRequestId: 'ClinkRequestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      result: 'number',
+      clinkRequestId: 'string',
     };
   }
 
@@ -32,14 +32,14 @@ export class CloudAgentLoginResponseBodyData extends $dara.Model {
   }
 }
 
-export class CloudAgentLoginResponseBody extends $dara.Model {
+export class ClinkBindClientTelResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @example
    * OK
    */
   code?: string;
-  data?: CloudAgentLoginResponseBodyData;
+  data?: ClinkBindClientTelResponseBodyData;
   /**
    * @example
    * OK
@@ -47,7 +47,7 @@ export class CloudAgentLoginResponseBody extends $dara.Model {
   message?: string;
   /**
    * @example
-   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   * 7BF47617-7851-48F7-A3A1-2021342A78E2
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -64,7 +64,7 @@ export class CloudAgentLoginResponseBody extends $dara.Model {
     return {
       accessDeniedDetail: 'string',
       code: 'string',
-      data: CloudAgentLoginResponseBodyData,
+      data: ClinkBindClientTelResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
