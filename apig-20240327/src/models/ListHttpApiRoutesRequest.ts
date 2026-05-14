@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListHttpApiRoutesRequest extends $dara.Model {
   /**
+   * @example
+   * test-svc
+   */
+  backendServiceName?: string;
+  /**
    * @remarks
    * The string that is used to filter routes based on consumer authentication rules. Only authorized APIs are returned.
    * 
@@ -127,6 +132,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withPluginAttachmentByPluginId?: string;
   static names(): { [key: string]: string } {
     return {
+      backendServiceName: 'backendServiceName',
       consumerAuthorizationRuleId: 'consumerAuthorizationRuleId',
       deployStatuses: 'deployStatuses',
       domainId: 'domainId',
@@ -146,6 +152,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backendServiceName: 'string',
       consumerAuthorizationRuleId: 'string',
       deployStatuses: 'string',
       domainId: 'string',

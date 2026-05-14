@@ -3648,6 +3648,10 @@ export default class Client extends OpenApi {
   async listHttpApiRoutesWithOptions(httpApiId: string, request: $_model.ListHttpApiRoutesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListHttpApiRoutesResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.backendServiceName)) {
+      query["backendServiceName"] = request.backendServiceName;
+    }
+
     if (!$dara.isNull(request.consumerAuthorizationRuleId)) {
       query["consumerAuthorizationRuleId"] = request.consumerAuthorizationRuleId;
     }
