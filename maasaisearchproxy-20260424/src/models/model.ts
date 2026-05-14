@@ -1,3 +1,4 @@
+export { WebSearchResponseBodyDataResultSource } from './WebSearchResponseBody';
 export { WebSearchResponseBodyDataResult } from './WebSearchResponseBody';
 export { WebSearchResponseBodyData } from './WebSearchResponseBody';
 export { WebSearchRequest } from './WebSearchRequest';

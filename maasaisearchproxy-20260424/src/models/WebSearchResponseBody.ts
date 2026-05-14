@@ -4,8 +4,59 @@ import * as $dara from '@darabonba/typescript';
 
 /**
  */
+export class WebSearchResponseBodyDataResultSource extends $dara.Model {
+  /**
+   * @example
+   * domain
+   */
+  domain?: string;
+  /**
+   * @example
+   * favicon
+   */
+  favicon?: string;
+  /**
+   * @example
+   * name
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domain: 'domain',
+      favicon: 'favicon',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domain: 'string',
+      favicon: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WebSearchResponseBodyDataResult extends $dara.Model {
+  /**
+   * @example
+   * 1990-01-01 12:00:00
+   */
+  date?: string;
+  /**
+   * @example
+   * snippet
+   */
   snippet?: string;
+  source?: WebSearchResponseBodyDataResultSource;
   /**
    * @example
    * 4567
@@ -18,7 +69,9 @@ export class WebSearchResponseBodyDataResult extends $dara.Model {
   url?: string;
   static names(): { [key: string]: string } {
     return {
+      date: 'date',
       snippet: 'snippet',
+      source: 'source',
       title: 'title',
       url: 'url',
     };
@@ -26,13 +79,18 @@ export class WebSearchResponseBodyDataResult extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      date: 'string',
       snippet: 'string',
+      source: WebSearchResponseBodyDataResultSource,
       title: 'string',
       url: 'string',
     };
   }
 
   validate() {
+    if(this.source && typeof (this.source as any).validate === 'function') {
+      (this.source as any).validate();
+    }
     super.validate();
   }
 
@@ -86,20 +144,11 @@ export class WebSearchResponseBody extends $dara.Model {
    * successful
    */
   message?: string;
-  /**
-   * @remarks
-   * requestId
-   * 
-   * @example
-   * 3b5215d417623961959166934d009a
-   */
-  traceId?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'code',
       data: 'data',
       message: 'message',
-      traceId: 'traceId',
     };
   }
 
@@ -108,7 +157,6 @@ export class WebSearchResponseBody extends $dara.Model {
       code: 'number',
       data: WebSearchResponseBodyData,
       message: 'string',
-      traceId: 'string',
     };
   }
 
