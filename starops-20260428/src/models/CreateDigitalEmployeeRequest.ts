@@ -84,6 +84,7 @@ export class CreateDigitalEmployeeRequestKnowledges extends $dara.Model {
 }
 
 export class CreateDigitalEmployeeRequest extends $dara.Model {
+  attributes?: { [key: string]: string };
   /**
    * @example
    * test
@@ -124,6 +125,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   tags?: Tag[];
   static names(): { [key: string]: string } {
     return {
+      attributes: 'attributes',
       defaultRule: 'defaultRule',
       description: 'description',
       displayName: 'displayName',
@@ -137,6 +139,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       defaultRule: 'string',
       description: 'string',
       displayName: 'string',
@@ -149,6 +152,9 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
     if(this.knowledges && typeof (this.knowledges as any).validate === 'function') {
       (this.knowledges as any).validate();
     }

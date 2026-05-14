@@ -84,6 +84,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployeesKnowledges extends 
 }
 
 export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Model {
+  attributes?: { [key: string]: string };
   /**
    * @remarks
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
@@ -139,6 +140,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      attributes: 'attributes',
       createTime: 'createTime',
       defaultRule: 'defaultRule',
       description: 'description',
@@ -155,6 +157,7 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
 
   static types(): { [key: string]: any } {
     return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       createTime: 'string',
       defaultRule: 'string',
       description: 'string',
@@ -170,6 +173,9 @@ export class ListDigitalEmployeesResponseBodyDigitalEmployees extends $dara.Mode
   }
 
   validate() {
+    if(this.attributes) {
+      $dara.Model.validateMap(this.attributes);
+    }
     if(this.knowledges && typeof (this.knowledges as any).validate === 'function') {
       (this.knowledges as any).validate();
     }

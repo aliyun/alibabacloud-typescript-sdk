@@ -165,6 +165,10 @@ export default class Client extends OpenApi {
   async createDigitalEmployeeWithOptions(request: $_model.CreateDigitalEmployeeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDigitalEmployeeResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attributes)) {
+      body["attributes"] = request.attributes;
+    }
+
     if (!$dara.isNull(request.defaultRule)) {
       body["defaultRule"] = request.defaultRule;
     }
@@ -1047,6 +1051,10 @@ export default class Client extends OpenApi {
   async updateDigitalEmployeeWithOptions(name: string, request: $_model.UpdateDigitalEmployeeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDigitalEmployeeResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attributes)) {
+      body["attributes"] = request.attributes;
+    }
+
     if (!$dara.isNull(request.defaultRule)) {
       body["defaultRule"] = request.defaultRule;
     }
