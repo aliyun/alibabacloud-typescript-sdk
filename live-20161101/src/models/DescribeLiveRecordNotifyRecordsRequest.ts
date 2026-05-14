@@ -76,6 +76,7 @@ export class DescribeLiveRecordNotifyRecordsRequest extends $dara.Model {
    * success
    */
   status?: string;
+  storageType?: string;
   /**
    * @remarks
    * The name of the live stream.
@@ -95,6 +96,7 @@ export class DescribeLiveRecordNotifyRecordsRequest extends $dara.Model {
       regionId: 'RegionId',
       startTime: 'StartTime',
       status: 'Status',
+      storageType: 'StorageType',
       streamName: 'StreamName',
     };
   }
@@ -110,6 +112,7 @@ export class DescribeLiveRecordNotifyRecordsRequest extends $dara.Model {
       regionId: 'string',
       startTime: 'string',
       status: 'string',
+      storageType: 'string',
       streamName: 'string',
     };
   }

@@ -80,6 +80,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
    * http://learn.aliyundoc.com/examplecallback.action
    */
   notifyUrl?: string;
+  storageType?: string;
   /**
    * @remarks
    * The name of the live stream.
@@ -100,6 +101,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
       notifyTime: 'NotifyTime',
       notifyType: 'NotifyType',
       notifyUrl: 'NotifyUrl',
+      storageType: 'StorageType',
       streamName: 'StreamName',
     };
   }
@@ -116,6 +118,7 @@ export class DescribeLiveRecordNotifyRecordsResponseBodyCallbackList extends $da
       notifyTime: 'string',
       notifyType: 'string',
       notifyUrl: 'string',
+      storageType: 'string',
       streamName: 'string',
     };
   }

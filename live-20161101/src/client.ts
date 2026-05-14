@@ -15203,6 +15203,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!$dara.isNull(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
     if (!$dara.isNull(request.streamName)) {
       query["StreamName"] = request.streamName;
     }
