@@ -4878,6 +4878,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询PPT任务信息
+   * 
+   * @param request - GetPptInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPptInfoResponse
+   */
+  async getPptInfoWithOptions(request: $_model.GetPptInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPptInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPptInfo",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPptInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetPptInfoResponse({}));
+  }
+
+  /**
+   * 查询PPT任务信息
+   * 
+   * @param request - GetPptInfoRequest
+   * @returns GetPptInfoResponse
+   */
+  async getPptInfo(request: $_model.GetPptInfoRequest): Promise<$_model.GetPptInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPptInfoWithOptions(request, runtime);
+  }
+
+  /**
    * 查询PPT模板筛选器
    * 
    * @param request - GetPptTemplateSelectorRequest
@@ -5391,6 +5437,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pptTemplateType)) {
       body["PptTemplateType"] = request.pptTemplateType;
+    }
+
+    if (!$dara.isNull(request.pptTitle)) {
+      body["PptTitle"] = request.pptTitle;
     }
 
     if (!$dara.isNull(request.processType)) {

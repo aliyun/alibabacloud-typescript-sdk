@@ -155,6 +155,7 @@ export { GetPptArtifactResponseBodyDataFileAttr } from './GetPptArtifactResponse
 export { GetPptArtifactResponseBodyData } from './GetPptArtifactResponseBody';
 export { GetPptArtifactExportResultResponseBodyData } from './GetPptArtifactExportResultResponseBody';
 export { GetPptConfigResponseBodyData } from './GetPptConfigResponseBody';
+export { GetPptInfoResponseBodyData } from './GetPptInfoResponseBody';
 export { GetPptTemplateSelectorResponseBodyDataCareer } from './GetPptTemplateSelectorResponseBody';
 export { GetPptTemplateSelectorResponseBodyDataColour } from './GetPptTemplateSelectorResponseBody';
 export { GetPptTemplateSelectorResponseBodyDataSuitScene } from './GetPptTemplateSelectorResponseBody';
@@ -955,6 +956,9 @@ export { GetPptArtifactExportResultResponse } from './GetPptArtifactExportResult
 export { GetPptConfigRequest } from './GetPptConfigRequest';
 export { GetPptConfigResponseBody } from './GetPptConfigResponseBody';
 export { GetPptConfigResponse } from './GetPptConfigResponse';
+export { GetPptInfoRequest } from './GetPptInfoRequest';
+export { GetPptInfoResponseBody } from './GetPptInfoResponseBody';
+export { GetPptInfoResponse } from './GetPptInfoResponse';
 export { GetPptTemplateSelectorRequest } from './GetPptTemplateSelectorRequest';
 export { GetPptTemplateSelectorResponseBody } from './GetPptTemplateSelectorResponseBody';
 export { GetPptTemplateSelectorResponse } from './GetPptTemplateSelectorResponse';

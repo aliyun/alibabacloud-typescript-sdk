@@ -26,6 +26,11 @@ export class InitiatePptCreationV2Request extends $dara.Model {
   pptTemplateType?: number;
   /**
    * @example
+   * 中国传统文化艺术的魅力
+   */
+  pptTitle?: string;
+  /**
+   * @example
    * 1
    */
   processType?: number;
@@ -49,6 +54,7 @@ export class InitiatePptCreationV2Request extends $dara.Model {
       outline: 'Outline',
       pptTemplateId: 'PptTemplateId',
       pptTemplateType: 'PptTemplateType',
+      pptTitle: 'PptTitle',
       processType: 'ProcessType',
       taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
@@ -62,6 +68,7 @@ export class InitiatePptCreationV2Request extends $dara.Model {
       outline: 'string',
       pptTemplateId: 'number',
       pptTemplateType: 'number',
+      pptTitle: 'string',
       processType: 'number',
       taskId: 'string',
       workspaceId: 'string',
