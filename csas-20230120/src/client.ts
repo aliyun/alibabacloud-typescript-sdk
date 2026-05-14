@@ -3494,7 +3494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询转发策略
+   * Batch query forwarding rules
    * 
    * @param request - ListForwardStrategiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3521,7 +3521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询转发策略
+   * Batch query forwarding rules
    * 
    * @param request - ListForwardStrategiesRequest
    * @returns ListForwardStrategiesResponse
@@ -3532,7 +3532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询转发策略绑定项目
+   * Batch Query Forwarding Rules Attached to Projects
    * 
    * @param request - ListForwardStrategyBindingItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3559,7 +3559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量查询转发策略绑定项目
+   * Batch Query Forwarding Rules Attached to Projects
    * 
    * @param request - ListForwardStrategyBindingItemsRequest
    * @returns ListForwardStrategyBindingItemsResponse
@@ -4709,6 +4709,52 @@ export default class Client extends OpenApi {
   async modifyEnterpriseAcceleratePolicy(request: $_model.ModifyEnterpriseAcceleratePolicyRequest): Promise<$_model.ModifyEnterpriseAcceleratePolicyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyEnterpriseAcceleratePolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * Revoke a user device session.
+   * 
+   * @param request - RevokeUserDeviceSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeUserDeviceSessionResponse
+   */
+  async revokeUserDeviceSessionWithOptions(request: $_model.RevokeUserDeviceSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeUserDeviceSessionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.devTag)) {
+      body["DevTag"] = request.devTag;
+    }
+
+    if (!$dara.isNull(request.saseUserId)) {
+      body["SaseUserId"] = request.saseUserId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeUserDeviceSession",
+      version: "2023-01-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeUserDeviceSessionResponse>(await this.callApi(params, req, runtime), new $_model.RevokeUserDeviceSessionResponse({}));
+  }
+
+  /**
+   * Revoke a user device session.
+   * 
+   * @param request - RevokeUserDeviceSessionRequest
+   * @returns RevokeUserDeviceSessionResponse
+   */
+  async revokeUserDeviceSession(request: $_model.RevokeUserDeviceSessionRequest): Promise<$_model.RevokeUserDeviceSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeUserDeviceSessionWithOptions(request, runtime);
   }
 
   /**

@@ -10,6 +10,7 @@ export class IdpDingtalkSubConfig extends $dara.Model {
   eventLabel?: string;
   eventVerifyToken?: string;
   exclusive?: boolean;
+  oauth?: boolean;
   redirectUri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20,6 +21,7 @@ export class IdpDingtalkSubConfig extends $dara.Model {
       eventLabel: 'EventLabel',
       eventVerifyToken: 'EventVerifyToken',
       exclusive: 'Exclusive',
+      oauth: 'Oauth',
       redirectUri: 'RedirectUri',
     };
   }
@@ -33,6 +35,7 @@ export class IdpDingtalkSubConfig extends $dara.Model {
       eventLabel: 'string',
       eventVerifyToken: 'string',
       exclusive: 'boolean',
+      oauth: 'boolean',
       redirectUri: 'string',
     };
   }

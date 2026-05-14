@@ -298,6 +298,7 @@ export { UpdateUserDevicesSharingStatusResponseBodyDevices } from './UpdateUserD
 export { UpdateUserDevicesStatusResponseBodyDevicesNetInterfaceInfo } from './UpdateUserDevicesStatusResponseBody';
 export { UpdateUserDevicesStatusResponseBodyDevices } from './UpdateUserDevicesStatusResponseBody';
 export { UpdateUserGroupRequestAttributes } from './UpdateUserGroupRequest';
+export { AIUsageLimitPolicy } from './AiusageLimitPolicy';
 export { AddressGroup } from './AddressGroup';
 export { AuthReportInterval } from './AuthReportInterval';
 export { CommonConfig } from './CommonConfig';
@@ -632,6 +633,9 @@ export { LookupWmInfoMappingResponse } from './LookupWmInfoMappingResponse';
 export { ModifyEnterpriseAcceleratePolicyRequest } from './ModifyEnterpriseAcceleratePolicyRequest';
 export { ModifyEnterpriseAcceleratePolicyResponseBody } from './ModifyEnterpriseAcceleratePolicyResponseBody';
 export { ModifyEnterpriseAcceleratePolicyResponse } from './ModifyEnterpriseAcceleratePolicyResponse';
+export { RevokeUserDeviceSessionRequest } from './RevokeUserDeviceSessionRequest';
+export { RevokeUserDeviceSessionResponseBody } from './RevokeUserDeviceSessionResponseBody';
+export { RevokeUserDeviceSessionResponse } from './RevokeUserDeviceSessionResponse';
 export { RevokeUserSessionRequest } from './RevokeUserSessionRequest';
 export { RevokeUserSessionResponseBody } from './RevokeUserSessionResponseBody';
 export { RevokeUserSessionResponse } from './RevokeUserSessionResponse';

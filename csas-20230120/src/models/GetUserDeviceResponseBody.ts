@@ -110,8 +110,38 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
    */
   CPU?: string;
   city?: string;
+  /**
+   * @example
+   * Beijing City
+   */
+  cityEn?: string;
+  /**
+   * @example
+   * 北京市
+   */
+  cityZh?: string;
   continent?: string;
+  /**
+   * @example
+   * Asia
+   */
+  continentEn?: string;
+  /**
+   * @example
+   * 亚洲
+   */
+  continentZh?: string;
   country?: string;
+  /**
+   * @example
+   * China
+   */
+  countryEn?: string;
+  /**
+   * @example
+   * 中国
+   */
+  countryZh?: string;
   /**
    * @example
    * 2023-05-16 17:18:46
@@ -204,6 +234,16 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
   province?: string;
   /**
    * @example
+   * Beijing
+   */
+  provinceEn?: string;
+  /**
+   * @example
+   * 北京市
+   */
+  provinceZh?: string;
+  /**
+   * @example
    * su_e8f218fb171edd167c2ad917d21f53148bdefc510ca1f3c3cc0249d3643d****
    */
   saseUserId?: string;
@@ -239,8 +279,14 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       batteryRemainingPercentage: 'BatteryRemainingPercentage',
       CPU: 'CPU',
       city: 'City',
+      cityEn: 'CityEn',
+      cityZh: 'CityZh',
       continent: 'Continent',
+      continentEn: 'ContinentEn',
+      continentZh: 'ContinentZh',
       country: 'Country',
+      countryEn: 'CountryEn',
+      countryZh: 'CountryZh',
       createTime: 'CreateTime',
       department: 'Department',
       deviceBelong: 'DeviceBelong',
@@ -267,6 +313,8 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       paStatus: 'PaStatus',
       processes: 'Processes',
       province: 'Province',
+      provinceEn: 'ProvinceEn',
+      provinceZh: 'ProvinceZh',
       saseUserId: 'SaseUserId',
       sharingStatus: 'SharingStatus',
       snBaseBoard: 'SnBaseBoard',
@@ -291,8 +339,14 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       batteryRemainingPercentage: 'number',
       CPU: 'string',
       city: 'string',
+      cityEn: 'string',
+      cityZh: 'string',
       continent: 'string',
+      continentEn: 'string',
+      continentZh: 'string',
       country: 'string',
+      countryEn: 'string',
+      countryZh: 'string',
       createTime: 'string',
       department: 'string',
       deviceBelong: 'string',
@@ -319,6 +373,8 @@ export class GetUserDeviceResponseBodyDevice extends $dara.Model {
       paStatus: 'string',
       processes: { 'type': 'array', 'itemType': GetUserDeviceResponseBodyDeviceProcesses },
       province: 'string',
+      provinceEn: 'string',
+      provinceZh: 'string',
       saseUserId: 'string',
       sharingStatus: 'boolean',
       snBaseBoard: 'string',
