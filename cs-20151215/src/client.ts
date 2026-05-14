@@ -5595,6 +5595,10 @@ export default class Client extends OpenApi {
       body["cluster_name"] = request.clusterName;
     }
 
+    if (!$dara.isNull(request.clusterSpec)) {
+      body["cluster_spec"] = request.clusterSpec;
+    }
+
     if (!$dara.isNull(request.controlPlaneConfig)) {
       body["control_plane_config"] = request.controlPlaneConfig;
     }

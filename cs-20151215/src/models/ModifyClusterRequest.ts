@@ -576,6 +576,7 @@ export class ModifyClusterRequest extends $dara.Model {
    * cluster-new-name
    */
   clusterName?: string;
+  clusterSpec?: string;
   /**
    * @remarks
    * The control plane configurations of an ACK dedicated cluster.
@@ -725,6 +726,7 @@ export class ModifyClusterRequest extends $dara.Model {
       apiServerEip: 'api_server_eip',
       apiServerEipId: 'api_server_eip_id',
       clusterName: 'cluster_name',
+      clusterSpec: 'cluster_spec',
       controlPlaneConfig: 'control_plane_config',
       controlPlaneEndpointsConfig: 'control_plane_endpoints_config',
       deletionProtection: 'deletion_protection',
@@ -749,6 +751,7 @@ export class ModifyClusterRequest extends $dara.Model {
       apiServerEip: 'boolean',
       apiServerEipId: 'string',
       clusterName: 'string',
+      clusterSpec: 'string',
       controlPlaneConfig: ModifyClusterRequestControlPlaneConfig,
       controlPlaneEndpointsConfig: ModifyClusterRequestControlPlaneEndpointsConfig,
       deletionProtection: 'boolean',
