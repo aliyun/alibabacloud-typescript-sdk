@@ -19,6 +19,7 @@ export class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara.Model {
   retentionValue?: string;
   srcRegion?: string;
   srcType?: string;
+  storageClass?: string;
   static names(): { [key: string]: string } {
     return {
       actionType: 'ActionType',
@@ -37,6 +38,7 @@ export class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara.Model {
       retentionValue: 'RetentionValue',
       srcRegion: 'SrcRegion',
       srcType: 'SrcType',
+      storageClass: 'StorageClass',
     };
   }
 
@@ -58,6 +60,7 @@ export class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara.Model {
       retentionValue: 'string',
       srcRegion: 'string',
       srcType: 'string',
+      storageClass: 'string',
     };
   }
 

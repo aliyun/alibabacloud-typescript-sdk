@@ -18,6 +18,7 @@ export class DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPol
   retentionValue?: string;
   srcRegion?: string;
   srcType?: string;
+  storageClass?: string;
   static names(): { [key: string]: string } {
     return {
       autoCreated: 'AutoCreated',
@@ -35,6 +36,7 @@ export class DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPol
       retentionValue: 'RetentionValue',
       srcRegion: 'SrcRegion',
       srcType: 'SrcType',
+      storageClass: 'StorageClass',
     };
   }
 
@@ -55,6 +57,7 @@ export class DescribeBackupPolicyResponseBodyAdvancedDataPoliciesAdvancedDataPol
       retentionValue: 'string',
       srcRegion: 'string',
       srcType: 'string',
+      storageClass: 'string',
     };
   }
 

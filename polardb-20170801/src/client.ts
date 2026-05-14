@@ -551,6 +551,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批准PolarClaw设备配对
+   * 
+   * @param request - ApprovePolarClawDevicePairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApprovePolarClawDevicePairResponse
+   */
+  async approvePolarClawDevicePairWithOptions(request: $_model.ApprovePolarClawDevicePairRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ApprovePolarClawDevicePairResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.pairRequestId)) {
+      query["PairRequestId"] = request.pairRequestId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ApprovePolarClawDevicePair",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ApprovePolarClawDevicePairResponse>(await this.callApi(params, req, runtime), new $_model.ApprovePolarClawDevicePairResponse({}));
+  }
+
+  /**
+   * 批准PolarClaw设备配对
+   * 
+   * @param request - ApprovePolarClawDevicePairRequest
+   * @returns ApprovePolarClawDevicePairResponse
+   */
+  async approvePolarClawDevicePair(request: $_model.ApprovePolarClawDevicePairRequest): Promise<$_model.ApprovePolarClawDevicePairResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.approvePolarClawDevicePairWithOptions(request, runtime);
+  }
+
+  /**
    * 挂载PolarFS到PolarDB应用
    * 
    * @param request - AttachApplicationPolarFSRequest
@@ -9273,6 +9319,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询PolarDB AI应用性能
+   * 
+   * @param request - DescribeApplicationPerformanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationPerformanceResponse
+   */
+  async describeApplicationPerformanceWithOptions(request: $_model.DescribeApplicationPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationPerformanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.consumer)) {
+      query["Consumer"] = request.consumer;
+    }
+
+    if (!$dara.isNull(request.consumerGroup)) {
+      query["ConsumerGroup"] = request.consumerGroup;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
+    if (!$dara.isNull(request.key)) {
+      query["Key"] = request.key;
+    }
+
+    if (!$dara.isNull(request.modelService)) {
+      query["ModelService"] = request.modelService;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationPerformance",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationPerformanceResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationPerformanceResponse({}));
+  }
+
+  /**
+   * 查询PolarDB AI应用性能
+   * 
+   * @param request - DescribeApplicationPerformanceRequest
+   * @returns DescribeApplicationPerformanceResponse
+   */
+  async describeApplicationPerformance(request: $_model.DescribeApplicationPerformanceRequest): Promise<$_model.DescribeApplicationPerformanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationPerformanceWithOptions(request, runtime);
+  }
+
+  /**
    * 查询当前应用下所有的应用提示词策略列表
    * 
    * @param request - DescribeApplicationPromptsRequest
@@ -15793,6 +15909,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询PolarClaw异步任务状态
+   * 
+   * @param request - DescribePolarClawTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarClawTaskResponse
+   */
+  async describePolarClawTaskWithOptions(request: $_model.DescribePolarClawTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarClawTask",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarClawTaskResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarClawTaskResponse({}));
+  }
+
+  /**
+   * 查询PolarClaw异步任务状态
+   * 
+   * @param request - DescribePolarClawTaskRequest
+   * @returns DescribePolarClawTaskResponse
+   */
+  async describePolarClawTask(request: $_model.DescribePolarClawTaskRequest): Promise<$_model.DescribePolarClawTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarClawTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 获取PolarFS实例详情
    * 
    * @param request - DescribePolarFsAttributeRequest
@@ -18847,6 +19009,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出PolarClaw设备配对
+   * 
+   * @param request - ListPolarClawDevicePairsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPolarClawDevicePairsResponse
+   */
+  async listPolarClawDevicePairsWithOptions(request: $_model.ListPolarClawDevicePairsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPolarClawDevicePairsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPolarClawDevicePairs",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPolarClawDevicePairsResponse>(await this.callApi(params, req, runtime), new $_model.ListPolarClawDevicePairsResponse({}));
+  }
+
+  /**
+   * 列出PolarClaw设备配对
+   * 
+   * @param request - ListPolarClawDevicePairsRequest
+   * @returns ListPolarClawDevicePairsResponse
+   */
+  async listPolarClawDevicePairs(request: $_model.ListPolarClawDevicePairsRequest): Promise<$_model.ListPolarClawDevicePairsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPolarClawDevicePairsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the tags that are added to one or more PolarDB clusters, or the PolarDB clusters to which one or more tags are added.
    * 
    * @param request - ListTagResourcesRequest
@@ -18980,6 +19184,52 @@ export default class Client extends OpenApi {
   async listTagResourcesForRegion(request: $_model.ListTagResourcesForRegionRequest): Promise<$_model.ListTagResourcesForRegionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesForRegionWithOptions(request, runtime);
+  }
+
+  /**
+   * 登录PolarClaw Channel
+   * 
+   * @param request - LoginPolarClawChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LoginPolarClawChannelResponse
+   */
+  async loginPolarClawChannelWithOptions(request: $_model.LoginPolarClawChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LoginPolarClawChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LoginPolarClawChannel",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LoginPolarClawChannelResponse>(await this.callApi(params, req, runtime), new $_model.LoginPolarClawChannelResponse({}));
+  }
+
+  /**
+   * 登录PolarClaw Channel
+   * 
+   * @param request - LoginPolarClawChannelRequest
+   * @returns LoginPolarClawChannelResponse
+   */
+  async loginPolarClawChannel(request: $_model.LoginPolarClawChannelRequest): Promise<$_model.LoginPolarClawChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.loginPolarClawChannelWithOptions(request, runtime);
   }
 
   /**
@@ -24495,6 +24745,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 拒绝PolarClaw设备配对
+   * 
+   * @param request - RejectPolarClawDevicePairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RejectPolarClawDevicePairResponse
+   */
+  async rejectPolarClawDevicePairWithOptions(request: $_model.RejectPolarClawDevicePairRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RejectPolarClawDevicePairResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.pairRequestId)) {
+      query["PairRequestId"] = request.pairRequestId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RejectPolarClawDevicePair",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RejectPolarClawDevicePairResponse>(await this.callApi(params, req, runtime), new $_model.RejectPolarClawDevicePairResponse({}));
+  }
+
+  /**
+   * 拒绝PolarClaw设备配对
+   * 
+   * @param request - RejectPolarClawDevicePairRequest
+   * @returns RejectPolarClawDevicePairResponse
+   */
+  async rejectPolarClawDevicePair(request: $_model.RejectPolarClawDevicePairRequest): Promise<$_model.RejectPolarClawDevicePairResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.rejectPolarClawDevicePairWithOptions(request, runtime);
+  }
+
+  /**
    * 删除应用环境变量
    * 
    * @param tmpReq - RemoveApplicationEnvironmentVariablesRequest
@@ -24628,6 +24924,52 @@ export default class Client extends OpenApi {
   async removeDBClusterFromGDN(request: $_model.RemoveDBClusterFromGDNRequest): Promise<$_model.RemoveDBClusterFromGDNResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeDBClusterFromGDNWithOptions(request, runtime);
+  }
+
+  /**
+   * 移除PolarClaw已配对设备
+   * 
+   * @param request - RemovePolarClawDevicePairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemovePolarClawDevicePairResponse
+   */
+  async removePolarClawDevicePairWithOptions(request: $_model.RemovePolarClawDevicePairRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemovePolarClawDevicePairResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemovePolarClawDevicePair",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemovePolarClawDevicePairResponse>(await this.callApi(params, req, runtime), new $_model.RemovePolarClawDevicePairResponse({}));
+  }
+
+  /**
+   * 移除PolarClaw已配对设备
+   * 
+   * @param request - RemovePolarClawDevicePairRequest
+   * @returns RemovePolarClawDevicePairResponse
+   */
+  async removePolarClawDevicePair(request: $_model.RemovePolarClawDevicePairRequest): Promise<$_model.RemovePolarClawDevicePairResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removePolarClawDevicePairWithOptions(request, runtime);
   }
 
   /**
