@@ -26,11 +26,13 @@ export class DescribeSDGShrinkRequest extends $dara.Model {
    * The IDs of SDGs that you want to query. By default, all SDGs are queried.
    */
   SDGIdsShrink?: string;
+  sameDiskId?: boolean;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       SDGIdsShrink: 'SDGIds',
+      sameDiskId: 'SameDiskId',
     };
   }
 
@@ -39,6 +41,7 @@ export class DescribeSDGShrinkRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       SDGIdsShrink: 'string',
+      sameDiskId: 'boolean',
     };
   }
 

@@ -590,7 +590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加已有节点到集群节点池
+   * Adds existing nodes to a specific node pool. You can add existing ENS instances to an ECK cluster as worker nodes. You can also add removed worker nodes back to the node pool by invoking AttachInstancesToNodePool.
    * 
    * @param tmpReq - AttachInstancesToNodePoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -635,7 +635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加已有节点到集群节点池
+   * Adds existing nodes to a specific node pool. You can add existing ENS instances to an ECK cluster as worker nodes. You can also add removed worker nodes back to the node pool by invoking AttachInstancesToNodePool.
    * 
    * @param request - AttachInstancesToNodePoolRequest
    * @returns AttachInstancesToNodePoolResponse
@@ -6246,7 +6246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询添加已有节点到集群节点池的脚本
+   * To add existing ENS instances to an ECK cluster as worker nodes, or to re-add node instances to a node pool after removing worker nodes, ECK supports manually adding existing nodes to a node pool. You can invoke the DescribeClusterAttachScripts interface to obtain the script for adding existing nodes.
    * 
    * @param request - DescribeClusterAttachScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6285,7 +6285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询添加已有节点到集群节点池的脚本
+   * To add existing ENS instances to an ECK cluster as worker nodes, or to re-add node instances to a node pool after removing worker nodes, ECK supports manually adding existing nodes to a node pool. You can invoke the DescribeClusterAttachScripts interface to obtain the script for adding existing nodes.
    * 
    * @param request - DescribeClusterAttachScriptsRequest
    * @returns DescribeClusterAttachScriptsResponse
@@ -10523,6 +10523,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.SDGIdsShrink)) {
       query["SDGIds"] = request.SDGIdsShrink;
+    }
+
+    if (!$dara.isNull(request.sameDiskId)) {
+      query["SameDiskId"] = request.sameDiskId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18609,7 +18613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集群证书
+   * Update cluster certificates
    * 
    * @param request - UpdateClusterCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18640,7 +18644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新集群证书
+   * Update cluster certificates
    * 
    * @param request - UpdateClusterCertificateRequest
    * @returns UpdateClusterCertificateResponse

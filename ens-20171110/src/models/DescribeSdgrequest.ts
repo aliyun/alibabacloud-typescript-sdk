@@ -26,11 +26,13 @@ export class DescribeSDGRequest extends $dara.Model {
    * The IDs of SDGs that you want to query. By default, all SDGs are queried.
    */
   SDGIds?: string[];
+  sameDiskId?: boolean;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       SDGIds: 'SDGIds',
+      sameDiskId: 'SameDiskId',
     };
   }
 
@@ -39,6 +41,7 @@ export class DescribeSDGRequest extends $dara.Model {
       pageNumber: 'number',
       pageSize: 'number',
       SDGIds: { 'type': 'array', 'itemType': 'string' },
+      sameDiskId: 'boolean',
     };
   }
 
