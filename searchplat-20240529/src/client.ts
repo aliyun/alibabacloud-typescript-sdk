@@ -853,6 +853,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取JinaAiReader解析结果
+   * 
+   * @param request - GetJinaAiReaderRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJinaAiReaderResponse
+   */
+  async getJinaAiReaderWithOptions(workspaceName: string, serviceId: string, request: $_model.GetJinaAiReaderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetJinaAiReaderResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.url)) {
+      body["url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetJinaAiReader",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/jina-ai-reader/${serviceId}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetJinaAiReaderResponse>(await this.execute(params, req, runtime), new $_model.GetJinaAiReaderResponse({}));
+  }
+
+  /**
+   * 获取JinaAiReader解析结果
+   * 
+   * @param request - GetJinaAiReaderRequest
+   * @returns GetJinaAiReaderResponse
+   */
+  async getJinaAiReader(workspaceName: string, serviceId: string, request: $_model.GetJinaAiReaderRequest): Promise<$_model.GetJinaAiReaderResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getJinaAiReaderWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
    * 查看memory详情
    * 
    * @param request - GetMemoryRequest

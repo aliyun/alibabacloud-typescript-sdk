@@ -51,6 +51,8 @@ export { GetImageObjectDetectionResponseBodyResultObjectsLocation } from './GetI
 export { GetImageObjectDetectionResponseBodyResultObjects } from './GetImageObjectDetectionResponseBody';
 export { GetImageObjectDetectionResponseBodyResult } from './GetImageObjectDetectionResponseBody';
 export { GetImageObjectDetectionResponseBodyUsage } from './GetImageObjectDetectionResponseBody';
+export { GetJinaAiReaderResponseBodyResult } from './GetJinaAiReaderResponseBody';
+export { GetJinaAiReaderResponseBodyUsage } from './GetJinaAiReaderResponseBody';
 export { GetMemoryResponseBodyResult } from './GetMemoryResponseBody';
 export { GetMemoryHealthResponseBodyResult } from './GetMemoryHealthResponseBody';
 export { GetMemorySkillResponseBodyResult } from './GetMemorySkillResponseBody';
@@ -156,6 +158,9 @@ export { GetImageAnalyzeTaskStatusResponse } from './GetImageAnalyzeTaskStatusRe
 export { GetImageObjectDetectionRequest } from './GetImageObjectDetectionRequest';
 export { GetImageObjectDetectionResponseBody } from './GetImageObjectDetectionResponseBody';
 export { GetImageObjectDetectionResponse } from './GetImageObjectDetectionResponse';
+export { GetJinaAiReaderRequest } from './GetJinaAiReaderRequest';
+export { GetJinaAiReaderResponseBody } from './GetJinaAiReaderResponseBody';
+export { GetJinaAiReaderResponse } from './GetJinaAiReaderResponse';
 export { GetMemoryRequest } from './GetMemoryRequest';
 export { GetMemoryResponseBody } from './GetMemoryResponseBody';
 export { GetMemoryResponse } from './GetMemoryResponse';
