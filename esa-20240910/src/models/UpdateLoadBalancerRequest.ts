@@ -14,15 +14,18 @@ export class UpdateLoadBalancerRequestAdaptiveRouting extends $dara.Model {
    * false
    */
   failoverAcrossPools?: boolean;
+  originLevelRetry?: boolean;
   static names(): { [key: string]: string } {
     return {
       failoverAcrossPools: 'FailoverAcrossPools',
+      originLevelRetry: 'OriginLevelRetry',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       failoverAcrossPools: 'boolean',
+      originLevelRetry: 'boolean',
     };
   }
 
