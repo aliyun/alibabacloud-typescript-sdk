@@ -113,6 +113,11 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
    */
   kmsKeyId?: string;
   /**
+   * @example
+   * tcp_and_ssl
+   */
+  listenerMode?: string;
+  /**
    * @remarks
    * The maximum number of Internet-based transactions per second (TPS) for the instance.
    * 
@@ -189,6 +194,12 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
    */
   resourceGroupId?: string;
   /**
+   * @example
+   * sg-xxx
+   */
+  securityGroupId?: string;
+  serverlessSwitch?: boolean;
+  /**
    * @remarks
    * The instance status. Valid values:
    * 
@@ -224,6 +235,12 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
    * The tags that are added to the instance.
    */
   tags?: ListInstancesResponseBodyDataInstancesTags[];
+  /**
+   * @example
+   * vpc-xxx
+   */
+  vpcId?: string;
+  vswitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
       autoRenewInstance: 'AutoRenewInstance',
@@ -235,6 +252,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       kmsKeyId: 'KmsKeyId',
+      listenerMode: 'ListenerMode',
       maxEipTps: 'MaxEipTps',
       maxQueue: 'MaxQueue',
       maxTps: 'MaxTps',
@@ -245,10 +263,14 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
       provisionedCapacity: 'ProvisionedCapacity',
       publicEndpoint: 'PublicEndpoint',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      serverlessSwitch: 'ServerlessSwitch',
       status: 'Status',
       storageSize: 'StorageSize',
       supportEIP: 'SupportEIP',
       tags: 'Tags',
+      vpcId: 'VpcId',
+      vswitchIds: 'VswitchIds',
     };
   }
 
@@ -263,6 +285,7 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
       instanceName: 'string',
       instanceType: 'string',
       kmsKeyId: 'string',
+      listenerMode: 'string',
       maxEipTps: 'number',
       maxQueue: 'number',
       maxTps: 'number',
@@ -273,16 +296,23 @@ export class ListInstancesResponseBodyDataInstances extends $dara.Model {
       provisionedCapacity: 'number',
       publicEndpoint: 'string',
       resourceGroupId: 'string',
+      securityGroupId: 'string',
+      serverlessSwitch: 'boolean',
       status: 'string',
       storageSize: 'number',
       supportEIP: 'boolean',
       tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyDataInstancesTags },
+      vpcId: 'string',
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.vswitchIds)) {
+      $dara.Model.validateArray(this.vswitchIds);
     }
     super.validate();
   }

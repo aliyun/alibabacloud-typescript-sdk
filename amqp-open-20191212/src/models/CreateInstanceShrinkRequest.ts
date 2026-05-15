@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceShrinkRequest extends $dara.Model {
   /**
+   * @example
+   * ram openSource
+   */
+  authModel?: string;
+  /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
@@ -77,6 +82,11 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
    * key-xxx
    */
   kmsKeyId?: string;
+  /**
+   * @example
+   * tcp_and_ssl
+   */
+  listenerMode?: string;
   /**
    * @remarks
    * The maximum number of connections that can be established to the instance.
@@ -187,6 +197,14 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sg-xxx
+   */
+  securityGroupId?: string;
+  /**
+   * @remarks
    * The billing method of the serverless instance. Valid value:
    * 
    * *   onDemand: You are charged based on your actual usage.
@@ -195,6 +213,7 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
    * onDemand
    */
   serverlessChargeType?: string;
+  serverlessSwitch?: boolean;
   /**
    * @remarks
    * The storage capacity. Unit: GB. Valid values:
@@ -252,8 +271,22 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
    * 3
    */
   tracingStorageTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-xxx
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vswitchIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      authModel: 'AuthModel',
       autoRenew: 'AutoRenew',
       autoRenewPeriod: 'AutoRenewPeriod',
       clientToken: 'ClientToken',
@@ -262,6 +295,7 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       kmsKeyId: 'KmsKeyId',
+      listenerMode: 'ListenerMode',
       maxConnections: 'MaxConnections',
       maxEipTps: 'MaxEipTps',
       maxPrivateTps: 'MaxPrivateTps',
@@ -273,17 +307,22 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
       renewStatus: 'RenewStatus',
       renewalDurationUnit: 'RenewalDurationUnit',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
       serverlessChargeType: 'ServerlessChargeType',
+      serverlessSwitch: 'ServerlessSwitch',
       storageSize: 'StorageSize',
       supportEip: 'SupportEip',
       supportTracing: 'SupportTracing',
       tagsShrink: 'Tags',
       tracingStorageTime: 'TracingStorageTime',
+      vpcId: 'VpcId',
+      vswitchIdsShrink: 'VswitchIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      authModel: 'string',
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
       clientToken: 'string',
@@ -292,6 +331,7 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
       instanceName: 'string',
       instanceType: 'string',
       kmsKeyId: 'string',
+      listenerMode: 'string',
       maxConnections: 'number',
       maxEipTps: 'number',
       maxPrivateTps: 'number',
@@ -303,12 +343,16 @@ export class CreateInstanceShrinkRequest extends $dara.Model {
       renewStatus: 'string',
       renewalDurationUnit: 'string',
       resourceGroupId: 'string',
+      securityGroupId: 'string',
       serverlessChargeType: 'string',
+      serverlessSwitch: 'boolean',
       storageSize: 'number',
       supportEip: 'boolean',
       supportTracing: 'boolean',
       tagsShrink: 'string',
       tracingStorageTime: 'number',
+      vpcId: 'string',
+      vswitchIdsShrink: 'string',
     };
   }
 

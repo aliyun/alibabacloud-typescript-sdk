@@ -249,7 +249,15 @@ export default class Client extends OpenApi {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
 
+    if (!$dara.isNull(tmpReq.vswitchIds)) {
+      request.vswitchIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.vswitchIds, "VswitchIds", "json");
+    }
+
     let query = { };
+    if (!$dara.isNull(request.authModel)) {
+      query["AuthModel"] = request.authModel;
+    }
+
     if (!$dara.isNull(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
     }
@@ -280,6 +288,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.kmsKeyId)) {
       query["KmsKeyId"] = request.kmsKeyId;
+    }
+
+    if (!$dara.isNull(request.listenerMode)) {
+      query["ListenerMode"] = request.listenerMode;
     }
 
     if (!$dara.isNull(request.maxConnections)) {
@@ -326,8 +338,16 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!$dara.isNull(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
     if (!$dara.isNull(request.serverlessChargeType)) {
       query["ServerlessChargeType"] = request.serverlessChargeType;
+    }
+
+    if (!$dara.isNull(request.serverlessSwitch)) {
+      query["ServerlessSwitch"] = request.serverlessSwitch;
     }
 
     if (!$dara.isNull(request.storageSize)) {
@@ -348,6 +368,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.tracingStorageTime)) {
       query["TracingStorageTime"] = request.tracingStorageTime;
+    }
+
+    if (!$dara.isNull(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!$dara.isNull(request.vswitchIdsShrink)) {
+      query["VswitchIds"] = request.vswitchIdsShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

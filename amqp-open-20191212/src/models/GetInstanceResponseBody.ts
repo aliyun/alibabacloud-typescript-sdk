@@ -64,6 +64,11 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   kmsKeyId?: string;
   /**
    * @example
+   * tcp_and_ssl
+   */
+  listenerMode?: string;
+  /**
+   * @example
    * 1500
    */
   maxConnections?: number;
@@ -111,6 +116,12 @@ export class GetInstanceResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @example
+   * sg-xxx
+   */
+  securityGroupId?: string;
+  serverlessSwitch?: boolean;
+  /**
+   * @example
    * SERVING
    */
   status?: string;
@@ -135,6 +146,12 @@ export class GetInstanceResponseBodyData extends $dara.Model {
    * 15
    */
   tracingStorageTime?: number;
+  /**
+   * @example
+   * vpc-xxx
+   */
+  vpcId?: string;
+  vswitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
       autoRenewInstance: 'AutoRenewInstance',
@@ -146,6 +163,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
       kmsKeyId: 'KmsKeyId',
+      listenerMode: 'ListenerMode',
       maxConnections: 'MaxConnections',
       maxEipTps: 'MaxEipTps',
       maxQueue: 'MaxQueue',
@@ -157,12 +175,16 @@ export class GetInstanceResponseBodyData extends $dara.Model {
       provisionedCapacity: 'ProvisionedCapacity',
       publicEndpoint: 'PublicEndpoint',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      serverlessSwitch: 'ServerlessSwitch',
       status: 'Status',
       storageSize: 'StorageSize',
       supportEIP: 'SupportEIP',
       supportTracing: 'SupportTracing',
       tags: 'Tags',
       tracingStorageTime: 'TracingStorageTime',
+      vpcId: 'VpcId',
+      vswitchIds: 'VswitchIds',
     };
   }
 
@@ -177,6 +199,7 @@ export class GetInstanceResponseBodyData extends $dara.Model {
       instanceName: 'string',
       instanceType: 'string',
       kmsKeyId: 'string',
+      listenerMode: 'string',
       maxConnections: 'number',
       maxEipTps: 'number',
       maxQueue: 'number',
@@ -188,18 +211,25 @@ export class GetInstanceResponseBodyData extends $dara.Model {
       provisionedCapacity: 'number',
       publicEndpoint: 'string',
       resourceGroupId: 'string',
+      securityGroupId: 'string',
+      serverlessSwitch: 'boolean',
       status: 'string',
       storageSize: 'number',
       supportEIP: 'boolean',
       supportTracing: 'boolean',
       tags: { 'type': 'array', 'itemType': GetInstanceResponseBodyDataTags },
       tracingStorageTime: 'number',
+      vpcId: 'string',
+      vswitchIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(Array.isArray(this.vswitchIds)) {
+      $dara.Model.validateArray(this.vswitchIds);
     }
     super.validate();
   }
