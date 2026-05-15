@@ -97,6 +97,7 @@ export class CreateConsumerGroupRequest extends $dara.Model {
    * Concurrently
    */
   deliveryOrderType?: string;
+  exclusive?: boolean;
   /**
    * @remarks
    * The maximum number of messages that can be processed by consumers per second.
@@ -127,6 +128,7 @@ export class CreateConsumerGroupRequest extends $dara.Model {
     return {
       consumeRetryPolicy: 'consumeRetryPolicy',
       deliveryOrderType: 'deliveryOrderType',
+      exclusive: 'exclusive',
       maxReceiveTps: 'maxReceiveTps',
       messageModel: 'messageModel',
       remark: 'remark',
@@ -138,6 +140,7 @@ export class CreateConsumerGroupRequest extends $dara.Model {
     return {
       consumeRetryPolicy: CreateConsumerGroupRequestConsumeRetryPolicy,
       deliveryOrderType: 'string',
+      exclusive: 'boolean',
       maxReceiveTps: 'number',
       messageModel: 'string',
       remark: 'string',

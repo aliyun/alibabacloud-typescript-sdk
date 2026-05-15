@@ -157,6 +157,10 @@ export default class Client extends OpenApi {
       body["deliveryOrderType"] = request.deliveryOrderType;
     }
 
+    if (!$dara.isNull(request.exclusive)) {
+      body["exclusive"] = request.exclusive;
+    }
+
     if (!$dara.isNull(request.maxReceiveTps)) {
       body["maxReceiveTps"] = request.maxReceiveTps;
     }

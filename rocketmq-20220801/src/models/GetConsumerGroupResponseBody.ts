@@ -106,6 +106,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
    * Concurrently
    */
   deliveryOrderType?: string;
+  exclusive?: boolean;
   /**
    * @remarks
    * The ID of the instance.
@@ -175,6 +176,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
       consumerGroupId: 'consumerGroupId',
       createTime: 'createTime',
       deliveryOrderType: 'deliveryOrderType',
+      exclusive: 'exclusive',
       instanceId: 'instanceId',
       maxReceiveTps: 'maxReceiveTps',
       messageModel: 'messageModel',
@@ -192,6 +194,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
       consumerGroupId: 'string',
       createTime: 'string',
       deliveryOrderType: 'string',
+      exclusive: 'boolean',
       instanceId: 'string',
       maxReceiveTps: 'number',
       messageModel: 'string',
