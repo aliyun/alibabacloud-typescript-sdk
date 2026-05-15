@@ -50,6 +50,7 @@ export class AddFileShrinkRequest extends $dara.Model {
    * DASHSCOPE_DOCMIND
    */
   parser?: string;
+  parserConfigShrink?: string;
   /**
    * @remarks
    * A list of tags associated with the document. The default value is null, which means no tags. You can specify up to 10 tags.
@@ -62,6 +63,7 @@ export class AddFileShrinkRequest extends $dara.Model {
       leaseId: 'LeaseId',
       originalFileUrl: 'OriginalFileUrl',
       parser: 'Parser',
+      parserConfigShrink: 'ParserConfig',
       tagsShrink: 'Tags',
     };
   }
@@ -73,6 +75,7 @@ export class AddFileShrinkRequest extends $dara.Model {
       leaseId: 'string',
       originalFileUrl: 'string',
       parser: 'string',
+      parserConfigShrink: 'string',
       tagsShrink: 'string',
     };
   }

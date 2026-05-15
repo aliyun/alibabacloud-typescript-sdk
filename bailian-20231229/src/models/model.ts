@@ -1,4 +1,5 @@
 export { AddCategoryResponseBodyData } from './AddCategoryResponseBody';
+export { AddFileRequestParserConfig } from './AddFileRequest';
 export { AddFileResponseBodyData } from './AddFileResponseBody';
 export { AddFilesFromAuthorizedOssRequestFileDetails } from './AddFilesFromAuthorizedOssRequest';
 export { AddFilesFromAuthorizedOssResponseBodyDataAddFileResultList } from './AddFilesFromAuthorizedOssResponseBody';
@@ -9,6 +10,9 @@ export { ApplyFileUploadLeaseResponseBodyDataParam } from './ApplyFileUploadLeas
 export { ApplyFileUploadLeaseResponseBodyData } from './ApplyFileUploadLeaseResponseBody';
 export { ApplyTempStorageLeaseResponseBodyDataParam } from './ApplyTempStorageLeaseResponseBody';
 export { ApplyTempStorageLeaseResponseBodyData } from './ApplyTempStorageLeaseResponseBody';
+export { BatchUpdateFileTagRequestFileInfos } from './BatchUpdateFileTagRequest';
+export { BatchUpdateFileTagResponseBodyDataUpdateFileTagResultList } from './BatchUpdateFileTagResponseBody';
+export { BatchUpdateFileTagResponseBodyData } from './BatchUpdateFileTagResponseBody';
 export { ChangeParseSettingRequestParserConfig } from './ChangeParseSettingRequest';
 export { ChangeParseSettingResponseBodyData } from './ChangeParseSettingResponseBody';
 export { CreateAndPulishAgentRequestApplicationConfigHistoryConfig } from './CreateAndPulishAgentRequest';
@@ -118,6 +122,10 @@ export { ApplyFileUploadLeaseResponse } from './ApplyFileUploadLeaseResponse';
 export { ApplyTempStorageLeaseRequest } from './ApplyTempStorageLeaseRequest';
 export { ApplyTempStorageLeaseResponseBody } from './ApplyTempStorageLeaseResponseBody';
 export { ApplyTempStorageLeaseResponse } from './ApplyTempStorageLeaseResponse';
+export { BatchUpdateFileTagRequest } from './BatchUpdateFileTagRequest';
+export { BatchUpdateFileTagShrinkRequest } from './BatchUpdateFileTagShrinkRequest';
+export { BatchUpdateFileTagResponseBody } from './BatchUpdateFileTagResponseBody';
+export { BatchUpdateFileTagResponse } from './BatchUpdateFileTagResponse';
 export { ChangeParseSettingRequest } from './ChangeParseSettingRequest';
 export { ChangeParseSettingShrinkRequest } from './ChangeParseSettingShrinkRequest';
 export { ChangeParseSettingResponseBody } from './ChangeParseSettingResponseBody';

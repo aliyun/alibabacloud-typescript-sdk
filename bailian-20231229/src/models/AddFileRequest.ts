@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class AddFileRequestParserConfig extends $dara.Model {
+  /**
+   * @example
+   * qwen-vl-max
+   */
+  modelName?: string;
+  /**
+   * @example
+   * #角色 你是一个专业的图片内容标注人员，擅长识别并描述出图片中的内容。 # 任务目标 请结合输入图片，详细描述图片中的内容。
+   */
+  modelPrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelName: 'ModelName',
+      modelPrompt: 'ModelPrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelName: 'string',
+      modelPrompt: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddFileRequest extends $dara.Model {
   /**
    * @remarks
@@ -50,6 +84,7 @@ export class AddFileRequest extends $dara.Model {
    * DASHSCOPE_DOCMIND
    */
   parser?: string;
+  parserConfig?: AddFileRequestParserConfig;
   /**
    * @remarks
    * A list of tags associated with the document. The default value is null, which means no tags. You can specify up to 10 tags.
@@ -62,6 +97,7 @@ export class AddFileRequest extends $dara.Model {
       leaseId: 'LeaseId',
       originalFileUrl: 'OriginalFileUrl',
       parser: 'Parser',
+      parserConfig: 'ParserConfig',
       tags: 'Tags',
     };
   }
@@ -73,11 +109,15 @@ export class AddFileRequest extends $dara.Model {
       leaseId: 'string',
       originalFileUrl: 'string',
       parser: 'string',
+      parserConfig: AddFileRequestParserConfig,
       tags: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(this.parserConfig && typeof (this.parserConfig as any).validate === 'function') {
+      (this.parserConfig as any).validate();
+    }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
     }

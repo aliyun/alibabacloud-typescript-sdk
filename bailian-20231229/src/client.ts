@@ -119,6 +119,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.AddFileShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.parserConfig)) {
+      request.parserConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parserConfig, "ParserConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -142,6 +146,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.parser)) {
       body["Parser"] = request.parser;
+    }
+
+    if (!$dara.isNull(request.parserConfigShrink)) {
+      body["ParserConfig"] = request.parserConfigShrink;
     }
 
     if (!$dara.isNull(request.tagsShrink)) {
@@ -449,6 +457,61 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.applyTempStorageLeaseWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 批量更新文档Tag
+   * 
+   * @param tmpReq - BatchUpdateFileTagRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchUpdateFileTagResponse
+   */
+  async batchUpdateFileTagWithOptions(WorkspaceId: string, tmpReq: $_model.BatchUpdateFileTagRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchUpdateFileTagResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchUpdateFileTagShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fileInfos)) {
+      request.fileInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileInfos, "FileInfos", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileInfosShrink)) {
+      body["FileInfos"] = request.fileInfosShrink;
+    }
+
+    if (!$dara.isNull(request.updateMode)) {
+      body["UpdateMode"] = request.updateMode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchUpdateFileTag",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/batchupdatetag`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchUpdateFileTagResponse>(await this.callApi(params, req, runtime), new $_model.BatchUpdateFileTagResponse({}));
+  }
+
+  /**
+   * 批量更新文档Tag
+   * 
+   * @param request - BatchUpdateFileTagRequest
+   * @returns BatchUpdateFileTagResponse
+   */
+  async batchUpdateFileTag(WorkspaceId: string, request: $_model.BatchUpdateFileTagRequest): Promise<$_model.BatchUpdateFileTagResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchUpdateFileTagWithOptions(WorkspaceId, request, headers, runtime);
   }
 
   /**
