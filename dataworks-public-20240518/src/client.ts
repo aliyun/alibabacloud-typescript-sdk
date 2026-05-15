@@ -2944,6 +2944,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a workspace custom role
+   * 
+   * @param tmpReq - CreateProjectRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectRoleResponse
+   */
+  async createProjectRoleWithOptions(tmpReq: $_model.CreateProjectRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProjectRoleResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateProjectRoleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.modulePermissions)) {
+      request.modulePermissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modulePermissions, "ModulePermissions", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.modulePermissionsShrink)) {
+      query["ModulePermissions"] = request.modulePermissionsShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProjectRole",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProjectRoleResponse>(await this.callApi(params, req, runtime), new $_model.CreateProjectRoleResponse({}));
+  }
+
+  /**
+   * Create a workspace custom role
+   * 
+   * @param request - CreateProjectRoleRequest
+   * @returns CreateProjectRoleResponse
+   */
+  async createProjectRole(request: $_model.CreateProjectRoleRequest): Promise<$_model.CreateProjectRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProjectRoleWithOptions(request, runtime);
+  }
+
+  /**
    * \\>  You cannot use this API operation to create multiple file resources at a time. If you specify multiple file resources by using FlowSpec, the system creates only the first specified resource.
    * 
    * @remarks
@@ -5011,6 +5073,52 @@ export default class Client extends OpenApi {
   async deleteProjectMember(request: $_model.DeleteProjectMemberRequest): Promise<$_model.DeleteProjectMemberResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteProjectMemberWithOptions(request, runtime);
+  }
+
+  /**
+   * Delete a workspace custom role
+   * 
+   * @param request - DeleteProjectRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectRoleResponse
+   */
+  async deleteProjectRoleWithOptions(request: $_model.DeleteProjectRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectRoleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProjectRole",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProjectRoleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProjectRoleResponse({}));
+  }
+
+  /**
+   * Delete a workspace custom role
+   * 
+   * @param request - DeleteProjectRoleRequest
+   * @returns DeleteProjectRoleResponse
+   */
+  async deleteProjectRole(request: $_model.DeleteProjectRoleRequest): Promise<$_model.DeleteProjectRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProjectRoleWithOptions(request, runtime);
   }
 
   /**
@@ -16247,6 +16355,68 @@ export default class Client extends OpenApi {
   async updateProject(request: $_model.UpdateProjectRequest): Promise<$_model.UpdateProjectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Update the permissions of a custom role
+   * 
+   * @param tmpReq - UpdateProjectRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProjectRoleResponse
+   */
+  async updateProjectRoleWithOptions(tmpReq: $_model.UpdateProjectRoleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProjectRoleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateProjectRoleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.modulePermissions)) {
+      request.modulePermissionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.modulePermissions, "ModulePermissions", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.modulePermissionsShrink)) {
+      query["ModulePermissions"] = request.modulePermissionsShrink;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProjectRole",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProjectRoleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProjectRoleResponse({}));
+  }
+
+  /**
+   * Update the permissions of a custom role
+   * 
+   * @param request - UpdateProjectRoleRequest
+   * @returns UpdateProjectRoleResponse
+   */
+  async updateProjectRole(request: $_model.UpdateProjectRoleRequest): Promise<$_model.UpdateProjectRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateProjectRoleWithOptions(request, runtime);
   }
 
   /**
