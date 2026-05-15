@@ -532,6 +532,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询一刻提示词扩写和音频修复视频生成任务
+   * 
+   * @param request - GetYikePromptExpansionVoiceFixJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetYikePromptExpansionVoiceFixJobResponse
+   */
+  async getYikePromptExpansionVoiceFixJobWithOptions(request: $_model.GetYikePromptExpansionVoiceFixJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetYikePromptExpansionVoiceFixJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetYikePromptExpansionVoiceFixJob",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetYikePromptExpansionVoiceFixJobResponse>(await this.callApi(params, req, runtime), new $_model.GetYikePromptExpansionVoiceFixJobResponse({}));
+  }
+
+  /**
+   * 查询一刻提示词扩写和音频修复视频生成任务
+   * 
+   * @param request - GetYikePromptExpansionVoiceFixJobRequest
+   * @returns GetYikePromptExpansionVoiceFixJobResponse
+   */
+  async getYikePromptExpansionVoiceFixJob(request: $_model.GetYikePromptExpansionVoiceFixJobRequest): Promise<$_model.GetYikePromptExpansionVoiceFixJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getYikePromptExpansionVoiceFixJobWithOptions(request, runtime);
+  }
+
+  /**
    * 获取一刻故事板任务
    * 
    * @param request - GetYikeStoryboardJobRequest
@@ -1185,6 +1227,52 @@ export default class Client extends OpenApi {
   async submitYikeAIAppJob(request: $_model.SubmitYikeAIAppJobRequest): Promise<$_model.SubmitYikeAIAppJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitYikeAIAppJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交一刻提示词扩写和音频修复视频生成任务
+   * 
+   * @param request - SubmitYikePromptExpansionVoiceFixJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitYikePromptExpansionVoiceFixJobResponse
+   */
+  async submitYikePromptExpansionVoiceFixJobWithOptions(request: $_model.SubmitYikePromptExpansionVoiceFixJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitYikePromptExpansionVoiceFixJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobParams)) {
+      body["JobParams"] = request.jobParams;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitYikePromptExpansionVoiceFixJob",
+      version: "2026-03-19",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitYikePromptExpansionVoiceFixJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitYikePromptExpansionVoiceFixJobResponse({}));
+  }
+
+  /**
+   * 提交一刻提示词扩写和音频修复视频生成任务
+   * 
+   * @param request - SubmitYikePromptExpansionVoiceFixJobRequest
+   * @returns SubmitYikePromptExpansionVoiceFixJobResponse
+   */
+  async submitYikePromptExpansionVoiceFixJob(request: $_model.SubmitYikePromptExpansionVoiceFixJobRequest): Promise<$_model.SubmitYikePromptExpansionVoiceFixJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitYikePromptExpansionVoiceFixJobWithOptions(request, runtime);
   }
 
   /**
