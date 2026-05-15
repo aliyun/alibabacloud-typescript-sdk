@@ -1168,6 +1168,10 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!$dara.isNull(request.parameterSetIds)) {
+      body["parameterSetIds"] = request.parameterSetIds;
+    }
+
     if (!$dara.isNull(request.protectionStrategy)) {
       body["protectionStrategy"] = request.protectionStrategy;
     }
@@ -3566,6 +3570,10 @@ export default class Client extends OpenApi {
       query["keyword"] = request.keyword;
     }
 
+    if (!$dara.isNull(request.kmsKeyId)) {
+      query["kmsKeyId"] = request.kmsKeyId;
+    }
+
     if (!$dara.isNull(request.pageNumber)) {
       query["pageNumber"] = request.pageNumber;
     }
@@ -4257,6 +4265,10 @@ export default class Client extends OpenApi {
       query["keyword"] = request.keyword;
     }
 
+    if (!$dara.isNull(request.kmsKeyId)) {
+      query["kmsKeyId"] = request.kmsKeyId;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
     }
@@ -4330,6 +4342,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.keyword)) {
       query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.kmsKeyId)) {
+      query["kmsKeyId"] = request.kmsKeyId;
     }
 
     if (!$dara.isNull(request.moduleId)) {

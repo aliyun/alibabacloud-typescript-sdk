@@ -8,6 +8,11 @@ export class CreateParameterSetRequestParameters extends $dara.Model {
    * test1121
    */
   name?: string;
+  secret?: boolean;
+  /**
+   * @example
+   * HAS_VALUE
+   */
   status?: string;
   /**
    * @example
@@ -22,6 +27,7 @@ export class CreateParameterSetRequestParameters extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       name: 'name',
+      secret: 'secret',
       status: 'status',
       type: 'type',
       value: 'value',
@@ -31,6 +37,7 @@ export class CreateParameterSetRequestParameters extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      secret: 'boolean',
       status: 'string',
       type: 'string',
       value: 'string',

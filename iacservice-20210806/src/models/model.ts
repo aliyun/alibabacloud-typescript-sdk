@@ -15,6 +15,7 @@ export { GetDetectConfigResponseBodyDetectConfig } from './GetDetectConfigRespon
 export { GetGroupResponseBodyGroupNotifyConfig } from './GetGroupResponseBody';
 export { GetGroupResponseBodyGroupTriggerConfig } from './GetGroupResponseBody';
 export { GetGroupResponseBodyGroup } from './GetGroupResponseBody';
+export { GetJobResponseBodyJobAllParameters } from './GetJobResponseBody';
 export { GetJobResponseBodyJobAssertCheckDetail } from './GetJobResponseBody';
 export { GetJobResponseBodyJobConfig } from './GetJobResponseBody';
 export { GetJobResponseBodyJob } from './GetJobResponseBody';

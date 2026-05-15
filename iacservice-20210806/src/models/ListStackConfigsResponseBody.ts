@@ -93,6 +93,7 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigVariable extends 
    * region
    */
   name?: string;
+  sensitive?: boolean;
   /**
    * @example
    * string
@@ -103,6 +104,7 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigVariable extends 
       default: 'default',
       description: 'description',
       name: 'name',
+      sensitive: 'sensitive',
       type: 'type',
     };
   }
@@ -112,6 +114,7 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigVariable extends 
       default: 'string',
       description: 'string',
       name: 'string',
+      sensitive: 'boolean',
       type: 'string',
     };
   }

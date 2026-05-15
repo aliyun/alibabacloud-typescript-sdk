@@ -10,6 +10,11 @@ export class ListParameterSetsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @example
+   * 21a90f5d-a469-4ac4-a8ea-f6e1e7470e6f
+   */
+  kmsKeyId?: string;
+  /**
+   * @example
    * 1
    */
   pageNumber?: number;
@@ -21,6 +26,7 @@ export class ListParameterSetsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       keyword: 'keyword',
+      kmsKeyId: 'kmsKeyId',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
     };
@@ -29,6 +35,7 @@ export class ListParameterSetsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       keyword: 'string',
+      kmsKeyId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };

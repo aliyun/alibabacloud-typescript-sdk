@@ -41,6 +41,11 @@ export class ListTasksRequest extends $dara.Model {
   keyword?: string;
   /**
    * @example
+   * 21a90f5d-a469-4ac4-a8ea-f6e1e7470e6f
+   */
+  kmsKeyId?: string;
+  /**
+   * @example
    * mod-1525e992f1b62139d1c437d64ae
    */
   moduleId?: string;
@@ -70,6 +75,7 @@ export class ListTasksRequest extends $dara.Model {
     return {
       groupId: 'groupId',
       keyword: 'keyword',
+      kmsKeyId: 'kmsKeyId',
       moduleId: 'moduleId',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
@@ -84,6 +90,7 @@ export class ListTasksRequest extends $dara.Model {
     return {
       groupId: 'string',
       keyword: 'string',
+      kmsKeyId: 'string',
       moduleId: 'string',
       pageNumber: 'number',
       pageSize: 'number',

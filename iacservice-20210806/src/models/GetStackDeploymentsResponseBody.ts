@@ -107,6 +107,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsParameters extends $dara.
    * region
    */
   name?: string;
+  sensitive?: boolean;
   /**
    * @example
    * string
@@ -122,6 +123,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsParameters extends $dara.
       defaultValue: 'defaultValue',
       description: 'description',
       name: 'name',
+      sensitive: 'sensitive',
       type: 'type',
       value: 'value',
     };
@@ -132,6 +134,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsParameters extends $dara.
       defaultValue: 'string',
       description: 'string',
       name: 'string',
+      sensitive: 'boolean',
       type: 'string',
       value: 'string',
     };

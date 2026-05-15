@@ -3,6 +3,47 @@ import * as $dara from '@darabonba/typescript';
 import { JobStatusDetailValue } from "./JobStatusDetailValue";
 
 
+export class GetJobResponseBodyJobAllParameters extends $dara.Model {
+  /**
+   * @example
+   * regionId
+   */
+  name?: string;
+  /**
+   * @example
+   * false
+   */
+  secret?: boolean;
+  /**
+   * @example
+   * cn-zhangjiakou
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      secret: 'secret',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      secret: 'boolean',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetJobResponseBodyJobAssertCheckDetail extends $dara.Model {
   /**
    * @example
@@ -102,6 +143,7 @@ export class GetJobResponseBodyJobConfig extends $dara.Model {
 }
 
 export class GetJobResponseBodyJob extends $dara.Model {
+  allParameters?: GetJobResponseBodyJobAllParameters[];
   assertCheckDetail?: GetJobResponseBodyJobAssertCheckDetail[];
   config?: GetJobResponseBodyJobConfig;
   /**
@@ -155,6 +197,7 @@ export class GetJobResponseBodyJob extends $dara.Model {
   terraformProviderVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      allParameters: 'allParameters',
       assertCheckDetail: 'assertCheckDetail',
       config: 'config',
       createTime: 'createTime',
@@ -179,6 +222,7 @@ export class GetJobResponseBodyJob extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allParameters: { 'type': 'array', 'itemType': GetJobResponseBodyJobAllParameters },
       assertCheckDetail: { 'type': 'array', 'itemType': GetJobResponseBodyJobAssertCheckDetail },
       config: GetJobResponseBodyJobConfig,
       createTime: 'string',
@@ -202,6 +246,9 @@ export class GetJobResponseBodyJob extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.allParameters)) {
+      $dara.Model.validateArray(this.allParameters);
+    }
     if(Array.isArray(this.assertCheckDetail)) {
       $dara.Model.validateArray(this.assertCheckDetail);
     }

@@ -141,6 +141,7 @@ export class CreateTaskRequest extends $dara.Model {
    * test
    */
   name?: string;
+  parameterSetIds?: string[];
   protectionStrategy?: string[];
   /**
    * @example
@@ -171,6 +172,7 @@ export class CreateTaskRequest extends $dara.Model {
       moduleId: 'moduleId',
       moduleVersion: 'moduleVersion',
       name: 'name',
+      parameterSetIds: 'parameterSetIds',
       protectionStrategy: 'protectionStrategy',
       ramRole: 'ramRole',
       skipPropertyValidation: 'skipPropertyValidation',
@@ -192,6 +194,7 @@ export class CreateTaskRequest extends $dara.Model {
       moduleId: 'string',
       moduleVersion: 'string',
       name: 'string',
+      parameterSetIds: { 'type': 'array', 'itemType': 'string' },
       protectionStrategy: { 'type': 'array', 'itemType': 'string' },
       ramRole: 'string',
       skipPropertyValidation: 'boolean',
@@ -205,6 +208,9 @@ export class CreateTaskRequest extends $dara.Model {
   validate() {
     if(this.groupInfo && typeof (this.groupInfo as any).validate === 'function') {
       (this.groupInfo as any).validate();
+    }
+    if(Array.isArray(this.parameterSetIds)) {
+      $dara.Model.validateArray(this.parameterSetIds);
     }
     if(Array.isArray(this.protectionStrategy)) {
       $dara.Model.validateArray(this.protectionStrategy);

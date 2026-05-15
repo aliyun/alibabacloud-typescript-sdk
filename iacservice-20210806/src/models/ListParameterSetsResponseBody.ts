@@ -3,7 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListParameterSetsResponseBodyParameterSetsParameters extends $dara.Model {
+  /**
+   * @example
+   * region
+   */
   name?: string;
+  secret?: boolean;
+  /**
+   * @example
+   * HAS_VALUE
+   */
   status?: string;
   /**
    * @example
@@ -18,6 +27,7 @@ export class ListParameterSetsResponseBodyParameterSetsParameters extends $dara.
   static names(): { [key: string]: string } {
     return {
       name: 'name',
+      secret: 'secret',
       status: 'status',
       type: 'type',
       value: 'value',
@@ -27,6 +37,7 @@ export class ListParameterSetsResponseBodyParameterSetsParameters extends $dara.
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      secret: 'boolean',
       status: 'string',
       type: 'string',
       value: 'any',
@@ -89,6 +100,10 @@ export class ListParameterSetsResponseBodyParameterSets extends $dara.Model {
    * 2022-05-14T10:05:19Z
    */
   createTime?: string;
+  /**
+   * @example
+   * false
+   */
   deletionProtection?: boolean;
   /**
    * @example
