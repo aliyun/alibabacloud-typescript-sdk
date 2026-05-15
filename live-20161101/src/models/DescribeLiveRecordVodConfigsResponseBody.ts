@@ -2,16 +2,89 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfigRecordFormatListRecordFormat extends $dara.Model {
+  autoCompose?: string;
+  format?: string;
+  processMethod?: string;
+  processTemplateId?: string;
+  sliceDuration?: number;
+  tags?: string;
+  videoProcess?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCompose: 'AutoCompose',
+      format: 'Format',
+      processMethod: 'ProcessMethod',
+      processTemplateId: 'ProcessTemplateId',
+      sliceDuration: 'SliceDuration',
+      tags: 'Tags',
+      videoProcess: 'VideoProcess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoCompose: 'string',
+      format: 'string',
+      processMethod: 'string',
+      processTemplateId: 'string',
+      sliceDuration: 'number',
+      tags: 'string',
+      videoProcess: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfigRecordFormatList extends $dara.Model {
+  recordFormat?: DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfigRecordFormatListRecordFormat[];
+  static names(): { [key: string]: string } {
+    return {
+      recordFormat: 'RecordFormat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      recordFormat: { 'type': 'array', 'itemType': DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfigRecordFormatListRecordFormat },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.recordFormat)) {
+      $dara.Model.validateArray(this.recordFormat);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfig extends $dara.Model {
   appName?: string;
   autoCompose?: string;
   composeVodTranscodeGroupId?: string;
   createTime?: string;
   cycleDuration?: number;
+  delayTime?: number;
   domainName?: string;
+  formatConfig?: boolean;
   onDemand?: number;
+  recordContent?: string;
+  recordFormatList?: DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfigRecordFormatList;
+  spaceId?: string;
   storageLocation?: string;
   streamName?: string;
+  transcodeTemplates?: string;
   vodTranscodeGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20,10 +93,16 @@ export class DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRec
       composeVodTranscodeGroupId: 'ComposeVodTranscodeGroupId',
       createTime: 'CreateTime',
       cycleDuration: 'CycleDuration',
+      delayTime: 'DelayTime',
       domainName: 'DomainName',
+      formatConfig: 'FormatConfig',
       onDemand: 'OnDemand',
+      recordContent: 'RecordContent',
+      recordFormatList: 'RecordFormatList',
+      spaceId: 'SpaceId',
       storageLocation: 'StorageLocation',
       streamName: 'StreamName',
+      transcodeTemplates: 'TranscodeTemplates',
       vodTranscodeGroupId: 'VodTranscodeGroupId',
     };
   }
@@ -35,15 +114,24 @@ export class DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRec
       composeVodTranscodeGroupId: 'string',
       createTime: 'string',
       cycleDuration: 'number',
+      delayTime: 'number',
       domainName: 'string',
+      formatConfig: 'boolean',
       onDemand: 'number',
+      recordContent: 'string',
+      recordFormatList: DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfigRecordFormatList,
+      spaceId: 'string',
       storageLocation: 'string',
       streamName: 'string',
+      transcodeTemplates: 'string',
       vodTranscodeGroupId: 'string',
     };
   }
 
   validate() {
+    if(this.recordFormatList && typeof (this.recordFormatList as any).validate === 'function') {
+      (this.recordFormatList as any).validate();
+    }
     super.validate();
   }
 

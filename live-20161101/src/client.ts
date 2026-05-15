@@ -2178,8 +2178,16 @@ export default class Client extends OpenApi {
       query["CycleDuration"] = request.cycleDuration;
     }
 
+    if (!$dara.isNull(request.delayTime)) {
+      query["DelayTime"] = request.delayTime;
+    }
+
     if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.formatConfig)) {
+      query["FormatConfig"] = request.formatConfig;
     }
 
     if (!$dara.isNull(request.onDemand)) {
@@ -2190,8 +2198,20 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.recordContent)) {
+      query["RecordContent"] = request.recordContent;
+    }
+
+    if (!$dara.isNull(request.recordFormat)) {
+      query["RecordFormat"] = request.recordFormat;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.spaceId)) {
+      query["SpaceId"] = request.spaceId;
     }
 
     if (!$dara.isNull(request.storageLocation)) {
@@ -2200,6 +2220,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.streamName)) {
       query["StreamName"] = request.streamName;
+    }
+
+    if (!$dara.isNull(request.transcodeTemplates)) {
+      query["TranscodeTemplates"] = request.transcodeTemplates;
     }
 
     if (!$dara.isNull(request.vodTranscodeGroupId)) {
@@ -30349,8 +30373,16 @@ export default class Client extends OpenApi {
       query["CycleDuration"] = request.cycleDuration;
     }
 
+    if (!$dara.isNull(request.delayTime)) {
+      query["DelayTime"] = request.delayTime;
+    }
+
     if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.formatConfig)) {
+      query["FormatConfig"] = request.formatConfig;
     }
 
     if (!$dara.isNull(request.onDemand)) {
@@ -30361,12 +30393,20 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
+    if (!$dara.isNull(request.recordFormat)) {
+      query["RecordFormat"] = request.recordFormat;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
 
     if (!$dara.isNull(request.streamName)) {
       query["StreamName"] = request.streamName;
+    }
+
+    if (!$dara.isNull(request.transcodeTemplates)) {
+      query["TranscodeTemplates"] = request.transcodeTemplates;
     }
 
     if (!$dara.isNull(request.vodTranscodeGroupId)) {

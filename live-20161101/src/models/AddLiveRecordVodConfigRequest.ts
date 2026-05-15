@@ -2,6 +2,47 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class AddLiveRecordVodConfigRequestRecordFormat extends $dara.Model {
+  autoCompose?: string;
+  format?: string;
+  processMethod?: string;
+  processTemplateId?: string;
+  sliceDuration?: number;
+  tags?: string;
+  videoProcess?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoCompose: 'AutoCompose',
+      format: 'Format',
+      processMethod: 'ProcessMethod',
+      processTemplateId: 'ProcessTemplateId',
+      sliceDuration: 'SliceDuration',
+      tags: 'Tags',
+      videoProcess: 'VideoProcess',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoCompose: 'string',
+      format: 'string',
+      processMethod: 'string',
+      processTemplateId: 'string',
+      sliceDuration: 'number',
+      tags: 'string',
+      videoProcess: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddLiveRecordVodConfigRequest extends $dara.Model {
   /**
    * @remarks
@@ -47,6 +88,7 @@ export class AddLiveRecordVodConfigRequest extends $dara.Model {
    * 300
    */
   cycleDuration?: number;
+  delayTime?: number;
   /**
    * @remarks
    * The main streaming domain.
@@ -59,6 +101,7 @@ export class AddLiveRecordVodConfigRequest extends $dara.Model {
    * example.com
    */
   domainName?: string;
+  formatConfig?: boolean;
   /**
    * @remarks
    * Specifies whether to enable on-demand recording. Valid values:
@@ -71,7 +114,10 @@ export class AddLiveRecordVodConfigRequest extends $dara.Model {
    */
   onDemand?: number;
   ownerId?: number;
+  recordContent?: string;
+  recordFormat?: AddLiveRecordVodConfigRequestRecordFormat[];
   regionId?: string;
+  spaceId?: string;
   /**
    * @remarks
    * The storage location.
@@ -88,11 +134,10 @@ export class AddLiveRecordVodConfigRequest extends $dara.Model {
    * stream
    */
   streamName?: string;
+  transcodeTemplates?: string[];
   /**
    * @remarks
    * The ID of the transcoding template group in ApsaraVideo VOD.
-   * 
-   * This parameter is required.
    * 
    * @example
    * e2d796d3bb5fd8049d32bff62f94****
@@ -104,12 +149,18 @@ export class AddLiveRecordVodConfigRequest extends $dara.Model {
       autoCompose: 'AutoCompose',
       composeVodTranscodeGroupId: 'ComposeVodTranscodeGroupId',
       cycleDuration: 'CycleDuration',
+      delayTime: 'DelayTime',
       domainName: 'DomainName',
+      formatConfig: 'FormatConfig',
       onDemand: 'OnDemand',
       ownerId: 'OwnerId',
+      recordContent: 'RecordContent',
+      recordFormat: 'RecordFormat',
       regionId: 'RegionId',
+      spaceId: 'SpaceId',
       storageLocation: 'StorageLocation',
       streamName: 'StreamName',
+      transcodeTemplates: 'TranscodeTemplates',
       vodTranscodeGroupId: 'VodTranscodeGroupId',
     };
   }
@@ -120,17 +171,29 @@ export class AddLiveRecordVodConfigRequest extends $dara.Model {
       autoCompose: 'string',
       composeVodTranscodeGroupId: 'string',
       cycleDuration: 'number',
+      delayTime: 'number',
       domainName: 'string',
+      formatConfig: 'boolean',
       onDemand: 'number',
       ownerId: 'number',
+      recordContent: 'string',
+      recordFormat: { 'type': 'array', 'itemType': AddLiveRecordVodConfigRequestRecordFormat },
       regionId: 'string',
+      spaceId: 'string',
       storageLocation: 'string',
       streamName: 'string',
+      transcodeTemplates: { 'type': 'array', 'itemType': 'string' },
       vodTranscodeGroupId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.recordFormat)) {
+      $dara.Model.validateArray(this.recordFormat);
+    }
+    if(Array.isArray(this.transcodeTemplates)) {
+      $dara.Model.validateArray(this.transcodeTemplates);
+    }
     super.validate();
   }
 

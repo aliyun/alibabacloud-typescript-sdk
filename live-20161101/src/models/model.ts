@@ -11,6 +11,7 @@ export { AddCasterProgramResponseBodyEpisodeIds } from './AddCasterProgramRespon
 export { AddLiveAppRecordConfigRequestRecordFormat } from './AddLiveAppRecordConfigRequest';
 export { AddLiveAppRecordConfigRequestTranscodeRecordFormat } from './AddLiveAppRecordConfigRequest';
 export { AddLiveDomainRequestTag } from './AddLiveDomainRequest';
+export { AddLiveRecordVodConfigRequestRecordFormat } from './AddLiveRecordVodConfigRequest';
 export { AddPlaylistItemsResponseBodyItemsFailedItems } from './AddPlaylistItemsResponseBody';
 export { AddPlaylistItemsResponseBodyItemsSuccessItems } from './AddPlaylistItemsResponseBody';
 export { AddPlaylistItemsResponseBodyItems } from './AddPlaylistItemsResponseBody';
@@ -223,6 +224,8 @@ export { DescribeLiveRecordConfigResponseBodyLiveAppRecordListLiveAppRecord } fr
 export { DescribeLiveRecordConfigResponseBodyLiveAppRecordList } from './DescribeLiveRecordConfigResponseBody';
 export { DescribeLiveRecordNotifyConfigResponseBodyLiveRecordNotifyConfig } from './DescribeLiveRecordNotifyConfigResponseBody';
 export { DescribeLiveRecordNotifyRecordsResponseBodyCallbackList } from './DescribeLiveRecordNotifyRecordsResponseBody';
+export { DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfigRecordFormatListRecordFormat } from './DescribeLiveRecordVodConfigsResponseBody';
+export { DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfigRecordFormatList } from './DescribeLiveRecordVodConfigsResponseBody';
 export { DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigsLiveRecordVodConfig } from './DescribeLiveRecordVodConfigsResponseBody';
 export { DescribeLiveRecordVodConfigsResponseBodyLiveRecordVodConfigs } from './DescribeLiveRecordVodConfigsResponseBody';
 export { DescribeLiveRtcRecordUsageDataResponseBodyData } from './DescribeLiveRtcRecordUsageDataResponseBody';
@@ -509,6 +512,7 @@ export { UpdateLiveMPUTaskRequestTranscodeParamsLayoutUserPanes } from './Update
 export { UpdateLiveMPUTaskRequestTranscodeParamsLayout } from './UpdateLiveMputaskRequest';
 export { UpdateLiveMPUTaskRequestTranscodeParamsUserInfos } from './UpdateLiveMputaskRequest';
 export { UpdateLiveMPUTaskRequestTranscodeParams } from './UpdateLiveMputaskRequest';
+export { UpdateLiveRecordVodConfigRequestRecordFormat } from './UpdateLiveRecordVodConfigRequest';
 export { UpdateMessageAppResponseBodyResult } from './UpdateMessageAppResponseBody';
 export { UpdateMessageGroupResponseBodyResult } from './UpdateMessageGroupResponseBody';
 export { UpdateRtcCloudRecordingRequestMixLayoutParamsMixBackground } from './UpdateRtcCloudRecordingRequest';
