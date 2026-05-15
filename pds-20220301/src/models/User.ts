@@ -59,6 +59,8 @@ export class User extends $dara.Model {
    * a@aliyunpds.com
    */
   email?: string;
+  lastLoginTime?: number;
+  lastRefreshTokenTime?: number;
   /**
    * @remarks
    * The nickname of the user.
@@ -136,6 +138,8 @@ export class User extends $dara.Model {
       description: 'description',
       domainId: 'domain_id',
       email: 'email',
+      lastLoginTime: 'last_login_time',
+      lastRefreshTokenTime: 'last_refresh_token_time',
       nickName: 'nick_name',
       phone: 'phone',
       role: 'role',
@@ -156,6 +160,8 @@ export class User extends $dara.Model {
       description: 'string',
       domainId: 'string',
       email: 'string',
+      lastLoginTime: 'number',
+      lastRefreshTokenTime: 'number',
       nickName: 'string',
       phone: 'string',
       role: 'string',

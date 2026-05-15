@@ -48,6 +48,7 @@ export class BaseUserResponse extends $dara.Model {
   expiredAt?: number;
   isSync?: boolean;
   lastLoginTime?: number;
+  lastRefreshTokenTime?: number;
   needChangePasswordNextLogin?: boolean;
   /**
    * @example
@@ -102,6 +103,7 @@ export class BaseUserResponse extends $dara.Model {
       expiredAt: 'expired_at',
       isSync: 'is_sync',
       lastLoginTime: 'last_login_time',
+      lastRefreshTokenTime: 'last_refresh_token_time',
       needChangePasswordNextLogin: 'need_change_password_next_login',
       nickName: 'nick_name',
       pathStatus: 'path_status',
@@ -131,6 +133,7 @@ export class BaseUserResponse extends $dara.Model {
       expiredAt: 'number',
       isSync: 'boolean',
       lastLoginTime: 'number',
+      lastRefreshTokenTime: 'number',
       needChangePasswordNextLogin: 'boolean',
       nickName: 'string',
       pathStatus: 'string',
