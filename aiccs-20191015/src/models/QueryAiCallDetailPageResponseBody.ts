@@ -15,6 +15,11 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
   branchId?: number;
   /**
    * @example
+   * 示例值
+   */
+  branchName?: string;
+  /**
+   * @example
    * 9
    */
   branchVersionId?: number;
@@ -98,10 +103,21 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
    * 12121211111*****
    */
   taskId?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  versionName?: string;
+  /**
+   * @example
+   * 55
+   */
+  versionNo?: number;
   static names(): { [key: string]: string } {
     return {
       batchId: 'BatchId',
       branchId: 'BranchId',
+      branchName: 'BranchName',
       branchVersionId: 'BranchVersionId',
       callResult: 'CallResult',
       calledNumber: 'CalledNumber',
@@ -119,6 +135,8 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
       recordingFilePath: 'RecordingFilePath',
       status: 'Status',
       taskId: 'TaskId',
+      versionName: 'VersionName',
+      versionNo: 'VersionNo',
     };
   }
 
@@ -126,6 +144,7 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
     return {
       batchId: 'string',
       branchId: 'number',
+      branchName: 'string',
       branchVersionId: 'number',
       callResult: 'string',
       calledNumber: 'string',
@@ -143,6 +162,8 @@ export class QueryAiCallDetailPageResponseBodyDataList extends $dara.Model {
       recordingFilePath: 'string',
       status: 'number',
       taskId: 'string',
+      versionName: 'string',
+      versionNo: 'number',
     };
   }
 

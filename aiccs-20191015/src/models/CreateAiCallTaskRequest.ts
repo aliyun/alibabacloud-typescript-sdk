@@ -14,11 +14,6 @@ export class CreateAiCallTaskRequest extends $dara.Model {
    */
   applicationCode?: string;
   /**
-   * @example
-   * 示例值示例值
-   */
-  applicationName?: string;
-  /**
    * @remarks
    * This parameter is required.
    */
@@ -102,7 +97,6 @@ export class CreateAiCallTaskRequest extends $dara.Model {
     return {
       agentId: 'AgentId',
       applicationCode: 'ApplicationCode',
-      applicationName: 'ApplicationName',
       callDay: 'CallDay',
       callRetryInterval: 'CallRetryInterval',
       callRetryReason: 'CallRetryReason',
@@ -128,7 +122,6 @@ export class CreateAiCallTaskRequest extends $dara.Model {
     return {
       agentId: 'string',
       applicationCode: 'string',
-      applicationName: 'string',
       callDay: { 'type': 'array', 'itemType': 'string' },
       callRetryInterval: 'number',
       callRetryReason: { 'type': 'array', 'itemType': 'string' },

@@ -916,10 +916,6 @@ export default class Client extends OpenApi {
       query["ApplicationCode"] = request.applicationCode;
     }
 
-    if (!$dara.isNull(request.applicationName)) {
-      query["ApplicationName"] = request.applicationName;
-    }
-
     if (!$dara.isNull(request.callDayShrink)) {
       query["CallDay"] = request.callDayShrink;
     }
@@ -6762,6 +6758,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询智能体列表（代运营模式V2）
+   * 
+   * @param request - PageQueryAgentListNewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PageQueryAgentListNewResponse
+   */
+  async pageQueryAgentListNewWithOptions(request: $_model.PageQueryAgentListNewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PageQueryAgentListNewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.agentName)) {
+      query["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.isAvailable)) {
+      query["IsAvailable"] = request.isAvailable;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      query["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PageQueryAgentListNew",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PageQueryAgentListNewResponse>(await this.callApi(params, req, runtime), new $_model.PageQueryAgentListNewResponse({}));
+  }
+
+  /**
+   * 分页查询智能体列表（代运营模式V2）
+   * 
+   * @param request - PageQueryAgentListNewRequest
+   * @returns PageQueryAgentListNewResponse
+   */
+  async pageQueryAgentListNew(request: $_model.PageQueryAgentListNewRequest): Promise<$_model.PageQueryAgentListNewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pageQueryAgentListNewWithOptions(request, runtime);
+  }
+
+  /**
    * 查询明细记录
    * 
    * @param tmpReq - QueryAiCallDetailPageRequest
@@ -7073,6 +7131,56 @@ export default class Client extends OpenApi {
   async queryAiVoiceAgentDetail(request: $_model.QueryAiVoiceAgentDetailRequest): Promise<$_model.QueryAiVoiceAgentDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryAiVoiceAgentDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询智能体详情（代运营模式V2）
+   * 
+   * @param request - QueryAiVoiceAgentDetailNewRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAiVoiceAgentDetailNewResponse
+   */
+  async queryAiVoiceAgentDetailNewWithOptions(request: $_model.QueryAiVoiceAgentDetailNewRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAiVoiceAgentDetailNewResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["AgentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.branchId)) {
+      query["BranchId"] = request.branchId;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      query["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAiVoiceAgentDetailNew",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAiVoiceAgentDetailNewResponse>(await this.callApi(params, req, runtime), new $_model.QueryAiVoiceAgentDetailNewResponse({}));
+  }
+
+  /**
+   * 查询智能体详情（代运营模式V2）
+   * 
+   * @param request - QueryAiVoiceAgentDetailNewRequest
+   * @returns QueryAiVoiceAgentDetailNewResponse
+   */
+  async queryAiVoiceAgentDetailNew(request: $_model.QueryAiVoiceAgentDetailNewRequest): Promise<$_model.QueryAiVoiceAgentDetailNewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAiVoiceAgentDetailNewWithOptions(request, runtime);
   }
 
   /**
