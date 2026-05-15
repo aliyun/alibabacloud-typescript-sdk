@@ -2,12 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetDocInfoResponseBodyDataPageInfo extends $dara.Model {
+  /**
+   * @example
+   * 200
+   */
+  height?: number;
+  /**
+   * @example
+   * 100
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      width: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDocInfoResponseBodyData extends $dara.Model {
   /**
    * @example
    * default
    */
   categoryId?: string;
+  /**
+   * @example
+   * 電視廣播2020年報
+   */
   docName?: string;
   /**
    * @example
@@ -19,11 +57,16 @@ export class GetDocInfoResponseBodyData extends $dara.Model {
    * http://xxx/xxx.pdf
    */
   fileUrl?: string;
+  pageInfo?: GetDocInfoResponseBodyDataPageInfo;
   /**
    * @example
    * 0
    */
   status?: number;
+  /**
+   * @example
+   * 导入成功
+   */
   statusMessage?: string;
   videoContents?: string[];
   static names(): { [key: string]: string } {
@@ -32,6 +75,7 @@ export class GetDocInfoResponseBodyData extends $dara.Model {
       docName: 'DocName',
       docType: 'DocType',
       fileUrl: 'FileUrl',
+      pageInfo: 'PageInfo',
       status: 'Status',
       statusMessage: 'StatusMessage',
       videoContents: 'VideoContents',
@@ -44,6 +88,7 @@ export class GetDocInfoResponseBodyData extends $dara.Model {
       docName: 'string',
       docType: 'string',
       fileUrl: 'string',
+      pageInfo: GetDocInfoResponseBodyDataPageInfo,
       status: 'number',
       statusMessage: 'string',
       videoContents: { 'type': 'array', 'itemType': 'string' },
@@ -51,6 +96,9 @@ export class GetDocInfoResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.pageInfo && typeof (this.pageInfo as any).validate === 'function') {
+      (this.pageInfo as any).validate();
+    }
     if(Array.isArray(this.videoContents)) {
       $dara.Model.validateArray(this.videoContents);
     }

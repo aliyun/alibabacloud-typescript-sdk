@@ -119,6 +119,7 @@ export { GetDeepWriteTaskResponseBodyData } from './GetDeepWriteTaskResponseBody
 export { GetDeepWriteTaskResultResponseBodyData } from './GetDeepWriteTaskResultResponseBody';
 export { GetDocClusterTaskResponseBodyDataTopics } from './GetDocClusterTaskResponseBody';
 export { GetDocClusterTaskResponseBodyData } from './GetDocClusterTaskResponseBody';
+export { GetDocInfoResponseBodyDataPageInfo } from './GetDocInfoResponseBody';
 export { GetDocInfoResponseBodyData } from './GetDocInfoResponseBody';
 export { GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatisticsTagValueCountStatistic } from './GetEnterpriseVocAnalysisTaskResponseBody';
 export { GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatistics } from './GetEnterpriseVocAnalysisTaskResponseBody';
