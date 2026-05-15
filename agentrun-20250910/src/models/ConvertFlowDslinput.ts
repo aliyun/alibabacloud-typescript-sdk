@@ -65,6 +65,10 @@ export class ConvertFlowDSLInputOptions extends $dara.Model {
    * true
    */
   compatibilityCheck?: boolean;
+  /**
+   * @remarks
+   * 调用方指定的 AgentRun 凭证资源名称。转换后会替换模型相关节点访问凭证
+   */
   credentialName?: string;
   flowName?: string;
   /**

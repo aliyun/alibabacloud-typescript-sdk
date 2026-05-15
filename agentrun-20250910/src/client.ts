@@ -481,6 +481,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建 IM Bot
+   * 
+   * @remarks
+   * POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+   * 
+   * @param request - CreateIMBotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIMBotResponse
+   */
+  async createIMBotWithOptions(request: $_model.CreateIMBotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIMBotResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateIMBot",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/im-bots`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateIMBotResponse>(await this.callApi(params, req, runtime), new $_model.CreateIMBotResponse({}));
+  }
+
+  /**
+   * 创建 IM Bot
+   * 
+   * @remarks
+   * POST /2025-09-10/agents/im-bots；成功 HTTP 201；请求体无 status（创建后恒为 running）；Body 标准包装，data 为 IMBotInfo
+   * 
+   * @param request - CreateIMBotRequest
+   * @returns CreateIMBotResponse
+   */
+  async createIMBot(request: $_model.CreateIMBotRequest): Promise<$_model.CreateIMBotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createIMBotWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建知识库
    * 
    * @param request - CreateKnowledgeBaseRequest
@@ -1185,6 +1231,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteFlowVersionWithOptions(flowName, flowVersion, request, headers, runtime);
+  }
+
+  /**
+   * 删除 IM Bot
+   * 
+   * @remarks
+   * DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+   * 
+   * @param request - DeleteIMBotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIMBotResponse
+   */
+  async deleteIMBotWithOptions(imBotId: string, request: $_model.DeleteIMBotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteIMBotResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteIMBot",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/im-bots/${$dara.URL.percentEncode(imBotId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteIMBotResponse>(await this.callApi(params, req, runtime), new $_model.DeleteIMBotResponse({}));
+  }
+
+  /**
+   * 删除 IM Bot
+   * 
+   * @remarks
+   * DELETE /2025-09-10/agents/im-bots/{imBotId}；成功为 HTTP 204 No Content，无 JSON 响应体
+   * 
+   * @param request - DeleteIMBotRequest
+   * @returns DeleteIMBotResponse
+   */
+  async deleteIMBot(imBotId: string, request: $_model.DeleteIMBotRequest): Promise<$_model.DeleteIMBotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteIMBotWithOptions(imBotId, request, headers, runtime);
   }
 
   /**
@@ -1954,6 +2045,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getFlowVersionWithOptions(flowName, flowVersion, request, headers, runtime);
+  }
+
+  /**
+   * 获取 IM Bot
+   * 
+   * @remarks
+   * GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
+   * 
+   * @param request - GetIMBotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIMBotResponse
+   */
+  async getIMBotWithOptions(imBotId: string, request: $_model.GetIMBotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetIMBotResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetIMBot",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/im-bots/${$dara.URL.percentEncode(imBotId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetIMBotResponse>(await this.callApi(params, req, runtime), new $_model.GetIMBotResponse({}));
+  }
+
+  /**
+   * 获取 IM Bot
+   * 
+   * @remarks
+   * GET /2025-09-10/agents/im-bots/{imBotId}；200 OK，Body 标准包装，data 为 IMBotInfo
+   * 
+   * @param request - GetIMBotRequest
+   * @returns GetIMBotResponse
+   */
+  async getIMBot(imBotId: string, request: $_model.GetIMBotRequest): Promise<$_model.GetIMBotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getIMBotWithOptions(imBotId, request, headers, runtime);
   }
 
   /**
@@ -2933,6 +3069,77 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFlowsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 分页列举 IM Bots
+   * 
+   * @remarks
+   * GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+   * 
+   * @param request - ListIMBotsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIMBotsResponse
+   */
+  async listIMBotsWithOptions(request: $_model.ListIMBotsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListIMBotsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentRuntimeId)) {
+      query["agentRuntimeId"] = request.agentRuntimeId;
+    }
+
+    if (!$dara.isNull(request.botBizType)) {
+      query["botBizType"] = request.botBizType;
+    }
+
+    if (!$dara.isNull(request.botName)) {
+      query["botName"] = request.botName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListIMBots",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/im-bots`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListIMBotsResponse>(await this.callApi(params, req, runtime), new $_model.ListIMBotsResponse({}));
+  }
+
+  /**
+   * 分页列举 IM Bots
+   * 
+   * @remarks
+   * GET /2025-09-10/agents/im-bots；200 OK；data 含 items、pageNumber、pageSize、total；pageNumber 默认 1、pageSize 默认 20、上限 100；可按 botName（子串忽略大小写）、agentRuntimeId、botBizType、status 筛选
+   * 
+   * @param request - ListIMBotsRequest
+   * @returns ListIMBotsResponse
+   */
+  async listIMBots(request: $_model.ListIMBotsRequest): Promise<$_model.ListIMBotsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listIMBotsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -4086,6 +4293,52 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateFlowEndpointWithOptions(flowName, flowEndpointName, request, headers, runtime);
+  }
+
+  /**
+   * 更新 IM Bot
+   * 
+   * @remarks
+   * PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
+   * 
+   * @param request - UpdateIMBotRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIMBotResponse
+   */
+  async updateIMBotWithOptions(imBotId: string, request: $_model.UpdateIMBotRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateIMBotResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateIMBot",
+      version: "2025-09-10",
+      protocol: "HTTPS",
+      pathname: `/2025-09-10/agents/im-bots/${$dara.URL.percentEncode(imBotId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateIMBotResponse>(await this.callApi(params, req, runtime), new $_model.UpdateIMBotResponse({}));
+  }
+
+  /**
+   * 更新 IM Bot
+   * 
+   * @remarks
+   * PUT /2025-09-10/agents/im-bots/{imBotId}；成功建议 HTTP 202，Body 标准包装，data 为更新后 IMBotInfo
+   * 
+   * @param request - UpdateIMBotRequest
+   * @returns UpdateIMBotResponse
+   */
+  async updateIMBot(imBotId: string, request: $_model.UpdateIMBotRequest): Promise<$_model.UpdateIMBotResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateIMBotWithOptions(imBotId, request, headers, runtime);
   }
 
   /**

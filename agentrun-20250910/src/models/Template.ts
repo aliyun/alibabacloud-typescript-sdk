@@ -100,9 +100,6 @@ export class Template extends $dara.Model {
   ossConfiguration?: OssConfiguration[];
   resourceName?: string;
   sandboxIdleTimeoutInSeconds?: string;
-  /**
-   * @deprecated
-   */
   sandboxTTLInSeconds?: string;
   scalingStatus?: ScalingStatus;
   status?: string;

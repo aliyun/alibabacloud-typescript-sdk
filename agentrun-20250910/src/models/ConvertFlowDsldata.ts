@@ -3,8 +3,6 @@ import * as $dara from '@darabonba/typescript';
 import { EnvironmentConfiguration } from "./EnvironmentConfiguration";
 
 
-/**
- */
 export class ConvertFlowDSLDataConversionPlanIssues extends $dara.Model {
   /**
    * @remarks

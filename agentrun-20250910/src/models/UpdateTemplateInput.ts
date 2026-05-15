@@ -76,8 +76,6 @@ export class UpdateTemplateInput extends $dara.Model {
    * 
    * @example
    * 86400
-   * 
-   * @deprecated
    */
   sandboxTTLInSeconds?: number;
   scalingConfig?: ScalingConfig;
