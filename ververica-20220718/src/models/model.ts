@@ -13,6 +13,7 @@ export { BatchResourceSetting } from './BatchResourceSetting';
 export { BriefDeploymentTarget } from './BriefDeploymentTarget';
 export { BriefResourceSetting } from './BriefResourceSetting';
 export { Catalog } from './Catalog';
+export { CdcYamlArtifact } from './CdcYamlArtifact';
 export { Cell } from './Cell';
 export { Connector } from './Connector';
 export { CreateUdfArtifactResult } from './CreateUdfArtifactResult';

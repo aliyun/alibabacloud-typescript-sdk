@@ -1,11 +1,13 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { CdcYamlArtifact } from "./CdcYamlArtifact";
 import { JarArtifact } from "./JarArtifact";
 import { PythonArtifact } from "./PythonArtifact";
 import { SqlArtifact } from "./SqlArtifact";
 
 
 export class Artifact extends $dara.Model {
+  cdcYamlArtifact?: CdcYamlArtifact;
   /**
    * @remarks
    * The information required for the SQL deployment.
@@ -35,6 +37,7 @@ export class Artifact extends $dara.Model {
   sqlArtifact?: SqlArtifact;
   static names(): { [key: string]: string } {
     return {
+      cdcYamlArtifact: 'cdcYamlArtifact',
       jarArtifact: 'jarArtifact',
       kind: 'kind',
       pythonArtifact: 'pythonArtifact',
@@ -44,6 +47,7 @@ export class Artifact extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cdcYamlArtifact: CdcYamlArtifact,
       jarArtifact: JarArtifact,
       kind: 'string',
       pythonArtifact: PythonArtifact,
@@ -52,6 +56,9 @@ export class Artifact extends $dara.Model {
   }
 
   validate() {
+    if(this.cdcYamlArtifact && typeof (this.cdcYamlArtifact as any).validate === 'function') {
+      (this.cdcYamlArtifact as any).validate();
+    }
     if(this.jarArtifact && typeof (this.jarArtifact as any).validate === 'function') {
       (this.jarArtifact as any).validate();
     }
