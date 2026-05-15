@@ -898,6 +898,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 关闭OpenAPI执行SQL功能
+   * 
+   * @param request - DisableExecuteStatementRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableExecuteStatementResponse
+   */
+  async disableExecuteStatementWithOptions(instanceId: string, request: $_model.DisableExecuteStatementRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableExecuteStatementResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableExecuteStatement",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/disableExecuteStatement`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableExecuteStatementResponse>(await this.callApi(params, req, runtime), new $_model.DisableExecuteStatementResponse({}));
+  }
+
+  /**
+   * 关闭OpenAPI执行SQL功能
+   * 
+   * @param request - DisableExecuteStatementRequest
+   * @returns DisableExecuteStatementResponse
+   */
+  async disableExecuteStatement(instanceId: string, request: $_model.DisableExecuteStatementRequest): Promise<$_model.DisableExecuteStatementResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableExecuteStatementWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Disables data lake acceleration.
    * 
    * @param request - DisableHiveAccessRequest
@@ -1072,6 +1111,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启或关闭OpenAPI执行SQL功能
+   * 
+   * @param request - EnableExecuteStatementRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableExecuteStatementResponse
+   */
+  async enableExecuteStatementWithOptions(instanceId: string, request: $_model.EnableExecuteStatementRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableExecuteStatementResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableExecuteStatement",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/enableExecuteStatement`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableExecuteStatementResponse>(await this.callApi(params, req, runtime), new $_model.EnableExecuteStatementResponse({}));
+  }
+
+  /**
+   * 开启或关闭OpenAPI执行SQL功能
+   * 
+   * @param request - EnableExecuteStatementRequest
+   * @returns EnableExecuteStatementResponse
+   */
+  async enableExecuteStatement(instanceId: string, request: $_model.EnableExecuteStatementRequest): Promise<$_model.EnableExecuteStatementResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableExecuteStatementWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Enables data lake acceleration.
    * 
    * @param request - EnableHiveAccessRequest
@@ -1201,6 +1279,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * SQL执行
+   * 
+   * @param request - ExecuteStatementRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteStatementResponse
+   */
+  async executeStatementWithOptions(instanceId: string, request: $_model.ExecuteStatementRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ExecuteStatementResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dbName)) {
+      body["dbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.maxBytes)) {
+      body["maxBytes"] = request.maxBytes;
+    }
+
+    if (!$dara.isNull(request.maxRows)) {
+      body["maxRows"] = request.maxRows;
+    }
+
+    if (!$dara.isNull(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    if (!$dara.isNull(request.queryTimeout)) {
+      body["queryTimeout"] = request.queryTimeout;
+    }
+
+    if (!$dara.isNull(request.sql)) {
+      body["sql"] = request.sql;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ExecuteStatement",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/executeStatement`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ExecuteStatementResponse>(await this.callApi(params, req, runtime), new $_model.ExecuteStatementResponse({}));
+  }
+
+  /**
+   * SQL执行
+   * 
+   * @param request - ExecuteStatementRequest
+   * @returns ExecuteStatementResponse
+   */
+  async executeStatement(instanceId: string, request: $_model.ExecuteStatementRequest): Promise<$_model.ExecuteStatementResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.executeStatementWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * 获得证书信息
    * 
    * @param headers - map
@@ -1233,6 +1376,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getCertificateAttributeWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * 查询实例是否已开启OpenAPI执行SQL功能
+   * 
+   * @param request - GetExecuteStatementEnabledRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetExecuteStatementEnabledResponse
+   */
+  async getExecuteStatementEnabledWithOptions(instanceId: string, request: $_model.GetExecuteStatementEnabledRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetExecuteStatementEnabledResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetExecuteStatementEnabled",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/executeStatementEnabled`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetExecuteStatementEnabledResponse>(await this.callApi(params, req, runtime), new $_model.GetExecuteStatementEnabledResponse({}));
+  }
+
+  /**
+   * 查询实例是否已开启OpenAPI执行SQL功能
+   * 
+   * @param request - GetExecuteStatementEnabledRequest
+   * @returns GetExecuteStatementEnabledResponse
+   */
+  async getExecuteStatementEnabled(instanceId: string, request: $_model.GetExecuteStatementEnabledRequest): Promise<$_model.GetExecuteStatementEnabledResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getExecuteStatementEnabledWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
