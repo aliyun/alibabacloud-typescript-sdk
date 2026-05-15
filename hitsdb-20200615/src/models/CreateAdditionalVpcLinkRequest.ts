@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAdditionalVpcLinkRequest extends $dara.Model {
+  additionalAliBid?: string;
+  additionalAliUid?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -22,6 +24,8 @@ export class CreateAdditionalVpcLinkRequest extends $dara.Model {
   securityToken?: string;
   static names(): { [key: string]: string } {
     return {
+      additionalAliBid: 'AdditionalAliBid',
+      additionalAliUid: 'AdditionalAliUid',
       additionalVpcId: 'AdditionalVpcId',
       additionalVswitchId: 'AdditionalVswitchId',
       instanceId: 'InstanceId',
@@ -32,6 +36,8 @@ export class CreateAdditionalVpcLinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      additionalAliBid: 'string',
+      additionalAliUid: 'string',
       additionalVpcId: 'string',
       additionalVswitchId: 'string',
       instanceId: 'string',

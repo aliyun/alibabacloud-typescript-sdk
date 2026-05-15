@@ -273,6 +273,14 @@ export default class Client extends OpenApi {
   async createAdditionalVpcLinkWithOptions(request: $_model.CreateAdditionalVpcLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAdditionalVpcLinkResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.additionalAliBid)) {
+      query["AdditionalAliBid"] = request.additionalAliBid;
+    }
+
+    if (!$dara.isNull(request.additionalAliUid)) {
+      query["AdditionalAliUid"] = request.additionalAliUid;
+    }
+
     if (!$dara.isNull(request.additionalVpcId)) {
       query["AdditionalVpcId"] = request.additionalVpcId;
     }
