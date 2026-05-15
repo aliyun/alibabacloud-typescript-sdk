@@ -2,6 +2,70 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class InvokeAssistantResponseBodyMessagesContentAguiContentAguiEventList extends $dara.Model {
+  activityType?: string;
+  content?: any;
+  messageId?: string;
+  replace?: boolean;
+  timestamp?: number;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      activityType: 'activityType',
+      content: 'content',
+      messageId: 'messageId',
+      replace: 'replace',
+      timestamp: 'timestamp',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activityType: 'string',
+      content: 'any',
+      messageId: 'string',
+      replace: 'boolean',
+      timestamp: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class InvokeAssistantResponseBodyMessagesContentAguiContent extends $dara.Model {
+  aguiEventList?: InvokeAssistantResponseBodyMessagesContentAguiContentAguiEventList[];
+  static names(): { [key: string]: string } {
+    return {
+      aguiEventList: 'aguiEventList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aguiEventList: { 'type': 'array', 'itemType': InvokeAssistantResponseBodyMessagesContentAguiContentAguiEventList },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.aguiEventList)) {
+      $dara.Model.validateArray(this.aguiEventList);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InvokeAssistantResponseBodyMessagesContentCardCallback extends $dara.Model {
   /**
    * @example
@@ -704,6 +768,7 @@ export class InvokeAssistantResponseBodyMessagesContentText extends $dara.Model 
 }
 
 export class InvokeAssistantResponseBodyMessagesContent extends $dara.Model {
+  aguiContent?: InvokeAssistantResponseBodyMessagesContentAguiContent;
   cardCallback?: InvokeAssistantResponseBodyMessagesContentCardCallback;
   dingCard?: InvokeAssistantResponseBodyMessagesContentDingCard;
   /**
@@ -724,6 +789,7 @@ export class InvokeAssistantResponseBodyMessagesContent extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      aguiContent: 'aguiContent',
       cardCallback: 'cardCallback',
       dingCard: 'dingCard',
       dingNormalCard: 'dingNormalCard',
@@ -736,6 +802,7 @@ export class InvokeAssistantResponseBodyMessagesContent extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aguiContent: InvokeAssistantResponseBodyMessagesContentAguiContent,
       cardCallback: InvokeAssistantResponseBodyMessagesContentCardCallback,
       dingCard: InvokeAssistantResponseBodyMessagesContentDingCard,
       dingNormalCard: InvokeAssistantResponseBodyMessagesContentDingNormalCard,
@@ -747,6 +814,9 @@ export class InvokeAssistantResponseBodyMessagesContent extends $dara.Model {
   }
 
   validate() {
+    if(this.aguiContent && typeof (this.aguiContent as any).validate === 'function') {
+      (this.aguiContent as any).validate();
+    }
     if(this.cardCallback && typeof (this.cardCallback as any).validate === 'function') {
       (this.cardCallback as any).validate();
     }

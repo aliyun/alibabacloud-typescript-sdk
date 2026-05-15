@@ -15768,6 +15768,236 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 按会议 conferenceId 聚合查询实时听记
+   * 
+   * @param tmpReq - MeetingFlashMinutesRequest
+   * @param tmpHeader - MeetingFlashMinutesHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MeetingFlashMinutesResponse
+   */
+  async meetingFlashMinutesWithOptions(tmpReq: $_model.MeetingFlashMinutesRequest, tmpHeader: $_model.MeetingFlashMinutesHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.MeetingFlashMinutesResponse> {
+    tmpReq.validate();
+    let request = new $_model.MeetingFlashMinutesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.MeetingFlashMinutesShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MeetingFlashMinutes",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/minutes/meetingFlashMinutes`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MeetingFlashMinutesResponse>(await this.callApi(params, req, runtime), new $_model.MeetingFlashMinutesResponse({}));
+  }
+
+  /**
+   * 按会议 conferenceId 聚合查询实时听记
+   * 
+   * @param request - MeetingFlashMinutesRequest
+   * @returns MeetingFlashMinutesResponse
+   */
+  async meetingFlashMinutes(request: $_model.MeetingFlashMinutesRequest): Promise<$_model.MeetingFlashMinutesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.MeetingFlashMinutesHeaders({ });
+    return await this.meetingFlashMinutesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 全员静音或全员取消静音
+   * 
+   * @param tmpReq - MuteAllRequest
+   * @param tmpHeader - MuteAllHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MuteAllResponse
+   */
+  async muteAllWithOptions(tmpReq: $_model.MuteAllRequest, tmpHeader: $_model.MuteAllHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.MuteAllResponse> {
+    tmpReq.validate();
+    let request = new $_model.MuteAllShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.MuteAllShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.forceMute)) {
+      body["ForceMute"] = request.forceMute;
+    }
+
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!$dara.isNull(request.muteAction)) {
+      body["muteAction"] = request.muteAction;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MuteAll",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/muteAll`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MuteAllResponse>(await this.callApi(params, req, runtime), new $_model.MuteAllResponse({}));
+  }
+
+  /**
+   * 全员静音或全员取消静音
+   * 
+   * @param request - MuteAllRequest
+   * @returns MuteAllResponse
+   */
+  async muteAll(request: $_model.MuteAllRequest): Promise<$_model.MuteAllResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.MuteAllHeaders({ });
+    return await this.muteAllWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 指定人员静音或取消静音
+   * 
+   * @param tmpReq - MuteMembersRequest
+   * @param tmpHeader - MuteMembersHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MuteMembersResponse
+   */
+  async muteMembersWithOptions(tmpReq: $_model.MuteMembersRequest, tmpHeader: $_model.MuteMembersHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.MuteMembersResponse> {
+    tmpReq.validate();
+    let request = new $_model.MuteMembersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.MuteMembersShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.userIds)) {
+      request.userIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIds, "UserIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.userIdsShrink)) {
+      body["UserIds"] = request.userIdsShrink;
+    }
+
+    if (!$dara.isNull(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!$dara.isNull(request.muteAction)) {
+      body["muteAction"] = request.muteAction;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MuteMembers",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/muteMembers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MuteMembersResponse>(await this.callApi(params, req, runtime), new $_model.MuteMembersResponse({}));
+  }
+
+  /**
+   * 指定人员静音或取消静音
+   * 
+   * @param request - MuteMembersRequest
+   * @returns MuteMembersResponse
+   */
+  async muteMembers(request: $_model.MuteMembersRequest): Promise<$_model.MuteMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.MuteMembersHeaders({ });
+    return await this.muteMembersWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 修改日程
    * 
    * @param tmpReq - PatchEventRequest
