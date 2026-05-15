@@ -298,6 +298,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新Airflow实例的自定义配置
+   * 
+   * @param tmpReq - ConfigAirflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfigAirflowResponse
+   */
+  async configAirflowWithOptions(tmpReq: $_model.ConfigAirflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfigAirflowResponse> {
+    tmpReq.validate();
+    let request = new $_model.ConfigAirflowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.customAirflowCfg)) {
+      request.customAirflowCfgShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customAirflowCfg, "CustomAirflowCfg", "simple");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.airflowId)) {
+      query["AirflowId"] = request.airflowId;
+    }
+
+    if (!$dara.isNull(request.customAirflowCfgShrink)) {
+      query["CustomAirflowCfg"] = request.customAirflowCfgShrink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfigAirflow",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfigAirflowResponse>(await this.callApi(params, req, runtime), new $_model.ConfigAirflowResponse({}));
+  }
+
+  /**
+   * 更新Airflow实例的自定义配置
+   * 
+   * @param request - ConfigAirflowRequest
+   * @returns ConfigAirflowResponse
+   */
+  async configAirflow(request: $_model.ConfigAirflowRequest): Promise<$_model.ConfigAirflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.configAirflowWithOptions(request, runtime);
+  }
+
+  /**
    * 创建Airflow
    * 
    * @param tmpReq - CreateAirflowRequest
@@ -569,6 +625,64 @@ export default class Client extends OpenApi {
   async createCustomAgent(request: $_model.CreateCustomAgentRequest): Promise<$_model.CreateCustomAgentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createCustomAgentWithOptions(request, runtime);
+  }
+
+  /**
+   * CreateDataAgentKnowledgeBase
+   * 
+   * @param request - CreateDataAgentKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataAgentKnowledgeBaseResponse
+   */
+  async createDataAgentKnowledgeBaseWithOptions(request: $_model.CreateDataAgentKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataAgentKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.fromKbUuid)) {
+      query["FromKbUuid"] = request.fromKbUuid;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDataAgentKnowledgeBase",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDataAgentKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateDataAgentKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * CreateDataAgentKnowledgeBase
+   * 
+   * @param request - CreateDataAgentKnowledgeBaseRequest
+   * @returns CreateDataAgentKnowledgeBaseResponse
+   */
+  async createDataAgentKnowledgeBase(request: $_model.CreateDataAgentKnowledgeBaseRequest): Promise<$_model.CreateDataAgentKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createDataAgentKnowledgeBaseWithOptions(request, runtime);
   }
 
   /**
@@ -1068,6 +1182,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DeleteDataAgentKnowledgeBase
+   * 
+   * @param request - DeleteDataAgentKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataAgentKnowledgeBaseResponse
+   */
+  async deleteDataAgentKnowledgeBaseWithOptions(request: $_model.DeleteDataAgentKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataAgentKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DMSUnit)) {
+      query["DMSUnit"] = request.DMSUnit;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      query["KbUuid"] = request.kbUuid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDataAgentKnowledgeBase",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDataAgentKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDataAgentKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * DeleteDataAgentKnowledgeBase
+   * 
+   * @param request - DeleteDataAgentKnowledgeBaseRequest
+   * @returns DeleteDataAgentKnowledgeBaseResponse
+   */
+  async deleteDataAgentKnowledgeBase(request: $_model.DeleteDataAgentKnowledgeBaseRequest): Promise<$_model.DeleteDataAgentKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDataAgentKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
    * 删除DataAgent工作空间
    * 
    * @param request - DeleteDataAgentWorkspaceRequest
@@ -1545,6 +1709,48 @@ export default class Client extends OpenApi {
   async describeFileUploadSignature(request: $_model.DescribeFileUploadSignatureRequest): Promise<$_model.DescribeFileUploadSignatureResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeFileUploadSignatureWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取onemeta3.0的知识库统计信息
+   * 
+   * @param request - DescribeKnowledgeBaseStatsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKnowledgeBaseStatsResponse
+   */
+  async describeKnowledgeBaseStatsWithOptions(request: $_model.DescribeKnowledgeBaseStatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKnowledgeBaseStatsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.kbUuid)) {
+      query["KbUuid"] = request.kbUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKnowledgeBaseStats",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKnowledgeBaseStatsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKnowledgeBaseStatsResponse({}));
+  }
+
+  /**
+   * 获取onemeta3.0的知识库统计信息
+   * 
+   * @param request - DescribeKnowledgeBaseStatsRequest
+   * @returns DescribeKnowledgeBaseStatsResponse
+   */
+  async describeKnowledgeBaseStats(request: $_model.DescribeKnowledgeBaseStatsRequest): Promise<$_model.DescribeKnowledgeBaseStatsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKnowledgeBaseStatsWithOptions(request, runtime);
   }
 
   /**
@@ -2292,6 +2498,90 @@ export default class Client extends OpenApi {
   async getWorkspaceCodePublishSetting(request: $_model.GetWorkspaceCodePublishSettingRequest): Promise<$_model.GetWorkspaceCodePublishSettingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getWorkspaceCodePublishSettingWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取工作空间配额
+   * 
+   * @param request - GetWorkspaceQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceQuotaResponse
+   */
+  async getWorkspaceQuotaWithOptions(request: $_model.GetWorkspaceQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspaceQuota",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceQuotaResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceQuotaResponse({}));
+  }
+
+  /**
+   * 获取工作空间配额
+   * 
+   * @param request - GetWorkspaceQuotaRequest
+   * @returns GetWorkspaceQuotaResponse
+   */
+  async getWorkspaceQuota(request: $_model.GetWorkspaceQuotaRequest): Promise<$_model.GetWorkspaceQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkspaceQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取可用的Airflow版本列表
+   * 
+   * @param request - ListAirflowVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAirflowVersionsResponse
+   */
+  async listAirflowVersionsWithOptions(request: $_model.ListAirflowVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAirflowVersionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAirflowVersions",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAirflowVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListAirflowVersionsResponse({}));
+  }
+
+  /**
+   * 获取可用的Airflow版本列表
+   * 
+   * @param request - ListAirflowVersionsRequest
+   * @returns ListAirflowVersionsResponse
+   */
+  async listAirflowVersions(request: $_model.ListAirflowVersionsRequest): Promise<$_model.ListAirflowVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAirflowVersionsWithOptions(request, runtime);
   }
 
   /**
@@ -3679,6 +3969,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重新部署Airflow实例
+   * 
+   * @param request - RedeployAirflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RedeployAirflowResponse
+   */
+  async redeployAirflowWithOptions(request: $_model.RedeployAirflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RedeployAirflowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.airflowId)) {
+      query["AirflowId"] = request.airflowId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RedeployAirflow",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RedeployAirflowResponse>(await this.callApi(params, req, runtime), new $_model.RedeployAirflowResponse({}));
+  }
+
+  /**
+   * 重新部署Airflow实例
+   * 
+   * @param request - RedeployAirflowRequest
+   * @returns RedeployAirflowResponse
+   */
+  async redeployAirflow(request: $_model.RedeployAirflowRequest): Promise<$_model.RedeployAirflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.redeployAirflowWithOptions(request, runtime);
+  }
+
+  /**
    * 从空间中移除用户
    * 
    * @param request - RemoveUserToDataAgentWorkspaceRequest
@@ -3874,6 +4210,64 @@ export default class Client extends OpenApi {
   async setWorkspaceCodePublishSetting(request: $_model.SetWorkspaceCodePublishSettingRequest): Promise<$_model.SetWorkspaceCodePublishSettingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setWorkspaceCodePublishSettingWithOptions(request, runtime);
+  }
+
+  /**
+   * 设置工作空间配额
+   * 
+   * @param request - SetWorkspaceQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetWorkspaceQuotaResponse
+   */
+  async setWorkspaceQuotaWithOptions(request: $_model.SetWorkspaceQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SetWorkspaceQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.cuQuota)) {
+      query["CuQuota"] = request.cuQuota;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SetWorkspaceQuota",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SetWorkspaceQuotaResponse>(await this.callApi(params, req, runtime), new $_model.SetWorkspaceQuotaResponse({}));
+  }
+
+  /**
+   * 设置工作空间配额
+   * 
+   * @param request - SetWorkspaceQuotaRequest
+   * @returns SetWorkspaceQuotaResponse
+   */
+  async setWorkspaceQuota(request: $_model.SetWorkspaceQuotaRequest): Promise<$_model.SetWorkspaceQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.setWorkspaceQuotaWithOptions(request, runtime);
   }
 
   /**
