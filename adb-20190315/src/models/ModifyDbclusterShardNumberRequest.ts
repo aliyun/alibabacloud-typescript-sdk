@@ -26,6 +26,7 @@ export class ModifyDBClusterShardNumberRequest extends $dara.Model {
    * false
    */
   dryRun?: boolean;
+  isRollback?: boolean;
   /**
    * @remarks
    * The desired number of shards.
@@ -72,6 +73,7 @@ export class ModifyDBClusterShardNumberRequest extends $dara.Model {
     return {
       DBClusterId: 'DBClusterId',
       dryRun: 'DryRun',
+      isRollback: 'IsRollback',
       newShardNumber: 'NewShardNumber',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -87,6 +89,7 @@ export class ModifyDBClusterShardNumberRequest extends $dara.Model {
     return {
       DBClusterId: 'string',
       dryRun: 'boolean',
+      isRollback: 'boolean',
       newShardNumber: 'number',
       ownerAccount: 'string',
       ownerId: 'number',

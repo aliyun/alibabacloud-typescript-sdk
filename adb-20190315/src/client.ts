@@ -9107,6 +9107,10 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    if (!$dara.isNull(request.isRollback)) {
+      query["IsRollback"] = request.isRollback;
+    }
+
     if (!$dara.isNull(request.newShardNumber)) {
       query["NewShardNumber"] = request.newShardNumber;
     }
