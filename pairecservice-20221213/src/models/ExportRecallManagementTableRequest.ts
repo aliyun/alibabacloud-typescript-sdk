@@ -27,6 +27,11 @@ export class ExportRecallManagementTableRequest extends $dara.Model {
    */
   maxcomputeTableName?: string;
   partitions?: { [key: string]: string };
+  /**
+   * @example
+   * 20250213000000
+   */
+  recallManagementTableVersionId?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -34,6 +39,7 @@ export class ExportRecallManagementTableRequest extends $dara.Model {
       maxcomputeSchema: 'MaxcomputeSchema',
       maxcomputeTableName: 'MaxcomputeTableName',
       partitions: 'Partitions',
+      recallManagementTableVersionId: 'RecallManagementTableVersionId',
     };
   }
 
@@ -44,6 +50,7 @@ export class ExportRecallManagementTableRequest extends $dara.Model {
       maxcomputeSchema: 'string',
       maxcomputeTableName: 'string',
       partitions: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      recallManagementTableVersionId: 'string',
     };
   }
 

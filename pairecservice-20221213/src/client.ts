@@ -4061,6 +4061,10 @@ export default class Client extends OpenApi {
       body["Partitions"] = request.partitions;
     }
 
+    if (!$dara.isNull(request.recallManagementTableVersionId)) {
+      body["RecallManagementTableVersionId"] = request.recallManagementTableVersionId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
