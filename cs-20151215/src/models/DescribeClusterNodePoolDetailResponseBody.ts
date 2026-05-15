@@ -141,6 +141,40 @@ export class DescribeClusterNodePoolDetailResponseBodyAutoScaling extends $dara.
   }
 }
 
+export class DescribeClusterNodePoolDetailResponseBodyEfloNodeGroup extends $dara.Model {
+  /**
+   * @example
+   * i113790071760688002461
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * i128147721760688002463
+   */
+  groupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      groupId: 'group_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      groupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolDetailResponseBodyInterconnectConfig extends $dara.Model {
   /**
    * @remarks
@@ -1770,6 +1804,7 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
    * The auto scaling configuration of the node pool.
    */
   autoScaling?: DescribeClusterNodePoolDetailResponseBodyAutoScaling;
+  efloNodeGroup?: DescribeClusterNodePoolDetailResponseBodyEfloNodeGroup;
   /**
    * @remarks
    * Indicates whether the pods in the edge node pool can use the host network.
@@ -1861,6 +1896,7 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
     return {
       autoMode: 'auto_mode',
       autoScaling: 'auto_scaling',
+      efloNodeGroup: 'eflo_node_group',
       hostNetwork: 'host_network',
       interconnectConfig: 'interconnect_config',
       interconnectMode: 'interconnect_mode',
@@ -1881,6 +1917,7 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
     return {
       autoMode: DescribeClusterNodePoolDetailResponseBodyAutoMode,
       autoScaling: DescribeClusterNodePoolDetailResponseBodyAutoScaling,
+      efloNodeGroup: DescribeClusterNodePoolDetailResponseBodyEfloNodeGroup,
       hostNetwork: 'boolean',
       interconnectConfig: DescribeClusterNodePoolDetailResponseBodyInterconnectConfig,
       interconnectMode: 'string',
@@ -1903,6 +1940,9 @@ export class DescribeClusterNodePoolDetailResponseBody extends $dara.Model {
     }
     if(this.autoScaling && typeof (this.autoScaling as any).validate === 'function') {
       (this.autoScaling as any).validate();
+    }
+    if(this.efloNodeGroup && typeof (this.efloNodeGroup as any).validate === 'function') {
+      (this.efloNodeGroup as any).validate();
     }
     if(this.interconnectConfig && typeof (this.interconnectConfig as any).validate === 'function') {
       (this.interconnectConfig as any).validate();

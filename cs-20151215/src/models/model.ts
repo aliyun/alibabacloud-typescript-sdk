@@ -82,6 +82,7 @@ export { DescribeClusterEventsResponseBodyPageInfo } from './DescribeClusterEven
 export { DescribeClusterLogsResponseBody } from './DescribeClusterLogsResponse';
 export { DescribeClusterNodePoolDetailResponseBodyAutoMode } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyAutoScaling } from './DescribeClusterNodePoolDetailResponseBody';
+export { DescribeClusterNodePoolDetailResponseBodyEfloNodeGroup } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyInterconnectConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyKubernetesConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolDetailResponseBodyManagementAutoRepairPolicy } from './DescribeClusterNodePoolDetailResponseBody';
@@ -103,6 +104,7 @@ export { DescribeClusterNodePoolDetailResponseBodyStatus } from './DescribeClust
 export { DescribeClusterNodePoolDetailResponseBodyTeeConfig } from './DescribeClusterNodePoolDetailResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsAutoMode } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling } from './DescribeClusterNodePoolsResponseBody';
+export { DescribeClusterNodePoolsResponseBodyNodepoolsEfloNodeGroup } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig } from './DescribeClusterNodePoolsResponseBody';
 export { DescribeClusterNodePoolsResponseBodyNodepoolsManagementAutoRepairPolicy } from './DescribeClusterNodePoolsResponseBody';

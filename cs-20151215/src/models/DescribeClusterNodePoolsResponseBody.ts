@@ -140,6 +140,40 @@ export class DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling extends $d
   }
 }
 
+export class DescribeClusterNodePoolsResponseBodyNodepoolsEfloNodeGroup extends $dara.Model {
+  /**
+   * @example
+   * i113790071760688002461
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * i128147721760688002463
+   */
+  groupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      groupId: 'group_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      groupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig extends $dara.Model {
   /**
    * @remarks
@@ -1783,6 +1817,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $dara.Model {
    * The configurations about auto scaling.
    */
   autoScaling?: DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling;
+  efloNodeGroup?: DescribeClusterNodePoolsResponseBodyNodepoolsEfloNodeGroup;
   /**
    * @remarks
    * This parameter is discontinued.
@@ -1849,6 +1884,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $dara.Model {
     return {
       autoMode: 'auto_mode',
       autoScaling: 'auto_scaling',
+      efloNodeGroup: 'eflo_node_group',
       interconnectConfig: 'interconnect_config',
       interconnectMode: 'interconnect_mode',
       kubernetesConfig: 'kubernetes_config',
@@ -1867,6 +1903,7 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $dara.Model {
     return {
       autoMode: DescribeClusterNodePoolsResponseBodyNodepoolsAutoMode,
       autoScaling: DescribeClusterNodePoolsResponseBodyNodepoolsAutoScaling,
+      efloNodeGroup: DescribeClusterNodePoolsResponseBodyNodepoolsEfloNodeGroup,
       interconnectConfig: DescribeClusterNodePoolsResponseBodyNodepoolsInterconnectConfig,
       interconnectMode: 'string',
       kubernetesConfig: DescribeClusterNodePoolsResponseBodyNodepoolsKubernetesConfig,
@@ -1887,6 +1924,9 @@ export class DescribeClusterNodePoolsResponseBodyNodepools extends $dara.Model {
     }
     if(this.autoScaling && typeof (this.autoScaling as any).validate === 'function') {
       (this.autoScaling as any).validate();
+    }
+    if(this.efloNodeGroup && typeof (this.efloNodeGroup as any).validate === 'function') {
+      (this.efloNodeGroup as any).validate();
     }
     if(this.interconnectConfig && typeof (this.interconnectConfig as any).validate === 'function') {
       (this.interconnectConfig as any).validate();
