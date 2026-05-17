@@ -2,7 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 import { FilterSetting } from "./FilterSetting";
 import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
+import { NotifyRouteForSubscription } from "./NotifyRouteForSubscription";
 
+
+export class SubscriptionForModifyAgentConfig extends $dara.Model {
+  agentUuid?: string;
+  routes?: NotifyRouteForSubscription[];
+  static names(): { [key: string]: string } {
+    return {
+      agentUuid: 'agentUuid',
+      routes: 'routes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentUuid: 'string',
+      routes: { 'type': 'array', 'itemType': NotifyRouteForSubscription },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.routes)) {
+      $dara.Model.validateArray(this.routes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SubscriptionForModifyPushingSetting extends $dara.Model {
   /**
@@ -65,6 +95,7 @@ export class SubscriptionForModifyPushingSetting extends $dara.Model {
 }
 
 export class SubscriptionForModify extends $dara.Model {
+  agentConfig?: SubscriptionForModifyAgentConfig;
   /**
    * @remarks
    * Description.
@@ -104,6 +135,7 @@ export class SubscriptionForModify extends $dara.Model {
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {
+      agentConfig: 'agentConfig',
       description: 'description',
       filterSetting: 'filterSetting',
       notifyStrategyId: 'notifyStrategyId',
@@ -115,6 +147,7 @@ export class SubscriptionForModify extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentConfig: SubscriptionForModifyAgentConfig,
       description: 'string',
       filterSetting: FilterSetting,
       notifyStrategyId: 'string',
@@ -125,6 +158,9 @@ export class SubscriptionForModify extends $dara.Model {
   }
 
   validate() {
+    if(this.agentConfig && typeof (this.agentConfig as any).validate === 'function') {
+      (this.agentConfig as any).validate();
+    }
     if(this.filterSetting && typeof (this.filterSetting as any).validate === 'function') {
       (this.filterSetting as any).validate();
     }

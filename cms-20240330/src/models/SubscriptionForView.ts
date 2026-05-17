@@ -2,7 +2,37 @@
 import * as $dara from '@darabonba/typescript';
 import { FilterSetting } from "./FilterSetting";
 import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
+import { NotifyRouteForSubscription } from "./NotifyRouteForSubscription";
 
+
+export class SubscriptionForViewAgentConfig extends $dara.Model {
+  agentUuid?: string;
+  routes?: NotifyRouteForSubscription[];
+  static names(): { [key: string]: string } {
+    return {
+      agentUuid: 'agentUuid',
+      routes: 'routes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentUuid: 'string',
+      routes: { 'type': 'array', 'itemType': NotifyRouteForSubscription },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.routes)) {
+      $dara.Model.validateArray(this.routes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class SubscriptionForViewPushingSetting extends $dara.Model {
   /**
@@ -65,6 +95,7 @@ export class SubscriptionForViewPushingSetting extends $dara.Model {
 }
 
 export class SubscriptionForView extends $dara.Model {
+  agentConfig?: SubscriptionForViewAgentConfig;
   /**
    * @remarks
    * Create Time.
@@ -125,6 +156,11 @@ export class SubscriptionForView extends $dara.Model {
    * Subscription test.
    */
   subscriptionName?: string;
+  /**
+   * @example
+   * NORMAL
+   */
+  subscriptionType?: string;
   syncFromType?: string;
   /**
    * @remarks
@@ -153,6 +189,7 @@ export class SubscriptionForView extends $dara.Model {
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {
+      agentConfig: 'agentConfig',
       createTime: 'createTime',
       description: 'description',
       enable: 'enable',
@@ -161,6 +198,7 @@ export class SubscriptionForView extends $dara.Model {
       pushingSetting: 'pushingSetting',
       subscriptionId: 'subscriptionId',
       subscriptionName: 'subscriptionName',
+      subscriptionType: 'subscriptionType',
       syncFromType: 'syncFromType',
       updateTime: 'updateTime',
       userId: 'userId',
@@ -171,6 +209,7 @@ export class SubscriptionForView extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentConfig: SubscriptionForViewAgentConfig,
       createTime: 'string',
       description: 'string',
       enable: 'boolean',
@@ -179,6 +218,7 @@ export class SubscriptionForView extends $dara.Model {
       pushingSetting: SubscriptionForViewPushingSetting,
       subscriptionId: 'string',
       subscriptionName: 'string',
+      subscriptionType: 'string',
       syncFromType: 'string',
       updateTime: 'string',
       userId: 'string',
@@ -188,6 +228,9 @@ export class SubscriptionForView extends $dara.Model {
   }
 
   validate() {
+    if(this.agentConfig && typeof (this.agentConfig as any).validate === 'function') {
+      (this.agentConfig as any).validate();
+    }
     if(this.filterSetting && typeof (this.filterSetting as any).validate === 'function') {
       (this.filterSetting as any).validate();
     }
