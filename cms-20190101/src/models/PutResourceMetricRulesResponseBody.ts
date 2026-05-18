@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PutResourceMetricRulesResponseBodyFailedListResultTargetResult extends $dara.Model {
-  /**
-   * @remarks
-   * The response code.
-   * 
-   * @example
-   * 404
-   */
   code?: string;
-  /**
-   * @remarks
-   * The error message returned.
-   * 
-   * @example
-   * The request processing has failed due to some unknown error.
-   */
   message?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -56,18 +32,7 @@ export class PutResourceMetricRulesResponseBodyFailedListResultTargetResult exte
 }
 
 export class PutResourceMetricRulesResponseBodyFailedListResultTarget extends $dara.Model {
-  /**
-   * @remarks
-   * The alert rule that failed to be created.
-   */
   result?: PutResourceMetricRulesResponseBodyFailedListResultTargetResult;
-  /**
-   * @remarks
-   * The ID of the alert rule.
-   * 
-   * @example
-   * a151cd6023eacee2f0978e03863cc1697c89508****
-   */
   ruleId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -132,10 +97,6 @@ export class PutResourceMetricRulesResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The alert rules that failed to be created for the resource.
-   */
   failedListResult?: PutResourceMetricRulesResponseBodyFailedListResult;
   /**
    * @remarks

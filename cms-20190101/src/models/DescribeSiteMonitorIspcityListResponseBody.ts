@@ -31,66 +31,18 @@ export class DescribeSiteMonitorISPCityListResponseBodyIspCityListIspCityIPPool 
 export class DescribeSiteMonitorISPCityListResponseBodyIspCityListIspCity extends $dara.Model {
   area_en?: string;
   area_zh_cN?: string;
-  /**
-   * @remarks
-   * The city ID.
-   * 
-   * @example
-   * 4
-   */
   city?: string;
   cityName_en?: string;
   cityName_zh_cN?: string;
-  /**
-   * @remarks
-   * The country name.
-   * 
-   * > This parameter is valid only on the China site (aliyun.com).
-   * 
-   * @example
-   * 629
-   */
   country?: string;
   country_en?: string;
   country_zh_cN?: string;
-  /**
-   * @remarks
-   * The IP address pool.
-   */
   IPPool?: DescribeSiteMonitorISPCityListResponseBodyIspCityListIspCityIPPool;
-  /**
-   * @remarks
-   * The number of IPv4 probes.
-   * 
-   * @example
-   * 4
-   */
   IPV4ProbeCount?: string;
-  /**
-   * @remarks
-   * The number of IPv6 probes.
-   * 
-   * @example
-   * 3
-   */
   IPV6ProbeCount?: string;
-  /**
-   * @remarks
-   * The carrier ID.
-   * 
-   * @example
-   * 232
-   */
   isp?: string;
   ispName_en?: string;
   ispName_zh_cN?: string;
-  /**
-   * @remarks
-   * The province name.
-   * 
-   * @example
-   * 264
-   */
   region?: string;
   region_en?: string;
   region_zh_cN?: string;
@@ -187,10 +139,6 @@ export class DescribeSiteMonitorISPCityListResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The queried detection points.
-   */
   ispCityList?: DescribeSiteMonitorISPCityListResponseBodyIspCityList;
   /**
    * @remarks

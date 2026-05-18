@@ -481,6 +481,7 @@ export class PutResourceMetricRuleShrinkRequest extends $dara.Model {
    * test123
    */
   ruleName?: string;
+  sendOK?: boolean;
   /**
    * @remarks
    * The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
@@ -517,6 +518,7 @@ export class PutResourceMetricRuleShrinkRequest extends $dara.Model {
       resources: 'Resources',
       ruleId: 'RuleId',
       ruleName: 'RuleName',
+      sendOK: 'SendOK',
       silenceTime: 'SilenceTime',
       webhook: 'Webhook',
     };
@@ -540,6 +542,7 @@ export class PutResourceMetricRuleShrinkRequest extends $dara.Model {
       resources: 'string',
       ruleId: 'string',
       ruleName: 'string',
+      sendOK: 'boolean',
       silenceTime: 'number',
       webhook: 'string',
     };

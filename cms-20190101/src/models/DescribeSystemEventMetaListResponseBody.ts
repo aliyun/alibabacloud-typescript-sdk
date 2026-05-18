@@ -3,70 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSystemEventMetaListResponseBodyDataResource extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the system event. Valid values:
-   * 
-   * *   StatusNotification: fault notifications
-   * *   Exception: exceptions
-   * *   Maintenance: O\\&M
-   * 
-   * @example
-   * Exception
-   */
   eventType?: string;
-  /**
-   * @remarks
-   * The alert level. Valid values:
-   * 
-   * *   CRITICAL
-   * *   WARN
-   * *   INFO
-   * 
-   * @example
-   * INFO
-   */
   level?: string;
-  /**
-   * @remarks
-   * The name of the system event.
-   * 
-   * @example
-   * SelectFailureRate
-   */
   name?: string;
-  /**
-   * @remarks
-   * The description of the event name.
-   * 
-   * @example
-   * High query failure rate
-   */
   nameDesc?: string;
   nameDesc_en?: string;
-  /**
-   * @remarks
-   * The abbreviation of the service name.
-   * 
-   * @example
-   * ADS
-   */
   product?: string;
-  /**
-   * @remarks
-   * The status of the system event.
-   * 
-   * @example
-   * failed
-   */
   status?: string;
-  /**
-   * @remarks
-   * The description of the event status.
-   * 
-   * @example
-   * Operation Failed
-   */
   statusDesc?: string;
   static names(): { [key: string]: string } {
     return {
@@ -140,10 +83,6 @@ export class DescribeSystemEventMetaListResponseBody extends $dara.Model {
    * 200
    */
   code?: number;
-  /**
-   * @remarks
-   * The queried meta information.
-   */
   data?: DescribeSystemEventMetaListResponseBodyData;
   /**
    * @remarks

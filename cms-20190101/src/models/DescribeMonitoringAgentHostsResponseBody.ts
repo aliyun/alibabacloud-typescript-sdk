@@ -3,124 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMonitoringAgentHostsResponseBodyHostsHost extends $dara.Model {
-  /**
-   * @remarks
-   * The version of the CloudMonitor agent.
-   * 
-   * @example
-   * 3.4.6
-   */
   agentVersion?: string;
-  /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
-   * @example
-   * 103201326074****
-   */
   aliUid?: number;
-  /**
-   * @remarks
-   * The elastic IP address (EIP) of the host.
-   * 
-   * @example
-   * 192.168.XX.XX
-   */
   eipAddress?: string;
-  /**
-   * @remarks
-   * The ID of the EIP.
-   * 
-   * @example
-   * eip-bp16i16k9gcezyfrp****
-   */
   eipId?: string;
-  /**
-   * @remarks
-   * The name of the host.
-   * 
-   * @example
-   * hostIP
-   */
   hostName?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-a2d5q7pm3f9yr212****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The type of the ECS instance.
-   * 
-   * @example
-   * ecs.n4
-   */
   instanceTypeFamily?: string;
-  /**
-   * @remarks
-   * The IP address of the host.
-   * 
-   * > Multiple IP addresses are separated with commas (,).
-   * 
-   * @example
-   * 192.168.XX.XX
-   */
   ipGroup?: string;
-  /**
-   * @remarks
-   * The IP address of the Network Address Translation (NAT) gateway.
-   * 
-   * @example
-   * 192.168.XX.XX
-   */
   natIp?: string;
-  /**
-   * @remarks
-   * The network type.
-   * 
-   * @example
-   * vpc
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The operating system.
-   * 
-   * @example
-   * Linux
-   */
   operatingSystem?: string;
-  /**
-   * @remarks
-   * The ID of the region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
-  /**
-   * @remarks
-   * The serial number of the host. A host that is not provided by Alibaba Cloud has a serial number instead of an instance ID.
-   * 
-   * > This parameter can be used to accurately search for a monitored host.
-   * 
-   * @example
-   * x12335-6cc8-4a22-9f21-1a00a719****
-   */
   serialNumber?: string;
-  /**
-   * @remarks
-   * Indicates whether the host is provided by Alibaba Cloud. Valid values:
-   * 
-   * *   true: The host is provided by Alibaba Cloud.
-   * *   false: The host is not provided by Alibaba Cloud.
-   * 
-   * @example
-   * true
-   */
   isAliyunHost?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -206,10 +101,6 @@ export class DescribeMonitoringAgentHostsResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The information about the hosts.
-   */
   hosts?: DescribeMonitoringAgentHostsResponseBodyHosts;
   /**
    * @remarks

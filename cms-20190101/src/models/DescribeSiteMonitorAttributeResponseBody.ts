@@ -3,166 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSiteMonitorAttributeResponseBodyMetricRulesMetricRule extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the alert rule is enabled. Valid values:
-   * 
-   * *   true: The alert rule is enabled.
-   * *   false: The alert rule is disabled.
-   * 
-   * @example
-   * true
-   */
   actionEnable?: string;
-  /**
-   * @remarks
-   * The alert contact group to which alert notifications are sent.
-   * 
-   * @example
-   * CloudMonitor
-   */
   alarmActions?: string;
-  /**
-   * @remarks
-   * The operator that is used to compare the metric value with the threshold in the alert rule. Valid values:
-   * 
-   * *   `>=`
-   * *   `>`
-   * *   `<=`
-   * *   `<`
-   * *   `=`
-   * *   `!=`
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-   * 
-   * @example
-   * GreaterThanYesterday
-   */
   comparisonOperator?: string;
-  /**
-   * @remarks
-   * The dimension of the alert rule.
-   * 
-   * @example
-   * [{"taskId": "cc641dff-c19d-45f3-ad0a-818a0c4f****" }]
-   */
   dimensions?: string;
-  /**
-   * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
-   * 
-   * @example
-   * 3
-   */
   evaluationCount?: string;
-  /**
-   * @remarks
-   * The expression that is used to trigger alerts.
-   * 
-   * @example
-   * $Availability=30
-   */
   expression?: string;
-  /**
-   * @remarks
-   * The alert severity. Valid values:
-   * 
-   * *   1: critical
-   * *   2: warning
-   * *   3: information
-   * 
-   * @example
-   * 2
-   */
   level?: string;
-  /**
-   * @remarks
-   * The metric name.
-   * 
-   * @example
-   * Availability
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The namespace of the cloud service.
-   * 
-   * The value is in the following format: acs_service name.
-   * 
-   * @example
-   * acs_networkmonitor
-   */
   namespace?: string;
-  /**
-   * @remarks
-   * The alert contact group that receives alert notifications.
-   * 
-   * @example
-   * [ "CloudMonitor"]
-   */
   okActions?: string;
-  /**
-   * @remarks
-   * The time interval. The value is the same as the interval at which metric data is reported. Unit: seconds.
-   * 
-   * >  If you specify a statistical period for the alert rule, data is queried based on the statistical period.
-   * 
-   * @example
-   * 15s
-   */
   period?: string;
-  /**
-   * @remarks
-   * The ID of the alert rule.
-   * 
-   * @example
-   * bf071ae_7b7aec3817b0fdf****
-   */
   ruleId?: string;
-  /**
-   * @remarks
-   * The name of the alert rule.
-   * 
-   * @example
-   * rule1
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * The alert status. Valid values:
-   * 
-   * *   OK: The alert rule has no active alerts.
-   * *   ALARM: The alert rule has active alerts.
-   * 
-   * @example
-   * OK
-   */
   stateValue?: string;
-  /**
-   * @remarks
-   * The statistical method of the alert rule. Valid values:
-   * 
-   * *   Availability: the percentage of available detection points
-   * *   AvailableNumber: the number of available detection points
-   * *   ErrorCodeMaximum: a status code for an alert
-   * *   ErrorCodeMinimum: all status codes for a set of alerts
-   * *   Average: response time
-   * 
-   * @example
-   * Availability
-   */
   statistics?: string;
-  /**
-   * @remarks
-   * The alert threshold.
-   * 
-   * @example
-   * 30
-   */
   threshold?: string;
   static names(): { [key: string]: string } {
     return {
@@ -268,10 +123,6 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleD
 }
 
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule extends $dara.Model {
-  /**
-   * @remarks
-   * The days in a week.
-   */
   days?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays;
   /**
    * @remarks
@@ -328,39 +179,10 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule 
 }
 
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCitiesIspCity extends $dara.Model {
-  /**
-   * @remarks
-   * The city ID.
-   * 
-   * @example
-   * 738
-   */
   city?: string;
-  /**
-   * @remarks
-   * The city name.
-   */
   cityName?: string;
-  /**
-   * @remarks
-   * The carrier ID.
-   * 
-   * @example
-   * 465
-   */
   isp?: string;
-  /**
-   * @remarks
-   * The carrier name.
-   */
   ispName?: string;
-  /**
-   * @remarks
-   * The network type of the detection point. Valid values: IDC, LASTMILE, and MOBILE.
-   * 
-   * @example
-   * IDC
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -418,53 +240,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCities exten
 }
 
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAssertionsAssertions extends $dara.Model {
-  /**
-   * @remarks
-   * The operator. Valid values:
-   * - contains: contains
-   * - doesNotContain: does not contain
-   * - matches: matches a regular expression
-   * - doesNotMatch: does not match a regular expression
-   * - is: equal to
-   * - isNot: not equal to
-   * - lessThan: less than
-   * - moreThan: greater than
-   * 
-   * @example
-   * lessThan
-   */
   operator?: string;
-  /**
-   * @remarks
-   * The path to the assertion.
-   * - If the assertion type is body_json, the path is json path.
-   * - If the assertion type is body_xml, the path is xml path.
-   * 
-   * @example
-   * json path
-   */
   property?: string;
-  /**
-   * @remarks
-   * The value or character to which the condition of the assertion is compared.
-   * 
-   * @example
-   * 0
-   */
   target?: string;
-  /**
-   * @remarks
-   * The assertion type. Valid values:
-   * - response_time: checks whether the response time meets expectations.
-   * - status_code: checks whether the HTTP status code meets expectations.
-   * - header: checks whether the fields in the response header meet expectations.
-   * - body_text: check whether the content in the response body meets expectations by using text matching.
-   * - body_json: check whether the content in the response body meets expectations by using JSON parsing (JSONPath).
-   * - body_xml: check whether the content in the response body meets expectations by using XML parsing (XPath).
-   * 
-   * @example
-   * response_time
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -701,21 +479,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrows
 }
 
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserInfoBrowserInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The browser type.
-   * 
-   * @example
-   * Chrome
-   */
   browser?: string;
-  /**
-   * @remarks
-   * The device type.
-   * 
-   * @example
-   * laptop
-   */
   device?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1124,10 +888,6 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTraff
 }
 
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson extends $dara.Model {
-  /**
-   * @remarks
-   * The assertions.
-   */
   assertions?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAssertions;
   /**
    * @remarks
@@ -1138,25 +898,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    */
   attempts?: number;
   authInfo?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthInfo;
-  /**
-   * @remarks
-   * The blocked URLs. Wildcards are supported in paths.
-   */
   blockedUrlList?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBlockedUrlList;
-  /**
-   * @remarks
-   * The custom headers. Format: {"key": "somekey", "value":"somevalue"}.
-   */
   browserHeaders?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserHeaders;
-  /**
-   * @remarks
-   * The custom hosts. Format: {"key": "somekey", "value":"somevalue"}.
-   */
   browserHosts?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserHosts;
-  /**
-   * @remarks
-   * The browser information.
-   */
   browserInfo?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonBrowserInfo;
   /**
    * @remarks
@@ -1261,15 +1005,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    */
   emptyMessage?: boolean;
   enablePacketCapture?: boolean;
-  /**
-   * @remarks
-   * The string that is expected to exist on the page.
-   */
   expectExistString?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectExistString;
-  /**
-   * @remarks
-   * The string that is not expected to exist on the page.
-   */
   expectNonExistString?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonExpectNonExistString;
   /**
    * @remarks
@@ -1444,10 +1180,6 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * true
    */
   quicEnabled?: boolean;
-  /**
-   * @remarks
-   * The sites for which the QUIC protocol is forcibly used.
-   */
   quicTarget?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonQuicTarget;
   /**
    * @remarks
@@ -1533,10 +1265,6 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   timeOut?: number;
   traceRegion?: string;
   traceType?: string;
-  /**
-   * @remarks
-   * The traffic hijacking blacklist. When redirection occurs, if the URL of the resource loaded by the browser matches the expression in the blacklist, traffic hijacking is considered to have occurred.
-   */
   trafficHijackElementBlacklist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist;
   /**
    * @remarks
@@ -1546,10 +1274,6 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * 0
    */
   trafficHijackElementCount?: number;
-  /**
-   * @remarks
-   * The traffic hijacking whitelist. When redirection occurs, if the URL of the resource loaded by the browser does not match any expression in the whitelist, traffic hijacking is considered to have occurred.
-   */
   trafficHijackElementWhitelist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementWhitelist;
   usePrivateCrt?: boolean;
   useSsl?: boolean;
@@ -1849,10 +1573,6 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
    * 1
    */
   interval?: string;
-  /**
-   * @remarks
-   * The information of detection points. The information includes the carriers that provide the detection points and the cities where the detection points reside.
-   */
   ispCities?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsIspCities;
   /**
    * @remarks
@@ -1971,10 +1691,6 @@ export class DescribeSiteMonitorAttributeResponseBody extends $dara.Model {
    * successful
    */
   message?: string;
-  /**
-   * @remarks
-   * The alert rules that are configured for the site monitoring task.
-   */
   metricRules?: DescribeSiteMonitorAttributeResponseBodyMetricRules;
   /**
    * @remarks

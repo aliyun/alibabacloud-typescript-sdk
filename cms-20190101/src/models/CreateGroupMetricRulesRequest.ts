@@ -3,11 +3,55 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsCritical extends $dara.Model {
+  /**
+   * @remarks
+   * The comparison operator that is used to compare the metric value with the threshold. Valid values of N: 1 to 200. Valid value: 
+   * 
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * - GreaterThanThreshold: greater than the threshold
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold
+   * - LessThanThreshold: less than the threshold
+   * - NotEqualToThreshold: not equal to the threshold
+   * - GreaterThanYesterday: greater than the metric value at the same time yesterday
+   * - LessThanYesterday: less than the metric value at the same time yesterday
+   * - GreaterThanLastWeek: greater than the metric value at the same time last week
+   * - LessThanLastWeek: less than the metric value at the same time last week
+   * - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+   * - LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * 
+   * @example
+   * GreaterThanOrEqualToThreshold
+   */
   comparisonOperator?: string;
   n?: string;
   preCondition?: string;
+  /**
+   * @remarks
+   * The statistical methods for Critical-level alerts. Separate multiple statistical methods with commas (,). Valid values of N: 1 to 200. Valid value: 
+   * 
+   * - Average: the average value
+   * - Minimum: the minimum value
+   * - Maximum: the maximum value
+   * 
+   * @example
+   * Average
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * The threshold for Critical-level alerts. Valid values of N: 1 to 200.
+   * 
+   * @example
+   * 90
+   */
   threshold?: string;
+  /**
+   * @remarks
+   * The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered. Valid values of N: 1 to 200.
+   * 
+   * @example
+   * 3
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -41,11 +85,55 @@ export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsCritical ex
 }
 
 export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The comparison operator that is used to compare the metric value with the threshold. Valid values of N: 1 to 200. Valid value: 
+   * 
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * - GreaterThanThreshold: greater than the threshold
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold
+   * - LessThanThreshold: less than the threshold
+   * - NotEqualToThreshold: not equal to the threshold
+   * - GreaterThanYesterday: greater than the metric value at the same time yesterday
+   * - LessThanYesterday: less than the metric value at the same time yesterday
+   * - GreaterThanLastWeek: greater than the metric value at the same time last week
+   * - LessThanLastWeek: less than the metric value at the same time last week
+   * - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+   * - LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * 
+   * @example
+   * GreaterThanOrEqualToThreshold
+   */
   comparisonOperator?: string;
   n?: string;
   preCondition?: string;
+  /**
+   * @remarks
+   * The statistical methods for Info-level alerts. Separate multiple statistical methods with commas (,). Valid values of N: 1 to 200. Valid value: 
+   * 
+   * - Average: the average value
+   * - Minimum: the minimum value
+   * - Maximum: the maximum value
+   * 
+   * @example
+   * Average
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * The threshold for Info-level alerts. Valid values of N: 1 to 200.
+   * 
+   * @example
+   * 10
+   */
   threshold?: string;
+  /**
+   * @remarks
+   * The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered. Valid values of N: 1 to 200.
+   * 
+   * @example
+   * 1
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -79,11 +167,55 @@ export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsInfo extend
 }
 
 export class CreateGroupMetricRulesRequestGroupMetricRulesEscalationsWarn extends $dara.Model {
+  /**
+   * @remarks
+   * The comparison operator that is used to compare the metric value with the threshold. Valid values of N: 1 to 200. Valid value: 
+   * 
+   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * - GreaterThanThreshold: greater than the threshold
+   * - LessThanOrEqualToThreshold: less than or equal to the threshold
+   * - LessThanThreshold: less than the threshold
+   * - NotEqualToThreshold: not equal to the threshold
+   * - GreaterThanYesterday: greater than the metric value at the same time yesterday
+   * - LessThanYesterday: less than the metric value at the same time yesterday
+   * - GreaterThanLastWeek: greater than the metric value at the same time last week
+   * - LessThanLastWeek: less than the metric value at the same time last week
+   * - GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+   * - LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * 
+   * @example
+   * GreaterThanOrEqualToThreshold
+   */
   comparisonOperator?: string;
   n?: string;
   preCondition?: string;
+  /**
+   * @remarks
+   * The statistical methods for Warn-level alerts. Separate multiple statistical methods with commas (,). Valid values of N: 1 to 200. Valid value: 
+   * 
+   * - Average: the average value
+   * - Minimum: the minimum value
+   * - Maximum: the maximum value
+   * 
+   * @example
+   * Average
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * The threshold for Warn-level alerts. Valid values of N: 1 to 200.
+   * 
+   * @example
+   * 20
+   */
   threshold?: string;
+  /**
+   * @remarks
+   * The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered. Valid values of N: 1 to 200.
+   * 
+   * @example
+   * 3
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {

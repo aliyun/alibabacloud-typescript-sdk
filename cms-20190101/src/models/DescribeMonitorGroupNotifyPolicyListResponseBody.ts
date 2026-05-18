@@ -3,49 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMonitorGroupNotifyPolicyListResponseBodyNotifyPolicyListNotifyPolicy extends $dara.Model {
-  /**
-   * @remarks
-   * The end of the time range to query.
-   * 
-   * Unit: milliseconds.
-   * 
-   * @example
-   * 1551761781273
-   */
   endTime?: number;
-  /**
-   * @remarks
-   * The ID of the application group.
-   * 
-   * @example
-   * 6780****
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The policy ID.
-   * 
-   * @example
-   * 123****
-   */
   id?: string;
-  /**
-   * @remarks
-   * The beginning of the time range to query.
-   * 
-   * Unit: milliseconds.
-   * 
-   * @example
-   * 1551761781273
-   */
   startTime?: number;
-  /**
-   * @remarks
-   * The policy type.
-   * 
-   * @example
-   * PauseNotify
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -121,10 +82,6 @@ export class DescribeMonitorGroupNotifyPolicyListResponseBody extends $dara.Mode
    * The Request is not authorization.
    */
   message?: string;
-  /**
-   * @remarks
-   * The returned policies.
-   */
   notifyPolicyList?: DescribeMonitorGroupNotifyPolicyListResponseBodyNotifyPolicyList;
   /**
    * @remarks

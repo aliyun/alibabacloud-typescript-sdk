@@ -3,10 +3,68 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyMetricRuleTemplateRequestAlertTemplatesEscalationsCritical extends $dara.Model {
+  /**
+   * @remarks
+   * The operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
+   * 
+   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * *   GreaterThanThreshold: greater than the threshold
+   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
+   * *   LessThanThreshold: less than the threshold
+   * *   NotEqualToThreshold: not equal to the threshold
+   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+   * *   LessThanYesterday: less than the metric value at the same time yesterday
+   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
+   * *   LessThanLastWeek: less than the metric value at the same time last week
+   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * GreaterThanOrEqualToThreshold
+   */
   comparisonOperator?: string;
   n?: number;
+  /**
+   * @remarks
+   * The statistical method for Critical-level alerts.
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * Average
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * The threshold for Critical-level alerts.
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * 30
+   */
   threshold?: string;
+  /**
+   * @remarks
+   * The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * 2
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -38,10 +96,68 @@ export class ModifyMetricRuleTemplateRequestAlertTemplatesEscalationsCritical ex
 }
 
 export class ModifyMetricRuleTemplateRequestAlertTemplatesEscalationsInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
+   * 
+   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * *   GreaterThanThreshold: greater than the threshold
+   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
+   * *   LessThanThreshold: less than the threshold
+   * *   NotEqualToThreshold: not equal to the threshold
+   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+   * *   LessThanYesterday: less than the metric value at the same time yesterday
+   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
+   * *   LessThanLastWeek: less than the metric value at the same time last week
+   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * GreaterThanOrEqualToThreshold
+   */
   comparisonOperator?: string;
   n?: number;
+  /**
+   * @remarks
+   * The statistical method for Info-level alerts.
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * Average
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * The threshold for Info-level alerts.
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * 20
+   */
   threshold?: string;
+  /**
+   * @remarks
+   * The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * 1
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -73,10 +189,68 @@ export class ModifyMetricRuleTemplateRequestAlertTemplatesEscalationsInfo extend
 }
 
 export class ModifyMetricRuleTemplateRequestAlertTemplatesEscalationsWarn extends $dara.Model {
+  /**
+   * @remarks
+   * The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
+   * 
+   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+   * *   GreaterThanThreshold: greater than the threshold
+   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
+   * *   LessThanThreshold: less than the threshold
+   * *   NotEqualToThreshold: not equal to the threshold
+   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+   * *   LessThanYesterday: less than the metric value at the same time yesterday
+   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
+   * *   LessThanLastWeek: less than the metric value at the same time last week
+   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * GreaterThanOrEqualToThreshold
+   */
   comparisonOperator?: string;
   n?: number;
+  /**
+   * @remarks
+   * The statistical method for Warn-level alerts.
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * Average
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * The threshold for Warn-level alerts.
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * 30
+   */
   threshold?: string;
+  /**
+   * @remarks
+   * The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
+   * 
+   * Valid values of N: 1 to 200.
+   * 
+   * > You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+   * 
+   * @example
+   * 1
+   */
   times?: number;
   static names(): { [key: string]: string } {
     return {

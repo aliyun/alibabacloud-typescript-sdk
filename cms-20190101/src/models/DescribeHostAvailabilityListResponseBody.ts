@@ -3,63 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigAlertConfigEscalationListEscalationList extends $dara.Model {
-  /**
-   * @remarks
-   * The method used to calculate metric values that trigger alerts. Valid values:
-   * 
-   * *   Value: the value of the HTTP status code
-   * *   Average: the average HTTP response time
-   * *   Value: the value of the Telnet status code
-   * *   TelnetLatency: the average Telnet response time
-   * *   Average: the average Ping packet loss rate
-   * 
-   * @example
-   * Value
-   */
   aggregate?: string;
-  /**
-   * @remarks
-   * The name of the metric. Valid values:
-   * 
-   * *   HttpStatus
-   * *   HttpLatency
-   * *   TelnetStatus
-   * *   TelnetLatency
-   * *   PingLostRate
-   * 
-   * @example
-   * HttpStatus
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The comparison operator that is used in the alert rule. Valid values:
-   * 
-   * *   `>`
-   * *   `>=`
-   * *   `<`
-   * *   `<=`
-   * *   `=`
-   * 
-   * @example
-   * =
-   */
   operator?: string;
-  /**
-   * @remarks
-   * The consecutive number of times for which the metric value is measured before an alert is triggered.
-   * 
-   * @example
-   * 3
-   */
   times?: string;
-  /**
-   * @remarks
-   * The alert threshold.
-   * 
-   * @example
-   * 400
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -117,49 +64,9 @@ export class DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigAlert
 }
 
 export class DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigAlertConfigTargetListTarget extends $dara.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the function.
-   * 
-   * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
-   * 
-   * *   Service: the service code
-   * *   Region: the region ID
-   * *   Account: the ID of the Alibaba Cloud account
-   * *   ResourceType: the resource type
-   * *   ResourceId: the resource ID.
-   * 
-   * @example
-   * acs:mns:cn-hangzhou:17754132319*****:/queues/test/messages
-   */
   arn?: string;
-  /**
-   * @remarks
-   * The ID of the resource that triggers the alert.
-   * 
-   * @example
-   * 1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The JSON-formatted parameters of the alert callback.
-   * 
-   * @example
-   * {"key1":"value1"}
-   */
   jsonParams?: string;
-  /**
-   * @remarks
-   * The alert level. Valid values:
-   * 
-   * *   INFO
-   * *   WARN
-   * *   CRITICAL
-   * 
-   * @example
-   * INFO
-   */
   level?: string;
   static names(): { [key: string]: string } {
     return {
@@ -215,69 +122,12 @@ export class DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigAlert
 }
 
 export class DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigAlertConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The end of the time period during which the alert rule is effective. Valid values: 0 to 23.
-   * 
-   * For example, if the `AlertConfig.StartTime` parameter is set to 0 and the `AlertConfig.EndTime` parameter is set to 22, the alert rule is effective from 00:00:00 to 22:00:00.
-   * 
-   * >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
-   * 
-   * @example
-   * 22
-   */
   endTime?: number;
-  /**
-   * @remarks
-   * The trigger conditions of the alert rule.
-   */
   escalationList?: DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigAlertConfigEscalationList;
-  /**
-   * @remarks
-   * The alert notification methods. Valid values:
-   * 
-   * *   2: Alert notifications are sent by using emails and DingTalk chatbots.
-   * *   1: Alert notifications are sent by using emails and DingTalk chatbots.
-   * *   0: Alert notifications are sent by using emails and DingTalk chatbots.
-   * 
-   * @example
-   * 0
-   */
   notifyType?: number;
-  /**
-   * @remarks
-   * The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
-   * 
-   * @example
-   * 86400
-   */
   silenceTime?: number;
-  /**
-   * @remarks
-   * The beginning of the time period during which the alert rule is effective. Valid values: 0 to 23.
-   * 
-   * For example, if the `AlertConfig.StartTime` parameter is set to 0 and the `AlertConfig.EndTime` parameter is set to 22, the alert rule is effective from 00:00:00 to 22:00:00.
-   * 
-   * >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
-   * 
-   * @example
-   * 0
-   */
   startTime?: number;
-  /**
-   * @remarks
-   * The monitored resources.
-   */
   targetList?: DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigAlertConfigTargetList;
-  /**
-   * @remarks
-   * The callback URL.
-   * 
-   * CloudMonitor pushes an alert notification to the specified callback URL by sending an HTTP POST request. Only the HTTP protocol is supported.
-   * 
-   * @example
-   * https://www.aliyun.com
-   */
   webHook?: string;
   static names(): { [key: string]: string } {
     return {
@@ -345,76 +195,13 @@ export class DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigInsta
 }
 
 export class DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigTaskOption extends $dara.Model {
-  /**
-   * @remarks
-   * The response to the HTTP request.
-   * 
-   * @example
-   * OK
-   */
   httpKeyword?: string;
-  /**
-   * @remarks
-   * The HTTP request method. Valid values:
-   * 
-   * *   GET
-   * *   POST
-   * *   HEAD
-   * 
-   * @example
-   * GET
-   */
   httpMethod?: string;
-  /**
-   * @remarks
-   * The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
-   * 
-   * *   true: If the HTTP response body includes the alert rule, an alert is triggered.
-   * *   false: If the HTTP response does not include the alert rule, an alert is triggered.
-   * 
-   * @example
-   * true
-   */
   httpNegative?: boolean;
-  /**
-   * @remarks
-   * The content of the HTTP POST request.
-   * 
-   * @example
-   * params1=paramsValue1
-   */
   httpPostContent?: string;
-  /**
-   * @remarks
-   * The character set that is used in the HTTP response.
-   * 
-   * @example
-   * UTF-8
-   */
   httpResponseCharset?: string;
-  /**
-   * @remarks
-   * The URI that you want to monitor. If the TaskType parameter is set to HTTP, this parameter is required.
-   * 
-   * @example
-   * https://www.aliyun.com
-   */
   httpURI?: string;
-  /**
-   * @remarks
-   * The interval at which detection requests are sent. Unit: seconds.
-   * 
-   * @example
-   * 60
-   */
   interval?: number;
-  /**
-   * @remarks
-   * The domain name or IP address that you want to monitor.
-   * 
-   * @example
-   * ssh.aliyun.com
-   */
   telnetOrPingHost?: string;
   static names(): { [key: string]: string } {
     return {
@@ -452,86 +239,15 @@ export class DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigTaskO
 }
 
 export class DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of the alert rule.
-   */
   alertConfig?: DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigAlertConfig;
-  /**
-   * @remarks
-   * Indicates whether the availability monitoring task is disabled. Valid values:
-   * 
-   * *   true: The availability monitoring task is disabled.
-   * *   false: The availability monitoring task is enabled.
-   * 
-   * @example
-   * false
-   */
   disabled?: boolean;
-  /**
-   * @remarks
-   * The ID of the application group.
-   * 
-   * @example
-   * 12345
-   */
   groupId?: number;
-  /**
-   * @remarks
-   * The name of the application group.
-   * 
-   * @example
-   * Group_ECS
-   */
   groupName?: string;
-  /**
-   * @remarks
-   * The ID of the availability monitoring task.
-   * 
-   * @example
-   * 123456
-   */
   id?: number;
-  /**
-   * @remarks
-   * The ECS instances that are monitored.
-   */
   instances?: DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigInstances;
-  /**
-   * @remarks
-   * The name of the availability monitoring task.
-   * 
-   * @example
-   * ecs_instance
-   */
   taskName?: string;
-  /**
-   * @remarks
-   * The optional parameters of the availability monitoring task.
-   */
   taskOption?: DescribeHostAvailabilityListResponseBodyTaskListNodeTaskConfigTaskOption;
-  /**
-   * @remarks
-   * The range of instances that are monitored by the availability monitoring task. Valid values:
-   * 
-   * *   GROUP: All ECS instances in the application group are monitored.
-   * *   GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored.
-   * 
-   * @example
-   * GROUP
-   */
   taskScope?: string;
-  /**
-   * @remarks
-   * The task type. Valid values:
-   * 
-   * *   PING
-   * *   TELNET
-   * *   HTTP
-   * 
-   * @example
-   * HTTP
-   */
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -645,10 +361,6 @@ export class DescribeHostAvailabilityListResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
-  /**
-   * @remarks
-   * The details of the availability monitoring tasks.
-   */
   taskList?: DescribeHostAvailabilityListResponseBodyTaskList;
   /**
    * @remarks

@@ -3,33 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCustomEventHistogramResponseBodyEventHistogramsEventHistogram extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the number of times that the custom event occurred during an interval of the specified time period.
-   * 
-   * @example
-   * 3
-   */
   count?: number;
-  /**
-   * @remarks
-   * The end time.
-   * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1552226750000
-   */
   endTime?: number;
-  /**
-   * @remarks
-   * The start time.
-   * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1552226740000
-   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -93,10 +68,6 @@ export class DescribeCustomEventHistogramResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The information about the number of times that the custom event occurred during each interval of the specified time period.
-   */
   eventHistograms?: DescribeCustomEventHistogramResponseBodyEventHistograms;
   /**
    * @remarks

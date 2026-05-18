@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMonitorGroupResponseBodyGroupContactGroupsContactGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the alert group.
-   * 
-   * @example
-   * ECS_Group
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -59,10 +52,6 @@ export class DeleteMonitorGroupResponseBodyGroupContactGroups extends $dara.Mode
 }
 
 export class DeleteMonitorGroupResponseBodyGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The alert groups that receive alert notifications for the application group.
-   */
   contactGroups?: DeleteMonitorGroupResponseBodyGroupContactGroups;
   /**
    * @remarks

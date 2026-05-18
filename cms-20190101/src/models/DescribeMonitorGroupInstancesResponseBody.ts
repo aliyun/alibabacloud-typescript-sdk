@@ -3,45 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMonitorGroupInstancesResponseBodyResourcesResource extends $dara.Model {
-  /**
-   * @remarks
-   * The abbreviation of the service name.
-   * 
-   * @example
-   * ecs
-   */
   category?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * 12345
-   */
   id?: number;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-2ze3w55tr2r****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The instance name.
-   * 
-   * @example
-   * hostIP
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The ID of the region where the instance resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -141,10 +106,6 @@ export class DescribeMonitorGroupInstancesResponseBody extends $dara.Model {
    * 97F2A410-9412-499C-9AD1-76EF7EC02DF2
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the resources in the application group.
-   */
   resources?: DescribeMonitorGroupInstancesResponseBodyResources;
   /**
    * @remarks

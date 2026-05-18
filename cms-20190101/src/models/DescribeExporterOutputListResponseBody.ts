@@ -3,37 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeExporterOutputListResponseBodyDatapointsDatapointConfigJson extends $dara.Model {
-  /**
-   * @remarks
-   * The AccessKey ID.
-   * 
-   * @example
-   * LTAIpY33********
-   */
   ak?: string;
-  /**
-   * @remarks
-   * The Log Service endpoint to which the monitoring data is exported.
-   * 
-   * @example
-   * http://cn-qingdao-share.log.aliyuncs.com
-   */
   endpoint?: string;
-  /**
-   * @remarks
-   * The Logstore.
-   * 
-   * @example
-   * monitorlogstore
-   */
   logstore?: string;
-  /**
-   * @remarks
-   * The Log Service project to which the monitoring data is exported.
-   * 
-   * @example
-   * exporter
-   */
   project?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,36 +35,9 @@ export class DescribeExporterOutputListResponseBodyDatapointsDatapointConfigJson
 }
 
 export class DescribeExporterOutputListResponseBodyDatapointsDatapoint extends $dara.Model {
-  /**
-   * @remarks
-   * The JSON object that contains the details about the destination to which the monitoring data is exported.
-   */
   configJson?: DescribeExporterOutputListResponseBodyDatapointsDatapointConfigJson;
-  /**
-   * @remarks
-   * The time when the configuration set was created. The value is a UNIX timestamp.
-   * 
-   * @example
-   * 1584016495498
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The name of the configuration set.
-   * 
-   * @example
-   * exporterOut
-   */
   destName?: string;
-  /**
-   * @remarks
-   * The service to which the monitoring data is exported.
-   * 
-   * > Only Log Service is supported. More services will be supported in the future.
-   * 
-   * @example
-   * SLS
-   */
   destType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -161,10 +106,6 @@ export class DescribeExporterOutputListResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The configuration sets for exporting monitoring data.
-   */
   datapoints?: DescribeExporterOutputListResponseBodyDatapoints;
   /**
    * @remarks

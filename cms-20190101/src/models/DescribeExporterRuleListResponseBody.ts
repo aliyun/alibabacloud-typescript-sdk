@@ -29,77 +29,14 @@ export class DescribeExporterRuleListResponseBodyDatapointsDatapointDstName exte
 }
 
 export class DescribeExporterRuleListResponseBodyDatapointsDatapoint extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the rule was created. The value is a UNIX timestamp.
-   * 
-   * @example
-   * 1584024616228
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * The description of the rule.
-   * 
-   * @example
-   * Export monitoring data
-   */
   describe?: string;
-  /**
-   * @remarks
-   * The associated dimensions.
-   * 
-   * @example
-   * {"instanceId":"xxxxx"}
-   */
   dimension?: string;
   dstName?: DescribeExporterRuleListResponseBodyDatapointsDatapointDstName;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled.
-   * 
-   * @example
-   * true
-   */
   enabled?: boolean;
-  /**
-   * @remarks
-   * The name of the metric.
-   * 
-   * > For more information, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/28619.html).
-   * 
-   * @example
-   * cpu_total
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The namespace of the service.
-   * 
-   * > For more information, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Appendix 1: Metrics](https://help.aliyun.com/document_detail/28619.html).
-   * 
-   * @example
-   * acs_ecs_dashboard
-   */
   namespace?: string;
-  /**
-   * @remarks
-   * The name of the data export rule.
-   * 
-   * @example
-   * myRuleName
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * The time window of the exported data.\\
-   * Multiple windows are separated with commas (,).
-   * 
-   * > Data in a time window of less than 60 seconds cannot be exported.
-   * 
-   * @example
-   * 60,300
-   */
   targetWindows?: string;
   static names(): { [key: string]: string } {
     return {
@@ -178,10 +115,6 @@ export class DescribeExporterRuleListResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The details of the data export rules.
-   */
   datapoints?: DescribeExporterRuleListResponseBodyDatapoints;
   /**
    * @remarks

@@ -29,62 +29,12 @@ export class DescribeContactGroupListResponseBodyContactGroupListContactGroupCon
 }
 
 export class DescribeContactGroupListResponseBodyContactGroupListContactGroup extends $dara.Model {
-  /**
-   * @remarks
-   * List of contacts.
-   */
   contacts?: DescribeContactGroupListResponseBodyContactGroupListContactGroupContacts;
-  /**
-   * @remarks
-   * Creation time.
-   * 
-   * @example
-   * 2023-06-07T03:52:30Z
-   */
   createTime?: number;
-  /**
-   * @remarks
-   * Description information of the alarm contact group.
-   * 
-   * @example
-   * Devops-运维组
-   */
   describe?: string;
-  /**
-   * @remarks
-   * Indicates whether the weekly report subscription function is enabled. Values:
-   * 
-   * - true: Yes.
-   * 
-   * - false: No.
-   * 
-   * @example
-   * false
-   */
   enableSubscribed?: boolean;
-  /**
-   * @remarks
-   * Indicates whether the weekly report function is enabled.
-   * 
-   * @example
-   * false
-   */
   enabledWeeklyReport?: boolean;
-  /**
-   * @remarks
-   * Name.
-   * 
-   * @example
-   * name
-   */
   name?: string;
-  /**
-   * @remarks
-   * Update time.
-   * 
-   * @example
-   * 2025-03-04T02:12:06Z
-   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -183,15 +133,7 @@ export class DescribeContactGroupListResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * List of alarm contact groups.
-   */
   contactGroupList?: DescribeContactGroupListResponseBodyContactGroupList;
-  /**
-   * @remarks
-   * List of alarm contact groups.
-   */
   contactGroups?: DescribeContactGroupListResponseBodyContactGroups;
   /**
    * @remarks

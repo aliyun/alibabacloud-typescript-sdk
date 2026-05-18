@@ -29,10 +29,6 @@ export class DeleteMetricRuleTargetsResponseBodyFailIdsTargetIds extends $dara.M
 }
 
 export class DeleteMetricRuleTargetsResponseBodyFailIds extends $dara.Model {
-  /**
-   * @remarks
-   * The IDs of the resources that failed to be deleted.
-   */
   targetIds?: DeleteMetricRuleTargetsResponseBodyFailIdsTargetIds;
   static names(): { [key: string]: string } {
     return {

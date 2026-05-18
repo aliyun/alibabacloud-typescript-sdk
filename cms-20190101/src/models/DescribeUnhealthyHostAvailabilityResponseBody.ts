@@ -29,13 +29,6 @@ export class DescribeUnhealthyHostAvailabilityResponseBodyUnhealthyListNodeTaskI
 }
 
 export class DescribeUnhealthyHostAvailabilityResponseBodyUnhealthyListNodeTaskInstance extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the availability monitoring task.
-   * 
-   * @example
-   * 123456
-   */
   id?: number;
   instanceList?: DescribeUnhealthyHostAvailabilityResponseBodyUnhealthyListNodeTaskInstanceInstanceList;
   static names(): { [key: string]: string } {
@@ -128,10 +121,6 @@ export class DescribeUnhealthyHostAvailabilityResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
-  /**
-   * @remarks
-   * The unhealthy instances that are detected by the specified availability monitoring tasks.
-   */
   unhealthyList?: DescribeUnhealthyHostAvailabilityResponseBodyUnhealthyList;
   static names(): { [key: string]: string } {
     return {

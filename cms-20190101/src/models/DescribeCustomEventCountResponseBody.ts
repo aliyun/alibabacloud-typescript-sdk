@@ -3,31 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCustomEventCountResponseBodyCustomEventCountsCustomEventCount extends $dara.Model {
-  /**
-   * @remarks
-   * The event name.
-   * 
-   * @example
-   * BABEL_BUY
-   */
   name?: string;
-  /**
-   * @remarks
-   * The number of times that the custom event occurred.
-   * 
-   * @example
-   * 20
-   */
   num?: number;
-  /**
-   * @remarks
-   * The time when the event occurred.
-   * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1552267615000
-   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -91,10 +68,6 @@ export class DescribeCustomEventCountResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The details of the custom event.
-   */
   customEventCounts?: DescribeCustomEventCountResponseBodyCustomEventCounts;
   /**
    * @remarks

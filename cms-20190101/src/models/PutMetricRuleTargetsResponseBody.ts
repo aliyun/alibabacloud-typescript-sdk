@@ -3,49 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PutMetricRuleTargetsResponseBodyFailDataTargetsTarget extends $dara.Model {
-  /**
-   * @remarks
-   * The ARN of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. SMQ, Auto Scaling, Simple Log Service, and Function Compute are supported. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The following part describes the ARN of SMQ and the parameters in the ARN:
-   * 
-   * *   {Service name abbreviation}: mns.
-   * 
-   * *   {userId}: the ID of the Alibaba Cloud account.
-   * 
-   * *   {regionId}: the region ID of the SMQ queue or topic.
-   * 
-   * *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
-   * 
-   *     *   **queues**
-   *     *   **topics**
-   * 
-   * *   {Resource name}: the resource name.
-   * 
-   *     *   If the resource type is **queues**, the resource name is the queue name.
-   *     *   If the resource type is **topics**, the resource name is the topic name.
-   * 
-   * @example
-   * acs:mns:cn-hangzhou:111:/queues/test/message
-   */
   arn?: string;
-  /**
-   * @remarks
-   * The ID of the resource for which alerts are triggered.
-   * 
-   * @example
-   * 1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The alert level. Valid values:
-   * 
-   * *   INFO
-   * *   WARN
-   * *   CRITICAL
-   * 
-   * @example
-   * ["INFO", "WARN", "CRITICAL"]
-   */
   level?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,10 +58,6 @@ export class PutMetricRuleTargetsResponseBodyFailDataTargets extends $dara.Model
 }
 
 export class PutMetricRuleTargetsResponseBodyFailData extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the resources for which alerts are triggered.
-   */
   targets?: PutMetricRuleTargetsResponseBodyFailDataTargets;
   static names(): { [key: string]: string } {
     return {

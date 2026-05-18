@@ -3,50 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateGroupMetricRulesResponseBodyResourcesAlertResult extends $dara.Model {
-  /**
-   * @remarks
-   * The status code that is returned for the alert rule.
-   * 
-   * >  The status code 200 indicates that the call is successful.
-   * 
-   * @example
-   * 200
-   */
   code?: number;
-  /**
-   * @remarks
-   * The error message that is returned for the alert rule.
-   * 
-   * @example
-   * Metric not found.
-   */
   message?: string;
-  /**
-   * @remarks
-   * The ID of the alert rule.
-   * 
-   * @example
-   * 456789
-   */
   ruleId?: string;
-  /**
-   * @remarks
-   * The name of the alert rule.
-   * 
-   * @example
-   * ECS_Rule1
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * Indicates whether the alert rule was created. Valid value:
-   * 
-   * - true: The alert rule was created.
-   * - false: The alert rule failed to be created.
-   * 
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -130,10 +90,6 @@ export class CreateGroupMetricRulesResponseBody extends $dara.Model {
    * 461CF2CD-2FC3-4B26-8645-7BD27E7D0F1D
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The details of the alert rules.
-   */
   resources?: CreateGroupMetricRulesResponseBodyResources;
   /**
    * @remarks

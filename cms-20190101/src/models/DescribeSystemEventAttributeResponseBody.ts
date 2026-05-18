@@ -3,99 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSystemEventAttributeResponseBodySystemEventsSystemEvent extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the event.
-   * 
-   * @example
-   * [{"product":"CloudMonitor","content":"{\\"ipGroup\\":\\"112.126.XX.XX,10.163.XX.XX\\",\\"tianjimonVersion\\":\\"1.2.22\\"}","groupId":"176,177,178,179,180,692,120812,1663836,96,2028302","time":"1552209568000","resourceId":"acs:ecs:cn-beijing:173651113438****:instance/i-25k35****","level":"CRITICAL","status":"stopped","instanceName":"cmssiteprobebj-6","name":"Agent_Status_Stopped","regionId":"cn-beijing"}]
-   */
   content?: string;
-  /**
-   * @remarks
-   * The ID of the application group.
-   * 
-   * @example
-   * 12345
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The event ID.
-   * 
-   * @example
-   * b936efc9-f621-4e8a-a6eb-076be40e****
-   */
   id?: string;
-  /**
-   * @remarks
-   * The instance name.
-   * 
-   * @example
-   * instanceId1
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The level of the event. Valid values:
-   * 
-   * *   CRITICAL
-   * *   WARN
-   * *   INFO
-   * 
-   * @example
-   * WARN
-   */
   level?: string;
-  /**
-   * @remarks
-   * The event name.
-   * 
-   * @example
-   * Agent_Status_Stopped
-   */
   name?: string;
-  /**
-   * @remarks
-   * The abbreviation of the service name.
-   * 
-   * @example
-   * CloudMonitor
-   */
   product?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * xxxxx-1
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The status of the event.
-   * 
-   * @example
-   * normal
-   */
   status?: string;
-  /**
-   * @remarks
-   * The time when the event occurred. The value is a timestamp.
-   * 
-   * Unit: milliseconds.
-   * 
-   * @example
-   * 1552199984000
-   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -199,10 +116,6 @@ export class DescribeSystemEventAttributeResponseBody extends $dara.Model {
    * true
    */
   success?: string;
-  /**
-   * @remarks
-   * The details of the event.
-   */
   systemEvents?: DescribeSystemEventAttributeResponseBodySystemEvents;
   static names(): { [key: string]: string } {
     return {

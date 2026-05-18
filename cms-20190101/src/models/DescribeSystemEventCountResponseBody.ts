@@ -3,94 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSystemEventCountResponseBodySystemEventCountsSystemEventCount extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the system event.
-   */
   content?: string;
-  /**
-   * @remarks
-   * The ID of the application group.
-   * 
-   * @example
-   * 17285****
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the instance.
-   * 
-   * @example
-   * ECS-test
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The level of the system event. Valid values:
-   * 
-   * *   Critical
-   * *   Warn
-   * *   Info
-   * 
-   * @example
-   * Info
-   */
   level?: string;
-  /**
-   * @remarks
-   * The name of the system event.
-   * 
-   * @example
-   * Instance:StateChange
-   */
   name?: string;
-  /**
-   * @remarks
-   * The number of times that the system event has occurred.
-   * 
-   * @example
-   * 3
-   */
   num?: number;
-  /**
-   * @remarks
-   * The name of the cloud service in which the system event occurred.
-   * 
-   * @example
-   * ECS
-   */
   product?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The resource ID.
-   * 
-   * @example
-   * i-rj99xc6cptkk64ml****
-   */
   resourceId?: string;
-  /**
-   * @remarks
-   * The status of the system event.
-   * 
-   * @example
-   * Normal
-   */
   status?: string;
-  /**
-   * @remarks
-   * The time when the system event occurred. The value is a timestamp. Unit: milliseconds.
-   * 
-   * @example
-   * 1635993751000
-   */
   time?: number;
   static names(): { [key: string]: string } {
     return {
@@ -199,10 +121,6 @@ export class DescribeSystemEventCountResponseBody extends $dara.Model {
    * true
    */
   success?: string;
-  /**
-   * @remarks
-   * The details of the system event.
-   */
   systemEventCounts?: DescribeSystemEventCountResponseBodySystemEventCounts;
   static names(): { [key: string]: string } {
     return {

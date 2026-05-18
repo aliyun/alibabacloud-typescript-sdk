@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSiteMonitorResponseBodyCreateResultListCreateResultList extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the site monitoring task.
-   * 
-   * @example
-   * 2c8dbdf9-a3ab-46a1-85a4-f094965e****
-   */
   taskId?: string;
-  /**
-   * @remarks
-   * The name of the site monitoring task.
-   * 
-   * @example
-   * HanZhou_ECS1
-   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,50 +55,10 @@ export class CreateSiteMonitorResponseBodyCreateResultList extends $dara.Model {
 }
 
 export class CreateSiteMonitorResponseBodyDataAttachAlertResultContact extends $dara.Model {
-  /**
-   * @remarks
-   * The status code that is returned after you associate the existing alert rule with the site monitoring task.
-   * 
-   * >  The status code 200 indicates that the request was successful.
-   * 
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @remarks
-   * The message that is returned after you associate the existing alert rule with the site monitoring task.
-   * 
-   * @example
-   * successful
-   */
   message?: string;
-  /**
-   * @remarks
-   * The ID of the request that was sent to associate the existing alert rule with the site monitoring task.
-   * 
-   * @example
-   * 5dd33455-4f65-4b0c-9200-33d66f3f340b
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The ID of the alert rule.
-   * 
-   * @example
-   * SystemDefault_acs_ecs_dashboard_InternetOutRate_Percent
-   */
   ruleId?: string;
-  /**
-   * @remarks
-   * Indicates whether the existing alert rule was associated with the site monitoring task. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -170,10 +116,6 @@ export class CreateSiteMonitorResponseBodyDataAttachAlertResult extends $dara.Mo
 }
 
 export class CreateSiteMonitorResponseBodyData extends $dara.Model {
-  /**
-   * @remarks
-   * The result that is returned after you associate the existing alert rule with the site monitoring task.
-   */
   attachAlertResult?: CreateSiteMonitorResponseBodyDataAttachAlertResult;
   static names(): { [key: string]: string } {
     return {
@@ -210,12 +152,6 @@ export class CreateSiteMonitorResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The returned result.
-   * 
-   * If a site monitoring task is created, the result is returned. If a site monitoring task fails to be created, no result is returned.
-   */
   createResultList?: CreateSiteMonitorResponseBodyCreateResultList;
   /**
    * @remarks

@@ -3,31 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMetricRuleTemplateListResponseBodyTemplatesTemplateApplyHistoriesApplyHistory extends $dara.Model {
-  /**
-   * @remarks
-   * The timestamp when the alert template was applied to the application group.
-   * 
-   * Unit: milliseconds.
-   * 
-   * @example
-   * 1646055898000
-   */
   applyTime?: number;
-  /**
-   * @remarks
-   * The ID of the application group.
-   * 
-   * @example
-   * 3607****
-   */
   groupId?: number;
-  /**
-   * @remarks
-   * The name of the application group.
-   * 
-   * @example
-   * ECS_Group
-   */
   groupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -81,61 +58,12 @@ export class DescribeMetricRuleTemplateListResponseBodyTemplatesTemplateApplyHis
 }
 
 export class DescribeMetricRuleTemplateListResponseBodyTemplatesTemplate extends $dara.Model {
-  /**
-   * @remarks
-   * The history of applying the alert templates to application groups.
-   */
   applyHistories?: DescribeMetricRuleTemplateListResponseBodyTemplatesTemplateApplyHistories;
-  /**
-   * @remarks
-   * The description of the alert template.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The timestamp when the alert template was created.
-   * 
-   * Unit: milliseconds.
-   * 
-   * @example
-   * 1646018798000
-   */
   gmtCreate?: number;
-  /**
-   * @remarks
-   * The timestamp when the alert template was modified.
-   * 
-   * Unit: milliseconds.
-   * 
-   * @example
-   * 1646054798000
-   */
   gmtModified?: number;
-  /**
-   * @remarks
-   * The name of the alert template.
-   * 
-   * @example
-   * ECS_Template1
-   */
   name?: string;
-  /**
-   * @remarks
-   * The version of the alert template.
-   * 
-   * Default value: 0.
-   * 
-   * @example
-   * 0
-   */
   restVersion?: number;
-  /**
-   * @remarks
-   * The ID of the alert template.
-   * 
-   * @example
-   * 70****
-   */
   templateId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -237,10 +165,6 @@ export class DescribeMetricRuleTemplateListResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
-  /**
-   * @remarks
-   * The queried alert templates.
-   */
   templates?: DescribeMetricRuleTemplateListResponseBodyTemplates;
   /**
    * @remarks

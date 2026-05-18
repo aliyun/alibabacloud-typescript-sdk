@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResourceRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The zone.
-   * 
-   * @example
-   * cn-hangzhou-f
-   */
   availabilityZone?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,21 +29,7 @@ export class DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResourceR
 }
 
 export class DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResourceTagsTag extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * instanceNetworkType
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * @example
-   * VPC
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -109,21 +81,7 @@ export class DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResourceT
 }
 
 export class DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResourceVpc extends $dara.Model {
-  /**
-   * @remarks
-   * The VPC ID.
-   * 
-   * @example
-   * vpc-2zew7etgiceg21****
-   */
   vpcInstanceId?: string;
-  /**
-   * @remarks
-   * The vSwitch ID.
-   * 
-   * @example
-   * vsw-2ze36seq79n992****
-   */
   vswitchInstanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,68 +107,14 @@ export class DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResourceV
 }
 
 export class DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResource extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the cloud service.
-   * 
-   * @example
-   * ecs
-   */
   category?: string;
-  /**
-   * @remarks
-   * The resource description.
-   * 
-   * @example
-   * desc_test
-   */
   desc?: string;
-  /**
-   * @remarks
-   * The dimensions of the resource that is associated with the application group.
-   * 
-   * @example
-   * {"instanceId":"i-m5e0k0bexac8tykr****"}
-   */
   dimension?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * i-m5e0k0bexac8tykr****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The instance name.
-   * 
-   * @example
-   * hostName
-   */
   instanceName?: string;
-  /**
-   * @remarks
-   * The network type.
-   * 
-   * @example
-   * vpc
-   */
   networkType?: string;
-  /**
-   * @remarks
-   * The region.
-   */
   region?: DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResourceRegion;
-  /**
-   * @remarks
-   * The tag of the resource.
-   */
   tags?: DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResourceTags;
-  /**
-   * @remarks
-   * The VPC description.
-   */
   vpc?: DescribeMonitorGroupInstanceAttributeResponseBodyResourcesResourceVpc;
   static names(): { [key: string]: string } {
     return {
@@ -327,10 +231,6 @@ export class DescribeMonitorGroupInstanceAttributeResponseBody extends $dara.Mod
    * 9FB8EA79-7279-4482-8D6D-3D28EEDD871A
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The resources that are associated with the application group.
-   */
   resources?: DescribeMonitorGroupInstanceAttributeResponseBodyResources;
   /**
    * @remarks

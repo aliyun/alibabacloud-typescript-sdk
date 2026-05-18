@@ -3,51 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateEscalationsCritical extends $dara.Model {
-  /**
-   * @remarks
-   * The comparison operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
-   * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-   * 
-   * @example
-   * GreaterThanOrEqualToThreshold
-   */
   comparisonOperator?: string;
-  /**
-   * @remarks
-   * The statistical method for Critical-level alerts.
-   * 
-   * The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-   * 
-   * @example
-   * Average
-   */
   statistics?: string;
-  /**
-   * @remarks
-   * The threshold for Critical-level alerts.
-   * 
-   * @example
-   * 90
-   */
   threshold?: string;
-  /**
-   * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
-   * 
-   * @example
-   * 5
-   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -77,51 +35,9 @@ export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplat
 }
 
 export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateEscalationsInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The comparison operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
-   * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-   * 
-   * @example
-   * GreaterThanOrEqualToThreshold
-   */
   comparisonOperator?: string;
-  /**
-   * @remarks
-   * The statistical method for Info-level alerts.
-   * 
-   * The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-   * 
-   * @example
-   * Average
-   */
   statistics?: string;
-  /**
-   * @remarks
-   * The threshold for Info-level alerts.
-   * 
-   * @example
-   * 90
-   */
   threshold?: string;
-  /**
-   * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
-   * 
-   * @example
-   * 3
-   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -151,51 +67,9 @@ export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplat
 }
 
 export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateEscalationsWarn extends $dara.Model {
-  /**
-   * @remarks
-   * The comparison operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
-   * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-   * 
-   * @example
-   * GreaterThanOrEqualToThreshold
-   */
   comparisonOperator?: string;
-  /**
-   * @remarks
-   * The statistical method for Warn-level alerts.
-   * 
-   * The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-   * 
-   * @example
-   * Average
-   */
   statistics?: string;
-  /**
-   * @remarks
-   * The threshold for Warn-level alerts.
-   * 
-   * @example
-   * 90
-   */
   threshold?: string;
-  /**
-   * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
-   * 
-   * @example
-   * 3
-   */
   times?: number;
   static names(): { [key: string]: string } {
     return {
@@ -225,20 +99,8 @@ export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplat
 }
 
 export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateEscalations extends $dara.Model {
-  /**
-   * @remarks
-   * The conditions for triggering Critical-level alerts.
-   */
   critical?: DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateEscalationsCritical;
-  /**
-   * @remarks
-   * The conditions for triggering Info-level alerts.
-   */
   info?: DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateEscalationsInfo;
-  /**
-   * @remarks
-   * The conditions for triggering Warn-level alerts.
-   */
   warn?: DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateEscalationsWarn;
   static names(): { [key: string]: string } {
     return {
@@ -275,21 +137,7 @@ export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplat
 }
 
 export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateLabelsLabels extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key of the alert template.
-   * 
-   * @example
-   * label1
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value of the alert template.
-   * 
-   * @example
-   * value1
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -341,76 +189,15 @@ export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplat
 }
 
 export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplate extends $dara.Model {
-  /**
-   * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
-   * 
-   * @example
-   * ecs
-   */
   category?: string;
-  /**
-   * @remarks
-   * The threshold and the alert level.
-   */
   escalations?: DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateEscalations;
-  /**
-   * @remarks
-   * The tags of the alert template.
-   */
   labels?: DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplatesAlertTemplateLabels;
-  /**
-   * @remarks
-   * The metric name.
-   * 
-   * @example
-   * cpu_total
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The namespace of the Alibaba Cloud service.
-   * 
-   * @example
-   * acs_ecs_dashboard
-   */
   namespace?: string;
-  /**
-   * @remarks
-   * The method that is used to handle alerts when no monitoring data is found. Valid values:
-   * 
-   * *   KEEP_LAST_STATE (default): No operation is performed.
-   * *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-   * *   OK: The status is considered normal.
-   * 
-   * @example
-   * KEEP_LAST_STATE
-   */
   noDataPolicy?: string;
-  /**
-   * @remarks
-   * The name of the alert rule.
-   * 
-   * @example
-   * ECS_Rule
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * The dimension of the alert. It is an extended field.
-   * 
-   * @example
-   * {"disk":"/"}
-   */
   selector?: string;
   silenceTime?: number;
-  /**
-   * @remarks
-   * The callback URL to which a request is sent when an alert is triggered.
-   * 
-   * @example
-   * https://www.aliyun.com
-   */
   webhook?: string;
   static names(): { [key: string]: string } {
     return {
@@ -484,10 +271,6 @@ export class DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplat
 }
 
 export class DescribeMetricRuleTemplateAttributeResponseBodyResource extends $dara.Model {
-  /**
-   * @remarks
-   * The queried alert templates.
-   */
   alertTemplates?: DescribeMetricRuleTemplateAttributeResponseBodyResourceAlertTemplates;
   /**
    * @remarks

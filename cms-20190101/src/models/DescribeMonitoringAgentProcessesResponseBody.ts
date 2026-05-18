@@ -3,55 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMonitoringAgentProcessesResponseBodyNodeProcessesNodeProcess extends $dara.Model {
-  /**
-   * @remarks
-   * The command used to obtain the number of processes. Valid value: `number`.
-   * 
-   * >  The `number` command obtains the number of processes that match the condition.
-   * 
-   * @example
-   * number
-   */
   command?: string;
-  /**
-   * @remarks
-   * The ID of the application group.
-   * 
-   * @example
-   * 3619****
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * @example
-   * i-hp3hl3cx1pbahzy8****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The ID of the process.
-   * 
-   * @example
-   * 234567
-   */
   processId?: number;
-  /**
-   * @remarks
-   * The name of the process.
-   * 
-   * @example
-   * Nginx
-   */
   processName?: string;
-  /**
-   * @remarks
-   * The user who launched the process.
-   * 
-   * @example
-   * alice
-   */
   processUser?: string;
   static names(): { [key: string]: string } {
     return {
@@ -129,10 +85,6 @@ export class DescribeMonitoringAgentProcessesResponseBody extends $dara.Model {
    * The specified resource is not found.
    */
   message?: string;
-  /**
-   * @remarks
-   * The information about the processes.
-   */
   nodeProcesses?: DescribeMonitoringAgentProcessesResponseBodyNodeProcesses;
   /**
    * @remarks

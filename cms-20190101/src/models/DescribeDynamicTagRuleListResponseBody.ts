@@ -29,38 +29,8 @@ export class DescribeDynamicTagRuleListResponseBodyTagGroupListTagGroupContactGr
 }
 
 export class DescribeDynamicTagRuleListResponseBodyTagGroupListTagGroupMatchExpressMatchExpress extends $dara.Model {
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * azone-version
-   */
   tagKey?: string;
-  /**
-   * @remarks
-   * The tag value.
-   * 
-   * The `TagValue` and `TagValueMatchFunction` parameters must be used in pairs.
-   * 
-   * @example
-   * *
-   */
   tagValue?: string;
-  /**
-   * @remarks
-   * The method that is used to match tag values. Valid values:
-   * 
-   * *   all: includes all
-   * *   startWith: starts with a prefix
-   * *   endWith: ends with a suffix
-   * *   contains: contains
-   * *   notContains: does not contain
-   * *   equals: equals
-   * 
-   * @example
-   * all
-   */
   tagValueMatchFunction?: string;
   static names(): { [key: string]: string } {
     return {
@@ -166,69 +136,14 @@ export class DescribeDynamicTagRuleListResponseBodyTagGroupListTagGroupTemplateI
 }
 
 export class DescribeDynamicTagRuleListResponseBodyTagGroupListTagGroup extends $dara.Model {
-  /**
-   * @remarks
-   * The alert contact group.
-   */
   contactGroupList?: DescribeDynamicTagRuleListResponseBodyTagGroupListTagGroupContactGroupList;
-  /**
-   * @remarks
-   * The ID of the tag rule.
-   * 
-   * @example
-   * 1536df65-a719-429d-8813-73cc40d7****
-   */
   dynamicTagRuleId?: string;
-  /**
-   * @remarks
-   * The conditional expressions used to create an application group based on the tag.
-   */
   matchExpress?: DescribeDynamicTagRuleListResponseBodyTagGroupListTagGroupMatchExpress;
-  /**
-   * @remarks
-   * The logical operator that is used between conditional expressions. Valid values:
-   * 
-   * *   `and`
-   * *   `or`
-   * 
-   * >  Only one logical operator can be used in a request.
-   * 
-   * @example
-   * or
-   */
   matchExpressFilterRelation?: string;
-  /**
-   * @remarks
-   * The ID of the region to which the tags belong.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
-  /**
-   * @remarks
-   * The status of adding instances that meet the tag rule to the application group. Valid values:
-   * 
-   * *   `RUNNING`
-   * *   `FINISH`
-   * 
-   * @example
-   * FINISH
-   */
   status?: string;
-  /**
-   * @remarks
-   * The tag key.
-   * 
-   * @example
-   * tagkey1
-   */
   tagKey?: string;
   tagValueBlacklist?: DescribeDynamicTagRuleListResponseBodyTagGroupListTagGroupTagValueBlacklist;
-  /**
-   * @remarks
-   * The IDs of the alert templates.
-   */
   templateIdList?: DescribeDynamicTagRuleListResponseBodyTagGroupListTagGroupTemplateIdList;
   static names(): { [key: string]: string } {
     return {
@@ -359,10 +274,6 @@ export class DescribeDynamicTagRuleListResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
-  /**
-   * @remarks
-   * The tag rules of application groups.
-   */
   tagGroupList?: DescribeDynamicTagRuleListResponseBodyTagGroupList;
   /**
    * @remarks

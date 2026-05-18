@@ -3,33 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSystemEventHistogramResponseBodySystemEventHistogramsSystemEventHistogram extends $dara.Model {
-  /**
-   * @remarks
-   * The number of times the system event occurred.
-   * 
-   * @example
-   * 2
-   */
   count?: number;
-  /**
-   * @remarks
-   * The end time.
-   * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1552225753000
-   */
   endTime?: number;
-  /**
-   * @remarks
-   * The start time.
-   * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1552225770000
-   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -117,10 +92,6 @@ export class DescribeSystemEventHistogramResponseBody extends $dara.Model {
    * true
    */
   success?: string;
-  /**
-   * @remarks
-   * The information about the number of times the system event occurred during each interval of a time period.
-   */
   systemEventHistograms?: DescribeSystemEventHistogramResponseBodySystemEventHistograms;
   static names(): { [key: string]: string } {
     return {

@@ -55,10 +55,6 @@ export class DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilt
 }
 
 export class DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObj extends $dara.Model {
-  /**
-   * @remarks
-   * The keywords that are used to match events.
-   */
   keywords?: DescribeEventRuleAttributeResponseBodyResultEventPatternKeywordFilterObjKeywords;
   /**
    * @remarks
@@ -176,10 +172,6 @@ export class DescribeEventRuleAttributeResponseBodyResultEventPatternStatusList 
 }
 
 export class DescribeEventRuleAttributeResponseBodyResultEventPattern extends $dara.Model {
-  /**
-   * @remarks
-   * The types of the event-triggered alert rules.
-   */
   eventTypeList?: DescribeEventRuleAttributeResponseBodyResultEventPatternEventTypeList;
   /**
    * @remarks

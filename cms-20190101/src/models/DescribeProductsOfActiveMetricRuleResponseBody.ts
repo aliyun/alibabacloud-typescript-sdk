@@ -3,119 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricRuleListAllProductInitMetricRuleAlertInitConfigListAlertInitConfig extends $dara.Model {
-  /**
-   * @remarks
-   * The operator that is used to compare the metric value with the threshold for Warn-level alerts.
-   * 
-   * Valid values:
-   * 
-   * *   LessThanThreshold: less than the threshold
-   * 
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * 
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * 
-   * *   NotEqualToThreshold: does not equal to the threshold
-   * 
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * 
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * 
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * 
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * 
-   * *   GreaterThanThreshold: greater than the threshold
-   * 
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-   * 
-   * @example
-   * GreaterThanOrEqualToThreshold
-   */
   comparisonOperator?: string;
-  /**
-   * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
-   * 
-   * @example
-   * 3
-   */
   evaluationCount?: string;
-  /**
-   * @remarks
-   * The alert level.
-   * 
-   * Valid values:
-   * 
-   * *   INFO
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   WARN
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CRITICAL
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * CRITICAL
-   */
   level?: string;
-  /**
-   * @remarks
-   * The metric name. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-   * 
-   * @example
-   * cpu_total
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The namespace of the service. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-   * 
-   * @example
-   * acs_rds_dashboard
-   */
   namespace?: string;
-  /**
-   * @remarks
-   * The aggregation period of monitoring data. Unit: minutes. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-   * 
-   * @example
-   * 1m
-   */
   period?: string;
-  /**
-   * @remarks
-   * The method used to calculate metric values that trigger alerts. For more information, see [Appendix 1: Metrics](https://help.aliyun.com/document_detail/163515.html).
-   * 
-   * @example
-   * Average
-   */
   statistics?: string;
-  /**
-   * @remarks
-   * The alert threshold.
-   * 
-   * @example
-   * 90
-   */
   threshold?: string;
   static names(): { [key: string]: string } {
     return {
@@ -179,18 +73,7 @@ export class DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricR
 }
 
 export class DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricRuleListAllProductInitMetricRule extends $dara.Model {
-  /**
-   * @remarks
-   * The initial alert rules that are generated after one-click alert is enabled for a service.
-   */
   alertInitConfigList?: DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricRuleListAllProductInitMetricRuleAlertInitConfigList;
-  /**
-   * @remarks
-   * The abbreviation of the service name.
-   * 
-   * @example
-   * ecs
-   */
   product?: string;
   static names(): { [key: string]: string } {
     return {
@@ -245,10 +128,6 @@ export class DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricR
 }
 
 export class DescribeProductsOfActiveMetricRuleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the services for which one-click alert is enabled.
-   */
   allProductInitMetricRuleList?: DescribeProductsOfActiveMetricRuleResponseBodyAllProductInitMetricRuleList;
   /**
    * @remarks

@@ -66,10 +66,6 @@ export class RemoveTagsResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
-  /**
-   * @remarks
-   * The deleted tags.
-   */
   tag?: RemoveTagsResponseBodyTag;
   static names(): { [key: string]: string } {
     return {

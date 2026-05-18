@@ -55,21 +55,7 @@ export class DescribeEventRuleListResponseBodyEventRulesEventRuleEventPatternEve
 }
 
 export class DescribeEventRuleListResponseBodyEventRulesEventRuleEventPatternEventPatternKeywordFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The keywords that are used to match events.
-   */
   keywords?: DescribeEventRuleListResponseBodyEventRulesEventRuleEventPatternEventPatternKeywordFilterKeywords;
-  /**
-   * @remarks
-   * The relationship between multiple keywords in a condition. Valid values:
-   * 
-   * *   OR: The relationship between keywords is OR.
-   * *   NOT: The keyword is excluded. The value NOT indicates that all events that do not contain the keywords are matched.
-   * 
-   * @example
-   * OR
-   */
   relation?: string;
   static names(): { [key: string]: string } {
     return {
@@ -150,49 +136,12 @@ export class DescribeEventRuleListResponseBodyEventRulesEventRuleEventPatternEve
 }
 
 export class DescribeEventRuleListResponseBodyEventRulesEventRuleEventPatternEventPattern extends $dara.Model {
-  /**
-   * @remarks
-   * The custom filter conditions.
-   * 
-   * @example
-   * ECS123
-   */
   customFilters?: string;
-  /**
-   * @remarks
-   * The types of the event-triggered alert rules.
-   */
   eventTypeList?: DescribeEventRuleListResponseBodyEventRulesEventRuleEventPatternEventPatternEventTypeList;
-  /**
-   * @remarks
-   * The keyword for filtering.
-   */
   keywordFilter?: DescribeEventRuleListResponseBodyEventRulesEventRuleEventPatternEventPatternKeywordFilter;
-  /**
-   * @remarks
-   * The levels of the event-triggered alerts.
-   */
   levelList?: DescribeEventRuleListResponseBodyEventRulesEventRuleEventPatternEventPatternLevelList;
-  /**
-   * @remarks
-   * The event names.
-   */
   nameList?: DescribeEventRuleListResponseBodyEventRulesEventRuleEventPatternEventPatternNameList;
-  /**
-   * @remarks
-   * The abbreviation of the Alibaba Cloud service name.
-   * 
-   * @example
-   * CloudMonitor
-   */
   product?: string;
-  /**
-   * @remarks
-   * Indicates that logs are filtered based on the specified SQL statement. If the specified conditions are met, an alert is triggered.
-   * 
-   * @example
-   * ycccluster1 and (i-23ij0o82612 or Executed1) or Asimulated not 222
-   */
   SQLFilter?: string;
   static names(): { [key: string]: string } {
     return {
@@ -266,64 +215,12 @@ export class DescribeEventRuleListResponseBodyEventRulesEventRuleEventPattern ex
 }
 
 export class DescribeEventRuleListResponseBodyEventRulesEventRule extends $dara.Model {
-  /**
-   * @remarks
-   * The description of the event-triggered alert rule.
-   * 
-   * @example
-   * Default group event rule.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The mode of the event-triggered alert rule.
-   */
   eventPattern?: DescribeEventRuleListResponseBodyEventRulesEventRuleEventPattern;
-  /**
-   * @remarks
-   * The type of the event-triggered alert rule. Valid values:
-   * 
-   * *   SYSTEM: system event-triggered alert rule
-   * *   CUSTOM: custom event-triggered alert rule
-   * 
-   * @example
-   * SYSTEM
-   */
   eventType?: string;
-  /**
-   * @remarks
-   * The ID of the application group.
-   * 
-   * @example
-   * 7378****
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The name of the event-triggered alert rule.
-   * 
-   * @example
-   * test_DefaultEventRule_7378****
-   */
   name?: string;
-  /**
-   * @remarks
-   * The mute period during which new alert notifications are not sent even if the trigger conditions are met.
-   * 
-   * @example
-   * 86400
-   */
   silenceTime?: number;
-  /**
-   * @remarks
-   * The status of the event-triggered alert rule. Valid values:
-   * 
-   * *   ENABLED
-   * *   DISABLED
-   * 
-   * @example
-   * ENABLED
-   */
   state?: string;
   static names(): { [key: string]: string } {
     return {
@@ -398,10 +295,6 @@ export class DescribeEventRuleListResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The event-triggered alert rule.
-   */
   eventRules?: DescribeEventRuleListResponseBodyEventRules;
   /**
    * @remarks

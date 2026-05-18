@@ -3,47 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCustomEventAttributeResponseBodyCustomEventsCustomEvent extends $dara.Model {
-  /**
-   * @remarks
-   * The content of the event.
-   * 
-   * @example
-   * requestId:4975A6F3-19AC-4C01-BAD2-034DA07FEBB5, info:{"autoPay":false,"autoUseCoupon":false,"bid":"26842","buyerId":118935342242****,"commodities":[{"aliyunProduceCode":"cms","chargeType":"PREPAY","commodityCode":"cms_call_num","components":[{"componentCode":"phone_count","instanceProperty":[{"code":"phone_count","value":"500"}],"moduleAttrStatus":1}],"duration":6,"free":false,"orderParams":{"aliyunProduceCode":"cms"},"orderType":"BUY","prePayPostCharge":false,"pricingCycle":"Month","quantity":1,"refundSpecCode":"","renewChange":false,"specCode":"cms_call_num","specUpdate":false,"syncToSubscription":false,"upgradeInquireFinancialValue":true}],"fromApp":"commonbuy","orderParams":{"priceCheck":"true"},"payerId":118935342242****,"requestId":"ade3ad32-f58b-45d7-add4-ac542be3d8ec","skipChannel":false,"userId":118935342242****}
-   */
   content?: string;
-  /**
-   * @remarks
-   * The ID of the application group.
-   * 
-   * @example
-   * 12345
-   */
   groupId?: string;
-  /**
-   * @remarks
-   * The event ID.
-   * 
-   * @example
-   * 123
-   */
   id?: string;
-  /**
-   * @remarks
-   * The event name.
-   * 
-   * @example
-   * BABEL_CHECK
-   */
   name?: string;
-  /**
-   * @remarks
-   * The time when the event occurred.
-   * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-   * 
-   * @example
-   * 1552199984000
-   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -111,10 +74,6 @@ export class DescribeCustomEventAttributeResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The event details.
-   */
   customEvents?: DescribeCustomEventAttributeResponseBodyCustomEvents;
   /**
    * @remarks

@@ -3,49 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsCritical extends $dara.Model {
-  /**
-   * @remarks
-   * The operator that is used to compare the metric value with the threshold for Critical-level alerts. Valid values:
-   * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-   * 
-   * @example
-   * GreaterThanThreshold
-   */
   comparisonOperator?: string;
-  /**
-   * @remarks
-   * The statistical methods for Critical-level alerts.
-   * 
-   * @example
-   * Average
-   */
   statistics?: string;
-  /**
-   * @remarks
-   * The threshold for Critical-level alerts.
-   * 
-   * @example
-   * 99
-   */
   threshold?: string;
-  /**
-   * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
-   * 
-   * @example
-   * 3
-   */
   times?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,51 +35,9 @@ export class DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsCr
 }
 
 export class DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
-   * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-   * 
-   * @example
-   * GreaterThanThreshold
-   */
   comparisonOperator?: string;
-  /**
-   * @remarks
-   * The statistical methods for Info-level alerts.
-   * 
-   * @example
-   * Average
-   */
   statistics?: string;
-  /**
-   * @remarks
-   * The threshold for Info-level alerts.
-   * 
-   * @example
-   * 95
-   */
   threshold?: string;
-  /**
-   * @remarks
-   * The consecutive number of times
-   * 
-   * for which the metric value meets the alert condition before an Info-level alert is triggered.
-   * 
-   * @example
-   * 3
-   */
   times?: string;
   static names(): { [key: string]: string } {
     return {
@@ -149,51 +67,9 @@ export class DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsIn
 }
 
 export class DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn extends $dara.Model {
-  /**
-   * @remarks
-   * The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
-   * 
-   * *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-   * *   GreaterThanThreshold: greater than the threshold
-   * *   LessThanOrEqualToThreshold: less than or equal to the threshold
-   * *   LessThanThreshold: less than the threshold
-   * *   NotEqualToThreshold: not equal to the threshold
-   * *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-   * *   LessThanYesterday: less than the metric value at the same time yesterday
-   * *   GreaterThanLastWeek: greater than the metric value at the same time last week
-   * *   LessThanLastWeek: less than the metric value at the same time last week
-   * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-   * 
-   * @example
-   * GreaterThanThreshold
-   */
   comparisonOperator?: string;
-  /**
-   * @remarks
-   * The statistical methods for Warn-level alerts.
-   * 
-   * @example
-   * Average
-   */
   statistics?: string;
-  /**
-   * @remarks
-   * The threshold for Warn-level alerts.
-   * 
-   * @example
-   * 80
-   */
   threshold?: string;
-  /**
-   * @remarks
-   * The consecutive number of times
-   * 
-   * for which the metric value meets the alert condition before a Warn-level alert is triggered.
-   * 
-   * @example
-   * 3
-   */
   times?: string;
   static names(): { [key: string]: string } {
     return {
@@ -223,20 +99,8 @@ export class DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWa
 }
 
 export class DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalations extends $dara.Model {
-  /**
-   * @remarks
-   * The trigger condition for Critical-level alerts.
-   */
   critical?: DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsCritical;
-  /**
-   * @remarks
-   * The conditions for triggering Info-level alerts.
-   */
   info?: DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsInfo;
-  /**
-   * @remarks
-   * The conditions for triggering Warn-level alerts.
-   */
   warn?: DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalationsWarn;
   static names(): { [key: string]: string } {
     return {
@@ -273,141 +137,21 @@ export class DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalations e
 }
 
 export class DescribeActiveMetricRuleListResponseBodyAlertListAlert extends $dara.Model {
-  /**
-   * @remarks
-   * The status of the alert rule. Valid values:
-   * 
-   * *   OK: The alert rule has no active alerts.
-   * *   ALARM: The alert rule has active alerts.
-   * *   INSUFFICIENT_DATA: No data is found.
-   * 
-   * @example
-   * OK
-   */
   alertState?: string;
-  /**
-   * @remarks
-   * The alert contact group.
-   * 
-   * @example
-   * ECS_Group
-   */
   contactGroups?: string;
-  /**
-   * @remarks
-   * The monitoring data of the specified resource.
-   * 
-   * @example
-   * ""
-   */
   dimensions?: string;
-  /**
-   * @remarks
-   * The time period during which the alert rule is effective.
-   * 
-   * @example
-   * 00:00-23:59
-   */
   effectiveInterval?: string;
-  /**
-   * @remarks
-   * Indicates whether the alert rule is enabled. Valid values:
-   * 
-   * *   true: The alert rule is enabled.
-   * *   false: The alert rule is disabled.
-   * 
-   * @example
-   * true
-   */
   enableState?: boolean;
-  /**
-   * @remarks
-   * The conditions for triggering different levels of alerts.
-   */
   escalations?: DescribeActiveMetricRuleListResponseBodyAlertListAlertEscalations;
-  /**
-   * @remarks
-   * The subject of the alert notification email.
-   * 
-   * @example
-   * ECS_Bucket
-   */
   mailSubject?: string;
-  /**
-   * @remarks
-   * The name of the metric.
-   * 
-   * @example
-   * cpu_total
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The namespace of the Alibaba Cloud service.
-   * 
-   * @example
-   * acs_ecs_dashboard
-   */
   namespace?: string;
-  /**
-   * @remarks
-   * The time period during which the alert rule is ineffective.
-   * 
-   * @example
-   * 00:00-06:00
-   */
   noEffectiveInterval?: string;
-  /**
-   * @remarks
-   * The aggregation period of monitoring data.
-   * 
-   * Unit: seconds.
-   * 
-   * @example
-   * 60
-   */
   period?: string;
-  /**
-   * @remarks
-   * The resources that are associated with the alert rule.
-   * 
-   * @example
-   * [{"resource":"_ALL"}]
-   */
   resources?: string;
-  /**
-   * @remarks
-   * The ID of the alert rule.
-   * 
-   * @example
-   * ruleIdxxxx
-   */
   ruleId?: string;
-  /**
-   * @remarks
-   * The name of the alert rule.
-   * 
-   * @example
-   * myAlert
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * The mute period during which new alerts are not sent even if the trigger conditions are met.
-   * 
-   * Unit: seconds.
-   * 
-   * @example
-   * 86400
-   */
   silenceTime?: string;
-  /**
-   * @remarks
-   * The callback URL.
-   * 
-   * @example
-   * http://www.aliyun.com
-   */
   webhook?: string;
   static names(): { [key: string]: string } {
     return {
@@ -490,151 +234,21 @@ export class DescribeActiveMetricRuleListResponseBodyAlertList extends $dara.Mod
 }
 
 export class DescribeActiveMetricRuleListResponseBodyDatapointsAlarm extends $dara.Model {
-  /**
-   * @remarks
-   * The comparison operator that is used in the alert rule. Valid values:
-   * 
-   * *   `>`
-   * *   `<`
-   * *   `>=`
-   * *   `<=`
-   * *   `=`
-   * *   `=`
-   * 
-   * @example
-   * >
-   */
   comparisonOperator?: string;
-  /**
-   * @remarks
-   * The alert contact group.
-   * 
-   * @example
-   * ECS_Group
-   */
   contactGroups?: string;
-  /**
-   * @remarks
-   * Indicates whether the alert rule is enabled. Valid values:
-   * 
-   * *   true: The alert rule is enabled.
-   * *   false: The alert rule is disabled.
-   * 
-   * @example
-   * true
-   */
   enable?: string;
-  /**
-   * @remarks
-   * The end of the time period during which the alert rule is effective.
-   * 
-   * Unit: hours. For example, the value 23 indicates `23:59:59`.
-   * 
-   * @example
-   * 24
-   */
   endTime?: string;
-  /**
-   * @remarks
-   * The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
-   * 
-   * @example
-   * 3
-   */
   evaluationCount?: string;
-  /**
-   * @remarks
-   * The metric name.
-   * 
-   * @example
-   * cpu_total
-   */
   metricName?: string;
-  /**
-   * @remarks
-   * The namespace of the cloud service.
-   * 
-   * @example
-   * acs_ecs_dashboard
-   */
   namespace?: string;
-  /**
-   * @remarks
-   * The aggregation period of monitoring data.
-   * 
-   * Unit: seconds.
-   * 
-   * @example
-   * 60
-   */
   period?: string;
-  /**
-   * @remarks
-   * The ID of the alert rule.
-   * 
-   * @example
-   * a151cd6023eacee2f0978e03863cc1697c89508****
-   */
   ruleId?: string;
-  /**
-   * @remarks
-   * The name of the alert rule.
-   * 
-   * @example
-   * SystemDefault_acs_rds_dashboard_CpuUsage
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * The mute period during which new alerts are not sent even if the trigger conditions are met.
-   * 
-   * Unit: seconds.
-   * 
-   * @example
-   * 86400
-   */
   silenceTime?: string;
-  /**
-   * @remarks
-   * The beginning of the time period during which the alert rule is effective.
-   * 
-   * Unit: hours. For example, the value 00 indicates `00:00:00`.
-   * 
-   * @example
-   * 00
-   */
   startTime?: string;
-  /**
-   * @remarks
-   * Indicates whether the alert rule is enabled.
-   * 
-   * @example
-   * Enable
-   */
   state?: string;
-  /**
-   * @remarks
-   * The statistical method.
-   * 
-   * @example
-   * Average
-   */
   statistics?: string;
-  /**
-   * @remarks
-   * The alert threshold.
-   * 
-   * @example
-   * 90
-   */
   threshold?: string;
-  /**
-   * @remarks
-   * The callback URL.
-   * 
-   * @example
-   * http://www.aliyun.com
-   */
   webhook?: string;
   static names(): { [key: string]: string } {
     return {
@@ -714,10 +328,6 @@ export class DescribeActiveMetricRuleListResponseBodyDatapoints extends $dara.Mo
 }
 
 export class DescribeActiveMetricRuleListResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The details of the alert rules. The result is in the same structure as that returned by the DescribeMetricRuleList operation.
-   */
   alertList?: DescribeActiveMetricRuleListResponseBodyAlertList;
   /**
    * @remarks
@@ -729,10 +339,6 @@ export class DescribeActiveMetricRuleListResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The details of the alert rules.
-   */
   datapoints?: DescribeActiveMetricRuleListResponseBodyDatapoints;
   /**
    * @remarks

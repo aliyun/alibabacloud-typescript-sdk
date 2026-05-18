@@ -3,33 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMonitorGroupDynamicRulesResponseBodyResourceResourceFiltersFilter extends $dara.Model {
-  /**
-   * @remarks
-   * The method that is used to filter the instances. Valid values:
-   * 
-   * *   contains: contains
-   * *   startWith: starts with a prefix
-   * *   endWith: ends with a suffix
-   * 
-   * @example
-   * contains
-   */
   function?: string;
-  /**
-   * @remarks
-   * The instance name.
-   * 
-   * @example
-   * hostName
-   */
   name?: string;
-  /**
-   * @remarks
-   * The value of the dynamic rule.
-   * 
-   * @example
-   * 1
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,33 +58,8 @@ export class DescribeMonitorGroupDynamicRulesResponseBodyResourceResourceFilters
 }
 
 export class DescribeMonitorGroupDynamicRulesResponseBodyResourceResource extends $dara.Model {
-  /**
-   * @remarks
-   * The type of the cloud service to which the dynamic rule belongs. Valid values:
-   * 
-   * *   ecs: Elastic Compute Service (ECS)
-   * *   rds: ApsaraDB RDS
-   * *   slb: Server Load Balancer (SLB)
-   * 
-   * @example
-   * ecs
-   */
   category?: string;
-  /**
-   * @remarks
-   * The filter condition. Valid values:
-   * 
-   * *   and: queries the instances that meet all alert rules.
-   * *   or: queries the instances that meet any alert rule.
-   * 
-   * @example
-   * and
-   */
   filterRelation?: string;
-  /**
-   * @remarks
-   * The dynamic rules of the application group.
-   */
   filters?: DescribeMonitorGroupDynamicRulesResponseBodyResourceResourceFilters;
   static names(): { [key: string]: string } {
     return {
@@ -192,10 +142,6 @@ export class DescribeMonitorGroupDynamicRulesResponseBody extends $dara.Model {
    * 2170B94A-1576-4D65-900E-2093037CDAF3
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The resources that are associated with the application group.
-   */
   resource?: DescribeMonitorGroupDynamicRulesResponseBodyResource;
   /**
    * @remarks

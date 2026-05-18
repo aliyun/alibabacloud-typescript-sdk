@@ -3,28 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PutEventRuleTargetsResponseBodyFailedContactParametersContactParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the alert contact group.
-   */
   contactGroupName?: string;
-  /**
-   * @remarks
-   * The ID of the recipient.
-   * 
-   * @example
-   * 2
-   */
   id?: number;
-  /**
-   * @remarks
-   * The alert notification methods. Valid values:
-   * 
-   * 4: Alert notifications are sent by using DingTalk and emails.
-   * 
-   * @example
-   * 3
-   */
   level?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,37 +58,9 @@ export class PutEventRuleTargetsResponseBodyFailedContactParameters extends $dar
 }
 
 export class PutEventRuleTargetsResponseBodyFailedFcParametersFcParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the function.
-   * 
-   * @example
-   * functionTest1
-   */
   functionName?: string;
-  /**
-   * @remarks
-   * The ID of the recipient.
-   * 
-   * @example
-   * 1
-   */
   id?: number;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
-  /**
-   * @remarks
-   * The name of the Function Compute service.
-   * 
-   * @example
-   * serviceTest1
-   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -164,29 +116,8 @@ export class PutEventRuleTargetsResponseBodyFailedFcParameters extends $dara.Mod
 }
 
 export class PutEventRuleTargetsResponseBodyFailedMnsParametersMnsParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the recipient.
-   * 
-   * @example
-   * 2
-   */
   id?: number;
-  /**
-   * @remarks
-   * The name of the MNS queue.
-   * 
-   * @example
-   * testQueue
-   */
   queue?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -250,20 +181,8 @@ export class PutEventRuleTargetsResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * This parameter is returned if the specified alert contact groups in the request failed to be created or modified.
-   */
   failedContactParameters?: PutEventRuleTargetsResponseBodyFailedContactParameters;
-  /**
-   * @remarks
-   * This parameter is returned if the specified functions in the request failed to be created or modified in Function Compute.
-   */
   failedFcParameters?: PutEventRuleTargetsResponseBodyFailedFcParameters;
-  /**
-   * @remarks
-   * This parameter is returned if the specified queues in the request failed to be created or modified in SMQ.
-   */
   failedMnsParameters?: PutEventRuleTargetsResponseBodyFailedMnsParameters;
   /**
    * @remarks

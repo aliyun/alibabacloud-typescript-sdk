@@ -3,28 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEventRuleTargetListResponseBodyContactParametersContactParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the alert group.
-   */
   contactGroupName?: string;
-  /**
-   * @remarks
-   * The ID of the recipient.
-   * 
-   * @example
-   * 1
-   */
   id?: string;
-  /**
-   * @remarks
-   * The alert notification methods. Valid values:
-   * 
-   * 4: Alert notifications are sent by using DingTalk chatbots and emails.
-   * 
-   * @example
-   * 3
-   */
   level?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,50 +58,10 @@ export class DescribeEventRuleTargetListResponseBodyContactParameters extends $d
 }
 
 export class DescribeEventRuleTargetListResponseBodyFcParametersFCParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the function. 
-   * 
-   * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields: 
-   * 
-   * - Service: the code of an Alibaba Cloud service
-   * - Region: the region ID
-   * - Account: the ID of an Alibaba Cloud account
-   * - ResourceType: the resource type
-   * - ResourceId: the resource ID
-   */
   arn?: string;
-  /**
-   * @remarks
-   * The name of the function.
-   * 
-   * @example
-   * fcTest1
-   */
   functionName?: string;
-  /**
-   * @remarks
-   * The ID of the recipient.
-   * 
-   * @example
-   * 3
-   */
   id?: string;
-  /**
-   * @remarks
-   * The region where Function Compute is deployed.
-   * 
-   * @example
-   * cn-qingdao
-   */
   region?: string;
-  /**
-   * @remarks
-   * The name of the Function Compute service.
-   * 
-   * @example
-   * service1
-   */
   serviceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -179,50 +119,10 @@ export class DescribeEventRuleTargetListResponseBodyFcParameters extends $dara.M
 }
 
 export class DescribeEventRuleTargetListResponseBodyMnsParametersMnsParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The ARN of the MNS queue. 
-   * 
-   * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields: 
-   * 
-   * - Service: the code of an Alibaba Cloud service
-   * - Region: the region ID
-   * - Account: the ID of an Alibaba Cloud account
-   * - ResourceType: the resource type
-   * - ResourceId: the resource ID
-   */
   arn?: string;
-  /**
-   * @remarks
-   * The ID of the recipient.
-   * 
-   * @example
-   * 2
-   */
   id?: string;
-  /**
-   * @remarks
-   * The name of the SMQ queue.
-   * 
-   * @example
-   * testQueue
-   */
   queue?: string;
-  /**
-   * @remarks
-   * The region for SMQ.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
-  /**
-   * @remarks
-   * The SMQ topic.
-   * 
-   * @example
-   * topic_sample
-   */
   topic?: string;
   static names(): { [key: string]: string } {
     return {
@@ -280,73 +180,12 @@ export class DescribeEventRuleTargetListResponseBodyMnsParameters extends $dara.
 }
 
 export class DescribeEventRuleTargetListResponseBodyOpenApiParametersOpenApiParameters extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the API operation.
-   * 
-   * @example
-   * PutLogs
-   */
   action?: string;
-  /**
-   * @remarks
-   * The ARN of the API operation. 
-   * 
-   * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields: 
-   * 
-   * - Service: the code of an Alibaba Cloud service
-   * - Region: the region ID
-   * - Account: the ID of an Alibaba Cloud account
-   * - ResourceType: the resource type
-   * - ResourceId: the resource ID The ARN of the Log Service Logstore. 
-   * 
-   * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
-   * - Service: the code of an Alibaba Cloud service
-   * - Region: the region ID
-   * - Account: the ID of an Alibaba Cloud account
-   * - ResourceType: the resource type
-   * - ResourceId: the resource ID
-   */
   arn?: string;
-  /**
-   * @remarks
-   * The ID of the recipient.
-   * 
-   * @example
-   * 3
-   */
   id?: string;
-  /**
-   * @remarks
-   * The ID of the cloud service to which the API operation belongs.
-   * 
-   * @example
-   * log
-   */
   product?: string;
-  /**
-   * @remarks
-   * The region where the resource resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
-  /**
-   * @remarks
-   * The name of the role.
-   * 
-   * @example
-   * MyRole
-   */
   role?: string;
-  /**
-   * @remarks
-   * The version of the API.
-   * 
-   * @example
-   * 2019-01-01
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -408,50 +247,10 @@ export class DescribeEventRuleTargetListResponseBodyOpenApiParameters extends $d
 }
 
 export class DescribeEventRuleTargetListResponseBodySlsParametersSlsParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The ARN of the Log Service Logstore. 
-   * 
-   * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields: 
-   * 
-   * - Service: the code of an Alibaba Cloud service
-   * - Region: the region ID
-   * - Account: the ID of an Alibaba Cloud account
-   * - ResourceType: the resource type
-   * - ResourceId: the resource ID
-   */
   arn?: string;
-  /**
-   * @remarks
-   * The ID of the recipient.
-   * 
-   * @example
-   * 4
-   */
   id?: string;
-  /**
-   * @remarks
-   * The name of the Logstore.
-   * 
-   * @example
-   * logstore_test
-   */
   logStore?: string;
-  /**
-   * @remarks
-   * The name of the project.
-   * 
-   * @example
-   * project_test
-   */
   project?: string;
-  /**
-   * @remarks
-   * The ID of the region where the Log Service project resides.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -509,37 +308,9 @@ export class DescribeEventRuleTargetListResponseBodySlsParameters extends $dara.
 }
 
 export class DescribeEventRuleTargetListResponseBodyWebhookParametersWebhookParameter extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the recipient.
-   * 
-   * @example
-   * 5
-   */
   id?: string;
-  /**
-   * @remarks
-   * The HTTP request method. Valid values: GET and POST.
-   * 
-   * @example
-   * GET
-   */
   method?: string;
-  /**
-   * @remarks
-   * The protocol type.
-   * 
-   * @example
-   * HTTP
-   */
   protocol?: string;
-  /**
-   * @remarks
-   * The callback URL.
-   * 
-   * @example
-   * http://www.aliyun.com
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -605,15 +376,7 @@ export class DescribeEventRuleTargetListResponseBody extends $dara.Model {
    * 200
    */
   code?: string;
-  /**
-   * @remarks
-   * The information about the recipients if alert notifications are sent to the alert contacts of an alert contact group.
-   */
   contactParameters?: DescribeEventRuleTargetListResponseBodyContactParameters;
-  /**
-   * @remarks
-   * The information about the recipients in Function Compute.
-   */
   fcParameters?: DescribeEventRuleTargetListResponseBodyFcParameters;
   /**
    * @remarks
@@ -623,15 +386,7 @@ export class DescribeEventRuleTargetListResponseBody extends $dara.Model {
    * The Request is not authorization.
    */
   message?: string;
-  /**
-   * @remarks
-   * The notifications of Simple Message Queue (formerly MNS) (SMQ).
-   */
   mnsParameters?: DescribeEventRuleTargetListResponseBodyMnsParameters;
-  /**
-   * @remarks
-   * The information about the recipients in OpenAPI Explorer.
-   */
   openApiParameters?: DescribeEventRuleTargetListResponseBodyOpenApiParameters;
   /**
    * @remarks
@@ -641,15 +396,7 @@ export class DescribeEventRuleTargetListResponseBody extends $dara.Model {
    * 87170bc7-e28a-4c93-b9bf-90a1dbe84736
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The information about the recipients in Log Service.
-   */
   slsParameters?: DescribeEventRuleTargetListResponseBodySlsParameters;
-  /**
-   * @remarks
-   * The information about the recipients if alert notifications are sent by sending a request to a callback URL.
-   */
   webhookParameters?: DescribeEventRuleTargetListResponseBodyWebhookParameters;
   static names(): { [key: string]: string } {
     return {

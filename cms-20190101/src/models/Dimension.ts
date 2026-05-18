@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Dimension extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the metric dimension.
+   * 
+   * @example
+   * instanceId
+   */
   label?: string;
+  /**
+   * @remarks
+   * The value of the metric dimension.
+   * 
+   * @example
+   * i-dferwret*****
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
