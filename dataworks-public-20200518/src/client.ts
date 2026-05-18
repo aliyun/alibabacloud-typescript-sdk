@@ -110,11 +110,13 @@ export default class Client extends OpenApi {
       try {
         let request_ = new $dara.Request();
         let boundary = $dara.Form.getBoundary();
+        let tmp = String(form["host"]);
+        let host = `${bucketName}.${tmp}`;
         request_.protocol = "HTTPS";
         request_.method = "POST";
         request_.pathname = `/`;
         request_.headers = {
-          host: String(form["host"]),
+          host: host,
           date: OpenApiUtil.getDateUTCString(),
           'user-agent': OpenApiUtil.getUserAgent(""),
         };
@@ -2243,7 +2245,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -3242,7 +3244,7 @@ export default class Client extends OpenApi {
         contentType: "",
       });
       ossHeader = {
-        host: `${authResponseBody["Bucket"]}.${OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType)}`,
+        host: OpenApiUtil.getEndpoint(authResponseBody["Endpoint"], useAccelerate, this._endpointType),
         OSSAccessKeyId: authResponseBody["AccessKeyId"],
         policy: authResponseBody["EncodedPolicy"],
         Signature: authResponseBody["Signature"],
@@ -5423,6 +5425,14 @@ export default class Client extends OpenApi {
       body["TenantId"] = request.tenantId;
     }
 
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
@@ -5916,7 +5926,6 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of users or roles of the current tenant.
    * 
-   * @param request - DsgUserGroupQueryUserListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DsgUserGroupQueryUserListResponse
    */
@@ -14358,7 +14367,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the built-in sensitive data identification rule that is used to configure a sensitive field.
    * 
-   * @param request - QueryRecognizeRulesTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryRecognizeRulesTypeResponse
    */

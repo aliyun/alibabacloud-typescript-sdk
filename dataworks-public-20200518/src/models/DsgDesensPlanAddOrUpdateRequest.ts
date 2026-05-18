@@ -174,7 +174,7 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
    */
   status?: number;
   columns?: DsgDesensPlanAddOrUpdateRequestDesensRulesColumns[];
-  emptyNotDesesn?: boolean;
+  emptyNotDesens?: boolean;
   static names(): { [key: string]: string } {
     return {
       checkWatermark: 'CheckWatermark',
@@ -186,7 +186,7 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
       sceneIds: 'SceneIds',
       status: 'Status',
       columns: 'columns',
-      emptyNotDesesn: 'emptyNotDesesn',
+      emptyNotDesens: 'emptyNotDesens',
     };
   }
 
@@ -201,7 +201,7 @@ export class DsgDesensPlanAddOrUpdateRequestDesensRules extends $dara.Model {
       sceneIds: { 'type': 'array', 'itemType': 'number' },
       status: 'number',
       columns: { 'type': 'array', 'itemType': DsgDesensPlanAddOrUpdateRequestDesensRulesColumns },
-      emptyNotDesesn: 'boolean',
+      emptyNotDesens: 'boolean',
     };
   }
 

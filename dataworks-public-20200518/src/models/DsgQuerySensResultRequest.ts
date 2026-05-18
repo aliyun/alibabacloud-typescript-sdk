@@ -132,12 +132,12 @@ export class DsgQuerySensResultRequest extends $dara.Model {
    * @remarks
    * The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 10241024
    */
   tenantId?: string;
+  endDate?: string;
+  startDate?: string;
   static names(): { [key: string]: string } {
     return {
       col: 'Col',
@@ -155,6 +155,8 @@ export class DsgQuerySensResultRequest extends $dara.Model {
       sensitiveName: 'SensitiveName',
       table: 'Table',
       tenantId: 'TenantId',
+      endDate: 'endDate',
+      startDate: 'startDate',
     };
   }
 
@@ -175,6 +177,8 @@ export class DsgQuerySensResultRequest extends $dara.Model {
       sensitiveName: 'string',
       table: 'string',
       tenantId: 'string',
+      endDate: 'string',
+      startDate: 'string',
     };
   }
 
