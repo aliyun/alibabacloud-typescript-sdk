@@ -114,6 +114,7 @@ export class RunInstancesShrinkRequest extends $dara.Model {
    */
   dataDiskShrink?: string;
   deletionProtection?: boolean;
+  deploymentSetId?: string;
   /**
    * @remarks
    * The ID of the node.
@@ -442,6 +443,7 @@ export class RunInstancesShrinkRequest extends $dara.Model {
       carrier: 'Carrier',
       dataDiskShrink: 'DataDisk',
       deletionProtection: 'DeletionProtection',
+      deploymentSetId: 'DeploymentSetId',
       ensRegionId: 'EnsRegionId',
       hostName: 'HostName',
       imageId: 'ImageId',
@@ -491,6 +493,7 @@ export class RunInstancesShrinkRequest extends $dara.Model {
       carrier: 'string',
       dataDiskShrink: 'string',
       deletionProtection: 'boolean',
+      deploymentSetId: 'string',
       ensRegionId: 'string',
       hostName: 'string',
       imageId: 'string',

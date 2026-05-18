@@ -227,6 +227,7 @@ export class RunInstancesRequest extends $dara.Model {
    */
   dataDisk?: RunInstancesRequestDataDisk[];
   deletionProtection?: boolean;
+  deploymentSetId?: string;
   /**
    * @remarks
    * The ID of the node.
@@ -555,6 +556,7 @@ export class RunInstancesRequest extends $dara.Model {
       carrier: 'Carrier',
       dataDisk: 'DataDisk',
       deletionProtection: 'DeletionProtection',
+      deploymentSetId: 'DeploymentSetId',
       ensRegionId: 'EnsRegionId',
       hostName: 'HostName',
       imageId: 'ImageId',
@@ -604,6 +606,7 @@ export class RunInstancesRequest extends $dara.Model {
       carrier: 'string',
       dataDisk: { 'type': 'array', 'itemType': RunInstancesRequestDataDisk },
       deletionProtection: 'boolean',
+      deploymentSetId: 'string',
       ensRegionId: 'string',
       hostName: 'string',
       imageId: 'string',

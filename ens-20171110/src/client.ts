@@ -16716,6 +16716,10 @@ export default class Client extends OpenApi {
       query["DeletionProtection"] = request.deletionProtection;
     }
 
+    if (!$dara.isNull(request.deploymentSetId)) {
+      query["DeploymentSetId"] = request.deploymentSetId;
+    }
+
     if (!$dara.isNull(request.ensRegionId)) {
       query["EnsRegionId"] = request.ensRegionId;
     }
