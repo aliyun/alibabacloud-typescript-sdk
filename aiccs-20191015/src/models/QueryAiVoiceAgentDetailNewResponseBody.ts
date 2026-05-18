@@ -657,43 +657,9 @@ export class QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTa
   }
 }
 
-export class QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTagConfigMappingTag extends $dara.Model {
-  /**
-   * @example
-   * 示例值示例值
-   */
-  desc?: string;
-  /**
-   * @example
-   * 示例值示例值示例值
-   */
-  tag?: string;
-  static names(): { [key: string]: string } {
-    return {
-      desc: 'Desc',
-      tag: 'Tag',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desc: 'string',
-      tag: 'string',
-    };
-  }
-
-  validate() {
-    super.validate();
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTagConfig extends $dara.Model {
   defaultTag?: QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTagConfigDefaultTag;
-  mappingTag?: QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTagConfigMappingTag;
+  mappingTag?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
       defaultTag: 'DefaultTag',
@@ -704,7 +670,7 @@ export class QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTa
   static types(): { [key: string]: any } {
     return {
       defaultTag: QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTagConfigDefaultTag,
-      mappingTag: QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTagConfigMappingTag,
+      mappingTag: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
     };
   }
 
@@ -712,8 +678,8 @@ export class QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTa
     if(this.defaultTag && typeof (this.defaultTag as any).validate === 'function') {
       (this.defaultTag as any).validate();
     }
-    if(this.mappingTag && typeof (this.mappingTag as any).validate === 'function') {
-      (this.mappingTag as any).validate();
+    if(this.mappingTag) {
+      $dara.Model.validateMap(this.mappingTag);
     }
     super.validate();
   }

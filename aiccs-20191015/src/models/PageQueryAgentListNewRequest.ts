@@ -10,7 +10,7 @@ export class PageQueryAgentListNewRequest extends $dara.Model {
    * @example
    * 12345
    */
-  agentId?: number;
+  agentId?: string;
   /**
    * @example
    * 示例值示例值
@@ -49,7 +49,7 @@ export class PageQueryAgentListNewRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      agentId: 'number',
+      agentId: 'string',
       agentName: 'string',
       isAvailable: 'boolean',
       pageIndex: 'number',

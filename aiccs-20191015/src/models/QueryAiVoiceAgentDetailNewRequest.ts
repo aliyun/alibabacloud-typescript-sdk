@@ -4,20 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryAiVoiceAgentDetailNewRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 12345678
    */
-  agentId?: number;
+  agentId?: string;
   /**
    * @example
    * 12
    */
-  branchId?: number;
+  branchId?: string;
   /**
    * @example
    * 21
    */
-  versionId?: number;
+  versionId?: string;
   static names(): { [key: string]: string } {
     return {
       agentId: 'AgentId',
@@ -28,9 +31,9 @@ export class QueryAiVoiceAgentDetailNewRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      agentId: 'number',
-      branchId: 'number',
-      versionId: 'number',
+      agentId: 'string',
+      branchId: 'string',
+      versionId: 'string',
     };
   }
 

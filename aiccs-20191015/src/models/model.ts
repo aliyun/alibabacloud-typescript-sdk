@@ -126,7 +126,6 @@ export { QueryAiVoiceAgentDetailNewResponseBodyDataKnowledgeConfig } from './Que
 export { QueryAiVoiceAgentDetailNewResponseBodyDataPhoneTagConfigPhoneTagEnum } from './QueryAiVoiceAgentDetailNewResponseBody';
 export { QueryAiVoiceAgentDetailNewResponseBodyDataPhoneTagConfig } from './QueryAiVoiceAgentDetailNewResponseBody';
 export { QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTagConfigDefaultTag } from './QueryAiVoiceAgentDetailNewResponseBody';
-export { QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTagConfigMappingTag } from './QueryAiVoiceAgentDetailNewResponseBody';
 export { QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigCallResultTagConfig } from './QueryAiVoiceAgentDetailNewResponseBody';
 export { QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigMainPurposeMainPurposeEnum } from './QueryAiVoiceAgentDetailNewResponseBody';
 export { QueryAiVoiceAgentDetailNewResponseBodyDataSummaryConfigMainPurpose } from './QueryAiVoiceAgentDetailNewResponseBody';
