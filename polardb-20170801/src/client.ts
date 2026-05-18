@@ -16123,6 +16123,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询配额列表
+   * 
+   * @param request - DescribePolarFsQuotaListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePolarFsQuotaListResponse
+   */
+  async describePolarFsQuotaListWithOptions(request: $_model.DescribePolarFsQuotaListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsQuotaListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.polarFsInstanceId)) {
+      query["PolarFsInstanceId"] = request.polarFsInstanceId;
+    }
+
+    if (!$dara.isNull(request.quotaMode)) {
+      query["QuotaMode"] = request.quotaMode;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePolarFsQuotaList",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePolarFsQuotaListResponse>(await this.callApi(params, req, runtime), new $_model.DescribePolarFsQuotaListResponse({}));
+  }
+
+  /**
+   * 查询配额列表
+   * 
+   * @param request - DescribePolarFsQuotaListRequest
+   * @returns DescribePolarFsQuotaListResponse
+   */
+  async describePolarFsQuotaList(request: $_model.DescribePolarFsQuotaListRequest): Promise<$_model.DescribePolarFsQuotaListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePolarFsQuotaListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries whether the SQL Explorer feature is enabled for the cluster.
    * 
    * @param request - DescribePolarSQLCollectorPolicyRequest

@@ -273,6 +273,7 @@ export { DescribePolarFsAttributeResponseBodyMountInfo } from './DescribePolarFs
 export { DescribePolarFsObjectsResponseBodyItems } from './DescribePolarFsObjectsResponseBody';
 export { DescribePolarFsQuotaResponseBodyPolicyItems } from './DescribePolarFsQuotaResponseBody';
 export { DescribePolarFsQuotaResponseBodyQuotaItems } from './DescribePolarFsQuotaResponseBody';
+export { DescribePolarFsQuotaListResponseBodyQuotaItems } from './DescribePolarFsQuotaListResponseBody';
 export { DescribeRateLimitPolicyResponseBodyItems } from './DescribeRateLimitPolicyResponseBody';
 export { DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch } from './DescribeRdsVswitchsResponseBody';
 export { DescribeRdsVSwitchsResponseBodyVSwitches } from './DescribeRdsVswitchsResponseBody';
@@ -1048,6 +1049,9 @@ export { DescribePolarFsObjectsResponse } from './DescribePolarFsObjectsResponse
 export { DescribePolarFsQuotaRequest } from './DescribePolarFsQuotaRequest';
 export { DescribePolarFsQuotaResponseBody } from './DescribePolarFsQuotaResponseBody';
 export { DescribePolarFsQuotaResponse } from './DescribePolarFsQuotaResponse';
+export { DescribePolarFsQuotaListRequest } from './DescribePolarFsQuotaListRequest';
+export { DescribePolarFsQuotaListResponseBody } from './DescribePolarFsQuotaListResponseBody';
+export { DescribePolarFsQuotaListResponse } from './DescribePolarFsQuotaListResponse';
 export { DescribePolarSQLCollectorPolicyRequest } from './DescribePolarSqlcollectorPolicyRequest';
 export { DescribePolarSQLCollectorPolicyResponseBody } from './DescribePolarSqlcollectorPolicyResponseBody';
 export { DescribePolarSQLCollectorPolicyResponse } from './DescribePolarSqlcollectorPolicyResponse';

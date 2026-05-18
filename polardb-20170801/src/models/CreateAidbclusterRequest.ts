@@ -165,9 +165,6 @@ export class CreateAIDBClusterRequest extends $dara.Model {
    */
   storageSpace?: number;
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * essdpl0
    */
