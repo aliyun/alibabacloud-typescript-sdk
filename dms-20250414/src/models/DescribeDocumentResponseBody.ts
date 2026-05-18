@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class OneMetaKnowledgeBaseDocument extends $dara.Model {
+export class DescribeDocumentResponseBodyData extends $dara.Model {
   /**
    * @example
    * abc
@@ -105,6 +105,60 @@ export class OneMetaKnowledgeBaseDocument extends $dara.Model {
   }
 
   validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDocumentResponseBody extends $dara.Model {
+  data?: DescribeDocumentResponseBodyData;
+  /**
+   * @example
+   * KnowledgeBaseNotFound
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Resource not found kb-***
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 67E910F2-4B62-5B0C-ACA3-7547695C****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeDocumentResponseBodyData,
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    if(this.data && typeof (this.data as any).validate === 'function') {
+      (this.data as any).validate();
+    }
     super.validate();
   }
 

@@ -1520,6 +1520,108 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除文档
+   * 
+   * @param request - DeleteDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDocumentResponse
+   */
+  async deleteDocumentWithOptions(request: $_model.DeleteDocumentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDocumentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.documentName)) {
+      body["DocumentName"] = request.documentName;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      body["KbUuid"] = request.kbUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDocument",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDocumentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDocumentResponse({}));
+  }
+
+  /**
+   * 删除文档
+   * 
+   * @param request - DeleteDocumentRequest
+   * @returns DeleteDocumentResponse
+   */
+  async deleteDocument(request: $_model.DeleteDocumentRequest): Promise<$_model.DeleteDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除onemeta3.0的知识库chunks
+   * 
+   * @param tmpReq - DeleteDocumentChunksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDocumentChunksResponse
+   */
+  async deleteDocumentChunksWithOptions(tmpReq: $_model.DeleteDocumentChunksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDocumentChunksResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteDocumentChunksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.chunkIds)) {
+      request.chunkIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chunkIds, "ChunkIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chunkIdsShrink)) {
+      body["ChunkIds"] = request.chunkIdsShrink;
+    }
+
+    if (!$dara.isNull(request.documentName)) {
+      body["DocumentName"] = request.documentName;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      body["KbUuid"] = request.kbUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDocumentChunks",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDocumentChunksResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDocumentChunksResponse({}));
+  }
+
+  /**
+   * 删除onemeta3.0的知识库chunks
+   * 
+   * @param request - DeleteDocumentChunksRequest
+   * @returns DeleteDocumentChunksResponse
+   */
+  async deleteDocumentChunks(request: $_model.DeleteDocumentChunksRequest): Promise<$_model.DeleteDocumentChunksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteDocumentChunksWithOptions(request, runtime);
+  }
+
+  /**
    * DeleteFileUpload
    * 
    * @param request - DeleteFileUploadRequest
@@ -1666,6 +1768,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文档详情
+   * 
+   * @param request - DescribeDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeDocumentResponse
+   */
+  async describeDocumentWithOptions(request: $_model.DescribeDocumentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDocumentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.documentName)) {
+      body["DocumentName"] = request.documentName;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      body["KbUuid"] = request.kbUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeDocument",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeDocumentResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDocumentResponse({}));
+  }
+
+  /**
+   * 获取文档详情
+   * 
+   * @param request - DescribeDocumentRequest
+   * @returns DescribeDocumentResponse
+   */
+  async describeDocument(request: $_model.DescribeDocumentRequest): Promise<$_model.DescribeDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeDocumentWithOptions(request, runtime);
+  }
+
+  /**
    * DescribeFileUploadSignature
    * 
    * @param request - DescribeFileUploadSignatureRequest
@@ -1751,6 +1899,48 @@ export default class Client extends OpenApi {
   async describeKnowledgeBaseStats(request: $_model.DescribeKnowledgeBaseStatsRequest): Promise<$_model.DescribeKnowledgeBaseStatsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeKnowledgeBaseStatsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取知识库中的上传签名
+   * 
+   * @param request - DescribeKnowledgeBaseUploadSignatureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKnowledgeBaseUploadSignatureResponse
+   */
+  async describeKnowledgeBaseUploadSignatureWithOptions(request: $_model.DescribeKnowledgeBaseUploadSignatureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKnowledgeBaseUploadSignatureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.kbUuid)) {
+      query["KbUuid"] = request.kbUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeKnowledgeBaseUploadSignature",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeKnowledgeBaseUploadSignatureResponse>(await this.callApi(params, req, runtime), new $_model.DescribeKnowledgeBaseUploadSignatureResponse({}));
+  }
+
+  /**
+   * 获取知识库中的上传签名
+   * 
+   * @param request - DescribeKnowledgeBaseUploadSignatureRequest
+   * @returns DescribeKnowledgeBaseUploadSignatureResponse
+   */
+  async describeKnowledgeBaseUploadSignature(request: $_model.DescribeKnowledgeBaseUploadSignatureRequest): Promise<$_model.DescribeKnowledgeBaseUploadSignatureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeKnowledgeBaseUploadSignatureWithOptions(request, runtime);
   }
 
   /**
@@ -3733,6 +3923,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询onemeta3.0的知识库chunks
+   * 
+   * @param request - ListDocumentChunksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDocumentChunksResponse
+   */
+  async listDocumentChunksWithOptions(request: $_model.ListDocumentChunksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDocumentChunksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chunkTitlePattern)) {
+      body["ChunkTitlePattern"] = request.chunkTitlePattern;
+    }
+
+    if (!$dara.isNull(request.documentName)) {
+      body["DocumentName"] = request.documentName;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      body["KbUuid"] = request.kbUuid;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.sortFieldName)) {
+      body["SortFieldName"] = request.sortFieldName;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      body["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDocumentChunks",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDocumentChunksResponse>(await this.callApi(params, req, runtime), new $_model.ListDocumentChunksResponse({}));
+  }
+
+  /**
+   * 分页查询onemeta3.0的知识库chunks
+   * 
+   * @param request - ListDocumentChunksRequest
+   * @returns ListDocumentChunksResponse
+   */
+  async listDocumentChunks(request: $_model.ListDocumentChunksRequest): Promise<$_model.ListDocumentChunksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDocumentChunksWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文档列表
+   * 
+   * @param request - ListDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDocumentsResponse
+   */
+  async listDocumentsWithOptions(request: $_model.ListDocumentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListDocumentsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filters)) {
+      body["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      body["KbUuid"] = request.kbUuid;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.namePattern)) {
+      body["NamePattern"] = request.namePattern;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.sortFieldName)) {
+      body["SortFieldName"] = request.sortFieldName;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      body["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDocuments",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDocumentsResponse>(await this.callApi(params, req, runtime), new $_model.ListDocumentsResponse({}));
+  }
+
+  /**
+   * 获取文档列表
+   * 
+   * @param request - ListDocumentsRequest
+   * @returns ListDocumentsResponse
+   */
+  async listDocuments(request: $_model.ListDocumentsRequest): Promise<$_model.ListDocumentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listDocumentsWithOptions(request, runtime);
+  }
+
+  /**
    * ListFileUpload
    * 
    * @param request - ListFileUploadRequest
@@ -3804,6 +4126,72 @@ export default class Client extends OpenApi {
   async listFileUpload(request: $_model.ListFileUploadRequest): Promise<$_model.ListFileUploadResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFileUploadWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询onemeta3.0的知识库
+   * 
+   * @param request - ListKnowledgeBasesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeBasesResponse
+   */
+  async listKnowledgeBasesWithOptions(request: $_model.ListKnowledgeBasesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeBasesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filters)) {
+      body["Filters"] = request.filters;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.namePattern)) {
+      body["NamePattern"] = request.namePattern;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.sortFieldName)) {
+      body["SortFieldName"] = request.sortFieldName;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      body["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      body["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeBases",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeBasesResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeBasesResponse({}));
+  }
+
+  /**
+   * 分页查询onemeta3.0的知识库
+   * 
+   * @param request - ListKnowledgeBasesRequest
+   * @returns ListKnowledgeBasesResponse
+   */
+  async listKnowledgeBases(request: $_model.ListKnowledgeBasesRequest): Promise<$_model.ListKnowledgeBasesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeBasesWithOptions(request, runtime);
   }
 
   /**
@@ -4762,6 +5150,248 @@ export default class Client extends OpenApi {
   async updateDataLakeTable(request: $_model.UpdateDataLakeTableRequest): Promise<$_model.UpdateDataLakeTableResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDataLakeTableWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新文档
+   * 
+   * @param request - UpdateDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDocumentResponse
+   */
+  async updateDocumentWithOptions(request: $_model.UpdateDocumentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateDocumentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.documentName)) {
+      body["DocumentName"] = request.documentName;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      body["KbUuid"] = request.kbUuid;
+    }
+
+    if (!$dara.isNull(request.newDescription)) {
+      body["NewDescription"] = request.newDescription;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateDocument",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateDocumentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateDocumentResponse({}));
+  }
+
+  /**
+   * 更新文档
+   * 
+   * @param request - UpdateDocumentRequest
+   * @returns UpdateDocumentResponse
+   */
+  async updateDocument(request: $_model.UpdateDocumentRequest): Promise<$_model.UpdateDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新onemeta3.0的知识库
+   * 
+   * @param request - UpdateKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBaseWithOptions(request: $_model.UpdateKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      query["KbUuid"] = request.kbUuid;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeBase",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 更新onemeta3.0的知识库
+   * 
+   * @param request - UpdateKnowledgeBaseRequest
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBase(request: $_model.UpdateKnowledgeBaseRequest): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传文档
+   * 
+   * @param tmpReq - UploadDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadDocumentResponse
+   */
+  async uploadDocumentWithOptions(tmpReq: $_model.UploadDocumentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UploadDocumentResponse> {
+    tmpReq.validate();
+    let request = new $_model.UploadDocumentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.separators)) {
+      request.separatorsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.separators, "Separators", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chunkOverlap)) {
+      body["ChunkOverlap"] = request.chunkOverlap;
+    }
+
+    if (!$dara.isNull(request.chunkSize)) {
+      body["ChunkSize"] = request.chunkSize;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.documentLoaderName)) {
+      body["DocumentLoaderName"] = request.documentLoaderName;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      body["KbUuid"] = request.kbUuid;
+    }
+
+    if (!$dara.isNull(request.location)) {
+      body["Location"] = request.location;
+    }
+
+    if (!$dara.isNull(request.separatorsShrink)) {
+      body["Separators"] = request.separatorsShrink;
+    }
+
+    if (!$dara.isNull(request.splitterModel)) {
+      body["SplitterModel"] = request.splitterModel;
+    }
+
+    if (!$dara.isNull(request.textSplitterName)) {
+      body["TextSplitterName"] = request.textSplitterName;
+    }
+
+    if (!$dara.isNull(request.vlEnhance)) {
+      body["VlEnhance"] = request.vlEnhance;
+    }
+
+    if (!$dara.isNull(request.zhTitleEnhance)) {
+      body["ZhTitleEnhance"] = request.zhTitleEnhance;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UploadDocument",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UploadDocumentResponse>(await this.callApi(params, req, runtime), new $_model.UploadDocumentResponse({}));
+  }
+
+  /**
+   * 上传文档
+   * 
+   * @param request - UploadDocumentRequest
+   * @returns UploadDocumentResponse
+   */
+  async uploadDocument(request: $_model.UploadDocumentRequest): Promise<$_model.UploadDocumentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.uploadDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新或插入onemeta3.0的知识库chunks
+   * 
+   * @param request - UpsertDocumentChunksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpsertDocumentChunksResponse
+   */
+  async upsertDocumentChunksWithOptions(request: $_model.UpsertDocumentChunksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpsertDocumentChunksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chunks)) {
+      body["Chunks"] = request.chunks;
+    }
+
+    if (!$dara.isNull(request.documentName)) {
+      body["DocumentName"] = request.documentName;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      body["KbUuid"] = request.kbUuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpsertDocumentChunks",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpsertDocumentChunksResponse>(await this.callApi(params, req, runtime), new $_model.UpsertDocumentChunksResponse({}));
+  }
+
+  /**
+   * 更新或插入onemeta3.0的知识库chunks
+   * 
+   * @param request - UpsertDocumentChunksRequest
+   * @returns UpsertDocumentChunksResponse
+   */
+  async upsertDocumentChunks(request: $_model.UpsertDocumentChunksRequest): Promise<$_model.UpsertDocumentChunksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.upsertDocumentChunksWithOptions(request, runtime);
   }
 
   /**
