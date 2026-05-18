@@ -1166,6 +1166,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量卸载VSC 挂载点
+   * 
+   * @param tmpReq - DetachVscFromMountPointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachVscFromMountPointsResponse
+   */
+  async detachVscFromMountPointsWithOptions(tmpReq: $_model.DetachVscFromMountPointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DetachVscFromMountPointsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DetachVscFromMountPointsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.detachInfos)) {
+      request.detachInfosShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.detachInfos, "DetachInfos", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.detachInfosShrink)) {
+      query["DetachInfos"] = request.detachInfosShrink;
+    }
+
+    if (!$dara.isNull(request.inputRegionId)) {
+      query["InputRegionId"] = request.inputRegionId;
+    }
+
+    if (!$dara.isNull(request.useAssumeRoleChkServerPerm)) {
+      query["UseAssumeRoleChkServerPerm"] = request.useAssumeRoleChkServerPerm;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DetachVscFromMountPoints",
+      version: "2018-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DetachVscFromMountPointsResponse>(await this.callApi(params, req, runtime), new $_model.DetachVscFromMountPointsResponse({}));
+  }
+
+  /**
+   * 批量卸载VSC 挂载点
+   * 
+   * @param request - DetachVscFromMountPointsRequest
+   * @returns DetachVscFromMountPointsResponse
+   */
+  async detachVscFromMountPoints(request: $_model.DetachVscFromMountPointsRequest): Promise<$_model.DetachVscFromMountPointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.detachVscFromMountPointsWithOptions(request, runtime);
+  }
+
+  /**
    * @param tmpReq - DetachVscMountPointRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DetachVscMountPointResponse

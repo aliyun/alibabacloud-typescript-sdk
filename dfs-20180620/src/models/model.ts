@@ -6,6 +6,7 @@ export { DescribeRegionsResponseBodyRegions } from './DescribeRegionsResponseBod
 export { DescribeVscMountPointsResponseBodyMountPointsInstancesVscs } from './DescribeVscMountPointsResponseBody';
 export { DescribeVscMountPointsResponseBodyMountPointsInstances } from './DescribeVscMountPointsResponseBody';
 export { DescribeVscMountPointsResponseBodyMountPoints } from './DescribeVscMountPointsResponseBody';
+export { DetachVscFromMountPointsRequestDetachInfos } from './DetachVscFromMountPointsRequest';
 export { GetAccessGroupResponseBodyAccessGroup } from './GetAccessGroupResponseBody';
 export { GetAccessRuleResponseBodyAccessRule } from './GetAccessRuleResponseBody';
 export { GetFileSystemResponseBodyFileSystem } from './GetFileSystemResponseBody';
@@ -86,6 +87,10 @@ export { DescribeRegionsResponse } from './DescribeRegionsResponse';
 export { DescribeVscMountPointsRequest } from './DescribeVscMountPointsRequest';
 export { DescribeVscMountPointsResponseBody } from './DescribeVscMountPointsResponseBody';
 export { DescribeVscMountPointsResponse } from './DescribeVscMountPointsResponse';
+export { DetachVscFromMountPointsRequest } from './DetachVscFromMountPointsRequest';
+export { DetachVscFromMountPointsShrinkRequest } from './DetachVscFromMountPointsShrinkRequest';
+export { DetachVscFromMountPointsResponseBody } from './DetachVscFromMountPointsResponseBody';
+export { DetachVscFromMountPointsResponse } from './DetachVscFromMountPointsResponse';
 export { DetachVscMountPointRequest } from './DetachVscMountPointRequest';
 export { DetachVscMountPointShrinkRequest } from './DetachVscMountPointShrinkRequest';
 export { DetachVscMountPointResponseBody } from './DetachVscMountPointResponseBody';
