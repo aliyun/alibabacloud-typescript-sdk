@@ -30,6 +30,7 @@ export class CreateExternalCACertificateShrinkRequestTags extends $dara.Model {
 
 export class CreateExternalCACertificateShrinkRequest extends $dara.Model {
   apiPassthroughShrink?: string;
+  certMaxTime?: number;
   /**
    * @example
    * -----BEGIN CERTIFICATE REQUEST-----
@@ -54,6 +55,7 @@ export class CreateExternalCACertificateShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiPassthroughShrink: 'ApiPassthrough',
+      certMaxTime: 'CertMaxTime',
       csr: 'Csr',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
@@ -65,6 +67,7 @@ export class CreateExternalCACertificateShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiPassthroughShrink: 'string',
+      certMaxTime: 'number',
       csr: 'string',
       instanceId: 'string',
       resourceGroupId: 'string',

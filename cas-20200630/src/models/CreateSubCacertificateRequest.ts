@@ -49,6 +49,7 @@ export class CreateSubCACertificateRequest extends $dara.Model {
    * RSA_2048
    */
   algorithm?: string;
+  certMaxTime?: number;
   clientToken?: string;
   /**
    * @remarks
@@ -171,6 +172,7 @@ export class CreateSubCACertificateRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       algorithm: 'Algorithm',
+      certMaxTime: 'CertMaxTime',
       clientToken: 'ClientToken',
       commonName: 'CommonName',
       countryCode: 'CountryCode',
@@ -192,6 +194,7 @@ export class CreateSubCACertificateRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       algorithm: 'string',
+      certMaxTime: 'number',
       clientToken: 'string',
       commonName: 'string',
       countryCode: 'string',

@@ -137,6 +137,7 @@ export class CreateExternalCACertificateRequestTags extends $dara.Model {
 
 export class CreateExternalCACertificateRequest extends $dara.Model {
   apiPassthrough?: CreateExternalCACertificateRequestApiPassthrough;
+  certMaxTime?: number;
   /**
    * @example
    * -----BEGIN CERTIFICATE REQUEST-----
@@ -161,6 +162,7 @@ export class CreateExternalCACertificateRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apiPassthrough: 'ApiPassthrough',
+      certMaxTime: 'CertMaxTime',
       csr: 'Csr',
       instanceId: 'InstanceId',
       resourceGroupId: 'ResourceGroupId',
@@ -172,6 +174,7 @@ export class CreateExternalCACertificateRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apiPassthrough: CreateExternalCACertificateRequestApiPassthrough,
+      certMaxTime: 'number',
       csr: 'string',
       instanceId: 'string',
       resourceGroupId: 'string',

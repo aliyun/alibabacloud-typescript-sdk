@@ -526,6 +526,10 @@ export default class Client extends OpenApi {
       query["ApiPassthrough"] = request.apiPassthroughShrink;
     }
 
+    if (!$dara.isNull(request.certMaxTime)) {
+      query["CertMaxTime"] = request.certMaxTime;
+    }
+
     if (!$dara.isNull(request.csr)) {
       query["Csr"] = request.csr;
     }
@@ -992,6 +996,10 @@ export default class Client extends OpenApi {
       query["Algorithm"] = request.algorithm;
     }
 
+    if (!$dara.isNull(request.certMaxTime)) {
+      query["CertMaxTime"] = request.certMaxTime;
+    }
+
     if (!$dara.isNull(request.commonName)) {
       query["CommonName"] = request.commonName;
     }
@@ -1202,7 +1210,6 @@ export default class Client extends OpenApi {
    * ## Limits
    * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
-   * @param request - DescribeCACertificateCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCACertificateCountResponse
    */
