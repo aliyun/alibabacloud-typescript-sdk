@@ -97,7 +97,6 @@ export { CreateJobTemplateResponse } from './CreateJobTemplateResponse';
 export { CreateTensorboardRequest } from './CreateTensorboardRequest';
 export { CreateTensorboardResponseBody } from './CreateTensorboardResponseBody';
 export { CreateTensorboardResponse } from './CreateTensorboardResponse';
-export { DeleteJobRequest } from './DeleteJobRequest';
 export { DeleteJobResponseBody } from './DeleteJobResponseBody';
 export { DeleteJobResponse } from './DeleteJobResponse';
 export { DeleteJobTemplateRequest } from './DeleteJobTemplateRequest';
@@ -166,7 +165,6 @@ export { SetJobTemplateDefaultVersionResponse } from './SetJobTemplateDefaultVer
 export { StartTensorboardRequest } from './StartTensorboardRequest';
 export { StartTensorboardResponseBody } from './StartTensorboardResponseBody';
 export { StartTensorboardResponse } from './StartTensorboardResponse';
-export { StopJobRequest } from './StopJobRequest';
 export { StopJobResponseBody } from './StopJobResponseBody';
 export { StopJobResponse } from './StopJobResponse';
 export { StopTensorboardRequest } from './StopTensorboardRequest';
