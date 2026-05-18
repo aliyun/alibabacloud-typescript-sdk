@@ -1126,6 +1126,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建模板
+   * 
+   * @param request - CreateTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTemplateResponse
+   */
+  async createTemplateWithOptions(request: $_model.CreateTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fromType)) {
+      query["FromType"] = request.fromType;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.smsContent)) {
+      query["SmsContent"] = request.smsContent;
+    }
+
+    if (!$dara.isNull(request.smsType)) {
+      query["SmsType"] = request.smsType;
+    }
+
+    if (!$dara.isNull(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!$dara.isNull(request.templateNickName)) {
+      query["TemplateNickName"] = request.templateNickName;
+    }
+
+    if (!$dara.isNull(request.templateSubject)) {
+      query["TemplateSubject"] = request.templateSubject;
+    }
+
+    if (!$dara.isNull(request.templateText)) {
+      query["TemplateText"] = request.templateText;
+    }
+
+    if (!$dara.isNull(request.templateType)) {
+      query["TemplateType"] = request.templateType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTemplate",
+      version: "2015-11-23",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateTemplateResponse({}));
+  }
+
+  /**
+   * 创建模板
+   * 
+   * @param request - CreateTemplateRequest
+   * @returns CreateTemplateResponse
+   */
+  async createTemplate(request: $_model.CreateTemplateRequest): Promise<$_model.CreateTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Create User\\"s Invalid Address
    * 
    * @param request - CreateUserSuppressionRequest
