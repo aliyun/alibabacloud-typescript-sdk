@@ -5,6 +5,7 @@ export { ChangeMcubeNebulaTaskStatusResponseBodyChangeMcubeNebulaTaskStatusResul
 export { ChangeMcubePublicTaskStatusResponseBodyResultContent } from './ChangeMcubePublicTaskStatusResponseBody';
 export { ChangeMdsCubeTaskStatusResponseBodyResultContentData } from './ChangeMdsCubeTaskStatusResponseBody';
 export { ChangeMdsCubeTaskStatusResponseBodyResultContent } from './ChangeMdsCubeTaskStatusResponseBody';
+export { CheckUserAuthToMsceneResponseBodyMpaasUserAuthCheckResponse } from './CheckUserAuthToMsceneResponseBody';
 export { CopyMcdpGroupResponseBodyResultContent } from './CopyMcdpGroupResponseBody';
 export { CreateLinkResponseBodyResultContent } from './CreateLinkResponseBody';
 export { CreateMcdpGroupResponseBodyResultContent } from './CreateMcdpGroupResponseBody';
@@ -263,6 +264,9 @@ export { ChangeMcubePublicTaskStatusResponse } from './ChangeMcubePublicTaskStat
 export { ChangeMdsCubeTaskStatusRequest } from './ChangeMdsCubeTaskStatusRequest';
 export { ChangeMdsCubeTaskStatusResponseBody } from './ChangeMdsCubeTaskStatusResponseBody';
 export { ChangeMdsCubeTaskStatusResponse } from './ChangeMdsCubeTaskStatusResponse';
+export { CheckUserAuthToMsceneRequest } from './CheckUserAuthToMsceneRequest';
+export { CheckUserAuthToMsceneResponseBody } from './CheckUserAuthToMsceneResponseBody';
+export { CheckUserAuthToMsceneResponse } from './CheckUserAuthToMsceneResponse';
 export { CopyMcdpGroupRequest } from './CopyMcdpGroupRequest';
 export { CopyMcdpGroupResponseBody } from './CopyMcdpGroupResponseBody';
 export { CopyMcdpGroupResponse } from './CopyMcdpGroupResponse';

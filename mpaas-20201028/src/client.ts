@@ -426,6 +426,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用户校验
+   * 
+   * @param request - CheckUserAuthToMsceneRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckUserAuthToMsceneResponse
+   */
+  async checkUserAuthToMsceneWithOptions(request: $_model.CheckUserAuthToMsceneRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckUserAuthToMsceneResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.authToken)) {
+      body["AuthToken"] = request.authToken;
+    }
+
+    if (!$dara.isNull(request.miniProgramId)) {
+      body["MiniProgramId"] = request.miniProgramId;
+    }
+
+    if (!$dara.isNull(request.openUid)) {
+      body["OpenUid"] = request.openUid;
+    }
+
+    if (!$dara.isNull(request.platformId)) {
+      body["PlatformId"] = request.platformId;
+    }
+
+    if (!$dara.isNull(request.tenantId)) {
+      body["TenantId"] = request.tenantId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CheckUserAuthToMscene",
+      version: "2020-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CheckUserAuthToMsceneResponse>(await this.callApi(params, req, runtime), new $_model.CheckUserAuthToMsceneResponse({}));
+  }
+
+  /**
+   * 用户校验
+   * 
+   * @param request - CheckUserAuthToMsceneRequest
+   * @returns CheckUserAuthToMsceneResponse
+   */
+  async checkUserAuthToMscene(request: $_model.CheckUserAuthToMsceneRequest): Promise<$_model.CheckUserAuthToMsceneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.checkUserAuthToMsceneWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - CopyMcdpGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CopyMcdpGroupResponse

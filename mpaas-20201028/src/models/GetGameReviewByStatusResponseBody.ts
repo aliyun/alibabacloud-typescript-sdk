@@ -64,6 +64,7 @@ export class GetGameReviewByStatusResponseBodyResultContentContentTargetDetail e
   miniProgramName?: string;
   miniResourceId?: number;
   publishStatus?: number;
+  publishStatusDesc?: string;
   qrCodeUrl?: string;
   reviewTargetType?: string;
   subType?: number;
@@ -82,6 +83,7 @@ export class GetGameReviewByStatusResponseBodyResultContentContentTargetDetail e
       miniProgramName: 'MiniProgramName',
       miniResourceId: 'MiniResourceId',
       publishStatus: 'PublishStatus',
+      publishStatusDesc: 'PublishStatusDesc',
       qrCodeUrl: 'QrCodeUrl',
       reviewTargetType: 'ReviewTargetType',
       subType: 'SubType',
@@ -103,6 +105,7 @@ export class GetGameReviewByStatusResponseBodyResultContentContentTargetDetail e
       miniProgramName: 'string',
       miniResourceId: 'number',
       publishStatus: 'number',
+      publishStatusDesc: 'string',
       qrCodeUrl: 'string',
       reviewTargetType: 'string',
       subType: 'number',
