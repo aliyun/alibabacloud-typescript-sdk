@@ -1326,7 +1326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询T2优惠券审批详情
+   * View Tier 2 coupon approval details
    * 
    * @param request - GetTier2CouponApprovalDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1357,7 +1357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询T2优惠券审批详情
+   * View Tier 2 coupon approval details
    * 
    * @param request - GetTier2CouponApprovalDetailRequest
    * @returns GetTier2CouponApprovalDetailResponse
@@ -1454,6 +1454,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * T2 Sub-distributor Invitation (Supports Cross-Regional Validation)
+   * 
+   * @remarks
+   * 1. The API caller must be a channel general distributor partner of Alibaba Cloud International.
+   * 2. The system automatically determines if the invitation is cross-regional based on whether the `registerNation` parameter is within the T1 contract coverage area (the contract coverage area can be queried using the ListCountries API).
+   * - If it\\"s a cross-regional invitation, a cross-regional approval process will be initiated. After approval by Alibaba Cloud, an invitation registration email will be sent to the invited email address.
+   * - If it\\"s not a cross-regional invitation, an invitation registration email will be sent directly.
+   * 
+   * @param request - InviteSubResellerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InviteSubResellerResponse
+   */
+  async inviteSubResellerWithOptions(request: $_model.InviteSubResellerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.InviteSubResellerResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.accountInfoList)) {
+      query["AccountInfoList"] = request.accountInfoList;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InviteSubReseller",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InviteSubResellerResponse>(await this.callApi(params, req, runtime), new $_model.InviteSubResellerResponse({}));
+  }
+
+  /**
+   * T2 Sub-distributor Invitation (Supports Cross-Regional Validation)
+   * 
+   * @remarks
+   * 1. The API caller must be a channel general distributor partner of Alibaba Cloud International.
+   * 2. The system automatically determines if the invitation is cross-regional based on whether the `registerNation` parameter is within the T1 contract coverage area (the contract coverage area can be queried using the ListCountries API).
+   * - If it\\"s a cross-regional invitation, a cross-regional approval process will be initiated. After approval by Alibaba Cloud, an invitation registration email will be sent to the invited email address.
+   * - If it\\"s not a cross-regional invitation, an invitation registration email will be sent directly.
+   * 
+   * @param request - InviteSubResellerRequest
+   * @returns InviteSubResellerResponse
+   */
+  async inviteSubReseller(request: $_model.InviteSubResellerRequest): Promise<$_model.InviteSubResellerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.inviteSubResellerWithOptions(request, runtime);
+  }
+
+  /**
    * 发放优惠券
    * 
    * @param request - IssueCouponForCustomerRequest
@@ -1517,7 +1571,6 @@ export default class Client extends OpenApi {
    * @remarks
    * The current API request rate for cloud products has not been disclosed.
    * 
-   * @param request - ListCountriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCountriesResponse
    */

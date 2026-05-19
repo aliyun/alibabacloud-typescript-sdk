@@ -29,6 +29,9 @@ export { InviteSubAccountRequestAccountInfoList } from './InviteSubAccountReques
 export { InviteSubAccountResponseBodyResultsResultResult } from './InviteSubAccountResponseBody';
 export { InviteSubAccountResponseBodyResultsResult } from './InviteSubAccountResponseBody';
 export { InviteSubAccountResponseBodyResults } from './InviteSubAccountResponseBody';
+export { InviteSubResellerRequestAccountInfoList } from './InviteSubResellerRequest';
+export { InviteSubResellerResponseBodyResultsResult } from './InviteSubResellerResponseBody';
+export { InviteSubResellerResponseBodyResults } from './InviteSubResellerResponseBody';
 export { IssueCouponForCustomerResponseBodyData } from './IssueCouponForCustomerResponseBody';
 export { ListCouponUsageResponseBodyData } from './ListCouponUsageResponseBody';
 export { ListCouponUsageResponseBodyPageInfo } from './ListCouponUsageResponseBody';
@@ -119,6 +122,9 @@ export { GetUnassociatedCustomerResponse } from './GetUnassociatedCustomerRespon
 export { InviteSubAccountRequest } from './InviteSubAccountRequest';
 export { InviteSubAccountResponseBody } from './InviteSubAccountResponseBody';
 export { InviteSubAccountResponse } from './InviteSubAccountResponse';
+export { InviteSubResellerRequest } from './InviteSubResellerRequest';
+export { InviteSubResellerResponseBody } from './InviteSubResellerResponseBody';
+export { InviteSubResellerResponse } from './InviteSubResellerResponse';
 export { IssueCouponForCustomerRequest } from './IssueCouponForCustomerRequest';
 export { IssueCouponForCustomerResponseBody } from './IssueCouponForCustomerResponseBody';
 export { IssueCouponForCustomerResponse } from './IssueCouponForCustomerResponse';
