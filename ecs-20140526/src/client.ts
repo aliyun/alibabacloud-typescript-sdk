@@ -7818,7 +7818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Vsc
+   * Create a virtual storage channel for an ECS instance
    * 
    * @param request - CreateVscRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7897,7 +7897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Vsc
+   * Create a virtual storage channel for an ECS instance
    * 
    * @param request - CreateVscRequest
    * @returns CreateVscResponse
@@ -10589,7 +10589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除虚拟存储通道
+   * Delete a Virtual Storage Channel (VSC)
    * 
    * @param request - DeleteVscRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10648,7 +10648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除虚拟存储通道
+   * Delete a Virtual Storage Channel (VSC)
    * 
    * @param request - DeleteVscRequest
    * @returns DeleteVscResponse
@@ -15371,7 +15371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing information about newly attached subscription data disks or about the new instance types when you upgrade the configurations of unexpired subscription Elastic Compute Service (ECS) instances.
+   * Queries the pricing info about the target instance types and newly added subscription data disks when you upgrade unexpired subscription ECS instances.
    * 
    * @remarks
    *   Pricing information can be queried for unexpired subscription ECS instances only when you upgrade their configurations. The pricing information cannot be queried when the instance configurations are downgraded.
@@ -15463,7 +15463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing information about newly attached subscription data disks or about the new instance types when you upgrade the configurations of unexpired subscription Elastic Compute Service (ECS) instances.
+   * Queries the pricing info about the target instance types and newly added subscription data disks when you upgrade unexpired subscription ECS instances.
    * 
    * @remarks
    *   Pricing information can be queried for unexpired subscription ECS instances only when you upgrade their configurations. The pricing information cannot be queried when the instance configurations are downgraded.
@@ -21931,7 +21931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询虚拟存储通道
+   * Query virtual storage channels (VSC). Support filtering by VscId, instance, Status, and label.
    * 
    * @param request - DescribeVscsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22006,7 +22006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询虚拟存储通道
+   * Query virtual storage channels (VSC). Support filtering by VscId, instance, Status, and label.
    * 
    * @param request - DescribeVscsRequest
    * @returns DescribeVscsResponse

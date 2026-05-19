@@ -41,11 +41,17 @@ export class ModifyInstanceAttributeRequestCpuOptions extends $dara.Model {
    * DiscreteCoreToHTMapping
    */
   topologyType?: string;
+  /**
+   * @example
+   * enabled
+   */
+  nestedVirtualization?: string;
   static names(): { [key: string]: string } {
     return {
       core: 'Core',
       threadsPerCore: 'ThreadsPerCore',
       topologyType: 'TopologyType',
+      nestedVirtualization: 'NestedVirtualization',
     };
   }
 
@@ -54,6 +60,7 @@ export class ModifyInstanceAttributeRequestCpuOptions extends $dara.Model {
       core: 'number',
       threadsPerCore: 'number',
       topologyType: 'string',
+      nestedVirtualization: 'string',
     };
   }
 

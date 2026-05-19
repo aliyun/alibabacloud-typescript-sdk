@@ -45,12 +45,18 @@ export class RunInstancesRequestCpuOptions extends $dara.Model {
    * DiscreteCoreToHTMapping
    */
   topologyType?: string;
+  /**
+   * @example
+   * enabled
+   */
+  nestedVirtualization?: string;
   static names(): { [key: string]: string } {
     return {
       core: 'Core',
       numa: 'Numa',
       threadsPerCore: 'ThreadsPerCore',
       topologyType: 'TopologyType',
+      nestedVirtualization: 'NestedVirtualization',
     };
   }
 
@@ -60,6 +66,7 @@ export class RunInstancesRequestCpuOptions extends $dara.Model {
       numa: 'string',
       threadsPerCore: 'number',
       topologyType: 'string',
+      nestedVirtualization: 'string',
     };
   }
 
