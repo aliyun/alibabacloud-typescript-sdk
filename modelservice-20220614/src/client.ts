@@ -86,7 +86,7 @@ export default class Client extends OpenApi {
     request.validate();
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.sceneType)) {
-      query["SceneType"] = request.sceneType;
+      query["scene_type"] = request.sceneType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

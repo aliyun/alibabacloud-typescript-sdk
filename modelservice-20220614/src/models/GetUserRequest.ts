@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserRequest extends $dara.Model {
   /**
    * @example
-   * image_label
+   * sales_pick
    */
   sceneType?: string;
   static names(): { [key: string]: string } {
     return {
-      sceneType: 'SceneType',
+      sceneType: 'scene_type',
     };
   }
 
