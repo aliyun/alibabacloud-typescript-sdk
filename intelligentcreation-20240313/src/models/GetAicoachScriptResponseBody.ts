@@ -547,6 +547,7 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
    * test
    */
   questionDescription?: string;
+  scriptPointId?: string;
   /**
    * @example
    * 1
@@ -564,6 +565,7 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
       name: 'name',
       pointId: 'pointId',
       questionDescription: 'questionDescription',
+      scriptPointId: 'scriptPointId',
       sortNo: 'sortNo',
       weight: 'weight',
     };
@@ -576,6 +578,7 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
       name: 'string',
       pointId: 'string',
       questionDescription: 'string',
+      scriptPointId: 'string',
       sortNo: 'number',
       weight: 'number',
     };
@@ -865,6 +868,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
    * true
    */
   orderAckFlag?: boolean;
+  pointCoveredFlag?: boolean;
   pointDeductionRuleList?: GetAICoachScriptResponseBodyPointDeductionRuleList[];
   points?: GetAICoachScriptResponseBodyPoints[];
   /**
@@ -932,6 +936,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
       name: 'name',
       openingRemarks: 'openingRemarks',
       orderAckFlag: 'orderAckFlag',
+      pointCoveredFlag: 'pointCoveredFlag',
       pointDeductionRuleList: 'pointDeductionRuleList',
       points: 'points',
       requestId: 'requestId',
@@ -978,6 +983,7 @@ export class GetAICoachScriptResponseBody extends $dara.Model {
       name: 'string',
       openingRemarks: 'string',
       orderAckFlag: 'boolean',
+      pointCoveredFlag: 'boolean',
       pointDeductionRuleList: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPointDeductionRuleList },
       points: { 'type': 'array', 'itemType': GetAICoachScriptResponseBodyPoints },
       requestId: 'string',
