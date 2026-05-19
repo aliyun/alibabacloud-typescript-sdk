@@ -318,7 +318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测budgetName是否存在
+   * Check whether budgetName exists
    * 
    * @param request - CheckBudgetNameExistsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -355,7 +355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检测budgetName是否存在
+   * Check whether budgetName exists
    * 
    * @param request - CheckBudgetNameExistsRequest
    * @returns CheckBudgetNameExistsResponse
@@ -366,7 +366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建预算
+   * Create Budget
    * 
    * @param tmpReq - CreateBudgetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -469,7 +469,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建预算
+   * Create Budget
    * 
    * @param request - CreateBudgetRequest
    * @returns CreateBudgetResponse
@@ -1112,7 +1112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个Budget
+   * Query a Single Budget
    * 
    * @param request - DescribeBudgetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1149,7 +1149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个Budget
+   * Query a Single Budget
    * 
    * @param request - DescribeBudgetRequest
    * @returns DescribeBudgetResponse
@@ -1160,7 +1160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询预算列表
+   * Query budget list
    * 
    * @param request - DescribeBudgetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1213,7 +1213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询预算列表
+   * Query budget list
    * 
    * @param request - DescribeBudgetsRequest
    * @returns DescribeBudgetsResponse
@@ -2659,6 +2659,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query Cost Overview of a Cost Center
+   * 
+   * @param request - QueryCostByCostCenterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCostByCostCenterResponse
+   */
+  async queryCostByCostCenterWithOptions(request: $_model.QueryCostByCostCenterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryCostByCostCenterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.billingMonth)) {
+      query["BillingMonth"] = request.billingMonth;
+    }
+
+    if (!$dara.isNull(request.displayZeroAmountBills)) {
+      query["DisplayZeroAmountBills"] = request.displayZeroAmountBills;
+    }
+
+    if (!$dara.isNull(request.groupByCostCenterLevel)) {
+      query["GroupByCostCenterLevel"] = request.groupByCostCenterLevel;
+    }
+
+    if (!$dara.isNull(request.metrics)) {
+      query["Metrics"] = request.metrics;
+    }
+
+    if (!$dara.isNull(request.ownerAccountId)) {
+      query["OwnerAccountId"] = request.ownerAccountId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryCostByCostCenter",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryCostByCostCenterResponse>(await this.callApi(params, req, runtime), new $_model.QueryCostByCostCenterResponse({}));
+  }
+
+  /**
+   * Query Cost Overview of a Cost Center
+   * 
+   * @param request - QueryCostByCostCenterRequest
+   * @returns QueryCostByCostCenterResponse
+   */
+  async queryCostByCostCenter(request: $_model.QueryCostByCostCenterRequest): Promise<$_model.QueryCostByCostCenterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryCostByCostCenterWithOptions(request, runtime);
+  }
+
+  /**
    * 查询财务单元
    * 
    * @param tmpReq - QueryCostCenterRequest
@@ -2901,7 +2959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改财务单元分摊规则
+   * Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
    * 
    * @param tmpReq - SaveCostCenterShareRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2962,7 +3020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改财务单元分摊规则
+   * Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
    * 
    * @param request - SaveCostCenterShareRuleRequest
    * @returns SaveCostCenterShareRuleResponse

@@ -84,6 +84,7 @@ export { ModifyCostCenterResponseBodyCostCenterOperateDto } from './ModifyCostCe
 export { ModifyCostCenterRuleRequestFilterExpressionFilterValues } from './ModifyCostCenterRuleRequest';
 export { ModifyCostCenterRuleRequestFilterExpression } from './ModifyCostCenterRuleRequest';
 export { PayOrderRequestEcIdAccountIds } from './PayOrderRequest';
+export { QueryCostByCostCenterResponseBodyConsumeAmountList } from './QueryCostByCostCenterResponseBody';
 export { QueryCostCenterRequestEcIdAccountIds } from './QueryCostCenterRequest';
 export { QueryCostCenterResponseBodyCostCenterDtoList } from './QueryCostCenterResponseBody';
 export { QueryCostCenterResourceRequestEcIdAccountIds } from './QueryCostCenterResourceRequest';
@@ -254,6 +255,9 @@ export { ModifyCostCenterRuleResponse } from './ModifyCostCenterRuleResponse';
 export { PayOrderRequest } from './PayOrderRequest';
 export { PayOrderResponseBody } from './PayOrderResponseBody';
 export { PayOrderResponse } from './PayOrderResponse';
+export { QueryCostByCostCenterRequest } from './QueryCostByCostCenterRequest';
+export { QueryCostByCostCenterResponseBody } from './QueryCostByCostCenterResponseBody';
+export { QueryCostByCostCenterResponse } from './QueryCostByCostCenterResponse';
 export { QueryCostCenterRequest } from './QueryCostCenterRequest';
 export { QueryCostCenterShrinkRequest } from './QueryCostCenterShrinkRequest';
 export { QueryCostCenterResponseBody } from './QueryCostCenterResponseBody';
