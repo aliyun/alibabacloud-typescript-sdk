@@ -4734,6 +4734,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 暂停云手机实例上正在运行的 Agent 任务。
+   * 
+   * @param request - PauseAgentTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseAgentTaskResponse
+   */
+  async pauseAgentTaskWithOptions(request: $_model.PauseAgentTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PauseAgentTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskIds)) {
+      query["TaskIds"] = request.taskIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PauseAgentTask",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PauseAgentTaskResponse>(await this.callApi(params, req, runtime), new $_model.PauseAgentTaskResponse({}));
+  }
+
+  /**
+   * 暂停云手机实例上正在运行的 Agent 任务。
+   * 
+   * @param request - PauseAgentTaskRequest
+   * @returns PauseAgentTaskResponse
+   */
+  async pauseAgentTask(request: $_model.PauseAgentTaskRequest): Promise<$_model.PauseAgentTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pauseAgentTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Restarts one or more cloud phone instances.
    * 
    * @remarks
@@ -5165,6 +5207,52 @@ export default class Client extends OpenApi {
   async resetAndroidInstancesInGroup(request: $_model.ResetAndroidInstancesInGroupRequest): Promise<$_model.ResetAndroidInstancesInGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.resetAndroidInstancesInGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 继续云手机实例上正在运行的 Agent 任务。
+   * 
+   * @param request - ResumeAgentTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResumeAgentTaskResponse
+   */
+  async resumeAgentTaskWithOptions(request: $_model.ResumeAgentTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResumeAgentTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.additionalPrompt)) {
+      query["AdditionalPrompt"] = request.additionalPrompt;
+    }
+
+    if (!$dara.isNull(request.taskIds)) {
+      query["TaskIds"] = request.taskIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResumeAgentTask",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResumeAgentTaskResponse>(await this.callApi(params, req, runtime), new $_model.ResumeAgentTaskResponse({}));
+  }
+
+  /**
+   * 继续云手机实例上正在运行的 Agent 任务。
+   * 
+   * @param request - ResumeAgentTaskRequest
+   * @returns ResumeAgentTaskResponse
+   */
+  async resumeAgentTask(request: $_model.ResumeAgentTaskRequest): Promise<$_model.ResumeAgentTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resumeAgentTaskWithOptions(request, runtime);
   }
 
   /**
