@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetModelOperatorOrderResponseBodyDataInstanceList extends $dara.Model {
   /**
+   * @example
+   * PREPAY
+   */
+  chargeType?: string;
+  /**
    * @remarks
    * The instance end time (format: Timestamp).
    * 
@@ -45,6 +50,7 @@ export class GetModelOperatorOrderResponseBodyDataInstanceList extends $dara.Mod
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      chargeType: 'ChargeType',
       endTime: 'EndTime',
       instanceClass: 'InstanceClass',
       instanceId: 'InstanceId',
@@ -55,6 +61,7 @@ export class GetModelOperatorOrderResponseBodyDataInstanceList extends $dara.Mod
 
   static types(): { [key: string]: any } {
     return {
+      chargeType: 'string',
       endTime: 'number',
       instanceClass: 'string',
       instanceId: 'string',

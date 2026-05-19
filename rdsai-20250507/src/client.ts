@@ -1454,8 +1454,16 @@ export default class Client extends OpenApi {
   async describeMOTokenUsageDetailWithOptions(request: $_model.DescribeMOTokenUsageDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMOTokenUsageDetailResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.apiKey)) {
+      query["ApiKey"] = request.apiKey;
+    }
+
     if (!$dara.isNull(request.consumerName)) {
       query["ConsumerName"] = request.consumerName;
+    }
+
+    if (!$dara.isNull(request.cursor)) {
+      query["Cursor"] = request.cursor;
     }
 
     if (!$dara.isNull(request.endTime)) {

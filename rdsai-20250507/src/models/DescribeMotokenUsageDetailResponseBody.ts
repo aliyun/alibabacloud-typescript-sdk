@@ -10,6 +10,11 @@ export class DescribeMOTokenUsageDetailResponseBodyRecords extends $dara.Model {
   consumerName?: string;
   /**
    * @example
+   * 10000
+   */
+  inputTokens?: number;
+  /**
+   * @example
    * rds_copilot***_public_cn-*********6
    */
   instanceId?: string;
@@ -18,6 +23,11 @@ export class DescribeMOTokenUsageDetailResponseBodyRecords extends $dara.Model {
    * qwen-flash
    */
   model?: string;
+  /**
+   * @example
+   * 10000
+   */
+  outputTokens?: number;
   /**
    * @example
    * cn-beijing
@@ -36,8 +46,10 @@ export class DescribeMOTokenUsageDetailResponseBodyRecords extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       consumerName: 'ConsumerName',
+      inputTokens: 'InputTokens',
       instanceId: 'InstanceId',
       model: 'Model',
+      outputTokens: 'OutputTokens',
       region: 'Region',
       requestTime: 'RequestTime',
       totalTokens: 'TotalTokens',
@@ -47,8 +59,10 @@ export class DescribeMOTokenUsageDetailResponseBodyRecords extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       consumerName: 'string',
+      inputTokens: 'number',
       instanceId: 'string',
       model: 'string',
+      outputTokens: 'number',
       region: 'string',
       requestTime: 'string',
       totalTokens: 'number',
@@ -65,6 +79,11 @@ export class DescribeMOTokenUsageDetailResponseBodyRecords extends $dara.Model {
 }
 
 export class DescribeMOTokenUsageDetailResponseBody extends $dara.Model {
+  /**
+   * @example
+   * eyJpZCI6MTIzNDUsInRzIjoiMjAyNi0wNC0wOFQwMDowMDowMFoifQ==
+   */
+  nextCursor?: string;
   /**
    * @example
    * 1
@@ -91,6 +110,7 @@ export class DescribeMOTokenUsageDetailResponseBody extends $dara.Model {
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
+      nextCursor: 'NextCursor',
       page: 'Page',
       pageSize: 'PageSize',
       records: 'Records',
@@ -101,6 +121,7 @@ export class DescribeMOTokenUsageDetailResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nextCursor: 'string',
       page: 'number',
       pageSize: 'number',
       records: { 'type': 'array', 'itemType': DescribeMOTokenUsageDetailResponseBodyRecords },

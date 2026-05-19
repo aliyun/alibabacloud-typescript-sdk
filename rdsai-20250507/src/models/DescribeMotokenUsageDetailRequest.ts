@@ -3,11 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMOTokenUsageDetailRequest extends $dara.Model {
+  apiKey?: string;
   /**
    * @example
    * 16******4_rds_copilot****_public_cn-4****02
    */
   consumerName?: string;
+  /**
+   * @example
+   * eyJpZCI6MTIzNDUsInRzIjoiMjAyNi0wNC0wOFQwMDowMDowMFoifQ==
+   */
+  cursor?: string;
   /**
    * @example
    * 2025-12-13T16:00:00Z
@@ -48,7 +54,9 @@ export class DescribeMOTokenUsageDetailRequest extends $dara.Model {
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
+      apiKey: 'ApiKey',
       consumerName: 'ConsumerName',
+      cursor: 'Cursor',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
       model: 'Model',
@@ -61,7 +69,9 @@ export class DescribeMOTokenUsageDetailRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiKey: 'string',
       consumerName: 'string',
+      cursor: 'string',
       endTime: 'string',
       instanceId: 'string',
       model: 'string',
