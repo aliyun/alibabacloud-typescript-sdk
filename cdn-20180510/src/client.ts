@@ -2095,6 +2095,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a diagnostic report.
+   * 
+   * @param request - DescribeCdnDiagnoseReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnDiagnoseReportResponse
+   */
+  async describeCdnDiagnoseReportWithOptions(request: $_model.DescribeCdnDiagnoseReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCdnDiagnoseReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      query["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCdnDiagnoseReport",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCdnDiagnoseReportResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCdnDiagnoseReportResponse({}));
+  }
+
+  /**
+   * Queries the details of a diagnostic report.
+   * 
+   * @param request - DescribeCdnDiagnoseReportRequest
+   * @returns DescribeCdnDiagnoseReportResponse
+   */
+  async describeCdnDiagnoseReport(request: $_model.DescribeCdnDiagnoseReportRequest): Promise<$_model.DescribeCdnDiagnoseReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCdnDiagnoseReportWithOptions(request, runtime);
+  }
+
+  /**
    * 天翼定制化小时日志下载接口
    * 
    * @param request - DescribeCdnDomainAtoaLogsRequest
@@ -3221,6 +3267,80 @@ export default class Client extends OpenApi {
   async describeCdnSubList(): Promise<$_model.DescribeCdnSubListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCdnSubListWithOptions(runtime);
+  }
+
+  /**
+   * Queries a list of diagnostic tasks.
+   * 
+   * @param request - DescribeCdnTaskListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCdnTaskListResponse
+   */
+  async describeCdnTaskListWithOptions(request: $_model.DescribeCdnTaskListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCdnTaskListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientIp)) {
+      query["ClientIp"] = request.clientIp;
+    }
+
+    if (!$dara.isNull(request.diagnoseId)) {
+      query["DiagnoseId"] = request.diagnoseId;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      query["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCdnTaskList",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCdnTaskListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCdnTaskListResponse({}));
+  }
+
+  /**
+   * Queries a list of diagnostic tasks.
+   * 
+   * @param request - DescribeCdnTaskListRequest
+   * @returns DescribeCdnTaskListResponse
+   */
+  async describeCdnTaskList(request: $_model.DescribeCdnTaskListRequest): Promise<$_model.DescribeCdnTaskListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCdnTaskListWithOptions(request, runtime);
   }
 
   /**

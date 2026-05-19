@@ -16,6 +16,10 @@ export { DescribeCdnDeliverListResponseBodyContentDataDeliver } from './Describe
 export { DescribeCdnDeliverListResponseBodyContentDataReports } from './DescribeCdnDeliverListResponseBody';
 export { DescribeCdnDeliverListResponseBodyContentData } from './DescribeCdnDeliverListResponseBody';
 export { DescribeCdnDeliverListResponseBodyContent } from './DescribeCdnDeliverListResponseBody';
+export { DescribeCdnDiagnoseReportResponseBodyContentClientInfo } from './DescribeCdnDiagnoseReportResponseBody';
+export { DescribeCdnDiagnoseReportResponseBodyContentReportL1Tengine } from './DescribeCdnDiagnoseReportResponseBody';
+export { DescribeCdnDiagnoseReportResponseBodyContentReport } from './DescribeCdnDiagnoseReportResponseBody';
+export { DescribeCdnDiagnoseReportResponseBodyContent } from './DescribeCdnDiagnoseReportResponseBody';
 export { DescribeCdnDomainAtoaLogsResponseBodyDomainLogDetailsDomainLogDetailLogInfosLogInfoDetail } from './DescribeCdnDomainAtoaLogsResponseBody';
 export { DescribeCdnDomainAtoaLogsResponseBodyDomainLogDetailsDomainLogDetailLogInfos } from './DescribeCdnDomainAtoaLogsResponseBody';
 export { DescribeCdnDomainAtoaLogsResponseBodyDomainLogDetailsDomainLogDetailPageInfos } from './DescribeCdnDomainAtoaLogsResponseBody';
@@ -68,6 +72,8 @@ export { DescribeCdnServiceResponseBodyOperationLocksLockReason } from './Descri
 export { DescribeCdnServiceResponseBodyOperationLocks } from './DescribeCdnServiceResponseBody';
 export { DescribeCdnSubListResponseBodyContentData } from './DescribeCdnSubListResponseBody';
 export { DescribeCdnSubListResponseBodyContent } from './DescribeCdnSubListResponseBody';
+export { DescribeCdnTaskListResponseBodyContentList } from './DescribeCdnTaskListResponseBody';
+export { DescribeCdnTaskListResponseBodyContent } from './DescribeCdnTaskListResponseBody';
 export { DescribeCdnTypesResponseBodyCdnTypesCdnType } from './DescribeCdnTypesResponseBody';
 export { DescribeCdnTypesResponseBodyCdnTypes } from './DescribeCdnTypesResponseBody';
 export { DescribeCdnUserBillHistoryResponseBodyBillHistoryDataBillHistoryDataItemBillingDataBillingDataItem } from './DescribeCdnUserBillHistoryResponseBody';
@@ -364,6 +370,9 @@ export { DescribeCdnDeletedDomainsResponse } from './DescribeCdnDeletedDomainsRe
 export { DescribeCdnDeliverListRequest } from './DescribeCdnDeliverListRequest';
 export { DescribeCdnDeliverListResponseBody } from './DescribeCdnDeliverListResponseBody';
 export { DescribeCdnDeliverListResponse } from './DescribeCdnDeliverListResponse';
+export { DescribeCdnDiagnoseReportRequest } from './DescribeCdnDiagnoseReportRequest';
+export { DescribeCdnDiagnoseReportResponseBody } from './DescribeCdnDiagnoseReportResponseBody';
+export { DescribeCdnDiagnoseReportResponse } from './DescribeCdnDiagnoseReportResponse';
 export { DescribeCdnDomainAtoaLogsRequest } from './DescribeCdnDomainAtoaLogsRequest';
 export { DescribeCdnDomainAtoaLogsResponseBody } from './DescribeCdnDomainAtoaLogsResponseBody';
 export { DescribeCdnDomainAtoaLogsResponse } from './DescribeCdnDomainAtoaLogsResponse';
@@ -423,6 +432,9 @@ export { DescribeCdnServiceResponseBody } from './DescribeCdnServiceResponseBody
 export { DescribeCdnServiceResponse } from './DescribeCdnServiceResponse';
 export { DescribeCdnSubListResponseBody } from './DescribeCdnSubListResponseBody';
 export { DescribeCdnSubListResponse } from './DescribeCdnSubListResponse';
+export { DescribeCdnTaskListRequest } from './DescribeCdnTaskListRequest';
+export { DescribeCdnTaskListResponseBody } from './DescribeCdnTaskListResponseBody';
+export { DescribeCdnTaskListResponse } from './DescribeCdnTaskListResponse';
 export { DescribeCdnTypesRequest } from './DescribeCdnTypesRequest';
 export { DescribeCdnTypesResponseBody } from './DescribeCdnTypesResponseBody';
 export { DescribeCdnTypesResponse } from './DescribeCdnTypesResponse';
