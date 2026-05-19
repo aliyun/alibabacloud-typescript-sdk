@@ -57,6 +57,7 @@ export { GetCreateLogoTaskResponseBodyTask } from './GetCreateLogoTaskResponseBo
 export { GetDomainInfoForPartnerResponseBodyDataOwnership } from './GetDomainInfoForPartnerResponseBody';
 export { GetDomainInfoForPartnerResponseBodyData } from './GetDomainInfoForPartnerResponseBody';
 export { GetIcpFilingInfoForPartnerResponseBodyData } from './GetIcpFilingInfoForPartnerResponseBody';
+export { GetLlmProxyConfigForAdminResponseBodyModule } from './GetLlmProxyConfigForAdminResponseBody';
 export { GetUserAccessTokenForPartnerResponseBodyModule } from './GetUserAccessTokenForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponseBodyDataCredentials } from './GetUserTmpIdentityForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponseBodyData } from './GetUserTmpIdentityForPartnerResponseBody';
@@ -227,6 +228,9 @@ export { GetDomainInfoForPartnerResponse } from './GetDomainInfoForPartnerRespon
 export { GetIcpFilingInfoForPartnerRequest } from './GetIcpFilingInfoForPartnerRequest';
 export { GetIcpFilingInfoForPartnerResponseBody } from './GetIcpFilingInfoForPartnerResponseBody';
 export { GetIcpFilingInfoForPartnerResponse } from './GetIcpFilingInfoForPartnerResponse';
+export { GetLlmProxyConfigForAdminRequest } from './GetLlmProxyConfigForAdminRequest';
+export { GetLlmProxyConfigForAdminResponseBody } from './GetLlmProxyConfigForAdminResponseBody';
+export { GetLlmProxyConfigForAdminResponse } from './GetLlmProxyConfigForAdminResponse';
 export { GetUserAccessTokenForPartnerRequest } from './GetUserAccessTokenForPartnerRequest';
 export { GetUserAccessTokenForPartnerResponseBody } from './GetUserAccessTokenForPartnerResponseBody';
 export { GetUserAccessTokenForPartnerResponse } from './GetUserAccessTokenForPartnerResponse';

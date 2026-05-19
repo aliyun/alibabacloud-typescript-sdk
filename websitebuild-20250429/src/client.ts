@@ -1529,6 +1529,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询LLM Proxy配置
+   * 
+   * @param request - GetLlmProxyConfigForAdminRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLlmProxyConfigForAdminResponse
+   */
+  async getLlmProxyConfigForAdminWithOptions(request: $_model.GetLlmProxyConfigForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLlmProxyConfigForAdminResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.capability)) {
+      query["Capability"] = request.capability;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLlmProxyConfigForAdmin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLlmProxyConfigForAdminResponse>(await this.callApi(params, req, runtime), new $_model.GetLlmProxyConfigForAdminResponse({}));
+  }
+
+  /**
+   * 查询LLM Proxy配置
+   * 
+   * @param request - GetLlmProxyConfigForAdminRequest
+   * @returns GetLlmProxyConfigForAdminResponse
+   */
+  async getLlmProxyConfigForAdmin(request: $_model.GetLlmProxyConfigForAdminRequest): Promise<$_model.GetLlmProxyConfigForAdminResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getLlmProxyConfigForAdminWithOptions(request, runtime);
+  }
+
+  /**
    * 通过授权码得到accessToken
    * 
    * @param request - GetUserAccessTokenForPartnerRequest
