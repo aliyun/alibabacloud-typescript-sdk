@@ -12515,6 +12515,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例性能数据
+   * 
    * @param request - DescribeDBInstancePerformanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDBInstancePerformanceResponse
@@ -12572,6 +12574,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例性能数据
+   * 
    * @param request - DescribeDBInstancePerformanceRequest
    * @returns DescribeDBInstancePerformanceResponse
    */
@@ -16134,6 +16138,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.polarFsInstanceId)) {

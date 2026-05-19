@@ -517,6 +517,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
    * x86
    */
   architecture?: string;
+  canDisableSnat?: boolean;
   components?: DescribeApplicationAttributeResponseBodyComponents[];
   /**
    * @example
@@ -565,6 +566,11 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   minorVersion?: string;
   /**
    * @example
+   * pc-xxx
+   */
+  natGatewayId?: string;
+  /**
+   * @example
    * Postpaid
    */
   payType?: string;
@@ -587,6 +593,11 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
   securityGroups?: DescribeApplicationAttributeResponseBodySecurityGroups[];
   securityIPArrays?: DescribeApplicationAttributeResponseBodySecurityIPArrays[];
   serverlessType?: string;
+  /**
+   * @example
+   * off
+   */
+  snatStatus?: string;
   /**
    * @example
    * Activated
@@ -629,6 +640,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       applicationId: 'ApplicationId',
       applicationType: 'ApplicationType',
       architecture: 'Architecture',
+      canDisableSnat: 'CanDisableSnat',
       components: 'Components',
       creationTime: 'CreationTime',
       DBClusterId: 'DBClusterId',
@@ -643,6 +655,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       maintainStartTime: 'MaintainStartTime',
       memApplicationAttribute: 'MemApplicationAttribute',
       minorVersion: 'MinorVersion',
+      natGatewayId: 'NatGatewayId',
       payType: 'PayType',
       polarClawSaaSApplicationAttribute: 'PolarClawSaaSApplicationAttribute',
       polarFSInstanceId: 'PolarFSInstanceId',
@@ -651,6 +664,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       securityGroups: 'SecurityGroups',
       securityIPArrays: 'SecurityIPArrays',
       serverlessType: 'ServerlessType',
+      snatStatus: 'SnatStatus',
       status: 'Status',
       storages: 'Storages',
       upgradeAvailable: 'UpgradeAvailable',
@@ -666,6 +680,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       applicationId: 'string',
       applicationType: 'string',
       architecture: 'string',
+      canDisableSnat: 'boolean',
       components: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodyComponents },
       creationTime: 'string',
       DBClusterId: 'string',
@@ -680,6 +695,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       maintainStartTime: 'string',
       memApplicationAttribute: DescribeApplicationAttributeResponseBodyMemApplicationAttribute,
       minorVersion: 'string',
+      natGatewayId: 'string',
       payType: 'string',
       polarClawSaaSApplicationAttribute: DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute,
       polarFSInstanceId: 'string',
@@ -688,6 +704,7 @@ export class DescribeApplicationAttributeResponseBody extends $dara.Model {
       securityGroups: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodySecurityGroups },
       securityIPArrays: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodySecurityIPArrays },
       serverlessType: 'string',
+      snatStatus: 'string',
       status: 'string',
       storages: { 'type': 'array', 'itemType': DescribeApplicationAttributeResponseBodyStorages },
       upgradeAvailable: 'string',

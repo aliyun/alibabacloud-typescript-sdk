@@ -8,6 +8,8 @@ export class DescribePolarFsQuotaListRequest extends $dara.Model {
    * pc-************
    */
   DBClusterId?: string;
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -29,6 +31,8 @@ export class DescribePolarFsQuotaListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       polarFsInstanceId: 'PolarFsInstanceId',
       quotaMode: 'QuotaMode',
       regionId: 'RegionId',
@@ -38,6 +42,8 @@ export class DescribePolarFsQuotaListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBClusterId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       polarFsInstanceId: 'string',
       quotaMode: 'string',
       regionId: 'string',
