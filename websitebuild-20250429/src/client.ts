@@ -340,6 +340,111 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 异步发起AI员工对话
+   * 
+   * @param request - CreateAIStaffChatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAIStaffChatResponse
+   */
+  async createAIStaffChatWithOptions(request: $_model.CreateAIStaffChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAIStaffChatResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizId)) {
+      body["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.chatId)) {
+      body["ChatId"] = request.chatId;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.messages)) {
+      body["Messages"] = request.messages;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.metaData)) {
+      bodyFlat["MetaData"] = request.metaData;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAIStaffChat",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAIStaffChatResponse>(await this.callApi(params, req, runtime), new $_model.CreateAIStaffChatResponse({}));
+  }
+
+  /**
+   * 异步发起AI员工对话
+   * 
+   * @param request - CreateAIStaffChatRequest
+   * @returns CreateAIStaffChatResponse
+   */
+  async createAIStaffChat(request: $_model.CreateAIStaffChatRequest): Promise<$_model.CreateAIStaffChatResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAIStaffChatWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建AI员工会话
+   * 
+   * @param request - CreateAIStaffConversationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAIStaffConversationResponse
+   */
+  async createAIStaffConversationWithOptions(request: $_model.CreateAIStaffConversationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAIStaffConversationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.text)) {
+      body["Text"] = request.text;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAIStaffConversation",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAIStaffConversationResponse>(await this.callApi(params, req, runtime), new $_model.CreateAIStaffConversationResponse({}));
+  }
+
+  /**
+   * 创建AI员工会话
+   * 
+   * @param request - CreateAIStaffConversationRequest
+   * @returns CreateAIStaffConversationResponse
+   */
+  async createAIStaffConversation(request: $_model.CreateAIStaffConversationRequest): Promise<$_model.CreateAIStaffConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAIStaffConversationWithOptions(request, runtime);
+  }
+
+  /**
    * 创建应用助手智能体
    * 
    * @param request - CreateAppAssistantAgentRequest
@@ -1722,6 +1827,118 @@ export default class Client extends OpenApi {
   async introspectAppInstanceTicketForPreview(request: $_model.IntrospectAppInstanceTicketForPreviewRequest): Promise<$_model.IntrospectAppInstanceTicketForPreviewResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.introspectAppInstanceTicketForPreviewWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取AI员工对话增量SSE事件
+   * 
+   * @param request - ListAIStaffChatEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAIStaffChatEventsResponse
+   */
+  async listAIStaffChatEventsWithOptions(request: $_model.ListAIStaffChatEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAIStaffChatEventsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.chatId)) {
+      body["ChatId"] = request.chatId;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.lastEventId)) {
+      body["LastEventId"] = request.lastEventId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAIStaffChatEvents",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAIStaffChatEventsResponse>(await this.callApi(params, req, runtime), new $_model.ListAIStaffChatEventsResponse({}));
+  }
+
+  /**
+   * 获取AI员工对话增量SSE事件
+   * 
+   * @param request - ListAIStaffChatEventsRequest
+   * @returns ListAIStaffChatEventsResponse
+   */
+  async listAIStaffChatEvents(request: $_model.ListAIStaffChatEventsRequest): Promise<$_model.ListAIStaffChatEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAIStaffChatEventsWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询AI员工对话消息列表
+   * 
+   * @param request - ListAIStaffChatMessagesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAIStaffChatMessagesResponse
+   */
+  async listAIStaffChatMessagesWithOptions(request: $_model.ListAIStaffChatMessagesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAIStaffChatMessagesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startCreateTime)) {
+      body["StartCreateTime"] = request.startCreateTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAIStaffChatMessages",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAIStaffChatMessagesResponse>(await this.callApi(params, req, runtime), new $_model.ListAIStaffChatMessagesResponse({}));
+  }
+
+  /**
+   * 分页查询AI员工对话消息列表
+   * 
+   * @param request - ListAIStaffChatMessagesRequest
+   * @returns ListAIStaffChatMessagesResponse
+   */
+  async listAIStaffChatMessages(request: $_model.ListAIStaffChatMessagesRequest): Promise<$_model.ListAIStaffChatMessagesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAIStaffChatMessagesWithOptions(request, runtime);
   }
 
   /**
