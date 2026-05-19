@@ -687,6 +687,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建文件防护规则
+   * 
+   * @param request - AddFileProtectBindMachineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFileProtectBindMachineResponse
+   */
+  async addFileProtectBindMachineWithOptions(request: $_model.AddFileProtectBindMachineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddFileProtectBindMachineResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertUuids)) {
+      query["AlertUuids"] = request.alertUuids;
+    }
+
+    if (!$dara.isNull(request.blockUuids)) {
+      query["BlockUuids"] = request.blockUuids;
+    }
+
+    if (!$dara.isNull(request.noneUuids)) {
+      query["NoneUuids"] = request.noneUuids;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddFileProtectBindMachine",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddFileProtectBindMachineResponse>(await this.callApi(params, req, runtime), new $_model.AddFileProtectBindMachineResponse({}));
+  }
+
+  /**
+   * 创建文件防护规则
+   * 
+   * @param request - AddFileProtectBindMachineRequest
+   * @returns AddFileProtectBindMachineResponse
+   */
+  async addFileProtectBindMachine(request: $_model.AddFileProtectBindMachineRequest): Promise<$_model.AddFileProtectBindMachineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addFileProtectBindMachineWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an IDC probe to add assets in a data center to Security Center and manage the assets by using the Security Center console.
    * 
    * @remarks
@@ -3588,6 +3638,94 @@ export default class Client extends OpenApi {
   async createFileDetectUploadUrl(request: $_model.CreateFileDetectUploadUrlRequest): Promise<$_model.CreateFileDetectUploadUrlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createFileDetectUploadUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建文件防护规则
+   * 
+   * @param request - CreateFileProtectClientRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateFileProtectClientRuleResponse
+   */
+  async createFileProtectClientRuleWithOptions(request: $_model.CreateFileProtectClientRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateFileProtectClientRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertLevel)) {
+      query["AlertLevel"] = request.alertLevel;
+    }
+
+    if (!$dara.isNull(request.excludeUsers)) {
+      query["ExcludeUsers"] = request.excludeUsers;
+    }
+
+    if (!$dara.isNull(request.fileOps)) {
+      query["FileOps"] = request.fileOps;
+    }
+
+    if (!$dara.isNull(request.filePaths)) {
+      query["FilePaths"] = request.filePaths;
+    }
+
+    if (!$dara.isNull(request.fileTypes)) {
+      query["FileTypes"] = request.fileTypes;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.procPaths)) {
+      query["ProcPaths"] = request.procPaths;
+    }
+
+    if (!$dara.isNull(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.switchId)) {
+      query["SwitchId"] = request.switchId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateFileProtectClientRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateFileProtectClientRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateFileProtectClientRuleResponse({}));
+  }
+
+  /**
+   * 创建文件防护规则
+   * 
+   * @param request - CreateFileProtectClientRuleRequest
+   * @returns CreateFileProtectClientRuleResponse
+   */
+  async createFileProtectClientRule(request: $_model.CreateFileProtectClientRuleRequest): Promise<$_model.CreateFileProtectClientRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createFileProtectClientRuleWithOptions(request, runtime);
   }
 
   /**
@@ -6836,6 +6974,72 @@ export default class Client extends OpenApi {
   async deleteDingTalk(request: $_model.DeleteDingTalkRequest): Promise<$_model.DeleteDingTalkResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteDingTalkWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除文件防护规则
+   * 
+   * @param request - DeleteFileProtectClientRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFileProtectClientRuleResponse
+   */
+  async deleteFileProtectClientRuleWithOptions(request: $_model.DeleteFileProtectClientRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFileProtectClientRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertLevel)) {
+      query["AlertLevel"] = request.alertLevel;
+    }
+
+    if (!$dara.isNull(request.excludeIdList)) {
+      query["ExcludeIdList"] = request.excludeIdList;
+    }
+
+    if (!$dara.isNull(request.idList)) {
+      query["IdList"] = request.idList;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.selectAll)) {
+      query["SelectAll"] = request.selectAll;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFileProtectClientRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFileProtectClientRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFileProtectClientRuleResponse({}));
+  }
+
+  /**
+   * 删除文件防护规则
+   * 
+   * @param request - DeleteFileProtectClientRuleRequest
+   * @returns DeleteFileProtectClientRuleResponse
+   */
+  async deleteFileProtectClientRule(request: $_model.DeleteFileProtectClientRuleRequest): Promise<$_model.DeleteFileProtectClientRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteFileProtectClientRuleWithOptions(request, runtime);
   }
 
   /**
@@ -29509,6 +29713,175 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取文件防护事件
+   * 
+   * @param request - GetFileProtectClientEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileProtectClientEventResponse
+   */
+  async getFileProtectClientEventWithOptions(request: $_model.GetFileProtectClientEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileProtectClientEventResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFileProtectClientEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFileProtectClientEventResponse>(await this.callApi(params, req, runtime), new $_model.GetFileProtectClientEventResponse({}));
+  }
+
+  /**
+   * 获取文件防护事件
+   * 
+   * @param request - GetFileProtectClientEventRequest
+   * @returns GetFileProtectClientEventResponse
+   */
+  async getFileProtectClientEvent(request: $_model.GetFileProtectClientEventRequest): Promise<$_model.GetFileProtectClientEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFileProtectClientEventWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文件防护事件大盘
+   * 
+   * @param request - GetFileProtectClientEventDashboardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileProtectClientEventDashboardResponse
+   */
+  async getFileProtectClientEventDashboardWithOptions(request: $_model.GetFileProtectClientEventDashboardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileProtectClientEventDashboardResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFileProtectClientEventDashboard",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFileProtectClientEventDashboardResponse>(await this.callApi(params, req, runtime), new $_model.GetFileProtectClientEventDashboardResponse({}));
+  }
+
+  /**
+   * 获取文件防护事件大盘
+   * 
+   * @param request - GetFileProtectClientEventDashboardRequest
+   * @returns GetFileProtectClientEventDashboardResponse
+   */
+  async getFileProtectClientEventDashboard(request: $_model.GetFileProtectClientEventDashboardRequest): Promise<$_model.GetFileProtectClientEventDashboardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFileProtectClientEventDashboardWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文件保护规则
+   * 
+   * @param request - GetFileProtectClientRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileProtectClientRuleResponse
+   */
+  async getFileProtectClientRuleWithOptions(request: $_model.GetFileProtectClientRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileProtectClientRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFileProtectClientRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFileProtectClientRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetFileProtectClientRuleResponse({}));
+  }
+
+  /**
+   * 获取文件保护规则
+   * 
+   * @param request - GetFileProtectClientRuleRequest
+   * @returns GetFileProtectClientRuleResponse
+   */
+  async getFileProtectClientRule(request: $_model.GetFileProtectClientRuleRequest): Promise<$_model.GetFileProtectClientRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFileProtectClientRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文件防护规则大盘
+   * 
+   * @param request - GetFileProtectClientRuleDashboardRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFileProtectClientRuleDashboardResponse
+   */
+  async getFileProtectClientRuleDashboardWithOptions(request: $_model.GetFileProtectClientRuleDashboardRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFileProtectClientRuleDashboardResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFileProtectClientRuleDashboard",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFileProtectClientRuleDashboardResponse>(await this.callApi(params, req, runtime), new $_model.GetFileProtectClientRuleDashboardResponse({}));
+  }
+
+  /**
+   * 获取文件防护规则大盘
+   * 
+   * @param request - GetFileProtectClientRuleDashboardRequest
+   * @returns GetFileProtectClientRuleDashboardResponse
+   */
+  async getFileProtectClientRuleDashboard(request: $_model.GetFileProtectClientRuleDashboardRequest): Promise<$_model.GetFileProtectClientRuleDashboardResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFileProtectClientRuleDashboardWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about the core file monitoring feature, including the number of effective rules and the installation status of the Security Center agent on servers.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36115,6 +36488,179 @@ export default class Client extends OpenApi {
   async listDockerhubImage(request: $_model.ListDockerhubImageRequest): Promise<$_model.ListDockerhubImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listDockerhubImageWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取绑定防篡改机器列表
+   * 
+   * @param request - ListFileProtectBindMachineRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFileProtectBindMachineResponse
+   */
+  async listFileProtectBindMachineWithOptions(request: $_model.ListFileProtectBindMachineRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFileProtectBindMachineResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFileProtectBindMachine",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFileProtectBindMachineResponse>(await this.callApi(params, req, runtime), new $_model.ListFileProtectBindMachineResponse({}));
+  }
+
+  /**
+   * 获取绑定防篡改机器列表
+   * 
+   * @param request - ListFileProtectBindMachineRequest
+   * @returns ListFileProtectBindMachineResponse
+   */
+  async listFileProtectBindMachine(request: $_model.ListFileProtectBindMachineRequest): Promise<$_model.ListFileProtectBindMachineResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFileProtectBindMachineWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文件防护事件列表
+   * 
+   * @param request - ListFileProtectClientEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFileProtectClientEventResponse
+   */
+  async listFileProtectClientEventWithOptions(request: $_model.ListFileProtectClientEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFileProtectClientEventResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFileProtectClientEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFileProtectClientEventResponse>(await this.callApi(params, req, runtime), new $_model.ListFileProtectClientEventResponse({}));
+  }
+
+  /**
+   * 获取文件防护事件列表
+   * 
+   * @param request - ListFileProtectClientEventRequest
+   * @returns ListFileProtectClientEventResponse
+   */
+  async listFileProtectClientEvent(request: $_model.ListFileProtectClientEventRequest): Promise<$_model.ListFileProtectClientEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFileProtectClientEventWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文件防护规则列表
+   * 
+   * @param request - ListFileProtectClientRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFileProtectClientRuleResponse
+   */
+  async listFileProtectClientRuleWithOptions(request: $_model.ListFileProtectClientRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFileProtectClientRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertLevel)) {
+      query["AlertLevel"] = request.alertLevel;
+    }
+
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFileProtectClientRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFileProtectClientRuleResponse>(await this.callApi(params, req, runtime), new $_model.ListFileProtectClientRuleResponse({}));
+  }
+
+  /**
+   * 获取文件防护规则列表
+   * 
+   * @param request - ListFileProtectClientRuleRequest
+   * @returns ListFileProtectClientRuleResponse
+   */
+  async listFileProtectClientRule(request: $_model.ListFileProtectClientRuleRequest): Promise<$_model.ListFileProtectClientRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFileProtectClientRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取文件防护规则所有文件类型
+   * 
+   * @param request - ListFileProtectClientRuleFileTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFileProtectClientRuleFileTypeResponse
+   */
+  async listFileProtectClientRuleFileTypeWithOptions(request: $_model.ListFileProtectClientRuleFileTypeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListFileProtectClientRuleFileTypeResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFileProtectClientRuleFileType",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFileProtectClientRuleFileTypeResponse>(await this.callApi(params, req, runtime), new $_model.ListFileProtectClientRuleFileTypeResponse({}));
+  }
+
+  /**
+   * 获取文件防护规则所有文件类型
+   * 
+   * @param request - ListFileProtectClientRuleFileTypeRequest
+   * @returns ListFileProtectClientRuleFileTypeResponse
+   */
+  async listFileProtectClientRuleFileType(request: $_model.ListFileProtectClientRuleFileTypeRequest): Promise<$_model.ListFileProtectClientRuleFileTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listFileProtectClientRuleFileTypeWithOptions(request, runtime);
   }
 
   /**
@@ -48857,6 +49403,264 @@ export default class Client extends OpenApi {
   async updateCustomizeReportStatus(request: $_model.UpdateCustomizeReportStatusRequest): Promise<$_model.UpdateCustomizeReportStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateCustomizeReportStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新文件防护事件状态
+   * 
+   * @param request - UpdateFileProtectClientEventRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFileProtectClientEventResponse
+   */
+  async updateFileProtectClientEventWithOptions(request: $_model.UpdateFileProtectClientEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFileProtectClientEventResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertLevels)) {
+      query["AlertLevels"] = request.alertLevels;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.excludeIdList)) {
+      query["ExcludeIdList"] = request.excludeIdList;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      query["FilePath"] = request.filePath;
+    }
+
+    if (!$dara.isNull(request.idList)) {
+      query["IdList"] = request.idList;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.internetIp)) {
+      query["InternetIp"] = request.internetIp;
+    }
+
+    if (!$dara.isNull(request.intranetIp)) {
+      query["IntranetIp"] = request.intranetIp;
+    }
+
+    if (!$dara.isNull(request.newStatus)) {
+      query["NewStatus"] = request.newStatus;
+    }
+
+    if (!$dara.isNull(request.operation)) {
+      query["Operation"] = request.operation;
+    }
+
+    if (!$dara.isNull(request.procPath)) {
+      query["ProcPath"] = request.procPath;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.selectAll)) {
+      query["SelectAll"] = request.selectAll;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFileProtectClientEvent",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFileProtectClientEventResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFileProtectClientEventResponse({}));
+  }
+
+  /**
+   * 更新文件防护事件状态
+   * 
+   * @param request - UpdateFileProtectClientEventRequest
+   * @returns UpdateFileProtectClientEventResponse
+   */
+  async updateFileProtectClientEvent(request: $_model.UpdateFileProtectClientEventRequest): Promise<$_model.UpdateFileProtectClientEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFileProtectClientEventWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新文件防护规则
+   * 
+   * @param request - UpdateFileProtectClientRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFileProtectClientRuleResponse
+   */
+  async updateFileProtectClientRuleWithOptions(request: $_model.UpdateFileProtectClientRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFileProtectClientRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertLevel)) {
+      query["AlertLevel"] = request.alertLevel;
+    }
+
+    if (!$dara.isNull(request.excludeUsers)) {
+      query["ExcludeUsers"] = request.excludeUsers;
+    }
+
+    if (!$dara.isNull(request.fileOps)) {
+      query["FileOps"] = request.fileOps;
+    }
+
+    if (!$dara.isNull(request.filePaths)) {
+      query["FilePaths"] = request.filePaths;
+    }
+
+    if (!$dara.isNull(request.fileTypes)) {
+      query["FileTypes"] = request.fileTypes;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.procPaths)) {
+      query["ProcPaths"] = request.procPaths;
+    }
+
+    if (!$dara.isNull(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFileProtectClientRule",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFileProtectClientRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFileProtectClientRuleResponse({}));
+  }
+
+  /**
+   * 更新文件防护规则
+   * 
+   * @param request - UpdateFileProtectClientRuleRequest
+   * @returns UpdateFileProtectClientRuleResponse
+   */
+  async updateFileProtectClientRule(request: $_model.UpdateFileProtectClientRuleRequest): Promise<$_model.UpdateFileProtectClientRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFileProtectClientRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新文件防护规则状态
+   * 
+   * @param request - UpdateFileProtectClientRuleStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFileProtectClientRuleStatusResponse
+   */
+  async updateFileProtectClientRuleStatusWithOptions(request: $_model.UpdateFileProtectClientRuleStatusRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFileProtectClientRuleStatusResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.alertLevel)) {
+      query["AlertLevel"] = request.alertLevel;
+    }
+
+    if (!$dara.isNull(request.excludeIdList)) {
+      query["ExcludeIdList"] = request.excludeIdList;
+    }
+
+    if (!$dara.isNull(request.idList)) {
+      query["IdList"] = request.idList;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.selectAll)) {
+      query["SelectAll"] = request.selectAll;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFileProtectClientRuleStatus",
+      version: "2018-12-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFileProtectClientRuleStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFileProtectClientRuleStatusResponse({}));
+  }
+
+  /**
+   * 更新文件防护规则状态
+   * 
+   * @param request - UpdateFileProtectClientRuleStatusRequest
+   * @returns UpdateFileProtectClientRuleStatusResponse
+   */
+  async updateFileProtectClientRuleStatus(request: $_model.UpdateFileProtectClientRuleStatusRequest): Promise<$_model.UpdateFileProtectClientRuleStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFileProtectClientRuleStatusWithOptions(request, runtime);
   }
 
   /**
