@@ -11,6 +11,11 @@ export class GetPptInfoResponseBodyData extends $dara.Model {
   exportTaskId?: string;
   /**
    * @example
+   * http://a.com/xxx.jpeg
+   */
+  pptArtifactCover?: string;
+  /**
+   * @example
    * 5423431
    */
   pptArtifactId?: string;
@@ -33,6 +38,7 @@ export class GetPptInfoResponseBodyData extends $dara.Model {
     return {
       exportFileLink: 'ExportFileLink',
       exportTaskId: 'ExportTaskId',
+      pptArtifactCover: 'PptArtifactCover',
       pptArtifactId: 'PptArtifactId',
       pptProcessId: 'PptProcessId',
       query: 'Query',
@@ -44,6 +50,7 @@ export class GetPptInfoResponseBodyData extends $dara.Model {
     return {
       exportFileLink: { 'type': 'array', 'itemType': 'string' },
       exportTaskId: 'string',
+      pptArtifactCover: 'string',
       pptArtifactId: 'string',
       pptProcessId: 'string',
       query: 'string',
