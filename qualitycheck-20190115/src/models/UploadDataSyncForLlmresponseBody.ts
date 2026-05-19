@@ -249,14 +249,12 @@ export class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit e
 export class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo extends $dara.Model {
   conditionInfo?: UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo;
   hit?: UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit;
-  llmResponse?: string;
   rid?: string;
   tid?: string;
   static names(): { [key: string]: string } {
     return {
       conditionInfo: 'ConditionInfo',
       hit: 'Hit',
-      llmResponse: 'LlmResponse',
       rid: 'Rid',
       tid: 'Tid',
     };
@@ -266,7 +264,6 @@ export class UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfo exte
     return {
       conditionInfo: UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoConditionInfo,
       hit: UploadDataSyncForLLMResponseBodyDataResultInfoRulesRuleHitInfoHit,
-      llmResponse: 'string',
       rid: 'string',
       tid: 'string',
     };
