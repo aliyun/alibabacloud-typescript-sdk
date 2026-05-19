@@ -33,11 +33,13 @@ export class GetYikePromptExpansionVoiceFixJobResponseBodyJobResult extends $dar
 }
 
 export class GetYikePromptExpansionVoiceFixJobResponseBody extends $dara.Model {
+  endTime?: string;
   /**
    * @example
    * Forbidden
    */
   errorCode?: string;
+  errorMessage?: string;
   /**
    * @example
    * ab4802364a2e49208c99efab82df****
@@ -58,6 +60,7 @@ export class GetYikePromptExpansionVoiceFixJobResponseBody extends $dara.Model {
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
+  startTime?: string;
   /**
    * @example
    * {"testKey":"testValue"}
@@ -65,24 +68,30 @@ export class GetYikePromptExpansionVoiceFixJobResponseBody extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      endTime: 'EndTime',
       errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
       jobId: 'JobId',
       jobParams: 'JobParams',
       jobResult: 'JobResult',
       jobStatus: 'JobStatus',
       requestId: 'RequestId',
+      startTime: 'StartTime',
       userData: 'UserData',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTime: 'string',
       errorCode: 'string',
+      errorMessage: 'string',
       jobId: 'string',
       jobParams: 'string',
       jobResult: { 'type': 'array', 'itemType': GetYikePromptExpansionVoiceFixJobResponseBodyJobResult },
       jobStatus: 'string',
       requestId: 'string',
+      startTime: 'string',
       userData: 'string',
     };
   }
