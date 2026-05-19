@@ -3,15 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SubmitDocTranslateTaskRequestExtConfig extends $dara.Model {
+  isBilingual?: boolean;
   skipImgTrans?: boolean;
   static names(): { [key: string]: string } {
     return {
+      isBilingual: 'isBilingual',
       skipImgTrans: 'skipImgTrans',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      isBilingual: 'boolean',
       skipImgTrans: 'boolean',
     };
   }
