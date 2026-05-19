@@ -4417,6 +4417,10 @@ export default class Client extends OpenApi {
       query["RuleId"] = request.ruleId;
     }
 
+    if (!$dara.isNull(request.ruleIds)) {
+      query["RuleIds"] = request.ruleIds;
+    }
+
     if (!$dara.isNull(request.ruleName)) {
       query["RuleName"] = request.ruleName;
     }

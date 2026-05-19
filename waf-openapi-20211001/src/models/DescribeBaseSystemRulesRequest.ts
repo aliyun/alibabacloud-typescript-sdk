@@ -56,6 +56,7 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
    * 113089
    */
   ruleId?: number;
+  ruleIds?: number[];
   /**
    * @example
    * systemRuleTest
@@ -83,6 +84,7 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
       riskLevel: 'RiskLevel',
       ruleAction: 'RuleAction',
       ruleId: 'RuleId',
+      ruleIds: 'RuleIds',
       ruleName: 'RuleName',
       ruleStatus: 'RuleStatus',
       templateId: 'TemplateId',
@@ -101,6 +103,7 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
       riskLevel: 'string',
       ruleAction: 'string',
       ruleId: 'number',
+      ruleIds: { 'type': 'array', 'itemType': 'number' },
       ruleName: 'string',
       ruleStatus: 'number',
       templateId: 'number',
@@ -108,6 +111,9 @@ export class DescribeBaseSystemRulesRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.ruleIds)) {
+      $dara.Model.validateArray(this.ruleIds);
+    }
     super.validate();
   }
 
