@@ -11,6 +11,10 @@ export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
    * amv-bp11q28kvl688****
    */
   DBClusterId?: string;
+  /**
+   * @example
+   * 3
+   */
   deviceCount?: number;
   /**
    * @remarks
@@ -21,6 +25,7 @@ export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
    */
   platformName?: string;
   rayConfigShrink?: string;
+  rayTrainConfigShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -40,6 +45,7 @@ export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
       deviceCount: 'DeviceCount',
       platformName: 'PlatformName',
       rayConfigShrink: 'RayConfig',
+      rayTrainConfigShrink: 'RayTrainConfig',
       regionId: 'RegionId',
       webserverSpecName: 'WebserverSpecName',
     };
@@ -51,6 +57,7 @@ export class CreateEmbodiedAIPlatformShrinkRequest extends $dara.Model {
       deviceCount: 'number',
       platformName: 'string',
       rayConfigShrink: 'string',
+      rayTrainConfigShrink: 'string',
       regionId: 'string',
       webserverSpecName: 'string',
     };

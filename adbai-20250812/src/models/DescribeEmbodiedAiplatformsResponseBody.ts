@@ -180,6 +180,148 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfig extends $
   }
 }
 
+export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigGpuSpecs extends $dara.Model {
+  /**
+   * @example
+   * "1"
+   */
+  allocateUnit?: string;
+  /**
+   * @example
+   * 1
+   */
+  count?: number;
+  /**
+   * @example
+   * ADB.MLTensor.2
+   */
+  specName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocateUnit: 'AllocateUnit',
+      count: 'Count',
+      specName: 'SpecName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocateUnit: 'string',
+      count: 'number',
+      specName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigTerminalConfigAcrConfig extends $dara.Model {
+  /**
+   * @example
+   * cri-***
+   */
+  instanceId?: string;
+  namespaces?: string[];
+  /**
+   * @example
+   * example-vpc.example-region.cr.aliyuncs.com
+   */
+  registry?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      namespaces: 'Namespaces',
+      registry: 'Registry',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      namespaces: { 'type': 'array', 'itemType': 'string' },
+      registry: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.namespaces)) {
+      $dara.Model.validateArray(this.namespaces);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigTerminalConfig extends $dara.Model {
+  acrConfig?: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigTerminalConfigAcrConfig;
+  static names(): { [key: string]: string } {
+    return {
+      acrConfig: 'AcrConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acrConfig: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigTerminalConfigAcrConfig,
+    };
+  }
+
+  validate() {
+    if(this.acrConfig && typeof (this.acrConfig as any).validate === 'function') {
+      (this.acrConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfig extends $dara.Model {
+  cpuAcu?: number;
+  gpuSpecs?: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigGpuSpecs[];
+  terminalConfig?: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigTerminalConfig;
+  static names(): { [key: string]: string } {
+    return {
+      cpuAcu: 'CpuAcu',
+      gpuSpecs: 'GpuSpecs',
+      terminalConfig: 'TerminalConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cpuAcu: 'number',
+      gpuSpecs: { 'type': 'array', 'itemType': DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigGpuSpecs },
+      terminalConfig: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigTerminalConfig,
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.gpuSpecs)) {
+      $dara.Model.validateArray(this.gpuSpecs);
+    }
+    if(this.terminalConfig && typeof (this.terminalConfig as any).validate === 'function') {
+      (this.terminalConfig as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEmbodiedAIPlatformsResponseBodyPlatforms extends $dara.Model {
   /**
    * @example
@@ -198,6 +340,7 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatforms extends $dara.Mode
    */
   platformName?: string;
   rayConfig?: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfig;
+  rayTrainConfig?: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfig;
   /**
    * @example
    * running
@@ -210,6 +353,7 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatforms extends $dara.Mode
       ossBucketName: 'OssBucketName',
       platformName: 'PlatformName',
       rayConfig: 'RayConfig',
+      rayTrainConfig: 'RayTrainConfig',
       state: 'State',
     };
   }
@@ -221,6 +365,7 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatforms extends $dara.Mode
       ossBucketName: 'string',
       platformName: 'string',
       rayConfig: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfig,
+      rayTrainConfig: DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfig,
       state: 'string',
     };
   }
@@ -232,6 +377,9 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatforms extends $dara.Mode
     if(this.rayConfig && typeof (this.rayConfig as any).validate === 'function') {
       (this.rayConfig as any).validate();
     }
+    if(this.rayTrainConfig && typeof (this.rayTrainConfig as any).validate === 'function') {
+      (this.rayTrainConfig as any).validate();
+    }
     super.validate();
   }
 
@@ -241,7 +389,15 @@ export class DescribeEmbodiedAIPlatformsResponseBodyPlatforms extends $dara.Mode
 }
 
 export class DescribeEmbodiedAIPlatformsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 30
+   */
   maxResults?: number;
+  /**
+   * @example
+   * 298a7d5473b128dfe0b5e8707e******
+   */
   nextToken?: string;
   /**
    * @example

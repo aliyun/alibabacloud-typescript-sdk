@@ -1,6 +1,10 @@
 export { CreateAgentPlatformRequestAiPlatformConfig } from './CreateAgentPlatformRequest';
 export { CreateEmbodiedAIPlatformRequestRayConfigWorkerGroups } from './CreateEmbodiedAiplatformRequest';
 export { CreateEmbodiedAIPlatformRequestRayConfig } from './CreateEmbodiedAiplatformRequest';
+export { CreateEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs } from './CreateEmbodiedAiplatformRequest';
+export { CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfig } from './CreateEmbodiedAiplatformRequest';
+export { CreateEmbodiedAIPlatformRequestRayTrainConfigTerminalConfig } from './CreateEmbodiedAiplatformRequest';
+export { CreateEmbodiedAIPlatformRequestRayTrainConfig } from './CreateEmbodiedAiplatformRequest';
 export { DescribeChatMessageResponseBodyContentData } from './DescribeChatMessageResponseBody';
 export { DescribeChatMessageResponseBodyContent } from './DescribeChatMessageResponseBody';
 export { DescribeChatMessageResponseBodyData } from './DescribeChatMessageResponseBody';
@@ -8,6 +12,10 @@ export { DescribeEapDeviceResourceAllocationResponseBodyItems } from './Describe
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsEapConfig } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfigWorkerGroups } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayConfig } from './DescribeEmbodiedAiplatformsResponseBody';
+export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigGpuSpecs } from './DescribeEmbodiedAiplatformsResponseBody';
+export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigTerminalConfigAcrConfig } from './DescribeEmbodiedAiplatformsResponseBody';
+export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfigTerminalConfig } from './DescribeEmbodiedAiplatformsResponseBody';
+export { DescribeEmbodiedAIPlatformsResponseBodyPlatformsRayTrainConfig } from './DescribeEmbodiedAiplatformsResponseBody';
 export { DescribeEmbodiedAIPlatformsResponseBodyPlatforms } from './DescribeEmbodiedAiplatformsResponseBody';
 export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyAcuDetails } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
 export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyGpuDetails } from './GetEmbodiedAiplatformResourceUsageInfoResponseBody';
@@ -18,6 +26,10 @@ export { GetEmbodiedAIPlatformResourceUsageInfoResponseBodyStorageUsage } from '
 export { ModifyAgentPlatformRequestAiPlatformConfig } from './ModifyAgentPlatformRequest';
 export { ModifyEmbodiedAIPlatformRequestRayConfigWorkerGroups } from './ModifyEmbodiedAiplatformRequest';
 export { ModifyEmbodiedAIPlatformRequestRayConfig } from './ModifyEmbodiedAiplatformRequest';
+export { ModifyEmbodiedAIPlatformRequestRayTrainConfigGpuSpecs } from './ModifyEmbodiedAiplatformRequest';
+export { ModifyEmbodiedAIPlatformRequestRayTrainConfigTerminalConfigAcrConfig } from './ModifyEmbodiedAiplatformRequest';
+export { ModifyEmbodiedAIPlatformRequestRayTrainConfigTerminalConfig } from './ModifyEmbodiedAiplatformRequest';
+export { ModifyEmbodiedAIPlatformRequestRayTrainConfig } from './ModifyEmbodiedAiplatformRequest';
 export { CreateAgentPlatformRequest } from './CreateAgentPlatformRequest';
 export { CreateAgentPlatformShrinkRequest } from './CreateAgentPlatformShrinkRequest';
 export { CreateAgentPlatformResponseBody } from './CreateAgentPlatformResponseBody';

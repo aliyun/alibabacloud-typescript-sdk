@@ -21,6 +21,7 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
    */
   platformName?: string;
   rayConfigShrink?: string;
+  rayTrainConfigShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -40,6 +41,7 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
       deviceCount: 'DeviceCount',
       platformName: 'PlatformName',
       rayConfigShrink: 'RayConfig',
+      rayTrainConfigShrink: 'RayTrainConfig',
       regionId: 'RegionId',
       webserverSpecName: 'WebserverSpecName',
     };
@@ -51,6 +53,7 @@ export class ModifyEmbodiedAIPlatformShrinkRequest extends $dara.Model {
       deviceCount: 'string',
       platformName: 'string',
       rayConfigShrink: 'string',
+      rayTrainConfigShrink: 'string',
       regionId: 'string',
       webserverSpecName: 'string',
     };

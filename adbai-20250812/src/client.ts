@@ -104,6 +104,10 @@ export default class Client extends OpenApi {
       request.rayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rayConfig, "RayConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.rayTrainConfig)) {
+      request.rayTrainConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rayTrainConfig, "RayTrainConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
@@ -119,6 +123,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.rayConfigShrink)) {
       query["RayConfig"] = request.rayConfigShrink;
+    }
+
+    if (!$dara.isNull(request.rayTrainConfigShrink)) {
+      query["RayTrainConfig"] = request.rayTrainConfigShrink;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -679,6 +687,10 @@ export default class Client extends OpenApi {
       request.rayConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rayConfig, "RayConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.rayTrainConfig)) {
+      request.rayTrainConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rayTrainConfig, "RayTrainConfig", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
@@ -694,6 +706,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.rayConfigShrink)) {
       query["RayConfig"] = request.rayConfigShrink;
+    }
+
+    if (!$dara.isNull(request.rayTrainConfigShrink)) {
+      query["RayTrainConfig"] = request.rayTrainConfigShrink;
     }
 
     if (!$dara.isNull(request.regionId)) {
