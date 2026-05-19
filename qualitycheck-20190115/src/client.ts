@@ -3387,6 +3387,121 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 使用原生Prompt调用通义晓蜜
+   * 
+   * @param tmpReq - RunCompletionMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCompletionMessageResponse
+   */
+  async *runCompletionMessageWithSSE(tmpReq: $_model.RunCompletionMessageRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.RunCompletionMessageResponse, any, unknown> {
+    tmpReq.validate();
+    let request = new $_model.RunCompletionMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      body["ModelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunCompletionMessage",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.RunCompletionMessageResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.RunCompletionMessageResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 使用原生Prompt调用通义晓蜜
+   * 
+   * @param tmpReq - RunCompletionMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunCompletionMessageResponse
+   */
+  async runCompletionMessageWithOptions(tmpReq: $_model.RunCompletionMessageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunCompletionMessageResponse> {
+    tmpReq.validate();
+    let request = new $_model.RunCompletionMessageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "Messages", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.messagesShrink)) {
+      body["Messages"] = request.messagesShrink;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      body["ModelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.stream)) {
+      body["Stream"] = request.stream;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunCompletionMessage",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunCompletionMessageResponse>(await this.callApi(params, req, runtime), new $_model.RunCompletionMessageResponse({}));
+  }
+
+  /**
+   * 使用原生Prompt调用通义晓蜜
+   * 
+   * @param request - RunCompletionMessageRequest
+   * @returns RunCompletionMessageResponse
+   */
+  async runCompletionMessage(request: $_model.RunCompletionMessageRequest): Promise<$_model.RunCompletionMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runCompletionMessageWithOptions(request, runtime);
+  }
+
+  /**
    * @deprecated OpenAPI SaveConfigDataSet is deprecated
    * 
    * @param request - SaveConfigDataSetRequest
