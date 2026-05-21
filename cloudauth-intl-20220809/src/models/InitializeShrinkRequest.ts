@@ -333,6 +333,11 @@ export class InitializeShrinkRequest extends $dara.Model {
    */
   ocr?: string;
   /**
+   * @example
+   * 0
+   */
+  ocrValueStandard?: string;
+  /**
    * @remarks
    * Page configuration for collection, multiple pages are connected using commas. Value range:
    * - **01**: Front side of the document
@@ -550,6 +555,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       mobile: 'Mobile',
       model: 'Model',
       ocr: 'Ocr',
+      ocrValueStandard: 'OcrValueStandard',
       pages: 'Pages',
       procedurePriority: 'ProcedurePriority',
       productCode: 'ProductCode',
@@ -610,6 +616,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       mobile: 'string',
       model: 'string',
       ocr: 'string',
+      ocrValueStandard: 'string',
       pages: 'string',
       procedurePriority: 'string',
       productCode: 'string',

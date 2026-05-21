@@ -3453,6 +3453,10 @@ export default class Client extends OpenApi {
       query["Ocr"] = request.ocr;
     }
 
+    if (!$dara.isNull(request.ocrValueStandard)) {
+      query["OcrValueStandard"] = request.ocrValueStandard;
+    }
+
     if (!$dara.isNull(request.pages)) {
       query["Pages"] = request.pages;
     }
