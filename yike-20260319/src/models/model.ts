@@ -13,6 +13,7 @@ export { GetYikeAIAppJobResponseBodyResultAudioResult } from './GetYikeAiappJobR
 export { GetYikeAIAppJobResponseBodyResultImageResult } from './GetYikeAiappJobResponseBody';
 export { GetYikeAIAppJobResponseBodyResultVideoResult } from './GetYikeAiappJobResponseBody';
 export { GetYikeAIAppJobResponseBodyResult } from './GetYikeAiappJobResponseBody';
+export { GetYikeAgentJobResponseBodyJobResult } from './GetYikeAgentJobResponseBody';
 export { GetYikeAssetMediaInfoResponseBodyMediaInfoBizData } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListAudioStreamInfoList } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoListFileBasicInfo } from './GetYikeAssetMediaInfoResponseBody';
@@ -60,6 +61,9 @@ export { DeleteYikeAssetMediaInfosResponse } from './DeleteYikeAssetMediaInfosRe
 export { GetYikeAIAppJobRequest } from './GetYikeAiappJobRequest';
 export { GetYikeAIAppJobResponseBody } from './GetYikeAiappJobResponseBody';
 export { GetYikeAIAppJobResponse } from './GetYikeAiappJobResponse';
+export { GetYikeAgentJobRequest } from './GetYikeAgentJobRequest';
+export { GetYikeAgentJobResponseBody } from './GetYikeAgentJobResponseBody';
+export { GetYikeAgentJobResponse } from './GetYikeAgentJobResponse';
 export { GetYikeAssetMediaInfoRequest } from './GetYikeAssetMediaInfoRequest';
 export { GetYikeAssetMediaInfoResponseBody } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikeAssetMediaInfoResponse } from './GetYikeAssetMediaInfoResponse';
@@ -108,6 +112,9 @@ export { SubYikeUserCreditResponse } from './SubYikeUserCreditResponse';
 export { SubmitYikeAIAppJobRequest } from './SubmitYikeAiappJobRequest';
 export { SubmitYikeAIAppJobResponseBody } from './SubmitYikeAiappJobResponseBody';
 export { SubmitYikeAIAppJobResponse } from './SubmitYikeAiappJobResponse';
+export { SubmitYikeAvatarNarratorJobRequest } from './SubmitYikeAvatarNarratorJobRequest';
+export { SubmitYikeAvatarNarratorJobResponseBody } from './SubmitYikeAvatarNarratorJobResponseBody';
+export { SubmitYikeAvatarNarratorJobResponse } from './SubmitYikeAvatarNarratorJobResponse';
 export { SubmitYikePromptExpansionVoiceFixJobRequest } from './SubmitYikePromptExpansionVoiceFixJobRequest';
 export { SubmitYikePromptExpansionVoiceFixJobResponseBody } from './SubmitYikePromptExpansionVoiceFixJobResponseBody';
 export { SubmitYikePromptExpansionVoiceFixJobResponse } from './SubmitYikePromptExpansionVoiceFixJobResponse';
