@@ -1,6 +1,13 @@
+export { OpenDatasetResourceUrlResponseBodyData } from './OpenDatasetResourceUrlResponseBody';
 export { WebSearchResponseBodyDataResultSource } from './WebSearchResponseBody';
 export { WebSearchResponseBodyDataResult } from './WebSearchResponseBody';
 export { WebSearchResponseBodyData } from './WebSearchResponseBody';
+export { OpenDatasetImportDataRequest } from './OpenDatasetImportDataRequest';
+export { OpenDatasetImportDataResponseBody } from './OpenDatasetImportDataResponseBody';
+export { OpenDatasetImportDataResponse } from './OpenDatasetImportDataResponse';
+export { OpenDatasetResourceUrlRequest } from './OpenDatasetResourceUrlRequest';
+export { OpenDatasetResourceUrlResponseBody } from './OpenDatasetResourceUrlResponseBody';
+export { OpenDatasetResourceUrlResponse } from './OpenDatasetResourceUrlResponse';
 export { WebSearchRequest } from './WebSearchRequest';
 export { WebSearchResponseBody } from './WebSearchResponseBody';
 export { WebSearchResponse } from './WebSearchResponse';

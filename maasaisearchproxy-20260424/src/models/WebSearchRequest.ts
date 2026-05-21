@@ -25,6 +25,7 @@ export class WebSearchRequest extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  searchType?: string;
   /**
    * @example
    * 2026-03-06 10:04:45
@@ -38,6 +39,7 @@ export class WebSearchRequest extends $dara.Model {
       limit: 'limit',
       query: 'query',
       region: 'region',
+      searchType: 'searchType',
       startTime: 'startTime',
     };
   }
@@ -50,6 +52,7 @@ export class WebSearchRequest extends $dara.Model {
       limit: 'number',
       query: 'string',
       region: 'string',
+      searchType: 'string',
       startTime: 'string',
     };
   }
