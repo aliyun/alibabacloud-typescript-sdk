@@ -3007,6 +3007,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询SLA优惠券
+   * 
+   * @param request - QueryMonthlySlaListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryMonthlySlaListResponse
+   */
+  async queryMonthlySlaListWithOptions(request: $_model.QueryMonthlySlaListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryMonthlySlaListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIds)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIds;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      body["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.months)) {
+      body["Months"] = request.months;
+    }
+
+    if (!$dara.isNull(request.payStatuses)) {
+      body["PayStatuses"] = request.payStatuses;
+    }
+
+    if (!$dara.isNull(request.productCodes)) {
+      body["ProductCodes"] = request.productCodes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryMonthlySlaList",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryMonthlySlaListResponse>(await this.callApi(params, req, runtime), new $_model.QueryMonthlySlaListResponse({}));
+  }
+
+  /**
+   * 查询SLA优惠券
+   * 
+   * @param request - QueryMonthlySlaListRequest
+   * @returns QueryMonthlySlaListResponse
+   */
+  async queryMonthlySlaList(request: $_model.QueryMonthlySlaListRequest): Promise<$_model.QueryMonthlySlaListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryMonthlySlaListWithOptions(request, runtime);
+  }
+
+  /**
    * Modify cost center allocation rules, including creating, modifying, and deleting allocation rules
    * 
    * @param tmpReq - SaveCostCenterShareRuleRequest
@@ -3238,6 +3310,62 @@ export default class Client extends OpenApi {
   async setSavingPlanUserDeductRule(request: $_model.SetSavingPlanUserDeductRuleRequest): Promise<$_model.SetSavingPlanUserDeductRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.setSavingPlanUserDeductRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * SLA优惠券申领
+   * 
+   * @param request - SubmitSlaCouponApplyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSlaCouponApplyResponse
+   */
+  async submitSlaCouponApplyWithOptions(request: $_model.SubmitSlaCouponApplyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitSlaCouponApplyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ecIdAccountIds)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIds;
+    }
+
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.damagedIds)) {
+      body["DamagedIds"] = request.damagedIds;
+    }
+
+    if (!$dara.isNull(request.month)) {
+      body["Month"] = request.month;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitSlaCouponApply",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitSlaCouponApplyResponse>(await this.callApi(params, req, runtime), new $_model.SubmitSlaCouponApplyResponse({}));
+  }
+
+  /**
+   * SLA优惠券申领
+   * 
+   * @param request - SubmitSlaCouponApplyRequest
+   * @returns SubmitSlaCouponApplyResponse
+   */
+  async submitSlaCouponApply(request: $_model.SubmitSlaCouponApplyRequest): Promise<$_model.SubmitSlaCouponApplyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitSlaCouponApplyWithOptions(request, runtime);
   }
 
   /**
