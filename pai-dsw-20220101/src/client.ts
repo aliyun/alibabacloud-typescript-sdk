@@ -1009,6 +1009,14 @@ export default class Client extends OpenApi {
       query["MaxEventsNum"] = request.maxEventsNum;
     }
 
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.reverse)) {
+      query["Reverse"] = request.reverse;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }

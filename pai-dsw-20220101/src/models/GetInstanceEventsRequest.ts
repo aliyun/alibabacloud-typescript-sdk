@@ -20,6 +20,8 @@ export class GetInstanceEventsRequest extends $dara.Model {
    * 2000
    */
   maxEventsNum?: number;
+  offset?: number;
+  reverse?: boolean;
   /**
    * @remarks
    * The beginning of the time range to query.
@@ -38,6 +40,8 @@ export class GetInstanceEventsRequest extends $dara.Model {
       endTime: 'EndTime',
       eventLevel: 'EventLevel',
       maxEventsNum: 'MaxEventsNum',
+      offset: 'Offset',
+      reverse: 'Reverse',
       startTime: 'StartTime',
       token: 'Token',
     };
@@ -48,6 +52,8 @@ export class GetInstanceEventsRequest extends $dara.Model {
       endTime: 'string',
       eventLevel: 'string',
       maxEventsNum: 'number',
+      offset: 'number',
+      reverse: 'boolean',
       startTime: 'string',
       token: 'string',
     };

@@ -66,6 +66,7 @@ export class GetInstanceEventsResponseBody extends $dara.Model {
    * true
    */
   success?: boolean;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
@@ -75,6 +76,7 @@ export class GetInstanceEventsResponseBody extends $dara.Model {
       message: 'Message',
       requestId: 'RequestId',
       success: 'Success',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -87,6 +89,7 @@ export class GetInstanceEventsResponseBody extends $dara.Model {
       message: 'string',
       requestId: 'string',
       success: 'boolean',
+      totalCount: 'number',
     };
   }
 
