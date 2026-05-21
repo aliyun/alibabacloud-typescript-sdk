@@ -101,6 +101,69 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建连接器
+   * 
+   * @param tmpReq - AddConnectorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddConnectorResponse
+   */
+  async addConnectorWithOptions(WorkspaceId: string, tmpReq: $_model.AddConnectorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddConnectorResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddConnectorShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fileConnectorConfig)) {
+      request.fileConnectorConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileConnectorConfig, "FileConnectorConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectorName)) {
+      body["ConnectorName"] = request.connectorName;
+    }
+
+    if (!$dara.isNull(request.connectorType)) {
+      body["ConnectorType"] = request.connectorType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.fileConnectorConfigShrink)) {
+      body["FileConnectorConfig"] = request.fileConnectorConfigShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddConnector",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/connector`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddConnectorResponse>(await this.callApi(params, req, runtime), new $_model.AddConnectorResponse({}));
+  }
+
+  /**
+   * 创建连接器
+   * 
+   * @param request - AddConnectorRequest
+   * @returns AddConnectorResponse
+   */
+  async addConnector(WorkspaceId: string, request: $_model.AddConnectorRequest): Promise<$_model.AddConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addConnectorWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
    * 
    * @remarks
@@ -1640,6 +1703,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetConnector
+   * 
+   * @param request - GetConnectorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConnectorResponse
+   */
+  async getConnectorWithOptions(WorkspaceId: string, request: $_model.GetConnectorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConnectorResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectorId)) {
+      query["ConnectorId"] = request.connectorId;
+    }
+
+    if (!$dara.isNull(request.connectorName)) {
+      query["ConnectorName"] = request.connectorName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConnector",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/connector`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConnectorResponse>(await this.callApi(params, req, runtime), new $_model.GetConnectorResponse({}));
+  }
+
+  /**
+   * GetConnector
+   * 
+   * @param request - GetConnectorRequest
+   * @returns GetConnectorResponse
+   */
+  async getConnector(WorkspaceId: string, request: $_model.GetConnectorRequest): Promise<$_model.GetConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConnectorWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Queries the current status of a specified knowledge base creation or add document job.
    * 
    * @remarks
@@ -2044,6 +2156,10 @@ export default class Client extends OpenApi {
       body["CategoryType"] = request.categoryType;
     }
 
+    if (!$dara.isNull(request.connectorId)) {
+      body["ConnectorId"] = request.connectorId;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }
@@ -2168,16 +2284,26 @@ export default class Client extends OpenApi {
    * *   This operation is idempotent.
    * **Throttling:** Throttling will be triggered if you call this operation frequently. Do not exceed 5 times per second. If throttling is triggered, try again later.
    * 
-   * @param request - ListFileRequest
+   * @param tmpReq - ListFileRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFileResponse
    */
-  async listFileWithOptions(WorkspaceId: string, request: $_model.ListFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListFileResponse> {
-    request.validate();
+  async listFileWithOptions(WorkspaceId: string, tmpReq: $_model.ListFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListFileResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListFileShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fileIds)) {
+      request.fileIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileIds, "FileIds", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.categoryId)) {
       query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.fileIdsShrink)) {
+      query["FileIds"] = request.fileIdsShrink;
     }
 
     if (!$dara.isNull(request.fileName)) {
@@ -2646,6 +2772,10 @@ export default class Client extends OpenApi {
     tmpReq.validate();
     let request = new $_model.RetrieveShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.extra)) {
+      request.extraShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extra, "Extra", "json");
+    }
+
     if (!$dara.isNull(tmpReq.images)) {
       request.imagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.images, "Images", "simple");
     }
@@ -2677,6 +2807,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableRewrite)) {
       query["EnableRewrite"] = request.enableRewrite;
+    }
+
+    if (!$dara.isNull(request.extraShrink)) {
+      query["Extra"] = request.extraShrink;
     }
 
     if (!$dara.isNull(request.imagesShrink)) {
@@ -2784,6 +2918,10 @@ export default class Client extends OpenApi {
       request.documentIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentIds, "DocumentIds", "json");
     }
 
+    if (!$dara.isNull(tmpReq.extra)) {
+      request.extraShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extra, "Extra", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.categoryIdsShrink)) {
       query["CategoryIds"] = request.categoryIdsShrink;
@@ -2803,6 +2941,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.enableHeaders)) {
       query["EnableHeaders"] = request.enableHeaders;
+    }
+
+    if (!$dara.isNull(request.extraShrink)) {
+      query["Extra"] = request.extraShrink;
     }
 
     if (!$dara.isNull(request.indexId)) {

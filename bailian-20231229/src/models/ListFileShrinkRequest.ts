@@ -2,21 +2,19 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListCategoryRequest extends $dara.Model {
-  categoryName?: string;
+export class ListFileShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The category ID, which is the `CategoryId` returned by the [AddCategory](~~AddCategory~~) operation. To view the category ID, click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page.
+   * 
    * This parameter is required.
    * 
    * @example
-   * UNSTRUCTURED
+   * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
    */
-  categoryType?: string;
-  /**
-   * @example
-   * file_conn_xxxxx
-   */
-  connectorId?: string;
+  categoryId?: string;
+  fileIdsShrink?: string;
+  fileName?: string;
   /**
    * @example
    * 20
@@ -27,30 +25,23 @@ export class ListCategoryRequest extends $dara.Model {
    * AAAAAdH70eOCSCKtacdomNzak4U=
    */
   nextToken?: string;
-  /**
-   * @example
-   * cate_cdd11b1b79a74e8bbd675c356a91ee3XXXXXXXX
-   */
-  parentCategoryId?: string;
   static names(): { [key: string]: string } {
     return {
-      categoryName: 'CategoryName',
-      categoryType: 'CategoryType',
-      connectorId: 'ConnectorId',
+      categoryId: 'CategoryId',
+      fileIdsShrink: 'FileIds',
+      fileName: 'FileName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
-      parentCategoryId: 'ParentCategoryId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      categoryName: 'string',
-      categoryType: 'string',
-      connectorId: 'string',
+      categoryId: 'string',
+      fileIdsShrink: 'string',
+      fileName: 'string',
       maxResults: 'number',
       nextToken: 'string',
-      parentCategoryId: 'string',
     };
   }
 

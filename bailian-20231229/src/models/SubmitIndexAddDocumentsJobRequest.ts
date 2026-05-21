@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class SubmitIndexAddDocumentsJobRequestExtra extends $dara.Model {
+  uniqueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uniqueId: 'uniqueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uniqueId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitIndexAddDocumentsJobRequest extends $dara.Model {
   /**
    * @remarks
@@ -16,6 +39,7 @@ export class SubmitIndexAddDocumentsJobRequest extends $dara.Model {
    */
   documentIds?: string[];
   enableHeaders?: boolean;
+  extra?: SubmitIndexAddDocumentsJobRequestExtra;
   /**
    * @remarks
    * The primary key ID of the knowledge base, which is the `Data.Id` parameter returned by the [CreateIndex](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-createindex) operation.
@@ -50,6 +74,7 @@ export class SubmitIndexAddDocumentsJobRequest extends $dara.Model {
       chunkSize: 'ChunkSize',
       documentIds: 'DocumentIds',
       enableHeaders: 'EnableHeaders',
+      extra: 'Extra',
       indexId: 'IndexId',
       overlapSize: 'OverlapSize',
       separator: 'Separator',
@@ -64,6 +89,7 @@ export class SubmitIndexAddDocumentsJobRequest extends $dara.Model {
       chunkSize: 'number',
       documentIds: { 'type': 'array', 'itemType': 'string' },
       enableHeaders: 'boolean',
+      extra: SubmitIndexAddDocumentsJobRequestExtra,
       indexId: 'string',
       overlapSize: 'number',
       separator: 'string',
@@ -77,6 +103,9 @@ export class SubmitIndexAddDocumentsJobRequest extends $dara.Model {
     }
     if(Array.isArray(this.documentIds)) {
       $dara.Model.validateArray(this.documentIds);
+    }
+    if(this.extra && typeof (this.extra as any).validate === 'function') {
+      (this.extra as any).validate();
     }
     super.validate();
   }

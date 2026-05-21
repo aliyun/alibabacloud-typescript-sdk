@@ -13,6 +13,7 @@ export class ListFileRequest extends $dara.Model {
    * cate_cdd11b1b79a74e8bbd675c356a91ee3510024405
    */
   categoryId?: string;
+  fileIds?: string[];
   fileName?: string;
   /**
    * @example
@@ -27,6 +28,7 @@ export class ListFileRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       categoryId: 'CategoryId',
+      fileIds: 'FileIds',
       fileName: 'FileName',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -36,6 +38,7 @@ export class ListFileRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       categoryId: 'string',
+      fileIds: { 'type': 'array', 'itemType': 'string' },
       fileName: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -43,6 +46,9 @@ export class ListFileRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.fileIds)) {
+      $dara.Model.validateArray(this.fileIds);
+    }
     super.validate();
   }
 

@@ -39,6 +39,7 @@ export class RetrieveShrinkRequest extends $dara.Model {
    * false
    */
   enableRewrite?: boolean;
+  extraShrink?: string;
   imagesShrink?: string;
   /**
    * @remarks
@@ -117,6 +118,7 @@ export class RetrieveShrinkRequest extends $dara.Model {
       denseSimilarityTopK: 'DenseSimilarityTopK',
       enableReranking: 'EnableReranking',
       enableRewrite: 'EnableRewrite',
+      extraShrink: 'Extra',
       imagesShrink: 'Images',
       indexId: 'IndexId',
       query: 'Query',
@@ -136,6 +138,7 @@ export class RetrieveShrinkRequest extends $dara.Model {
       denseSimilarityTopK: 'number',
       enableReranking: 'boolean',
       enableRewrite: 'boolean',
+      extraShrink: 'string',
       imagesShrink: 'string',
       indexId: 'string',
       query: 'string',

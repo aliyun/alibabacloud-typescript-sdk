@@ -2,6 +2,29 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class RetrieveRequestExtra extends $dara.Model {
+  uniqueId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uniqueId: 'uniqueId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uniqueId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RetrieveRequestQueryHistory extends $dara.Model {
   content?: string;
   role?: string;
@@ -138,6 +161,7 @@ export class RetrieveRequest extends $dara.Model {
    * false
    */
   enableRewrite?: boolean;
+  extra?: RetrieveRequestExtra;
   images?: string[];
   /**
    * @remarks
@@ -216,6 +240,7 @@ export class RetrieveRequest extends $dara.Model {
       denseSimilarityTopK: 'DenseSimilarityTopK',
       enableReranking: 'EnableReranking',
       enableRewrite: 'EnableRewrite',
+      extra: 'Extra',
       images: 'Images',
       indexId: 'IndexId',
       query: 'Query',
@@ -235,6 +260,7 @@ export class RetrieveRequest extends $dara.Model {
       denseSimilarityTopK: 'number',
       enableReranking: 'boolean',
       enableRewrite: 'boolean',
+      extra: RetrieveRequestExtra,
       images: { 'type': 'array', 'itemType': 'string' },
       indexId: 'string',
       query: 'string',
@@ -250,6 +276,9 @@ export class RetrieveRequest extends $dara.Model {
   }
 
   validate() {
+    if(this.extra && typeof (this.extra as any).validate === 'function') {
+      (this.extra as any).validate();
+    }
     if(Array.isArray(this.images)) {
       $dara.Model.validateArray(this.images);
     }
