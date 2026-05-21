@@ -894,6 +894,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除预算
+   * 
+   * @param request - DeleteBudgetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBudgetResponse
+   */
+  async deleteBudgetWithOptions(request: $_model.DeleteBudgetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBudgetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nbid)) {
+      query["Nbid"] = request.nbid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.budgetName)) {
+      body["BudgetName"] = request.budgetName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBudget",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBudgetResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBudgetResponse({}));
+  }
+
+  /**
+   * 删除预算
+   * 
+   * @param request - DeleteBudgetRequest
+   * @returns DeleteBudgetResponse
+   */
+  async deleteBudget(request: $_model.DeleteBudgetRequest): Promise<$_model.DeleteBudgetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteBudgetWithOptions(request, runtime);
+  }
+
+  /**
    * 删除财务单元
    * 
    * @param request - DeleteCostCenterRequest
