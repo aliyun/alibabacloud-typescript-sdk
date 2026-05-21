@@ -3,7 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AiPluginStatus extends $dara.Model {
-  errorLogs?: { [key: string]: string };
+  errorLogs?: { [key: string]: any }[];
   pluginId?: string;
   serviceHealthy?: boolean;
   static names(): { [key: string]: string } {
@@ -16,15 +16,15 @@ export class AiPluginStatus extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      errorLogs: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      errorLogs: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
       pluginId: 'string',
       serviceHealthy: 'boolean',
     };
   }
 
   validate() {
-    if(this.errorLogs) {
-      $dara.Model.validateMap(this.errorLogs);
+    if(Array.isArray(this.errorLogs)) {
+      $dara.Model.validateArray(this.errorLogs);
     }
     super.validate();
   }

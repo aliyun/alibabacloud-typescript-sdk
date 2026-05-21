@@ -57,6 +57,35 @@ export class HttpApiDeployConfigCustomDomainInfos extends $dara.Model {
   }
 }
 
+export class HttpApiDeployConfigEnvDomainInfos extends $dara.Model {
+  domainId?: string;
+  name?: string;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'domainId',
+      name: 'name',
+      protocol: 'protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      name: 'string',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HttpApiDeployConfigServiceConfigsObservabilityRouteConfig extends $dara.Model {
   /**
    * @remarks
@@ -348,6 +377,8 @@ export class HttpApiDeployConfig extends $dara.Model {
    * The information about the custom domain names.
    */
   customDomainInfos?: HttpApiDeployConfigCustomDomainInfos[];
+  envDomainIds?: string[];
+  envDomainInfos?: HttpApiDeployConfigEnvDomainInfos[];
   /**
    * @remarks
    * The environment ID.
@@ -418,6 +449,8 @@ export class HttpApiDeployConfig extends $dara.Model {
       builtinRouteNames: 'builtinRouteNames',
       customDomainIds: 'customDomainIds',
       customDomainInfos: 'customDomainInfos',
+      envDomainIds: 'envDomainIds',
+      envDomainInfos: 'envDomainInfos',
       environmentId: 'environmentId',
       gatewayId: 'gatewayId',
       gatewayInfo: 'gatewayInfo',
@@ -437,6 +470,8 @@ export class HttpApiDeployConfig extends $dara.Model {
       builtinRouteNames: { 'type': 'array', 'itemType': 'string' },
       customDomainIds: { 'type': 'array', 'itemType': 'string' },
       customDomainInfos: { 'type': 'array', 'itemType': HttpApiDeployConfigCustomDomainInfos },
+      envDomainIds: { 'type': 'array', 'itemType': 'string' },
+      envDomainInfos: { 'type': 'array', 'itemType': HttpApiDeployConfigEnvDomainInfos },
       environmentId: 'string',
       gatewayId: 'string',
       gatewayInfo: GatewayInfo,
@@ -458,6 +493,12 @@ export class HttpApiDeployConfig extends $dara.Model {
     }
     if(Array.isArray(this.customDomainInfos)) {
       $dara.Model.validateArray(this.customDomainInfos);
+    }
+    if(Array.isArray(this.envDomainIds)) {
+      $dara.Model.validateArray(this.envDomainIds);
+    }
+    if(Array.isArray(this.envDomainInfos)) {
+      $dara.Model.validateArray(this.envDomainInfos);
     }
     if(this.gatewayInfo && typeof (this.gatewayInfo as any).validate === 'function') {
       (this.gatewayInfo as any).validate();

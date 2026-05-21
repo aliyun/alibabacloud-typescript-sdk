@@ -60,6 +60,7 @@ export { HttpApiApiInfoIngressInfoEnvironmentInfo } from './HttpApiApiInfo';
 export { HttpApiApiInfoIngressInfoK8sClusterInfo } from './HttpApiApiInfo';
 export { HttpApiApiInfoIngressInfo } from './HttpApiApiInfo';
 export { HttpApiDeployConfigCustomDomainInfos } from './HttpApiDeployConfig';
+export { HttpApiDeployConfigEnvDomainInfos } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigServiceConfigsObservabilityRouteConfig } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigServiceConfigs } from './HttpApiDeployConfig';
 export { HttpApiDeployConfigSubDomains } from './HttpApiDeployConfig';
