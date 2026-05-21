@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class GetSavedQueryRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
-   * > You can call the [ListSavedQueries](~~ListSavedQueries~~) operation to obtain the ID of the template.
+   * >  You can call the [ListSavedQueries](~~ListSavedQueries~~) operation to query the ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * cq-GeAck****
+   * sq-GeAck****
    */
   queryId?: string;
   static names(): { [key: string]: string } {

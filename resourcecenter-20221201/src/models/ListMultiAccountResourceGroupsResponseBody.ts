@@ -2,10 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListMultiAccountResourceGroupsResponseBodyResourceGroupsTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account or a member in the resource directory.
+   * The ID of the management account or member of the resource directory.
    * 
    * @example
    * 1394339739****
@@ -29,7 +55,7 @@ export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $d
   displayName?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzawhxxc****
@@ -45,18 +71,17 @@ export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $d
   name?: string;
   /**
    * @remarks
-   * The status of the resource group.
+   * The status of the resource group. Valid values:
    * 
-   * - Creating: The resource group is being created.
-   * 
-   * - OK: The resource group is created.
-   * 
-   * - PendingDelete: The resource group is pending deletion.
+   * *   Creating: The resource group is being created.
+   * *   OK: The resource group is created.
+   * *   PendingDelete: The resource group is waiting to be deleted.
    * 
    * @example
    * OK
    */
   status?: string;
+  tags?: ListMultiAccountResourceGroupsResponseBodyResourceGroupsTags[];
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
@@ -65,6 +90,7 @@ export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $d
       id: 'Id',
       name: 'Name',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -76,10 +102,14 @@ export class ListMultiAccountResourceGroupsResponseBodyResourceGroups extends $d
       id: 'string',
       name: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListMultiAccountResourceGroupsResponseBodyResourceGroupsTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -99,7 +129,7 @@ export class ListMultiAccountResourceGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0FF0A66E-781F-51EE-9531-928F197558F2
@@ -107,7 +137,7 @@ export class ListMultiAccountResourceGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource groups.
+   * The information about the resource groups.
    */
   resourceGroups?: ListMultiAccountResourceGroupsResponseBodyResourceGroups[];
   static names(): { [key: string]: string } {

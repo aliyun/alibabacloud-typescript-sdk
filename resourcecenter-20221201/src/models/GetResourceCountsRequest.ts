@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceCountsRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The key of the filter condition. For information about valid values, see the "`Supported filter parameters`" section below.
+   * The key of the filter condition. For more information, see `Supported filter parameters`.
    * 
    * @example
    * RegionId
@@ -13,9 +13,9 @@ export class GetResourceCountsRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The matching method.
+   * The matching mode.
    * 
-   * Set this parameter to `Equals`, which means an equal match.
+   * The value Equals indicates an equal match.
    * 
    * @example
    * Equals
@@ -62,37 +62,19 @@ export class GetResourceCountsRequest extends $dara.Model {
   filter?: GetResourceCountsRequestFilter[];
   /**
    * @remarks
-   * The dimension by which the queried resources are grouped. Valid values:
+   * The dimension by which resources are queried. Valid values:
    * 
-   * - ResourceType: The resource type.
-   * 
-   * - RegionId: The region.
-   * 
-   * - ResourceGroupId: The resource group ID.
+   * *   ResourceType
+   * *   Region
+   * *   ResourceGroupId
+   * *   TagKey
+   * *   TagValue
    * 
    * @example
    * ResourceType
    */
   groupByKey?: string;
-  /**
-   * @remarks
-   * Specifies whether to include deleted resources. Valid values:
-   * 
-   * - true
-   * 
-   * - false
-   * 
-   * @example
-   * true
-   */
   includeDeletedResources?: boolean;
-  /**
-   * @remarks
-   * The search keyword. Resource Center filters the search results based on relevance.
-   * 
-   * @example
-   * keywords
-   */
   searchExpression?: string;
   static names(): { [key: string]: string } {
     return {

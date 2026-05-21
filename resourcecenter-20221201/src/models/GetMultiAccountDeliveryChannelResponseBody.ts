@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter extends $dara.Model {
   /**
    * @remarks
-   * The accounts within the delivery scope.
+   * The effective account scopes of the delivery channel.
    */
   accountScopes?: string[];
   /**
    * @remarks
-   * The types of delivered resources.
+   * The effective resource types of the delivery channel.
    */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class GetMultiAccountDeliveryChannelResponseBodyDeliveryChannelFilter ext
 export class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the Object Storage Service (OSS) bucket to which oversized data is delivered.
+   * The Alibaba Cloud Resource Name (ARN) of the destination to which large files are delivered.
    * 
    * @example
    * acs:oss:cn-hangzhou:1911422487776***:resourcecenter-oss
@@ -73,21 +73,10 @@ export class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySls
 }
 
 export class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether to deliver resource configuration changes. Valid values:
-   * 
-   * - true
-   * 
-   * - false
-   * 
-   * @example
-   * true
-   */
   enabled?: string;
   /**
    * @remarks
-   * The Simple Log Service (SLS) configuration.
+   * The Simple Log Service configurations.
    */
   slsProperties?: GetMultiAccountDeliveryChannelResponseBodyResourceChangeDeliverySlsProperties;
   /**
@@ -100,7 +89,7 @@ export class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery ex
   targetArn?: string;
   /**
    * @remarks
-   * The type of the delivery destination.
+   * The type of the destination.
    * 
    * @example
    * SLS
@@ -139,7 +128,7 @@ export class GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery ex
 export class GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the OSS bucket to which oversized data is delivered.
+   * The ARN of the destination to which large files are delivered.
    * 
    * @example
    * acs:oss:cn-hangzhou:1911422487776***:resourcecenter-oss
@@ -183,21 +172,10 @@ export class GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery 
    * 09:00Z
    */
   deliveryTime?: string;
-  /**
-   * @remarks
-   * Indicates whether to enable the scheduled delivery of resource snapshots. Valid values:
-   * 
-   * - true
-   * 
-   * - false
-   * 
-   * @example
-   * true
-   */
   enabled?: string;
   /**
    * @remarks
-   * The SLS configuration.
+   * The Simple Log Service configurations.
    */
   slsProperties?: GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDeliverySlsProperties;
   /**
@@ -210,7 +188,7 @@ export class GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery 
   targetArn?: string;
   /**
    * @remarks
-   * The type of the delivery destination.
+   * The type of the destination.
    * 
    * @example
    * OSS
@@ -254,9 +232,6 @@ export class GetMultiAccountDeliveryChannelResponseBody extends $dara.Model {
   /**
    * @remarks
    * The description of the delivery channel.
-   * 
-   * @example
-   * 投递描述
    */
   deliveryChannelDescription?: string;
   /**
@@ -290,12 +265,12 @@ export class GetMultiAccountDeliveryChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The delivery of resource configuration changes.
+   * The configurations for delivery of resource configuration change events.
    */
   resourceChangeDelivery?: GetMultiAccountDeliveryChannelResponseBodyResourceChangeDelivery;
   /**
    * @remarks
-   * The configurations of scheduled delivery of resource snapshots.
+   * The configurations for delivery of scheduled resource snapshots.
    */
   resourceSnapshotDelivery?: GetMultiAccountDeliveryChannelResponseBodyResourceSnapshotDelivery;
   static names(): { [key: string]: string } {

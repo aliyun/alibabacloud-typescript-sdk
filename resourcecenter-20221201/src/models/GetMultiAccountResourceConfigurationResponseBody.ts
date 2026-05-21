@@ -15,9 +15,8 @@ export class GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes
    * @remarks
    * The network type. Valid values:
    * 
-   * - **Public**: Internet
-   * 
-   * - **Private**: internal network
+   * *   **Public**: the Internet
+   * *   **Private**: internal network
    * 
    * @example
    * Public
@@ -25,7 +24,7 @@ export class GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes
   networkType?: string;
   /**
    * @remarks
-   * The version of the IP address.
+   * The version.
    * 
    * @example
    * Ipv4
@@ -59,7 +58,7 @@ export class GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes
 export class GetMultiAccountResourceConfigurationResponseBodyTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of tag N.
    * 
    * @example
    * tag-key
@@ -67,7 +66,7 @@ export class GetMultiAccountResourceConfigurationResponseBodyTags extends $dara.
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of tag N.
    * 
    * @example
    * tag-value
@@ -99,7 +98,7 @@ export class GetMultiAccountResourceConfigurationResponseBodyTags extends $dara.
 export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account or member.
+   * The ID of the management account or member of the resource directory.
    * 
    * @example
    * 1619302****
@@ -128,7 +127,7 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
   expireTime?: string;
   /**
    * @remarks
-   * The properties of the IP addresses.
+   * The attributes of the IP address.
    */
   ipAddressAttributes?: GetMultiAccountResourceConfigurationResponseBodyIpAddressAttributes[];
   /**
@@ -140,7 +139,7 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
   ipAddresses?: string[];
   /**
    * @remarks
-   * The ID of the region where the resource resides.
+   * The region ID of the resource.
    * 
    * @example
    * cn-shanghai
@@ -148,7 +147,7 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * B2DCC08B-C12A-5705-879C-5A1450016156
@@ -156,7 +155,7 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The ID of your Alibaba Cloud resource group.
+   * The ID of the resource group to which the resource belongs.
    * 
    * @example
    * rg-acfmzy6d****
@@ -164,7 +163,7 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * m-eb3hji****
@@ -172,7 +171,7 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
   resourceId?: string;
   /**
    * @remarks
-   * The resource name.
+   * The name of the resource.
    * 
    * @example
    * test_resource
@@ -180,7 +179,7 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
   resourceName?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * @example
    * ACS::VPC::RouteTable
@@ -188,12 +187,12 @@ export class GetMultiAccountResourceConfigurationResponseBody extends $dara.Mode
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The tags of the resource.
    */
   tags?: GetMultiAccountResourceConfigurationResponseBodyTags[];
   /**
    * @remarks
-   * The zone ID.
+   * The zone ID of the resource.
    * 
    * @example
    * cn-shanghai-a

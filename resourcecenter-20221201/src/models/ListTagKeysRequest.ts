@@ -7,9 +7,8 @@ export class ListTagKeysRequest extends $dara.Model {
    * @remarks
    * The matching mode. Valid values:
    * 
-   * - Equals: equal match
-   * 
-   * - Prefix: match by prefix
+   * *   Equals: equal match
+   * *   Prefix: match by prefix
    * 
    * @example
    * Equals

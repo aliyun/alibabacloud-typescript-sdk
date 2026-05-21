@@ -16,12 +16,12 @@ export class GetSavedQueryResponseBodySavedQuery extends $dara.Model {
    * The description of the template.
    * 
    * @example
-   * 查询我的所有资源，返回所有的列。
+   * Queries all resources on which you have permissions and sorts the resources by resource type and resource ID.
    */
   description?: string;
   /**
    * @remarks
-   * The expression of the template.
+   * The query statement in the template.
    * 
    * @example
    * SELECT * FROM resources;
@@ -32,20 +32,20 @@ export class GetSavedQueryResponseBodySavedQuery extends $dara.Model {
    * The name of the template.
    * 
    * @example
-   * 查询我的所有资源。
+   * Query of All Alibaba Cloud Resources
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
-   * cq-GeAck****
+   * sq-GeAck****
    */
   queryId?: string;
   /**
    * @remarks
-   * The time when the template was last updated. The time is displayed in UTC.
+   * The time when the template was updated. The time is displayed in UTC.
    * 
    * @example
    * 2023-10-30T01:43:16Z

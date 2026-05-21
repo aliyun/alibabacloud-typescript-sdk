@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchResourcesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The key of the filter condition. For more information about the valid values, see the "`Supported filter parameters`" section below.
+   * The key of the filter condition. For more information, see `Supported filter parameters`.
    * 
    * @example
    * RegionId
@@ -13,19 +13,9 @@ export class SearchResourcesRequestFilter extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The matching method. Valid values:
+   * The matching mode.
    * 
-   * - Equals: Exact match.
-   * 
-   * - Prefix: Prefix match.
-   * 
-   * - Contains: Contains a value.
-   * 
-   * - NotContains: Does not contain a value.
-   * 
-   * - Exists: The key exists.
-   * 
-   * - NotExists: The key does not exist.
+   * The value Equals indicates an equal match.
    * 
    * @example
    * Equals
@@ -33,7 +23,7 @@ export class SearchResourcesRequestFilter extends $dara.Model {
   matchType?: string;
   /**
    * @remarks
-   * The value of the filter condition.
+   * The values of the filter condition.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -67,9 +57,9 @@ export class SearchResourcesRequestFilter extends $dara.Model {
 export class SearchResourcesRequestSortCriterion extends $dara.Model {
   /**
    * @remarks
-   * The sort key.
+   * The attribute based on which the entries are sorted.
    * 
-   * Set this parameter to `CreateTime`, which means the results are sorted by resource creation time.
+   * The value CreateTime indicates the creation time of resources.
    * 
    * @example
    * CreateTime
@@ -77,13 +67,10 @@ export class SearchResourcesRequestSortCriterion extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
+   * The order in which the entries are sorted. Valid values:
    * 
-   * - ASC: Ascending order.
-   * 
-   * - DESC: Descending order.
-   * 
-   * Default value: ASC.
+   * *   ASC: The entries are sorted in ascending order. This value is the default value.
+   * *   DESC: The entries are sorted in descending order.
    * 
    * @example
    * ASC
@@ -118,23 +105,12 @@ export class SearchResourcesRequest extends $dara.Model {
    * The filter conditions.
    */
   filter?: SearchResourcesRequestFilter[];
-  /**
-   * @remarks
-   * Specifies whether to include deleted resources. Valid values:
-   * 
-   * - true
-   * 
-   * - false
-   * 
-   * @example
-   * true
-   */
   includeDeletedResources?: boolean;
   /**
    * @remarks
    * The maximum number of entries per page.
    * 
-   * Valid values: 1 to 500.
+   * Valid values: 1 to 100.
    * 
    * Default value: 20.
    * 
@@ -144,7 +120,9 @@ export class SearchResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the `token` to initiate another request and obtain the remaining entries.
    * 
    * @example
    * eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
@@ -158,18 +136,10 @@ export class SearchResourcesRequest extends $dara.Model {
    * rg-acfmzawhxxc****
    */
   resourceGroupId?: string;
-  /**
-   * @remarks
-   * The search keyword. Resource Center filters and sorts the search results based on relevance.
-   * If you do not specify a sorting parameter, resources that better match the keyword are displayed with higher priority.
-   * 
-   * @example
-   * keywords
-   */
   searchExpression?: string;
   /**
    * @remarks
-   * The sorting parameters.
+   * The method that is used to sort the entries returned.
    */
   sortCriterion?: SearchResourcesRequestSortCriterion;
   static names(): { [key: string]: string } {

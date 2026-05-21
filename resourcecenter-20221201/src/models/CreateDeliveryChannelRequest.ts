@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeliveryChannelRequestDeliveryChannelFilter extends $dara.Model {
   /**
    * @remarks
-   * The list of resource types to be delivered.
+   * An array of effective resource types for the delivery channel.
+   * 
+   * *   Example: ["ACS::VPC::VPC", "ACS::ECS::Instance"].
+   * *   If you want to deliver items of all resource types supported by Resource Center, set this parameter to ["ALL"].
    */
   resourceTypes?: string[];
   static names(): { [key: string]: string } {
@@ -35,9 +38,10 @@ export class CreateDeliveryChannelRequestDeliveryChannelFilter extends $dara.Mod
 export class CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the destination OSS bucket for oversized files.
+   * The ARN of the destination to which large files are delivered.
    * 
-   * If the size of a resource configuration change event exceeds 1 MB, the event is delivered as an OSS object. Set this parameter to the ARN of an OSS bucket that has the `resourcecenter-` prefix.
+   * *   If the size of a resource configuration change event exceeds 1 MB, the event is delivered as an OSS object.
+   * *   You need to set this parameter to the ARN of a bucket whose name is prefixed with resourcecenter-.
    * 
    * @example
    * acs:oss:cn-hangzhou:191142248777****:resourcecenter-oss
@@ -67,16 +71,15 @@ export class CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties ext
 export class CreateDeliveryChannelRequestResourceChangeDelivery extends $dara.Model {
   /**
    * @remarks
-   * The SLS configurations.
+   * The Simple Log Service configurations.
    */
   slsProperties?: CreateDeliveryChannelRequestResourceChangeDeliverySlsProperties;
   /**
    * @remarks
-   * The ARN of the destination. Valid values:
+   * The ARN of the delivery destination.
    * 
-   * - If you set `TargetType` to `OSS`, set `TargetArn` to the ARN of an OSS bucket that has the `resourcecenter-` prefix.
-   * 
-   * - If you set `TargetType` to `SLS`, set `TargetArn` to the ARN of an SLS Logstore that has the `resourcecenter-` prefix.
+   * *   If you set `TargetType` to `OSS`, you must set `TargetArn` to the ARN of a bucket whose name is prefixed with resourcecenter-.
+   * *   If you set `TargetType` to `SLS`, you must set `TargetArn` to the ARN of a Logstore whose name is prefixed with resourcecenter-.
    * 
    * @example
    * acs:log:cn-hangzhou: 191142248777****:project/delivery/logstore/resourcecenter-sls
@@ -84,9 +87,11 @@ export class CreateDeliveryChannelRequestResourceChangeDelivery extends $dara.Mo
   targetArn?: string;
   /**
    * @remarks
-   * The type of the destination.
+   * The type of the delivery destination.
    * 
-   * Valid value: `SLS`.
+   * Valid values:
+   * 
+   * *   `SLS`
    * 
    * @example
    * SLS
@@ -123,11 +128,11 @@ export class CreateDeliveryChannelRequestResourceChangeDelivery extends $dara.Mo
 export class CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the destination OSS bucket for oversized files.
+   * The ARN of the destination to which large files are delivered.
    * 
-   * If the size of a resource configuration change event exceeds 1 MB, the event is delivered as an OSS object. Set this parameter to the ARN of an OSS bucket that has the `resourcecenter-` prefix.
-   * 
-   * > This parameter is valid only for custom scheduled delivery. You do not need to specify this parameter for standard scheduled delivery.
+   * *   If the size of a resource configuration change event exceeds 1 MB, the event is delivered as an OSS object.
+   * *   You need to set this parameter to the ARN of a bucket whose name is prefixed with resourcecenter-.
+   * *   This parameter takes effect only if you use custom delivery for scheduled resource snapshots. You do not need to configure this parameter if you use standard delivery for scheduled resource snapshots.
    * 
    * @example
    * acs:oss:cn-hangzhou:191142248777****:resourcecenter-oss
@@ -173,16 +178,15 @@ export class CreateDeliveryChannelRequestResourceSnapshotDelivery extends $dara.
   deliveryTime?: string;
   /**
    * @remarks
-   * The SLS configurations.
+   * The Simple Log Service configurations.
    */
   slsProperties?: CreateDeliveryChannelRequestResourceSnapshotDeliverySlsProperties;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the destination. Valid values:
+   * The Alibaba Cloud Resource Name (ARN) of the delivery destination.
    * 
-   * - If you set `TargetType` to `OSS`, set `TargetArn` to the ARN of an Object Storage Service (OSS) bucket that has the `resourcecenter-` prefix. Example: `acs:oss:cn-hangzhou:191142248777****:resourcecenter-oss`.
-   * 
-   * - If you set `TargetType` to `SLS`, set `TargetArn` to the ARN of a Simple Log Service (SLS) Logstore that has the `resourcecenter-` prefix. Example: `acs:log:cn-hangzhou: 191142248777****:project/delivery/logstore/resourcecenter-sls`.
+   * *   If you set `TargetType` to `OSS`, you must set `TargetArn` to the ARN of a bucket whose name is prefixed with resourcecenter-.
+   * *   If you set `TargetType` to `SLS`, you must set `TargetArn` to the ARN of a Logstore whose name is prefixed with resourcecenter-.
    * 
    * @example
    * acs:log:cn-hangzhou: 191142248777****:project/delivery/logstore/resourcecenter-sls
@@ -190,11 +194,12 @@ export class CreateDeliveryChannelRequestResourceSnapshotDelivery extends $dara.
   targetArn?: string;
   /**
    * @remarks
-   * The type of the destination. Valid values:
+   * The type of the delivery destination.
    * 
-   * - For standard scheduled delivery, set this parameter to `OSS`.
+   * Valid values:
    * 
-   * - For custom scheduled delivery, set this parameter to `OSS` or `SLS`.
+   * *   `OSS` for standard delivery
+   * *   `OSS` or `SLS` for custom delivery
    * 
    * @example
    * OSS
@@ -236,9 +241,6 @@ export class CreateDeliveryChannelRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the delivery channel.
-   * 
-   * @example
-   * 测试投递
    */
   deliveryChannelDescription?: string;
   /**
@@ -260,12 +262,12 @@ export class CreateDeliveryChannelRequest extends $dara.Model {
   deliveryChannelName?: string;
   /**
    * @remarks
-   * The delivery of resource configuration changes.
+   * The configurations for delivery of resource configuration change events.
    */
   resourceChangeDelivery?: CreateDeliveryChannelRequestResourceChangeDelivery;
   /**
    * @remarks
-   * The scheduled delivery of resource snapshots.
+   * The configurations for delivery of scheduled resource snapshots.
    */
   resourceSnapshotDelivery?: CreateDeliveryChannelRequestResourceSnapshotDelivery;
   static names(): { [key: string]: string } {

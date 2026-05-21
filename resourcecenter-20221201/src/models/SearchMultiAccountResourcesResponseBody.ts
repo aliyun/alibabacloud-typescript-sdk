@@ -13,7 +13,7 @@ export class SearchMultiAccountResourcesResponseBodyFilters extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * The matching method.
+   * The matching mode.
    * 
    * @example
    * Equals
@@ -65,9 +65,8 @@ export class SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes
    * @remarks
    * The network type. Valid values:
    * 
-   * - **Public**: Internet.
-   * 
-   * - **Private**: Private network.
+   * *   **Public**: the Internet
+   * *   **Private**: internal network
    * 
    * @example
    * Public
@@ -75,7 +74,7 @@ export class SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes
   networkType?: string;
   /**
    * @remarks
-   * The IP address version.
+   * The version.
    * 
    * @example
    * Ipv4
@@ -109,7 +108,7 @@ export class SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes
 export class SearchMultiAccountResourcesResponseBodyResourcesTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of tag N.
    * 
    * @example
    * test_key
@@ -117,7 +116,7 @@ export class SearchMultiAccountResourcesResponseBodyResourcesTags extends $dara.
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of tag N.
    * 
    * @example
    * test_value
@@ -149,7 +148,7 @@ export class SearchMultiAccountResourcesResponseBodyResourcesTags extends $dara.
 export class SearchMultiAccountResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account or a member account of the resource directory.
+   * The ID of the management account or member of the resource directory.
    * 
    * @example
    * 151266687691****
@@ -159,7 +158,7 @@ export class SearchMultiAccountResourcesResponseBodyResources extends $dara.Mode
    * @remarks
    * The time when the resource was created.
    * 
-   * > Whether this parameter is returned depends on the Alibaba Cloud service that manages the resource.
+   * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
    * 
    * @example
    * 2021-06-30T09:20:08Z
@@ -175,14 +174,14 @@ export class SearchMultiAccountResourcesResponseBodyResources extends $dara.Mode
   expireTime?: string;
   /**
    * @remarks
-   * The attributes of the IP addresses.
+   * The attributes of the IP address.
    */
   ipAddressAttributes?: SearchMultiAccountResourcesResponseBodyResourcesIpAddressAttributes[];
   /**
    * @remarks
    * The IP addresses.
    * 
-   * > Whether this parameter is returned depends on the Alibaba Cloud service that manages the resource.
+   * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
    */
   ipAddresses?: string[];
   /**
@@ -234,7 +233,7 @@ export class SearchMultiAccountResourcesResponseBodyResources extends $dara.Mode
    * @remarks
    * The zone ID.
    * 
-   * > Whether this parameter is returned depends on the Alibaba Cloud service that manages the resource.
+   * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
    * 
    * @example
    * cn-hangzhou-k
@@ -308,15 +307,15 @@ export class SearchMultiAccountResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results.
+   * The pagination token that is used in the next request to retrieve a new page of results.
    * 
    * @example
-   * 查询返回结果下一页的令牌。
+   * The pagination token that is used in the next request to retrieve a new page of results.
    */
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EFA806B9-7F36-55AB-8B7A-D680C2C5EE57
@@ -329,15 +328,12 @@ export class SearchMultiAccountResourcesResponseBody extends $dara.Model {
   resources?: SearchMultiAccountResourcesResponseBodyResources[];
   /**
    * @remarks
-   * The scope of accounts in which the resources were searched. Valid values:
+   * The search scope.
    * 
-   * - The ID of the resource directory. This indicates that resources were searched in the management account and all member accounts of the resource directory.
-   * 
-   * - The ID of the Root folder. This indicates that resources were searched in all member accounts under the Root folder and its subfolders.
-   * 
-   * - The ID of a folder. This indicates that resources were searched in all member accounts under the folder.
-   * 
-   * - The ID of a member account. This indicates that resources were searched in the member account.
+   * *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched.
+   * *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched.
+   * *   ID of a folder: Resources within all members in the folder are searched.
+   * *   ID of a member: Resources within the member are searched.
    * 
    * @example
    * rd-r4****

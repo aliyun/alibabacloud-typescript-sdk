@@ -10,7 +10,7 @@ export class AssociateDefaultFilterRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 所有ECS实例资源
+   * My Filters
    */
   filterName?: string;
   static names(): { [key: string]: string } {

@@ -10,7 +10,7 @@ export class DeleteFilterRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 我的筛选条件
+   * ECS
    */
   filterName?: string;
   static names(): { [key: string]: string } {

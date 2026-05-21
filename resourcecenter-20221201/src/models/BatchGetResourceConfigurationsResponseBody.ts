@@ -4,29 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class BatchGetResourceConfigurationsResponseBodyResourcesIpAddressAttributes extends $dara.Model {
   /**
-   * @remarks
-   * The IP address.
-   * 
    * @example
    * 192.168.1.2
    */
   ipAddress?: string;
   /**
-   * @remarks
-   * The network type. Valid values:
-   * 
-   * - **Public**: Internet.
-   * 
-   * - **Private**: Private network.
-   * 
    * @example
    * Public
    */
   networkType?: string;
   /**
-   * @remarks
-   * The version of the IP address.
-   * 
    * @example
    * Ipv4
    */
@@ -58,17 +45,11 @@ export class BatchGetResourceConfigurationsResponseBodyResourcesIpAddressAttribu
 
 export class BatchGetResourceConfigurationsResponseBodyResourcesTags extends $dara.Model {
   /**
-   * @remarks
-   * The tag key.
-   * 
    * @example
    * test_key
    */
   key?: string;
   /**
-   * @remarks
-   * The tag value.
-   * 
    * @example
    * test_value
    */
@@ -98,95 +79,50 @@ export class BatchGetResourceConfigurationsResponseBodyResourcesTags extends $da
 
 export class BatchGetResourceConfigurationsResponseBodyResources extends $dara.Model {
   /**
-   * @remarks
-   * The ID of the Alibaba Cloud account.
-   * 
    * @example
    * 151266687691****
    */
   accountId?: string;
-  /**
-   * @remarks
-   * The details of the resource configuration.
-   */
   configuration?: { [key: string]: any };
   /**
-   * @remarks
-   * The time when the resource was created.
-   * 
    * @example
    * 2021-06-30T09:20:08Z
    */
   createTime?: string;
   /**
-   * @remarks
-   * The expiration time of the resource.
-   * 
    * @example
    * 2021-07-30T09:20:08Z
    */
   expireTime?: string;
-  /**
-   * @remarks
-   * The properties of the IP addresses.
-   */
   ipAddressAttributes?: BatchGetResourceConfigurationsResponseBodyResourcesIpAddressAttributes[];
-  /**
-   * @remarks
-   * The IP addresses.
-   * 
-   * > Whether this parameter is returned depends on the Alibaba Cloud service to which the resource belongs.
-   */
   ipAddresses?: string[];
   /**
-   * @remarks
-   * The region ID of the resource.
-   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
-   * @remarks
-   * The resource group ID.
-   * 
    * @example
    * rg-acfmzawhxxc****
    */
   resourceGroupId?: string;
   /**
-   * @remarks
-   * The resource ID.
-   * 
    * @example
    * eip-wz9gdtce0q6h48h*****
    */
   resourceId?: string;
   /**
-   * @remarks
-   * The resource name.
-   * 
    * @example
    * group1
    */
   resourceName?: string;
   /**
-   * @remarks
-   * The resource type.
-   * 
    * @example
    * ACS::ECS::Instance
    */
   resourceType?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tags?: BatchGetResourceConfigurationsResponseBodyResourcesTags[];
   /**
-   * @remarks
-   * The zone ID.
-   * 
    * @example
    * cn-hangzhou-k
    */
@@ -250,17 +186,10 @@ export class BatchGetResourceConfigurationsResponseBodyResources extends $dara.M
 
 export class BatchGetResourceConfigurationsResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * F1CE0D52-32DA-531A-87A4-B9A5B68*****
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The list of resources.
-   */
   resources?: BatchGetResourceConfigurationsResponseBodyResources[];
   static names(): { [key: string]: string } {
     return {

@@ -42,6 +42,7 @@ export { ListDeliveryChannelsResponseBodyDeliveryChannels } from './ListDelivery
 export { ListExampleQueriesResponseBodyExampleQueries } from './ListExampleQueriesResponseBody';
 export { ListFiltersResponseBodyFilters } from './ListFiltersResponseBody';
 export { ListMultiAccountDeliveryChannelsResponseBodyDeliveryChannels } from './ListMultiAccountDeliveryChannelsResponseBody';
+export { ListMultiAccountResourceGroupsResponseBodyResourceGroupsTags } from './ListMultiAccountResourceGroupsResponseBody';
 export { ListMultiAccountResourceGroupsResponseBodyResourceGroups } from './ListMultiAccountResourceGroupsResponseBody';
 export { ListMultiAccountResourceRelationshipsRequestRelatedResourceFilter } from './ListMultiAccountResourceRelationshipsRequest';
 export { ListMultiAccountResourceRelationshipsResponseBodyResourceRelationships } from './ListMultiAccountResourceRelationshipsResponseBody';

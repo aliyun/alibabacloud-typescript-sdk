@@ -6,27 +6,16 @@ import * as $dara from '@darabonba/typescript';
  */
 export class BatchGetResourceConfigurationsRequestResources extends $dara.Model {
   /**
-   * @remarks
-   * The region ID of the resource.
-   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
-   * @remarks
-   * The resource ID.
-   * 
    * @example
    * eip-bp1kyg72m****
    */
   resourceId?: string;
   /**
-   * @remarks
-   * The resource type.
-   * 
-   * For a list of resource types supported by Resource Center, see [Alibaba Cloud services and resource types that are supported by Resource Center](https://help.aliyun.com/document_detail/477798.html).
-   * 
    * @example
    * ACS::VPC::RouteTable
    */
@@ -57,10 +46,6 @@ export class BatchGetResourceConfigurationsRequestResources extends $dara.Model 
 }
 
 export class BatchGetResourceConfigurationsRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The list of resources.
-   */
   resources?: BatchGetResourceConfigurationsRequestResources[];
   static names(): { [key: string]: string } {
     return {

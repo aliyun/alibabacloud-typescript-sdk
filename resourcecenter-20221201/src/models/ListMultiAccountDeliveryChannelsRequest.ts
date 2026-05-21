@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMultiAccountDeliveryChannelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page.
    * 
    * Valid values: 1 to 100.
    * 
@@ -19,7 +19,7 @@ export class ListMultiAccountDeliveryChannelsRequest extends $dara.Model {
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
    * 
-   * If the number of returned entries exceeds the `MaxResults` value, the entries are truncated and this token is returned. To fetch the remaining entries, pass this token in the subsequent request.
+   * If the total number of entries returned for the current request exceeds the value of the MaxResults parameter, the entries are truncated. In this case, you can use the token to initiate another request and obtain the remaining entries.
    * 
    * @example
    * AAAAARfZmVDe9NvRXloR5+8CK9nNJufMdRA7W1miLC1P****

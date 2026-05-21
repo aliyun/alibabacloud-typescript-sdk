@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetResourceCenterServiceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The initialization status. Valid values:
+   * The initialization status of the service. Valid values:
    * 
-   * - Pending
-   * 
-   * - Finished
+   * *   Pending: The service is being initialized.
+   * *   Finished: The service is initialized.
    * 
    * @example
    * Pending
@@ -17,7 +16,7 @@ export class GetResourceCenterServiceStatusResponseBody extends $dara.Model {
   initialStatus?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * AD5F848D-CCDC-5464-93E1-4BA50A4826DD
@@ -25,11 +24,10 @@ export class GetResourceCenterServiceStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service status. Valid values:
+   * The status of the service. Valid values:
    * 
-   * - Enabled
-   * 
-   * - Disabled
+   * *   Enabled: The service is activated.
+   * *   Disabled: The service is deactivated.
    * 
    * @example
    * Enabled

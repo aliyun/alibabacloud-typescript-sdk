@@ -13,7 +13,7 @@ export class SearchResourcesResponseBodyFilters extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The matching method.
+   * The matching mode.
    * 
    * @example
    * Equals
@@ -65,9 +65,8 @@ export class SearchResourcesResponseBodyResourcesIpAddressAttributes extends $da
    * @remarks
    * The network type. Valid values:
    * 
-   * - **Public**: Internet
-   * 
-   * - **Private**: Private network
+   * *   **Public**: the Internet
+   * *   **Private**: internal network
    * 
    * @example
    * Public
@@ -75,7 +74,7 @@ export class SearchResourcesResponseBodyResourcesIpAddressAttributes extends $da
   networkType?: string;
   /**
    * @remarks
-   * The IP address version.
+   * The version.
    * 
    * @example
    * Ipv4
@@ -109,7 +108,7 @@ export class SearchResourcesResponseBodyResourcesIpAddressAttributes extends $da
 export class SearchResourcesResponseBodyResourcesTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of tag N.
    * 
    * @example
    * test_key
@@ -117,7 +116,7 @@ export class SearchResourcesResponseBodyResourcesTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of tag N.
    * 
    * @example
    * test_value
@@ -159,23 +158,12 @@ export class SearchResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The time when the resource was created.
    * 
-   * > Whether this parameter is returned depends on the Alibaba Cloud service to which the resource belongs.
+   * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
    * 
    * @example
    * 2021-06-30T09:20:08Z
    */
   createTime?: string;
-  /**
-   * @remarks
-   * Indicates whether the resource is deleted. Valid values:
-   * 
-   * - true
-   * 
-   * - false
-   * 
-   * @example
-   * true
-   */
   deleted?: boolean;
   /**
    * @remarks
@@ -187,14 +175,14 @@ export class SearchResourcesResponseBodyResources extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The attributes of the IP addresses.
+   * The attributes of the IP address.
    */
   ipAddressAttributes?: SearchResourcesResponseBodyResourcesIpAddressAttributes[];
   /**
    * @remarks
    * The IP addresses.
    * 
-   * > Whether this parameter is returned depends on the Alibaba Cloud service to which the resource belongs.
+   * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
    */
   ipAddresses?: string[];
   /**
@@ -246,7 +234,7 @@ export class SearchResourcesResponseBodyResources extends $dara.Model {
    * @remarks
    * The zone ID.
    * 
-   * > Whether this parameter is returned depends on the Alibaba Cloud service to which the resource belongs.
+   * >  Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
    * 
    * @example
    * cn-hangzhou-k
@@ -330,7 +318,7 @@ export class SearchResourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D696E6EF-3A6D-5770-801E-4982081FE4D0

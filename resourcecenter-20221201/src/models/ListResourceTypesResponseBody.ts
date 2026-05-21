@@ -58,7 +58,7 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
    * The name of the Alibaba Cloud service.
    * 
    * @example
-   * 容器服务Kubernetes版
+   * Container Service for Kubernetes
    */
   productName?: string;
   /**
@@ -79,7 +79,7 @@ export class ListResourceTypesResponseBodyResourceTypes extends $dara.Model {
    * The name of the resource type.
    * 
    * @example
-   * 集群
+   * Cluster
    */
   resourceTypeName?: string;
   static names(): { [key: string]: string } {

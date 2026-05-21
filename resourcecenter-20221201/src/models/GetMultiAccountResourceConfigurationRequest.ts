@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMultiAccountResourceConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the management account or member.
+   * The ID of the management account or member of the resource directory.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetMultiAccountResourceConfigurationRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetMultiAccountResourceConfigurationRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The ID of the region where the resource resides.
+   * The region ID of the resource.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class GetMultiAccountResourceConfigurationRequest extends $dara.Model {
   resourceRegionId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * This parameter is required.
    * 

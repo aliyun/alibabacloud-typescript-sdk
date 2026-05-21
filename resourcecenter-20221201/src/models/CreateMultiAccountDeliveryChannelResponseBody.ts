@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMultiAccountDeliveryChannelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The delivery channel ID.
+   * The ID of the delivery channel.
    * 
    * @example
    * dc-6q79dm4o9***
