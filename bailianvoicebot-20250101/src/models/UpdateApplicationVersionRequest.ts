@@ -288,7 +288,116 @@ export class UpdateApplicationVersionRequestSynthesizerConfig extends $dara.Mode
   }
 }
 
+export class UpdateApplicationVersionRequestToolConfigMcpServers extends $dara.Model {
+  baseUrl?: string;
+  name?: string;
+  sseEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseUrl: 'BaseUrl',
+      name: 'Name',
+      sseEndpoint: 'SseEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseUrl: 'string',
+      name: 'string',
+      sseEndpoint: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationVersionRequestToolConfig extends $dara.Model {
+  mcpServers?: UpdateApplicationVersionRequestToolConfigMcpServers[];
+  static names(): { [key: string]: string } {
+    return {
+      mcpServers: 'McpServers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mcpServers: { 'type': 'array', 'itemType': UpdateApplicationVersionRequestToolConfigMcpServers },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mcpServers)) {
+      $dara.Model.validateArray(this.mcpServers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationVersionRequestTranscriberConfigCorrectionRules extends $dara.Model {
+  pattern?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'Pattern',
+      replacement: 'Replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: 'string',
+      replacement: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateApplicationVersionRequestTranscriberConfigNlsAccessProfile extends $dara.Model {
+  accessProfileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessProfileId: 'AccessProfileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessProfileId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateApplicationVersionRequestTranscriberConfig extends $dara.Model {
+  correctionRules?: UpdateApplicationVersionRequestTranscriberConfigCorrectionRules[];
+  customizationId?: string;
+  endSilenceTimeout?: number;
+  model?: string;
+  nlsAccessProfile?: UpdateApplicationVersionRequestTranscriberConfigNlsAccessProfile;
   /**
    * @example
    * MANAGED
@@ -299,21 +408,43 @@ export class UpdateApplicationVersionRequestTranscriberConfig extends $dara.Mode
    * ALIYUN
    */
   nlsEngine?: string;
+  speechNoiseThreshold?: number;
+  vocabularyId?: string;
   static names(): { [key: string]: string } {
     return {
+      correctionRules: 'CorrectionRules',
+      customizationId: 'CustomizationId',
+      endSilenceTimeout: 'EndSilenceTimeout',
+      model: 'Model',
+      nlsAccessProfile: 'NlsAccessProfile',
       nlsAccessType: 'NlsAccessType',
       nlsEngine: 'NlsEngine',
+      speechNoiseThreshold: 'SpeechNoiseThreshold',
+      vocabularyId: 'VocabularyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      correctionRules: { 'type': 'array', 'itemType': UpdateApplicationVersionRequestTranscriberConfigCorrectionRules },
+      customizationId: 'string',
+      endSilenceTimeout: 'number',
+      model: 'string',
+      nlsAccessProfile: UpdateApplicationVersionRequestTranscriberConfigNlsAccessProfile,
       nlsAccessType: 'string',
       nlsEngine: 'string',
+      speechNoiseThreshold: 'number',
+      vocabularyId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.correctionRules)) {
+      $dara.Model.validateArray(this.correctionRules);
+    }
+    if(this.nlsAccessProfile && typeof (this.nlsAccessProfile as any).validate === 'function') {
+      (this.nlsAccessProfile as any).validate();
+    }
     super.validate();
   }
 
@@ -351,6 +482,7 @@ export class UpdateApplicationVersionRequest extends $dara.Model {
    * true
    */
   synthesizerConfig?: UpdateApplicationVersionRequestSynthesizerConfig;
+  toolConfig?: UpdateApplicationVersionRequestToolConfig;
   /**
    * **if can be null:**
    * true
@@ -372,6 +504,7 @@ export class UpdateApplicationVersionRequest extends $dara.Model {
       ragConfig: 'RagConfig',
       scriptProfile: 'ScriptProfile',
       synthesizerConfig: 'SynthesizerConfig',
+      toolConfig: 'ToolConfig',
       transcriberConfig: 'TranscriberConfig',
       versionId: 'VersionId',
     };
@@ -385,6 +518,7 @@ export class UpdateApplicationVersionRequest extends $dara.Model {
       ragConfig: UpdateApplicationVersionRequestRagConfig,
       scriptProfile: UpdateApplicationVersionRequestScriptProfile,
       synthesizerConfig: UpdateApplicationVersionRequestSynthesizerConfig,
+      toolConfig: UpdateApplicationVersionRequestToolConfig,
       transcriberConfig: UpdateApplicationVersionRequestTranscriberConfig,
       versionId: 'string',
     };
@@ -402,6 +536,9 @@ export class UpdateApplicationVersionRequest extends $dara.Model {
     }
     if(this.synthesizerConfig && typeof (this.synthesizerConfig as any).validate === 'function') {
       (this.synthesizerConfig as any).validate();
+    }
+    if(this.toolConfig && typeof (this.toolConfig as any).validate === 'function') {
+      (this.toolConfig as any).validate();
     }
     if(this.transcriberConfig && typeof (this.transcriberConfig as any).validate === 'function') {
       (this.transcriberConfig as any).validate();

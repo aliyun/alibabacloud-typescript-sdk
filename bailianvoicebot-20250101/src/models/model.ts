@@ -7,6 +7,10 @@ export { CreateApplicationVersionRequestScriptProfile } from './CreateApplicatio
 export { CreateApplicationVersionRequestSynthesizerConfigNlsAccessProfile } from './CreateApplicationVersionRequest';
 export { CreateApplicationVersionRequestSynthesizerConfigPronRules } from './CreateApplicationVersionRequest';
 export { CreateApplicationVersionRequestSynthesizerConfig } from './CreateApplicationVersionRequest';
+export { CreateApplicationVersionRequestToolConfigMcpServers } from './CreateApplicationVersionRequest';
+export { CreateApplicationVersionRequestToolConfig } from './CreateApplicationVersionRequest';
+export { CreateApplicationVersionRequestTranscriberConfigCorrectionRules } from './CreateApplicationVersionRequest';
+export { CreateApplicationVersionRequestTranscriberConfigNlsAccessProfile } from './CreateApplicationVersionRequest';
 export { CreateApplicationVersionRequestTranscriberConfig } from './CreateApplicationVersionRequest';
 export { CreateCloneVoiceResponseBodyData } from './CreateCloneVoiceResponseBody';
 export { CreateVoiceAccessProfileRequestProfile } from './CreateVoiceAccessProfileRequest';
@@ -19,6 +23,10 @@ export { GetApplicationResponseBodyDataDraftVersionScriptProfile } from './GetAp
 export { GetApplicationResponseBodyDataDraftVersionSynthesizerConfigNlsAccessProfile } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionSynthesizerConfigPronRules } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionSynthesizerConfig } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataDraftVersionToolConfigMcpServers } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataDraftVersionToolConfig } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataDraftVersionTranscriberConfigCorrectionRules } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataDraftVersionTranscriberConfigNlsAccessProfile } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersionTranscriberConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataDraftVersion } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersionInteractionConfigSilenceDetectionConfig } from './GetApplicationResponseBody';
@@ -29,6 +37,10 @@ export { GetApplicationResponseBodyDataPublishedVersionScriptProfile } from './G
 export { GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigNlsAccessProfile } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersionSynthesizerConfigPronRules } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataPublishedVersionToolConfigMcpServers } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataPublishedVersionToolConfig } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataPublishedVersionTranscriberConfigCorrectionRules } from './GetApplicationResponseBody';
+export { GetApplicationResponseBodyDataPublishedVersionTranscriberConfigNlsAccessProfile } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersionTranscriberConfig } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyDataPublishedVersion } from './GetApplicationResponseBody';
 export { GetApplicationResponseBodyData } from './GetApplicationResponseBody';
@@ -65,6 +77,10 @@ export { UpdateApplicationVersionRequestScriptProfile } from './UpdateApplicatio
 export { UpdateApplicationVersionRequestSynthesizerConfigNlsAccessProfile } from './UpdateApplicationVersionRequest';
 export { UpdateApplicationVersionRequestSynthesizerConfigPronRules } from './UpdateApplicationVersionRequest';
 export { UpdateApplicationVersionRequestSynthesizerConfig } from './UpdateApplicationVersionRequest';
+export { UpdateApplicationVersionRequestToolConfigMcpServers } from './UpdateApplicationVersionRequest';
+export { UpdateApplicationVersionRequestToolConfig } from './UpdateApplicationVersionRequest';
+export { UpdateApplicationVersionRequestTranscriberConfigCorrectionRules } from './UpdateApplicationVersionRequest';
+export { UpdateApplicationVersionRequestTranscriberConfigNlsAccessProfile } from './UpdateApplicationVersionRequest';
 export { UpdateApplicationVersionRequestTranscriberConfig } from './UpdateApplicationVersionRequest';
 export { UpdateVoiceAccessProfileRequestProfile } from './UpdateVoiceAccessProfileRequest';
 export { BridgeWebCallRequest } from './BridgeWebCallRequest';

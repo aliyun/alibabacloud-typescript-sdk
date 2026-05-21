@@ -28,6 +28,7 @@ export class CreateApplicationVersionShrinkRequest extends $dara.Model {
    */
   sourceVersionId?: string;
   synthesizerConfigShrink?: string;
+  toolConfigShrink?: string;
   transcriberConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,6 +39,7 @@ export class CreateApplicationVersionShrinkRequest extends $dara.Model {
       scriptProfileShrink: 'ScriptProfile',
       sourceVersionId: 'SourceVersionId',
       synthesizerConfigShrink: 'SynthesizerConfig',
+      toolConfigShrink: 'ToolConfig',
       transcriberConfigShrink: 'TranscriberConfig',
     };
   }
@@ -51,6 +53,7 @@ export class CreateApplicationVersionShrinkRequest extends $dara.Model {
       scriptProfileShrink: 'string',
       sourceVersionId: 'string',
       synthesizerConfigShrink: 'string',
+      toolConfigShrink: 'string',
       transcriberConfigShrink: 'string',
     };
   }

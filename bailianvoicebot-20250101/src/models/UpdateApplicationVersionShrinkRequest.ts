@@ -31,6 +31,7 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
    * true
    */
   synthesizerConfigShrink?: string;
+  toolConfigShrink?: string;
   /**
    * **if can be null:**
    * true
@@ -52,6 +53,7 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
       ragConfigShrink: 'RagConfig',
       scriptProfileShrink: 'ScriptProfile',
       synthesizerConfigShrink: 'SynthesizerConfig',
+      toolConfigShrink: 'ToolConfig',
       transcriberConfigShrink: 'TranscriberConfig',
       versionId: 'VersionId',
     };
@@ -65,6 +67,7 @@ export class UpdateApplicationVersionShrinkRequest extends $dara.Model {
       ragConfigShrink: 'string',
       scriptProfileShrink: 'string',
       synthesizerConfigShrink: 'string',
+      toolConfigShrink: 'string',
       transcriberConfigShrink: 'string',
       versionId: 'string',
     };

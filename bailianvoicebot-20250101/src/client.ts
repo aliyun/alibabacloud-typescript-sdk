@@ -188,6 +188,10 @@ export default class Client extends OpenApi {
       request.synthesizerConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.synthesizerConfig, "SynthesizerConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.toolConfig)) {
+      request.toolConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.toolConfig, "ToolConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.transcriberConfig)) {
       request.transcriberConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transcriberConfig, "TranscriberConfig", "json");
     }
@@ -219,6 +223,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.synthesizerConfigShrink)) {
       query["SynthesizerConfig"] = request.synthesizerConfigShrink;
+    }
+
+    if (!$dara.isNull(request.toolConfigShrink)) {
+      query["ToolConfig"] = request.toolConfigShrink;
     }
 
     if (!$dara.isNull(request.transcriberConfigShrink)) {
@@ -1788,6 +1796,10 @@ export default class Client extends OpenApi {
       request.synthesizerConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.synthesizerConfig, "SynthesizerConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.toolConfig)) {
+      request.toolConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.toolConfig, "ToolConfig", "json");
+    }
+
     if (!$dara.isNull(tmpReq.transcriberConfig)) {
       request.transcriberConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transcriberConfig, "TranscriberConfig", "json");
     }
@@ -1815,6 +1827,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.synthesizerConfigShrink)) {
       query["SynthesizerConfig"] = request.synthesizerConfigShrink;
+    }
+
+    if (!$dara.isNull(request.toolConfigShrink)) {
+      query["ToolConfig"] = request.toolConfigShrink;
     }
 
     if (!$dara.isNull(request.transcriberConfigShrink)) {

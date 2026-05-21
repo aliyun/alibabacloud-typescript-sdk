@@ -306,7 +306,116 @@ export class GetApplicationResponseBodyDataDraftVersionSynthesizerConfig extends
   }
 }
 
+export class GetApplicationResponseBodyDataDraftVersionToolConfigMcpServers extends $dara.Model {
+  baseUrl?: string;
+  name?: string;
+  sseEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseUrl: 'BaseUrl',
+      name: 'Name',
+      sseEndpoint: 'SseEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseUrl: 'string',
+      name: 'string',
+      sseEndpoint: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyDataDraftVersionToolConfig extends $dara.Model {
+  mcpServers?: GetApplicationResponseBodyDataDraftVersionToolConfigMcpServers[];
+  static names(): { [key: string]: string } {
+    return {
+      mcpServers: 'McpServers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mcpServers: { 'type': 'array', 'itemType': GetApplicationResponseBodyDataDraftVersionToolConfigMcpServers },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mcpServers)) {
+      $dara.Model.validateArray(this.mcpServers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyDataDraftVersionTranscriberConfigCorrectionRules extends $dara.Model {
+  pattern?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'Pattern',
+      replacement: 'Replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: 'string',
+      replacement: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyDataDraftVersionTranscriberConfigNlsAccessProfile extends $dara.Model {
+  accessProfileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessProfileId: 'AccessProfileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessProfileId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationResponseBodyDataDraftVersionTranscriberConfig extends $dara.Model {
+  correctionRules?: GetApplicationResponseBodyDataDraftVersionTranscriberConfigCorrectionRules[];
+  customizationId?: string;
+  endSilenceTimeout?: number;
+  model?: string;
+  nlsAccessProfile?: GetApplicationResponseBodyDataDraftVersionTranscriberConfigNlsAccessProfile;
   /**
    * @example
    * MANAGED
@@ -317,21 +426,43 @@ export class GetApplicationResponseBodyDataDraftVersionTranscriberConfig extends
    * ALIYUN
    */
   nlsEngine?: string;
+  speechNoiseThreshold?: number;
+  vocabularyId?: string;
   static names(): { [key: string]: string } {
     return {
+      correctionRules: 'CorrectionRules',
+      customizationId: 'CustomizationId',
+      endSilenceTimeout: 'EndSilenceTimeout',
+      model: 'Model',
+      nlsAccessProfile: 'NlsAccessProfile',
       nlsAccessType: 'NlsAccessType',
       nlsEngine: 'NlsEngine',
+      speechNoiseThreshold: 'SpeechNoiseThreshold',
+      vocabularyId: 'VocabularyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      correctionRules: { 'type': 'array', 'itemType': GetApplicationResponseBodyDataDraftVersionTranscriberConfigCorrectionRules },
+      customizationId: 'string',
+      endSilenceTimeout: 'number',
+      model: 'string',
+      nlsAccessProfile: GetApplicationResponseBodyDataDraftVersionTranscriberConfigNlsAccessProfile,
       nlsAccessType: 'string',
       nlsEngine: 'string',
+      speechNoiseThreshold: 'number',
+      vocabularyId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.correctionRules)) {
+      $dara.Model.validateArray(this.correctionRules);
+    }
+    if(this.nlsAccessProfile && typeof (this.nlsAccessProfile as any).validate === 'function') {
+      (this.nlsAccessProfile as any).validate();
+    }
     super.validate();
   }
 
@@ -345,6 +476,7 @@ export class GetApplicationResponseBodyDataDraftVersion extends $dara.Model {
   ragConfig?: GetApplicationResponseBodyDataDraftVersionRagConfig;
   scriptProfile?: GetApplicationResponseBodyDataDraftVersionScriptProfile;
   synthesizerConfig?: GetApplicationResponseBodyDataDraftVersionSynthesizerConfig;
+  toolConfig?: GetApplicationResponseBodyDataDraftVersionToolConfig;
   transcriberConfig?: GetApplicationResponseBodyDataDraftVersionTranscriberConfig;
   /**
    * @example
@@ -357,6 +489,7 @@ export class GetApplicationResponseBodyDataDraftVersion extends $dara.Model {
       ragConfig: 'RagConfig',
       scriptProfile: 'ScriptProfile',
       synthesizerConfig: 'SynthesizerConfig',
+      toolConfig: 'ToolConfig',
       transcriberConfig: 'TranscriberConfig',
       versionId: 'VersionId',
     };
@@ -368,6 +501,7 @@ export class GetApplicationResponseBodyDataDraftVersion extends $dara.Model {
       ragConfig: GetApplicationResponseBodyDataDraftVersionRagConfig,
       scriptProfile: GetApplicationResponseBodyDataDraftVersionScriptProfile,
       synthesizerConfig: GetApplicationResponseBodyDataDraftVersionSynthesizerConfig,
+      toolConfig: GetApplicationResponseBodyDataDraftVersionToolConfig,
       transcriberConfig: GetApplicationResponseBodyDataDraftVersionTranscriberConfig,
       versionId: 'string',
     };
@@ -385,6 +519,9 @@ export class GetApplicationResponseBodyDataDraftVersion extends $dara.Model {
     }
     if(this.synthesizerConfig && typeof (this.synthesizerConfig as any).validate === 'function') {
       (this.synthesizerConfig as any).validate();
+    }
+    if(this.toolConfig && typeof (this.toolConfig as any).validate === 'function') {
+      (this.toolConfig as any).validate();
     }
     if(this.transcriberConfig && typeof (this.transcriberConfig as any).validate === 'function') {
       (this.transcriberConfig as any).validate();
@@ -701,7 +838,116 @@ export class GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig ext
   }
 }
 
+export class GetApplicationResponseBodyDataPublishedVersionToolConfigMcpServers extends $dara.Model {
+  baseUrl?: string;
+  name?: string;
+  sseEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseUrl: 'BaseUrl',
+      name: 'Name',
+      sseEndpoint: 'SseEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseUrl: 'string',
+      name: 'string',
+      sseEndpoint: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyDataPublishedVersionToolConfig extends $dara.Model {
+  mcpServers?: GetApplicationResponseBodyDataPublishedVersionToolConfigMcpServers[];
+  static names(): { [key: string]: string } {
+    return {
+      mcpServers: 'McpServers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mcpServers: { 'type': 'array', 'itemType': GetApplicationResponseBodyDataPublishedVersionToolConfigMcpServers },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.mcpServers)) {
+      $dara.Model.validateArray(this.mcpServers);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyDataPublishedVersionTranscriberConfigCorrectionRules extends $dara.Model {
+  pattern?: string;
+  replacement?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pattern: 'Pattern',
+      replacement: 'Replacement',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pattern: 'string',
+      replacement: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetApplicationResponseBodyDataPublishedVersionTranscriberConfigNlsAccessProfile extends $dara.Model {
+  accessProfileId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessProfileId: 'AccessProfileId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessProfileId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationResponseBodyDataPublishedVersionTranscriberConfig extends $dara.Model {
+  correctionRules?: GetApplicationResponseBodyDataPublishedVersionTranscriberConfigCorrectionRules[];
+  customizationId?: string;
+  endSilenceTimeout?: number;
+  model?: string;
+  nlsAccessProfile?: GetApplicationResponseBodyDataPublishedVersionTranscriberConfigNlsAccessProfile;
   /**
    * @example
    * MANAGED
@@ -712,21 +958,43 @@ export class GetApplicationResponseBodyDataPublishedVersionTranscriberConfig ext
    * ALIYUN
    */
   nlsEngine?: string;
+  speechNoiseThreshold?: number;
+  vocabularyId?: string;
   static names(): { [key: string]: string } {
     return {
+      correctionRules: 'CorrectionRules',
+      customizationId: 'CustomizationId',
+      endSilenceTimeout: 'EndSilenceTimeout',
+      model: 'Model',
+      nlsAccessProfile: 'NlsAccessProfile',
       nlsAccessType: 'NlsAccessType',
       nlsEngine: 'NlsEngine',
+      speechNoiseThreshold: 'SpeechNoiseThreshold',
+      vocabularyId: 'VocabularyId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      correctionRules: { 'type': 'array', 'itemType': GetApplicationResponseBodyDataPublishedVersionTranscriberConfigCorrectionRules },
+      customizationId: 'string',
+      endSilenceTimeout: 'number',
+      model: 'string',
+      nlsAccessProfile: GetApplicationResponseBodyDataPublishedVersionTranscriberConfigNlsAccessProfile,
       nlsAccessType: 'string',
       nlsEngine: 'string',
+      speechNoiseThreshold: 'number',
+      vocabularyId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.correctionRules)) {
+      $dara.Model.validateArray(this.correctionRules);
+    }
+    if(this.nlsAccessProfile && typeof (this.nlsAccessProfile as any).validate === 'function') {
+      (this.nlsAccessProfile as any).validate();
+    }
     super.validate();
   }
 
@@ -740,6 +1008,7 @@ export class GetApplicationResponseBodyDataPublishedVersion extends $dara.Model 
   ragConfig?: GetApplicationResponseBodyDataPublishedVersionRagConfig;
   scriptProfile?: GetApplicationResponseBodyDataPublishedVersionScriptProfile;
   synthesizerConfig?: GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig;
+  toolConfig?: GetApplicationResponseBodyDataPublishedVersionToolConfig;
   transcriberConfig?: GetApplicationResponseBodyDataPublishedVersionTranscriberConfig;
   /**
    * @example
@@ -752,6 +1021,7 @@ export class GetApplicationResponseBodyDataPublishedVersion extends $dara.Model 
       ragConfig: 'RagConfig',
       scriptProfile: 'ScriptProfile',
       synthesizerConfig: 'SynthesizerConfig',
+      toolConfig: 'ToolConfig',
       transcriberConfig: 'TranscriberConfig',
       versionId: 'VersionId',
     };
@@ -763,6 +1033,7 @@ export class GetApplicationResponseBodyDataPublishedVersion extends $dara.Model 
       ragConfig: GetApplicationResponseBodyDataPublishedVersionRagConfig,
       scriptProfile: GetApplicationResponseBodyDataPublishedVersionScriptProfile,
       synthesizerConfig: GetApplicationResponseBodyDataPublishedVersionSynthesizerConfig,
+      toolConfig: GetApplicationResponseBodyDataPublishedVersionToolConfig,
       transcriberConfig: GetApplicationResponseBodyDataPublishedVersionTranscriberConfig,
       versionId: 'string',
     };
@@ -780,6 +1051,9 @@ export class GetApplicationResponseBodyDataPublishedVersion extends $dara.Model 
     }
     if(this.synthesizerConfig && typeof (this.synthesizerConfig as any).validate === 'function') {
       (this.synthesizerConfig as any).validate();
+    }
+    if(this.toolConfig && typeof (this.toolConfig as any).validate === 'function') {
+      (this.toolConfig as any).validate();
     }
     if(this.transcriberConfig && typeof (this.transcriberConfig as any).validate === 'function') {
       (this.transcriberConfig as any).validate();
