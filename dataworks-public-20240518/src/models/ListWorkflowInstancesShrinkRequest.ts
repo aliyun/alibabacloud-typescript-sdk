@@ -15,6 +15,11 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   bizDate?: number;
   /**
    * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @example
    * {   
    *     "status": "Success",
    *     "executionDate": "1763481600000"
@@ -116,6 +121,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizDate: 'BizDate',
+      envType: 'EnvType',
       filter: 'Filter',
       idsShrink: 'Ids',
       name: 'Name',
@@ -134,6 +140,7 @@ export class ListWorkflowInstancesShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizDate: 'number',
+      envType: 'string',
       filter: 'string',
       idsShrink: 'string',
       name: 'string',

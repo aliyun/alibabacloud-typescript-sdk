@@ -321,7 +321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a resource group with a workspace.
+   * Bind a resource group to a workspace.
    * 
    * @remarks
    * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -361,7 +361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a resource group with a workspace.
+   * Bind a resource group to a workspace.
    * 
    * @remarks
    * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
@@ -12589,6 +12589,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.bizDate)) {
       body["BizDate"] = request.bizDate;
+    }
+
+    if (!$dara.isNull(request.envType)) {
+      body["EnvType"] = request.envType;
     }
 
     if (!$dara.isNull(request.filter)) {

@@ -15,6 +15,11 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   bizDate?: number;
   /**
    * @example
+   * Prod
+   */
+  envType?: string;
+  /**
+   * @example
    * {   
    *     "status": "Success",
    *     "executionDate": "1763481600000"
@@ -116,6 +121,7 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizDate: 'BizDate',
+      envType: 'EnvType',
       filter: 'Filter',
       ids: 'Ids',
       name: 'Name',
@@ -134,6 +140,7 @@ export class ListWorkflowInstancesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizDate: 'number',
+      envType: 'string',
       filter: 'string',
       ids: { 'type': 'array', 'itemType': 'number' },
       name: 'string',
