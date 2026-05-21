@@ -131,6 +131,7 @@ export { DescribeNetworkFlowTopNMetricResponseBodyTopNMetaDataDateRange } from '
 export { DescribeNetworkFlowTopNMetricResponseBodyTopNMetaData } from './DescribeNetworkFlowTopNmetricResponseBody';
 export { DescribePeakTrendResponseBodyFlowChart } from './DescribePeakTrendResponseBody';
 export { DescribePocFunctionsResponseBodyFunctions } from './DescribePocFunctionsResponseBody';
+export { DescribePostpayBillsResponseBodyBillDetail } from './DescribePostpayBillsResponseBody';
 export { DescribePrepayDailyBillsResponseBodyBills } from './DescribePrepayDailyBillsResponseBody';
 export { DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols } from './DescribeProductInstancesResponseBody';
 export { DescribeProductInstancesResponseBodyProductInstancesResourcePortsCertificates } from './DescribeProductInstancesResponseBody';
@@ -629,6 +630,9 @@ export { DescribePeakTrendResponse } from './DescribePeakTrendResponse';
 export { DescribePocFunctionsRequest } from './DescribePocFunctionsRequest';
 export { DescribePocFunctionsResponseBody } from './DescribePocFunctionsResponseBody';
 export { DescribePocFunctionsResponse } from './DescribePocFunctionsResponse';
+export { DescribePostpayBillsRequest } from './DescribePostpayBillsRequest';
+export { DescribePostpayBillsResponseBody } from './DescribePostpayBillsResponseBody';
+export { DescribePostpayBillsResponse } from './DescribePostpayBillsResponse';
 export { DescribePrepayDailyBillsRequest } from './DescribePrepayDailyBillsRequest';
 export { DescribePrepayDailyBillsResponseBody } from './DescribePrepayDailyBillsResponseBody';
 export { DescribePrepayDailyBillsResponse } from './DescribePrepayDailyBillsResponse';

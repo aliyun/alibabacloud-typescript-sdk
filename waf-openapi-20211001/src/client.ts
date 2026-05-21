@@ -8782,6 +8782,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看用户账单详情
+   * 
+   * @param request - DescribePostpayBillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribePostpayBillsResponse
+   */
+  async describePostpayBillsWithOptions(request: $_model.DescribePostpayBillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePostpayBillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.periodType)) {
+      query["PeriodType"] = request.periodType;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribePostpayBills",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribePostpayBillsResponse>(await this.callApi(params, req, runtime), new $_model.DescribePostpayBillsResponse({}));
+  }
+
+  /**
+   * 查看用户账单详情
+   * 
+   * @param request - DescribePostpayBillsRequest
+   * @returns DescribePostpayBillsResponse
+   */
+  async describePostpayBills(request: $_model.DescribePostpayBillsRequest): Promise<$_model.DescribePostpayBillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describePostpayBillsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the bills of the burstable QPS (pay-as-you-go) feature. The feature is supported only by subscription Web Application Firewall (WAF) instances.
    * 
    * @param request - DescribePrepayDailyBillsRequest
