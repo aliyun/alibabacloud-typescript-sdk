@@ -8557,6 +8557,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 边缘容器的监控
+   * 
+   * @param request - DescribeTraceDiagnoseReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTraceDiagnoseReportResponse
+   */
+  async describeTraceDiagnoseReportWithOptions(request: $_model.DescribeTraceDiagnoseReportRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTraceDiagnoseReportResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      query["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTraceDiagnoseReport",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTraceDiagnoseReportResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTraceDiagnoseReportResponse({}));
+  }
+
+  /**
+   * 边缘容器的监控
+   * 
+   * @param request - DescribeTraceDiagnoseReportRequest
+   * @returns DescribeTraceDiagnoseReportResponse
+   */
+  async describeTraceDiagnoseReport(request: $_model.DescribeTraceDiagnoseReportRequest): Promise<$_model.DescribeTraceDiagnoseReportResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTraceDiagnoseReportWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the page monitoring data.
    * 
    * @remarks
@@ -8802,6 +8848,48 @@ export default class Client extends OpenApi {
   async exportRecords(request: $_model.ExportRecordsRequest): Promise<$_model.ExportRecordsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.exportRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * 边缘容器的监控
+   * 
+   * @param request - GenerateTraceDiagnoseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateTraceDiagnoseResponse
+   */
+  async generateTraceDiagnoseWithOptions(request: $_model.GenerateTraceDiagnoseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GenerateTraceDiagnoseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.url)) {
+      query["Url"] = request.url;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GenerateTraceDiagnose",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GenerateTraceDiagnoseResponse>(await this.callApi(params, req, runtime), new $_model.GenerateTraceDiagnoseResponse({}));
+  }
+
+  /**
+   * 边缘容器的监控
+   * 
+   * @param request - GenerateTraceDiagnoseRequest
+   * @returns GenerateTraceDiagnoseResponse
+   */
+  async generateTraceDiagnose(request: $_model.GenerateTraceDiagnoseRequest): Promise<$_model.GenerateTraceDiagnoseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.generateTraceDiagnoseWithOptions(request, runtime);
   }
 
   /**
@@ -14205,6 +14293,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries pay-as-you-go instances.
+   * 
+   * @param request - ListPostpaidRatePlanInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPostpaidRatePlanInstancesResponse
+   */
+  async listPostpaidRatePlanInstancesWithOptions(request: $_model.ListPostpaidRatePlanInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPostpaidRatePlanInstancesResponse> {
+    request.validate();
+    let query = OpenApiUtil.query(request.toMap());
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPostpaidRatePlanInstances",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPostpaidRatePlanInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListPostpaidRatePlanInstancesResponse({}));
+  }
+
+  /**
+   * Queries pay-as-you-go instances.
+   * 
+   * @param request - ListPostpaidRatePlanInstancesRequest
+   * @returns ListPostpaidRatePlanInstancesResponse
+   */
+  async listPostpaidRatePlanInstances(request: $_model.ListPostpaidRatePlanInstancesRequest): Promise<$_model.ListPostpaidRatePlanInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPostpaidRatePlanInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
    * 
    * @remarks
@@ -14851,6 +14977,80 @@ export default class Client extends OpenApi {
   async listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 边缘容器的监控
+   * 
+   * @param request - ListTraceTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTraceTasksResponse
+   */
+  async listTraceTasksWithOptions(request: $_model.ListTraceTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTraceTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientIp)) {
+      query["ClientIp"] = request.clientIp;
+    }
+
+    if (!$dara.isNull(request.diagnoseId)) {
+      query["DiagnoseId"] = request.diagnoseId;
+    }
+
+    if (!$dara.isNull(request.domainName)) {
+      query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.traceId)) {
+      query["TraceId"] = request.traceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTraceTasks",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTraceTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListTraceTasksResponse({}));
+  }
+
+  /**
+   * 边缘容器的监控
+   * 
+   * @param request - ListTraceTasksRequest
+   * @returns ListTraceTasksResponse
+   */
+  async listTraceTasks(request: $_model.ListTraceTasksRequest): Promise<$_model.ListTraceTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTraceTasksWithOptions(request, runtime);
   }
 
   /**
