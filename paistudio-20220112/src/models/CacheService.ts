@@ -7,6 +7,7 @@ import { UserVpc } from "./UserVpc";
 export class CacheService extends $dara.Model {
   cacheInfos?: CacheInfo[];
   cacheServiceId?: string;
+  clusterId?: string;
   createdBy?: string;
   gmtCreated?: string;
   networkType?: string;
@@ -21,6 +22,7 @@ export class CacheService extends $dara.Model {
     return {
       cacheInfos: 'CacheInfos',
       cacheServiceId: 'CacheServiceId',
+      clusterId: 'ClusterId',
       createdBy: 'CreatedBy',
       gmtCreated: 'GmtCreated',
       networkType: 'NetworkType',
@@ -38,6 +40,7 @@ export class CacheService extends $dara.Model {
     return {
       cacheInfos: { 'type': 'array', 'itemType': CacheInfo },
       cacheServiceId: 'string',
+      clusterId: 'string',
       createdBy: 'string',
       gmtCreated: 'string',
       networkType: 'string',

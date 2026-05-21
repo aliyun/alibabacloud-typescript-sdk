@@ -1673,6 +1673,67 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取节点规格列表
+   * 
+   * @param request - ListNodeTypesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNodeTypesResponse
+   */
+  async listNodeTypesWithOptions(request: $_model.ListNodeTypesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListNodeTypesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.acceleratorType)) {
+      query["AcceleratorType"] = request.acceleratorType;
+    }
+
+    if (!$dara.isNull(request.GPUType)) {
+      query["GPUType"] = request.GPUType;
+    }
+
+    if (!$dara.isNull(request.nodeTypes)) {
+      query["NodeTypes"] = request.nodeTypes;
+    }
+
+    if (!$dara.isNull(request.quotaId)) {
+      query["QuotaId"] = request.quotaId;
+    }
+
+    if (!$dara.isNull(request.resourceGroupIds)) {
+      query["ResourceGroupIds"] = request.resourceGroupIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNodeTypes",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v1/nodetypes`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNodeTypesResponse>(await this.callApi(params, req, runtime), new $_model.ListNodeTypesResponse({}));
+  }
+
+  /**
+   * 获取节点规格列表
+   * 
+   * @param request - ListNodeTypesRequest
+   * @returns ListNodeTypesResponse
+   */
+  async listNodeTypes(request: $_model.ListNodeTypesRequest): Promise<$_model.ListNodeTypesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listNodeTypesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取资源节点列表
    * 
    * @param tmpReq - ListNodesRequest
