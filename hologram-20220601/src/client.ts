@@ -30,6 +30,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 绑定主实例
+   * 
+   * @param request - BindLeaderInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BindLeaderInstanceResponse
+   */
+  async bindLeaderInstanceWithOptions(instanceId: string, request: $_model.BindLeaderInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BindLeaderInstanceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.leaderInstanceId)) {
+      body["leaderInstanceId"] = request.leaderInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BindLeaderInstance",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/bindReadOnly`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BindLeaderInstanceResponse>(await this.callApi(params, req, runtime), new $_model.BindLeaderInstanceResponse({}));
+  }
+
+  /**
+   * 绑定主实例
+   * 
+   * @param request - BindLeaderInstanceRequest
+   * @returns BindLeaderInstanceResponse
+   */
+  async bindLeaderInstance(instanceId: string, request: $_model.BindLeaderInstanceRequest): Promise<$_model.BindLeaderInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.bindLeaderInstanceWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Updates a resource group.
    * 
    * @param request - ChangeResourceGroupRequest
@@ -405,6 +456,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建手动备份
+   * 
+   * @param request - CreateManualBackupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateManualBackupResponse
+   */
+  async createManualBackupWithOptions(request: $_model.CreateManualBackupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateManualBackupResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateManualBackup",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/backups/manual`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateManualBackupResponse>(await this.callApi(params, req, runtime), new $_model.CreateManualBackupResponse({}));
+  }
+
+  /**
+   * 创建手动备份
+   * 
+   * @param request - CreateManualBackupRequest
+   * @returns CreateManualBackupResponse
+   */
+  async createManualBackup(request: $_model.CreateManualBackupRequest): Promise<$_model.CreateManualBackupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createManualBackupWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建模型服务
    * 
    * @param request - CreateModelServiceRequest
@@ -659,6 +761,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除备份
+   * 
+   * @param request - DeleteBackupDataRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupDataResponse
+   */
+  async deleteBackupDataWithOptions(id: string, request: $_model.DeleteBackupDataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBackupDataResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBackupData",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/backups/${$dara.URL.percentEncode(id)}/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBackupDataResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBackupDataResponse({}));
+  }
+
+  /**
+   * 删除备份
+   * 
+   * @param request - DeleteBackupDataRequest
+   * @returns DeleteBackupDataResponse
+   */
+  async deleteBackupData(id: string, request: $_model.DeleteBackupDataRequest): Promise<$_model.DeleteBackupDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteBackupDataWithOptions(id, request, headers, runtime);
+  }
+
+  /**
    * Deletes a virtual warehouse.
    * 
    * @param request - DeleteHoloWarehouseRequest
@@ -898,6 +1045,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 暂停实例
+   * 
+   * @param request - DescribeTagsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTagsResponse
+   */
+  async describeTagsWithOptions(request: $_model.DescribeTagsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTagsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tagsOnly)) {
+      query["tagsOnly"] = request.tagsOnly;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTags",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tag`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTagsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTagsResponse({}));
+  }
+
+  /**
+   * 暂停实例
+   * 
+   * @param request - DescribeTagsRequest
+   * @returns DescribeTagsResponse
+   */
+  async describeTags(request: $_model.DescribeTagsRequest): Promise<$_model.DescribeTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeTagsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 关闭OpenAPI执行SQL功能
    * 
    * @param request - DisableExecuteStatementRequest
@@ -982,6 +1178,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消执行计划
+   * 
+   * @param request - DisableOperationEventRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableOperationEventResponse
+   */
+  async disableOperationEventWithOptions(instanceId: string, request: $_model.DisableOperationEventRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableOperationEventResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableOperationEvent",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/disableOperationEvent`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableOperationEventResponse>(await this.callApi(params, req, runtime), new $_model.DisableOperationEventResponse({}));
+  }
+
+  /**
+   * 取消执行计划
+   * 
+   * @param request - DisableOperationEventRequest
+   * @returns DisableOperationEventResponse
+   */
+  async disableOperationEvent(instanceId: string, request: $_model.DisableOperationEventRequest): Promise<$_model.DisableOperationEventResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableOperationEventWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * 关闭SSL
    * 
    * @param headers - map
@@ -1014,6 +1255,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableSSLWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * 关闭服务账号
+   * 
+   * @param request - DisableSupportAccountRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableSupportAccountResponse
+   */
+  async disableSupportAccountWithOptions(instanceId: string, request: $_model.DisableSupportAccountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableSupportAccountResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableSupportAccount",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/supportAccount/disable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableSupportAccountResponse>(await this.callApi(params, req, runtime), new $_model.DisableSupportAccountResponse({}));
+  }
+
+  /**
+   * 关闭服务账号
+   * 
+   * @param request - DisableSupportAccountRequest
+   * @returns DisableSupportAccountResponse
+   */
+  async disableSupportAccount(instanceId: string, request: $_model.DisableSupportAccountRequest): Promise<$_model.DisableSupportAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableSupportAccountWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -1059,6 +1345,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableWarehouseAutoScaleWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 取消升级
+   * 
+   * @param request - DiscardUpgradeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DiscardUpgradeResponse
+   */
+  async discardUpgradeWithOptions(instanceId: string, request: $_model.DiscardUpgradeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DiscardUpgradeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DiscardUpgrade",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/upgrade/discard`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DiscardUpgradeResponse>(await this.callApi(params, req, runtime), new $_model.DiscardUpgradeResponse({}));
+  }
+
+  /**
+   * 取消升级
+   * 
+   * @param request - DiscardUpgradeRequest
+   * @returns DiscardUpgradeResponse
+   */
+  async discardUpgrade(instanceId: string, request: $_model.DiscardUpgradeRequest): Promise<$_model.DiscardUpgradeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.discardUpgradeWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -1227,6 +1558,65 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableSSLWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * 打开服务账号
+   * 
+   * @param request - EnableSupportAccountRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableSupportAccountResponse
+   */
+  async enableSupportAccountWithOptions(instanceId: string, request: $_model.EnableSupportAccountRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableSupportAccountResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.expireTime)) {
+      body["expireTime"] = request.expireTime;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["password"] = request.password;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableSupportAccount",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/supportAccount/enable`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableSupportAccountResponse>(await this.callApi(params, req, runtime), new $_model.EnableSupportAccountResponse({}));
+  }
+
+  /**
+   * 打开服务账号
+   * 
+   * @param request - EnableSupportAccountRequest
+   * @returns EnableSupportAccountResponse
+   */
+  async enableSupportAccount(instanceId: string, request: $_model.EnableSupportAccountRequest): Promise<$_model.EnableSupportAccountResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableSupportAccountWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -1418,6 +1808,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取holoweb登陆权限
+   * 
+   * @param request - GetHoloWebLoginSettingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHoloWebLoginSettingResponse
+   */
+  async getHoloWebLoginSettingWithOptions(instanceId: string, request: $_model.GetHoloWebLoginSettingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetHoloWebLoginSettingResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetHoloWebLoginSetting",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/getHoloWebLoginSetting`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetHoloWebLoginSettingResponse>(await this.callApi(params, req, runtime), new $_model.GetHoloWebLoginSettingResponse({}));
+  }
+
+  /**
+   * 获取holoweb登陆权限
+   * 
+   * @param request - GetHoloWebLoginSettingRequest
+   * @returns GetHoloWebLoginSettingResponse
+   */
+  async getHoloWebLoginSetting(instanceId: string, request: $_model.GetHoloWebLoginSettingRequest): Promise<$_model.GetHoloWebLoginSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getHoloWebLoginSettingWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Obtains the details of an instance.
    * 
    * @param headers - map
@@ -1492,6 +1927,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取上次升级历史
+   * 
+   * @param request - GetLastUpgradeRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLastUpgradeRecordResponse
+   */
+  async getLastUpgradeRecordWithOptions(instanceId: string, request: $_model.GetLastUpgradeRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLastUpgradeRecordResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLastUpgradeRecord",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/lastUpgradeRecord`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLastUpgradeRecordResponse>(await this.callApi(params, req, runtime), new $_model.GetLastUpgradeRecordResponse({}));
+  }
+
+  /**
+   * 获取上次升级历史
+   * 
+   * @param request - GetLastUpgradeRecordRequest
+   * @returns GetLastUpgradeRecordResponse
+   */
+  async getLastUpgradeRecord(instanceId: string, request: $_model.GetLastUpgradeRecordRequest): Promise<$_model.GetLastUpgradeRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLastUpgradeRecordWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * 获得根证书
    * 
    * @param headers - map
@@ -1524,6 +1998,149 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRootCertificateWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * 获取周期备份配置
+   * 
+   * @param request - GetScheduledBackupConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetScheduledBackupConfigResponse
+   */
+  async getScheduledBackupConfigWithOptions(request: $_model.GetScheduledBackupConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetScheduledBackupConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scheduleType)) {
+      query["scheduleType"] = request.scheduleType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetScheduledBackupConfig",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/backups/scheduledConfig`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetScheduledBackupConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetScheduledBackupConfigResponse({}));
+  }
+
+  /**
+   * 获取周期备份配置
+   * 
+   * @param request - GetScheduledBackupConfigRequest
+   * @returns GetScheduledBackupConfigResponse
+   */
+  async getScheduledBackupConfig(request: $_model.GetScheduledBackupConfigRequest): Promise<$_model.GetScheduledBackupConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getScheduledBackupConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取升级状态
+   * 
+   * @param request - GetUpgradeStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUpgradeStatusResponse
+   */
+  async getUpgradeStatusWithOptions(instanceId: string, request: $_model.GetUpgradeStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUpgradeStatusResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUpgradeStatus",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/upgrade/status`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUpgradeStatusResponse>(await this.callApi(params, req, runtime), new $_model.GetUpgradeStatusResponse({}));
+  }
+
+  /**
+   * 获取升级状态
+   * 
+   * @param request - GetUpgradeStatusRequest
+   * @returns GetUpgradeStatusResponse
+   */
+  async getUpgradeStatus(instanceId: string, request: $_model.GetUpgradeStatusRequest): Promise<$_model.GetUpgradeStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getUpgradeStatusWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 是否可升级
+   * 
+   * @param request - GetUpgradeableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUpgradeableResponse
+   */
+  async getUpgradeableWithOptions(instanceId: string, request: $_model.GetUpgradeableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUpgradeableResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUpgradeable",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/upgradeable`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUpgradeableResponse>(await this.callApi(params, req, runtime), new $_model.GetUpgradeableResponse({}));
+  }
+
+  /**
+   * 是否可升级
+   * 
+   * @param request - GetUpgradeableRequest
+   * @returns GetUpgradeableResponse
+   */
+  async getUpgradeable(instanceId: string, request: $_model.GetUpgradeableRequest): Promise<$_model.GetUpgradeableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getUpgradeableWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -1835,6 +2452,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取只读从实例
+   * 
+   * @param request - ListFollowerInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListFollowerInstancesResponse
+   */
+  async listFollowerInstancesWithOptions(instanceId: string, request: $_model.ListFollowerInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListFollowerInstancesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListFollowerInstances",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/listFollowerInstances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListFollowerInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListFollowerInstancesResponse({}));
+  }
+
+  /**
+   * 获取只读从实例
+   * 
+   * @param request - ListFollowerInstancesRequest
+   * @returns ListFollowerInstancesResponse
+   */
+  async listFollowerInstances(instanceId: string, request: $_model.ListFollowerInstancesRequest): Promise<$_model.ListFollowerInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listFollowerInstancesWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * AI资源列表
    * 
    * @param request - ListInstanceModelRequest
@@ -1927,6 +2589,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取主实例
+   * 
+   * @param request - ListLeaderInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLeaderInstancesResponse
+   */
+  async listLeaderInstancesWithOptions(instanceId: string, request: $_model.ListLeaderInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListLeaderInstancesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLeaderInstances",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/primaryInstances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLeaderInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListLeaderInstancesResponse({}));
+  }
+
+  /**
+   * 获取主实例
+   * 
+   * @param request - ListLeaderInstancesRequest
+   * @returns ListLeaderInstancesResponse
+   */
+  async listLeaderInstances(instanceId: string, request: $_model.ListLeaderInstancesRequest): Promise<$_model.ListLeaderInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLeaderInstancesWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 实例可迁移可用区列表
+   * 
+   * @param request - ListMigrationZonesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMigrationZonesResponse
+   */
+  async listMigrationZonesWithOptions(instanceId: string, request: $_model.ListMigrationZonesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMigrationZonesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMigrationZones",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/listMigrationZones`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMigrationZonesResponse>(await this.callApi(params, req, runtime), new $_model.ListMigrationZonesResponse({}));
+  }
+
+  /**
+   * 实例可迁移可用区列表
+   * 
+   * @param request - ListMigrationZonesRequest
+   * @returns ListMigrationZonesResponse
+   */
+  async listMigrationZones(instanceId: string, request: $_model.ListMigrationZonesRequest): Promise<$_model.ListMigrationZonesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMigrationZonesWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * 列出模型列表
    * 
    * @param request - ListModelCatalogRequest
@@ -1973,6 +2729,163 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listModelCatalogWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 运维事件列表
+   * 
+   * @param request - ListOperationEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOperationEventsResponse
+   */
+  async listOperationEventsWithOptions(request: $_model.ListOperationEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListOperationEventsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.eventName)) {
+      body["eventName"] = request.eventName;
+    }
+
+    if (!$dara.isNull(request.eventNameDesc)) {
+      body["eventNameDesc"] = request.eventNameDesc;
+    }
+
+    if (!$dara.isNull(request.eventType)) {
+      body["eventType"] = request.eventType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.scheduleTimeDesc)) {
+      body["scheduleTimeDesc"] = request.scheduleTimeDesc;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      body["state"] = request.state;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListOperationEvents",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/listOperationEvents`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListOperationEventsResponse>(await this.callApi(params, req, runtime), new $_model.ListOperationEventsResponse({}));
+  }
+
+  /**
+   * 运维事件列表
+   * 
+   * @param request - ListOperationEventsRequest
+   * @returns ListOperationEventsResponse
+   */
+  async listOperationEvents(request: $_model.ListOperationEventsRequest): Promise<$_model.ListOperationEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listOperationEventsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * holoapp共有云所有开服的region
+   * 
+   * @param request - ListRegionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRegionsResponse
+   */
+  async listRegionsWithOptions(request: $_model.ListRegionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRegionsResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRegions",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/regions/listRegions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRegionsResponse>(await this.callApi(params, req, runtime), new $_model.ListRegionsResponse({}));
+  }
+
+  /**
+   * holoapp共有云所有开服的region
+   * 
+   * @param request - ListRegionsRequest
+   * @returns ListRegionsResponse
+   */
+  async listRegions(request: $_model.ListRegionsRequest): Promise<$_model.ListRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 获取版本列表
+   * 
+   * @param request - ListUpgradeReleaseVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListUpgradeReleaseVersionsResponse
+   */
+  async listUpgradeReleaseVersionsWithOptions(instanceId: string, request: $_model.ListUpgradeReleaseVersionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListUpgradeReleaseVersionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListUpgradeReleaseVersions",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/upgrade/listReleaseVersions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListUpgradeReleaseVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListUpgradeReleaseVersionsResponse({}));
+  }
+
+  /**
+   * 获取版本列表
+   * 
+   * @param request - ListUpgradeReleaseVersionsRequest
+   * @returns ListUpgradeReleaseVersionsResponse
+   */
+  async listUpgradeReleaseVersions(instanceId: string, request: $_model.ListUpgradeReleaseVersionsRequest): Promise<$_model.ListUpgradeReleaseVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listUpgradeReleaseVersionsWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -2108,6 +3021,106 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listWarehousesWithOptions(instanceId, headers, runtime);
+  }
+
+  /**
+   * 实例迁移
+   * 
+   * @param request - MigrateInstanceZoneRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MigrateInstanceZoneResponse
+   */
+  async migrateInstanceZoneWithOptions(instanceId: string, request: $_model.MigrateInstanceZoneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.MigrateInstanceZoneResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.zoneId)) {
+      body["zoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MigrateInstanceZone",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/migrateInstanceZone`,
+      method: "PATCH",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MigrateInstanceZoneResponse>(await this.callApi(params, req, runtime), new $_model.MigrateInstanceZoneResponse({}));
+  }
+
+  /**
+   * 实例迁移
+   * 
+   * @param request - MigrateInstanceZoneRequest
+   * @returns MigrateInstanceZoneResponse
+   */
+  async migrateInstanceZone(instanceId: string, request: $_model.MigrateInstanceZoneRequest): Promise<$_model.MigrateInstanceZoneResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.migrateInstanceZoneWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 准备升级
+   * 
+   * @param request - PrepareUpgradeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PrepareUpgradeResponse
+   */
+  async prepareUpgradeWithOptions(instanceId: string, request: $_model.PrepareUpgradeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PrepareUpgradeResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dryRun)) {
+      body["dryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PrepareUpgrade",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/upgrade/prepare`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PrepareUpgradeResponse>(await this.callApi(params, req, runtime), new $_model.PrepareUpgradeResponse({}));
+  }
+
+  /**
+   * 准备升级
+   * 
+   * @param request - PrepareUpgradeRequest
+   * @returns PrepareUpgradeResponse
+   */
+  async prepareUpgrade(instanceId: string, request: $_model.PrepareUpgradeRequest): Promise<$_model.PrepareUpgradeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.prepareUpgradeWithOptions(instanceId, request, headers, runtime);
   }
 
   /**
@@ -2848,6 +3861,336 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增tag
+   * 
+   * @param request - TagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: $_model.TagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.category)) {
+      body["category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      body["resourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.tagOwnerUid)) {
+      body["tagOwnerUid"] = request.tagOwnerUid;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      body["tags"] = request.tags;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagResources",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tag`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
+  }
+
+  /**
+   * 新增tag
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: $_model.TagResourcesRequest): Promise<$_model.TagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.tagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 解除绑定主实例
+   * 
+   * @param request - UnBindLeaderInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnBindLeaderInstanceResponse
+   */
+  async unBindLeaderInstanceWithOptions(instanceId: string, request: $_model.UnBindLeaderInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UnBindLeaderInstanceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnBindLeaderInstance",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/unBindReadOnly`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnBindLeaderInstanceResponse>(await this.callApi(params, req, runtime), new $_model.UnBindLeaderInstanceResponse({}));
+  }
+
+  /**
+   * 解除绑定主实例
+   * 
+   * @param request - UnBindLeaderInstanceRequest
+   * @returns UnBindLeaderInstanceResponse
+   */
+  async unBindLeaderInstance(instanceId: string, request: $_model.UnBindLeaderInstanceRequest): Promise<$_model.UnBindLeaderInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.unBindLeaderInstanceWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 删除tag
+   * 
+   * @param request - UntagResourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: $_model.UntagResourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.category)) {
+      body["category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.resourceIds)) {
+      body["resourceIds"] = request.resourceIds;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      body["resourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKeys)) {
+      body["tagKeys"] = request.tagKeys;
+    }
+
+    if (!$dara.isNull(request.tagOwnerUid)) {
+      body["tagOwnerUid"] = request.tagOwnerUid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagResources",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/tag/unTag`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagResourcesResponse>(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
+  }
+
+  /**
+   * 删除tag
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.untagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 修改小版本自动升级开关
+   * 
+   * @param request - UpdateAutoUpgradeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAutoUpgradeResponse
+   */
+  async updateAutoUpgradeWithOptions(instanceId: string, request: $_model.UpdateAutoUpgradeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAutoUpgradeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.autoUpgrade)) {
+      body["autoUpgrade"] = request.autoUpgrade;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAutoUpgrade",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/autoUpgrade`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAutoUpgradeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAutoUpgradeResponse({}));
+  }
+
+  /**
+   * 修改小版本自动升级开关
+   * 
+   * @param request - UpdateAutoUpgradeRequest
+   * @returns UpdateAutoUpgradeResponse
+   */
+  async updateAutoUpgrade(instanceId: string, request: $_model.UpdateAutoUpgradeRequest): Promise<$_model.UpdateAutoUpgradeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAutoUpgradeWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新备份描述
+   * 
+   * @param request - UpdateBackupDataDescRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateBackupDataDescResponse
+   */
+  async updateBackupDataDescWithOptions(id: string, request: $_model.UpdateBackupDataDescRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateBackupDataDescResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.desc)) {
+      body["desc"] = request.desc;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateBackupDataDesc",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/backups/${$dara.URL.percentEncode(id)}/desc`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateBackupDataDescResponse>(await this.callApi(params, req, runtime), new $_model.UpdateBackupDataDescResponse({}));
+  }
+
+  /**
+   * 更新备份描述
+   * 
+   * @param request - UpdateBackupDataDescRequest
+   * @returns UpdateBackupDataDescResponse
+   */
+  async updateBackupDataDesc(id: string, request: $_model.UpdateBackupDataDescRequest): Promise<$_model.UpdateBackupDataDescResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateBackupDataDescWithOptions(id, request, headers, runtime);
+  }
+
+  /**
+   * 修改holoweb登陆权限
+   * 
+   * @param request - UpdateHoloWebLoginSettingRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateHoloWebLoginSettingResponse
+   */
+  async updateHoloWebLoginSettingWithOptions(instanceId: string, request: $_model.UpdateHoloWebLoginSettingRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateHoloWebLoginSettingResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.allowExternalAccountsLogin)) {
+      body["allowExternalAccountsLogin"] = request.allowExternalAccountsLogin;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateHoloWebLoginSetting",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/updateHoloWebLoginSetting`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateHoloWebLoginSettingResponse>(await this.callApi(params, req, runtime), new $_model.UpdateHoloWebLoginSettingResponse({}));
+  }
+
+  /**
+   * 修改holoweb登陆权限
+   * 
+   * @param request - UpdateHoloWebLoginSettingRequest
+   * @returns UpdateHoloWebLoginSettingResponse
+   */
+  async updateHoloWebLoginSetting(instanceId: string, request: $_model.UpdateHoloWebLoginSettingRequest): Promise<$_model.UpdateHoloWebLoginSettingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateHoloWebLoginSettingWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * Changes the name of an instance.
    * 
    * @param request - UpdateInstanceNameRequest
@@ -2958,6 +4301,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改端口号
+   * 
+   * @param request - UpdateInstancePortRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateInstancePortResponse
+   */
+  async updateInstancePortWithOptions(instanceId: string, request: $_model.UpdateInstancePortRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateInstancePortResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.port)) {
+      body["port"] = request.port;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateInstancePort",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/updatePort`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateInstancePortResponse>(await this.callApi(params, req, runtime), new $_model.UpdateInstancePortResponse({}));
+  }
+
+  /**
+   * 修改端口号
+   * 
+   * @param request - UpdateInstancePortRequest
+   * @returns UpdateInstancePortResponse
+   */
+  async updateInstancePort(instanceId: string, request: $_model.UpdateInstancePortRequest): Promise<$_model.UpdateInstancePortResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateInstancePortWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 修改可维护时间窗口
+   * 
+   * @param request - UpdateMaintenanceWindowRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMaintenanceWindowResponse
+   */
+  async updateMaintenanceWindowWithOptions(instanceId: string, request: $_model.UpdateMaintenanceWindowRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMaintenanceWindowResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["startTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMaintenanceWindow",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/maintenanceWindow`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMaintenanceWindowResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMaintenanceWindowResponse({}));
+  }
+
+  /**
+   * 修改可维护时间窗口
+   * 
+   * @param request - UpdateMaintenanceWindowRequest
+   * @returns UpdateMaintenanceWindowResponse
+   */
+  async updateMaintenanceWindow(instanceId: string, request: $_model.UpdateMaintenanceWindowRequest): Promise<$_model.UpdateMaintenanceWindowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMaintenanceWindowWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
    * 创建模型服务
    * 
    * @param request - UpdateModelServiceRequest
@@ -3023,6 +4460,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改运维事件执行时间
+   * 
+   * @param request - UpdateOperationEventScheduleTimeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOperationEventScheduleTimeResponse
+   */
+  async updateOperationEventScheduleTimeWithOptions(instanceId: string, request: $_model.UpdateOperationEventScheduleTimeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateOperationEventScheduleTimeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.scheduleTime)) {
+      body["scheduleTime"] = request.scheduleTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateOperationEventScheduleTime",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/updateOperationEventScheduleTime`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateOperationEventScheduleTimeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateOperationEventScheduleTimeResponse({}));
+  }
+
+  /**
+   * 修改运维事件执行时间
+   * 
+   * @param request - UpdateOperationEventScheduleTimeRequest
+   * @returns UpdateOperationEventScheduleTimeResponse
+   */
+  async updateOperationEventScheduleTime(instanceId: string, request: $_model.UpdateOperationEventScheduleTimeRequest): Promise<$_model.UpdateOperationEventScheduleTimeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateOperationEventScheduleTimeWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 配置周期备份
+   * 
+   * @param request - UpdateScheduledBackupConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateScheduledBackupConfigResponse
+   */
+  async updateScheduledBackupConfigWithOptions(request: $_model.UpdateScheduledBackupConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateScheduledBackupConfigResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataKeepQuantity)) {
+      body["dataKeepQuantity"] = request.dataKeepQuantity;
+    }
+
+    if (!$dara.isNull(request.dstRegion)) {
+      body["dstRegion"] = request.dstRegion;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.hour)) {
+      body["hour"] = request.hour;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.manualDataKeepQuantity)) {
+      body["manualDataKeepQuantity"] = request.manualDataKeepQuantity;
+    }
+
+    if (!$dara.isNull(request.scheduleType)) {
+      body["scheduleType"] = request.scheduleType;
+    }
+
+    if (!$dara.isNull(request.week)) {
+      body["week"] = request.week;
+    }
+
+    if (!$dara.isNull(request.zoneId)) {
+      body["zoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateScheduledBackupConfig",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/backups/scheduledConfig`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateScheduledBackupConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateScheduledBackupConfigResponse({}));
+  }
+
+  /**
+   * 配置周期备份
+   * 
+   * @param request - UpdateScheduledBackupConfigRequest
+   * @returns UpdateScheduledBackupConfigResponse
+   */
+  async updateScheduledBackupConfig(request: $_model.UpdateScheduledBackupConfigRequest): Promise<$_model.UpdateScheduledBackupConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateScheduledBackupConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建分时弹性计划
    * 
    * @param request - UpdateWarehouseScheduleTaskRequest
@@ -3081,6 +4650,59 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateWarehouseScheduleTaskWithOptions(instanceId, request, headers, runtime);
+  }
+
+  /**
+   * 开始升级
+   * 
+   * @param request - UpgradeInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpgradeInstanceResponse
+   */
+  async upgradeInstanceWithOptions(instanceId: string, request: $_model.UpgradeInstanceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpgradeInstanceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.upgradeTime)) {
+      query["upgradeTime"] = request.upgradeTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpgradeInstance",
+      version: "2022-06-01",
+      protocol: "HTTPS",
+      pathname: `/api/v1/instances/${$dara.URL.percentEncode(instanceId)}/upgrade`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpgradeInstanceResponse>(await this.callApi(params, req, runtime), new $_model.UpgradeInstanceResponse({}));
+  }
+
+  /**
+   * 开始升级
+   * 
+   * @param request - UpgradeInstanceRequest
+   * @returns UpgradeInstanceResponse
+   */
+  async upgradeInstance(instanceId: string, request: $_model.UpgradeInstanceRequest): Promise<$_model.UpgradeInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.upgradeInstanceWithOptions(instanceId, request, headers, runtime);
   }
 
 }
