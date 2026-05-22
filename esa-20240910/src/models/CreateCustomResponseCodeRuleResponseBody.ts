@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateCustomResponseCodeRuleResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 3528160969****
-   */
   configId?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * C2B2F8CF-3074-5BBC-891A-AAD292E2624F
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

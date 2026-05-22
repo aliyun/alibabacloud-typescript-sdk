@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteTransportLayerApplicationResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 90510C29-1E40-5A11-93F1-B9F5EDF57EE1
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

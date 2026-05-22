@@ -6,27 +6,13 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesRequest extends $dara.Mode
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @example
-   * cc
-   */
   ruleType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456****
    */
   siteId?: number;
   static names(): { [key: string]: string } {

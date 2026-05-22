@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetDdosMaxBurstGbpsResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteCustomHostnameResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 156A6B-677B1A-4297B7-9187B7-2B44792
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

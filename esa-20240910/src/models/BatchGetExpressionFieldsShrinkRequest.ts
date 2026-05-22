@@ -3,29 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * List of expressions.
-   * 
-   * @example
-   * http_bot
-   */
   expressionsShrink?: string;
   instanceId?: string;
   kind?: string;
   /**
-   * @remarks
-   * WAF Phase
-   * 
    * @example
    * http_bot
    */
   phase?: string;
   planNameEn?: string;
   /**
-   * @remarks
-   * Site ID
-   * 
    * @example
    * 1
    */

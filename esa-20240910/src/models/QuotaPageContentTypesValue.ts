@@ -4,15 +4,7 @@ import { WafQuotaInteger } from "./WafQuotaInteger";
 
 
 export class QuotaPageContentTypesValue extends $dara.Model {
-  /**
-   * @remarks
-   * The switch for the Content-Type type in custom response pages.
-   */
   enable?: boolean;
-  /**
-   * @remarks
-   * The content length quota for the Content-Type in custom response pages.
-   */
   contentLength?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {

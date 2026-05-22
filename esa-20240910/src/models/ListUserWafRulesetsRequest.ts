@@ -43,9 +43,6 @@ export class ListUserWafRulesetsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * esa-xxxxxxx
    */
   instanceId?: string;
   /**
@@ -63,10 +60,6 @@ export class ListUserWafRulesetsRequest extends $dara.Model {
    * http_bot
    */
   phase?: string;
-  /**
-   * @example
-   * 1
-   */
   queryArgs?: ListUserWafRulesetsRequestQueryArgs;
   static names(): { [key: string]: string } {
     return {

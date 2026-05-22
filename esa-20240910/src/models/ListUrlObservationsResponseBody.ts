@@ -3,32 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUrlObservationsResponseBodyConfigs extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 35281609698****
-   */
   configId?: number;
-  /**
-   * @remarks
-   * SDK integration. Valid values:
-   * 
-   * *   **automatic**
-   * *   **manual**
-   * 
-   * @example
-   * manual
-   */
   sdkType?: string;
-  /**
-   * @remarks
-   * The URL of the web page to monitor.
-   * 
-   * @example
-   * example.com/test
-   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,50 +32,11 @@ export class ListUrlObservationsResponseBodyConfigs extends $dara.Model {
 }
 
 export class ListUrlObservationsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configurations of the feature.
-   */
   configs?: ListUrlObservationsResponseBodyConfigs[];
-  /**
-   * @remarks
-   * The number of the returned page.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 15C66C7B-671A-4297-9187-2C4477247A74
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1
-   */
   totalCount?: number;
-  /**
-   * @remarks
-   * The total number of pages returned.
-   * 
-   * @example
-   * 1
-   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {

@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCertificateQuotaResponseBodySiteUsage extends $dara.Model {
-  /**
-   * @remarks
-   * Site ID.
-   * 
-   * @example
-   * 165929521496928
-   */
   siteId?: string;
-  /**
-   * @remarks
-   * Site name.
-   * 
-   * @example
-   * example.com
-   */
   siteName?: string;
-  /**
-   * @remarks
-   * Site usage.
-   * 
-   * @example
-   * 5
-   */
   siteUsage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,50 +32,11 @@ export class GetCertificateQuotaResponseBodySiteUsage extends $dara.Model {
 }
 
 export class GetCertificateQuotaResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Free certificate quota.
-   * 
-   * @example
-   * 10
-   */
   quota?: number;
-  /**
-   * @remarks
-   * Usage of free certificate quota.
-   * 
-   * @example
-   * 5
-   */
   quotaUsage?: number;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Number of sites.
-   * 
-   * @example
-   * 2
-   */
   siteCount?: number;
-  /**
-   * @remarks
-   * List of site usage details.
-   */
   siteUsage?: GetCertificateQuotaResponseBodySiteUsage[];
-  /**
-   * @remarks
-   * Certificate Quota type.
-   * 
-   * @example
-   * free
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

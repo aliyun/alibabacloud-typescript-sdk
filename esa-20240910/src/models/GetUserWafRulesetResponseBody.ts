@@ -5,76 +5,19 @@ import { WafRuleConfig } from "./WafRuleConfig";
 
 
 export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
-  /**
-   * @example
-   * deny
-   */
   action?: string;
-  /**
-   * @example
-   * ["http.host"]
-   */
   characteristicsFields?: string[];
-  /**
-   * @example
-   * {
-   *   "Id": 20000001,
-   *   "Name": "rule1",
-   *   "Expression": "ip.src eq 1.1.1.1",
-   *   "Action": "deny"
-   * }
-   */
   config?: WafRuleConfig;
-  /**
-   * @example
-   * ["ip.src"]
-   */
   fields?: string[];
-  /**
-   * @example
-   * 20000001
-   */
   id?: number;
-  /**
-   * @example
-   * example
-   */
   name?: string;
-  /**
-   * @example
-   * http_custom
-   */
   phase?: string;
-  /**
-   * @example
-   * 1
-   */
   position?: number;
-  /**
-   * @example
-   * 10000001
-   */
   rulesetId?: number;
-  /**
-   * @example
-   * all
-   */
   skip?: string;
-  /**
-   * @example
-   * on
-   */
   status?: string;
-  /**
-   * @example
-   * ["http_custom"]
-   */
   tags?: string[];
   type?: string;
-  /**
-   * @example
-   * 2025-07-07T15:00:00Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -136,50 +79,14 @@ export class GetUserWafRulesetResponseBodyRulesetRules extends $dara.Model {
 }
 
 export class GetUserWafRulesetResponseBodyRuleset extends $dara.Model {
-  /**
-   * @example
-   * example
-   */
   description?: string;
-  /**
-   * @example
-   * ip.src == 1.1.1.1
-   */
   expression?: string;
-  /**
-   * @example
-   * 10000001
-   */
   id?: number;
-  /**
-   * @example
-   * example
-   */
   name?: string;
-  /**
-   * @example
-   * http_custom
-   */
   phase?: string;
-  /**
-   * @example
-   * 1
-   */
   position?: number;
-  /**
-   * @example
-   * [{}]
-   */
   rules?: GetUserWafRulesetResponseBodyRulesetRules[];
-  /**
-   * @example
-   * {}
-   */
   shared?: WafBatchRuleShared;
-  /**
-   * @example
-   * on
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -230,10 +137,6 @@ export class GetUserWafRulesetResponseBody extends $dara.Model {
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
-  /**
-   * @example
-   * {}
-   */
   ruleset?: GetUserWafRulesetResponseBodyRuleset;
   static names(): { [key: string]: string } {
     return {

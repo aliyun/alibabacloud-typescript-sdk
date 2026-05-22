@@ -3,22 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRoutineStagingCodeUploadInfoRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The code description.
-   * 
-   * @example
-   * the description of code
-   */
   codeDescription?: string;
   /**
    * @remarks
-   * The routine name.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * GetRoutineStagingCodeUploadInfo
    */
   name?: string;
   static names(): { [key: string]: string } {

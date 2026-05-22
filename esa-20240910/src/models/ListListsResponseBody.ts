@@ -5,48 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class ListListsResponseBodyLists extends $dara.Model {
   /**
    * @remarks
-   * The list description.
+   * 自定义响应页面描述
    * 
    * @example
    * a custom list
    */
   description?: string;
   /**
-   * @remarks
-   * The ID of the custom list.[](~~2850217~~)
-   * 
    * @example
    * 40000001
    */
   id?: number;
   /**
-   * @remarks
-   * The list type.
-   * 
    * @example
    * ip
    */
   kind?: string;
   /**
-   * @remarks
-   * The length of the list information array, which indicates how many items the list contains.
-   * 
    * @example
    * 100
    */
   length?: number;
   /**
-   * @remarks
-   * The list name.
-   * 
    * @example
    * example
    */
   name?: string;
   /**
-   * @remarks
-   * The time when the list was last modified.
-   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -84,47 +69,28 @@ export class ListListsResponseBodyLists extends $dara.Model {
 
 export class ListListsResponseBody extends $dara.Model {
   itemsUsage?: number;
-  /**
-   * @remarks
-   * The array that contains list information, including list data after paging.
-   */
   lists?: ListListsResponseBodyLists[];
   /**
-   * @remarks
-   * The page number returned.
-   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * The number of entries per page.
-   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   /**
-   * @remarks
-   * The total number of filtered lists.
-   * 
    * @example
    * 5
    */
   totalCount?: number;
   /**
-   * @remarks
-   * The number of created lists.
-   * 
    * @example
    * 10
    */

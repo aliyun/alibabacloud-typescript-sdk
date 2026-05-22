@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ApplyCustomHostnameCertificateResponseBody extends $dara.Model {
-  /**
-   * @example
-   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListKvsResponseBodyKeys extends $dara.Model {
-  /**
-   * @remarks
-   * The key name.
-   * 
-   * @example
-   * Key1
-   */
   name?: string;
-  /**
-   * @remarks
-   * The time when the key was last updated.
-   * 
-   * @example
-   * 2021-12-13T07:46:03Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -43,42 +29,10 @@ export class ListKvsResponseBodyKeys extends $dara.Model {
 }
 
 export class ListKvsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The key-value pairs.
-   */
   keys?: ListKvsResponseBodyKeys[];
-  /**
-   * @remarks
-   * The total number of pages returned.
-   * 
-   * @example
-   * 100
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 50
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 1024
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

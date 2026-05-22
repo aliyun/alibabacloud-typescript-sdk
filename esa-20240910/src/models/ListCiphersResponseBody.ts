@@ -3,34 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCiphersResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Name of the cipher suite group.
-   * 
-   * @example
-   * all
-   */
   ciphersGroup?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Returned result.
-   */
   result?: string[];
-  /**
-   * @remarks
-   * Total number of cipher suites.
-   * 
-   * @example
-   * 16
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

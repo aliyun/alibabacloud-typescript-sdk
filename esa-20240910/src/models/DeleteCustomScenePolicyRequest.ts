@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomScenePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   policyId?: number;
   static names(): { [key: string]: string } {

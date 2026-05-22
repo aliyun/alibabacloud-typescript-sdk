@@ -3,28 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateSiteCustomLogShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The cookie fields.
-   */
   cookiesShrink?: string;
-  /**
-   * @remarks
-   * The request header fields.
-   */
   requestHeadersShrink?: string;
-  /**
-   * @remarks
-   * The response header fields.
-   */
   responseHeadersShrink?: string;
-  /**
-   * @remarks
-   * site id
-   * 
-   * @example
-   * 11223****
-   */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {

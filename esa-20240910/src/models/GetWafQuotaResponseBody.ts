@@ -35,30 +35,10 @@ export class GetWafQuotaResponseBodyQuotaCaptcha extends $dara.Model {
 }
 
 export class GetWafQuotaResponseBodyQuotaList extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the custom list is enabled.
-   */
   enable?: boolean;
-  /**
-   * @remarks
-   * An object containing quota information for each type of item in the custom list.
-   */
   items?: { [key: string]: QuotaListItemsValue };
-  /**
-   * @remarks
-   * The number quota allowed per custom list.
-   */
   numberItemsPerList?: WafQuotaInteger;
-  /**
-   * @remarks
-   * The total number quota allowed for items in all custom lists.
-   */
   numberItemsTotal?: WafQuotaInteger;
-  /**
-   * @remarks
-   * The total number quota allowed for custom lists.
-   */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -102,15 +82,7 @@ export class GetWafQuotaResponseBodyQuotaList extends $dara.Model {
 }
 
 export class GetWafQuotaResponseBodyQuotaManagedRulesGroup extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the WAF managed rules group is enabled.
-   */
   enable?: boolean;
-  /**
-   * @remarks
-   * The total number quota allowed for the WAF managed rules group.
-   */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -139,20 +111,8 @@ export class GetWafQuotaResponseBodyQuotaManagedRulesGroup extends $dara.Model {
 }
 
 export class GetWafQuotaResponseBodyQuotaPage extends $dara.Model {
-  /**
-   * @remarks
-   * An object containing quota information for each Content-Type in custom response pages.
-   */
   contentTypes?: { [key: string]: QuotaPageContentTypesValue };
-  /**
-   * @remarks
-   * Indicates whether the custom response page is enabled.
-   */
   enable?: boolean;
-  /**
-   * @remarks
-   * The total number quota allowed for custom response pages.
-   */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -186,15 +146,7 @@ export class GetWafQuotaResponseBodyQuotaPage extends $dara.Model {
 }
 
 export class GetWafQuotaResponseBodyQuotaScenePolicy extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the scene protection feature is enabled.
-   */
   enable?: boolean;
-  /**
-   * @remarks
-   * The total number quota for scene protection rules.
-   */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -253,25 +205,9 @@ export class GetWafQuotaResponseBodyQuotaSliderCaptchaPage extends $dara.Model {
 
 export class GetWafQuotaResponseBodyQuota extends $dara.Model {
   captcha?: GetWafQuotaResponseBodyQuotaCaptcha;
-  /**
-   * @remarks
-   * Quota information related to custom lists.
-   */
   list?: GetWafQuotaResponseBodyQuotaList;
-  /**
-   * @remarks
-   * Quota information related to the WAF managed rules group.
-   */
   managedRulesGroup?: GetWafQuotaResponseBodyQuotaManagedRulesGroup;
-  /**
-   * @remarks
-   * Quota information related to custom response pages.
-   */
   page?: GetWafQuotaResponseBodyQuotaPage;
-  /**
-   * @remarks
-   * Quota information related to scene protection.
-   */
   scenePolicy?: GetWafQuotaResponseBodyQuotaScenePolicy;
   sliderCaptchaPage?: GetWafQuotaResponseBodyQuotaSliderCaptchaPage;
   static names(): { [key: string]: string } {
@@ -324,15 +260,8 @@ export class GetWafQuotaResponseBodyQuota extends $dara.Model {
 }
 
 export class GetWafQuotaResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Returned quota information.
-   */
   quota?: GetWafQuotaResponseBodyQuota;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */

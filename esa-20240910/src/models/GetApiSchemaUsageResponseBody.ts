@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetApiSchemaUsageResponseBodyUsages extends $dara.Model {
-  /**
-   * @remarks
-   * The website ID.
-   * 
-   * @example
-   * 40000449
-   */
   id?: number;
-  /**
-   * @remarks
-   * The website name.
-   * 
-   * @example
-   * test
-   */
   name?: string;
-  /**
-   * @remarks
-   * The number of files uploaded for the website.
-   * 
-   * @example
-   * 0
-   */
   usage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,34 +32,9 @@ export class GetApiSchemaUsageResponseBodyUsages extends $dara.Model {
 }
 
 export class GetApiSchemaUsageResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The plan ID.
-   * 
-   * @example
-   * esa-site-agknce3n****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The number of files uploaded for schema verification in the plan instance of the website.
-   * 
-   * @example
-   * 10
-   */
   instanceUsage?: number;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 952ea16b-1f05-4a76-bb32-420282d8****
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Usage details for websites.
-   */
   usages?: GetApiSchemaUsageResponseBodyUsages[];
   static names(): { [key: string]: string } {
     return {

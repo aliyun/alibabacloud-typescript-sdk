@@ -3,156 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
-  /**
-   * @remarks
-   * Configuration ID.
-   * 
-   * @example
-   * 395386449776640
-   */
   configId?: number;
-  /**
-   * @remarks
-   * Configuration type, which can be used to query global or rule configurations. Value range:
-   * - global: Query global configuration.
-   * - rule: Query rule configuration.
-   * 
-   * @example
-   * global
-   */
   configType?: string;
-  /**
-   * @remarks
-   * Rewrite the DNS resolution record for the origin request.
-   * 
-   * @example
-   * test.example.com
-   */
   dnsRecord?: string;
   follow302Enable?: string;
   follow302MaxTries?: string;
   follow302RetainArgs?: string;
   follow302RetainHeader?: string;
   follow302TargetHost?: string;
-  /**
-   * @remarks
-   * HOST carried in the origin request.
-   * 
-   * @example
-   * origin.example.com
-   */
   originHost?: string;
-  /**
-   * @remarks
-   * The port of the origin server to access when using the HTTP protocol for origin requests.
-   * 
-   * @example
-   * 8080
-   */
   originHttpPort?: string;
-  /**
-   * @remarks
-   * The port of the origin server to access when using the HTTPS protocol for origin requests.
-   * 
-   * @example
-   * 4433
-   */
   originHttpsPort?: string;
-  /**
-   * @remarks
-   * mTLS switch. Value range:
-   * - on: Enable.
-   * - off: Disable.
-   * 
-   * @example
-   * on
-   */
   originMtls?: string;
   originReadTimeout?: string;
-  /**
-   * @remarks
-   * Protocol used for the origin request. Value range:
-   * - http: Use HTTP protocol for origin.
-   * - https: Use HTTPS protocol for origin.
-   * - follow: Follow the client\\"s protocol for origin.
-   * 
-   * @example
-   * http
-   */
   originScheme?: string;
-  /**
-   * @remarks
-   * SNI carried in the back-to-origin request.
-   * 
-   * @example
-   * origin.example.com
-   */
   originSni?: string;
-  /**
-   * @remarks
-   * Origin certificate verification switch. Value range:
-   * - on: Enable.
-   * - off: Disable.
-   * 
-   * @example
-   * on
-   */
   originVerify?: string;
-  /**
-   * @remarks
-   * Use range slicing to download files from the origin. Value range:
-   * - on: Enable
-   * - off: Disable
-   * - force: Force
-   * 
-   * @example
-   * on
-   */
   range?: string;
   rangeChunkSize?: string;
-  /**
-   * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, e.g., (http.host eq \\"video.example.com\\")
-   * 
-   * @example
-   * (http.host eq \\"video.example.com\\")
-   */
   rule?: string;
-  /**
-   * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Value range:
-   * - on: Enabled.
-   * - off: Disabled.
-   * 
-   * @example
-   * on
-   */
   ruleEnable?: string;
-  /**
-   * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
-   * 
-   * @example
-   * rule_example
-   */
   ruleName?: string;
-  /**
-   * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
-   * 
-   * @example
-   * 1
-   */
   sequence?: number;
-  /**
-   * @remarks
-   * Version number of the site configuration. For sites with version management enabled, this parameter can specify the version of the site for which the configuration is effective, defaulting to version 0.
-   * 
-   * @example
-   * 1
-   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -220,50 +92,11 @@ export class ListOriginRulesResponseBodyConfigs extends $dara.Model {
 }
 
 export class ListOriginRulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Response body configuration.
-   */
   configs?: ListOriginRulesResponseBodyConfigs[];
-  /**
-   * @remarks
-   * Current page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * Page size.
-   * 
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * Total number of records.
-   * 
-   * @example
-   * 100
-   */
   totalCount?: number;
-  /**
-   * @remarks
-   * Total number of pages.
-   * 
-   * @example
-   * 2
-   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {

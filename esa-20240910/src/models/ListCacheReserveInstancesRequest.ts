@@ -3,64 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCacheReserveInstancesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Instance ID.
-   * 
-   * @example
-   * sp-xcdn-96wblslz****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * Page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * Page size. Range: **1~500**, default is **500**.
-   * 
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The criterion by which you want to sort the queried instances. Valid values:
-   * 
-   * *   **ExpireTime**
-   * *   **CreateTime**
-   * 
-   * @example
-   * ExpireTime
-   */
   sortBy?: string;
-  /**
-   * @remarks
-   * The order by which you want to sort the queried instances. Valid values:
-   * 
-   * *   **asc**
-   * *   **desc**
-   * 
-   * @example
-   * desc
-   */
   sortOrder?: string;
   /**
-   * @remarks
-   * The status of the cache reserve instance. Valid values:
-   * 
-   * *   **online**: The instance is in service.
-   * *   **offline**: The instance has expired within an allowable period. In this state, it is unavailable.
-   * *   **disable**: The instance has been released.
-   * *   **overdue**: The instance has been stopped due to overdue payments.
-   * 
-   * @example
-   * online
-   * 
    * **if can be null:**
    * false
    */

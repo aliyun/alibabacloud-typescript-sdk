@@ -5,22 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetCompressionRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * Configuration ID, which can be obtained by calling the [ListCompressionRules](https://help.aliyun.com/document_detail/2867498.html) interface.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 35281609698****
    */
   configId?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 34003500310****
    */
   siteId?: number;
   static names(): { [key: string]: string } {

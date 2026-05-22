@@ -6,9 +6,6 @@ export class ListUserWafRulesetsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * esa-xxxxxxx
    */
   instanceId?: string;
   /**
@@ -26,10 +23,6 @@ export class ListUserWafRulesetsShrinkRequest extends $dara.Model {
    * http_bot
    */
   phase?: string;
-  /**
-   * @example
-   * 1
-   */
   queryArgsShrink?: string;
   static names(): { [key: string]: string } {
     return {

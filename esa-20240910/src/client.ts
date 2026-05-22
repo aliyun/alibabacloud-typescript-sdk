@@ -114,7 +114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates the client based on the certificate ID.
+   * 激活客户端证书
    * 
    * @param request - ActivateClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -141,7 +141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates the client based on the certificate ID.
+   * 激活客户端证书
    * 
    * @param request - ActivateClientCertificateRequest
    * @returns ActivateClientCertificateResponse
@@ -152,7 +152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable Version Management
+   * 开启版本管理
    * 
    * @param request - ActivateVersionManagementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enable Version Management
+   * 开启版本管理
    * 
    * @param request - ActivateVersionManagementRequest
    * @returns ActivateVersionManagementResponse
@@ -194,7 +194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a free SSL certificate.
+   * 申请免费证书
    * 
    * @param request - ApplyCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -233,7 +233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Applies for a free SSL certificate.
+   * 申请免费证书
    * 
    * @param request - ApplyCertificateRequest
    * @returns ApplyCertificateResponse
@@ -286,11 +286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds DNS records of different record types at a time..
-   * 
-   * @remarks
-   * This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
-   * Successful and failed records along with error messages are listed in the response.
+   * 批量创建记录
    * 
    * @param tmpReq - BatchCreateRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -331,11 +327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds DNS records of different record types at a time..
-   * 
-   * @remarks
-   * This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
-   * Successful and failed records along with error messages are listed in the response.
+   * 批量创建记录
    * 
    * @param request - BatchCreateRecordsRequest
    * @returns BatchCreateRecordsResponse
@@ -346,7 +338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Create WAF Rules
+   * 批量创建WAF规则
    * 
    * @param tmpReq - BatchCreateWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -409,7 +401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Create WAF Rules
+   * 批量创建WAF规则
    * 
    * @param request - BatchCreateWafRulesRequest
    * @returns BatchCreateWafRulesResponse
@@ -420,7 +412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes key-value pairs from a namespace at a time based on keys.
+   * 批量删除Namespace的key-value对
    * 
    * @param tmpReq - BatchDeleteKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -463,7 +455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes key-value pairs from a namespace at a time based on keys.
+   * 批量删除Namespace的key-value对
    * 
    * @param request - BatchDeleteKvRequest
    * @returns BatchDeleteKvResponse
@@ -474,44 +466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
-   * 
-   * @remarks
-   * This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
-   *     func TestBatchDeleteWithHighCapacity() error {
-   *     	// Initialize the configurations.
-   *     	cfg := new(openapi.Config)
-   *     	cfg.SetAccessKeyId("xxxxxxxxx")
-   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
-   *     	cli, err := NewClient(cfg)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	runtime := &util.RuntimeOptions{}
-   *     	// Construct a request for deleting key-value pairs at a time.
-   *     	namespace := "test_batch_put"
-   *     	rawReq := BatchDeleteKvRequest{
-   *     		Namespace: &namespace,
-   *     	}
-   *     	for i := 0; i < 10000; i++ {
-   *     		key := fmt.Sprintf("test_key_%d", i)
-   *     		rawReq.Keys = append(rawReq.Keys, &key)
-   *     	}
-   *     	payload, err := json.Marshal(rawReq)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	// If the payload is greater than 2 MB, call the BatchDeleteKvWithHighCapacity operation for deletion.
-   *     	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
-   *     		Namespace: &namespace,
-   *     		UrlObject: bytes.NewReader(payload),
-   *     	}
-   *     	resp, err := cli.BatchDeleteKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	return nil
-   *     }
+   * 批量删除Namespace下的KV队，支持大body的上传，上限100M
    * 
    * @param request - BatchDeleteKvWithHighCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -546,44 +501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
-   * 
-   * @remarks
-   * This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
-   *     func TestBatchDeleteWithHighCapacity() error {
-   *     	// Initialize the configurations.
-   *     	cfg := new(openapi.Config)
-   *     	cfg.SetAccessKeyId("xxxxxxxxx")
-   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
-   *     	cli, err := NewClient(cfg)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	runtime := &util.RuntimeOptions{}
-   *     	// Construct a request for deleting key-value pairs at a time.
-   *     	namespace := "test_batch_put"
-   *     	rawReq := BatchDeleteKvRequest{
-   *     		Namespace: &namespace,
-   *     	}
-   *     	for i := 0; i < 10000; i++ {
-   *     		key := fmt.Sprintf("test_key_%d", i)
-   *     		rawReq.Keys = append(rawReq.Keys, &key)
-   *     	}
-   *     	payload, err := json.Marshal(rawReq)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	// If the payload is greater than 2 MB, call the BatchDeleteKvWithHighCapacity operation for deletion.
-   *     	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
-   *     		Namespace: &namespace,
-   *     		UrlObject: bytes.NewReader(payload),
-   *     	}
-   *     	resp, err := cli.BatchDeleteKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	return nil
-   *     }
+   * 批量删除Namespace下的KV队，支持大body的上传，上限100M
    * 
    * @param request - BatchDeleteKvWithHighCapacityRequest
    * @returns BatchDeleteKvWithHighCapacityResponse
@@ -680,7 +598,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Get Expression Matches
+   * 批量获取表达式的匹配项
    * 
    * @param tmpReq - BatchGetExpressionFieldsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -739,7 +657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch Get Expression Matches
+   * 批量获取表达式的匹配项
    * 
    * @param request - BatchGetExpressionFieldsRequest
    * @returns BatchGetExpressionFieldsResponse
@@ -750,7 +668,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures key-value pairs for a namespace at a time based on specified keys.
+   * 批量配置Namespace的key-value对
    * 
    * @param tmpReq - BatchPutKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -793,7 +711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures key-value pairs for a namespace at a time based on specified keys.
+   * 批量配置Namespace的key-value对
    * 
    * @param request - BatchPutKvRequest
    * @returns BatchPutKvResponse
@@ -804,52 +722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
-   * 
-   * @remarks
-   * This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
-   *     func TestBatchPutKvWithHighCapacity() error {
-   *     	// Initialize the configurations.
-   *     	cfg := new(openapi.Config)
-   *     	cfg.SetAccessKeyId("xxxxxxxxx")
-   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
-   *     	cli, err := NewClient(cfg)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	runtime := &util.RuntimeOptions{}
-   *     	// Construct a request for uploading key-value pairs at a time.
-   *     	namespace := "test_batch_put"
-   *     	numKv := 10000
-   *     	kvList := make([]*BatchPutKvRequestKvList, numKv)
-   *     	test_value := strings.Repeat("a", 10*1024)
-   *     	for i := 0; i < numKv; i++ {
-   *     		key := fmt.Sprintf("test_key_%d", i)
-   *     		value := test_value
-   *     		kvList[i] = &BatchPutKvRequestKvList{
-   *     			Key:   &key,
-   *     			Value: &value,
-   *     		}
-   *     	}
-   *     	rawReq := BatchPutKvRequest{
-   *     		Namespace: &namespace,
-   *     		KvList:    kvList,
-   *     	}
-   *     	payload, err := json.Marshal(rawReq)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	// If the payload is greater than 2 MB, call the BatchPutKvWithHighCapacity operation for upload.
-   *     	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
-   *     		Namespace: &namespace,
-   *     		UrlObject: bytes.NewReader(payload),
-   *     	}
-   *     	resp, err := cli.BatchPutKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	return nil
-   *     }
+   * 批量设置Namespace的key-value对，支持最大100M的请求体
    * 
    * @param request - BatchPutKvWithHighCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -884,52 +757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
-   * 
-   * @remarks
-   * This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
-   *     func TestBatchPutKvWithHighCapacity() error {
-   *     	// Initialize the configurations.
-   *     	cfg := new(openapi.Config)
-   *     	cfg.SetAccessKeyId("xxxxxxxxx")
-   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
-   *     	cli, err := NewClient(cfg)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	runtime := &util.RuntimeOptions{}
-   *     	// Construct a request for uploading key-value pairs at a time.
-   *     	namespace := "test_batch_put"
-   *     	numKv := 10000
-   *     	kvList := make([]*BatchPutKvRequestKvList, numKv)
-   *     	test_value := strings.Repeat("a", 10*1024)
-   *     	for i := 0; i < numKv; i++ {
-   *     		key := fmt.Sprintf("test_key_%d", i)
-   *     		value := test_value
-   *     		kvList[i] = &BatchPutKvRequestKvList{
-   *     			Key:   &key,
-   *     			Value: &value,
-   *     		}
-   *     	}
-   *     	rawReq := BatchPutKvRequest{
-   *     		Namespace: &namespace,
-   *     		KvList:    kvList,
-   *     	}
-   *     	payload, err := json.Marshal(rawReq)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	// If the payload is greater than 2 MB, call the BatchPutKvWithHighCapacity operation for upload.
-   *     	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
-   *     		Namespace: &namespace,
-   *     		UrlObject: bytes.NewReader(payload),
-   *     	}
-   *     	resp, err := cli.BatchPutKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	return nil
-   *     }
+   * 批量设置Namespace的key-value对，支持最大100M的请求体
    * 
    * @param request - BatchPutKvWithHighCapacityRequest
    * @returns BatchPutKvWithHighCapacityResponse
@@ -1026,7 +854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
+   * 批量修改WAF规则
    * 
    * @param tmpReq - BatchUpdateWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1089,7 +917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
+   * 批量修改WAF规则
    * 
    * @param request - BatchUpdateWafRulesRequest
    * @returns BatchUpdateWafRulesResponse
@@ -1100,7 +928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Blocks URLs.
+   * URL封禁
    * 
    * @param tmpReq - BlockObjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1149,7 +977,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Blocks URLs.
+   * URL封禁
    * 
    * @param request - BlockObjectRequest
    * @returns BlockObjectResponse
@@ -1191,7 +1019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a specified website name is available.
+   * 校验站点名称是否可用
    * 
    * @param request - CheckSiteNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1222,7 +1050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a specified website name is available.
+   * 校验站点名称是否可用
    * 
    * @param request - CheckSiteNameRequest
    * @returns CheckSiteNameResponse
@@ -1233,7 +1061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the name of a real-time log delivery task.
+   * 实时日志任务投递名检查
    * 
    * @param request - CheckSiteProjectNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1260,7 +1088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the name of a real-time log delivery task.
+   * 实时日志任务投递名检查
    * 
    * @param request - CheckSiteProjectNameRequest
    * @returns CheckSiteProjectNameResponse
@@ -1271,7 +1099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the name of a real-time log delivery task by account.
+   * 实时日志用户任务投递名检查
    * 
    * @param request - CheckUserProjectNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1298,7 +1126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the name of a real-time log delivery task by account.
+   * 实时日志用户任务投递名检查
    * 
    * @param request - CheckUserProjectNameRequest
    * @returns CheckUserProjectNameResponse
@@ -1309,7 +1137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Commits the unstable code in the staging environment to generate an official code version.
+   * 提交Routine测试版本代码
    * 
    * @param request - CommitRoutineStagingCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1344,7 +1172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Commits the unstable code in the staging environment to generate an official code version.
+   * 提交Routine测试版本代码
    * 
    * @param request - CommitRoutineStagingCodeRequest
    * @returns CommitRoutineStagingCodeResponse
@@ -1355,7 +1183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new site cache configuration
+   * 新增站点缓存配置
    * 
    * @param request - CreateCacheRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1498,7 +1326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new site cache configuration
+   * 新增站点缓存配置
    * 
    * @param request - CreateCacheRuleRequest
    * @returns CreateCacheRuleResponse
@@ -1509,7 +1337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uses the ESA-managed certificate authority (CA) to issue client certificates.
+   * 创建客户端证书
    * 
    * @param request - CreateClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1554,7 +1382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uses the ESA-managed certificate authority (CA) to issue client certificates.
+   * 创建客户端证书
    * 
    * @param request - CreateClientCertificateRequest
    * @returns CreateClientCertificateResponse
@@ -1565,7 +1393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a compression rule
+   * 新增压缩规则
    * 
    * @param request - CreateCompressionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1628,7 +1456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a compression rule
+   * 新增压缩规则
    * 
    * @param request - CreateCompressionRuleRequest
    * @returns CreateCompressionRuleResponse
@@ -1713,7 +1541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add configurations for modifying the response code.
+   * 新增修改响应码规则
    * 
    * @param request - CreateCustomResponseCodeRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1772,7 +1600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add configurations for modifying the response code.
+   * 新增修改响应码规则
    * 
    * @param request - CreateCustomResponseCodeRuleRequest
    * @returns CreateCustomResponseCodeRuleResponse
@@ -1783,7 +1611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
+   * 创建定制场景策略
    * 
    * @param request - CreateCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1834,7 +1662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
+   * 创建定制场景策略
    * 
    * @param request - CreateCustomScenePolicyRequest
    * @returns CreateCustomScenePolicyResponse
@@ -1845,7 +1673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+   * 创建边缘容器的应用
    * 
    * @param request - CreateEdgeContainerAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1928,7 +1756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
+   * 创建边缘容器的应用
    * 
    * @param request - CreateEdgeContainerAppRequest
    * @returns CreateEdgeContainerAppResponse
@@ -1939,7 +1767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an image secret for the edge container application
+   * 创建边缘容器应用的镜像秘钥
    * 
    * @param request - CreateEdgeContainerAppImageSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1982,7 +1810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an image secret for the edge container application
+   * 创建边缘容器应用的镜像秘钥
    * 
    * @param request - CreateEdgeContainerAppImageSecretRequest
    * @returns CreateEdgeContainerAppImageSecretResponse
@@ -1993,7 +1821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+   * 创建一个边缘容器应用的域名记录
    * 
    * @param request - CreateEdgeContainerAppRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2032,7 +1860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
+   * 创建一个边缘容器应用的域名记录
    * 
    * @param request - CreateEdgeContainerAppRecordRequest
    * @returns CreateEdgeContainerAppRecordResponse
@@ -2043,7 +1871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a version for a containerized application. You can iterate the application based on the version.
+   * 创建边缘容器应用的版本
    * 
    * @param tmpReq - CreateEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2092,7 +1920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a version for a containerized application. You can iterate the application based on the version.
+   * 创建边缘容器应用的版本
    * 
    * @param request - CreateEdgeContainerAppVersionRequest
    * @returns CreateEdgeContainerAppVersionResponse
@@ -2103,7 +1931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the configuration of modifying HTTP request headers for a website.
+   * 新增HTTP入站请求头规则
    * 
    * @param tmpReq - CreateHttpIncomingRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2164,7 +1992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the configuration of modifying HTTP request headers for a website.
+   * 新增HTTP入站请求头规则
    * 
    * @param request - CreateHttpIncomingRequestHeaderModificationRuleRequest
    * @returns CreateHttpIncomingRequestHeaderModificationRuleResponse
@@ -2175,7 +2003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the configuration of modifying HTTP response headers for a website.
+   * 新增HTTP入站响应头规则
    * 
    * @param tmpReq - CreateHttpIncomingResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2236,7 +2064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the configuration of modifying HTTP response headers for a website.
+   * 新增HTTP入站响应头规则
    * 
    * @param request - CreateHttpIncomingResponseHeaderModificationRuleRequest
    * @returns CreateHttpIncomingResponseHeaderModificationRuleResponse
@@ -2247,7 +2075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add HTTP Request Header Rule
+   * 新增HTTP请求头规则
    * 
    * @param tmpReq - CreateHttpRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2308,7 +2136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add HTTP Request Header Rule
+   * 新增HTTP请求头规则
    * 
    * @param request - CreateHttpRequestHeaderModificationRuleRequest
    * @returns CreateHttpRequestHeaderModificationRuleResponse
@@ -2319,7 +2147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add HTTP Response Header Rule
+   * 新增HTTP响应头规则
    * 
    * @param tmpReq - CreateHttpResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2380,7 +2208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add HTTP Response Header Rule
+   * 新增HTTP响应头规则
    * 
    * @param request - CreateHttpResponseHeaderModificationRuleRequest
    * @returns CreateHttpResponseHeaderModificationRuleResponse
@@ -2391,7 +2219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new site HTTPS application configuration
+   * 创建站点HTTPS应用配置
    * 
    * @param request - CreateHttpsApplicationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2494,7 +2322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new site HTTPS application configuration
+   * 创建站点HTTPS应用配置
    * 
    * @param request - CreateHttpsApplicationConfigurationRequest
    * @returns CreateHttpsApplicationConfigurationResponse
@@ -2505,7 +2333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new site HTTPS basic configuration
+   * 新增站点HTTPS基础配置
    * 
    * @param request - CreateHttpsBasicConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2592,7 +2420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new site HTTPS basic configuration
+   * 新增站点HTTPS基础配置
    * 
    * @param request - CreateHttpsBasicConfigurationRequest
    * @returns CreateHttpsBasicConfigurationResponse
@@ -2603,7 +2431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Site Image Transformation Configuration
+   * 新增站点图片转换配置
    * 
    * @param request - CreateImageTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2666,7 +2494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Site Image Transformation Configuration
+   * 新增站点图片转换配置
    * 
    * @param request - CreateImageTransformRequest
    * @returns CreateImageTransformResponse
@@ -2677,7 +2505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a namespace in your Alibaba Cloud account.
+   * 新增Namespace
    * 
    * @param request - CreateKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2712,7 +2540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a namespace in your Alibaba Cloud account.
+   * 新增Namespace
    * 
    * @param request - CreateKvNamespaceRequest
    * @returns CreateKvNamespaceResponse
@@ -2723,7 +2551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
+   * 创建自定义列表
    * 
    * @param tmpReq - CreateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2772,7 +2600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
+   * 创建自定义列表
    * 
    * @param request - CreateListRequest
    * @returns CreateListResponse
@@ -2783,10 +2611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a New Load Balancer
-   * 
-   * @remarks
-   * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and more, to achieve effective traffic management and optimization.
+   * 新增负载均衡器
    * 
    * @param tmpReq - CreateLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2895,10 +2720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a New Load Balancer
-   * 
-   * @remarks
-   * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and more, to achieve effective traffic management and optimization.
+   * 新增负载均衡器
    * 
    * @param request - CreateLoadBalancerRequest
    * @returns CreateLoadBalancerResponse
@@ -2909,7 +2731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new site network optimization configuration
+   * 新增站点网络优化配置
    * 
    * @param request - CreateNetworkOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2980,7 +2802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new site network optimization configuration
+   * 新增站点网络优化配置
    * 
    * @param request - CreateNetworkOptimizationRequest
    * @returns CreateNetworkOptimizationResponse
@@ -2991,10 +2813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a new origin address pool
-   * 
-   * @remarks
-   * Multiple origins can be added under the origin address, supporting domain names, IPs, OSS, S3, and other types of origins. It supports authentication for OSS and S3 type origins.
+   * 新增源地址池
    * 
    * @param tmpReq - CreateOriginPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3043,10 +2862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a new origin address pool
-   * 
-   * @remarks
-   * Multiple origins can be added under the origin address, supporting domain names, IPs, OSS, S3, and other types of origins. It supports authentication for OSS and S3 type origins.
+   * 新增源地址池
    * 
    * @param request - CreateOriginPoolRequest
    * @returns CreateOriginPoolResponse
@@ -3057,7 +2873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables origin protection.
+   * 开启源站防护
    * 
    * @param request - CreateOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3092,7 +2908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables origin protection.
+   * 开启源站防护
    * 
    * @param request - CreateOriginProtectionRequest
    * @returns CreateOriginProtectionResponse
@@ -3103,7 +2919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new origin rule configuration for the site
+   * 创建站点回源规则配置
    * 
    * @param request - CreateOriginRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3218,7 +3034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new origin rule configuration for the site
+   * 创建站点回源规则配置
    * 
    * @param request - CreateOriginRuleRequest
    * @returns CreateOriginRuleResponse
@@ -3229,7 +3045,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
+   * 调用CreatePage创建自定义响应页面
    * 
    * @param tmpReq - CreatePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3282,7 +3098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
+   * 调用CreatePage创建自定义响应页面
    * 
    * @param request - CreatePageRequest
    * @returns CreatePageResponse
@@ -3293,7 +3109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DNS record for a specific website.
+   * 创建记录
    * 
    * @param tmpReq - CreateRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3374,7 +3190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a DNS record for a specific website.
+   * 创建记录
    * 
    * @param request - CreateRecordRequest
    * @returns CreateRecordResponse
@@ -3385,7 +3201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a Redirect Rule
+   * 新增重定向规则
    * 
    * @param request - CreateRedirectRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3452,7 +3268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add a Redirect Rule
+   * 新增重定向规则
    * 
    * @param request - CreateRedirectRuleRequest
    * @returns CreateRedirectRuleResponse
@@ -3463,7 +3279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Rewrite URL Rule
+   * 新增重写Url规则
    * 
    * @param request - CreateRewriteUrlRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3530,7 +3346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add Rewrite URL Rule
+   * 新增重写Url规则
    * 
    * @param request - CreateRewriteUrlRuleRequest
    * @returns CreateRewriteUrlRuleResponse
@@ -3541,7 +3357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a routine.
+   * 创建routine
    * 
    * @param request - CreateRoutineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3580,7 +3396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a routine.
+   * 创建routine
    * 
    * @param request - CreateRoutineRequest
    * @returns CreateRoutineResponse
@@ -3591,12 +3407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Release the version of the function code in proportion to the specified environment.
-   * 
-   * @remarks
-   * ## [](#)Request description
-   * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
-   * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
+   * 发布Routine某个版本代码
    * 
    * @param tmpReq - CreateRoutineCodeDeploymentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3645,12 +3456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Release the version of the function code in proportion to the specified environment.
-   * 
-   * @remarks
-   * ## [](#)Request description
-   * *   When you create a version for deployment, you can set the environment name `Env` parameter only to the test environment `staging` or the production environment `production`.
-   * *   `CodeVersions` parameter supports up to two versions of a phased release, and the sum of the proportions of these versions must be equal to 100%.
+   * 发布Routine某个版本代码
    * 
    * @param request - CreateRoutineCodeDeploymentRequest
    * @returns CreateRoutineCodeDeploymentResponse
@@ -3661,7 +3467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
+   * 新增Routine关联域名
    * 
    * @param request - CreateRoutineRelatedRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3700,7 +3506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
+   * 新增Routine关联域名
    * 
    * @param request - CreateRoutineRelatedRecordRequest
    * @returns CreateRoutineRelatedRecordResponse
@@ -3711,7 +3517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds edge function routing configurations.
+   * 创建边缘函数路由配置
    * 
    * @param request - CreateRoutineRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3774,7 +3580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds edge function routing configurations.
+   * 创建边缘函数路由配置
    * 
    * @param request - CreateRoutineRouteRequest
    * @returns CreateRoutineRouteResponse
@@ -3849,7 +3655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates scheduled prefetch plans.
+   * 批量新增定时预热任务的计划
    * 
    * @param tmpReq - CreateScheduledPreloadExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3892,7 +3698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates scheduled prefetch plans.
+   * 批量新增定时预热任务的计划
    * 
    * @param request - CreateScheduledPreloadExecutionsRequest
    * @returns CreateScheduledPreloadExecutionsResponse
@@ -3903,7 +3709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a scheduled prefetch task.
+   * 新增定时预热任务
    * 
    * @param request - CreateScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3950,7 +3756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a scheduled prefetch task.
+   * 新增定时预热任务
    * 
    * @param request - CreateScheduledPreloadJobRequest
    * @returns CreateScheduledPreloadJobResponse
@@ -3961,11 +3767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a website.
-   * 
-   * @remarks
-   *   Make sure that you have an available plan before you add a website.
-   * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
+   * 新建站点
    * 
    * @param request - CreateSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4012,11 +3814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a website.
-   * 
-   * @remarks
-   *   Make sure that you have an available plan before you add a website.
-   * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
+   * 新建站点
    * 
    * @param request - CreateSiteRequest
    * @returns CreateSiteResponse
@@ -4027,12 +3825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
-   * 
-   * @remarks
-   *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
-   * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
-   * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
+   * 新建自定义字段
    * 
    * @param tmpReq - CreateSiteCustomLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4089,12 +3882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
-   * 
-   * @remarks
-   *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
-   * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
-   * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
+   * 新建自定义字段
    * 
    * @param request - CreateSiteCustomLogRequest
    * @returns CreateSiteCustomLogResponse
@@ -4105,7 +3893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a real-time log delivery task.
+   * 新建一个任务投递
    * 
    * @param tmpReq - CreateSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4206,7 +3994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a real-time log delivery task.
+   * 新建一个任务投递
    * 
    * @param request - CreateSiteDeliveryTaskRequest
    * @returns CreateSiteDeliveryTaskResponse
@@ -4248,7 +4036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Transport Layer Application
+   * 创建四层应用
    * 
    * @param tmpReq - CreateTransportLayerApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4313,7 +4101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Transport Layer Application
+   * 创建四层应用
    * 
    * @param request - CreateTransportLayerApplicationRequest
    * @returns CreateTransportLayerApplicationResponse
@@ -4324,7 +4112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a web page monitoring configuration.
+   * 新增网页监测配置
    * 
    * @param request - CreateUrlObservationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4363,7 +4151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a web page monitoring configuration.
+   * 新增网页监测配置
    * 
    * @param request - CreateUrlObservationRequest
    * @returns CreateUrlObservationResponse
@@ -4374,18 +4162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a log delivery task to ship logs to the specified destination.
-   * 
-   * @remarks
-   * This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
-   * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
-   * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
-   * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
-   * ## [](#)Precautions
-   * *   Make sure that you have sufficient permissions to perform delivery tasks.
-   * *   If you enable encryption or authentication, properly configure corresponding parameters.
-   * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
-   * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
+   * 新建一个用户粒度任务投递
    * 
    * @param tmpReq - CreateUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4486,18 +4263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a log delivery task to ship logs to the specified destination.
-   * 
-   * @remarks
-   * This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
-   * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
-   * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
-   * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
-   * ## [](#)Precautions
-   * *   Make sure that you have sufficient permissions to perform delivery tasks.
-   * *   If you enable encryption or authentication, properly configure corresponding parameters.
-   * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
-   * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
+   * 新建一个用户粒度任务投递
    * 
    * @param request - CreateUserDeliveryTaskRequest
    * @returns CreateUserDeliveryTaskResponse
@@ -4612,7 +4378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add video processing configurations for a website.
+   * 新增站点视频处理配置
    * 
    * @param request - CreateVideoProcessingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4687,7 +4453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Add video processing configurations for a website.
+   * 新增站点视频处理配置
    * 
    * @param request - CreateVideoProcessingRequest
    * @returns CreateVideoProcessingResponse
@@ -4698,7 +4464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create WAF Rule
+   * 创建WAF规则
    * 
    * @param tmpReq - CreateWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4753,7 +4519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create WAF Rule
+   * 创建WAF规则
    * 
    * @param request - CreateWafRuleRequest
    * @returns CreateWafRuleResponse
@@ -4764,7 +4530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create WAF Ruleset
+   * 创建WAF规则集
    * 
    * @param request - CreateWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4809,7 +4575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create WAF Ruleset
+   * 创建WAF规则集
    * 
    * @param request - CreateWafRulesetRequest
    * @returns CreateWafRulesetResponse
@@ -4820,7 +4586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room for a website.
+   * 创建等候室
    * 
    * @param tmpReq - CreateWaitingRoomRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4921,7 +4687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room for a website.
+   * 创建等候室
    * 
    * @param request - CreateWaitingRoomRequest
    * @returns CreateWaitingRoomResponse
@@ -4932,7 +4698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room event.
+   * 创建等候室事件
    * 
    * @param request - CreateWaitingRoomEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5039,7 +4805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a waiting room event.
+   * 创建等候室事件
    * 
    * @param request - CreateWaitingRoomEventRequest
    * @returns CreateWaitingRoomEventResponse
@@ -5050,7 +4816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Waiting Room Rule
+   * 创建等候室规则
    * 
    * @param request - CreateWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5097,7 +4863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Waiting Room Rule
+   * 创建等候室规则
    * 
    * @param request - CreateWaitingRoomRuleRequest
    * @returns CreateWaitingRoomRuleResponse
@@ -5108,10 +4874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables version management for a website.
-   * 
-   * @remarks
-   * You can disable version management only when the default environment and version 0 exist.
+   * 关闭版本管理
    * 
    * @param request - DeactivateVersionManagementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5142,10 +4905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables version management for a website.
-   * 
-   * @remarks
-   * You can disable version management only when the default environment and version 0 exist.
+   * 关闭版本管理
    * 
    * @param request - DeactivateVersionManagementRequest
    * @returns DeactivateVersionManagementResponse
@@ -5156,7 +4916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Cache Configuration
+   * 删除缓存配置
    * 
    * @param request - DeleteCacheRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5191,7 +4951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Cache Configuration
+   * 删除缓存配置
    * 
    * @param request - DeleteCacheRuleRequest
    * @returns DeleteCacheRuleResponse
@@ -5202,7 +4962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a certificate for a website.
+   * 删除证书
    * 
    * @param request - DeleteCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5229,7 +4989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a certificate for a website.
+   * 删除证书
    * 
    * @param request - DeleteCertificateRequest
    * @returns DeleteCertificateResponse
@@ -5240,7 +5000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a client CA certificate.
+   * 删除客户端CA证书
    * 
    * @param request - DeleteClientCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5267,7 +5027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a client CA certificate.
+   * 删除客户端CA证书
    * 
    * @param request - DeleteClientCaCertificateRequest
    * @returns DeleteClientCaCertificateResponse
@@ -5278,7 +5038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a revoked client certificate.
+   * 删除客户端证书
    * 
    * @param request - DeleteClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5305,7 +5065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a revoked client certificate.
+   * 删除客户端证书
    * 
    * @param request - DeleteClientCertificateRequest
    * @returns DeleteClientCertificateResponse
@@ -5316,7 +5076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete compression rule
+   * 删除压缩规则
    * 
    * @param request - DeleteCompressionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5351,7 +5111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete compression rule
+   * 删除压缩规则
    * 
    * @param request - DeleteCompressionRuleRequest
    * @returns DeleteCompressionRuleResponse
@@ -5404,7 +5164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of response code modification for a website.
+   * 删除修改响应码规则
    * 
    * @param request - DeleteCustomResponseCodeRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5439,7 +5199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of response code modification for a website.
+   * 删除修改响应码规则
    * 
    * @param request - DeleteCustomResponseCodeRuleRequest
    * @returns DeleteCustomResponseCodeRuleResponse
@@ -5450,7 +5210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scenario-specific custom policy.
+   * 删除定制场景策略
    * 
    * @param request - DeleteCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5481,7 +5241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scenario-specific custom policy.
+   * 删除定制场景策略
    * 
    * @param request - DeleteCustomScenePolicyRequest
    * @returns DeleteCustomScenePolicyResponse
@@ -5492,7 +5252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a containerized application.
+   * 删除边缘容器的应用
    * 
    * @param request - DeleteEdgeContainerAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5523,7 +5283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a containerized application.
+   * 删除边缘容器的应用
    * 
    * @param request - DeleteEdgeContainerAppRequest
    * @returns DeleteEdgeContainerAppResponse
@@ -5534,7 +5294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the image secret of an edge container application
+   * 删除边缘容器应用的镜像秘钥
    * 
    * @param request - DeleteEdgeContainerAppImageSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5569,7 +5329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete the image secret of an edge container application
+   * 删除边缘容器应用的镜像秘钥
    * 
    * @param request - DeleteEdgeContainerAppImageSecretRequest
    * @returns DeleteEdgeContainerAppImageSecretResponse
@@ -5580,7 +5340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+   * 删除一个边缘容器应用的域名记录
    * 
    * @param request - DeleteEdgeContainerAppRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5619,7 +5379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
+   * 删除一个边缘容器应用的域名记录
    * 
    * @param request - DeleteEdgeContainerAppRecordRequest
    * @returns DeleteEdgeContainerAppRecordResponse
@@ -5630,7 +5390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a version of a containerized application.
+   * 删除边缘容器应用的版本
    * 
    * @param request - DeleteEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5665,7 +5425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a version of a containerized application.
+   * 删除边缘容器应用的版本
    * 
    * @param request - DeleteEdgeContainerAppVersionRequest
    * @returns DeleteEdgeContainerAppVersionResponse
@@ -5676,7 +5436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete rules for deep learning and protection distribution
+   * 删除深度学习和防护下发的规则
    * 
    * @param request - DeleteHttpDDoSIntelligentRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5715,7 +5475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete rules for deep learning and protection distribution
+   * 删除深度学习和防护下发的规则
    * 
    * @param request - DeleteHttpDDoSIntelligentRuleRequest
    * @returns DeleteHttpDDoSIntelligentRuleResponse
@@ -5726,7 +5486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of modifying incoming HTTP request headers for a website.
+   * 删除HTTP入站请求头规则
    * 
    * @param request - DeleteHttpIncomingRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5761,7 +5521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of modifying incoming HTTP request headers for a website.
+   * 删除HTTP入站请求头规则
    * 
    * @param request - DeleteHttpIncomingRequestHeaderModificationRuleRequest
    * @returns DeleteHttpIncomingRequestHeaderModificationRuleResponse
@@ -5772,7 +5532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of modifying HTTP response headers for a website.
+   * 删除HTTP入站响应头规则
    * 
    * @param request - DeleteHttpIncomingResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5807,7 +5567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of modifying HTTP response headers for a website.
+   * 删除HTTP入站响应头规则
    * 
    * @param request - DeleteHttpIncomingResponseHeaderModificationRuleRequest
    * @returns DeleteHttpIncomingResponseHeaderModificationRuleResponse
@@ -5818,7 +5578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of modifying HTTP request headers for a website.
+   * 删除HTTP请求头规则
    * 
    * @param request - DeleteHttpRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5853,7 +5613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of modifying HTTP request headers for a website.
+   * 删除HTTP请求头规则
    * 
    * @param request - DeleteHttpRequestHeaderModificationRuleRequest
    * @returns DeleteHttpRequestHeaderModificationRuleResponse
@@ -5864,7 +5624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of modifying HTTP response headers for a website.
+   * 删除HTTP响应头规则
    * 
    * @param request - DeleteHttpResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5899,7 +5659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the configuration of modifying HTTP response headers for a website.
+   * 删除HTTP响应头规则
    * 
    * @param request - DeleteHttpResponseHeaderModificationRuleRequest
    * @returns DeleteHttpResponseHeaderModificationRuleResponse
@@ -5910,7 +5670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete HTTPS Application Configuration
+   * 删除HTTPS应用配置
    * 
    * @param request - DeleteHttpsApplicationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5945,7 +5705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete HTTPS Application Configuration
+   * 删除HTTPS应用配置
    * 
    * @param request - DeleteHttpsApplicationConfigurationRequest
    * @returns DeleteHttpsApplicationConfigurationResponse
@@ -5956,7 +5716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete HTTPS Basic Configuration
+   * 删除HTTPS基础配置
    * 
    * @param request - DeleteHttpsBasicConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5991,7 +5751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete HTTPS Basic Configuration
+   * 删除HTTPS基础配置
    * 
    * @param request - DeleteHttpsBasicConfigurationRequest
    * @returns DeleteHttpsBasicConfigurationResponse
@@ -6002,7 +5762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Site Image Transformation Configuration
+   * 删除站点图片转换配置
    * 
    * @param request - DeleteImageTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6037,7 +5797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Site Image Transformation Configuration
+   * 删除站点图片转换配置
    * 
    * @param request - DeleteImageTransformRequest
    * @returns DeleteImageTransformResponse
@@ -6094,7 +5854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a key-value pair from a namespace.
+   * 删除Namespace的Key-Value对
    * 
    * @param request - DeleteKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6121,7 +5881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a key-value pair from a namespace.
+   * 删除Namespace的Key-Value对
    * 
    * @param request - DeleteKvRequest
    * @returns DeleteKvResponse
@@ -6132,7 +5892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a namespace from an Alibaba Cloud account.
+   * 删除Namespace
    * 
    * @param request - DeleteKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6163,7 +5923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a namespace from an Alibaba Cloud account.
+   * 删除Namespace
    * 
    * @param request - DeleteKvNamespaceRequest
    * @returns DeleteKvNamespaceResponse
@@ -6174,7 +5934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom list that is no longer needed.
+   * 删除自定义列表
    * 
    * @param request - DeleteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6205,7 +5965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom list that is no longer needed.
+   * 删除自定义列表
    * 
    * @param request - DeleteListRequest
    * @returns DeleteListResponse
@@ -6216,10 +5976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Load Balancer
-   * 
-   * @remarks
-   * Delete a load balancer by its ID, only one can be deleted at a time.
+   * 删除负载均衡器
    * 
    * @param request - DeleteLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6254,10 +6011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Load Balancer
-   * 
-   * @remarks
-   * Delete a load balancer by its ID, only one can be deleted at a time.
+   * 删除负载均衡器
    * 
    * @param request - DeleteLoadBalancerRequest
    * @returns DeleteLoadBalancerResponse
@@ -6268,7 +6022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Network Optimization Configuration
+   * 删除网络优化配置
    * 
    * @param request - DeleteNetworkOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6303,7 +6057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Network Optimization Configuration
+   * 删除网络优化配置
    * 
    * @param request - DeleteNetworkOptimizationRequest
    * @returns DeleteNetworkOptimizationResponse
@@ -6390,7 +6144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Origin Address Pool
+   * 删除源地址池
    * 
    * @param request - DeleteOriginPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6425,7 +6179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Origin Address Pool
+   * 删除源地址池
    * 
    * @param request - DeleteOriginPoolRequest
    * @returns DeleteOriginPoolResponse
@@ -6436,7 +6190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables origin protection.
+   * 关闭源站防护功能
    * 
    * @param request - DeleteOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6467,7 +6221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables origin protection.
+   * 关闭源站防护功能
    * 
    * @param request - DeleteOriginProtectionRequest
    * @returns DeleteOriginProtectionResponse
@@ -6478,7 +6232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Origin Rule Configuration
+   * 删除回源规则配置
    * 
    * @param request - DeleteOriginRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6513,7 +6267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Origin Rule Configuration
+   * 删除回源规则配置
    * 
    * @param request - DeleteOriginRuleRequest
    * @returns DeleteOriginRuleResponse
@@ -6524,7 +6278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom error page that is no longer needed.
+   * 删除自定义响应页面
    * 
    * @param request - DeletePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6555,7 +6309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom error page that is no longer needed.
+   * 删除自定义响应页面
    * 
    * @param request - DeletePageRequest
    * @returns DeletePageResponse
@@ -6566,7 +6320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a DNS record of a website based on the specified RecordId.
+   * 删除记录
    * 
    * @param request - DeleteRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6601,7 +6355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a DNS record of a website based on the specified RecordId.
+   * 删除记录
    * 
    * @param request - DeleteRecordRequest
    * @returns DeleteRecordResponse
@@ -6612,7 +6366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a URL redirect rule for a website.
+   * 删除重定向规则
    * 
    * @param request - DeleteRedirectRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6647,7 +6401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a URL redirect rule for a website.
+   * 删除重定向规则
    * 
    * @param request - DeleteRedirectRuleRequest
    * @returns DeleteRedirectRuleResponse
@@ -6658,7 +6412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a URL rewrite rule for a website.
+   * 删除重写Url规则
    * 
    * @param request - DeleteRewriteUrlRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6693,7 +6447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a URL rewrite rule for a website.
+   * 删除重写Url规则
    * 
    * @param request - DeleteRewriteUrlRuleRequest
    * @returns DeleteRewriteUrlRuleResponse
@@ -6704,7 +6458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a routine in Edge Routine.
+   * 删除Routine
    * 
    * @param request - DeleteRoutineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6735,7 +6489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a routine in Edge Routine.
+   * 删除Routine
    * 
    * @param request - DeleteRoutineRequest
    * @returns DeleteRoutineResponse
@@ -6746,7 +6500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a code version of a routine.
+   * 删除Routine某版本代码
    * 
    * @param request - DeleteRoutineCodeVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6781,7 +6535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a code version of a routine.
+   * 删除Routine某版本代码
    * 
    * @param request - DeleteRoutineCodeVersionRequest
    * @returns DeleteRoutineCodeVersionResponse
@@ -6792,7 +6546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a record that is associated with a routine.
+   * 删除Routine关联域名
    * 
    * @param request - DeleteRoutineRelatedRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6837,7 +6591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a record that is associated with a routine.
+   * 删除Routine关联域名
    * 
    * @param request - DeleteRoutineRelatedRecordRequest
    * @returns DeleteRoutineRelatedRecordResponse
@@ -6848,7 +6602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the route configuration of an edge function.
+   * 删除边缘函数路由配置
    * 
    * @param request - DeleteRoutineRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6883,7 +6637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the route configuration of an edge function.
+   * 删除边缘函数路由配置
    * 
    * @param request - DeleteRoutineRouteRequest
    * @returns DeleteRoutineRouteResponse
@@ -6894,7 +6648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scheduled prefetch plan based on the plan ID.
+   * 删除单个定时预热计划
    * 
    * @param request - DeleteScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6925,7 +6679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a scheduled prefetch plan based on the plan ID.
+   * 删除单个定时预热计划
    * 
    * @param request - DeleteScheduledPreloadExecutionRequest
    * @returns DeleteScheduledPreloadExecutionResponse
@@ -6936,7 +6690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified scheduled prefetch task based on the task ID.
+   * 删除指定定时预热任务
    * 
    * @param request - DeleteScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6967,7 +6721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified scheduled prefetch task based on the task ID.
+   * 删除指定定时预热任务
    * 
    * @param request - DeleteScheduledPreloadJobRequest
    * @returns DeleteScheduledPreloadJobResponse
@@ -6978,7 +6732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a website based on the specified website ID.
+   * 删除站点
    * 
    * @param request - DeleteSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7013,7 +6767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a website based on the specified website ID.
+   * 删除站点
    * 
    * @param request - DeleteSiteRequest
    * @returns DeleteSiteResponse
@@ -7024,7 +6778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a real-time log delivery task.
+   * 删除一个任务投递
    * 
    * @param request - DeleteSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7059,7 +6813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a real-time log delivery task.
+   * 删除一个任务投递
    * 
    * @param request - DeleteSiteDeliveryTaskRequest
    * @returns DeleteSiteDeliveryTaskResponse
@@ -7108,7 +6862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Transport Layer Application
+   * 删除四层应用接口
    * 
    * @param request - DeleteTransportLayerApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7143,7 +6897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Transport Layer Application
+   * 删除四层应用接口
    * 
    * @param request - DeleteTransportLayerApplicationRequest
    * @returns DeleteTransportLayerApplicationResponse
@@ -7154,7 +6908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes page monitoring configurations.
+   * 删除网页监测配置
    * 
    * @param request - DeleteUrlObservationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7189,7 +6943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes page monitoring configurations.
+   * 删除网页监测配置
    * 
    * @param request - DeleteUrlObservationRequest
    * @returns DeleteUrlObservationResponse
@@ -7200,13 +6954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log delivery task from your Alibaba Cloud account.
-   * 
-   * @remarks
-   * *****> 
-   * *   Deleted tasks cannot be restored. Proceed with caution.
-   * *   To call this operation, you must have an account that has the required permissions.
-   * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+   * 删除一个用户任务投递
    * 
    * @param request - DeleteUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7237,13 +6985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a log delivery task from your Alibaba Cloud account.
-   * 
-   * @remarks
-   * *****> 
-   * *   Deleted tasks cannot be restored. Proceed with caution.
-   * *   To call this operation, you must have an account that has the required permissions.
-   * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
+   * 删除一个用户任务投递
    * 
    * @param request - DeleteUserDeliveryTaskRequest
    * @returns DeleteUserDeliveryTaskResponse
@@ -7254,11 +6996,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Used for deleting an instance-level Web Application Firewall (WAF) ruleset.
+   * 用于删除实例级别的Web应用防火墙规则集。
    * 
    * @remarks
-   * ## Request Description
-   * - `InstanceId` and `Id` are required parameters, specifying the WAF instance ID to be operated on and the specific ruleset ID, respectively.
+   * ## 请求说明
+   * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+   * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+   * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+   * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+   * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+   * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+   * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+   * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
    * 
    * @param request - DeleteUserWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7295,11 +7044,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Used for deleting an instance-level Web Application Firewall (WAF) ruleset.
+   * 用于删除实例级别的Web应用防火墙规则集。
    * 
    * @remarks
-   * ## Request Description
-   * - `InstanceId` and `Id` are required parameters, specifying the WAF instance ID to be operated on and the specific ruleset ID, respectively.
+   * ## 请求说明
+   * - 本API允许用户为指定实例创建新的WAF（Web Application Firewall）规则集。
+   * - `InstanceId` 是必需参数，指定了要为其创建规则集的具体实例。
+   * - `Phase` 参数定义了规则集的应用阶段，例如自定义规则、频次控制等。
+   * - `Name` 和 `Expression` 是必填项，分别代表规则集的名字和具体的匹配表达式。
+   * - 可选参数 `Description` 提供了对规则集功能或用途的文字描述。
+   * - `Status` 控制着规则集是否立即生效 (`on`) 或者处于关闭状态 (`off`)。
+   * - 通过 `Rules` 参数可以进一步配置更详细的规则列表，每个规则都包含名称、位置、表达式及动作等属性。
+   * - 成功响应将返回新创建规则集的唯一标识符 `Id` 以及所有关联规则的ID列表 `RuleIds`。
    * 
    * @param request - DeleteUserWafRulesetRequest
    * @returns DeleteUserWafRulesetResponse
@@ -7310,7 +7066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a video processing configuration.
+   * 删除站点视频处理配置
    * 
    * @param request - DeleteVideoProcessingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7345,7 +7101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a video processing configuration.
+   * 删除站点视频处理配置
    * 
    * @param request - DeleteVideoProcessingRequest
    * @returns DeleteVideoProcessingResponse
@@ -7356,7 +7112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete WAF Rule
+   * 删除WAF规则
    * 
    * @param request - DeleteWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7397,7 +7153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete WAF Rule
+   * 删除WAF规则
    * 
    * @param request - DeleteWafRuleRequest
    * @returns DeleteWafRuleResponse
@@ -7408,7 +7164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete WAF Ruleset
+   * 删除WAF规则集
    * 
    * @param request - DeleteWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7449,7 +7205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete WAF Ruleset
+   * 删除WAF规则集
    * 
    * @param request - DeleteWafRulesetRequest
    * @returns DeleteWafRulesetResponse
@@ -7460,7 +7216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a waiting room.
+   * 删除等候室
    * 
    * @param request - DeleteWaitingRoomRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7495,7 +7251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a waiting room.
+   * 删除等候室
    * 
    * @param request - DeleteWaitingRoomRequest
    * @returns DeleteWaitingRoomResponse
@@ -7506,7 +7262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a waiting room event.
+   * 删除等候室事件
    * 
    * @param request - DeleteWaitingRoomEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7541,7 +7297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a waiting room event.
+   * 删除等候室事件
    * 
    * @param request - DeleteWaitingRoomEventRequest
    * @returns DeleteWaitingRoomEventResponse
@@ -7552,7 +7308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a waiting room bypass rule.
+   * 删除等候室规则
    * 
    * @param request - DeleteWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7587,7 +7343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a waiting room bypass rule.
+   * 删除等候室规则
    * 
    * @param request - DeleteWaitingRoomRuleRequest
    * @returns DeleteWaitingRoomRuleResponse
@@ -7598,7 +7354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a scenario-specific policy.
+   * 查询定制场景策略配置
    * 
    * @param request - DescribeCustomScenePoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7637,7 +7393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a scenario-specific policy.
+   * 查询定制场景策略配置
    * 
    * @param request - DescribeCustomScenePoliciesRequest
    * @returns DescribeCustomScenePoliciesResponse
@@ -7648,7 +7404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries DDoS attack events.
+   * 攻击分析-查询攻击事件列表
    * 
    * @param request - DescribeDDoSAllEventListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7699,7 +7455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries DDoS attack events.
+   * 攻击分析-查询攻击事件列表
    * 
    * @param request - DescribeDDoSAllEventListRequest
    * @returns DescribeDDoSAllEventListResponse
@@ -7710,7 +7466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query DCDN DDoS user bps and pps data
+   * 查询DCDN DDoS用户bps、pps数据
    * 
    * @param request - DescribeDDoSBpsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7737,7 +7493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query DCDN DDoS user bps and pps data
+   * 查询DCDN DDoS用户bps、pps数据
    * 
    * @param request - DescribeDDoSBpsListRequest
    * @returns DescribeDDoSBpsListResponse
@@ -7748,7 +7504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DDoS Analysis Layer 7 QPS Trend Chart API
+   * ddos分析七层qps走势图接口
    * 
    * @param request - DescribeDDoSL7QpsListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7795,7 +7551,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DDoS Analysis Layer 7 QPS Trend Chart API
+   * ddos分析七层qps走势图接口
    * 
    * @param request - DescribeDDoSL7QpsListRequest
    * @returns DescribeDDoSL7QpsListResponse
@@ -7844,7 +7600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides monitoring data for metrics of ESA edge containers.
+   * 边缘容器的监控
    * 
    * @param request - DescribeEdgeContainerAppStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7871,7 +7627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides monitoring data for metrics of ESA edge containers.
+   * 边缘容器的监控
    * 
    * @param request - DescribeEdgeContainerAppStatsRequest
    * @returns DescribeEdgeContainerAppStatsResponse
@@ -7882,7 +7638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of smart HTTP DDoS protection for a website.
+   * 查询HTTP DDoS智能防护配置信息
    * 
    * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7913,7 +7669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of smart HTTP DDoS protection for a website.
+   * 查询HTTP DDoS智能防护配置信息
    * 
    * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
    * @returns DescribeHttpDDoSAttackIntelligentProtectionResponse
@@ -7924,7 +7680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of HTTP DDoS attack protection.
+   * 查询HTTP DDoS攻击防护配置信息
    * 
    * @param request - DescribeHttpDDoSAttackProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7955,7 +7711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of HTTP DDoS attack protection.
+   * 查询HTTP DDoS攻击防护配置信息
    * 
    * @param request - DescribeHttpDDoSAttackProtectionRequest
    * @returns DescribeHttpDDoSAttackProtectionResponse
@@ -8124,7 +7880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether Edge KV is activated in your Alibaba Cloud account.
+   * 查询账户的KV状态信
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeKvAccountStatusResponse
@@ -8146,7 +7902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether Edge KV is activated in your Alibaba Cloud account.
+   * 查询账户的KV状态信
    * @returns DescribeKvAccountStatusResponse
    */
   async describeKvAccountStatus(): Promise<$_model.DescribeKvAccountStatusResponse> {
@@ -8155,7 +7911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of prefetch tasks by time, task status, or prefetch URL.
+   * 预热任务查询接口
    * 
    * @param request - DescribePreloadTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8182,7 +7938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of prefetch tasks by time, task status, or prefetch URL.
+   * 预热任务查询接口
    * 
    * @param request - DescribePreloadTasksRequest
    * @returns DescribePreloadTasksResponse
@@ -8193,7 +7949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of purge tasks.
+   * 刷新任务查询接口
    * 
    * @param request - DescribePurgeTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8220,7 +7976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of purge tasks.
+   * 刷新任务查询接口
    * 
    * @param request - DescribePurgeTasksRequest
    * @returns DescribePurgeTasksResponse
@@ -8231,10 +7987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an instance that uses a plan.
-   * 
-   * @remarks
-   * You can query the status of an instance after you purchase a plan for the instance.
+   * 查询套餐实例状态
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8265,10 +8018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of an instance that uses a plan.
-   * 
-   * @remarks
-   * You can query the status of an instance after you purchase a plan for the instance.
+   * 查询套餐实例状态
    * 
    * @param request - DescribeRatePlanInstanceStatusRequest
    * @returns DescribeRatePlanInstanceStatusResponse
@@ -8279,7 +8029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the prices, types, and status of plans.
+   * 套餐询价
    * 
    * @param request - DescribeRatePlanPriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8318,7 +8068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the prices, types, and status of plans.
+   * 套餐询价
    * 
    * @param request - DescribeRatePlanPriceRequest
    * @returns DescribeRatePlanPriceResponse
@@ -8329,13 +8079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the URLs from which you can download the raw access logs of a website.
-   * 
-   * @remarks
-   *   If you do not specify StartTime or EndTime, the log data generated in the last 24 hours is queried. If you specify StartTime and EndTime, the log data generated within the specified time range is queried.
-   * *   The log data is collected every hour.
-   * *   You can call this operation up to 50 times per second per account.
-   * *   You can query only logs in the last month. The time range cannot exceed 31 days.
+   * 查询站点离线日志
    * 
    * @param request - DescribeSiteLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8382,13 +8126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the URLs from which you can download the raw access logs of a website.
-   * 
-   * @remarks
-   *   If you do not specify StartTime or EndTime, the log data generated in the last 24 hours is queried. If you specify StartTime and EndTime, the log data generated within the specified time range is queried.
-   * *   The log data is collected every hour.
-   * *   You can call this operation up to 50 times per second per account.
-   * *   You can query only logs in the last month. The time range cannot exceed 31 days.
+   * 查询站点离线日志
    * 
    * @param request - DescribeSiteLogsRequest
    * @returns DescribeSiteLogsResponse
@@ -8399,17 +8137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query traffic analysis time series data
-   * 
-   * @remarks
-   * - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
-   * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
-   *   * For a span of 3 hours or less, it returns 1-minute granularity data.
-   *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
-   *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
-   *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
-   *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
-   * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+   * 查询时序数据
    * 
    * @param tmpReq - DescribeSiteTimeSeriesDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8462,17 +8190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query traffic analysis time series data
-   * 
-   * @remarks
-   * - If you do not specify `StartTime` and `EndTime`, the API returns data for the past 24 hours; if you specify `StartTime` and `EndTime`, the API returns data for the specified time period.
-   * - The API returns different time granularities based on the span between `StartTime` and `EndTime`.
-   *   * For a span of 3 hours or less, it returns 1-minute granularity data.
-   *   * For a span greater than 3 hours but no more than 12 hours, it returns 5-minute granularity data.
-   *   * For a span greater than 12 hours but no more than 1 day, it returns 15-minute granularity data.
-   *   * For a span greater than 1 day but no more than 10 days, it returns hourly granularity data.
-   *   * For a span greater than 10 days but no more than 31 days, it returns daily granularity data.
-   * - Due to the high number of accesses during the query period, the data analysis may be sampled.
+   * 查询时序数据
    * 
    * @param request - DescribeSiteTimeSeriesDataRequest
    * @returns DescribeSiteTimeSeriesDataResponse
@@ -8483,10 +8201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top-ranking records in a traffic analytics report by website or Alibaba Cloud account.
-   * 
-   * @remarks
-   *   If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the previous 24 hours. If you specify both parameters, the request returns the data collected within the specified time range.
+   * 获取TOP数据
    * 
    * @param tmpReq - DescribeSiteTopDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8543,10 +8258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top-ranking records in a traffic analytics report by website or Alibaba Cloud account.
-   * 
-   * @remarks
-   *   If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the previous 24 hours. If you specify both parameters, the request returns the data collected within the specified time range.
+   * 获取TOP数据
    * 
    * @param request - DescribeSiteTopDataRequest
    * @returns DescribeSiteTopDataResponse
@@ -8603,10 +8315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the page monitoring data.
-   * 
-   * @remarks
-   * If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
+   * 查询网页观测质量数据
    * 
    * @param request - DescribeUrlObservationDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8657,10 +8366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the page monitoring data.
-   * 
-   * @remarks
-   * If you do not specify the StartTime or EndTime parameter, this operation returns the data collected within the last 24 hours. If you specify both parameters, this operation returns the data collected within the specified time range.
+   * 查询网页观测质量数据
    * 
    * @param request - DescribeUrlObservationDataRequest
    * @returns DescribeUrlObservationDataResponse
@@ -8671,7 +8377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a scenario-specific policy.
+   * 禁用定制场景策略
    * 
    * @param request - DisableCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8702,7 +8408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a scenario-specific policy.
+   * 禁用定制场景策略
    * 
    * @param request - DisableCustomScenePolicyRequest
    * @returns DisableCustomScenePolicyResponse
@@ -8713,7 +8419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit WAF Configuration for a Site
+   * 编辑站点WAF配置
    * 
    * @param tmpReq - EditSiteWafSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8760,7 +8466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edit WAF Configuration for a Site
+   * 编辑站点WAF配置
    * 
    * @param request - EditSiteWafSettingsRequest
    * @returns EditSiteWafSettingsResponse
@@ -8771,7 +8477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a scenario-specific policy.
+   * 启动定制场景策略
    * 
    * @param request - EnableCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8802,7 +8508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables a scenario-specific policy.
+   * 启动定制场景策略
    * 
    * @param request - EnableCustomScenePolicyRequest
    * @returns EnableCustomScenePolicyResponse
@@ -8813,7 +8519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports all DNS records of a website domain as a TXT file.
+   * 导出记录
    * 
    * @param request - ExportRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8840,7 +8546,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports all DNS records of a website domain as a TXT file.
+   * 导出记录
    * 
    * @param request - ExportRecordsRequest
    * @returns ExportRecordsResponse
@@ -8893,7 +8599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the usage of the upload file quota for API security schema verification.
+   * 获取架构文件套餐使用情况
    * 
    * @param request - GetApiSchemaUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8928,7 +8634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the usage of the upload file quota for API security schema verification.
+   * 获取架构文件套餐使用情况
    * 
    * @param request - GetApiSchemaUsageRequest
    * @returns GetApiSchemaUsageResponse
@@ -8985,7 +8691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available specifications of cache reserve instances.
+   * 查询缓存保持实例规格
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCacheReserveSpecificationResponse
@@ -9007,7 +8713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available specifications of cache reserve instances.
+   * 查询缓存保持实例规格
    * @returns GetCacheReserveSpecificationResponse
    */
   async getCacheReserveSpecification(): Promise<$_model.GetCacheReserveSpecificationResponse> {
@@ -9016,7 +8722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a single cache configuration
+   * 查询单条缓存配置
    * 
    * @param request - GetCacheRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9043,7 +8749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a single cache configuration
+   * 查询单条缓存配置
    * 
    * @param request - GetCacheRuleRequest
    * @returns GetCacheRuleResponse
@@ -9054,7 +8760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site Cache Tag Configuration
+   * 查询站点缓存Tag配置
    * 
    * @param request - GetCacheTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9081,7 +8787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site Cache Tag Configuration
+   * 查询站点缓存Tag配置
    * 
    * @param request - GetCacheTagRequest
    * @returns GetCacheTagResponse
@@ -9092,7 +8798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the certificate, private key, and certificate information
+   * 获取证书和私钥以及证书信息
    * 
    * @param request - GetCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9127,7 +8833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the certificate, private key, and certificate information
+   * 获取证书和私钥以及证书信息
    * 
    * @param request - GetCertificateRequest
    * @returns GetCertificateResponse
@@ -9138,7 +8844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query certificate quota and usage
+   * 查询证书quota及用量
    * 
    * @param request - GetCertificateQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9165,7 +8871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query certificate quota and usage
+   * 查询证书quota及用量
    * 
    * @param request - GetCertificateQuotaRequest
    * @returns GetCertificateQuotaResponse
@@ -9176,7 +8882,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a client CA certificate.
+   * 获取客户端CA证书信息
    * 
    * @param request - GetClientCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9203,7 +8909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a client CA certificate.
+   * 获取客户端CA证书信息
    * 
    * @param request - GetClientCaCertificateRequest
    * @returns GetClientCaCertificateResponse
@@ -9260,7 +8966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a client certificate.
+   * 获取客户端证书以及证书信息
    * 
    * @param request - GetClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9287,7 +8993,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a client certificate.
+   * 获取客户端证书以及证书信息
    * 
    * @param request - GetClientCertificateRequest
    * @returns GetClientCertificateResponse
@@ -9298,7 +9004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
+   * 获取客户端证书绑定的域名列表
    * 
    * @param request - GetClientCertificateHostnamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9325,7 +9031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
+   * 获取客户端证书绑定的域名列表
    * 
    * @param request - GetClientCertificateHostnamesRequest
    * @returns GetClientCertificateHostnamesResponse
@@ -9336,7 +9042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the CNAME flattening configuration of a website
+   * 查询站点cname拉平配置
    * 
    * @param request - GetCnameFlatteningRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9363,7 +9069,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the CNAME flattening configuration of a website
+   * 查询站点cname拉平配置
    * 
    * @param request - GetCnameFlatteningRequest
    * @returns GetCnameFlatteningResponse
@@ -9374,7 +9080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Compression Rule Details
+   * 查询压缩规则详情
    * 
    * @param request - GetCompressionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9401,7 +9107,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Compression Rule Details
+   * 查询压缩规则详情
    * 
    * @param request - GetCompressionRuleRequest
    * @returns GetCompressionRuleResponse
@@ -9412,7 +9118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of Chinese mainland access optimization.
+   * 查询站点中国大陆网络接入优化配置
    * 
    * @param request - GetCrossBorderOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9439,7 +9145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of Chinese mainland access optimization.
+   * 查询站点中国大陆网络接入优化配置
    * 
    * @param request - GetCrossBorderOptimizationRequest
    * @returns GetCrossBorderOptimizationResponse
@@ -9538,7 +9244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site Developer Mode Configuration
+   * 查询站点开发者模式配置
    * 
    * @param request - GetDevelopmentModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9565,7 +9271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Site Developer Mode Configuration
+   * 查询站点开发者模式配置
    * 
    * @param request - GetDevelopmentModeRequest
    * @returns GetDevelopmentModeResponse
@@ -9576,7 +9282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a containerized application, including basic application configurations and health check configurations.
+   * 获取边缘容器应用信息
    * 
    * @param request - GetEdgeContainerAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9607,7 +9313,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a containerized application, including basic application configurations and health check configurations.
+   * 获取边缘容器应用信息
    * 
    * @param request - GetEdgeContainerAppRequest
    * @returns GetEdgeContainerAppResponse
@@ -9618,7 +9324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log collection configuration of a containerized application.
+   * 获取边缘容器应用日志采集配置
    * 
    * @param request - GetEdgeContainerAppLogRiverRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9645,7 +9351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the log collection configuration of a containerized application.
+   * 获取边缘容器应用日志采集配置
    * 
    * @param request - GetEdgeContainerAppLogRiverRequest
    * @returns GetEdgeContainerAppLogRiverResponse
@@ -9698,7 +9404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the resource reservation configuration of the edge container.
+   * 获取边缘容器资源预留配置
    * 
    * @param request - GetEdgeContainerAppResourceReserveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9729,7 +9435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the resource reservation configuration of the edge container.
+   * 获取边缘容器资源预留配置
    * 
    * @param request - GetEdgeContainerAppResourceReserveRequest
    * @returns GetEdgeContainerAppResourceReserveResponse
@@ -9740,7 +9446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the distribution of edge container application resources.
+   * 获取边缘容器应用资源分布
    * 
    * @param request - GetEdgeContainerAppResourceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9771,7 +9477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the distribution of edge container application resources.
+   * 获取边缘容器应用资源分布
    * 
    * @param request - GetEdgeContainerAppResourceStatusRequest
    * @returns GetEdgeContainerAppResourceStatusResponse
@@ -9782,7 +9488,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+   * 获取边缘容器应用的状态信息
    * 
    * @param request - GetEdgeContainerAppStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9817,7 +9523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
+   * 获取边缘容器应用的状态信息
    * 
    * @param request - GetEdgeContainerAppStatusRequest
    * @returns GetEdgeContainerAppStatusResponse
@@ -9828,7 +9534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+   * 获取边缘容器应用的某个版本信息
    * 
    * @param request - GetEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9855,7 +9561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
+   * 获取边缘容器应用的某个版本信息
    * 
    * @param request - GetEdgeContainerAppVersionRequest
    * @returns GetEdgeContainerAppVersionResponse
@@ -9866,7 +9572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regions where a containerized application is deployed based on the application ID.
+   * 获取边缘容器应用部署区域
    * 
    * @param request - GetEdgeContainerDeployRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9893,7 +9599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regions where a containerized application is deployed based on the application ID.
+   * 获取边缘容器应用部署区域
    * 
    * @param request - GetEdgeContainerDeployRegionsRequest
    * @returns GetEdgeContainerDeployRegionsResponse
@@ -9904,7 +9610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Edge Container logs.
+   * 获取边缘容器日志信息
    * 
    * @param request - GetEdgeContainerLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9931,7 +9637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Edge Container logs.
+   * 获取边缘容器日志信息
    * 
    * @param request - GetEdgeContainerLogsRequest
    * @returns GetEdgeContainerLogsResponse
@@ -9942,7 +9648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the deployment status of an application in the staging environment by using the application ID.
+   * 获取应用测试环境部署状态
    * 
    * @param request - GetEdgeContainerStagingDeployStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9969,7 +9675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the deployment status of an application in the staging environment by using the application ID.
+   * 获取应用测试环境部署状态
    * 
    * @param request - GetEdgeContainerStagingDeployStatusRequest
    * @returns GetEdgeContainerStagingDeployStatusResponse
@@ -9980,7 +9686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the terminal information of a containerized application.
+   * 获取边缘容器应用的终端信息
    * 
    * @param request - GetEdgeContainerTerminalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10011,7 +9717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the terminal information of a containerized application.
+   * 获取边缘容器应用的终端信息
    * 
    * @param request - GetEdgeContainerTerminalRequest
    * @returns GetEdgeContainerTerminalResponse
@@ -10022,7 +9728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the status of Edge Routine.
+   * GetErService
    * 
    * @param request - GetErServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10049,7 +9755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the status of Edge Routine.
+   * GetErService
    * 
    * @param request - GetErServiceRequest
    * @returns GetErServiceResponse
@@ -10060,7 +9766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP request header modification rule for a website.
+   * 查询HTTP入站请求头规则详情
    * 
    * @param request - GetHttpIncomingRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10087,7 +9793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP request header modification rule for a website.
+   * 查询HTTP入站请求头规则详情
    * 
    * @param request - GetHttpIncomingRequestHeaderModificationRuleRequest
    * @returns GetHttpIncomingRequestHeaderModificationRuleResponse
@@ -10098,7 +9804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an incoming HTTP response header modification rule for a website.
+   * 查询HTTP入站响应头规则
    * 
    * @param request - GetHttpIncomingResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10125,7 +9831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an incoming HTTP response header modification rule for a website.
+   * 查询HTTP入站响应头规则
    * 
    * @param request - GetHttpIncomingResponseHeaderModificationRuleRequest
    * @returns GetHttpIncomingResponseHeaderModificationRuleResponse
@@ -10136,7 +9842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query HTTP Request Header Rule Details
+   * 查询HTTP请求头规则详情
    * 
    * @param request - GetHttpRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10163,7 +9869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query HTTP Request Header Rule Details
+   * 查询HTTP请求头规则详情
    * 
    * @param request - GetHttpRequestHeaderModificationRuleRequest
    * @returns GetHttpRequestHeaderModificationRuleResponse
@@ -10174,7 +9880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query HTTP Response Header Rules
+   * 查询HTTP响应头规则
    * 
    * @param request - GetHttpResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10201,7 +9907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query HTTP Response Header Rules
+   * 查询HTTP响应头规则
    * 
    * @param request - GetHttpResponseHeaderModificationRuleRequest
    * @returns GetHttpResponseHeaderModificationRuleResponse
@@ -10212,7 +9918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Single HTTPS Application Configuration
+   * 查询单条HTTPS应用的配置
    * 
    * @param request - GetHttpsApplicationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10239,7 +9945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Single HTTPS Application Configuration
+   * 查询单条HTTPS应用的配置
    * 
    * @param request - GetHttpsApplicationConfigurationRequest
    * @returns GetHttpsApplicationConfigurationResponse
@@ -10250,7 +9956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Single HTTPS Basic Configuration
+   * 查询单条HTTPS基础配置
    * 
    * @param request - GetHttpsBasicConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10277,7 +9983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Single HTTPS Basic Configuration
+   * 查询单条HTTPS基础配置
    * 
    * @param request - GetHttpsBasicConfigurationRequest
    * @returns GetHttpsBasicConfigurationResponse
@@ -10288,7 +9994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IPv6 configuration of a website.
+   * 查询站点IPv6配置
    * 
    * @param request - GetIPv6Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10315,7 +10021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IPv6 configuration of a website.
+   * 查询站点IPv6配置
    * 
    * @param request - GetIPv6Request
    * @returns GetIPv6Response
@@ -10326,7 +10032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Single Site Image Transformation Configuration
+   * 查询单条站点图片转换配置
    * 
    * @param request - GetImageTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10353,7 +10059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Single Site Image Transformation Configuration
+   * 查询单条站点图片转换配置
    * 
    * @param request - GetImageTransformRequest
    * @returns GetImageTransformResponse
@@ -10410,7 +10116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the value of a key in a key-value pair.
+   * 查询Key-Value对的某个Key值
    * 
    * @param request - GetKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10437,7 +10143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the value of a key in a key-value pair.
+   * 查询Key-Value对的某个Key值
    * 
    * @param request - GetKvRequest
    * @returns GetKvResponse
@@ -10448,7 +10154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
+   * 列出账号下的NS
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetKvAccountResponse
@@ -10470,7 +10176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
+   * 列出账号下的NS
    * @returns GetKvAccountResponse
    */
   async getKvAccount(): Promise<$_model.GetKvAccountResponse> {
@@ -10479,7 +10185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the value and time to live (TTL) of a key.
+   * 查询Key-Value对的某个Key的详情
    * 
    * @param request - GetKvDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10514,7 +10220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the value and time to live (TTL) of a key.
+   * 查询Key-Value对的某个Key的详情
    * 
    * @param request - GetKvDetailRequest
    * @returns GetKvDetailResponse
@@ -10525,7 +10231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a namespace in your Alibaba Cloud account.
+   * 查询Namespace信息
    * 
    * @param request - GetKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10552,7 +10258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a namespace in your Alibaba Cloud account.
+   * 查询Namespace信息
    * 
    * @param request - GetKvNamespaceRequest
    * @returns GetKvNamespaceResponse
@@ -10563,7 +10269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom list, such as the name, description, type, and content.
+   * 获取单个自定义列表
    * 
    * @param request - GetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10594,7 +10300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom list, such as the name, description, type, and content.
+   * 获取单个自定义列表
    * 
    * @param request - GetListRequest
    * @returns GetListResponse
@@ -10605,10 +10311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Specific Load Balancer
-   * 
-   * @remarks
-   * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence strategy, routing policy, etc.
+   * 查询特定的负载均衡器
    * 
    * @param request - GetLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10635,10 +10338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a Specific Load Balancer
-   * 
-   * @remarks
-   * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence strategy, routing policy, etc.
+   * 查询特定的负载均衡器
    * 
    * @param request - GetLoadBalancerRequest
    * @returns GetLoadBalancerResponse
@@ -10649,7 +10349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Managed Transform Configuration
+   * 查询站点托管转换配置
    * 
    * @param request - GetManagedTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10676,7 +10376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Managed Transform Configuration
+   * 查询站点托管转换配置
    * 
    * @param request - GetManagedTransformRequest
    * @returns GetManagedTransformResponse
@@ -10687,7 +10387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a single network optimization configuration
+   * 查询单条网络优化配置
    * 
    * @param request - GetNetworkOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10714,7 +10414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a single network optimization configuration
+   * 查询单条网络优化配置
    * 
    * @param request - GetNetworkOptimizationRequest
    * @returns GetNetworkOptimizationResponse
@@ -10839,7 +10539,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a specific origin pool
+   * 查询特定源地址池
    * 
    * @param request - GetOriginPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10866,7 +10566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query a specific origin pool
+   * 查询特定源地址池
    * 
    * @param request - GetOriginPoolRequest
    * @returns GetOriginPoolResponse
@@ -10877,7 +10577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
+   * 查询站点源站防护相关配置，查看回源IP白名单的信息
    * 
    * @param request - GetOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10904,7 +10604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
+   * 查询站点源站防护相关配置，查看回源IP白名单的信息
    * 
    * @param request - GetOriginProtectionRequest
    * @returns GetOriginProtectionResponse
@@ -10915,7 +10615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a single origin rule.
+   * 查询单条回源规则的配置
    * 
    * @param request - GetOriginRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10942,7 +10642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a single origin rule.
+   * 查询单条回源规则的配置
    * 
    * @param request - GetOriginRuleRequest
    * @returns GetOriginRuleResponse
@@ -10953,7 +10653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom error page based on the error page ID.
+   * 获取单个自定义响应页面详情
    * 
    * @param request - GetPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10984,7 +10684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a custom error page based on the error page ID.
+   * 获取单个自定义响应页面详情
    * 
    * @param request - GetPageRequest
    * @returns GetPageResponse
@@ -11037,7 +10737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas and quota usage for different cache purge options.
+   * 获取刷新Quota
    * 
    * @param request - GetPurgeQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11072,7 +10772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quotas and quota usage for different cache purge options.
+   * 获取刷新Quota
    * 
    * @param request - GetPurgeQuotaRequest
    * @returns GetPurgeQuotaResponse
@@ -11083,7 +10783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fields in real-time logs based on the log category.
+   * ub日志字段列表接口
    * 
    * @param request - GetRealtimeDeliveryFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11110,7 +10810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the fields in real-time logs based on the log category.
+   * ub日志字段列表接口
    * 
    * @param request - GetRealtimeDeliveryFieldRequest
    * @returns GetRealtimeDeliveryFieldResponse
@@ -11121,7 +10821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
+   * 查询单条记录信息
    * 
    * @param request - GetRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11148,7 +10848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
+   * 查询单条记录信息
    * 
    * @param request - GetRecordRequest
    * @returns GetRecordResponse
@@ -11159,7 +10859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Redirect Rule Details
+   * 查询重定向规则详情
    * 
    * @param request - GetRedirectRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11186,7 +10886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Redirect Rule Details
+   * 查询重定向规则详情
    * 
    * @param request - GetRedirectRuleRequest
    * @returns GetRedirectRuleResponse
@@ -11197,7 +10897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query details of the rewrite URL rule
+   * 查询重写URL规则详情
    * 
    * @param request - GetRewriteUrlRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11224,7 +10924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query details of the rewrite URL rule
+   * 查询重写URL规则详情
    * 
    * @param request - GetRewriteUrlRuleRequest
    * @returns GetRewriteUrlRuleResponse
@@ -11235,7 +10935,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
+   * 查询Routine配置信息
    * 
    * @param request - GetRoutineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11266,7 +10966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
+   * 查询Routine配置信息
    * 
    * @param request - GetRoutineRequest
    * @returns GetRoutineResponse
@@ -11319,7 +11019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a code version of a routine.
+   * 查询Routine某版本代码
    * 
    * @param request - GetRoutineCodeVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11354,7 +11054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a code version of a routine.
+   * 查询Routine某版本代码
    * 
    * @param request - GetRoutineCodeVersionRequest
    * @returns GetRoutineCodeVersionResponse
@@ -11365,7 +11065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the route configurations of a single edge function.
+   * 查询单条边缘函数路由的配置
    * 
    * @param request - GetRoutineRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11400,7 +11100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the route configurations of a single edge function.
+   * 查询单条边缘函数路由的配置
    * 
    * @param request - GetRoutineRouteRequest
    * @returns GetRoutineRouteResponse
@@ -11411,11 +11111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
-   * 
-   * @remarks
-   *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-   * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+   * 上传Routine的测试版本代码, 返回上传代码到OSS的参数
    * 
    * @param request - GetRoutineStagingCodeUploadInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11450,11 +11146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
-   * 
-   * @remarks
-   *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
-   * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
+   * 上传Routine的测试版本代码, 返回上传代码到OSS的参数
    * 
    * @param request - GetRoutineStagingCodeUploadInfoRequest
    * @returns GetRoutineStagingCodeUploadInfoResponse
@@ -11465,7 +11157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP addresses of staging environments for Edge Routine.
+   * 查询边缘函数测试环境IP
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRoutineStagingEnvIpResponse
@@ -11487,7 +11179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the IP addresses of staging environments for Edge Routine.
+   * 查询边缘函数测试环境IP
    * @returns GetRoutineStagingEnvIpResponse
    */
   async getRoutineStagingEnvIp(): Promise<$_model.GetRoutineStagingEnvIpResponse> {
@@ -11496,7 +11188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
+   * 查询用户的Routine列表
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetRoutineUserInfoResponse
@@ -11518,7 +11210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
+   * 查询用户的Routine列表
    * @returns GetRoutineUserInfoResponse
    */
   async getRoutineUserInfo(): Promise<$_model.GetRoutineUserInfoResponse> {
@@ -11527,7 +11219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified scheduled prefetch task based on the task ID.
+   * 查询单个定时预热任务
    * 
    * @param request - GetScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11554,7 +11246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a specified scheduled prefetch task based on the task ID.
+   * 查询单个定时预热任务
    * 
    * @param request - GetScheduledPreloadJobRequest
    * @returns GetScheduledPreloadJobResponse
@@ -11565,7 +11257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration for search engine crawler of a website.
+   * 查询站点放行搜索引擎爬虫配置
    * 
    * @param request - GetSeoBypassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11592,7 +11284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration for search engine crawler of a website.
+   * 查询站点放行搜索引擎爬虫配置
    * 
    * @param request - GetSeoBypassRequest
    * @returns GetSeoBypassResponse
@@ -11603,7 +11295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a website based on the website ID.
+   * 查询单个站点的信息
    * 
    * @param request - GetSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11630,7 +11322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a website based on the website ID.
+   * 查询单个站点的信息
    * 
    * @param request - GetSiteRequest
    * @returns GetSiteResponse
@@ -11641,7 +11333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the nameservers configured for a website.
+   * 查询当前NS列表
    * 
    * @param request - GetSiteCurrentNSRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11668,7 +11360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the nameservers configured for a website.
+   * 查询当前NS列表
    * 
    * @param request - GetSiteCurrentNSRequest
    * @returns GetSiteCurrentNSResponse
@@ -11679,12 +11371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of custom log fields for a website.
-   * 
-   * @remarks
-   *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
-   * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
-   * *   ****
+   * 获取自定义字段
    * 
    * @param request - GetSiteCustomLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11711,12 +11398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration of custom log fields for a website.
-   * 
-   * @remarks
-   *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
-   * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
-   * *   ****
+   * 获取自定义字段
    * 
    * @param request - GetSiteCustomLogRequest
    * @returns GetSiteCustomLogResponse
@@ -11727,7 +11409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a real-time log delivery task.
+   * 获取一个实时日志任务投递
    * 
    * @param request - GetSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11754,7 +11436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a real-time log delivery task.
+   * 获取一个实时日志任务投递
    * 
    * @param request - GetSiteDeliveryTaskRequest
    * @returns GetSiteDeliveryTaskResponse
@@ -11765,16 +11447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining quota for delivering a specific category of real-time logs in a website.
-   * 
-   * @remarks
-   * You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
-   * **Take note of the following parameters:**
-   * *   ``
-   * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
-   * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
-   * **Response:**
-   * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+   * 获取日志投递任务quota数
    * 
    * @param request - GetSiteLogDeliveryQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11801,16 +11474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining quota for delivering a specific category of real-time logs in a website.
-   * 
-   * @remarks
-   * You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
-   * **Take note of the following parameters:**
-   * *   ``
-   * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
-   * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
-   * **Response:**
-   * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
+   * 获取日志投递任务quota数
    * 
    * @param request - GetSiteLogDeliveryQuotaRequest
    * @returns GetSiteLogDeliveryQuotaResponse
@@ -11821,7 +11485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
+   * 查询站点名称独占配置
    * 
    * @param request - GetSiteNameExclusiveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11848,7 +11512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
+   * 查询站点名称独占配置
    * 
    * @param request - GetSiteNameExclusiveRequest
    * @returns GetSiteNameExclusiveResponse
@@ -11897,7 +11561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ESA proxy configuration of a website.
+   * 查询站点暂停配置
    * 
    * @param request - GetSitePauseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11924,7 +11588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ESA proxy configuration of a website.
+   * 查询站点暂停配置
    * 
    * @param request - GetSitePauseRequest
    * @returns GetSitePauseResponse
@@ -11935,7 +11599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get WAF Configuration for a Site
+   * 获取站点WAF配置
    * 
    * @param request - GetSiteWafSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11974,7 +11638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get WAF Configuration for a Site
+   * 获取站点WAF配置
    * 
    * @param request - GetSiteWafSettingsRequest
    * @returns GetSiteWafSettingsResponse
@@ -11985,7 +11649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Multi-level Cache Configuration for Site
+   * 查询站点多级缓存配置
    * 
    * @param request - GetTieredCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12012,7 +11676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Multi-level Cache Configuration for Site
+   * 查询站点多级缓存配置
    * 
    * @param request - GetTieredCacheRequest
    * @returns GetTieredCacheResponse
@@ -12023,7 +11687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query details of the transport layer application
+   * 查询四层应用的详情
    * 
    * @param request - GetTransportLayerApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12050,7 +11714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query details of the transport layer application
+   * 查询四层应用的详情
    * 
    * @param request - GetTransportLayerApplicationRequest
    * @returns GetTransportLayerApplicationResponse
@@ -12061,7 +11725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status and running information of a file upload task based on the task ID.
+   * 文件上传任务查询接口
    * 
    * @param request - GetUploadTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12088,7 +11752,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status and running information of a file upload task based on the task ID.
+   * 文件上传任务查询接口
    * 
    * @param request - GetUploadTaskRequest
    * @returns GetUploadTaskResponse
@@ -12099,12 +11763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a log delivery task by account.
-   * 
-   * @remarks
-   *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
-   * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
-   * *   ****````
+   * 获取用户粒度任务投递
    * 
    * @param request - GetUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12131,12 +11790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a log delivery task by account.
-   * 
-   * @remarks
-   *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
-   * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
-   * *   ****````
+   * 获取用户粒度任务投递
    * 
    * @param request - GetUserDeliveryTaskRequest
    * @returns GetUserDeliveryTaskResponse
@@ -12147,10 +11801,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining log delivery quota of each log category in your account.
-   * 
-   * @remarks
-   * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
+   * 获取日志投递任务用户quota数
    * 
    * @param request - GetUserLogDeliveryQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12177,10 +11828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the remaining log delivery quota of each log category in your account.
-   * 
-   * @remarks
-   * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
+   * 获取日志投递任务用户quota数
    * 
    * @param request - GetUserLogDeliveryQuotaRequest
    * @returns GetUserLogDeliveryQuotaResponse
@@ -12237,7 +11885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the video processing configuration details of a site.
+   * 查询站点视频处理配置详情
    * 
    * @param request - GetVideoProcessingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12272,7 +11920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the video processing configuration details of a site.
+   * 查询站点视频处理配置详情
    * 
    * @param request - GetVideoProcessingRequest
    * @returns GetVideoProcessingResponse
@@ -12283,7 +11931,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
+   * 获取WAF中BOT阶段的APP key
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWafBotAppKeyResponse
@@ -12305,7 +11953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
+   * 获取WAF中BOT阶段的APP key
    * @returns GetWafBotAppKeyResponse
    */
   async getWafBotAppKey(): Promise<$_model.GetWafBotAppKeyResponse> {
@@ -12314,7 +11962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
+   * 将匹配项转换为表达式
    * 
    * @param request - GetWafFilterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12357,7 +12005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
+   * 将匹配项转换为表达式
    * 
    * @param request - GetWafFilterRequest
    * @returns GetWafFilterResponse
@@ -12368,7 +12016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get WAF Quota Details
+   * 获取WAF配额详情
    * 
    * @param request - GetWafQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12399,7 +12047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get WAF Quota Details
+   * 获取WAF配额详情
    * 
    * @param request - GetWafQuotaRequest
    * @returns GetWafQuotaResponse
@@ -12410,7 +12058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Details of a Single WAF Rule
+   * 获取单个WAF规则详情
    * 
    * @param request - GetWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12445,7 +12093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Details of a Single WAF Rule
+   * 获取单个WAF规则详情
    * 
    * @param request - GetWafRuleRequest
    * @returns GetWafRuleResponse
@@ -12456,7 +12104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get WAF Ruleset Details
+   * 获取WAF规则集详情
    * 
    * @param request - GetWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12495,7 +12143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get WAF Ruleset Details
+   * 获取WAF规则集详情
    * 
    * @param request - GetWafRulesetRequest
    * @returns GetWafRulesetResponse
@@ -12506,7 +12154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Cache Reserve Instance List
+   * 查询缓存保持实例列表
    * 
    * @param request - ListCacheReserveInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12533,7 +12181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Cache Reserve Instance List
+   * 查询缓存保持实例列表
    * 
    * @param request - ListCacheReserveInstancesRequest
    * @returns ListCacheReserveInstancesResponse
@@ -12544,7 +12192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple cache configurations
+   * 查询多条缓存配置
    * 
    * @param request - ListCacheRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12571,7 +12219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple cache configurations
+   * 查询多条缓存配置
    * 
    * @param request - ListCacheRulesRequest
    * @returns ListCacheRulesResponse
@@ -12582,7 +12230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists certificates of a website.
+   * 查询站点下证书列表
    * 
    * @param request - ListCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12629,7 +12277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists certificates of a website.
+   * 查询站点下证书列表
    * 
    * @param request - ListCertificatesRequest
    * @returns ListCertificatesResponse
@@ -12640,7 +12288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists certificates that match specified records for a website. You can specify multiple records at a time.
+   * 查询匹配记录名的站点证书列表
    * 
    * @param request - ListCertificatesByRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12683,7 +12331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists certificates that match specified records for a website. You can specify multiple records at a time.
+   * 查询匹配记录名的站点证书列表
    * 
    * @param request - ListCertificatesByRecordRequest
    * @returns ListCertificatesByRecordResponse
@@ -12694,7 +12342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query TLS Cipher Suite List
+   * 查询TLS密码套件列表
    * 
    * @param request - ListCiphersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12721,7 +12369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query TLS Cipher Suite List
+   * 查询TLS密码套件列表
    * 
    * @param request - ListCiphersRequest
    * @returns ListCiphersResponse
@@ -12732,7 +12380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of client certificate authority (CA) certificates for a website.
+   * 查询站点下客户端CA证书列表
    * 
    * @param request - ListClientCaCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12759,7 +12407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of client certificate authority (CA) certificates for a website.
+   * 查询站点下客户端CA证书列表
    * 
    * @param request - ListClientCaCertificatesRequest
    * @returns ListClientCaCertificatesResponse
@@ -12770,7 +12418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries client certificates configured for a website.
+   * 查询站点下客户端证书列表
    * 
    * @param request - ListClientCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12797,7 +12445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries client certificates configured for a website.
+   * 查询站点下客户端证书列表
    * 
    * @param request - ListClientCertificatesRequest
    * @returns ListClientCertificatesResponse
@@ -12808,7 +12456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of compression rules
+   * 查询压缩规则列表
    * 
    * @param request - ListCompressionRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12835,7 +12483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of compression rules
+   * 查询压缩规则列表
    * 
    * @param request - ListCompressionRulesRequest
    * @returns ListCompressionRulesResponse
@@ -12912,7 +12560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration list of an HTTP response header modification rule for a website.
+   * 查询修改响应码规则列表
    * 
    * @param request - ListCustomResponseCodeRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12967,7 +12615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration list of an HTTP response header modification rule for a website.
+   * 查询修改响应码规则列表
    * 
    * @param request - ListCustomResponseCodeRulesRequest
    * @returns ListCustomResponseCodeRulesResponse
@@ -13044,10 +12692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch query whether the IP address is included in the ESA resolution result.
-   * 
-   * @remarks
-   * This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
+   * 批量查询IP是否为VIP
    * 
    * @param request - ListESAIPInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13074,10 +12719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch query whether the IP address is included in the ESA resolution result.
-   * 
-   * @remarks
-   * This interface is used to check whether the vs_addr parameter in the vipInfo collection is vip.
+   * 批量查询IP是否为VIP
    * 
    * @param request - ListESAIPInfoRequest
    * @returns ListESAIPInfoResponse
@@ -13088,7 +12730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of image secrets for edge container applications
+   * 获取边缘容器应用的镜像秘钥列表
    * 
    * @param request - ListEdgeContainerAppImageSecretsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13119,7 +12761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the list of image secrets for edge container applications
+   * 获取边缘容器应用的镜像秘钥列表
    * 
    * @param request - ListEdgeContainerAppImageSecretsRequest
    * @returns ListEdgeContainerAppImageSecretsResponse
@@ -13130,7 +12772,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists domain names that are associated with a containerized application.
+   * 获取一个边缘容器应用的全部域名记录
    * 
    * @param request - ListEdgeContainerAppRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13157,7 +12799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists domain names that are associated with a containerized application.
+   * 获取一个边缘容器应用的全部域名记录
    * 
    * @param request - ListEdgeContainerAppRecordsRequest
    * @returns ListEdgeContainerAppRecordsResponse
@@ -13168,7 +12810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists versions of all containerized applications.
+   * 获取边缘容器应用的全部版本信息
    * 
    * @param request - ListEdgeContainerAppVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13195,7 +12837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists versions of all containerized applications.
+   * 获取边缘容器应用的全部版本信息
    * 
    * @param request - ListEdgeContainerAppVersionsRequest
    * @returns ListEdgeContainerAppVersionsResponse
@@ -13206,7 +12848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all containerized applications in your Alibaba Cloud account.
+   * 获取用户全部边缘容器应用
    * 
    * @param request - ListEdgeContainerAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13257,7 +12899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all containerized applications in your Alibaba Cloud account.
+   * 获取用户全部边缘容器应用
    * 
    * @param request - ListEdgeContainerAppsRequest
    * @returns ListEdgeContainerAppsResponse
@@ -13268,7 +12910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the records that are associated with Edge Container for a website.
+   * 查询站点的边缘容器记录
    * 
    * @param request - ListEdgeContainerRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13295,7 +12937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the records that are associated with Edge Container for a website.
+   * 查询站点的边缘容器记录
    * 
    * @param request - ListEdgeContainerRecordsRequest
    * @returns ListEdgeContainerRecordsResponse
@@ -13306,7 +12948,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Edge Routine plans.
+   * 查询用户可购买的边缘函数的套餐
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListEdgeRoutinePlansResponse
@@ -13328,7 +12970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Edge Routine plans.
+   * 查询用户可购买的边缘函数的套餐
    * @returns ListEdgeRoutinePlansResponse
    */
   async listEdgeRoutinePlans(): Promise<$_model.ListEdgeRoutinePlansResponse> {
@@ -13337,10 +12979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the records that are associated with Edge Routine routes for a website.
-   * 
-   * @remarks
-   * >  You can call this operation 100 times per second.
+   * 查询站点的边缘路由记录
    * 
    * @param request - ListEdgeRoutineRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13367,10 +13006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the records that are associated with Edge Routine routes for a website.
-   * 
-   * @remarks
-   * >  You can call this operation 100 times per second.
+   * 查询站点的边缘路由记录
    * 
    * @param request - ListEdgeRoutineRecordsRequest
    * @returns ListEdgeRoutineRecordsResponse
@@ -13381,7 +13017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an incoming HTTP request header modification rule for a website.
+   * 查询HTTP入站请求头规则列表
    * 
    * @param request - ListHttpIncomingRequestHeaderModificationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13408,7 +13044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an incoming HTTP request header modification rule for a website.
+   * 查询HTTP入站请求头规则列表
    * 
    * @param request - ListHttpIncomingRequestHeaderModificationRulesRequest
    * @returns ListHttpIncomingRequestHeaderModificationRulesResponse
@@ -13419,7 +13055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of an incoming HTTP response header modification rule for a website.
+   * 查询HTTP入站响应头规则列表
    * 
    * @param request - ListHttpIncomingResponseHeaderModificationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13446,7 +13082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of an incoming HTTP response header modification rule for a website.
+   * 查询HTTP入站响应头规则列表
    * 
    * @param request - ListHttpIncomingResponseHeaderModificationRulesRequest
    * @returns ListHttpIncomingResponseHeaderModificationRulesResponse
@@ -13457,7 +13093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of HTTP Request Header Rules
+   * 查询HTTP请求头规则列表
    * 
    * @param request - ListHttpRequestHeaderModificationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13484,7 +13120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of HTTP Request Header Rules
+   * 查询HTTP请求头规则列表
    * 
    * @param request - ListHttpRequestHeaderModificationRulesRequest
    * @returns ListHttpRequestHeaderModificationRulesResponse
@@ -13495,7 +13131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of HTTP Response Header Rules
+   * 查询HTTP响应头规则列表
    * 
    * @param request - ListHttpResponseHeaderModificationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13522,7 +13158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of HTTP Response Header Rules
+   * 查询HTTP响应头规则列表
    * 
    * @param request - ListHttpResponseHeaderModificationRulesRequest
    * @returns ListHttpResponseHeaderModificationRulesResponse
@@ -13533,7 +13169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple HTTPS application configurations
+   * 查询多条HTTPS应用的配置
    * 
    * @param request - ListHttpsApplicationConfigurationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13560,7 +13196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple HTTPS application configurations
+   * 查询多条HTTPS应用的配置
    * 
    * @param request - ListHttpsApplicationConfigurationsRequest
    * @returns ListHttpsApplicationConfigurationsResponse
@@ -13571,7 +13207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple HTTPS basic configurations
+   * 查询多条HTTPS基础配置
    * 
    * @param request - ListHttpsBasicConfigurationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13598,7 +13234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple HTTPS basic configurations
+   * 查询多条HTTPS基础配置
    * 
    * @param request - ListHttpsBasicConfigurationsRequest
    * @returns ListHttpsBasicConfigurationsResponse
@@ -13609,7 +13245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Multiple Site Image Transformation Configurations
+   * 查询多条站点图片转换配置
    * 
    * @param request - ListImageTransformsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13636,7 +13272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Multiple Site Image Transformation Configurations
+   * 查询多条站点图片转换配置
    * 
    * @param request - ListImageTransformsRequest
    * @returns ListImageTransformsResponse
@@ -13647,7 +13283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quota details in a subscription plan.
+   * 查询实例或者站点的quota值
    * 
    * @param request - ListInstanceQuotasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13674,7 +13310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quota details in a subscription plan.
+   * 查询实例或者站点的quota值
    * 
    * @param request - ListInstanceQuotasRequest
    * @returns ListInstanceQuotasResponse
@@ -13685,7 +13321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quotas and the actual usage in a plan based on the website or plan ID.
+   * 查询功能quota和用量
    * 
    * @param request - ListInstanceQuotasWithUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13712,7 +13348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries quotas and the actual usage in a plan based on the website or plan ID.
+   * 查询功能quota和用量
    * 
    * @param request - ListInstanceQuotasWithUsageRequest
    * @returns ListInstanceQuotasWithUsageResponse
@@ -13773,7 +13409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all key-value pairs in a namespace in your Alibaba Cloud account.
+   * 遍历Namespace的Key值
    * 
    * @param request - ListKvsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13800,7 +13436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all key-value pairs in a namespace in your Alibaba Cloud account.
+   * 遍历Namespace的Key值
    * 
    * @param request - ListKvsRequest
    * @returns ListKvsResponse
@@ -13811,7 +13447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
+   * 列举自定义列表
    * 
    * @param tmpReq - ListListsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13856,7 +13492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
+   * 列举自定义列表
    * 
    * @param request - ListListsRequest
    * @returns ListListsResponse
@@ -13867,14 +13503,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the status of origins in load balancers
-   * 
-   * @remarks
-   * Query the status of origins under load balancers. You can pass multiple load balancer IDs at once, separated by commas. This is for load balancers that have monitors configured. It will probe the origins in the source address pools used by the load balancers and record the current status of each origin.
-   * - Healthy(healthy): The probe result is available.
-   * - Unhealthy(unhealthy): The probe result is unavailable.
-   * - Unknown(unknown): Unknown, the monitor has not yet probed.
-   * - Undetected(undetected): The load balancer to which the origin belongs is not bound to a monitor.
+   * 查询负载均衡器里各源站状态
    * 
    * @param request - ListLoadBalancerOriginStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13901,14 +13530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the status of origins in load balancers
-   * 
-   * @remarks
-   * Query the status of origins under load balancers. You can pass multiple load balancer IDs at once, separated by commas. This is for load balancers that have monitors configured. It will probe the origins in the source address pools used by the load balancers and record the current status of each origin.
-   * - Healthy(healthy): The probe result is available.
-   * - Unhealthy(unhealthy): The probe result is unavailable.
-   * - Unknown(unknown): Unknown, the monitor has not yet probed.
-   * - Undetected(undetected): The load balancer to which the origin belongs is not bound to a monitor.
+   * 查询负载均衡器里各源站状态
    * 
    * @param request - ListLoadBalancerOriginStatusRequest
    * @returns ListLoadBalancerOriginStatusResponse
@@ -13919,10 +13541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Load Balancer Region List
-   * 
-   * @remarks
-   * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
+   * 查询负载均衡区域列表
    * 
    * @param request - ListLoadBalancerRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13949,10 +13568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Load Balancer Region List
-   * 
-   * @remarks
-   * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
+   * 查询负载均衡区域列表
    * 
    * @param request - ListLoadBalancerRegionsRequest
    * @returns ListLoadBalancerRegionsResponse
@@ -13963,7 +13579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of load balancers
+   * 查询负载均衡器列表
    * 
    * @param request - ListLoadBalancersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13990,7 +13606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of load balancers
+   * 查询负载均衡器列表
    * 
    * @param request - ListLoadBalancersRequest
    * @returns ListLoadBalancersResponse
@@ -14001,7 +13617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Custom Managed Rule Groups
+   * 列举自定义托管规则组
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14036,7 +13652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Custom Managed Rule Groups
+   * 列举自定义托管规则组
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @returns ListManagedRulesGroupsResponse
@@ -14047,7 +13663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple network optimization configurations
+   * 查询多条网络优化配置
    * 
    * @param request - ListNetworkOptimizationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14074,7 +13690,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple network optimization configurations
+   * 查询多条网络优化配置
    * 
    * @param request - ListNetworkOptimizationsRequest
    * @returns ListNetworkOptimizationsResponse
@@ -14161,7 +13777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Origin Pools
+   * 查询源地址池的列表
    * 
    * @param request - ListOriginPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14188,7 +13804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List Origin Pools
+   * 查询源地址池的列表
    * 
    * @param request - ListOriginPoolsRequest
    * @returns ListOriginPoolsResponse
@@ -14199,7 +13815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple origin rule configurations
+   * 查询多条回源规则配置
    * 
    * @param request - ListOriginRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14226,7 +13842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query multiple origin rule configurations
+   * 查询多条回源规则配置
    * 
    * @param request - ListOriginRulesRequest
    * @returns ListOriginRulesResponse
@@ -14237,7 +13853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
+   * 列举自定义响应页面
    * 
    * @param tmpReq - ListPagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14282,7 +13898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
+   * 列举自定义响应页面
    * 
    * @param request - ListPagesRequest
    * @returns ListPagesResponse
@@ -14293,7 +13909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries pay-as-you-go instances.
+   * 查询该用户下已购的后付费站点套餐实例
    * 
    * @param request - ListPostpaidRatePlanInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14320,7 +13936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries pay-as-you-go instances.
+   * 查询该用户下已购的后付费站点套餐实例
    * 
    * @param request - ListPostpaidRatePlanInstancesRequest
    * @returns ListPostpaidRatePlanInstancesResponse
@@ -14331,10 +13947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
-   * 
-   * @remarks
-   * The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
+   * 查询站点下记录列表
    * 
    * @param request - ListRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14361,10 +13974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
-   * 
-   * @remarks
-   * The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
+   * 查询站点下记录列表
    * 
    * @param request - ListRecordsRequest
    * @returns ListRecordsResponse
@@ -14375,7 +13985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Redirect Rule List
+   * 查询重定向规则列表
    * 
    * @param request - ListRedirectRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14402,7 +14012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Redirect Rule List
+   * 查询重定向规则列表
    * 
    * @param request - ListRedirectRulesRequest
    * @returns ListRedirectRulesResponse
@@ -14413,7 +14023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Rewrite URL Rules
+   * 查询重写Url规则列表
    * 
    * @param request - ListRewriteUrlRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14440,7 +14050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Rewrite URL Rules
+   * 查询重写Url规则列表
    * 
    * @param request - ListRewriteUrlRulesRequest
    * @returns ListRewriteUrlRulesResponse
@@ -14451,7 +14061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the regions to which Edge Routine code can be released for canary deployment.
+   * 查询Routine灰度环境列表
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRoutineCanaryAreasResponse
@@ -14473,7 +14083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the regions to which Edge Routine code can be released for canary deployment.
+   * 查询Routine灰度环境列表
    * @returns ListRoutineCanaryAreasResponse
    */
   async listRoutineCanaryAreas(): Promise<$_model.ListRoutineCanaryAreasResponse> {
@@ -14482,12 +14092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the code versions of a function (routine) by page.
-   * 
-   * @remarks
-   * Call this operation to query the code versions of a specific function. Paged query and fuzzy search are supported. You can configure `Name` to specify the name of a function.
-   * Specify `PageNumber` and `PageSize` to control the number of entries returned in a request, and use `SearchKeyWord` to specify a keyword for fuzzy search.
-   * The response includes the number, description, and creation time of each code version.
+   * 查询Routine的代码版本列表
    * 
    * @param request - ListRoutineCodeVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14530,12 +14135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the code versions of a function (routine) by page.
-   * 
-   * @remarks
-   * Call this operation to query the code versions of a specific function. Paged query and fuzzy search are supported. You can configure `Name` to specify the name of a function.
-   * Specify `PageNumber` and `PageSize` to control the number of entries returned in a request, and use `SearchKeyWord` to specify a keyword for fuzzy search.
-   * The response includes the number, description, and creation time of each code version.
+   * 查询Routine的代码版本列表
    * 
    * @param request - ListRoutineCodeVersionsRequest
    * @returns ListRoutineCodeVersionsResponse
@@ -14546,10 +14146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The records associated with the function.
-   * 
-   * @remarks
-   * You can call this operation to query the routes associated with a function. You can specify paged query parameters to obtain the specified number of routes or specify a keyword for fuzzy search to filter specific routes.
+   * 查询函数关联域名列表
    * 
    * @param request - ListRoutineRelatedRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14592,10 +14189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The records associated with the function.
-   * 
-   * @remarks
-   * You can call this operation to query the routes associated with a function. You can specify paged query parameters to obtain the specified number of routes or specify a keyword for fuzzy search to filter specific routes.
+   * 查询函数关联域名列表
    * 
    * @param request - ListRoutineRelatedRecordsRequest
    * @returns ListRoutineRelatedRecordsResponse
@@ -14606,7 +14200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the routes of an edge function.
+   * 查询边缘程序的函数路由列表
    * 
    * @param request - ListRoutineRoutesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14645,7 +14239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the routes of an edge function.
+   * 查询边缘程序的函数路由列表
    * 
    * @param request - ListRoutineRoutesRequest
    * @returns ListRoutineRoutesResponse
@@ -14656,7 +14250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the plans in a scheduled prefetch task by task ID.
+   * 列出指定任务下的执行计划
    * 
    * @param request - ListScheduledPreloadExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14683,7 +14277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the plans in a scheduled prefetch task by task ID.
+   * 列出指定任务下的执行计划
    * 
    * @param request - ListScheduledPreloadExecutionsRequest
    * @returns ListScheduledPreloadExecutionsResponse
@@ -14694,7 +14288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scheduled prefetch tasks for a website.
+   * 列出定时预热任务列表
    * 
    * @param request - ListScheduledPreloadJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14721,7 +14315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the scheduled prefetch tasks for a website.
+   * 列出定时预热任务列表
    * 
    * @param request - ListScheduledPreloadJobsRequest
    * @returns ListScheduledPreloadJobsResponse
@@ -14732,7 +14326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all log delivery tasks that are in progress.
+   * 列出全部任务投递
    * 
    * @param request - ListSiteDeliveryTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14759,7 +14353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all log delivery tasks that are in progress.
+   * 列出全部任务投递
    * 
    * @param request - ListSiteDeliveryTasksRequest
    * @returns ListSiteDeliveryTasksResponse
@@ -14808,7 +14402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the edge function routes for a website.
+   * 查询站点的函数路由列表
    * 
    * @param request - ListSiteRoutesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14859,7 +14453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the edge function routes for a website.
+   * 查询站点的函数路由列表
    * 
    * @param request - ListSiteRoutesRequest
    * @returns ListSiteRoutesResponse
@@ -14870,7 +14464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about websites in your account, such as the name, status, and configuration of each website.
+   * 查询站点列表
    * 
    * @param tmpReq - ListSitesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14903,7 +14497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about websites in your account, such as the name, status, and configuration of each website.
+   * 查询站点列表
    * 
    * @param request - ListSitesRequest
    * @returns ListSitesResponse
@@ -14914,7 +14508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tags based on the region ID and resource type.
+   * 查询云资源已经绑定标签列表
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14969,7 +14563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tags based on the region ID and resource type.
+   * 查询云资源已经绑定标签列表
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -15054,7 +14648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Transport Layer Applications
+   * 查询四层应用列表
    * 
    * @param request - ListTransportLayerApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15081,7 +14675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List of Transport Layer Applications
+   * 查询四层应用列表
    * 
    * @param request - ListTransportLayerApplicationsRequest
    * @returns ListTransportLayerApplicationsResponse
@@ -15092,7 +14686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status and running information of file upload tasks based on the task time and type.
+   * 获取文件上传任务
    * 
    * @param request - ListUploadTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15119,7 +14713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status and running information of file upload tasks based on the task time and type.
+   * 获取文件上传任务
    * 
    * @param request - ListUploadTasksRequest
    * @returns ListUploadTasksResponse
@@ -15130,7 +14724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of page monitoring configurations.
+   * 查询网页观测配置列表
    * 
    * @param request - ListUrlObservationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15173,7 +14767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of page monitoring configurations.
+   * 查询网页观测配置列表
    * 
    * @param request - ListUrlObservationsRequest
    * @returns ListUrlObservationsResponse
@@ -15184,7 +14778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+   * 列出用户全部任务投递
    * 
    * @param request - ListUserDeliveryTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15211,7 +14805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+   * 列出用户全部任务投递
    * 
    * @param request - ListUserDeliveryTasksRequest
    * @returns ListUserDeliveryTasksResponse
@@ -15222,7 +14816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the plans that you purchased and the details of the plans.
+   * 查询该用户下可用的已购套餐实例
    * 
    * @param request - ListUserRatePlanInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15249,7 +14843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the plans that you purchased and the details of the plans.
+   * 查询该用户下可用的已购套餐实例
    * 
    * @param request - ListUserRatePlanInstancesRequest
    * @returns ListUserRatePlanInstancesResponse
@@ -15260,10 +14854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the functions created in your account and the maximum number of functions supported by your plan. You can call this operation to perform a paged query.
-   * 
-   * @remarks
-   * You can call this operation to perform a paged query to query all functions created in your account, the maximum number of functions supported by the billing plan that you use, and the number of functions already created. You can specify `PageNumber` and `PageSize` to control the number of entries to be returned in the response and specify `SearchKeyWord` to perform a fuzzy search to filter specific routine names.
+   * 查询用户的Routine列表
    * 
    * @param request - ListUserRoutinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15302,10 +14893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the functions created in your account and the maximum number of functions supported by your plan. You can call this operation to perform a paged query.
-   * 
-   * @remarks
-   * You can call this operation to perform a paged query to query all functions created in your account, the maximum number of functions supported by the billing plan that you use, and the number of functions already created. You can specify `PageNumber` and `PageSize` to control the number of entries to be returned in the response and specify `SearchKeyWord` to perform a fuzzy search to filter specific routine names.
+   * 查询用户的Routine列表
    * 
    * @param request - ListUserRoutinesRequest
    * @returns ListUserRoutinesResponse
@@ -15380,7 +14968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the video processing configurations of a site.
+   * 查询站点视频处理配置列表
    * 
    * @param request - ListVideoProcessingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15435,7 +15023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the video processing configurations of a site.
+   * 查询站点视频处理配置列表
    * 
    * @param request - ListVideoProcessingsRequest
    * @returns ListVideoProcessingsResponse
@@ -15446,7 +15034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Managed Rules
+   * 列举WAF的托管规则
    * 
    * @param tmpReq - ListWafManagedRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15523,7 +15111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Managed Rules
+   * 列举WAF的托管规则
    * 
    * @param request - ListWafManagedRulesRequest
    * @returns ListWafManagedRulesResponse
@@ -15534,7 +15122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Phases
+   * 列举WAF阶段
    * 
    * @param request - ListWafPhasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15569,7 +15157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Phases
+   * 列举WAF阶段
    * 
    * @param request - ListWafPhasesRequest
    * @returns ListWafPhasesResponse
@@ -15580,7 +15168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Rules
+   * 列举WAF规则
    * 
    * @param tmpReq - ListWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15641,7 +15229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Rules
+   * 列举WAF规则
    * 
    * @param request - ListWafRulesRequest
    * @returns ListWafRulesResponse
@@ -15652,7 +15240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Rule Sets
+   * 列举WAF规则集
    * 
    * @param tmpReq - ListWafRulesetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15709,7 +15297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Rule Sets
+   * 列举WAF规则集
    * 
    * @param request - ListWafRulesetsRequest
    * @returns ListWafRulesetsResponse
@@ -15720,7 +15308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Template Rules
+   * 列举WAF模板规则
    * 
    * @param tmpReq - ListWafTemplateRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15769,7 +15357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Template Rules
+   * 列举WAF模板规则
    * 
    * @param request - ListWafTemplateRulesRequest
    * @returns ListWafTemplateRulesResponse
@@ -15780,7 +15368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Rule Usage
+   * 列举WAF规则的使用情况
    * 
    * @param request - ListWafUsageOfRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15819,7 +15407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * List WAF Rule Usage
+   * 列举WAF规则的使用情况
    * 
    * @param request - ListWafUsageOfRulesRequest
    * @returns ListWafUsageOfRulesResponse
@@ -15830,10 +15418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about waiting room events for a waiting room.
-   * 
-   * @remarks
-   * You can call this operation to query details of all waiting room events related to a waiting room in a website.
+   * 查询等候室事件
    * 
    * @param request - ListWaitingRoomEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15860,10 +15445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about waiting room events for a waiting room.
-   * 
-   * @remarks
-   * You can call this operation to query details of all waiting room events related to a waiting room in a website.
+   * 查询等候室事件
    * 
    * @param request - ListWaitingRoomEventsRequest
    * @returns ListWaitingRoomEventsResponse
@@ -15874,10 +15456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Waiting Room Bypass Rules
-   * 
-   * @remarks
-   * This API allows users to query the list of waiting room bypass rules associated with a specific site.
+   * 查询等候室绕过规则
    * 
    * @param request - ListWaitingRoomRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15904,10 +15483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Waiting Room Bypass Rules
-   * 
-   * @remarks
-   * This API allows users to query the list of waiting room bypass rules associated with a specific site.
+   * 查询等候室绕过规则
    * 
    * @param request - ListWaitingRoomRulesRequest
    * @returns ListWaitingRoomRulesResponse
@@ -15918,10 +15494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all waiting rooms in a website.
-   * 
-   * @remarks
-   * You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+   * 查询等候室
    * 
    * @param request - ListWaitingRoomsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15948,10 +15521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about all waiting rooms in a website.
-   * 
-   * @remarks
-   * You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
+   * 查询等候室
    * 
    * @param request - ListWaitingRoomsRequest
    * @returns ListWaitingRoomsResponse
@@ -16004,7 +15574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prefetches cache.
+   * 缓存预热
    * 
    * @param tmpReq - PreloadCachesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16053,7 +15623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Prefetches cache.
+   * 缓存预热
    * 
    * @param request - PreloadCachesRequest
    * @returns PreloadCachesResponse
@@ -16064,7 +15634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a specific version of a containerized application. You can call this operation to iterate an application.
+   * 发布边缘容器应用的某个版本
    * 
    * @param tmpReq - PublishEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16135,7 +15705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a specific version of a containerized application. You can call this operation to iterate an application.
+   * 发布边缘容器应用的某个版本
    * 
    * @param request - PublishEdgeContainerAppVersionRequest
    * @returns PublishEdgeContainerAppVersionResponse
@@ -16146,7 +15716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
+   * 发布Routine某版本代码
    * 
    * @param request - PublishRoutineCodeVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16185,7 +15755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
+   * 发布Routine某版本代码
    * 
    * @param request - PublishRoutineCodeVersionRequest
    * @returns PublishRoutineCodeVersionResponse
@@ -16196,7 +15766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * New Purchase of Cache Retention
+   * 新购缓存保持
    * 
    * @param request - PurchaseCacheReserveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16247,7 +15817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * New Purchase of Cache Retention
+   * 新购缓存保持
    * 
    * @param request - PurchaseCacheReserveRequest
    * @returns PurchaseCacheReserveResponse
@@ -16258,11 +15828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchase New Package
-   * 
-   * @remarks
-   * 1. The package name and code can be obtained from the DescribeRatePlanPrice interface.
-   * 2. If the acceleration area is not overseas, the site must have successfully completed the filing process.
+   * 新购套餐
    * 
    * @param request - PurchaseRatePlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16333,11 +15899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purchase New Package
-   * 
-   * @remarks
-   * 1. The package name and code can be obtained from the DescribeRatePlanPrice interface.
-   * 2. If the acceleration area is not overseas, the site must have successfully completed the filing process.
+   * 新购套餐
    * 
    * @param request - PurchaseRatePlanRequest
    * @returns PurchaseRatePlanResponse
@@ -16348,7 +15910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
+   * 缓存刷新
    * 
    * @param tmpReq - PurgeCachesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16401,7 +15963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
+   * 缓存刷新
    * 
    * @param request - PurgeCachesRequest
    * @returns PurgeCachesResponse
@@ -16412,7 +15974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a key-value pair for a namespace. The request body can be up to 2 MB.
+   * 设置Namespace的Key-Value对
    * 
    * @param request - PutKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16465,7 +16027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a key-value pair for a namespace. The request body can be up to 2 MB.
+   * 设置Namespace的Key-Value对
    * 
    * @param request - PutKvRequest
    * @returns PutKvResponse
@@ -16476,45 +16038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
-   * 
-   * @remarks
-   * This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
-   *     func TestPutKvWithHighCapacity() {
-   *     	// Initialize the configurations.
-   *     	cfg := new(openapi.Config)
-   *     	cfg.SetAccessKeyId("xxxxxxxxx")
-   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
-   *     	cli, err := NewClient(cfg)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	runtime := &util.RuntimeOptions{}
-   *     	// Construct a request for uploading key-value pairs.
-   *     	namespace := "test-put-kv"
-   *     	key := "test_PutKvWithHighCapacity_0"
-   *     	value := strings.Repeat("t", 10*1024*1024)
-   *     	rawReq := &PutKvRequest{
-   *     		Namespace: &namespace,
-   *     		Key:       &key,
-   *     		Value:     &value,
-   *     	}
-   *     	payload, err := json.Marshal(rawReq)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	// If the payload is greater than 2 MB, call the PutKvWithHighCapacity operation for upload.
-   *     	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
-   *     		Namespace: &namespace,
-   *     		Key:       &key,
-   *     		UrlObject: bytes.NewReader([]byte(payload)),
-   *     	}
-   *     	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	return nil
-   *     }
+   * 设置Namespace的Key-Value对，支持最大25M的Body
    * 
    * @param request - PutKvWithHighCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16553,45 +16077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
-   * 
-   * @remarks
-   * This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
-   *     func TestPutKvWithHighCapacity() {
-   *     	// Initialize the configurations.
-   *     	cfg := new(openapi.Config)
-   *     	cfg.SetAccessKeyId("xxxxxxxxx")
-   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
-   *     	cli, err := NewClient(cfg)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	runtime := &util.RuntimeOptions{}
-   *     	// Construct a request for uploading key-value pairs.
-   *     	namespace := "test-put-kv"
-   *     	key := "test_PutKvWithHighCapacity_0"
-   *     	value := strings.Repeat("t", 10*1024*1024)
-   *     	rawReq := &PutKvRequest{
-   *     		Namespace: &namespace,
-   *     		Key:       &key,
-   *     		Value:     &value,
-   *     	}
-   *     	payload, err := json.Marshal(rawReq)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	// If the payload is greater than 2 MB, call the PutKvWithHighCapacity operation for upload.
-   *     	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
-   *     		Namespace: &namespace,
-   *     		Key:       &key,
-   *     		UrlObject: bytes.NewReader([]byte(payload)),
-   *     	}
-   *     	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
-   *     	if err != nil {
-   *     		return err
-   *     	}
-   *     	return nil
-   *     }
+   * 设置Namespace的Key-Value对，支持最大25M的Body
    * 
    * @param request - PutKvWithHighCapacityRequest
    * @returns PutKvWithHighCapacityResponse
@@ -16688,7 +16174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rebuilds the staging environment for containerized applications.
+   * 重建边缘容器应用的测试环境
    * 
    * @param request - RebuildEdgeContainerAppStagingEnvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16719,7 +16205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rebuilds the staging environment for containerized applications.
+   * 重建边缘容器应用的测试环境
    * 
    * @param request - RebuildEdgeContainerAppStagingEnvRequest
    * @returns RebuildEdgeContainerAppStagingEnvResponse
@@ -16772,7 +16258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
+   * 重置定时预热任务的进度，从头开始预热
    * 
    * @param request - ResetScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16803,7 +16289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
+   * 重置定时预热任务的进度，从头开始预热
    * 
    * @param request - ResetScheduledPreloadJobRequest
    * @returns ResetScheduledPreloadJobResponse
@@ -16814,7 +16300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes an activated client certificate.
+   * 吊销客户端证书
    * 
    * @param request - RevokeClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16841,7 +16327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes an activated client certificate.
+   * 吊销客户端证书
    * 
    * @param request - RevokeClientCertificateRequest
    * @returns RevokeClientCertificateResponse
@@ -16852,7 +16338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back a version of a containerized application.
+   * 回滚边缘容器应用的某个版本
    * 
    * @param request - RollbackEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16901,7 +16387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back a version of a containerized application.
+   * 回滚边缘容器应用的某个版本
    * 
    * @param request - RollbackEdgeContainerAppVersionRequest
    * @returns RollbackEdgeContainerAppVersionResponse
@@ -16970,7 +16456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures whether to enable certificates and update certificate information for a website.
+   * 设置证书
    * 
    * @param request - SetCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17039,7 +16525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures whether to enable certificates and update certificate information for a website.
+   * 设置证书
    * 
    * @param request - SetCertificateRequest
    * @returns SetCertificateResponse
@@ -17108,7 +16594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
+   * 为客户端证书绑定域名
    * 
    * @param tmpReq - SetClientCertificateHostnamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17155,7 +16641,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
+   * 为客户端证书绑定域名
    * 
    * @param request - SetClientCertificateHostnamesRequest
    * @returns SetClientCertificateHostnamesResponse
@@ -17212,7 +16698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures smart HTTP DDoS protection.
+   * 设置HTTP DDoS智能防护配置信息
    * 
    * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17251,7 +16737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures smart HTTP DDoS protection.
+   * 设置HTTP DDoS智能防护配置信息
    * 
    * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
    * @returns SetHttpDDoSAttackIntelligentProtectionResponse
@@ -17262,7 +16748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures HTTP DDoS attack protection for a website.
+   * 设置HTTP DDoS攻击防护配置信息
    * 
    * @param request - SetHttpDDoSAttackProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17297,7 +16783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures HTTP DDoS attack protection for a website.
+   * 设置HTTP DDoS攻击防护配置信息
    * 
    * @param request - SetHttpDDoSAttackProtectionRequest
    * @returns SetHttpDDoSAttackProtectionResponse
@@ -17308,7 +16794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the Protection Action for Specified HTTP DDoS Attack Rules
+   * 设置HTTP DDoS攻击防护指定规则防护动作
    * 
    * @param request - SetHttpDDoSAttackRuleActionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17347,7 +16833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the Protection Action for Specified HTTP DDoS Attack Rules
+   * 设置HTTP DDoS攻击防护指定规则防护动作
    * 
    * @param request - SetHttpDDoSAttackRuleActionRequest
    * @returns SetHttpDDoSAttackRuleActionResponse
@@ -17358,7 +16844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the Protection Status of Specified HTTP DDoS Attack Rules
+   * 设置HTTP DDoS攻击防护指定规则防护状态
    * 
    * @param request - SetHttpDDoSAttackRuleStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17397,7 +16883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Set the Protection Status of Specified HTTP DDoS Attack Rules
+   * 设置HTTP DDoS攻击防护指定规则防护状态
    * 
    * @param request - SetHttpDDoSAttackRuleStatusRequest
    * @returns SetHttpDDoSAttackRuleStatusResponse
@@ -17540,7 +17026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a scheduled prefetch plan based on the plan ID.
+   * 开始单个定时预热计划
    * 
    * @param request - StartScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17571,7 +17057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a scheduled prefetch plan based on the plan ID.
+   * 开始单个定时预热计划
    * 
    * @param request - StartScheduledPreloadExecutionRequest
    * @returns StartScheduledPreloadExecutionResponse
@@ -17582,7 +17068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a scheduled prefetch plan based on the plan ID.
+   * 停止单个定时预热计划
    * 
    * @param request - StopScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17613,7 +17099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a scheduled prefetch plan based on the plan ID.
+   * 停止单个定时预热计划
    * 
    * @param request - StopScheduledPreloadExecutionRequest
    * @returns StopScheduledPreloadExecutionResponse
@@ -17624,7 +17110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more tags to resources.
+   * 为指定的资源统一创建并绑定标签
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17675,7 +17161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds one or more tags to resources.
+   * 为指定的资源统一创建并绑定标签
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -17686,7 +17172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource tag based on a specified resource ID.
+   * 为资源列表统一解绑标签
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17737,7 +17223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource tag based on a specified resource ID.
+   * 为资源列表统一解绑标签
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -17748,7 +17234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cache Reserve Specification Change
+   * 缓存保持变配
    * 
    * @param request - UpdateCacheReserveSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17791,7 +17277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cache Reserve Specification Change
+   * 缓存保持变配
    * 
    * @param request - UpdateCacheReserveSpecRequest
    * @returns UpdateCacheReserveSpecResponse
@@ -17802,7 +17288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify cache configuration
+   * 修改缓存配置
    * 
    * @param request - UpdateCacheRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17945,7 +17431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify cache configuration
+   * 修改缓存配置
    * 
    * @param request - UpdateCacheRuleRequest
    * @returns UpdateCacheRuleResponse
@@ -17956,7 +17442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
+   * 修改站点缓存Tag配置
    * 
    * @param request - UpdateCacheTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17999,7 +17485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
+   * 修改站点缓存Tag配置
    * 
    * @param request - UpdateCacheTagRequest
    * @returns UpdateCacheTagResponse
@@ -18010,7 +17496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the CNAME flattening configuration of a website.
+   * 修改站点cname拉平配置
    * 
    * @param request - UpdateCnameFlatteningRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18045,7 +17531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the CNAME flattening configuration of a website.
+   * 修改站点cname拉平配置
    * 
    * @param request - UpdateCnameFlatteningRequest
    * @returns UpdateCnameFlatteningResponse
@@ -18056,7 +17542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify compression rule
+   * 修改压缩规则
    * 
    * @param request - UpdateCompressionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18119,7 +17605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify compression rule
+   * 修改压缩规则
    * 
    * @param request - UpdateCompressionRuleRequest
    * @returns UpdateCompressionRuleResponse
@@ -18130,7 +17616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of the Chinese mainland network access optimization.
+   * 修改站点中国大陆网络接入优化的配置
    * 
    * @param request - UpdateCrossBorderOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18165,7 +17651,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of the Chinese mainland network access optimization.
+   * 修改站点中国大陆网络接入优化的配置
    * 
    * @param request - UpdateCrossBorderOptimizationRequest
    * @returns UpdateCrossBorderOptimizationResponse
@@ -18246,7 +17732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the response code configurations for a website.
+   * 修改修改响应码规则
    * 
    * @param request - UpdateCustomResponseCodeRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18305,7 +17791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the response code configurations for a website.
+   * 修改修改响应码规则
    * 
    * @param request - UpdateCustomResponseCodeRuleRequest
    * @returns UpdateCustomResponseCodeRuleResponse
@@ -18316,7 +17802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a custom scenario-specific policy.
+   * 修改定制场景策略
    * 
    * @param request - UpdateCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18371,7 +17857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a custom scenario-specific policy.
+   * 修改定制场景策略
    * 
    * @param request - UpdateCustomScenePolicyRequest
    * @returns UpdateCustomScenePolicyResponse
@@ -18382,7 +17868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the development mode configuration of your website. If you enable Development Mode, all requests bypass caching components on POPs and are redirected to the origin server. This allows clients to retrieve the most recent resources on the origin server.
+   * 修改站点开发者模式配置
    * 
    * @param request - UpdateDevelopmentModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18417,7 +17903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the development mode configuration of your website. If you enable Development Mode, all requests bypass caching components on POPs and are redirected to the origin server. This allows clients to retrieve the most recent resources on the origin server.
+   * 修改站点开发者模式配置
    * 
    * @param request - UpdateDevelopmentModeRequest
    * @returns UpdateDevelopmentModeResponse
@@ -18428,7 +17914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the log collection configuration of a containerized application.
+   * 更新边缘容器应用日志采集配置
    * 
    * @param request - UpdateEdgeContainerAppLogRiverRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18467,7 +17953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the log collection configuration of a containerized application.
+   * 更新边缘容器应用日志采集配置
    * 
    * @param request - UpdateEdgeContainerAppLogRiverRequest
    * @returns UpdateEdgeContainerAppLogRiverResponse
@@ -18478,7 +17964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resource reservation configuration of an edge container.
+   * 更新边缘容器资源预留配置
    * 
    * @param tmpReq - UpdateEdgeContainerAppResourceReserveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18531,7 +18017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resource reservation configuration of an edge container.
+   * 更新边缘容器资源预留配置
    * 
    * @param request - UpdateEdgeContainerAppResourceReserveRequest
    * @returns UpdateEdgeContainerAppResourceReserveResponse
@@ -18542,7 +18028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the HTTP incoming request header modification rule.
+   * 修改HTTP入站请求头规则
    * 
    * @param tmpReq - UpdateHttpIncomingRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18603,7 +18089,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the HTTP incoming request header modification rule.
+   * 修改HTTP入站请求头规则
    * 
    * @param request - UpdateHttpIncomingRequestHeaderModificationRuleRequest
    * @returns UpdateHttpIncomingRequestHeaderModificationRuleResponse
@@ -18614,7 +18100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of modifying HTTP response headers for a website.
+   * 修改HTTP入站响应头规则
    * 
    * @param tmpReq - UpdateHttpIncomingResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18675,7 +18161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of modifying HTTP response headers for a website.
+   * 修改HTTP入站响应头规则
    * 
    * @param request - UpdateHttpIncomingResponseHeaderModificationRuleRequest
    * @returns UpdateHttpIncomingResponseHeaderModificationRuleResponse
@@ -18686,7 +18172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTP Request Header Rules
+   * 修改HTTP请求头规则
    * 
    * @param tmpReq - UpdateHttpRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18747,7 +18233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTP Request Header Rules
+   * 修改HTTP请求头规则
    * 
    * @param request - UpdateHttpRequestHeaderModificationRuleRequest
    * @returns UpdateHttpRequestHeaderModificationRuleResponse
@@ -18758,7 +18244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTP response header rules
+   * 修改HTTP响应头规则
    * 
    * @param tmpReq - UpdateHttpResponseHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18819,7 +18305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTP response header rules
+   * 修改HTTP响应头规则
    * 
    * @param request - UpdateHttpResponseHeaderModificationRuleRequest
    * @returns UpdateHttpResponseHeaderModificationRuleResponse
@@ -18830,7 +18316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTPS Application Configuration
+   * 修改HTTPS应用配置
    * 
    * @param request - UpdateHttpsApplicationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18933,7 +18419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTPS Application Configuration
+   * 修改HTTPS应用配置
    * 
    * @param request - UpdateHttpsApplicationConfigurationRequest
    * @returns UpdateHttpsApplicationConfigurationResponse
@@ -18944,7 +18430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTPS Basic Configuration
+   * 修改HTTPS基础配置
    * 
    * @param request - UpdateHttpsBasicConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19035,7 +18521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify HTTPS Basic Configuration
+   * 修改HTTPS基础配置
    * 
    * @param request - UpdateHttpsBasicConfigurationRequest
    * @returns UpdateHttpsBasicConfigurationResponse
@@ -19046,7 +18532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IPv6 configuration of a website.
+   * 修改站点IPv6配置
    * 
    * @param request - UpdateIPv6Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19085,7 +18571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the IPv6 configuration of a website.
+   * 修改站点IPv6配置
    * 
    * @param request - UpdateIPv6Request
    * @returns UpdateIPv6Response
@@ -19096,7 +18582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Image Transformation Configuration
+   * 修改站点的图片转换配置
    * 
    * @param request - UpdateImageTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19159,7 +18645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Site Image Transformation Configuration
+   * 修改站点的图片转换配置
    * 
    * @param request - UpdateImageTransformRequest
    * @returns UpdateImageTransformResponse
@@ -19170,7 +18656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom list.
+   * 更新自定义列表
    * 
    * @param tmpReq - UpdateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19219,7 +18705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a custom list.
+   * 更新自定义列表
    * 
    * @param request - UpdateListRequest
    * @returns UpdateListResponse
@@ -19230,10 +18716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Load Balancer
-   * 
-   * @remarks
-   * Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence strategy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
+   * 修改负载均衡器
    * 
    * @param tmpReq - UpdateLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19342,10 +18825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Load Balancer
-   * 
-   * @remarks
-   * Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence strategy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
+   * 修改负载均衡器
    * 
    * @param request - UpdateLoadBalancerRequest
    * @returns UpdateLoadBalancerResponse
@@ -19356,7 +18836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of managed transforms for your website.
+   * 修改站点托管转换的配置
    * 
    * @param request - UpdateManagedTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19403,7 +18883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of managed transforms for your website.
+   * 修改站点托管转换的配置
    * 
    * @param request - UpdateManagedTransformRequest
    * @returns UpdateManagedTransformResponse
@@ -19414,7 +18894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify network optimization configuration
+   * 修改网络优化配置
    * 
    * @param request - UpdateNetworkOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19485,7 +18965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify network optimization configuration
+   * 修改网络优化配置
    * 
    * @param request - UpdateNetworkOptimizationRequest
    * @returns UpdateNetworkOptimizationResponse
@@ -19496,7 +18976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the Monitor
+   * 修改源地址池
    * 
    * @param tmpReq - UpdateOriginPoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19545,7 +19025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the Monitor
+   * 修改源地址池
    * 
    * @param request - UpdateOriginPoolRequest
    * @returns UpdateOriginPoolResponse
@@ -19556,7 +19036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables IP convergence.
+   * 修改源站防护
    * 
    * @param request - UpdateOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19595,7 +19075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables IP convergence.
+   * 修改源站防护
    * 
    * @param request - UpdateOriginProtectionRequest
    * @returns UpdateOriginProtectionResponse
@@ -19606,7 +19086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the IP whitelist for origin protection used by a website to the latest version.
+   * 确认更新站点回源IP白名单到最新版本
    * 
    * @param request - UpdateOriginProtectionIpWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19637,7 +19117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the IP whitelist for origin protection used by a website to the latest version.
+   * 确认更新站点回源IP白名单到最新版本
    * 
    * @param request - UpdateOriginProtectionIpWhiteListRequest
    * @returns UpdateOriginProtectionIpWhiteListResponse
@@ -19648,7 +19128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Origin Rule Configuration for Site
+   * 修改站点的回源规则配置
    * 
    * @param request - UpdateOriginRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19763,7 +19243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Origin Rule Configuration for Site
+   * 修改站点的回源规则配置
    * 
    * @param request - UpdateOriginRuleRequest
    * @returns UpdateOriginRuleResponse
@@ -19774,7 +19254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
+   * 更新自定义响应页面
    * 
    * @param tmpReq - UpdatePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19831,7 +19311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
+   * 更新自定义响应页面
    * 
    * @param request - UpdatePageRequest
    * @returns UpdatePageResponse
@@ -19888,7 +19368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Plan Adjustment
+   * 套餐变配
    * 
    * @param request - UpdateRatePlanSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19939,7 +19419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Plan Adjustment
+   * 套餐变配
    * 
    * @param request - UpdateRatePlanSpecRequest
    * @returns UpdateRatePlanSpecResponse
@@ -19950,16 +19430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates multiple types of DNS records and origin authentication configurations.
-   * 
-   * @remarks
-   * This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
-   * ### [](#)Usage notes
-   * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
-   * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
-   * *   You must specify specific fields such as Flag and Tag for CAA records.
-   * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
-   * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
+   * 更新记录
    * 
    * @param tmpReq - UpdateRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20036,16 +19507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates multiple types of DNS records and origin authentication configurations.
-   * 
-   * @remarks
-   * This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
-   * ### [](#)Usage notes
-   * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
-   * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
-   * *   You must specify specific fields such as Flag and Tag for CAA records.
-   * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
-   * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
+   * 更新记录
    * 
    * @param request - UpdateRecordRequest
    * @returns UpdateRecordResponse
@@ -20056,7 +19518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Redirect Rule
+   * 更新重定向规则
    * 
    * @param request - UpdateRedirectRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20123,7 +19585,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update Redirect Rule
+   * 更新重定向规则
    * 
    * @param request - UpdateRedirectRuleRequest
    * @returns UpdateRedirectRuleResponse
@@ -20134,7 +19596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Rewrite URL Rule
+   * 修改重写Url规则
    * 
    * @param request - UpdateRewriteUrlRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20201,7 +19663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Rewrite URL Rule
+   * 修改重写Url规则
    * 
    * @param request - UpdateRewriteUrlRuleRequest
    * @returns UpdateRewriteUrlRuleResponse
@@ -20212,7 +19674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a routine.
+   * 修改Routine描述信息
    * 
    * @param request - UpdateRoutineConfigDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20247,7 +19709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the description of a routine.
+   * 修改Routine描述信息
    * 
    * @param request - UpdateRoutineConfigDescriptionRequest
    * @returns UpdateRoutineConfigDescriptionResponse
@@ -20258,7 +19720,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the route configuration of an edge function.
+   * 修改边缘函数路由的配置
    * 
    * @param request - UpdateRoutineRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20325,7 +19787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the route configuration of an edge function.
+   * 修改边缘函数路由的配置
    * 
    * @param request - UpdateRoutineRouteRequest
    * @returns UpdateRoutineRouteResponse
@@ -20336,7 +19798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a scheduled prefetch plan based on the plan ID.
+   * 更新单个定时预热计划
    * 
    * @param request - UpdateScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20385,7 +19847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a scheduled prefetch plan based on the plan ID.
+   * 更新单个定时预热计划
    * 
    * @param request - UpdateScheduledPreloadExecutionRequest
    * @returns UpdateScheduledPreloadExecutionResponse
@@ -20396,7 +19858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the search engine crawler configuration for a website.
+   * 修改站点放行搜索引擎爬虫配置
    * 
    * @param request - UpdateSeoBypassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20431,7 +19893,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the search engine crawler configuration for a website.
+   * 修改站点放行搜索引擎爬虫配置
    * 
    * @param request - UpdateSeoBypassRequest
    * @returns UpdateSeoBypassResponse
@@ -20442,12 +19904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Converts the DNS setup option of a website.
-   * 
-   * @remarks
-   * When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
-   * *   The website only has proxied A/AAAA and CNAME records.
-   * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
+   * 修改站点接入方式
    * 
    * @param request - UpdateSiteAccessTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20482,12 +19939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Converts the DNS setup option of a website.
-   * 
-   * @remarks
-   * When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
-   * *   The website only has proxied A/AAAA and CNAME records.
-   * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
+   * 修改站点接入方式
    * 
    * @param request - UpdateSiteAccessTypeRequest
    * @returns UpdateSiteAccessTypeResponse
@@ -20498,7 +19950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
+   * 修改站点加速区域
    * 
    * @param request - UpdateSiteCoverageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20533,7 +19985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
+   * 修改站点加速区域
    * 
    * @param request - UpdateSiteCoverageRequest
    * @returns UpdateSiteCoverageResponse
@@ -20544,7 +19996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+   * 修改自定义字段
    * 
    * @param tmpReq - UpdateSiteCustomLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20601,7 +20053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+   * 修改自定义字段
    * 
    * @param request - UpdateSiteCustomLogRequest
    * @returns UpdateSiteCustomLogResponse
@@ -20612,7 +20064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a real-time log delivery task.
+   * 修改一个任务投递
    * 
    * @param request - UpdateSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20663,7 +20115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a real-time log delivery task.
+   * 修改一个任务投递
    * 
    * @param request - UpdateSiteDeliveryTaskRequest
    * @returns UpdateSiteDeliveryTaskResponse
@@ -20674,7 +20126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a real-time log delivery task.
+   * 上下线一个任务投递
    * 
    * @param request - UpdateSiteDeliveryTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20701,7 +20153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a real-time log delivery task.
+   * 上下线一个任务投递
    * 
    * @param request - UpdateSiteDeliveryTaskStatusRequest
    * @returns UpdateSiteDeliveryTaskStatusResponse
@@ -20712,7 +20164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
+   * 修改站点名称独占配置
    * 
    * @param request - UpdateSiteNameExclusiveRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20747,7 +20199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the site hold configuration of a website. After you enable site hold, other accounts cannot add your website domain or its subdomains to ESA.
+   * 修改站点名称独占配置
    * 
    * @param request - UpdateSiteNameExclusiveRequest
    * @returns UpdateSiteNameExclusiveResponse
@@ -20758,7 +20210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the ESA proxy configuration of a website.
+   * 修改站点暂停配置
    * 
    * @param request - UpdateSitePauseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20793,7 +20245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the ESA proxy configuration of a website.
+   * 修改站点暂停配置
    * 
    * @param request - UpdateSitePauseRequest
    * @returns UpdateSitePauseResponse
@@ -20804,7 +20256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the custom nameserver names for a single website.
+   * 修改站点自定义NS
    * 
    * @param request - UpdateSiteVanityNSRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20839,7 +20291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the custom nameserver names for a single website.
+   * 修改站点自定义NS
    * 
    * @param request - UpdateSiteVanityNSRequest
    * @returns UpdateSiteVanityNSResponse
@@ -20850,7 +20302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the tiered cache configuration of your website.
+   * 修改站点多级缓存配置
    * 
    * @param request - UpdateTieredCacheRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20885,7 +20337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the tiered cache configuration of your website.
+   * 修改站点多级缓存配置
    * 
    * @param request - UpdateTieredCacheRequest
    * @returns UpdateTieredCacheResponse
@@ -20896,7 +20348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Transport Layer Application
+   * 修改四层应用
    * 
    * @param tmpReq - UpdateTransportLayerApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -20961,7 +20413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Transport Layer Application
+   * 修改四层应用
    * 
    * @param request - UpdateTransportLayerApplicationRequest
    * @returns UpdateTransportLayerApplicationResponse
@@ -20972,7 +20424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the webpage monitoring configuration.
+   * 更新网页监测配置
    * 
    * @param request - UpdateUrlObservationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21011,7 +20463,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the webpage monitoring configuration.
+   * 更新网页监测配置
    * 
    * @param request - UpdateUrlObservationRequest
    * @returns UpdateUrlObservationResponse
@@ -21022,7 +20474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
+   * 修改一个用户粒度任务投递
    * 
    * @param request - UpdateUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21073,7 +20525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
+   * 修改一个用户粒度任务投递
    * 
    * @param request - UpdateUserDeliveryTaskRequest
    * @returns UpdateUserDeliveryTaskResponse
@@ -21084,11 +20536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a delivery task in your Alibaba Cloud account.
-   * 
-   * @remarks
-   * ## [](#)
-   * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+   * 上下线一个用户任务投递
    * 
    * @param request - UpdateUserDeliveryTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21115,11 +20563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a delivery task in your Alibaba Cloud account.
-   * 
-   * @remarks
-   * ## [](#)
-   * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+   * 上下线一个用户任务投递
    * 
    * @param request - UpdateUserDeliveryTaskStatusRequest
    * @returns UpdateUserDeliveryTaskStatusResponse
@@ -21238,7 +20682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the video processing configuration of the site.
+   * 修改站点的视频处理配置
    * 
    * @param request - UpdateVideoProcessingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21313,7 +20757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the video processing configuration of the site.
+   * 修改站点的视频处理配置
    * 
    * @param request - UpdateVideoProcessingRequest
    * @returns UpdateVideoProcessingResponse
@@ -21324,7 +20768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update WAF Rule Page
+   * 更新WAF规则页面
    * 
    * @param tmpReq - UpdateWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21383,7 +20827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update WAF Rule Page
+   * 更新WAF规则页面
    * 
    * @param request - UpdateWafRuleRequest
    * @returns UpdateWafRuleResponse
@@ -21394,7 +20838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update WAF Ruleset
+   * 更新WAF规则集
    * 
    * @param request - UpdateWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21439,7 +20883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update WAF Ruleset
+   * 更新WAF规则集
    * 
    * @param request - UpdateWafRulesetRequest
    * @returns UpdateWafRulesetResponse
@@ -21450,7 +20894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a waiting room.
+   * 修改等候室
    * 
    * @param tmpReq - UpdateWaitingRoomRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21555,7 +20999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a waiting room.
+   * 修改等候室
    * 
    * @param request - UpdateWaitingRoomRequest
    * @returns UpdateWaitingRoomResponse
@@ -21566,7 +21010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a waiting room event.
+   * 修改等候室事件
    * 
    * @param request - UpdateWaitingRoomEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21673,7 +21117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a waiting room event.
+   * 修改等候室事件
    * 
    * @param request - UpdateWaitingRoomEventRequest
    * @returns UpdateWaitingRoomEventResponse
@@ -21684,10 +21128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Waiting Room Rule
-   * 
-   * @remarks
-   * This interface allows you to modify the rule settings of a specific waiting room in a site, including the rule name, enable status, and rule content, etc.
+   * 修改等候室规则
    * 
    * @param request - UpdateWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21734,10 +21175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify Waiting Room Rule
-   * 
-   * @remarks
-   * This interface allows you to modify the rule settings of a specific waiting room in a site, including the rule name, enable status, and rule content, etc.
+   * 修改等候室规则
    * 
    * @param request - UpdateWaitingRoomRuleRequest
    * @returns UpdateWaitingRoomRuleResponse
@@ -21748,7 +21186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a client certificate authority (CA) certificate.
+   * 上传客户端CA证书
    * 
    * @param request - UploadClientCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21789,7 +21227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a client certificate authority (CA) certificate.
+   * 上传客户端CA证书
    * 
    * @param request - UploadClientCaCertificateRequest
    * @returns UploadClientCaCertificateResponse
@@ -21800,11 +21238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads the file that contains resources to be purged or prefetched.
-   * 
-   * @remarks
-   * > 
-   * *   The file can be up to 10 MB in size.
+   * 缓存刷新文件上传
    * 
    * @param request - UploadFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21847,11 +21281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads the file that contains resources to be purged or prefetched.
-   * 
-   * @remarks
-   * > 
-   * *   The file can be up to 10 MB in size.
+   * 缓存刷新文件上传
    * 
    * @param request - UploadFileRequest
    * @returns UploadFileResponse
@@ -22054,7 +21484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload site origin client certificate
+   * 上传站点回源客户端证书
    * 
    * @param request - UploadSiteOriginClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22099,7 +21529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upload site origin client certificate
+   * 上传站点回源客户端证书
    * 
    * @param request - UploadSiteOriginClientCertificateRequest
    * @returns UploadSiteOriginClientCertificateResponse
@@ -22152,11 +21582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
-   * 
-   * @remarks
-   * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
-   * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+   * 校验站点的归属
    * 
    * @param request - VerifySiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22187,11 +21613,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
-   * 
-   * @remarks
-   * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
-   * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+   * 校验站点的归属
    * 
    * @param request - VerifySiteRequest
    * @returns VerifySiteResponse

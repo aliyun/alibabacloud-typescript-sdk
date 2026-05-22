@@ -6,17 +6,11 @@ export class GetCustomResponseCodeRuleRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 424022244554752
    */
   configId?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 775724064754208
    */
   siteId?: number;
   static names(): { [key: string]: string } {

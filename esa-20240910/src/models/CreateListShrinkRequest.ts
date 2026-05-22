@@ -4,33 +4,18 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateListShrinkRequest extends $dara.Model {
   /**
-   * @remarks
-   * The description of the list that you want to create.
-   * 
    * @example
    * a custom list
    */
   description?: string;
-  /**
-   * @remarks
-   * The items in the list that you want to create.
-   * 
-   * @example
-   * a custom list
-   */
   itemsShrink?: string;
   /**
-   * @remarks
-   * The type of the list that you want to create.
-   * 
    * @example
    * ip
    */
   kind?: string;
   /**
    * @remarks
-   * The name of the list that you want to create.
-   * 
    * This parameter is required.
    * 
    * @example

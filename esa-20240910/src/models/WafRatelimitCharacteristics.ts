@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WafRatelimitCharacteristicsCriteriaCriteriaCriteria extends $dara.Model {
-  /**
-   * @remarks
-   * The matching type.
-   * 
-   * @example
-   * ip.src
-   */
   matchType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,26 +26,8 @@ export class WafRatelimitCharacteristicsCriteriaCriteriaCriteria extends $dara.M
 }
 
 export class WafRatelimitCharacteristicsCriteriaCriteria extends $dara.Model {
-  /**
-   * @remarks
-   * The details of logical databases.
-   */
   criteria?: WafRatelimitCharacteristicsCriteriaCriteriaCriteria[];
-  /**
-   * @remarks
-   * The logical judgment.
-   * 
-   * @example
-   * and
-   */
   logic?: string;
-  /**
-   * @remarks
-   * The matching type.
-   * 
-   * @example
-   * ip.src
-   */
   matchType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,26 +58,8 @@ export class WafRatelimitCharacteristicsCriteriaCriteria extends $dara.Model {
 }
 
 export class WafRatelimitCharacteristicsCriteria extends $dara.Model {
-  /**
-   * @remarks
-   * The details of logical databases.
-   */
   criteria?: WafRatelimitCharacteristicsCriteriaCriteria[];
-  /**
-   * @remarks
-   * The logical judgment.
-   * 
-   * @example
-   * and
-   */
   logic?: string;
-  /**
-   * @remarks
-   * The matching type.
-   * 
-   * @example
-   * ip.src
-   */
   matchType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -133,26 +90,8 @@ export class WafRatelimitCharacteristicsCriteria extends $dara.Model {
 }
 
 export class WafRatelimitCharacteristics extends $dara.Model {
-  /**
-   * @remarks
-   * The details of logical databases.
-   */
   criteria?: WafRatelimitCharacteristicsCriteria[];
-  /**
-   * @remarks
-   * The logical judgment.
-   * 
-   * @example
-   * and
-   */
   logic?: string;
-  /**
-   * @remarks
-   * The matching type.
-   * 
-   * @example
-   * ip.src
-   */
   matchType?: string;
   static names(): { [key: string]: string } {
     return {

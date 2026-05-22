@@ -5,32 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class RollbackEdgeContainerAppVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * app-88068867578379****
    */
   appId?: string;
   percentage?: number;
-  /**
-   * @remarks
-   * The remarks.
-   * 
-   * @example
-   * test rollback app
-   */
   remarks?: string;
   usedPercent?: boolean;
   /**
    * @remarks
-   * The ID of version that you want to roll back.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * ver-87962637161651****
    */
   versionId?: string;
   static names(): { [key: string]: string } {

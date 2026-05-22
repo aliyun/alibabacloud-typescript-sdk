@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteVideoProcessingResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 6abd807e-ed2a-44de-ac54-ac38a62472e6
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

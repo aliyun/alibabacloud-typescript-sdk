@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCacheReserveSpecResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Instance ID.
-   * 
-   * @example
-   * esa-cr-9tuv*********
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * Order ID.
-   * 
-   * @example
-   * 2223332122***
-   */
   orderId?: string;
-  /**
-   * @remarks
-   * Request ID.
-   * 
-   * @example
-   * 40423A7F-A83D-1E24-B80E-86DD25790759
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

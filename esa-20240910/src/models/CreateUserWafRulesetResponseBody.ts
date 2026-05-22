@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateUserWafRulesetResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 665d3af3621bccf3fe29e1a4
-   */
   id?: number;
-  /**
-   * @example
-   * 15C66C7B-671A-4297-9187-2C4477247A74
-   */
   requestId?: string;
   ruleIds?: number[];
   static names(): { [key: string]: string } {

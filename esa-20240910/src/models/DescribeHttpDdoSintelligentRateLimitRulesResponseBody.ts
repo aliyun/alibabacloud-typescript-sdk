@@ -3,50 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos extends $dara.Model {
-  /**
-   * @example
-   * js
-   */
   action?: string;
-  /**
-   * @example
-   * {"$and":[{"key":"URI","opValue":"prefix-match","values":"/"}]}
-   */
   condition?: string;
-  /**
-   * @example
-   * 100030
-   */
   logRuleId?: number;
-  /**
-   * @example
-   * 86400
-   */
   punishTime?: number;
-  /**
-   * @example
-   * {"threshold":2000,"interval":5,"target":"ip","ttl":600}
-   */
   rateLimit?: string;
-  /**
-   * @example
-   * test.example.com
-   */
   recordName?: string;
-  /**
-   * @example
-   * 20110849
-   */
   ruleId?: number;
-  /**
-   * @example
-   * inner_cc_client_ip_ratelimit
-   */
   ruleName?: string;
-  /**
-   * @example
-   * {"field":"ip","mode":"count"}
-   */
   statistics?: string;
   static names(): { [key: string]: string } {
     return {
@@ -86,29 +50,10 @@ export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos exte
 }
 
 export class DescribeHttpDDoSIntelligentRateLimitRulesResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
   requestId?: string;
   ruleInfos?: DescribeHttpDDoSIntelligentRateLimitRulesResponseBodyRuleInfos[];
-  /**
-   * @example
-   * 100
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

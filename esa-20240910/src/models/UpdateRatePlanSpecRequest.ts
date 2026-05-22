@@ -3,44 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateRatePlanSpecRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable auto payment.
-   * 
-   * @example
-   * true
-   */
   autoPay?: boolean;
-  /**
-   * @example
-   * PREPAY
-   */
   chargeType?: string;
-  /**
-   * @example
-   * xcdn-91fknmb80f0g
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The specification update type. Valid values:
-   * 
-   * *   DOWNGRADE
-   * *   UPGRADE
-   * 
-   * @example
-   * UPGRADE
-   */
   orderType?: string;
-  /**
-   * @example
-   * entranceplan
-   */
   targetPlanCode?: string;
-  /**
-   * @example
-   * basic
-   */
   targetPlanName?: string;
   static names(): { [key: string]: string } {
     return {

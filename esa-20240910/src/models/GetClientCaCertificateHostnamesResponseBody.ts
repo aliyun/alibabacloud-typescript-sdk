@@ -4,25 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetClientCaCertificateHostnamesResponseBody extends $dara.Model {
   hostnames?: string[];
-  /**
-   * @example
-   * babaded901474b9693acf530e0fb****
-   */
   id?: string;
-  /**
-   * @example
-   * 3558df77-8a7a-4060-a900-2d7949403836
-   */
   requestId?: string;
-  /**
-   * @example
-   * 1234567890123
-   */
   siteId?: number;
-  /**
-   * @example
-   * example.com
-   */
   siteName?: string;
   static names(): { [key: string]: string } {
     return {

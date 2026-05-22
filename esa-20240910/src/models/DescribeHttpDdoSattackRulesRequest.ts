@@ -6,22 +6,12 @@ export class DescribeHttpDDoSAttackRulesRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456****
    */
   siteId?: number;
   static names(): { [key: string]: string } {

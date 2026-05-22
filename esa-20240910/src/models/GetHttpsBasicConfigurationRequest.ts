@@ -5,22 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetHttpsBasicConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * ConfigId of the configuration, which can be obtained by calling the [ListHttpsBasicConfigurations](https://help.aliyun.com/document_detail/2867470.html) interface.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 352816096987136
    */
   configId?: number;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 123456****
    */
   siteId?: number;
   static names(): { [key: string]: string } {

@@ -3,60 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
-  /**
-   * @remarks
-   * List of match objects.
-   */
   fields?: string[];
   /**
-   * @remarks
-   * ID of the WAF rule set.
-   * 
    * @example
    * 10000001
    */
   id?: number;
   /**
-   * @remarks
-   * Name of the rule set.
-   * 
    * @example
    * example
    */
   name?: string;
   /**
-   * @remarks
-   * WAF operation phase.
-   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
-   * @remarks
-   * Status of the rule set.
-   * 
    * @example
    * on
    */
   status?: string;
   /**
-   * @remarks
-   * Protection target type in http_bot.
-   * 
    * @example
    * web
    */
   target?: string;
-  /**
-   * @remarks
-   * List of rule types.
-   */
   types?: string[];
   /**
-   * @remarks
-   * Last modification time of the rule set.
-   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -104,54 +78,28 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
 
 export class ListWafRulesetsResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * Number of WAF rule sets used by the instance in this WAF operation phase.
-   * 
    * @example
    * 10
    */
   instanceUsage?: number;
   /**
-   * @remarks
-   * Current page number.
-   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
-   * @remarks
-   * Page size.
-   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
-  /**
-   * @remarks
-   * List of rule set information, containing detailed information about the rule sets.
-   */
   rulesets?: ListWafRulesetsResponseBodyRulesets[];
-  /**
-   * @remarks
-   * Number of WAF rule sets used by the site in this WAF operation phase.
-   * 
-   * @example
-   * 5
-   */
   siteUsage?: number;
   /**
-   * @remarks
-   * Total number of filtered records.
-   * 
    * @example
    * 5
    */

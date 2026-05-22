@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckUserProjectNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the real-time log delivery task.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * ali-dcdn-log-56
    */
   projectName?: string;
   static names(): { [key: string]: string } {

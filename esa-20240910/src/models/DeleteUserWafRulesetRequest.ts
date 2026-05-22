@@ -5,22 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUserWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
-   * WAF ruleset ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 10000001
    */
   id?: number;
   /**
    * @remarks
-   * Instance ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * esa-xxxxxxx
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

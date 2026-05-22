@@ -8,17 +8,10 @@ export class SetClientCaCertificateHostnamesRequest extends $dara.Model {
    * This parameter is required.
    */
   hostnames?: string[];
-  /**
-   * @example
-   * babaabcd****
-   */
   id?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 123456****
    */
   siteId?: number;
   static names(): { [key: string]: string } {

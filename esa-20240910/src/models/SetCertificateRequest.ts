@@ -3,77 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetCertificateRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The certificate ID on Certificate Management Service.
-   * 
-   * @example
-   * 30000478
-   */
   casId?: number;
-  /**
-   * @remarks
-   * The certificate content.
-   * 
-   * @example
-   * -----BEGIN CERTIFICATE-----
-   */
   certificate?: string;
-  /**
-   * @remarks
-   * The certificate ID on ESA.
-   * 
-   * @example
-   * 30001303
-   */
   id?: string;
   keyServerId?: string;
-  /**
-   * @remarks
-   * The certificate name.
-   * 
-   * @example
-   * yourCertName
-   */
   name?: string;
-  /**
-   * @remarks
-   * The private key of the certificate.
-   * 
-   * @example
-   * -----BEGIN PRIVATE KEY-----
-   */
   privateKey?: string;
-  /**
-   * @remarks
-   * The region.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   region?: string;
   securityToken?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 1234567890123
    */
   siteId?: number;
   /**
    * @remarks
-   * The certificate type. Valid values:
-   * 
-   * *   cas: a certificate purchased by using Certificate Management Service.
-   * *   upload: a custom certificate that you upload.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cas
    */
   type?: string;
   static names(): { [key: string]: string } {

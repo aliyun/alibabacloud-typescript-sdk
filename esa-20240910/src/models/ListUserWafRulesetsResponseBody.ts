@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserWafRulesetsResponseBodyRulesets extends $dara.Model {
-  /**
-   * @example
-   * example
-   */
   description?: string;
   /**
    * @example
@@ -20,13 +16,9 @@ export class ListUserWafRulesetsResponseBodyRulesets extends $dara.Model {
   name?: string;
   /**
    * @example
-   * http_custom
+   * http_bot
    */
   phase?: string;
-  /**
-   * @example
-   * 1
-   */
   position?: number;
   /**
    * @example
@@ -81,9 +73,6 @@ export class ListUserWafRulesetsResponseBody extends $dara.Model {
    */
   pageSize?: number;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */

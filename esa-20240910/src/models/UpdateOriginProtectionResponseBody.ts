@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateOriginProtectionResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 4C6B5E5A-42FC-5DF2-986C-4DAAE3C55086
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

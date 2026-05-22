@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState extends $dara.Model {
-  /**
-   * @remarks
-   * The reason for the last restart.
-   * 
-   * @example
-   * OOMKilled
-   */
   lastTerminatedReason?: string;
-  /**
-   * @remarks
-   * The number of times that the container restarted.
-   * 
-   * @example
-   * 1
-   */
   restartCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -43,87 +29,14 @@ export class GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState exte
 }
 
 export class GetEdgeContainerStagingDeployStatusResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the container is ready.
-   * 
-   * *   ok
-   * *   unready
-   * 
-   * @example
-   * ok
-   */
   containersReady?: string;
-  /**
-   * @remarks
-   * The time when the container was created. The value is a timestamp.
-   * 
-   * @example
-   * 2024-09-24T06:46:35Z
-   */
   creationTimestamp?: string;
-  /**
-   * @remarks
-   * The initialization status of the container.
-   * 
-   * *   ok
-   * *   unready
-   * 
-   * @example
-   * ok
-   */
   initialized?: string;
-  /**
-   * @remarks
-   * The status of the container in the staging environment.
-   * 
-   * *   NoContainer: created.
-   * *   Running: running.
-   * *   Failed: abnormal.
-   * 
-   * @example
-   * Running
-   */
   phase?: string;
-  /**
-   * @remarks
-   * The details of container restart.
-   */
   podRestartState?: GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState;
-  /**
-   * @remarks
-   * Indicates whether domain names are associated with the container.
-   * 
-   * *   ok
-   * *   unready
-   * 
-   * @example
-   * ok
-   */
   ready?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 2F2C992B-3FE2-5EBB-A61F-F9DD4EB257DA
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The scheduling status of the container.
-   * 
-   * *   ok
-   * *   unready
-   * 
-   * @example
-   * ok
-   */
   scheduled?: string;
-  /**
-   * @remarks
-   * The virtual IP addresses.
-   */
   VIPs?: string[];
   static names(): { [key: string]: string } {
     return {

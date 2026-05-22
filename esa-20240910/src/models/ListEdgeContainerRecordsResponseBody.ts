@@ -3,53 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListEdgeContainerRecordsResponseBodyRecords extends $dara.Model {
-  /**
-   * @remarks
-   * The time when the record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2023-12-24T02:01:11Z
-   */
   createTime?: string;
-  /**
-   * @remarks
-   * The CNAME. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured.
-   * 
-   * @example
-   * a.example.com.cnamezone.com
-   */
   recordCname?: string;
-  /**
-   * @remarks
-   * The record name.
-   * 
-   * @example
-   * a.example.com
-   */
   recordName?: string;
-  /**
-   * @remarks
-   * The website ID.
-   * 
-   * @example
-   * 1234567890123
-   */
   siteId?: number;
-  /**
-   * @remarks
-   * The website name.
-   * 
-   * @example
-   * example.com
-   */
   siteName?: string;
-  /**
-   * @remarks
-   * The time when the record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-   * 
-   * @example
-   * 2021-12-22T08:32:02Z
-   */
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,42 +41,10 @@ export class ListEdgeContainerRecordsResponseBodyRecords extends $dara.Model {
 }
 
 export class ListEdgeContainerRecordsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 20
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The records.
-   */
   records?: ListEdgeContainerRecordsResponseBodyRecords[];
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of records returned.
-   * 
-   * @example
-   * 50
-   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

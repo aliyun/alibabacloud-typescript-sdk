@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateWaitingRoomEventResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 0195619f-eab3-4a66-ac00-ed53d913e72e
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

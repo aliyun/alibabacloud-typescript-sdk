@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRoutineRouteResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 35281609698****
-   */
   configId?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

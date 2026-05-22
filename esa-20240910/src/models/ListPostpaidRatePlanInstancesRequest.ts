@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
-  /**
-   * @example
-   * ListPostpaidRatePlanInstances
-   */
   checkRemainingSiteQuota?: string;
   instanceId?: string;
   pageNumber?: number;

@@ -3,18 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateWafRulesetResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * Ruleset ID.
-   * 
-   * @example
-   * 10000001
-   */
   id?: number;
   /**
-   * @remarks
-   * Request ID.
-   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */

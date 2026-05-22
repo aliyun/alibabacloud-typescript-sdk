@@ -3,30 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPurgeQuotaResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The total quota.
-   * 
-   * @example
-   * 100000
-   */
   quota?: string;
   quota30Day?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 15C66C7B-671A-4297-9187-2C4477247A74
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The quota usage.
-   * 
-   * @example
-   * 10
-   */
   usage?: string;
   usage30Day?: string;
   static names(): { [key: string]: string } {

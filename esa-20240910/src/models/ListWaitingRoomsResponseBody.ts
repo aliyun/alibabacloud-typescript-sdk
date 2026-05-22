@@ -3,29 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWaitingRoomsResponseBodyWaitingRoomsHostNameAndPath extends $dara.Model {
-  /**
-   * @remarks
-   * The domain name.
-   * 
-   * @example
-   * example.com
-   */
   domain?: string;
-  /**
-   * @remarks
-   * The path.
-   * 
-   * @example
-   * /test
-   */
   path?: string;
-  /**
-   * @remarks
-   * The subdomain.
-   * 
-   * @example
-   * test.
-   */
   subdomain?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,157 +32,22 @@ export class ListWaitingRoomsResponseBodyWaitingRoomsHostNameAndPath extends $da
 }
 
 export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the custom cookie.
-   * 
-   * @example
-   * __aliwaitingroom_example
-   */
   cookieName?: string;
-  /**
-   * @remarks
-   * The HTML content or identifier of the custom queuing page. This parameter is valid only when `WaitingRoomType` is set to `custom`. The content must be URL-encoded.
-   */
   customPageHtml?: string;
-  /**
-   * @remarks
-   * The description of the waiting room.
-   */
   description?: string;
-  /**
-   * @remarks
-   * Indicates whether session renewal is disabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
   disableSessionRenewalEnable?: string;
-  /**
-   * @remarks
-   * Indicates whether the waiting room is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
   enable?: string;
-  /**
-   * @remarks
-   * The hostname and path.
-   */
   hostNameAndPath?: ListWaitingRoomsResponseBodyWaitingRoomsHostNameAndPath[];
-  /**
-   * @remarks
-   * Indicates whether JSON response is enabled. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
   jsonResponseEnable?: string;
-  /**
-   * @remarks
-   * The language of the waiting room page. This parameter is returned when the waiting room type is set to default. Valid values:
-   * 
-   * *   enus: English.
-   * *   zhcn: Simplified Chinese.
-   * *   zhhk: Traditional Chinese.
-   * 
-   * @example
-   * zhcn
-   */
   language?: string;
-  /**
-   * @remarks
-   * The name of the waiting room.
-   */
   name?: string;
-  /**
-   * @remarks
-   * The maximum number of new users per minute.
-   * 
-   * @example
-   * 200
-   */
   newUsersPerMinute?: string;
-  /**
-   * @remarks
-   * Indicates whether all requests must be queued. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
   queueAllEnable?: string;
-  /**
-   * @remarks
-   * The queuing method. Valid values:
-   * 
-   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
-   * *   fifo: Users gain access to the origin in order of arrival.
-   * *   passthrough: Users pass through the waiting room and go straight to the origin.
-   * *   reject-all: Users are blocked from reaching the origin.
-   * 
-   * @example
-   * random
-   */
   queuingMethod?: string;
-  /**
-   * @remarks
-   * The HTTP status code to return while a user is in the queue. Valid values:
-   * 
-   * *   200
-   * *   202
-   * *   429
-   * 
-   * @example
-   * 200
-   */
   queuingStatusCode?: string;
-  /**
-   * @remarks
-   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
-   * 
-   * @example
-   * 3600
-   */
   sessionDuration?: string;
-  /**
-   * @remarks
-   * The maximum number of active users.
-   * 
-   * @example
-   * 300
-   */
   totalActiveUsers?: string;
-  /**
-   * @remarks
-   * The unique ID of the waiting room.
-   * 
-   * @example
-   * 6a51d5bc6460887abd1291dc7d4d****
-   */
   waitingRoomId?: string;
-  /**
-   * @remarks
-   * The type of the waiting room. Valid values:
-   * 
-   * *   default
-   * *   custom
-   * 
-   * @example
-   * default
-   */
   waitingRoomType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -262,18 +106,7 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $dara.Model {
 }
 
 export class ListWaitingRoomsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID, which is used to trace a call.
-   * 
-   * @example
-   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The waiting rooms.
-   */
   waitingRooms?: ListWaitingRoomsResponseBodyWaitingRooms[];
   static names(): { [key: string]: string } {
     return {

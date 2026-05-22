@@ -3,34 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $dara.Model {
-  /**
-   * @remarks
-   * The website ID.
-   * 
-   * @example
-   * 123456****
-   */
   siteId?: number;
-  /**
-   * @remarks
-   * The website name.
-   * 
-   * @example
-   * example.com
-   */
   siteName?: string;
-  /**
-   * @remarks
-   * The website status. Valid values:
-   * 
-   * *   pending: The website is to be configured.
-   * *   active: The website is active.
-   * *   offline: The website is suspended.
-   * *   moved: The website has been added and verified by another Alibaba Cloud account.
-   * 
-   * @example
-   * pending
-   */
   siteStatus?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,117 +32,29 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $dar
 }
 
 export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Model {
-  /**
-   * @remarks
-   * The billing method. Valid values:
-   * 
-   * *   PREPAY: subscription.
-   * *   POSTPAY: pay-as-you-go.
-   * 
-   * @example
-   * PREPAY
-   */
   billingMode?: string;
   botInstanceLevel?: string;
   botRequest?: string;
-  /**
-   * @remarks
-   * The service locations for the websites that can be associated with the plan. Multiple values are separated by commas (,). Valid values:
-   * 
-   * *   domestic: the Chinese mainland.
-   * *   overseas: outside the Chinese mainland.
-   * *   global: global.
-   * 
-   * @example
-   * domestic,overseas
-   */
   coverages?: string;
-  /**
-   * @remarks
-   * The time when the plan was purchased.
-   * 
-   * @example
-   * YYYY-MM-DDThh:mm:ssZ
-   */
   createTime?: string;
   crossborderTraffic?: string;
   ddosBurstableDomesticProtection?: string;
   ddosBurstableOverseasProtection?: string;
   ddosInstanceLevel?: string;
-  /**
-   * @remarks
-   * The subscription duration of the plan. Unit: month.
-   * 
-   * @example
-   * 3
-   */
   duration?: number;
   edgeRoutineRquest?: string;
   edgeWafRequest?: string;
-  /**
-   * @remarks
-   * The time when the plan expires.
-   * 
-   * @example
-   * YYYY-MM-DDThh:mm:ssZ
-   */
   expireTime?: string;
-  /**
-   * @remarks
-   * The plan ID.
-   * 
-   * @example
-   * sp-xcdn-96wblslz****
-   */
   instanceId?: string;
   layer4Traffic?: string;
   layer4TrafficIntl?: string;
-  /**
-   * @remarks
-   * The plan name.
-   * 
-   * @example
-   * basic
-   */
   planName?: string;
   planTraffic?: string;
-  /**
-   * @remarks
-   * The plan type. Valid values:
-   * 
-   * *   normal
-   * *   enterprise
-   * 
-   * @example
-   * normal
-   */
   planType?: string;
-  /**
-   * @remarks
-   * The maximum number of websites that can be associated with the plan.
-   * 
-   * @example
-   * 1
-   */
   siteQuota?: string;
-  /**
-   * @remarks
-   * The websites that have been associated with the plan.
-   */
   sites?: ListUserRatePlanInstancesResponseBodyInstanceInfoSites[];
   smartRoutingRequest?: string;
   staticRequest?: string;
-  /**
-   * @remarks
-   * The plan status. Valid values:
-   * 
-   * *   online: The plan is in service.
-   * *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
-   * *   disable: The plan is released.
-   * 
-   * @example
-   * online
-   */
   status?: string;
   subscribeType?: string;
   static names(): { [key: string]: string } {
@@ -244,50 +130,11 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $dara.Mod
 }
 
 export class ListUserRatePlanInstancesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The queried plans.
-   */
   instanceInfo?: ListUserRatePlanInstancesResponseBodyInstanceInfo[];
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
   pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 10
-   */
   pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The total number of entries returned.
-   * 
-   * @example
-   * 68
-   */
   totalCount?: number;
-  /**
-   * @remarks
-   * The total number of pages returned.
-   * 
-   * @example
-   * 1
-   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {

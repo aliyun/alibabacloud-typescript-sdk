@@ -3,58 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FieldContentValueFieldList extends $dara.Model {
-  /**
-   * @remarks
-   * The field name.
-   * 
-   * @example
-   * ClientIp
-   */
   fieldName?: string;
-  /**
-   * @remarks
-   * The description of the field in English.
-   * 
-   * @example
-   * IP address of the client.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The description of the field in Chinese.
-   */
   descriptionCn?: string;
-  /**
-   * @remarks
-   * The category of the field.
-   * 
-   * @example
-   * Client
-   */
   category?: string;
-  /**
-   * @remarks
-   * The data type of the field.
-   * 
-   * @example
-   * String
-   */
   dataType?: string;
-  /**
-   * @remarks
-   * The sequence number of the field.
-   * 
-   * @example
-   * 1
-   */
   sortOrder?: number;
-  /**
-   * @remarks
-   * Indicates whether the field is available by default.
-   * 
-   * @example
-   * true
-   */
   isDefault?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -90,18 +44,7 @@ export class FieldContentValueFieldList extends $dara.Model {
 }
 
 export class FieldContentValue extends $dara.Model {
-  /**
-   * @remarks
-   * The sequence number of the fields.
-   * 
-   * @example
-   * 1
-   */
   sortOrder?: number;
-  /**
-   * @remarks
-   * The fields.
-   */
   fieldList?: FieldContentValueFieldList[];
   static names(): { [key: string]: string } {
     return {
