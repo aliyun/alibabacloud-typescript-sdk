@@ -59,6 +59,9 @@ export class GetMessagesResponseBodyData extends $dara.Model {
    * like
    */
   feedback?: string;
+  generationFinishedAt?: string;
+  generationStartedAt?: string;
+  generationStatus?: string;
   /**
    * @remarks
    * The message ID.
@@ -67,6 +70,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
    * 84dc9f9b-424a-404d-9c36-35e9d000****
    */
   id?: string;
+  lastSentEntryId?: string;
   /**
    * @remarks
    * The query statement.
@@ -77,6 +81,7 @@ export class GetMessagesResponseBodyData extends $dara.Model {
    * The retriever resources.
    */
   retrieverResources?: any[];
+  streamKey?: string;
   static names(): { [key: string]: string } {
     return {
       answer: 'Answer',
@@ -84,9 +89,14 @@ export class GetMessagesResponseBodyData extends $dara.Model {
       createdAt: 'CreatedAt',
       events: 'Events',
       feedback: 'Feedback',
+      generationFinishedAt: 'GenerationFinishedAt',
+      generationStartedAt: 'GenerationStartedAt',
+      generationStatus: 'GenerationStatus',
       id: 'Id',
+      lastSentEntryId: 'LastSentEntryId',
       query: 'Query',
       retrieverResources: 'RetrieverResources',
+      streamKey: 'StreamKey',
     };
   }
 
@@ -97,9 +107,14 @@ export class GetMessagesResponseBodyData extends $dara.Model {
       createdAt: 'string',
       events: { 'type': 'array', 'itemType': GetMessagesResponseBodyDataEvents },
       feedback: 'string',
+      generationFinishedAt: 'string',
+      generationStartedAt: 'string',
+      generationStatus: 'string',
       id: 'string',
+      lastSentEntryId: 'string',
       query: 'string',
       retrieverResources: { 'type': 'array', 'itemType': 'any' },
+      streamKey: 'string',
     };
   }
 
