@@ -67,6 +67,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
    * RUNNING
    */
   ruleStatus?: string;
+  ruleType?: string;
   static names(): { [key: string]: string } {
     return {
       cost: 'cost',
@@ -77,6 +78,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
       ruleName: 'ruleName',
       ruleSnapshotId: 'ruleSnapshotId',
       ruleStatus: 'ruleStatus',
+      ruleType: 'ruleType',
     };
   }
 
@@ -90,6 +92,7 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
       ruleName: 'string',
       ruleSnapshotId: 'string',
       ruleStatus: 'string',
+      ruleType: 'string',
     };
   }
 
