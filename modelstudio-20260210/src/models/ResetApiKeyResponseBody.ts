@@ -2,13 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class CreateApiKeyResponseBodyApiKey extends $dara.Model {
+export class ResetApiKeyResponseBodyApiKey extends $dara.Model {
   /**
    * @remarks
    * API Key ID。
    * 
    * @example
-   * 1858636
+   * 2965964
    */
   apiKeyId?: number;
   /**
@@ -18,31 +18,13 @@ export class CreateApiKeyResponseBodyApiKey extends $dara.Model {
   apiKeyValue?: string;
   /**
    * @example
-   * 1378030599924858
-   */
-  createdBy?: string;
-  /**
-   * @example
-   * desc
-   */
-  description?: string;
-  /**
-   * @example
-   * 1774338222000
-   */
-  gmtCreate?: number;
-  /**
-   * @example
-   * ws-3fa048e86117d91f
+   * ws-b2d30f148c236908
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       apiKeyId: 'apiKeyId',
       apiKeyValue: 'apiKeyValue',
-      createdBy: 'createdBy',
-      description: 'description',
-      gmtCreate: 'gmtCreate',
       workspaceId: 'workspaceId',
     };
   }
@@ -51,9 +33,6 @@ export class CreateApiKeyResponseBodyApiKey extends $dara.Model {
     return {
       apiKeyId: 'number',
       apiKeyValue: 'string',
-      createdBy: 'string',
-      description: 'string',
-      gmtCreate: 'number',
       workspaceId: 'string',
     };
   }
@@ -67,8 +46,8 @@ export class CreateApiKeyResponseBodyApiKey extends $dara.Model {
   }
 }
 
-export class CreateApiKeyResponseBody extends $dara.Model {
-  apiKey?: CreateApiKeyResponseBodyApiKey;
+export class ResetApiKeyResponseBody extends $dara.Model {
+  apiKey?: ResetApiKeyResponseBodyApiKey;
   /**
    * @example
    * 200
@@ -81,7 +60,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @example
-   * success
+   * ok
    */
   message?: string;
   /**
@@ -89,7 +68,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * C0CDC72E-52D7-5BC8-9396-9276B4FDF6B3
+   * 36045E0A-551D-592D-B1BC-4C56596CE59E
    */
   requestId?: string;
   /**
@@ -110,7 +89,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      apiKey: CreateApiKeyResponseBodyApiKey,
+      apiKey: ResetApiKeyResponseBodyApiKey,
       code: 'string',
       httpStatusCode: 'number',
       message: 'string',

@@ -2,6 +2,39 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetApiKeyResponseBodyApiKeyAuth extends $dara.Model {
+  accessIps?: string[];
+  /**
+   * @example
+   * All
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessIps: 'accessIps',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessIps: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accessIps)) {
+      $dara.Model.validateArray(this.accessIps);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApiKeyResponseBodyApiKey extends $dara.Model {
   /**
    * @remarks
@@ -16,6 +49,7 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
    * sk-ws-djI.mhU0D****testtestest
    */
   apiKeyValue?: string;
+  auth?: GetApiKeyResponseBodyApiKeyAuth;
   /**
    * @example
    * 1378030599924858
@@ -45,6 +79,7 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
     return {
       apiKeyId: 'apiKeyId',
       apiKeyValue: 'apiKeyValue',
+      auth: 'auth',
       createdBy: 'createdBy',
       description: 'description',
       disabled: 'disabled',
@@ -57,6 +92,7 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
     return {
       apiKeyId: 'number',
       apiKeyValue: 'string',
+      auth: GetApiKeyResponseBodyApiKeyAuth,
       createdBy: 'string',
       description: 'string',
       disabled: 'number',
@@ -66,6 +102,9 @@ export class GetApiKeyResponseBodyApiKey extends $dara.Model {
   }
 
   validate() {
+    if(this.auth && typeof (this.auth as any).validate === 'function') {
+      (this.auth as any).validate();
+    }
     super.validate();
   }
 

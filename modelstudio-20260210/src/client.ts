@@ -48,9 +48,15 @@ export default class Client extends OpenApi {
       query["workspaceId"] = request.workspaceId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.auth)) {
+      body["auth"] = request.auth;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateApiKey",
@@ -60,7 +66,7 @@ export default class Client extends OpenApi {
       method: "POST",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $dara.cast<$_model.CreateApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateApiKeyResponse({}));
@@ -160,6 +166,84 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteApiKeyWithOptions(apiKeyId, headers, runtime);
+  }
+
+  /**
+   * 禁用API Key
+   * 
+   * @param request - DisableApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableApiKeyResponse
+   */
+  async disableApiKeyWithOptions(apiKeyId: string, request: $_model.DisableApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableApiKeyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableApiKey",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/apikeys/${$dara.URL.percentEncode(apiKeyId)}/disable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.DisableApiKeyResponse({}));
+  }
+
+  /**
+   * 禁用API Key
+   * 
+   * @param request - DisableApiKeyRequest
+   * @returns DisableApiKeyResponse
+   */
+  async disableApiKey(apiKeyId: string, request: $_model.DisableApiKeyRequest): Promise<$_model.DisableApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableApiKeyWithOptions(apiKeyId, request, headers, runtime);
+  }
+
+  /**
+   * 启用API Key
+   * 
+   * @param request - EnableApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableApiKeyResponse
+   */
+  async enableApiKeyWithOptions(apiKeyId: string, request: $_model.EnableApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableApiKeyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableApiKey",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/apikeys/${$dara.URL.percentEncode(apiKeyId)}/enable`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.EnableApiKeyResponse({}));
+  }
+
+  /**
+   * 启用API Key
+   * 
+   * @param request - EnableApiKeyRequest
+   * @returns EnableApiKeyResponse
+   */
+  async enableApiKey(apiKeyId: string, request: $_model.EnableApiKeyRequest): Promise<$_model.EnableApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableApiKeyWithOptions(apiKeyId, request, headers, runtime);
   }
 
   /**
@@ -316,6 +400,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重置API Key
+   * 
+   * @param request - ResetApiKeyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetApiKeyResponse
+   */
+  async resetApiKeyWithOptions(apiKeyId: string, request: $_model.ResetApiKeyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResetApiKeyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetApiKey",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/apikeys/${$dara.URL.percentEncode(apiKeyId)}/reset`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.ResetApiKeyResponse({}));
+  }
+
+  /**
+   * 重置API Key
+   * 
+   * @param request - ResetApiKeyRequest
+   * @returns ResetApiKeyResponse
+   */
+  async resetApiKey(apiKeyId: string, request: $_model.ResetApiKeyRequest): Promise<$_model.ResetApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resetApiKeyWithOptions(apiKeyId, request, headers, runtime);
+  }
+
+  /**
    * 编辑apiKey的描述
    * 
    * @param request - UpdateApiKeyRequest
@@ -330,9 +453,15 @@ export default class Client extends OpenApi {
       query["description"] = request.description;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.auth)) {
+      body["auth"] = request.auth;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateApiKey",
@@ -342,7 +471,7 @@ export default class Client extends OpenApi {
       method: "PUT",
       authType: "AK",
       style: "ROA",
-      reqBodyType: "json",
+      reqBodyType: "formData",
       bodyType: "json",
     });
     return $dara.cast<$_model.UpdateApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApiKeyResponse({}));

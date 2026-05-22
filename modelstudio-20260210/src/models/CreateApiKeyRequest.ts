@@ -2,7 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
+/**
+ */
+export class CreateApiKeyRequestAuth extends $dara.Model {
+  accessIps?: string[];
+  /**
+   * @example
+   * All
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessIps: 'accessIps',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessIps: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.accessIps)) {
+      $dara.Model.validateArray(this.accessIps);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApiKeyRequest extends $dara.Model {
+  auth?: CreateApiKeyRequestAuth;
   /**
    * @example
    * test
@@ -15,6 +51,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      auth: 'auth',
       description: 'description',
       workspaceId: 'workspaceId',
     };
@@ -22,12 +59,16 @@ export class CreateApiKeyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      auth: CreateApiKeyRequestAuth,
       description: 'string',
       workspaceId: 'string',
     };
   }
 
   validate() {
+    if(this.auth && typeof (this.auth as any).validate === 'function') {
+      (this.auth as any).validate();
+    }
     super.validate();
   }
 
