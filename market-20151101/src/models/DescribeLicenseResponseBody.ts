@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeLicenseResponseBodyLicenseExtendArrayLicenseAttribute extends $dara.Model {
-  /**
-   * @example
-   * -
-   */
   code?: string;
-  /**
-   * @example
-   * -
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

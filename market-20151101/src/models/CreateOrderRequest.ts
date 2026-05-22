@@ -29,10 +29,6 @@ export class CreateOrderRequest extends $dara.Model {
    * INSTANCE_BUY
    */
   orderType?: string;
-  /**
-   * @example
-   * 111********11
-   */
   ownerId?: string;
   /**
    * @remarks

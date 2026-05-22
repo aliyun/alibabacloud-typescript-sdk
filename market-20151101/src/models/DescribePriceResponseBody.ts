@@ -3,27 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePriceResponseBodyCouponsCoupon extends $dara.Model {
-  /**
-   * @example
-   * 100.00
-   */
   canPromFee?: number;
   couponDesc?: string;
   couponName?: string;
-  /**
-   * @example
-   * ActiveCoupon
-   */
   couponOptionCode?: string;
-  /**
-   * @example
-   * 3874923111
-   */
   couponOptionNo?: string;
-  /**
-   * @example
-   * false
-   */
   isSelected?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -84,10 +68,6 @@ export class DescribePriceResponseBodyCoupons extends $dara.Model {
 
 export class DescribePriceResponseBodyPromotionRulesPromotionRule extends $dara.Model {
   name?: string;
-  /**
-   * @example
-   * 102112
-   */
   ruleId?: string;
   title?: string;
   static names(): { [key: string]: string } {

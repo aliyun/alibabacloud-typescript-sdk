@@ -3,52 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProductsResponseBodyProductItemsProductItem extends $dara.Model {
-  /**
-   * @example
-   * 53398003
-   */
   categoryId?: number;
-  /**
-   * @example
-   * cmjj02****
-   */
   code?: string;
   deliveryDate?: string;
   deliveryWay?: string;
-  /**
-   * @example
-   * https://oss.aliyuncs.com/photogallery/photo/1904996544835414/7549/767d6d07-8366-4822-b84e-61f6ea10d146.png
-   */
   imageUrl?: string;
   name?: string;
-  /**
-   * @example
-   * windows
-   */
   operationSystem?: string;
-  /**
-   * @example
-   * {\\"DiscountPrice\\": 0.0, \\"TradePrice\\": 15750.0, \\"Currency\\": \\"CNY\\", \\"OriginalPrice\\": 15750.0, \\"RuleIds\\": {\\"RuleId\\": []}, \\"Coupons\\": {\\"Coupon\\": []}}
-   */
   priceInfo?: string;
-  /**
-   * @example
-   * 5.0
-   */
   score?: string;
   shortDescription?: string;
   suggestedPrice?: string;
-  /**
-   * @example
-   * 228399
-   */
   supplierId?: number;
   supplierName?: string;
   tags?: string;
-  /**
-   * @example
-   * /products/53616009/cmjj02****.html
-   */
   targetUrl?: string;
   warrantyDate?: string;
   static names(): { [key: string]: string } {

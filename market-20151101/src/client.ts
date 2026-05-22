@@ -101,6 +101,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置自动续费
+   * 
    * @param request - AutoRenewInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AutoRenewInstanceResponse
@@ -146,6 +148,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置自动续费
+   * 
    * @param request - AutoRenewInstanceRequest
    * @returns AutoRenewInstanceResponse
    */
@@ -197,6 +201,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建订单
+   * 
    * @param request - CreateOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateOrderResponse
@@ -246,6 +252,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建订单
+   * 
    * @param request - CreateOrderRequest
    * @returns CreateOrderResponse
    */
@@ -255,6 +263,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 跨账号角色授权，根据token获取用户信息
+   * 
    * @param request - CrossAccountVerifyTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CrossAccountVerifyTokenResponse
@@ -284,6 +294,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 跨账号角色授权，根据token获取用户信息
+   * 
    * @param request - CrossAccountVerifyTokenRequest
    * @returns CrossAccountVerifyTokenResponse
    */
@@ -331,6 +343,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 工作流当前节点信息
+   * 
    * @param request - DescribeCurrentNodeInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCurrentNodeInfoResponse
@@ -360,6 +374,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 工作流当前节点信息
+   * 
    * @param request - DescribeCurrentNodeInfoRequest
    * @returns DescribeCurrentNodeInfoResponse
    */
@@ -547,6 +563,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例
+   * 
    * @param request - DescribeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstanceResponse
@@ -584,6 +602,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例
+   * 
    * @param request - DescribeInstanceRequest
    * @returns DescribeInstanceResponse
    */
@@ -635,6 +655,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例列表
+   * 
    * @param request - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstancesResponse
@@ -680,6 +702,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例列表
+   * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
    */
@@ -809,6 +833,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询订单
+   * 
    * @param request - DescribeOrderRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeOrderResponse
@@ -838,6 +864,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询订单
+   * 
    * @param request - DescribeOrderRequest
    * @returns DescribeOrderResponse
    */
@@ -889,6 +917,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询价格
+   * 
    * @param request - DescribePriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribePriceResponse
@@ -922,6 +952,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询价格
+   * 
    * @param request - DescribePriceRequest
    * @returns DescribePriceResponse
    */
@@ -1027,6 +1059,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 附件信息
+   * 
    * @param request - DescribeProjectAttachmentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProjectAttachmentsResponse
@@ -1056,6 +1090,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 附件信息
+   * 
    * @param request - DescribeProjectAttachmentsRequest
    * @returns DescribeProjectAttachmentsResponse
    */
@@ -1065,6 +1101,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 项目信息
+   * 
    * @param request - DescribeProjectInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProjectInfoResponse
@@ -1094,6 +1132,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 项目信息
+   * 
    * @param request - DescribeProjectInfoRequest
    * @returns DescribeProjectInfoResponse
    */
@@ -1103,6 +1143,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询项目留言信息
+   * 
    * @param request - DescribeProjectMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProjectMessagesResponse
@@ -1136,6 +1178,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询项目留言信息
+   * 
    * @param request - DescribeProjectMessagesRequest
    * @returns DescribeProjectMessagesResponse
    */
@@ -1145,6 +1189,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询项目流程节点list
+   * 
    * @remarks
    * *
    * **
@@ -1178,6 +1224,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询项目流程节点list
+   * 
    * @remarks
    * *
    * **
@@ -1191,6 +1239,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询项目操作记录列表
+   * 
    * @param request - DescribeProjectOperateLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeProjectOperateLogsResponse
@@ -1220,6 +1270,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询项目操作记录列表
+   * 
    * @param request - DescribeProjectOperateLogsRequest
    * @returns DescribeProjectOperateLogsResponse
    */
@@ -1229,6 +1281,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 完成当前流程节点
+   * 
    * @param request - FinishCurrentProjectNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns FinishCurrentProjectNodeResponse
@@ -1270,6 +1324,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 完成当前流程节点
+   * 
    * @param request - FinishCurrentProjectNodeRequest
    * @returns FinishCurrentProjectNodeResponse
    */
@@ -1341,6 +1397,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 暂停项目
+   * 
    * @param request - PauseProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PauseProjectResponse
@@ -1378,6 +1436,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 暂停项目
+   * 
    * @param request - PauseProjectRequest
    * @returns PauseProjectResponse
    */
@@ -1387,6 +1447,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 云市场计量推送接口
+   * 
    * @param request - PushMeteringDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PushMeteringDataResponse
@@ -1416,6 +1478,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 云市场计量推送接口
+   * 
    * @param request - PushMeteringDataRequest
    * @returns PushMeteringDataResponse
    */
@@ -1425,6 +1489,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 按次售卖按量计费
+   * 
+   * @param request - PushTimesUsageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PushTimesUsageResponse
+   */
+  async pushTimesUsageWithOptions(request: $_model.PushTimesUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PushTimesUsageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.times)) {
+      query["Times"] = request.times;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PushTimesUsage",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PushTimesUsageResponse>(await this.callApi(params, req, runtime), new $_model.PushTimesUsageResponse({}));
+  }
+
+  /**
+   * 按次售卖按量计费
+   * 
+   * @param request - PushTimesUsageRequest
+   * @returns PushTimesUsageResponse
+   */
+  async pushTimesUsage(request: $_model.PushTimesUsageRequest): Promise<$_model.PushTimesUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pushTimesUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * 恢复已暂停的项目
+   * 
    * @param request - ResumeProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResumeProjectResponse
@@ -1462,6 +1578,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 恢复已暂停的项目
+   * 
    * @param request - ResumeProjectRequest
    * @returns ResumeProjectResponse
    */
@@ -1471,6 +1589,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 当前流程节点回滚到上一步
+   * 
    * @param request - RollbackCurrentProjectNodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RollbackCurrentProjectNodeResponse
@@ -1508,6 +1628,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 当前流程节点回滚到上一步
+   * 
    * @param request - RollbackCurrentProjectNodeRequest
    * @returns RollbackCurrentProjectNodeResponse
    */

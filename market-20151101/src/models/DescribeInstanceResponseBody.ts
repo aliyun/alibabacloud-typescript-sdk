@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $dara.Model {
-  /**
-   * @example
-   * 12
-   */
   displayName?: string;
-  /**
-   * @example
-   * 12
-   */
   max?: string;
-  /**
-   * @example
-   * 12
-   */
   min?: string;
-  /**
-   * @example
-   * 12
-   */
   remark?: string;
-  /**
-   * @example
-   * 12
-   */
   step?: string;
-  /**
-   * @example
-   * 12
-   */
   type?: string;
-  /**
-   * @example
-   * 12
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -98,26 +70,10 @@ export class DescribeInstanceResponseBodyModulesModulePropertiesPropertyProperty
 }
 
 export class DescribeInstanceResponseBodyModulesModulePropertiesProperty extends $dara.Model {
-  /**
-   * @example
-   * 12
-   */
   displayUnit?: string;
-  /**
-   * @example
-   * 12
-   */
   key?: string;
-  /**
-   * @example
-   * 12
-   */
   name?: string;
   propertyValues?: DescribeInstanceResponseBodyModulesModulePropertiesPropertyPropertyValues;
-  /**
-   * @example
-   * 12
-   */
   showType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -178,15 +134,7 @@ export class DescribeInstanceResponseBodyModulesModuleProperties extends $dara.M
 }
 
 export class DescribeInstanceResponseBodyModulesModule extends $dara.Model {
-  /**
-   * @example
-   * package_config
-   */
   code?: string;
-  /**
-   * @example
-   * 101*********026
-   */
   id?: string;
   name?: string;
   properties?: DescribeInstanceResponseBodyModulesModuleProperties;

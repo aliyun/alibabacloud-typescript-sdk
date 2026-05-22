@@ -3,77 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeInstancesResponseBodyInstanceItemsInstanceItem extends $dara.Model {
-  /**
-   * @example
-   * {}
-   */
   apiJson?: string;
-  /**
-   * @example
-   * {"frontEndUrl":"https://***.aliyun.com","password":"Sjtv***","adminUrl":"https://***.aiiyun.com","username":"aliyun***"}
-   */
   appJson?: string;
-  /**
-   * @example
-   * 1570634021000
-   */
   beganOn?: number;
-  /**
-   * @example
-   * 1570634021000
-   */
   createdOn?: number;
-  /**
-   * @example
-   * 1570644021000
-   */
   endOn?: number;
   extendJson?: string;
-  /**
-   * @example
-   * {"password":"***","ip":"118.31.***.41","innerIp":"118.31.***.41","region":"","username":"***","beianInfo":""}
-   */
   hostJson?: string;
-  /**
-   * @example
-   * {}
-   */
   idaasJson?: string;
-  /**
-   * @example
-   * {}
-   */
   imageJson?: string;
-  /**
-   * @example
-   * 1551111111
-   */
   instanceId?: number;
-  /**
-   * @example
-   * 204211111111111
-   */
   orderId?: number;
-  /**
-   * @example
-   * cmgj00**11
-   */
   productCode?: string;
   productName?: string;
-  /**
-   * @example
-   * cmgj00**11-prepay
-   */
   productSkuCode?: string;
-  /**
-   * @example
-   * APP
-   */
   productType?: string;
-  /**
-   * @example
-   * OPENED
-   */
   status?: string;
   supplierName?: string;
   static names(): { [key: string]: string } {

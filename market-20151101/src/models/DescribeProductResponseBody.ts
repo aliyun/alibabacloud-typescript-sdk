@@ -3,21 +3,9 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeProductResponseBodyProductExtrasProductExtra extends $dara.Model {
-  /**
-   * @example
-   * product_advantage
-   */
   key?: string;
   label?: string;
-  /**
-   * @example
-   * 0
-   */
   order?: number;
-  /**
-   * @example
-   * HTML
-   */
   type?: string;
   values?: string;
   static names(): { [key: string]: string } {
@@ -77,35 +65,11 @@ export class DescribeProductResponseBodyProductExtras extends $dara.Model {
 
 export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValuesPropertyValue extends $dara.Model {
   displayName?: string;
-  /**
-   * @example
-   * 123
-   */
   max?: string;
-  /**
-   * @example
-   * 11
-   */
   min?: string;
-  /**
-   * @example
-   * abc
-   */
   remark?: string;
-  /**
-   * @example
-   * 1
-   */
   step?: string;
-  /**
-   * @example
-   * single_string
-   */
   type?: string;
-  /**
-   * @example
-   * m-28e213e7t
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -167,22 +131,10 @@ export class DescribeProductResponseBodyProductSkusProductSkuModulesModuleProper
 }
 
 export class DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesProperty extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   displayUnit?: string;
-  /**
-   * @example
-   * img_id
-   */
   key?: string;
   name?: string;
   propertyValues?: DescribeProductResponseBodyProductSkusProductSkuModulesModulePropertiesPropertyPropertyValues;
-  /**
-   * @example
-   * number
-   */
   showType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -243,15 +195,7 @@ export class DescribeProductResponseBodyProductSkusProductSkuModulesModuleProper
 }
 
 export class DescribeProductResponseBodyProductSkusProductSkuModulesModule extends $dara.Model {
-  /**
-   * @example
-   * img_id
-   */
   code?: string;
-  /**
-   * @example
-   * 248220
-   */
   id?: string;
   name?: string;
   properties?: DescribeProductResponseBodyProductSkusProductSkuModulesModuleProperties;
@@ -313,10 +257,6 @@ export class DescribeProductResponseBodyProductSkusProductSkuModules extends $da
 
 export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriodsOrderPeriod extends $dara.Model {
   name?: string;
-  /**
-   * @example
-   * HOUR
-   */
   periodType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -368,31 +308,11 @@ export class DescribeProductResponseBodyProductSkusProductSkuOrderPeriods extend
 }
 
 export class DescribeProductResponseBodyProductSkusProductSku extends $dara.Model {
-  /**
-   * @example
-   * PREPAY
-   */
   chargeType?: string;
-  /**
-   * @example
-   * cmjj01****-Package
-   */
   code?: string;
-  /**
-   * @example
-   * {\\"img_id\\":{\\"img_version|img_region\\":{\\"V1.7|cn-shenzhen-st3-a01\\":[\\"m-wz9ho4hmos0lpxcldqoq\\"]}}
-   */
   constraints?: string;
-  /**
-   * @example
-   * true
-   */
   hidden?: boolean;
   modules?: DescribeProductResponseBodyProductSkusProductSkuModules;
-  /**
-   * @example
-   * 21
-   */
   name?: string;
   orderPeriods?: DescribeProductResponseBodyProductSkusProductSkuOrderPeriods;
   static names(): { [key: string]: string } {
@@ -487,15 +407,7 @@ export class DescribeProductResponseBodyShopInfoTelephones extends $dara.Model {
 }
 
 export class DescribeProductResponseBodyShopInfoWangWangsWangWang extends $dara.Model {
-  /**
-   * @example
-   * 123
-   */
   remark?: string;
-  /**
-   * @example
-   * ABC
-   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
