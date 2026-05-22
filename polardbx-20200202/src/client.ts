@@ -1603,7 +1603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通CN子实例
+   * 创建自定义地址
    * 
    * @remarks
    * ***
@@ -1649,7 +1649,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开通CN子实例
+   * 创建自定义地址
    * 
    * @remarks
    * ***
@@ -2101,7 +2101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除CN子实例
+   * 删除自定义地址
    * 
    * @remarks
    * ***
@@ -2115,6 +2115,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.DBInstanceName)) {
       query["DBInstanceName"] = request.DBInstanceName;
+    }
+
+    if (!$dara.isNull(request.instanceClusterName)) {
+      query["InstanceClusterName"] = request.instanceClusterName;
     }
 
     if (!$dara.isNull(request.regionId)) {
@@ -2139,7 +2143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除CN子实例
+   * 删除自定义地址
    * 
    * @remarks
    * ***

@@ -11,6 +11,7 @@ export class DeleteSubCNInstanceRequest extends $dara.Model {
    * pxc-********
    */
   DBInstanceName?: string;
+  instanceClusterName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -22,6 +23,7 @@ export class DeleteSubCNInstanceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
+      instanceClusterName: 'InstanceClusterName',
       regionId: 'RegionId',
     };
   }
@@ -29,6 +31,7 @@ export class DeleteSubCNInstanceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
+      instanceClusterName: 'string',
       regionId: 'string',
     };
   }
