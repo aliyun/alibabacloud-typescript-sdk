@@ -795,6 +795,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 视频检测任务提交
+   * 
+   * @param request - MultiModalGuardAsyncRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultiModalGuardAsyncResponse
+   */
+  async multiModalGuardAsyncWithOptions(request: $_model.MultiModalGuardAsyncRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MultiModalGuardAsyncResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultiModalGuardAsync",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MultiModalGuardAsyncResponse>(await this.callApi(params, req, runtime), new $_model.MultiModalGuardAsyncResponse({}));
+  }
+
+  /**
+   * 视频检测任务提交
+   * 
+   * @param request - MultiModalGuardAsyncRequest
+   * @returns MultiModalGuardAsyncResponse
+   */
+  async multiModalGuardAsync(request: $_model.MultiModalGuardAsyncRequest): Promise<$_model.MultiModalGuardAsyncResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.multiModalGuardAsyncWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取视频检测结果
+   * 
+   * @param request - MultiModalGuardAsyncResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MultiModalGuardAsyncResultResponse
+   */
+  async multiModalGuardAsyncResultWithOptions(request: $_model.MultiModalGuardAsyncResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MultiModalGuardAsyncResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.service)) {
+      body["Service"] = request.service;
+    }
+
+    if (!$dara.isNull(request.serviceParameters)) {
+      body["ServiceParameters"] = request.serviceParameters;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MultiModalGuardAsyncResult",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MultiModalGuardAsyncResultResponse>(await this.callApi(params, req, runtime), new $_model.MultiModalGuardAsyncResultResponse({}));
+  }
+
+  /**
+   * 获取视频检测结果
+   * 
+   * @param request - MultiModalGuardAsyncResultRequest
+   * @returns MultiModalGuardAsyncResultResponse
+   */
+  async multiModalGuardAsyncResult(request: $_model.MultiModalGuardAsyncResultRequest): Promise<$_model.MultiModalGuardAsyncResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.multiModalGuardAsyncResultWithOptions(request, runtime);
+  }
+
+  /**
    * 多模态同步检测接口，支持图片base64字符串
    * 
    * @param request - MultiModalGuardForBase64Request
