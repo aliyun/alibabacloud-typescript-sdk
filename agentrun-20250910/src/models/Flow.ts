@@ -32,6 +32,11 @@ export class Flow extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * 是否禁用该工作流的公网访问，作为工作流级别的默认策略
+   */
+  disablePublicNetworkAccess?: boolean;
+  /**
+   * @remarks
    * 工作流的环境变量配置，包含一组命名变量列表
    */
   environmentConfiguration?: EnvironmentConfiguration;
@@ -114,6 +119,7 @@ export class Flow extends $dara.Model {
       createdAt: 'createdAt',
       definition: 'definition',
       description: 'description',
+      disablePublicNetworkAccess: 'disablePublicNetworkAccess',
       environmentConfiguration: 'environmentConfiguration',
       executionRoleArn: 'executionRoleArn',
       externalStorageLocation: 'externalStorageLocation',
@@ -133,6 +139,7 @@ export class Flow extends $dara.Model {
       createdAt: 'string',
       definition: 'string',
       description: 'string',
+      disablePublicNetworkAccess: 'boolean',
       environmentConfiguration: EnvironmentConfiguration,
       executionRoleArn: 'string',
       externalStorageLocation: 'string',

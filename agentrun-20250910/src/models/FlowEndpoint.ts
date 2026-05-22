@@ -22,6 +22,11 @@ export class FlowEndpoint extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * 是否禁用该端点的公网访问
+   */
+  disablePublicNetworkAccess?: boolean;
+  /**
+   * @remarks
    * 工作流端点的全局唯一资源名称
    * 
    * @example
@@ -80,6 +85,7 @@ export class FlowEndpoint extends $dara.Model {
     return {
       createdAt: 'createdAt',
       description: 'description',
+      disablePublicNetworkAccess: 'disablePublicNetworkAccess',
       flowEndpointArn: 'flowEndpointArn',
       flowEndpointId: 'flowEndpointId',
       flowEndpointName: 'flowEndpointName',
@@ -94,6 +100,7 @@ export class FlowEndpoint extends $dara.Model {
     return {
       createdAt: 'string',
       description: 'string',
+      disablePublicNetworkAccess: 'boolean',
       flowEndpointArn: 'string',
       flowEndpointId: 'string',
       flowEndpointName: 'string',

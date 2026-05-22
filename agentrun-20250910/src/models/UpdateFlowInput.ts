@@ -24,6 +24,11 @@ export class UpdateFlowInput extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * 是否禁用该工作流的公网访问，作为工作流级别的默认策略。当 FlowEndpoint 未指定时，将继承此值
+   */
+  disablePublicNetworkAccess?: boolean;
+  /**
+   * @remarks
    * 工作流的环境变量配置，包含一组命名变量列表
    */
   environmentConfiguration?: EnvironmentConfiguration;
@@ -81,6 +86,7 @@ export class UpdateFlowInput extends $dara.Model {
     return {
       definition: 'definition',
       description: 'description',
+      disablePublicNetworkAccess: 'disablePublicNetworkAccess',
       environmentConfiguration: 'environmentConfiguration',
       executionRoleArn: 'executionRoleArn',
       externalStorageLocation: 'externalStorageLocation',
@@ -96,6 +102,7 @@ export class UpdateFlowInput extends $dara.Model {
     return {
       definition: 'string',
       description: 'string',
+      disablePublicNetworkAccess: 'boolean',
       environmentConfiguration: EnvironmentConfiguration,
       executionRoleArn: 'string',
       externalStorageLocation: 'string',

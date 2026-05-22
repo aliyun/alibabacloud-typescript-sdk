@@ -99,7 +99,16 @@ export class AgentRuntime extends $dara.Model {
    * AI agent runtime for customer service automation
    */
   description?: string;
+  /**
+   * @remarks
+   * 是否禁用会话亲和性。默认为 false（即默认启用会话亲和），设置为 true 时关闭会话亲和
+   * 
+   * @example
+   * false
+   */
+  disableSessionAffinity?: boolean;
   diskSize?: number;
+  edition?: string;
   /**
    * @remarks
    * 是否启用会话隔离，启用后每个会话将在独立的环境中运行
@@ -269,7 +278,9 @@ export class AgentRuntime extends $dara.Model {
       createdAt: 'createdAt',
       credentialName: 'credentialName',
       description: 'description',
+      disableSessionAffinity: 'disableSessionAffinity',
       diskSize: 'diskSize',
+      edition: 'edition',
       enableSessionIsolation: 'enableSessionIsolation',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
@@ -306,7 +317,9 @@ export class AgentRuntime extends $dara.Model {
       createdAt: 'string',
       credentialName: 'string',
       description: 'string',
+      disableSessionAffinity: 'boolean',
       diskSize: 'number',
+      edition: 'string',
       enableSessionIsolation: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',

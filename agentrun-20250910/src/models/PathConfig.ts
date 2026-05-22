@@ -10,6 +10,22 @@ export class PathConfig extends $dara.Model {
   agentRuntimeEndpointName?: string;
   /**
    * @remarks
+   * 兼容协议，指定后端响应格式转换。仅当 resourceType 为 flow 时必填：native 表示 FnF 原生调用；openai、dify-workflow、dify-chatflow 为对应兼容 API。
+   * 
+   * @example
+   * native
+   */
+  compatibleProtocol?: string;
+  /**
+   * @remarks
+   * Flow 版本/别名（仅当 resourceType 为 flow 时有效，默认 Default）
+   * 
+   * @example
+   * Default
+   */
+  flowEndpointName?: string;
+  /**
+   * @remarks
    * 支持的方法有：HEAD, GET, POST, PUT, DELETE, PATCH, OPTIONS
    * 
    * @example
@@ -41,6 +57,8 @@ export class PathConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentRuntimeEndpointName: 'agentRuntimeEndpointName',
+      compatibleProtocol: 'compatibleProtocol',
+      flowEndpointName: 'flowEndpointName',
       methods: 'methods',
       path: 'path',
       removeBasePathOnForward: 'removeBasePathOnForward',
@@ -52,6 +70,8 @@ export class PathConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentRuntimeEndpointName: 'string',
+      compatibleProtocol: 'string',
+      flowEndpointName: 'string',
       methods: { 'type': 'array', 'itemType': 'string' },
       path: 'string',
       removeBasePathOnForward: 'boolean',

@@ -14,6 +14,11 @@ export class UpdateFlowEndpointInput extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * 是否禁用该端点的公网访问
+   */
+  disablePublicNetworkAccess?: boolean;
+  /**
+   * @remarks
    * 工作流端点的唯一标识名称
    * 
    * @example
@@ -39,6 +44,7 @@ export class UpdateFlowEndpointInput extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      disablePublicNetworkAccess: 'disablePublicNetworkAccess',
       flowEndpointName: 'flowEndpointName',
       routingConfiguration: 'routingConfiguration',
       targetVersion: 'targetVersion',
@@ -48,6 +54,7 @@ export class UpdateFlowEndpointInput extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      disablePublicNetworkAccess: 'boolean',
       flowEndpointName: 'string',
       routingConfiguration: { 'type': 'array', 'itemType': FlowEndpointRoutingConfig },
       targetVersion: 'string',
