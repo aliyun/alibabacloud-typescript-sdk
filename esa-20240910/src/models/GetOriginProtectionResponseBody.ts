@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetOriginProtectionResponseBodyCurrentIPWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The IP whitelist for origin protection used by the website, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The IP whitelist for origin protection used by the website, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +43,15 @@ export class GetOriginProtectionResponseBodyCurrentIPWhitelist extends $dara.Mod
 }
 
 export class GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -67,7 +83,15 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist exte
 }
 
 export class GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -99,7 +123,15 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist e
 }
 
 export class GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -131,8 +163,20 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist ex
 }
 
 export class GetOriginProtectionResponseBodyDiffIPWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The new IP whitelist for origin protection.
+   */
   addedIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist;
+  /**
+   * @remarks
+   * The IP whitelist for origin protection that remains unchanged.
+   */
   noChangeIpWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist;
+  /**
+   * @remarks
+   * The IP whitelist for origin protection that has been deleted.
+   */
   removedIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist;
   static names(): { [key: string]: string } {
     return {
@@ -169,7 +213,15 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelist extends $dara.Model 
 }
 
 export class GetOriginProtectionResponseBodyLatestIPWhitelist extends $dara.Model {
+  /**
+   * @remarks
+   * The latest IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The latest IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -744,16 +796,72 @@ export class GetOriginProtectionResponseBody extends $dara.Model {
    * off
    */
   autoConfirmIPList?: string;
+  /**
+   * @remarks
+   * The IP whitelist for origin protection used by the website.
+   */
   currentIPWhitelist?: GetOriginProtectionResponseBodyCurrentIPWhitelist;
+  /**
+   * @remarks
+   * The IP whitelist for origin protection that has been updated.
+   */
   diffIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelist;
+  /**
+   * @remarks
+   * The latest IP whitelist for origin protection.
+   */
   latestIPWhitelist?: GetOriginProtectionResponseBodyLatestIPWhitelist;
+  /**
+   * @remarks
+   * Indicates whether the IP whitelist for origin protection needs to be updated. If the currently used IP whitelist is different from the latest IP whitelist, it needs to be updated, and the value is true.
+   * 
+   * *   true: The update is required.
+   * *   false: No update is required.
+   * 
+   * @example
+   * true
+   */
   needUpdate?: boolean;
+  /**
+   * @remarks
+   * Indicates whether IP convergence is enabled.
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   originConverge?: string;
+  /**
+   * @remarks
+   * Indicates whether origin protection is enabled.
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   originProtection?: string;
   regionalCurrentIPWhitelist?: GetOriginProtectionResponseBodyRegionalCurrentIPWhitelist;
   regionalDiffIPWhitelist?: GetOriginProtectionResponseBodyRegionalDiffIPWhitelist;
   regionalLatestIPWhitelist?: GetOriginProtectionResponseBodyRegionalLatestIPWhitelist;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 123456****
+   */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {

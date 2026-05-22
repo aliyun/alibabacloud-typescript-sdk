@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CheckSiteNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The website name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * example.com
    */
   siteName?: string;
   static names(): { [key: string]: string } {

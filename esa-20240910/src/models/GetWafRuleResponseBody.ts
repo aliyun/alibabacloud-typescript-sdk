@@ -4,10 +4,14 @@ import { WafRuleConfig } from "./WafRuleConfig";
 
 
 export class GetWafRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Rule configuration.
+   */
   config?: WafRuleConfig;
   /**
    * @remarks
-   * 自定义响应页面ID
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
    * 
    * @example
    * 2000001
@@ -15,7 +19,7 @@ export class GetWafRuleResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * 自定义响应页面名称
+   * Rule name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +29,7 @@ export class GetWafRuleResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 自定义响应页面内容类型
+   * WAF operation phase.
    * 
    * This parameter is required.
    * 
@@ -34,22 +38,34 @@ export class GetWafRuleResponseBody extends $dara.Model {
    */
   phase?: string;
   /**
+   * @remarks
+   * The position of the rule in the rule set.
+   * 
    * @example
    * 1
    */
   position?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   rulesetId?: number;
   /**
+   * @remarks
+   * Rule status.
+   * 
    * @example
    * on
    */
   status?: string;
   /**
+   * @remarks
+   * The last modified time of the rule.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */

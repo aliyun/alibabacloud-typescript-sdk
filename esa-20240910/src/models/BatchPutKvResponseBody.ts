@@ -3,8 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchPutKvResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The keys that failed to be written.
+   */
   failKeys?: string[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The keys that were written.
+   */
   successKeys?: string[];
   static names(): { [key: string]: string } {
     return {

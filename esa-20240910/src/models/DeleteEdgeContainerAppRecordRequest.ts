@@ -5,14 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEdgeContainerAppRecordRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
    */
   appId?: string;
   /**
    * @remarks
+   * The associated domain name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * a.example.com
    */
   recordName?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 5407498413****
+   */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {

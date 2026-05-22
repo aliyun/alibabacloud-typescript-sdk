@@ -5,26 +5,71 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Attack type of the vulnerability protection event. Values:
+   * - SQL injection
+   * - Cross-site scripting
+   * - Code execution
+   * - CRLF
+   * - Local file inclusion
+   * - Remote file inclusion
+   * - Webshell
+   * - Cross-site request forgery
+   * - Other
+   * - SEMA
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 11
    */
   attackType?: number;
+  /**
+   * @remarks
+   * ID of the WAF rule.
+   * 
+   * @example
+   * 10000001
+   */
   id?: number;
   instanceId?: string;
+  /**
+   * @remarks
+   * Language type, which will be used to return the response. Value range:
+   * 
+   * - **en**: English.
+   * - **zh**: Chinese.
+   * 
+   * @example
+   * zh
+   */
   language?: string;
   managedRulesetShrink?: string;
   /**
+   * @remarks
+   * Query page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Query page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   protectionLevel?: number;
+  /**
+   * @remarks
+   * Query conditions.
+   */
   queryArgsShrink?: string;
   /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
    * @example
    * 1
    */

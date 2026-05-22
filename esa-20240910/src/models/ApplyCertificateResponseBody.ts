@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ApplyCertificateResponseBodyResult extends $dara.Model {
+  /**
+   * @remarks
+   * Certificate domain.
+   * 
+   * @example
+   * *.example.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * Certificate ID.
+   * 
+   * @example
+   * 30000478
+   */
   id?: string;
+  /**
+   * @remarks
+   * Status of the certificate application.
+   * 
+   * @example
+   * Applying
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,9 +53,34 @@ export class ApplyCertificateResponseBodyResult extends $dara.Model {
 }
 
 export class ApplyCertificateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 156A6B-677B1A-4297B7-9187B7-2B44792
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * List of free certificate application details.
+   */
   result?: ApplyCertificateResponseBodyResult[];
+  /**
+   * @remarks
+   * Site name.
+   * 
+   * @example
+   * example.com
+   */
   siteName?: string;
+  /**
+   * @remarks
+   * Number of certificates applied for, which is the same as the number of input domains.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

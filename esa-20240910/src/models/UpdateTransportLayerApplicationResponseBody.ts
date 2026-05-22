@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateTransportLayerApplicationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 9e5448c7-edaf-49aa-9887-0fcd0832306c
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

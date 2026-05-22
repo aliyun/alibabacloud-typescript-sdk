@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class BatchGetExpressionFieldsResponseBodyFields extends $dara.Model {
+  /**
+   * @remarks
+   * List of match fields for a single expression.
+   */
   fields?: string[];
+  /**
+   * @remarks
+   * ID of the expression, corresponding to the ID in the input parameters.
+   * 
+   * @example
+   * 1
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +43,15 @@ export class BatchGetExpressionFieldsResponseBodyFields extends $dara.Model {
 }
 
 export class BatchGetExpressionFieldsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of match fields.
+   */
   fields?: BatchGetExpressionFieldsResponseBodyFields[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */

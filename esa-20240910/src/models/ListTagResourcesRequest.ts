@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * 标签键
+   * The tag key.
+   * 
+   * @example
+   * env
    */
   key?: string;
   /**
    * @remarks
-   * 标签值
+   * The tag value.
+   * 
+   * @example
+   * value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -37,26 +43,54 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 }
 
 export class ListTagResourcesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The maximum number of tags to return.
+   * 
+   * @example
+   * 20
+   */
   maxItem?: number;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * >  This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
+   * @example
+   * AAAAAZjtYxxxxxxxx
+   */
   nextToken?: string;
   /**
    * @remarks
-   * 要创建并绑定标签的资源所在的地域ID。
+   * The ID of the region where the resources reside.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * 资源ID,最多 50个子项
+   * The website ID.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * site
    */
   resourceType?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * A list of tags. You can enter up to 20 tags.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {

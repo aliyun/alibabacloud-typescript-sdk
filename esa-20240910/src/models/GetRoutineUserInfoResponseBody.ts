@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetRoutineUserInfoResponseBodyRoutines extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the routine was created.
+   * 
+   * @example
+   * 2024-03-11T01:23:02.883361712Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The routine description, which is Base64-encoded.
+   * 
+   * @example
+   * ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg
+   */
   description?: string;
+  /**
+   * @remarks
+   * The routine name.
+   * 
+   * @example
+   * test-routine1
+   */
   routineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,8 +53,23 @@ export class GetRoutineUserInfoResponseBodyRoutines extends $dara.Model {
 }
 
 export class GetRoutineUserInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The routines.
+   */
   routines?: GetRoutineUserInfoResponseBodyRoutines[];
+  /**
+   * @remarks
+   * The subdomains.
+   */
   subdomains?: string[];
   static names(): { [key: string]: string } {
     return {

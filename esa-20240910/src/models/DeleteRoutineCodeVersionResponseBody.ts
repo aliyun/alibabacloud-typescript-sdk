@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteRoutineCodeVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
+   * @example
+   * OK
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

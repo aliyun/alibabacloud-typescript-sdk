@@ -6,8 +6,15 @@ export class GetAutomaticFrequencyControlConfigRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123456****
    */
   siteId?: number;
+  /**
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {

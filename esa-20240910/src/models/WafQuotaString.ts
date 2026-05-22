@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WafQuotaString extends $dara.Model {
+  /**
+   * @example
+   * ^\\d+$
+   */
   regexp?: string;
   static names(): { [key: string]: string } {
     return {

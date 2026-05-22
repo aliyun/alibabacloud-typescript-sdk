@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateSiteCustomLogResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 073bd613-6e72-4461-b6bc-19326dfc6a9c
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

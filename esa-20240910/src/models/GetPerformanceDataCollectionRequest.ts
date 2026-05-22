@@ -6,6 +6,9 @@ export class GetPerformanceDataCollectionRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 123456****
    */
   siteId?: number;
   static names(): { [key: string]: string } {

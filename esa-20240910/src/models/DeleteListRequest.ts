@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteListRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

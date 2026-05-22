@@ -3,25 +3,41 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateUserWafRulesetShrinkRequest extends $dara.Model {
+  /**
+   * @example
+   * this is a test ruleset.
+   */
   description?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * ip.src == 1.1.1.1
    */
   expression?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * esa-site-ads11w
    */
   instanceId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * example
    */
   name?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * http_custom
    */
   phase?: string;
   rulesShrink?: string;
@@ -29,6 +45,9 @@ export class CreateUserWafRulesetShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * on
    */
   status?: string;
   static names(): { [key: string]: string } {

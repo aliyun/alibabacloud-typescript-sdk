@@ -6,11 +6,17 @@ export class UpdatePerformanceDataCollectionRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * on
    */
   enable?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 34003500310****
    */
   siteId?: number;
   static names(): { [key: string]: string } {

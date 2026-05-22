@@ -5,22 +5,58 @@ import { WafBatchRuleShared } from "./WafBatchRuleShared";
 
 
 export class UpdateUserWafRulesetRequest extends $dara.Model {
+  /**
+   * @example
+   * example
+   */
   description?: string;
+  /**
+   * @example
+   * ip.src == 1.1.1.1
+   */
   expression?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 10000001
    */
   id?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * esa-xxxxxxx
    */
   instanceId?: string;
+  /**
+   * @example
+   * example
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   position?: number;
+  /**
+   * @example
+   * [
+   *   {
+   *     "Id": 20000001,
+   *     "Name": "rule1",
+   *     "Expression": "ip.src eq 1.1.1.1",
+   *     "Action": "deny"
+   *   }
+   */
   rules?: WafRuleConfig[];
   shared?: WafBatchRuleShared;
+  /**
+   * @example
+   * on
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

@@ -3,11 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The prefetched content.
+   * 
+   * @example
+   * http://a.com/1.jpg?b=2
+   */
   content?: string;
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 2023-03-28 14:28:57
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The error message returned upon a prefetch task failure. Valid values:
+   * 
+   * *   **Internal Error**
+   * *   **Origin Timeout**
+   * *   **Origin Return StatusCode 5XX**
+   * 
+   * @example
+   * Internal Error
+   */
   description?: string;
+  /**
+   * @remarks
+   * The progress of the task, in percentage.
+   * 
+   * @example
+   * 100%
+   */
   process?: string;
+  /**
+   * @remarks
+   * The task status.
+   * 
+   * *   **Complete**: The task is complete.
+   * *   **Refreshing**: The task is in progress.
+   * *   **Failed**: The task failed.
+   * 
+   * @example
+   * Complete
+   */
   status?: string;
+  /**
+   * @remarks
+   * The ID of the queried task.
+   * 
+   * @example
+   * 1597854579687428
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,10 +91,42 @@ export class DescribePreloadTasksResponseBodyTasks extends $dara.Model {
 }
 
 export class DescribePreloadTasksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasks?: DescribePreloadTasksResponseBodyTasks[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 83
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

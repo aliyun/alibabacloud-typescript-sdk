@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRatePlanPriceRequest extends $dara.Model {
   amount?: number;
+  /**
+   * @example
+   * 1
+   */
   period?: number;
   planName?: string;
   static names(): { [key: string]: string } {

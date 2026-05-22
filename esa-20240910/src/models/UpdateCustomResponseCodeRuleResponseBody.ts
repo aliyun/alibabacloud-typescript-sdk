@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCustomResponseCodeRuleResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C7518056-E30F-55F8-97DD-004D8030703B
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

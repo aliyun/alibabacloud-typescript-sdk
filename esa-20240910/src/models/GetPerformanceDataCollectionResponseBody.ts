@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPerformanceDataCollectionResponseBody extends $dara.Model {
+  /**
+   * @example
+   * on
+   */
   enable?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

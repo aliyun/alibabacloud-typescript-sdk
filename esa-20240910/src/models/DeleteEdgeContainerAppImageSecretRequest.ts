@@ -5,12 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEdgeContainerAppImageSecretRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID, which can be obtained using the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) API.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
    */
   appId?: string;
   /**
    * @remarks
+   * Name of the image secret.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * reg-123*****
    */
   name?: string;
   static names(): { [key: string]: string } {

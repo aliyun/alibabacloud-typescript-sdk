@@ -3,16 +3,43 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCustomHostnamesRequest extends $dara.Model {
+  /**
+   * @example
+   * custom.site.com
+   */
   hostname?: string;
+  /**
+   * @example
+   * exact
+   */
   nameMatchType?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1234567890123
+   */
   recordId?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 744571165985008
    */
   siteId?: number;
+  /**
+   * @example
+   * active
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

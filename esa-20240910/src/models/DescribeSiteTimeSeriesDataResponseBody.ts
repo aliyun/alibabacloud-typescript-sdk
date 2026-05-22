@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSiteTimeSeriesDataResponseBodyDataDetailData extends $dara.Model {
+  /**
+   * @remarks
+   * Start timestamp of the time slice.
+   * 
+   * @example
+   * 2023-04-08T16:00:00Z
+   */
   timeStamp?: string;
+  /**
+   * @remarks
+   * Value.
+   * 
+   * @example
+   * 123
+   */
   value?: any;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +43,34 @@ export class DescribeSiteTimeSeriesDataResponseBodyDataDetailData extends $dara.
 }
 
 export class DescribeSiteTimeSeriesDataResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data.
+   */
   detailData?: DescribeSiteTimeSeriesDataResponseBodyDataDetailData[];
+  /**
+   * @remarks
+   * Query dimension.
+   * 
+   * @example
+   * ALL
+   */
   dimensionName?: string;
+  /**
+   * @remarks
+   * Query dimension value.
+   * 
+   * @example
+   * ALL
+   */
   dimensionValue?: string;
+  /**
+   * @remarks
+   * Query metric value.
+   * 
+   * @example
+   * Traffic
+   */
   fieldName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,10 +103,45 @@ export class DescribeSiteTimeSeriesDataResponseBodyData extends $dara.Model {
 }
 
 export class DescribeSiteTimeSeriesDataResponseBodySummarizedData extends $dara.Model {
+  /**
+   * @remarks
+   * The aggregation method used.
+   * 
+   * @example
+   * sum
+   */
   aggMethod?: string;
+  /**
+   * @remarks
+   * The dimension of the aggregated data being queried.
+   * 
+   * @example
+   * ALL
+   */
   dimensionName?: string;
+  /**
+   * @remarks
+   * The value of the aggregated dimension being queried.
+   * 
+   * @example
+   * ALL
+   */
   dimensionValue?: string;
+  /**
+   * @remarks
+   * The value of the aggregated metric being queried.
+   * 
+   * @example
+   * Traffic
+   */
   fieldName?: string;
+  /**
+   * @remarks
+   * The aggregated value.
+   * 
+   * @example
+   * 12345
+   */
   value?: any;
   static names(): { [key: string]: string } {
     return {
@@ -99,12 +173,59 @@ export class DescribeSiteTimeSeriesDataResponseBodySummarizedData extends $dara.
 }
 
 export class DescribeSiteTimeSeriesDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: DescribeSiteTimeSeriesDataResponseBodyData[];
+  /**
+   * @remarks
+   * The end time for fetching the data.
+   * 
+   * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * 
+   * @example
+   * 2023-04-09T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The granularity of the data, in seconds.
+   * 
+   * @example
+   * 300
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The sampling rate, in %.
+   * 
+   * @example
+   * 100
+   */
   samplingRate?: number;
+  /**
+   * @remarks
+   * The start time for fetching the data.
+   * 
+   * The date format follows ISO8601 notation and uses UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * 
+   * @example
+   * 2023-04-08T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * Aggregated query data.
+   */
   summarizedData?: DescribeSiteTimeSeriesDataResponseBodySummarizedData[];
   static names(): { [key: string]: string } {
     return {

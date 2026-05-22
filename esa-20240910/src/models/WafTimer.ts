@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WafTimerPeriods extends $dara.Model {
+  /**
+   * @example
+   * 2025-01-01T01:00:00Z
+   */
   end?: string;
+  /**
+   * @example
+   * 2025-01-01T00:00:00Z
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +37,15 @@ export class WafTimerPeriods extends $dara.Model {
 }
 
 export class WafTimerWeeklyPeriodsDailyPeriods extends $dara.Model {
+  /**
+   * @example
+   * 01:00:00
+   */
   end?: string;
+  /**
+   * @example
+   * 00:00:00
+   */
   start?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,6 +72,10 @@ export class WafTimerWeeklyPeriodsDailyPeriods extends $dara.Model {
 
 export class WafTimerWeeklyPeriods extends $dara.Model {
   dailyPeriods?: WafTimerWeeklyPeriodsDailyPeriods[];
+  /**
+   * @example
+   * 1
+   */
   days?: string;
   static names(): { [key: string]: string } {
     return {
@@ -85,8 +105,16 @@ export class WafTimerWeeklyPeriods extends $dara.Model {
 
 export class WafTimer extends $dara.Model {
   periods?: WafTimerPeriods[];
+  /**
+   * @example
+   * permanent
+   */
   scopes?: string;
   weeklyPeriods?: WafTimerWeeklyPeriods[];
+  /**
+   * @example
+   * 8
+   */
   zone?: number;
   static names(): { [key: string]: string } {
     return {

@@ -94,6 +94,10 @@ export class ListPostpaidRatePlanInstancesResponseBody extends $dara.Model {
   instanceInfo?: ListPostpaidRatePlanInstancesResponseBodyInstanceInfo[];
   pageNumber?: number;
   pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   */
   requestId?: string;
   totalCount?: number;
   totalPage?: number;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 自定义响应页面描述
+   * The description of the custom list.
    * 
    * @example
    * a custom list
@@ -13,21 +13,28 @@ export class GetListResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 自定义响应页面ID
+   * The ID of the custom list.[](~~2850217~~)
    * 
    * @example
    * 40000001
    */
   id?: number;
+  /**
+   * @remarks
+   * The items in the custom list, which are displayed as an array.
+   */
   items?: string[];
   /**
+   * @remarks
+   * The type of the custom list.
+   * 
    * @example
    * ip
    */
   kind?: string;
   /**
    * @remarks
-   * 自定义响应页面名称
+   * The name of the custom list.
    * 
    * This parameter is required.
    * 
@@ -36,11 +43,17 @@ export class GetListResponseBody extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   /**
+   * @remarks
+   * The time when the custom list was last modified.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */

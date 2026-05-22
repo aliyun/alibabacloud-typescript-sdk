@@ -67,13 +67,34 @@ export class ListWafManagedRulesRequestManagedRuleset extends $dara.Model {
 }
 
 export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
+  /**
+   * @remarks
+   * Action.
+   * 
+   * @example
+   * deny
+   */
   action?: string;
   /**
+   * @remarks
+   * Fuzzy search for rule ID or rule name.
+   * 
    * @example
    * example
    */
   idNameLike?: string;
+  /**
+   * @remarks
+   * List of rule protection levels.
+   */
   protectionLevels?: number[];
+  /**
+   * @remarks
+   * Status.
+   * 
+   * @example
+   * on
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,26 +129,71 @@ export class ListWafManagedRulesRequestQueryArgs extends $dara.Model {
 export class ListWafManagedRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * Attack type of the vulnerability protection event. Values:
+   * - SQL injection
+   * - Cross-site scripting
+   * - Code execution
+   * - CRLF
+   * - Local file inclusion
+   * - Remote file inclusion
+   * - Webshell
+   * - Cross-site request forgery
+   * - Other
+   * - SEMA
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 11
    */
   attackType?: number;
+  /**
+   * @remarks
+   * ID of the WAF rule.
+   * 
+   * @example
+   * 10000001
+   */
   id?: number;
   instanceId?: string;
+  /**
+   * @remarks
+   * Language type, which will be used to return the response. Value range:
+   * 
+   * - **en**: English.
+   * - **zh**: Chinese.
+   * 
+   * @example
+   * zh
+   */
   language?: string;
   managedRuleset?: ListWafManagedRulesRequestManagedRuleset;
   /**
+   * @remarks
+   * Query page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Query page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   protectionLevel?: number;
+  /**
+   * @remarks
+   * Query conditions.
+   */
   queryArgs?: ListWafManagedRulesRequestQueryArgs;
   /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
    * @example
    * 1
    */

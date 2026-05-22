@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEdgeContainerStagingDeployStatusRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
+   * @example
+   * GetEdgeContainerStagingDeployStatus
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {

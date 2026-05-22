@@ -3,10 +3,48 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUserDeliveryTasksResponseBodyTasks extends $dara.Model {
+  /**
+   * @remarks
+   * The log category.
+   * 
+   * @example
+   * dcdn_log_er
+   */
   businessType?: string;
+  /**
+   * @remarks
+   * The data center. Valid values:
+   * 
+   * 1.  cn: the Chinese mainland.
+   * 2.  sg: outside the Chinese mainland.
+   * 
+   * @example
+   * cn
+   */
   dataCenter?: string;
+  /**
+   * @remarks
+   * The delivery destination.
+   * 
+   * @example
+   * oss
+   */
   deliveryType?: string;
+  /**
+   * @remarks
+   * The status of the delivery task.
+   * 
+   * @example
+   * online
+   */
   status?: string;
+  /**
+   * @remarks
+   * The name of the delivery task.
+   * 
+   * @example
+   * testoss11
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38,10 +76,42 @@ export class ListUserDeliveryTasksResponseBodyTasks extends $dara.Model {
 }
 
 export class ListUserDeliveryTasksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The page number returned.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1f94c47f-3a1a-4f69-8d6c-bfeee1b49aab
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The delivery tasks.
+   */
   tasks?: ListUserDeliveryTasksResponseBodyTasks[];
+  /**
+   * @remarks
+   * The total number of delivery tasks.
+   * 
+   * @example
+   * 68
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

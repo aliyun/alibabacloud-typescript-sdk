@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HttpDeliveryQueryParamValue extends $dara.Model {
+  /**
+   * @remarks
+   * The static variable.
+   * 
+   * @example
+   * alicdn
+   */
   staticValue?: string;
   static names(): { [key: string]: string } {
     return {

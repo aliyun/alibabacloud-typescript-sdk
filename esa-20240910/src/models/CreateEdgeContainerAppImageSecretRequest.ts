@@ -5,22 +5,42 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEdgeContainerAppImageSecretRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID, which can be obtained using the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) interface.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * app-88068867578379****
    */
   appId?: string;
   /**
    * @remarks
+   * Image repository password.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ***
    */
   password?: string;
   /**
    * @remarks
+   * Image repository address.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cr-cn-shanghai.edas.aliyuncs.com
    */
   registry?: string;
   /**
    * @remarks
+   * Image repository username.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * admin
    */
   username?: string;
   static names(): { [key: string]: string } {

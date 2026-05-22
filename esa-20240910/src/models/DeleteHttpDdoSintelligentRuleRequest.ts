@@ -5,17 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHttpDDoSIntelligentRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * Record name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * www.example.com
    */
   recordName?: string;
   /**
    * @remarks
+   * Rule ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 20928021
    */
   ruleId?: number;
   /**
    * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 123456****
    */
   siteId?: number;
   static names(): { [key: string]: string } {

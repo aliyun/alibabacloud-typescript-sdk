@@ -3,29 +3,58 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWafRulesRequestQueryArgs extends $dara.Model {
+  /**
+   * @remarks
+   * Fuzzy search for values in IP access control.
+   * 
+   * @example
+   * 10.0.0.1
+   */
   configValueLike?: string;
+  /**
+   * @remarks
+   * Whether to reverse the sorting result.
+   * 
+   * @example
+   * true
+   */
   desc?: boolean;
   /**
+   * @remarks
+   * Exact query for WAF rule ID.
+   * 
    * @example
    * 20000001
    */
   id?: number;
   /**
+   * @remarks
+   * Fuzzy query for WAF rule ID or name.
+   * 
    * @example
    * example
    */
   idNameLike?: string;
   /**
+   * @remarks
+   * Fuzzy query for WAF rule name.
+   * 
    * @example
    * example
    */
   nameLike?: string;
   /**
+   * @remarks
+   * Sort the returned list by the specified column.
+   * 
    * @example
    * position
    */
   orderBy?: string;
   /**
+   * @remarks
+   * Exact query for WAF rule status.
+   * 
    * @example
    * on
    */
@@ -65,33 +94,60 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
 
 export class ListWafRulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Query page number, used for pagination.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Query page size, used for pagination.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * WAF rule type. Values:
+   * 
+   * - http_anti_scan: Scan protection
+   * - http_bot: Bots
+   * 
    * This parameter is required.
    * 
    * @example
    * http_custom
    */
   phase?: string;
+  /**
+   * @remarks
+   * Query filter conditions.
+   * 
+   * @example
+   * http_custom
+   */
   queryArgs?: ListWafRulesRequestQueryArgs;
   rulesetId?: number;
   /**
    * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {

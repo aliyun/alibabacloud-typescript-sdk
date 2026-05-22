@@ -215,6 +215,13 @@ export class DescribeRatePlanPriceResponseBodyPriceModel extends $dara.Model {
 
 export class DescribeRatePlanPriceResponseBody extends $dara.Model {
   priceModel?: DescribeRatePlanPriceResponseBodyPriceModel;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 50423A7F-A83D-1E24-B80E-86DD25790759
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

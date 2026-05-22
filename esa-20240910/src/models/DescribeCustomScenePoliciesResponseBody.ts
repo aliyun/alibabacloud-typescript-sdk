@@ -3,13 +3,70 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the policy expires.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-03-06T16:00:00Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The name of the scenario-specific policy.
+   * 
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @remarks
+   * The IDs of websites that are associated with the policy.
+   */
   objects?: string[];
+  /**
+   * @remarks
+   * The policy ID.
+   * 
+   * @example
+   * 1234****
+   */
   policyId?: number;
   siteIds?: string;
+  /**
+   * @remarks
+   * The time when the policy takes effect.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-03-04T16:00:00Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * *   **Disabled**
+   * *   **Pending**
+   * *   **Running**
+   * *   **Expired**
+   * 
+   * @example
+   * Expired
+   */
   status?: string;
+  /**
+   * @remarks
+   * The name of the policy template. Valid value:
+   * 
+   * *   **promotion**: major events.
+   * 
+   * @example
+   * promotion
+   */
   template?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50,11 +107,50 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $dara.Mod
 }
 
 export class DescribeCustomScenePoliciesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The scenario-specific policies.
+   */
   dataModule?: DescribeCustomScenePoliciesResponseBodyDataModule[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The policy quota.
+   * 
+   * @example
+   * 10
+   */
   quota?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 85H66C7B-671A-4297-9187-2C4477247A74
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

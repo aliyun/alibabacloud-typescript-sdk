@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteEdgeContainerAppRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
+   * @example
+   * app-1232321454***
+   */
   appId?: string;
   static names(): { [key: string]: string } {
     return {

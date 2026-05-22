@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RebuildEdgeContainerAppStagingEnvResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

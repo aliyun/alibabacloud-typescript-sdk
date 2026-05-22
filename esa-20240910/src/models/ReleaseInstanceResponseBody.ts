@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ReleaseInstanceResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 04F0F334-1335-****-A1D7-6C044FE73368
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

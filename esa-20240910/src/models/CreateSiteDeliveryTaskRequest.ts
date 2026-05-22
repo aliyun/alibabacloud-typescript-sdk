@@ -5,8 +5,31 @@ import { HttpDeliveryQueryParamValue } from "./HttpDeliveryQueryParamValue";
 
 
 export class CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam extends $dara.Model {
+  /**
+   * @remarks
+   * The validity period of the signature.
+   * 
+   * >  The value must be greater than 0. We recommend that you specify a value that is greater than 300.
+   * 
+   * @example
+   * 300
+   */
   expiredTime?: number;
+  /**
+   * @remarks
+   * The private key.
+   * 
+   * @example
+   * ***
+   */
   privateKey?: string;
+  /**
+   * @remarks
+   * The URI path for server authentication.
+   * 
+   * @example
+   * v1/log/upload
+   */
   urlPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34,20 +57,95 @@ export class CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam extends 
 }
 
 export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The compression method. By default, data is not compressed.
+   * 
+   * @example
+   * gzip
+   */
   compress?: string;
+  /**
+   * @remarks
+   * The address of the HTTP server.
+   * 
+   * @example
+   * http://xxx.aliyun.com/v1/log/upload
+   */
   destUrl?: string;
+  /**
+   * @remarks
+   * The custom headers.
+   */
   headerParam?: { [key: string]: HttpDeliveryHeaderParamValue };
   lastLogSplit?: boolean;
+  /**
+   * @remarks
+   * The prefix of the log delivery package.
+   * 
+   * @example
+   * cdnVersion:1.0
+   */
   logBodyPrefix?: string;
+  /**
+   * @remarks
+   * The suffix of the log delivery package.
+   * 
+   * @example
+   * cdnVersion:1.0
+   */
   logBodySuffix?: string;
   logSplit?: boolean;
   logSplitWords?: string;
+  /**
+   * @remarks
+   * The maximum size of data for each delivery. Unit: MB.
+   * 
+   * @example
+   * 5
+   */
   maxBatchMB?: number;
+  /**
+   * @remarks
+   * The maximum number of entries for each delivery.
+   * 
+   * @example
+   * 1000
+   */
   maxBatchSize?: number;
+  /**
+   * @remarks
+   * The maximum number of retries.
+   * 
+   * @example
+   * 3
+   */
   maxRetry?: number;
+  /**
+   * @remarks
+   * The custom query parameters.
+   */
   queryParam?: { [key: string]: HttpDeliveryQueryParamValue };
+  /**
+   * @remarks
+   * Specifies whether to use server authentication.
+   * 
+   * @example
+   * true
+   */
   standardAuthOn?: boolean;
+  /**
+   * @remarks
+   * The authentication configurations.
+   */
   standardAuthParam?: CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam;
+  /**
+   * @remarks
+   * The timeout period. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   transformTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -108,13 +206,66 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $dara.Model {
 }
 
 export class CreateSiteDeliveryTaskRequestKafkaDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The load balancing method.
+   * 
+   * @example
+   * kafka.LeastBytes
+   */
   balancer?: string;
+  /**
+   * @remarks
+   * The brokers.
+   */
   brokers?: string[];
+  /**
+   * @remarks
+   * The compression method.
+   * 
+   * @example
+   * gzip
+   */
   compress?: string;
+  /**
+   * @remarks
+   * The encryption method.
+   * 
+   * @example
+   * plain
+   */
   machanismType?: string;
+  /**
+   * @remarks
+   * The password.
+   * 
+   * @example
+   * ***
+   */
   password?: string;
+  /**
+   * @remarks
+   * The topic.
+   * 
+   * @example
+   * dqc_test2
+   */
   topic?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable authentication.
+   * 
+   * @example
+   * true
+   */
   userAuth?: boolean;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xxx
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -155,9 +306,37 @@ export class CreateSiteDeliveryTaskRequestKafkaDelivery extends $dara.Model {
 }
 
 export class CreateSiteDeliveryTaskRequestOssDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud account.
+   * 
+   * @example
+   * 1234***
+   */
   aliuid?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * test_rlog
+   */
   bucketName?: string;
+  /**
+   * @remarks
+   * The prefix of the path in which you want to store logs.
+   * 
+   * @example
+   * logriver-test/log
+   */
   prefixPath?: string;
+  /**
+   * @remarks
+   * The region in which the bucket is located.
+   * 
+   * @example
+   * cn-beijing
+   */
   region?: string;
   static names(): { [key: string]: string } {
     return {
@@ -187,12 +366,61 @@ export class CreateSiteDeliveryTaskRequestOssDelivery extends $dara.Model {
 }
 
 export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
+  /**
+   * @remarks
+   * The access key ID of your Amazon S3 account.
+   * 
+   * @example
+   * yourAccessKeyID
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The directory in the bucket.
+   * 
+   * @example
+   * logriver-test/log
+   */
   bucketPath?: string;
+  /**
+   * @remarks
+   * The endpoint. This parameter is required when the S3Cmpt parameter is set to true.
+   * 
+   * @example
+   * https://s3.oss-cn-hangzhou.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The prefix of the path in which you want to store logs.
+   * 
+   * @example
+   * logriver-test/log
+   */
   prefixPath?: string;
+  /**
+   * @remarks
+   * The region ID of the service.
+   * 
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @remarks
+   * Specifies whether the service is compatible with Amazon S3.
+   * 
+   * @example
+   * true
+   */
   s3Cmpt?: boolean;
+  /**
+   * @remarks
+   * The secret access key of your Amazon S3 account.
+   * 
+   * @example
+   * LDSIKh***
+   */
   secretKey?: string;
   serverSideEncryption?: boolean;
   vertifyType?: string;
@@ -234,8 +462,29 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $dara.Model {
 }
 
 export class CreateSiteDeliveryTaskRequestSlsDelivery extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Logstore.
+   * 
+   * @example
+   * accesslog-test
+   */
   SLSLogStore?: string;
+  /**
+   * @remarks
+   * The name of the SLS project.
+   * 
+   * @example
+   * dcdn-test20240417
+   */
   SLSProject?: string;
+  /**
+   * @remarks
+   * The region in which the SLS project resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   SLSRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -265,35 +514,109 @@ export class CreateSiteDeliveryTaskRequestSlsDelivery extends $dara.Model {
 export class CreateSiteDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The log category. Valid values:
+   * 
+   * *   **dcdn_log_access_l1** (default): access logs.
+   * *   **dcdn_log_er**: Edge Routine logs.
+   * *   **dcdn_log_waf**: firewall logs.
+   * *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * dcdn_log_access_l1
    */
   businessType?: string;
+  /**
+   * @remarks
+   * The data center. Valid values:
+   * 
+   * *   cn: the Chinese mainland.
+   * *   oversea: outside the Chinese mainland.
+   * 
+   * @example
+   * cn
+   */
   dataCenter?: string;
   /**
    * @remarks
+   * The destination of the delivery. Valid values:
+   * 
+   * *   sls: Alibaba Cloud Simple Log Service (SLS).
+   * *   http: HTTP server.
+   * *   aws3: Amazon Simple Storage Service (S3).
+   * *   oss: Alibaba Cloud Object Storage Service (OSS).
+   * *   kafka: Kafka.
+   * *   aws3cmpt: S3-compatible storage service.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * sls
    */
   deliveryType?: string;
+  /**
+   * @remarks
+   * The discard rate. Default value: 0.
+   * 
+   * @example
+   * 0.0
+   */
   discardRate?: number;
   /**
    * @remarks
+   * The log fields, which are separated by commas (,).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * user_agent,ip_adress,ip_port
    */
   fieldName?: string;
   filterVer?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to an HTTP server.
+   */
   httpDelivery?: CreateSiteDeliveryTaskRequestHttpDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery to Kafka.
+   */
   kafkaDelivery?: CreateSiteDeliveryTaskRequestKafkaDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery to OSS.
+   */
   ossDelivery?: CreateSiteDeliveryTaskRequestOssDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery to Amazon S3 or an S3-compatible service.
+   */
   s3Delivery?: CreateSiteDeliveryTaskRequestS3Delivery;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 12312312112***
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The configurations for delivery to SLS.
+   */
   slsDelivery?: CreateSiteDeliveryTaskRequestSlsDelivery;
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * dcdn-test-task
    */
   taskName?: string;
   static names(): { [key: string]: string } {

@@ -5,17 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineRelatedRecordRequest extends $dara.Model {
   /**
    * @remarks
+   * The routine name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * CreateRoutineRelatedRecord
    */
   name?: string;
   /**
    * @remarks
+   * The record name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-record-1.example.com
    */
   recordName?: string;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 54362329990032
    */
   siteId?: number;
   static names(): { [key: string]: string } {

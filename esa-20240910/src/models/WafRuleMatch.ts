@@ -5,9 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class WafRuleMatch extends $dara.Model {
   convertToLower?: boolean;
   criteria?: WafRuleMatch[];
+  /**
+   * @example
+   * and
+   */
   logic?: string;
+  /**
+   * @example
+   * eq
+   */
   matchOperator?: string;
+  /**
+   * @example
+   * ip.src
+   */
   matchType?: string;
+  /**
+   * @example
+   * 1.1.1.1
+   */
   matchValue?: any;
   negate?: boolean;
   static names(): { [key: string]: string } {

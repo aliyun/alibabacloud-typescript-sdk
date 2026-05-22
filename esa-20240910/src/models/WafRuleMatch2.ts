@@ -3,10 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class WafRuleMatch2CriteriaCriteriaCriteria extends $dara.Model {
+  /**
+   * @remarks
+   * Transforms input to lowercase to ensure case-insensitivity.
+   */
   convertToLower?: boolean;
+  /**
+   * @remarks
+   * The matching operator.
+   * 
+   * @example
+   * eq
+   */
   matchOperator?: string;
+  /**
+   * @remarks
+   * The matching type.
+   * 
+   * @example
+   * ip.src
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * The value of the matching condition.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   matchValue?: any;
+  /**
+   * @remarks
+   * Converts a value or condition to its opposite.
+   */
   negate?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38,12 +67,52 @@ export class WafRuleMatch2CriteriaCriteriaCriteria extends $dara.Model {
 }
 
 export class WafRuleMatch2CriteriaCriteria extends $dara.Model {
+  /**
+   * @remarks
+   * Transforms input to lowercase to ensure case-insensitivity.
+   */
   convertToLower?: boolean;
+  /**
+   * @remarks
+   * The details of logical databases.
+   */
   criteria?: WafRuleMatch2CriteriaCriteriaCriteria[];
+  /**
+   * @remarks
+   * The logical judgment.
+   * 
+   * @example
+   * and
+   */
   logic?: string;
+  /**
+   * @remarks
+   * The matching operator.
+   * 
+   * @example
+   * eq
+   */
   matchOperator?: string;
+  /**
+   * @remarks
+   * The matching type.
+   * 
+   * @example
+   * ip.src
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * The value of the matching condition.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   matchValue?: any;
+  /**
+   * @remarks
+   * Converts a value or condition to its opposite.
+   */
   negate?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -82,12 +151,52 @@ export class WafRuleMatch2CriteriaCriteria extends $dara.Model {
 }
 
 export class WafRuleMatch2Criteria extends $dara.Model {
+  /**
+   * @remarks
+   * Transforms input to lowercase to ensure case-insensitivity.
+   */
   convertToLower?: boolean;
+  /**
+   * @remarks
+   * The details of logical databases.
+   */
   criteria?: WafRuleMatch2CriteriaCriteria[];
+  /**
+   * @remarks
+   * The logical judgment.
+   * 
+   * @example
+   * and
+   */
   logic?: string;
+  /**
+   * @remarks
+   * The matching operator.
+   * 
+   * @example
+   * eq
+   */
   matchOperator?: string;
+  /**
+   * @remarks
+   * The matching type.
+   * 
+   * @example
+   * ip.src
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * The value of the matching condition.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   matchValue?: any;
+  /**
+   * @remarks
+   * Converts a value or condition to its opposite.
+   */
   negate?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -126,12 +235,52 @@ export class WafRuleMatch2Criteria extends $dara.Model {
 }
 
 export class WafRuleMatch2 extends $dara.Model {
+  /**
+   * @remarks
+   * Transforms input to lowercase to ensure case-insensitivity.
+   */
   convertToLower?: boolean;
+  /**
+   * @remarks
+   * The details of logical databases.
+   */
   criteria?: WafRuleMatch2Criteria[];
+  /**
+   * @remarks
+   * The logical judgment.
+   * 
+   * @example
+   * and
+   */
   logic?: string;
+  /**
+   * @remarks
+   * The matching operator.
+   * 
+   * @example
+   * eq
+   */
   matchOperator?: string;
+  /**
+   * @remarks
+   * The matching type.
+   * 
+   * @example
+   * ip.src
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * The value of the matching condition.
+   * 
+   * @example
+   * 1.1.1.1
+   */
   matchValue?: any;
+  /**
+   * @remarks
+   * Converts a value or condition to its opposite.
+   */
   negate?: boolean;
   static names(): { [key: string]: string } {
     return {

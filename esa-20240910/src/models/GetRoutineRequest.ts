@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineRequest extends $dara.Model {
   /**
    * @remarks
+   * The routine name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * GetRoutine
    */
   name?: string;
   static names(): { [key: string]: string } {

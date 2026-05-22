@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * 标签键
+   * The tag keys.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * env
    */
   key?: string;
   /**
    * @remarks
-   * 标签值
+   * The tag value.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * value
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -44,26 +50,42 @@ export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 要创建并绑定标签的资源所在的地域ID。
+   * The region ID. Valid values:
+   * 
+   * *   China site (aliyun.com): cn-hangzhou
+   * *   International site (alibabacloud.com): ap-southeast-1
    * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * 资源ID,最多 50个子项
+   * The resource ID. Enter a website ID or DNS record ID.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * The type of the resource. Valid values:
+   * 
+   * *   Site: **site**
+   * *   DNS records: **record**
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * site
    */
   resourceType?: string;
   securityToken?: string;
   /**
    * @remarks
+   * The tags that you want to add to the resource. You can enter up to 20 tags.
+   * 
    * This parameter is required.
    */
   tag?: TagResourcesRequestTag[];

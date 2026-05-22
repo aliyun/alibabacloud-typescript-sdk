@@ -3,10 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetClientCertificateHostnamesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate ID.
+   * 
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
   id?: string;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
    */
   siteId?: number;
   static names(): { [key: string]: string } {

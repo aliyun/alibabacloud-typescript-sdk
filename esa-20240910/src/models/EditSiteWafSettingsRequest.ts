@@ -4,12 +4,26 @@ import { WafSiteSettings } from "./WafSiteSettings";
 
 
 export class EditSiteWafSettingsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * WAF configuration information for the site, passed in JSON format.
+   */
   settings?: WafSiteSettings;
   /**
+   * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {

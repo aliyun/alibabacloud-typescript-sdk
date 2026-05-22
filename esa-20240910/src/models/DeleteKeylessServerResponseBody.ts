@@ -3,9 +3,28 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteKeylessServerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Keyless server ID。
+   * 
+   * @example
+   * baba39055622c008b90285a8838e****
+   */
   id?: string;
+  /**
+   * @example
+   * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+   */
   requestId?: string;
+  /**
+   * @example
+   * 123456****
+   */
   siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
   siteName?: string;
   static names(): { [key: string]: string } {
     return {

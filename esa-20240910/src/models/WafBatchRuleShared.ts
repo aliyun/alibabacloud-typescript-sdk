@@ -6,7 +6,21 @@ import { WafRuleMatch2 } from "./WafRuleMatch2";
 /**
  */
 export class WafBatchRuleSharedActionsResponse extends $dara.Model {
+  /**
+   * @remarks
+   * The custom response code.
+   * 
+   * @example
+   * 403
+   */
   code?: number;
+  /**
+   * @remarks
+   * The ID of the custom response page.
+   * 
+   * @example
+   * 50000001
+   */
   id?: number;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +46,10 @@ export class WafBatchRuleSharedActionsResponse extends $dara.Model {
 }
 
 export class WafBatchRuleSharedActions extends $dara.Model {
+  /**
+   * @remarks
+   * The custom response.
+   */
   response?: WafBatchRuleSharedActionsResponse;
   static names(): { [key: string]: string } {
     return {
@@ -58,13 +76,63 @@ export class WafBatchRuleSharedActions extends $dara.Model {
 }
 
 export class WafBatchRuleShared extends $dara.Model {
+  /**
+   * @remarks
+   * The action that you want WAF to perform on requests that match the rule.
+   * 
+   * @example
+   * deny
+   */
   action?: string;
+  /**
+   * @remarks
+   * The extended action configurations.
+   */
   actions?: WafBatchRuleSharedActions;
+  /**
+   * @remarks
+   * Specifies the cross-domain website ID.
+   * 
+   * @example
+   * 10000001
+   */
   crossSiteId?: number;
+  /**
+   * @remarks
+   * The expression.
+   * 
+   * @example
+   * ip.src eq 1.1.1.1
+   */
   expression?: string;
+  /**
+   * @remarks
+   * The matching rule.
+   */
   match?: WafRuleMatch2;
+  /**
+   * @remarks
+   * Web SDK integration method: automatic integration (automatic) or manual integration (manual).
+   * 
+   * @example
+   * automatic
+   */
   mode?: string;
+  /**
+   * @remarks
+   * The ruleset name.
+   * 
+   * @example
+   * example
+   */
   name?: string;
+  /**
+   * @remarks
+   * Protection type: web or app.
+   * 
+   * @example
+   * web
+   */
   target?: string;
   static names(): { [key: string]: string } {
     return {

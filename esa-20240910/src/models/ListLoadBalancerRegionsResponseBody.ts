@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLoadBalancerRegionsResponseBodyRegionsSubRegions extends $dara.Model {
+  /**
+   * @remarks
+   * Secondary region Chinese full name
+   * 
+   * @example
+   * 印度尼西亚
+   */
   subRegionCnName?: string;
+  /**
+   * @remarks
+   * Secondary region code
+   * 
+   * @example
+   * ID
+   */
   subRegionCode?: string;
+  /**
+   * @remarks
+   * Secondary region English full name
+   * 
+   * @example
+   * Indonesia
+   */
   subRegionEnName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,9 +53,34 @@ export class ListLoadBalancerRegionsResponseBodyRegionsSubRegions extends $dara.
 }
 
 export class ListLoadBalancerRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * Primary region Chinese full name
+   * 
+   * @example
+   * 东南亚
+   */
   regionCnName?: string;
+  /**
+   * @remarks
+   * Primary region code
+   * 
+   * @example
+   * SEAS
+   */
   regionCode?: string;
+  /**
+   * @remarks
+   * Primary region English full name
+   * 
+   * @example
+   * South East Asia
+   */
   regionEnName?: string;
+  /**
+   * @remarks
+   * List of secondary region information
+   */
   subRegions?: ListLoadBalancerRegionsResponseBodyRegionsSubRegions[];
   static names(): { [key: string]: string } {
     return {
@@ -67,11 +113,50 @@ export class ListLoadBalancerRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class ListLoadBalancerRegionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Page number
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Number of records per page
+   * 
+   * @example
+   * 1024
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * List of region information
+   */
   regions?: ListLoadBalancerRegionsResponseBodyRegions[];
+  /**
+   * @remarks
+   * Request ID
+   * 
+   * @example
+   * 81A5E222-24BF-17EF-9E80-A68D9B8F363D
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * Total number of records
+   * 
+   * @example
+   * 12
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * Total number of pages
+   * 
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {

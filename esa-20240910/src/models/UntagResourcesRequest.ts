@@ -5,29 +5,49 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * 是否全部删除，只针对TagKey.N为空时有效
+   * Specifies whether to remove all tags. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * Default value: **false**.
+   * 
+   * @example
+   * false
    */
   all?: boolean;
   /**
    * @remarks
-   * 要创建并绑定标签的资源所在的地域ID。
+   * The ID of the region where the resources reside. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * 资源ID,最多 50个子项
+   * The ID of resource N. Valid values of N: **1** to **50**.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * site
    */
   resourceType?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The key of tag N to remove from the resource. Valid values of N: **1** to **20**.
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {

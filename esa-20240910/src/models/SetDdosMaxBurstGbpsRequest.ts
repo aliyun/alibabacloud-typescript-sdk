@@ -6,11 +6,17 @@ export class SetDdosMaxBurstGbpsRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * esa-site-ads11w
    */
   instanceId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 300
    */
   maxBurstGbps?: string;
   static names(): { [key: string]: string } {

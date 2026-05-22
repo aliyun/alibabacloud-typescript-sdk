@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateUserWafRulesetResponseBody extends $dara.Model {
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxx
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

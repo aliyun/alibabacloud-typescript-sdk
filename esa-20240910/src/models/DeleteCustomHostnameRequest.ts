@@ -6,6 +6,9 @@ export class DeleteCustomHostnameRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
    */
   hostnameId?: number;
   static names(): { [key: string]: string } {

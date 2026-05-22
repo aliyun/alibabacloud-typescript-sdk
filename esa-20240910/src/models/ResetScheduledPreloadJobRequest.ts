@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ResetScheduledPreloadJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the scheduled prefetch task.
+   * 
+   * @example
+   * ResetScheduledPreloadJob
+   */
   id?: string;
   static names(): { [key: string]: string } {
     return {

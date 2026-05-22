@@ -4,24 +4,46 @@ import { WafRuleConfig } from "./WafRuleConfig";
 
 
 export class CreateWafRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Rule configuration, specifying the detailed configuration for creating a rule.
+   */
   config?: WafRuleConfig;
   /**
    * @remarks
+   * WAF operation phase.
+   * 
    * This parameter is required.
    * 
    * @example
    * http_custom
    */
   phase?: string;
+  /**
+   * @remarks
+   * Ruleset ID.
+   * 
+   * @example
+   * 10000001
+   */
   rulesetId?: number;
   /**
    * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {

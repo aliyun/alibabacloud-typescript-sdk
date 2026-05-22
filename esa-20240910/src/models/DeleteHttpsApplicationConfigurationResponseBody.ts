@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteHttpsApplicationConfigurationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 35C66C7B-671H-4297-9187-2C4477247A78
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

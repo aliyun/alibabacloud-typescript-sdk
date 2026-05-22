@@ -7,7 +7,7 @@ import { WafBatchRuleShared } from "./WafBatchRuleShared";
 export class GetWafRulesetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 自定义响应页面ID
+   * Ruleset ID.
    * 
    * @example
    * 10000001
@@ -15,7 +15,7 @@ export class GetWafRulesetResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * 自定义响应页面名称
+   * Ruleset name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetWafRulesetResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 自定义响应页面内容类型
+   * The WAF operation phase applicable to the ruleset.
    * 
    * This parameter is required.
    * 
@@ -34,18 +34,35 @@ export class GetWafRulesetResponseBody extends $dara.Model {
    */
   phase?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of rule configurations in the ruleset.
+   */
   rules?: WafRuleConfig[];
+  /**
+   * @remarks
+   * Shared configurations for the rules in the ruleset.
+   */
   shared?: WafBatchRuleShared;
   /**
+   * @remarks
+   * Ruleset status.
+   * 
    * @example
    * on
    */
   status?: string;
   /**
+   * @remarks
+   * The last modified time of the ruleset.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */

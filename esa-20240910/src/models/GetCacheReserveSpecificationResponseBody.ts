@@ -3,8 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetCacheReserveSpecificationResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of cache retention capacity specifications.
+   */
   cacheReserveCapacity?: string[];
+  /**
+   * @remarks
+   * List of cache retention region specifications.
+   */
   cacheReserveRegion?: string[];
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

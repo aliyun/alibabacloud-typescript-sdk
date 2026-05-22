@@ -5,9 +5,31 @@ import { WafBatchRuleShared } from "./WafBatchRuleShared";
 
 
 export class ListWafPhasesResponseBodyPhasesRulesets extends $dara.Model {
+  /**
+   * @remarks
+   * ID of the WAF ruleset.
+   * 
+   * @example
+   * 10000001
+   */
   id?: number;
+  /**
+   * @remarks
+   * Name of the WAF ruleset.
+   * 
+   * @example
+   * example
+   */
   name?: string;
+  /**
+   * @remarks
+   * List of rule configurations in the WAF ruleset.
+   */
   rules?: WafRuleConfig[];
+  /**
+   * @remarks
+   * Shared configuration for rules in the WAF ruleset.
+   */
   shared?: WafBatchRuleShared;
   static names(): { [key: string]: string } {
     return {
@@ -43,7 +65,18 @@ export class ListWafPhasesResponseBodyPhasesRulesets extends $dara.Model {
 }
 
 export class ListWafPhasesResponseBodyPhases extends $dara.Model {
+  /**
+   * @remarks
+   * Name of the WAF operation phase.
+   * 
+   * @example
+   * http_custom
+   */
   phase?: string;
+  /**
+   * @remarks
+   * List of WAF rulesets.
+   */
   rulesets?: ListWafPhasesResponseBodyPhasesRulesets[];
   static names(): { [key: string]: string } {
     return {
@@ -72,8 +105,15 @@ export class ListWafPhasesResponseBodyPhases extends $dara.Model {
 }
 
 export class ListWafPhasesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of WAF operation phases.
+   */
   phases?: ListWafPhasesResponseBodyPhases[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */

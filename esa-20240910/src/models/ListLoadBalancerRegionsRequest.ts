@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListLoadBalancerRegionsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * Page size.
+   * 
+   * @example
+   * 1024
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {

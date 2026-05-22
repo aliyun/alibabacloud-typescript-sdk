@@ -3,15 +3,58 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListKeylessServersResponseBodyResult extends $dara.Model {
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE-----****
+   */
   caCertificate?: string;
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE-----****
+   */
   clientCertificate?: string;
+  /**
+   * @example
+   * -----BEGIN RSA PRIVATE KEY-----****
+   */
   clientPrivateKey?: string;
+  /**
+   * @example
+   * 2024-06-24 07:48:51
+   */
   createTime?: string;
+  /**
+   * @example
+   * example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * Keyless server ID。
+   * 
+   * @example
+   * babab9db65ee5efcca9f3d41d4b5****
+   */
   id?: string;
+  /**
+   * @example
+   * example
+   */
   name?: string;
+  /**
+   * @example
+   * 443
+   */
   port?: number;
+  /**
+   * @example
+   * 2024-07-20 06:18:42
+   */
   updateTime?: string;
+  /**
+   * @example
+   * true
+   */
   verify?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -53,12 +96,36 @@ export class ListKeylessServersResponseBodyResult extends $dara.Model {
 }
 
 export class ListKeylessServersResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
+   */
   requestId?: string;
   result?: ListKeylessServersResponseBodyResult[];
+  /**
+   * @example
+   * 54362329990032
+   */
   siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
   siteName?: string;
+  /**
+   * @example
+   * 90
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {

@@ -71,6 +71,13 @@ export class GetRoutineResponseBodyEnvsCodeDeploy extends $dara.Model {
 
 export class GetRoutineResponseBodyEnvs extends $dara.Model {
   codeDeploy?: GetRoutineResponseBodyEnvsCodeDeploy;
+  /**
+   * @remarks
+   * The environment type.
+   * 
+   * @example
+   * production
+   */
   env?: string;
   static names(): { [key: string]: string } {
     return {
@@ -99,11 +106,43 @@ export class GetRoutineResponseBodyEnvs extends $dara.Model {
 }
 
 export class GetRoutineResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the routine was created.
+   * 
+   * @example
+   * 2024-03-11T01:23:21Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The default record name to access.
+   * 
+   * @example
+   * routine1.example.com
+   */
   defaultRelatedRecord?: string;
+  /**
+   * @remarks
+   * The description of the routine.
+   * 
+   * @example
+   * ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg
+   */
   description?: string;
+  /**
+   * @remarks
+   * The information about the environments.
+   */
   envs?: GetRoutineResponseBodyEnvs[];
   hasAssets?: boolean;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

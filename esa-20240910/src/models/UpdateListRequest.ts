@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateListRequest extends $dara.Model {
   /**
    * @remarks
+   * The new description of the list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateListRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,11 +25,18 @@ export class UpdateListRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
+   * The items in the updated list. The value is a JSON array.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * a custom list
    */
   items?: string[];
   /**
    * @remarks
+   * The new name of the list.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -14,6 +14,9 @@ export class GetUserWafRulesetRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * esa-xxxxxxx
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

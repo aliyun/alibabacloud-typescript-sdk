@@ -4,9 +4,15 @@ import { WafRuleConfig } from "./WafRuleConfig";
 
 
 export class UpdateWafRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Rule configuration.
+   */
   config?: WafRuleConfig;
   /**
    * @remarks
+   * WAF rule ID, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) interface.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,20 +20,35 @@ export class UpdateWafRuleRequest extends $dara.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The position of the rule in the rule set.
+   * 
    * @example
    * 1
    */
   position?: number;
   /**
    * @remarks
+   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) interface.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * Site version.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   /**
+   * @remarks
+   * Rule status.
+   * 
    * @example
    * on
    */

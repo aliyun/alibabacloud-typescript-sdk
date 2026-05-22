@@ -3,16 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateClientCertificateRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The certificate signing request (CSR).
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE REQUEST-----
+   */
   CSR?: string;
+  /**
+   * @remarks
+   * The type of the private key algorithm.
+   * 
+   * @example
+   * RSA
+   */
   pkeyType?: string;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
    */
   siteId?: number;
   /**
    * @remarks
+   * The validity period of the certificate. Unit: day.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 365
    */
   validityDays?: number;
   static names(): { [key: string]: string } {

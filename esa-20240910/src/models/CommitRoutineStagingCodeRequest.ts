@@ -3,10 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CommitRoutineStagingCodeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The description of the code version.
+   * 
+   * @example
+   * description of this code ver
+   */
   codeDescription?: string;
   /**
    * @remarks
+   * The routine name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * CommitRoutineStagingCode
    */
   name?: string;
   static names(): { [key: string]: string } {

@@ -5,16 +5,30 @@ import { WafQuotaInteger } from "./WafQuotaInteger";
 
 export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $dara.Model {
   /**
+   * @remarks
+   * The error message when the validation fails.
+   * 
    * @example
    * Enter a valid expression
    */
   errMsg?: string;
+  /**
+   * @remarks
+   * The length of the value.
+   */
   length?: WafQuotaInteger;
   /**
+   * @remarks
+   * The regular expression pattern of the value, which is used to validate strings.
+   * 
    * @example
    * ^example$
    */
   pattern?: string;
+  /**
+   * @remarks
+   * The range of the value, which is used to validate numbers.
+   */
   range?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -51,38 +65,74 @@ export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $dara.M
 
 export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
   /**
+   * @remarks
+   * A custom attribute. For example, this parameter can specify whether the value is case-sensitive.
+   * 
    * @example
    * 1
    */
   attributes?: number;
   enable?: boolean;
   /**
+   * @remarks
+   * The type of the value input box. Valid values:
+   * 
+   * *   select:single
+   * *   select:multi
+   * *   input:single
+   * *   input:multi
+   * 
    * @example
    * input:single
    */
   kind?: string;
   minPlan?: string;
+  /**
+   * @remarks
+   * Indicates whether the match result is inverted.
+   */
   negative?: boolean;
   /**
+   * @remarks
+   * The displayed matching characters.
+   * 
    * @example
    * Does not equal
    */
   operator?: string;
   /**
+   * @remarks
+   * The matching characters in the system.
+   * 
    * @example
    * eq
    */
   symbol?: string;
   /**
+   * @remarks
+   * The tip on how to enter a valid value that is required by the rules.
+   * 
    * @example
    * e.g. image/jpeg
    */
   tip?: string;
   /**
+   * @remarks
+   * The type of the value. Valid values:
+   * 
+   * *   integer
+   * *   integer_slice
+   * *   string
+   * *   string_slice
+   * 
    * @example
    * string
    */
   type?: string;
+  /**
+   * @remarks
+   * The validator, which defines the validation rules for a value.
+   */
   validator?: GetWafFilterResponseBodyFilterFieldsLogicsValidator;
   static names(): { [key: string]: string } {
     return {
@@ -128,11 +178,17 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $dara.Model {
 
 export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $dara.Model {
   /**
+   * @remarks
+   * The label of the data.
+   * 
    * @example
    * China
    */
   label?: string;
   /**
+   * @remarks
+   * The value of the data.
+   * 
    * @example
    * CN
    */
@@ -161,8 +217,15 @@ export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $dara.Mode
 }
 
 export class GetWafFilterResponseBodyFilterFieldsSelector extends $dara.Model {
+  /**
+   * @remarks
+   * The data. This parameter is available only when the value of the Kind parameter is data.
+   */
   data?: GetWafFilterResponseBodyFilterFieldsSelectorData[];
   /**
+   * @remarks
+   * The type of selector. Valid values: data and others.
+   * 
    * @example
    * data
    */
@@ -196,20 +259,44 @@ export class GetWafFilterResponseBodyFilterFieldsSelector extends $dara.Model {
 export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
   enable?: boolean;
   /**
+   * @remarks
+   * The field for matched objects in the system.
+   * 
    * @example
    * http.request.headers
    */
   key?: string;
   /**
+   * @remarks
+   * The label of the matched object.
+   * 
    * @example
    * Header
    */
   label?: string;
+  /**
+   * @remarks
+   * The logical conditions.
+   */
   logics?: GetWafFilterResponseBodyFilterFieldsLogics[];
   minPlan?: string;
+  /**
+   * @remarks
+   * The selector, which defines how to select a matched object.
+   */
   selector?: GetWafFilterResponseBodyFilterFieldsSelector;
+  /**
+   * @remarks
+   * Indicates whether the matched object contains a subfield.
+   * 
+   * @example
+   * true
+   */
   sub?: boolean;
   /**
+   * @remarks
+   * The tip on how to enter a subfield.
+   * 
    * @example
    * e.g. Content-Type
    */
@@ -256,18 +343,31 @@ export class GetWafFilterResponseBodyFilterFields extends $dara.Model {
 }
 
 export class GetWafFilterResponseBodyFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The matched objects and related properties.
+   */
   fields?: GetWafFilterResponseBodyFilterFields[];
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
+   * @remarks
+   * The condition for matching incoming requests.
+   * 
    * @example
    * characteristics
    */
   target?: string;
   /**
+   * @remarks
+   * The rule type.
+   * 
    * @example
    * http_custom_cc
    */
@@ -303,8 +403,15 @@ export class GetWafFilterResponseBodyFilter extends $dara.Model {
 }
 
 export class GetWafFilterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned match conditions.
+   */
   filter?: GetWafFilterResponseBodyFilter;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */

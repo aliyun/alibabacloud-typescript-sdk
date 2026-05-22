@@ -4,10 +4,20 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $dara.Model {
   /**
+   * @remarks
+   * Name of the managed rule group.
+   * 
    * @example
    * example
    */
   name?: string;
+  /**
+   * @remarks
+   * Number of rules within the managed rule group.
+   * 
+   * @example
+   * 1000
+   */
   ruleCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -33,23 +43,39 @@ export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $dara.
 }
 
 export class ListManagedRulesGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of managed rule group information.
+   */
   managedRulesGroups?: ListManagedRulesGroupsResponseBodyManagedRulesGroups[];
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of records after filtering.
+   * 
    * @example
    * 5
    */

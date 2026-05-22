@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteEdgeContainerAppVersionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * b021e538-9dde-46ed-a1f2-9469da8f3e77
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

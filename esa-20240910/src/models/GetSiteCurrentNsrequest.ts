@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteCurrentNSRequest extends $dara.Model {
   /**
    * @remarks
+   * The website ID. It can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
    */
   siteId?: number;
   static names(): { [key: string]: string } {
