@@ -12874,6 +12874,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据操作人工号与 openDingtalkId 获取被查看用户工号
+   * 
+   * @param tmpReq - GetUserIdByOpenDingtalkIdRequest
+   * @param tmpHeader - GetUserIdByOpenDingtalkIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserIdByOpenDingtalkIdResponse
+   */
+  async getUserIdByOpenDingtalkIdWithOptions(tmpReq: $_model.GetUserIdByOpenDingtalkIdRequest, tmpHeader: $_model.GetUserIdByOpenDingtalkIdHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserIdByOpenDingtalkIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetUserIdByOpenDingtalkIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.GetUserIdByOpenDingtalkIdShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.openDingtalkId)) {
+      body["openDingtalkId"] = request.openDingtalkId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUserIdByOpenDingtalkId",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/getUserIdByOpenDingtalkId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUserIdByOpenDingtalkIdResponse>(await this.callApi(params, req, runtime), new $_model.GetUserIdByOpenDingtalkIdResponse({}));
+  }
+
+  /**
+   * 根据操作人工号与 openDingtalkId 获取被查看用户工号
+   * 
+   * @param request - GetUserIdByOpenDingtalkIdRequest
+   * @returns GetUserIdByOpenDingtalkIdResponse
+   */
+  async getUserIdByOpenDingtalkId(request: $_model.GetUserIdByOpenDingtalkIdRequest): Promise<$_model.GetUserIdByOpenDingtalkIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetUserIdByOpenDingtalkIdHeaders({ });
+    return await this.getUserIdByOpenDingtalkIdWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 根据orgId和staffId获取用户userId
    * 
    * @param tmpReq - GetUserIdByOrgIdAndStaffIdRequest
