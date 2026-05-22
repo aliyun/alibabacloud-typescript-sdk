@@ -19,6 +19,7 @@ export class RejectServiceUsageRequest extends $dara.Model {
    * Thanks for your application, please add your industry information.
    */
   comments?: string;
+  regionId?: string;
   /**
    * @remarks
    * The service ID.
@@ -54,6 +55,7 @@ export class RejectServiceUsageRequest extends $dara.Model {
     return {
       clientToken: 'ClientToken',
       comments: 'Comments',
+      regionId: 'RegionId',
       serviceId: 'ServiceId',
       type: 'Type',
       userAliUid: 'UserAliUid',
@@ -64,6 +66,7 @@ export class RejectServiceUsageRequest extends $dara.Model {
     return {
       clientToken: 'string',
       comments: 'string',
+      regionId: 'string',
       serviceId: 'string',
       type: 'number',
       userAliUid: 'number',

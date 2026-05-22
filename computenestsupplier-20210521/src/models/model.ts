@@ -46,6 +46,7 @@ export { GetServiceResponseBodyStatistic } from './GetServiceResponseBody';
 export { GetServiceResponseBodySupportContacts } from './GetServiceResponseBody';
 export { GetServiceResponseBodyTags } from './GetServiceResponseBody';
 export { GetServiceEstimateCostRequestCommodity } from './GetServiceEstimateCostRequest';
+export { GetServiceInstanceResponseBodyGrantedPermission } from './GetServiceInstanceResponseBody';
 export { GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs } from './GetServiceInstanceResponseBody';
 export { GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections } from './GetServiceInstanceResponseBody';
 export { GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections } from './GetServiceInstanceResponseBody';
@@ -99,6 +100,7 @@ export { ListServiceInstanceResourcesResponseBodyResources } from './ListService
 export { ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory } from './ListServiceInstanceUpgradeHistoryResponseBody';
 export { ListServiceInstancesRequestFilter } from './ListServiceInstancesRequest';
 export { ListServiceInstancesRequestTag } from './ListServiceInstancesRequest';
+export { ListServiceInstancesResponseBodyServiceInstancesGrantedPermission } from './ListServiceInstancesResponseBody';
 export { ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos } from './ListServiceInstancesResponseBody';
 export { ListServiceInstancesResponseBodyServiceInstancesService } from './ListServiceInstancesResponseBody';
 export { ListServiceInstancesResponseBodyServiceInstancesTags } from './ListServiceInstancesResponseBody';

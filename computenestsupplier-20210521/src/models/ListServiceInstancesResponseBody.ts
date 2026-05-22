@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListServiceInstancesResponseBodyServiceInstancesGrantedPermission extends $dara.Model {
+  operationEndTime?: string;
+  policyNames?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationEndTime: 'OperationEndTime',
+      policyNames: 'PolicyNames',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationEndTime: 'string',
+      policyNames: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos extends $dara.Model {
   /**
    * @remarks
@@ -304,6 +330,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
    * 2022-01-01T12:00:00
    */
   endTime?: string;
+  grantedPermission?: ListServiceInstancesResponseBodyServiceInstancesGrantedPermission;
   /**
    * @remarks
    * Indicates whether the hosted O\\&M feature is enabled for the service instance. Valid values:
@@ -368,6 +395,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
    * Subscription
    */
   payType?: string;
+  policyNames?: string;
   /**
    * @remarks
    * The deployment progress of the service instance. Unit: percentage.
@@ -477,6 +505,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       createTime: 'CreateTime',
       enableInstanceOps: 'EnableInstanceOps',
       endTime: 'EndTime',
+      grantedPermission: 'GrantedPermission',
       isOperated: 'IsOperated',
       name: 'Name',
       operatedServiceInstanceId: 'OperatedServiceInstanceId',
@@ -484,6 +513,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       operationStartTime: 'OperationStartTime',
       parameters: 'Parameters',
       payType: 'PayType',
+      policyNames: 'PolicyNames',
       progress: 'Progress',
       resourceGroupId: 'ResourceGroupId',
       service: 'Service',
@@ -505,6 +535,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       createTime: 'string',
       enableInstanceOps: 'boolean',
       endTime: 'string',
+      grantedPermission: ListServiceInstancesResponseBodyServiceInstancesGrantedPermission,
       isOperated: 'boolean',
       name: 'string',
       operatedServiceInstanceId: 'string',
@@ -512,6 +543,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
       operationStartTime: 'string',
       parameters: 'string',
       payType: 'string',
+      policyNames: 'string',
       progress: 'number',
       resourceGroupId: 'string',
       service: ListServiceInstancesResponseBodyServiceInstancesService,
@@ -528,6 +560,9 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   }
 
   validate() {
+    if(this.grantedPermission && typeof (this.grantedPermission as any).validate === 'function') {
+      (this.grantedPermission as any).validate();
+    }
     if(this.service && typeof (this.service as any).validate === 'function') {
       (this.service as any).validate();
     }

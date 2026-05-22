@@ -293,6 +293,7 @@ export class UpdateServiceShrinkRequest extends $dara.Model {
    * 259200
    */
   duration?: number;
+  isDefault?: boolean;
   /**
    * @remarks
    * Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
@@ -461,6 +462,7 @@ export class UpdateServiceShrinkRequest extends $dara.Model {
       deployType: 'DeployType',
       dryRun: 'DryRun',
       duration: 'Duration',
+      isDefault: 'IsDefault',
       isSupportOperated: 'IsSupportOperated',
       licenseMetadata: 'LicenseMetadata',
       logMetadata: 'LogMetadata',
@@ -494,6 +496,7 @@ export class UpdateServiceShrinkRequest extends $dara.Model {
       deployType: 'string',
       dryRun: 'boolean',
       duration: 'number',
+      isDefault: 'boolean',
       isSupportOperated: 'boolean',
       licenseMetadata: 'string',
       logMetadata: 'string',

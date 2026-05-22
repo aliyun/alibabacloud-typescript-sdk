@@ -69,6 +69,7 @@ export class ListServiceUsagesRequest extends $dara.Model {
    * AAAAAWns8w4MmhzeptXVRG0PUEU=
    */
   nextToken?: string;
+  regionId?: string;
   /**
    * @remarks
    * The role of the service provider.
@@ -82,6 +83,7 @@ export class ListServiceUsagesRequest extends $dara.Model {
       filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      regionId: 'RegionId',
       supplierRole: 'SupplierRole',
     };
   }
@@ -91,6 +93,7 @@ export class ListServiceUsagesRequest extends $dara.Model {
       filter: { 'type': 'array', 'itemType': ListServiceUsagesRequestFilter },
       maxResults: 'number',
       nextToken: 'string',
+      regionId: 'string',
       supplierRole: 'string',
     };
   }

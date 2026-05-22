@@ -862,7 +862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册成为服务商
+   * Register as a service provider
    * 
    * @param request - CreateSupplierRegistrationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -961,7 +961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册成为服务商
+   * Register as a service provider
    * 
    * @param request - CreateSupplierRegistrationRequest
    * @returns CreateSupplierRegistrationResponse
@@ -1384,7 +1384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成并校验服务创建stack所需要
+   * Generate and validate the stack required for service creation
    * 
    * @param request - GenerateServicePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1435,7 +1435,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成并校验服务创建stack所需要
+   * Generate and validate the stack required for service creation
    * 
    * @param request - GenerateServicePolicyRequest
    * @returns GenerateServicePolicyResponse
@@ -3016,7 +3016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询服务实例资源
+   * Query service instance resources
    * 
    * @param request - ListServiceInstanceResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3071,7 +3071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询服务实例资源
+   * Query service instance resources
    * 
    * @param request - ListServiceInstanceResourcesRequest
    * @returns ListServiceInstanceResourcesResponse
@@ -3434,7 +3434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务执行列表
+   * Get task execution list
    * 
    * @param request - ListServiceTestTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3485,7 +3485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务执行列表
+   * Get task execution list
    * 
    * @param request - ListServiceTestTasksRequest
    * @returns ListServiceTestTasksResponse
@@ -4029,6 +4029,10 @@ export default class Client extends OpenApi {
       query["Comments"] = request.comments;
     }
 
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!$dara.isNull(request.serviceId)) {
       query["ServiceId"] = request.serviceId;
     }
@@ -4324,7 +4328,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+   * Stops a service instance that is in the Deployed or StopFailed state.
    * 
    * @param request - StopServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4363,7 +4367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * When the service instance is Deployed and StopFailed, call the StopServiceInstance interface to stop the service instance.
+   * Stops a service instance that is in the Deployed or StopFailed state.
    * 
    * @param request - StopServiceInstanceRequest
    * @returns StopServiceInstanceResponse
@@ -4627,6 +4631,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.duration)) {
       query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.isDefault)) {
+      query["IsDefault"] = request.isDefault;
     }
 
     if (!$dara.isNull(request.isSupportOperated)) {
