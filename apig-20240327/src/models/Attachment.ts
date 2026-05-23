@@ -3,11 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Attachment extends $dara.Model {
+  attachResourceId?: string;
   /**
    * @remarks
    * The resource IDs.
    */
   attachResourceIds?: string[];
+  attachResourceParentIds?: string[];
   /**
    * @remarks
    * The supported mount point type. Valid values:
@@ -50,7 +52,9 @@ export class Attachment extends $dara.Model {
   policyAttachmentId?: string;
   static names(): { [key: string]: string } {
     return {
+      attachResourceId: 'attachResourceId',
       attachResourceIds: 'attachResourceIds',
+      attachResourceParentIds: 'attachResourceParentIds',
       attachResourceType: 'attachResourceType',
       environmentId: 'environmentId',
       gatewayId: 'gatewayId',
@@ -60,7 +64,9 @@ export class Attachment extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      attachResourceId: 'string',
       attachResourceIds: { 'type': 'array', 'itemType': 'string' },
+      attachResourceParentIds: { 'type': 'array', 'itemType': 'string' },
       attachResourceType: 'string',
       environmentId: 'string',
       gatewayId: 'string',
@@ -71,6 +77,9 @@ export class Attachment extends $dara.Model {
   validate() {
     if(Array.isArray(this.attachResourceIds)) {
       $dara.Model.validateArray(this.attachResourceIds);
+    }
+    if(Array.isArray(this.attachResourceParentIds)) {
+      $dara.Model.validateArray(this.attachResourceParentIds);
     }
     super.validate();
   }
