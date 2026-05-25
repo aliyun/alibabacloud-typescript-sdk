@@ -6380,6 +6380,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 高德全双工
+   * 
+   * @param request - LlmFullDuplexCallOperateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LlmFullDuplexCallOperateResponse
+   */
+  async llmFullDuplexCallOperateWithOptions(request: $_model.LlmFullDuplexCallOperateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LlmFullDuplexCallOperateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callId)) {
+      query["CallId"] = request.callId;
+    }
+
+    if (!$dara.isNull(request.command)) {
+      query["Command"] = request.command;
+    }
+
+    if (!$dara.isNull(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LlmFullDuplexCallOperate",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LlmFullDuplexCallOperateResponse>(await this.callApi(params, req, runtime), new $_model.LlmFullDuplexCallOperateResponse({}));
+  }
+
+  /**
+   * 高德全双工
+   * 
+   * @param request - LlmFullDuplexCallOperateRequest
+   * @returns LlmFullDuplexCallOperateResponse
+   */
+  async llmFullDuplexCallOperate(request: $_model.LlmFullDuplexCallOperateRequest): Promise<$_model.LlmFullDuplexCallOperateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.llmFullDuplexCallOperateWithOptions(request, runtime);
+  }
+
+  /**
    * 基于大模型的智能外呼
    * 
    * @param tmpReq - LlmSmartCallRequest
@@ -6565,6 +6615,86 @@ export default class Client extends OpenApi {
   async llmSmartCallEncrypt(request: $_model.LlmSmartCallEncryptRequest): Promise<$_model.LlmSmartCallEncryptResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.llmSmartCallEncryptWithOptions(request, runtime);
+  }
+
+  /**
+   * 基于大模型的智能外呼
+   * 
+   * @param tmpReq - LlmSmartCallFullDuplexRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LlmSmartCallFullDuplexResponse
+   */
+  async llmSmartCallFullDuplexWithOptions(tmpReq: $_model.LlmSmartCallFullDuplexRequest, runtime: $dara.RuntimeOptions): Promise<$_model.LlmSmartCallFullDuplexResponse> {
+    tmpReq.validate();
+    let request = new $_model.LlmSmartCallFullDuplexShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.startWordParam)) {
+      request.startWordParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.startWordParam, "StartWordParam", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationCode)) {
+      query["ApplicationCode"] = request.applicationCode;
+    }
+
+    if (!$dara.isNull(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!$dara.isNull(request.callerNumber)) {
+      query["CallerNumber"] = request.callerNumber;
+    }
+
+    if (!$dara.isNull(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!$dara.isNull(request.sessionTimeout)) {
+      query["SessionTimeout"] = request.sessionTimeout;
+    }
+
+    if (!$dara.isNull(request.startWordParamShrink)) {
+      query["StartWordParam"] = request.startWordParamShrink;
+    }
+
+    if (!$dara.isNull(request.ttsSpeed)) {
+      query["TtsSpeed"] = request.ttsSpeed;
+    }
+
+    if (!$dara.isNull(request.ttsVoiceCode)) {
+      query["TtsVoiceCode"] = request.ttsVoiceCode;
+    }
+
+    if (!$dara.isNull(request.ttsVolume)) {
+      query["TtsVolume"] = request.ttsVolume;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "LlmSmartCallFullDuplex",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.LlmSmartCallFullDuplexResponse>(await this.callApi(params, req, runtime), new $_model.LlmSmartCallFullDuplexResponse({}));
+  }
+
+  /**
+   * 基于大模型的智能外呼
+   * 
+   * @param request - LlmSmartCallFullDuplexRequest
+   * @returns LlmSmartCallFullDuplexResponse
+   */
+  async llmSmartCallFullDuplex(request: $_model.LlmSmartCallFullDuplexRequest): Promise<$_model.LlmSmartCallFullDuplexResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.llmSmartCallFullDuplexWithOptions(request, runtime);
   }
 
   /**
