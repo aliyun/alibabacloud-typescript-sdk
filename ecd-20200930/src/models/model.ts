@@ -274,6 +274,7 @@ export { QueryHistoryAvgMetricListResponseBodyAvgMetricListSessions } from './Qu
 export { QueryHistoryAvgMetricListResponseBodyAvgMetricList } from './QueryHistoryAvgMetricListResponseBody';
 export { QueryHistoryMetricDistributionRequestRanges } from './QueryHistoryMetricDistributionRequest';
 export { QueryHistoryMetricDistributionResponseBodyDistributionList } from './QueryHistoryMetricDistributionResponseBody';
+export { QueryHistoryUsageDurationRankResponseBodyUsageDurationList } from './QueryHistoryUsageDurationRankResponseBody';
 export { RebuildDesktopsResponseBodyRebuildResults } from './RebuildDesktopsResponseBody';
 export { RemoveFilePermissionRequestMemberListCdsIdentity } from './RemoveFilePermissionRequest';
 export { RemoveFilePermissionRequestMemberList } from './RemoveFilePermissionRequest';
@@ -1042,6 +1043,9 @@ export { QueryHistoryAvgMetricListResponse } from './QueryHistoryAvgMetricListRe
 export { QueryHistoryMetricDistributionRequest } from './QueryHistoryMetricDistributionRequest';
 export { QueryHistoryMetricDistributionResponseBody } from './QueryHistoryMetricDistributionResponseBody';
 export { QueryHistoryMetricDistributionResponse } from './QueryHistoryMetricDistributionResponse';
+export { QueryHistoryUsageDurationRankRequest } from './QueryHistoryUsageDurationRankRequest';
+export { QueryHistoryUsageDurationRankResponseBody } from './QueryHistoryUsageDurationRankResponseBody';
+export { QueryHistoryUsageDurationRankResponse } from './QueryHistoryUsageDurationRankResponse';
 export { RebootDesktopsRequest } from './RebootDesktopsRequest';
 export { RebootDesktopsResponseBody } from './RebootDesktopsResponseBody';
 export { RebootDesktopsResponse } from './RebootDesktopsResponse';

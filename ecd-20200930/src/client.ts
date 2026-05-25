@@ -18386,6 +18386,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询桌面历史使用时长排行榜
+   * 
+   * @param request - QueryHistoryUsageDurationRankRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHistoryUsageDurationRankResponse
+   */
+  async queryHistoryUsageDurationRankWithOptions(request: $_model.QueryHistoryUsageDurationRankRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryHistoryUsageDurationRankResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryHistoryUsageDurationRank",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryHistoryUsageDurationRankResponse>(await this.callApi(params, req, runtime), new $_model.QueryHistoryUsageDurationRankResponse({}));
+  }
+
+  /**
+   * 查询桌面历史使用时长排行榜
+   * 
+   * @param request - QueryHistoryUsageDurationRankRequest
+   * @returns QueryHistoryUsageDurationRankResponse
+   */
+  async queryHistoryUsageDurationRank(request: $_model.QueryHistoryUsageDurationRankRequest): Promise<$_model.QueryHistoryUsageDurationRankResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryHistoryUsageDurationRankWithOptions(request, runtime);
+  }
+
+  /**
    * Restart cloud computers.
    * 
    * @remarks
