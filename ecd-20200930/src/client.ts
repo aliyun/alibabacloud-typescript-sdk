@@ -11146,6 +11146,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     if (!$dara.isNull(request.startTime)) {
       query["StartTime"] = request.startTime;
     }

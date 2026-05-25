@@ -56,6 +56,7 @@ export class DescribeRecordFileRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  resourceType?: string;
   /**
    * @example
    * 20251218175715
@@ -78,6 +79,7 @@ export class DescribeRecordFileRequest extends $dara.Model {
       pageSize: 'PageSize',
       recordType: 'RecordType',
       regionId: 'RegionId',
+      resourceType: 'ResourceType',
       startTime: 'StartTime',
       status: 'Status',
     };
@@ -95,6 +97,7 @@ export class DescribeRecordFileRequest extends $dara.Model {
       pageSize: 'number',
       recordType: 'string',
       regionId: 'string',
+      resourceType: 'string',
       startTime: 'string',
       status: 'number',
     };
