@@ -145,6 +145,7 @@ export class GetErrorResponseBodyModel extends $dara.Model {
    * 0
    */
   colNo?: string;
+  controllers?: string;
   /**
    * @example
    * CN
@@ -323,6 +324,7 @@ export class GetErrorResponseBodyModel extends $dara.Model {
    * -
    */
   featureScene?: string;
+  fileDescriptor?: string;
   /**
    * @example
    * baselineCspm_20241005
@@ -429,11 +431,13 @@ export class GetErrorResponseBodyModel extends $dara.Model {
    * java.lang.NullPointerException: Attempt to invoke virtual method \\"java.lang.Object
    */
   jsBacktrace?: string;
+  lagCost?: number;
   /**
    * @example
    * cn
    */
   language?: string;
+  launchedCrashStage?: number;
   /**
    * @example
    * 2025-02-25 18:02:50
@@ -454,6 +458,7 @@ export class GetErrorResponseBodyModel extends $dara.Model {
    * -
    */
   mainLog?: string;
+  memInfo?: string;
   /**
    * @example
    * -
@@ -770,6 +775,7 @@ export class GetErrorResponseBodyModel extends $dara.Model {
       clientIp: 'ClientIp',
       clientTime: 'ClientTime',
       colNo: 'ColNo',
+      controllers: 'Controllers',
       country: 'Country',
       cpuModel: 'CpuModel',
       cruxModule: 'CruxModule',
@@ -805,6 +811,7 @@ export class GetErrorResponseBodyModel extends $dara.Model {
       exportStatus: 'ExportStatus',
       externalStorageDirectory: 'ExternalStorageDirectory',
       featureScene: 'FeatureScene',
+      fileDescriptor: 'FileDescriptor',
       fileName: 'FileName',
       filePath: 'FilePath',
       filename: 'Filename',
@@ -826,11 +833,14 @@ export class GetErrorResponseBodyModel extends $dara.Model {
       isSpeedVersion: 'IsSpeedVersion',
       isp: 'Isp',
       jsBacktrace: 'JsBacktrace',
+      lagCost: 'LagCost',
       language: 'Language',
+      launchedCrashStage: 'LaunchedCrashStage',
       launchedTime: 'LaunchedTime',
       lineNo: 'LineNo',
       logHash: 'LogHash',
       mainLog: 'MainLog',
+      memInfo: 'MemInfo',
       memoryMap: 'MemoryMap',
       moreInfo1: 'MoreInfo1',
       moreInfo2: 'MoreInfo2',
@@ -919,6 +929,7 @@ export class GetErrorResponseBodyModel extends $dara.Model {
       clientIp: 'string',
       clientTime: 'number',
       colNo: 'string',
+      controllers: 'string',
       country: 'string',
       cpuModel: 'string',
       cruxModule: 'string',
@@ -954,6 +965,7 @@ export class GetErrorResponseBodyModel extends $dara.Model {
       exportStatus: 'string',
       externalStorageDirectory: 'string',
       featureScene: 'string',
+      fileDescriptor: 'string',
       fileName: 'string',
       filePath: 'string',
       filename: 'string',
@@ -975,11 +987,14 @@ export class GetErrorResponseBodyModel extends $dara.Model {
       isSpeedVersion: 'number',
       isp: 'string',
       jsBacktrace: 'string',
+      lagCost: 'number',
       language: 'string',
+      launchedCrashStage: 'number',
       launchedTime: 'string',
       lineNo: 'string',
       logHash: 'number',
       mainLog: 'string',
+      memInfo: 'string',
       memoryMap: 'string',
       moreInfo1: 'string',
       moreInfo2: 'string',

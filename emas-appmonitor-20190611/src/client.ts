@@ -30,6 +30,124 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateTlogTask
+   * 
+   * @param request - CreateTlogTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTlogTaskResponse
+   */
+  async createTlogTaskWithOptions(request: $_model.CreateTlogTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTlogTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aliYunCurrentPk)) {
+      body["AliYunCurrentPk"] = request.aliYunCurrentPk;
+    }
+
+    if (!$dara.isNull(request.aliYunMainPk)) {
+      body["AliYunMainPk"] = request.aliYunMainPk;
+    }
+
+    if (!$dara.isNull(request.aliYunName)) {
+      body["AliYunName"] = request.aliYunName;
+    }
+
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.appVersion)) {
+      body["AppVersion"] = request.appVersion;
+    }
+
+    if (!$dara.isNull(request.beginDate)) {
+      body["BeginDate"] = request.beginDate;
+    }
+
+    if (!$dara.isNull(request.brand)) {
+      body["Brand"] = request.brand;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      body["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.clusterId)) {
+      body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.collectionNums)) {
+      body["CollectionNums"] = request.collectionNums;
+    }
+
+    if (!$dara.isNull(request.days)) {
+      body["Days"] = request.days;
+    }
+
+    if (!$dara.isNull(request.deviceJson)) {
+      body["DeviceJson"] = request.deviceJson;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.errorType)) {
+      body["ErrorType"] = request.errorType;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.notifySettingJson)) {
+      body["NotifySettingJson"] = request.notifySettingJson;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.osVersion)) {
+      body["OsVersion"] = request.osVersion;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      body["SourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.taskName)) {
+      body["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTlogTask",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTlogTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateTlogTaskResponse({}));
+  }
+
+  /**
+   * CreateTlogTask
+   * 
+   * @param request - CreateTlogTaskRequest
+   * @returns CreateTlogTaskResponse
+   */
+  async createTlogTask(request: $_model.CreateTlogTaskRequest): Promise<$_model.CreateTlogTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTlogTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 获取错误事件详情
    * 
    * @param request - GetErrorRequest
@@ -437,6 +555,392 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * GetTlogCollectList
+   * 
+   * @param request - GetTlogCollectListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTlogCollectListResponse
+   */
+  async getTlogCollectListWithOptions(request: $_model.GetTlogCollectListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTlogCollectListResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.appVersion)) {
+      body["AppVersion"] = request.appVersion;
+    }
+
+    if (!$dara.isNull(request.author)) {
+      body["Author"] = request.author;
+    }
+
+    if (!$dara.isNull(request.beginDate)) {
+      body["BeginDate"] = request.beginDate;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      body["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.createBeginDate)) {
+      body["CreateBeginDate"] = request.createBeginDate;
+    }
+
+    if (!$dara.isNull(request.createEndDate)) {
+      body["CreateEndDate"] = request.createEndDate;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      body["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.osVersion)) {
+      body["OsVersion"] = request.osVersion;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.positiveComment)) {
+      body["PositiveComment"] = request.positiveComment;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      body["SourceType"] = request.sourceType;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.updateBeginDate)) {
+      body["UpdateBeginDate"] = request.updateBeginDate;
+    }
+
+    if (!$dara.isNull(request.updateEndDate)) {
+      body["UpdateEndDate"] = request.updateEndDate;
+    }
+
+    if (!$dara.isNull(request.userNick)) {
+      body["UserNick"] = request.userNick;
+    }
+
+    if (!$dara.isNull(request.utdid)) {
+      body["Utdid"] = request.utdid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTlogCollectList",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTlogCollectListResponse>(await this.callApi(params, req, runtime), new $_model.GetTlogCollectListResponse({}));
+  }
+
+  /**
+   * GetTlogCollectList
+   * 
+   * @param request - GetTlogCollectListRequest
+   * @returns GetTlogCollectListResponse
+   */
+  async getTlogCollectList(request: $_model.GetTlogCollectListRequest): Promise<$_model.GetTlogCollectListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTlogCollectListWithOptions(request, runtime);
+  }
+
+  /**
+   * TlogDeviceInfo
+   * 
+   * @param request - GetTlogDeviceInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTlogDeviceInfoResponse
+   */
+  async getTlogDeviceInfoWithOptions(request: $_model.GetTlogDeviceInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTlogDeviceInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      body["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTlogDeviceInfo",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTlogDeviceInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetTlogDeviceInfoResponse({}));
+  }
+
+  /**
+   * TlogDeviceInfo
+   * 
+   * @param request - GetTlogDeviceInfoRequest
+   * @returns GetTlogDeviceInfoResponse
+   */
+  async getTlogDeviceInfo(request: $_model.GetTlogDeviceInfoRequest): Promise<$_model.GetTlogDeviceInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTlogDeviceInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * GetTlogDeviceList
+   * 
+   * @param request - GetTlogDeviceListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTlogDeviceListResponse
+   */
+  async getTlogDeviceListWithOptions(request: $_model.GetTlogDeviceListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTlogDeviceListResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.appVersion)) {
+      body["AppVersion"] = request.appVersion;
+    }
+
+    if (!$dara.isNull(request.beginDate)) {
+      body["BeginDate"] = request.beginDate;
+    }
+
+    if (!$dara.isNull(request.brand)) {
+      body["Brand"] = request.brand;
+    }
+
+    if (!$dara.isNull(request.city)) {
+      body["City"] = request.city;
+    }
+
+    if (!$dara.isNull(request.createBeginDate)) {
+      body["CreateBeginDate"] = request.createBeginDate;
+    }
+
+    if (!$dara.isNull(request.createEndDate)) {
+      body["CreateEndDate"] = request.createEndDate;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.osVersion)) {
+      body["OsVersion"] = request.osVersion;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.updateBeginDate)) {
+      body["UpdateBeginDate"] = request.updateBeginDate;
+    }
+
+    if (!$dara.isNull(request.updateEndDate)) {
+      body["UpdateEndDate"] = request.updateEndDate;
+    }
+
+    if (!$dara.isNull(request.userNick)) {
+      body["UserNick"] = request.userNick;
+    }
+
+    if (!$dara.isNull(request.utdid)) {
+      body["Utdid"] = request.utdid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTlogDeviceList",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTlogDeviceListResponse>(await this.callApi(params, req, runtime), new $_model.GetTlogDeviceListResponse({}));
+  }
+
+  /**
+   * GetTlogDeviceList
+   * 
+   * @param request - GetTlogDeviceListRequest
+   * @returns GetTlogDeviceListResponse
+   */
+  async getTlogDeviceList(request: $_model.GetTlogDeviceListRequest): Promise<$_model.GetTlogDeviceListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTlogDeviceListWithOptions(request, runtime);
+  }
+
+  /**
+   * GetTlogTaskCollections
+   * 
+   * @param request - GetTlogTaskCollectionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTlogTaskCollectionsResponse
+   */
+  async getTlogTaskCollectionsWithOptions(request: $_model.GetTlogTaskCollectionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTlogTaskCollectionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTlogTaskCollections",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTlogTaskCollectionsResponse>(await this.callApi(params, req, runtime), new $_model.GetTlogTaskCollectionsResponse({}));
+  }
+
+  /**
+   * GetTlogTaskCollections
+   * 
+   * @param request - GetTlogTaskCollectionsRequest
+   * @returns GetTlogTaskCollectionsResponse
+   */
+  async getTlogTaskCollections(request: $_model.GetTlogTaskCollectionsRequest): Promise<$_model.GetTlogTaskCollectionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTlogTaskCollectionsWithOptions(request, runtime);
+  }
+
+  /**
+   * GetTlogTaskInfo
+   * 
+   * @param request - GetTlogTaskInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTlogTaskInfoResponse
+   */
+  async getTlogTaskInfoWithOptions(request: $_model.GetTlogTaskInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTlogTaskInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTlogTaskInfo",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTlogTaskInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetTlogTaskInfoResponse({}));
+  }
+
+  /**
+   * GetTlogTaskInfo
+   * 
+   * @param request - GetTlogTaskInfoRequest
+   * @returns GetTlogTaskInfoResponse
+   */
+  async getTlogTaskInfo(request: $_model.GetTlogTaskInfoRequest): Promise<$_model.GetTlogTaskInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTlogTaskInfoWithOptions(request, runtime);
+  }
+
+  /**
    * RequestUploadToken
    * 
    * @param request - RequestUploadTokenRequest
@@ -480,6 +984,80 @@ export default class Client extends OpenApi {
   async requestUploadToken(request: $_model.RequestUploadTokenRequest): Promise<$_model.RequestUploadTokenResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.requestUploadTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * SearchTlog
+   * 
+   * @param request - SearchTlogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchTlogResponse
+   */
+  async searchTlogWithOptions(request: $_model.SearchTlogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchTlogResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appKey)) {
+      body["AppKey"] = request.appKey;
+    }
+
+    if (!$dara.isNull(request.beginDate)) {
+      body["BeginDate"] = request.beginDate;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      body["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      body["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      body["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.levelJson)) {
+      body["LevelJson"] = request.levelJson;
+    }
+
+    if (!$dara.isNull(request.os)) {
+      body["Os"] = request.os;
+    }
+
+    if (!$dara.isNull(request.pageIndex)) {
+      body["PageIndex"] = request.pageIndex;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchTlog",
+      version: "2019-06-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchTlogResponse>(await this.callApi(params, req, runtime), new $_model.SearchTlogResponse({}));
+  }
+
+  /**
+   * SearchTlog
+   * 
+   * @param request - SearchTlogRequest
+   * @returns SearchTlogResponse
+   */
+  async searchTlog(request: $_model.SearchTlogRequest): Promise<$_model.SearchTlogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchTlogWithOptions(request, runtime);
   }
 
   /**

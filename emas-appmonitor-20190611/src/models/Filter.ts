@@ -3,9 +3,34 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Filter extends $dara.Model {
+  /**
+   * @remarks
+   * key
+   * 
+   * @example
+   * -
+   */
   key?: string;
+  /**
+   * @remarks
+   * operator
+   * 
+   * @example
+   * -
+   */
   operator?: string;
+  /**
+   * @remarks
+   * subFillter
+   */
   subFilters?: Filter[];
+  /**
+   * @remarks
+   * values
+   * 
+   * @example
+   * 1,2,3
+   */
   values?: any;
   static names(): { [key: string]: string } {
     return {

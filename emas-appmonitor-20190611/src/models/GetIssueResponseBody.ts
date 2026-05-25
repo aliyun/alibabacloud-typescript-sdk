@@ -108,6 +108,7 @@ export class GetIssueResponseBodyModel extends $dara.Model {
    */
   keyLine?: number;
   name?: string;
+  reason?: string;
   /**
    * @example
    * java.lang.NullPointerException
@@ -129,6 +130,7 @@ export class GetIssueResponseBodyModel extends $dara.Model {
    */
   symbolicStatus?: boolean;
   tags?: string[];
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       affectedVersions: 'AffectedVersions',
@@ -157,11 +159,13 @@ export class GetIssueResponseBodyModel extends $dara.Model {
       gmtLatest: 'GmtLatest',
       keyLine: 'KeyLine',
       name: 'Name',
+      reason: 'Reason',
       stack: 'Stack',
       status: 'Status',
       summary: 'Summary',
       symbolicStatus: 'SymbolicStatus',
       tags: 'Tags',
+      type: 'Type',
     };
   }
 
@@ -193,11 +197,13 @@ export class GetIssueResponseBodyModel extends $dara.Model {
       gmtLatest: 'number',
       keyLine: 'number',
       name: 'string',
+      reason: 'string',
       stack: 'string',
       status: 'number',
       summary: 'string',
       symbolicStatus: 'boolean',
       tags: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
     };
   }
 

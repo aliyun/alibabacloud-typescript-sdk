@@ -3,13 +3,33 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EventFilter extends $dara.Model {
+  /**
+   * @remarks
+   * key
+   * 
+   * @example
+   * startTime
+   */
   key?: string;
   /**
    * @remarks
+   * op
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * >
    */
   op?: string;
+  /**
+   * @remarks
+   * filters
+   */
   subFilters?: EventFilter[];
+  /**
+   * @remarks
+   * values
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {

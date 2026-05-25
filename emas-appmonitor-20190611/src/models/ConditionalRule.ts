@@ -5,9 +5,25 @@ import { EventFilter } from "./EventFilter";
 
 export class ConditionalRule extends $dara.Model {
   filter?: EventFilter;
+  /**
+   * @example
+   * 1205-02-01 12:00:00
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * test
+   */
   name?: string;
+  /**
+   * @example
+   * user
+   */
   operator?: string;
+  /**
+   * @example
+   * 1
+   */
   sampleRate?: number;
   static names(): { [key: string]: string } {
     return {

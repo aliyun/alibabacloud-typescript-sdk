@@ -5,10 +5,30 @@ import { ConditionalRule } from "./ConditionalRule";
 
 export class EventRule extends $dara.Model {
   conditional?: ConditionalRule[];
+  /**
+   * @example
+   * true
+   */
   enable?: boolean;
+  /**
+   * @example
+   * crash
+   */
   eventId?: string;
+  /**
+   * @example
+   * 2021-02-15 12:00:00
+   */
   modifyTime?: string;
+  /**
+   * @example
+   * user
+   */
   operator?: string;
+  /**
+   * @example
+   * 1
+   */
   sampleRate?: number;
   static names(): { [key: string]: string } {
     return {

@@ -2,35 +2,41 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class FullSampleItem extends $dara.Model {
+export class GetTlogDeviceInfoRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 233588686
+   */
+  appKey?: number;
   /**
    * @example
-   * id
+   * ad-0008ane9g0qcyu90bpm1-829
    */
-  id?: string;
+  deviceId?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 1740489688615
+   * android
    */
-  modifyTime?: string;
-  /**
-   * @example
-   * testUser
-   */
-  operator?: string;
+  os?: string;
   static names(): { [key: string]: string } {
     return {
-      id: 'Id',
-      modifyTime: 'ModifyTime',
-      operator: 'Operator',
+      appKey: 'AppKey',
+      deviceId: 'DeviceId',
+      os: 'Os',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      id: 'string',
-      modifyTime: 'string',
-      operator: 'string',
+      appKey: 'number',
+      deviceId: 'string',
+      os: 'string',
     };
   }
 

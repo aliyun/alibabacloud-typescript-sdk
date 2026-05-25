@@ -6,7 +6,15 @@ import { FullSampleItem } from "./FullSampleItem";
 export class SampleBase extends $dara.Model {
   fullSampleDeviceIds?: FullSampleItem[];
   fullSampleUsers?: FullSampleItem[];
+  /**
+   * @example
+   * event
+   */
   sampleMethod?: string;
+  /**
+   * @example
+   * 1
+   */
   sampleRate?: number;
   static names(): { [key: string]: string } {
     return {

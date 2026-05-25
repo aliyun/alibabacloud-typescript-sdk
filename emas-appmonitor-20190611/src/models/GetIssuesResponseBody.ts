@@ -77,11 +77,13 @@ export class GetIssuesResponseBodyModelItems extends $dara.Model {
    * 1.0.0
    */
   firstVersion?: string;
+  lagCost?: number;
   /**
    * @example
    * ServiceType
    */
   name?: string;
+  reason?: string;
   /**
    * @example
    * java.lang.NullPointerException: Attempt to invoke virtual method \\"java.lang.Object java.lang.ref.WeakReference.get()\\" on a null object reference
@@ -95,6 +97,8 @@ export class GetIssuesResponseBodyModelItems extends $dara.Model {
    * CREATE_COMPLETE
    */
   status?: number;
+  tags?: string[];
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       affectedUserCount: 'AffectedUserCount',
@@ -115,9 +119,13 @@ export class GetIssuesResponseBodyModelItems extends $dara.Model {
       errorType: 'ErrorType',
       eventTime: 'EventTime',
       firstVersion: 'FirstVersion',
+      lagCost: 'LagCost',
       name: 'Name',
+      reason: 'Reason',
       stack: 'Stack',
       status: 'Status',
+      tags: 'Tags',
+      type: 'Type',
     };
   }
 
@@ -141,13 +149,20 @@ export class GetIssuesResponseBodyModelItems extends $dara.Model {
       errorType: 'string',
       eventTime: 'string',
       firstVersion: 'string',
+      lagCost: 'number',
       name: 'string',
+      reason: 'string',
       stack: 'string',
       status: 'number',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
