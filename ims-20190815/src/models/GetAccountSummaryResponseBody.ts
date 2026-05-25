@@ -157,6 +157,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
    * 1000
    */
   rolesQuota?: number;
+  serviceCredentialsPerUserPerServiceQuota?: number;
   /**
    * @remarks
    * The number of RAM users.
@@ -212,6 +213,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
       policySizeQuota: 'PolicySizeQuota',
       roles: 'Roles',
       rolesQuota: 'RolesQuota',
+      serviceCredentialsPerUserPerServiceQuota: 'ServiceCredentialsPerUserPerServiceQuota',
       users: 'Users',
       usersQuota: 'UsersQuota',
       versionsPerPolicyQuota: 'VersionsPerPolicyQuota',
@@ -242,6 +244,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $dara.Model {
       policySizeQuota: 'number',
       roles: 'number',
       rolesQuota: 'number',
+      serviceCredentialsPerUserPerServiceQuota: 'number',
       users: 'number',
       usersQuota: 'number',
       versionsPerPolicyQuota: 'number',

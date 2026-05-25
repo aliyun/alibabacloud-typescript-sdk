@@ -14,15 +14,18 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPrefere
    * false
    */
   allowUserToManageAccessKeys?: boolean;
+  allowUserToManageServiceCredentials?: boolean;
   static names(): { [key: string]: string } {
     return {
       allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
+      allowUserToManageServiceCredentials: 'AllowUserToManageServiceCredentials',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       allowUserToManageAccessKeys: 'boolean',
+      allowUserToManageServiceCredentials: 'boolean',
     };
   }
 

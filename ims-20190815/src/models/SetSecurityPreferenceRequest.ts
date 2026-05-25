@@ -58,6 +58,7 @@ export class SetSecurityPreferenceRequest extends $dara.Model {
    * true
    */
   allowUserToManagePersonalDingTalk?: boolean;
+  allowUserToManageServiceCredentials?: boolean;
   /**
    * @remarks
    * Specifies whether RAM users can remember the MFA devices for seven days. Valid values:
@@ -135,6 +136,7 @@ export class SetSecurityPreferenceRequest extends $dara.Model {
       allowUserToManageAccessKeys: 'AllowUserToManageAccessKeys',
       allowUserToManageMFADevices: 'AllowUserToManageMFADevices',
       allowUserToManagePersonalDingTalk: 'AllowUserToManagePersonalDingTalk',
+      allowUserToManageServiceCredentials: 'AllowUserToManageServiceCredentials',
       enableSaveMFATicket: 'EnableSaveMFATicket',
       loginNetworkMasks: 'LoginNetworkMasks',
       loginSessionDuration: 'LoginSessionDuration',
@@ -153,6 +155,7 @@ export class SetSecurityPreferenceRequest extends $dara.Model {
       allowUserToManageAccessKeys: 'boolean',
       allowUserToManageMFADevices: 'boolean',
       allowUserToManagePersonalDingTalk: 'boolean',
+      allowUserToManageServiceCredentials: 'boolean',
       enableSaveMFATicket: 'boolean',
       loginNetworkMasks: 'string',
       loginSessionDuration: 'number',

@@ -1476,7 +1476,6 @@ export default class Client extends OpenApi {
   /**
    * Generates the user credential report of an Alibaba Cloud account.
    * 
-   * @param request - GenerateCredentialReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateCredentialReportResponse
    */
@@ -1508,7 +1507,6 @@ export default class Client extends OpenApi {
   /**
    * Generates a check report for Cloud Governance.
    * 
-   * @param request - GenerateGovernanceReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateGovernanceReportResponse
    */
@@ -1628,7 +1626,6 @@ export default class Client extends OpenApi {
   /**
    * Queries information about the multi-factor authentication (MFA) devices of an Alibaba Cloud account.
    * 
-   * @param request - GetAccountMFAInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountMFAInfoResponse
    */
@@ -1660,7 +1657,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the security report of an Alibaba Cloud account.
    * 
-   * @param request - GetAccountSecurityPracticeReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountSecurityPracticeReportResponse
    */
@@ -1692,7 +1688,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the overview information about an Alibaba Cloud account.
    * 
-   * @param request - GetAccountSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountSummaryResponse
    */
@@ -1906,7 +1901,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the default domain name of an Alibaba Cloud account.
    * 
-   * @param request - GetDefaultDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDefaultDomainResponse
    */
@@ -2030,7 +2024,6 @@ export default class Client extends OpenApi {
   /**
    * 查询成熟度报告状态
    * 
-   * @param request - GetGovernanceReportStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetGovernanceReportStatusResponse
    */
@@ -2196,7 +2189,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the details of the password policy for RAM users.
    * 
-   * @param request - GetPasswordPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetPasswordPolicyResponse
    */
@@ -2270,7 +2262,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the security preferences for RAM users.
    * 
-   * @param request - GetSecurityPreferenceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSecurityPreferenceResponse
    */
@@ -2440,7 +2431,6 @@ export default class Client extends OpenApi {
   /**
    * Queries the configurations of user-based single sign-on (SSO).
    * 
-   * @param request - GetUserSsoSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserSsoSettingsResponse
    */
@@ -2685,7 +2675,6 @@ export default class Client extends OpenApi {
    * @remarks
    * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
    * 
-   * @param request - ListApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListApplicationsResponse
    */
@@ -2720,7 +2709,6 @@ export default class Client extends OpenApi {
   /**
    * Queries information about all installed external applications.
    * 
-   * @param request - ListExternalApplicationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListExternalApplicationsResponse
    */
@@ -2978,7 +2966,6 @@ export default class Client extends OpenApi {
   /**
    * Queries all metric values in the most recent governance check.
    * 
-   * @param request - ListRecentGovernanceMetricsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRecentGovernanceMetricsResponse
    */
@@ -3909,6 +3896,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.allowUserToManagePersonalDingTalk)) {
       query["AllowUserToManagePersonalDingTalk"] = request.allowUserToManagePersonalDingTalk;
+    }
+
+    if (!$dara.isNull(request.allowUserToManageServiceCredentials)) {
+      query["AllowUserToManageServiceCredentials"] = request.allowUserToManageServiceCredentials;
     }
 
     if (!$dara.isNull(request.enableSaveMFATicket)) {
