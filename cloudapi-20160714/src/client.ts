@@ -2054,6 +2054,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建环境模型
+   * 
+   * @param request - CreateStageModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateStageModelResponse
+   */
+  async createStageModelWithOptions(request: $_model.CreateStageModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateStageModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.stageAlias)) {
+      query["StageAlias"] = request.stageAlias;
+    }
+
+    if (!$dara.isNull(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateStageModel",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateStageModelResponse>(await this.callApi(params, req, runtime), new $_model.CreateStageModelResponse({}));
+  }
+
+  /**
+   * 创建环境模型
+   * 
+   * @param request - CreateStageModelRequest
+   * @returns CreateStageModelResponse
+   */
+  async createStageModel(request: $_model.CreateStageModelRequest): Promise<$_model.CreateStageModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createStageModelWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a custom throttling policy.
    * 
    * @remarks
@@ -3331,6 +3385,52 @@ export default class Client extends OpenApi {
   async deleteSignature(request: $_model.DeleteSignatureRequest): Promise<$_model.DeleteSignatureResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteSignatureWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除环境
+   * 
+   * @param request - DeleteStageModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteStageModelResponse
+   */
+  async deleteStageModelWithOptions(request: $_model.DeleteStageModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteStageModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.stageModelId)) {
+      query["StageModelId"] = request.stageModelId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteStageModel",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteStageModelResponse>(await this.callApi(params, req, runtime), new $_model.DeleteStageModelResponse({}));
+  }
+
+  /**
+   * 删除环境
+   * 
+   * @param request - DeleteStageModelRequest
+   * @returns DeleteStageModelResponse
+   */
+  async deleteStageModel(request: $_model.DeleteStageModelRequest): Promise<$_model.DeleteStageModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteStageModelWithOptions(request, runtime);
   }
 
   /**
@@ -8400,6 +8500,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询环境列表
+   * 
+   * @param request - DescribeStageModelsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeStageModelsResponse
+   */
+  async describeStageModelsWithOptions(request: $_model.DescribeStageModelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeStageModelsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.stageAlias)) {
+      query["StageAlias"] = request.stageAlias;
+    }
+
+    if (!$dara.isNull(request.stageName)) {
+      query["StageName"] = request.stageName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeStageModels",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeStageModelsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeStageModelsResponse({}));
+  }
+
+  /**
+   * 查询环境列表
+   * 
+   * @param request - DescribeStageModelsRequest
+   * @returns DescribeStageModelsResponse
+   */
+  async describeStageModels(request: $_model.DescribeStageModelsRequest): Promise<$_model.DescribeStageModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeStageModelsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the number of API Gateway resources in a region.
    * 
    * @param request - DescribeSummaryDataRequest
@@ -11219,6 +11377,60 @@ export default class Client extends OpenApi {
   async modifySignature(request: $_model.ModifySignatureRequest): Promise<$_model.ModifySignatureResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifySignatureWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改环境模型
+   * 
+   * @param request - ModifyStageModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyStageModelResponse
+   */
+  async modifyStageModelWithOptions(request: $_model.ModifyStageModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyStageModelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!$dara.isNull(request.stageAlias)) {
+      query["StageAlias"] = request.stageAlias;
+    }
+
+    if (!$dara.isNull(request.stageModelId)) {
+      query["StageModelId"] = request.stageModelId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyStageModel",
+      version: "2016-07-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyStageModelResponse>(await this.callApi(params, req, runtime), new $_model.ModifyStageModelResponse({}));
+  }
+
+  /**
+   * 修改环境模型
+   * 
+   * @param request - ModifyStageModelRequest
+   * @returns ModifyStageModelResponse
+   */
+  async modifyStageModel(request: $_model.ModifyStageModelRequest): Promise<$_model.ModifyStageModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyStageModelWithOptions(request, runtime);
   }
 
   /**
