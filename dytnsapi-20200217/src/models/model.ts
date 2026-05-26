@@ -21,6 +21,7 @@ export { DescribePhoneNumberRiskResponseBodyData } from './DescribePhoneNumberRi
 export { DescribePhoneTwiceTelVerifyResponseBodyData } from './DescribePhoneTwiceTelVerifyResponseBody';
 export { GetUAIDApplyTokenSignResponseBodyData } from './GetUaidapplyTokenSignResponseBody';
 export { GetUAIDConversionSignResponseBodyData } from './GetUaidconversionSignResponseBody';
+export { HistoryThreeElementsVerificationResponseBodyData } from './HistoryThreeElementsVerificationResponseBody';
 export { InvalidPhoneNumberFilterResponseBodyData } from './InvalidPhoneNumberFilterResponseBody';
 export { ListContactsResponseBodyData } from './ListContactsResponseBody';
 export { PhoneNumberConvertServiceResponseBodyData } from './PhoneNumberConvertServiceResponseBody';
@@ -108,6 +109,9 @@ export { GetUAIDApplyTokenSignResponse } from './GetUaidapplyTokenSignResponse';
 export { GetUAIDConversionSignRequest } from './GetUaidconversionSignRequest';
 export { GetUAIDConversionSignResponseBody } from './GetUaidconversionSignResponseBody';
 export { GetUAIDConversionSignResponse } from './GetUaidconversionSignResponse';
+export { HistoryThreeElementsVerificationRequest } from './HistoryThreeElementsVerificationRequest';
+export { HistoryThreeElementsVerificationResponseBody } from './HistoryThreeElementsVerificationResponseBody';
+export { HistoryThreeElementsVerificationResponse } from './HistoryThreeElementsVerificationResponse';
 export { InvalidPhoneNumberFilterRequest } from './InvalidPhoneNumberFilterRequest';
 export { InvalidPhoneNumberFilterResponseBody } from './InvalidPhoneNumberFilterResponseBody';
 export { InvalidPhoneNumberFilterResponse } from './InvalidPhoneNumberFilterResponse';

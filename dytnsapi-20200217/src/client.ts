@@ -588,7 +588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 号码分析实时查询蚂蚁
+   * Obtains the analysis results of a number.
    * 
    * @param request - DescribePhoneNumberAnalysisRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -647,7 +647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 号码分析实时查询蚂蚁
+   * Obtains the analysis results of a number.
    * 
    * @param request - DescribePhoneNumberAnalysisRequest
    * @returns DescribePhoneNumberAnalysisResponse
@@ -1339,7 +1339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取UAID申请Token所需的签名字段
+   * Obtains the signature of an authorization token when China Mobile, China Unicom, or China Telecom provides the Uniform Anonymous Identifier (UAID) capability.
    * 
    * @param request - GetUAIDApplyTokenSignRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1410,7 +1410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取UAID申请Token所需的签名字段
+   * Obtains the signature of an authorization token when China Mobile, China Unicom, or China Telecom provides the Uniform Anonymous Identifier (UAID) capability.
    * 
    * @param request - GetUAIDApplyTokenSignRequest
    * @returns GetUAIDApplyTokenSignResponse
@@ -1500,6 +1500,72 @@ export default class Client extends OpenApi {
   async getUAIDConversionSign(request: $_model.GetUAIDConversionSignRequest): Promise<$_model.GetUAIDConversionSignResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getUAIDConversionSignWithOptions(request, runtime);
+  }
+
+  /**
+   * 历史三要素
+   * 
+   * @param request - HistoryThreeElementsVerificationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HistoryThreeElementsVerificationResponse
+   */
+  async historyThreeElementsVerificationWithOptions(request: $_model.HistoryThreeElementsVerificationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.HistoryThreeElementsVerificationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!$dara.isNull(request.carrier)) {
+      query["Carrier"] = request.carrier;
+    }
+
+    if (!$dara.isNull(request.certCode)) {
+      query["CertCode"] = request.certCode;
+    }
+
+    if (!$dara.isNull(request.inputNumber)) {
+      query["InputNumber"] = request.inputNumber;
+    }
+
+    if (!$dara.isNull(request.mask)) {
+      query["Mask"] = request.mask;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.verificationTime)) {
+      query["VerificationTime"] = request.verificationTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "HistoryThreeElementsVerification",
+      version: "2020-02-17",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.HistoryThreeElementsVerificationResponse>(await this.callApi(params, req, runtime), new $_model.HistoryThreeElementsVerificationResponse({}));
+  }
+
+  /**
+   * 历史三要素
+   * 
+   * @param request - HistoryThreeElementsVerificationRequest
+   * @returns HistoryThreeElementsVerificationResponse
+   */
+  async historyThreeElementsVerification(request: $_model.HistoryThreeElementsVerificationRequest): Promise<$_model.HistoryThreeElementsVerificationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.historyThreeElementsVerificationWithOptions(request, runtime);
   }
 
   /**
@@ -3105,7 +3171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取UAID
+   * Obtains a Uniform Anonymous Identifier (UAID) based on the authorization token of a carrier. For more information about how to obtain the authorization token and its signature value, see the GetUAIDApplyTokenSign documentation.
    * 
    * @param request - UAIDVerificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3172,7 +3238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取UAID
+   * Obtains a Uniform Anonymous Identifier (UAID) based on the authorization token of a carrier. For more information about how to obtain the authorization token and its signature value, see the GetUAIDApplyTokenSign documentation.
    * 
    * @param request - UAIDVerificationRequest
    * @returns UAIDVerificationResponse
