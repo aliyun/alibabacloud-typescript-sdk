@@ -23,6 +23,7 @@ export { GetYikeAssetMediaInfoResponseBodyMediaInfoFileInfoList } from './GetYik
 export { GetYikeAssetMediaInfoResponseBodyMediaInfoMediaBasicInfo } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikeAssetMediaInfoResponseBodyMediaInfo } from './GetYikeAssetMediaInfoResponseBody';
 export { GetYikePromptExpansionVoiceFixJobResponseBodyJobResult } from './GetYikePromptExpansionVoiceFixJobResponseBody';
+export { GetYikeStoryboardJobResponseBodyJobCredit } from './GetYikeStoryboardJobResponseBody';
 export { GetYikeStoryboardJobResponseBodyJobParams } from './GetYikeStoryboardJobResponseBody';
 export { GetYikeStoryboardJobResponseBodyJobResult } from './GetYikeStoryboardJobResponseBody';
 export { GetYikeUserResponseBodyUserInfo } from './GetYikeUserResponseBody';

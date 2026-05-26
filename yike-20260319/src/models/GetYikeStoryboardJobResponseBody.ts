@@ -2,6 +2,54 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetYikeStoryboardJobResponseBodyJobCredit extends $dara.Model {
+  /**
+   * @example
+   * 10.0
+   */
+  elementImageGeneration?: string;
+  /**
+   * @example
+   * 200.2
+   */
+  totalCreditCost?: string;
+  /**
+   * @example
+   * 10.2
+   */
+  videoComposition?: string;
+  /**
+   * @example
+   * 180.0
+   */
+  videoGeneration?: string;
+  static names(): { [key: string]: string } {
+    return {
+      elementImageGeneration: 'ElementImageGeneration',
+      totalCreditCost: 'TotalCreditCost',
+      videoComposition: 'VideoComposition',
+      videoGeneration: 'VideoGeneration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      elementImageGeneration: 'string',
+      totalCreditCost: 'string',
+      videoComposition: 'string',
+      videoGeneration: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetYikeStoryboardJobResponseBodyJobParams extends $dara.Model {
   /**
    * @example
@@ -171,6 +219,7 @@ export class GetYikeStoryboardJobResponseBodyJobResult extends $dara.Model {
 }
 
 export class GetYikeStoryboardJobResponseBody extends $dara.Model {
+  jobCredit?: GetYikeStoryboardJobResponseBodyJobCredit;
   /**
    * @example
    * ****a046-263c-3560-978a-fb287782****
@@ -190,6 +239,7 @@ export class GetYikeStoryboardJobResponseBody extends $dara.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      jobCredit: 'JobCredit',
       jobId: 'JobId',
       jobParams: 'JobParams',
       jobResult: 'JobResult',
@@ -200,6 +250,7 @@ export class GetYikeStoryboardJobResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      jobCredit: GetYikeStoryboardJobResponseBodyJobCredit,
       jobId: 'string',
       jobParams: GetYikeStoryboardJobResponseBodyJobParams,
       jobResult: GetYikeStoryboardJobResponseBodyJobResult,
@@ -209,6 +260,9 @@ export class GetYikeStoryboardJobResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(this.jobCredit && typeof (this.jobCredit as any).validate === 'function') {
+      (this.jobCredit as any).validate();
+    }
     if(this.jobParams && typeof (this.jobParams as any).validate === 'function') {
       (this.jobParams as any).validate();
     }
