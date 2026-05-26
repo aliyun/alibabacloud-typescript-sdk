@@ -2186,10 +2186,6 @@ export default class Client extends OpenApi {
       query["DomainName"] = request.domainName;
     }
 
-    if (!$dara.isNull(request.formatConfig)) {
-      query["FormatConfig"] = request.formatConfig;
-    }
-
     if (!$dara.isNull(request.onDemand)) {
       query["OnDemand"] = request.onDemand;
     }
@@ -30379,10 +30375,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
-    }
-
-    if (!$dara.isNull(request.formatConfig)) {
-      query["FormatConfig"] = request.formatConfig;
     }
 
     if (!$dara.isNull(request.onDemand)) {

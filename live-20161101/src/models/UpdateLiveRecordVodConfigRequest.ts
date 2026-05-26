@@ -94,7 +94,6 @@ export class UpdateLiveRecordVodConfigRequest extends $dara.Model {
    * example.com
    */
   domainName?: string;
-  formatConfig?: boolean;
   /**
    * @remarks
    * Specifies whether to enable on-demand recording. Valid values:
@@ -134,7 +133,6 @@ export class UpdateLiveRecordVodConfigRequest extends $dara.Model {
       cycleDuration: 'CycleDuration',
       delayTime: 'DelayTime',
       domainName: 'DomainName',
-      formatConfig: 'FormatConfig',
       onDemand: 'OnDemand',
       ownerId: 'OwnerId',
       recordFormat: 'RecordFormat',
@@ -153,7 +151,6 @@ export class UpdateLiveRecordVodConfigRequest extends $dara.Model {
       cycleDuration: 'number',
       delayTime: 'number',
       domainName: 'string',
-      formatConfig: 'boolean',
       onDemand: 'number',
       ownerId: 'number',
       recordFormat: { 'type': 'array', 'itemType': UpdateLiveRecordVodConfigRequestRecordFormat },
