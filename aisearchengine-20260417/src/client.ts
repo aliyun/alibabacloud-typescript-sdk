@@ -103,6 +103,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取数据集资源 OSS 访问地址
+   * 
+   * @param request - GetDatasetResourceUrlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetResourceUrlResponse
+   */
+  async getDatasetResourceUrlWithOptions(request: $_model.GetDatasetResourceUrlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDatasetResourceUrlResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetId)) {
+      body["datasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.primaryKey)) {
+      body["primaryKey"] = request.primaryKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDatasetResourceUrl",
+      version: "2026-04-17",
+      protocol: "HTTPS",
+      pathname: `/api/v1/dataset/open/resources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDatasetResourceUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetDatasetResourceUrlResponse({}));
+  }
+
+  /**
+   * 获取数据集资源 OSS 访问地址
+   * 
+   * @param request - GetDatasetResourceUrlRequest
+   * @returns GetDatasetResourceUrlResponse
+   */
+  async getDatasetResourceUrl(request: $_model.GetDatasetResourceUrlRequest): Promise<$_model.GetDatasetResourceUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDatasetResourceUrlWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 提交单条记录导入任务
+   * 
+   * @param request - ImportDatasetDataRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportDatasetDataResponse
+   */
+  async importDatasetDataWithOptions(request: $_model.ImportDatasetDataRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ImportDatasetDataResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.datasetId)) {
+      body["datasetId"] = request.datasetId;
+    }
+
+    if (!$dara.isNull(request.records)) {
+      body["records"] = request.records;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportDatasetData",
+      version: "2026-04-17",
+      protocol: "HTTPS",
+      pathname: `/api/v1/dataset/open/upsert`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportDatasetDataResponse>(await this.callApi(params, req, runtime), new $_model.ImportDatasetDataResponse({}));
+  }
+
+  /**
+   * 提交单条记录导入任务
+   * 
+   * @param request - ImportDatasetDataRequest
+   * @returns ImportDatasetDataResponse
+   */
+  async importDatasetData(request: $_model.ImportDatasetDataRequest): Promise<$_model.ImportDatasetDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.importDatasetDataWithOptions(request, headers, runtime);
+  }
+
+  /**
    * AI问答对话
    * 
    * @param request - QaChatRequest
