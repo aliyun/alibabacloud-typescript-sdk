@@ -18,11 +18,13 @@ export class CreateAPIKeyCredentialProviderRequest extends $dara.Model {
    * example provider
    */
   description?: string;
+  tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {
       APIKey: 'APIKey',
       APIKeyCredentialProviderName: 'APIKeyCredentialProviderName',
       description: 'Description',
+      tokenVaultName: 'TokenVaultName',
     };
   }
 
@@ -31,6 +33,7 @@ export class CreateAPIKeyCredentialProviderRequest extends $dara.Model {
       APIKey: 'string',
       APIKeyCredentialProviderName: 'string',
       description: 'string',
+      tokenVaultName: 'string',
     };
   }
 

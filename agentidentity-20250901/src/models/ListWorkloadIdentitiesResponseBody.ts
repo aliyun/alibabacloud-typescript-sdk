@@ -20,6 +20,9 @@ export class ListWorkloadIdentitiesResponseBodyWorkloadIdentities extends $dara.
    * acs:ram::1953507478506681:role/test-rrsa-cb5ca90a20f854671adbac6ed4559a654
    */
   roleArn?: string;
+  sessionBindingEnabled?: boolean;
+  sourceAgentArn?: string;
+  sourcePlatform?: string;
   /**
    * @example
    * 2025-12-18T06:19:17Z
@@ -42,6 +45,9 @@ export class ListWorkloadIdentitiesResponseBodyWorkloadIdentities extends $dara.
       description: 'Description',
       identityProviderName: 'IdentityProviderName',
       roleArn: 'RoleArn',
+      sessionBindingEnabled: 'SessionBindingEnabled',
+      sourceAgentArn: 'SourceAgentArn',
+      sourcePlatform: 'SourcePlatform',
       updateTime: 'UpdateTime',
       workloadIdentityArn: 'WorkloadIdentityArn',
       workloadIdentityName: 'WorkloadIdentityName',
@@ -55,6 +61,9 @@ export class ListWorkloadIdentitiesResponseBodyWorkloadIdentities extends $dara.
       description: 'string',
       identityProviderName: 'string',
       roleArn: 'string',
+      sessionBindingEnabled: 'boolean',
+      sourceAgentArn: 'string',
+      sourcePlatform: 'string',
       updateTime: 'string',
       workloadIdentityArn: 'string',
       workloadIdentityName: 'string',

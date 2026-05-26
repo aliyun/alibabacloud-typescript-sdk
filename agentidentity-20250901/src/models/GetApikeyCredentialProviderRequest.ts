@@ -8,15 +8,18 @@ export class GetAPIKeyCredentialProviderRequest extends $dara.Model {
    * api-key-dash-scope
    */
   APIKeyCredentialProviderName?: string;
+  tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {
       APIKeyCredentialProviderName: 'APIKeyCredentialProviderName',
+      tokenVaultName: 'TokenVaultName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       APIKeyCredentialProviderName: 'string',
+      tokenVaultName: 'string',
     };
   }
 

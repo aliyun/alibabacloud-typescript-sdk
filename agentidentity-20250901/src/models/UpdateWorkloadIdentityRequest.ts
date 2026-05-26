@@ -23,6 +23,7 @@ export class UpdateWorkloadIdentityRequest extends $dara.Model {
    * acs:ram::123456:role/agent-101-role
    */
   roleArn?: string;
+  sessionBindingEnabled?: string;
   /**
    * @example
    * agent-101
@@ -34,6 +35,7 @@ export class UpdateWorkloadIdentityRequest extends $dara.Model {
       description: 'Description',
       identityProviderName: 'IdentityProviderName',
       roleArn: 'RoleArn',
+      sessionBindingEnabled: 'SessionBindingEnabled',
       workloadIdentityName: 'WorkloadIdentityName',
     };
   }
@@ -44,6 +46,7 @@ export class UpdateWorkloadIdentityRequest extends $dara.Model {
       description: 'string',
       identityProviderName: 'string',
       roleArn: 'string',
+      sessionBindingEnabled: 'string',
       workloadIdentityName: 'string',
     };
   }

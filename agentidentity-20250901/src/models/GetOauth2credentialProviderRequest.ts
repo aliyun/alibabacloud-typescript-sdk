@@ -8,15 +8,18 @@ export class GetOAuth2CredentialProviderRequest extends $dara.Model {
    * oauth2-provider-aliyun
    */
   OAuth2CredentialProviderName?: string;
+  tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {
       OAuth2CredentialProviderName: 'OAuth2CredentialProviderName',
+      tokenVaultName: 'TokenVaultName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       OAuth2CredentialProviderName: 'string',
+      tokenVaultName: 'string',
     };
   }
 

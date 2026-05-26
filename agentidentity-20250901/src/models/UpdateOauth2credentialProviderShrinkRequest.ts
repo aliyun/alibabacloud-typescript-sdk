@@ -27,6 +27,7 @@ export class UpdateOAuth2CredentialProviderShrinkRequest extends $dara.Model {
    */
   OAuth2CredentialProviderName?: string;
   OAuth2ProviderConfigShrink?: string;
+  tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {
       callbackURL: 'CallbackURL',
@@ -34,6 +35,7 @@ export class UpdateOAuth2CredentialProviderShrinkRequest extends $dara.Model {
       description: 'Description',
       OAuth2CredentialProviderName: 'OAuth2CredentialProviderName',
       OAuth2ProviderConfigShrink: 'OAuth2ProviderConfig',
+      tokenVaultName: 'TokenVaultName',
     };
   }
 
@@ -44,6 +46,7 @@ export class UpdateOAuth2CredentialProviderShrinkRequest extends $dara.Model {
       description: 'string',
       OAuth2CredentialProviderName: 'string',
       OAuth2ProviderConfigShrink: 'string',
+      tokenVaultName: 'string',
     };
   }
 

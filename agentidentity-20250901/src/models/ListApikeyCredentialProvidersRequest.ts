@@ -13,10 +13,12 @@ export class ListAPIKeyCredentialProvidersRequest extends $dara.Model {
    * AAAAAV3MpHK1AP0pfERHZN5pu6l8i017XhgKLf/HqWDGD375
    */
   nextToken?: string;
+  tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      tokenVaultName: 'TokenVaultName',
     };
   }
 
@@ -24,6 +26,7 @@ export class ListAPIKeyCredentialProvidersRequest extends $dara.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      tokenVaultName: 'string',
     };
   }
 

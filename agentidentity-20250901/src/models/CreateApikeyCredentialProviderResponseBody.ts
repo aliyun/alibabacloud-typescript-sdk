@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CreateAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider extends $dara.Model {
   /**
    * @example
@@ -25,12 +23,14 @@ export class CreateAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider 
    * example provider
    */
   description?: string;
+  tokenVaultName?: string;
   static names(): { [key: string]: string } {
     return {
       APIKeyCredentialProviderName: 'APIKeyCredentialProviderName',
       createTime: 'CreateTime',
       credentialProviderArn: 'CredentialProviderArn',
       description: 'Description',
+      tokenVaultName: 'TokenVaultName',
     };
   }
 
@@ -40,6 +40,7 @@ export class CreateAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider 
       createTime: 'string',
       credentialProviderArn: 'string',
       description: 'string',
+      tokenVaultName: 'string',
     };
   }
 

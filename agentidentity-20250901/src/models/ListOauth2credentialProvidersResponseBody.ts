@@ -35,6 +35,7 @@ export class ListOAuth2CredentialProvidersResponseBodyOAuth2CredentialProviders 
    */
   OAuth2CredentialProviderName?: string;
   OAuth2ProviderConfig?: OAuth2ProviderConfig;
+  tokenVaultName?: string;
   /**
    * @example
    * 2025-12-18T06:19:17Z
@@ -49,6 +50,7 @@ export class ListOAuth2CredentialProvidersResponseBodyOAuth2CredentialProviders 
       description: 'Description',
       OAuth2CredentialProviderName: 'OAuth2CredentialProviderName',
       OAuth2ProviderConfig: 'OAuth2ProviderConfig',
+      tokenVaultName: 'TokenVaultName',
       updateTime: 'UpdateTime',
     };
   }
@@ -62,6 +64,7 @@ export class ListOAuth2CredentialProvidersResponseBodyOAuth2CredentialProviders 
       description: 'string',
       OAuth2CredentialProviderName: 'string',
       OAuth2ProviderConfig: OAuth2ProviderConfig,
+      tokenVaultName: 'string',
       updateTime: 'string',
     };
   }

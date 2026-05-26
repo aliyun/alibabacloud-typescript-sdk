@@ -23,6 +23,7 @@ export class GetAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider ext
    * example provider
    */
   description?: string;
+  tokenVaultName?: string;
   /**
    * @example
    * 2025-12-18T06:19:17Z
@@ -34,6 +35,7 @@ export class GetAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider ext
       createTime: 'CreateTime',
       credentialProviderArn: 'CredentialProviderArn',
       description: 'Description',
+      tokenVaultName: 'TokenVaultName',
       updateTime: 'UpdateTime',
     };
   }
@@ -44,6 +46,7 @@ export class GetAPIKeyCredentialProviderResponseBodyAPIKeyCredentialProvider ext
       createTime: 'string',
       credentialProviderArn: 'string',
       description: 'string',
+      tokenVaultName: 'string',
       updateTime: 'string',
     };
   }
