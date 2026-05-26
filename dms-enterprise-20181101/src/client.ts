@@ -4639,16 +4639,16 @@ export default class Client extends OpenApi {
       query["Description"] = request.description;
     }
 
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
     if (!$dara.isNull(request.vpcId)) {
       query["VpcId"] = request.vpcId;
     }
 
     if (!$dara.isNull(request.workspaceName)) {
       query["WorkspaceName"] = request.workspaceName;
+    }
+
+    if (!$dara.isNull(request.workspaceRegion)) {
+      query["WorkspaceRegion"] = request.workspaceRegion;
     }
 
     let body : {[key: string ]: any} = { };
@@ -6763,7 +6763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 数据库知识库补数据接口
+   * Database knowledge base data supplementation interface
    * 
    * @param request - GenMetaKnowledgeAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6794,7 +6794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 数据库知识库补数据接口
+   * Database knowledge base data supplementation interface
    * 
    * @param request - GenMetaKnowledgeAssetRequest
    * @returns GenMetaKnowledgeAssetResponse
@@ -8218,7 +8218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries basic information about tables in the data lake.
+   * Invokes this API to obtain table info in the data lake.
    * 
    * @param request - GetDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8269,7 +8269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries basic information about tables in the data lake.
+   * Invokes this API to obtain table info in the data lake.
    * 
    * @param request - GetDataLakeTableRequest
    * @returns GetDataLakeTableResponse
@@ -13016,6 +13016,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询资产盘点任务历史列表
+   * 
+   * @remarks
+   * 对应控制台 /knowledge/job/inventory/list，分页查询当前租户下的资产盘点任务历史，支持按任务 ID、创建人关键词及状态筛选
+   * 
+   * @param request - ListInventoryJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInventoryJobsResponse
+   */
+  async listInventoryJobsWithOptions(request: $_model.ListInventoryJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInventoryJobsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInventoryJobs",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInventoryJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListInventoryJobsResponse({}));
+  }
+
+  /**
+   * 分页查询资产盘点任务历史列表
+   * 
+   * @remarks
+   * 对应控制台 /knowledge/job/inventory/list，分页查询当前租户下的资产盘点任务历史，支持按任务 ID、创建人关键词及状态筛选
+   * 
+   * @param request - ListInventoryJobsRequest
+   * @returns ListInventoryJobsResponse
+   */
+  async listInventoryJobs(request: $_model.ListInventoryJobsRequest): Promise<$_model.ListInventoryJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInventoryJobsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about task flows in the business scenarios of a workspace in Data Management (DMS).
    * 
    * @remarks
@@ -17113,6 +17181,74 @@ export default class Client extends OpenApi {
   async searchDatabase(request: $_model.SearchDatabaseRequest): Promise<$_model.SearchDatabaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.searchDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询盘点任务下的表资产列表
+   * 
+   * @remarks
+   * 对应控制台 /knowledge/job/inventory/asset，分页查询指定盘点任务产出的表级资产信息，支持关键词筛选与排序
+   * 
+   * @param request - SearchInventoryAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchInventoryAssetResponse
+   */
+  async searchInventoryAssetWithOptions(request: $_model.SearchInventoryAssetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SearchInventoryAssetResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.sortOrder)) {
+      query["SortOrder"] = request.sortOrder;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SearchInventoryAsset",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SearchInventoryAssetResponse>(await this.callApi(params, req, runtime), new $_model.SearchInventoryAssetResponse({}));
+  }
+
+  /**
+   * 分页查询盘点任务下的表资产列表
+   * 
+   * @remarks
+   * 对应控制台 /knowledge/job/inventory/asset，分页查询指定盘点任务产出的表级资产信息，支持关键词筛选与排序
+   * 
+   * @param request - SearchInventoryAssetRequest
+   * @returns SearchInventoryAssetResponse
+   */
+  async searchInventoryAsset(request: $_model.SearchInventoryAssetRequest): Promise<$_model.SearchInventoryAssetResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.searchInventoryAssetWithOptions(request, runtime);
   }
 
   /**

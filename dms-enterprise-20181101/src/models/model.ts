@@ -252,6 +252,7 @@ export { ListInstancesResponseBodyInstanceListInstanceOwnerNameList } from './Li
 export { ListInstancesResponseBodyInstanceListInstanceStandardGroup } from './ListInstancesResponseBody';
 export { ListInstancesResponseBodyInstanceListInstance } from './ListInstancesResponseBody';
 export { ListInstancesResponseBodyInstanceList } from './ListInstancesResponseBody';
+export { ListInventoryJobsResponseBodyData } from './ListInventoryJobsResponseBody';
 export { ListLhTaskFlowAndScenarioResponseBodyRawDAGListDag } from './ListLhTaskFlowAndScenarioResponseBody';
 export { ListLhTaskFlowAndScenarioResponseBodyRawDAGList } from './ListLhTaskFlowAndScenarioResponseBody';
 export { ListLhTaskFlowAndScenarioResponseBodyScenarioDAGListScenarioDAGDagListDag } from './ListLhTaskFlowAndScenarioResponseBody';
@@ -361,6 +362,7 @@ export { SearchDatabaseResponseBodySearchDatabaseListSearchDatabaseOwnerIdList }
 export { SearchDatabaseResponseBodySearchDatabaseListSearchDatabaseOwnerNameList } from './SearchDatabaseResponseBody';
 export { SearchDatabaseResponseBodySearchDatabaseListSearchDatabase } from './SearchDatabaseResponseBody';
 export { SearchDatabaseResponseBodySearchDatabaseList } from './SearchDatabaseResponseBody';
+export { SearchInventoryAssetResponseBodyData } from './SearchInventoryAssetResponseBody';
 export { SearchInventoryKnowledgeResponseBodyData } from './SearchInventoryKnowledgeResponseBody';
 export { SearchTableResponseBodySearchTableListSearchTableOwnerIdList } from './SearchTableResponseBody';
 export { SearchTableResponseBodySearchTableListSearchTableOwnerNameList } from './SearchTableResponseBody';
@@ -1077,6 +1079,9 @@ export { ListInstanceUserPermissionsResponse } from './ListInstanceUserPermissio
 export { ListInstancesRequest } from './ListInstancesRequest';
 export { ListInstancesResponseBody } from './ListInstancesResponseBody';
 export { ListInstancesResponse } from './ListInstancesResponse';
+export { ListInventoryJobsRequest } from './ListInventoryJobsRequest';
+export { ListInventoryJobsResponseBody } from './ListInventoryJobsResponseBody';
+export { ListInventoryJobsResponse } from './ListInventoryJobsResponse';
 export { ListLhTaskFlowAndScenarioRequest } from './ListLhTaskFlowAndScenarioRequest';
 export { ListLhTaskFlowAndScenarioResponseBody } from './ListLhTaskFlowAndScenarioResponseBody';
 export { ListLhTaskFlowAndScenarioResponse } from './ListLhTaskFlowAndScenarioResponse';
@@ -1284,6 +1289,9 @@ export { SearchDataTrackResultResponse } from './SearchDataTrackResultResponse';
 export { SearchDatabaseRequest } from './SearchDatabaseRequest';
 export { SearchDatabaseResponseBody } from './SearchDatabaseResponseBody';
 export { SearchDatabaseResponse } from './SearchDatabaseResponse';
+export { SearchInventoryAssetRequest } from './SearchInventoryAssetRequest';
+export { SearchInventoryAssetResponseBody } from './SearchInventoryAssetResponseBody';
+export { SearchInventoryAssetResponse } from './SearchInventoryAssetResponse';
 export { SearchInventoryKnowledgeRequest } from './SearchInventoryKnowledgeRequest';
 export { SearchInventoryKnowledgeResponseBody } from './SearchInventoryKnowledgeResponseBody';
 export { SearchInventoryKnowledgeResponse } from './SearchInventoryKnowledgeResponse';

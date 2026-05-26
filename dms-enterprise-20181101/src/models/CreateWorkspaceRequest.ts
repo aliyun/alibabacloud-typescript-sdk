@@ -23,16 +23,6 @@ export class CreateWorkspaceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The region to which the workspace belongs.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
-   */
-  regionId?: string;
-  /**
-   * @remarks
    * The VPC ID.
    * 
    * This parameter is required.
@@ -51,13 +41,21 @@ export class CreateWorkspaceRequest extends $dara.Model {
    * workspace_xxx
    */
   workspaceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  workspaceRegion?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       description: 'Description',
-      regionId: 'RegionId',
       vpcId: 'VpcId',
       workspaceName: 'WorkspaceName',
+      workspaceRegion: 'WorkspaceRegion',
     };
   }
 
@@ -65,9 +63,9 @@ export class CreateWorkspaceRequest extends $dara.Model {
     return {
       clientToken: 'string',
       description: 'string',
-      regionId: 'string',
       vpcId: 'string',
       workspaceName: 'string',
+      workspaceRegion: 'string',
     };
   }
 
