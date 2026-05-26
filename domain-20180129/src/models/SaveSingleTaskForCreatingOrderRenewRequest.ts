@@ -29,6 +29,7 @@ export class SaveSingleTaskForCreatingOrderRenewRequest extends $dara.Model {
    * en
    */
   lang?: string;
+  permitPremiumRenew?: boolean;
   /**
    * @example
    * 123132
@@ -63,6 +64,7 @@ export class SaveSingleTaskForCreatingOrderRenewRequest extends $dara.Model {
       currentExpirationDate: 'CurrentExpirationDate',
       domainName: 'DomainName',
       lang: 'Lang',
+      permitPremiumRenew: 'PermitPremiumRenew',
       promotionNo: 'PromotionNo',
       subscriptionDuration: 'SubscriptionDuration',
       useCoupon: 'UseCoupon',
@@ -77,6 +79,7 @@ export class SaveSingleTaskForCreatingOrderRenewRequest extends $dara.Model {
       currentExpirationDate: 'number',
       domainName: 'string',
       lang: 'string',
+      permitPremiumRenew: 'boolean',
       promotionNo: 'string',
       subscriptionDuration: 'number',
       useCoupon: 'boolean',

@@ -13,6 +13,7 @@ export class SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam extends $d
    * Aliyun.com
    */
   domainName?: string;
+  permitPremiumRenew?: boolean;
   /**
    * @example
    * 1
@@ -22,6 +23,7 @@ export class SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam extends $d
     return {
       currentExpirationDate: 'CurrentExpirationDate',
       domainName: 'DomainName',
+      permitPremiumRenew: 'PermitPremiumRenew',
       subscriptionDuration: 'SubscriptionDuration',
     };
   }
@@ -30,6 +32,7 @@ export class SaveBatchTaskForCreatingOrderRenewRequestOrderRenewParam extends $d
     return {
       currentExpirationDate: 'number',
       domainName: 'string',
+      permitPremiumRenew: 'boolean',
       subscriptionDuration: 'number',
     };
   }

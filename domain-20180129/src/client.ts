@@ -2022,7 +2022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据实例id查询域名信息
+   * Queries the basic information about a domain name based on the instance ID.
    * 
    * @param request - QueryDomainByInstanceIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2061,7 +2061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据实例id查询域名信息
+   * Queries the basic information about a domain name based on the instance ID.
    * 
    * @param request - QueryDomainByInstanceIdRequest
    * @returns QueryDomainByInstanceIdResponse
@@ -5625,6 +5625,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.permitPremiumRenew)) {
+      query["PermitPremiumRenew"] = request.permitPremiumRenew;
     }
 
     if (!$dara.isNull(request.promotionNo)) {
