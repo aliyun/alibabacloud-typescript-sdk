@@ -18,11 +18,14 @@ export class DescribeNisTrafficRankingResponseBodyFlowRankingList extends $dara.
    * 100
    */
   bytes?: number;
+  bytesIncrease?: number;
+  bytesIncreaseRatio?: number;
   /**
    * @example
    * 0.2
    */
   bytesRate?: number;
+  cenId?: string;
   /**
    * @example
    * 45102
@@ -212,7 +215,10 @@ export class DescribeNisTrafficRankingResponseBodyFlowRankingList extends $dara.
       bindingResourceId: 'BindingResourceId',
       bindingResourceType: 'BindingResourceType',
       bytes: 'Bytes',
+      bytesIncrease: 'BytesIncrease',
+      bytesIncreaseRatio: 'BytesIncreaseRatio',
       bytesRate: 'BytesRate',
+      cenId: 'CenId',
       clientAsn: 'ClientAsn',
       clientCity: 'ClientCity',
       clientCountry: 'ClientCountry',
@@ -261,7 +267,10 @@ export class DescribeNisTrafficRankingResponseBodyFlowRankingList extends $dara.
       bindingResourceId: 'string',
       bindingResourceType: 'string',
       bytes: 'number',
+      bytesIncrease: 'number',
+      bytesIncreaseRatio: 'number',
       bytesRate: 'number',
+      cenId: 'string',
       clientAsn: 'string',
       clientCity: 'string',
       clientCountry: 'string',

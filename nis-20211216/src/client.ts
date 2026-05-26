@@ -74,7 +74,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a network path in the cloud for reachability analysis.
+   * Creates a network path for reachability analysis.
    * 
    * @remarks
    *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
@@ -161,7 +161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a network path in the cloud for reachability analysis.
+   * Creates a network path for reachability analysis.
    * 
    * @remarks
    *   You can call the **CreateNetworkPath** operation to create network paths in multiple networking scenarios and between multiple resources. After a path is created, the path parameters are saved for repeated analysis.
@@ -1422,7 +1422,6 @@ export default class Client extends OpenApi {
   /**
    * 巡检资源类型列表
    * 
-   * @param request - ListNisInspectionResourceTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListNisInspectionResourceTypeResponse
    */
