@@ -29,6 +29,7 @@ export class DetectImageCroppingRequest extends $dara.Model {
    * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfig?: CredentialConfig;
+  inclusionHints?: string[];
   /**
    * @remarks
    * The name of the project.
@@ -53,6 +54,7 @@ export class DetectImageCroppingRequest extends $dara.Model {
     return {
       aspectRatios: 'AspectRatios',
       credentialConfig: 'CredentialConfig',
+      inclusionHints: 'InclusionHints',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
     };
@@ -62,6 +64,7 @@ export class DetectImageCroppingRequest extends $dara.Model {
     return {
       aspectRatios: 'string',
       credentialConfig: CredentialConfig,
+      inclusionHints: { 'type': 'array', 'itemType': 'string' },
       projectName: 'string',
       sourceURI: 'string',
     };
@@ -70,6 +73,9 @@ export class DetectImageCroppingRequest extends $dara.Model {
   validate() {
     if(this.credentialConfig && typeof (this.credentialConfig as any).validate === 'function') {
       (this.credentialConfig as any).validate();
+    }
+    if(Array.isArray(this.inclusionHints)) {
+      $dara.Model.validateArray(this.inclusionHints);
     }
     super.validate();
   }

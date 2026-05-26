@@ -28,6 +28,7 @@ export class DetectImageCroppingShrinkRequest extends $dara.Model {
    * The authorization chain settings. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
    */
   credentialConfigShrink?: string;
+  inclusionHintsShrink?: string;
   /**
    * @remarks
    * The name of the project.
@@ -52,6 +53,7 @@ export class DetectImageCroppingShrinkRequest extends $dara.Model {
     return {
       aspectRatios: 'AspectRatios',
       credentialConfigShrink: 'CredentialConfig',
+      inclusionHintsShrink: 'InclusionHints',
       projectName: 'ProjectName',
       sourceURI: 'SourceURI',
     };
@@ -61,6 +63,7 @@ export class DetectImageCroppingShrinkRequest extends $dara.Model {
     return {
       aspectRatios: 'string',
       credentialConfigShrink: 'string',
+      inclusionHintsShrink: 'string',
       projectName: 'string',
       sourceURI: 'string',
     };

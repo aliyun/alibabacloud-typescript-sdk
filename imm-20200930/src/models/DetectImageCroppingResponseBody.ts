@@ -9,6 +9,7 @@ export class DetectImageCroppingResponseBody extends $dara.Model {
    * The image cropping suggestions.
    */
   croppings?: CroppingSuggestion[];
+  matchedInclusionHints?: string[];
   /**
    * @remarks
    * The request ID.
@@ -20,6 +21,7 @@ export class DetectImageCroppingResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       croppings: 'Croppings',
+      matchedInclusionHints: 'MatchedInclusionHints',
       requestId: 'RequestId',
     };
   }
@@ -27,6 +29,7 @@ export class DetectImageCroppingResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       croppings: { 'type': 'array', 'itemType': CroppingSuggestion },
+      matchedInclusionHints: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
     };
   }
@@ -34,6 +37,9 @@ export class DetectImageCroppingResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.croppings)) {
       $dara.Model.validateArray(this.croppings);
+    }
+    if(Array.isArray(this.matchedInclusionHints)) {
+      $dara.Model.validateArray(this.matchedInclusionHints);
     }
     super.validate();
   }

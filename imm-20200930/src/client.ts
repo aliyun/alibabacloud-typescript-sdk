@@ -4301,6 +4301,10 @@ export default class Client extends OpenApi {
       request.credentialConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.credentialConfig, "CredentialConfig", "json");
     }
 
+    if (!$dara.isNull(tmpReq.inclusionHints)) {
+      request.inclusionHintsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inclusionHints, "InclusionHints", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.aspectRatios)) {
       query["AspectRatios"] = request.aspectRatios;
@@ -4308,6 +4312,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.credentialConfigShrink)) {
       query["CredentialConfig"] = request.credentialConfigShrink;
+    }
+
+    if (!$dara.isNull(request.inclusionHintsShrink)) {
+      query["InclusionHints"] = request.inclusionHintsShrink;
     }
 
     if (!$dara.isNull(request.projectName)) {

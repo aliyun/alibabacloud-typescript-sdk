@@ -4,6 +4,7 @@ import { SmartClusterRule } from "./SmartClusterRule";
 
 
 export class SmartCluster extends $dara.Model {
+  clusterType?: string;
   /**
    * @remarks
    * The time when the cluster was created.
@@ -73,11 +74,13 @@ export class SmartCluster extends $dara.Model {
    * MyProject
    */
   projectName?: string;
+  reason?: string;
   /**
    * @remarks
    * The clustering rule.
    */
   rule?: SmartClusterRule;
+  rules?: SmartClusterRule[];
   /**
    * @remarks
    * The time when the cluster was updated.
@@ -88,6 +91,7 @@ export class SmartCluster extends $dara.Model {
   updateTime?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterType: 'ClusterType',
       createTime: 'CreateTime',
       datasetName: 'DatasetName',
       description: 'Description',
@@ -97,13 +101,16 @@ export class SmartCluster extends $dara.Model {
       objectType: 'ObjectType',
       ownerId: 'OwnerId',
       projectName: 'ProjectName',
+      reason: 'Reason',
       rule: 'Rule',
+      rules: 'Rules',
       updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clusterType: 'string',
       createTime: 'string',
       datasetName: 'string',
       description: 'string',
@@ -113,7 +120,9 @@ export class SmartCluster extends $dara.Model {
       objectType: 'string',
       ownerId: 'string',
       projectName: 'string',
+      reason: 'string',
       rule: SmartClusterRule,
+      rules: { 'type': 'array', 'itemType': SmartClusterRule },
       updateTime: 'string',
     };
   }
@@ -121,6 +130,9 @@ export class SmartCluster extends $dara.Model {
   validate() {
     if(this.rule && typeof (this.rule as any).validate === 'function') {
       (this.rule as any).validate();
+    }
+    if(Array.isArray(this.rules)) {
+      $dara.Model.validateArray(this.rules);
     }
     super.validate();
   }
