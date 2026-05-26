@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   autoScale?: string;
   /**
    * @remarks
@@ -52,6 +56,10 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
    * 6.0
    */
   engineVersion?: string;
+  /**
+   * @example
+   * 2026-04-27T16:00:00Z
+   */
   expireTime?: string;
   /**
    * @remarks
@@ -73,6 +81,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
    * 192.168.0.1
    */
   privateConnectUrl?: string;
+  projectDescription?: string;
   /**
    * @remarks
    * The Supabase project ID.
@@ -177,6 +186,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
       expireTime: 'ExpireTime',
       payType: 'PayType',
       privateConnectUrl: 'PrivateConnectUrl',
+      projectDescription: 'ProjectDescription',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       projectSpec: 'ProjectSpec',
@@ -203,6 +213,7 @@ export class ListSupabaseProjectsResponseBodyItems extends $dara.Model {
       expireTime: 'string',
       payType: 'string',
       privateConnectUrl: 'string',
+      projectDescription: 'string',
       projectId: 'string',
       projectName: 'string',
       projectSpec: 'string',

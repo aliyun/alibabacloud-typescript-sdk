@@ -19,7 +19,15 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
    * caeba0bbb2be03f84eb48b699f0a****
    */
   nextToken?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   /**
    * @remarks
@@ -31,9 +39,25 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * ProjectId
+   */
   searchField?: string;
+  /**
+   * @example
+   * gp-bp***************
+   */
   searchValue?: string;
+  /**
+   * @example
+   * UpdatedDate
+   */
   sortField?: string;
+  /**
+   * @example
+   * desc
+   */
   sortOrder?: string;
   static names(): { [key: string]: string } {
     return {

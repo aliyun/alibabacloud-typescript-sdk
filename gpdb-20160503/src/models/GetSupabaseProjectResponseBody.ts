@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetSupabaseProjectResponseBody extends $dara.Model {
+  /**
+   * @example
+   * false
+   */
   autoScale?: string;
   /**
    * @remarks
@@ -12,6 +16,10 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * 2019-09-08T16:00:00Z
    */
   createTime?: string;
+  /**
+   * @example
+   * 127.0.0.1,100.64.XX.XX/10
+   */
   DBSecurityIpList?: string;
   /**
    * @remarks
@@ -56,8 +64,20 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * 15
    */
   engineVersion?: string;
+  /**
+   * @example
+   * eni-xxxxxx
+   */
   eni?: string;
+  /**
+   * @example
+   * v1.0.3
+   */
   instanceVersion?: string;
+  /**
+   * @example
+   * POSTPAY
+   */
   payType?: string;
   /**
    * @remarks
@@ -67,6 +87,11 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * 192.168.0.11
    */
   privateConnectUrl?: string;
+  /**
+   * @example
+   * for-test-project
+   */
+  projectDescription?: string;
   /**
    * @remarks
    * The Supabase instance ID.
@@ -141,6 +166,10 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
    * 2
    */
   storageSize?: number;
+  /**
+   * @example
+   * cloud_essd_pl0
+   */
   storageType?: string;
   /**
    * @remarks
@@ -188,6 +217,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
       instanceVersion: 'InstanceVersion',
       payType: 'PayType',
       privateConnectUrl: 'PrivateConnectUrl',
+      projectDescription: 'ProjectDescription',
       projectId: 'ProjectId',
       projectName: 'ProjectName',
       projectSpec: 'ProjectSpec',
@@ -218,6 +248,7 @@ export class GetSupabaseProjectResponseBody extends $dara.Model {
       instanceVersion: 'string',
       payType: 'string',
       privateConnectUrl: 'string',
+      projectDescription: 'string',
       projectId: 'string',
       projectName: 'string',
       projectSpec: 'string',
