@@ -359,6 +359,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建单个配置
+   * 
+   * @param request - CreateConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConfigResponse
+   */
+  async createConfigWithOptions(ClusterId: string, ConfigType: string, Name: string, ConfigKey: string, request: $_model.CreateConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateConfig",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/configs/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ConfigType)}/${$dara.URL.percentEncode(Name)}/${$dara.URL.percentEncode(ConfigKey)}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateConfigResponse({}));
+  }
+
+  /**
+   * 创建单个配置
+   * 
+   * @param request - CreateConfigRequest
+   * @returns CreateConfigResponse
+   */
+  async createConfig(ClusterId: string, ConfigType: string, Name: string, ConfigKey: string, request: $_model.CreateConfigRequest): Promise<$_model.CreateConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createConfigWithOptions(ClusterId, ConfigType, Name, ConfigKey, request, headers, runtime);
+  }
+
+  /**
    * 创建故障注入任务
    * 
    * @param request - CreateFaultInjectionRequest
@@ -1297,6 +1342,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
+  }
+
+  /**
+   * 删除单个配置项
+   * 
+   * @param request - DeleteConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConfigResponse
+   */
+  async deleteConfigWithOptions(ClusterId: string, ConfigType: string, Name: string, ConfigKey: string, request: $_model.DeleteConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConfigResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConfig",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/configs/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ConfigType)}/${$dara.URL.percentEncode(Name)}/${$dara.URL.percentEncode(ConfigKey)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConfigResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConfigResponse({}));
+  }
+
+  /**
+   * 删除单个配置项
+   * 
+   * @param request - DeleteConfigRequest
+   * @returns DeleteConfigResponse
+   */
+  async deleteConfig(ClusterId: string, ConfigType: string, Name: string, ConfigKey: string, request: $_model.DeleteConfigRequest): Promise<$_model.DeleteConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConfigWithOptions(ClusterId, ConfigType, Name, ConfigKey, request, headers, runtime);
   }
 
   /**
@@ -3383,6 +3467,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询服务的所有配置项（支持分页）
+   * 
+   * @param request - ListConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConfigsResponse
+   */
+  async listConfigsWithOptions(ClusterId: string, ConfigType: string, Name: string, request: $_model.ListConfigsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConfigsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConfigs",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/configs/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ConfigType)}/${$dara.URL.percentEncode(Name)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListConfigsResponse({}));
+  }
+
+  /**
+   * 查询服务的所有配置项（支持分页）
+   * 
+   * @param request - ListConfigsRequest
+   * @returns ListConfigsResponse
+   */
+  async listConfigs(ClusterId: string, ConfigType: string, Name: string, request: $_model.ListConfigsRequest): Promise<$_model.ListConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConfigsWithOptions(ClusterId, ConfigType, Name, request, headers, runtime);
+  }
+
+  /**
    * Queries a list of private gateways.
    * 
    * @param tmpReq - ListGatewayRequest
@@ -4996,6 +5129,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateBenchmarkTaskWithOptions(ClusterId, TaskName, request, headers, runtime);
+  }
+
+  /**
+   * 更新单个配置项
+   * 
+   * @param request - UpdateConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConfigResponse
+   */
+  async updateConfigWithOptions(ClusterId: string, ConfigType: string, Name: string, ConfigKey: string, request: $_model.UpdateConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.value)) {
+      body["Value"] = request.value;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConfig",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/configs/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ConfigType)}/${$dara.URL.percentEncode(Name)}/${$dara.URL.percentEncode(ConfigKey)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConfigResponse({}));
+  }
+
+  /**
+   * 更新单个配置项
+   * 
+   * @param request - UpdateConfigRequest
+   * @returns UpdateConfigResponse
+   */
+  async updateConfig(ClusterId: string, ConfigType: string, Name: string, ConfigKey: string, request: $_model.UpdateConfigRequest): Promise<$_model.UpdateConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConfigWithOptions(ClusterId, ConfigType, Name, ConfigKey, request, headers, runtime);
   }
 
   /**
