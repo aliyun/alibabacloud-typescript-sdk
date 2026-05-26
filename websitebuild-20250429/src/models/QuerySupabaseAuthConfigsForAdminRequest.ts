@@ -19,6 +19,7 @@ export class QuerySupabaseAuthConfigsForAdminRequest extends $dara.Model {
    * WD20250703155602000001
    */
   bizId?: string;
+  env?: string;
   /**
    * @example
    * gmtCreated
@@ -48,6 +49,7 @@ export class QuerySupabaseAuthConfigsForAdminRequest extends $dara.Model {
     return {
       authType: 'AuthType',
       bizId: 'BizId',
+      env: 'Env',
       orderColumn: 'OrderColumn',
       orderType: 'OrderType',
       pageNum: 'PageNum',
@@ -60,6 +62,7 @@ export class QuerySupabaseAuthConfigsForAdminRequest extends $dara.Model {
     return {
       authType: 'string',
       bizId: 'string',
+      env: 'string',
       orderColumn: 'string',
       orderType: 'string',
       pageNum: 'number',

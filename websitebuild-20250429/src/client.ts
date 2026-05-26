@@ -43,6 +43,10 @@ export default class Client extends OpenApi {
       query["BizId"] = request.bizId;
     }
 
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
     if (!$dara.isNull(request.orderColumn)) {
       query["OrderColumn"] = request.orderColumn;
     }
@@ -2728,6 +2732,10 @@ export default class Client extends OpenApi {
       query["BizId"] = request.bizId;
     }
 
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
     if (!$dara.isNull(request.executeSql)) {
       query["ExecuteSql"] = request.executeSql;
     }
@@ -3461,6 +3469,10 @@ export default class Client extends OpenApi {
       query["BizId"] = request.bizId;
     }
 
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
+    }
+
     if (!$dara.isNull(request.orderColumn)) {
       query["OrderColumn"] = request.orderColumn;
     }
@@ -3521,6 +3533,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.env)) {
+      query["Env"] = request.env;
     }
 
     if (!$dara.isNull(request.orderColumn)) {

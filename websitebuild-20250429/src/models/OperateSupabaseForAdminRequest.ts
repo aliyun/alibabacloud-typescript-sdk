@@ -11,6 +11,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
    * WS20250801154628000001
    */
   bizId?: string;
+  env?: string;
   /**
    * @example
    * select * from profiles
@@ -64,6 +65,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
+      env: 'Env',
       executeSql: 'ExecuteSql',
       operateType: 'OperateType',
       orderByClause: 'OrderByClause',
@@ -80,6 +82,7 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
+      env: 'string',
       executeSql: 'string',
       operateType: 'string',
       orderByClause: 'string',
