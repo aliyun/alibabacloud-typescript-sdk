@@ -94,10 +94,17 @@ export class QaChatRequestMessage extends $dara.Model {
 
 export class QaChatRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 2047140750220754946
    */
   appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   message?: QaChatRequestMessage;
   /**
    * @example
