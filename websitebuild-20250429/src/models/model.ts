@@ -33,6 +33,7 @@ export { DeleteAppDomainRedirectResponseBodyModule } from './DeleteAppDomainRedi
 export { DescribeAppDomainDnsRecordResponseBodyModule } from './DescribeAppDomainDnsRecordResponseBody';
 export { DispatchConsoleAPIForPartnerResponseBodyModule } from './DispatchConsoleApiforPartnerResponseBody';
 export { ExportMaterialFileResponseBodyModule } from './ExportMaterialFileResponseBody';
+export { GetAIStaffPreviewUrlResponseBodyModule } from './GetAistaffPreviewUrlResponseBody';
 export { GetAppInstanceForPartnerResponseBodyModuleAiStaffList } from './GetAppInstanceForPartnerResponseBody';
 export { GetAppInstanceForPartnerResponseBodyModuleAppDesignSpec } from './GetAppInstanceForPartnerResponseBody';
 export { GetAppInstanceForPartnerResponseBodyModuleAppOperationAddressActions } from './GetAppInstanceForPartnerResponseBody';
@@ -214,6 +215,9 @@ export { ExportMaterialFileRequest } from './ExportMaterialFileRequest';
 export { ExportMaterialFileShrinkRequest } from './ExportMaterialFileShrinkRequest';
 export { ExportMaterialFileResponseBody } from './ExportMaterialFileResponseBody';
 export { ExportMaterialFileResponse } from './ExportMaterialFileResponse';
+export { GetAIStaffPreviewUrlRequest } from './GetAistaffPreviewUrlRequest';
+export { GetAIStaffPreviewUrlResponseBody } from './GetAistaffPreviewUrlResponseBody';
+export { GetAIStaffPreviewUrlResponse } from './GetAistaffPreviewUrlResponse';
 export { GetAppInstanceRequest } from './GetAppInstanceRequest';
 export { GetAppInstanceResponseBody } from './GetAppInstanceResponseBody';
 export { GetAppInstanceResponse } from './GetAppInstanceResponse';

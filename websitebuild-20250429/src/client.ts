@@ -1239,6 +1239,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取AI员工站点预览地址
+   * 
+   * @param request - GetAIStaffPreviewUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAIStaffPreviewUrlResponse
+   */
+  async getAIStaffPreviewUrlWithOptions(request: $_model.GetAIStaffPreviewUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAIStaffPreviewUrlResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.restart)) {
+      body["Restart"] = request.restart;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAIStaffPreviewUrl",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAIStaffPreviewUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetAIStaffPreviewUrlResponse({}));
+  }
+
+  /**
+   * 获取AI员工站点预览地址
+   * 
+   * @param request - GetAIStaffPreviewUrlRequest
+   * @returns GetAIStaffPreviewUrlResponse
+   */
+  async getAIStaffPreviewUrl(request: $_model.GetAIStaffPreviewUrlRequest): Promise<$_model.GetAIStaffPreviewUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAIStaffPreviewUrlWithOptions(request, runtime);
+  }
+
+  /**
    * Query Application Instance Details
    * 
    * @param request - GetAppInstanceRequest
