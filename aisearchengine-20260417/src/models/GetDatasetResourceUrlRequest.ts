@@ -4,13 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDatasetResourceUrlRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 730
    */
-  datasetId?: number;
+  datasetId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -28,7 +25,7 @@ export class GetDatasetResourceUrlRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      datasetId: 'number',
+      datasetId: 'string',
       primaryKey: 'string',
     };
   }

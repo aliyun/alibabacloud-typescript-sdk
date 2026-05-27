@@ -4,13 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportDatasetDataRequest extends $dara.Model {
   /**
-   * @remarks
-   * This parameter is required.
-   * 
    * @example
    * 730
    */
-  datasetId?: number;
+  datasetId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -25,7 +22,7 @@ export class ImportDatasetDataRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      datasetId: 'number',
+      datasetId: 'string',
       records: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
     };
   }
