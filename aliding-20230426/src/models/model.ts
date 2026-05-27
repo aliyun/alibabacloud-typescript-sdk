@@ -48,6 +48,9 @@ export { BatchGetFormDataByIdListResponseBodyResultModifyUser } from './BatchGet
 export { BatchGetFormDataByIdListResponseBodyResultOriginatorName } from './BatchGetFormDataByIdListResponseBody';
 export { BatchGetFormDataByIdListResponseBodyResultOriginator } from './BatchGetFormDataByIdListResponseBody';
 export { BatchGetFormDataByIdListResponseBodyResult } from './BatchGetFormDataByIdListResponseBody';
+export { BatchGetUserIdByOpenDingtalkIdHeadersAccountContext } from './BatchGetUserIdByOpenDingtalkIdHeaders';
+export { BatchGetUserIdByOpenDingtalkIdRequestTenantContext } from './BatchGetUserIdByOpenDingtalkIdRequest';
+export { BatchGetUserIdByOpenDingtalkIdResponseBodyResults } from './BatchGetUserIdByOpenDingtalkIdResponseBody';
 export { BatchQueryGroupMemberHeadersAccountContext } from './BatchQueryGroupMemberHeaders';
 export { BatchQueryGroupMemberRequestTenantContext } from './BatchQueryGroupMemberRequest';
 export { BatchRemovalByFormInstanceIdListHeadersAccountContext } from './BatchRemovalByFormInstanceIdListHeaders';
@@ -1175,6 +1178,12 @@ export { BatchGetFormDataByIdListRequest } from './BatchGetFormDataByIdListReque
 export { BatchGetFormDataByIdListShrinkRequest } from './BatchGetFormDataByIdListShrinkRequest';
 export { BatchGetFormDataByIdListResponseBody } from './BatchGetFormDataByIdListResponseBody';
 export { BatchGetFormDataByIdListResponse } from './BatchGetFormDataByIdListResponse';
+export { BatchGetUserIdByOpenDingtalkIdHeaders } from './BatchGetUserIdByOpenDingtalkIdHeaders';
+export { BatchGetUserIdByOpenDingtalkIdShrinkHeaders } from './BatchGetUserIdByOpenDingtalkIdShrinkHeaders';
+export { BatchGetUserIdByOpenDingtalkIdRequest } from './BatchGetUserIdByOpenDingtalkIdRequest';
+export { BatchGetUserIdByOpenDingtalkIdShrinkRequest } from './BatchGetUserIdByOpenDingtalkIdShrinkRequest';
+export { BatchGetUserIdByOpenDingtalkIdResponseBody } from './BatchGetUserIdByOpenDingtalkIdResponseBody';
+export { BatchGetUserIdByOpenDingtalkIdResponse } from './BatchGetUserIdByOpenDingtalkIdResponse';
 export { BatchQueryGroupMemberHeaders } from './BatchQueryGroupMemberHeaders';
 export { BatchQueryGroupMemberShrinkHeaders } from './BatchQueryGroupMemberShrinkHeaders';
 export { BatchQueryGroupMemberRequest } from './BatchQueryGroupMemberRequest';

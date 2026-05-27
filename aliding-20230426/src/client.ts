@@ -1226,6 +1226,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量根据操作人工号与 openDingtalkId 获取被查看用户工号，单次最多 50 个。
+   * 
+   * @param tmpReq - BatchGetUserIdByOpenDingtalkIdRequest
+   * @param tmpHeader - BatchGetUserIdByOpenDingtalkIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetUserIdByOpenDingtalkIdResponse
+   */
+  async batchGetUserIdByOpenDingtalkIdWithOptions(tmpReq: $_model.BatchGetUserIdByOpenDingtalkIdRequest, tmpHeader: $_model.BatchGetUserIdByOpenDingtalkIdHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.BatchGetUserIdByOpenDingtalkIdResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchGetUserIdByOpenDingtalkIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.BatchGetUserIdByOpenDingtalkIdShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.openDingtalkIds)) {
+      request.openDingtalkIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.openDingtalkIds, "openDingtalkIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.openDingtalkIdsShrink)) {
+      body["openDingtalkIds"] = request.openDingtalkIdsShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchGetUserIdByOpenDingtalkId",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/im/batchGetUserIdByOpenDingtalkId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchGetUserIdByOpenDingtalkIdResponse>(await this.callApi(params, req, runtime), new $_model.BatchGetUserIdByOpenDingtalkIdResponse({}));
+  }
+
+  /**
+   * 批量根据操作人工号与 openDingtalkId 获取被查看用户工号，单次最多 50 个。
+   * 
+   * @param request - BatchGetUserIdByOpenDingtalkIdRequest
+   * @returns BatchGetUserIdByOpenDingtalkIdResponse
+   */
+  async batchGetUserIdByOpenDingtalkId(request: $_model.BatchGetUserIdByOpenDingtalkIdRequest): Promise<$_model.BatchGetUserIdByOpenDingtalkIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.BatchGetUserIdByOpenDingtalkIdHeaders({ });
+    return await this.batchGetUserIdByOpenDingtalkIdWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询群成员
    * 
    * @param tmpReq - BatchQueryGroupMemberRequest
