@@ -118,6 +118,162 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加呼入号码
+   * 
+   * @param tmpReq - AddInboundNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddInboundNumberResponse
+   */
+  async addInboundNumberWithOptions(tmpReq: $_model.AddInboundNumberRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddInboundNumberResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddInboundNumberShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.inboundNumbers)) {
+      request.inboundNumbersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inboundNumbers, "InboundNumbers", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationCode)) {
+      query["ApplicationCode"] = request.applicationCode;
+    }
+
+    if (!$dara.isNull(request.inboundNumbersShrink)) {
+      query["InboundNumbers"] = request.inboundNumbersShrink;
+    }
+
+    if (!$dara.isNull(request.inboundType)) {
+      query["InboundType"] = request.inboundType;
+    }
+
+    if (!$dara.isNull(request.lineCode)) {
+      query["LineCode"] = request.lineCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddInboundNumber",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddInboundNumberResponse>(await this.callApi(params, req, runtime), new $_model.AddInboundNumberResponse({}));
+  }
+
+  /**
+   * 添加呼入号码
+   * 
+   * @param request - AddInboundNumberRequest
+   * @returns AddInboundNumberResponse
+   */
+  async addInboundNumber(request: $_model.AddInboundNumberRequest): Promise<$_model.AddInboundNumberResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addInboundNumberWithOptions(request, runtime);
+  }
+
+  /**
+   * AddLargeModel
+   * 
+   * @param tmpReq - AddLargeModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddLargeModelResponse
+   */
+  async addLargeModelWithOptions(tmpReq: $_model.AddLargeModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddLargeModelResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddLargeModelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.baseModel)) {
+      request.baseModelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.baseModel, "BaseModel", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!$dara.isNull(request.baseModelShrink)) {
+      query["BaseModel"] = request.baseModelShrink;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelUrl)) {
+      query["ModelUrl"] = request.modelUrl;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.temperature)) {
+      query["Temperature"] = request.temperature;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.topP)) {
+      query["TopP"] = request.topP;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddLargeModel",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddLargeModelResponse>(await this.callApi(params, req, runtime), new $_model.AddLargeModelResponse({}));
+  }
+
+  /**
+   * AddLargeModel
+   * 
+   * @param request - AddLargeModelRequest
+   * @returns AddLargeModelResponse
+   */
+  async addLargeModel(request: $_model.AddLargeModelRequest): Promise<$_model.AddLargeModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addLargeModelWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - AddOuterAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddOuterAccountResponse
@@ -9338,6 +9494,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * TestLargeModel
+   * 
+   * @param tmpReq - TestLargeModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TestLargeModelResponse
+   */
+  async testLargeModelWithOptions(tmpReq: $_model.TestLargeModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TestLargeModelResponse> {
+    tmpReq.validate();
+    let request = new $_model.TestLargeModelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.baseModel)) {
+      request.baseModelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.baseModel, "BaseModel", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.baseModelShrink)) {
+      query["BaseModel"] = request.baseModelShrink;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      query["ModelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.userDialogContent)) {
+      query["UserDialogContent"] = request.userDialogContent;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TestLargeModel",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TestLargeModelResponse>(await this.callApi(params, req, runtime), new $_model.TestLargeModelResponse({}));
+  }
+
+  /**
+   * TestLargeModel
+   * 
+   * @param request - TestLargeModelRequest
+   * @returns TestLargeModelResponse
+   */
+  async testLargeModel(request: $_model.TestLargeModelRequest): Promise<$_model.TestLargeModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.testLargeModelWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - TransferCallToSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TransferCallToSkillGroupResponse
@@ -9737,6 +9961,94 @@ export default class Client extends OpenApi {
   async updateDepartment(request: $_model.UpdateDepartmentRequest): Promise<$_model.UpdateDepartmentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateDepartmentWithOptions(request, runtime);
+  }
+
+  /**
+   * UpdateLargeModel
+   * 
+   * @param tmpReq - UpdateLargeModelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLargeModelResponse
+   */
+  async updateLargeModelWithOptions(tmpReq: $_model.UpdateLargeModelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLargeModelResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateLargeModelShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.baseModel)) {
+      request.baseModelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.baseModel, "BaseModel", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.authCode)) {
+      query["AuthCode"] = request.authCode;
+    }
+
+    if (!$dara.isNull(request.baseModelShrink)) {
+      query["BaseModel"] = request.baseModelShrink;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      query["ModelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      query["ModelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelUrl)) {
+      query["ModelUrl"] = request.modelUrl;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.temperature)) {
+      query["Temperature"] = request.temperature;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      query["TopK"] = request.topK;
+    }
+
+    if (!$dara.isNull(request.topP)) {
+      query["TopP"] = request.topP;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLargeModel",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLargeModelResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLargeModelResponse({}));
+  }
+
+  /**
+   * UpdateLargeModel
+   * 
+   * @param request - UpdateLargeModelRequest
+   * @returns UpdateLargeModelResponse
+   */
+  async updateLargeModel(request: $_model.UpdateLargeModelRequest): Promise<$_model.UpdateLargeModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateLargeModelWithOptions(request, runtime);
   }
 
   /**
