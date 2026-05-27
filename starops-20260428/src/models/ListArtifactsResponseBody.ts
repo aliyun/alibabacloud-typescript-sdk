@@ -51,6 +51,10 @@ export class ListArtifactsResponseBodyArtifacts extends $dara.Model {
 }
 
 export class ListArtifactsResponseBody extends $dara.Model {
+  /**
+   * @example
+   * [{"path":"reports/summary.pdf","size":1024,"lastModified":"2026-05-25T08:00:00Z","isDirectory":false}]
+   */
   artifacts?: ListArtifactsResponseBodyArtifacts[];
   /**
    * @example

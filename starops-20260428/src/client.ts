@@ -297,6 +297,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建 MCP 服务
+   * 
+   * @param request - CreateMcpServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcpServiceResponse
+   */
+  async createMcpServiceWithOptions(name: string, request: $_model.CreateMcpServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcpServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connection)) {
+      body["connection"] = request.connection;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.mcpServiceName)) {
+      body["mcpServiceName"] = request.mcpServiceName;
+    }
+
+    if (!$dara.isNull(request.network)) {
+      body["network"] = request.network;
+    }
+
+    if (!$dara.isNull(request.tools)) {
+      body["tools"] = request.tools;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMcpService",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/mcpService`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMcpServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcpServiceResponse({}));
+  }
+
+  /**
+   * 创建 MCP 服务
+   * 
+   * @param request - CreateMcpServiceRequest
+   * @returns CreateMcpServiceResponse
+   */
+  async createMcpService(name: string, request: $_model.CreateMcpServiceRequest): Promise<$_model.CreateMcpServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMcpServiceWithOptions(name, request, headers, runtime);
+  }
+
+  /**
    * 创建会话
    * 
    * @param request - CreateThreadRequest
@@ -477,6 +546,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除 MCP 服务
+   * 
+   * @param request - DeleteMcpServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcpServiceResponse
+   */
+  async deleteMcpServiceWithOptions(name: string, mcpServiceName: string, request: $_model.DeleteMcpServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcpServiceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMcpService",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/mcpService/${$dara.URL.percentEncode(mcpServiceName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMcpServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcpServiceResponse({}));
+  }
+
+  /**
+   * 删除 MCP 服务
+   * 
+   * @param request - DeleteMcpServiceRequest
+   * @returns DeleteMcpServiceResponse
+   */
+  async deleteMcpService(name: string, mcpServiceName: string, request: $_model.DeleteMcpServiceRequest): Promise<$_model.DeleteMcpServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMcpServiceWithOptions(name, mcpServiceName, request, headers, runtime);
+  }
+
+  /**
    * 删除会话
    * 
    * @param request - DeleteThreadRequest
@@ -516,7 +624,56 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下载产物文件
+   * 预览远端 MCP 工具列表
+   * 
+   * @param request - FetchRemoteMcpToolsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchRemoteMcpToolsResponse
+   */
+  async fetchRemoteMcpToolsWithOptions(request: $_model.FetchRemoteMcpToolsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.FetchRemoteMcpToolsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connection)) {
+      body["connection"] = request.connection;
+    }
+
+    if (!$dara.isNull(request.network)) {
+      body["network"] = request.network;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchRemoteMcpTools",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/mcptools`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FetchRemoteMcpToolsResponse>(await this.callApi(params, req, runtime), new $_model.FetchRemoteMcpToolsResponse({}));
+  }
+
+  /**
+   * 预览远端 MCP 工具列表
+   * 
+   * @param request - FetchRemoteMcpToolsRequest
+   * @returns FetchRemoteMcpToolsResponse
+   */
+  async fetchRemoteMcpTools(request: $_model.FetchRemoteMcpToolsRequest): Promise<$_model.FetchRemoteMcpToolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.fetchRemoteMcpToolsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 下载小型产物文件
    * 
    * @param request - GetArtifactRequest
    * @param headers - map
@@ -566,7 +723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 下载产物文件
+   * 下载小型产物文件
    * 
    * @param request - GetArtifactRequest
    * @returns GetArtifactResponse
@@ -659,6 +816,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
+  }
+
+  /**
+   * 查询 MCP 服务
+   * 
+   * @param request - GetMcpServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcpServiceResponse
+   */
+  async getMcpServiceWithOptions(name: string, mcpServiceName: string, request: $_model.GetMcpServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMcpServiceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMcpService",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/mcpService/${$dara.URL.percentEncode(mcpServiceName)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMcpServiceResponse>(await this.callApi(params, req, runtime), new $_model.GetMcpServiceResponse({}));
+  }
+
+  /**
+   * 查询 MCP 服务
+   * 
+   * @param request - GetMcpServiceRequest
+   * @returns GetMcpServiceResponse
+   */
+  async getMcpService(name: string, mcpServiceName: string, request: $_model.GetMcpServiceRequest): Promise<$_model.GetMcpServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMcpServiceWithOptions(name, mcpServiceName, request, headers, runtime);
   }
 
   /**
@@ -970,6 +1166,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数字员工下的 MCP 服务列表
+   * 
+   * @param request - ListMcpServicesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcpServicesResponse
+   */
+  async listMcpServicesWithOptions(name: string, request: $_model.ListMcpServicesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcpServicesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMcpServices",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/mcpServices`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMcpServicesResponse>(await this.callApi(params, req, runtime), new $_model.ListMcpServicesResponse({}));
+  }
+
+  /**
+   * 查询数字员工下的 MCP 服务列表
+   * 
+   * @param request - ListMcpServicesRequest
+   * @returns ListMcpServicesResponse
+   */
+  async listMcpServices(name: string, request: $_model.ListMcpServicesRequest): Promise<$_model.ListMcpServicesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMcpServicesWithOptions(name, request, headers, runtime);
+  }
+
+  /**
    * 列出会话
    * 
    * @param tmpReq - ListThreadsRequest
@@ -1164,6 +1409,71 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
+  }
+
+  /**
+   * 更新 MCP 服务
+   * 
+   * @param request - UpdateMcpServiceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMcpServiceResponse
+   */
+  async updateMcpServiceWithOptions(name: string, mcpServiceName: string, request: $_model.UpdateMcpServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMcpServiceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connection)) {
+      body["connection"] = request.connection;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.network)) {
+      body["network"] = request.network;
+    }
+
+    if (!$dara.isNull(request.tools)) {
+      body["tools"] = request.tools;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMcpService",
+      version: "2026-04-28",
+      protocol: "HTTPS",
+      pathname: `/digitalEmployee/${$dara.URL.percentEncode(name)}/mcpService/${$dara.URL.percentEncode(mcpServiceName)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMcpServiceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMcpServiceResponse({}));
+  }
+
+  /**
+   * 更新 MCP 服务
+   * 
+   * @param request - UpdateMcpServiceRequest
+   * @returns UpdateMcpServiceResponse
+   */
+  async updateMcpService(name: string, mcpServiceName: string, request: $_model.UpdateMcpServiceRequest): Promise<$_model.UpdateMcpServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMcpServiceWithOptions(name, mcpServiceName, request, headers, runtime);
   }
 
   /**
