@@ -67,6 +67,13 @@ export class DescribeRequestHitResponseBodyResultObjectRuleHitRecords extends $d
    * RUNNING
    */
   ruleStatus?: string;
+  /**
+   * @remarks
+   * Rule Type
+   * 
+   * @example
+   * DEFAULT
+   */
   ruleType?: string;
   static names(): { [key: string]: string } {
     return {
