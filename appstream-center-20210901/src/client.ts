@@ -88,6 +88,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为研发主机分配辅助私有IP
+   * 
+   * @param request - AssignWuyingServerPrivateAddressesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssignWuyingServerPrivateAddressesResponse
+   */
+  async assignWuyingServerPrivateAddressesWithOptions(request: $_model.AssignWuyingServerPrivateAddressesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssignWuyingServerPrivateAddressesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.secondaryPrivateIpAddressCount)) {
+      body["SecondaryPrivateIpAddressCount"] = request.secondaryPrivateIpAddressCount;
+    }
+
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssignWuyingServerPrivateAddresses",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssignWuyingServerPrivateAddressesResponse>(await this.callApi(params, req, runtime), new $_model.AssignWuyingServerPrivateAddressesResponse({}));
+  }
+
+  /**
+   * 为研发主机分配辅助私有IP
+   * 
+   * @param request - AssignWuyingServerPrivateAddressesRequest
+   * @returns AssignWuyingServerPrivateAddressesResponse
+   */
+  async assignWuyingServerPrivateAddresses(request: $_model.AssignWuyingServerPrivateAddressesRequest): Promise<$_model.AssignWuyingServerPrivateAddressesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.assignWuyingServerPrivateAddressesWithOptions(request, runtime);
+  }
+
+  /**
    * Adds assigned users to or removes assigned users from a delivery group. Only users added to the assigned user list can access App Streaming.
    * 
    * @param tmpReq - AuthorizeInstanceGroupRequest
@@ -4459,6 +4505,52 @@ export default class Client extends OpenApi {
   async tagCloudResources(request: $_model.TagCloudResourcesRequest): Promise<$_model.TagCloudResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.tagCloudResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 解绑研发主机的辅助私有IP
+   * 
+   * @param request - UnassignWuyingServerPrivateAddressesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnassignWuyingServerPrivateAddressesResponse
+   */
+  async unassignWuyingServerPrivateAddressesWithOptions(request: $_model.UnassignWuyingServerPrivateAddressesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnassignWuyingServerPrivateAddressesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.privateIpAddresses)) {
+      body["PrivateIpAddresses"] = request.privateIpAddresses;
+    }
+
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UnassignWuyingServerPrivateAddresses",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UnassignWuyingServerPrivateAddressesResponse>(await this.callApi(params, req, runtime), new $_model.UnassignWuyingServerPrivateAddressesResponse({}));
+  }
+
+  /**
+   * 解绑研发主机的辅助私有IP
+   * 
+   * @param request - UnassignWuyingServerPrivateAddressesRequest
+   * @returns UnassignWuyingServerPrivateAddressesResponse
+   */
+  async unassignWuyingServerPrivateAddresses(request: $_model.UnassignWuyingServerPrivateAddressesRequest): Promise<$_model.UnassignWuyingServerPrivateAddressesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.unassignWuyingServerPrivateAddressesWithOptions(request, runtime);
   }
 
   /**

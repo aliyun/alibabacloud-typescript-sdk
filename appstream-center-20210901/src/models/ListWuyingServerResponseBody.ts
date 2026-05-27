@@ -11,7 +11,15 @@ export class ListWuyingServerResponseBodyWuyingServerListDataDisk extends $dara.
    * cloud_auto
    */
   dataDiskCategory?: string;
+  /**
+   * @example
+   * d-bp1234567890abcde
+   */
   dataDiskId?: string;
+  /**
+   * @example
+   * 1
+   */
   dataDiskNo?: string;
   /**
    * @remarks
@@ -98,6 +106,40 @@ export class ListWuyingServerResponseBodyWuyingServerListInstanceInfoList extend
   }
 }
 
+export class ListWuyingServerResponseBodyWuyingServerListPrivateIpSets extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
+  primary?: boolean;
+  /**
+   * @example
+   * 10.0.0.1
+   */
+  privateIpAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      primary: 'Primary',
+      privateIpAddress: 'PrivateIpAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      primary: 'boolean',
+      privateIpAddress: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo extends $dara.Model {
   /**
    * @remarks
@@ -123,6 +165,10 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
    * 196,608
    */
   gpuMemory?: number;
+  /**
+   * @example
+   * NVIDIA T4
+   */
   gpuSpec?: string;
   /**
    * @remarks
@@ -172,7 +218,15 @@ export class ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo 
 }
 
 export class ListWuyingServerResponseBodyWuyingServerListSessions extends $dara.Model {
+  /**
+   * @example
+   * 2026-01-01T08:00:00Z
+   */
   resourceSessionStartTime?: string;
+  /**
+   * @example
+   * user1
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -198,8 +252,20 @@ export class ListWuyingServerResponseBodyWuyingServerListSessions extends $dara.
 }
 
 export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
+  /**
+   * @example
+   * Added
+   */
   addVirtualNodePoolStatus?: string;
+  /**
+   * @example
+   * 1234567890123456
+   */
   aliUid?: number;
+  /**
+   * @example
+   * 10
+   */
   bandwidth?: number;
   /**
    * @remarks
@@ -231,6 +297,11 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    */
   dataDisk?: ListWuyingServerResponseBodyWuyingServerListDataDisk[];
   /**
+   * @example
+   * 10
+   */
+  eniPrivateIpAddressQuantity?: number;
+  /**
    * @remarks
    * The time when the subscription instance expires.
    * 
@@ -238,6 +309,10 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * 2025-09-03T16:00:00.000+00:00
    */
   expiredTime?: string;
+  /**
+   * @example
+   * 2.0.0
+   */
   fotaVersion?: string;
   /**
    * @remarks
@@ -250,6 +325,9 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
   /**
    * @remarks
    * The image name.
+   * 
+   * @example
+   * Ubuntu 22.04
    */
   imageName?: string;
   /**
@@ -257,6 +335,10 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * The list of information about the workstation instance.
    */
   instanceInfoList?: ListWuyingServerResponseBodyWuyingServerListInstanceInfoList[];
+  /**
+   * @example
+   * 0.5
+   */
   maxPrice?: number;
   /**
    * @remarks
@@ -299,6 +381,11 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    */
   osType?: string;
   policyGroupIdList?: string[];
+  privateIpSets?: ListWuyingServerResponseBodyWuyingServerListPrivateIpSets[];
+  /**
+   * @example
+   * Connected
+   */
   resourceSessionStatus?: string;
   securityGroupIds?: string[];
   /**
@@ -315,6 +402,10 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * RUNNING
    */
   status?: string;
+  /**
+   * @example
+   * spot
+   */
   subPayType?: string;
   /**
    * @remarks
@@ -324,6 +415,10 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * cloud_auto
    */
   systemDiskCategory?: string;
+  /**
+   * @example
+   * d-bp1234567890abcde
+   */
   systemDiskId?: string;
   /**
    * @remarks
@@ -341,10 +436,28 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
    * 100
    */
   systemDiskSize?: number;
+  /**
+   * @example
+   * tg-bp1234567890abcde
+   */
   timerGroupId?: string;
   users?: string[];
+  /**
+   * @example
+   * 10.0.0.100
+   */
   virtualKubeletIp?: string;
+  /**
+   * @example
+   * vnp-bp1234567890abcde
+   */
   virtualNodePoolId?: string;
+  vkUpgradeNeeded?: boolean;
+  /**
+   * @example
+   * 1.0.0
+   */
+  vkVersion?: string;
   /**
    * @remarks
    * The ID of the workstation.
@@ -370,6 +483,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       chargeType: 'ChargeType',
       createTime: 'CreateTime',
       dataDisk: 'DataDisk',
+      eniPrivateIpAddressQuantity: 'EniPrivateIpAddressQuantity',
       expiredTime: 'ExpiredTime',
       fotaVersion: 'FotaVersion',
       imageId: 'ImageId',
@@ -382,6 +496,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       officeSiteType: 'OfficeSiteType',
       osType: 'OsType',
       policyGroupIdList: 'PolicyGroupIdList',
+      privateIpSets: 'PrivateIpSets',
       resourceSessionStatus: 'ResourceSessionStatus',
       securityGroupIds: 'SecurityGroupIds',
       serverInstanceTypeInfo: 'ServerInstanceTypeInfo',
@@ -396,6 +511,8 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       users: 'Users',
       virtualKubeletIp: 'VirtualKubeletIp',
       virtualNodePoolId: 'VirtualNodePoolId',
+      vkUpgradeNeeded: 'VkUpgradeNeeded',
+      vkVersion: 'VkVersion',
       wuyingServerId: 'WuyingServerId',
       wuyingServerName: 'WuyingServerName',
     };
@@ -410,6 +527,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       chargeType: 'string',
       createTime: 'string',
       dataDisk: { 'type': 'array', 'itemType': ListWuyingServerResponseBodyWuyingServerListDataDisk },
+      eniPrivateIpAddressQuantity: 'number',
       expiredTime: 'string',
       fotaVersion: 'string',
       imageId: 'string',
@@ -422,6 +540,7 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       officeSiteType: 'string',
       osType: 'string',
       policyGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      privateIpSets: { 'type': 'array', 'itemType': ListWuyingServerResponseBodyWuyingServerListPrivateIpSets },
       resourceSessionStatus: 'string',
       securityGroupIds: { 'type': 'array', 'itemType': 'string' },
       serverInstanceTypeInfo: ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo,
@@ -436,6 +555,8 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
       users: { 'type': 'array', 'itemType': 'string' },
       virtualKubeletIp: 'string',
       virtualNodePoolId: 'string',
+      vkUpgradeNeeded: 'boolean',
+      vkVersion: 'string',
       wuyingServerId: 'string',
       wuyingServerName: 'string',
     };
@@ -450,6 +571,9 @@ export class ListWuyingServerResponseBodyWuyingServerList extends $dara.Model {
     }
     if(Array.isArray(this.policyGroupIdList)) {
       $dara.Model.validateArray(this.policyGroupIdList);
+    }
+    if(Array.isArray(this.privateIpSets)) {
+      $dara.Model.validateArray(this.privateIpSets);
     }
     if(Array.isArray(this.securityGroupIds)) {
       $dara.Model.validateArray(this.securityGroupIds);

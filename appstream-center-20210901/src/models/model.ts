@@ -89,6 +89,7 @@ export { ListTagCloudResourcesResponseBodyResourceTags } from './ListTagCloudRes
 export { ListTenantConfigResponseBodyTenantConfigModel } from './ListTenantConfigResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerListDataDisk } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerListInstanceInfoList } from './ListWuyingServerResponseBody';
+export { ListWuyingServerResponseBodyWuyingServerListPrivateIpSets } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerListServerInstanceTypeInfo } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerListSessions } from './ListWuyingServerResponseBody';
 export { ListWuyingServerResponseBodyWuyingServerList } from './ListWuyingServerResponseBody';
@@ -127,6 +128,9 @@ export { UpdateModelProviderTemplateRequestConfig } from './UpdateModelProviderT
 export { ApproveOtaTaskRequest } from './ApproveOtaTaskRequest';
 export { ApproveOtaTaskResponseBody } from './ApproveOtaTaskResponseBody';
 export { ApproveOtaTaskResponse } from './ApproveOtaTaskResponse';
+export { AssignWuyingServerPrivateAddressesRequest } from './AssignWuyingServerPrivateAddressesRequest';
+export { AssignWuyingServerPrivateAddressesResponseBody } from './AssignWuyingServerPrivateAddressesResponseBody';
+export { AssignWuyingServerPrivateAddressesResponse } from './AssignWuyingServerPrivateAddressesResponse';
 export { AuthorizeInstanceGroupRequest } from './AuthorizeInstanceGroupRequest';
 export { AuthorizeInstanceGroupShrinkRequest } from './AuthorizeInstanceGroupShrinkRequest';
 export { AuthorizeInstanceGroupResponseBody } from './AuthorizeInstanceGroupResponseBody';
@@ -335,6 +339,9 @@ export { StopWuyingServerResponse } from './StopWuyingServerResponse';
 export { TagCloudResourcesRequest } from './TagCloudResourcesRequest';
 export { TagCloudResourcesResponseBody } from './TagCloudResourcesResponseBody';
 export { TagCloudResourcesResponse } from './TagCloudResourcesResponse';
+export { UnassignWuyingServerPrivateAddressesRequest } from './UnassignWuyingServerPrivateAddressesRequest';
+export { UnassignWuyingServerPrivateAddressesResponseBody } from './UnassignWuyingServerPrivateAddressesResponseBody';
+export { UnassignWuyingServerPrivateAddressesResponse } from './UnassignWuyingServerPrivateAddressesResponse';
 export { UnbindRequest } from './UnbindRequest';
 export { UnbindResponseBody } from './UnbindResponseBody';
 export { UnbindResponse } from './UnbindResponse';

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListWuyingServerRequest extends $dara.Model {
+  /**
+   * @example
+   * Added
+   */
   addVirtualNodePoolStatusList?: string[];
   /**
    * @remarks
@@ -12,6 +16,10 @@ export class ListWuyingServerRequest extends $dara.Model {
    * cn-hangzhou
    */
   bizRegionId?: string;
+  /**
+   * @example
+   * 1
+   */
   bizType?: number;
   /**
    * @remarks
@@ -53,6 +61,10 @@ export class ListWuyingServerRequest extends $dara.Model {
    * 100
    */
   pageSize?: number;
+  /**
+   * @example
+   * wuying_server
+   */
   productType?: string;
   /**
    * @remarks
@@ -70,11 +82,22 @@ export class ListWuyingServerRequest extends $dara.Model {
    * RUNNING
    */
   status?: string;
+  /**
+   * @example
+   * user1
+   */
   users?: string[];
+  /**
+   * @example
+   * vnp-bp1234567890abcde
+   */
   virtualNodePoolId?: string;
   /**
    * @remarks
    * The list of workstation IDs.
+   * 
+   * @example
+   * aig-bp1234567890abcde
    */
   wuyingServerIdList?: string[];
   /**
