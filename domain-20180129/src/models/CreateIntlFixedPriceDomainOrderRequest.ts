@@ -23,12 +23,14 @@ export class CreateIntlFixedPriceDomainOrderRequest extends $dara.Model {
    * 58.00
    */
   expectedPrice?: number;
+  productType?: number;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
       contactId: 'ContactId',
       domain: 'Domain',
       expectedPrice: 'ExpectedPrice',
+      productType: 'ProductType',
     };
   }
 
@@ -38,6 +40,7 @@ export class CreateIntlFixedPriceDomainOrderRequest extends $dara.Model {
       contactId: 'number',
       domain: 'string',
       expectedPrice: 'number',
+      productType: 'number',
     };
   }
 

@@ -755,6 +755,10 @@ export default class Client extends OpenApi {
       query["ExpectedPrice"] = request.expectedPrice;
     }
 
+    if (!$dara.isNull(request.productType)) {
+      query["ProductType"] = request.productType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -4149,6 +4153,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.serviceType)) {
+      query["ServiceType"] = request.serviceType;
     }
 
     if (!$dara.isNull(request.status)) {

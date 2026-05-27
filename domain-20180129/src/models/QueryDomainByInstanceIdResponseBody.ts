@@ -81,6 +81,11 @@ export class QueryDomainByInstanceIdResponseBodyTag extends $dara.Model {
 }
 
 export class QueryDomainByInstanceIdResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UN_SUPPORT
+   */
+  cnnicPrivacyServiceStatus?: string;
   dnsList?: QueryDomainByInstanceIdResponseBodyDnsList;
   /**
    * @example
@@ -159,6 +164,10 @@ export class QueryDomainByInstanceIdResponseBody extends $dara.Model {
    * false
    */
   premium?: boolean;
+  /**
+   * @example
+   * UN_SUPPORT
+   */
   privacyServiceStatus?: string;
   /**
    * @example
@@ -231,6 +240,7 @@ export class QueryDomainByInstanceIdResponseBody extends $dara.Model {
   zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
+      cnnicPrivacyServiceStatus: 'CnnicPrivacyServiceStatus',
       dnsList: 'DnsList',
       domainGroupId: 'DomainGroupId',
       domainGroupName: 'DomainGroupName',
@@ -272,6 +282,7 @@ export class QueryDomainByInstanceIdResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cnnicPrivacyServiceStatus: 'string',
       dnsList: QueryDomainByInstanceIdResponseBodyDnsList,
       domainGroupId: 'number',
       domainGroupName: 'string',

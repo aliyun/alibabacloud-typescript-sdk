@@ -17,6 +17,11 @@ export class SaveBatchTaskForDomainNameProxyServiceRequest extends $dara.Model {
    */
   lang?: string;
   /**
+   * @example
+   * cnnicRegistryService
+   */
+  serviceType?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -33,6 +38,7 @@ export class SaveBatchTaskForDomainNameProxyServiceRequest extends $dara.Model {
     return {
       domainName: 'DomainName',
       lang: 'Lang',
+      serviceType: 'ServiceType',
       status: 'Status',
       userClientIp: 'UserClientIp',
     };
@@ -42,6 +48,7 @@ export class SaveBatchTaskForDomainNameProxyServiceRequest extends $dara.Model {
     return {
       domainName: { 'type': 'array', 'itemType': 'string' },
       lang: 'string',
+      serviceType: 'string',
       status: 'boolean',
       userClientIp: 'string',
     };

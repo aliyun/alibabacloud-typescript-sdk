@@ -81,6 +81,11 @@ export class QueryDomainByDomainNameResponseBodyTag extends $dara.Model {
 }
 
 export class QueryDomainByDomainNameResponseBody extends $dara.Model {
+  /**
+   * @example
+   * UN_SUPPORT
+   */
+  cnnicPrivacyServiceStatus?: string;
   dnsList?: QueryDomainByDomainNameResponseBodyDnsList;
   /**
    * @remarks
@@ -227,6 +232,11 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
    */
   premium?: boolean;
   /**
+   * @example
+   * UN_SUPPORT
+   */
+  privacyServiceStatus?: string;
+  /**
    * @remarks
    * The status of real-name verification for the domain name. Valid values:
    * 
@@ -371,6 +381,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
   zhRegistrantOrganization?: string;
   static names(): { [key: string]: string } {
     return {
+      cnnicPrivacyServiceStatus: 'CnnicPrivacyServiceStatus',
       dnsList: 'DnsList',
       domainGroupId: 'DomainGroupId',
       domainGroupName: 'DomainGroupName',
@@ -388,6 +399,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
       expirationDateStatus: 'ExpirationDateStatus',
       instanceId: 'InstanceId',
       premium: 'Premium',
+      privacyServiceStatus: 'PrivacyServiceStatus',
       realNameStatus: 'RealNameStatus',
       registrantName: 'RegistrantName',
       registrantOrganization: 'RegistrantOrganization',
@@ -411,6 +423,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cnnicPrivacyServiceStatus: 'string',
       dnsList: QueryDomainByDomainNameResponseBodyDnsList,
       domainGroupId: 'number',
       domainGroupName: 'string',
@@ -428,6 +441,7 @@ export class QueryDomainByDomainNameResponseBody extends $dara.Model {
       expirationDateStatus: 'string',
       instanceId: 'string',
       premium: 'boolean',
+      privacyServiceStatus: 'string',
       realNameStatus: 'string',
       registrantName: 'string',
       registrantOrganization: 'string',
