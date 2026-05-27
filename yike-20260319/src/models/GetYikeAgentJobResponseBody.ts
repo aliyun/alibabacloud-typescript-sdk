@@ -51,11 +51,13 @@ export class GetYikeAgentJobResponseBodyJobResult extends $dara.Model {
 }
 
 export class GetYikeAgentJobResponseBody extends $dara.Model {
+  createTime?: string;
   /**
    * @example
    * WorkflowTaskFailed
    */
   errorCode?: string;
+  finishTime?: string;
   /**
    * @example
    * ab4802364a2e49208c99efab82df****
@@ -89,7 +91,9 @@ export class GetYikeAgentJobResponseBody extends $dara.Model {
   userData?: string;
   static names(): { [key: string]: string } {
     return {
+      createTime: 'CreateTime',
       errorCode: 'ErrorCode',
+      finishTime: 'FinishTime',
       jobId: 'JobId',
       jobParams: 'JobParams',
       jobResult: 'JobResult',
@@ -102,7 +106,9 @@ export class GetYikeAgentJobResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      createTime: 'string',
       errorCode: 'string',
+      finishTime: 'string',
       jobId: 'string',
       jobParams: 'string',
       jobResult: { 'type': 'array', 'itemType': GetYikeAgentJobResponseBodyJobResult },
