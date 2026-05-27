@@ -12081,6 +12081,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the label List of Supabase instances
+   * 
+   * @param request - ListSupabaseProjectTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSupabaseProjectTagsResponse
+   */
+  async listSupabaseProjectTagsWithOptions(request: $_model.ListSupabaseProjectTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSupabaseProjectTagsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSupabaseProjectTags",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSupabaseProjectTagsResponse>(await this.callApi(params, req, runtime), new $_model.ListSupabaseProjectTagsResponse({}));
+  }
+
+  /**
+   * Query the label List of Supabase instances
+   * 
+   * @param request - ListSupabaseProjectTagsRequest
+   * @returns ListSupabaseProjectTagsResponse
+   */
+  async listSupabaseProjectTags(request: $_model.ListSupabaseProjectTagsRequest): Promise<$_model.ListSupabaseProjectTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSupabaseProjectTagsWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves a paginated list of Supabase instances in your account. You can filter the list by region.
    * 
    * @remarks
@@ -14027,6 +14085,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modify the Supabase project description
+   * 
+   * @param request - ModifySupabaseProjectDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySupabaseProjectDescriptionResponse
+   */
+  async modifySupabaseProjectDescriptionWithOptions(request: $_model.ModifySupabaseProjectDescriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySupabaseProjectDescriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectDescription)) {
+      query["ProjectDescription"] = request.projectDescription;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifySupabaseProjectDescription",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifySupabaseProjectDescriptionResponse>(await this.callApi(params, req, runtime), new $_model.ModifySupabaseProjectDescriptionResponse({}));
+  }
+
+  /**
+   * Modify the Supabase project description
+   * 
+   * @param request - ModifySupabaseProjectDescriptionRequest
+   * @returns ModifySupabaseProjectDescriptionResponse
+   */
+  async modifySupabaseProjectDescription(request: $_model.ModifySupabaseProjectDescriptionRequest): Promise<$_model.ModifySupabaseProjectDescriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifySupabaseProjectDescriptionWithOptions(request, runtime);
+  }
+
+  /**
    * Modify the resources of a Supabase instance. You can upgrade or decrease the quota of compute resources and scale out storage resources (disk size).
    * 
    * @param request - ModifySupabaseProjectResourceRequest
@@ -15635,6 +15743,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Supabase project labeling
+   * 
+   * @param request - TagSupabaseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagSupabaseProjectResponse
+   */
+  async tagSupabaseProjectWithOptions(request: $_model.TagSupabaseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagSupabaseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TagSupabaseProject",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TagSupabaseProjectResponse>(await this.callApi(params, req, runtime), new $_model.TagSupabaseProjectResponse({}));
+  }
+
+  /**
+   * Supabase project labeling
+   * 
+   * @param request - TagSupabaseProjectRequest
+   * @returns TagSupabaseProjectResponse
+   */
+  async tagSupabaseProject(request: $_model.TagSupabaseProjectRequest): Promise<$_model.TagSupabaseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.tagSupabaseProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Generates text embeddings using an embedding model.
    * 
    * @param tmpReq - TextEmbeddingRequest
@@ -15892,6 +16054,64 @@ export default class Client extends OpenApi {
   async untagResources(request: $_model.UntagResourcesRequest): Promise<$_model.UntagResourcesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.untagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Detach labels from a Supabase instance
+   * 
+   * @param request - UntagSupabaseProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagSupabaseProjectResponse
+   */
+  async untagSupabaseProjectWithOptions(request: $_model.UntagSupabaseProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagSupabaseProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UntagSupabaseProject",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UntagSupabaseProjectResponse>(await this.callApi(params, req, runtime), new $_model.UntagSupabaseProjectResponse({}));
+  }
+
+  /**
+   * Detach labels from a Supabase instance
+   * 
+   * @param request - UntagSupabaseProjectRequest
+   * @returns UntagSupabaseProjectResponse
+   */
+  async untagSupabaseProject(request: $_model.UntagSupabaseProjectRequest): Promise<$_model.UntagSupabaseProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.untagSupabaseProjectWithOptions(request, runtime);
   }
 
   /**
