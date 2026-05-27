@@ -1465,6 +1465,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询研发主机详情
+   * 
+   * @param request - DescribeWuyingServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWuyingServerResponse
+   */
+  async describeWuyingServerWithOptions(request: $_model.DescribeWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeWuyingServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeWuyingServer",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeWuyingServerResponse>(await this.callApi(params, req, runtime), new $_model.DescribeWuyingServerResponse({}));
+  }
+
+  /**
+   * 查询研发主机详情
+   * 
+   * @param request - DescribeWuyingServerRequest
+   * @returns DescribeWuyingServerResponse
+   */
+  async describeWuyingServer(request: $_model.DescribeWuyingServerRequest): Promise<$_model.DescribeWuyingServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeWuyingServerWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the Elastic IP Addresses (EIPs) of workstations.
    * 
    * @param request - DescribeWuyingServerEipInfoRequest
