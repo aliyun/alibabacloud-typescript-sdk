@@ -8,6 +8,7 @@ export class QueryTunnelMetricDetailRequest extends $dara.Model {
    * false
    */
   ascOrder?: boolean;
+  codeList?: number[];
   groupList?: string[];
   /**
    * @example
@@ -50,6 +51,7 @@ export class QueryTunnelMetricDetailRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       ascOrder: 'ascOrder',
+      codeList: 'codeList',
       groupList: 'groupList',
       limit: 'limit',
       operationList: 'operationList',
@@ -65,6 +67,7 @@ export class QueryTunnelMetricDetailRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       ascOrder: 'boolean',
+      codeList: { 'type': 'array', 'itemType': 'number' },
       groupList: { 'type': 'array', 'itemType': 'string' },
       limit: 'number',
       operationList: { 'type': 'array', 'itemType': 'string' },
@@ -78,6 +81,9 @@ export class QueryTunnelMetricDetailRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.codeList)) {
+      $dara.Model.validateArray(this.codeList);
+    }
     if(Array.isArray(this.groupList)) {
       $dara.Model.validateArray(this.groupList);
     }

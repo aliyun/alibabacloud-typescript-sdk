@@ -2,45 +2,38 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SumStorageMetricsByDateRequest extends $dara.Model {
+export class ListInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 1718590596556
+   * 1759975856382
    */
   endDate?: number;
-  projectNames?: string[];
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 1715393576201
+   * 1775644926203
    */
   startDate?: number;
-  /**
-   * @example
-   * PROJECT
-   */
-  statsType?: string;
   static names(): { [key: string]: string } {
     return {
       endDate: 'endDate',
-      projectNames: 'projectNames',
       startDate: 'startDate',
-      statsType: 'statsType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       endDate: 'number',
-      projectNames: { 'type': 'array', 'itemType': 'string' },
       startDate: 'number',
-      statsType: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.projectNames)) {
-      $dara.Model.validateArray(this.projectNames);
-    }
     super.validate();
   }
 

@@ -208,22 +208,6 @@ export class ListComputeMetricsByInstanceResponseBody extends $dara.Model {
   data?: ListComputeMetricsByInstanceResponseBodyData;
   /**
    * @remarks
-   * The error code.
-   * 
-   * @example
-   * OBJECT_NOT_EXIST
-   */
-  errorCode?: string;
-  /**
-   * @remarks
-   * The error message.
-   * 
-   * @example
-   * This object does not exist.
-   */
-  errorMsg?: string;
-  /**
-   * @remarks
    * The HTTP status code.
    * 
    * - 1xx: informational response. The request is received and is being processed.
@@ -247,8 +231,6 @@ export class ListComputeMetricsByInstanceResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       data: 'data',
-      errorCode: 'errorCode',
-      errorMsg: 'errorMsg',
       httpCode: 'httpCode',
       requestId: 'requestId',
     };
@@ -257,8 +239,6 @@ export class ListComputeMetricsByInstanceResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       data: ListComputeMetricsByInstanceResponseBodyData,
-      errorCode: 'string',
-      errorMsg: 'string',
       httpCode: 'number',
       requestId: 'string',
     };

@@ -2,35 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SumStorageMetricsByDateResponseBodyDataItemStorageMetrics extends $dara.Model {
+export class SumComputeMetricsByRecordResponseBodyDataDailyComputeRecords extends $dara.Model {
   /**
    * @example
-   * prj
+   * 20260411
    */
-  itemName?: string;
+  dateTime?: string;
   /**
    * @example
-   * 91.22
+   * 50
    */
   percentage?: number;
   /**
    * @example
-   * 300.560392
+   * 1200
    */
-  usage?: string;
+  record?: string;
   static names(): { [key: string]: string } {
     return {
-      itemName: 'itemName',
+      dateTime: 'dateTime',
       percentage: 'percentage',
-      usage: 'usage',
+      record: 'record',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      itemName: 'string',
+      dateTime: 'string',
       percentage: 'number',
-      usage: 'string',
+      record: 'string',
     };
   }
 
@@ -43,51 +43,30 @@ export class SumStorageMetricsByDateResponseBodyDataItemStorageMetrics extends $
   }
 }
 
-export class SumStorageMetricsByDateResponseBodyData extends $dara.Model {
+export class SumComputeMetricsByRecordResponseBodyData extends $dara.Model {
+  dailyComputeRecords?: SumComputeMetricsByRecordResponseBodyDataDailyComputeRecords[];
   /**
    * @example
-   * 20250719
+   * ComputationSql
    */
-  dateTime?: string;
-  itemStorageMetrics?: SumStorageMetricsByDateResponseBodyDataItemStorageMetrics[];
-  /**
-   * @example
-   * Storage
-   */
-  storageType?: string;
-  /**
-   * @example
-   * GB
-   */
-  unit?: string;
-  /**
-   * @example
-   * 329.503338
-   */
-  usage?: string;
+  type?: string;
   static names(): { [key: string]: string } {
     return {
-      dateTime: 'dateTime',
-      itemStorageMetrics: 'itemStorageMetrics',
-      storageType: 'storageType',
-      unit: 'unit',
-      usage: 'usage',
+      dailyComputeRecords: 'dailyComputeRecords',
+      type: 'type',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dateTime: 'string',
-      itemStorageMetrics: { 'type': 'array', 'itemType': SumStorageMetricsByDateResponseBodyDataItemStorageMetrics },
-      storageType: 'string',
-      unit: 'string',
-      usage: 'string',
+      dailyComputeRecords: { 'type': 'array', 'itemType': SumComputeMetricsByRecordResponseBodyDataDailyComputeRecords },
+      type: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.itemStorageMetrics)) {
-      $dara.Model.validateArray(this.itemStorageMetrics);
+    if(Array.isArray(this.dailyComputeRecords)) {
+      $dara.Model.validateArray(this.dailyComputeRecords);
     }
     super.validate();
   }
@@ -97,8 +76,8 @@ export class SumStorageMetricsByDateResponseBodyData extends $dara.Model {
   }
 }
 
-export class SumStorageMetricsByDateResponseBody extends $dara.Model {
-  data?: SumStorageMetricsByDateResponseBodyData[];
+export class SumComputeMetricsByRecordResponseBody extends $dara.Model {
+  data?: SumComputeMetricsByRecordResponseBodyData[];
   /**
    * @example
    * 200
@@ -106,7 +85,7 @@ export class SumStorageMetricsByDateResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @example
-   * 0abb781a17411408145995819e0dae
+   * 0a06dfe517540143853845404e83af
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -119,7 +98,7 @@ export class SumStorageMetricsByDateResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      data: { 'type': 'array', 'itemType': SumStorageMetricsByDateResponseBodyData },
+      data: { 'type': 'array', 'itemType': SumComputeMetricsByRecordResponseBodyData },
       httpCode: 'number',
       requestId: 'string',
     };

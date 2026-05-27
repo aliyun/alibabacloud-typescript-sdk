@@ -2410,10 +2410,6 @@ export default class Client extends OpenApi {
       body["projectNames"] = request.projectNames;
     }
 
-    if (!$dara.isNull(request.region)) {
-      body["region"] = request.region;
-    }
-
     if (!$dara.isNull(request.signature)) {
       body["signature"] = request.signature;
     }
@@ -2458,6 +2454,83 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listComputeMetricsByInstanceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 按Signature查看作业计算使用量明细
+   * 
+   * @param request - ListComputeMetricsBySignatureRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListComputeMetricsBySignatureResponse
+   */
+  async listComputeMetricsBySignatureWithOptions(request: $_model.ListComputeMetricsBySignatureRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListComputeMetricsBySignatureResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["instanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.jobOwner)) {
+      body["jobOwner"] = request.jobOwner;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectNames)) {
+      body["projectNames"] = request.projectNames;
+    }
+
+    if (!$dara.isNull(request.signature)) {
+      body["signature"] = request.signature;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.types)) {
+      body["types"] = request.types;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListComputeMetricsBySignature",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/computeMetrics/listBySignature`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListComputeMetricsBySignatureResponse>(await this.callApi(params, req, runtime), new $_model.ListComputeMetricsBySignatureResponse({}));
+  }
+
+  /**
+   * 按Signature查看作业计算使用量明细
+   * 
+   * @param request - ListComputeMetricsBySignatureRequest
+   * @returns ListComputeMetricsBySignatureResponse
+   */
+  async listComputeMetricsBySignature(request: $_model.ListComputeMetricsBySignatureRequest): Promise<$_model.ListComputeMetricsBySignatureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listComputeMetricsBySignatureWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2550,6 +2623,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listFunctionsWithOptions(projectName, request, headers, runtime);
+  }
+
+  /**
+   * 获取需要进行成本分析的项目或者实例
+   * 
+   * @param request - ListInstancesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstancesResponse
+   */
+  async listInstancesWithOptions(request: $_model.ListInstancesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstancesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      query["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["startDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstances",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/bills/instances`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListInstancesResponse({}));
+  }
+
+  /**
+   * 获取需要进行成本分析的项目或者实例
+   * 
+   * @param request - ListInstancesRequest
+   * @returns ListInstancesResponse
+   */
+  async listInstances(request: $_model.ListInstancesRequest): Promise<$_model.ListInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listInstancesWithOptions(request, headers, runtime);
   }
 
   /**
@@ -3511,6 +3633,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * ListMmsTimers
+   * 
+   * @param request - ListMmsTimersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMmsTimersResponse
+   */
+  async listMmsTimersWithOptions(sourceId: string, request: $_model.ListMmsTimersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMmsTimersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["pageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.srcDbName)) {
+      query["srcDbName"] = request.srcDbName;
+    }
+
+    if (!$dara.isNull(request.srcTableName)) {
+      query["srcTableName"] = request.srcTableName;
+    }
+
+    if (!$dara.isNull(request.stopped)) {
+      query["stopped"] = request.stopped;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMmsTimers",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/timers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMmsTimersResponse>(await this.callApi(params, req, runtime), new $_model.ListMmsTimersResponse({}));
+  }
+
+  /**
+   * ListMmsTimers
+   * 
+   * @param request - ListMmsTimersRequest
+   * @returns ListMmsTimersResponse
+   */
+  async listMmsTimers(sourceId: string, request: $_model.ListMmsTimersRequest): Promise<$_model.ListMmsTimersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMmsTimersWithOptions(sourceId, request, headers, runtime);
+  }
+
+  /**
    * Queries the packages in a MaxCompute project.
    * 
    * @param headers - map
@@ -3884,7 +4071,7 @@ export default class Client extends OpenApi {
     let request = new $_model.ListStoragePartitionsInfoShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
     if (!$dara.isNull(tmpReq.types)) {
-      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "types", "json");
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "types", "simple");
     }
 
     let query : {[key: string ]: any} = { };
@@ -4596,6 +4783,10 @@ export default class Client extends OpenApi {
       body["ascOrder"] = request.ascOrder;
     }
 
+    if (!$dara.isNull(request.codeList)) {
+      body["codeList"] = request.codeList;
+    }
+
     if (!$dara.isNull(request.groupList)) {
       body["groupList"] = request.groupList;
     }
@@ -4691,6 +4882,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * RetryMmsTask
+   * 
+   * @param request - RetryMmsTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryMmsTaskResponse
+   */
+  async retryMmsTaskWithOptions(sourceId: string, taskId: string, request: $_model.RetryMmsTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RetryMmsTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetryMmsTask",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/tasks/${$dara.URL.percentEncode(taskId)}/retry`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetryMmsTaskResponse>(await this.callApi(params, req, runtime), new $_model.RetryMmsTaskResponse({}));
+  }
+
+  /**
+   * RetryMmsTask
+   * 
+   * @param request - RetryMmsTaskRequest
+   * @returns RetryMmsTaskResponse
+   */
+  async retryMmsTask(sourceId: string, taskId: string, request: $_model.RetryMmsTaskRequest): Promise<$_model.RetryMmsTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.retryMmsTaskWithOptions(sourceId, taskId, request, headers, runtime);
+  }
+
+  /**
    * Starts a migration job.
    * 
    * @param headers - map
@@ -4761,6 +4991,309 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 按实例统计或者按计费项统计费用信息
+   * 
+   * @param request - SumBillsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SumBillsResponse
+   */
+  async sumBillsWithOptions(request: $_model.SumBillsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SumBillsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.projectNames)) {
+      body["projectNames"] = request.projectNames;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statsType)) {
+      body["statsType"] = request.statsType;
+    }
+
+    if (!$dara.isNull(request.topN)) {
+      body["topN"] = request.topN;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SumBills",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/bills/sum`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SumBillsResponse>(await this.callApi(params, req, runtime), new $_model.SumBillsResponse({}));
+  }
+
+  /**
+   * 按实例统计或者按计费项统计费用信息
+   * 
+   * @param request - SumBillsRequest
+   * @returns SumBillsResponse
+   */
+  async sumBills(request: $_model.SumBillsRequest): Promise<$_model.SumBillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sumBillsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 按实例统计或者按计费项逐日进行费用统计
+   * 
+   * @param request - SumBillsByDateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SumBillsByDateResponse
+   */
+  async sumBillsByDateWithOptions(request: $_model.SumBillsByDateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SumBillsByDateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.projectNames)) {
+      body["projectNames"] = request.projectNames;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statsType)) {
+      body["statsType"] = request.statsType;
+    }
+
+    if (!$dara.isNull(request.topN)) {
+      body["topN"] = request.topN;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SumBillsByDate",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/bills/sumByDate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SumBillsByDateResponse>(await this.callApi(params, req, runtime), new $_model.SumBillsByDateResponse({}));
+  }
+
+  /**
+   * 按实例统计或者按计费项逐日进行费用统计
+   * 
+   * @param request - SumBillsByDateRequest
+   * @returns SumBillsByDateResponse
+   */
+  async sumBillsByDate(request: $_model.SumBillsByDateRequest): Promise<$_model.SumBillsByDateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sumBillsByDateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 按项目或者实例统计计算用量
+   * 
+   * @param request - SumComputeMetricsByRecordRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SumComputeMetricsByRecordResponse
+   */
+  async sumComputeMetricsByRecordWithOptions(request: $_model.SumComputeMetricsByRecordRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SumComputeMetricsByRecordResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.projectNames)) {
+      body["projectNames"] = request.projectNames;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SumComputeMetricsByRecord",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/computeMetrics/sumByRecord`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SumComputeMetricsByRecordResponse>(await this.callApi(params, req, runtime), new $_model.SumComputeMetricsByRecordResponse({}));
+  }
+
+  /**
+   * 按项目或者实例统计计算用量
+   * 
+   * @param request - SumComputeMetricsByRecordRequest
+   * @returns SumComputeMetricsByRecordResponse
+   */
+  async sumComputeMetricsByRecord(request: $_model.SumComputeMetricsByRecordRequest): Promise<$_model.SumComputeMetricsByRecordResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sumComputeMetricsByRecordWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 统计扫描量计算类的使用量或者CU时计算类使用量
+   * 
+   * @param request - SumComputeMetricsByUsageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SumComputeMetricsByUsageResponse
+   */
+  async sumComputeMetricsByUsageWithOptions(request: $_model.SumComputeMetricsByUsageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SumComputeMetricsByUsageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.projectNames)) {
+      body["projectNames"] = request.projectNames;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.usageType)) {
+      body["usageType"] = request.usageType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SumComputeMetricsByUsage",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/computeMetrics/sumByUsage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SumComputeMetricsByUsageResponse>(await this.callApi(params, req, runtime), new $_model.SumComputeMetricsByUsageResponse({}));
+  }
+
+  /**
+   * 统计扫描量计算类的使用量或者CU时计算类使用量
+   * 
+   * @param request - SumComputeMetricsByUsageRequest
+   * @returns SumComputeMetricsByUsageResponse
+   */
+  async sumComputeMetricsByUsage(request: $_model.SumComputeMetricsByUsageRequest): Promise<$_model.SumComputeMetricsByUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sumComputeMetricsByUsageWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 按实例统或者按计费项统计的明细信息
+   * 
+   * @param request - SumDailyBillsByItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SumDailyBillsByItemResponse
+   */
+  async sumDailyBillsByItemWithOptions(request: $_model.SumDailyBillsByItemRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SumDailyBillsByItemResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.projectNames)) {
+      body["projectNames"] = request.projectNames;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statsType)) {
+      body["statsType"] = request.statsType;
+    }
+
+    if (!$dara.isNull(request.types)) {
+      body["types"] = request.types;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SumDailyBillsByItem",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/dailyBills/sumByItem`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SumDailyBillsByItemResponse>(await this.callApi(params, req, runtime), new $_model.SumDailyBillsByItemResponse({}));
+  }
+
+  /**
+   * 按实例统或者按计费项统计的明细信息
+   * 
+   * @param request - SumDailyBillsByItemRequest
+   * @returns SumDailyBillsByItemResponse
+   */
+  async sumDailyBillsByItem(request: $_model.SumDailyBillsByItemRequest): Promise<$_model.SumDailyBillsByItemResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sumDailyBillsByItemWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 按照project或者存储类型按天统计存储用量
+   * 
    * @param request - SumStorageMetricsByDateRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4777,20 +5310,12 @@ export default class Client extends OpenApi {
       body["projectNames"] = request.projectNames;
     }
 
-    if (!$dara.isNull(request.region)) {
-      body["region"] = request.region;
-    }
-
     if (!$dara.isNull(request.startDate)) {
       body["startDate"] = request.startDate;
     }
 
     if (!$dara.isNull(request.statsType)) {
       body["statsType"] = request.statsType;
-    }
-
-    if (!$dara.isNull(request.userId)) {
-      body["userId"] = request.userId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4812,6 +5337,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 按照project或者存储类型按天统计存储用量
+   * 
    * @param request - SumStorageMetricsByDateRequest
    * @returns SumStorageMetricsByDateResponse
    */
@@ -4819,6 +5346,102 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.sumStorageMetricsByDateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 按项目统计各种类型存储使用量统计
+   * 
+   * @param request - SumStorageMetricsByTypeRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SumStorageMetricsByTypeResponse
+   */
+  async sumStorageMetricsByTypeWithOptions(request: $_model.SumStorageMetricsByTypeRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.SumStorageMetricsByTypeResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endDate)) {
+      body["endDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.projectNames)) {
+      body["projectNames"] = request.projectNames;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      body["startDate"] = request.startDate;
+    }
+
+    if (!$dara.isNull(request.statsType)) {
+      body["statsType"] = request.statsType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SumStorageMetricsByType",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/storageMetrics/sumByType`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SumStorageMetricsByTypeResponse>(await this.callApi(params, req, runtime), new $_model.SumStorageMetricsByTypeResponse({}));
+  }
+
+  /**
+   * 按项目统计各种类型存储使用量统计
+   * 
+   * @param request - SumStorageMetricsByTypeRequest
+   * @returns SumStorageMetricsByTypeResponse
+   */
+  async sumStorageMetricsByType(request: $_model.SumStorageMetricsByTypeRequest): Promise<$_model.SumStorageMetricsByTypeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sumStorageMetricsByTypeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * TriggerMmsTimer
+   * 
+   * @param request - TriggerMmsTimerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerMmsTimerResponse
+   */
+  async triggerMmsTimerWithOptions(sourceId: string, timerId: string, request: $_model.TriggerMmsTimerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TriggerMmsTimerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TriggerMmsTimer",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/timers/${$dara.URL.percentEncode(timerId)}/trigger`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TriggerMmsTimerResponse>(await this.callApi(params, req, runtime), new $_model.TriggerMmsTimerResponse({}));
+  }
+
+  /**
+   * TriggerMmsTimer
+   * 
+   * @param request - TriggerMmsTimerRequest
+   * @returns TriggerMmsTimerResponse
+   */
+  async triggerMmsTimer(sourceId: string, timerId: string, request: $_model.TriggerMmsTimerRequest): Promise<$_model.TriggerMmsTimerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.triggerMmsTimerWithOptions(sourceId, timerId, request, headers, runtime);
   }
 
   /**
@@ -5032,6 +5655,234 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateMmsDataSourceWithOptions(sourceId, request, headers, runtime);
+  }
+
+  /**
+   * 功能：
+   * 
+   * @param request - UpdateMmsDbRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmsDbResponse
+   */
+  async updateMmsDbWithOptions(sourceId: string, dbId: string, request: $_model.UpdateMmsDbRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmsDbResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dstName)) {
+      body["dstName"] = request.dstName;
+    }
+
+    if (!$dara.isNull(request.dstProjectName)) {
+      body["dstProjectName"] = request.dstProjectName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmsDb",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/dbs/${$dara.URL.percentEncode(dbId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmsDbResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmsDbResponse({}));
+  }
+
+  /**
+   * 功能：
+   * 
+   * @param request - UpdateMmsDbRequest
+   * @returns UpdateMmsDbResponse
+   */
+  async updateMmsDb(sourceId: string, dbId: string, request: $_model.UpdateMmsDbRequest): Promise<$_model.UpdateMmsDbResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMmsDbWithOptions(sourceId, dbId, request, headers, runtime);
+  }
+
+  /**
+   * 更新表元数据
+   * 
+   * @param request - UpdateMmsTableRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmsTableResponse
+   */
+  async updateMmsTableWithOptions(sourceId: string, tableId: string, request: $_model.UpdateMmsTableRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmsTableResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dstName)) {
+      body["dstName"] = request.dstName;
+    }
+
+    if (!$dara.isNull(request.dstProjectName)) {
+      body["dstProjectName"] = request.dstProjectName;
+    }
+
+    if (!$dara.isNull(request.dstSchemaName)) {
+      body["dstSchemaName"] = request.dstSchemaName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmsTable",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/tables/${$dara.URL.percentEncode(tableId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmsTableResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmsTableResponse({}));
+  }
+
+  /**
+   * 更新表元数据
+   * 
+   * @param request - UpdateMmsTableRequest
+   * @returns UpdateMmsTableResponse
+   */
+  async updateMmsTable(sourceId: string, tableId: string, request: $_model.UpdateMmsTableRequest): Promise<$_model.UpdateMmsTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMmsTableWithOptions(sourceId, tableId, request, headers, runtime);
+  }
+
+  /**
+   * 更新表元数据
+   * 
+   * @param request - UpdateMmsTablesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmsTablesResponse
+   */
+  async updateMmsTablesWithOptions(sourceId: string, request: $_model.UpdateMmsTablesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmsTablesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dbName)) {
+      body["dbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.dstProjectName)) {
+      body["dstProjectName"] = request.dstProjectName;
+    }
+
+    if (!$dara.isNull(request.dstSchemaName)) {
+      body["dstSchemaName"] = request.dstSchemaName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.tableNames)) {
+      body["tableNames"] = request.tableNames;
+    }
+
+    if (!$dara.isNull(request.tables)) {
+      body["tables"] = request.tables;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmsTables",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/tables`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmsTablesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmsTablesResponse({}));
+  }
+
+  /**
+   * 更新表元数据
+   * 
+   * @param request - UpdateMmsTablesRequest
+   * @returns UpdateMmsTablesResponse
+   */
+  async updateMmsTables(sourceId: string, request: $_model.UpdateMmsTablesRequest): Promise<$_model.UpdateMmsTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMmsTablesWithOptions(sourceId, request, headers, runtime);
+  }
+
+  /**
+   * UpdateMmsTimer
+   * 
+   * @param request - UpdateMmsTimerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMmsTimerResponse
+   */
+  async updateMmsTimerWithOptions(sourceId: string, timerId: string, request: $_model.UpdateMmsTimerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMmsTimerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scheduleType)) {
+      body["scheduleType"] = request.scheduleType;
+    }
+
+    if (!$dara.isNull(request.stopped)) {
+      body["stopped"] = request.stopped;
+    }
+
+    if (!$dara.isNull(request.value)) {
+      body["value"] = request.value;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMmsTimer",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/mms/datasources/${$dara.URL.percentEncode(sourceId)}/timers/${$dara.URL.percentEncode(timerId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMmsTimerResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMmsTimerResponse({}));
+  }
+
+  /**
+   * UpdateMmsTimer
+   * 
+   * @param request - UpdateMmsTimerRequest
+   * @returns UpdateMmsTimerResponse
+   */
+  async updateMmsTimer(sourceId: string, timerId: string, request: $_model.UpdateMmsTimerRequest): Promise<$_model.UpdateMmsTimerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMmsTimerWithOptions(sourceId, timerId, request, headers, runtime);
   }
 
   /**

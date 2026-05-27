@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SumStorageMetricsByDateRequest extends $dara.Model {
+export class SumStorageMetricsByTypeRequest extends $dara.Model {
   /**
    * @example
    * 1718590596556

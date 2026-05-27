@@ -2,7 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class SumStorageMetricsByDateRequest extends $dara.Model {
+export class SumComputeMetricsByUsageRequest extends $dara.Model {
   /**
    * @example
    * 1718590596556
@@ -16,15 +16,15 @@ export class SumStorageMetricsByDateRequest extends $dara.Model {
   startDate?: number;
   /**
    * @example
-   * PROJECT
+   * SCAN
    */
-  statsType?: string;
+  usageType?: string;
   static names(): { [key: string]: string } {
     return {
       endDate: 'endDate',
       projectNames: 'projectNames',
       startDate: 'startDate',
-      statsType: 'statsType',
+      usageType: 'usageType',
     };
   }
 
@@ -33,7 +33,7 @@ export class SumStorageMetricsByDateRequest extends $dara.Model {
       endDate: 'number',
       projectNames: { 'type': 'array', 'itemType': 'string' },
       startDate: 'number',
-      statsType: 'string',
+      usageType: 'string',
     };
   }
 
