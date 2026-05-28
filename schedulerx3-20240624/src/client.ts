@@ -323,12 +323,24 @@ export default class Client extends OpenApi {
       body["AuthType"] = request.authType;
     }
 
+    if (!$dara.isNull(request.autoScale)) {
+      body["AutoScale"] = request.autoScale;
+    }
+
     if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
     }
 
+    if (!$dara.isNull(request.cmsWorkspaceId)) {
+      body["CmsWorkspaceId"] = request.cmsWorkspaceId;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.integrationType)) {
+      body["IntegrationType"] = request.integrationType;
     }
 
     if (!$dara.isNull(request.name)) {
@@ -349,6 +361,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.workers)) {
       body["Workers"] = request.workers;
+    }
+
+    if (!$dara.isNull(request.XAttrs)) {
+      body["XAttrs"] = request.XAttrs;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -879,6 +895,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4695,8 +4715,16 @@ export default class Client extends OpenApi {
       body["AuthType"] = request.authType;
     }
 
+    if (!$dara.isNull(request.autoScale)) {
+      body["AutoScale"] = request.autoScale;
+    }
+
     if (!$dara.isNull(request.clusterId)) {
       body["ClusterId"] = request.clusterId;
+    }
+
+    if (!$dara.isNull(request.cmsWorkspaceId)) {
+      body["CmsWorkspaceId"] = request.cmsWorkspaceId;
     }
 
     if (!$dara.isNull(request.description)) {
@@ -4705,6 +4733,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
     }
 
     if (!$dara.isNull(request.network)) {
@@ -4721,6 +4753,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.workers)) {
       body["Workers"] = request.workers;
+    }
+
+    if (!$dara.isNull(request.XAttrs)) {
+      body["XAttrs"] = request.XAttrs;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

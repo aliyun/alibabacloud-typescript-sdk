@@ -21,10 +21,12 @@ export class DeleteExecutorGroupRequest extends $dara.Model {
    * 83163
    */
   id?: number;
+  name?: string;
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
       id: 'Id',
+      name: 'Name',
     };
   }
 
@@ -32,6 +34,7 @@ export class DeleteExecutorGroupRequest extends $dara.Model {
     return {
       clusterId: 'string',
       id: 'number',
+      name: 'string',
     };
   }
 

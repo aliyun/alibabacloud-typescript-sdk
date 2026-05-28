@@ -47,12 +47,15 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
    * api_key
    */
   authType?: string;
+  autoScale?: boolean;
   citeList?: ListExecutorGroupResponseBodyDataRecordsCiteList[];
+  cmsWorkspaceId?: string;
   /**
    * @example
    * my first workflow
    */
   description?: string;
+  integrationType?: string;
   /**
    * @example
    * job01
@@ -68,6 +71,7 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
    * openai
    */
   protocol?: string;
+  resolvedWorkers?: string;
   /**
    * @example
    * 12
@@ -83,18 +87,24 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
    * [{"address":"http://47.111.188.191:18789"}]
    */
   workers?: string;
+  XAttrs?: string;
   static names(): { [key: string]: string } {
     return {
       apiKey: 'ApiKey',
       authType: 'AuthType',
+      autoScale: 'AutoScale',
       citeList: 'CiteList',
+      cmsWorkspaceId: 'CmsWorkspaceId',
       description: 'Description',
+      integrationType: 'IntegrationType',
       name: 'Name',
       network: 'Network',
       protocol: 'Protocol',
+      resolvedWorkers: 'ResolvedWorkers',
       workerId: 'WorkerId',
       workerType: 'WorkerType',
       workers: 'Workers',
+      XAttrs: 'XAttrs',
     };
   }
 
@@ -102,14 +112,19 @@ export class ListExecutorGroupResponseBodyDataRecords extends $dara.Model {
     return {
       apiKey: 'string',
       authType: 'string',
+      autoScale: 'boolean',
       citeList: { 'type': 'array', 'itemType': ListExecutorGroupResponseBodyDataRecordsCiteList },
+      cmsWorkspaceId: 'string',
       description: 'string',
+      integrationType: 'string',
       name: 'string',
       network: 'string',
       protocol: 'string',
+      resolvedWorkers: 'string',
       workerId: 'number',
       workerType: 'string',
       workers: 'string',
+      XAttrs: 'string',
     };
   }
 

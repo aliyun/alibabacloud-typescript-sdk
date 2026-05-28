@@ -33,6 +33,7 @@ export class ListExecutorsResponseBodyData extends $dara.Model {
    * 9999
    */
   port?: number;
+  status?: string;
   /**
    * @example
    * 2.0.2
@@ -51,6 +52,7 @@ export class ListExecutorsResponseBodyData extends $dara.Model {
       label: 'Label',
       online: 'Online',
       port: 'Port',
+      status: 'Status',
       version: 'Version',
       weight: 'Weight',
     };
@@ -64,6 +66,7 @@ export class ListExecutorsResponseBodyData extends $dara.Model {
       label: 'string',
       online: 'boolean',
       port: 'number',
+      status: 'string',
       version: 'string',
       weight: 'number',
     };
