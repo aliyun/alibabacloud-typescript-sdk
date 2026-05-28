@@ -274,6 +274,142 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增模型应用
+   * 
+   * @param tmpReq - AddModelApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddModelApplicationResponse
+   */
+  async addModelApplicationWithOptions(tmpReq: $_model.AddModelApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddModelApplicationResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddModelApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ttsConfig)) {
+      request.ttsConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ttsConfig, "TtsConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationCps)) {
+      query["ApplicationCps"] = request.applicationCps;
+    }
+
+    if (!$dara.isNull(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!$dara.isNull(request.callConnectedTriggerModel)) {
+      query["CallConnectedTriggerModel"] = request.callConnectedTriggerModel;
+    }
+
+    if (!$dara.isNull(request.dyvmsSceneName)) {
+      query["DyvmsSceneName"] = request.dyvmsSceneName;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      query["ModelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.modelVersion)) {
+      query["ModelVersion"] = request.modelVersion;
+    }
+
+    if (!$dara.isNull(request.muteActive)) {
+      query["MuteActive"] = request.muteActive;
+    }
+
+    if (!$dara.isNull(request.muteDuration)) {
+      query["MuteDuration"] = request.muteDuration;
+    }
+
+    if (!$dara.isNull(request.muteHangupNum)) {
+      query["MuteHangupNum"] = request.muteHangupNum;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!$dara.isNull(request.qualificationName)) {
+      query["QualificationName"] = request.qualificationName;
+    }
+
+    if (!$dara.isNull(request.recordingFile)) {
+      query["RecordingFile"] = request.recordingFile;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.speechContent)) {
+      query["SpeechContent"] = request.speechContent;
+    }
+
+    if (!$dara.isNull(request.speechId)) {
+      query["SpeechId"] = request.speechId;
+    }
+
+    if (!$dara.isNull(request.startWord)) {
+      query["StartWord"] = request.startWord;
+    }
+
+    if (!$dara.isNull(request.startWordType)) {
+      query["StartWordType"] = request.startWordType;
+    }
+
+    if (!$dara.isNull(request.ttsConfigShrink)) {
+      query["TtsConfig"] = request.ttsConfigShrink;
+    }
+
+    if (!$dara.isNull(request.usageDesc)) {
+      query["UsageDesc"] = request.usageDesc;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddModelApplication",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddModelApplicationResponse>(await this.callApi(params, req, runtime), new $_model.AddModelApplicationResponse({}));
+  }
+
+  /**
+   * 新增模型应用
+   * 
+   * @param request - AddModelApplicationRequest
+   * @returns AddModelApplicationResponse
+   */
+  async addModelApplication(request: $_model.AddModelApplicationRequest): Promise<$_model.AddModelApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addModelApplicationWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - AddOuterAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddOuterAccountResponse
@@ -10049,6 +10185,202 @@ export default class Client extends OpenApi {
   async updateLargeModel(request: $_model.UpdateLargeModelRequest): Promise<$_model.UpdateLargeModelResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateLargeModelWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改模型应用
+   * 
+   * @param tmpReq - UpdateModelApplicationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelApplicationResponse
+   */
+  async updateModelApplicationWithOptions(tmpReq: $_model.UpdateModelApplicationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelApplicationResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateModelApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.interruptConfig)) {
+      request.interruptConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.interruptConfig, "InterruptConfig", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ttsConfig)) {
+      request.ttsConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ttsConfig, "TtsConfig", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationCode)) {
+      query["ApplicationCode"] = request.applicationCode;
+    }
+
+    if (!$dara.isNull(request.applicationCps)) {
+      query["ApplicationCps"] = request.applicationCps;
+    }
+
+    if (!$dara.isNull(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!$dara.isNull(request.callAssistantHangup)) {
+      query["CallAssistantHangup"] = request.callAssistantHangup;
+    }
+
+    if (!$dara.isNull(request.callAssistantRecognize)) {
+      query["CallAssistantRecognize"] = request.callAssistantRecognize;
+    }
+
+    if (!$dara.isNull(request.callConnectedTriggerModel)) {
+      query["CallConnectedTriggerModel"] = request.callConnectedTriggerModel;
+    }
+
+    if (!$dara.isNull(request.dtmfAllowedDigits)) {
+      query["DtmfAllowedDigits"] = request.dtmfAllowedDigits;
+    }
+
+    if (!$dara.isNull(request.dtmfAutoValidateEnable)) {
+      query["DtmfAutoValidateEnable"] = request.dtmfAutoValidateEnable;
+    }
+
+    if (!$dara.isNull(request.dtmfDigitCount)) {
+      query["DtmfDigitCount"] = request.dtmfDigitCount;
+    }
+
+    if (!$dara.isNull(request.dtmfInputTimeout)) {
+      query["DtmfInputTimeout"] = request.dtmfInputTimeout;
+    }
+
+    if (!$dara.isNull(request.dtmfOutOfRangeAction)) {
+      query["DtmfOutOfRangeAction"] = request.dtmfOutOfRangeAction;
+    }
+
+    if (!$dara.isNull(request.dtmfRetryPlayTimes)) {
+      query["DtmfRetryPlayTimes"] = request.dtmfRetryPlayTimes;
+    }
+
+    if (!$dara.isNull(request.dtmfRetryPromptText)) {
+      query["DtmfRetryPromptText"] = request.dtmfRetryPromptText;
+    }
+
+    if (!$dara.isNull(request.dyvmsSceneName)) {
+      query["DyvmsSceneName"] = request.dyvmsSceneName;
+    }
+
+    if (!$dara.isNull(request.enableDtmfReceive)) {
+      query["EnableDtmfReceive"] = request.enableDtmfReceive;
+    }
+
+    if (!$dara.isNull(request.enableMorse)) {
+      query["EnableMorse"] = request.enableMorse;
+    }
+
+    if (!$dara.isNull(request.interruptConfigShrink)) {
+      query["InterruptConfig"] = request.interruptConfigShrink;
+    }
+
+    if (!$dara.isNull(request.modelCode)) {
+      query["ModelCode"] = request.modelCode;
+    }
+
+    if (!$dara.isNull(request.modelVersion)) {
+      query["ModelVersion"] = request.modelVersion;
+    }
+
+    if (!$dara.isNull(request.muteActive)) {
+      query["MuteActive"] = request.muteActive;
+    }
+
+    if (!$dara.isNull(request.muteDuration)) {
+      query["MuteDuration"] = request.muteDuration;
+    }
+
+    if (!$dara.isNull(request.muteHangupNum)) {
+      query["MuteHangupNum"] = request.muteHangupNum;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.qualificationId)) {
+      query["QualificationId"] = request.qualificationId;
+    }
+
+    if (!$dara.isNull(request.qualificationName)) {
+      query["QualificationName"] = request.qualificationName;
+    }
+
+    if (!$dara.isNull(request.recordingFile)) {
+      query["RecordingFile"] = request.recordingFile;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!$dara.isNull(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!$dara.isNull(request.sessionTimeout)) {
+      query["SessionTimeout"] = request.sessionTimeout;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.speechContent)) {
+      query["SpeechContent"] = request.speechContent;
+    }
+
+    if (!$dara.isNull(request.speechId)) {
+      query["SpeechId"] = request.speechId;
+    }
+
+    if (!$dara.isNull(request.startWord)) {
+      query["StartWord"] = request.startWord;
+    }
+
+    if (!$dara.isNull(request.startWordType)) {
+      query["StartWordType"] = request.startWordType;
+    }
+
+    if (!$dara.isNull(request.ttsConfigShrink)) {
+      query["TtsConfig"] = request.ttsConfigShrink;
+    }
+
+    if (!$dara.isNull(request.usageDesc)) {
+      query["UsageDesc"] = request.usageDesc;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelApplication",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelApplicationResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelApplicationResponse({}));
+  }
+
+  /**
+   * 修改模型应用
+   * 
+   * @param request - UpdateModelApplicationRequest
+   * @returns UpdateModelApplicationResponse
+   */
+  async updateModelApplication(request: $_model.UpdateModelApplicationRequest): Promise<$_model.UpdateModelApplicationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateModelApplicationWithOptions(request, runtime);
   }
 
   /**
