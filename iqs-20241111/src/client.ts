@@ -600,7 +600,7 @@ export default class Client extends OpenApi {
 
     for await (let resp of sseResp) {
       if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
-        let data = JSON.parse(resp.event.data);
+        let data = resp.event.data;
         yield $dara.cast<$_model.OmniAnswerResponse>({
           statusCode: resp.statusCode,
           headers: resp.headers,
@@ -731,6 +731,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.readPageScrapeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 扫描文件
+   * 
+   * @param request - ScanFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ScanFileResponse
+   */
+  async scanFileWithOptions(request: $_model.ScanFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ScanFileResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ScanFile",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v1/iqs/domain/scan/file`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ScanFileResponse>(await this.callApi(params, req, runtime), new $_model.ScanFileResponse({}));
+  }
+
+  /**
+   * 扫描文件
+   * 
+   * @param request - ScanFileRequest
+   * @returns ScanFileResponse
+   */
+  async scanFile(request: $_model.ScanFileRequest): Promise<$_model.ScanFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.scanFileWithOptions(request, headers, runtime);
   }
 
   /**
