@@ -9594,6 +9594,10 @@ export default class Client extends OpenApi {
   async describeGlobalDesktopRecordsWithOptions(request: $_model.DescribeGlobalDesktopRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGlobalDesktopRecordsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
     if (!$dara.isNull(request.desktopId)) {
       query["DesktopId"] = request.desktopId;
     }
@@ -16025,6 +16029,10 @@ export default class Client extends OpenApi {
       query["DesktopId"] = request.desktopId;
     }
 
+    if (!$dara.isNull(request.desktopIds)) {
+      query["DesktopIds"] = request.desktopIds;
+    }
+
     if (!$dara.isNull(request.newHostName)) {
       query["NewHostName"] = request.newHostName;
     }
@@ -16078,12 +16086,20 @@ export default class Client extends OpenApi {
       query["DesktopId"] = request.desktopId;
     }
 
+    if (!$dara.isNull(request.desktopIds)) {
+      query["DesktopIds"] = request.desktopIds;
+    }
+
     if (!$dara.isNull(request.newDesktopName)) {
       query["NewDesktopName"] = request.newDesktopName;
     }
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.userAssignMode)) {
+      query["UserAssignMode"] = request.userAssignMode;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -18390,7 +18406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询桌面历史使用时长排行榜
+   * Query and sort historical usage duration by user or desktop dimension.
    * 
    * @param request - QueryHistoryUsageDurationRankRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18437,7 +18453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询桌面历史使用时长排行榜
+   * Query and sort historical usage duration by user or desktop dimension.
    * 
    * @param request - QueryHistoryUsageDurationRankRequest
    * @returns QueryHistoryUsageDurationRankResponse

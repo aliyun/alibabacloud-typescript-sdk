@@ -7,12 +7,11 @@ export class ModifyDesktopHostNameRequest extends $dara.Model {
    * @remarks
    * The ID of the cloud computer.
    * 
-   * This parameter is required.
-   * 
    * @example
    * ecd-gx2x1dhsmucyy****
    */
   desktopId?: string;
+  desktopIds?: string[];
   /**
    * @remarks
    * The new hostname of the cloud computer. The hostname must meet the following requirements:
@@ -39,6 +38,7 @@ export class ModifyDesktopHostNameRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       desktopId: 'DesktopId',
+      desktopIds: 'DesktopIds',
       newHostName: 'NewHostName',
       regionId: 'RegionId',
     };
@@ -47,12 +47,16 @@ export class ModifyDesktopHostNameRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       desktopId: 'string',
+      desktopIds: { 'type': 'array', 'itemType': 'string' },
       newHostName: 'string',
       regionId: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.desktopIds)) {
+      $dara.Model.validateArray(this.desktopIds);
+    }
     super.validate();
   }
 

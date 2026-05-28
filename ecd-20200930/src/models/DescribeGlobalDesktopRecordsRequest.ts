@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
+  businessChannel?: string;
   /**
    * @remarks
    * The cloud computer IDs. You can specify 1 to 100 office network IDs.
@@ -145,6 +146,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   subPayType?: string;
   static names(): { [key: string]: string } {
     return {
+      businessChannel: 'BusinessChannel',
       desktopId: 'DesktopId',
       desktopName: 'DesktopName',
       desktopStatusList: 'DesktopStatusList',
@@ -167,6 +169,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      businessChannel: 'string',
       desktopId: { 'type': 'array', 'itemType': 'string' },
       desktopName: 'string',
       desktopStatusList: { 'type': 'array', 'itemType': 'string' },
