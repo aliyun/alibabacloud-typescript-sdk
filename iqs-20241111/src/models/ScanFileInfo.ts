@@ -17,7 +17,7 @@ export class ScanFileInfo extends $dara.Model {
    * @example
    * erwre
    */
-  imageBase64?: Buffer;
+  imageBase64?: string;
   /**
    * @example
    * 100
@@ -36,7 +36,7 @@ export class ScanFileInfo extends $dara.Model {
     return {
       angle: 'number',
       height: 'number',
-      imageBase64: 'Buffer',
+      imageBase64: 'string',
       width: 'number',
     };
   }
