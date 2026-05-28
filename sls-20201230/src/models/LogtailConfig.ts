@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class LogtailConfigOutputDetail extends $dara.Model {
   /**
    * @remarks
+   * The endpoint. For more information, see [Endpoints](https://help.aliyun.com/document_detail/29008.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class LogtailConfigOutputDetail extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
+   * The name of the Logstore.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,11 +24,17 @@ export class LogtailConfigOutputDetail extends $dara.Model {
    */
   logstoreName?: string;
   /**
+   * @remarks
+   * The ID of the region.
+   * 
    * @example
    * cn-hangzhou
    */
   region?: string;
   /**
+   * @remarks
+   * The type of observable data in the Logstore.
+   * 
    * @example
    * logs
    */
@@ -59,6 +69,12 @@ export class LogtailConfigOutputDetail extends $dara.Model {
 export class LogtailConfig extends $dara.Model {
   /**
    * @remarks
+   * The name of the Logtail configuration. The name must be unique in the project to which the Logtail configuration belongs. After the Logtail configuration is created, you cannot change the name of the Logtail configuration. The name must meet the following requirements:
+   * 
+   * *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
+   * *   The name must start and end with a lowercase letter or a digit.
+   * *   The name must be 2 to 128 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,17 +82,30 @@ export class LogtailConfig extends $dara.Model {
    */
   configName?: string;
   /**
+   * @remarks
+   * The time at which the Logtail configuration was created. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
    * @example
    * 1655176807
    */
   createTime?: number;
   /**
    * @remarks
+   * The detailed settings of the data source. For more information, see [inputDetail](https://help.aliyun.com/document_detail/29058.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * "logType": "common_reg_log", "logPath": "/var/log/httpd/", "filePattern": "access*.log", "localStorage": true, "timeFormat": "%Y/%m/%d %H:%M:%S", "logBeginRegex": ".*", "regex": "(\\w+)(\\s+)", "key" :["key1", "key2"], "filterKey":["key1"], "filterRegex":["regex1"], "fileEncoding":"utf8", "topicFormat": "none"
    */
   inputDetail?: { [key: string]: any };
   /**
    * @remarks
+   * The type of the data source. Valid values:
+   * 
+   * *   **plugin**: Logs such as MySQL binary logs are collected by using Logtail plug-ins.
+   * *   **file**: Logs from text files are collected by using existing modes, including the full regex mode and delimiter mode.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -84,22 +113,32 @@ export class LogtailConfig extends $dara.Model {
    */
   inputType?: string;
   /**
+   * @remarks
+   * The time at which the Logtail configuration was last modified. The value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
    * @example
    * 1655176807
    */
   lastModifyTime?: number;
   /**
+   * @remarks
+   * The sample log.
+   * 
    * @example
    * 2022-06-14 11:13:29.796 | DEBUG    | __main__:<module>:1 - hello world
    */
   logSample?: string;
   /**
    * @remarks
+   * The detailed settings of the data destination. For more information, see [outputDetail](https://help.aliyun.com/document_detail/29058.html).
+   * 
    * This parameter is required.
    */
   outputDetail?: LogtailConfigOutputDetail;
   /**
    * @remarks
+   * The type of the data destination. Set the value to LogService. Collected logs can be uploaded to only Simple Log Service.
+   * 
    * This parameter is required.
    * 
    * @example

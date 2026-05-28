@@ -7,16 +7,28 @@ import { LogTag } from "./LogTag";
 export class LogGroup extends $dara.Model {
   /**
    * @remarks
+   * The log list.
+   * 
    * This parameter is required.
    */
   logItems?: LogItem[];
+  /**
+   * @remarks
+   * The log tags.
+   */
   logTags?: LogTag[];
   /**
+   * @remarks
+   * The log source. For example, the source of a log can be the IP address of the server where the log is generated.
+   * 
    * @example
    * 192.1.1.1
    */
   source?: string;
   /**
+   * @remarks
+   * The log topic. This field is user-defined and is used to distinguish between logs.
+   * 
    * @example
    * topic-test
    */

@@ -6,46 +6,75 @@ import { ETLConfiguration } from "./Etlconfiguration";
 export class ETL extends $dara.Model {
   /**
    * @remarks
+   * The configurations of the data transformation job.
+   * 
    * This parameter is required.
    */
   configuration?: ETLConfiguration;
   /**
+   * @remarks
+   * The time when the data transformation job was created.
+   * 
    * @example
    * 1714274900
    */
   createTime?: number;
   /**
+   * @remarks
+   * job description
+   * 
    * @example
-   * 加工作业
+   * ETL
    */
   description?: string;
   /**
    * @remarks
+   * job displayName
+   * 
    * This parameter is required.
    * 
    * @example
-   * etljob
+   * ETL
    */
   displayName?: string;
   /**
+   * @remarks
+   * The time when the data transformation job was last modified.
+   * 
    * @example
    * 1714274900
    */
   lastModifiedTime?: number;
   /**
    * @remarks
+   * job name
+   * 
    * This parameter is required.
    * 
    * @example
-   * etl-20240426
+   * ETL
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the scheduler.
+   * 
    * @example
    * f0eb655e501a8780808d1970ef6d04c4
    */
   scheduleId?: string;
   /**
+   * @remarks
+   * The status of the data transformation job. Valid values:
+   * 
+   * 1.  RUNNING
+   * 2.  STOPPING
+   * 3.  STOPPED
+   * 4.  SUCCEEDED
+   * 5.  FAILED
+   * 6.  STARTING
+   * 7.  RESTARTING
+   * 
    * @example
    * RUNNING
    */

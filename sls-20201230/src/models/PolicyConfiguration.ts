@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PolicyConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * The action policy.
+   * 
    * @example
    * example_action_policy
    */
   actionPolicyId?: string;
   /**
+   * @remarks
+   * The alert policy.
+   * 
    * @example
    * sls.builtin.dynamic
    */
   alertPolicyId?: string;
   /**
+   * @remarks
+   * The repeat interval.
+   * 
    * @example
    * 10m
    */

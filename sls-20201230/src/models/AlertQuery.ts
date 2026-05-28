@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class AlertQuery extends $dara.Model {
   /**
+   * @remarks
+   * The name of the chart.
+   * 
    * @example
    * chartExmaple
    */
   chartTitle?: string;
   /**
+   * @remarks
+   * The ID of the dashboard.
+   * 
    * @example
    * dashboardExample
    */
   dashboardId?: string;
   /**
    * @remarks
+   * The end of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +30,17 @@ export class AlertQuery extends $dara.Model {
    */
   end?: string;
   /**
+   * @remarks
+   * Specifies whether to enable Dedicated SQL.
+   * 
    * @example
    * auto
    */
   powerSqlMode?: string;
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +49,8 @@ export class AlertQuery extends $dara.Model {
   project?: string;
   /**
    * @remarks
+   * The query statement.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,15 +59,23 @@ export class AlertQuery extends $dara.Model {
   query?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   region?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the role.
+   */
   roleArn?: string;
   /**
    * @remarks
+   * The beginning of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -61,6 +84,8 @@ export class AlertQuery extends $dara.Model {
   start?: string;
   /**
    * @remarks
+   * The name of the storage.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,6 +94,8 @@ export class AlertQuery extends $dara.Model {
   store?: string;
   /**
    * @remarks
+   * The storage type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -77,12 +104,18 @@ export class AlertQuery extends $dara.Model {
   storeType?: string;
   /**
    * @remarks
+   * The type of the time span.
+   * 
    * This parameter is required.
    * 
    * @example
    * Relative
    */
   timeSpanType?: string;
+  /**
+   * @remarks
+   * The page on which you can record frontend configurations in specified scenarios.
+   */
   ui?: string;
   static names(): { [key: string]: string } {
     return {

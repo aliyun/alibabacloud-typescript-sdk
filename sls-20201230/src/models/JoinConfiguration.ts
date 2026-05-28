@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class JoinConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * The condition of the set operation.
+   * 
    * @example
    * $0.id == $1.id
    */
   condition?: string;
   /**
+   * @remarks
+   * The type of the set operation.
+   * 
    * @example
    * left_join
    */

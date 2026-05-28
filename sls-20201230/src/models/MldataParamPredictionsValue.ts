@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class MLDataParamPredictionsValue extends $dara.Model {
   /**
+   * @remarks
+   * The annotator.
+   * 
    * @example
    * xxx
    */
   annotatedBy?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 1694761550
    */
   updateTime?: number;
+  /**
+   * @remarks
+   * The results.
+   */
   results?: { [key: string]: string }[];
   static names(): { [key: string]: string } {
     return {

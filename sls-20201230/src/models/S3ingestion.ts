@@ -1,27 +1,28 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { S3IngestionConfigurationSource } from "./S3ingestionConfigurationSource";
+import { S3IngestionConfiguration } from "./S3ingestionConfiguration";
 import { Schedule } from "./Schedule";
 
 
 export class S3Ingestion extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  configuration?: S3IngestionConfigurationSource;
+  configuration?: S3IngestionConfiguration;
   /**
    * @example
    * 1714360481
    */
   createTime?: number;
   /**
+   * @remarks
+   * job description
+   * 
    * @example
    * s3 ingestion
    */
   description?: string;
   /**
    * @remarks
+   * job displayName
+   * 
    * This parameter is required.
    * 
    * @example
@@ -72,7 +73,7 @@ export class S3Ingestion extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      configuration: S3IngestionConfigurationSource,
+      configuration: S3IngestionConfiguration,
       createTime: 'number',
       description: 'string',
       displayName: 'string',

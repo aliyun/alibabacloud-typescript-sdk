@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ScheduledSQLConfiguration extends $dara.Model {
   /**
    * @remarks
+   * The data format. Valid values: log2log, log2metric, and metric2metric.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   dataFormat?: string;
   /**
    * @remarks
+   * The endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   destEndpoint?: string;
   /**
    * @remarks
+   * The destination Logstore.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   destLogstore?: string;
   /**
    * @remarks
+   * The destination project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   destProject?: string;
   /**
    * @remarks
+   * The ARN of the RAM role that is assumed to write data to the destination Logstore.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,7 +54,14 @@ export class ScheduledSQLConfiguration extends $dara.Model {
    */
   destRoleArn?: string;
   /**
+   * @example
+   * true
+   */
+  forceComplete?: boolean;
+  /**
    * @remarks
+   * The start time. For more information, see [Process and store data from a Logstore to a Metricstore](https://help.aliyun.com/document_detail/286459.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,6 +70,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
+   * The start time of the SQL time window.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,7 +79,14 @@ export class ScheduledSQLConfiguration extends $dara.Model {
    */
   fromTimeExpr?: string;
   /**
+   * @example
+   * 1
+   */
+  maxConcurrency?: number;
+  /**
    * @remarks
+   * The maximum number of SQL timeouts allowed. Valid values: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -69,6 +95,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   maxRetries?: number;
   /**
    * @remarks
+   * The maximum timeout period of SQL analysis. Unit: seconds. Valid values: 60 to 1800.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -77,11 +105,25 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   maxRunTimeInSeconds?: number;
   /**
    * @remarks
+   * The SQL configurations. For more information, see [Process and store data from a Logstore to a Metricstore](https://help.aliyun.com/document_detail/286459.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *   addLabels: "{}",
+   *   hashLabels: "[]",
+   *   labelKeys: "[\\"your label1\\",\\"your label2\\"]",
+   *   metricKeys: "[\\"your Indicator1\\",\\"your Indicator2\\"]",
+   *   metricName: "",
+   *   timeKey: ""
+   * }
    */
   parameters?: { [key: string]: any };
   /**
    * @remarks
+   * The type of the resource pool. The value enhanced specifies an enhanced resource pool.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -90,6 +132,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   resourcePool?: string;
   /**
    * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role that is assigned to the Scheduled SQL job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -98,6 +142,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
+   * The query statement of the Scheduled SQL job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -106,6 +152,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   script?: string;
   /**
    * @remarks
+   * The source Logstore.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -114,6 +162,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   sourceLogstore?: string;
   /**
    * @remarks
+   * The type of the query statement.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -122,6 +172,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   sqlType?: string;
   /**
    * @remarks
+   * The end time. For more information, see [Process and store data from a Logstore to a Metricstore](https://help.aliyun.com/document_detail/286459.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -130,6 +182,8 @@ export class ScheduledSQLConfiguration extends $dara.Model {
   toTime?: number;
   /**
    * @remarks
+   * The end time of the SQL time window.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -143,8 +197,10 @@ export class ScheduledSQLConfiguration extends $dara.Model {
       destLogstore: 'destLogstore',
       destProject: 'destProject',
       destRoleArn: 'destRoleArn',
+      forceComplete: 'forceComplete',
       fromTime: 'fromTime',
       fromTimeExpr: 'fromTimeExpr',
+      maxConcurrency: 'maxConcurrency',
       maxRetries: 'maxRetries',
       maxRunTimeInSeconds: 'maxRunTimeInSeconds',
       parameters: 'parameters',
@@ -165,8 +221,10 @@ export class ScheduledSQLConfiguration extends $dara.Model {
       destLogstore: 'string',
       destProject: 'string',
       destRoleArn: 'string',
+      forceComplete: 'boolean',
       fromTime: 'number',
       fromTimeExpr: 'string',
+      maxConcurrency: 'number',
       maxRetries: 'number',
       maxRunTimeInSeconds: 'number',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },

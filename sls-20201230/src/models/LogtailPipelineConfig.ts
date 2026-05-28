@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class LogtailPipelineConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The aggregation plug-ins.
+   */
   aggregators?: { [key: string]: any }[];
   /**
    * @remarks
+   * The name of the configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,31 +19,55 @@ export class LogtailPipelineConfig extends $dara.Model {
    */
   configName?: string;
   /**
+   * @remarks
+   * The creation time. The value is a UNIX timestamp.
+   * 
    * @example
    * 1655176807
    */
   createTime?: number;
   /**
    * @remarks
+   * The data output plug-ins.
+   * 
    * This parameter is required.
    */
   flushers?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The global configuration.
+   * 
+   * @example
+   * {     "TopicType": "custom",     "TopicFormat": "aaa",     "EnableAlwaysOnline": true,     "EnableTimestampNanosecond": true,     "UsingOldContentTag": true }
+   */
   global?: { [key: string]: any };
   /**
    * @remarks
+   * The data source plug-ins.
+   * 
    * This parameter is required.
    */
   inputs?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The last modification time. The value is a UNIX timestamp.
+   * 
    * @example
    * 1655176807
    */
   lastModifyTime?: number;
   /**
+   * @remarks
+   * The sample log.
+   * 
    * @example
    * 127.0.0.1 - - [10/Jun/2022:12:36:49 +0800] "GET /index.html HTTP/1.1" 200
    */
   logSample?: string;
+  /**
+   * @remarks
+   * The processing plug-ins.
+   */
   processors?: { [key: string]: any }[];
   /**
    * @example

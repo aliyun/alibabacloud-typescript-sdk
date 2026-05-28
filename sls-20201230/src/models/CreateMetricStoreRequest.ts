@@ -1,8 +1,10 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { ShardingPolicy } from "./ShardingPolicy";
 
 
 export class CreateMetricStoreRequest extends $dara.Model {
+  appendMeta?: boolean;
   /**
    * @remarks
    * Specifies whether to enable automatic sharding.
@@ -57,6 +59,7 @@ export class CreateMetricStoreRequest extends $dara.Model {
    * 2
    */
   shardCount?: number;
+  shardingPolicy?: ShardingPolicy;
   /**
    * @remarks
    * The retention period of the metric data in the Metricstore. Unit: days.
@@ -69,6 +72,7 @@ export class CreateMetricStoreRequest extends $dara.Model {
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
+      appendMeta: 'appendMeta',
       autoSplit: 'autoSplit',
       hotTtl: 'hot_ttl',
       infrequentAccessTTL: 'infrequentAccessTTL',
@@ -77,12 +81,14 @@ export class CreateMetricStoreRequest extends $dara.Model {
       mode: 'mode',
       name: 'name',
       shardCount: 'shardCount',
+      shardingPolicy: 'shardingPolicy',
       ttl: 'ttl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      appendMeta: 'boolean',
       autoSplit: 'boolean',
       hotTtl: 'number',
       infrequentAccessTTL: 'number',
@@ -91,11 +97,15 @@ export class CreateMetricStoreRequest extends $dara.Model {
       mode: 'string',
       name: 'string',
       shardCount: 'number',
+      shardingPolicy: ShardingPolicy,
       ttl: 'number',
     };
   }
 
   validate() {
+    if(this.shardingPolicy && typeof (this.shardingPolicy as any).validate === 'function') {
+      (this.shardingPolicy as any).validate();
+    }
     super.validate();
   }
 

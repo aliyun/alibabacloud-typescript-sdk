@@ -6,6 +6,9 @@ export class ProjectSummary extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1714360481
    */
   createTime?: number;
   /**
@@ -16,21 +19,33 @@ export class ProjectSummary extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * ali-test-project
    */
   projectName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   region?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * rg-acf******sq
    */
   resourceGroupId?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1710230272
    */
   updateTime?: number;
   static names(): { [key: string]: string } {

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListProjectRequest extends $dara.Model {
+  description?: string;
   fetchQuota?: boolean;
   /**
    * @remarks
@@ -20,6 +21,13 @@ export class ListProjectRequest extends $dara.Model {
    * ali-test-project
    */
   projectName?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-aekzf******sxby
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -31,6 +39,7 @@ export class ListProjectRequest extends $dara.Model {
   size?: number;
   static names(): { [key: string]: string } {
     return {
+      description: 'description',
       fetchQuota: 'fetchQuota',
       offset: 'offset',
       projectName: 'projectName',
@@ -41,6 +50,7 @@ export class ListProjectRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       fetchQuota: 'boolean',
       offset: 'number',
       projectName: 'string',

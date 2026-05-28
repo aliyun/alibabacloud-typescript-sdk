@@ -4,46 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class MLDataSetParam extends $dara.Model {
   /**
+   * @remarks
+   * The creator.
+   * 
    * @example
    * sls-console
    */
   createBy?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1695090077
    */
   createTime?: number;
   /**
+   * @remarks
+   * The type of the data.
+   * 
    * @example
    * Metric
    */
   dataType?: string;
   /**
+   * @remarks
+   * The unique identifier of the dataset.
+   * 
    * @example
    * d9bd488f6dd42d294495fb780858e83d
    */
   datasetId?: string;
   /**
-   * @example
-   * 数据集A
+   * @remarks
+   * The description of the dataset.
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the tag system that corresponds to the dataset.
+   * 
    * @example
    * a191ae4ca615b0ccb93c211fc8a998af
    */
   labelId?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 1695090077
    */
   lastModifyTime?: number;
   /**
+   * @remarks
+   * The name of the dataset.
+   * 
    * @example
    * sls_builtin_dataset_metric.shapeclassification.anomalydetection
    */
   name?: string;
   /**
+   * @remarks
+   * The configuration type of the tag table.
+   * 
    * @example
    * Metric.ShapeClassification.AnomalyDetection
    */

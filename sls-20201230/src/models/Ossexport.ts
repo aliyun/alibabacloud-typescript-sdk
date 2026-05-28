@@ -4,44 +4,67 @@ import { OSSExportConfiguration } from "./OssexportConfiguration";
 
 
 export class OSSExport extends $dara.Model {
+  /**
+   * @remarks
+   * The OSS export configuration.
+   */
   configuration?: OSSExportConfiguration;
   /**
+   * @remarks
+   * The time when the OSS data shipping job was created.
+   * 
    * @example
-   * 1714284025
+   * 123456789
    */
   createTime?: number;
   /**
+   * @remarks
+   * The description of the OSS data shipping job.
+   * 
    * @example
-   * job-test
+   * This is a oss export
    */
   description?: string;
   /**
    * @remarks
+   * The display name of the OSS data shipping job.
+   * 
    * This parameter is required.
    * 
    * @example
-   * job-demo
+   * This is a oss export
    */
   displayName?: string;
   /**
+   * @remarks
+   * The time when the OSS data shipping job was last modified.
+   * 
    * @example
-   * 1714284115
+   * 123456789
    */
   lastModifiedTime?: number;
   /**
    * @remarks
+   * The name of the OSS data shipping job.
+   * 
    * This parameter is required.
    * 
    * @example
-   * job-1714109458-123456
+   * myossexportjob
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the OSS data shipping job.
+   * 
    * @example
    * c7f01719d9feb105fc9d8df92af62010
    */
   scheduleId?: string;
   /**
+   * @remarks
+   * The status of the OSS data shipping job.
+   * 
    * @example
    * RUNNING
    */

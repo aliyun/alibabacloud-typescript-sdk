@@ -6,6 +6,8 @@ import { ESIngestionConfigurationSource } from "./EsingestionConfigurationSource
 export class ESIngestionConfiguration extends $dara.Model {
   /**
    * @remarks
+   * logstore
+   * 
    * This parameter is required.
    */
   logstore?: string;

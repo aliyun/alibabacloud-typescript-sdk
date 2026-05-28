@@ -4,8 +4,15 @@ import { ConditionConfiguration } from "./ConditionConfiguration";
 
 
 export class SeverityConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The trigger condition configurations.
+   */
   evalCondition?: ConditionConfiguration;
   /**
+   * @remarks
+   * The value of the alert severity.
+   * 
    * @example
    * 8
    */

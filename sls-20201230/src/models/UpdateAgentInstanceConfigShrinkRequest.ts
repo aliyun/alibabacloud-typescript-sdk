@@ -8,6 +8,9 @@ export class UpdateAgentInstanceConfigShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * {}
    */
   config?: string;
   grayConfigs?: AgentInstanceConfigGrayConfigs[];

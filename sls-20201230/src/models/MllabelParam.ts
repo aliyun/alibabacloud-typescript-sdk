@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class MLLabelParamSettings extends $dara.Model {
   /**
+   * @remarks
+   * The details of the configuration.
+   * 
    * @example
    * ""
    */
   config?: string;
   /**
+   * @remarks
+   * The mode of the configuration.
+   * 
    * @example
    * builtin
    */
   mode?: string;
   /**
+   * @remarks
+   * The task type of the configuration.
+   * 
    * @example
    * Trace.RCA
    */
   type?: string;
   /**
+   * @remarks
+   * The version number of the configuration.
+   * 
    * @example
    * 0.01
    */
@@ -52,32 +64,48 @@ export class MLLabelParamSettings extends $dara.Model {
 
 export class MLLabelParam extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1695090077
    */
   createTime?: number;
   /**
-   * @example
-   * 默认表
+   * @remarks
+   * The description of the tag table.
    */
   description?: string;
   /**
+   * @remarks
+   * The unique identifier of the tag table.
+   * 
    * @example
    * abbd488f6dd42d294495fb780858e83d
    */
   labelId?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 1695090077
    */
   lastModifyTime?: number;
   /**
-   * @example
-   * 标签表
+   * @remarks
+   * The name of the tag table.
    */
   name?: string;
+  /**
+   * @remarks
+   * The configurations of the tag tables.
+   */
   settings?: MLLabelParamSettings[];
   /**
+   * @remarks
+   * The type of the tag table.
+   * 
    * @example
    * xxx
    */

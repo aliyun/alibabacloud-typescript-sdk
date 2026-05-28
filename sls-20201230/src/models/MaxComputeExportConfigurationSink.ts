@@ -4,44 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class MaxComputeExportConfigurationSink extends $dara.Model {
   /**
+   * @remarks
+   * Specifies the minimum time granularity between two data shipping jobs. Unit: seconds. Valid values:
+   * 
+   * *   1800 (default)
+   * *   3600
+   * 
    * @example
    * 1800
    */
   bufferInterval?: string;
   /**
    * @remarks
+   * The fields that you want to ship.
+   * 
    * This parameter is required.
    */
   fields?: string[];
   /**
+   * @remarks
+   * Specifies whether to filter the invalid content.
+   * 
+   * *   true (default)
+   * *   false
+   * 
    * @example
    * true
    */
   filterInvalid?: boolean;
   /**
+   * @remarks
+   * The AccessKey ID used to write data to MaxCompute.
+   * 
    * @example
-   * asdfghjk
+   * axxxxxxxxxxxb
    * 
    * @deprecated
    */
   odpsAccessKeyId?: string;
   /**
+   * @remarks
+   * The AccessKey secret used to write data to MaxCompute.
+   * 
    * @example
-   * esasdfghjkl
+   * aaxxxxxxxxxxxxxxxxxxxxxbb
    * 
    * @deprecated
    */
   odpsAccessSecret?: string;
   /**
    * @remarks
+   * The endpoint of MaxCompute.
+   * 
+   * *   ⚠️Note: The endpoint of MaxCompute must be the same as that of the Simple Log Service project.
+   * 
    * This parameter is required.
    * 
    * @example
-   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
+   * https://service.cn-hangzhou-intranet.maxcompute.aliyun-inc.com/api
    */
   odpsEndpoint?: string;
   /**
    * @remarks
+   * The name of the MaxCompute project.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,14 +76,18 @@ export class MaxComputeExportConfigurationSink extends $dara.Model {
   odpsProject?: string;
   /**
    * @remarks
+   * The Resource Access Management (RAM) role the data shipping job assumes to write data to MaxCompute.
+   * 
    * This parameter is required.
    * 
    * @example
-   * acs:ram::123456789:role/aliyunlogdefaultrole
+   * acs:ram::xxxxxxx
    */
   odpsRolearn?: string;
   /**
    * @remarks
+   * The name of the MaxCompute table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,17 +95,26 @@ export class MaxComputeExportConfigurationSink extends $dara.Model {
    */
   odpsTable?: string;
   /**
+   * @remarks
+   * The Tunnel endpoint of MaxCompute.
+   * 
+   * *   ⚠️Note: The Tunnel endpoint of MaxCompute must be the same as that of the Simple Log Service project.
+   * 
    * @example
-   * http://dt.cn-hangzhou.maxcompute.aliyun-inc.com
+   * https://dt.cn-hangzhou-intranet.maxcompute.aliyun-inc.com
    */
   odpsTunnelEndpoint?: string;
   /**
    * @remarks
+   * The partition key columns that you want to ship.
+   * 
    * This parameter is required.
    */
   partitionColumn?: string[];
   /**
    * @remarks
+   * The time partition format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -83,12 +122,20 @@ export class MaxComputeExportConfigurationSink extends $dara.Model {
    */
   partitionTimeFormat?: string;
   /**
+   * @remarks
+   * The time partition type. Valid values:
+   * 
+   * *   StrfTimeFormat (default)
+   * *   JavaSimpleDateFormat
+   * 
    * @example
    * StrfTimeFormat
    */
   timeFormatType?: string;
   /**
    * @remarks
+   * The time zone.
+   * 
    * This parameter is required.
    * 
    * @example

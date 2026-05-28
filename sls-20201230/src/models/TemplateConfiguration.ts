@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TemplateConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The annotations of the template.
+   */
   aonotations?: { [key: string]: any };
   /**
    * @remarks
+   * The ID of the template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,13 +19,22 @@ export class TemplateConfiguration extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The language of the template.
+   * 
    * @example
    * cn
    */
   lang?: string;
+  /**
+   * @remarks
+   * The tokens that are carried by the template.
+   */
   tokens?: { [key: string]: any };
   /**
    * @remarks
+   * The type of the template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +42,9 @@ export class TemplateConfiguration extends $dara.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The version of the template.
+   * 
    * @example
    * 1
    */

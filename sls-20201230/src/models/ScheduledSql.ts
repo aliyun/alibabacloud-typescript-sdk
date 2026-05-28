@@ -7,51 +7,74 @@ import { Schedule } from "./Schedule";
 export class ScheduledSQL extends $dara.Model {
   /**
    * @remarks
+   * The configuration of the Scheduled SQL job.
+   * 
    * This parameter is required.
    */
   configuration?: ScheduledSQLConfiguration;
   /**
+   * @remarks
+   * The time when the Scheduled SQL job was created.
+   * 
    * @example
    * 1714123644
    */
   createTime?: number;
   /**
+   * @remarks
+   * The description of the scheduled SQL job.
+   * 
    * @example
-   * schedule-sql-test
+   * This is a scheduled sql job
    */
   description?: string;
   /**
    * @remarks
+   * The display name of the scheduled SQL job.
+   * 
    * This parameter is required.
    * 
    * @example
-   * scheduleSqlTest
+   * This is a scheduled sql job
    */
   displayName?: string;
   /**
+   * @remarks
+   * The time when the Scheduled SQL job was last modified.
+   * 
    * @example
    * 1714123644
    */
   lastModifiedTime?: number;
   /**
    * @remarks
+   * The name of the scheduled SQL job.
+   * 
    * This parameter is required.
    * 
    * @example
-   * sql-1714123463-225223
+   * test-scheduled-sql
    */
   name?: string;
   /**
    * @remarks
+   * The scheduling settings of the Scheduled SQL job.
+   * 
    * This parameter is required.
    */
   schedule?: Schedule;
   /**
+   * @remarks
+   * The ID of the scheduler.
+   * 
    * @example
    * e73f43732852064ad5d091914e39342f
    */
   scheduleId?: string;
   /**
+   * @remarks
+   * The status of the Scheduled SQL job.
+   * 
    * @example
    * ENABLED
    */

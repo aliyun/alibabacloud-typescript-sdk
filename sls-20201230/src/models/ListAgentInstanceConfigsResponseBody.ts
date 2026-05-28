@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentInstanceConfigsResponseBodyConfigs extends $dara.Model {
+  /**
+   * @example
+   * {"workspace": "test-workspace","service": "test-service"}
+   */
   attributes?: { [key: string]: string };
+  /**
+   * @example
+   * apm_biz_trace
+   */
   configType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,7 +41,15 @@ export class ListAgentInstanceConfigsResponseBodyConfigs extends $dara.Model {
 
 export class ListAgentInstanceConfigsResponseBody extends $dara.Model {
   configs?: ListAgentInstanceConfigsResponseBodyConfigs[];
+  /**
+   * @example
+   * 10
+   */
   size?: number;
+  /**
+   * @example
+   * 10
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {

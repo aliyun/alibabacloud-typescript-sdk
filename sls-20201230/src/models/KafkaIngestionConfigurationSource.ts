@@ -31,6 +31,7 @@ export class KafkaIngestionConfigurationSource extends $dara.Model {
    * true
    */
   enableSlsContext?: boolean;
+  enableVpcNat?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -39,6 +40,7 @@ export class KafkaIngestionConfigurationSource extends $dara.Model {
    * UTF-8
    */
   encoding?: string;
+  format?: { [key: string]: any };
   /**
    * @remarks
    * This parameter is required.
@@ -60,6 +62,12 @@ export class KafkaIngestionConfigurationSource extends $dara.Model {
    * true
    */
   parseArray?: boolean;
+  /**
+   * @example
+   * ingest-processor-1756802123-953901
+   */
+  processorId?: string;
+  securityGroups?: string;
   /**
    * @example
    * __time__
@@ -97,6 +105,7 @@ export class KafkaIngestionConfigurationSource extends $dara.Model {
    */
   valueType?: string;
   vpcId?: string;
+  vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
       bootstrapServers: 'bootstrapServers',
@@ -104,10 +113,14 @@ export class KafkaIngestionConfigurationSource extends $dara.Model {
       consumerGroup: 'consumerGroup',
       defaultTimeSource: 'defaultTimeSource',
       enableSlsContext: 'enableSlsContext',
+      enableVpcNat: 'enableVpcNat',
       encoding: 'encoding',
+      format: 'format',
       fromPosition: 'fromPosition',
       nameResolutions: 'nameResolutions',
       parseArray: 'parseArray',
+      processorId: 'processorId',
+      securityGroups: 'securityGroups',
       timeField: 'timeField',
       timeFormat: 'timeFormat',
       timePattern: 'timePattern',
@@ -115,6 +128,7 @@ export class KafkaIngestionConfigurationSource extends $dara.Model {
       topics: 'topics',
       valueType: 'valueType',
       vpcId: 'vpcId',
+      vswitchId: 'vswitchId',
     };
   }
 
@@ -125,10 +139,14 @@ export class KafkaIngestionConfigurationSource extends $dara.Model {
       consumerGroup: 'string',
       defaultTimeSource: 'string',
       enableSlsContext: 'boolean',
+      enableVpcNat: 'boolean',
       encoding: 'string',
+      format: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       fromPosition: 'string',
       nameResolutions: 'string',
       parseArray: 'boolean',
+      processorId: 'string',
+      securityGroups: 'string',
       timeField: 'string',
       timeFormat: 'string',
       timePattern: 'string',
@@ -136,10 +154,14 @@ export class KafkaIngestionConfigurationSource extends $dara.Model {
       topics: 'string',
       valueType: 'string',
       vpcId: 'string',
+      vswitchId: 'string',
     };
   }
 
   validate() {
+    if(this.format) {
+      $dara.Model.validateMap(this.format);
+    }
     super.validate();
   }
 

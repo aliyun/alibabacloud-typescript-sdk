@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class LogContent extends $dara.Model {
   /**
    * @remarks
+   * The name of the custom key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class LogContent extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The value of the custom key.
+   * 
    * This parameter is required.
    * 
    * @example

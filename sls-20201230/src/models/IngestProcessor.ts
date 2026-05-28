@@ -14,17 +14,10 @@ export class IngestProcessor extends $dara.Model {
    * 1717171200
    */
   createTime?: number;
-  /**
-   * @example
-   * 过滤content字段
-   */
   description?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 字段过滤处理
    */
   displayName?: string;
   /**

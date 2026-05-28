@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SinkAlerthubConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to send alerts.
+   * 
    * @example
    * true
    */

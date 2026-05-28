@@ -5,6 +5,9 @@ import { S3IngestionConfigurationSource } from "./S3ingestionConfigurationSource
 
 export class S3IngestionConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * logstore
+   * 
    * @example
    * myLogstore
    */

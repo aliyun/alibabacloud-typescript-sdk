@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AgentInstanceConfigGrayConfigs extends $dara.Model {
+  /**
+   * @example
+   * appVersion="1.0.0"
+   */
   condition?: string;
+  /**
+   * @example
+   * {"enable":true}
+   */
   content?: string;
   static names(): { [key: string]: string } {
     return {

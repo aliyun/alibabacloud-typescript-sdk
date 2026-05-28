@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   dataRedundancyType?: string[];
+  internalEndpoint?: string;
   /**
    * @remarks
    * The public endpoint of Simple Log Service.
@@ -27,6 +28,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       dataRedundancyType: 'dataRedundancyType',
+      internalEndpoint: 'internalEndpoint',
       internetEndpoint: 'internetEndpoint',
       intranetEndpoint: 'intranetEndpoint',
       localName: 'localName',
@@ -37,6 +39,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       dataRedundancyType: { 'type': 'array', 'itemType': 'string' },
+      internalEndpoint: 'string',
       internetEndpoint: 'string',
       intranetEndpoint: 'string',
       localName: 'string',

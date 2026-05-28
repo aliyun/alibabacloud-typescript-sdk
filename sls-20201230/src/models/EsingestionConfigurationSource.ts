@@ -12,23 +12,23 @@ export class ESIngestionConfigurationSource extends $dara.Model {
    * @remarks
    * This parameter is required.
    */
-  index?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  minFragRangeSec?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   connectorMode?: string;
   endTime?: number;
   /**
    * @remarks
    * This parameter is required.
    */
+  index?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   maxDataDelaySec?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  minFragRangeSec?: number;
   password?: string;
   /**
    * @remarks
@@ -44,30 +44,30 @@ export class ESIngestionConfigurationSource extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bootstrapServers: 'BootstrapServers',
+      connectorMode: 'ConnectorMode',
+      endTime: 'EndTime',
       index: 'Index',
+      maxDataDelaySec: 'MaxDataDelaySec',
       minFragRangeSec: 'MinFragRangeSec',
-      connectorMode: 'connectorMode',
-      endTime: 'endTime',
-      maxDataDelaySec: 'maxDataDelaySec',
-      password: 'password',
-      query: 'query',
-      startTime: 'startTime',
-      timeFieldName: 'timeFieldName',
-      timeFormat: 'timeFormat',
-      timeZone: 'timeZone',
-      username: 'username',
-      vpcId: 'vpcId',
+      password: 'Password',
+      query: 'Query',
+      startTime: 'StartTime',
+      timeFieldName: 'TimeFieldName',
+      timeFormat: 'TimeFormat',
+      timeZone: 'TimeZone',
+      username: 'Username',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       bootstrapServers: 'string',
-      index: 'string',
-      minFragRangeSec: 'number',
       connectorMode: 'string',
       endTime: 'number',
+      index: 'string',
       maxDataDelaySec: 'number',
+      minFragRangeSec: 'number',
       password: 'string',
       query: 'string',
       startTime: 'number',

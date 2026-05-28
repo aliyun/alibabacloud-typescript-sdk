@@ -14,35 +14,63 @@ import { TemplateConfiguration } from "./TemplateConfiguration";
 
 
 export class AlertConfiguration extends $dara.Model {
+  /**
+   * @remarks
+   * The annotations of the alert rule.
+   */
   annotations?: AlertTag[];
   /**
    * @remarks
+   * Specifies whether to allow the system to automatically add annotations to the alert rule.
+   * 
    * This parameter is required.
    * 
    * @example
    * false
    */
   autoAnnotation?: boolean;
+  /**
+   * @remarks
+   * The alert trigger conditions.
+   */
   conditionConfiguration?: ConditionConfiguration;
   /**
+   * @remarks
+   * The ID of the dashboard associated with the alert rule.
+   * 
    * @example
    * dasnboardExample
    */
   dashboard?: string;
   /**
    * @remarks
+   * The configurations of group evaluation.
+   * 
    * This parameter is required.
    */
   groupConfiguration?: GroupConfiguration;
+  /**
+   * @remarks
+   * The set operation configurations for the query statements of the alert rule.
+   */
   joinConfigurations?: JoinConfiguration[];
+  /**
+   * @remarks
+   * The labels of the alert rule.
+   */
   labels?: AlertTag[];
   /**
+   * @remarks
+   * The time when a paused alert rule is resumed.
+   * 
    * @example
    * 1698907508
    */
   muteUntil?: number;
   /**
    * @remarks
+   * Specifies whether to enable the no-data alert feature.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,18 +78,29 @@ export class AlertConfiguration extends $dara.Model {
    */
   noDataFire?: boolean;
   /**
+   * @remarks
+   * The severity of the no-data alert.
+   * 
    * @example
    * 6
    */
   noDataSeverity?: number;
+  /**
+   * @remarks
+   * The notification configurations of Simple Log Service.
+   */
   policyConfiguration?: PolicyConfiguration;
   /**
    * @remarks
+   * The query statements.
+   * 
    * This parameter is required.
    */
   queryList?: AlertQuery[];
   /**
    * @remarks
+   * Specifies whether to send a recovery notification after an alert is cleared.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,16 +109,40 @@ export class AlertConfiguration extends $dara.Model {
   sendResolved?: boolean;
   /**
    * @remarks
+   * The alert severity configurations.
+   * 
    * This parameter is required.
    */
   severityConfigurations?: SeverityConfiguration[];
+  /**
+   * @remarks
+   * The configurations that allow alerts to be sent to the notification system of Simple Log Service.
+   */
   sinkAlerthub?: SinkAlerthubConfiguration;
+  /**
+   * @remarks
+   * The configurations that allow alerts to be sent to CloudMonitor Event Center.
+   */
   sinkCms?: SinkCmsConfiguration;
+  /**
+   * @remarks
+   * The configurations that allow alerts to be sent to an Eventstore.
+   */
   sinkEventStore?: SinkEventStoreConfiguration;
+  /**
+   * @remarks
+   * The custom tags of the alert rule.
+   */
   tags?: string[];
+  /**
+   * @remarks
+   * The alert template configurations.
+   */
   templateConfiguration?: TemplateConfiguration;
   /**
    * @remarks
+   * The maximum number of consecutive times that the trigger condition is met.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -87,12 +150,17 @@ export class AlertConfiguration extends $dara.Model {
    */
   threshold?: number;
   /**
+   * @remarks
+   * The type of the alert rule.
+   * 
    * @example
    * default
    */
   type?: string;
   /**
    * @remarks
+   * The version.
+   * 
    * This parameter is required.
    * 
    * @example

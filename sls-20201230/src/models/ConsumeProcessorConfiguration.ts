@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConsumeProcessorConfiguration extends $dara.Model {
   /**
    * @remarks
+   * SPL statement
+   * 
    * This parameter is required.
    * 
    * @example

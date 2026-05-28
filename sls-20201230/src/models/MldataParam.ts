@@ -6,39 +6,72 @@ import { MLDataParamPredictionsValue } from "./MldataParamPredictionsValue";
 
 export class MLDataParam extends $dara.Model {
   /**
+   * @remarks
+   * The unique identifier of the data.
+   * 
    * @example
    * dc74b0f569126bb310e1ba6454c351ac
    */
   annotationdataId?: string;
+  /**
+   * @remarks
+   * The annotations of the data.
+   */
   annotations?: { [key: string]: MLDataParamAnnotationsValue };
+  /**
+   * @remarks
+   * The configurations of the data.
+   */
   config?: { [key: string]: string };
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1695094335
    */
   createTime?: number;
   /**
+   * @remarks
+   * The hash value of the data.
+   * 
    * @example
    * 59db060bd89468245d76416a68a510ac
    */
   dataHash?: string;
   /**
+   * @remarks
+   * The ID of the associated dataset.
+   * 
    * @example
-   * a9bd488f6dd42d294495fb780858e83d
+   * cb8cc4eb51a85e823471cdb368fae9be
    */
   datasetId?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
    * 1695094335
    */
   lastModifyTime?: number;
+  /**
+   * @remarks
+   * The model preview results.
+   */
   predictions?: { [key: string]: MLDataParamPredictionsValue };
   /**
+   * @remarks
+   * The data source.
+   * 
    * @example
    * xxx/xxx/xxx/
    */
   value?: string;
   /**
+   * @remarks
+   * The type of the data source.
+   * 
    * @example
    * oss
    */

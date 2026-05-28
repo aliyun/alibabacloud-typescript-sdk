@@ -7,21 +7,31 @@ import { Schedule } from "./Schedule";
 export class OSSIngestion extends $dara.Model {
   /**
    * @remarks
+   * The configurations of the OSS data import job.
+   * 
    * This parameter is required.
    */
   configuration?: OSSIngestionConfiguration;
   /**
+   * @remarks
+   * The time when the data import job was created.
+   * 
    * @example
    * 1714360481
    */
   createTime?: number;
   /**
+   * @remarks
+   * The description of the data import job.
+   * 
    * @example
    * oss ingestion
    */
   description?: string;
   /**
    * @remarks
+   * The display name of the data import job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,12 +39,17 @@ export class OSSIngestion extends $dara.Model {
    */
   displayName?: string;
   /**
+   * @remarks
+   * The time when the data import job was last modified.
+   * 
    * @example
    * 1714360481
    */
   lastModifiedTime?: number;
   /**
    * @remarks
+   * The name of the data import job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,15 +58,23 @@ export class OSSIngestion extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The scheduling settings.
+   * 
    * This parameter is required.
    */
   schedule?: Schedule;
   /**
+   * @remarks
+   * The ID of the data import job.
+   * 
    * @example
    * c7f01719d9feb105fc9d8df92af62010
    */
   scheduleId?: string;
   /**
+   * @remarks
+   * The status of the data import job.
+   * 
    * @example
    * RUNNING
    */

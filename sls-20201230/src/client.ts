@@ -533,6 +533,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Azure blob文件导入任务
+   * 
+   * @param request - CreateAzureBlobIngestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAzureBlobIngestionResponse
+   */
+  async createAzureBlobIngestionWithOptions(project: string, request: $_model.CreateAzureBlobIngestionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAzureBlobIngestionResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configuration)) {
+      body["configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.schedule)) {
+      body["schedule"] = request.schedule;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAzureBlobIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/azureblobingestions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.CreateAzureBlobIngestionResponse>(await this.execute(params, req, runtime), new $_model.CreateAzureBlobIngestionResponse({}));
+  }
+
+  /**
+   * 创建Azure blob文件导入任务
+   * 
+   * @param request - CreateAzureBlobIngestionRequest
+   * @returns CreateAzureBlobIngestionResponse
+   */
+  async createAzureBlobIngestion(project: string, request: $_model.CreateAzureBlobIngestionRequest): Promise<$_model.CreateAzureBlobIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAzureBlobIngestionWithOptions(project, request, headers, runtime);
+  }
+
+  /**
    * Creates a Logtail configuration.
    * 
    * @remarks
@@ -789,7 +853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建下载任务
+   * Creates a log download task in a project.
    * 
    * @param request - CreateDownloadJobRequest
    * @param headers - map
@@ -837,7 +901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建下载任务
+   * Creates a log download task in a project.
    * 
    * @param request - CreateDownloadJobRequest
    * @returns CreateDownloadJobResponse
@@ -906,6 +970,130 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createETLWithOptions(project, request, headers, runtime);
+  }
+
+  /**
+   * 创建ES导入任务
+   * 
+   * @param request - CreateElasticsearchIngestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateElasticsearchIngestionResponse
+   */
+  async createElasticsearchIngestionWithOptions(project: string, request: $_model.CreateElasticsearchIngestionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateElasticsearchIngestionResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configuration)) {
+      body["configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.schedule)) {
+      body["schedule"] = request.schedule;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateElasticsearchIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/elasticsearchingestions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.CreateElasticsearchIngestionResponse>(await this.execute(params, req, runtime), new $_model.CreateElasticsearchIngestionResponse({}));
+  }
+
+  /**
+   * 创建ES导入任务
+   * 
+   * @param request - CreateElasticsearchIngestionRequest
+   * @returns CreateElasticsearchIngestionResponse
+   */
+  async createElasticsearchIngestion(project: string, request: $_model.CreateElasticsearchIngestionRequest): Promise<$_model.CreateElasticsearchIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createElasticsearchIngestionWithOptions(project, request, headers, runtime);
+  }
+
+  /**
+   * 创建GCP Cloud Storage文件导入任务
+   * 
+   * @param request - CreateGCSIngestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateGCSIngestionResponse
+   */
+  async createGCSIngestionWithOptions(project: string, request: $_model.CreateGCSIngestionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGCSIngestionResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configuration)) {
+      body["configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateGCSIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/gcsingestions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $dara.cast<$_model.CreateGCSIngestionResponse>(await this.execute(params, req, runtime), new $_model.CreateGCSIngestionResponse({}));
+  }
+
+  /**
+   * 创建GCP Cloud Storage文件导入任务
+   * 
+   * @param request - CreateGCSIngestionRequest
+   * @returns CreateGCSIngestionResponse
+   */
+  async createGCSIngestion(project: string, request: $_model.CreateGCSIngestionRequest): Promise<$_model.CreateGCSIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createGCSIngestionWithOptions(project, request, headers, runtime);
   }
 
   /**
@@ -1024,8 +1212,16 @@ export default class Client extends OpenApi {
       body["processorId"] = request.processorId;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!$dara.isNull(request.shardCount)) {
       body["shardCount"] = request.shardCount;
+    }
+
+    if (!$dara.isNull(request.shardingPolicy)) {
+      body["shardingPolicy"] = request.shardingPolicy;
     }
 
     if (!$dara.isNull(request.telemetryType)) {
@@ -1294,6 +1490,74 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建物化视图
+   * 
+   * @param request - CreateMaterializedViewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMaterializedViewResponse
+   */
+  async createMaterializedViewWithOptions(project: string, request: $_model.CreateMaterializedViewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMaterializedViewResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aggIntervalMins)) {
+      body["aggIntervalMins"] = request.aggIntervalMins;
+    }
+
+    if (!$dara.isNull(request.logstore)) {
+      body["logstore"] = request.logstore;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.originalSql)) {
+      body["originalSql"] = request.originalSql;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.ttl)) {
+      body["ttl"] = request.ttl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMaterializedView",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/materializedviews`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.CreateMaterializedViewResponse>(await this.execute(params, req, runtime), new $_model.CreateMaterializedViewResponse({}));
+  }
+
+  /**
+   * 创建物化视图
+   * 
+   * @param request - CreateMaterializedViewRequest
+   * @returns CreateMaterializedViewResponse
+   */
+  async createMaterializedView(project: string, request: $_model.CreateMaterializedViewRequest): Promise<$_model.CreateMaterializedViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMaterializedViewWithOptions(project, request, headers, runtime);
+  }
+
+  /**
    * Creates a MaxCompute data shipping job.
    * 
    * @remarks
@@ -1387,6 +1651,10 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appendMeta)) {
+      body["appendMeta"] = request.appendMeta;
+    }
+
     if (!$dara.isNull(request.autoSplit)) {
       body["autoSplit"] = request.autoSplit;
     }
@@ -1417,6 +1685,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.shardCount)) {
       body["shardCount"] = request.shardCount;
+    }
+
+    if (!$dara.isNull(request.shardingPolicy)) {
+      body["shardingPolicy"] = request.shardingPolicy;
     }
 
     if (!$dara.isNull(request.ttl)) {
@@ -1985,7 +2257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建StoreView
+   * Creates a dataset.
    * 
    * @param request - CreateStoreViewRequest
    * @param headers - map
@@ -2029,7 +2301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建StoreView
+   * Creates a dataset.
    * 
    * @param request - CreateStoreViewRequest
    * @returns CreateStoreViewResponse
@@ -2296,6 +2568,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Azure blob文件导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAzureBlobIngestionResponse
+   */
+  async deleteAzureBlobIngestionWithOptions(project: string, azureBlobIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAzureBlobIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAzureBlobIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/azureblobingestions/${azureBlobIngestionName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteAzureBlobIngestionResponse>(await this.execute(params, req, runtime), new $_model.DeleteAzureBlobIngestionResponse({}));
+  }
+
+  /**
+   * 创建Azure blob文件导入任务
+   * @returns DeleteAzureBlobIngestionResponse
+   */
+  async deleteAzureBlobIngestion(project: string, azureBlobIngestionName: string): Promise<$_model.DeleteAzureBlobIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAzureBlobIngestionWithOptions(project, azureBlobIngestionName, headers, runtime);
+  }
+
+  /**
    * Deletes a log collection policy from a cloud service.
    * 
    * @remarks
@@ -2407,7 +2717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteConsumeProcessor
+   * Deletes the consumption processor.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2435,7 +2745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteConsumeProcessor
+   * Deletes the consumption processor.
    * @returns DeleteConsumeProcessorResponse
    */
   async deleteConsumeProcessor(project: string, processorName: string): Promise<$_model.DeleteConsumeProcessorResponse> {
@@ -2681,6 +2991,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除ES导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteElasticsearchIngestionResponse
+   */
+  async deleteElasticsearchIngestionWithOptions(project: string, esIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteElasticsearchIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteElasticsearchIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/elasticsearchingestions/${esIngestionName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteElasticsearchIngestionResponse>(await this.execute(params, req, runtime), new $_model.DeleteElasticsearchIngestionResponse({}));
+  }
+
+  /**
+   * 删除ES导入任务
+   * @returns DeleteElasticsearchIngestionResponse
+   */
+  async deleteElasticsearchIngestion(project: string, esIngestionName: string): Promise<$_model.DeleteElasticsearchIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteElasticsearchIngestionWithOptions(project, esIngestionName, headers, runtime);
+  }
+
+  /**
    * Deletes an index of a Logstore.
    * 
    * @remarks
@@ -2811,7 +3159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭项目的服务日志记录。
+   * Disables the service log feature for a project.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2839,7 +3187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭项目的服务日志记录。
+   * Disables the service log feature for a project.
    * @returns DeleteLoggingResponse
    */
   async deleteLogging(project: string): Promise<$_model.DeleteLoggingResponse> {
@@ -2936,6 +3284,44 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteMachineGroupWithOptions(project, machineGroup, headers, runtime);
+  }
+
+  /**
+   * 删除物化视图
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMaterializedViewResponse
+   */
+  async deleteMaterializedViewWithOptions(project: string, name: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMaterializedViewResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMaterializedView",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/materializedviews/${name}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteMaterializedViewResponse>(await this.execute(params, req, runtime), new $_model.DeleteMaterializedViewResponse({}));
+  }
+
+  /**
+   * 删除物化视图
+   * @returns DeleteMaterializedViewResponse
+   */
+  async deleteMaterializedView(project: string, name: string): Promise<$_model.DeleteMaterializedViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMaterializedViewWithOptions(project, name, headers, runtime);
   }
 
   /**
@@ -3085,7 +3471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除OSSHDFS投递任务
+   * Deletes an OSS-HDFS data shipping job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3113,7 +3499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除OSSHDFS投递任务
+   * Deletes an OSS-HDFS data shipping job.
    * @returns DeleteOSSHDFSExportResponse
    */
   async deleteOSSHDFSExport(project: string, ossExportName: string): Promise<$_model.DeleteOSSHDFSExportResponse> {
@@ -3942,6 +4328,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取异步SQL的状态以及结果
+   * 
+   * @param request - GetAsyncSqlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAsyncSqlResponse
+   */
+  async getAsyncSqlWithOptions(project: string, queryId: string, request: $_model.GetAsyncSqlRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAsyncSqlResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.line)) {
+      query["line"] = request.line;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAsyncSql",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/asyncsql/${queryId}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "none",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAsyncSqlResponse>(await this.execute(params, req, runtime), new $_model.GetAsyncSqlResponse({}));
+  }
+
+  /**
+   * 获取异步SQL的状态以及结果
+   * 
+   * @param request - GetAsyncSqlRequest
+   * @returns GetAsyncSqlResponse
+   */
+  async getAsyncSql(project: string, queryId: string, request: $_model.GetAsyncSqlRequest): Promise<$_model.GetAsyncSqlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAsyncSqlWithOptions(project, queryId, request, headers, runtime);
+  }
+
+  /**
+   * 获取Azure blob文件导入任务信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAzureBlobIngestionResponse
+   */
+  async getAzureBlobIngestionWithOptions(project: string, azureBlobIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAzureBlobIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAzureBlobIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/azureblobingestions/${azureBlobIngestionName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAzureBlobIngestionResponse>(await this.execute(params, req, runtime), new $_model.GetAzureBlobIngestionResponse({}));
+  }
+
+  /**
+   * 获取Azure blob文件导入任务信息
+   * @returns GetAzureBlobIngestionResponse
+   */
+  async getAzureBlobIngestion(project: string, azureBlobIngestionName: string): Promise<$_model.GetAzureBlobIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAzureBlobIngestionWithOptions(project, azureBlobIngestionName, headers, runtime);
+  }
+
+  /**
    * Queries the checkpoints of a shard from which data is consumed by a consumer group.
    * 
    * @remarks
@@ -3996,7 +4472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用GetCollectionPolicy获取对应的规则
+   * Queries the information about a log collection policy.
    * 
    * @remarks
    * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
@@ -4036,7 +4512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用GetCollectionPolicy获取对应的规则
+   * Queries the information about a log collection policy.
    * 
    * @remarks
    * You must use the Simple Log Service endpoint for the China (Shanghai), Singapore, or Heyuan ACDR Auto region to call the operation.
@@ -4473,6 +4949,82 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取ElasticSearch导入任务信息
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetElasticsearchIngestionResponse
+   */
+  async getElasticsearchIngestionWithOptions(project: string, esIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetElasticsearchIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetElasticsearchIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/elasticsearchingestions/${esIngestionName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetElasticsearchIngestionResponse>(await this.execute(params, req, runtime), new $_model.GetElasticsearchIngestionResponse({}));
+  }
+
+  /**
+   * 获取ElasticSearch导入任务信息
+   * @returns GetElasticsearchIngestionResponse
+   */
+  async getElasticsearchIngestion(project: string, esIngestionName: string): Promise<$_model.GetElasticsearchIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getElasticsearchIngestionWithOptions(project, esIngestionName, headers, runtime);
+  }
+
+  /**
+   * 获取GCP Cloud Storage文件导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGCSIngestionResponse
+   */
+  async getGCSIngestionWithOptions(project: string, gcsIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetGCSIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGCSIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/gcsingestions/${gcsIngestionName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGCSIngestionResponse>(await this.execute(params, req, runtime), new $_model.GetGCSIngestionResponse({}));
+  }
+
+  /**
+   * 获取GCP Cloud Storage文件导入任务
+   * @returns GetGCSIngestionResponse
+   */
+  async getGCSIngestion(project: string, gcsIngestionName: string): Promise<$_model.GetGCSIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getGCSIngestionWithOptions(project, gcsIngestionName, headers, runtime);
+  }
+
+  /**
    * Queries the distribution of logs that meet the specified search conditions in a Logstore.
    * 
    * @remarks
@@ -4684,6 +5236,44 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getLogStoreWithOptions(project, logstore, headers, runtime);
+  }
+
+  /**
+   * 获取日志库配置
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLogStoreConfigResponse
+   */
+  async getLogStoreConfigWithOptions(project: string, logstore: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLogStoreConfigResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLogStoreConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/config`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "none",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLogStoreConfigResponse>(await this.execute(params, req, runtime), new $_model.GetLogStoreConfigResponse({}));
+  }
+
+  /**
+   * 获取日志库配置
+   * @returns GetLogStoreConfigResponse
+   */
+  async getLogStoreConfig(project: string, logstore: string): Promise<$_model.GetLogStoreConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLogStoreConfigWithOptions(project, logstore, headers, runtime);
   }
 
   /**
@@ -4919,6 +5509,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.highlight)) {
       body["highlight"] = request.highlight;
+    }
+
+    if (!$dara.isNull(request.isAccurate)) {
+      body["isAccurate"] = request.isAccurate;
     }
 
     if (!$dara.isNull(request.line)) {
@@ -5176,6 +5770,53 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取物化视图
+   * 
+   * @param headers - GetMaterializedViewHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMaterializedViewResponse
+   */
+  async getMaterializedViewWithOptions(project: string, name: string, headers: $_model.GetMaterializedViewHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.GetMaterializedViewResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.contentType)) {
+      realHeaders["Content-Type"] = String(headers.contentType);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: realHeaders,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMaterializedView",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/materializedviews/${name}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMaterializedViewResponse>(await this.execute(params, req, runtime), new $_model.GetMaterializedViewResponse({}));
+  }
+
+  /**
+   * 获取物化视图
+   * @returns GetMaterializedViewResponse
+   */
+  async getMaterializedView(project: string, name: string): Promise<$_model.GetMaterializedViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.GetMaterializedViewHeaders({ });
+    return await this.getMaterializedViewWithOptions(project, name, headers, runtime);
+  }
+
+  /**
    * Queries a MaxCompute data shipping job.
    * 
    * @remarks
@@ -5322,7 +5963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取OSS投递任务
+   * Queries the information about an Object Storage Service (OSS) data shipping job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5350,7 +5991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取OSS投递任务
+   * Queries the information about an Object Storage Service (OSS) data shipping job.
    * @returns GetOSSExportResponse
    */
   async getOSSExport(project: string, ossExportName: string): Promise<$_model.GetOSSExportResponse> {
@@ -5360,7 +6001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get OSSHDFS Exports
+   * Queries the information about an OSS-HDFS data shipping job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5388,7 +6029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get OSSHDFS Exports
+   * Queries the information about an OSS-HDFS data shipping job.
    * @returns GetOSSHDFSExportResponse
    */
   async getOSSHDFSExport(project: string, ossExportName: string): Promise<$_model.GetOSSHDFSExportResponse> {
@@ -6200,6 +6841,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出Azure blob文件导入任务
+   * 
+   * @param request - ListAzureBlobIngestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAzureBlobIngestionResponse
+   */
+  async listAzureBlobIngestionWithOptions(project: string, request: $_model.ListAzureBlobIngestionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAzureBlobIngestionResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAzureBlobIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/azureblobingestions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAzureBlobIngestionResponse>(await this.execute(params, req, runtime), new $_model.ListAzureBlobIngestionResponse({}));
+  }
+
+  /**
+   * 列出Azure blob文件导入任务
+   * 
+   * @param request - ListAzureBlobIngestionRequest
+   * @returns ListAzureBlobIngestionResponse
+   */
+  async listAzureBlobIngestion(project: string, request: $_model.ListAzureBlobIngestionRequest): Promise<$_model.ListAzureBlobIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAzureBlobIngestionWithOptions(project, request, headers, runtime);
+  }
+
+  /**
    * Queries a list of log collection policies for cloud services.
    * 
    * @remarks
@@ -6731,6 +7428,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建ES导入任务
+   * 
+   * @param request - ListElasticsearchIngestionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListElasticsearchIngestionsResponse
+   */
+  async listElasticsearchIngestionsWithOptions(project: string, request: $_model.ListElasticsearchIngestionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListElasticsearchIngestionsResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListElasticsearchIngestions",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/elasticsearchingestions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListElasticsearchIngestionsResponse>(await this.execute(params, req, runtime), new $_model.ListElasticsearchIngestionsResponse({}));
+  }
+
+  /**
+   * 创建ES导入任务
+   * 
+   * @param request - ListElasticsearchIngestionsRequest
+   * @returns ListElasticsearchIngestionsResponse
+   */
+  async listElasticsearchIngestions(project: string, request: $_model.ListElasticsearchIngestionsRequest): Promise<$_model.ListElasticsearchIngestionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listElasticsearchIngestionsWithOptions(project, request, headers, runtime);
+  }
+
+  /**
+   * 列出GCP Cloud Storage文件导入任务
+   * 
+   * @param request - ListGCSIngestionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGCSIngestionsResponse
+   */
+  async listGCSIngestionsWithOptions(project: string, request: $_model.ListGCSIngestionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGCSIngestionsResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.logstore)) {
+      query["logstore"] = request.logstore;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGCSIngestions",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/gcsingestions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGCSIngestionsResponse>(await this.execute(params, req, runtime), new $_model.ListGCSIngestionsResponse({}));
+  }
+
+  /**
+   * 列出GCP Cloud Storage文件导入任务
+   * 
+   * @param request - ListGCSIngestionsRequest
+   * @returns ListGCSIngestionsResponse
+   */
+  async listGCSIngestions(project: string, request: $_model.ListGCSIngestionsRequest): Promise<$_model.ListGCSIngestionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGCSIngestionsWithOptions(project, request, headers, runtime);
+  }
+
+  /**
    * Queries a list of ingest processors that meet specific conditions.
    * 
    * @param request - ListIngestProcessorsRequest
@@ -7069,6 +7878,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列举物化视图
+   * 
+   * @param request - ListMaterializedViewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMaterializedViewResponse
+   */
+  async listMaterializedViewWithOptions(project: string, request: $_model.ListMaterializedViewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMaterializedViewResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMaterializedView",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/materializedviews`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMaterializedViewResponse>(await this.execute(params, req, runtime), new $_model.ListMaterializedViewResponse({}));
+  }
+
+  /**
+   * 列举物化视图
+   * 
+   * @param request - ListMaterializedViewRequest
+   * @returns ListMaterializedViewResponse
+   */
+  async listMaterializedView(project: string, request: $_model.ListMaterializedViewRequest): Promise<$_model.ListMaterializedViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMaterializedViewWithOptions(project, request, headers, runtime);
+  }
+
+  /**
+   * 列举物化视图
+   * 
+   * @param request - ListMaterializedViewsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMaterializedViewsResponse
+   */
+  async listMaterializedViewsWithOptions(project: string, request: $_model.ListMaterializedViewsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMaterializedViewsResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMaterializedViews",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/materializedviews`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMaterializedViewsResponse>(await this.execute(params, req, runtime), new $_model.ListMaterializedViewsResponse({}));
+  }
+
+  /**
+   * 列举物化视图
+   * 
+   * @param request - ListMaterializedViewsRequest
+   * @returns ListMaterializedViewsResponse
+   */
+  async listMaterializedViews(project: string, request: $_model.ListMaterializedViewsRequest): Promise<$_model.ListMaterializedViewsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMaterializedViewsWithOptions(project, request, headers, runtime);
+  }
+
+  /**
    * Queries a list of MaxCompute data shipping jobs.
    * 
    * @remarks
@@ -7209,7 +8130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出OSS投递任务
+   * Queries a list of Object Storage Service (OSS) data shipping jobs in a project.
    * 
    * @param request - ListOSSExportsRequest
    * @param headers - map
@@ -7253,7 +8174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出OSS投递任务
+   * Queries a list of Object Storage Service (OSS) data shipping jobs in a project.
    * 
    * @param request - ListOSSExportsRequest
    * @returns ListOSSExportsResponse
@@ -7265,7 +8186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举OSSHDFS投递任务
+   * Queries a list of OSS-HDFS data shipping jobs in a project.
    * 
    * @param request - ListOSSHDFSExportsRequest
    * @param headers - map
@@ -7309,7 +8230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举OSSHDFS投递任务
+   * Queries a list of OSS-HDFS data shipping jobs in a project.
    * 
    * @param request - ListOSSHDFSExportsRequest
    * @returns ListOSSHDFSExportsResponse
@@ -7391,6 +8312,10 @@ export default class Client extends OpenApi {
   async listProjectWithOptions(request: $_model.ListProjectRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      query["description"] = request.description;
+    }
+
     if (!$dara.isNull(request.fetchQuota)) {
       query["fetchQuota"] = request.fetchQuota;
     }
@@ -7805,7 +8730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合并两个相邻的readwrite状态的Shards。在参数中指定一个shardID，服务端自动找相邻的下一个Shard进行合并。
+   * Merges readwrite shards that are adjacent to each other.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7833,7 +8758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合并两个相邻的readwrite状态的Shards。在参数中指定一个shardID，服务端自动找相邻的下一个Shard进行合并。
+   * Merges readwrite shards that are adjacent to each other.
    * @returns MergeShardResponse
    */
   async mergeShard(project: string, logstore: string, shard: string): Promise<$_model.MergeShardResponse> {
@@ -7894,6 +8819,8 @@ export default class Client extends OpenApi {
    */
   async pullLogsWithOptions(project: string, logStore: string, shardId: string, request: $_model.PullLogsRequest, headers: $_model.PullLogsHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.PullLogsResponse> {
     request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.count)) {
       query["count"] = request.count;
@@ -7921,6 +8848,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
       headers: realHeaders,
       query: OpenApiUtil.query(query),
     });
@@ -8122,6 +9050,54 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.putIngestProcessorWithOptions(project, processorName, request, headers, runtime);
+  }
+
+  /**
+   * 修改日志库的配置
+   * 
+   * @param request - PutLogStoreConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PutLogStoreConfigResponse
+   */
+  async putLogStoreConfigWithOptions(project: string, logstore: string, request: $_model.PutLogStoreConfigRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PutLogStoreConfigResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientIpHeaders)) {
+      body["clientIpHeaders"] = request.clientIpHeaders;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PutLogStoreConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/logstores/${logstore}/config`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.PutLogStoreConfigResponse>(await this.execute(params, req, runtime), new $_model.PutLogStoreConfigResponse({}));
+  }
+
+  /**
+   * 修改日志库的配置
+   * 
+   * @param request - PutLogStoreConfigRequest
+   * @returns PutLogStoreConfigResponse
+   */
+  async putLogStoreConfig(project: string, logstore: string, request: $_model.PutLogStoreConfigRequest): Promise<$_model.PutLogStoreConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.putLogStoreConfigWithOptions(project, logstore, request, headers, runtime);
   }
 
   /**
@@ -8386,7 +9362,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新token
+   * Refreshes an access token by using a ticket to access the Simple Log Service console.
    * 
    * @param request - RefreshTokenRequest
    * @param headers - map
@@ -8423,7 +9399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新token
+   * Refreshes an access token by using a ticket to access the Simple Log Service console.
    * 
    * @param request - RefreshTokenRequest
    * @returns RefreshTokenResponse
@@ -8436,9 +9412,6 @@ export default class Client extends OpenApi {
 
   /**
    * Removes a Logtail configuration from a machine group.
-   * 
-   * @remarks
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8467,9 +9440,6 @@ export default class Client extends OpenApi {
 
   /**
    * Removes a Logtail configuration from a machine group.
-   * 
-   * @remarks
-   * Host consists of a project name and a Simple Log Service endpoint. You must specify a project in Host.
    * @returns RemoveConfigFromMachineGroupResponse
    */
   async removeConfigFromMachineGroup(project: string, machineGroup: string, configName: string): Promise<$_model.RemoveConfigFromMachineGroupResponse> {
@@ -8541,6 +9511,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动Azure blob文件导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAzureBlobIngestionResponse
+   */
+  async startAzureBlobIngestionWithOptions(project: string, azureBlobIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartAzureBlobIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartAzureBlobIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/azureblobingestions/${azureBlobIngestionName}?action=START`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.StartAzureBlobIngestionResponse>(await this.execute(params, req, runtime), new $_model.StartAzureBlobIngestionResponse({}));
+  }
+
+  /**
+   * 启动Azure blob文件导入任务
+   * @returns StartAzureBlobIngestionResponse
+   */
+  async startAzureBlobIngestion(project: string, azureBlobIngestionName: string): Promise<$_model.StartAzureBlobIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startAzureBlobIngestionWithOptions(project, azureBlobIngestionName, headers, runtime);
+  }
+
+  /**
    * Starts a data transformation job.
    * 
    * @param headers - map
@@ -8576,6 +9584,82 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.startETLWithOptions(project, etlName, headers, runtime);
+  }
+
+  /**
+   * 启动ES导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartElasticsearchIngestionResponse
+   */
+  async startElasticsearchIngestionWithOptions(project: string, elasticsearchIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartElasticsearchIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartElasticsearchIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/elasticsearchingestions/${elasticsearchIngestionName}?action=START`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.StartElasticsearchIngestionResponse>(await this.execute(params, req, runtime), new $_model.StartElasticsearchIngestionResponse({}));
+  }
+
+  /**
+   * 启动ES导入任务
+   * @returns StartElasticsearchIngestionResponse
+   */
+  async startElasticsearchIngestion(project: string, elasticsearchIngestionName: string): Promise<$_model.StartElasticsearchIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startElasticsearchIngestionWithOptions(project, elasticsearchIngestionName, headers, runtime);
+  }
+
+  /**
+   * 启动GCP Cloud Storage文件导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartGCSIngestionResponse
+   */
+  async startGCSIngestionWithOptions(project: string, gcsIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartGCSIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartGCSIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/gcsingestions/${gcsIngestionName}?action=START`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $dara.cast<$_model.StartGCSIngestionResponse>(await this.execute(params, req, runtime), new $_model.StartGCSIngestionResponse({}));
+  }
+
+  /**
+   * 启动GCP Cloud Storage文件导入任务
+   * @returns StartGCSIngestionResponse
+   */
+  async startGCSIngestion(project: string, gcsIngestionName: string): Promise<$_model.StartGCSIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startGCSIngestionWithOptions(project, gcsIngestionName, headers, runtime);
   }
 
   /**
@@ -8629,7 +9713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动OSS投递任务
+   * Starts an Object Storage Service (OSS) data shipping job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8657,7 +9741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动OSS投递任务
+   * Starts an Object Storage Service (OSS) data shipping job.
    * @returns StartOSSExportResponse
    */
   async startOSSExport(project: string, ossExportName: string): Promise<$_model.StartOSSExportResponse> {
@@ -8667,7 +9751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动OSSHDFS投递任务
+   * Starts an OSS-HDFS data shipping job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8695,7 +9779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动OSSHDFS投递任务
+   * Starts an OSS-HDFS data shipping job.
    * @returns StartOSSHDFSExportResponse
    */
   async startOSSHDFSExport(project: string, ossExportName: string): Promise<$_model.StartOSSHDFSExportResponse> {
@@ -8743,6 +9827,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动Azure blob文件导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAzureBlobIngestionResponse
+   */
+  async stopAzureBlobIngestionWithOptions(project: string, azureBlobIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopAzureBlobIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopAzureBlobIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/azureblobingestions/${azureBlobIngestionName}?action=STOP`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.StopAzureBlobIngestionResponse>(await this.execute(params, req, runtime), new $_model.StopAzureBlobIngestionResponse({}));
+  }
+
+  /**
+   * 启动Azure blob文件导入任务
+   * @returns StopAzureBlobIngestionResponse
+   */
+  async stopAzureBlobIngestion(project: string, azureBlobIngestionName: string): Promise<$_model.StopAzureBlobIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopAzureBlobIngestionWithOptions(project, azureBlobIngestionName, headers, runtime);
+  }
+
+  /**
    * Stops a data transformation job.
    * 
    * @param headers - map
@@ -8778,6 +9900,124 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopETLWithOptions(project, etlName, headers, runtime);
+  }
+
+  /**
+   * 停止ES导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopElasticsearchIngestionResponse
+   */
+  async *stopElasticsearchIngestionWithSSE(project: string, elasticsearchIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.StopElasticsearchIngestionResponse, any, unknown> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopElasticsearchIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/elasticsearchingestions/${elasticsearchIngestionName}?action=STOP`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.StopElasticsearchIngestionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.StopElasticsearchIngestionResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 停止ES导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopElasticsearchIngestionResponse
+   */
+  async stopElasticsearchIngestionWithOptions(project: string, elasticsearchIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopElasticsearchIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopElasticsearchIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/elasticsearchingestions/${elasticsearchIngestionName}?action=STOP`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.StopElasticsearchIngestionResponse>(await this.execute(params, req, runtime), new $_model.StopElasticsearchIngestionResponse({}));
+  }
+
+  /**
+   * 停止ES导入任务
+   * @returns StopElasticsearchIngestionResponse
+   */
+  async stopElasticsearchIngestion(project: string, elasticsearchIngestionName: string): Promise<$_model.StopElasticsearchIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopElasticsearchIngestionWithOptions(project, elasticsearchIngestionName, headers, runtime);
+  }
+
+  /**
+   * 停止GCP Cloud Storage文件导入任务
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopGCSIngestionResponse
+   */
+  async stopGCSIngestionWithOptions(project: string, gcsIngestionName: string, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopGCSIngestionResponse> {
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopGCSIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/gcsingestions/${gcsIngestionName}?action=STOP`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $dara.cast<$_model.StopGCSIngestionResponse>(await this.execute(params, req, runtime), new $_model.StopGCSIngestionResponse({}));
+  }
+
+  /**
+   * 停止GCP Cloud Storage文件导入任务
+   * @returns StopGCSIngestionResponse
+   */
+  async stopGCSIngestion(project: string, gcsIngestionName: string): Promise<$_model.StopGCSIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopGCSIngestionWithOptions(project, gcsIngestionName, headers, runtime);
   }
 
   /**
@@ -8831,7 +10071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止OSS投递任务
+   * Stops an Object Storage Service (OSS) data shipping job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8859,7 +10099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止OSS投递任务
+   * Stops an Object Storage Service (OSS) data shipping job.
    * @returns StopOSSExportResponse
    */
   async stopOSSExport(project: string, ossExportName: string): Promise<$_model.StopOSSExportResponse> {
@@ -8869,7 +10109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止OSSHDFS投递任务
+   * Stops an OSS-HDFS data shipping job.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8897,7 +10137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止OSSHDFS投递任务
+   * Stops an OSS-HDFS data shipping job.
    * @returns StopOSSHDFSExportResponse
    */
   async stopOSSHDFSExport(project: string, ossExportName: string): Promise<$_model.StopOSSHDFSExportResponse> {
@@ -8942,6 +10182,62 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopOSSIngestionWithOptions(project, ossIngestionName, headers, runtime);
+  }
+
+  /**
+   * 提交异步SQL请求
+   * 
+   * @param request - SubmitAsyncSqlRequest
+   * @param headers - SubmitAsyncSqlHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAsyncSqlResponse
+   */
+  async submitAsyncSqlWithOptions(project: string, request: $_model.SubmitAsyncSqlRequest, headers: $_model.SubmitAsyncSqlHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAsyncSqlResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accept)) {
+      realHeaders["Accept"] = String(headers.accept);
+    }
+
+    if (!$dara.isNull(headers.acceptEncoding)) {
+      realHeaders["Accept-Encoding"] = String(headers.acceptEncoding);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAsyncSql",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/asyncsql`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "none",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAsyncSqlResponse>(await this.execute(params, req, runtime), new $_model.SubmitAsyncSqlResponse({}));
+  }
+
+  /**
+   * 提交异步SQL请求
+   * 
+   * @param request - SubmitAsyncSqlRequest
+   * @returns SubmitAsyncSqlResponse
+   */
+  async submitAsyncSql(project: string, request: $_model.SubmitAsyncSqlRequest): Promise<$_model.SubmitAsyncSqlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.SubmitAsyncSqlHeaders({ });
+    return await this.submitAsyncSqlWithOptions(project, request, headers, runtime);
   }
 
   /**
@@ -9312,6 +10608,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新Azure blob文件导入任务
+   * 
+   * @param request - UpdateAzureBlobIngestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAzureBlobIngestionResponse
+   */
+  async updateAzureBlobIngestionWithOptions(project: string, azureBlobIngestionName: string, request: $_model.UpdateAzureBlobIngestionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAzureBlobIngestionResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configuration)) {
+      body["configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.schedule)) {
+      body["schedule"] = request.schedule;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAzureBlobIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/azureblobingestions/${azureBlobIngestionName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.UpdateAzureBlobIngestionResponse>(await this.execute(params, req, runtime), new $_model.UpdateAzureBlobIngestionResponse({}));
+  }
+
+  /**
+   * 更新Azure blob文件导入任务
+   * 
+   * @param request - UpdateAzureBlobIngestionRequest
+   * @returns UpdateAzureBlobIngestionResponse
+   */
+  async updateAzureBlobIngestion(project: string, azureBlobIngestionName: string, request: $_model.UpdateAzureBlobIngestionRequest): Promise<$_model.UpdateAzureBlobIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAzureBlobIngestionWithOptions(project, azureBlobIngestionName, request, headers, runtime);
+  }
+
+  /**
    * Modifies a Logtail configuration.
    * 
    * @remarks
@@ -9577,6 +10933,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新ES导入任务
+   * 
+   * @param request - UpdateElasticsearchIngestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateElasticsearchIngestionResponse
+   */
+  async updateElasticsearchIngestionWithOptions(project: string, elasticsearchIngestionName: string, request: $_model.UpdateElasticsearchIngestionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateElasticsearchIngestionResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configuration)) {
+      body["configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.schedule)) {
+      body["schedule"] = request.schedule;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateElasticsearchIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/elasticsearchingestions/${elasticsearchIngestionName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.UpdateElasticsearchIngestionResponse>(await this.execute(params, req, runtime), new $_model.UpdateElasticsearchIngestionResponse({}));
+  }
+
+  /**
+   * 更新ES导入任务
+   * 
+   * @param request - UpdateElasticsearchIngestionRequest
+   * @returns UpdateElasticsearchIngestionResponse
+   */
+  async updateElasticsearchIngestion(project: string, elasticsearchIngestionName: string, request: $_model.UpdateElasticsearchIngestionRequest): Promise<$_model.UpdateElasticsearchIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateElasticsearchIngestionWithOptions(project, elasticsearchIngestionName, request, headers, runtime);
+  }
+
+  /**
+   * 更新GCP Cloud Storage文件导入任务
+   * 
+   * @param request - UpdateGCSIngestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGCSIngestionResponse
+   */
+  async updateGCSIngestionWithOptions(project: string, gcsIngestionName: string, request: $_model.UpdateGCSIngestionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGCSIngestionResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configuration)) {
+      body["configuration"] = request.configuration;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGCSIngestion",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/gcsingestions/${gcsIngestionName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "any",
+    });
+    return $dara.cast<$_model.UpdateGCSIngestionResponse>(await this.execute(params, req, runtime), new $_model.UpdateGCSIngestionResponse({}));
+  }
+
+  /**
+   * 更新GCP Cloud Storage文件导入任务
+   * 
+   * @param request - UpdateGCSIngestionRequest
+   * @returns UpdateGCSIngestionResponse
+   */
+  async updateGCSIngestion(project: string, gcsIngestionName: string, request: $_model.UpdateGCSIngestionRequest): Promise<$_model.UpdateGCSIngestionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGCSIngestionWithOptions(project, gcsIngestionName, request, headers, runtime);
+  }
+
+  /**
    * Updates the indexes of a Logstore.
    * 
    * @remarks
@@ -9683,6 +11155,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.shardCount)) {
       body["shardCount"] = request.shardCount;
+    }
+
+    if (!$dara.isNull(request.shardingPolicy)) {
+      body["shardingPolicy"] = request.shardingPolicy;
     }
 
     if (!$dara.isNull(request.telemetryType)) {
@@ -10169,6 +11645,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新物化视图
+   * 
+   * @param request - UpdateMaterializedViewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMaterializedViewResponse
+   */
+  async updateMaterializedViewWithOptions(project: string, name: string, request: $_model.UpdateMaterializedViewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMaterializedViewResponse> {
+    request.validate();
+    let hostMap : {[key: string ]: string} = { };
+    hostMap["project"] = project;
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.aggIntervalMins)) {
+      body["aggIntervalMins"] = request.aggIntervalMins;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    if (!$dara.isNull(request.originalSql)) {
+      body["originalSql"] = request.originalSql;
+    }
+
+    if (!$dara.isNull(request.ttl)) {
+      body["ttl"] = request.ttl;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      hostMap: hostMap,
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMaterializedView",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/materializedviews/${name}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.UpdateMaterializedViewResponse>(await this.execute(params, req, runtime), new $_model.UpdateMaterializedViewResponse({}));
+  }
+
+  /**
+   * 更新物化视图
+   * 
+   * @param request - UpdateMaterializedViewRequest
+   * @returns UpdateMaterializedViewResponse
+   */
+  async updateMaterializedView(project: string, name: string, request: $_model.UpdateMaterializedViewRequest): Promise<$_model.UpdateMaterializedViewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMaterializedViewWithOptions(project, name, request, headers, runtime);
+  }
+
+  /**
    * Updates a MaxCompute data shipping job.
    * 
    * @remarks
@@ -10259,6 +11795,10 @@ export default class Client extends OpenApi {
     let hostMap : {[key: string ]: string} = { };
     hostMap["project"] = project;
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appendMeta)) {
+      body["appendMeta"] = request.appendMeta;
+    }
+
     if (!$dara.isNull(request.autoSplit)) {
       body["autoSplit"] = request.autoSplit;
     }
@@ -10277,6 +11817,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.mode)) {
       body["mode"] = request.mode;
+    }
+
+    if (!$dara.isNull(request.shardingPolicy)) {
+      body["shardingPolicy"] = request.shardingPolicy;
     }
 
     if (!$dara.isNull(request.ttl)) {
@@ -10325,7 +11869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 MetricStore 计量模式
+   * Updates the billing mode of a Metricstore.
    * 
    * @param request - UpdateMetricStoreMeteringModeRequest
    * @param headers - map
@@ -10361,7 +11905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 MetricStore 计量模式
+   * Updates the billing mode of a Metricstore.
    * 
    * @param request - UpdateMetricStoreMeteringModeRequest
    * @returns UpdateMetricStoreMeteringModeResponse
@@ -10421,7 +11965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新OSS投递任务
+   * Updates an Object Storage Service (OSS) data shipping job.
    * 
    * @param request - UpdateOSSExportRequest
    * @param headers - map
@@ -10465,7 +12009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新OSS投递任务
+   * Updates an Object Storage Service (OSS) data shipping job.
    * 
    * @param request - UpdateOSSExportRequest
    * @returns UpdateOSSExportResponse
@@ -10477,7 +12021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新OSSHDFS投递任务
+   * Updates an OSS-HDFS data shipping job.
    * 
    * @param request - UpdateOSSHDFSExportRequest
    * @param headers - map
@@ -10521,7 +12065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新OSSHDFS投递任务
+   * Updates an OSS-HDFS data shipping job.
    * 
    * @param request - UpdateOSSHDFSExportRequest
    * @returns UpdateOSSHDFSExportResponse

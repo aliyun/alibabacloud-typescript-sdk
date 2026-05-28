@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class CopilotActionParameters extends $dara.Model {
   name?: string;
   prompt?: string;

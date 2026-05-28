@@ -6,6 +6,8 @@ import { OSSIngestionConfigurationSource } from "./OssingestionConfigurationSour
 export class OSSIngestionConfiguration extends $dara.Model {
   /**
    * @remarks
+   * The Logstore.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class OSSIngestionConfiguration extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
+   * The source that you specify for the configurations of the OSS data import job.
+   * 
    * This parameter is required.
    */
   source?: OSSIngestionConfigurationSource;

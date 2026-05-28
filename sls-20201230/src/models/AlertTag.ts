@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AlertTag extends $dara.Model {
   /**
+   * @remarks
+   * The key name.
+   * 
    * @example
    * title
    */
   key?: string;
   /**
+   * @remarks
+   * The key value.
+   * 
    * @example
    * example value
    */

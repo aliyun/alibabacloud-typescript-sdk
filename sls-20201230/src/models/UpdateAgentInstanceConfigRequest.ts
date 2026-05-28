@@ -8,6 +8,9 @@ export class UpdateAgentInstanceConfigRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * {}
    */
   config?: string;
   grayConfigs?: AgentInstanceConfigGrayConfigs[];

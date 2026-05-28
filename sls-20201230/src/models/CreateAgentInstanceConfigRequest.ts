@@ -8,11 +8,17 @@ export class CreateAgentInstanceConfigRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * {}
    */
   config?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * apm_trace
    */
   configType?: string;
   grayConfigs?: AgentInstanceConfigGrayConfigs[];

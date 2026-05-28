@@ -18,10 +18,6 @@ export class Dashboard extends $dara.Model {
    * dashboard-1609294922657-434834
    */
   dashboardName?: string;
-  /**
-   * @example
-   * 这是一个仪表盘。
-   */
   description?: string;
   /**
    * @remarks

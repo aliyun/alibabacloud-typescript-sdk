@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MLServiceAnalysisParam extends $dara.Model {
+  /**
+   * @remarks
+   * The input data.
+   */
   input?: { [key: string]: string }[];
+  /**
+   * @remarks
+   * The parameter.
+   */
   parameter?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

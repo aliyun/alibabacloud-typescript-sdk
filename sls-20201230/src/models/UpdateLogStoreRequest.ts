@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { EncryptConf } from "./EncryptConf";
+import { ShardingPolicy } from "./ShardingPolicy";
 
 
 export class UpdateLogStoreRequest extends $dara.Model {
@@ -101,6 +102,7 @@ export class UpdateLogStoreRequest extends $dara.Model {
    * @deprecated
    */
   shardCount?: number;
+  shardingPolicy?: ShardingPolicy;
   /**
    * @remarks
    * The type of the observable data. Valid values:
@@ -136,6 +138,7 @@ export class UpdateLogStoreRequest extends $dara.Model {
       maxSplitShard: 'maxSplitShard',
       mode: 'mode',
       shardCount: 'shardCount',
+      shardingPolicy: 'shardingPolicy',
       telemetryType: 'telemetryType',
       ttl: 'ttl',
     };
@@ -153,6 +156,7 @@ export class UpdateLogStoreRequest extends $dara.Model {
       maxSplitShard: 'number',
       mode: 'string',
       shardCount: 'number',
+      shardingPolicy: ShardingPolicy,
       telemetryType: 'string',
       ttl: 'number',
     };
@@ -161,6 +165,9 @@ export class UpdateLogStoreRequest extends $dara.Model {
   validate() {
     if(this.encryptConf && typeof (this.encryptConf as any).validate === 'function') {
       (this.encryptConf as any).validate();
+    }
+    if(this.shardingPolicy && typeof (this.shardingPolicy as any).validate === 'function') {
+      (this.shardingPolicy as any).validate();
     }
     super.validate();
   }

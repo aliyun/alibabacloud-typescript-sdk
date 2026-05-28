@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentInstanceConfigsRequest extends $dara.Model {
+  /**
+   * @example
+   * apm_trace
+   */
   configType?: string;
+  /**
+   * @example
+   * 0
+   */
   offset?: number;
+  /**
+   * @example
+   * 100
+   */
   size?: number;
   static names(): { [key: string]: string } {
     return {

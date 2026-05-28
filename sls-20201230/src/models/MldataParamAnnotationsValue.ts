@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class MLDataParamAnnotationsValue extends $dara.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the annotator.
+   * 
    * @example
    * xxxx
    */
   annotatedBy?: string;
   /**
+   * @remarks
+   * The update time. The value is a UNIX timestamp.
+   * 
    * @example
    * 1694761550
    */
   updateTime?: number;
+  /**
+   * @remarks
+   * The annotation results.
+   */
   results?: { [key: string]: string }[];
   static names(): { [key: string]: string } {
     return {

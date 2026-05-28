@@ -31,6 +31,7 @@ export class GetLogsV2Request extends $dara.Model {
    * false
    */
   highlight?: boolean;
+  isAccurate?: boolean;
   /**
    * @remarks
    * The maximum number of logs to return for the request. This parameter takes effect only when the query parameter is set to a search statement. Valid values: 0 to 100. Default value: 100.
@@ -110,6 +111,7 @@ export class GetLogsV2Request extends $dara.Model {
       forward: 'forward',
       from: 'from',
       highlight: 'highlight',
+      isAccurate: 'isAccurate',
       line: 'line',
       offset: 'offset',
       powerSql: 'powerSql',
@@ -126,6 +128,7 @@ export class GetLogsV2Request extends $dara.Model {
       forward: 'boolean',
       from: 'number',
       highlight: 'boolean',
+      isAccurate: 'boolean',
       line: 'number',
       offset: 'number',
       powerSql: 'boolean',

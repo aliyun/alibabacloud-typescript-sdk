@@ -5,13 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class StoreViewStore extends $dara.Model {
   /**
    * @remarks
+   * The name of the project.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ali-test-project
    */
   project?: string;
+  /**
+   * @remarks
+   * The query statement that contains filter conditions.
+   */
   query?: string;
   /**
    * @remarks
+   * The name of the Logstore or Metricstore.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * my-logstore
    */
   storeName?: string;
   static names(): { [key: string]: string } {

@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class SinkEventStoreConfiguration extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to send alerts.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * endpoint
+   * 
    * @example
    * cn-shanghai-intranet.log.aliyuncs.com
    */
   endpoint?: string;
   /**
+   * @remarks
+   * The name of the Eventstore.
+   * 
    * @example
    * exampleStore
    */
   eventStore?: string;
   /**
+   * @remarks
+   * The name of the project.
+   * 
    * @example
    * exampleProject
    */
   project?: string;
   /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role.
+   * 
    * @example
    * acs:ram::123456789:role/aliyunlogetlrole
    */

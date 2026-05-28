@@ -6,46 +6,67 @@ import { MaxComputeExportConfiguration } from "./MaxComputeExportConfiguration";
 export class MaxComputeExport extends $dara.Model {
   /**
    * @remarks
+   * The setting of the MaxCompute data shipping job.
+   * 
    * This parameter is required.
    */
   configuration?: MaxComputeExportConfiguration;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
-   * 1714284115
+   * 1718787534
    */
   createTime?: number;
   /**
+   * @remarks
+   * job description
+   * 
    * @example
-   * odpsexport-demo
+   * MaxComputeExport
    */
   description?: string;
   /**
    * @remarks
+   * job displayName
+   * 
    * This parameter is required.
    * 
    * @example
-   * odpsexport-test
+   * MaxComputeExport
    */
   displayName?: string;
   /**
+   * @remarks
+   * The last modification time.
+   * 
    * @example
-   * 1714284589
+   * 1718787681
    */
   lastModifiedTime?: number;
   /**
    * @remarks
+   * job name
+   * 
    * This parameter is required.
    * 
    * @example
-   * export-general-1714033191-584993-hcl
+   * MaxComputeExport
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the MaxCompute data shipping job.
+   * 
    * @example
    * c7f01719d9feb105fc9d8df92af62010
    */
   scheduleId?: string;
   /**
+   * @remarks
+   * The status of the MaxCompute data shipping job.
+   * 
    * @example
    * RUNNING
    */

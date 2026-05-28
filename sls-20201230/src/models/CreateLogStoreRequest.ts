@@ -1,6 +1,7 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { EncryptConf } from "./EncryptConf";
+import { ShardingPolicy } from "./ShardingPolicy";
 
 
 export class CreateLogStoreRequest extends $dara.Model {
@@ -101,6 +102,7 @@ export class CreateLogStoreRequest extends $dara.Model {
    * IngestProcessor ID
    */
   processorId?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The number of shards.
@@ -113,6 +115,7 @@ export class CreateLogStoreRequest extends $dara.Model {
    * 2
    */
   shardCount?: number;
+  shardingPolicy?: ShardingPolicy;
   /**
    * @remarks
    * The type of the observable data. Valid values:
@@ -146,7 +149,9 @@ export class CreateLogStoreRequest extends $dara.Model {
       maxSplitShard: 'maxSplitShard',
       mode: 'mode',
       processorId: 'processorId',
+      resourceGroupId: 'resourceGroupId',
       shardCount: 'shardCount',
+      shardingPolicy: 'shardingPolicy',
       telemetryType: 'telemetryType',
       ttl: 'ttl',
     };
@@ -164,7 +169,9 @@ export class CreateLogStoreRequest extends $dara.Model {
       maxSplitShard: 'number',
       mode: 'string',
       processorId: 'string',
+      resourceGroupId: 'string',
       shardCount: 'number',
+      shardingPolicy: ShardingPolicy,
       telemetryType: 'string',
       ttl: 'number',
     };
@@ -173,6 +180,9 @@ export class CreateLogStoreRequest extends $dara.Model {
   validate() {
     if(this.encryptConf && typeof (this.encryptConf as any).validate === 'function') {
       (this.encryptConf as any).validate();
+    }
+    if(this.shardingPolicy && typeof (this.shardingPolicy as any).validate === 'function') {
+      (this.shardingPolicy as any).validate();
     }
     super.validate();
   }

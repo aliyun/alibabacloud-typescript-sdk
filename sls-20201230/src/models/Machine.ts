@@ -10,23 +10,19 @@ export class Machine extends $dara.Model {
   hostId?: string;
   /**
    * @example
-   * 192.168.x.x
+   * 192.168.xx.x
    */
   ip?: string;
   /**
    * @example
-   * 1657509674
+   * 1447182247
    */
   lastHeartbeatTime?: number;
   /**
    * @example
-   * 3B70F4F1-80F7-46C4-A6C1-100D66C***47
+   * 3B70F4F1-80F7-46C4-A6C1-100***CEE647
    */
   machineUniqueid?: string;
-  /**
-   * @example
-   * test
-   */
   userdefinedId?: string;
   static names(): { [key: string]: string } {
     return {

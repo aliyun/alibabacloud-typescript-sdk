@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class MachineGroupGroupAttribute extends $dara.Model {
   /**
    * @example
-   * test-group
+   * testgroup
    */
   externalName?: string;
   /**
    * @example
-   * test-topic
+   * testtopic
    */
   groupTopic?: string;
   static names(): { [key: string]: string } {
@@ -43,9 +43,13 @@ export class MachineGroup extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test-group
+   * machineGroup-1
    */
   groupName?: string;
+  /**
+   * @example
+   * “”
+   */
   groupType?: string;
   /**
    * @remarks

@@ -5,10 +5,26 @@ import { AgentInstanceConfigGrayConfigs } from "./AgentInstanceConfigGrayConfigs
 
 export class GetAgentInstanceConfigResponseBody extends $dara.Model {
   attributes?: { [key: string]: string };
+  /**
+   * @example
+   * {}
+   */
   config?: string;
+  /**
+   * @example
+   * apm_biz_trace
+   */
   configType?: string;
+  /**
+   * @example
+   * 1749543828
+   */
   createTime?: number;
   grayConfigs?: AgentInstanceConfigGrayConfigs[];
+  /**
+   * @example
+   * 1749543828
+   */
   lastModifyTime?: number;
   static names(): { [key: string]: string } {
     return {

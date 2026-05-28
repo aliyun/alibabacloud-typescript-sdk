@@ -4,8 +4,8 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListS3IngestionsRequest extends $dara.Model {
   logstore?: string;
-  offset?: string;
-  size?: string;
+  offset?: number;
+  size?: number;
   static names(): { [key: string]: string } {
     return {
       logstore: 'logstore',
@@ -17,8 +17,8 @@ export class ListS3IngestionsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       logstore: 'string',
-      offset: 'string',
-      size: 'string',
+      offset: 'number',
+      size: 'number',
     };
   }
 

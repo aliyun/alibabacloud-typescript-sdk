@@ -6,15 +6,25 @@ import { Schedule } from "./Schedule";
 
 export class CreateS3IngestionRequest extends $dara.Model {
   configuration?: S3IngestionConfiguration;
+  /**
+   * @example
+   * test
+   */
   description?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * test
    */
   displayName?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * test
    */
   name?: string;
   schedule?: Schedule;

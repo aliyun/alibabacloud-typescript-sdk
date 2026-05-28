@@ -4,28 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class IndexJsonKey extends $dara.Model {
   /**
+   * @remarks
+   * Alias.
+   * 
    * @example
    * myAlias
    */
   alias?: string;
   /**
+   * @remarks
+   * Case sensitivity.
+   * 
    * @example
    * true
    */
   caseSensitive?: boolean;
   /**
+   * @remarks
+   * Whether the field contains Chinese characters.
+   * 
    * @example
    * true
    */
   chn?: boolean;
   /**
+   * @remarks
+   * Whether to enable statistics.
+   * 
    * @example
    * true
    */
   docValue?: boolean;
+  /**
+   * @remarks
+   * Delimiter.
+   */
   token?: string[];
   /**
    * @remarks
+   * The data type of the field.
+   * 
    * This parameter is required.
    * 
    * @example

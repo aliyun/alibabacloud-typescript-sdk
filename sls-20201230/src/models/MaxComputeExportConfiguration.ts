@@ -6,39 +6,49 @@ import { MaxComputeExportConfigurationSink } from "./MaxComputeExportConfigurati
 export class MaxComputeExportConfiguration extends $dara.Model {
   /**
    * @remarks
+   * The beginning of the time range to ship data. The value 1 specifies that the data shipping job ships data from the first log in the Logstore.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1
+   * 1718380800
    */
   fromTime?: number;
   /**
    * @remarks
+   * The name of the Logstore.
+   * 
    * This parameter is required.
    * 
    * @example
-   * sls-logstore-demo
+   * my-logstore
    */
   logstore?: string;
   /**
    * @remarks
+   * The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role that is used to read data from Simple Log Service.
+   * 
    * This parameter is required.
    * 
    * @example
-   * acs:ram::123456789:role/aliyunlogdefaultrole
+   * acs:ram::1234567890:role/aliyunlogdefaultrole
    */
   roleArn?: string;
   /**
    * @remarks
+   * The configuration of the MaxCompute data shipping job.
+   * 
    * This parameter is required.
    */
   sink?: MaxComputeExportConfigurationSink;
   /**
    * @remarks
+   * The end of the time range to ship data. The value 0 specifies that the data shipping job continuously ships data until the job is manually stopped.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 0
+   * 1718390800
    */
   toTime?: number;
   static names(): { [key: string]: string } {
