@@ -2492,6 +2492,10 @@ export default class Client extends OpenApi {
   async listImageWithOptions(request: $_model.ListImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImageResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.distro)) {
+      query["Distro"] = request.distro;
+    }
+
     if (!$dara.isNull(request.tagList)) {
       query["TagList"] = request.tagList;
     }

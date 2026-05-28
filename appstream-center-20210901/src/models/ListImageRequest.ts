@@ -65,6 +65,7 @@ export class ListImageRequest extends $dara.Model {
    * The list of all service types. It is not available publicly.
    */
   bizTypeList?: number[];
+  distro?: string;
   /**
    * @remarks
    * The features supported by the image.
@@ -256,6 +257,7 @@ export class ListImageRequest extends $dara.Model {
       bizRegionIdList: 'BizRegionIdList',
       bizType: 'BizType',
       bizTypeList: 'BizTypeList',
+      distro: 'Distro',
       featureList: 'FeatureList',
       fotaVersion: 'FotaVersion',
       imageId: 'ImageId',
@@ -282,6 +284,7 @@ export class ListImageRequest extends $dara.Model {
       bizRegionIdList: { 'type': 'array', 'itemType': 'string' },
       bizType: 'number',
       bizTypeList: { 'type': 'array', 'itemType': 'number' },
+      distro: 'string',
       featureList: { 'type': 'array', 'itemType': 'string' },
       fotaVersion: 'string',
       imageId: 'string',
