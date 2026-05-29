@@ -993,6 +993,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DeleteRoleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRoleResponse
+   */
+  async deleteRoleWithOptions(projectName: string, roleName: string, request: $_model.DeleteRoleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRoleResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRole",
+      version: "2022-01-04",
+      protocol: "HTTPS",
+      pathname: `/api/v1/projects/${$dara.URL.percentEncode(projectName)}/roles/${$dara.URL.percentEncode(roleName)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRoleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRoleResponse({}));
+  }
+
+  /**
+   * @param request - DeleteRoleRequest
+   * @returns DeleteRoleResponse
+   */
+  async deleteRole(projectName: string, roleName: string, request: $_model.DeleteRoleRequest): Promise<$_model.DeleteRoleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRoleWithOptions(projectName, roleName, request, headers, runtime);
+  }
+
+  /**
    * GetComputeEffectivePlan.
    * 
    * @param headers - map
