@@ -365,7 +365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+   * Associates an Internet Shared Bandwidth instance with an Application Load Balancer (ALB) instance.
    * 
    * @remarks
    * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
@@ -417,7 +417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+   * Associates an Internet Shared Bandwidth instance with an Application Load Balancer (ALB) instance.
    * 
    * @remarks
    * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
@@ -915,6 +915,10 @@ export default class Client extends OpenApi {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!$dara.isNull(request.securityGroupIds)) {
+      query["SecurityGroupIds"] = request.securityGroupIds;
+    }
+
     if (!$dara.isNull(request.tag)) {
       query["Tag"] = request.tag;
     }
@@ -1238,6 +1242,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.healthCheckConfig)) {
       query["HealthCheckConfig"] = request.healthCheckConfig;
+    }
+
+    if (!$dara.isNull(request.ipVersionAffinityMode)) {
+      query["IpVersionAffinityMode"] = request.ipVersionAffinityMode;
     }
 
     if (!$dara.isNull(request.ipv6Enabled)) {
@@ -1580,6 +1588,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.loadBalancerId)) {
       query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!$dara.isNull(request.retainResourceType)) {
+      query["RetainResourceType"] = request.retainResourceType;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1972,7 +1984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+   * Disassociates an Internet Shared Bandwidth instance from an Application Load Balancer (ALB) instance.
    * 
    * @remarks
    * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
@@ -2024,7 +2036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+   * Disassociates an Internet Shared Bandwidth instance from an Application Load Balancer (ALB) instance.
    * 
    * @remarks
    * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
@@ -2090,7 +2102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the access log feature for a Server Load Balancer (SLB) instance.
+   * Disables the access log feature for a Application Load Balancer (ALB) instance.
    * 
    * @param request - DisableLoadBalancerAccessLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2129,7 +2141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the access log feature for a Server Load Balancer (SLB) instance.
+   * Disables the access log feature for a Application Load Balancer (ALB) instance.
    * 
    * @param request - DisableLoadBalancerAccessLogRequest
    * @returns DisableLoadBalancerAccessLogResponse
@@ -3562,7 +3574,6 @@ export default class Client extends OpenApi {
   /**
    * Queries system security policies in a region.
    * 
-   * @param request - ListSystemSecurityPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSystemSecurityPoliciesResponse
    */
@@ -4941,6 +4952,10 @@ export default class Client extends OpenApi {
       query["LoadBalancerId"] = request.loadBalancerId;
     }
 
+    if (!$dara.isNull(request.retainResourceType)) {
+      query["RetainResourceType"] = request.retainResourceType;
+    }
+
     if (!$dara.isNull(request.zoneMappings)) {
       query["ZoneMappings"] = request.zoneMappings;
     }
@@ -5142,6 +5157,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.loadBalancerId)) {
       query["LoadBalancerId"] = request.loadBalancerId;
+    }
+
+    if (!$dara.isNull(request.retainResourceType)) {
+      query["RetainResourceType"] = request.retainResourceType;
     }
 
     if (!$dara.isNull(request.zoneMappings)) {
@@ -5412,7 +5431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+   * Modifies the configurations of a server group, such as health checks, session persistence, the server group name, the routing algorithm, and the protocol.
    * 
    * @remarks
    * ## Description
@@ -5445,6 +5464,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.healthCheckConfig)) {
       query["HealthCheckConfig"] = request.healthCheckConfig;
+    }
+
+    if (!$dara.isNull(request.ipVersionAffinityMode)) {
+      query["IpVersionAffinityMode"] = request.ipVersionAffinityMode;
     }
 
     if (!$dara.isNull(request.scheduler)) {
@@ -5497,7 +5520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+   * Modifies the configurations of a server group, such as health checks, session persistence, the server group name, the routing algorithm, and the protocol.
    * 
    * @remarks
    * ## Description

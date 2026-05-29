@@ -3,11 +3,41 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateRulesAttributeRequestRulesRuleActionsCorsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to allow credentials to be carried in CORS requests.
+   * 
+   * @example
+   * on
+   */
   allowCredentials?: string;
+  /**
+   * @remarks
+   * The trusted headers of CORS requests.
+   */
   allowHeaders?: string[];
+  /**
+   * @remarks
+   * The trusted HTTP methods of CORS requests.
+   */
   allowMethods?: string[];
+  /**
+   * @remarks
+   * The trusted origins.
+   */
   allowOrigin?: string[];
+  /**
+   * @remarks
+   * The headers that can be exposed.
+   */
   exposeHeaders?: string[];
+  /**
+   * @remarks
+   * The maximum cache time for dry runs in the browser.
+   * 
+   * @example
+   * 1000
+   */
   maxAge?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,8 +83,29 @@ export class UpdateRulesAttributeRequestRulesRuleActionsCorsConfig extends $dara
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the response.
+   * 
+   * @example
+   * dssacav
+   */
   content?: string;
+  /**
+   * @remarks
+   * The content type of the response.
+   * 
+   * @example
+   * text/plain
+   */
   contentType?: string;
+  /**
+   * @remarks
+   * The HTTP status code in the response.
+   * 
+   * @example
+   * 200
+   */
   httpCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -82,7 +133,21 @@ export class UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig exte
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable session persistence.
+   * 
+   * @example
+   * false
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The timeout period for sessions.
+   * 
+   * @example
+   * 2
+   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -108,7 +173,21 @@ export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServer
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupTuples extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the server group.
+   * 
+   * @example
+   * sg-atstuj3rtoptyui****
+   */
   serverGroupId?: string;
+  /**
+   * @remarks
+   * The weight of the server group.
+   * 
+   * @example
+   * 30
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -134,7 +213,15 @@ export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServer
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of session persistence for server groups.
+   */
   serverGroupStickySession?: UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession;
+  /**
+   * @remarks
+   * The server groups to which requests are forwarded.
+   */
   serverGroupTuples?: UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -166,9 +253,37 @@ export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to overwrite the header in the request.
+   * 
+   * @example
+   * false
+   */
   coverEnabled?: boolean;
+  /**
+   * @remarks
+   * The key of the HTTP header.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the HTTP header.
+   * 
+   * @example
+   * UserDefined
+   */
   value?: string;
+  /**
+   * @remarks
+   * The type of the header value.
+   * 
+   * @example
+   * UserDefined
+   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -198,11 +313,53 @@ export class UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsRedirectConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The hostname to which requests are redirected.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The HTTP status code that indicates the redirect type.
+   * 
+   * @example
+   * 301
+   */
   httpCode?: string;
+  /**
+   * @remarks
+   * The path of the destination to which requests are forwarded.
+   * 
+   * @example
+   * /test
+   */
   path?: string;
+  /**
+   * @remarks
+   * The port to which requests are forwarded.
+   * 
+   * @example
+   * 10
+   */
   port?: string;
+  /**
+   * @remarks
+   * The protocol of the destination to which requests are forwarded.
+   * 
+   * @example
+   * HTTP
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The query string to which requests are redirected.
+   * 
+   * @example
+   * quert
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -236,6 +393,13 @@ export class UpdateRulesAttributeRequestRulesRuleActionsRedirectConfig extends $
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsRemoveHeaderConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the header.
+   * 
+   * @example
+   * Port
+   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -259,8 +423,29 @@ export class UpdateRulesAttributeRequestRulesRuleActionsRemoveHeaderConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsRewriteConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The hostname of the destination to which requests are forwarded.
+   * 
+   * @example
+   * www.example.com
+   */
   host?: string;
+  /**
+   * @remarks
+   * The path to which requests are forwarded.
+   * 
+   * @example
+   * /tsdf
+   */
   path?: string;
+  /**
+   * @remarks
+   * The query string of the URL to which requests are forwarded.
+   * 
+   * @example
+   * quedsa
+   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -288,7 +473,21 @@ export class UpdateRulesAttributeRequestRulesRuleActionsRewriteConfig extends $d
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The number of requests per IP address.
+   * 
+   * @example
+   * 80
+   */
   perIpQps?: number;
+  /**
+   * @remarks
+   * The number of queries per second (QPS).
+   * 
+   * @example
+   * 2
+   */
   QPS?: number;
   static names(): { [key: string]: string } {
     return {
@@ -314,6 +513,13 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples extends $dara.Model {
+  /**
+   * @remarks
+   * The server group ID.
+   * 
+   * @example
+   * srg-00mkgijak0w4qgz9****
+   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -337,6 +543,10 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirro
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The server group to which traffic is mirrored.
+   */
   serverGroupTuples?: UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -363,7 +573,18 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirro
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the server group to which traffic is mirrored.
+   */
   mirrorGroupConfig?: UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig;
+  /**
+   * @remarks
+   * The type of the target to which network traffic is mirrored.
+   * 
+   * @example
+   * ForwardGroupMirror
+   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -392,23 +613,69 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfig exte
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActions extends $dara.Model {
+  /**
+   * @remarks
+   * The cross-origin resource sharing (CORS) configuration.
+   */
   corsConfig?: UpdateRulesAttributeRequestRulesRuleActionsCorsConfig;
+  /**
+   * @remarks
+   * The configuration of the action to return a custom response.
+   */
   fixedResponseConfig?: UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig;
+  /**
+   * @remarks
+   * The configuration of the action to forward requests to server groups.
+   */
   forwardGroupConfig?: UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig;
+  /**
+   * @remarks
+   * The configuration of the action to insert a header.
+   */
   insertHeaderConfig?: UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig;
   /**
    * @remarks
+   * The priority of the action.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   order?: number;
+  /**
+   * @remarks
+   * The configuration of the redirect action.
+   */
   redirectConfig?: UpdateRulesAttributeRequestRulesRuleActionsRedirectConfig;
+  /**
+   * @remarks
+   * The configuration of the HTTP header to be removed.
+   */
   removeHeaderConfig?: UpdateRulesAttributeRequestRulesRuleActionsRemoveHeaderConfig;
+  /**
+   * @remarks
+   * The configuration of the rewrite action.
+   */
   rewriteConfig?: UpdateRulesAttributeRequestRulesRuleActionsRewriteConfig;
+  /**
+   * @remarks
+   * The configuration of traffic throttling.
+   */
   trafficLimitConfig?: UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig;
+  /**
+   * @remarks
+   * The configuration of traffic mirroring.
+   */
   trafficMirrorConfig?: UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfig;
   /**
    * @remarks
+   * The type of action.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Host
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -480,7 +747,21 @@ export class UpdateRulesAttributeRequestRulesRuleActions extends $dara.Model {
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfigValues extends $dara.Model {
+  /**
+   * @remarks
+   * The cookie key.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The cookie value.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -506,6 +787,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfigValues ex
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The key-value pairs of cookies.
+   */
   values?: UpdateRulesAttributeRequestRulesRuleConditionsCookieConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -532,7 +817,18 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfig extends 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsHeaderConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the header.
+   * 
+   * @example
+   * Port
+   */
   key?: string;
+  /**
+   * @remarks
+   * The values of the HTTP header.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -561,6 +857,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsHeaderConfig extends 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsHostConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The hostnames.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -587,6 +887,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsHostConfig extends $d
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsMethodConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The HTTP request methods.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -613,6 +917,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsMethodConfig extends 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsPathConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The paths to which requests are forwarded.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -639,7 +947,21 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsPathConfig extends $d
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfigValues extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the query string.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the query string.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -665,6 +987,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfigValu
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The key-value pairs of query strings.
+   */
   values?: UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -691,7 +1017,18 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfig ext
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsResponseHeaderConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the response header.
+   * 
+   * @example
+   * test
+   */
   key?: string;
+  /**
+   * @remarks
+   * The values of the response header.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -720,6 +1057,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsResponseHeaderConfig 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsResponseStatusCodeConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The match conditions.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -746,6 +1087,10 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsResponseStatusCodeCon
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsSourceIpConfig extends $dara.Model {
+  /**
+   * @remarks
+   * You can add one or more IP addresses, including CIDR blocks.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -772,15 +1117,58 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsSourceIpConfig extend
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration of the cookie.
+   */
   cookieConfig?: UpdateRulesAttributeRequestRulesRuleConditionsCookieConfig;
+  /**
+   * @remarks
+   * The configuration of the HTTP header.
+   */
   headerConfig?: UpdateRulesAttributeRequestRulesRuleConditionsHeaderConfig;
+  /**
+   * @remarks
+   * The match conditions for hostnames.
+   */
   hostConfig?: UpdateRulesAttributeRequestRulesRuleConditionsHostConfig;
+  /**
+   * @remarks
+   * The configuration of the HTTP request method.
+   */
   methodConfig?: UpdateRulesAttributeRequestRulesRuleConditionsMethodConfig;
+  /**
+   * @remarks
+   * The match conditions for query strings.
+   */
   pathConfig?: UpdateRulesAttributeRequestRulesRuleConditionsPathConfig;
+  /**
+   * @remarks
+   * The match conditions for query strings.
+   */
   queryStringConfig?: UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfig;
+  /**
+   * @remarks
+   * The HTTP response headers.
+   */
   responseHeaderConfig?: UpdateRulesAttributeRequestRulesRuleConditionsResponseHeaderConfig;
+  /**
+   * @remarks
+   * The match conditions for response status codes.
+   */
   responseStatusCodeConfig?: UpdateRulesAttributeRequestRulesRuleConditionsResponseStatusCodeConfig;
+  /**
+   * @remarks
+   * Traffic matching based on source IP addresses.
+   */
   sourceIpConfig?: UpdateRulesAttributeRequestRulesRuleConditionsSourceIpConfig;
+  /**
+   * @remarks
+   * The condition type of the forwarding rule.
+   * 
+   * @example
+   * ForwardGroup
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -849,14 +1237,41 @@ export class UpdateRulesAttributeRequestRulesRuleConditions extends $dara.Model 
 }
 
 export class UpdateRulesAttributeRequestRules extends $dara.Model {
+  /**
+   * @remarks
+   * The priority of the forwarding rule.
+   * 
+   * @example
+   * 10
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The forwarding rules.
+   */
   ruleActions?: UpdateRulesAttributeRequestRulesRuleActions[];
+  /**
+   * @remarks
+   * The match conditions of the forwarding rule.
+   */
   ruleConditions?: UpdateRulesAttributeRequestRulesRuleConditions[];
   /**
    * @remarks
+   * The ID of the forwarding rule.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * rule-cxjh7vazn2jpnl****
    */
   ruleId?: string;
+  /**
+   * @remarks
+   * The name of the forwarding rule.
+   * 
+   * @example
+   * rule-instance-test
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -919,6 +1334,8 @@ export class UpdateRulesAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
+   * The forwarding rules.
+   * 
    * This parameter is required.
    */
   rules?: UpdateRulesAttributeRequestRules[];

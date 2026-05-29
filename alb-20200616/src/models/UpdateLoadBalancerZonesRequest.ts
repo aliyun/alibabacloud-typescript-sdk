@@ -105,6 +105,7 @@ export class UpdateLoadBalancerZonesRequest extends $dara.Model {
    * lb-bp1b6c719dfa08ex****
    */
   loadBalancerId?: string;
+  retainResourceType?: string[];
   /**
    * @remarks
    * The zones and the vSwitches in the zones. You can specify a maximum of 10 zones. If the selected region supports two or more zones, select at least two zones to ensure the high availability of your service. The specified zones and vSwitches overwrite the existing configurations.
@@ -117,6 +118,7 @@ export class UpdateLoadBalancerZonesRequest extends $dara.Model {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       loadBalancerId: 'LoadBalancerId',
+      retainResourceType: 'RetainResourceType',
       zoneMappings: 'ZoneMappings',
     };
   }
@@ -126,11 +128,15 @@ export class UpdateLoadBalancerZonesRequest extends $dara.Model {
       clientToken: 'string',
       dryRun: 'boolean',
       loadBalancerId: 'string',
+      retainResourceType: { 'type': 'array', 'itemType': 'string' },
       zoneMappings: { 'type': 'array', 'itemType': UpdateLoadBalancerZonesRequestZoneMappings },
     };
   }
 
   validate() {
+    if(Array.isArray(this.retainResourceType)) {
+      $dara.Model.validateArray(this.retainResourceType);
+    }
     if(Array.isArray(this.zoneMappings)) {
       $dara.Model.validateArray(this.zoneMappings);
     }

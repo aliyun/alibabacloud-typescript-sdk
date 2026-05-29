@@ -457,6 +457,11 @@ export class ListServerGroupsResponseBodyServerGroups extends $dara.Model {
    */
   healthCheckConfig?: ListServerGroupsResponseBodyServerGroupsHealthCheckConfig;
   /**
+   * @example
+   * Affinity
+   */
+  ipVersionAffinityMode?: string;
+  /**
    * @remarks
    * Indicates whether IPv6 is supported. Valid values:
    * 
@@ -613,6 +618,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $dara.Model {
       createTime: 'CreateTime',
       crossZoneEnabled: 'CrossZoneEnabled',
       healthCheckConfig: 'HealthCheckConfig',
+      ipVersionAffinityMode: 'IpVersionAffinityMode',
       ipv6Enabled: 'Ipv6Enabled',
       protocol: 'Protocol',
       relatedLoadBalancerIds: 'RelatedLoadBalancerIds',
@@ -640,6 +646,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $dara.Model {
       createTime: 'string',
       crossZoneEnabled: 'boolean',
       healthCheckConfig: ListServerGroupsResponseBodyServerGroupsHealthCheckConfig,
+      ipVersionAffinityMode: 'string',
       ipv6Enabled: 'boolean',
       protocol: 'string',
       relatedLoadBalancerIds: { 'type': 'array', 'itemType': 'string' },

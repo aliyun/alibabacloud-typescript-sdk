@@ -17,6 +17,7 @@ export { CreateListenerRequestTag } from './CreateListenerRequest';
 export { CreateListenerRequestXForwardedForConfig } from './CreateListenerRequest';
 export { CreateLoadBalancerRequestLoadBalancerBillingConfig } from './CreateLoadBalancerRequest';
 export { CreateLoadBalancerRequestModificationProtectionConfig } from './CreateLoadBalancerRequest';
+export { CreateLoadBalancerRequestSecurityGroupIds } from './CreateLoadBalancerRequest';
 export { CreateLoadBalancerRequestTag } from './CreateLoadBalancerRequest';
 export { CreateLoadBalancerRequestZoneMappings } from './CreateLoadBalancerRequest';
 export { CreateRuleRequestRuleActionsCorsConfig } from './CreateRuleRequest';

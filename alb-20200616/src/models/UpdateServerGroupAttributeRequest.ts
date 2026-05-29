@@ -463,6 +463,11 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
    */
   healthCheckConfig?: UpdateServerGroupAttributeRequestHealthCheckConfig;
   /**
+   * @example
+   * Affinity
+   */
+  ipVersionAffinityMode?: string;
+  /**
    * @remarks
    * The scheduling algorithm. Valid values:
    * 
@@ -538,6 +543,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
       crossZoneEnabled: 'CrossZoneEnabled',
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
+      ipVersionAffinityMode: 'IpVersionAffinityMode',
       scheduler: 'Scheduler',
       serverGroupId: 'ServerGroupId',
       serverGroupName: 'ServerGroupName',
@@ -556,6 +562,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
       crossZoneEnabled: 'boolean',
       dryRun: 'boolean',
       healthCheckConfig: UpdateServerGroupAttributeRequestHealthCheckConfig,
+      ipVersionAffinityMode: 'string',
       scheduler: 'string',
       serverGroupId: 'string',
       serverGroupName: 'string',

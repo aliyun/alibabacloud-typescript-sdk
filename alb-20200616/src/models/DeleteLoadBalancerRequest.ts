@@ -34,11 +34,13 @@ export class DeleteLoadBalancerRequest extends $dara.Model {
    * lb-bp1b6c719dfa08ex****
    */
   loadBalancerId?: string;
+  retainResourceType?: string[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
       dryRun: 'DryRun',
       loadBalancerId: 'LoadBalancerId',
+      retainResourceType: 'RetainResourceType',
     };
   }
 
@@ -47,10 +49,14 @@ export class DeleteLoadBalancerRequest extends $dara.Model {
       clientToken: 'string',
       dryRun: 'boolean',
       loadBalancerId: 'string',
+      retainResourceType: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
+    if(Array.isArray(this.retainResourceType)) {
+      $dara.Model.validateArray(this.retainResourceType);
+    }
     super.validate();
   }
 

@@ -95,6 +95,33 @@ export class CreateLoadBalancerRequestModificationProtectionConfig extends $dara
   }
 }
 
+export class CreateLoadBalancerRequestSecurityGroupIds extends $dara.Model {
+  /**
+   * @example
+   * sg-gw82chzr7ru23iwbn9mu
+   */
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      securityGroupId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateLoadBalancerRequestTag extends $dara.Model {
   /**
    * @remarks
@@ -330,6 +357,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
    * rg-atstuj3rtop****
    */
   resourceGroupId?: string;
+  securityGroupIds?: CreateLoadBalancerRequestSecurityGroupIds[];
   /**
    * @remarks
    * The tags.
@@ -365,6 +393,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
       loadBalancerName: 'LoadBalancerName',
       modificationProtectionConfig: 'ModificationProtectionConfig',
       resourceGroupId: 'ResourceGroupId',
+      securityGroupIds: 'SecurityGroupIds',
       tag: 'Tag',
       vpcId: 'VpcId',
       zoneMappings: 'ZoneMappings',
@@ -384,6 +413,7 @@ export class CreateLoadBalancerRequest extends $dara.Model {
       loadBalancerName: 'string',
       modificationProtectionConfig: CreateLoadBalancerRequestModificationProtectionConfig,
       resourceGroupId: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': CreateLoadBalancerRequestSecurityGroupIds },
       tag: { 'type': 'array', 'itemType': CreateLoadBalancerRequestTag },
       vpcId: 'string',
       zoneMappings: { 'type': 'array', 'itemType': CreateLoadBalancerRequestZoneMappings },
@@ -396,6 +426,9 @@ export class CreateLoadBalancerRequest extends $dara.Model {
     }
     if(this.modificationProtectionConfig && typeof (this.modificationProtectionConfig as any).validate === 'function') {
       (this.modificationProtectionConfig as any).validate();
+    }
+    if(Array.isArray(this.securityGroupIds)) {
+      $dara.Model.validateArray(this.securityGroupIds);
     }
     if(Array.isArray(this.tag)) {
       $dara.Model.validateArray(this.tag);

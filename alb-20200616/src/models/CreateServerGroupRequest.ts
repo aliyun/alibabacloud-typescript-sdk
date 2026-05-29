@@ -513,6 +513,11 @@ export class CreateServerGroupRequest extends $dara.Model {
    */
   healthCheckConfig?: CreateServerGroupRequestHealthCheckConfig;
   /**
+   * @example
+   * Affinity
+   */
+  ipVersionAffinityMode?: string;
+  /**
    * @remarks
    * Specifies whether to enable Ipv6.
    * 
@@ -638,6 +643,7 @@ export class CreateServerGroupRequest extends $dara.Model {
       crossZoneEnabled: 'CrossZoneEnabled',
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
+      ipVersionAffinityMode: 'IpVersionAffinityMode',
       ipv6Enabled: 'Ipv6Enabled',
       protocol: 'Protocol',
       resourceGroupId: 'ResourceGroupId',
@@ -661,6 +667,7 @@ export class CreateServerGroupRequest extends $dara.Model {
       crossZoneEnabled: 'boolean',
       dryRun: 'boolean',
       healthCheckConfig: CreateServerGroupRequestHealthCheckConfig,
+      ipVersionAffinityMode: 'string',
       ipv6Enabled: 'boolean',
       protocol: 'string',
       resourceGroupId: 'string',
