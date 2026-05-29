@@ -31,6 +31,7 @@ export class ListAgentlessAssetRequest extends $dara.Model {
    * s-bp1g6wxdwps7s9dz****
    */
   instanceId?: string;
+  instanceIds?: string[];
   /**
    * @remarks
    * The name of the asset instance.
@@ -80,6 +81,7 @@ export class ListAgentlessAssetRequest extends $dara.Model {
       currentPage: 'CurrentPage',
       diskType: 'DiskType',
       instanceId: 'InstanceId',
+      instanceIds: 'InstanceIds',
       instanceName: 'InstanceName',
       pageSize: 'PageSize',
       platform: 'Platform',
@@ -93,6 +95,7 @@ export class ListAgentlessAssetRequest extends $dara.Model {
       currentPage: 'number',
       diskType: 'string',
       instanceId: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
       instanceName: 'string',
       pageSize: 'number',
       platform: 'string',
@@ -102,6 +105,9 @@ export class ListAgentlessAssetRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.instanceIds)) {
+      $dara.Model.validateArray(this.instanceIds);
+    }
     super.validate();
   }
 
