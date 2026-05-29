@@ -88,6 +88,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设置自动销账
+   * 
+   * @param request - AutomaticWriteOffRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AutomaticWriteOffResponse
+   */
+  async automaticWriteOffWithOptions(request: $_model.AutomaticWriteOffRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AutomaticWriteOffResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.automaticWriteOffAmount)) {
+      query["AutomaticWriteOffAmount"] = request.automaticWriteOffAmount;
+    }
+
+    if (!$dara.isNull(request.automaticWriteOffEnabled)) {
+      query["AutomaticWriteOffEnabled"] = request.automaticWriteOffEnabled;
+    }
+
+    if (!$dara.isNull(request.customerUid)) {
+      query["CustomerUid"] = request.customerUid;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AutomaticWriteOff",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AutomaticWriteOffResponse>(await this.callApi(params, req, runtime), new $_model.AutomaticWriteOffResponse({}));
+  }
+
+  /**
+   * 设置自动销账
+   * 
+   * @param request - AutomaticWriteOffRequest
+   * @returns AutomaticWriteOffResponse
+   */
+  async automaticWriteOff(request: $_model.AutomaticWriteOffRequest): Promise<$_model.AutomaticWriteOffResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.automaticWriteOffWithOptions(request, runtime);
+  }
+
+  /**
    * 作废优惠券
    * 
    * @param request - CancelCouponRequest
@@ -1844,6 +1898,68 @@ export default class Client extends OpenApi {
   async processApproval(request: $_model.ProcessApprovalRequest): Promise<$_model.ProcessApprovalResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.processApprovalWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询自动销账变更记录
+   * 
+   * @param request - QueryAutomaticWriteOffChangeRecordsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAutomaticWriteOffChangeRecordsResponse
+   */
+  async queryAutomaticWriteOffChangeRecordsWithOptions(request: $_model.QueryAutomaticWriteOffChangeRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAutomaticWriteOffChangeRecordsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.customerUid)) {
+      query["CustomerUid"] = request.customerUid;
+    }
+
+    if (!$dara.isNull(request.endDate)) {
+      query["EndDate"] = request.endDate;
+    }
+
+    if (!$dara.isNull(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startDate)) {
+      query["StartDate"] = request.startDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAutomaticWriteOffChangeRecords",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAutomaticWriteOffChangeRecordsResponse>(await this.callApi(params, req, runtime), new $_model.QueryAutomaticWriteOffChangeRecordsResponse({}));
+  }
+
+  /**
+   * 查询自动销账变更记录
+   * 
+   * @param request - QueryAutomaticWriteOffChangeRecordsRequest
+   * @returns QueryAutomaticWriteOffChangeRecordsResponse
+   */
+  async queryAutomaticWriteOffChangeRecords(request: $_model.QueryAutomaticWriteOffChangeRecordsRequest): Promise<$_model.QueryAutomaticWriteOffChangeRecordsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAutomaticWriteOffChangeRecordsWithOptions(request, runtime);
   }
 
   /**
