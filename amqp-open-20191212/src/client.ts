@@ -30,6 +30,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 增加实例白名单
+   * 
+   * @param tmpReq - AddInstanceWhiteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddInstanceWhiteListResponse
+   */
+  async addInstanceWhiteListWithOptions(tmpReq: $_model.AddInstanceWhiteListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddInstanceWhiteListResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddInstanceWhiteListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.whiteListItem)) {
+      request.whiteListItemShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.whiteListItem, "WhiteListItem", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.whiteListItemShrink)) {
+      query["WhiteListItem"] = request.whiteListItemShrink;
+    }
+
+    if (!$dara.isNull(request.whiteListType)) {
+      query["WhiteListType"] = request.whiteListType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddInstanceWhiteList",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddInstanceWhiteListResponse>(await this.callApi(params, req, runtime), new $_model.AddInstanceWhiteListResponse({}));
+  }
+
+  /**
+   * 增加实例白名单
+   * 
+   * @param request - AddInstanceWhiteListRequest
+   * @returns AddInstanceWhiteListResponse
+   */
+  async addInstanceWhiteList(request: $_model.AddInstanceWhiteListRequest): Promise<$_model.AddInstanceWhiteListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addInstanceWhiteListWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a pair of static username and password. If you access an ApsaraMQ for RabbitMQ broker from an open source RabbitMQ client, you must use a pair of username and password for authentication. You can access the ApsaraMQ for RabbitMQ broker only after the authentication is passed. ApsaraMQ for RabbitMQ allows you to generate usernames and passwords by using AccessKey pairs provided by Alibaba Cloud Resource Access Management (RAM).
    * 
    * @param request - CreateAccountRequest
@@ -1078,6 +1134,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例ip/vpc白名单
+   * 
+   * @param request - ListInstanceWhiteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInstanceWhiteListResponse
+   */
+  async listInstanceWhiteListWithOptions(request: $_model.ListInstanceWhiteListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstanceWhiteListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.whiteListType)) {
+      query["whiteListType"] = request.whiteListType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInstanceWhiteList",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInstanceWhiteListResponse>(await this.callApi(params, req, runtime), new $_model.ListInstanceWhiteListResponse({}));
+  }
+
+  /**
+   * 查询实例ip/vpc白名单
+   * 
+   * @param request - ListInstanceWhiteListRequest
+   * @returns ListInstanceWhiteListResponse
+   */
+  async listInstanceWhiteList(request: $_model.ListInstanceWhiteListRequest): Promise<$_model.ListInstanceWhiteListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInstanceWhiteListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries all AparaMQ for RabbitMQ instances in a region. The returned data includes the basic information, endpoint, and specification limits of each instance.
    * 
    * @param request - ListInstancesRequest
@@ -1271,6 +1373,56 @@ export default class Client extends OpenApi {
   async listVirtualHosts(request: $_model.ListVirtualHostsRequest): Promise<$_model.ListVirtualHostsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listVirtualHostsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除实例ip/vpc白名单
+   * 
+   * @param request - RemoveInstanceWhiteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveInstanceWhiteListResponse
+   */
+  async removeInstanceWhiteListWithOptions(request: $_model.RemoveInstanceWhiteListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveInstanceWhiteListResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.whiteListItemId)) {
+      query["whiteListItemId"] = request.whiteListItemId;
+    }
+
+    if (!$dara.isNull(request.whiteListType)) {
+      query["whiteListType"] = request.whiteListType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveInstanceWhiteList",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveInstanceWhiteListResponse>(await this.callApi(params, req, runtime), new $_model.RemoveInstanceWhiteListResponse({}));
+  }
+
+  /**
+   * 删除实例ip/vpc白名单
+   * 
+   * @param request - RemoveInstanceWhiteListRequest
+   * @returns RemoveInstanceWhiteListResponse
+   */
+  async removeInstanceWhiteList(request: $_model.RemoveInstanceWhiteListRequest): Promise<$_model.RemoveInstanceWhiteListResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeInstanceWhiteListWithOptions(request, runtime);
   }
 
   /**
