@@ -1,3 +1,12 @@
+export { ChatRequestInputContent } from './ChatRequest';
+export { ChatRequestInput } from './ChatRequest';
+export { ChatRequestSettings } from './ChatRequest';
+export { ChatRequestStreamOptions } from './ChatRequest';
+export { ChatResponseBodyContent } from './ChatResponseBody';
+export { ChatRequest } from './ChatRequest';
+export { ChatShrinkRequest } from './ChatShrinkRequest';
+export { ChatResponseBody } from './ChatResponseBody';
+export { ChatResponse } from './ChatResponse';
 export { GetAccessTokenRequest } from './GetAccessTokenRequest';
 export { GetAccessTokenResponseBody } from './GetAccessTokenResponseBody';
 export { GetAccessTokenResponse } from './GetAccessTokenResponse';
