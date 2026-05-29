@@ -214,6 +214,8 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
    * true
    */
   modelConfigure?: boolean;
+  modelTemplateId?: string;
+  modelTemplateName?: string;
   osType?: string;
   qrCodeConfiguringList?: string[];
   /**
@@ -221,6 +223,7 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  regionLocation?: string;
   resourceGroup?: ListDesktopAgentRuntimeResponseBodyDataResourceGroup;
   /**
    * @example
@@ -240,9 +243,12 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
       desktopStatus: 'DesktopStatus',
       hasAuthUser: 'HasAuthUser',
       modelConfigure: 'ModelConfigure',
+      modelTemplateId: 'ModelTemplateId',
+      modelTemplateName: 'ModelTemplateName',
       osType: 'OsType',
       qrCodeConfiguringList: 'QrCodeConfiguringList',
       regionId: 'RegionId',
+      regionLocation: 'RegionLocation',
       resourceGroup: 'ResourceGroup',
       resourceId: 'ResourceId',
       riskInfo: 'RiskInfo',
@@ -261,9 +267,12 @@ export class ListDesktopAgentRuntimeResponseBodyData extends $dara.Model {
       desktopStatus: 'string',
       hasAuthUser: 'boolean',
       modelConfigure: 'boolean',
+      modelTemplateId: 'string',
+      modelTemplateName: 'string',
       osType: 'string',
       qrCodeConfiguringList: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      regionLocation: 'string',
       resourceGroup: ListDesktopAgentRuntimeResponseBodyDataResourceGroup,
       resourceId: 'string',
       riskInfo: ListDesktopAgentRuntimeResponseBodyDataRiskInfo,

@@ -157,12 +157,16 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
    * model-template-001
    */
   modelTemplateName?: string;
+  modelTemplateRefType?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       defaultModel: 'DefaultModel',
       modelProviderList: 'ModelProviderList',
       modelTemplateId: 'ModelTemplateId',
       modelTemplateName: 'ModelTemplateName',
+      modelTemplateRefType: 'ModelTemplateRefType',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -172,6 +176,8 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
       modelProviderList: { 'type': 'array', 'itemType': GetRuntimeModelConfigResponseBodyDataModelProviderList },
       modelTemplateId: 'string',
       modelTemplateName: 'string',
+      modelTemplateRefType: 'string',
+      resourceGroupId: 'string',
     };
   }
 

@@ -4,6 +4,7 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRuntimeChannelResponseBodyData extends $dara.Model {
   avatarUrl?: string;
+  channelType?: string;
   /**
    * @example
    * dingtalk-connector
@@ -33,6 +34,7 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       avatarUrl: 'AvatarUrl',
+      channelType: 'ChannelType',
       code: 'Code',
       config: 'Config',
       configMode: 'ConfigMode',
@@ -46,6 +48,7 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       avatarUrl: 'string',
+      channelType: 'string',
       code: 'string',
       config: 'string',
       configMode: 'string',

@@ -2679,6 +2679,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询模型提供商 Endpoint 列表
+   * 
+   * @param request - ListModelProviderEndpointsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelProviderEndpointsResponse
+   */
+  async listModelProviderEndpointsWithOptions(request: $_model.ListModelProviderEndpointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelProviderEndpointsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      query["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.providerName)) {
+      query["ProviderName"] = request.providerName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelProviderEndpoints",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelProviderEndpointsResponse>(await this.callApi(params, req, runtime), new $_model.ListModelProviderEndpointsResponse({}));
+  }
+
+  /**
+   * 查询模型提供商 Endpoint 列表
+   * 
+   * @param request - ListModelProviderEndpointsRequest
+   * @returns ListModelProviderEndpointsResponse
+   */
+  async listModelProviderEndpoints(request: $_model.ListModelProviderEndpointsRequest): Promise<$_model.ListModelProviderEndpointsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listModelProviderEndpointsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询模型提供商模板列表
    * 
    * @param tmpReq - ListModelProviderTemplatesRequest
