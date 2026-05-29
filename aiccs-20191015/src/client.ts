@@ -6051,6 +6051,10 @@ export default class Client extends OpenApi {
       query["TtsVoiceCode"] = request.ttsVoiceCode;
     }
 
+    if (!$dara.isNull(request.voiceType)) {
+      query["VoiceType"] = request.voiceType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });

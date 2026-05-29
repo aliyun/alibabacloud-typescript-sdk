@@ -43,6 +43,11 @@ export class ListAvailableTtsResponseBodyData extends $dara.Model {
    * 示例值示例值
    */
   ttsVoiceName?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  voiceType?: string;
   static names(): { [key: string]: string } {
     return {
       ttsAuditionFileUrl: 'TtsAuditionFileUrl',
@@ -50,6 +55,7 @@ export class ListAvailableTtsResponseBodyData extends $dara.Model {
       ttsStyle: 'TtsStyle',
       ttsVoiceCode: 'TtsVoiceCode',
       ttsVoiceName: 'TtsVoiceName',
+      voiceType: 'VoiceType',
     };
   }
 
@@ -60,6 +66,7 @@ export class ListAvailableTtsResponseBodyData extends $dara.Model {
       ttsStyle: 'string',
       ttsVoiceCode: 'string',
       ttsVoiceName: 'string',
+      voiceType: 'string',
     };
   }
 

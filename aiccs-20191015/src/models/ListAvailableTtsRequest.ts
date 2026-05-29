@@ -14,12 +14,18 @@ export class ListAvailableTtsRequest extends $dara.Model {
    * V123456789
    */
   ttsVoiceCode?: string;
+  /**
+   * @example
+   * 示例值示例值
+   */
+  voiceType?: string;
   static names(): { [key: string]: string } {
     return {
       ownerId: 'OwnerId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       ttsVoiceCode: 'TtsVoiceCode',
+      voiceType: 'VoiceType',
     };
   }
 
@@ -29,6 +35,7 @@ export class ListAvailableTtsRequest extends $dara.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       ttsVoiceCode: 'string',
+      voiceType: 'string',
     };
   }
 
