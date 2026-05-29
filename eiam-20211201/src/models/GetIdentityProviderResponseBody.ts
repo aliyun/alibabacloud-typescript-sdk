@@ -737,6 +737,8 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig ext
    * true
    */
   requireRequestSigned?: boolean;
+  wantAssertionsSigned?: boolean;
+  wantResponseSigned?: boolean;
   static names(): { [key: string]: string } {
     return {
       bindingMethod: 'BindingMethod',
@@ -745,6 +747,8 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig ext
       idPSsoUrl: 'IdPSsoUrl',
       maxClockSkew: 'MaxClockSkew',
       requireRequestSigned: 'RequireRequestSigned',
+      wantAssertionsSigned: 'WantAssertionsSigned',
+      wantResponseSigned: 'WantResponseSigned',
     };
   }
 
@@ -756,6 +760,8 @@ export class GetIdentityProviderResponseBodyIdentityProviderDetailSamlConfig ext
       idPSsoUrl: 'string',
       maxClockSkew: 'number',
       requireRequestSigned: 'boolean',
+      wantAssertionsSigned: 'boolean',
+      wantResponseSigned: 'boolean',
     };
   }
 

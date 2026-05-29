@@ -442,6 +442,8 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
    * true
    */
   requireRequestSigned?: boolean;
+  wantAssertionsSigned?: boolean;
+  wantResponseSigned?: boolean;
   static names(): { [key: string]: string } {
     return {
       bindingMethod: 'BindingMethod',
@@ -450,6 +452,8 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
       idPSsoUrl: 'IdPSsoUrl',
       maxClockSkew: 'MaxClockSkew',
       requireRequestSigned: 'RequireRequestSigned',
+      wantAssertionsSigned: 'WantAssertionsSigned',
+      wantResponseSigned: 'WantResponseSigned',
     };
   }
 
@@ -461,6 +465,8 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
       idPSsoUrl: 'string',
       maxClockSkew: 'number',
       requireRequestSigned: 'boolean',
+      wantAssertionsSigned: 'boolean',
+      wantResponseSigned: 'boolean',
     };
   }
 

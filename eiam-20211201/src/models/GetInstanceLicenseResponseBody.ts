@@ -6,14 +6,18 @@ export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends 
   conditionalAccessPolicyLicenseStatus?: string;
   m2mApplicationLicenseStatus?: string;
   m2mApplicationQuota?: number;
+  mimApplicationLicenseStatus?: string;
   networkAccessEndpointQuota?: number;
+  prepaidActiveUserNumber?: number;
   userQuota?: number;
   static names(): { [key: string]: string } {
     return {
       conditionalAccessPolicyLicenseStatus: 'ConditionalAccessPolicyLicenseStatus',
       m2mApplicationLicenseStatus: 'M2mApplicationLicenseStatus',
       m2mApplicationQuota: 'M2mApplicationQuota',
+      mimApplicationLicenseStatus: 'MimApplicationLicenseStatus',
       networkAccessEndpointQuota: 'NetworkAccessEndpointQuota',
+      prepaidActiveUserNumber: 'PrepaidActiveUserNumber',
       userQuota: 'UserQuota',
     };
   }
@@ -23,7 +27,9 @@ export class GetInstanceLicenseResponseBodyLicenseInstanceLicenseDetail extends 
       conditionalAccessPolicyLicenseStatus: 'string',
       m2mApplicationLicenseStatus: 'string',
       m2mApplicationQuota: 'number',
+      mimApplicationLicenseStatus: 'string',
       networkAccessEndpointQuota: 'number',
+      prepaidActiveUserNumber: 'number',
       userQuota: 'number',
     };
   }
