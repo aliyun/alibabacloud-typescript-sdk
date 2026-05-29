@@ -4975,6 +4975,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceDomain)) {
+      query["ResourceDomain"] = request.resourceDomain;
+    }
+
     if (!$dara.isNull(request.resourceInstanceId)) {
       query["ResourceInstanceId"] = request.resourceInstanceId;
     }
@@ -8937,6 +8941,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.resourceDomain)) {
+      query["ResourceDomain"] = request.resourceDomain;
     }
 
     if (!$dara.isNull(request.resourceInstanceAccessStatus)) {

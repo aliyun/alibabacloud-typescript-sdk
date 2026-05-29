@@ -18,6 +18,7 @@ export class DescribeCloudResourceListResponseBodyCloudResourceList extends $dar
    * http
    */
   protocol?: string;
+  resourceDomain?: string;
   /**
    * @example
    * i-8vbdlsd********81e22
@@ -43,6 +44,7 @@ export class DescribeCloudResourceListResponseBodyCloudResourceList extends $dar
       cloudResourceId: 'CloudResourceId',
       port: 'Port',
       protocol: 'Protocol',
+      resourceDomain: 'ResourceDomain',
       resourceInstanceId: 'ResourceInstanceId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       resourceProduct: 'ResourceProduct',
@@ -55,6 +57,7 @@ export class DescribeCloudResourceListResponseBodyCloudResourceList extends $dar
       cloudResourceId: 'string',
       port: 'number',
       protocol: 'string',
+      resourceDomain: 'string',
       resourceInstanceId: 'string',
       resourceManagerResourceGroupId: 'string',
       resourceProduct: 'string',

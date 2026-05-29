@@ -145,6 +145,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
    * 1704********9107
    */
   ownerUserId?: string;
+  resourceDomain?: string;
   resourceInstanceAccessStatus?: string;
   resourceInstanceEdition?: string;
   /**
@@ -233,6 +234,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
       accessPortAndProtocols: 'AccessPortAndProtocols',
       accessPorts: 'AccessPorts',
       ownerUserId: 'OwnerUserId',
+      resourceDomain: 'ResourceDomain',
       resourceInstanceAccessStatus: 'ResourceInstanceAccessStatus',
       resourceInstanceEdition: 'ResourceInstanceEdition',
       resourceInstanceId: 'ResourceInstanceId',
@@ -252,6 +254,7 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $dara.
       accessPortAndProtocols: { 'type': 'array', 'itemType': DescribeProductInstancesResponseBodyProductInstancesAccessPortAndProtocols },
       accessPorts: { 'type': 'array', 'itemType': 'number' },
       ownerUserId: 'string',
+      resourceDomain: 'string',
       resourceInstanceAccessStatus: 'string',
       resourceInstanceEdition: 'string',
       resourceInstanceId: 'string',

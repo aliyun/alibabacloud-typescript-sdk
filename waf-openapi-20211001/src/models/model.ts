@@ -99,6 +99,7 @@ export { DescribeHybridCloudClustersResponseBodyClusterInfos } from './DescribeH
 export { DescribeHybridCloudGroupsResponseBodyGroups } from './DescribeHybridCloudGroupsResponseBody';
 export { DescribeHybridCloudProcessMonitorResponseBodyProcessMonitors } from './DescribeHybridCloudProcessMonitorResponseBody';
 export { DescribeHybridCloudResourceDetailResponseBodyDomainListen } from './DescribeHybridCloudResourceDetailResponseBody';
+export { DescribeHybridCloudResourceDetailResponseBodyDomainRedirectBackendPorts } from './DescribeHybridCloudResourceDetailResponseBody';
 export { DescribeHybridCloudResourceDetailResponseBodyDomainRedirectRequestHeaders } from './DescribeHybridCloudResourceDetailResponseBody';
 export { DescribeHybridCloudResourceDetailResponseBodyDomainRedirect } from './DescribeHybridCloudResourceDetailResponseBody';
 export { DescribeHybridCloudResourceDetailResponseBodyDomain } from './DescribeHybridCloudResourceDetailResponseBody';

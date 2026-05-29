@@ -72,6 +72,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
    * The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
    */
   customCiphers?: string[];
+  domain?: string;
   /**
    * @remarks
    * Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
@@ -101,8 +102,6 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
    * @remarks
    * The port of the cloud service.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 80
    */
@@ -114,8 +113,6 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
    * *   **http**
    * *   **https**
    * 
-   * This parameter is required.
-   * 
    * @example
    * http
    */
@@ -123,8 +120,6 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
   /**
    * @remarks
    * The instance ID of the cloud service.
-   * 
-   * This parameter is required.
    * 
    * @example
    * lb-bp1*****
@@ -163,6 +158,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
       certificates: 'Certificates',
       cipherSuite: 'CipherSuite',
       customCiphers: 'CustomCiphers',
+      domain: 'Domain',
       enableTLSv3: 'EnableTLSv3',
       http2Enabled: 'Http2Enabled',
       port: 'Port',
@@ -179,6 +175,7 @@ export class CreateCloudResourceRequestListen extends $dara.Model {
       certificates: { 'type': 'array', 'itemType': CreateCloudResourceRequestListenCertificates },
       cipherSuite: 'number',
       customCiphers: { 'type': 'array', 'itemType': 'string' },
+      domain: 'string',
       enableTLSv3: 'boolean',
       http2Enabled: 'boolean',
       port: 'number',

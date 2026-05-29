@@ -41,6 +41,7 @@ export class DescribeCloudResourceListRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceDomain?: string;
   /**
    * @example
    * i-8vbdlsd********81e22
@@ -65,6 +66,7 @@ export class DescribeCloudResourceListRequest extends $dara.Model {
       ownerUserId: 'OwnerUserId',
       port: 'Port',
       regionId: 'RegionId',
+      resourceDomain: 'ResourceDomain',
       resourceInstanceId: 'ResourceInstanceId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       resourceProduct: 'ResourceProduct',
@@ -80,6 +82,7 @@ export class DescribeCloudResourceListRequest extends $dara.Model {
       ownerUserId: 'string',
       port: 'string',
       regionId: 'string',
+      resourceDomain: 'string',
       resourceInstanceId: 'string',
       resourceManagerResourceGroupId: 'string',
       resourceProduct: 'string',

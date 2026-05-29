@@ -116,6 +116,35 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomainListen extends $
   }
 }
 
+export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirectBackendPorts extends $dara.Model {
+  backendPort?: number;
+  listenPort?: number;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backendPort: 'BackendPort',
+      listenPort: 'ListenPort',
+      protocol: 'Protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendPort: 'number',
+      listenPort: 'number',
+      protocol: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirectRequestHeaders extends $dara.Model {
   /**
    * @example
@@ -151,6 +180,7 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirectRequestH
 }
 
 export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirect extends $dara.Model {
+  backendPorts?: DescribeHybridCloudResourceDetailResponseBodyDomainRedirectBackendPorts[];
   backends?: string[];
   /**
    * @example
@@ -187,6 +217,7 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirect extends
    * iphash
    */
   loadbalance?: string;
+  proxyProtocol?: boolean;
   /**
    * @example
    * 1
@@ -220,6 +251,7 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirect extends
   writeTimeout?: number;
   static names(): { [key: string]: string } {
     return {
+      backendPorts: 'BackendPorts',
       backends: 'Backends',
       cnameEnabled: 'CnameEnabled',
       connectTimeout: 'ConnectTimeout',
@@ -228,6 +260,7 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirect extends
       keepaliveRequests: 'KeepaliveRequests',
       keepaliveTimeout: 'KeepaliveTimeout',
       loadbalance: 'Loadbalance',
+      proxyProtocol: 'ProxyProtocol',
       readTimeout: 'ReadTimeout',
       requestHeaders: 'RequestHeaders',
       retry: 'Retry',
@@ -240,6 +273,7 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirect extends
 
   static types(): { [key: string]: any } {
     return {
+      backendPorts: { 'type': 'array', 'itemType': DescribeHybridCloudResourceDetailResponseBodyDomainRedirectBackendPorts },
       backends: { 'type': 'array', 'itemType': 'string' },
       cnameEnabled: 'boolean',
       connectTimeout: 'number',
@@ -248,6 +282,7 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirect extends
       keepaliveRequests: 'number',
       keepaliveTimeout: 'number',
       loadbalance: 'string',
+      proxyProtocol: 'boolean',
       readTimeout: 'number',
       requestHeaders: { 'type': 'array', 'itemType': DescribeHybridCloudResourceDetailResponseBodyDomainRedirectRequestHeaders },
       retry: 'boolean',
@@ -259,6 +294,9 @@ export class DescribeHybridCloudResourceDetailResponseBodyDomainRedirect extends
   }
 
   validate() {
+    if(Array.isArray(this.backendPorts)) {
+      $dara.Model.validateArray(this.backendPorts);
+    }
     if(Array.isArray(this.backends)) {
       $dara.Model.validateArray(this.backends);
     }
