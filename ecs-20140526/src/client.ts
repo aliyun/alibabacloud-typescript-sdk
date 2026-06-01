@@ -3750,6 +3750,10 @@ export default class Client extends OpenApi {
   async createDeploymentSetWithOptions(request: $_model.CreateDeploymentSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDeploymentSetResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.affinity)) {
+      query["Affinity"] = request.affinity;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -25567,6 +25571,10 @@ export default class Client extends OpenApi {
   async modifyDeploymentSetAttributeWithOptions(request: $_model.ModifyDeploymentSetAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDeploymentSetAttributeResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.affinity)) {
+      query["Affinity"] = request.affinity;
+    }
+
     if (!$dara.isNull(request.deploymentSetId)) {
       query["DeploymentSetId"] = request.deploymentSetId;
     }

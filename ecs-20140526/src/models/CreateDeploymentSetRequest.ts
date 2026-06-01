@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateDeploymentSetRequest extends $dara.Model {
+  affinity?: number;
   /**
    * @remarks
    * The description of the deployment set. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
@@ -100,6 +101,7 @@ export class CreateDeploymentSetRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      affinity: 'Affinity',
       clientToken: 'ClientToken',
       deploymentSetName: 'DeploymentSetName',
       description: 'Description',
@@ -119,6 +121,7 @@ export class CreateDeploymentSetRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      affinity: 'number',
       clientToken: 'string',
       deploymentSetName: 'string',
       description: 'string',

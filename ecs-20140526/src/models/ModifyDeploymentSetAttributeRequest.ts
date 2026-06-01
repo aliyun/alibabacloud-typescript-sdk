@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyDeploymentSetAttributeRequest extends $dara.Model {
+  affinity?: number;
   /**
    * @remarks
    * The ID of the deployment set.
@@ -45,6 +46,7 @@ export class ModifyDeploymentSetAttributeRequest extends $dara.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      affinity: 'Affinity',
       deploymentSetId: 'DeploymentSetId',
       deploymentSetName: 'DeploymentSetName',
       description: 'Description',
@@ -58,6 +60,7 @@ export class ModifyDeploymentSetAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      affinity: 'number',
       deploymentSetId: 'string',
       deploymentSetName: 'string',
       description: 'string',

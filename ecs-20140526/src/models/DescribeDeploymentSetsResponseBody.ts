@@ -85,6 +85,7 @@ export class DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInstan
 
 export class DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSet extends $dara.Model {
   accountId?: number;
+  affinity?: number;
   capacities?: DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities;
   creationTime?: string;
   deploymentSetDescription?: string;
@@ -101,6 +102,7 @@ export class DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSet exten
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      affinity: 'Affinity',
       capacities: 'Capacities',
       creationTime: 'CreationTime',
       deploymentSetDescription: 'DeploymentSetDescription',
@@ -120,6 +122,7 @@ export class DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSet exten
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
+      affinity: 'number',
       capacities: DescribeDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacities,
       creationTime: 'string',
       deploymentSetDescription: 'string',
