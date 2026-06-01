@@ -83,6 +83,145 @@ export class CreateDigitalEmployeeRequestKnowledges extends $dara.Model {
   }
 }
 
+export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dara.Model {
+  /**
+   * @remarks
+   * Aliyun OpenAPI Action 列表，格式为 product:ApiName、product:Prefix* 或 product:*。
+   * 
+   * @example
+   * ["log:GetProject","log:CreateDashboard"]
+   */
+  actions?: string[];
+  /**
+   * @remarks
+   * 本条语句对应的 Aliyun OpenAPI API 版本。
+   * 
+   * @example
+   * 2020-12-30
+   */
+  apiVersion?: string;
+  /**
+   * @remarks
+   * 命中该 API 后的执行策略。
+   * 
+   * @example
+   * user_ack
+   */
+  decision?: string;
+  /**
+   * @remarks
+   * 本条语句对应的 Aliyun OpenAPI 产品名。
+   * 
+   * @example
+   * Sls
+   */
+  product?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'actions',
+      apiVersion: 'apiVersion',
+      decision: 'decision',
+      product: 'product',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': 'string' },
+      apiVersion: 'string',
+      decision: 'string',
+      product: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.actions)) {
+      $dara.Model.validateArray(this.actions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
+  /**
+   * @remarks
+   * 是否启用 Aliyun MCP 工具策略。
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @remarks
+   * Aliyun OpenAPI 工具策略语句列表。
+   * 
+   * @example
+   * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
+   */
+  statements?: CreateDigitalEmployeeRequestToolPolicyAliyunStatements[];
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      statements: 'statements',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      statements: { 'type': 'array', 'itemType': CreateDigitalEmployeeRequestToolPolicyAliyunStatements },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.statements)) {
+      $dara.Model.validateArray(this.statements);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDigitalEmployeeRequestToolPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Aliyun MCP 工具调用安全策略配置。
+   * 
+   * @example
+   * {"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
+   */
+  aliyun?: CreateDigitalEmployeeRequestToolPolicyAliyun;
+  static names(): { [key: string]: string } {
+    return {
+      aliyun: 'aliyun',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyun: CreateDigitalEmployeeRequestToolPolicyAliyun,
+    };
+  }
+
+  validate() {
+    if(this.aliyun && typeof (this.aliyun as any).validate === 'function') {
+      (this.aliyun as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDigitalEmployeeRequest extends $dara.Model {
   attributes?: { [key: string]: string };
   /**
@@ -123,6 +262,14 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
    */
   roleArn?: string;
   tags?: Tag[];
+  /**
+   * @remarks
+   * 数字员工工具调用安全策略配置。
+   * 
+   * @example
+   * {"aliyun":{"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}}
+   */
+  toolPolicy?: CreateDigitalEmployeeRequestToolPolicy;
   static names(): { [key: string]: string } {
     return {
       attributes: 'attributes',
@@ -134,6 +281,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
       resourceGroupId: 'resourceGroupId',
       roleArn: 'roleArn',
       tags: 'tags',
+      toolPolicy: 'toolPolicy',
     };
   }
 
@@ -148,6 +296,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
       resourceGroupId: 'string',
       roleArn: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
+      toolPolicy: CreateDigitalEmployeeRequestToolPolicy,
     };
   }
 
@@ -160,6 +309,9 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);
+    }
+    if(this.toolPolicy && typeof (this.toolPolicy as any).validate === 'function') {
+      (this.toolPolicy as any).validate();
     }
     super.validate();
   }

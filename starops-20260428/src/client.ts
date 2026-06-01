@@ -201,6 +201,10 @@ export default class Client extends OpenApi {
       body["tags"] = request.tags;
     }
 
+    if (!$dara.isNull(request.toolPolicy)) {
+      body["toolPolicy"] = request.toolPolicy;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -1318,6 +1322,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.roleArn)) {
       body["roleArn"] = request.roleArn;
+    }
+
+    if (!$dara.isNull(request.toolPolicy)) {
+      body["toolPolicy"] = request.toolPolicy;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
