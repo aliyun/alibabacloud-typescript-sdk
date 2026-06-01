@@ -291,6 +291,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建 RayHistoryServer
+   * 
+   * @param request - CreateRayHistoryServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRayHistoryServerResponse
+   */
+  async createRayHistoryServerWithOptions(request: $_model.CreateRayHistoryServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateRayHistoryServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessibility)) {
+      body["Accessibility"] = request.accessibility;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.ecsSpec)) {
+      body["EcsSpec"] = request.ecsSpec;
+    }
+
+    if (!$dara.isNull(request.maxRuntimeMinutes)) {
+      body["MaxRuntimeMinutes"] = request.maxRuntimeMinutes;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      body["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.storagePath)) {
+      body["StoragePath"] = request.storagePath;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateRayHistoryServer",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/rayhistoryservers`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateRayHistoryServerResponse>(await this.callApi(params, req, runtime), new $_model.CreateRayHistoryServerResponse({}));
+  }
+
+  /**
+   * 创建 RayHistoryServer
+   * 
+   * @param request - CreateRayHistoryServerRequest
+   * @returns CreateRayHistoryServerResponse
+   */
+  async createRayHistoryServer(request: $_model.CreateRayHistoryServerRequest): Promise<$_model.CreateRayHistoryServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createRayHistoryServerWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Creates a TensorBoard by using a job or specifying a data source configuration.
    * 
    * @param request - CreateTensorboardRequest
@@ -483,6 +552,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteJobTemplateWithOptions(TemplateId, request, headers, runtime);
+  }
+
+  /**
+   * 删除RayHistoryServer
+   * 
+   * @param request - DeleteRayHistoryServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRayHistoryServerResponse
+   */
+  async deleteRayHistoryServerWithOptions(RayHistoryServerId: string, request: $_model.DeleteRayHistoryServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteRayHistoryServerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteRayHistoryServer",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/rayhistoryservers/${$dara.URL.percentEncode(RayHistoryServerId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteRayHistoryServerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteRayHistoryServerResponse({}));
+  }
+
+  /**
+   * 删除RayHistoryServer
+   * 
+   * @param request - DeleteRayHistoryServerRequest
+   * @returns DeleteRayHistoryServerResponse
+   */
+  async deleteRayHistoryServer(RayHistoryServerId: string, request: $_model.DeleteRayHistoryServerRequest): Promise<$_model.DeleteRayHistoryServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteRayHistoryServerWithOptions(RayHistoryServerId, request, headers, runtime);
   }
 
   /**
@@ -1013,6 +1121,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRayDashboardWithOptions(jobId, request, headers, runtime);
+  }
+
+  /**
+   * 查询 RayHistoryServer
+   * 
+   * @param request - GetRayHistoryServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRayHistoryServerResponse
+   */
+  async getRayHistoryServerWithOptions(RayHistoryServerId: string, request: $_model.GetRayHistoryServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRayHistoryServerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRayHistoryServer",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/rayhistoryservers/${$dara.URL.percentEncode(RayHistoryServerId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRayHistoryServerResponse>(await this.callApi(params, req, runtime), new $_model.GetRayHistoryServerResponse({}));
+  }
+
+  /**
+   * 查询 RayHistoryServer
+   * 
+   * @param request - GetRayHistoryServerRequest
+   * @returns GetRayHistoryServerResponse
+   */
+  async getRayHistoryServer(RayHistoryServerId: string, request: $_model.GetRayHistoryServerRequest): Promise<$_model.GetRayHistoryServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRayHistoryServerWithOptions(RayHistoryServerId, request, headers, runtime);
   }
 
   /**
@@ -1594,6 +1741,111 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出资源RayHistoryServer
+   * 
+   * @param request - ListRayHistoryServersRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRayHistoryServersResponse
+   */
+  async listRayHistoryServersWithOptions(request: $_model.ListRayHistoryServersRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRayHistoryServersResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.idPrefix)) {
+      query["IdPrefix"] = request.idPrefix;
+    }
+
+    if (!$dara.isNull(request.modifiedAfter)) {
+      query["ModifiedAfter"] = request.modifiedAfter;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.showOwn)) {
+      query["ShowOwn"] = request.showOwn;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.userIdForFilter)) {
+      query["UserIdForFilter"] = request.userIdForFilter;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      query["Username"] = request.username;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRayHistoryServers",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/rayhistoryservers`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRayHistoryServersResponse>(await this.callApi(params, req, runtime), new $_model.ListRayHistoryServersResponse({}));
+  }
+
+  /**
+   * 列出资源RayHistoryServer
+   * 
+   * @param request - ListRayHistoryServersRequest
+   * @returns ListRayHistoryServersResponse
+   */
+  async listRayHistoryServers(request: $_model.ListRayHistoryServersRequest): Promise<$_model.ListRayHistoryServersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRayHistoryServersWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries a list of TensorBoard instances.
    * 
    * @param request - ListTensorboardsRequest
@@ -1760,6 +2012,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动 Ray History Server
+   * 
+   * @param request - StartRayHistoryServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartRayHistoryServerResponse
+   */
+  async startRayHistoryServerWithOptions(RayHistoryServerId: string, request: $_model.StartRayHistoryServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartRayHistoryServerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartRayHistoryServer",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/rayhistoryservers/${$dara.URL.percentEncode(RayHistoryServerId)}/start`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartRayHistoryServerResponse>(await this.callApi(params, req, runtime), new $_model.StartRayHistoryServerResponse({}));
+  }
+
+  /**
+   * 启动 Ray History Server
+   * 
+   * @param request - StartRayHistoryServerRequest
+   * @returns StartRayHistoryServerResponse
+   */
+  async startRayHistoryServer(RayHistoryServerId: string, request: $_model.StartRayHistoryServerRequest): Promise<$_model.StartRayHistoryServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startRayHistoryServerWithOptions(RayHistoryServerId, request, headers, runtime);
+  }
+
+  /**
    * Starts a TensorBoard instance.
    * 
    * @param request - StartTensorboardRequest
@@ -1837,6 +2128,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.stopJobWithOptions(JobId, headers, runtime);
+  }
+
+  /**
+   * 停止 Ray History Server
+   * 
+   * @param request - StopRayHistoryServerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopRayHistoryServerResponse
+   */
+  async stopRayHistoryServerWithOptions(RayHistoryServerId: string, request: $_model.StopRayHistoryServerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopRayHistoryServerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopRayHistoryServer",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/rayhistoryservers/${$dara.URL.percentEncode(RayHistoryServerId)}/stop`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopRayHistoryServerResponse>(await this.callApi(params, req, runtime), new $_model.StopRayHistoryServerResponse({}));
+  }
+
+  /**
+   * 停止 Ray History Server
+   * 
+   * @param request - StopRayHistoryServerRequest
+   * @returns StopRayHistoryServerResponse
+   */
+  async stopRayHistoryServer(RayHistoryServerId: string, request: $_model.StopRayHistoryServerRequest): Promise<$_model.StopRayHistoryServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.stopRayHistoryServerWithOptions(RayHistoryServerId, request, headers, runtime);
   }
 
   /**
