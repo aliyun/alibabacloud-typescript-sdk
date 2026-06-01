@@ -44,6 +44,7 @@ export class UpdateTemplateInput extends $dara.Model {
    * true
    */
   enableAgent?: boolean;
+  enablePreStop?: boolean;
   environmentVariables?: { [key: string]: string };
   /**
    * @example
@@ -62,6 +63,7 @@ export class UpdateTemplateInput extends $dara.Model {
   nasConfig?: NASConfig;
   networkConfiguration?: NetworkConfiguration;
   ossConfiguration?: OssConfiguration[];
+  preStopTimeoutInSeconds?: number;
   /**
    * @remarks
    * 沙箱空闲超时时间（秒）
@@ -98,6 +100,7 @@ export class UpdateTemplateInput extends $dara.Model {
       credentialConfiguration: 'credentialConfiguration',
       description: 'description',
       enableAgent: 'enableAgent',
+      enablePreStop: 'enablePreStop',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       logConfiguration: 'logConfiguration',
@@ -105,6 +108,7 @@ export class UpdateTemplateInput extends $dara.Model {
       nasConfig: 'nasConfig',
       networkConfiguration: 'networkConfiguration',
       ossConfiguration: 'ossConfiguration',
+      preStopTimeoutInSeconds: 'preStopTimeoutInSeconds',
       sandboxIdleTimeoutInSeconds: 'sandboxIdleTimeoutInSeconds',
       sandboxTTLInSeconds: 'sandboxTTLInSeconds',
       scalingConfig: 'scalingConfig',
@@ -122,6 +126,7 @@ export class UpdateTemplateInput extends $dara.Model {
       credentialConfiguration: CredentialConfiguration,
       description: 'string',
       enableAgent: 'boolean',
+      enablePreStop: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       logConfiguration: LogConfiguration,
@@ -129,6 +134,7 @@ export class UpdateTemplateInput extends $dara.Model {
       nasConfig: NASConfig,
       networkConfiguration: NetworkConfiguration,
       ossConfiguration: { 'type': 'array', 'itemType': OssConfiguration },
+      preStopTimeoutInSeconds: 'number',
       sandboxIdleTimeoutInSeconds: 'number',
       sandboxTTLInSeconds: 'number',
       scalingConfig: ScalingConfig,

@@ -84,6 +84,7 @@ export class Template extends $dara.Model {
   description?: string;
   diskSize?: number;
   enableAgent?: boolean;
+  enablePreStop?: boolean;
   environmentVariables?: { [key: string]: string };
   executionRoleArn?: string;
   lastUpdatedAt?: string;
@@ -98,6 +99,7 @@ export class Template extends $dara.Model {
   nasConfig?: NASConfig;
   networkConfiguration?: NetworkConfiguration;
   ossConfiguration?: OssConfiguration[];
+  preStopTimeoutInSeconds?: number;
   resourceName?: string;
   sandboxIdleTimeoutInSeconds?: string;
   sandboxTTLInSeconds?: string;
@@ -129,6 +131,7 @@ export class Template extends $dara.Model {
       description: 'description',
       diskSize: 'diskSize',
       enableAgent: 'enableAgent',
+      enablePreStop: 'enablePreStop',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       lastUpdatedAt: 'lastUpdatedAt',
@@ -139,6 +142,7 @@ export class Template extends $dara.Model {
       nasConfig: 'nasConfig',
       networkConfiguration: 'networkConfiguration',
       ossConfiguration: 'ossConfiguration',
+      preStopTimeoutInSeconds: 'preStopTimeoutInSeconds',
       resourceName: 'resourceName',
       sandboxIdleTimeoutInSeconds: 'sandboxIdleTimeoutInSeconds',
       sandboxTTLInSeconds: 'sandboxTTLInSeconds',
@@ -165,6 +169,7 @@ export class Template extends $dara.Model {
       description: 'string',
       diskSize: 'number',
       enableAgent: 'boolean',
+      enablePreStop: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       lastUpdatedAt: 'string',
@@ -175,6 +180,7 @@ export class Template extends $dara.Model {
       nasConfig: NASConfig,
       networkConfiguration: NetworkConfiguration,
       ossConfiguration: { 'type': 'array', 'itemType': OssConfiguration },
+      preStopTimeoutInSeconds: 'number',
       resourceName: 'string',
       sandboxIdleTimeoutInSeconds: 'string',
       sandboxTTLInSeconds: 'string',

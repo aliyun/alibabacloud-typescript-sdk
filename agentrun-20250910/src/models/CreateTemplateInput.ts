@@ -43,6 +43,7 @@ export class CreateTemplateInput extends $dara.Model {
    */
   diskSize?: number;
   enableAgent?: boolean;
+  enablePreStop?: boolean;
   environmentVariables?: { [key: string]: string };
   /**
    * @example
@@ -67,6 +68,7 @@ export class CreateTemplateInput extends $dara.Model {
    */
   networkConfiguration?: NetworkConfiguration;
   ossConfiguration?: OssConfiguration[];
+  preStopTimeoutInSeconds?: number;
   /**
    * @remarks
    * 沙箱空闲超时时间（秒）
@@ -118,6 +120,7 @@ export class CreateTemplateInput extends $dara.Model {
       description: 'description',
       diskSize: 'diskSize',
       enableAgent: 'enableAgent',
+      enablePreStop: 'enablePreStop',
       environmentVariables: 'environmentVariables',
       executionRoleArn: 'executionRoleArn',
       logConfiguration: 'logConfiguration',
@@ -125,6 +128,7 @@ export class CreateTemplateInput extends $dara.Model {
       nasConfig: 'nasConfig',
       networkConfiguration: 'networkConfiguration',
       ossConfiguration: 'ossConfiguration',
+      preStopTimeoutInSeconds: 'preStopTimeoutInSeconds',
       sandboxIdleTimeoutInSeconds: 'sandboxIdleTimeoutInSeconds',
       sandboxTTLInSeconds: 'sandboxTTLInSeconds',
       scalingConfig: 'scalingConfig',
@@ -145,6 +149,7 @@ export class CreateTemplateInput extends $dara.Model {
       description: 'string',
       diskSize: 'number',
       enableAgent: 'boolean',
+      enablePreStop: 'boolean',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       executionRoleArn: 'string',
       logConfiguration: LogConfiguration,
@@ -152,6 +157,7 @@ export class CreateTemplateInput extends $dara.Model {
       nasConfig: NASConfig,
       networkConfiguration: NetworkConfiguration,
       ossConfiguration: { 'type': 'array', 'itemType': OssConfiguration },
+      preStopTimeoutInSeconds: 'number',
       sandboxIdleTimeoutInSeconds: 'number',
       sandboxTTLInSeconds: 'number',
       scalingConfig: ScalingConfig,
