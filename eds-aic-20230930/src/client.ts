@@ -1152,6 +1152,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建套餐包
+   * 
+   * @param request - CreateMobileAgentPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMobileAgentPackageResponse
+   */
+  async createMobileAgentPackageWithOptions(request: $_model.CreateMobileAgentPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMobileAgentPackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.creditAmount)) {
+      query["CreditAmount"] = request.creditAmount;
+    }
+
+    if (!$dara.isNull(request.creditConfig)) {
+      query["CreditConfig"] = request.creditConfig;
+    }
+
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!$dara.isNull(request.mobileAgentPackageSpec)) {
+      query["MobileAgentPackageSpec"] = request.mobileAgentPackageSpec;
+    }
+
+    if (!$dara.isNull(request.paidCallbackUrl)) {
+      query["PaidCallbackUrl"] = request.paidCallbackUrl;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMobileAgentPackage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMobileAgentPackageResponse>(await this.callApi(params, req, runtime), new $_model.CreateMobileAgentPackageResponse({}));
+  }
+
+  /**
+   * 创建套餐包
+   * 
+   * @param request - CreateMobileAgentPackageRequest
+   * @returns CreateMobileAgentPackageResponse
+   */
+  async createMobileAgentPackage(request: $_model.CreateMobileAgentPackageRequest): Promise<$_model.CreateMobileAgentPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMobileAgentPackageWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a policy.
    * 
    * @param tmpReq - CreatePolicyGroupRequest
@@ -2775,6 +2861,68 @@ export default class Client extends OpenApi {
   async describeMetricTop(request: $_model.DescribeMetricTopRequest): Promise<$_model.DescribeMetricTopResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeMetricTopWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询节点套餐详细信息
+   * 
+   * @param request - DescribeMobileAgentPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeMobileAgentPackageResponse
+   */
+  async describeMobileAgentPackageWithOptions(request: $_model.DescribeMobileAgentPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeMobileAgentPackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!$dara.isNull(request.packageIds)) {
+      query["PackageIds"] = request.packageIds;
+    }
+
+    if (!$dara.isNull(request.packageSpec)) {
+      query["PackageSpec"] = request.packageSpec;
+    }
+
+    if (!$dara.isNull(request.packageStatus)) {
+      query["PackageStatus"] = request.packageStatus;
+    }
+
+    if (!$dara.isNull(request.pageNum)) {
+      query["PageNum"] = request.pageNum;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeMobileAgentPackage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeMobileAgentPackageResponse>(await this.callApi(params, req, runtime), new $_model.DescribeMobileAgentPackageResponse({}));
+  }
+
+  /**
+   * 查询节点套餐详细信息
+   * 
+   * @param request - DescribeMobileAgentPackageRequest
+   * @returns DescribeMobileAgentPackageResponse
+   */
+  async describeMobileAgentPackage(request: $_model.DescribeMobileAgentPackageRequest): Promise<$_model.DescribeMobileAgentPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeMobileAgentPackageWithOptions(request, runtime);
   }
 
   /**
@@ -5147,6 +5295,72 @@ export default class Client extends OpenApi {
   async renewCloudPhoneNodes(request: $_model.RenewCloudPhoneNodesRequest): Promise<$_model.RenewCloudPhoneNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.renewCloudPhoneNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 续费MobileAgent套餐包
+   * 
+   * @param request - RenewMobileAgentPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewMobileAgentPackageResponse
+   */
+  async renewMobileAgentPackageWithOptions(request: $_model.RenewMobileAgentPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewMobileAgentPackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.mobileAgentPackageIds)) {
+      query["MobileAgentPackageIds"] = request.mobileAgentPackageIds;
+    }
+
+    if (!$dara.isNull(request.paidCallbackUrl)) {
+      query["PaidCallbackUrl"] = request.paidCallbackUrl;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenewMobileAgentPackage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RenewMobileAgentPackageResponse>(await this.callApi(params, req, runtime), new $_model.RenewMobileAgentPackageResponse({}));
+  }
+
+  /**
+   * 续费MobileAgent套餐包
+   * 
+   * @param request - RenewMobileAgentPackageRequest
+   * @returns RenewMobileAgentPackageResponse
+   */
+  async renewMobileAgentPackage(request: $_model.RenewMobileAgentPackageRequest): Promise<$_model.RenewMobileAgentPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renewMobileAgentPackageWithOptions(request, runtime);
   }
 
   /**
