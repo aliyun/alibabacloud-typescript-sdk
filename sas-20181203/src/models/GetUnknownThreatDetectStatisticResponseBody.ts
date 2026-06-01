@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUnknownThreatDetectStatisticResponseBodyData extends $dara.Model {
+  blockEventMachineCount?: number;
   /**
    * @example
    * 1
@@ -30,6 +31,7 @@ export class GetUnknownThreatDetectStatisticResponseBodyData extends $dara.Model
   studyingMachineCount?: number;
   static names(): { [key: string]: string } {
     return {
+      blockEventMachineCount: 'BlockEventMachineCount',
       blockMachineCount: 'BlockMachineCount',
       machineCount: 'MachineCount',
       monitorMachineCount: 'MonitorMachineCount',
@@ -40,6 +42,7 @@ export class GetUnknownThreatDetectStatisticResponseBodyData extends $dara.Model
 
   static types(): { [key: string]: any } {
     return {
+      blockEventMachineCount: 'number',
       blockMachineCount: 'number',
       machineCount: 'number',
       monitorMachineCount: 'number',

@@ -8,6 +8,8 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
    * white
    */
   analyzeResult?: string;
+  explanationEn?: string;
+  explanationZh?: string;
   /**
    * @example
    * 1694576692000
@@ -41,6 +43,8 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
   static names(): { [key: string]: string } {
     return {
       analyzeResult: 'AnalyzeResult',
+      explanationEn: 'ExplanationEn',
+      explanationZh: 'ExplanationZh',
       firstTime: 'FirstTime',
       md5: 'Md5',
       processId: 'ProcessId',
@@ -53,6 +57,8 @@ export class ListUnknownThreatDetectProcessResponseBodyData extends $dara.Model 
   static types(): { [key: string]: any } {
     return {
       analyzeResult: 'string',
+      explanationEn: 'string',
+      explanationZh: 'string',
       firstTime: 'number',
       md5: 'string',
       processId: 'string',

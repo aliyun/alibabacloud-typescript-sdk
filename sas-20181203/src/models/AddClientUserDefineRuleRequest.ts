@@ -142,6 +142,7 @@ export class AddClientUserDefineRuleRequest extends $dara.Model {
    * HKEY_DYN_****
    */
   registryKey?: string;
+  targetDefault?: string;
   /**
    * @remarks
    * The type of the custom defense rule. Valid values:
@@ -181,6 +182,7 @@ export class AddClientUserDefineRuleRequest extends $dara.Model {
       procPath: 'ProcPath',
       registryContent: 'RegistryContent',
       registryKey: 'RegistryKey',
+      targetDefault: 'TargetDefault',
       type: 'Type',
     };
   }
@@ -203,6 +205,7 @@ export class AddClientUserDefineRuleRequest extends $dara.Model {
       procPath: 'string',
       registryContent: 'string',
       registryKey: 'string',
+      targetDefault: 'string',
       type: 'number',
     };
   }

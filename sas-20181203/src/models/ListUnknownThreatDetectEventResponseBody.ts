@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUnknownThreatDetectEventResponseBodyData extends $dara.Model {
+  analyzeDesc?: string;
+  analyzeResult?: string;
   /**
    * @example
    * [{"5133":"pickup -l -t unix -u"},{"1077":"/usr/libexec/postfix/master -w"},{"1":"/usr/lib/systemd/systemd --switched-root --system --deserialize 22"}]
@@ -100,6 +102,8 @@ export class ListUnknownThreatDetectEventResponseBodyData extends $dara.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      analyzeDesc: 'AnalyzeDesc',
+      analyzeResult: 'AnalyzeResult',
       cmdChain: 'CmdChain',
       cmdline: 'Cmdline',
       count: 'Count',
@@ -124,6 +128,8 @@ export class ListUnknownThreatDetectEventResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      analyzeDesc: 'string',
+      analyzeResult: 'string',
       cmdChain: 'string',
       cmdline: 'string',
       count: 'number',

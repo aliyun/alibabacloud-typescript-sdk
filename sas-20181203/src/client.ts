@@ -372,6 +372,10 @@ export default class Client extends OpenApi {
       query["RegistryKey"] = request.registryKey;
     }
 
+    if (!$dara.isNull(request.targetDefault)) {
+      query["TargetDefault"] = request.targetDefault;
+    }
+
     if (!$dara.isNull(request.type)) {
       query["Type"] = request.type;
     }
@@ -39812,12 +39816,20 @@ export default class Client extends OpenApi {
   async listUnknownThreatDetectEventWithOptions(request: $_model.ListUnknownThreatDetectEventRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListUnknownThreatDetectEventResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.analyzeResult)) {
+      query["AnalyzeResult"] = request.analyzeResult;
+    }
+
     if (!$dara.isNull(request.currentPage)) {
       query["CurrentPage"] = request.currentPage;
     }
 
     if (!$dara.isNull(request.hashKey)) {
       query["HashKey"] = request.hashKey;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
     }
 
     if (!$dara.isNull(request.pageSize)) {

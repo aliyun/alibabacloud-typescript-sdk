@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model {
+  effectDays?: number;
   /**
    * @example
    * 12
@@ -18,6 +19,7 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
    * 10.42.XX.XX
    */
   intranetIp?: string;
+  pluginStatus?: string;
   /**
    * @example
    * 1
@@ -33,6 +35,7 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
    * hash
    */
   studyMode?: string;
+  studyRemainDays?: number;
   /**
    * @example
    * 1766988192
@@ -45,12 +48,15 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      effectDays: 'EffectDays',
       instanceName: 'InstanceName',
       internetIp: 'InternetIp',
       intranetIp: 'IntranetIp',
+      pluginStatus: 'PluginStatus',
       processCount: 'ProcessCount',
       status: 'Status',
       studyMode: 'StudyMode',
+      studyRemainDays: 'StudyRemainDays',
       studyStartTime: 'StudyStartTime',
       uuid: 'Uuid',
     };
@@ -58,12 +64,15 @@ export class ListUnknownThreatDetectMachineResponseBodyData extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      effectDays: 'number',
       instanceName: 'string',
       internetIp: 'string',
       intranetIp: 'string',
+      pluginStatus: 'string',
       processCount: 'number',
       status: 'string',
       studyMode: 'string',
+      studyRemainDays: 'number',
       studyStartTime: 'number',
       uuid: 'string',
     };

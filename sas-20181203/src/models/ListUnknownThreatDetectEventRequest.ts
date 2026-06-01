@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListUnknownThreatDetectEventRequest extends $dara.Model {
+  analyzeResult?: string;
   /**
    * @example
    * 1
@@ -13,6 +14,7 @@ export class ListUnknownThreatDetectEventRequest extends $dara.Model {
    * 0a212417e65c26ff133cfff28f6c****
    */
   hashKey?: string;
+  lang?: string;
   /**
    * @example
    * 10
@@ -45,8 +47,10 @@ export class ListUnknownThreatDetectEventRequest extends $dara.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      analyzeResult: 'AnalyzeResult',
       currentPage: 'CurrentPage',
       hashKey: 'HashKey',
+      lang: 'Lang',
       pageSize: 'PageSize',
       parentProcessPath: 'ParentProcessPath',
       processPath: 'ProcessPath',
@@ -58,8 +62,10 @@ export class ListUnknownThreatDetectEventRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      analyzeResult: 'string',
       currentPage: 'number',
       hashKey: 'string',
+      lang: 'string',
       pageSize: 'number',
       parentProcessPath: 'string',
       processPath: 'string',
