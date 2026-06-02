@@ -247,65 +247,219 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询设备座位
+   * 解除桌面端、移动端纳管
    * 
-   * @param request - DescribeDeviceSeatsRequest
+   * @param request - DeleteClientsRequest
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeDeviceSeatsResponse
+   * @returns DeleteClientsResponse
    */
-  async describeDeviceSeatsWithOptions(request: $_model.DescribeDeviceSeatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDeviceSeatsResponse> {
+  async deleteClientsWithOptions(request: $_model.DeleteClientsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteClientsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callerAliUid)) {
+      query["CallerAliUid"] = request.callerAliUid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.inManage)) {
+      body["InManage"] = request.inManage;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.uuids)) {
+      bodyFlat["Uuids"] = request.uuids;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteClients",
+      version: "2021-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteClientsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteClientsResponse({}));
+  }
+
+  /**
+   * 解除桌面端、移动端纳管
+   * 
+   * @param request - DeleteClientsRequest
+   * @returns DeleteClientsResponse
+   */
+  async deleteClients(request: $_model.DeleteClientsRequest): Promise<$_model.DeleteClientsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteClientsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询桌面端、移动端详细信息
+   * 
+   * @param request - DescribeClientsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeClientsResponse
+   */
+  async describeClientsWithOptions(request: $_model.DescribeClientsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeClientsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callerAliUid)) {
+      query["CallerAliUid"] = request.callerAliUid;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientType)) {
+      body["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.customResourceId)) {
+      body["CustomResourceId"] = request.customResourceId;
+    }
+
+    if (!$dara.isNull(request.customResourceStatus)) {
+      body["CustomResourceStatus"] = request.customResourceStatus;
+    }
+
+    if (!$dara.isNull(request.inManage)) {
+      body["InManage"] = request.inManage;
+    }
+
+    if (!$dara.isNull(request.includeSubGroups)) {
+      body["IncludeSubGroups"] = request.includeSubGroups;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.onlineStatus)) {
+      body["OnlineStatus"] = request.onlineStatus;
+    }
+
+    if (!$dara.isNull(request.platform)) {
+      body["Platform"] = request.platform;
+    }
+
+    if (!$dara.isNull(request.searchKeyword)) {
+      body["SearchKeyword"] = request.searchKeyword;
+    }
+
+    if (!$dara.isNull(request.terminalGroupId)) {
+      body["TerminalGroupId"] = request.terminalGroupId;
+    }
+
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.uuids)) {
+      bodyFlat["Uuids"] = request.uuids;
+    }
+
+    if (!$dara.isNull(request.withBindUser)) {
+      body["WithBindUser"] = request.withBindUser;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeClients",
+      version: "2021-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeClientsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeClientsResponse({}));
+  }
+
+  /**
+   * 查询桌面端、移动端详细信息
+   * 
+   * @param request - DescribeClientsRequest
+   * @returns DescribeClientsResponse
+   */
+  async describeClients(request: $_model.DescribeClientsRequest): Promise<$_model.DescribeClientsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeClientsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取桌面端纳管邀请码
+   * 
+   * @param request - GetOrCreateInvitationCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOrCreateInvitationCodeResponse
+   */
+  async getOrCreateInvitationCodeWithOptions(request: $_model.GetOrCreateInvitationCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOrCreateInvitationCodeResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.pageNumber)) {
-      body["PageNumber"] = request.pageNumber;
+    if (!$dara.isNull(request.expireDays)) {
+      body["ExpireDays"] = request.expireDays;
     }
 
-    if (!$dara.isNull(request.pageSize)) {
-      body["PageSize"] = request.pageSize;
+    if (!$dara.isNull(request.expireMinutes)) {
+      body["ExpireMinutes"] = request.expireMinutes;
     }
 
-    if (!$dara.isNull(request.serialNo)) {
-      body["SerialNo"] = request.serialNo;
+    if (!$dara.isNull(request.terminalGroupId)) {
+      body["TerminalGroupId"] = request.terminalGroupId;
     }
 
-    if (!$dara.isNull(request.serialNoList)) {
-      body["SerialNoList"] = request.serialNoList;
-    }
-
-    if (!$dara.isNull(request.siteId)) {
-      body["SiteId"] = request.siteId;
-    }
-
-    if (!$dara.isNull(request.tenantId)) {
-      body["TenantId"] = request.tenantId;
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
-      action: "DescribeDeviceSeats",
+      action: "GetOrCreateInvitationCode",
       version: "2021-04-20",
       protocol: "HTTPS",
       pathname: "/",
       method: "POST",
-      authType: "Anonymous",
+      authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $dara.cast<$_model.DescribeDeviceSeatsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.DescribeDeviceSeatsResponse({}));
+    return $dara.cast<$_model.GetOrCreateInvitationCodeResponse>(await this.callApi(params, req, runtime), new $_model.GetOrCreateInvitationCodeResponse({}));
   }
 
   /**
-   * 查询设备座位
+   * 获取桌面端纳管邀请码
    * 
-   * @param request - DescribeDeviceSeatsRequest
-   * @returns DescribeDeviceSeatsResponse
+   * @param request - GetOrCreateInvitationCodeRequest
+   * @returns GetOrCreateInvitationCodeResponse
    */
-  async describeDeviceSeats(request: $_model.DescribeDeviceSeatsRequest): Promise<$_model.DescribeDeviceSeatsResponse> {
+  async getOrCreateInvitationCode(request: $_model.GetOrCreateInvitationCodeRequest): Promise<$_model.GetOrCreateInvitationCodeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeDeviceSeatsWithOptions(request, runtime);
+    return await this.getOrCreateInvitationCodeWithOptions(request, runtime);
   }
 
   /**
@@ -507,54 +661,6 @@ export default class Client extends OpenApi {
   async unbindAccountLessLoginUser(request: $_model.UnbindAccountLessLoginUserRequest): Promise<$_model.UnbindAccountLessLoginUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.unbindAccountLessLoginUserWithOptions(request, runtime);
-  }
-
-  /**
-   * 解绑设备座位
-   * 
-   * @param tmpReq - UnbindDeviceSeatsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UnbindDeviceSeatsResponse
-   */
-  async unbindDeviceSeatsWithOptions(tmpReq: $_model.UnbindDeviceSeatsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UnbindDeviceSeatsResponse> {
-    tmpReq.validate();
-    let request = new $_model.UnbindDeviceSeatsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.serialNoList)) {
-      request.serialNoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serialNoList, "SerialNoList", "json");
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.serialNoListShrink)) {
-      body["SerialNoList"] = request.serialNoListShrink;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "UnbindDeviceSeats",
-      version: "2021-04-20",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.UnbindDeviceSeatsResponse>(await this.callApi(params, req, runtime), new $_model.UnbindDeviceSeatsResponse({}));
-  }
-
-  /**
-   * 解绑设备座位
-   * 
-   * @param request - UnbindDeviceSeatsRequest
-   * @returns UnbindDeviceSeatsResponse
-   */
-  async unbindDeviceSeats(request: $_model.UnbindDeviceSeatsRequest): Promise<$_model.UnbindDeviceSeatsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.unbindDeviceSeatsWithOptions(request, runtime);
   }
 
   /**

@@ -1,12 +1,12 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
-import { DescribeDeviceSeatsResponseBody } from "./DescribeDeviceSeatsResponseBody";
+import { DeleteClientsResponseBody } from "./DeleteClientsResponseBody";
 
 
-export class DescribeDeviceSeatsResponse extends $dara.Model {
+export class DeleteClientsResponse extends $dara.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: DescribeDeviceSeatsResponseBody;
+  body?: DeleteClientsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -19,7 +19,7 @@ export class DescribeDeviceSeatsResponse extends $dara.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: DescribeDeviceSeatsResponseBody,
+      body: DeleteClientsResponseBody,
     };
   }
 
