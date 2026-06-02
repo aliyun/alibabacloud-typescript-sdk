@@ -209,6 +209,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 向智能体发送对话消息
+   * 
+   * @param request - ChatConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatConversationResponse
+   */
+  async *chatConversationWithSSE(request: $_model.ChatConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.ChatConversationResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatConversation",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/chat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.ChatConversationResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.ChatConversationResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 向智能体发送对话消息
+   * 
+   * @param request - ChatConversationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatConversationResponse
+   */
+  async chatConversationWithOptions(request: $_model.ChatConversationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ChatConversationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChatConversation",
+      version: "2022-12-13",
+      protocol: "HTTPS",
+      pathname: `/api/v1/conversations/chat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChatConversationResponse>(await this.callApi(params, req, runtime), new $_model.ChatConversationResponse({}));
+  }
+
+  /**
+   * 向智能体发送对话消息
+   * 
+   * @param request - ChatConversationRequest
+   * @returns ChatConversationResponse
+   */
+  async chatConversation(request: $_model.ChatConversationRequest): Promise<$_model.ChatConversationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.chatConversationWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 检测实例下配置的资源的连接状态。
    * 
    * @param request - CheckInstanceResourcesRequest

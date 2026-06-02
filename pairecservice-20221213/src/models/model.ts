@@ -140,6 +140,9 @@ export { BackflowFeatureConsistencyCheckJobDataResponse } from './BackflowFeatur
 export { ChangeRecallManagementServiceVersionRequest } from './ChangeRecallManagementServiceVersionRequest';
 export { ChangeRecallManagementServiceVersionResponseBody } from './ChangeRecallManagementServiceVersionResponseBody';
 export { ChangeRecallManagementServiceVersionResponse } from './ChangeRecallManagementServiceVersionResponse';
+export { ChatConversationRequest } from './ChatConversationRequest';
+export { ChatConversationResponseBody } from './ChatConversationResponseBody';
+export { ChatConversationResponse } from './ChatConversationResponse';
 export { CheckInstanceResourcesRequest } from './CheckInstanceResourcesRequest';
 export { CheckInstanceResourcesResponseBody } from './CheckInstanceResourcesResponseBody';
 export { CheckInstanceResourcesResponse } from './CheckInstanceResourcesResponse';
