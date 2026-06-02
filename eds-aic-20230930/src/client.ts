@@ -1048,6 +1048,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建积分包
+   * 
+   * @param request - CreateCreditPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCreditPackageResponse
+   */
+  async createCreditPackageWithOptions(request: $_model.CreateCreditPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCreditPackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!$dara.isNull(request.creditAmount)) {
+      query["CreditAmount"] = request.creditAmount;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCreditPackage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCreditPackageResponse>(await this.callApi(params, req, runtime), new $_model.CreateCreditPackageResponse({}));
+  }
+
+  /**
+   * 创建积分包
+   * 
+   * @param request - CreateCreditPackageRequest
+   * @returns CreateCreditPackageResponse
+   */
+  async createCreditPackage(request: $_model.CreateCreditPackageRequest): Promise<$_model.CreateCreditPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCreditPackageWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a custom image from a cloud phone instance.
    * 
    * @param request - CreateCustomImageRequest
@@ -2373,6 +2431,52 @@ export default class Client extends OpenApi {
   async describeCloudPhoneNodes(request: $_model.DescribeCloudPhoneNodesRequest): Promise<$_model.DescribeCloudPhoneNodesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeCloudPhoneNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询积分包
+   * 
+   * @param request - DescribeCreditPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCreditPackageResponse
+   */
+  async describeCreditPackageWithOptions(request: $_model.DescribeCreditPackageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeCreditPackageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.creditPackageId)) {
+      query["CreditPackageId"] = request.creditPackageId;
+    }
+
+    if (!$dara.isNull(request.creditPackageStatus)) {
+      query["CreditPackageStatus"] = request.creditPackageStatus;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeCreditPackage",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeCreditPackageResponse>(await this.callApi(params, req, runtime), new $_model.DescribeCreditPackageResponse({}));
+  }
+
+  /**
+   * 查询积分包
+   * 
+   * @param request - DescribeCreditPackageRequest
+   * @returns DescribeCreditPackageResponse
+   */
+  async describeCreditPackage(request: $_model.DescribeCreditPackageRequest): Promise<$_model.DescribeCreditPackageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeCreditPackageWithOptions(request, runtime);
   }
 
   /**
