@@ -173,6 +173,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
   knowledge?: string;
   knowledgeConfigList?: CreateCustomAgentRequestKnowledgeConfigList[];
   name?: string;
+  relatedSessionId?: string;
   scheduleTaskConfig?: CreateCustomAgentRequestScheduleTaskConfig;
   textReportConfig?: string;
   webReportConfig?: string;
@@ -192,6 +193,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
       knowledge: 'Knowledge',
       knowledgeConfigList: 'KnowledgeConfigList',
       name: 'Name',
+      relatedSessionId: 'RelatedSessionId',
       scheduleTaskConfig: 'ScheduleTaskConfig',
       textReportConfig: 'TextReportConfig',
       webReportConfig: 'WebReportConfig',
@@ -210,6 +212,7 @@ export class CreateCustomAgentRequest extends $dara.Model {
       knowledge: 'string',
       knowledgeConfigList: { 'type': 'array', 'itemType': CreateCustomAgentRequestKnowledgeConfigList },
       name: 'string',
+      relatedSessionId: 'string',
       scheduleTaskConfig: CreateCustomAgentRequestScheduleTaskConfig,
       textReportConfig: 'string',
       webReportConfig: 'string',

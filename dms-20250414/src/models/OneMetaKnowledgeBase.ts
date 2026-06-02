@@ -3,15 +3,55 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OneMetaKnowledgeBase extends $dara.Model {
+  /**
+   * @example
+   * 20464374909***
+   */
   creator?: string;
+  /**
+   * @example
+   * order knowledgebase
+   */
   description?: string;
+  /**
+   * @example
+   * vehicle
+   */
   domain?: string;
+  /**
+   * @example
+   * {"keywords":"sales,vehicle brand"}
+   */
   extraInfo?: string;
+  /**
+   * @example
+   * 2026-05-14 11:30:00
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 2026-05-14 11:30:39
+   */
   gmtModified?: string;
+  /**
+   * @example
+   * kb-***
+   */
   kbUuid?: string;
+  /**
+   * @example
+   * order_kb
+   */
   name?: string;
+  /**
+   * @example
+   * 1
+   */
   state?: number;
+  /**
+   * @example
+   * 4phsj52f81ymlm***
+   */
   tag?: string;
   static names(): { [key: string]: string } {
     return {

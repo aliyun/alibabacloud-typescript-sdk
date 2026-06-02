@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DataMountInfo extends $dara.Model {
+  /**
+   * @example
+   * image
+   */
   mountFolderName?: string;
+  /**
+   * @example
+   * test-bucket
+   */
   ossBucket?: string;
+  /**
+   * @example
+   * /prod
+   */
   prefix?: string;
+  /**
+   * @example
+   * false
+   */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
     return {

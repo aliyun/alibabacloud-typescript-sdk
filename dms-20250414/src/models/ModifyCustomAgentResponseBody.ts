@@ -238,6 +238,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  relatedSessionId?: string;
   /**
    * @example
    * 2025-12-11T14:04:32.000+00:00
@@ -280,6 +281,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       nextRuntime: 'NextRuntime',
       offlineTime: 'OfflineTime',
       region: 'Region',
+      relatedSessionId: 'RelatedSessionId',
       releaseTime: 'ReleaseTime',
       scheduleTaskConfig: 'ScheduleTaskConfig',
       status: 'Status',
@@ -313,6 +315,7 @@ export class ModifyCustomAgentResponseBodyData extends $dara.Model {
       nextRuntime: 'number',
       offlineTime: 'string',
       region: 'string',
+      relatedSessionId: 'string',
       releaseTime: 'string',
       scheduleTaskConfig: ModifyCustomAgentResponseBodyDataScheduleTaskConfig,
       status: 'string',

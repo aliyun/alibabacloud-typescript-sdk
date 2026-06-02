@@ -583,6 +583,10 @@ export default class Client extends OpenApi {
       query["Name"] = request.name;
     }
 
+    if (!$dara.isNull(request.relatedSessionId)) {
+      query["RelatedSessionId"] = request.relatedSessionId;
+    }
+
     if (!$dara.isNull(request.scheduleTaskConfigShrink)) {
       query["ScheduleTaskConfig"] = request.scheduleTaskConfigShrink;
     }
@@ -1672,6 +1676,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除工作空间代码以及目录
+   * 
+   * @param request - DeleteWorkspaceCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkspaceCodeResponse
+   */
+  async deleteWorkspaceCodeWithOptions(request: $_model.DeleteWorkspaceCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceCodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.repo)) {
+      query["Repo"] = request.repo;
+    }
+
+    if (!$dara.isNull(request.symlink)) {
+      query["Symlink"] = request.symlink;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkspaceCode",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkspaceCodeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkspaceCodeResponse({}));
+  }
+
+  /**
+   * 删除工作空间代码以及目录
+   * 
+   * @param request - DeleteWorkspaceCodeRequest
+   * @returns DeleteWorkspaceCodeResponse
+   */
+  async deleteWorkspaceCode(request: $_model.DeleteWorkspaceCodeRequest): Promise<$_model.DeleteWorkspaceCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWorkspaceCodeWithOptions(request, runtime);
+  }
+
+  /**
    * DescribeCustomAgent
    * 
    * @param request - DescribeCustomAgentRequest
@@ -1967,6 +2025,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.filename)) {
       query["Filename"] = request.filename;
+    }
+
+    if (!$dara.isNull(request.ossBucket)) {
+      query["OssBucket"] = request.ossBucket;
     }
 
     if (!$dara.isNull(request.uploadLocation)) {
@@ -2646,6 +2708,56 @@ export default class Client extends OpenApi {
   async getNotebookTaskStatus(request: $_model.GetNotebookTaskStatusRequest): Promise<$_model.GetNotebookTaskStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getNotebookTaskStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * 读取工作空间的代码文件内容
+   * 
+   * @param request - GetWorkspaceCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWorkspaceCodeResponse
+   */
+  async getWorkspaceCodeWithOptions(request: $_model.GetWorkspaceCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetWorkspaceCodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.iac)) {
+      query["Iac"] = request.iac;
+    }
+
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetWorkspaceCode",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetWorkspaceCodeResponse>(await this.callApi(params, req, runtime), new $_model.GetWorkspaceCodeResponse({}));
+  }
+
+  /**
+   * 读取工作空间的代码文件内容
+   * 
+   * @param request - GetWorkspaceCodeRequest
+   * @returns GetWorkspaceCodeResponse
+   */
+  async getWorkspaceCode(request: $_model.GetWorkspaceCodeRequest): Promise<$_model.GetWorkspaceCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getWorkspaceCodeWithOptions(request, runtime);
   }
 
   /**
@@ -4195,6 +4307,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出工作空间目录下的code文件
+   * 
+   * @param request - ListWorkspaceCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspaceCodeResponse
+   */
+  async listWorkspaceCodeWithOptions(request: $_model.ListWorkspaceCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkspaceCodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkspaceCode",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkspaceCodeResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkspaceCodeResponse({}));
+  }
+
+  /**
+   * 列出工作空间目录下的code文件
+   * 
+   * @param request - ListWorkspaceCodeRequest
+   * @returns ListWorkspaceCodeResponse
+   */
+  async listWorkspaceCode(request: $_model.ListWorkspaceCodeRequest): Promise<$_model.ListWorkspaceCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkspaceCodeWithOptions(request, runtime);
+  }
+
+  /**
    * ModifyCustomAgent
    * 
    * @param tmpReq - ModifyCustomAgentRequest
@@ -4260,6 +4418,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.name)) {
       query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.relatedSessionId)) {
+      query["RelatedSessionId"] = request.relatedSessionId;
     }
 
     if (!$dara.isNull(request.scheduleTaskConfigShrink)) {
@@ -4450,6 +4612,74 @@ export default class Client extends OpenApi {
   async removeUserToDataAgentWorkspace(request: $_model.RemoveUserToDataAgentWorkspaceRequest): Promise<$_model.RemoveUserToDataAgentWorkspaceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removeUserToDataAgentWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
+   * 保存工作空间代码，如果文件不存在则自动新建
+   * 
+   * @param request - SaveWorkspaceCodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveWorkspaceCodeResponse
+   */
+  async saveWorkspaceCodeWithOptions(request: $_model.SaveWorkspaceCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveWorkspaceCodeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!$dara.isNull(request.iac)) {
+      query["Iac"] = request.iac;
+    }
+
+    if (!$dara.isNull(request.mtime)) {
+      query["Mtime"] = request.mtime;
+    }
+
+    if (!$dara.isNull(request.repo)) {
+      query["Repo"] = request.repo;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.path)) {
+      body["Path"] = request.path;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SaveWorkspaceCode",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SaveWorkspaceCodeResponse>(await this.callApi(params, req, runtime), new $_model.SaveWorkspaceCodeResponse({}));
+  }
+
+  /**
+   * 保存工作空间代码，如果文件不存在则自动新建
+   * 
+   * @param request - SaveWorkspaceCodeRequest
+   * @returns SaveWorkspaceCodeResponse
+   */
+  async saveWorkspaceCode(request: $_model.SaveWorkspaceCodeRequest): Promise<$_model.SaveWorkspaceCodeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.saveWorkspaceCodeWithOptions(request, runtime);
   }
 
   /**

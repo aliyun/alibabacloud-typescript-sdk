@@ -16,6 +16,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
   knowledge?: string;
   knowledgeConfigListShrink?: string;
   name?: string;
+  relatedSessionId?: string;
   scheduleTaskConfigShrink?: string;
   textReportConfig?: string;
   webReportConfig?: string;
@@ -35,6 +36,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
       knowledge: 'Knowledge',
       knowledgeConfigListShrink: 'KnowledgeConfigList',
       name: 'Name',
+      relatedSessionId: 'RelatedSessionId',
       scheduleTaskConfigShrink: 'ScheduleTaskConfig',
       textReportConfig: 'TextReportConfig',
       webReportConfig: 'WebReportConfig',
@@ -53,6 +55,7 @@ export class CreateCustomAgentShrinkRequest extends $dara.Model {
       knowledge: 'string',
       knowledgeConfigListShrink: 'string',
       name: 'string',
+      relatedSessionId: 'string',
       scheduleTaskConfigShrink: 'string',
       textReportConfig: 'string',
       webReportConfig: 'string',

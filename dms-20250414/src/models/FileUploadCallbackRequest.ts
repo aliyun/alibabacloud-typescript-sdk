@@ -26,6 +26,7 @@ export class FileUploadCallbackRequest extends $dara.Model {
    * conversion_metrics.csv
    */
   filename?: string;
+  ossBucket?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -37,6 +38,7 @@ export class FileUploadCallbackRequest extends $dara.Model {
       dmsUnit: 'DmsUnit',
       fileSize: 'FileSize',
       filename: 'Filename',
+      ossBucket: 'OssBucket',
       uploadLocation: 'UploadLocation',
     };
   }
@@ -47,6 +49,7 @@ export class FileUploadCallbackRequest extends $dara.Model {
       dmsUnit: 'string',
       fileSize: 'number',
       filename: 'string',
+      ossBucket: 'string',
       uploadLocation: 'string',
     };
   }
