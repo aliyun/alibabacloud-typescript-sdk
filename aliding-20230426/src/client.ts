@@ -15982,6 +15982,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 按会议 conferenceId 查询实时听记（闪记）全文转写，支持分页。
+   * 
+   * @param tmpReq - MeetingFlashMinutesTextRequest
+   * @param tmpHeader - MeetingFlashMinutesTextHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MeetingFlashMinutesTextResponse
+   */
+  async meetingFlashMinutesTextWithOptions(tmpReq: $_model.MeetingFlashMinutesTextRequest, tmpHeader: $_model.MeetingFlashMinutesTextHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.MeetingFlashMinutesTextResponse> {
+    tmpReq.validate();
+    let request = new $_model.MeetingFlashMinutesTextShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new $_model.MeetingFlashMinutesTextShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!$dara.isNull(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!$dara.isNull(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = typeof headers.accountContextShrink === "string" ? headers.accountContextShrink : JSON.stringify(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MeetingFlashMinutesText",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/minutes/meetingFlashMinutesText`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MeetingFlashMinutesTextResponse>(await this.callApi(params, req, runtime), new $_model.MeetingFlashMinutesTextResponse({}));
+  }
+
+  /**
+   * 按会议 conferenceId 查询实时听记（闪记）全文转写，支持分页。
+   * 
+   * @param request - MeetingFlashMinutesTextRequest
+   * @returns MeetingFlashMinutesTextResponse
+   */
+  async meetingFlashMinutesText(request: $_model.MeetingFlashMinutesTextRequest): Promise<$_model.MeetingFlashMinutesTextResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.MeetingFlashMinutesTextHeaders({ });
+    return await this.meetingFlashMinutesTextWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 全员静音或全员取消静音
    * 
    * @param tmpReq - MuteAllRequest
