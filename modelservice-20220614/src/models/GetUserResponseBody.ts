@@ -18,6 +18,7 @@ export class GetUserResponseBody extends $dara.Model {
    * ai-service.******.alicontainer.com
    */
   host?: string;
+  innerToken?: string;
   /**
    * @example
    * success
@@ -38,6 +39,7 @@ export class GetUserResponseBody extends $dara.Model {
       appId: 'AppId',
       code: 'Code',
       host: 'Host',
+      innerToken: 'InnerToken',
       message: 'Message',
       requestId: 'RequestId',
       token: 'Token',
@@ -49,6 +51,7 @@ export class GetUserResponseBody extends $dara.Model {
       appId: 'string',
       code: 'string',
       host: 'string',
+      innerToken: 'string',
       message: 'string',
       requestId: 'string',
       token: 'string',

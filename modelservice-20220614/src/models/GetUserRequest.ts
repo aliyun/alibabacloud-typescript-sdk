@@ -3,20 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserRequest extends $dara.Model {
-  /**
-   * @example
-   * sales_pick
-   */
-  sceneType?: string;
+  channel?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
-      sceneType: 'scene_type',
+      channel: 'channel',
+      region: 'region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      sceneType: 'string',
+      channel: 'string',
+      region: 'string',
     };
   }
 

@@ -85,8 +85,12 @@ export default class Client extends OpenApi {
   async getUserWithOptions(request: $_model.GetUserRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetUserResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
-    if (!$dara.isNull(request.sceneType)) {
-      query["scene_type"] = request.sceneType;
+    if (!$dara.isNull(request.channel)) {
+      query["channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.region)) {
+      query["region"] = request.region;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
