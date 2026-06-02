@@ -692,6 +692,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除播报贴图
+   * 
+   * @param request - DeleteBroadcastStickerRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBroadcastStickerResponse
+   */
+  async deleteBroadcastStickerWithOptions(stickerId: string, request: $_model.DeleteBroadcastStickerRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteBroadcastStickerResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteBroadcastSticker",
+      version: "2025-05-27",
+      protocol: "HTTPS",
+      pathname: `/openapi/broadcast/materials/stickers/${$dara.URL.percentEncode(stickerId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteBroadcastStickerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteBroadcastStickerResponse({}));
+  }
+
+  /**
+   * 删除播报贴图
+   * 
+   * @param request - DeleteBroadcastStickerRequest
+   * @returns DeleteBroadcastStickerResponse
+   */
+  async deleteBroadcastSticker(stickerId: string, request: $_model.DeleteBroadcastStickerRequest): Promise<$_model.DeleteBroadcastStickerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteBroadcastStickerWithOptions(stickerId, request, headers, runtime);
+  }
+
+  /**
    * 查询播报模板详情
    * 
    * @param request - GetBroadcastTemplateRequest
