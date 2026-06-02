@@ -37,6 +37,7 @@ export class DebugBeginDialogueRequest extends $dara.Model {
    * 8a503680-815d-473e-a9b0-e010f47a64d2
    */
   instanceId?: string;
+  shouldUseSandBox?: boolean;
   static names(): { [key: string]: string } {
     return {
       calledNumber: 'CalledNumber',
@@ -44,6 +45,7 @@ export class DebugBeginDialogueRequest extends $dara.Model {
       conversationId: 'ConversationId',
       initialContext: 'InitialContext',
       instanceId: 'InstanceId',
+      shouldUseSandBox: 'ShouldUseSandBox',
     };
   }
 
@@ -54,6 +56,7 @@ export class DebugBeginDialogueRequest extends $dara.Model {
       conversationId: 'string',
       initialContext: 'string',
       instanceId: 'string',
+      shouldUseSandBox: 'boolean',
     };
   }
 

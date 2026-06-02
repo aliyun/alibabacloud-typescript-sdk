@@ -378,6 +378,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 测试窗开启文本对话
+   * 
    * @param request - DebugBeginDialogueRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DebugBeginDialogueResponse
@@ -405,6 +407,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!$dara.isNull(request.shouldUseSandBox)) {
+      query["ShouldUseSandBox"] = request.shouldUseSandBox;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -423,6 +429,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 测试窗开启文本对话
+   * 
    * @param request - DebugBeginDialogueRequest
    * @returns DebugBeginDialogueResponse
    */
