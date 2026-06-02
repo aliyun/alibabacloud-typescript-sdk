@@ -1,0 +1,73 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class CreateBeebotIntentLgfResponseBody extends $dara.Model {
+  /**
+   * @example
+   * 497CFAFF-48CC-161A-AD2C-252DED569037
+   */
+  beebotRequestId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 5666117
+   */
+  lgfId?: number;
+  /**
+   * @example
+   * Success
+   */
+  message?: string;
+  /**
+   * @example
+   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      beebotRequestId: 'BeebotRequestId',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      lgfId: 'LgfId',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beebotRequestId: 'string',
+      code: 'string',
+      httpStatusCode: 'number',
+      lgfId: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
