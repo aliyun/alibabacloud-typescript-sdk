@@ -115,6 +115,9 @@ export class ListAppInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * For the current query, apart from pagination limits, the server processes up to the most recent 1000 records. If the result exceeds 1000 records, **ResultLimit** is **true**, please narrow down the time range and search again; otherwise, **ResultLimit** is **false**.
+   * 
+   * @example
+   * False
    */
   resultLimit?: boolean;
   /**
@@ -133,6 +136,11 @@ export class ListAppInstancesResponseBody extends $dara.Model {
    * 系统异常
    */
   rootErrorMsg?: string;
+  /**
+   * @example
+   * 1
+   */
+  startPosition?: string;
   /**
    * @remarks
    * Reserved parameter.
@@ -168,6 +176,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
       resultLimit: 'ResultLimit',
       rootErrorCode: 'RootErrorCode',
       rootErrorMsg: 'RootErrorMsg',
+      startPosition: 'StartPosition',
       synchro: 'Synchro',
       totalPageNum: 'TotalPageNum',
     };
@@ -192,6 +201,7 @@ export class ListAppInstancesResponseBody extends $dara.Model {
       resultLimit: 'boolean',
       rootErrorCode: 'string',
       rootErrorMsg: 'string',
+      startPosition: 'string',
       synchro: 'boolean',
       totalPageNum: 'number',
     };

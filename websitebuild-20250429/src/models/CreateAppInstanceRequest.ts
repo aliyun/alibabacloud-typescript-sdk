@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAppInstanceRequestTags extends $dara.Model {
+  /**
+   * @example
+   * Group
+   */
   tagKey?: string;
+  /**
+   * @example
+   * ufo
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -54,6 +62,11 @@ export class CreateAppInstanceRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @example
+   * OPEN_SUBSCRIPTION
+   */
+  createAction?: string;
+  /**
    * @remarks
    * Deployment area
    * 
@@ -61,6 +74,11 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * ChineseMainland
    */
   deployArea?: string;
+  /**
+   * @example
+   * go-to-the-docks-for-french-fries
+   */
+  description?: string;
   /**
    * @remarks
    * Required. The number of subscription periods
@@ -77,6 +95,11 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * {}
    */
   extend?: string;
+  /**
+   * @example
+   * docs
+   */
+  name?: string;
   /**
    * @remarks
    * Payment type
@@ -101,6 +124,10 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * 1
    */
   quantity?: number;
+  /**
+   * @example
+   * rg-aek2smovqqpvuly
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -111,20 +138,29 @@ export class CreateAppInstanceRequest extends $dara.Model {
    */
   siteVersion?: string;
   tags?: CreateAppInstanceRequestTags[];
+  /**
+   * @example
+   * 2023-09-01
+   */
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       applicationType: 'ApplicationType',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
+      createAction: 'CreateAction',
       deployArea: 'DeployArea',
+      description: 'Description',
       duration: 'Duration',
       extend: 'Extend',
+      name: 'Name',
       paymentType: 'PaymentType',
       pricingCycle: 'PricingCycle',
       quantity: 'Quantity',
       resourceGroupId: 'ResourceGroupId',
       siteVersion: 'SiteVersion',
       tags: 'Tags',
+      version: 'Version',
     };
   }
 
@@ -133,15 +169,19 @@ export class CreateAppInstanceRequest extends $dara.Model {
       applicationType: 'string',
       autoRenew: 'boolean',
       clientToken: 'string',
+      createAction: 'string',
       deployArea: 'string',
+      description: 'string',
       duration: 'number',
       extend: 'string',
+      name: 'string',
       paymentType: 'string',
       pricingCycle: 'string',
       quantity: 'number',
       resourceGroupId: 'string',
       siteVersion: 'string',
       tags: { 'type': 'array', 'itemType': CreateAppInstanceRequestTags },
+      version: 'string',
     };
   }
 

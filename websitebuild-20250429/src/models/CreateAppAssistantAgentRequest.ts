@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAppAssistantAgentRequest extends $dara.Model {
+  /**
+   * @example
+   * 测试业务空间
+   */
   agentName?: string;
   /**
    * @example

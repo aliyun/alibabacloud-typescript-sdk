@@ -28,6 +28,11 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    */
   clientToken?: string;
   /**
+   * @example
+   * OPEN_SUBSCRIPTION
+   */
+  createAction?: string;
+  /**
    * @remarks
    * Deployment area
    * 
@@ -35,6 +40,11 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    * ChineseMainland
    */
   deployArea?: string;
+  /**
+   * @example
+   * go-to-the-docks-for-french-fries
+   */
+  description?: string;
   /**
    * @remarks
    * Required. The number of subscription periods
@@ -51,6 +61,11 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    * {}
    */
   extend?: string;
+  /**
+   * @example
+   * docs
+   */
+  name?: string;
   /**
    * @remarks
    * Payment type
@@ -75,6 +90,10 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    * 1
    */
   quantity?: number;
+  /**
+   * @example
+   * rg-aek2smovqqpvuly
+   */
   resourceGroupId?: string;
   /**
    * @remarks
@@ -85,20 +104,29 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    */
   siteVersion?: string;
   tagsShrink?: string;
+  /**
+   * @example
+   * 2023-09-01
+   */
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       applicationType: 'ApplicationType',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
+      createAction: 'CreateAction',
       deployArea: 'DeployArea',
+      description: 'Description',
       duration: 'Duration',
       extend: 'Extend',
+      name: 'Name',
       paymentType: 'PaymentType',
       pricingCycle: 'PricingCycle',
       quantity: 'Quantity',
       resourceGroupId: 'ResourceGroupId',
       siteVersion: 'SiteVersion',
       tagsShrink: 'Tags',
+      version: 'Version',
     };
   }
 
@@ -107,15 +135,19 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
       applicationType: 'string',
       autoRenew: 'boolean',
       clientToken: 'string',
+      createAction: 'string',
       deployArea: 'string',
+      description: 'string',
       duration: 'number',
       extend: 'string',
+      name: 'string',
       paymentType: 'string',
       pricingCycle: 'string',
       quantity: 'number',
       resourceGroupId: 'string',
       siteVersion: 'string',
       tagsShrink: 'string',
+      version: 'string',
     };
   }
 

@@ -13,6 +13,7 @@ export class AppInstanceProfile extends $dara.Model {
   ordTime?: string;
   orderId?: string;
   payTime?: string;
+  previewUrl?: string;
   seoSite?: string;
   siteVersion?: string;
   siteVersionText?: string;
@@ -31,6 +32,7 @@ export class AppInstanceProfile extends $dara.Model {
       ordTime: 'OrdTime',
       orderId: 'OrderId',
       payTime: 'PayTime',
+      previewUrl: 'PreviewUrl',
       seoSite: 'SeoSite',
       siteVersion: 'SiteVersion',
       siteVersionText: 'SiteVersionText',
@@ -52,6 +54,7 @@ export class AppInstanceProfile extends $dara.Model {
       ordTime: 'string',
       orderId: 'string',
       payTime: 'string',
+      previewUrl: 'string',
       seoSite: 'string',
       siteVersion: 'string',
       siteVersionText: 'string',

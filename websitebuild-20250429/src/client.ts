@@ -576,8 +576,16 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!$dara.isNull(request.createAction)) {
+      query["CreateAction"] = request.createAction;
+    }
+
     if (!$dara.isNull(request.deployArea)) {
       query["DeployArea"] = request.deployArea;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
     }
 
     if (!$dara.isNull(request.duration)) {
@@ -586,6 +594,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.extend)) {
       query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
     }
 
     if (!$dara.isNull(request.paymentType)) {
@@ -602,6 +614,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.siteVersion)) {
       query["SiteVersion"] = request.siteVersion;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
     }
 
     let body : {[key: string ]: any} = { };

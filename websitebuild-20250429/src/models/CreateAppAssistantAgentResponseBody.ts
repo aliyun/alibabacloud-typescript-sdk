@@ -70,6 +70,10 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
    * duanwei@qianrutest
    */
   agentId?: string;
+  /**
+   * @example
+   * 测试业务空间
+   */
   agentName?: string;
   /**
    * @example
@@ -202,6 +206,10 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
    * @example
