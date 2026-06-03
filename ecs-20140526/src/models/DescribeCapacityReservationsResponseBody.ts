@@ -193,6 +193,7 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
 export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItem extends $dara.Model {
   allocatedResources?: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResources;
   capacityReservationOwnerId?: string;
+  deliveryTime?: string;
   description?: string;
   endTime?: string;
   endTimeType?: string;
@@ -210,10 +211,12 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
   status?: string;
   tags?: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemTags;
   timeSlot?: string;
+  unlockedTime?: string;
   static names(): { [key: string]: string } {
     return {
       allocatedResources: 'AllocatedResources',
       capacityReservationOwnerId: 'CapacityReservationOwnerId',
+      deliveryTime: 'DeliveryTime',
       description: 'Description',
       endTime: 'EndTime',
       endTimeType: 'EndTimeType',
@@ -231,6 +234,7 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
       status: 'Status',
       tags: 'Tags',
       timeSlot: 'TimeSlot',
+      unlockedTime: 'UnlockedTime',
     };
   }
 
@@ -238,6 +242,7 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
     return {
       allocatedResources: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemAllocatedResources,
       capacityReservationOwnerId: 'string',
+      deliveryTime: 'string',
       description: 'string',
       endTime: 'string',
       endTimeType: 'string',
@@ -255,6 +260,7 @@ export class DescribeCapacityReservationsResponseBodyCapacityReservationSetCapac
       status: 'string',
       tags: DescribeCapacityReservationsResponseBodyCapacityReservationSetCapacityReservationItemTags,
       timeSlot: 'string',
+      unlockedTime: 'string',
     };
   }
 

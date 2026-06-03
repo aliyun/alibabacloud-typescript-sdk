@@ -136,6 +136,7 @@ export class CreateCapacityReservationRequest extends $dara.Model {
    * 2
    */
   instanceAmount?: number;
+  instanceChargeType?: string;
   /**
    * @remarks
    * The instance type. You can create a capacity reservation to reserve the capacity of only one instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the instance types provided by ECS.
@@ -216,6 +217,7 @@ export class CreateCapacityReservationRequest extends $dara.Model {
       endTime: 'EndTime',
       endTimeType: 'EndTimeType',
       instanceAmount: 'InstanceAmount',
+      instanceChargeType: 'InstanceChargeType',
       instanceType: 'InstanceType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -238,6 +240,7 @@ export class CreateCapacityReservationRequest extends $dara.Model {
       endTime: 'string',
       endTimeType: 'string',
       instanceAmount: 'number',
+      instanceChargeType: 'string',
       instanceType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',

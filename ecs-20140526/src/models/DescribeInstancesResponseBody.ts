@@ -294,11 +294,13 @@ export class DescribeInstancesResponseBodyInstancesInstanceMetadataOptions exten
   httpEndpoint?: string;
   httpPutResponseHopLimit?: number;
   httpTokens?: string;
+  instanceMetadataTags?: string;
   static names(): { [key: string]: string } {
     return {
       httpEndpoint: 'HttpEndpoint',
       httpPutResponseHopLimit: 'HttpPutResponseHopLimit',
       httpTokens: 'HttpTokens',
+      instanceMetadataTags: 'InstanceMetadataTags',
     };
   }
 
@@ -307,6 +309,7 @@ export class DescribeInstancesResponseBodyInstancesInstanceMetadataOptions exten
       httpEndpoint: 'string',
       httpPutResponseHopLimit: 'number',
       httpTokens: 'string',
+      instanceMetadataTags: 'string',
     };
   }
 

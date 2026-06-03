@@ -3432,6 +3432,10 @@ export default class Client extends OpenApi {
       query["InstanceAmount"] = request.instanceAmount;
     }
 
+    if (!$dara.isNull(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
     if (!$dara.isNull(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
     }
