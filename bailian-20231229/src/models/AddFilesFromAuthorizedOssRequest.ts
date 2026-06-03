@@ -2,6 +2,40 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class AddFilesFromAuthorizedOssRequestFileDetailsParserConfig extends $dara.Model {
+  /**
+   * @example
+   * qwen-vl-max
+   */
+  modelName?: string;
+  /**
+   * @example
+   * #角色 你是一个专业的图片内容标注人员，擅长识别并描述出图片中的内容。 # 任务目标 请结合输入图片，详细描述图片中的内容。
+   */
+  modelPrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      modelName: 'ModelName',
+      modelPrompt: 'ModelPrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelName: 'string',
+      modelPrompt: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddFilesFromAuthorizedOssRequestFileDetails extends $dara.Model {
   /**
    * @remarks
@@ -19,10 +53,18 @@ export class AddFilesFromAuthorizedOssRequestFileDetails extends $dara.Model {
    * root/path/this_is_temp_xxxx.pdf
    */
   ossKey?: string;
+  /**
+   * @example
+   * AUTO_SELECT
+   */
+  parser?: string;
+  parserConfig?: AddFilesFromAuthorizedOssRequestFileDetailsParserConfig;
   static names(): { [key: string]: string } {
     return {
       fileName: 'FileName',
       ossKey: 'OssKey',
+      parser: 'Parser',
+      parserConfig: 'ParserConfig',
     };
   }
 
@@ -30,10 +72,15 @@ export class AddFilesFromAuthorizedOssRequestFileDetails extends $dara.Model {
     return {
       fileName: 'string',
       ossKey: 'string',
+      parser: 'string',
+      parserConfig: AddFilesFromAuthorizedOssRequestFileDetailsParserConfig,
     };
   }
 
   validate() {
+    if(this.parserConfig && typeof (this.parserConfig as any).validate === 'function') {
+      (this.parserConfig as any).validate();
+    }
     super.validate();
   }
 

@@ -1225,6 +1225,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除连接器
+   * 
+   * @param request - DeleteConnectorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteConnectorResponse
+   */
+  async deleteConnectorWithOptions(ConnectorId: string, WorkspaceId: string, request: $_model.DeleteConnectorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteConnectorResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteConnector",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/connector/${$dara.URL.percentEncode(ConnectorId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteConnectorResponse>(await this.callApi(params, req, runtime), new $_model.DeleteConnectorResponse({}));
+  }
+
+  /**
+   * 删除连接器
+   * 
+   * @param request - DeleteConnectorRequest
+   * @returns DeleteConnectorResponse
+   */
+  async deleteConnector(ConnectorId: string, WorkspaceId: string, request: $_model.DeleteConnectorRequest): Promise<$_model.DeleteConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteConnectorWithOptions(ConnectorId, WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a specified unstructured document permanently. You cannot use the API to delete structured documents, see the Usage notes section of this topic.
    * 
    * @param request - DeleteFileRequest
@@ -3281,6 +3320,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateChunkWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 编辑连接器
+   * 
+   * @param request - UpdateConnectorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateConnectorResponse
+   */
+  async updateConnectorWithOptions(WorkspaceId: string, ConnectorId: string, request: $_model.UpdateConnectorRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateConnectorResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectorName)) {
+      body["ConnectorName"] = request.connectorName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateConnector",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/connector/${$dara.URL.percentEncode(ConnectorId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateConnectorResponse>(await this.callApi(params, req, runtime), new $_model.UpdateConnectorResponse({}));
+  }
+
+  /**
+   * 编辑连接器
+   * 
+   * @param request - UpdateConnectorRequest
+   * @returns UpdateConnectorResponse
+   */
+  async updateConnector(WorkspaceId: string, ConnectorId: string, request: $_model.UpdateConnectorRequest): Promise<$_model.UpdateConnectorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateConnectorWithOptions(WorkspaceId, ConnectorId, request, headers, runtime);
   }
 
   /**
