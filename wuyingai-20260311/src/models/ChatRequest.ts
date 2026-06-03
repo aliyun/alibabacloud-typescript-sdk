@@ -7,6 +7,11 @@ import * as $dara from '@darabonba/typescript';
 export class ChatRequestInputContent extends $dara.Model {
   /**
    * @example
+   * report.pdf
+   */
+  fileName?: string;
+  /**
+   * @example
    * /workspace/report.pdf
    */
   fileUrl?: string;
@@ -27,6 +32,7 @@ export class ChatRequestInputContent extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      fileName: 'FileName',
       fileUrl: 'FileUrl',
       imageUrl: 'ImageUrl',
       text: 'Text',
@@ -36,6 +42,7 @@ export class ChatRequestInputContent extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      fileName: 'string',
       fileUrl: 'string',
       imageUrl: 'string',
       text: 'string',
