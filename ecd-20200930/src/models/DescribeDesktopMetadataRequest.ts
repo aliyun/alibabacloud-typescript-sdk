@@ -9,6 +9,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
    */
   creationTimeStart?: string;
   desktopIds?: string[];
+  endUserId?: string;
   /**
    * @example
    * dg-i1ruuudp92qpj****
@@ -68,6 +69,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
     return {
       creationTimeStart: 'CreationTimeStart',
       desktopIds: 'DesktopIds',
+      endUserId: 'EndUserId',
       groupId: 'GroupId',
       hostName: 'HostName',
       imageId: 'ImageId',
@@ -86,6 +88,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
     return {
       creationTimeStart: 'string',
       desktopIds: { 'type': 'array', 'itemType': 'string' },
+      endUserId: 'string',
       groupId: 'string',
       hostName: 'string',
       imageId: 'string',

@@ -8240,6 +8240,10 @@ export default class Client extends OpenApi {
       query["DesktopIds"] = request.desktopIds;
     }
 
+    if (!$dara.isNull(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
     if (!$dara.isNull(request.groupId)) {
       query["GroupId"] = request.groupId;
     }
