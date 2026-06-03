@@ -30,6 +30,7 @@ export class CreateCustomDomainInput extends $dara.Model {
    * example.com
    */
   domainName?: string;
+  isE2B?: boolean;
   /**
    * @remarks
    * The protocol type that is supported by the custom domain name. Valid values: HTTP HTTPS HTTP,HTTPS
@@ -59,6 +60,7 @@ export class CreateCustomDomainInput extends $dara.Model {
       certConfig: 'certConfig',
       corsConfig: 'corsConfig',
       domainName: 'domainName',
+      isE2B: 'isE2B',
       protocol: 'protocol',
       routeConfig: 'routeConfig',
       tlsConfig: 'tlsConfig',
@@ -72,6 +74,7 @@ export class CreateCustomDomainInput extends $dara.Model {
       certConfig: CertConfig,
       corsConfig: CORSConfig,
       domainName: 'string',
+      isE2B: 'boolean',
       protocol: 'string',
       routeConfig: RouteConfig,
       tlsConfig: TLSConfig,

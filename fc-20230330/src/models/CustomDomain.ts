@@ -52,6 +52,7 @@ export class CustomDomain extends $dara.Model {
    * example.com
    */
   domainName?: string;
+  isE2B?: boolean;
   /**
    * @remarks
    * The time when the custom domain name was last updated.
@@ -100,6 +101,7 @@ export class CustomDomain extends $dara.Model {
       corsConfig: 'corsConfig',
       createdTime: 'createdTime',
       domainName: 'domainName',
+      isE2B: 'isE2B',
       lastModifiedTime: 'lastModifiedTime',
       protocol: 'protocol',
       routeConfig: 'routeConfig',
@@ -118,6 +120,7 @@ export class CustomDomain extends $dara.Model {
       corsConfig: CORSConfig,
       createdTime: 'string',
       domainName: 'string',
+      isE2B: 'boolean',
       lastModifiedTime: 'string',
       protocol: 'string',
       routeConfig: RouteConfig,
