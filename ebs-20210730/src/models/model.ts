@@ -22,9 +22,7 @@ export { DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageC
 export { DescribeDedicatedBlockStorageClustersResponseBodyDedicatedBlockStorageClusters } from './DescribeDedicatedBlockStorageClustersResponseBody';
 export { DescribeDiagnoseReportResponseBodyReportsEvents } from './DescribeDiagnoseReportResponseBody';
 export { DescribeDiagnoseReportResponseBodyReports } from './DescribeDiagnoseReportResponseBody';
-export { DescribeDiskEventsResponseBodyDiskEvents } from './DescribeDiskEventsResponseBody';
 export { DescribeDiskMonitorDataResponseBodyMonitorData } from './DescribeDiskMonitorDataResponseBody';
-export { DescribeDiskMonitorDataListResponseBodyMonitorData } from './DescribeDiskMonitorDataListResponseBody';
 export { DescribeDiskReplicaGroupsRequestTag } from './DescribeDiskReplicaGroupsRequest';
 export { DescribeDiskReplicaGroupsResponseBodyReplicaGroupsTags } from './DescribeDiskReplicaGroupsResponseBody';
 export { DescribeDiskReplicaGroupsResponseBodyReplicaGroups } from './DescribeDiskReplicaGroupsResponseBody';
@@ -131,15 +129,9 @@ export { DescribeDedicatedBlockStorageClustersResponse } from './DescribeDedicat
 export { DescribeDiagnoseReportRequest } from './DescribeDiagnoseReportRequest';
 export { DescribeDiagnoseReportResponseBody } from './DescribeDiagnoseReportResponseBody';
 export { DescribeDiagnoseReportResponse } from './DescribeDiagnoseReportResponse';
-export { DescribeDiskEventsRequest } from './DescribeDiskEventsRequest';
-export { DescribeDiskEventsResponseBody } from './DescribeDiskEventsResponseBody';
-export { DescribeDiskEventsResponse } from './DescribeDiskEventsResponse';
 export { DescribeDiskMonitorDataRequest } from './DescribeDiskMonitorDataRequest';
 export { DescribeDiskMonitorDataResponseBody } from './DescribeDiskMonitorDataResponseBody';
 export { DescribeDiskMonitorDataResponse } from './DescribeDiskMonitorDataResponse';
-export { DescribeDiskMonitorDataListRequest } from './DescribeDiskMonitorDataListRequest';
-export { DescribeDiskMonitorDataListResponseBody } from './DescribeDiskMonitorDataListResponseBody';
-export { DescribeDiskMonitorDataListResponse } from './DescribeDiskMonitorDataListResponse';
 export { DescribeDiskReplicaGroupsRequest } from './DescribeDiskReplicaGroupsRequest';
 export { DescribeDiskReplicaGroupsResponseBody } from './DescribeDiskReplicaGroupsResponseBody';
 export { DescribeDiskReplicaGroupsResponse } from './DescribeDiskReplicaGroupsResponse';

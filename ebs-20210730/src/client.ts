@@ -106,7 +106,6 @@ export default class Client extends OpenApi {
    * ## Usage notes
    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
    * 
-   * @param request - ApplyLensServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ApplyLensServiceResponse
    */
@@ -200,7 +199,6 @@ export default class Client extends OpenApi {
    * ## Usage notes
    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
    * 
-   * @param request - CancelLensServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelLensServiceResponse
    */
@@ -1498,84 +1496,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
-   * 
-   * @remarks
-   * ## Usage notes
-   * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-   * 
-   * @param request - DescribeDiskEventsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeDiskEventsResponse
-   */
-  async describeDiskEventsWithOptions(request: $_model.DescribeDiskEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDiskEventsResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.diskCategory)) {
-      query["DiskCategory"] = request.diskCategory;
-    }
-
-    if (!$dara.isNull(request.diskId)) {
-      query["DiskId"] = request.diskId;
-    }
-
-    if (!$dara.isNull(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!$dara.isNull(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!$dara.isNull(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    if (!$dara.isNull(request.type)) {
-      query["Type"] = request.type;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeDiskEvents",
-      version: "2021-07-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeDiskEventsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDiskEventsResponse({}));
-  }
-
-  /**
-   * Queries the risk events of a disk. The operation is getting offline. Switch to the new operation DescribeEvents.
-   * 
-   * @remarks
-   * ## Usage notes
-   * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-   * 
-   * @param request - DescribeDiskEventsRequest
-   * @returns DescribeDiskEventsResponse
-   */
-  async describeDiskEvents(request: $_model.DescribeDiskEventsRequest): Promise<$_model.DescribeDiskEventsResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeDiskEventsWithOptions(request, runtime);
-  }
-
-  /**
    * Queries fine-grained monitoring data of a disk.
    * 
    * @remarks
@@ -1647,80 +1567,6 @@ export default class Client extends OpenApi {
   async describeDiskMonitorData(request: $_model.DescribeDiskMonitorDataRequest): Promise<$_model.DescribeDiskMonitorDataResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeDiskMonitorDataWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
-   * 
-   * @remarks
-   * ## Usage notes
-   * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-   * 
-   * @param request - DescribeDiskMonitorDataListRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeDiskMonitorDataListResponse
-   */
-  async describeDiskMonitorDataListWithOptions(request: $_model.DescribeDiskMonitorDataListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDiskMonitorDataListResponse> {
-    request.validate();
-    let query = { };
-    if (!$dara.isNull(request.diskIds)) {
-      query["DiskIds"] = request.diskIds;
-    }
-
-    if (!$dara.isNull(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!$dara.isNull(request.maxResults)) {
-      query["MaxResults"] = request.maxResults;
-    }
-
-    if (!$dara.isNull(request.nextToken)) {
-      query["NextToken"] = request.nextToken;
-    }
-
-    if (!$dara.isNull(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
-    if (!$dara.isNull(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    if (!$dara.isNull(request.type)) {
-      query["Type"] = request.type;
-    }
-
-    let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApiUtil.Params({
-      action: "DescribeDiskMonitorDataList",
-      version: "2021-07-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $dara.cast<$_model.DescribeDiskMonitorDataListResponse>(await this.callApi(params, req, runtime), new $_model.DescribeDiskMonitorDataListResponse({}));
-  }
-
-  /**
-   * Queries fine-grained monitoring data of multiple disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
-   * 
-   * @remarks
-   * ## Usage notes
-   * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-   * 
-   * @param request - DescribeDiskMonitorDataListRequest
-   * @returns DescribeDiskMonitorDataListResponse
-   */
-  async describeDiskMonitorDataList(request: $_model.DescribeDiskMonitorDataListRequest): Promise<$_model.DescribeDiskMonitorDataListResponse> {
-    let runtime = new $dara.RuntimeOptions({ });
-    return await this.describeDiskMonitorDataListWithOptions(request, runtime);
   }
 
   /**
@@ -2180,7 +2026,6 @@ export default class Client extends OpenApi {
    * ## Usage notes
    * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
    * 
-   * @param request - DescribeLensServiceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLensServiceStatusResponse
    */
