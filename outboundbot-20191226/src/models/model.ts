@@ -147,6 +147,7 @@ export { ListResourceTagsResponseBodyResourceTags } from './ListResourceTagsResp
 export { ListScriptPublishHistoriesResponseBodyScriptPublishHistoriesList } from './ListScriptPublishHistoriesResponseBody';
 export { ListScriptPublishHistoriesResponseBodyScriptPublishHistories } from './ListScriptPublishHistoriesResponseBody';
 export { ListScriptRecordingResponseBodyScriptRecordings } from './ListScriptRecordingResponseBody';
+export { ListScriptVariablesResponseBodyVariables } from './ListScriptVariablesResponseBody';
 export { ListScriptVoiceConfigsResponseBodyScriptVoiceConfigsList } from './ListScriptVoiceConfigsResponseBody';
 export { ListScriptVoiceConfigsResponseBodyScriptVoiceConfigs } from './ListScriptVoiceConfigsResponseBody';
 export { ListScriptsResponseBodyScriptsListNluProfile } from './ListScriptsResponseBody';
@@ -289,6 +290,9 @@ export { CreateTagResponse } from './CreateTagResponse';
 export { CreateTaskExportTaskRequest } from './CreateTaskExportTaskRequest';
 export { CreateTaskExportTaskResponseBody } from './CreateTaskExportTaskResponseBody';
 export { CreateTaskExportTaskResponse } from './CreateTaskExportTaskResponse';
+export { CreateTenantKeyRequest } from './CreateTenantKeyRequest';
+export { CreateTenantKeyResponseBody } from './CreateTenantKeyResponseBody';
+export { CreateTenantKeyResponse } from './CreateTenantKeyResponse';
 export { DeleteAgentProfilesRequest } from './DeleteAgentProfilesRequest';
 export { DeleteAgentProfilesShrinkRequest } from './DeleteAgentProfilesShrinkRequest';
 export { DeleteAgentProfilesResponseBody } from './DeleteAgentProfilesResponseBody';
@@ -455,6 +459,9 @@ export { GetMaxAttemptsPerDayResponseBody } from './GetMaxAttemptsPerDayResponse
 export { GetMaxAttemptsPerDayResponse } from './GetMaxAttemptsPerDayResponse';
 export { GetNumberDistrictInfoTemplateDownloadUrlResponseBody } from './GetNumberDistrictInfoTemplateDownloadUrlResponseBody';
 export { GetNumberDistrictInfoTemplateDownloadUrlResponse } from './GetNumberDistrictInfoTemplateDownloadUrlResponse';
+export { GetPublicKeyRequest } from './GetPublicKeyRequest';
+export { GetPublicKeyResponseBody } from './GetPublicKeyResponseBody';
+export { GetPublicKeyResponse } from './GetPublicKeyResponse';
 export { GetRealtimeConcurrencyReportRequest } from './GetRealtimeConcurrencyReportRequest';
 export { GetRealtimeConcurrencyReportResponseBody } from './GetRealtimeConcurrencyReportResponseBody';
 export { GetRealtimeConcurrencyReportResponse } from './GetRealtimeConcurrencyReportResponse';
@@ -543,6 +550,9 @@ export { ListScriptPublishHistoriesResponse } from './ListScriptPublishHistories
 export { ListScriptRecordingRequest } from './ListScriptRecordingRequest';
 export { ListScriptRecordingResponseBody } from './ListScriptRecordingResponseBody';
 export { ListScriptRecordingResponse } from './ListScriptRecordingResponse';
+export { ListScriptVariablesRequest } from './ListScriptVariablesRequest';
+export { ListScriptVariablesResponseBody } from './ListScriptVariablesResponseBody';
+export { ListScriptVariablesResponse } from './ListScriptVariablesResponse';
 export { ListScriptVoiceConfigsRequest } from './ListScriptVoiceConfigsRequest';
 export { ListScriptVoiceConfigsResponseBody } from './ListScriptVoiceConfigsResponseBody';
 export { ListScriptVoiceConfigsResponse } from './ListScriptVoiceConfigsResponse';

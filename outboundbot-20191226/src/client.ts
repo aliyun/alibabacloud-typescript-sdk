@@ -1556,6 +1556,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建密钥
+   * 
+   * @param request - CreateTenantKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTenantKeyResponse
+   */
+  async createTenantKeyWithOptions(request: $_model.CreateTenantKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTenantKeyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTenantKey",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTenantKeyResponse>(await this.callApi(params, req, runtime), new $_model.CreateTenantKeyResponse({}));
+  }
+
+  /**
+   * 创建密钥
+   * 
+   * @param request - CreateTenantKeyRequest
+   * @returns CreateTenantKeyResponse
+   */
+  async createTenantKey(request: $_model.CreateTenantKeyRequest): Promise<$_model.CreateTenantKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTenantKeyWithOptions(request, runtime);
+  }
+
+  /**
    * @param tmpReq - DeleteAgentProfilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAgentProfilesResponse
@@ -4148,6 +4183,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取非对称加密算法公钥
+   * 
+   * @param request - GetPublicKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPublicKeyResponse
+   */
+  async getPublicKeyWithOptions(request: $_model.GetPublicKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPublicKeyResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetPublicKey",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetPublicKeyResponse>(await this.callApi(params, req, runtime), new $_model.GetPublicKeyResponse({}));
+  }
+
+  /**
+   * 获取非对称加密算法公钥
+   * 
+   * @param request - GetPublicKeyRequest
+   * @returns GetPublicKeyResponse
+   */
+  async getPublicKey(request: $_model.GetPublicKeyRequest): Promise<$_model.GetPublicKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getPublicKeyWithOptions(request, runtime);
+  }
+
+  /**
    * GetRealtimeConcurrencyReport
    * 
    * @param request - GetRealtimeConcurrencyReportRequest
@@ -5639,6 +5709,56 @@ export default class Client extends OpenApi {
   async listScriptRecording(request: $_model.ListScriptRecordingRequest): Promise<$_model.ListScriptRecordingResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listScriptRecordingWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取场景中当前使用的变量
+   * 
+   * @param request - ListScriptVariablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListScriptVariablesResponse
+   */
+  async listScriptVariablesWithOptions(request: $_model.ListScriptVariablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListScriptVariablesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.sandbox)) {
+      query["Sandbox"] = request.sandbox;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListScriptVariables",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListScriptVariablesResponse>(await this.callApi(params, req, runtime), new $_model.ListScriptVariablesResponse({}));
+  }
+
+  /**
+   * 获取场景中当前使用的变量
+   * 
+   * @param request - ListScriptVariablesRequest
+   * @returns ListScriptVariablesResponse
+   */
+  async listScriptVariables(request: $_model.ListScriptVariablesRequest): Promise<$_model.ListScriptVariablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listScriptVariablesWithOptions(request, runtime);
   }
 
   /**
