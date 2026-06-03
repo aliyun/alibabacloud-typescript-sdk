@@ -130,6 +130,7 @@ export class CreateMultiOrderShrinkRequestOrderItems extends $dara.Model {
 }
 
 export class CreateMultiOrderShrinkRequest extends $dara.Model {
+  channelCookie?: string;
   orderItems?: CreateMultiOrderShrinkRequestOrderItems[];
   /**
    * @example
@@ -140,6 +141,7 @@ export class CreateMultiOrderShrinkRequest extends $dara.Model {
   resellerOwnerUid?: number;
   static names(): { [key: string]: string } {
     return {
+      channelCookie: 'ChannelCookie',
       orderItems: 'OrderItems',
       orderType: 'OrderType',
       propertiesShrink: 'Properties',
@@ -149,6 +151,7 @@ export class CreateMultiOrderShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      channelCookie: 'string',
       orderItems: { 'type': 'array', 'itemType': CreateMultiOrderShrinkRequestOrderItems },
       orderType: 'string',
       propertiesShrink: 'string',

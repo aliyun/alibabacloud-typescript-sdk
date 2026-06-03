@@ -45,6 +45,10 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!$dara.isNull(request.channelCookie)) {
+      query["ChannelCookie"] = request.channelCookie;
+    }
+
     if (!$dara.isNull(request.orderItems)) {
       query["OrderItems"] = request.orderItems;
     }
