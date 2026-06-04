@@ -9310,6 +9310,10 @@ export default class Client extends OpenApi {
   async transferInstanceClassWithOptions(request: $_model.TransferInstanceClassRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TransferInstanceClassResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.databaseCount)) {
+      query["DatabaseCount"] = request.databaseCount;
+    }
+
     if (!$dara.isNull(request.dtsJobId)) {
       query["DtsJobId"] = request.dtsJobId;
     }

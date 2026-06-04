@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TransferInstanceClassRequest extends $dara.Model {
+  databaseCount?: number;
   /**
    * @remarks
    * The ID of the data migration or data synchronization task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
@@ -56,6 +57,7 @@ export class TransferInstanceClassRequest extends $dara.Model {
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
+      databaseCount: 'DatabaseCount',
       dtsJobId: 'DtsJobId',
       instanceClass: 'InstanceClass',
       orderType: 'OrderType',
@@ -66,6 +68,7 @@ export class TransferInstanceClassRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      databaseCount: 'number',
       dtsJobId: 'string',
       instanceClass: 'string',
       orderType: 'string',
