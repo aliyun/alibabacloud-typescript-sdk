@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryPayOrderToMsenceResponseBodyMpaasUserGamecenterPaymentQuerystatusResponse extends $dara.Model {
+  cpExtra?: string;
   /**
    * @example
    * 1
@@ -10,12 +11,14 @@ export class QueryPayOrderToMsenceResponseBodyMpaasUserGamecenterPaymentQuerysta
   orderStatus?: string;
   static names(): { [key: string]: string } {
     return {
+      cpExtra: 'CpExtra',
       orderStatus: 'OrderStatus',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      cpExtra: 'string',
       orderStatus: 'string',
     };
   }

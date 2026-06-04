@@ -123,6 +123,7 @@ export class QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContent exten
   pushContent?: string;
   qrcodeUrl?: string;
   releaseType?: string;
+  reminderPeriod?: string;
   ruleJsonList?: QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContentRuleJsonList[];
   silentType?: number;
   syncMode?: string;
@@ -176,6 +177,7 @@ export class QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContent exten
       pushContent: 'PushContent',
       qrcodeUrl: 'QrcodeUrl',
       releaseType: 'ReleaseType',
+      reminderPeriod: 'ReminderPeriod',
       ruleJsonList: 'RuleJsonList',
       silentType: 'SilentType',
       syncMode: 'SyncMode',
@@ -232,6 +234,7 @@ export class QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContent exten
       pushContent: 'string',
       qrcodeUrl: 'string',
       releaseType: 'string',
+      reminderPeriod: 'string',
       ruleJsonList: { 'type': 'array', 'itemType': QueryMdsUpgradeTaskDetailResponseBodyResultContentDataContentRuleJsonList },
       silentType: 'number',
       syncMode: 'string',
