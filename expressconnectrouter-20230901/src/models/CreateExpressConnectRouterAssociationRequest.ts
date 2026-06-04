@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateExpressConnectRouterAssociationRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateExpressConnectRouterAssociationRequest extends $dara.Model {
   /**
    * @remarks
@@ -90,6 +116,7 @@ export class CreateExpressConnectRouterAssociationRequest extends $dara.Model {
    * ecr-mezk2idmsd0vx2****
    */
   ecrId?: string;
+  tag?: CreateExpressConnectRouterAssociationRequestTag[];
   /**
    * @remarks
    * The TR ID.
@@ -138,6 +165,7 @@ export class CreateExpressConnectRouterAssociationRequest extends $dara.Model {
       description: 'Description',
       dryRun: 'DryRun',
       ecrId: 'EcrId',
+      tag: 'Tag',
       transitRouterId: 'TransitRouterId',
       transitRouterOwnerId: 'TransitRouterOwnerId',
       version: 'Version',
@@ -157,6 +185,7 @@ export class CreateExpressConnectRouterAssociationRequest extends $dara.Model {
       description: 'string',
       dryRun: 'boolean',
       ecrId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateExpressConnectRouterAssociationRequestTag },
       transitRouterId: 'string',
       transitRouterOwnerId: 'number',
       version: 'string',
@@ -168,6 +197,9 @@ export class CreateExpressConnectRouterAssociationRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.allowedPrefixes)) {
       $dara.Model.validateArray(this.allowedPrefixes);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }

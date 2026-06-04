@@ -19,6 +19,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
    * vbr-gw8vjq2zjux3ifsc9****
    */
   childInstanceId?: string;
+  childInstanceName?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud account that owns the VBR.
@@ -110,6 +111,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
     return {
       associationId: 'AssociationId',
       childInstanceId: 'ChildInstanceId',
+      childInstanceName: 'ChildInstanceName',
       childInstanceOwnerId: 'ChildInstanceOwnerId',
       childInstanceRegionId: 'ChildInstanceRegionId',
       childInstanceType: 'ChildInstanceType',
@@ -127,6 +129,7 @@ export class DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceL
     return {
       associationId: 'string',
       childInstanceId: 'string',
+      childInstanceName: 'string',
       childInstanceOwnerId: 'number',
       childInstanceRegionId: 'string',
       childInstanceType: 'string',

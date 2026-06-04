@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeExpressConnectRouterAssociationResponseBodyAssociationListTags extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeExpressConnectRouterAssociationResponseBodyAssociationList extends $dara.Model {
   /**
    * @remarks
@@ -110,6 +136,7 @@ export class DescribeExpressConnectRouterAssociationResponseBodyAssociationList 
    * ACTIVE
    */
   status?: string;
+  tags?: DescribeExpressConnectRouterAssociationResponseBodyAssociationListTags[];
   /**
    * @remarks
    * The TR ID.
@@ -118,6 +145,7 @@ export class DescribeExpressConnectRouterAssociationResponseBodyAssociationList 
    * tr-2ze4i71c6be454e2l****
    */
   transitRouterId?: string;
+  transitRouterName?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud account that owns the TR.
@@ -134,6 +162,7 @@ export class DescribeExpressConnectRouterAssociationResponseBodyAssociationList 
    * vpc-2zeeaxet4i2j1a7n7****
    */
   vpcId?: string;
+  vpcName?: string;
   /**
    * @remarks
    * The ID of the Alibaba Cloud account to which the VPC belongs.
@@ -156,9 +185,12 @@ export class DescribeExpressConnectRouterAssociationResponseBodyAssociationList 
       ownerId: 'OwnerId',
       regionId: 'RegionId',
       status: 'Status',
+      tags: 'Tags',
       transitRouterId: 'TransitRouterId',
+      transitRouterName: 'TransitRouterName',
       transitRouterOwnerId: 'TransitRouterOwnerId',
       vpcId: 'VpcId',
+      vpcName: 'VpcName',
       vpcOwnerId: 'VpcOwnerId',
     };
   }
@@ -177,9 +209,12 @@ export class DescribeExpressConnectRouterAssociationResponseBodyAssociationList 
       ownerId: 'number',
       regionId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeExpressConnectRouterAssociationResponseBodyAssociationListTags },
       transitRouterId: 'string',
+      transitRouterName: 'string',
       transitRouterOwnerId: 'number',
       vpcId: 'string',
+      vpcName: 'string',
       vpcOwnerId: 'number',
     };
   }
@@ -187,6 +222,9 @@ export class DescribeExpressConnectRouterAssociationResponseBodyAssociationList 
   validate() {
     if(Array.isArray(this.allowedPrefixes)) {
       $dara.Model.validateArray(this.allowedPrefixes);
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

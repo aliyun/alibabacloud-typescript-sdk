@@ -319,6 +319,10 @@ export default class Client extends OpenApi {
   async createExpressConnectRouterAssociationWithOptions(request: $_model.CreateExpressConnectRouterAssociationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExpressConnectRouterAssociationResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!$dara.isNull(request.version)) {
       query["Version"] = request.version;
     }
@@ -973,6 +977,10 @@ export default class Client extends OpenApi {
   async describeExpressConnectRouterAssociationWithOptions(request: $_model.DescribeExpressConnectRouterAssociationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeExpressConnectRouterAssociationResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     if (!$dara.isNull(request.version)) {
       query["Version"] = request.version;
     }

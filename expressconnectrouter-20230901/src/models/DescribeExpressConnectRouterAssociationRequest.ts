@@ -2,6 +2,32 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeExpressConnectRouterAssociationRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeExpressConnectRouterAssociationRequest extends $dara.Model {
   /**
    * @remarks
@@ -90,6 +116,7 @@ export class DescribeExpressConnectRouterAssociationRequest extends $dara.Model 
    * AAAAAYws9fJ0Ur4MGm/5OkDoW/Zn0J0/sCjivzwX9oBcwFnWaaas/kSG+J/WzLOxJHS4****
    */
   nextToken?: string;
+  tag?: DescribeExpressConnectRouterAssociationRequestTag[];
   /**
    * @remarks
    * The TR ID.
@@ -118,6 +145,7 @@ export class DescribeExpressConnectRouterAssociationRequest extends $dara.Model 
       ecrId: 'EcrId',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      tag: 'Tag',
       transitRouterId: 'TransitRouterId',
       version: 'Version',
       vpcId: 'VpcId',
@@ -135,6 +163,7 @@ export class DescribeExpressConnectRouterAssociationRequest extends $dara.Model 
       ecrId: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeExpressConnectRouterAssociationRequestTag },
       transitRouterId: 'string',
       version: 'string',
       vpcId: 'string',
@@ -142,6 +171,9 @@ export class DescribeExpressConnectRouterAssociationRequest extends $dara.Model 
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

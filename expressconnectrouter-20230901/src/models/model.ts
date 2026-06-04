@@ -1,10 +1,13 @@
 export { CreateExpressConnectRouterRequestTag } from './CreateExpressConnectRouterRequest';
+export { CreateExpressConnectRouterAssociationRequestTag } from './CreateExpressConnectRouterAssociationRequest';
 export { CreateFlowLogRequestTag } from './CreateFlowLogRequest';
 export { DescribeDisabledExpressConnectRouterRouteEntriesResponseBodyDisabledRouteEntryList } from './DescribeDisabledExpressConnectRouterRouteEntriesResponseBody';
 export { DescribeExpressConnectRouterRequestTag } from './DescribeExpressConnectRouterRequest';
 export { DescribeExpressConnectRouterResponseBodyEcrListTags } from './DescribeExpressConnectRouterResponseBody';
 export { DescribeExpressConnectRouterResponseBodyEcrList } from './DescribeExpressConnectRouterResponseBody';
 export { DescribeExpressConnectRouterAllowedPrefixHistoryResponseBodyAllowedPrefixHistoryList } from './DescribeExpressConnectRouterAllowedPrefixHistoryResponseBody';
+export { DescribeExpressConnectRouterAssociationRequestTag } from './DescribeExpressConnectRouterAssociationRequest';
+export { DescribeExpressConnectRouterAssociationResponseBodyAssociationListTags } from './DescribeExpressConnectRouterAssociationResponseBody';
 export { DescribeExpressConnectRouterAssociationResponseBodyAssociationList } from './DescribeExpressConnectRouterAssociationResponseBody';
 export { DescribeExpressConnectRouterChildInstanceResponseBodyChildInstanceList } from './DescribeExpressConnectRouterChildInstanceResponseBody';
 export { DescribeExpressConnectRouterInterRegionTransitModeResponseBodyInterRegionTransitModeList } from './DescribeExpressConnectRouterInterRegionTransitModeResponseBody';
