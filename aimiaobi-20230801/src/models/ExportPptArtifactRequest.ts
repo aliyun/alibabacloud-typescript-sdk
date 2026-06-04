@@ -14,6 +14,11 @@ export class ExportPptArtifactRequest extends $dara.Model {
    */
   exportFileType?: string;
   /**
+   * @example
+   * abc
+   */
+  externalUserId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -35,6 +40,7 @@ export class ExportPptArtifactRequest extends $dara.Model {
     return {
       edit: 'Edit',
       exportFileType: 'ExportFileType',
+      externalUserId: 'ExternalUserId',
       pptArtifactId: 'PptArtifactId',
       workspaceId: 'WorkspaceId',
       zip: 'Zip',
@@ -45,6 +51,7 @@ export class ExportPptArtifactRequest extends $dara.Model {
     return {
       edit: 'boolean',
       exportFileType: 'string',
+      externalUserId: 'string',
       pptArtifactId: 'number',
       workspaceId: 'string',
       zip: 'boolean',

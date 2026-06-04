@@ -18,6 +18,7 @@ export class RunSearchSimilarArticlesResponseBodyHeader extends $dara.Model {
    * task-started
    */
   event?: string;
+  eventInfo?: string;
   /**
    * @example
    * 3f7045e099474ba28ceca1b4eb6d6e21
@@ -33,6 +34,7 @@ export class RunSearchSimilarArticlesResponseBodyHeader extends $dara.Model {
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
       event: 'Event',
+      eventInfo: 'EventInfo',
       sessionId: 'SessionId',
       taskId: 'TaskId',
     };
@@ -43,6 +45,7 @@ export class RunSearchSimilarArticlesResponseBodyHeader extends $dara.Model {
       errorCode: 'string',
       errorMessage: 'string',
       event: 'string',
+      eventInfo: 'string',
       sessionId: 'string',
       taskId: 'string',
     };

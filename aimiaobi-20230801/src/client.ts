@@ -2655,6 +2655,10 @@ export default class Client extends OpenApi {
       body["ExportFileType"] = request.exportFileType;
     }
 
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.pptArtifactId)) {
       body["PptArtifactId"] = request.pptArtifactId;
     }
@@ -2969,6 +2973,52 @@ export default class Client extends OpenApi {
   async fetchImportTermsTask(request: $_model.FetchImportTermsTaskRequest): Promise<$_model.FetchImportTermsTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.fetchImportTermsTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取排版任务结果
+   * 
+   * @param request - FetchParseDocumentLayoutTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchParseDocumentLayoutTaskResponse
+   */
+  async fetchParseDocumentLayoutTaskWithOptions(request: $_model.FetchParseDocumentLayoutTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FetchParseDocumentLayoutTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FetchParseDocumentLayoutTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FetchParseDocumentLayoutTaskResponse>(await this.callApi(params, req, runtime), new $_model.FetchParseDocumentLayoutTaskResponse({}));
+  }
+
+  /**
+   * 获取排版任务结果
+   * 
+   * @param request - FetchParseDocumentLayoutTaskRequest
+   * @returns FetchParseDocumentLayoutTaskResponse
+   */
+  async fetchParseDocumentLayoutTask(request: $_model.FetchParseDocumentLayoutTaskRequest): Promise<$_model.FetchParseDocumentLayoutTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.fetchParseDocumentLayoutTaskWithOptions(request, runtime);
   }
 
   /**
@@ -4799,6 +4849,10 @@ export default class Client extends OpenApi {
       body["ExportTaskId"] = request.exportTaskId;
     }
 
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.workspaceId)) {
       body["WorkspaceId"] = request.workspaceId;
     }
@@ -4887,6 +4941,10 @@ export default class Client extends OpenApi {
   async getPptInfoWithOptions(request: $_model.GetPptInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPptInfoResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.externalUserId)) {
+      body["ExternalUserId"] = request.externalUserId;
+    }
+
     if (!$dara.isNull(request.taskId)) {
       body["TaskId"] = request.taskId;
     }
@@ -14936,6 +14994,54 @@ export default class Client extends OpenApi {
   async submitImportTermsTask(request: $_model.SubmitImportTermsTaskRequest): Promise<$_model.SubmitImportTermsTaskResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitImportTermsTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交版本任务
+   * 
+   * @param request - SubmitParseDocumentLayoutTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitParseDocumentLayoutTaskResponse
+   */
+  async submitParseDocumentLayoutTaskWithOptions(request: $_model.SubmitParseDocumentLayoutTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitParseDocumentLayoutTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.content)) {
+      query["Content"] = request.content;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitParseDocumentLayoutTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitParseDocumentLayoutTaskResponse>(await this.callApi(params, req, runtime), new $_model.SubmitParseDocumentLayoutTaskResponse({}));
+  }
+
+  /**
+   * 提交版本任务
+   * 
+   * @param request - SubmitParseDocumentLayoutTaskRequest
+   * @returns SubmitParseDocumentLayoutTaskResponse
+   */
+  async submitParseDocumentLayoutTask(request: $_model.SubmitParseDocumentLayoutTaskRequest): Promise<$_model.SubmitParseDocumentLayoutTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitParseDocumentLayoutTaskWithOptions(request, runtime);
   }
 
   /**

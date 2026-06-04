@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetPptInfoRequest extends $dara.Model {
   /**
    * @example
+   * abc
+   */
+  externalUserId?: string;
+  /**
+   * @example
    * 1f178f22-ec52-467d-8489-eef4468x0240
    */
   taskId?: string;
@@ -15,6 +20,7 @@ export class GetPptInfoRequest extends $dara.Model {
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      externalUserId: 'ExternalUserId',
       taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
     };
@@ -22,6 +28,7 @@ export class GetPptInfoRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      externalUserId: 'string',
       taskId: 'string',
       workspaceId: 'string',
     };

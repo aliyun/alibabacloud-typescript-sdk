@@ -2,34 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetPptArtifactExportResultRequest extends $dara.Model {
+export class FetchParseDocumentLayoutTaskRequest extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * 15aeb61b-cdeb-4b70-94d7-99518040647e
+   * 29ae0ba84c1c4cc694d0f4f1aead8005
    */
-  exportTaskId?: string;
+  taskId?: string;
   /**
-   * @example
-   * abc
-   */
-  externalUserId?: string;
-  /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * llm-xxxx
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
-      exportTaskId: 'ExportTaskId',
-      externalUserId: 'ExternalUserId',
+      taskId: 'TaskId',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      exportTaskId: 'string',
-      externalUserId: 'string',
+      taskId: 'string',
       workspaceId: 'string',
     };
   }
