@@ -1243,12 +1243,20 @@ export default class Client extends OpenApi {
       query["CreditConfig"] = request.creditConfig;
     }
 
+    if (!$dara.isNull(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
     if (!$dara.isNull(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
     if (!$dara.isNull(request.mobileAgentPackageSpec)) {
       query["MobileAgentPackageSpec"] = request.mobileAgentPackageSpec;
+    }
+
+    if (!$dara.isNull(request.packageSpecId)) {
+      query["PackageSpecId"] = request.packageSpecId;
     }
 
     if (!$dara.isNull(request.paidCallbackUrl)) {
@@ -5766,6 +5774,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.fileMd5)) {
+      query["FileMd5"] = request.fileMd5;
     }
 
     if (!$dara.isNull(request.sourceFilePath)) {

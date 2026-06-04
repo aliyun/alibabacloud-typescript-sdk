@@ -12,6 +12,7 @@ export class SendFileRequest extends $dara.Model {
   androidInstanceIdList?: string[];
   autoInstall?: boolean;
   clientToken?: string;
+  fileMd5?: string;
   /**
    * @remarks
    * The path to which you want to upload the pushed file in the cloud phone instance.
@@ -68,6 +69,7 @@ export class SendFileRequest extends $dara.Model {
       androidInstanceIdList: 'AndroidInstanceIdList',
       autoInstall: 'AutoInstall',
       clientToken: 'ClientToken',
+      fileMd5: 'FileMd5',
       sourceFilePath: 'SourceFilePath',
       targetFileName: 'TargetFileName',
       uploadEndpoint: 'UploadEndpoint',
@@ -81,6 +83,7 @@ export class SendFileRequest extends $dara.Model {
       androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
       autoInstall: 'boolean',
       clientToken: 'string',
+      fileMd5: 'string',
       sourceFilePath: 'string',
       targetFileName: 'string',
       uploadEndpoint: 'string',

@@ -33,6 +33,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
    * 1
    */
   creditConfig?: string;
+  imageId?: string;
   /**
    * @example
    * CloudPhone
@@ -43,6 +44,7 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
    * advanced
    */
   mobileAgentPackageSpec?: string;
+  packageSpecId?: number;
   /**
    * @example
    * https://aim.wuying.aliyun.com/nodes
@@ -71,8 +73,10 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
       bizRegionId: 'BizRegionId',
       creditAmount: 'CreditAmount',
       creditConfig: 'CreditConfig',
+      imageId: 'ImageId',
       instanceName: 'InstanceName',
       mobileAgentPackageSpec: 'MobileAgentPackageSpec',
+      packageSpecId: 'PackageSpecId',
       paidCallbackUrl: 'PaidCallbackUrl',
       period: 'Period',
       periodUnit: 'PeriodUnit',
@@ -88,8 +92,10 @@ export class CreateMobileAgentPackageRequest extends $dara.Model {
       bizRegionId: 'string',
       creditAmount: 'string',
       creditConfig: 'string',
+      imageId: 'string',
       instanceName: 'string',
       mobileAgentPackageSpec: 'string',
+      packageSpecId: 'number',
       paidCallbackUrl: 'string',
       period: 'number',
       periodUnit: 'string',

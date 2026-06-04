@@ -24,6 +24,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
    * advanced
    */
   packageSpec?: string;
+  packageSpecName?: string;
   /**
    * @example
    * ACTIVE
@@ -41,6 +42,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
       packageCredit: 'PackageCredit',
       packageId: 'PackageId',
       packageSpec: 'PackageSpec',
+      packageSpecName: 'PackageSpecName',
       packageStatus: 'PackageStatus',
       usedCredit: 'UsedCredit',
     };
@@ -53,6 +55,7 @@ export class DescribeMobileAgentPackageResponseBodyPackageList extends $dara.Mod
       packageCredit: 'string',
       packageId: 'string',
       packageSpec: 'string',
+      packageSpecName: 'string',
       packageStatus: 'string',
       usedCredit: 'string',
     };
