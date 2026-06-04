@@ -12182,6 +12182,10 @@ export default class Client extends OpenApi {
   async listInstancesWithOptions(request: $_model.ListInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInstancesResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.edition)) {
+      query["Edition"] = request.edition;
+    }
+
     if (!$dara.isNull(request.instanceIds)) {
       query["InstanceIds"] = request.instanceIds;
     }

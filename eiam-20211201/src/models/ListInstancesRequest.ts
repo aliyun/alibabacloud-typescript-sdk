@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListInstancesRequest extends $dara.Model {
+  edition?: string;
   /**
    * @remarks
    * The list of instance IDs.
@@ -37,6 +38,7 @@ export class ListInstancesRequest extends $dara.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      edition: 'Edition',
       instanceIds: 'InstanceIds',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -46,6 +48,7 @@ export class ListInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      edition: 'string',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       pageNumber: 'number',
       pageSize: 'number',
