@@ -5,6 +5,7 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class ColumnBusinessMetadata extends $dara.Model {
+  customAttributes?: { [key: string]: string[] };
   /**
    * @remarks
    * A business-level description of the field (supported only by MaxCompute, HMS (EMR clusters) and DLF.
@@ -12,17 +13,22 @@ export class ColumnBusinessMetadata extends $dara.Model {
   description?: string;
   static names(): { [key: string]: string } {
     return {
+      customAttributes: 'CustomAttributes',
       description: 'Description',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customAttributes: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       description: 'string',
     };
   }
 
   validate() {
+    if(this.customAttributes) {
+      $dara.Model.validateMap(this.customAttributes);
+    }
     super.validate();
   }
 

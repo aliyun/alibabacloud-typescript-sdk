@@ -2,12 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateTableBusinessMetadataRequest extends $dara.Model {
+export class UpdateTableBusinessMetadataShrinkRequest extends $dara.Model {
   /**
    * @example
    * {"biz_owner":["张三"]}
    */
-  customAttributes?: { [key: string]: string[] };
+  customAttributesShrink?: string;
   /**
    * @remarks
    * The table ID. You can refer to the format of the table ID returned by the ListTables operation.
@@ -31,7 +31,7 @@ export class UpdateTableBusinessMetadataRequest extends $dara.Model {
   readme?: string;
   static names(): { [key: string]: string } {
     return {
-      customAttributes: 'CustomAttributes',
+      customAttributesShrink: 'CustomAttributes',
       id: 'Id',
       readme: 'Readme',
     };
@@ -39,16 +39,13 @@ export class UpdateTableBusinessMetadataRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      customAttributes: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      customAttributesShrink: 'string',
       id: 'string',
       readme: 'string',
     };
   }
 
   validate() {
-    if(this.customAttributes) {
-      $dara.Model.validateMap(this.customAttributes);
-    }
     super.validate();
   }
 

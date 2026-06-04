@@ -438,6 +438,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量创建自定义实体
+   * 
+   * @param tmpReq - BatchCreateMetaEntitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateMetaEntitiesResponse
+   */
+  async batchCreateMetaEntitiesWithOptions(tmpReq: $_model.BatchCreateMetaEntitiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCreateMetaEntitiesResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchCreateMetaEntitiesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.entities)) {
+      request.entitiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.entities, "Entities", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.entitiesShrink)) {
+      body["Entities"] = request.entitiesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCreateMetaEntities",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchCreateMetaEntitiesResponse>(await this.callApi(params, req, runtime), new $_model.BatchCreateMetaEntitiesResponse({}));
+  }
+
+  /**
+   * 批量创建自定义实体
+   * 
+   * @param request - BatchCreateMetaEntitiesRequest
+   * @returns BatchCreateMetaEntitiesResponse
+   */
+  async batchCreateMetaEntities(request: $_model.BatchCreateMetaEntitiesRequest): Promise<$_model.BatchCreateMetaEntitiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchCreateMetaEntitiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量删除自定义实体
+   * 
+   * @param tmpReq - BatchDeleteMetaEntitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchDeleteMetaEntitiesResponse
+   */
+  async batchDeleteMetaEntitiesWithOptions(tmpReq: $_model.BatchDeleteMetaEntitiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchDeleteMetaEntitiesResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchDeleteMetaEntitiesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.ids)) {
+      request.idsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ids, "Ids", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.idsShrink)) {
+      body["Ids"] = request.idsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchDeleteMetaEntities",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchDeleteMetaEntitiesResponse>(await this.callApi(params, req, runtime), new $_model.BatchDeleteMetaEntitiesResponse({}));
+  }
+
+  /**
+   * 批量删除自定义实体
+   * 
+   * @param request - BatchDeleteMetaEntitiesRequest
+   * @returns BatchDeleteMetaEntitiesResponse
+   */
+  async batchDeleteMetaEntities(request: $_model.BatchDeleteMetaEntitiesRequest): Promise<$_model.BatchDeleteMetaEntitiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchDeleteMetaEntitiesWithOptions(request, runtime);
+  }
+
+  /**
    * Performs incremental updates on multiple tasks at a time.
    * 
    * @remarks
@@ -903,6 +999,86 @@ export default class Client extends OpenApi {
   async createComputeResource(request: $_model.CreateComputeResourceRequest): Promise<$_model.CreateComputeResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createComputeResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建自定义属性定义
+   * 
+   * @param tmpReq - CreateCustomAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCustomAttributeResponse
+   */
+  async createCustomAttributeWithOptions(tmpReq: $_model.CreateCustomAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateCustomAttributeResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateCustomAttributeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.entityTypes)) {
+      request.entityTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.entityTypes, "EntityTypes", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.valueEnums)) {
+      request.valueEnumsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.valueEnums, "ValueEnums", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.displayEnabled)) {
+      body["DisplayEnabled"] = request.displayEnabled;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.entityTypesShrink)) {
+      body["EntityTypes"] = request.entityTypesShrink;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.searchFilterEnabled)) {
+      body["SearchFilterEnabled"] = request.searchFilterEnabled;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.valueEnumsShrink)) {
+      body["ValueEnums"] = request.valueEnumsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateCustomAttribute",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateCustomAttributeResponse>(await this.callApi(params, req, runtime), new $_model.CreateCustomAttributeResponse({}));
+  }
+
+  /**
+   * 创建自定义属性定义
+   * 
+   * @param request - CreateCustomAttributeRequest
+   * @returns CreateCustomAttributeResponse
+   */
+  async createCustomAttribute(request: $_model.CreateCustomAttributeRequest): Promise<$_model.CreateCustomAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createCustomAttributeWithOptions(request, runtime);
   }
 
   /**
@@ -2546,6 +2722,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建自定义实体定义
+   * 
+   * @param tmpReq - CreateMetaEntityDefRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMetaEntityDefResponse
+   */
+  async createMetaEntityDefWithOptions(tmpReq: $_model.CreateMetaEntityDefRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMetaEntityDefResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateMetaEntityDefShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributeDefs)) {
+      request.attributeDefsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributeDefs, "AttributeDefs", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attributeDefsShrink)) {
+      body["AttributeDefs"] = request.attributeDefsShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      body["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMetaEntityDef",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMetaEntityDefResponse>(await this.callApi(params, req, runtime), new $_model.CreateMetaEntityDefResponse({}));
+  }
+
+  /**
+   * 创建自定义实体定义
+   * 
+   * @param request - CreateMetaEntityDefRequest
+   * @returns CreateMetaEntityDefResponse
+   */
+  async createMetaEntityDef(request: $_model.CreateMetaEntityDefRequest): Promise<$_model.CreateMetaEntityDefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMetaEntityDefWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a network and associates the network with a general resource group.
    * 
    * @remarks
@@ -3976,6 +4216,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除自定义属性定义
+   * 
+   * @param request - DeleteCustomAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCustomAttributeResponse
+   */
+  async deleteCustomAttributeWithOptions(request: $_model.DeleteCustomAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteCustomAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteCustomAttribute",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteCustomAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DeleteCustomAttributeResponse({}));
+  }
+
+  /**
+   * 删除自定义属性定义
+   * 
+   * @param request - DeleteCustomAttributeRequest
+   * @returns DeleteCustomAttributeResponse
+   */
+  async deleteCustomAttribute(request: $_model.DeleteCustomAttributeRequest): Promise<$_model.DeleteCustomAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteCustomAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an alert rule configured for a synchronization task.
    * 
    * @param request - DeleteDIAlarmRuleRequest
@@ -4831,6 +5113,52 @@ export default class Client extends OpenApi {
   async deleteMetaCollection(request: $_model.DeleteMetaCollectionRequest): Promise<$_model.DeleteMetaCollectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteMetaCollectionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除自定义实体定义
+   * 
+   * @param request - DeleteMetaEntityDefRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMetaEntityDefResponse
+   */
+  async deleteMetaEntityDefWithOptions(request: $_model.DeleteMetaEntityDefRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMetaEntityDefResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.entityType)) {
+      body["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      body["Force"] = request.force;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMetaEntityDef",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMetaEntityDefResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMetaEntityDefResponse({}));
+  }
+
+  /**
+   * 删除自定义实体定义
+   * 
+   * @param request - DeleteMetaEntityDefRequest
+   * @returns DeleteMetaEntityDefResponse
+   */
+  async deleteMetaEntityDef(request: $_model.DeleteMetaEntityDefRequest): Promise<$_model.DeleteMetaEntityDefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMetaEntityDefWithOptions(request, runtime);
   }
 
   /**
@@ -6307,6 +6635,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Obtain custom property definition details
+   * 
+   * @param request - GetCustomAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomAttributeResponse
+   */
+  async getCustomAttributeWithOptions(request: $_model.GetCustomAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCustomAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCustomAttribute",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCustomAttributeResponse>(await this.callApi(params, req, runtime), new $_model.GetCustomAttributeResponse({}));
+  }
+
+  /**
+   * Obtain custom property definition details
+   * 
+   * @param request - GetCustomAttributeRequest
+   * @returns GetCustomAttributeResponse
+   */
+  async getCustomAttribute(request: $_model.GetCustomAttributeRequest): Promise<$_model.GetCustomAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCustomAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a synchronization task.
    * 
    * @remarks
@@ -7446,6 +7816,90 @@ export default class Client extends OpenApi {
   async getMetaCollection(request: $_model.GetMetaCollectionRequest): Promise<$_model.GetMetaCollectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getMetaCollectionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取自定义实体详情
+   * 
+   * @param request - GetMetaEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMetaEntityResponse
+   */
+  async getMetaEntityWithOptions(request: $_model.GetMetaEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMetaEntityResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMetaEntity",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMetaEntityResponse>(await this.callApi(params, req, runtime), new $_model.GetMetaEntityResponse({}));
+  }
+
+  /**
+   * 获取自定义实体详情
+   * 
+   * @param request - GetMetaEntityRequest
+   * @returns GetMetaEntityResponse
+   */
+  async getMetaEntity(request: $_model.GetMetaEntityRequest): Promise<$_model.GetMetaEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMetaEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取自定义实体定义详情
+   * 
+   * @param request - GetMetaEntityDefRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMetaEntityDefResponse
+   */
+  async getMetaEntityDefWithOptions(request: $_model.GetMetaEntityDefRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMetaEntityDefResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.entityType)) {
+      body["EntityType"] = request.entityType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMetaEntityDef",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMetaEntityDefResponse>(await this.callApi(params, req, runtime), new $_model.GetMetaEntityDefResponse({}));
+  }
+
+  /**
+   * 获取自定义实体定义详情
+   * 
+   * @param request - GetMetaEntityDefRequest
+   * @returns GetMetaEntityDefResponse
+   */
+  async getMetaEntityDef(request: $_model.GetMetaEntityDefRequest): Promise<$_model.GetMetaEntityDefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMetaEntityDefWithOptions(request, runtime);
   }
 
   /**
@@ -9161,6 +9615,72 @@ export default class Client extends OpenApi {
   async listCrawlerTypes(): Promise<$_model.ListCrawlerTypesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCrawlerTypesWithOptions(runtime);
+  }
+
+  /**
+   * Querying a Custom Attribute Definition List
+   * 
+   * @param request - ListCustomAttributesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomAttributesResponse
+   */
+  async listCustomAttributesWithOptions(request: $_model.ListCustomAttributesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAttributesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      query["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.entityTypes)) {
+      query["EntityTypes"] = request.entityTypes;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomAttributes",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomAttributesResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomAttributesResponse({}));
+  }
+
+  /**
+   * Querying a Custom Attribute Definition List
+   * 
+   * @param request - ListCustomAttributesRequest
+   * @returns ListCustomAttributesResponse
+   */
+  async listCustomAttributes(request: $_model.ListCustomAttributesRequest): Promise<$_model.ListCustomAttributesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomAttributesWithOptions(request, runtime);
   }
 
   /**
@@ -11158,6 +11678,156 @@ export default class Client extends OpenApi {
   async listMetaCollections(request: $_model.ListMetaCollectionsRequest): Promise<$_model.ListMetaCollectionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listMetaCollectionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询自定义实体列表
+   * 
+   * @param tmpReq - ListMetaEntitiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMetaEntitiesResponse
+   */
+  async listMetaEntitiesWithOptions(tmpReq: $_model.ListMetaEntitiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMetaEntitiesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListMetaEntitiesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributeFilters)) {
+      request.attributeFiltersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributeFilters, "AttributeFilters", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.customAttributeFilters)) {
+      request.customAttributeFiltersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customAttributeFilters, "CustomAttributeFilters", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attributeFiltersShrink)) {
+      body["AttributeFilters"] = request.attributeFiltersShrink;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.customAttributeFiltersShrink)) {
+      body["CustomAttributeFilters"] = request.customAttributeFiltersShrink;
+    }
+
+    if (!$dara.isNull(request.entityType)) {
+      body["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMetaEntities",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMetaEntitiesResponse>(await this.callApi(params, req, runtime), new $_model.ListMetaEntitiesResponse({}));
+  }
+
+  /**
+   * 查询自定义实体列表
+   * 
+   * @param request - ListMetaEntitiesRequest
+   * @returns ListMetaEntitiesResponse
+   */
+  async listMetaEntities(request: $_model.ListMetaEntitiesRequest): Promise<$_model.ListMetaEntitiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMetaEntitiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询自定义实体定义列表
+   * 
+   * @param request - ListMetaEntityDefsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMetaEntityDefsResponse
+   */
+  async listMetaEntityDefsWithOptions(request: $_model.ListMetaEntityDefsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMetaEntityDefsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      body["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sortBy)) {
+      body["SortBy"] = request.sortBy;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMetaEntityDefs",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMetaEntityDefsResponse>(await this.callApi(params, req, runtime), new $_model.ListMetaEntityDefsResponse({}));
+  }
+
+  /**
+   * 查询自定义实体定义列表
+   * 
+   * @param request - ListMetaEntityDefsRequest
+   * @returns ListMetaEntityDefsResponse
+   */
+  async listMetaEntityDefs(request: $_model.ListMetaEntityDefsRequest): Promise<$_model.ListMetaEntityDefsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMetaEntityDefsWithOptions(request, runtime);
   }
 
   /**
@@ -14713,13 +15383,23 @@ export default class Client extends OpenApi {
   /**
    * Updates the business metadata of a column in a table in Data Map. Only the business description of a column can be updated.
    * 
-   * @param request - UpdateColumnBusinessMetadataRequest
+   * @param tmpReq - UpdateColumnBusinessMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateColumnBusinessMetadataResponse
    */
-  async updateColumnBusinessMetadataWithOptions(request: $_model.UpdateColumnBusinessMetadataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateColumnBusinessMetadataResponse> {
-    request.validate();
+  async updateColumnBusinessMetadataWithOptions(tmpReq: $_model.UpdateColumnBusinessMetadataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateColumnBusinessMetadataResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateColumnBusinessMetadataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.customAttributes)) {
+      request.customAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customAttributes, "CustomAttributes", "json");
+    }
+
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customAttributesShrink)) {
+      body["CustomAttributes"] = request.customAttributesShrink;
+    }
+
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
     }
@@ -14870,6 +15550,82 @@ export default class Client extends OpenApi {
   async updateComputeResource(request: $_model.UpdateComputeResourceRequest): Promise<$_model.UpdateComputeResourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateComputeResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新自定义属性定义
+   * 
+   * @param tmpReq - UpdateCustomAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateCustomAttributeResponse
+   */
+  async updateCustomAttributeWithOptions(tmpReq: $_model.UpdateCustomAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateCustomAttributeResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateCustomAttributeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.entityTypes)) {
+      request.entityTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.entityTypes, "EntityTypes", "simple");
+    }
+
+    if (!$dara.isNull(tmpReq.valueEnums)) {
+      request.valueEnumsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.valueEnums, "ValueEnums", "simple");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.displayEnabled)) {
+      body["DisplayEnabled"] = request.displayEnabled;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.entityTypesShrink)) {
+      body["EntityTypes"] = request.entityTypesShrink;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.searchFilterEnabled)) {
+      body["SearchFilterEnabled"] = request.searchFilterEnabled;
+    }
+
+    if (!$dara.isNull(request.valueEnumsShrink)) {
+      body["ValueEnums"] = request.valueEnumsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateCustomAttribute",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateCustomAttributeResponse>(await this.callApi(params, req, runtime), new $_model.UpdateCustomAttributeResponse({}));
+  }
+
+  /**
+   * 更新自定义属性定义
+   * 
+   * @param request - UpdateCustomAttributeRequest
+   * @returns UpdateCustomAttributeResponse
+   */
+  async updateCustomAttribute(request: $_model.UpdateCustomAttributeRequest): Promise<$_model.UpdateCustomAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateCustomAttributeWithOptions(request, runtime);
   }
 
   /**
@@ -16186,6 +16942,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新自定义实体
+   * 
+   * @param tmpReq - UpdateMetaEntityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMetaEntityResponse
+   */
+  async updateMetaEntityWithOptions(tmpReq: $_model.UpdateMetaEntityRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMetaEntityResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMetaEntityShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.attributes)) {
+      request.attributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.attributes, "Attributes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.customAttributes)) {
+      request.customAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customAttributes, "CustomAttributes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attributesShrink)) {
+      body["Attributes"] = request.attributesShrink;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      body["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.customAttributesShrink)) {
+      body["CustomAttributes"] = request.customAttributesShrink;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMetaEntity",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMetaEntityResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMetaEntityResponse({}));
+  }
+
+  /**
+   * 更新自定义实体
+   * 
+   * @param request - UpdateMetaEntityRequest
+   * @returns UpdateMetaEntityResponse
+   */
+  async updateMetaEntity(request: $_model.UpdateMetaEntityRequest): Promise<$_model.UpdateMetaEntityResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMetaEntityWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新自定义实体定义
+   * 
+   * @param tmpReq - UpdateMetaEntityDefRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMetaEntityDefResponse
+   */
+  async updateMetaEntityDefWithOptions(tmpReq: $_model.UpdateMetaEntityDefRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMetaEntityDefResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMetaEntityDefShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.newAttributeDefs)) {
+      request.newAttributeDefsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.newAttributeDefs, "NewAttributeDefs", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.updateAttributeDefs)) {
+      request.updateAttributeDefsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateAttributeDefs, "UpdateAttributeDefs", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.entityType)) {
+      body["EntityType"] = request.entityType;
+    }
+
+    if (!$dara.isNull(request.newAttributeDefsShrink)) {
+      body["NewAttributeDefs"] = request.newAttributeDefsShrink;
+    }
+
+    if (!$dara.isNull(request.updateAttributeDefsShrink)) {
+      body["UpdateAttributeDefs"] = request.updateAttributeDefsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMetaEntityDef",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMetaEntityDefResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMetaEntityDefResponse({}));
+  }
+
+  /**
+   * 更新自定义实体定义
+   * 
+   * @param request - UpdateMetaEntityDefRequest
+   * @returns UpdateMetaEntityDefResponse
+   */
+  async updateMetaEntityDef(request: $_model.UpdateMetaEntityDefRequest): Promise<$_model.UpdateMetaEntityDefResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMetaEntityDefWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
    * 
    * @param request - UpdateNodeRequest
@@ -16678,13 +17566,23 @@ export default class Client extends OpenApi {
   /**
    * Updates the business metadata of a table in Data Map. Currently, only the usage notes of a table can be updated.
    * 
-   * @param request - UpdateTableBusinessMetadataRequest
+   * @param tmpReq - UpdateTableBusinessMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTableBusinessMetadataResponse
    */
-  async updateTableBusinessMetadataWithOptions(request: $_model.UpdateTableBusinessMetadataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTableBusinessMetadataResponse> {
-    request.validate();
+  async updateTableBusinessMetadataWithOptions(tmpReq: $_model.UpdateTableBusinessMetadataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTableBusinessMetadataResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateTableBusinessMetadataShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.customAttributes)) {
+      request.customAttributesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customAttributes, "CustomAttributes", "json");
+    }
+
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customAttributesShrink)) {
+      body["CustomAttributes"] = request.customAttributesShrink;
+    }
+
     if (!$dara.isNull(request.id)) {
       body["Id"] = request.id;
     }

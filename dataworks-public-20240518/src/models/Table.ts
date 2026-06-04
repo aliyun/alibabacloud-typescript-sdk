@@ -211,6 +211,7 @@ export class TableBusinessMetadata extends $dara.Model {
    * The categories.
    */
   categories?: TableBusinessMetadataCategories[][];
+  customAttributes?: { [key: string]: string[] };
   /**
    * @remarks
    * The extended information. Only MaxCompute tables supports this parameter.
@@ -234,6 +235,7 @@ export class TableBusinessMetadata extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       categories: 'Categories',
+      customAttributes: 'CustomAttributes',
       extension: 'Extension',
       readme: 'Readme',
       tags: 'Tags',
@@ -244,6 +246,7 @@ export class TableBusinessMetadata extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       categories: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': TableBusinessMetadataCategories } },
+      customAttributes: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
       extension: TableBusinessMetadataExtension,
       readme: 'string',
       tags: { 'type': 'array', 'itemType': TableBusinessMetadataTags },
@@ -254,6 +257,9 @@ export class TableBusinessMetadata extends $dara.Model {
   validate() {
     if(Array.isArray(this.categories)) {
       $dara.Model.validateArray(this.categories);
+    }
+    if(this.customAttributes) {
+      $dara.Model.validateMap(this.customAttributes);
     }
     if(this.extension && typeof (this.extension as any).validate === 'function') {
       (this.extension as any).validate();

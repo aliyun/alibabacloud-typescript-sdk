@@ -2,12 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateColumnBusinessMetadataRequest extends $dara.Model {
+export class UpdateColumnBusinessMetadataShrinkRequest extends $dara.Model {
   /**
    * @example
    * {"biz_owner":["张三"]}
    */
-  customAttributes?: { [key: string]: string[] };
+  customAttributesShrink?: string;
   /**
    * @remarks
    * The field business description.
@@ -28,7 +28,7 @@ export class UpdateColumnBusinessMetadataRequest extends $dara.Model {
   id?: string;
   static names(): { [key: string]: string } {
     return {
-      customAttributes: 'CustomAttributes',
+      customAttributesShrink: 'CustomAttributes',
       description: 'Description',
       id: 'Id',
     };
@@ -36,16 +36,13 @@ export class UpdateColumnBusinessMetadataRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
-      customAttributes: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      customAttributesShrink: 'string',
       description: 'string',
       id: 'string',
     };
   }
 
   validate() {
-    if(this.customAttributes) {
-      $dara.Model.validateMap(this.customAttributes);
-    }
     super.validate();
   }
 
