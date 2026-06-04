@@ -1568,7 +1568,6 @@ export default class Client extends OpenApi {
   /**
    * Queries service categories.
    * 
-   * @param request - ListServiceCategoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceCategoriesResponse
    */
@@ -2199,6 +2198,52 @@ export default class Client extends OpenApi {
   async listTagValues(request: $_model.ListTagValuesRequest): Promise<$_model.ListTagValuesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
+  }
+
+  /**
+   * 续费服务实例
+   * 
+   * @param request - RenewServiceInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewServiceInstanceResponse
+   */
+  async renewServiceInstanceWithOptions(request: $_model.RenewServiceInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RenewServiceInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RenewServiceInstance",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RenewServiceInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RenewServiceInstanceResponse({}));
+  }
+
+  /**
+   * 续费服务实例
+   * 
+   * @param request - RenewServiceInstanceRequest
+   * @returns RenewServiceInstanceResponse
+   */
+  async renewServiceInstance(request: $_model.RenewServiceInstanceRequest): Promise<$_model.RenewServiceInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.renewServiceInstanceWithOptions(request, runtime);
   }
 
   /**
