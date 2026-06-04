@@ -291,7 +291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 RayHistoryServer
+   * Create RayHistoryServer
    * 
    * @param request - CreateRayHistoryServerRequest
    * @param headers - map
@@ -348,7 +348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建 RayHistoryServer
+   * Create RayHistoryServer
    * 
    * @param request - CreateRayHistoryServerRequest
    * @returns CreateRayHistoryServerResponse
@@ -555,7 +555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RayHistoryServer
+   * Delete RayHistoryServer
    * 
    * @param request - DeleteRayHistoryServerRequest
    * @param headers - map
@@ -582,7 +582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除RayHistoryServer
+   * Delete RayHistoryServer
    * 
    * @param request - DeleteRayHistoryServerRequest
    * @returns DeleteRayHistoryServerResponse
@@ -951,6 +951,87 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取metrics数据
+   * 
+   * @param request - GetMetricsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMetricsResponse
+   */
+  async getMetricsWithOptions(request: $_model.GetMetricsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMetricsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dimensions)) {
+      query["Dimensions"] = request.dimensions;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!$dara.isNull(request.length)) {
+      query["Length"] = request.length;
+    }
+
+    if (!$dara.isNull(request.metricName)) {
+      query["MetricName"] = request.metricName;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMetrics",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/cms/metrics`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMetricsResponse>(await this.callApi(params, req, runtime), new $_model.GetMetricsResponse({}));
+  }
+
+  /**
+   * 获取metrics数据
+   * 
+   * @param request - GetMetricsRequest
+   * @returns GetMetricsResponse
+   */
+  async getMetrics(request: $_model.GetMetricsRequest): Promise<$_model.GetMetricsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMetricsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Obtains the system events of a specific node in a job to locate and troubleshoot issues.
    * 
    * @param request - GetPodEventsRequest
@@ -1124,7 +1205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 RayHistoryServer
+   * Query RayHistoryServer
    * 
    * @param request - GetRayHistoryServerRequest
    * @param headers - map
@@ -1151,7 +1232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 RayHistoryServer
+   * Query RayHistoryServer
    * 
    * @param request - GetRayHistoryServerRequest
    * @returns GetRayHistoryServerResponse
@@ -1741,7 +1822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出资源RayHistoryServer
+   * List resource RayHistoryServer
    * 
    * @param request - ListRayHistoryServersRequest
    * @param headers - map
@@ -1834,7 +1915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出资源RayHistoryServer
+   * List resource RayHistoryServer
    * 
    * @param request - ListRayHistoryServersRequest
    * @returns ListRayHistoryServersResponse
@@ -2012,7 +2093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动 Ray History Server
+   * Start Ray History Server
    * 
    * @param request - StartRayHistoryServerRequest
    * @param headers - map
@@ -2039,7 +2120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动 Ray History Server
+   * Start Ray History Server
    * 
    * @param request - StartRayHistoryServerRequest
    * @returns StartRayHistoryServerResponse
@@ -2131,7 +2212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止 Ray History Server
+   * Stop Ray History Server
    * 
    * @param request - StopRayHistoryServerRequest
    * @param headers - map
@@ -2158,7 +2239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止 Ray History Server
+   * Stop Ray History Server
    * 
    * @param request - StopRayHistoryServerRequest
    * @returns StopRayHistoryServerResponse

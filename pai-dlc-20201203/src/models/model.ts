@@ -130,6 +130,9 @@ export { GetJobSanityCheckResultResponse } from './GetJobSanityCheckResultRespon
 export { GetJobTemplateRequest } from './GetJobTemplateRequest';
 export { GetJobTemplateResponseBody } from './GetJobTemplateResponseBody';
 export { GetJobTemplateResponse } from './GetJobTemplateResponse';
+export { GetMetricsRequest } from './GetMetricsRequest';
+export { GetMetricsResponseBody } from './GetMetricsResponseBody';
+export { GetMetricsResponse } from './GetMetricsResponse';
 export { GetPodEventsRequest } from './GetPodEventsRequest';
 export { GetPodEventsResponseBody } from './GetPodEventsResponseBody';
 export { GetPodEventsResponse } from './GetPodEventsResponse';

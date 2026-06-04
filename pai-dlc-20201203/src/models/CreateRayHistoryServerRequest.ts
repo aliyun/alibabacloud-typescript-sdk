@@ -40,6 +40,9 @@ export class CreateRayHistoryServerRequest extends $dara.Model {
    */
   storagePath?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
    * 12345
    */
