@@ -10,6 +10,7 @@ export { CreateSqlLogTaskResponseBodyData } from './CreateSqlLogTaskResponseBody
 export { CreateStorageAnalysisTaskResponseBodyData } from './CreateStorageAnalysisTaskResponseBody';
 export { DeleteSecurityIPGroupResponseBodyDataGlobalSecurityIPGroup } from './DeleteSecurityIpgroupResponseBody';
 export { DeleteSecurityIPGroupResponseBodyData } from './DeleteSecurityIpgroupResponseBody';
+export { DescribeAuditLogsResponseBodyItems } from './DescribeAuditLogsResponseBody';
 export { DescribeAutoScalingConfigResponseBodyDataBandwidth } from './DescribeAutoScalingConfigResponseBody';
 export { DescribeAutoScalingConfigResponseBodyDataResource } from './DescribeAutoScalingConfigResponseBody';
 export { DescribeAutoScalingConfigResponseBodyDataShard } from './DescribeAutoScalingConfigResponseBody';
@@ -272,6 +273,9 @@ export { DeleteSecurityIPGroupResponse } from './DeleteSecurityIpgroupResponse';
 export { DeleteStopGatewayRequest } from './DeleteStopGatewayRequest';
 export { DeleteStopGatewayResponseBody } from './DeleteStopGatewayResponseBody';
 export { DeleteStopGatewayResponse } from './DeleteStopGatewayResponse';
+export { DescribeAuditLogsRequest } from './DescribeAuditLogsRequest';
+export { DescribeAuditLogsResponseBody } from './DescribeAuditLogsResponseBody';
+export { DescribeAuditLogsResponse } from './DescribeAuditLogsResponse';
 export { DescribeAutoScalingConfigRequest } from './DescribeAutoScalingConfigRequest';
 export { DescribeAutoScalingConfigResponseBody } from './DescribeAutoScalingConfigResponseBody';
 export { DescribeAutoScalingConfigResponse } from './DescribeAutoScalingConfigResponse';
