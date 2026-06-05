@@ -169,6 +169,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除业务空间
+   * 
+   * @param request - DeleteWorkspaceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWorkspaceResponse
+   */
+  async deleteWorkspaceWithOptions(workspaceId: string, request: $_model.DeleteWorkspaceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWorkspaceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWorkspace",
+      version: "2026-02-10",
+      protocol: "HTTPS",
+      pathname: `/modelstudio/workspaces/${$dara.URL.percentEncode(workspaceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWorkspaceResponse({}));
+  }
+
+  /**
+   * 删除业务空间
+   * 
+   * @param request - DeleteWorkspaceRequest
+   * @returns DeleteWorkspaceResponse
+   */
+  async deleteWorkspace(workspaceId: string, request: $_model.DeleteWorkspaceRequest): Promise<$_model.DeleteWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWorkspaceWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 禁用API Key
    * 
    * @param request - DisableApiKeyRequest

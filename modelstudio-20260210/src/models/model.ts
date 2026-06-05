@@ -1,6 +1,7 @@
 export { CreateApiKeyRequestAuth } from './CreateApiKeyRequest';
 export { CreateApiKeyResponseBodyApiKey } from './CreateApiKeyResponseBody';
 export { CreateWorkspaceResponseBodyWorkspace } from './CreateWorkspaceResponseBody';
+export { DeleteWorkspaceResponseBodyFailReasons } from './DeleteWorkspaceResponseBody';
 export { GetApiKeyResponseBodyApiKeyAuth } from './GetApiKeyResponseBody';
 export { GetApiKeyResponseBodyApiKey } from './GetApiKeyResponseBody';
 export { ListApiKeysResponseBodyApiKeysAuth } from './ListApiKeysResponseBody';
@@ -16,6 +17,9 @@ export { CreateWorkspaceResponseBody } from './CreateWorkspaceResponseBody';
 export { CreateWorkspaceResponse } from './CreateWorkspaceResponse';
 export { DeleteApiKeyResponseBody } from './DeleteApiKeyResponseBody';
 export { DeleteApiKeyResponse } from './DeleteApiKeyResponse';
+export { DeleteWorkspaceRequest } from './DeleteWorkspaceRequest';
+export { DeleteWorkspaceResponseBody } from './DeleteWorkspaceResponseBody';
+export { DeleteWorkspaceResponse } from './DeleteWorkspaceResponse';
 export { DisableApiKeyRequest } from './DisableApiKeyRequest';
 export { DisableApiKeyResponseBody } from './DisableApiKeyResponseBody';
 export { DisableApiKeyResponse } from './DisableApiKeyResponse';
