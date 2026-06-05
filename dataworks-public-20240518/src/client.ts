@@ -438,7 +438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量创建自定义实体
+   * Create multiple metadata entities at a time. The metadata entities in a batch must be of the same type. Only the pure custom type and the extended table type (corresponding to Database/Table) are supported.
    * 
    * @param tmpReq - BatchCreateMetaEntitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -475,7 +475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量创建自定义实体
+   * Create multiple metadata entities at a time. The metadata entities in a batch must be of the same type. Only the pure custom type and the extended table type (corresponding to Database/Table) are supported.
    * 
    * @param request - BatchCreateMetaEntitiesRequest
    * @returns BatchCreateMetaEntitiesResponse
@@ -486,7 +486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除自定义实体
+   * Deletes metadata entity objects in batches. You can delete custom entities and extended table type objects (Database/Table). You cannot delete columns separately. To delete associated column objects, delete the table.
    * 
    * @param tmpReq - BatchDeleteMetaEntitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -523,7 +523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除自定义实体
+   * Deletes metadata entity objects in batches. You can delete custom entities and extended table type objects (Database/Table). You cannot delete columns separately. To delete associated column objects, delete the table.
    * 
    * @param request - BatchDeleteMetaEntitiesRequest
    * @returns BatchDeleteMetaEntitiesResponse
@@ -701,6 +701,114 @@ export default class Client extends OpenApi {
   async cloneDataSource(request: $_model.CloneDataSourceRequest): Promise<$_model.CloneDataSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.cloneDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建 Agent
+   * 
+   * @param tmpReq - CreateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentResponse
+   */
+  async createAgentWithOptions(tmpReq: $_model.CreateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.callableAgents)) {
+      request.callableAgentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.callableAgents, "CallableAgents", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.metadata)) {
+      request.metadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadata, "Metadata", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.model)) {
+      request.modelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.model, "Model", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.skills)) {
+      request.skillsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.skills, "Skills", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tools)) {
+      request.toolsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tools, "Tools", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.visibilityScope)) {
+      request.visibilityScopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.visibilityScope, "VisibilityScope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callableAgentsShrink)) {
+      body["CallableAgents"] = request.callableAgentsShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.displayName)) {
+      body["DisplayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.metadataShrink)) {
+      body["Metadata"] = request.metadataShrink;
+    }
+
+    if (!$dara.isNull(request.modelShrink)) {
+      body["Model"] = request.modelShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.skillsShrink)) {
+      body["Skills"] = request.skillsShrink;
+    }
+
+    if (!$dara.isNull(request.systemPrompt)) {
+      body["SystemPrompt"] = request.systemPrompt;
+    }
+
+    if (!$dara.isNull(request.toolsShrink)) {
+      body["Tools"] = request.toolsShrink;
+    }
+
+    if (!$dara.isNull(request.visibility)) {
+      body["Visibility"] = request.visibility;
+    }
+
+    if (!$dara.isNull(request.visibilityScopeShrink)) {
+      body["VisibilityScope"] = request.visibilityScopeShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgent",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentResponse({}));
+  }
+
+  /**
+   * 创建 Agent
+   * 
+   * @param request - CreateAgentRequest
+   * @returns CreateAgentResponse
+   */
+  async createAgent(request: $_model.CreateAgentRequest): Promise<$_model.CreateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgentWithOptions(request, runtime);
   }
 
   /**
@@ -1002,7 +1110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义属性定义
+   * Create a custom attribute
    * 
    * @param tmpReq - CreateCustomAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1071,7 +1179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义属性定义
+   * Create a custom attribute
    * 
    * @param request - CreateCustomAttributeRequest
    * @returns CreateCustomAttributeResponse
@@ -2722,7 +2830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义实体定义
+   * Creates metadata entity definitions (including pure custom types and extended table types)
    * 
    * @param tmpReq - CreateMetaEntityDefRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2775,7 +2883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义实体定义
+   * Creates metadata entity definitions (including pure custom types and extended table types)
    * 
    * @param request - CreateMetaEntityDefRequest
    * @returns CreateMetaEntityDefResponse
@@ -3962,6 +4070,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除 Agent
+   * 
+   * @param request - DeleteAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgentWithOptions(request: $_model.DeleteAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgent",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentResponse({}));
+  }
+
+  /**
+   * 删除 Agent
+   * 
+   * @param request - DeleteAgentRequest
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgent(request: $_model.DeleteAgentRequest): Promise<$_model.DeleteAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgentWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a custom monitoring alert rule.
    * 
    * @param request - DeleteAlertRuleRequest
@@ -4216,7 +4366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义属性定义
+   * Delete Custom Attribute
    * 
    * @param request - DeleteCustomAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4247,7 +4397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义属性定义
+   * Delete Custom Attribute
    * 
    * @param request - DeleteCustomAttributeRequest
    * @returns DeleteCustomAttributeResponse
@@ -5074,6 +5224,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除 MCP Server
+   * 
+   * @param request - DeleteMcpServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMcpServerResponse
+   */
+  async deleteMcpServerWithOptions(request: $_model.DeleteMcpServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMcpServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMcpServer",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMcpServerResponse({}));
+  }
+
+  /**
+   * 删除 MCP Server
+   * 
+   * @param request - DeleteMcpServerRequest
+   * @returns DeleteMcpServerResponse
+   */
+  async deleteMcpServer(request: $_model.DeleteMcpServerRequest): Promise<$_model.DeleteMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteMcpServerWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a collection in Data Map. Collections include categories and data albums. If you want to delete a data album, the account that you use must be attached the AliyunDataWorksFullAccess policy, or you are the data album creator or administrator.
    * 
    * @param request - DeleteMetaCollectionRequest
@@ -5116,7 +5308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义实体定义
+   * Delete metadata entity definitions (including pure custom types and extended table types)
    * 
    * @param request - DeleteMetaEntityDefRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5151,7 +5343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义实体定义
+   * Delete metadata entity definitions (including pure custom types and extended table types)
    * 
    * @param request - DeleteMetaEntityDefRequest
    * @returns DeleteMetaEntityDefResponse
@@ -5597,6 +5789,48 @@ export default class Client extends OpenApi {
   async deleteRoute(request: $_model.DeleteRouteRequest): Promise<$_model.DeleteRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除 Skill
+   * 
+   * @param request - DeleteSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSkillResponse
+   */
+  async deleteSkillWithOptions(request: $_model.DeleteSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSkillResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSkill",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSkillResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSkillResponse({}));
+  }
+
+  /**
+   * 删除 Skill
+   * 
+   * @param request - DeleteSkillRequest
+   * @returns DeleteSkillResponse
+   */
+  async deleteSkill(request: $_model.DeleteSkillRequest): Promise<$_model.DeleteSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSkillWithOptions(request, runtime);
   }
 
   /**
@@ -6168,6 +6402,48 @@ export default class Client extends OpenApi {
   async executeAdhocWorkflowInstance(request: $_model.ExecuteAdhocWorkflowInstanceRequest): Promise<$_model.ExecuteAdhocWorkflowInstanceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.executeAdhocWorkflowInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 读取 Agent 详情
+   * 
+   * @param request - GetAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentResponse
+   */
+  async getAgentWithOptions(request: $_model.GetAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgent",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentResponse({}));
+  }
+
+  /**
+   * 读取 Agent 详情
+   * 
+   * @param request - GetAgentRequest
+   * @returns GetAgentResponse
+   */
+  async getAgent(request: $_model.GetAgentRequest): Promise<$_model.GetAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentWithOptions(request, runtime);
   }
 
   /**
@@ -7819,7 +8095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义实体详情
+   * Obtains the details of a metadata entity. Currently, only pure custom types are supported.
    * 
    * @param request - GetMetaEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7850,7 +8126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义实体详情
+   * Obtains the details of a metadata entity. Currently, only pure custom types are supported.
    * 
    * @param request - GetMetaEntityRequest
    * @returns GetMetaEntityResponse
@@ -7861,7 +8137,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义实体定义详情
+   * Queries the details of a custom entity definition
    * 
    * @param request - GetMetaEntityDefRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7892,7 +8168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义实体定义详情
+   * Queries the details of a custom entity definition
    * 
    * @param request - GetMetaEntityDefRequest
    * @returns GetMetaEntityDefResponse
@@ -11681,7 +11957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义实体列表
+   * Queries the list of metadata entities. Currently, only custom types are supported.
    * 
    * @param tmpReq - ListMetaEntitiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11754,7 +12030,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义实体列表
+   * Queries the list of metadata entities. Currently, only custom types are supported.
    * 
    * @param request - ListMetaEntitiesRequest
    * @returns ListMetaEntitiesResponse
@@ -11765,7 +12041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义实体定义列表
+   * Queries a list of custom entity definitions (including custom entity types and extended table types).
    * 
    * @param request - ListMetaEntityDefsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11820,7 +12096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询自定义实体定义列表
+   * Queries a list of custom entity definitions (including custom entity types and extended table types).
    * 
    * @param request - ListMetaEntityDefsRequest
    * @returns ListMetaEntityDefsResponse
@@ -15553,7 +15829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义属性定义
+   * Updates custom attribute definitions
    * 
    * @param tmpReq - UpdateCustomAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15618,7 +15894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义属性定义
+   * Updates custom attribute definitions
    * 
    * @param request - UpdateCustomAttributeRequest
    * @returns UpdateCustomAttributeResponse
@@ -16942,7 +17218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义实体
+   * Updates metadata entities. You can update custom objects or extended table objects (Database, Table, and Column).
    * 
    * @param tmpReq - UpdateMetaEntityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16995,7 +17271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义实体
+   * Updates metadata entities. You can update custom objects or extended table objects (Database, Table, and Column).
    * 
    * @param request - UpdateMetaEntityRequest
    * @returns UpdateMetaEntityResponse
@@ -17006,7 +17282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义实体定义
+   * Updates metadata entity definitions (including pure custom types and extended table types)
    * 
    * @param tmpReq - UpdateMetaEntityDefRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17063,7 +17339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义实体定义
+   * Updates metadata entity definitions (including pure custom types and extended table types)
    * 
    * @param request - UpdateMetaEntityDefRequest
    * @returns UpdateMetaEntityDefResponse
