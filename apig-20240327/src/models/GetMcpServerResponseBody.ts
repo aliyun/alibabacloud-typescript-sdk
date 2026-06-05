@@ -315,6 +315,7 @@ export class GetMcpServerResponseBodyDataNacosMcpSyncInfo extends $dara.Model {
 }
 
 export class GetMcpServerResponseBodyData extends $dara.Model {
+  apiId?: string;
   /**
    * @remarks
    * The list of assembly sources. This parameter is required when the type parameter is set to AssemblyMCP.
@@ -481,6 +482,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      apiId: 'apiId',
       assembledSources: 'assembledSources',
       backend: 'backend',
       createFromType: 'createFromType',
@@ -508,6 +510,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      apiId: 'string',
       assembledSources: { 'type': 'array', 'itemType': GetMcpServerResponseBodyDataAssembledSources },
       backend: Backend,
       createFromType: 'string',
