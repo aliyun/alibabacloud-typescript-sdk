@@ -3,6 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetUserResponseBody extends $dara.Model {
+  anthropicHost?: string;
+  apiKeys?: any;
   /**
    * @example
    * 20200425******
@@ -36,6 +38,8 @@ export class GetUserResponseBody extends $dara.Model {
   token?: string;
   static names(): { [key: string]: string } {
     return {
+      anthropicHost: 'AnthropicHost',
+      apiKeys: 'ApiKeys',
       appId: 'AppId',
       code: 'Code',
       host: 'Host',
@@ -48,6 +52,8 @@ export class GetUserResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      anthropicHost: 'string',
+      apiKeys: 'any',
       appId: 'string',
       code: 'string',
       host: 'string',
