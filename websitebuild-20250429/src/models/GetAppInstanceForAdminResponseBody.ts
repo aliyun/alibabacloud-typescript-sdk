@@ -5,32 +5,61 @@ import { AppInstanceAggregate } from "./AppInstanceAggregate";
 
 export class GetAppInstanceForAdminResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * The name of the application. The name must be 4 to 26 characters in length. The name can contain letters, digits, and underscores (_), and must start with a letter.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message, used to replace `%s` in the error message of the returned parameter **ErrMessage**.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it means that the input request parameter **DtsJobId** is invalid.
+   * 
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/u6qw3gxzu3b7sbj/u6qw3gxzu3b7sbj.diff.zip?Expires=1740975709&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=FP7dDnkrLlOZHmRRORVqbLOtv9c%3D
+   * abc
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * The parameter whose value is invalid.
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Data table module.
+   * 
+   * - ABTest: Experiment data table
+   * 
+   * - ExperimentTool: Experiment tool table
+   * 
+   * - DataDiagnosis: Data diagnosis
+   * 
    * @example
    * true
    */
@@ -44,12 +73,25 @@ export class GetAppInstanceForAdminResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error Code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

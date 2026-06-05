@@ -20,6 +20,8 @@ export class AppInstanceProfile extends $dara.Model {
   source?: string;
   templateEtag?: string;
   templateId?: string;
+  chatbiTaskId?: string;
+  chatbiTaskStatus?: string;
   static names(): { [key: string]: string } {
     return {
       applicationType: 'ApplicationType',
@@ -39,6 +41,8 @@ export class AppInstanceProfile extends $dara.Model {
       source: 'Source',
       templateEtag: 'TemplateEtag',
       templateId: 'TemplateId',
+      chatbiTaskId: 'chatbiTaskId',
+      chatbiTaskStatus: 'chatbiTaskStatus',
     };
   }
 
@@ -61,6 +65,8 @@ export class AppInstanceProfile extends $dara.Model {
       source: 'string',
       templateEtag: 'string',
       templateId: 'string',
+      chatbiTaskId: 'string',
+      chatbiTaskStatus: 'string',
     };
   }
 
