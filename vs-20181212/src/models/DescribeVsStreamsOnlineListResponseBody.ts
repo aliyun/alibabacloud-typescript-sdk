@@ -3,50 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVsStreamsOnlineListResponseBodyOnlineInfoLiveStreamOnlineInfo extends $dara.Model {
-  /**
-   * @example
-   * xxxApp
-   */
   appName?: string;
-  /**
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @example
-   * push.example.com
-   */
   publishDomain?: string;
-  /**
-   * @example
-   * 2015-12-02T06:58:04Z
-   */
   publishTime?: string;
-  /**
-   * @example
-   * edge
-   */
   publishType?: string;
-  /**
-   * @example
-   * rtmp://example.com/xchen
-   */
   publishUrl?: string;
-  /**
-   * @example
-   * testxchen_small
-   */
   streamName?: string;
-  /**
-   * @example
-   * 123
-   */
   transcodeId?: string;
-  /**
-   * @example
-   * no
-   */
   transcoded?: string;
   static names(): { [key: string]: string } {
     return {

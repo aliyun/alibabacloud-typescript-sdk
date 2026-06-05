@@ -30,6 +30,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加负载到集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param tmpReq - AddHiveEdgeWorkersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddHiveEdgeWorkersResponse
+   */
+  async addHiveEdgeWorkersWithOptions(tmpReq: $_model.AddHiveEdgeWorkersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddHiveEdgeWorkersResponse> {
+    tmpReq.validate();
+    let request = new $_model.AddHiveEdgeWorkersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.hiveId)) {
+      query["HiveId"] = request.hiveId;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddHiveEdgeWorkers",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddHiveEdgeWorkersResponse>(await this.callApi(params, req, runtime), new $_model.AddHiveEdgeWorkersResponse({}));
+  }
+
+  /**
+   * 添加负载到集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param request - AddHiveEdgeWorkersRequest
+   * @returns AddHiveEdgeWorkersResponse
+   */
+  async addHiveEdgeWorkers(request: $_model.AddHiveEdgeWorkersRequest): Promise<$_model.AddHiveEdgeWorkersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addHiveEdgeWorkersWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - AddVsPullStreamInfoConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddVsPullStreamInfoConfigResponse
@@ -1290,6 +1350,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 上传用户数据文件
+   * 
+   * @param request - CancelComfyTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelComfyTaskResponse
+   */
+  async cancelComfyTaskWithOptions(request: $_model.CancelComfyTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelComfyTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelComfyTask",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelComfyTaskResponse>(await this.callApi(params, req, runtime), new $_model.CancelComfyTaskResponse({}));
+  }
+
+  /**
+   * 上传用户数据文件
+   * 
+   * @param request - CancelComfyTaskRequest
+   * @returns CancelComfyTaskResponse
+   */
+  async cancelComfyTask(request: $_model.CancelComfyTaskRequest): Promise<$_model.CancelComfyTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelComfyTaskWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - ContinuousAdjustRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ContinuousAdjustResponse
@@ -1391,6 +1493,148 @@ export default class Client extends OpenApi {
   async continuousMove(request: $_model.ContinuousMoveRequest): Promise<$_model.ContinuousMoveResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.continuousMoveWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传用户数据文件
+   * 
+   * @param request - CreateComfyTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateComfyTaskResponse
+   */
+  async createComfyTaskWithOptions(request: $_model.CreateComfyTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateComfyTaskResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hiveId)) {
+      query["HiveId"] = request.hiveId;
+    }
+
+    if (!$dara.isNull(request.userParameters)) {
+      query["UserParameters"] = request.userParameters;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateComfyTask",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateComfyTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateComfyTaskResponse({}));
+  }
+
+  /**
+   * 上传用户数据文件
+   * 
+   * @param request - CreateComfyTaskRequest
+   * @returns CreateComfyTaskResponse
+   */
+  async createComfyTask(request: $_model.CreateComfyTaskRequest): Promise<$_model.CreateComfyTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createComfyTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建一个用户数据的目录
+   * 
+   * @param request - CreateComfyUserDataDirRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateComfyUserDataDirResponse
+   */
+  async createComfyUserDataDirWithOptions(request: $_model.CreateComfyUserDataDirRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateComfyUserDataDirResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateComfyUserDataDir",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateComfyUserDataDirResponse>(await this.callApi(params, req, runtime), new $_model.CreateComfyUserDataDirResponse({}));
+  }
+
+  /**
+   * 创建一个用户数据的目录
+   * 
+   * @param request - CreateComfyUserDataDirRequest
+   * @returns CreateComfyUserDataDirResponse
+   */
+  async createComfyUserDataDir(request: $_model.CreateComfyUserDataDirRequest): Promise<$_model.CreateComfyUserDataDirResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createComfyUserDataDirWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建Comfy工作流
+   * 
+   * @param request - CreateComfyWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateComfyWorkflowResponse
+   */
+  async createComfyWorkflowWithOptions(request: $_model.CreateComfyWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateComfyWorkflowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.workflow)) {
+      query["Workflow"] = request.workflow;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateComfyWorkflow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateComfyWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.CreateComfyWorkflowResponse({}));
+  }
+
+  /**
+   * 创建Comfy工作流
+   * 
+   * @param request - CreateComfyWorkflowRequest
+   * @returns CreateComfyWorkflowResponse
+   */
+  async createComfyWorkflow(request: $_model.CreateComfyWorkflowRequest): Promise<$_model.CreateComfyWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createComfyWorkflowWithOptions(request, runtime);
   }
 
   /**
@@ -1719,6 +1963,60 @@ export default class Client extends OpenApi {
   async createGroup(request: $_model.CreateGroupRequest): Promise<$_model.CreateGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param request - CreateHiveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHiveResponse
+   */
+  async createHiveWithOptions(request: $_model.CreateHiveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateHiveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateHive",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateHiveResponse>(await this.callApi(params, req, runtime), new $_model.CreateHiveResponse({}));
+  }
+
+  /**
+   * 创建集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param request - CreateHiveRequest
+   * @returns CreateHiveResponse
+   */
+  async createHive(request: $_model.CreateHiveRequest): Promise<$_model.CreateHiveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createHiveWithOptions(request, runtime);
   }
 
   /**
@@ -2208,6 +2506,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 从集群删除负载
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param tmpReq - DelHiveEdgeWorkersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DelHiveEdgeWorkersResponse
+   */
+  async delHiveEdgeWorkersWithOptions(tmpReq: $_model.DelHiveEdgeWorkersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DelHiveEdgeWorkersResponse> {
+    tmpReq.validate();
+    let request = new $_model.DelHiveEdgeWorkersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.hiveId)) {
+      query["HiveId"] = request.hiveId;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DelHiveEdgeWorkers",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DelHiveEdgeWorkersResponse>(await this.callApi(params, req, runtime), new $_model.DelHiveEdgeWorkersResponse({}));
+  }
+
+  /**
+   * 从集群删除负载
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param request - DelHiveEdgeWorkersRequest
+   * @returns DelHiveEdgeWorkersResponse
+   */
+  async delHiveEdgeWorkers(request: $_model.DelHiveEdgeWorkersRequest): Promise<$_model.DelHiveEdgeWorkersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.delHiveEdgeWorkersWithOptions(request, runtime);
+  }
+
+  /**
    * 删除云应用
    * 
    * @param request - DeleteCloudAppRequest
@@ -2247,6 +2605,132 @@ export default class Client extends OpenApi {
   async deleteCloudApp(request: $_model.DeleteCloudAppRequest): Promise<$_model.DeleteCloudAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteCloudAppWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除用户的生成结果
+   * 
+   * @param request - DeleteComfyProductionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteComfyProductionResponse
+   */
+  async deleteComfyProductionWithOptions(request: $_model.DeleteComfyProductionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteComfyProductionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteComfyProduction",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteComfyProductionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteComfyProductionResponse({}));
+  }
+
+  /**
+   * 删除用户的生成结果
+   * 
+   * @param request - DeleteComfyProductionRequest
+   * @returns DeleteComfyProductionResponse
+   */
+  async deleteComfyProduction(request: $_model.DeleteComfyProductionRequest): Promise<$_model.DeleteComfyProductionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteComfyProductionWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除用户数据的中的文件或目录
+   * 
+   * @param request - DeleteComfyUserDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteComfyUserDataResponse
+   */
+  async deleteComfyUserDataWithOptions(request: $_model.DeleteComfyUserDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteComfyUserDataResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteComfyUserData",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteComfyUserDataResponse>(await this.callApi(params, req, runtime), new $_model.DeleteComfyUserDataResponse({}));
+  }
+
+  /**
+   * 删除用户数据的中的文件或目录
+   * 
+   * @param request - DeleteComfyUserDataRequest
+   * @returns DeleteComfyUserDataResponse
+   */
+  async deleteComfyUserData(request: $_model.DeleteComfyUserDataRequest): Promise<$_model.DeleteComfyUserDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteComfyUserDataWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Comfy工作流
+   * 
+   * @param request - DeleteComfyWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteComfyWorkflowResponse
+   */
+  async deleteComfyWorkflowWithOptions(request: $_model.DeleteComfyWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteComfyWorkflowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteComfyWorkflow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteComfyWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.DeleteComfyWorkflowResponse({}));
+  }
+
+  /**
+   * 删除Comfy工作流
+   * 
+   * @param request - DeleteComfyWorkflowRequest
+   * @returns DeleteComfyWorkflowResponse
+   */
+  async deleteComfyWorkflow(request: $_model.DeleteComfyWorkflowRequest): Promise<$_model.DeleteComfyWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteComfyWorkflowWithOptions(request, runtime);
   }
 
   /**
@@ -2415,6 +2899,56 @@ export default class Client extends OpenApi {
   async deleteGroup(request: $_model.DeleteGroupRequest): Promise<$_model.DeleteGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param request - DeleteHiveRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHiveResponse
+   */
+  async deleteHiveWithOptions(request: $_model.DeleteHiveRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteHiveResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hiveId)) {
+      query["HiveId"] = request.hiveId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteHive",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteHiveResponse>(await this.callApi(params, req, runtime), new $_model.DeleteHiveResponse({}));
+  }
+
+  /**
+   * 删除集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param request - DeleteHiveRequest
+   * @returns DeleteHiveResponse
+   */
+  async deleteHive(request: $_model.DeleteHiveRequest): Promise<$_model.DeleteHiveResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteHiveWithOptions(request, runtime);
   }
 
   /**
@@ -2911,6 +3445,348 @@ export default class Client extends OpenApi {
   async describeAccountStat(request: $_model.DescribeAccountStatRequest): Promise<$_model.DescribeAccountStatResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAccountStatWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户生成结果的下载链接
+   * 
+   * @param request - DescribeComfyProductionDownloadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComfyProductionDownloadUrlResponse
+   */
+  async describeComfyProductionDownloadUrlWithOptions(request: $_model.DescribeComfyProductionDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComfyProductionDownloadUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeComfyProductionDownloadUrl",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeComfyProductionDownloadUrlResponse>(await this.callApi(params, req, runtime), new $_model.DescribeComfyProductionDownloadUrlResponse({}));
+  }
+
+  /**
+   * 获取用户生成结果的下载链接
+   * 
+   * @param request - DescribeComfyProductionDownloadUrlRequest
+   * @returns DescribeComfyProductionDownloadUrlResponse
+   */
+  async describeComfyProductionDownloadUrl(request: $_model.DescribeComfyProductionDownloadUrlRequest): Promise<$_model.DescribeComfyProductionDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeComfyProductionDownloadUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 本接口支持根据不同请求条件查询Comfy生成物列表
+   * 
+   * @param request - DescribeComfyProductionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComfyProductionsResponse
+   */
+  async describeComfyProductionsWithOptions(request: $_model.DescribeComfyProductionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComfyProductionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeComfyProductions",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeComfyProductionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeComfyProductionsResponse({}));
+  }
+
+  /**
+   * 本接口支持根据不同请求条件查询Comfy生成物列表
+   * 
+   * @param request - DescribeComfyProductionsRequest
+   * @returns DescribeComfyProductionsResponse
+   */
+  async describeComfyProductions(request: $_model.DescribeComfyProductionsRequest): Promise<$_model.DescribeComfyProductionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeComfyProductionsWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举用户数据的中所有文件和目录的信息。
+   * 
+   * @param request - DescribeComfyTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComfyTasksResponse
+   */
+  async describeComfyTasksWithOptions(request: $_model.DescribeComfyTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComfyTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.taskState)) {
+      query["TaskState"] = request.taskState;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeComfyTasks",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeComfyTasksResponse>(await this.callApi(params, req, runtime), new $_model.DescribeComfyTasksResponse({}));
+  }
+
+  /**
+   * 列举用户数据的中所有文件和目录的信息。
+   * 
+   * @param request - DescribeComfyTasksRequest
+   * @returns DescribeComfyTasksResponse
+   */
+  async describeComfyTasks(request: $_model.DescribeComfyTasksRequest): Promise<$_model.DescribeComfyTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeComfyTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * 上传用户数据文件
+   * 
+   * @param request - DescribeComfyUserDataDownloadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComfyUserDataDownloadUrlResponse
+   */
+  async describeComfyUserDataDownloadUrlWithOptions(request: $_model.DescribeComfyUserDataDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComfyUserDataDownloadUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeComfyUserDataDownloadUrl",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeComfyUserDataDownloadUrlResponse>(await this.callApi(params, req, runtime), new $_model.DescribeComfyUserDataDownloadUrlResponse({}));
+  }
+
+  /**
+   * 上传用户数据文件
+   * 
+   * @param request - DescribeComfyUserDataDownloadUrlRequest
+   * @returns DescribeComfyUserDataDownloadUrlResponse
+   */
+  async describeComfyUserDataDownloadUrl(request: $_model.DescribeComfyUserDataDownloadUrlRequest): Promise<$_model.DescribeComfyUserDataDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeComfyUserDataDownloadUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户数据文件上传的URL，进行用户文件上传
+   * 
+   * @param request - DescribeComfyUserDataUploadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComfyUserDataUploadUrlResponse
+   */
+  async describeComfyUserDataUploadUrlWithOptions(request: $_model.DescribeComfyUserDataUploadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComfyUserDataUploadUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.contentType)) {
+      query["ContentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.fileMd5)) {
+      query["FileMd5"] = request.fileMd5;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.fileSizeBytes)) {
+      query["FileSizeBytes"] = request.fileSizeBytes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeComfyUserDataUploadUrl",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeComfyUserDataUploadUrlResponse>(await this.callApi(params, req, runtime), new $_model.DescribeComfyUserDataUploadUrlResponse({}));
+  }
+
+  /**
+   * 获取用户数据文件上传的URL，进行用户文件上传
+   * 
+   * @param request - DescribeComfyUserDataUploadUrlRequest
+   * @returns DescribeComfyUserDataUploadUrlResponse
+   */
+  async describeComfyUserDataUploadUrl(request: $_model.DescribeComfyUserDataUploadUrlRequest): Promise<$_model.DescribeComfyUserDataUploadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeComfyUserDataUploadUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 列举用户数据的中所有文件和目录的信息。
+   * 
+   * @param request - DescribeComfyUserDatasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComfyUserDatasResponse
+   */
+  async describeComfyUserDatasWithOptions(request: $_model.DescribeComfyUserDatasRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComfyUserDatasResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.fileName)) {
+      query["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeComfyUserDatas",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeComfyUserDatasResponse>(await this.callApi(params, req, runtime), new $_model.DescribeComfyUserDatasResponse({}));
+  }
+
+  /**
+   * 列举用户数据的中所有文件和目录的信息。
+   * 
+   * @param request - DescribeComfyUserDatasRequest
+   * @returns DescribeComfyUserDatasResponse
+   */
+  async describeComfyUserDatas(request: $_model.DescribeComfyUserDatasRequest): Promise<$_model.DescribeComfyUserDatasResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeComfyUserDatasWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Comfy工作流列表
+   * 
+   * @param request - DescribeComfyWorkflowsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeComfyWorkflowsResponse
+   */
+  async describeComfyWorkflowsWithOptions(request: $_model.DescribeComfyWorkflowsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeComfyWorkflowsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeComfyWorkflows",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeComfyWorkflowsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeComfyWorkflowsResponse({}));
+  }
+
+  /**
+   * 获取Comfy工作流列表
+   * 
+   * @param request - DescribeComfyWorkflowsRequest
+   * @returns DescribeComfyWorkflowsResponse
+   */
+  async describeComfyWorkflows(request: $_model.DescribeComfyWorkflowsRequest): Promise<$_model.DescribeComfyWorkflowsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeComfyWorkflowsWithOptions(request, runtime);
   }
 
   /**
@@ -6242,6 +7118,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询所有负载信息，支持分页查询。
+   * 
+   * @param tmpReq - ListEdgeWorkersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEdgeWorkersResponse
+   */
+  async listEdgeWorkersWithOptions(tmpReq: $_model.ListEdgeWorkersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListEdgeWorkersResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListEdgeWorkersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.hiveIds)) {
+      request.hiveIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hiveIds, "HiveIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.planIds)) {
+      request.planIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.planIds, "PlanIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "Statuses", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.hiveIdsShrink)) {
+      query["HiveIds"] = request.hiveIdsShrink;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.planIdsShrink)) {
+      query["PlanIds"] = request.planIdsShrink;
+    }
+
+    if (!$dara.isNull(request.spec)) {
+      query["Spec"] = request.spec;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statusesShrink)) {
+      query["Statuses"] = request.statusesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEdgeWorkers",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEdgeWorkersResponse>(await this.callApi(params, req, runtime), new $_model.ListEdgeWorkersResponse({}));
+  }
+
+  /**
+   * 查询所有负载信息，支持分页查询。
+   * 
+   * @param request - ListEdgeWorkersRequest
+   * @returns ListEdgeWorkersResponse
+   */
+  async listEdgeWorkers(request: $_model.ListEdgeWorkersRequest): Promise<$_model.ListEdgeWorkersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listEdgeWorkersWithOptions(request, runtime);
+  }
+
+  /**
    * 查询文件的实例推送状态信息列表。
    * 
    * @param request - ListFilePushStatusesRequest
@@ -6315,6 +7283,68 @@ export default class Client extends OpenApi {
   async listFiles(request: $_model.ListFilesRequest): Promise<$_model.ListFilesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询所有集群信息，支持分页查询。
+   * 
+   * @param request - ListHivesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHivesResponse
+   */
+  async listHivesWithOptions(request: $_model.ListHivesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListHivesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.hiveId)) {
+      query["HiveId"] = request.hiveId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListHives",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListHivesResponse>(await this.callApi(params, req, runtime), new $_model.ListHivesResponse({}));
+  }
+
+  /**
+   * 查询所有集群信息，支持分页查询。
+   * 
+   * @param request - ListHivesRequest
+   * @returns ListHivesResponse
+   */
+  async listHives(request: $_model.ListHivesRequest): Promise<$_model.ListHivesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listHivesWithOptions(request, runtime);
   }
 
   /**
@@ -6764,6 +7794,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询规格信息，支持分页查询。
+   * 
+   * @param request - ListSpecificationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSpecificationsResponse
+   */
+  async listSpecificationsWithOptions(request: $_model.ListSpecificationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSpecificationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.specification)) {
+      query["Specification"] = request.specification;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSpecifications",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSpecificationsResponse>(await this.callApi(params, req, runtime), new $_model.ListSpecificationsResponse({}));
+  }
+
+  /**
+   * 查询规格信息，支持分页查询。
+   * 
+   * @param request - ListSpecificationsRequest
+   * @returns ListSpecificationsResponse
+   */
+  async listSpecifications(request: $_model.ListSpecificationsRequest): Promise<$_model.ListSpecificationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSpecificationsWithOptions(request, runtime);
+  }
+
+  /**
    * 安全登陆管理
    * 
    * @param request - ManageLoginRequest
@@ -6815,6 +7895,56 @@ export default class Client extends OpenApi {
   async manageLogin(request: $_model.ManageLoginRequest): Promise<$_model.ManageLoginResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.manageLoginWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Comfy的工作流详细信息
+   * 
+   * @param request - ModifyComfyWorkflowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyComfyWorkflowResponse
+   */
+  async modifyComfyWorkflowWithOptions(request: $_model.ModifyComfyWorkflowRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyComfyWorkflowResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.workflowId)) {
+      query["WorkflowId"] = request.workflowId;
+    }
+
+    if (!$dara.isNull(request.workflowName)) {
+      query["WorkflowName"] = request.workflowName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyComfyWorkflow",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyComfyWorkflowResponse>(await this.callApi(params, req, runtime), new $_model.ModifyComfyWorkflowResponse({}));
+  }
+
+  /**
+   * 查询Comfy的工作流详细信息
+   * 
+   * @param request - ModifyComfyWorkflowRequest
+   * @returns ModifyComfyWorkflowResponse
+   */
+  async modifyComfyWorkflow(request: $_model.ModifyComfyWorkflowRequest): Promise<$_model.ModifyComfyWorkflowResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyComfyWorkflowWithOptions(request, runtime);
   }
 
   /**
@@ -7234,6 +8364,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param request - ModifyHiveAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyHiveAttributeResponse
+   */
+  async modifyHiveAttributeWithOptions(request: $_model.ModifyHiveAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyHiveAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.hiveId)) {
+      query["HiveId"] = request.hiveId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyHiveAttribute",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyHiveAttributeResponse>(await this.callApi(params, req, runtime), new $_model.ModifyHiveAttributeResponse({}));
+  }
+
+  /**
+   * 更新集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param request - ModifyHiveAttributeRequest
+   * @returns ModifyHiveAttributeResponse
+   */
+  async modifyHiveAttribute(request: $_model.ModifyHiveAttributeRequest): Promise<$_model.ModifyHiveAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyHiveAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - ModifyParentPlatformRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyParentPlatformResponse
@@ -7634,7 +8822,66 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - OpenVsServiceRequest
+   * 移动负载到集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param tmpReq - MoveHiveEdgeWorkersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveHiveEdgeWorkersResponse
+   */
+  async moveHiveEdgeWorkersWithOptions(tmpReq: $_model.MoveHiveEdgeWorkersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MoveHiveEdgeWorkersResponse> {
+    tmpReq.validate();
+    let request = new $_model.MoveHiveEdgeWorkersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.hiveId)) {
+      query["HiveId"] = request.hiveId;
+    }
+
+    if (!$dara.isNull(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MoveHiveEdgeWorkers",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MoveHiveEdgeWorkersResponse>(await this.callApi(params, req, runtime), new $_model.MoveHiveEdgeWorkersResponse({}));
+  }
+
+  /**
+   * 移动负载到集群
+   * 
+   * @remarks
+   * ## 请求说明
+   * - 该接口用于将满足特定条件的实例与指定项目进行关联。
+   * 
+   * @param request - MoveHiveEdgeWorkersRequest
+   * @returns MoveHiveEdgeWorkersResponse
+   */
+  async moveHiveEdgeWorkers(request: $_model.MoveHiveEdgeWorkersRequest): Promise<$_model.MoveHiveEdgeWorkersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.moveHiveEdgeWorkersWithOptions(request, runtime);
+  }
+
+  /**
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenVsServiceResponse
    */

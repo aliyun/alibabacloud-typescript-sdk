@@ -326,6 +326,33 @@ export class DescribeRenderingInstanceResponseBodyResourceAttributes extends $da
   }
 }
 
+export class DescribeRenderingInstanceResponseBodyResourceStatus extends $dara.Model {
+  /**
+   * @example
+   * running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRenderingInstanceResponseBodySystemInfo extends $dara.Model {
   /**
    * @example
@@ -395,6 +422,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
    */
   requestId?: string;
   resourceAttributes?: DescribeRenderingInstanceResponseBodyResourceAttributes;
+  resourceStatus?: DescribeRenderingInstanceResponseBodyResourceStatus;
   storageSize?: number;
   systemInfo?: DescribeRenderingInstanceResponseBodySystemInfo;
   static names(): { [key: string]: string } {
@@ -413,6 +441,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
       renderingStatus: 'RenderingStatus',
       requestId: 'RequestId',
       resourceAttributes: 'ResourceAttributes',
+      resourceStatus: 'ResourceStatus',
       storageSize: 'StorageSize',
       systemInfo: 'SystemInfo',
     };
@@ -434,6 +463,7 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
       renderingStatus: DescribeRenderingInstanceResponseBodyRenderingStatus,
       requestId: 'string',
       resourceAttributes: DescribeRenderingInstanceResponseBodyResourceAttributes,
+      resourceStatus: DescribeRenderingInstanceResponseBodyResourceStatus,
       storageSize: 'number',
       systemInfo: DescribeRenderingInstanceResponseBodySystemInfo,
     };
@@ -454,6 +484,9 @@ export class DescribeRenderingInstanceResponseBody extends $dara.Model {
     }
     if(this.resourceAttributes && typeof (this.resourceAttributes as any).validate === 'function') {
       (this.resourceAttributes as any).validate();
+    }
+    if(this.resourceStatus && typeof (this.resourceStatus as any).validate === 'function') {
+      (this.resourceStatus as any).validate();
     }
     if(this.systemInfo && typeof (this.systemInfo as any).validate === 'function') {
       (this.systemInfo as any).validate();

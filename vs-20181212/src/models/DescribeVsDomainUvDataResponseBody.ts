@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVsDomainUvDataResponseBodyUvDataIntervalUsageData extends $dara.Model {
-  /**
-   * @example
-   * 2015-11-29T15:00:00Z
-   */
   timeStamp?: string;
-  /**
-   * @example
-   * 100
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {

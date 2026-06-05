@@ -30,20 +30,8 @@ export class BatchResumeVsStreamResponseBodyResumeResultResumeResultInfoChannels
 
 export class BatchResumeVsStreamResponseBodyResumeResultResumeResultInfo extends $dara.Model {
   channels?: BatchResumeVsStreamResponseBodyResumeResultResumeResultInfoChannels;
-  /**
-   * @example
-   * 1
-   */
   count?: number;
-  /**
-   * @example
-   * ok
-   */
   detail?: string;
-  /**
-   * @example
-   * success
-   */
   result?: string;
   static names(): { [key: string]: string } {
     return {

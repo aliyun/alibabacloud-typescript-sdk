@@ -4,25 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeVsUpPeakPublishStreamDataResponseBodyDescribeVsUpPeakPublishStreamDatasDescribeVsUpPeakPublishStreamData extends $dara.Model {
   bandWidth?: string;
-  /**
-   * @example
-   * 1522252320000
-   */
   peakTime?: string;
-  /**
-   * @example
-   * 31
-   */
   publishStreamNum?: number;
-  /**
-   * @example
-   * 1522166400000
-   */
   queryTime?: string;
-  /**
-   * @example
-   * example.com
-   */
   statName?: string;
   static names(): { [key: string]: string } {
     return {

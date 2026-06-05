@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVsDomainSnapshotDataResponseBodySnapshotDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @example
-   * 1
-   */
   snapshotValue?: string;
-  /**
-   * @example
-   * 2015-12-10T20:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {

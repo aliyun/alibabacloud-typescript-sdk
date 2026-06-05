@@ -3,55 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVsDomainCertificateInfoResponseBodyCertInfosCertInfo extends $dara.Model {
-  /**
-   * @example
-   * example.com
-   */
   certDomainName?: string;
-  /**
-   * @example
-   * 2018-06-03T22:03:39Z
-   */
   certExpireTime?: string;
-  /**
-   * @example
-   * months
-   */
   certLife?: string;
-  /**
-   * @example
-   * myname
-   */
   certName?: string;
-  /**
-   * @example
-   * Let\\"s Encrypt
-   */
   certOrg?: string;
-  /**
-   * @example
-   * free
-   */
   certType?: string;
-  /**
-   * @example
-   * example.com
-   */
   domainName?: string;
-  /**
-   * @example
-   * asdadaxxxx
-   */
   SSLPub?: string;
-  /**
-   * @example
-   * on
-   */
   serverCertificateStatus?: string;
-  /**
-   * @example
-   * success
-   */
   status?: string;
   static names(): { [key: string]: string } {
     return {

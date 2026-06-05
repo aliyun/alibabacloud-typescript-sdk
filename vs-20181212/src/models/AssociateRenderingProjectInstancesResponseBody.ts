@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class AssociateRenderingProjectInstancesResponseBodyFailedInstances extends $dara.Model {
   /**
    * @example

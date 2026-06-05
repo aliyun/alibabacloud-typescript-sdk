@@ -3,40 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVsTopDomainsByFlowResponseBodyTopDomainsTopDomain extends $dara.Model {
-  /**
-   * @example
-   * example.aliyundoc.com
-   */
   domainName?: string;
-  /**
-   * @example
-   * 100
-   */
   maxBps?: number;
-  /**
-   * @example
-   * 1457111400
-   */
   maxBpsTime?: string;
-  /**
-   * @example
-   * 1
-   */
   rank?: number;
-  /**
-   * @example
-   * 100
-   */
   totalAccess?: number;
-  /**
-   * @example
-   * 100
-   */
   totalTraffic?: string;
-  /**
-   * @example
-   * 30.64191989360235
-   */
   trafficPercent?: string;
   static names(): { [key: string]: string } {
     return {

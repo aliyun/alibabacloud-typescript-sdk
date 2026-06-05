@@ -30,20 +30,8 @@ export class BatchForbidVsStreamResponseBodyForbidResultForbidResultInfoChannels
 
 export class BatchForbidVsStreamResponseBodyForbidResultForbidResultInfo extends $dara.Model {
   channels?: BatchForbidVsStreamResponseBodyForbidResultForbidResultInfoChannels;
-  /**
-   * @example
-   * 2
-   */
   count?: number;
-  /**
-   * @example
-   * ok
-   */
   detail?: string;
-  /**
-   * @example
-   * success
-   */
   result?: string;
   static names(): { [key: string]: string } {
     return {

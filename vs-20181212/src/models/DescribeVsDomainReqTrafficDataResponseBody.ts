@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVsDomainReqTrafficDataResponseBodyReqTrafficDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @example
-   * 10000
-   */
   reqTrafficValue?: string;
-  /**
-   * @example
-   * 2021-09-22T03:40:41Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {

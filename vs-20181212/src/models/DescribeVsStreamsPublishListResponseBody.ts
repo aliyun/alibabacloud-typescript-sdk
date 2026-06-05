@@ -3,70 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVsStreamsPublishListResponseBodyPublishInfoLiveStreamPublishInfo extends $dara.Model {
-  /**
-   * @example
-   * xxxApp
-   */
   appName?: string;
-  /**
-   * @example
-   * 192.168.0.1
-   */
   clientAddr?: string;
-  /**
-   * @example
-   * example.aliyundoc.com
-   */
   domainName?: string;
-  /**
-   * @example
-   * 192.168.0.1
-   */
   edgeNodeAddr?: string;
-  /**
-   * @example
-   * example.aliyundoc.com
-   */
   publishDomain?: string;
-  /**
-   * @example
-   * 2016-06-29T19:00:00Z
-   */
   publishTime?: string;
-  /**
-   * @example
-   * center
-   */
   publishType?: string;
-  /**
-   * @example
-   * https://example.aliyundoc.com/xxxApp/3402000****320000001.m3u8
-   */
   publishUrl?: string;
-  /**
-   * @example
-   * 2016-06-29T19:00:00Z
-   */
   stopTime?: string;
-  /**
-   * @example
-   * xxxStream
-   */
   streamName?: string;
-  /**
-   * @example
-   * https://example.aliyundoc.com/xxxApp/3402000****320000001.m3u8
-   */
   streamUrl?: string;
-  /**
-   * @example
-   * 3888920****8138204-cn-qingdao
-   */
   transcodeId?: string;
-  /**
-   * @example
-   * yes
-   */
   transcoded?: string;
   static names(): { [key: string]: string } {
     return {

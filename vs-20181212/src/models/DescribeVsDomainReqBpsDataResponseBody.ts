@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVsDomainReqBpsDataResponseBodyReqBpsDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @example
-   * 1000
-   */
   reqBpsValue?: string;
-  /**
-   * @example
-   * 2021-12-24T16:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {

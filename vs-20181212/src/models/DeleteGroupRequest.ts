@@ -11,10 +11,6 @@ export class DeleteGroupRequest extends $dara.Model {
    * 33763950751395843
    */
   id?: string;
-  /**
-   * @example
-   * 123456
-   */
   ownerId?: number;
   static names(): { [key: string]: string } {
     return {

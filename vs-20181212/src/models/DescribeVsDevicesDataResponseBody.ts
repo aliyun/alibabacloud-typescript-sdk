@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeVsDevicesDataResponseBodyDevicesDataPerIntervalDataModule extends $dara.Model {
-  /**
-   * @example
-   * 128
-   */
   devicesDataValue?: string;
-  /**
-   * @example
-   * 2022-01-04T16:00:00Z
-   */
   timeStamp?: string;
   static names(): { [key: string]: string } {
     return {
