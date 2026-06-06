@@ -76,23 +76,37 @@ export class SubmitCustomSourceTopicAnalysisRequestNews extends $dara.Model {
 }
 
 export class SubmitCustomSourceTopicAnalysisRequestTopics extends $dara.Model {
+  /**
+   * @example
+   * biz-tag-001
+   */
+  customField?: string;
   news?: HottopicNews[];
   /**
    * @example
    * 话题名称
    */
   topic?: string;
+  /**
+   * @example
+   * https://www.example.com/topic/123
+   */
+  topicUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      customField: 'CustomField',
       news: 'News',
       topic: 'Topic',
+      topicUrl: 'TopicUrl',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customField: 'string',
       news: { 'type': 'array', 'itemType': HottopicNews },
       topic: 'string',
+      topicUrl: 'string',
     };
   }
 

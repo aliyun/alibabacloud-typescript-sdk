@@ -13,6 +13,21 @@ export class ListHotTopicsShrinkRequest extends $dara.Model {
   agentKey?: string;
   /**
    * @example
+   * 2026-06-04 23:59:59
+   */
+  createTimeEnd?: string;
+  /**
+   * @example
+   * 2026-06-01 00:00:00
+   */
+  createTimeStart?: string;
+  /**
+   * @example
+   * biz-tag-001
+   */
+  customField?: string;
+  /**
+   * @example
    * 1
    */
   maxResults?: number;
@@ -46,6 +61,9 @@ export class ListHotTopicsShrinkRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       agentKey: 'AgentKey',
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      customField: 'CustomField',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       topicIdsShrink: 'TopicIds',
@@ -60,6 +78,9 @@ export class ListHotTopicsShrinkRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       agentKey: 'string',
+      createTimeEnd: 'string',
+      createTimeStart: 'string',
+      customField: 'string',
       maxResults: 'number',
       nextToken: 'string',
       topicIdsShrink: 'string',

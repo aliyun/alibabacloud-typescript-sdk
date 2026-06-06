@@ -7192,6 +7192,18 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.createTimeEnd)) {
+      body["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!$dara.isNull(request.createTimeStart)) {
+      body["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!$dara.isNull(request.customField)) {
+      body["CustomField"] = request.customField;
+    }
+
     if (!$dara.isNull(request.maxResults)) {
       body["MaxResults"] = request.maxResults;
     }

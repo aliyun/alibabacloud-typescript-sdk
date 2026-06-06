@@ -87,9 +87,19 @@ export class ListHotTopicsResponseBodyData extends $dara.Model {
   asyncTaskId?: string;
   /**
    * @example
+   * 2026-06-04 12:34:56
+   */
+  createTime?: string;
+  /**
+   * @example
    * 创建用户ID（自定义主题场景下使用）
    */
   createUser?: string;
+  /**
+   * @example
+   * biz-tag-001
+   */
+  customField?: string;
   /**
    * @example
    * 61
@@ -133,13 +143,20 @@ export class ListHotTopicsResponseBodyData extends $dara.Model {
   topicSource?: string;
   /**
    * @example
+   * https://www.example.com/topic/123
+   */
+  topicUrl?: string;
+  /**
+   * @example
    * 数据版本
    */
   version?: string;
   static names(): { [key: string]: string } {
     return {
       asyncTaskId: 'AsyncTaskId',
+      createTime: 'CreateTime',
       createUser: 'CreateUser',
+      customField: 'CustomField',
       hotValue: 'HotValue',
       id: 'Id',
       status: 'Status',
@@ -149,6 +166,7 @@ export class ListHotTopicsResponseBodyData extends $dara.Model {
       taskStatus: 'TaskStatus',
       topic: 'Topic',
       topicSource: 'TopicSource',
+      topicUrl: 'TopicUrl',
       version: 'Version',
     };
   }
@@ -156,7 +174,9 @@ export class ListHotTopicsResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       asyncTaskId: 'string',
+      createTime: 'string',
       createUser: 'string',
+      customField: 'string',
       hotValue: 'number',
       id: 'string',
       status: 'string',
@@ -166,6 +186,7 @@ export class ListHotTopicsResponseBodyData extends $dara.Model {
       taskStatus: 'number',
       topic: 'string',
       topicSource: 'string',
+      topicUrl: 'string',
       version: 'string',
     };
   }
