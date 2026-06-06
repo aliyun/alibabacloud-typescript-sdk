@@ -30,6 +30,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量取消任务
+   * 
+   * @param tmpReq - BatchCancelTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCancelTasksResponse
+   */
+  async batchCancelTasksWithOptions(workspaceId: string, tmpReq: $_model.BatchCancelTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCancelTasksResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchCancelTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "taskIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskCode)) {
+      body["taskCode"] = request.taskCode;
+    }
+
+    if (!$dara.isNull(request.taskIdsShrink)) {
+      body["taskIds"] = request.taskIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCancelTasks",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/batchCancelTasks`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchCancelTasksResponse>(await this.callApi(params, req, runtime), new $_model.BatchCancelTasksResponse({}));
+  }
+
+  /**
+   * 批量取消任务
+   * 
+   * @param request - BatchCancelTasksRequest
+   * @returns BatchCancelTasksResponse
+   */
+  async batchCancelTasks(workspaceId: string, request: $_model.BatchCancelTasksRequest): Promise<$_model.BatchCancelTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchCancelTasksWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 批量查询任务状态
+   * 
+   * @param tmpReq - BatchQueryTaskStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchQueryTaskStatusResponse
+   */
+  async batchQueryTaskStatusWithOptions(workspaceId: string, tmpReq: $_model.BatchQueryTaskStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.BatchQueryTaskStatusResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchQueryTaskStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "taskIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskCode)) {
+      body["taskCode"] = request.taskCode;
+    }
+
+    if (!$dara.isNull(request.taskIdsShrink)) {
+      body["taskIds"] = request.taskIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchQueryTaskStatus",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/batchQueryTaskStatus`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchQueryTaskStatusResponse>(await this.callApi(params, req, runtime), new $_model.BatchQueryTaskStatusResponse({}));
+  }
+
+  /**
+   * 批量查询任务状态
+   * 
+   * @param request - BatchQueryTaskStatusRequest
+   * @returns BatchQueryTaskStatusResponse
+   */
+  async batchQueryTaskStatus(workspaceId: string, request: $_model.BatchQueryTaskStatusRequest): Promise<$_model.BatchQueryTaskStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchQueryTaskStatusWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 取消异步任务
    * 
    * @param request - CancelAsyncTaskRequest
@@ -423,6 +533,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getTagMiningAnalysisTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询任务执行情况统计
+   * 
+   * @param request - GetTaskExecutionStatisticsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTaskExecutionStatisticsResponse
+   */
+  async getTaskExecutionStatisticsWithOptions(workspaceId: string, request: $_model.GetTaskExecutionStatisticsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetTaskExecutionStatisticsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.taskCode)) {
+      query["taskCode"] = request.taskCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTaskExecutionStatistics",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(workspaceId)}/quanmiao/lightapp/getTaskExecutionStatistics`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTaskExecutionStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.GetTaskExecutionStatisticsResponse({}));
+  }
+
+  /**
+   * 查询任务执行情况统计
+   * 
+   * @param request - GetTaskExecutionStatisticsRequest
+   * @returns GetTaskExecutionStatisticsResponse
+   */
+  async getTaskExecutionStatistics(workspaceId: string, request: $_model.GetTaskExecutionStatisticsRequest): Promise<$_model.GetTaskExecutionStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTaskExecutionStatisticsWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
