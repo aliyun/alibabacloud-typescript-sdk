@@ -2776,6 +2776,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 登记 MCP Server
+   * 
+   * @param tmpReq - CreateMcpServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMcpServerResponse
+   */
+  async createMcpServerWithOptions(tmpReq: $_model.CreateMcpServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMcpServerResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateMcpServerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.config)) {
+      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.visibilityScope)) {
+      request.visibilityScopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.visibilityScope, "VisibilityScope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.configShrink)) {
+      body["Config"] = request.configShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.visibility)) {
+      body["Visibility"] = request.visibility;
+    }
+
+    if (!$dara.isNull(request.visibilityScopeShrink)) {
+      body["VisibilityScope"] = request.visibilityScopeShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMcpServer",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.CreateMcpServerResponse({}));
+  }
+
+  /**
+   * 登记 MCP Server
+   * 
+   * @param request - CreateMcpServerRequest
+   * @returns CreateMcpServerResponse
+   */
+  async createMcpServer(request: $_model.CreateMcpServerRequest): Promise<$_model.CreateMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createMcpServerWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a collection in Data Map. Collections include categories, subcategories, data albums, and categories that are created in the data albums.
    * 
    * @param request - CreateMetaCollectionRequest
@@ -3821,6 +3885,86 @@ export default class Client extends OpenApi {
   async createRoute(request: $_model.CreateRouteRequest): Promise<$_model.CreateRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建 Skill
+   * 
+   * @param tmpReq - CreateSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSkillResponse
+   */
+  async createSkillWithOptions(tmpReq: $_model.CreateSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSkillResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSkillShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.extra)) {
+      request.extraShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extra, "Extra", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.visibilityScope)) {
+      request.visibilityScopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.visibilityScope, "VisibilityScope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bundleUrl)) {
+      body["BundleUrl"] = request.bundleUrl;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.extraShrink)) {
+      body["Extra"] = request.extraShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.skillMdOverride)) {
+      body["SkillMdOverride"] = request.skillMdOverride;
+    }
+
+    if (!$dara.isNull(request.versionNote)) {
+      body["VersionNote"] = request.versionNote;
+    }
+
+    if (!$dara.isNull(request.visibility)) {
+      body["Visibility"] = request.visibility;
+    }
+
+    if (!$dara.isNull(request.visibilityScopeShrink)) {
+      body["VisibilityScope"] = request.visibilityScopeShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSkill",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSkillResponse>(await this.callApi(params, req, runtime), new $_model.CreateSkillResponse({}));
+  }
+
+  /**
+   * 创建 Skill
+   * 
+   * @param request - CreateSkillRequest
+   * @returns CreateSkillResponse
+   */
+  async createSkill(request: $_model.CreateSkillRequest): Promise<$_model.CreateSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSkillWithOptions(request, runtime);
   }
 
   /**
@@ -8057,6 +8201,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 读取 MCP Server 详情
+   * 
+   * @param request - GetMcpServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcpServerResponse
+   */
+  async getMcpServerWithOptions(request: $_model.GetMcpServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMcpServerResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMcpServer",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.GetMcpServerResponse({}));
+  }
+
+  /**
+   * 读取 MCP Server 详情
+   * 
+   * @param request - GetMcpServerRequest
+   * @returns GetMcpServerResponse
+   */
+  async getMcpServer(request: $_model.GetMcpServerRequest): Promise<$_model.GetMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMcpServerWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a collection in Data Map. Collections include categories and data albums.
    * 
    * @param request - GetMetaCollectionRequest
@@ -8746,6 +8932,48 @@ export default class Client extends OpenApi {
   async getSchema(request: $_model.GetSchemaRequest): Promise<$_model.GetSchemaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSchemaWithOptions(request, runtime);
+  }
+
+  /**
+   * 读取 Skill 详情
+   * 
+   * @param request - GetSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillResponse
+   */
+  async getSkillWithOptions(request: $_model.GetSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSkill",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSkillResponse>(await this.callApi(params, req, runtime), new $_model.GetSkillResponse({}));
+  }
+
+  /**
+   * 读取 Skill 详情
+   * 
+   * @param request - GetSkillRequest
+   * @returns GetSkillResponse
+   */
+  async getSkill(request: $_model.GetSkillRequest): Promise<$_model.GetSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSkillWithOptions(request, runtime);
   }
 
   /**
@@ -9891,6 +10119,68 @@ export default class Client extends OpenApi {
   async listCrawlerTypes(): Promise<$_model.ListCrawlerTypesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listCrawlerTypesWithOptions(runtime);
+  }
+
+  /**
+   * 分页列出 自定义 Agent
+   * 
+   * @param tmpReq - ListCustomAgentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCustomAgentsResponse
+   */
+  async listCustomAgentsWithOptions(tmpReq: $_model.ListCustomAgentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListCustomAgentsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.visibility)) {
+      request.visibilityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.visibility, "Visibility", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.q)) {
+      body["Q"] = request.q;
+    }
+
+    if (!$dara.isNull(request.visibilityShrink)) {
+      body["Visibility"] = request.visibilityShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCustomAgents",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCustomAgentsResponse>(await this.callApi(params, req, runtime), new $_model.ListCustomAgentsResponse({}));
+  }
+
+  /**
+   * 分页列出 自定义 Agent
+   * 
+   * @param request - ListCustomAgentsRequest
+   * @returns ListCustomAgentsResponse
+   */
+  async listCustomAgents(request: $_model.ListCustomAgentsRequest): Promise<$_model.ListCustomAgentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCustomAgentsWithOptions(request, runtime);
   }
 
   /**
@@ -11919,6 +12209,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页列出 MCP Server
+   * 
+   * @param tmpReq - ListMcpServersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMcpServersResponse
+   */
+  async listMcpServersWithOptions(tmpReq: $_model.ListMcpServersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMcpServersResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListMcpServersShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.visibility)) {
+      request.visibilityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.visibility, "Visibility", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.q)) {
+      body["Q"] = request.q;
+    }
+
+    if (!$dara.isNull(request.visibilityShrink)) {
+      body["Visibility"] = request.visibilityShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMcpServers",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMcpServersResponse>(await this.callApi(params, req, runtime), new $_model.ListMcpServersResponse({}));
+  }
+
+  /**
+   * 分页列出 MCP Server
+   * 
+   * @param request - ListMcpServersRequest
+   * @returns ListMcpServersResponse
+   */
+  async listMcpServers(request: $_model.ListMcpServersRequest): Promise<$_model.ListMcpServersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMcpServersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of collections in Data Map. Collections include categories and data albums.
    * 
    * @param request - ListMetaCollectionsRequest
@@ -13014,6 +13366,68 @@ export default class Client extends OpenApi {
   async listSchemas(request: $_model.ListSchemasRequest): Promise<$_model.ListSchemasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSchemasWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页列出 Skill
+   * 
+   * @param tmpReq - ListSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillsResponse
+   */
+  async listSkillsWithOptions(tmpReq: $_model.ListSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListSkillsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.visibility)) {
+      request.visibilityShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.visibility, "Visibility", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.q)) {
+      body["Q"] = request.q;
+    }
+
+    if (!$dara.isNull(request.visibilityShrink)) {
+      body["Visibility"] = request.visibilityShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSkills",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSkillsResponse>(await this.callApi(params, req, runtime), new $_model.ListSkillsResponse({}));
+  }
+
+  /**
+   * 分页列出 Skill
+   * 
+   * @param request - ListSkillsRequest
+   * @returns ListSkillsResponse
+   */
+  async listSkills(request: $_model.ListSkillsRequest): Promise<$_model.ListSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSkillsWithOptions(request, runtime);
   }
 
   /**
@@ -17155,6 +17569,78 @@ export default class Client extends OpenApi {
   async updateIDEEventResult(request: $_model.UpdateIDEEventResultRequest): Promise<$_model.UpdateIDEEventResultResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateIDEEventResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新 MCP Server
+   * 
+   * @param tmpReq - UpdateMcpServerRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMcpServerResponse
+   */
+  async updateMcpServerWithOptions(tmpReq: $_model.UpdateMcpServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMcpServerResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMcpServerShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.customHeaders)) {
+      request.customHeadersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customHeaders, "CustomHeaders", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.visibilityScope)) {
+      request.visibilityScopeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.visibilityScope, "VisibilityScope", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.customHeadersShrink)) {
+      body["CustomHeaders"] = request.customHeadersShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.transport)) {
+      body["Transport"] = request.transport;
+    }
+
+    if (!$dara.isNull(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    if (!$dara.isNull(request.visibility)) {
+      body["Visibility"] = request.visibility;
+    }
+
+    if (!$dara.isNull(request.visibilityScopeShrink)) {
+      body["VisibilityScope"] = request.visibilityScopeShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMcpServer",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMcpServerResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMcpServerResponse({}));
+  }
+
+  /**
+   * 更新 MCP Server
+   * 
+   * @param request - UpdateMcpServerRequest
+   * @returns UpdateMcpServerResponse
+   */
+  async updateMcpServer(request: $_model.UpdateMcpServerRequest): Promise<$_model.UpdateMcpServerResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMcpServerWithOptions(request, runtime);
   }
 
   /**
