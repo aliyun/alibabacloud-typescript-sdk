@@ -62,6 +62,8 @@ export { ListInstancesResponseBodyInstances } from './ListInstancesResponseBody'
 export { ListSystemLogsResponseBodySystemLogs } from './ListSystemLogsResponseBody';
 export { ListTempFilesResponseBodyQuota } from './ListTempFilesResponseBody';
 export { ListTempFilesResponseBodyTempFiles } from './ListTempFilesResponseBody';
+export { QueryAutoShutdownPoliciesResponseBodyAutoShutdownPoliciesConditions } from './QueryAutoShutdownPoliciesResponseBody';
+export { QueryAutoShutdownPoliciesResponseBodyAutoShutdownPolicies } from './QueryAutoShutdownPoliciesResponseBody';
 export { UpdateInstanceRequestAffinityCPU } from './UpdateInstanceRequest';
 export { UpdateInstanceRequestAffinity } from './UpdateInstanceRequest';
 export { UpdateInstanceRequestAssignNodeSpec } from './UpdateInstanceRequest';
@@ -185,6 +187,9 @@ export { ListSystemLogsResponse } from './ListSystemLogsResponse';
 export { ListTempFilesRequest } from './ListTempFilesRequest';
 export { ListTempFilesResponseBody } from './ListTempFilesResponseBody';
 export { ListTempFilesResponse } from './ListTempFilesResponse';
+export { QueryAutoShutdownPoliciesRequest } from './QueryAutoShutdownPoliciesRequest';
+export { QueryAutoShutdownPoliciesResponseBody } from './QueryAutoShutdownPoliciesResponseBody';
+export { QueryAutoShutdownPoliciesResponse } from './QueryAutoShutdownPoliciesResponse';
 export { StartInstanceResponseBody } from './StartInstanceResponseBody';
 export { StartInstanceResponse } from './StartInstanceResponse';
 export { StopInstanceRequest } from './StopInstanceRequest';

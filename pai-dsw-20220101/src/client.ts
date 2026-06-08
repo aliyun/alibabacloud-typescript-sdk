@@ -2132,6 +2132,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定的运行中实例列表的自动关机策略。
+   * 
+   * @param request - QueryAutoShutdownPoliciesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAutoShutdownPoliciesResponse
+   */
+  async queryAutoShutdownPoliciesWithOptions(request: $_model.QueryAutoShutdownPoliciesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAutoShutdownPoliciesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.token)) {
+      query["Token"] = request.token;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceIds)) {
+      body["InstanceIds"] = request.instanceIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAutoShutdownPolicies",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/batch/autoshutdownpolicies/query`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAutoShutdownPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.QueryAutoShutdownPoliciesResponse({}));
+  }
+
+  /**
+   * 获取指定的运行中实例列表的自动关机策略。
+   * 
+   * @param request - QueryAutoShutdownPoliciesRequest
+   * @returns QueryAutoShutdownPoliciesResponse
+   */
+  async queryAutoShutdownPolicies(request: $_model.QueryAutoShutdownPoliciesRequest): Promise<$_model.QueryAutoShutdownPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryAutoShutdownPoliciesWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 启动实例
    * 
    * @param headers - map
