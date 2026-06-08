@@ -275,6 +275,116 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发起资源访问权限申请
+   * 
+   * @param tmpReq - ApplyResourceAccessPermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApplyResourceAccessPermissionResponse
+   */
+  async applyResourceAccessPermissionWithOptions(tmpReq: $_model.ApplyResourceAccessPermissionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ApplyResourceAccessPermissionResponse> {
+    tmpReq.validate();
+    let request = new $_model.ApplyResourceAccessPermissionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.applyContents)) {
+      request.applyContentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applyContents, "ApplyContents", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.applyContentsShrink)) {
+      body["ApplyContents"] = request.applyContentsShrink;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.reason)) {
+      body["Reason"] = request.reason;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ApplyResourceAccessPermission",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ApplyResourceAccessPermissionResponse>(await this.callApi(params, req, runtime), new $_model.ApplyResourceAccessPermissionResponse({}));
+  }
+
+  /**
+   * 发起资源访问权限申请
+   * 
+   * @param request - ApplyResourceAccessPermissionRequest
+   * @returns ApplyResourceAccessPermissionResponse
+   */
+  async applyResourceAccessPermission(request: $_model.ApplyResourceAccessPermissionRequest): Promise<$_model.ApplyResourceAccessPermissionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.applyResourceAccessPermissionWithOptions(request, runtime);
+  }
+
+  /**
+   * 审批权限申请流程实例
+   * 
+   * @param request - ApproveProcessInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ApproveProcessInstanceResponse
+   */
+  async approveProcessInstanceWithOptions(request: $_model.ApproveProcessInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ApproveProcessInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.approvalAction)) {
+      body["ApprovalAction"] = request.approvalAction;
+    }
+
+    if (!$dara.isNull(request.approvalComment)) {
+      body["ApprovalComment"] = request.approvalComment;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.processInstanceId)) {
+      body["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ApproveProcessInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ApproveProcessInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ApproveProcessInstanceResponse({}));
+  }
+
+  /**
+   * 审批权限申请流程实例
+   * 
+   * @param request - ApproveProcessInstanceRequest
+   * @returns ApproveProcessInstanceResponse
+   */
+  async approveProcessInstance(request: $_model.ApproveProcessInstanceRequest): Promise<$_model.ApproveProcessInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.approveProcessInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Adds a custom image to a workspace.
    * 
    * @param request - AssociateProjectToImageRequest
@@ -3218,6 +3328,94 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建审批流程定义
+   * 
+   * @param tmpReq - CreateProcessDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProcessDefinitionResponse
+   */
+  async createProcessDefinitionWithOptions(tmpReq: $_model.CreateProcessDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProcessDefinitionResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateProcessDefinitionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.approvalNodes)) {
+      request.approvalNodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.approvalNodes, "ApprovalNodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.notificationServices)) {
+      request.notificationServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notificationServices, "NotificationServices", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ruleConditions)) {
+      request.ruleConditionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ruleConditions, "RuleConditions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.approvalNodesShrink)) {
+      body["ApprovalNodes"] = request.approvalNodesShrink;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.notificationServicesShrink)) {
+      body["NotificationServices"] = request.notificationServicesShrink;
+    }
+
+    if (!$dara.isNull(request.ruleConditionsShrink)) {
+      body["RuleConditions"] = request.ruleConditionsShrink;
+    }
+
+    if (!$dara.isNull(request.subType)) {
+      body["SubType"] = request.subType;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProcessDefinition",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProcessDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.CreateProcessDefinitionResponse({}));
+  }
+
+  /**
+   * 创建审批流程定义
+   * 
+   * @param request - CreateProcessDefinitionRequest
+   * @returns CreateProcessDefinitionResponse
+   */
+  async createProcessDefinition(request: $_model.CreateProcessDefinitionRequest): Promise<$_model.CreateProcessDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProcessDefinitionWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a workspace.
    * 
    * @param tmpReq - CreateProjectRequest
@@ -3885,6 +4083,90 @@ export default class Client extends OpenApi {
   async createRoute(request: $_model.CreateRouteRequest): Promise<$_model.CreateRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建安全管控策略
+   * 
+   * @param tmpReq - CreateSecurityStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSecurityStrategyResponse
+   */
+  async createSecurityStrategyWithOptions(tmpReq: $_model.CreateSecurityStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecurityStrategyResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateSecurityStrategyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.workspaces)) {
+      request.workspacesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workspaces, "Workspaces", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.contentShrink)) {
+      body["Content"] = request.contentShrink;
+    }
+
+    if (!$dara.isNull(request.controlDwScope)) {
+      body["ControlDwScope"] = request.controlDwScope;
+    }
+
+    if (!$dara.isNull(request.controlModule)) {
+      body["ControlModule"] = request.controlModule;
+    }
+
+    if (!$dara.isNull(request.controlSubModule)) {
+      body["ControlSubModule"] = request.controlSubModule;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.schemaName)) {
+      body["SchemaName"] = request.schemaName;
+    }
+
+    if (!$dara.isNull(request.workspacesShrink)) {
+      body["Workspaces"] = request.workspacesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSecurityStrategy",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSecurityStrategyResponse>(await this.callApi(params, req, runtime), new $_model.CreateSecurityStrategyResponse({}));
+  }
+
+  /**
+   * 创建安全管控策略
+   * 
+   * @param request - CreateSecurityStrategyRequest
+   * @returns CreateSecurityStrategyResponse
+   */
+  async createSecurityStrategy(request: $_model.CreateSecurityStrategyRequest): Promise<$_model.CreateSecurityStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSecurityStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -5640,6 +5922,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除审批流程定义
+   * 
+   * @param request - DeleteProcessDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProcessDefinitionResponse
+   */
+  async deleteProcessDefinitionWithOptions(request: $_model.DeleteProcessDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProcessDefinitionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProcessDefinition",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProcessDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProcessDefinitionResponse({}));
+  }
+
+  /**
+   * 删除审批流程定义
+   * 
+   * @param request - DeleteProcessDefinitionRequest
+   * @returns DeleteProcessDefinitionResponse
+   */
+  async deleteProcessDefinition(request: $_model.DeleteProcessDefinitionRequest): Promise<$_model.DeleteProcessDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProcessDefinitionWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a DataWorks workspace.
    * 
    * @remarks
@@ -5933,6 +6257,48 @@ export default class Client extends OpenApi {
   async deleteRoute(request: $_model.DeleteRouteRequest): Promise<$_model.DeleteRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除安全管控策略
+   * 
+   * @param request - DeleteSecurityStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSecurityStrategyResponse
+   */
+  async deleteSecurityStrategyWithOptions(request: $_model.DeleteSecurityStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSecurityStrategyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSecurityStrategy",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSecurityStrategyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSecurityStrategyResponse({}));
+  }
+
+  /**
+   * 删除安全管控策略
+   * 
+   * @param request - DeleteSecurityStrategyRequest
+   * @returns DeleteSecurityStrategyResponse
+   */
+  async deleteSecurityStrategy(request: $_model.DeleteSecurityStrategyRequest): Promise<$_model.DeleteSecurityStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSecurityStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -6255,6 +6621,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 停用审批流程定义
+   * 
+   * @param request - DisableProcessDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableProcessDefinitionResponse
+   */
+  async disableProcessDefinitionWithOptions(request: $_model.DisableProcessDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisableProcessDefinitionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableProcessDefinition",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableProcessDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.DisableProcessDefinitionResponse({}));
+  }
+
+  /**
+   * 停用审批流程定义
+   * 
+   * @param request - DisableProcessDefinitionRequest
+   * @returns DisableProcessDefinitionResponse
+   */
+  async disableProcessDefinition(request: $_model.DisableProcessDefinitionRequest): Promise<$_model.DisableProcessDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disableProcessDefinitionWithOptions(request, runtime);
+  }
+
+  /**
    * Disassociates an image from a workspace.
    * 
    * @param request - DissociateProjectFromImageRequest
@@ -6354,6 +6766,52 @@ export default class Client extends OpenApi {
   async dissociateProjectFromResourceGroup(request: $_model.DissociateProjectFromResourceGroupRequest): Promise<$_model.DissociateProjectFromResourceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.dissociateProjectFromResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用审批流程定义
+   * 
+   * @param request - EnableProcessDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableProcessDefinitionResponse
+   */
+  async enableProcessDefinitionWithOptions(request: $_model.EnableProcessDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableProcessDefinitionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableProcessDefinition",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableProcessDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.EnableProcessDefinitionResponse({}));
+  }
+
+  /**
+   * 启用审批流程定义
+   * 
+   * @param request - EnableProcessDefinitionRequest
+   * @returns EnableProcessDefinitionResponse
+   */
+  async enableProcessDefinition(request: $_model.EnableProcessDefinitionRequest): Promise<$_model.EnableProcessDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.enableProcessDefinitionWithOptions(request, runtime);
   }
 
   /**
@@ -6549,6 +7007,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 匹配最佳安全管控策略
+   * 
+   * @param request - FindBestMatchSecurityStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FindBestMatchSecurityStrategyResponse
+   */
+  async findBestMatchSecurityStrategyWithOptions(request: $_model.FindBestMatchSecurityStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FindBestMatchSecurityStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.controlModule)) {
+      query["ControlModule"] = request.controlModule;
+    }
+
+    if (!$dara.isNull(request.controlSubModule)) {
+      query["ControlSubModule"] = request.controlSubModule;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FindBestMatchSecurityStrategy",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FindBestMatchSecurityStrategyResponse>(await this.callApi(params, req, runtime), new $_model.FindBestMatchSecurityStrategyResponse({}));
+  }
+
+  /**
+   * 匹配最佳安全管控策略
+   * 
+   * @param request - FindBestMatchSecurityStrategyRequest
+   * @returns FindBestMatchSecurityStrategyResponse
+   */
+  async findBestMatchSecurityStrategy(request: $_model.FindBestMatchSecurityStrategyRequest): Promise<$_model.FindBestMatchSecurityStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.findBestMatchSecurityStrategyWithOptions(request, runtime);
+  }
+
+  /**
    * 读取 Agent 详情
    * 
    * @param request - GetAgentRequest
@@ -6738,6 +7246,48 @@ export default class Client extends OpenApi {
   async getAlertRule(request: $_model.GetAlertRuleRequest): Promise<$_model.GetAlertRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据访问权限申请单
+   * 
+   * @param request - GetApplicationContentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationContentsResponse
+   */
+  async getApplicationContentsWithOptions(request: $_model.GetApplicationContentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApplicationContentsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.processInstanceId)) {
+      query["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApplicationContents",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApplicationContentsResponse>(await this.callApi(params, req, runtime), new $_model.GetApplicationContentsResponse({}));
+  }
+
+  /**
+   * 查询数据访问权限申请单
+   * 
+   * @param request - GetApplicationContentsRequest
+   * @returns GetApplicationContentsResponse
+   */
+  async getApplicationContents(request: $_model.GetApplicationContentsRequest): Promise<$_model.GetApplicationContentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApplicationContentsWithOptions(request, runtime);
   }
 
   /**
@@ -8573,6 +9123,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询审批流程定义详情
+   * 
+   * @param request - GetProcessDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProcessDefinitionResponse
+   */
+  async getProcessDefinitionWithOptions(request: $_model.GetProcessDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetProcessDefinitionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProcessDefinition",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProcessDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.GetProcessDefinitionResponse({}));
+  }
+
+  /**
+   * 查询审批流程定义详情
+   * 
+   * @param request - GetProcessDefinitionRequest
+   * @returns GetProcessDefinitionResponse
+   */
+  async getProcessDefinition(request: $_model.GetProcessDefinitionRequest): Promise<$_model.GetProcessDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getProcessDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询审批流程实例详情
+   * 
+   * @param request - GetProcessInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProcessInstanceResponse
+   */
+  async getProcessInstanceWithOptions(request: $_model.GetProcessInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetProcessInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.processInstanceId)) {
+      query["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProcessInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProcessInstanceResponse>(await this.callApi(params, req, runtime), new $_model.GetProcessInstanceResponse({}));
+  }
+
+  /**
+   * 查询审批流程实例详情
+   * 
+   * @param request - GetProcessInstanceRequest
+   * @returns GetProcessInstanceResponse
+   */
+  async getProcessInstance(request: $_model.GetProcessInstanceRequest): Promise<$_model.GetProcessInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getProcessInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a DataWorks workspace.
    * 
    * @remarks
@@ -8932,6 +9566,48 @@ export default class Client extends OpenApi {
   async getSchema(request: $_model.GetSchemaRequest): Promise<$_model.GetSchemaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getSchemaWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询安全管控策略详情
+   * 
+   * @param request - GetSecurityStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSecurityStrategyResponse
+   */
+  async getSecurityStrategyWithOptions(request: $_model.GetSecurityStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSecurityStrategyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSecurityStrategy",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSecurityStrategyResponse>(await this.callApi(params, req, runtime), new $_model.GetSecurityStrategyResponse({}));
+  }
+
+  /**
+   * 查询安全管控策略详情
+   * 
+   * @param request - GetSecurityStrategyRequest
+   * @returns GetSecurityStrategyResponse
+   */
+  async getSecurityStrategy(request: $_model.GetSecurityStrategyRequest): Promise<$_model.GetSecurityStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSecurityStrategyWithOptions(request, runtime);
   }
 
   /**
@@ -12459,6 +13135,190 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询我发起的权限申请单
+   * 
+   * @param tmpReq - ListMyApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMyApplicationsResponse
+   */
+  async listMyApplicationsWithOptions(tmpReq: $_model.ListMyApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMyApplicationsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListMyApplicationsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resource)) {
+      request.resourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resource, "Resource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.resourceType)) {
+      request.resourceTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceType, "ResourceType", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "Statuses", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.defSchema)) {
+      body["DefSchema"] = request.defSchema;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceShrink)) {
+      body["Resource"] = request.resourceShrink;
+    }
+
+    if (!$dara.isNull(request.resourceTypeShrink)) {
+      body["ResourceType"] = request.resourceTypeShrink;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statusesShrink)) {
+      body["Statuses"] = request.statusesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMyApplications",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMyApplicationsResponse>(await this.callApi(params, req, runtime), new $_model.ListMyApplicationsResponse({}));
+  }
+
+  /**
+   * 查询我发起的权限申请单
+   * 
+   * @param request - ListMyApplicationsRequest
+   * @returns ListMyApplicationsResponse
+   */
+  async listMyApplications(request: $_model.ListMyApplicationsRequest): Promise<$_model.ListMyApplicationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMyApplicationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询与我相关的权限申请单
+   * 
+   * @param tmpReq - ListMyRelatedApprovalsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMyRelatedApprovalsResponse
+   */
+  async listMyRelatedApprovalsWithOptions(tmpReq: $_model.ListMyRelatedApprovalsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMyRelatedApprovalsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListMyRelatedApprovalsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.accessTypes)) {
+      request.accessTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accessTypes, "AccessTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.grantee)) {
+      request.granteeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.grantee, "Grantee", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.resource)) {
+      request.resourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resource, "Resource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.resourceType)) {
+      request.resourceTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceType, "ResourceType", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "Statuses", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessTypesShrink)) {
+      body["AccessTypes"] = request.accessTypesShrink;
+    }
+
+    if (!$dara.isNull(request.defSchema)) {
+      body["DefSchema"] = request.defSchema;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.granteeShrink)) {
+      body["Grantee"] = request.granteeShrink;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceShrink)) {
+      body["Resource"] = request.resourceShrink;
+    }
+
+    if (!$dara.isNull(request.resourceTypeShrink)) {
+      body["ResourceType"] = request.resourceTypeShrink;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.statusesShrink)) {
+      body["Statuses"] = request.statusesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMyRelatedApprovals",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMyRelatedApprovalsResponse>(await this.callApi(params, req, runtime), new $_model.ListMyRelatedApprovalsResponse({}));
+  }
+
+  /**
+   * 查询与我相关的权限申请单
+   * 
+   * @param request - ListMyRelatedApprovalsRequest
+   * @returns ListMyRelatedApprovalsResponse
+   */
+  async listMyRelatedApprovals(request: $_model.ListMyRelatedApprovalsRequest): Promise<$_model.ListMyRelatedApprovalsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMyRelatedApprovalsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of network resources of a serverless resource group.
    * 
    * @remarks
@@ -12755,6 +13615,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询待我审批的权限申请单
+   * 
+   * @param tmpReq - ListPendingApprovalsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPendingApprovalsResponse
+   */
+  async listPendingApprovalsWithOptions(tmpReq: $_model.ListPendingApprovalsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPendingApprovalsResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListPendingApprovalsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.accessTypes)) {
+      request.accessTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.accessTypes, "AccessTypes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.grantee)) {
+      request.granteeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.grantee, "Grantee", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.resource)) {
+      request.resourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resource, "Resource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.resourceType)) {
+      request.resourceTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceType, "ResourceType", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessTypesShrink)) {
+      body["AccessTypes"] = request.accessTypesShrink;
+    }
+
+    if (!$dara.isNull(request.defSchema)) {
+      body["DefSchema"] = request.defSchema;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.granteeShrink)) {
+      body["Grantee"] = request.granteeShrink;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceShrink)) {
+      body["Resource"] = request.resourceShrink;
+    }
+
+    if (!$dara.isNull(request.resourceTypeShrink)) {
+      body["ResourceType"] = request.resourceTypeShrink;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPendingApprovals",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPendingApprovalsResponse>(await this.callApi(params, req, runtime), new $_model.ListPendingApprovalsResponse({}));
+  }
+
+  /**
+   * 查询待我审批的权限申请单
+   * 
+   * @param request - ListPendingApprovalsRequest
+   * @returns ListPendingApprovalsResponse
+   */
+  async listPendingApprovals(request: $_model.ListPendingApprovalsRequest): Promise<$_model.ListPendingApprovalsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPendingApprovalsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about deployment objects by deployment process ID.
    * 
    * @param request - ListPipelineRunItemsRequest
@@ -12828,6 +13780,48 @@ export default class Client extends OpenApi {
   async listPipelineRuns(request: $_model.ListPipelineRunsRequest): Promise<$_model.ListPipelineRunsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPipelineRunsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询审批流程定义列表
+   * 
+   * @param request - ListProcessDefinitionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProcessDefinitionsResponse
+   */
+  async listProcessDefinitionsWithOptions(request: $_model.ListProcessDefinitionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProcessDefinitionsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProcessDefinitions",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProcessDefinitionsResponse>(await this.callApi(params, req, runtime), new $_model.ListProcessDefinitionsResponse({}));
+  }
+
+  /**
+   * 查询审批流程定义列表
+   * 
+   * @param request - ListProcessDefinitionsRequest
+   * @returns ListProcessDefinitionsResponse
+   */
+  async listProcessDefinitions(request: $_model.ListProcessDefinitionsRequest): Promise<$_model.ListProcessDefinitionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProcessDefinitionsWithOptions(request, runtime);
   }
 
   /**
@@ -13366,6 +14360,60 @@ export default class Client extends OpenApi {
   async listSchemas(request: $_model.ListSchemasRequest): Promise<$_model.ListSchemasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listSchemasWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页检索安全管控策略
+   * 
+   * @param request - ListSecurityStrategiesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSecurityStrategiesResponse
+   */
+  async listSecurityStrategiesWithOptions(request: $_model.ListSecurityStrategiesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSecurityStrategiesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.controlModule)) {
+      body["ControlModule"] = request.controlModule;
+    }
+
+    if (!$dara.isNull(request.controlSubModule)) {
+      body["ControlSubModule"] = request.controlSubModule;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSecurityStrategies",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSecurityStrategiesResponse>(await this.callApi(params, req, runtime), new $_model.ListSecurityStrategiesResponse({}));
+  }
+
+  /**
+   * 分页检索安全管控策略
+   * 
+   * @param request - ListSecurityStrategiesRequest
+   * @returns ListSecurityStrategiesResponse
+   */
+  async listSecurityStrategies(request: $_model.ListSecurityStrategiesRequest): Promise<$_model.ListSecurityStrategiesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSecurityStrategiesWithOptions(request, runtime);
   }
 
   /**
@@ -15434,6 +16482,52 @@ export default class Client extends OpenApi {
   async stopDIJob(request: $_model.StopDIJobRequest): Promise<$_model.StopDIJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 撤回审批流程实例
+   * 
+   * @param request - StopProcessInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopProcessInstanceResponse
+   */
+  async stopProcessInstanceWithOptions(request: $_model.StopProcessInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopProcessInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.processInstanceId)) {
+      body["ProcessInstanceId"] = request.processInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopProcessInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopProcessInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StopProcessInstanceResponse({}));
+  }
+
+  /**
+   * 撤回审批流程实例
+   * 
+   * @param request - StopProcessInstanceRequest
+   * @returns StopProcessInstanceResponse
+   */
+  async stopProcessInstance(request: $_model.StopProcessInstanceRequest): Promise<$_model.StopProcessInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopProcessInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -17946,6 +19040,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新审批流程定义
+   * 
+   * @param tmpReq - UpdateProcessDefinitionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProcessDefinitionResponse
+   */
+  async updateProcessDefinitionWithOptions(tmpReq: $_model.UpdateProcessDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProcessDefinitionResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateProcessDefinitionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.approvalNodes)) {
+      request.approvalNodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.approvalNodes, "ApprovalNodes", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.notificationServices)) {
+      request.notificationServicesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notificationServices, "NotificationServices", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ruleConditions)) {
+      request.ruleConditionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ruleConditions, "RuleConditions", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.approvalNodesShrink)) {
+      body["ApprovalNodes"] = request.approvalNodesShrink;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.notificationServicesShrink)) {
+      body["NotificationServices"] = request.notificationServicesShrink;
+    }
+
+    if (!$dara.isNull(request.ruleConditionsShrink)) {
+      body["RuleConditions"] = request.ruleConditionsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProcessDefinition",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProcessDefinitionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProcessDefinitionResponse({}));
+  }
+
+  /**
+   * 更新审批流程定义
+   * 
+   * @param request - UpdateProcessDefinitionRequest
+   * @returns UpdateProcessDefinitionResponse
+   */
+  async updateProcessDefinition(request: $_model.UpdateProcessDefinitionRequest): Promise<$_model.UpdateProcessDefinitionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateProcessDefinitionWithOptions(request, runtime);
+  }
+
+  /**
    * Updates a DataWorks workspace.
    * 
    * @param request - UpdateProjectRequest
@@ -18323,6 +19497,78 @@ export default class Client extends OpenApi {
   async updateRoute(request: $_model.UpdateRouteRequest): Promise<$_model.UpdateRouteResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 变更安全管控策略
+   * 
+   * @param tmpReq - UpdateSecurityStrategyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSecurityStrategyResponse
+   */
+  async updateSecurityStrategyWithOptions(tmpReq: $_model.UpdateSecurityStrategyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSecurityStrategyResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateSecurityStrategyShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.workspaces)) {
+      request.workspacesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.workspaces, "Workspaces", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.contentShrink)) {
+      body["Content"] = request.contentShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.workspacesShrink)) {
+      body["Workspaces"] = request.workspacesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSecurityStrategy",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSecurityStrategyResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSecurityStrategyResponse({}));
+  }
+
+  /**
+   * 变更安全管控策略
+   * 
+   * @param request - UpdateSecurityStrategyRequest
+   * @returns UpdateSecurityStrategyResponse
+   */
+  async updateSecurityStrategy(request: $_model.UpdateSecurityStrategyRequest): Promise<$_model.UpdateSecurityStrategyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSecurityStrategyWithOptions(request, runtime);
   }
 
   /**
