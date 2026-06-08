@@ -3,8 +3,32 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PrepayOrderInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal for the instance.
+   * 
+   * @example
+   * false
+   */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The subscription duration.
+   * 
+   * @example
+   * 1
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The billing cycle. Valid values:
+   * 
+   * *   Year
+   * *   Month
+   * 
+   * @example
+   * Year
+   */
   pricingCycle?: string;
   static names(): { [key: string]: string } {
     return {

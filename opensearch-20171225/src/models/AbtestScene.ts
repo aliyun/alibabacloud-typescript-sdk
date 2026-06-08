@@ -3,12 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ABTestScene extends $dara.Model {
+  /**
+   * @remarks
+   * The alias of the test scenario.
+   * 
+   * @example
+   * test
+   */
   name?: string;
   /**
+   * @remarks
+   * The status of the test scenario. Valid values:
+   * 
+   * *   0: not in effect
+   * *   1: in effect
+   * 
    * @example
-   * 0 停止实验 1 开通实验
+   * 0
    */
   status?: number;
+  /**
+   * @remarks
+   * The ID of the test scenario
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {

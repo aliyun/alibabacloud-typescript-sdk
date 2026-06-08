@@ -3,10 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ABTestExperiment extends $dara.Model {
+  /**
+   * @example
+   * my_test
+   */
   name?: string;
+  /**
+   * @example
+   * false
+   */
   online?: boolean;
   params?: { [key: string]: string };
+  /**
+   * @example
+   * 85373
+   */
   serialNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   traffic?: number;
   static names(): { [key: string]: string } {
     return {

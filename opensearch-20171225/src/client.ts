@@ -1737,6 +1737,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the query analysis rule for a version of an OpenSearch application.
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeQueryProcessorResponse
@@ -1760,6 +1762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the query analysis rule for a version of an OpenSearch application.
    * @returns DescribeQueryProcessorResponse
    */
   async describeQueryProcessor(appGroupIdentity: string, appId: string, name: string): Promise<$_model.DescribeQueryProcessorResponse> {
@@ -5399,6 +5402,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateABTestSceneWithOptions(appGroupIdentity, sceneId, request, headers, runtime);
+  }
+
+  /**
+   * 应用删除保护
+   * 
+   * @param request - UpdateAppGroupDeleteProtectionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAppGroupDeleteProtectionResponse
+   */
+  async updateAppGroupDeleteProtectionWithOptions(appGroupIdentity: string, request: $_model.UpdateAppGroupDeleteProtectionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAppGroupDeleteProtectionResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.body)) {
+      body["body"] = request.body;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAppGroupDeleteProtection",
+      version: "2017-12-25",
+      protocol: "HTTPS",
+      pathname: `/v4/openapi/app-groups/${$dara.URL.percentEncode(appGroupIdentity)}/delete-protection`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAppGroupDeleteProtectionResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAppGroupDeleteProtectionResponse({}));
+  }
+
+  /**
+   * 应用删除保护
+   * 
+   * @param request - UpdateAppGroupDeleteProtectionRequest
+   * @returns UpdateAppGroupDeleteProtectionResponse
+   */
+  async updateAppGroupDeleteProtection(appGroupIdentity: string, request: $_model.UpdateAppGroupDeleteProtectionRequest): Promise<$_model.UpdateAppGroupDeleteProtectionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAppGroupDeleteProtectionWithOptions(appGroupIdentity, request, headers, runtime);
   }
 
   /**
