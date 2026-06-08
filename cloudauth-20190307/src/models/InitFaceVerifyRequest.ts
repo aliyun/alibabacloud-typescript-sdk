@@ -152,6 +152,11 @@ export class InitFaceVerifyRequest extends $dara.Model {
    */
   crop?: string;
   /**
+   * @example
+   * Y
+   */
+  enableBeauty?: string;
+  /**
    * @remarks
    * Encryption algorithm to be used, currently supporting only the SM2 national encryption algorithm.
    * 
@@ -474,6 +479,7 @@ export class InitFaceVerifyRequest extends $dara.Model {
       certifyUrlStyle: 'CertifyUrlStyle',
       certifyUrlType: 'CertifyUrlType',
       crop: 'Crop',
+      enableBeauty: 'EnableBeauty',
       encryptType: 'EncryptType',
       faceContrastPicture: 'FaceContrastPicture',
       faceContrastPictureUrl: 'FaceContrastPictureUrl',
@@ -518,6 +524,7 @@ export class InitFaceVerifyRequest extends $dara.Model {
       certifyUrlStyle: 'string',
       certifyUrlType: 'string',
       crop: 'string',
+      enableBeauty: 'string',
       encryptType: 'string',
       faceContrastPicture: 'string',
       faceContrastPictureUrl: 'string',

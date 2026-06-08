@@ -4675,6 +4675,10 @@ export default class Client extends OpenApi {
       body["FaceFile"] = request.faceFile;
     }
 
+    if (!$dara.isNull(request.facePicture)) {
+      body["FacePicture"] = request.facePicture;
+    }
+
     if (!$dara.isNull(request.faceUrl)) {
       body["FaceUrl"] = request.faceUrl;
     }
@@ -5203,6 +5207,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.certifyUrlType)) {
       query["CertifyUrlType"] = request.certifyUrlType;
+    }
+
+    if (!$dara.isNull(request.enableBeauty)) {
+      query["EnableBeauty"] = request.enableBeauty;
     }
 
     if (!$dara.isNull(request.encryptType)) {
