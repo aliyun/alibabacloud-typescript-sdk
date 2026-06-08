@@ -54,6 +54,7 @@ export class FeatureViewConfigValue extends $dara.Model {
    * request_id
    */
   secondJoinKey?: string;
+  joinWithLabel?: boolean;
   static names(): { [key: string]: string } {
     return {
       partitions: 'Partitions',
@@ -62,6 +63,7 @@ export class FeatureViewConfigValue extends $dara.Model {
       useMock: 'UseMock',
       snapshot: 'Snapshot',
       secondJoinKey: 'SecondJoinKey',
+      joinWithLabel: 'JoinWithLabel',
     };
   }
 
@@ -73,6 +75,7 @@ export class FeatureViewConfigValue extends $dara.Model {
       useMock: 'boolean',
       snapshot: FeatureViewConfigValueSnapshot,
       secondJoinKey: 'string',
+      joinWithLabel: 'boolean',
     };
   }
 

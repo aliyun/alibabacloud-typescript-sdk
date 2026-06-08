@@ -4,6 +4,11 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateLabelTableRequestFields extends $dara.Model {
   /**
+   * @example
+   * item
+   */
+  alignedEntityName?: string;
+  /**
    * @remarks
    * This parameter is required.
    */
@@ -26,6 +31,7 @@ export class CreateLabelTableRequestFields extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      alignedEntityName: 'AlignedEntityName',
       attributes: 'Attributes',
       name: 'Name',
       type: 'Type',
@@ -34,6 +40,7 @@ export class CreateLabelTableRequestFields extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alignedEntityName: 'string',
       attributes: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       type: 'string',

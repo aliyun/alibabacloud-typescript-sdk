@@ -3,6 +3,11 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetLabelTableResponseBodyFields extends $dara.Model {
+  /**
+   * @example
+   * item
+   */
+  alignedEntityName?: string;
   attributes?: string[];
   /**
    * @example
@@ -16,6 +21,7 @@ export class GetLabelTableResponseBodyFields extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      alignedEntityName: 'AlignedEntityName',
       attributes: 'Attributes',
       name: 'Name',
       type: 'Type',
@@ -24,6 +30,7 @@ export class GetLabelTableResponseBodyFields extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      alignedEntityName: 'string',
       attributes: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
       type: 'string',
