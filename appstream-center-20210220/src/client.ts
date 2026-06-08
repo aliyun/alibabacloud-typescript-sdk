@@ -201,6 +201,14 @@ export default class Client extends OpenApi {
       query["Channel"] = request.channel;
     }
 
+    if (!$dara.isNull(request.cipherEndUserId)) {
+      query["CipherEndUserId"] = request.cipherEndUserId;
+    }
+
+    if (!$dara.isNull(request.cipherPassword)) {
+      query["CipherPassword"] = request.cipherPassword;
+    }
+
     if (!$dara.isNull(request.clientId)) {
       query["ClientId"] = request.clientId;
     }

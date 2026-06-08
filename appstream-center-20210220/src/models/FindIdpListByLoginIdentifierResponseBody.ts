@@ -134,6 +134,7 @@ export class FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo extends $da
    * INTERNET
    */
   accessType?: string;
+  isLoginByCipherParam?: string;
   preferVpcAccess?: boolean;
   /**
    * @example
@@ -144,6 +145,7 @@ export class FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo extends $da
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
+      isLoginByCipherParam: 'IsLoginByCipherParam',
       preferVpcAccess: 'PreferVpcAccess',
       tenantAlias: 'TenantAlias',
       vpcAccessAddress: 'VpcAccessAddress',
@@ -153,6 +155,7 @@ export class FindIdpListByLoginIdentifierResponseBodyTenantAliasInfo extends $da
   static types(): { [key: string]: any } {
     return {
       accessType: 'string',
+      isLoginByCipherParam: 'string',
       preferVpcAccess: 'boolean',
       tenantAlias: 'string',
       vpcAccessAddress: 'string',

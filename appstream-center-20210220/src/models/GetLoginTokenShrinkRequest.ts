@@ -11,6 +11,8 @@ export class GetLoginTokenShrinkRequest extends $dara.Model {
   authenticationCode?: string;
   availableFeaturesShrink?: string;
   channel?: string;
+  cipherEndUserId?: string;
+  cipherPassword?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -178,6 +180,8 @@ export class GetLoginTokenShrinkRequest extends $dara.Model {
       authenticationCode: 'AuthenticationCode',
       availableFeaturesShrink: 'AvailableFeatures',
       channel: 'Channel',
+      cipherEndUserId: 'CipherEndUserId',
+      cipherPassword: 'CipherPassword',
       clientId: 'ClientId',
       clientName: 'ClientName',
       clientOS: 'ClientOS',
@@ -221,6 +225,8 @@ export class GetLoginTokenShrinkRequest extends $dara.Model {
       authenticationCode: 'string',
       availableFeaturesShrink: 'string',
       channel: 'string',
+      cipherEndUserId: 'string',
+      cipherPassword: 'string',
       clientId: 'string',
       clientName: 'string',
       clientOS: 'string',

@@ -11,6 +11,8 @@ export class GetLoginTokenRequest extends $dara.Model {
   authenticationCode?: string;
   availableFeatures?: { [key: string]: string };
   channel?: string;
+  cipherEndUserId?: string;
+  cipherPassword?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -178,6 +180,8 @@ export class GetLoginTokenRequest extends $dara.Model {
       authenticationCode: 'AuthenticationCode',
       availableFeatures: 'AvailableFeatures',
       channel: 'Channel',
+      cipherEndUserId: 'CipherEndUserId',
+      cipherPassword: 'CipherPassword',
       clientId: 'ClientId',
       clientName: 'ClientName',
       clientOS: 'ClientOS',
@@ -221,6 +225,8 @@ export class GetLoginTokenRequest extends $dara.Model {
       authenticationCode: 'string',
       availableFeatures: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       channel: 'string',
+      cipherEndUserId: 'string',
+      cipherPassword: 'string',
       clientId: 'string',
       clientName: 'string',
       clientOS: 'string',
