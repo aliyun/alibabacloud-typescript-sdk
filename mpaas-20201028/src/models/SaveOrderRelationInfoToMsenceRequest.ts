@@ -23,6 +23,8 @@ export class SaveOrderRelationInfoToMsenceRequest extends $dara.Model {
    * 2
    */
   bizOrderStatus?: number;
+  clientType?: string;
+  cpExtra?: string;
   /**
    * @example
    * test_custom_id
@@ -59,6 +61,8 @@ export class SaveOrderRelationInfoToMsenceRequest extends $dara.Model {
       appId: 'AppId',
       bizOrderId: 'BizOrderId',
       bizOrderStatus: 'BizOrderStatus',
+      clientType: 'ClientType',
+      cpExtra: 'CpExtra',
       customId: 'CustomId',
       miniProgramId: 'MiniProgramId',
       openUid: 'OpenUid',
@@ -74,6 +78,8 @@ export class SaveOrderRelationInfoToMsenceRequest extends $dara.Model {
       appId: 'string',
       bizOrderId: 'string',
       bizOrderStatus: 'number',
+      clientType: 'string',
+      cpExtra: 'string',
       customId: 'string',
       miniProgramId: 'string',
       openUid: 'string',

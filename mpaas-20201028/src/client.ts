@@ -7644,6 +7644,14 @@ export default class Client extends OpenApi {
       body["BizOrderStatus"] = request.bizOrderStatus;
     }
 
+    if (!$dara.isNull(request.clientType)) {
+      body["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.cpExtra)) {
+      body["CpExtra"] = request.cpExtra;
+    }
+
     if (!$dara.isNull(request.customId)) {
       body["CustomId"] = request.customId;
     }
