@@ -339,6 +339,7 @@ export { ListOrganizationalUnitsForResourceServerRequestFilter } from './ListOrg
 export { ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnitsResourceServerScopes } from './ListOrganizationalUnitsForResourceServerResponseBody';
 export { ListOrganizationalUnitsForResourceServerResponseBodyOrganizationalUnits } from './ListOrganizationalUnitsForResourceServerResponseBody';
 export { ListRegionsResponseBodyRegions } from './ListRegionsResponseBody';
+export { ListResourceServerScopesResponseBodyResourceServerScopes } from './ListResourceServerScopesResponseBody';
 export { ListResourceServersForUserRequestFilter } from './ListResourceServersForUserRequest';
 export { ListResourceServersForUserResponseBodyResourceServersResourceServerScopes } from './ListResourceServersForUserResponseBody';
 export { ListResourceServersForUserResponseBodyResourceServers } from './ListResourceServersForUserResponseBody';
@@ -1189,6 +1190,9 @@ export { ListOrganizationalUnitsForResourceServerResponseBody } from './ListOrga
 export { ListOrganizationalUnitsForResourceServerResponse } from './ListOrganizationalUnitsForResourceServerResponse';
 export { ListRegionsResponseBody } from './ListRegionsResponseBody';
 export { ListRegionsResponse } from './ListRegionsResponse';
+export { ListResourceServerScopesRequest } from './ListResourceServerScopesRequest';
+export { ListResourceServerScopesResponseBody } from './ListResourceServerScopesResponseBody';
+export { ListResourceServerScopesResponse } from './ListResourceServerScopesResponse';
 export { ListResourceServersForUserRequest } from './ListResourceServersForUserRequest';
 export { ListResourceServersForUserResponseBody } from './ListResourceServersForUserResponseBody';
 export { ListResourceServersForUserResponse } from './ListResourceServersForUserResponse';

@@ -12741,6 +12741,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定ResourceServer下Scope列表。
+   * 
+   * @param request - ListResourceServerScopesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListResourceServerScopesResponse
+   */
+  async listResourceServerScopesWithOptions(request: $_model.ListResourceServerScopesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListResourceServerScopesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.authorizationType)) {
+      query["AuthorizationType"] = request.authorizationType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.previousToken)) {
+      query["PreviousToken"] = request.previousToken;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeIds)) {
+      query["ResourceServerScopeIds"] = request.resourceServerScopeIds;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeName)) {
+      query["ResourceServerScopeName"] = request.resourceServerScopeName;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeType)) {
+      query["ResourceServerScopeType"] = request.resourceServerScopeType;
+    }
+
+    if (!$dara.isNull(request.resourceServerScopeValue)) {
+      query["ResourceServerScopeValue"] = request.resourceServerScopeValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListResourceServerScopes",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListResourceServerScopesResponse>(await this.callApi(params, req, runtime), new $_model.ListResourceServerScopesResponse({}));
+  }
+
+  /**
+   * 获取指定ResourceServer下Scope列表。
+   * 
+   * @param request - ListResourceServerScopesRequest
+   * @returns ListResourceServerScopesResponse
+   */
+  async listResourceServerScopes(request: $_model.ListResourceServerScopesRequest): Promise<$_model.ListResourceServerScopesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listResourceServerScopesWithOptions(request, runtime);
+  }
+
+  /**
    * 查询用户的被授予ResourceServers和Scopes的权限
    * 
    * @param request - ListResourceServersForUserRequest
