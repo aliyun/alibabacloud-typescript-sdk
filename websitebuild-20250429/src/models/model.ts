@@ -80,6 +80,9 @@ export { GetDomainInfoForPartnerResponseBodyDataOwnership } from './GetDomainInf
 export { GetDomainInfoForPartnerResponseBodyData } from './GetDomainInfoForPartnerResponseBody';
 export { GetIcpFilingInfoForPartnerResponseBodyData } from './GetIcpFilingInfoForPartnerResponseBody';
 export { GetLlmProxyConfigForAdminResponseBodyModule } from './GetLlmProxyConfigForAdminResponseBody';
+export { GetMiniAppAuthUrlResponseBodyData } from './GetMiniAppAuthUrlResponseBody';
+export { GetMiniAppBindingResponseBodyData } from './GetMiniAppBindingResponseBody';
+export { GetMiniAppBindingForAdminResponseBodyData } from './GetMiniAppBindingForAdminResponseBody';
 export { GetUserAccessTokenForPartnerResponseBodyModule } from './GetUserAccessTokenForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponseBodyDataCredentials } from './GetUserTmpIdentityForPartnerResponseBody';
 export { GetUserTmpIdentityForPartnerResponseBodyData } from './GetUserTmpIdentityForPartnerResponseBody';
@@ -163,6 +166,7 @@ export { UnbindAppDomainResponseBodyModule } from './UnbindAppDomainResponseBody
 export { UpdateAppChatMessageResponseBodyModule } from './UpdateAppChatMessageResponseBody';
 export { UpdateAppInstanceRequestTags } from './UpdateAppInstanceRequest';
 export { UpdateAppInstanceResponseBodyModule } from './UpdateAppInstanceResponseBody';
+export { UpdateMiniAppBindingResponseBodyData } from './UpdateMiniAppBindingResponseBody';
 export { AppAiStaff } from './AppAiStaff';
 export { AppInstance } from './AppInstance';
 export { AppInstanceAggregate } from './AppInstanceAggregate';
@@ -355,6 +359,16 @@ export { GetIcpFilingInfoForPartnerResponse } from './GetIcpFilingInfoForPartner
 export { GetLlmProxyConfigForAdminRequest } from './GetLlmProxyConfigForAdminRequest';
 export { GetLlmProxyConfigForAdminResponseBody } from './GetLlmProxyConfigForAdminResponseBody';
 export { GetLlmProxyConfigForAdminResponse } from './GetLlmProxyConfigForAdminResponse';
+export { GetMiniAppAuthUrlRequest } from './GetMiniAppAuthUrlRequest';
+export { GetMiniAppAuthUrlResponseBody } from './GetMiniAppAuthUrlResponseBody';
+export { GetMiniAppAuthUrlResponse } from './GetMiniAppAuthUrlResponse';
+export { GetMiniAppBindingRequest } from './GetMiniAppBindingRequest';
+export { GetMiniAppBindingShrinkRequest } from './GetMiniAppBindingShrinkRequest';
+export { GetMiniAppBindingResponseBody } from './GetMiniAppBindingResponseBody';
+export { GetMiniAppBindingResponse } from './GetMiniAppBindingResponse';
+export { GetMiniAppBindingForAdminRequest } from './GetMiniAppBindingForAdminRequest';
+export { GetMiniAppBindingForAdminResponseBody } from './GetMiniAppBindingForAdminResponseBody';
+export { GetMiniAppBindingForAdminResponse } from './GetMiniAppBindingForAdminResponse';
 export { GetUserAccessTokenForPartnerRequest } from './GetUserAccessTokenForPartnerRequest';
 export { GetUserAccessTokenForPartnerResponseBody } from './GetUserAccessTokenForPartnerResponseBody';
 export { GetUserAccessTokenForPartnerResponse } from './GetUserAccessTokenForPartnerResponse';
@@ -562,6 +576,9 @@ export { UpdateAppSupabaseAuthConfigResponse } from './UpdateAppSupabaseAuthConf
 export { UpdateAppSupabaseSecretRequest } from './UpdateAppSupabaseSecretRequest';
 export { UpdateAppSupabaseSecretResponseBody } from './UpdateAppSupabaseSecretResponseBody';
 export { UpdateAppSupabaseSecretResponse } from './UpdateAppSupabaseSecretResponse';
+export { UpdateMiniAppBindingRequest } from './UpdateMiniAppBindingRequest';
+export { UpdateMiniAppBindingResponseBody } from './UpdateMiniAppBindingResponseBody';
+export { UpdateMiniAppBindingResponse } from './UpdateMiniAppBindingResponse';
 export { UploadAppSiteValidationFileRequest } from './UploadAppSiteValidationFileRequest';
 export { UploadAppSiteValidationFileResponseBody } from './UploadAppSiteValidationFileResponseBody';
 export { UploadAppSiteValidationFileResponse } from './UploadAppSiteValidationFileResponse';

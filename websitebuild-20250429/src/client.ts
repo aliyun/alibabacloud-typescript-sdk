@@ -603,29 +603,29 @@ export default class Client extends OpenApi {
    */
   async *createAppChatWithSSE(request: $_model.CreateAppChatRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.CreateAppChatResponse, any, unknown> {
     request.validate();
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.botId)) {
-      query["BotId"] = request.botId;
+      body["BotId"] = request.botId;
     }
 
     if (!$dara.isNull(request.chatId)) {
-      query["ChatId"] = request.chatId;
+      body["ChatId"] = request.chatId;
     }
 
     if (!$dara.isNull(request.conversationId)) {
-      query["ConversationId"] = request.conversationId;
+      body["ConversationId"] = request.conversationId;
     }
 
     if (!$dara.isNull(request.messages)) {
-      query["Messages"] = request.messages;
+      body["Messages"] = request.messages;
     }
 
     if (!$dara.isNull(request.siteId)) {
-      query["SiteId"] = request.siteId;
+      body["SiteId"] = request.siteId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateAppChat",
@@ -664,29 +664,29 @@ export default class Client extends OpenApi {
    */
   async createAppChatWithOptions(request: $_model.CreateAppChatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppChatResponse> {
     request.validate();
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.botId)) {
-      query["BotId"] = request.botId;
+      body["BotId"] = request.botId;
     }
 
     if (!$dara.isNull(request.chatId)) {
-      query["ChatId"] = request.chatId;
+      body["ChatId"] = request.chatId;
     }
 
     if (!$dara.isNull(request.conversationId)) {
-      query["ConversationId"] = request.conversationId;
+      body["ConversationId"] = request.conversationId;
     }
 
     if (!$dara.isNull(request.messages)) {
-      query["Messages"] = request.messages;
+      body["Messages"] = request.messages;
     }
 
     if (!$dara.isNull(request.siteId)) {
-      query["SiteId"] = request.siteId;
+      body["SiteId"] = request.siteId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateAppChat",
@@ -2874,6 +2874,162 @@ export default class Client extends OpenApi {
   async getLlmProxyConfigForAdmin(request: $_model.GetLlmProxyConfigForAdminRequest): Promise<$_model.GetLlmProxyConfigForAdminResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getLlmProxyConfigForAdminWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取小程序授权链接
+   * 
+   * @param request - GetMiniAppAuthUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMiniAppAuthUrlResponse
+   */
+  async getMiniAppAuthUrlWithOptions(request: $_model.GetMiniAppAuthUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMiniAppAuthUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.channel)) {
+      query["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.redirectUri)) {
+      query["RedirectUri"] = request.redirectUri;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMiniAppAuthUrl",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMiniAppAuthUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetMiniAppAuthUrlResponse({}));
+  }
+
+  /**
+   * 获取小程序授权链接
+   * 
+   * @param request - GetMiniAppAuthUrlRequest
+   * @returns GetMiniAppAuthUrlResponse
+   */
+  async getMiniAppAuthUrl(request: $_model.GetMiniAppAuthUrlRequest): Promise<$_model.GetMiniAppAuthUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMiniAppAuthUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询站点绑定的小程序
+   * 
+   * @param tmpReq - GetMiniAppBindingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMiniAppBindingResponse
+   */
+  async getMiniAppBindingWithOptions(tmpReq: $_model.GetMiniAppBindingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMiniAppBindingResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetMiniAppBindingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.settingKeys)) {
+      request.settingKeysShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.settingKeys, "SettingKeys", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.channel)) {
+      query["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.settingKeysShrink)) {
+      query["SettingKeys"] = request.settingKeysShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMiniAppBinding",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMiniAppBindingResponse>(await this.callApi(params, req, runtime), new $_model.GetMiniAppBindingResponse({}));
+  }
+
+  /**
+   * 查询站点绑定的小程序
+   * 
+   * @param request - GetMiniAppBindingRequest
+   * @returns GetMiniAppBindingResponse
+   */
+  async getMiniAppBinding(request: $_model.GetMiniAppBindingRequest): Promise<$_model.GetMiniAppBindingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMiniAppBindingWithOptions(request, runtime);
+  }
+
+  /**
+   * 根据条件查询应用实例绑定的小程序
+   * 
+   * @param request - GetMiniAppBindingForAdminRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMiniAppBindingForAdminResponse
+   */
+  async getMiniAppBindingForAdminWithOptions(request: $_model.GetMiniAppBindingForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMiniAppBindingForAdminResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.channel)) {
+      query["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.platformAppid)) {
+      query["PlatformAppid"] = request.platformAppid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMiniAppBindingForAdmin",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMiniAppBindingForAdminResponse>(await this.callApi(params, req, runtime), new $_model.GetMiniAppBindingForAdminResponse({}));
+  }
+
+  /**
+   * 根据条件查询应用实例绑定的小程序
+   * 
+   * @param request - GetMiniAppBindingForAdminRequest
+   * @returns GetMiniAppBindingForAdminResponse
+   */
+  async getMiniAppBindingForAdmin(request: $_model.GetMiniAppBindingForAdminRequest): Promise<$_model.GetMiniAppBindingForAdminResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMiniAppBindingForAdminWithOptions(request, runtime);
   }
 
   /**
@@ -6841,6 +6997,60 @@ export default class Client extends OpenApi {
   async updateAppSupabaseSecret(request: $_model.UpdateAppSupabaseSecretRequest): Promise<$_model.UpdateAppSupabaseSecretResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAppSupabaseSecretWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新绑定小程序信息
+   * 
+   * @param request - UpdateMiniAppBindingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMiniAppBindingResponse
+   */
+  async updateMiniAppBindingWithOptions(request: $_model.UpdateMiniAppBindingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMiniAppBindingResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.channel)) {
+      query["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.settingKey)) {
+      query["SettingKey"] = request.settingKey;
+    }
+
+    if (!$dara.isNull(request.settingValue)) {
+      query["SettingValue"] = request.settingValue;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMiniAppBinding",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMiniAppBindingResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMiniAppBindingResponse({}));
+  }
+
+  /**
+   * 更新绑定小程序信息
+   * 
+   * @param request - UpdateMiniAppBindingRequest
+   * @returns UpdateMiniAppBindingResponse
+   */
+  async updateMiniAppBinding(request: $_model.UpdateMiniAppBindingRequest): Promise<$_model.UpdateMiniAppBindingResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMiniAppBindingWithOptions(request, runtime);
   }
 
   /**
