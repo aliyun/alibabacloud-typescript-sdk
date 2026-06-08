@@ -26,8 +26,12 @@ export { DetectStackResourceDriftResponseBodyPropertyDifferences } from './Detec
 export { EnableServiceAccessResponseBodyServiceAccessInfo } from './EnableServiceAccessResponseBody';
 export { EnableServicesResponseBodyFailedServices } from './EnableServicesResponseBody';
 export { GenerateTemplateByScratchResponseBodyResourcesToImport } from './GenerateTemplateByScratchResponseBody';
+export { GenerateTemplatePolicyRequestParameters } from './GenerateTemplatePolicyRequest';
 export { GenerateTemplatePolicyResponseBodyPolicyStatement } from './GenerateTemplatePolicyResponseBody';
 export { GenerateTemplatePolicyResponseBodyPolicy } from './GenerateTemplatePolicyResponseBody';
+export { GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctionsFunctions } from './GenerateTemplatePolicyResponseBody';
+export { GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctions } from './GenerateTemplatePolicyResponseBody';
+export { GenerateTemplatePolicyResponseBodyPolicyFunctions } from './GenerateTemplatePolicyResponseBody';
 export { GetChangeSetResponseBodyLogTerraformLogs } from './GetChangeSetResponseBody';
 export { GetChangeSetResponseBodyLog } from './GetChangeSetResponseBody';
 export { GetChangeSetResponseBodyParameters } from './GetChangeSetResponseBody';

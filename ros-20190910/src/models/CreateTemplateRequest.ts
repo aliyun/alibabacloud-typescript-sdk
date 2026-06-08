@@ -69,6 +69,28 @@ export class CreateTemplateRequest extends $dara.Model {
    * The tags of the template.
    */
   tags?: CreateTemplateRequestTags[];
+  /**
+   * @remarks
+   * The structure of the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+   * 
+   * > You must specify TemplateBody or TemplateURL.
+   * 
+   * You can create a Terraform template based on your business requirements. The following sample code provides an example on how to create a Terraform template:
+   * 
+   *     {
+   *       "ROSTemplateFormatVersion": "2015-09-01",
+   *       "Transform": "Aliyun::Terraform-v1.0",
+   *       "Workspace": {
+   *         "main.tf": "variable  \\"name\\" {  default = \\"auto_provisioning_group\\"}"
+   *       },
+   *       "Outputs": {}
+   *     }
+   * 
+   * For more information about Terraform templates, see [Structure of Terraform templates](https://help.aliyun.com/document_detail/184397.html).
+   * 
+   * @example
+   * {"ROSTemplateFormatVersion":"2015-09-01"}
+   */
   templateBody?: string;
   /**
    * @remarks

@@ -290,6 +290,15 @@ export class UpdateStackGroupRequest extends $dara.Model {
    * MyStackGroup
    */
   stackGroupName?: string;
+  /**
+   * @remarks
+   * The name of the RAM role to be assumed by the administrator account in ROS. This parameter is required if you want to grant self-managed permissions to the stack group. If you do not specify a value for this parameter, the default value AliyunROSStackGroupAdministrationRole is used. You can use the administrator role in ROS to assume the execution role AliyunROSStackGroupExecutionRole to perform operations on the stacks that correspond to stack instances in the stack group.
+   * 
+   * The name must be 1 to 64 characters in length, and can contain letters, digits, and hyphens (-).
+   * 
+   * @example
+   * {"ROSTemplateFormatVersion": "2015-09-01"}
+   */
   templateBody?: string;
   /**
    * @remarks

@@ -2,7 +2,34 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GenerateTemplatePolicyRequestParameters extends $dara.Model {
+  parameterKey?: string;
+  parameterValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterKey: 'ParameterKey',
+      parameterValue: 'ParameterValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterKey: 'string',
+      parameterValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateTemplatePolicyRequest extends $dara.Model {
+  generateOptions?: string[];
   /**
    * @remarks
    * The type of operation N for which you want to generate the policy information.
@@ -22,6 +49,7 @@ export class GenerateTemplatePolicyRequest extends $dara.Model {
    * >  The default value is the combination of all valid values.
    */
   operationTypes?: string[];
+  parameters?: GenerateTemplatePolicyRequestParameters[];
   /**
    * @remarks
    * The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.
@@ -68,7 +96,9 @@ export class GenerateTemplatePolicyRequest extends $dara.Model {
   templateVersion?: string;
   static names(): { [key: string]: string } {
     return {
+      generateOptions: 'GenerateOptions',
       operationTypes: 'OperationTypes',
+      parameters: 'Parameters',
       templateBody: 'TemplateBody',
       templateId: 'TemplateId',
       templateURL: 'TemplateURL',
@@ -78,7 +108,9 @@ export class GenerateTemplatePolicyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      generateOptions: { 'type': 'array', 'itemType': 'string' },
       operationTypes: { 'type': 'array', 'itemType': 'string' },
+      parameters: { 'type': 'array', 'itemType': GenerateTemplatePolicyRequestParameters },
       templateBody: 'string',
       templateId: 'string',
       templateURL: 'string',
@@ -87,8 +119,14 @@ export class GenerateTemplatePolicyRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.generateOptions)) {
+      $dara.Model.validateArray(this.generateOptions);
+    }
     if(Array.isArray(this.operationTypes)) {
       $dara.Model.validateArray(this.operationTypes);
+    }
+    if(Array.isArray(this.parameters)) {
+      $dara.Model.validateArray(this.parameters);
     }
     super.validate();
   }

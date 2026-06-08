@@ -23,6 +23,15 @@ export class ValidateTemplateRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.\\
+   * If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.\\
+   * You can specify the TemplateBody or TemplateURL parameter, but not both parameters.
+   * 
+   * @example
+   * {"ROSTemplateFormatVersion":"2015-09-01"}
+   */
   templateBody?: string;
   /**
    * @remarks

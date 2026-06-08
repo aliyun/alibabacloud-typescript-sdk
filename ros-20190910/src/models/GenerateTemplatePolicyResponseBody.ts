@@ -112,12 +112,112 @@ export class GenerateTemplatePolicyResponseBodyPolicy extends $dara.Model {
   }
 }
 
+export class GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctionsFunctions extends $dara.Model {
+  function?: string;
+  operationType?: string;
+  relatedProperties?: string[];
+  requirementLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      function: 'Function',
+      operationType: 'OperationType',
+      relatedProperties: 'RelatedProperties',
+      requirementLevel: 'RequirementLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      function: 'string',
+      operationType: 'string',
+      relatedProperties: { 'type': 'array', 'itemType': 'string' },
+      requirementLevel: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.relatedProperties)) {
+      $dara.Model.validateArray(this.relatedProperties);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctions extends $dara.Model {
+  functions?: GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctionsFunctions[];
+  logicalResourceId?: string;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      functions: 'Functions',
+      logicalResourceId: 'LogicalResourceId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      functions: { 'type': 'array', 'itemType': GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctionsFunctions },
+      logicalResourceId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.functions)) {
+      $dara.Model.validateArray(this.functions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateTemplatePolicyResponseBodyPolicyFunctions extends $dara.Model {
+  action?: string;
+  actionPolicyFunctions?: GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctions[];
+  requirementLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      actionPolicyFunctions: 'ActionPolicyFunctions',
+      requirementLevel: 'RequirementLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      actionPolicyFunctions: { 'type': 'array', 'itemType': GenerateTemplatePolicyResponseBodyPolicyFunctionsActionPolicyFunctions },
+      requirementLevel: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.actionPolicyFunctions)) {
+      $dara.Model.validateArray(this.actionPolicyFunctions);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenerateTemplatePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The information about the policy.
    */
   policy?: GenerateTemplatePolicyResponseBodyPolicy;
+  policyFunctions?: GenerateTemplatePolicyResponseBodyPolicyFunctions[];
   /**
    * @remarks
    * The ID of the request.
@@ -129,6 +229,7 @@ export class GenerateTemplatePolicyResponseBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       policy: 'Policy',
+      policyFunctions: 'PolicyFunctions',
       requestId: 'RequestId',
     };
   }
@@ -136,6 +237,7 @@ export class GenerateTemplatePolicyResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       policy: GenerateTemplatePolicyResponseBodyPolicy,
+      policyFunctions: { 'type': 'array', 'itemType': GenerateTemplatePolicyResponseBodyPolicyFunctions },
       requestId: 'string',
     };
   }
@@ -143,6 +245,9 @@ export class GenerateTemplatePolicyResponseBody extends $dara.Model {
   validate() {
     if(this.policy && typeof (this.policy as any).validate === 'function') {
       (this.policy as any).validate();
+    }
+    if(Array.isArray(this.policyFunctions)) {
+      $dara.Model.validateArray(this.policyFunctions);
     }
     super.validate();
   }
