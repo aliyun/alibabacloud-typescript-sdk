@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class AguiMessageMetadataAttachments extends $dara.Model {
+  /**
+   * @example
+   * acs:eventbridge:cn-hangzhou:12345:eventhouse/system-rocketmq/namespace/rmq-cn-xxx/table/order
+   */
   name?: string;
+  /**
+   * @example
+   * inner-resource/event-table
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,7 +65,15 @@ export class AguiMessageMetadata extends $dara.Model {
 }
 
 export class AguiMessageToolCallsFunction extends $dara.Model {
+  /**
+   * @example
+   * {}
+   */
   arguments?: string;
+  /**
+   * @example
+   * discoverMetadata
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -84,7 +100,15 @@ export class AguiMessageToolCallsFunction extends $dara.Model {
 
 export class AguiMessageToolCalls extends $dara.Model {
   function?: AguiMessageToolCallsFunction;
+  /**
+   * @example
+   * call_xxx
+   */
   id?: string;
+  /**
+   * @example
+   * function
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -116,9 +140,21 @@ export class AguiMessageToolCalls extends $dara.Model {
 
 export class AguiMessage extends $dara.Model {
   content?: string;
+  /**
+   * @example
+   * msg_123456_a1b2c3d4
+   */
   id?: string;
   metadata?: AguiMessageMetadata;
+  /**
+   * @example
+   * assistant
+   */
   role?: string;
+  /**
+   * @example
+   * call_xxx
+   */
   toolCallId?: string;
   toolCalls?: AguiMessageToolCalls[];
   static names(): { [key: string]: string } {

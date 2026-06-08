@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MetadataAttachments extends $dara.Model {
+  /**
+   * @example
+   * acs:eventbridge:cn-hangzhou:12345:eventhouse/system-rocketmq/namespace/rmq-cn-xxx/table/order
+   */
   arn?: string;
+  /**
+   * @example
+   * inner-resource/event-table
+   */
   mimeType?: string;
   static names(): { [key: string]: string } {
     return {

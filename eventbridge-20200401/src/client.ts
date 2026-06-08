@@ -30,6 +30,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用自然语言查询事件数据。输入问题后系统自动生成SQL并执行，返回结构化结果；若问题含糊则返回澄清提示。支持通过ConversationId进行多轮追问。
+   * 
+   * @param request - AskLumaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AskLumaResponse
+   */
+  async askLumaWithOptions(request: $_model.AskLumaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AskLumaResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.maxRows)) {
+      body["MaxRows"] = request.maxRows;
+    }
+
+    if (!$dara.isNull(request.question)) {
+      body["Question"] = request.question;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AskLuma",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AskLumaResponse>(await this.callApi(params, req, runtime), new $_model.AskLumaResponse({}));
+  }
+
+  /**
+   * 用自然语言查询事件数据。输入问题后系统自动生成SQL并执行，返回结构化结果；若问题含糊则返回澄清提示。支持通过ConversationId进行多轮追问。
+   * 
+   * @param request - AskLumaRequest
+   * @returns AskLumaResponse
+   */
+  async askLuma(request: $_model.AskLumaRequest): Promise<$_model.AskLumaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.askLumaWithOptions(request, runtime);
+  }
+
+  /**
    * Checks whether a service-linked role is created for an Alibaba Cloud account.
    * 
    * @param request - CheckServiceLinkedRoleForProductRequest
@@ -69,6 +123,66 @@ export default class Client extends OpenApi {
   async checkServiceLinkedRoleForProduct(request: $_model.CheckServiceLinkedRoleForProductRequest): Promise<$_model.CheckServiceLinkedRoleForProductResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.checkServiceLinkedRoleForProductWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询历史会话
+   * 
+   * @param tmpReq - CreateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentResponse
+   */
+  async createAgentWithOptions(tmpReq: $_model.CreateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.metadata)) {
+      request.metadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadata, "Metadata", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.metadataShrink)) {
+      body["Metadata"] = request.metadataShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAgent",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAgentResponse>(await this.callApi(params, req, runtime), new $_model.CreateAgentResponse({}));
+  }
+
+  /**
+   * 查询历史会话
+   * 
+   * @param request - CreateAgentRequest
+   * @returns CreateAgentResponse
+   */
+  async createAgent(request: $_model.CreateAgentRequest): Promise<$_model.CreateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createAgentWithOptions(request, runtime);
   }
 
   /**
@@ -611,6 +725,48 @@ export default class Client extends OpenApi {
   async createServiceLinkedRoleForProduct(request: $_model.CreateServiceLinkedRoleForProductRequest): Promise<$_model.CreateServiceLinkedRoleForProductResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createServiceLinkedRoleForProductWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteAgent
+   * 
+   * @param request - DeleteAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgentWithOptions(request: $_model.DeleteAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAgent",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAgentResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAgentResponse({}));
+  }
+
+  /**
+   * DeleteAgent
+   * 
+   * @param request - DeleteAgentRequest
+   * @returns DeleteAgentResponse
+   */
+  async deleteAgent(request: $_model.DeleteAgentRequest): Promise<$_model.DeleteAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAgentWithOptions(request, runtime);
   }
 
   /**
@@ -1186,6 +1342,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取当前Agent的基本信息，包括名称、描述和已绑定的数据目录列表。用于了解当前接入点的能力范围。
+   * 
+   * @param request - GetAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentResponse
+   */
+  async getAgentWithOptions(request: $_model.GetAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgent",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentResponse({}));
+  }
+
+  /**
+   * 获取当前Agent的基本信息，包括名称、描述和已绑定的数据目录列表。用于了解当前接入点的能力范围。
+   * 
+   * @param request - GetAgentRequest
+   * @returns GetAgentResponse
+   */
+  async getAgent(request: $_model.GetAgentRequest): Promise<$_model.GetAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about an API destination.
    * 
    * @remarks
@@ -1427,6 +1625,56 @@ export default class Client extends OpenApi {
   async getRule(request: $_model.GetRuleRequest): Promise<$_model.GetRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询 Agent 列表
+   * 
+   * @param request - ListAgentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentsResponse
+   */
+  async listAgentsWithOptions(request: $_model.ListAgentsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.after)) {
+      body["After"] = request.after;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      body["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.order)) {
+      body["Order"] = request.order;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgents",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgentsResponse>(await this.callApi(params, req, runtime), new $_model.ListAgentsResponse({}));
+  }
+
+  /**
+   * 查询 Agent 列表
+   * 
+   * @param request - ListAgentsRequest
+   * @returns ListAgentsResponse
+   */
+  async listAgents(request: $_model.ListAgentsRequest): Promise<$_model.ListAgentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgentsWithOptions(request, runtime);
   }
 
   /**
@@ -1933,6 +2181,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 轮询AskLuma的异步查询结果。传入AskLuma返回的MessageId，获取执行状态和最终结果；状态为RUNNING时应立即重试，无需退避。
+   * 
+   * @param request - PollAskResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PollAskResultResponse
+   */
+  async pollAskResultWithOptions(request: $_model.PollAskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PollAskResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.messageId)) {
+      body["MessageId"] = request.messageId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PollAskResult",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PollAskResultResponse>(await this.callApi(params, req, runtime), new $_model.PollAskResultResponse({}));
+  }
+
+  /**
+   * 轮询AskLuma的异步查询结果。传入AskLuma返回的MessageId，获取执行状态和最终结果；状态为RUNNING时应立即重试，无需退避。
+   * 
+   * @param request - PollAskResultRequest
+   * @returns PollAskResultResponse
+   */
+  async pollAskResult(request: $_model.PollAskResultRequest): Promise<$_model.PollAskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.pollAskResultWithOptions(request, runtime);
+  }
+
+  /**
    * Creates or updates event targets under a rule.
    * 
    * @remarks
@@ -1992,6 +2286,56 @@ export default class Client extends OpenApi {
   async putTargets(request: $_model.PutTargetsRequest): Promise<$_model.PutTargetsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.putTargetsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询历史会话
+   * 
+   * @param request - QueryAskLumaLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAskLumaLogResponse
+   */
+  async queryAskLumaLogWithOptions(request: $_model.QueryAskLumaLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAskLumaLogResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.after)) {
+      body["After"] = request.after;
+    }
+
+    if (!$dara.isNull(request.agentName)) {
+      body["AgentName"] = request.agentName;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      body["Limit"] = request.limit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAskLumaLog",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAskLumaLogResponse>(await this.callApi(params, req, runtime), new $_model.QueryAskLumaLogResponse({}));
+  }
+
+  /**
+   * 查询历史会话
+   * 
+   * @param request - QueryAskLumaLogRequest
+   * @returns QueryAskLumaLogResponse
+   */
+  async queryAskLumaLog(request: $_model.QueryAskLumaLogRequest): Promise<$_model.QueryAskLumaLogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAskLumaLogWithOptions(request, runtime);
   }
 
   /**
@@ -2390,6 +2734,70 @@ export default class Client extends OpenApi {
   async testEventSourceConfig(request: $_model.TestEventSourceConfigRequest): Promise<$_model.TestEventSourceConfigResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.testEventSourceConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询历史会话
+   * 
+   * @param tmpReq - UpdateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentResponse
+   */
+  async updateAgentWithOptions(tmpReq: $_model.UpdateAgentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAgentResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateAgentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.metadata)) {
+      request.metadataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metadata, "Metadata", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.metadataShrink)) {
+      body["Metadata"] = request.metadataShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAgent",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAgentResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAgentResponse({}));
+  }
+
+  /**
+   * 查询历史会话
+   * 
+   * @param request - UpdateAgentRequest
+   * @returns UpdateAgentResponse
+   */
+  async updateAgent(request: $_model.UpdateAgentRequest): Promise<$_model.UpdateAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateAgentWithOptions(request, runtime);
   }
 
   /**
