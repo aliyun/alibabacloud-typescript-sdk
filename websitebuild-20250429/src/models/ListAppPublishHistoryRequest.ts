@@ -8,6 +8,7 @@ export class ListAppPublishHistoryRequest extends $dara.Model {
    * WD20250703155602000001
    */
   bizId?: string;
+  deployChannel?: string;
   keyword?: string;
   /**
    * @example
@@ -47,6 +48,7 @@ export class ListAppPublishHistoryRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       bizId: 'BizId',
+      deployChannel: 'DeployChannel',
       keyword: 'Keyword',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -61,6 +63,7 @@ export class ListAppPublishHistoryRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
+      deployChannel: 'string',
       keyword: 'string',
       maxResults: 'number',
       nextToken: 'string',

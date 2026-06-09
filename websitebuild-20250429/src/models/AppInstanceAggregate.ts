@@ -147,6 +147,7 @@ export class AppInstanceAggregate extends $dara.Model {
   tags?: AppInstanceAggregateTags[];
   thumbnailUrl?: string;
   userId?: string;
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       aiStaffList: 'AiStaffList',
@@ -181,6 +182,7 @@ export class AppInstanceAggregate extends $dara.Model {
       tags: 'Tags',
       thumbnailUrl: 'ThumbnailUrl',
       userId: 'UserId',
+      version: 'Version',
     };
   }
 
@@ -218,6 +220,7 @@ export class AppInstanceAggregate extends $dara.Model {
       tags: { 'type': 'array', 'itemType': AppInstanceAggregateTags },
       thumbnailUrl: 'string',
       userId: 'string',
+      version: 'string',
     };
   }
 

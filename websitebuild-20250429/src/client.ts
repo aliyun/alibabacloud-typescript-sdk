@@ -344,6 +344,92 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 试用转正
+   * 
+   * @param request - ConfirmAppInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ConfirmAppInstanceResponse
+   */
+  async confirmAppInstanceWithOptions(request: $_model.ConfirmAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ConfirmAppInstanceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationType)) {
+      query["ApplicationType"] = request.applicationType;
+    }
+
+    if (!$dara.isNull(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.deployArea)) {
+      query["DeployArea"] = request.deployArea;
+    }
+
+    if (!$dara.isNull(request.duration)) {
+      query["Duration"] = request.duration;
+    }
+
+    if (!$dara.isNull(request.extend)) {
+      query["Extend"] = request.extend;
+    }
+
+    if (!$dara.isNull(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
+    }
+
+    if (!$dara.isNull(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
+    }
+
+    if (!$dara.isNull(request.quantity)) {
+      query["Quantity"] = request.quantity;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    if (!$dara.isNull(request.trialBizId)) {
+      query["TrialBizId"] = request.trialBizId;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      query["Version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ConfirmAppInstance",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ConfirmAppInstanceResponse>(await this.callApi(params, req, runtime), new $_model.ConfirmAppInstanceResponse({}));
+  }
+
+  /**
+   * 试用转正
+   * 
+   * @param request - ConfirmAppInstanceRequest
+   * @returns ConfirmAppInstanceResponse
+   */
+  async confirmAppInstance(request: $_model.ConfirmAppInstanceRequest): Promise<$_model.ConfirmAppInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.confirmAppInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * 复制插件配置
    * 
    * @param request - CopyAppPluginConfigRequest
@@ -1159,6 +1245,52 @@ export default class Client extends OpenApi {
   async deleteAppDomainRedirect(request: $_model.DeleteAppDomainRedirectRequest): Promise<$_model.DeleteAppDomainRedirectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAppDomainRedirectWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除文件
+   * 
+   * @param request - DeleteAppFileRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAppFileResponse
+   */
+  async deleteAppFileWithOptions(request: $_model.DeleteAppFileRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAppFileResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!$dara.isNull(request.filePath)) {
+      body["FilePath"] = request.filePath;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAppFile",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAppFileResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAppFileResponse({}));
+  }
+
+  /**
+   * 删除文件
+   * 
+   * @param request - DeleteAppFileRequest
+   * @returns DeleteAppFileResponse
+   */
+  async deleteAppFile(request: $_model.DeleteAppFileRequest): Promise<$_model.DeleteAppFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteAppFileWithOptions(request, runtime);
   }
 
   /**
@@ -3033,6 +3165,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 生成文件上传策略
+   * 
+   * @param request - GetOssUploadPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOssUploadPolicyResponse
+   */
+  async getOssUploadPolicyWithOptions(request: $_model.GetOssUploadPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetOssUploadPolicyResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.scenario)) {
+      body["Scenario"] = request.scenario;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetOssUploadPolicy",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetOssUploadPolicyResponse>(await this.callApi(params, req, runtime), new $_model.GetOssUploadPolicyResponse({}));
+  }
+
+  /**
+   * 生成文件上传策略
+   * 
+   * @param request - GetOssUploadPolicyRequest
+   * @returns GetOssUploadPolicyResponse
+   */
+  async getOssUploadPolicy(request: $_model.GetOssUploadPolicyRequest): Promise<$_model.GetOssUploadPolicyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getOssUploadPolicyWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取临时下载地址
+   * 
+   * @param request - GetTempDownloadUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTempDownloadUrlResponse
+   */
+  async getTempDownloadUrlWithOptions(request: $_model.GetTempDownloadUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTempDownloadUrlResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.ossKey)) {
+      body["OssKey"] = request.ossKey;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTempDownloadUrl",
+      version: "2025-04-29",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTempDownloadUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetTempDownloadUrlResponse({}));
+  }
+
+  /**
+   * 获取临时下载地址
+   * 
+   * @param request - GetTempDownloadUrlRequest
+   * @returns GetTempDownloadUrlResponse
+   */
+  async getTempDownloadUrl(request: $_model.GetTempDownloadUrlRequest): Promise<$_model.GetTempDownloadUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTempDownloadUrlWithOptions(request, runtime);
+  }
+
+  /**
    * 通过授权码得到accessToken
    * 
    * @param request - GetUserAccessTokenForPartnerRequest
@@ -3945,6 +4161,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.bizId)) {
       query["BizId"] = request.bizId;
+    }
+
+    if (!$dara.isNull(request.deployChannel)) {
+      query["DeployChannel"] = request.deployChannel;
     }
 
     if (!$dara.isNull(request.keyword)) {
@@ -6858,6 +7078,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.domain)) {
       query["Domain"] = request.domain;
+    }
+
+    if (!$dara.isNull(request.seAuthInfo)) {
+      query["SeAuthInfo"] = request.seAuthInfo;
     }
 
     if (!$dara.isNull(request.seType)) {
