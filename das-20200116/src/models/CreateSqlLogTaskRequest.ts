@@ -49,6 +49,8 @@ export class CreateSqlLogTaskRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1608888296000
    */
@@ -98,6 +100,8 @@ export class CreateSqlLogTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The beginning of the time range to query. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 1596177993000

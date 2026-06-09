@@ -49,6 +49,8 @@ export class DescribeSqlLogRecordsRequest extends $dara.Model {
    * @remarks
    * The end of the time range to query. This value is a UNIX timestamp. Unit: millisecond.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1608888296000
    */
@@ -109,6 +111,8 @@ export class DescribeSqlLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The beginning of the time range to query. This value is a UNIX timestamp. Unit: millisecond.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 1596177993000

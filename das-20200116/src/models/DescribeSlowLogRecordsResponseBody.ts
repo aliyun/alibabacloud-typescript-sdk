@@ -90,6 +90,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
    * 100
    */
   docsExamined?: string;
+  extText?: string;
   fail?: string;
   /**
    * @example
@@ -279,6 +280,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       dbId: 'DbId',
       dbInstanceName: 'DbInstanceName',
       docsExamined: 'DocsExamined',
+      extText: 'ExtText',
       fail: 'Fail',
       frows: 'Frows',
       hostAddress: 'HostAddress',
@@ -339,6 +341,7 @@ export class DescribeSlowLogRecordsResponseBodyDataLogs extends $dara.Model {
       dbId: 'string',
       dbInstanceName: 'string',
       docsExamined: 'string',
+      extText: 'string',
       fail: 'string',
       frows: 'number',
       hostAddress: 'string',
