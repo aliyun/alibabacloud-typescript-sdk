@@ -355,6 +355,7 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $dara.Model {
    */
   offsiteAgentOriginatorNumbers?: string;
   offsiteAgentReleaseReason?: string;
+  outsideNumberDestinationNumber?: string;
   outsideNumberReleaseReason?: string;
   /**
    * @example
@@ -477,6 +478,7 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $dara.Model {
       offsiteAgentDestinationNumbers: 'OffsiteAgentDestinationNumbers',
       offsiteAgentOriginatorNumbers: 'OffsiteAgentOriginatorNumbers',
       offsiteAgentReleaseReason: 'OffsiteAgentReleaseReason',
+      outsideNumberDestinationNumber: 'OutsideNumberDestinationNumber',
       outsideNumberReleaseReason: 'OutsideNumberReleaseReason',
       queueTime: 'QueueTime',
       recordingDuration: 'RecordingDuration',
@@ -542,6 +544,7 @@ export class ListCallDetailRecordsV2ResponseBodyDataList extends $dara.Model {
       offsiteAgentDestinationNumbers: 'string',
       offsiteAgentOriginatorNumbers: 'string',
       offsiteAgentReleaseReason: 'string',
+      outsideNumberDestinationNumber: 'string',
       outsideNumberReleaseReason: 'string',
       queueTime: 'number',
       recordingDuration: 'number',
