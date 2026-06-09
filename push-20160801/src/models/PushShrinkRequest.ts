@@ -187,6 +187,8 @@ export class PushShrinkRequest extends $dara.Model {
    * @deprecated
    */
   androidXiaomiBigPictureUrl?: string;
+  androidXiaomiFocusParam?: string;
+  androidXiaomiFocusPics?: string;
   /**
    * @example
    * https://imag.example.com/image.png
@@ -453,6 +455,8 @@ export class PushShrinkRequest extends $dara.Model {
       androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
       androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
       androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
+      androidXiaomiFocusParam: 'AndroidXiaomiFocusParam',
+      androidXiaomiFocusPics: 'AndroidXiaomiFocusPics',
       androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
       appKey: 'AppKey',
       body: 'Body',
@@ -575,6 +579,8 @@ export class PushShrinkRequest extends $dara.Model {
       androidXiaoMiNotifyBody: 'string',
       androidXiaoMiNotifyTitle: 'string',
       androidXiaomiBigPictureUrl: 'string',
+      androidXiaomiFocusParam: 'string',
+      androidXiaomiFocusPics: 'string',
       androidXiaomiImageUrl: 'string',
       appKey: 'number',
       body: 'string',

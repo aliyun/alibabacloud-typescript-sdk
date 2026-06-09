@@ -204,6 +204,8 @@ export class MassPushRequestPushTask extends $dara.Model {
    * @deprecated
    */
   androidXiaomiBigPictureUrl?: string;
+  androidXiaomiFocusParam?: string;
+  androidXiaomiFocusPics?: string;
   /**
    * @example
    * https://imag.example.com/image.png
@@ -444,6 +446,8 @@ export class MassPushRequestPushTask extends $dara.Model {
       androidXiaoMiNotifyBody: 'AndroidXiaoMiNotifyBody',
       androidXiaoMiNotifyTitle: 'AndroidXiaoMiNotifyTitle',
       androidXiaomiBigPictureUrl: 'AndroidXiaomiBigPictureUrl',
+      androidXiaomiFocusParam: 'AndroidXiaomiFocusParam',
+      androidXiaomiFocusPics: 'AndroidXiaomiFocusPics',
       androidXiaomiImageUrl: 'AndroidXiaomiImageUrl',
       body: 'Body',
       deviceType: 'DeviceType',
@@ -559,6 +563,8 @@ export class MassPushRequestPushTask extends $dara.Model {
       androidXiaoMiNotifyBody: 'string',
       androidXiaoMiNotifyTitle: 'string',
       androidXiaomiBigPictureUrl: 'string',
+      androidXiaomiFocusParam: 'string',
+      androidXiaomiFocusPics: 'string',
       androidXiaomiImageUrl: 'string',
       body: 'string',
       deviceType: 'string',

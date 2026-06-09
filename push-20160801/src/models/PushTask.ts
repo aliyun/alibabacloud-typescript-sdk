@@ -310,15 +310,21 @@ export class PushTaskNotificationAndroidOptionsXiaomi extends $dara.Model {
    * michannel
    */
   channel?: string;
+  focusParam?: string;
+  focusPics?: string;
   static names(): { [key: string]: string } {
     return {
       channel: 'Channel',
+      focusParam: 'FocusParam',
+      focusPics: 'FocusPics',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       channel: 'string',
+      focusParam: 'string',
+      focusPics: 'string',
     };
   }
 

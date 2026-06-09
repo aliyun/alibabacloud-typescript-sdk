@@ -943,6 +943,14 @@ export default class Client extends OpenApi {
       query["AndroidXiaomiBigPictureUrl"] = request.androidXiaomiBigPictureUrl;
     }
 
+    if (!$dara.isNull(request.androidXiaomiFocusParam)) {
+      query["AndroidXiaomiFocusParam"] = request.androidXiaomiFocusParam;
+    }
+
+    if (!$dara.isNull(request.androidXiaomiFocusPics)) {
+      query["AndroidXiaomiFocusPics"] = request.androidXiaomiFocusPics;
+    }
+
     if (!$dara.isNull(request.androidXiaomiImageUrl)) {
       query["AndroidXiaomiImageUrl"] = request.androidXiaomiImageUrl;
     }
@@ -1794,6 +1802,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取推送历史记录
+   * 
    * @param request - QueryPushRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryPushRecordsResponse
@@ -1859,6 +1869,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取推送历史记录
+   * 
    * @param request - QueryPushRecordsRequest
    * @returns QueryPushRecordsResponse
    */
