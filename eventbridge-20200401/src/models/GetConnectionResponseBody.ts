@@ -554,6 +554,22 @@ export class GetConnectionResponseBodyDataConnections extends $dara.Model {
    * The information about the network.
    */
   networkParameters?: GetConnectionResponseBodyDataConnectionsNetworkParameters;
+  /**
+   * @remarks
+   * 数据源连接参数（JSON 对象）。仅数据源类型连接返回，Http 类型为空。字段定义参考 GetConnectionType 返回的 ParamsSchema
+   * 
+   * @example
+   * {"HostName":"xxx.mysql.rds.aliyuncs.com","Port":"3306","User":"root","Password":"xxx","DatabaseName":"demo_db"}
+   */
+  parameters?: any;
+  /**
+   * @remarks
+   * 连接类型。可选值：Http、MySQL、PostgreSQL、Elasticsearch
+   * 
+   * @example
+   * Http
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       authParameters: 'AuthParameters',
@@ -562,6 +578,8 @@ export class GetConnectionResponseBodyDataConnections extends $dara.Model {
       gmtCreate: 'GmtCreate',
       id: 'Id',
       networkParameters: 'NetworkParameters',
+      parameters: 'Parameters',
+      type: 'Type',
     };
   }
 
@@ -573,6 +591,8 @@ export class GetConnectionResponseBodyDataConnections extends $dara.Model {
       gmtCreate: 'number',
       id: 'number',
       networkParameters: GetConnectionResponseBodyDataConnectionsNetworkParameters,
+      parameters: 'any',
+      type: 'string',
     };
   }
 

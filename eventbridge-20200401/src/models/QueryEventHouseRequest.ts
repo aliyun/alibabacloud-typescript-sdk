@@ -2,42 +2,31 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Column extends $dara.Model {
+export class QueryEventHouseRequest extends $dara.Model {
   /**
    * @example
-   * false
+   * 10
    */
-  isNull?: boolean;
+  limit?: number;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * index
+   * SELECT * FROM "test-es"."default"."product_info"
    */
-  name?: string;
-  /**
-   * @example
-   * text
-   */
-  type?: string;
-  /**
-   * @example
-   * product_info
-   */
-  value?: string;
+  query?: string;
   static names(): { [key: string]: string } {
     return {
-      isNull: 'IsNull',
-      name: 'Name',
-      type: 'Type',
-      value: 'Value',
+      limit: 'Limit',
+      query: 'Query',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isNull: 'boolean',
-      name: 'string',
-      type: 'string',
-      value: 'string',
+      limit: 'number',
+      query: 'string',
     };
   }
 

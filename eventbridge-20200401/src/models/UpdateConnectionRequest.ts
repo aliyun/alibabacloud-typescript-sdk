@@ -549,12 +549,30 @@ export class UpdateConnectionRequest extends $dara.Model {
    * This parameter is required.
    */
   networkParameters?: UpdateConnectionRequestNetworkParameters;
+  /**
+   * @remarks
+   * 数据源连接参数（JSON 对象）。具体字段定义请调用 GetConnectionType 接口，参考返回结果中的 ParamsSchema
+   * 
+   * @example
+   * {"HostName":"xxx.mysql.rds.aliyuncs.com","Port":"3306","User":"root","Password":"xxx","DatabaseName":"demo_db"}
+   */
+  parameters?: any;
+  /**
+   * @remarks
+   * 连接类型。可选值：MySQL、PostgreSQL、Elasticsearch、Http
+   * 
+   * @example
+   * Http
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       authParameters: 'AuthParameters',
       connectionName: 'ConnectionName',
       description: 'Description',
       networkParameters: 'NetworkParameters',
+      parameters: 'Parameters',
+      type: 'Type',
     };
   }
 
@@ -564,6 +582,8 @@ export class UpdateConnectionRequest extends $dara.Model {
       connectionName: 'string',
       description: 'string',
       networkParameters: UpdateConnectionRequestNetworkParameters,
+      parameters: 'any',
+      type: 'string',
     };
   }
 

@@ -2,42 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Column extends $dara.Model {
+export class DeleteNamespaceResponseBody extends $dara.Model {
   /**
    * @example
-   * false
+   * 200
    */
-  isNull?: boolean;
+  code?: string;
   /**
    * @example
-   * index
+   * Operation success
    */
-  name?: string;
+  message?: string;
   /**
    * @example
-   * text
+   * 34AD682D-5B91-5773-8132-AA38C130****
    */
-  type?: string;
+  requestId?: string;
   /**
    * @example
-   * product_info
+   * true
    */
-  value?: string;
+  success?: boolean;
   static names(): { [key: string]: string } {
     return {
-      isNull: 'IsNull',
-      name: 'Name',
-      type: 'Type',
-      value: 'Value',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isNull: 'boolean',
-      name: 'string',
-      type: 'string',
-      value: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
     };
   }
 

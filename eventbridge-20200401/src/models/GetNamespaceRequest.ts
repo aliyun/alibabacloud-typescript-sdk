@@ -2,12 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Namespace extends $dara.Model {
+export class GetNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * 命名空间所属的数据目录名称
-   * 
-   * This parameter is required.
+   * 命名空间所属的数据目录名称。可通过 ListCatalogs 接口获取已有目录列表
    * 
    * @example
    * my_catalog
@@ -15,43 +13,35 @@ export class Namespace extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * 命名空间的备注描述信息
+   * 用于保证请求幂等性的Token。建议使用 UUID
    * 
    * @example
-   * 测试命名空间
+   * 1e9b8f60-3a2c-4d7e-9f1b-8c3d5e7a2b4f
    */
-  comment?: string;
+  clientToken?: string;
   /**
    * @remarks
-   * 命名空间的唯一标识名称
+   * 要查询的命名空间名称。需同时指定所属 Catalog。可通过 ListNamespaces 获取已有命名空间列表
+   * 
+   * This parameter is required.
    * 
    * @example
    * my_namespace
    */
   name?: string;
-  /**
-   * @remarks
-   * 命名空间的扩展属性
-   * 
-   * @example
-   * {"key":"value"}
-   */
-  properties?: string;
   static names(): { [key: string]: string } {
     return {
       catalog: 'Catalog',
-      comment: 'Comment',
+      clientToken: 'ClientToken',
       name: 'Name',
-      properties: 'properties',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       catalog: 'string',
-      comment: 'string',
+      clientToken: 'string',
       name: 'string',
-      properties: 'string',
     };
   }
 

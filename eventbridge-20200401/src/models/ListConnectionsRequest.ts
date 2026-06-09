@@ -31,11 +31,20 @@ export class ListConnectionsRequest extends $dara.Model {
    * 0
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * 按连接类型过滤查询结果。可选值：Http、MySQL、PostgreSQL、Elasticsearch。不传则返回所有类型
+   * 
+   * @example
+   * Http
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       connectionNamePrefix: 'ConnectionNamePrefix',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      type: 'Type',
     };
   }
 
@@ -44,6 +53,7 @@ export class ListConnectionsRequest extends $dara.Model {
       connectionNamePrefix: 'string',
       maxResults: 'number',
       nextToken: 'string',
+      type: 'string',
     };
   }
 

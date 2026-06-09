@@ -2,42 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Column extends $dara.Model {
+export class GetCatalogRequest extends $dara.Model {
   /**
+   * @remarks
+   * 用于保证请求幂等性的Token。建议使用 UUID
+   * 
    * @example
-   * false
+   * 1e9b8f60-3a2c-4d7e-9f1b-8c3d5e7a2b4f
    */
-  isNull?: boolean;
+  clientToken?: string;
   /**
+   * @remarks
+   * 要查询的数据目录名称。可通过 ListCatalogs 接口获取已有目录列表
+   * 
+   * This parameter is required.
+   * 
    * @example
-   * index
+   * my_catalog
    */
   name?: string;
-  /**
-   * @example
-   * text
-   */
-  type?: string;
-  /**
-   * @example
-   * product_info
-   */
-  value?: string;
   static names(): { [key: string]: string } {
     return {
-      isNull: 'IsNull',
+      clientToken: 'ClientToken',
       name: 'Name',
-      type: 'Type',
-      value: 'Value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      isNull: 'boolean',
+      clientToken: 'string',
       name: 'string',
-      type: 'string',
-      value: 'string',
     };
   }
 

@@ -2,12 +2,10 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class Namespace extends $dara.Model {
+export class ListTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * 命名空间所属的数据目录名称
-   * 
-   * This parameter is required.
+   * 表所属的数据目录名称。可通过 ListCatalogs 获取
    * 
    * @example
    * my_catalog
@@ -15,43 +13,43 @@ export class Namespace extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * 命名空间的备注描述信息
+   * 每页返回的最大数据条数。不传时默认 10，最大 100
    * 
    * @example
-   * 测试命名空间
+   * 10
    */
-  comment?: string;
+  limit?: number;
   /**
    * @remarks
-   * 命名空间的唯一标识名称
+   * 表所属的命名空间名称。可通过 ListNamespaces 获取
    * 
    * @example
    * my_namespace
    */
-  name?: string;
+  namespace?: string;
   /**
    * @remarks
-   * 命名空间的扩展属性
+   * 分页查询的起始Token。首次查询不传或传 "0"；后续翻页使用上一次响应中返回的 NextToken 值
    * 
    * @example
-   * {"key":"value"}
+   * 0
    */
-  properties?: string;
+  nextToken?: string;
   static names(): { [key: string]: string } {
     return {
       catalog: 'Catalog',
-      comment: 'Comment',
-      name: 'Name',
-      properties: 'properties',
+      limit: 'Limit',
+      namespace: 'Namespace',
+      nextToken: 'NextToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       catalog: 'string',
-      comment: 'string',
-      name: 'string',
-      properties: 'string',
+      limit: 'number',
+      namespace: 'string',
+      nextToken: 'string',
     };
   }
 

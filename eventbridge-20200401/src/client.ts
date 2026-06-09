@@ -273,6 +273,10 @@ export default class Client extends OpenApi {
       request.networkParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkParameters, "NetworkParameters", "json");
     }
 
+    if (!$dara.isNull(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.authParametersShrink)) {
       query["AuthParameters"] = request.authParametersShrink;
@@ -288,6 +292,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.networkParametersShrink)) {
       query["NetworkParameters"] = request.networkParametersShrink;
+    }
+
+    if (!$dara.isNull(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -606,6 +618,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建命名空间
+   * 
+   * @param request - CreateNamespaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNamespaceResponse
+   */
+  async createNamespaceWithOptions(request: $_model.CreateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNamespaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNamespace",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNamespaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateNamespaceResponse({}));
+  }
+
+  /**
+   * 创建命名空间
+   * 
+   * @param request - CreateNamespaceRequest
+   * @returns CreateNamespaceResponse
+   */
+  async createNamespace(request: $_model.CreateNamespaceRequest): Promise<$_model.CreateNamespaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNamespaceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an event rule.
    * 
    * @remarks
@@ -725,6 +793,82 @@ export default class Client extends OpenApi {
   async createServiceLinkedRoleForProduct(request: $_model.CreateServiceLinkedRoleForProductRequest): Promise<$_model.CreateServiceLinkedRoleForProductResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createServiceLinkedRoleForProductWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建表
+   * 
+   * @param tmpReq - CreateTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTableResponse
+   */
+  async createTableWithOptions(tmpReq: $_model.CreateTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTableResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateTableShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.columns)) {
+      request.columnsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.columns, "Columns", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.retentionPolicy)) {
+      request.retentionPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.retentionPolicy, "RetentionPolicy", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.columnsShrink)) {
+      query["Columns"] = request.columnsShrink;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.retentionPolicyShrink)) {
+      query["RetentionPolicy"] = request.retentionPolicyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTable",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTableResponse>(await this.callApi(params, req, runtime), new $_model.CreateTableResponse({}));
+  }
+
+  /**
+   * 创建表
+   * 
+   * @param request - CreateTableRequest
+   * @returns CreateTableResponse
+   */
+  async createTable(request: $_model.CreateTableRequest): Promise<$_model.CreateTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTableWithOptions(request, runtime);
   }
 
   /**
@@ -1014,6 +1158,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除命名空间
+   * 
+   * @param request - DeleteNamespaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNamespaceResponse
+   */
+  async deleteNamespaceWithOptions(request: $_model.DeleteNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNamespaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNamespace",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNamespaceResponse({}));
+  }
+
+  /**
+   * 删除命名空间
+   * 
+   * @param request - DeleteNamespaceRequest
+   * @returns DeleteNamespaceResponse
+   */
+  async deleteNamespace(request: $_model.DeleteNamespaceRequest): Promise<$_model.DeleteNamespaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNamespaceWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an event rule.
    * 
    * @remarks
@@ -1063,6 +1259,62 @@ export default class Client extends OpenApi {
   async deleteRule(request: $_model.DeleteRuleRequest): Promise<$_model.DeleteRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除表
+   * 
+   * @param request - DeleteTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTableResponse
+   */
+  async deleteTableWithOptions(request: $_model.DeleteTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTable",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTableResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTableResponse({}));
+  }
+
+  /**
+   * 删除表
+   * 
+   * @param request - DeleteTableRequest
+   * @returns DeleteTableResponse
+   */
+  async deleteTable(request: $_model.DeleteTableRequest): Promise<$_model.DeleteTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTableWithOptions(request, runtime);
   }
 
   /**
@@ -1432,6 +1684,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定数据目录的详细信息，包括目录名称和描述。传入Name即可查询。
+   * 
+   * @param request - GetCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCatalogResponse
+   */
+  async getCatalogWithOptions(request: $_model.GetCatalogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCatalogResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCatalog",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCatalogResponse>(await this.callApi(params, req, runtime), new $_model.GetCatalogResponse({}));
+  }
+
+  /**
+   * 获取指定数据目录的详细信息，包括目录名称和描述。传入Name即可查询。
+   * 
+   * @param request - GetCatalogRequest
+   * @returns GetCatalogResponse
+   */
+  async getCatalog(request: $_model.GetCatalogRequest): Promise<$_model.GetCatalogResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCatalogWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the configurations of a connection.
    * 
    * @remarks
@@ -1576,6 +1876,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取指定命名空间的详细信息。需传入Catalog和Name。
+   * 
+   * @param request - GetNamespaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNamespaceResponse
+   */
+  async getNamespaceWithOptions(request: $_model.GetNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNamespaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNamespace",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNamespaceResponse>(await this.callApi(params, req, runtime), new $_model.GetNamespaceResponse({}));
+  }
+
+  /**
+   * 获取指定命名空间的详细信息。需传入Catalog和Name。
+   * 
+   * @param request - GetNamespaceRequest
+   * @returns GetNamespaceResponse
+   */
+  async getNamespace(request: $_model.GetNamespaceRequest): Promise<$_model.GetNamespaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNamespaceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of an event rule.
    * 
    * @remarks
@@ -1625,6 +1977,62 @@ export default class Client extends OpenApi {
   async getRule(request: $_model.GetRuleRequest): Promise<$_model.GetRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取指定数据表的完整结构，包括所有列的名称、类型和描述。在编写查询前调用此工具了解表结构。
+   * 
+   * @param request - GetTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTableResponse
+   */
+  async getTableWithOptions(request: $_model.GetTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTable",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTableResponse>(await this.callApi(params, req, runtime), new $_model.GetTableResponse({}));
+  }
+
+  /**
+   * 获取指定数据表的完整结构，包括所有列的名称、类型和描述。在编写查询前调用此工具了解表结构。
+   * 
+   * @param request - GetTableRequest
+   * @returns GetTableResponse
+   */
+  async getTable(request: $_model.GetTableRequest): Promise<$_model.GetTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTableWithOptions(request, runtime);
   }
 
   /**
@@ -1775,6 +2183,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出当前Agent可访问的所有数据目录。每个Catalog是一个独立的数据源，内含多个命名空间和表。支持分页。
+   * 
+   * @param request - ListCatalogsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCatalogsResponse
+   */
+  async listCatalogsWithOptions(request: $_model.ListCatalogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCatalogsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCatalogs",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCatalogsResponse>(await this.callApi(params, req, runtime), new $_model.ListCatalogsResponse({}));
+  }
+
+  /**
+   * 列出当前Agent可访问的所有数据目录。每个Catalog是一个独立的数据源，内含多个命名空间和表。支持分页。
+   * 
+   * @param request - ListCatalogsRequest
+   * @returns ListCatalogsResponse
+   */
+  async listCatalogs(request: $_model.ListCatalogsRequest): Promise<$_model.ListCatalogsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCatalogsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries connections.
    * 
    * @remarks
@@ -1797,6 +2251,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -1955,6 +2413,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列出指定数据目录下的所有命名空间。命名空间用于组织同一目录内的表，类似数据库中的schema。支持分页。
+   * 
+   * @param request - ListNamespacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNamespacesResponse
+   */
+  async listNamespacesWithOptions(request: $_model.ListNamespacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNamespacesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNamespaces",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNamespacesResponse>(await this.callApi(params, req, runtime), new $_model.ListNamespacesResponse({}));
+  }
+
+  /**
+   * 列出指定数据目录下的所有命名空间。命名空间用于组织同一目录内的表，类似数据库中的schema。支持分页。
+   * 
+   * @param request - ListNamespacesRequest
+   * @returns ListNamespacesResponse
+   */
+  async listNamespaces(request: $_model.ListNamespacesRequest): Promise<$_model.ListNamespacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNamespacesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries all rules of an event bus.
    * 
    * @remarks
@@ -2012,6 +2520,60 @@ export default class Client extends OpenApi {
   async listRules(request: $_model.ListRulesRequest): Promise<$_model.ListRulesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * 列出指定命名空间下的数据表，支持按表名模糊搜索。返回表名和描述列表，支持分页。
+   * 
+   * @param request - ListTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTablesResponse
+   */
+  async listTablesWithOptions(request: $_model.ListTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTablesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListTables",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListTablesResponse>(await this.callApi(params, req, runtime), new $_model.ListTablesResponse({}));
+  }
+
+  /**
+   * 列出指定命名空间下的数据表，支持按表名模糊搜索。返回表名和描述列表，支持分页。
+   * 
+   * @param request - ListTablesRequest
+   * @returns ListTablesResponse
+   */
+  async listTables(request: $_model.ListTablesRequest): Promise<$_model.ListTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listTablesWithOptions(request, runtime);
   }
 
   /**
@@ -2392,6 +2954,52 @@ export default class Client extends OpenApi {
   async queryEvent(request: $_model.QueryEventRequest): Promise<$_model.QueryEventResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.queryEventWithOptions(request, runtime);
+  }
+
+  /**
+   * 直接执行SQL语句查询事件仓数据。适用于已知确切SQL的场景，无需自然语言转换，无对话上下文。返回结构化结果集。
+   * 
+   * @param request - QueryEventHouseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryEventHouseResponse
+   */
+  async queryEventHouseWithOptions(request: $_model.QueryEventHouseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryEventHouseResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.limit)) {
+      query["Limit"] = request.limit;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      query["Query"] = request.query;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryEventHouse",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryEventHouseResponse>(await this.callApi(params, req, runtime), new $_model.QueryEventHouseResponse({}));
+  }
+
+  /**
+   * 直接执行SQL语句查询事件仓数据。适用于已知确切SQL的场景，无需自然语言转换，无对话上下文。返回结构化结果集。
+   * 
+   * @param request - QueryEventHouseRequest
+   * @returns QueryEventHouseResponse
+   */
+  async queryEventHouse(request: $_model.QueryEventHouseRequest): Promise<$_model.QueryEventHouseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryEventHouseWithOptions(request, runtime);
   }
 
   /**
@@ -2888,6 +3496,10 @@ export default class Client extends OpenApi {
       request.networkParametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkParameters, "NetworkParameters", "json");
     }
 
+    if (!$dara.isNull(tmpReq.parameters)) {
+      request.parametersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.parameters, "Parameters", "json");
+    }
+
     let query = { };
     if (!$dara.isNull(request.authParametersShrink)) {
       query["AuthParameters"] = request.authParametersShrink;
@@ -2903,6 +3515,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.networkParametersShrink)) {
       query["NetworkParameters"] = request.networkParametersShrink;
+    }
+
+    if (!$dara.isNull(request.parametersShrink)) {
+      query["Parameters"] = request.parametersShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      query["Type"] = request.type;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3271,6 +3891,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改命名空间
+   * 
+   * @param request - UpdateNamespaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateNamespaceResponse
+   */
+  async updateNamespaceWithOptions(request: $_model.UpdateNamespaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateNamespaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateNamespace",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateNamespaceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateNamespaceResponse({}));
+  }
+
+  /**
+   * 修改命名空间
+   * 
+   * @param request - UpdateNamespaceRequest
+   * @returns UpdateNamespaceResponse
+   */
+  async updateNamespace(request: $_model.UpdateNamespaceRequest): Promise<$_model.UpdateNamespaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateNamespaceWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the configurations of an event rule.
    * 
    * @remarks
@@ -3332,6 +4008,114 @@ export default class Client extends OpenApi {
   async updateRule(request: $_model.UpdateRuleRequest): Promise<$_model.UpdateRuleResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改表
+   * 
+   * @param tmpReq - UpdateTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTableResponse
+   */
+  async updateTableWithOptions(tmpReq: $_model.UpdateTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTableResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateTableShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addColumn)) {
+      request.addColumnShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addColumn, "AddColumn", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.deleteColumn)) {
+      request.deleteColumnShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.deleteColumn, "DeleteColumn", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.renameColumn)) {
+      request.renameColumnShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.renameColumn, "RenameColumn", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.updateColumnComment)) {
+      request.updateColumnCommentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateColumnComment, "UpdateColumnComment", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.updateColumnType)) {
+      request.updateColumnTypeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateColumnType, "UpdateColumnType", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.updateRetentionPolicy)) {
+      request.updateRetentionPolicyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.updateRetentionPolicy, "UpdateRetentionPolicy", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.addColumnShrink)) {
+      query["AddColumn"] = request.addColumnShrink;
+    }
+
+    if (!$dara.isNull(request.catalog)) {
+      query["Catalog"] = request.catalog;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.deleteColumnShrink)) {
+      query["DeleteColumn"] = request.deleteColumnShrink;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!$dara.isNull(request.renameColumnShrink)) {
+      query["RenameColumn"] = request.renameColumnShrink;
+    }
+
+    if (!$dara.isNull(request.updateColumnCommentShrink)) {
+      query["UpdateColumnComment"] = request.updateColumnCommentShrink;
+    }
+
+    if (!$dara.isNull(request.updateColumnTypeShrink)) {
+      query["UpdateColumnType"] = request.updateColumnTypeShrink;
+    }
+
+    if (!$dara.isNull(request.updateComment)) {
+      query["UpdateComment"] = request.updateComment;
+    }
+
+    if (!$dara.isNull(request.updateRetentionPolicyShrink)) {
+      query["UpdateRetentionPolicy"] = request.updateRetentionPolicyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTable",
+      version: "2020-04-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTableResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTableResponse({}));
+  }
+
+  /**
+   * 修改表
+   * 
+   * @param request - UpdateTableRequest
+   * @returns UpdateTableResponse
+   */
+  async updateTable(request: $_model.UpdateTableRequest): Promise<$_model.UpdateTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTableWithOptions(request, runtime);
   }
 
 }

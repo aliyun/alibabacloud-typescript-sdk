@@ -33,12 +33,30 @@ export class CreateConnectionShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   networkParametersShrink?: string;
+  /**
+   * @remarks
+   * 数据源连接参数（JSON 对象），Type 为数据源类型时必填，Http 类型不需要。具体字段定义请调用 GetConnectionType 接口，参考返回结果中的 ParamsSchema
+   * 
+   * @example
+   * {"HostName":"xxx.mysql.rds.aliyuncs.com","Port":"3306","User":"root","Password":"xxx","DatabaseName":"demo_db"}
+   */
+  parametersShrink?: string;
+  /**
+   * @remarks
+   * 连接类型。可选值：MySQL、PostgreSQL、Elasticsearch、Http。数据源类型连接必填，不传默认为 Http。Http 类型用于 API Destination 等 HTTP 协议目标；数据源类型用于集成广场的数据连接
+   * 
+   * @example
+   * Http
+   */
+  type?: string;
   static names(): { [key: string]: string } {
     return {
       authParametersShrink: 'AuthParameters',
       connectionName: 'ConnectionName',
       description: 'Description',
       networkParametersShrink: 'NetworkParameters',
+      parametersShrink: 'Parameters',
+      type: 'Type',
     };
   }
 
@@ -48,6 +66,8 @@ export class CreateConnectionShrinkRequest extends $dara.Model {
       connectionName: 'string',
       description: 'string',
       networkParametersShrink: 'string',
+      parametersShrink: 'string',
+      type: 'string',
     };
   }
 

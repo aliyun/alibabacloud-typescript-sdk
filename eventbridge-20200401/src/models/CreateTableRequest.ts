@@ -2,20 +2,20 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class TableColumns extends $dara.Model {
+export class CreateTableRequestColumns extends $dara.Model {
   /**
    * @example
-   * 主键ID
+   * Isp
    */
   comment?: string;
   /**
    * @example
-   * id
+   * kafka-default-agent-alikafka_pre-cn-28t3sfzno003
    */
   name?: string;
   /**
    * @example
-   * bigint
+   * ehpc_cluster
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -43,21 +43,15 @@ export class TableColumns extends $dara.Model {
   }
 }
 
-export class TableRetentionPolicy extends $dara.Model {
+export class CreateTableRequestRetentionPolicy extends $dara.Model {
   /**
-   * @remarks
-   * 冷数据保留天数，低成本归档存储
-   * 
    * @example
    * 30
    */
   coldTTL?: number;
   /**
-   * @remarks
-   * 热数据保留天数，高性能查询存储
-   * 
    * @example
-   * 7
+   * 30
    */
   hotTTL?: number;
   static names(): { [key: string]: string } {
@@ -83,10 +77,10 @@ export class TableRetentionPolicy extends $dara.Model {
   }
 }
 
-export class Table extends $dara.Model {
+export class CreateTableRequest extends $dara.Model {
   /**
    * @remarks
-   * 表所属的数据目录名称
+   * 表所属的数据目录名称。可通过 ListCatalogs 获取已有目录列表
    * 
    * @example
    * my_catalog
@@ -94,15 +88,23 @@ export class Table extends $dara.Model {
   catalog?: string;
   /**
    * @remarks
-   * 表的列定义列表。每列包含 Name（列名）、Type（数据类型）、Comment（备注）
+   * 用于保证请求幂等性的Token，防止因网络重试导致重复创建。建议使用 UUID
+   * 
+   * @example
+   * 1e9b8f60-3a2c-4d7e-9f1b-8c3d5e7a2b4f
+   */
+  clientToken?: string;
+  /**
+   * @remarks
+   * 表的列定义（JSON 数组）。每列包含 Name（列名，必填）、Type（数据类型，必填，如 STRING、INT32、INT64、FLOAT、DOUBLE、BOOLEAN、TIMESTAMP）、Comment（列备注，选填）
    * 
    * @example
    * [{"Name":"id","Type":"bigint","Comment":"主键"}]
    */
-  columns?: TableColumns[];
+  columns?: CreateTableRequestColumns[];
   /**
    * @remarks
-   * 表的备注描述信息
+   * 表的备注描述信息，无格式限制
    * 
    * @example
    * 测试事件表
@@ -110,15 +112,9 @@ export class Table extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * 表的创建时间（Unix 时间戳，毫秒）
+   * 事件表名称。以字母或数字开头，支持字母、数字、下划线和短横线，长度1~127。在同一命名空间下唯一
    * 
-   * @example
-   * 1717948800000
-   */
-  createTime?: number;
-  /**
-   * @remarks
-   * 事件表的唯一标识名称
+   * This parameter is required.
    * 
    * @example
    * my_table
@@ -126,7 +122,7 @@ export class Table extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 表所属的命名空间名称
+   * 表所属的命名空间名称。可通过 ListNamespaces 获取已有命名空间列表
    * 
    * @example
    * my_namespace
@@ -134,40 +130,33 @@ export class Table extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * 数据保留策略。包含热数据和冷数据的保留天数
-   */
-  retentionPolicy?: TableRetentionPolicy;
-  /**
-   * @remarks
-   * 表的最后更新时间（Unix 时间戳，毫秒）
+   * 数据保留策略（JSON 对象）。包含 HotTTL（热数据保留天数，高性能查询）和 ColdTTL（冷数据保留天数，低成本存储）。不传则使用系统默认值
    * 
    * @example
-   * 1717948800000
+   * {"HotTTL":7,"ColdTTL":30}
    */
-  updateTime?: number;
+  retentionPolicy?: CreateTableRequestRetentionPolicy;
   static names(): { [key: string]: string } {
     return {
       catalog: 'Catalog',
+      clientToken: 'ClientToken',
       columns: 'Columns',
       comment: 'Comment',
-      createTime: 'CreateTime',
       name: 'Name',
       namespace: 'Namespace',
       retentionPolicy: 'RetentionPolicy',
-      updateTime: 'UpdateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       catalog: 'string',
-      columns: { 'type': 'array', 'itemType': TableColumns },
+      clientToken: 'string',
+      columns: { 'type': 'array', 'itemType': CreateTableRequestColumns },
       comment: 'string',
-      createTime: 'number',
       name: 'string',
       namespace: 'string',
-      retentionPolicy: TableRetentionPolicy,
-      updateTime: 'number',
+      retentionPolicy: CreateTableRequestRetentionPolicy,
     };
   }
 
