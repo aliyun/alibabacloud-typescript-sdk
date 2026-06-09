@@ -4615,6 +4615,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 检索知识库
+   * 
+   * @param request - RetrieveKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetrieveKnowledgeBaseResponse
+   */
+  async retrieveKnowledgeBaseWithOptions(request: $_model.RetrieveKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetrieveKnowledgeBaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filter)) {
+      body["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.hybridSearch)) {
+      body["HybridSearch"] = request.hybridSearch;
+    }
+
+    if (!$dara.isNull(request.hybridSearchArgs)) {
+      body["HybridSearchArgs"] = request.hybridSearchArgs;
+    }
+
+    if (!$dara.isNull(request.includeMetadataFields)) {
+      body["IncludeMetadataFields"] = request.includeMetadataFields;
+    }
+
+    if (!$dara.isNull(request.includeVector)) {
+      body["IncludeVector"] = request.includeVector;
+    }
+
+    if (!$dara.isNull(request.kbUuid)) {
+      body["KbUuid"] = request.kbUuid;
+    }
+
+    if (!$dara.isNull(request.metrics)) {
+      body["Metrics"] = request.metrics;
+    }
+
+    if (!$dara.isNull(request.offset)) {
+      body["Offset"] = request.offset;
+    }
+
+    if (!$dara.isNull(request.orderBy)) {
+      body["OrderBy"] = request.orderBy;
+    }
+
+    if (!$dara.isNull(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!$dara.isNull(request.recallWindow)) {
+      body["RecallWindow"] = request.recallWindow;
+    }
+
+    if (!$dara.isNull(request.rerankFactor)) {
+      body["RerankFactor"] = request.rerankFactor;
+    }
+
+    if (!$dara.isNull(request.topK)) {
+      body["TopK"] = request.topK;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetrieveKnowledgeBase",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetrieveKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.RetrieveKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * 检索知识库
+   * 
+   * @param request - RetrieveKnowledgeBaseRequest
+   * @returns RetrieveKnowledgeBaseResponse
+   */
+  async retrieveKnowledgeBase(request: $_model.RetrieveKnowledgeBaseRequest): Promise<$_model.RetrieveKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.retrieveKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
    * 保存工作空间代码，如果文件不存在则自动新建
    * 
    * @param request - SaveWorkspaceCodeRequest
