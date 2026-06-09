@@ -658,6 +658,8 @@ export { DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfosDetailInfoSubR
 export { DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfosDetailInfo } from './DescribeRenewalPriceResponseBody';
 export { DescribeRenewalPriceResponseBodyPriceInfoPriceDetailInfos } from './DescribeRenewalPriceResponseBody';
 export { DescribeRenewalPriceResponseBodyPriceInfoPrice } from './DescribeRenewalPriceResponseBody';
+export { DescribeRenewalPriceResponseBodyPriceInfoRelatedPriceMarketplaceImagePrice } from './DescribeRenewalPriceResponseBody';
+export { DescribeRenewalPriceResponseBodyPriceInfoRelatedPrice } from './DescribeRenewalPriceResponseBody';
 export { DescribeRenewalPriceResponseBodyPriceInfoRulesRule } from './DescribeRenewalPriceResponseBody';
 export { DescribeRenewalPriceResponseBodyPriceInfoRules } from './DescribeRenewalPriceResponseBody';
 export { DescribeRenewalPriceResponseBodyPriceInfo } from './DescribeRenewalPriceResponseBody';
