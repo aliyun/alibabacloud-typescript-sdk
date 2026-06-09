@@ -8,6 +8,7 @@ export class DescribeCdcVersionListRequest extends $dara.Model {
    * pxc-bjrl7****k2vp7
    */
   DBInstanceName?: string;
+  instanceName?: string;
   /**
    * @example
    * cn-beijing
@@ -16,6 +17,7 @@ export class DescribeCdcVersionListRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceName: 'DBInstanceName',
+      instanceName: 'InstanceName',
       regionId: 'RegionId',
     };
   }
@@ -23,6 +25,7 @@ export class DescribeCdcVersionListRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceName: 'string',
+      instanceName: 'string',
       regionId: 'string',
     };
   }

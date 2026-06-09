@@ -2742,6 +2742,10 @@ export default class Client extends OpenApi {
       query["DBInstanceName"] = request.DBInstanceName;
     }
 
+    if (!$dara.isNull(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
