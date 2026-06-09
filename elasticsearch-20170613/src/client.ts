@@ -7549,6 +7549,10 @@ export default class Client extends OpenApi {
   async turnOffZoneWithOptions(instanceId: string, request: $_model.TurnOffZoneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TurnOffZoneResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hpAlbZoneDrained)) {
+      query["hpAlbZoneDrained"] = request.hpAlbZoneDrained;
+    }
+
     if (!$dara.isNull(request.zone)) {
       query["zone"] = request.zone;
     }
@@ -7594,6 +7598,10 @@ export default class Client extends OpenApi {
   async turnOnZoneWithOptions(instanceId: string, request: $_model.TurnOnZoneRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.TurnOnZoneResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.hpAlbZoneDrained)) {
+      query["hpAlbZoneDrained"] = request.hpAlbZoneDrained;
+    }
+
     if (!$dara.isNull(request.zone)) {
       query["zone"] = request.zone;
     }

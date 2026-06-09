@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TurnOnZoneRequest extends $dara.Model {
+  hpAlbZoneDrained?: boolean;
   /**
    * @example
    * cn-hangzhou-i
@@ -10,12 +11,14 @@ export class TurnOnZoneRequest extends $dara.Model {
   zone?: string;
   static names(): { [key: string]: string } {
     return {
+      hpAlbZoneDrained: 'hpAlbZoneDrained',
       zone: 'zone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      hpAlbZoneDrained: 'boolean',
       zone: 'string',
     };
   }
