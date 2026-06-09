@@ -9730,6 +9730,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
+    }
+
     if (!$dara.isNull(request.searchRegionId)) {
       query["SearchRegionId"] = request.searchRegionId;
     }
@@ -9804,6 +9808,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!$dara.isNull(request.resourceTypes)) {
+      query["ResourceTypes"] = request.resourceTypes;
+    }
+
     if (!$dara.isNull(request.resultCategory)) {
       query["ResultCategory"] = request.resultCategory;
     }
@@ -9822,6 +9830,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.timerTypes)) {
       query["TimerTypes"] = request.timerTypes;
+    }
+
+    if (!$dara.isNull(request.wuyingServerIds)) {
+      query["WuyingServerIds"] = request.wuyingServerIds;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
+  /**
+   * @example
+   * REBOOT
+   */
   actionType?: string;
   /**
    * @remarks
@@ -12,6 +16,10 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
    * ccg-0cvfvf6u1enx1****
    */
   batchId?: string;
+  /**
+   * @example
+   * {}
+   */
   context?: string;
   /**
    * @remarks
@@ -37,6 +45,10 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
    * DesktopName
    */
   desktopName?: string;
+  /**
+   * @example
+   * SKIPPED
+   */
   displayResultName?: string;
   /**
    * @remarks
@@ -54,6 +66,15 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @example
+   * p-xxx
+   */
+  resourceParentId?: string;
+  /**
+   * @example
+   * true
+   */
   retryable?: boolean;
   /**
    * @remarks
@@ -63,6 +84,10 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
    * ccg-xxxx
    */
   timerGroupId?: string;
+  /**
+   * @example
+   * t-xxx
+   */
   timerRecordId?: string;
   /**
    * @remarks
@@ -91,6 +116,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
       displayResultName: 'DisplayResultName',
       finishTime: 'FinishTime',
       regionId: 'RegionId',
+      resourceParentId: 'ResourceParentId',
       retryable: 'Retryable',
       timerGroupId: 'TimerGroupId',
       timerRecordId: 'TimerRecordId',
@@ -110,6 +136,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
       displayResultName: 'string',
       finishTime: 'string',
       regionId: 'string',
+      resourceParentId: 'string',
       retryable: 'boolean',
       timerGroupId: 'string',
       timerRecordId: 'string',

@@ -16,6 +16,10 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
    * The cloud computer IDs.
    */
   desktopIds?: string[];
+  /**
+   * @example
+   * FAILED
+   */
   displayResultName?: string;
   /**
    * @remarks
@@ -53,6 +57,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  resourceTypes?: string[];
   /**
    * @remarks
    * The type of the execution result. You can specify this parameter to filter the execution results.
@@ -68,6 +73,10 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
    * SUCCEED
    */
   resultCategory?: string;
+  /**
+   * @example
+   * true
+   */
   retryable?: boolean;
   /**
    * @remarks
@@ -99,6 +108,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
    * The scheduled tasks.
    */
   timerTypes?: string[];
+  wuyingServerIds?: string[];
   static names(): { [key: string]: string } {
     return {
       batchId: 'BatchId',
@@ -108,11 +118,13 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      resourceTypes: 'ResourceTypes',
       resultCategory: 'ResultCategory',
       retryable: 'Retryable',
       searchRegionId: 'SearchRegionId',
       timerResult: 'TimerResult',
       timerTypes: 'TimerTypes',
+      wuyingServerIds: 'WuyingServerIds',
     };
   }
 
@@ -125,11 +137,13 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
       maxResults: 'string',
       nextToken: 'string',
       regionId: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
       resultCategory: 'string',
       retryable: 'boolean',
       searchRegionId: 'string',
       timerResult: 'string',
       timerTypes: { 'type': 'array', 'itemType': 'string' },
+      wuyingServerIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -137,8 +151,14 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
     if(Array.isArray(this.desktopIds)) {
       $dara.Model.validateArray(this.desktopIds);
     }
+    if(Array.isArray(this.resourceTypes)) {
+      $dara.Model.validateArray(this.resourceTypes);
+    }
     if(Array.isArray(this.timerTypes)) {
       $dara.Model.validateArray(this.timerTypes);
+    }
+    if(Array.isArray(this.wuyingServerIds)) {
+      $dara.Model.validateArray(this.wuyingServerIds);
     }
     super.validate();
   }

@@ -23,6 +23,7 @@ export class DescribeGlobalTimerBatchesRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  resourceTypes?: string[];
   /**
    * @example
    * cn-hangzhou
@@ -39,6 +40,7 @@ export class DescribeGlobalTimerBatchesRequest extends $dara.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      resourceTypes: 'ResourceTypes',
       searchRegionId: 'SearchRegionId',
       timerType: 'TimerType',
     };
@@ -50,12 +52,16 @@ export class DescribeGlobalTimerBatchesRequest extends $dara.Model {
       maxResults: 'string',
       nextToken: 'string',
       regionId: 'string',
+      resourceTypes: { 'type': 'array', 'itemType': 'string' },
       searchRegionId: 'string',
       timerType: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.resourceTypes)) {
+      $dara.Model.validateArray(this.resourceTypes);
+    }
     super.validate();
   }
 
