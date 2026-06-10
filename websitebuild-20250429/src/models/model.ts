@@ -182,6 +182,7 @@ export { AppService } from './AppService';
 export { AppServiceAggregate } from './AppServiceAggregate';
 export { AppServiceGroup } from './AppServiceGroup';
 export { AppServiceProfile } from './AppServiceProfile';
+export { TreeNode } from './TreeNode';
 export { ModuleResultsValue } from './ModuleResultsValue';
 export { ModuleVersionsValue } from './ModuleVersionsValue';
 export { ModuleDataComponentsValue } from './ModuleDataComponentsValue';

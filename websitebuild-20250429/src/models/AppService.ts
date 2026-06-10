@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import { TreeNode } from "./TreeNode";
 import { AppServiceProfile } from "./AppServiceProfile";
 
 
@@ -12,6 +13,7 @@ export class AppService extends $dara.Model {
   gmtModified?: string;
   instanceBizId?: string;
   name?: string;
+  nodeList?: TreeNode[];
   profile?: AppServiceProfile;
   serviceType?: string;
   serviceTypeText?: string;
@@ -29,6 +31,7 @@ export class AppService extends $dara.Model {
       gmtModified: 'GmtModified',
       instanceBizId: 'InstanceBizId',
       name: 'Name',
+      nodeList: 'NodeList',
       profile: 'Profile',
       serviceType: 'ServiceType',
       serviceTypeText: 'ServiceTypeText',
@@ -49,6 +52,7 @@ export class AppService extends $dara.Model {
       gmtModified: 'string',
       instanceBizId: 'string',
       name: 'string',
+      nodeList: { 'type': 'array', 'itemType': TreeNode },
       profile: AppServiceProfile,
       serviceType: 'string',
       serviceTypeText: 'string',
@@ -60,6 +64,9 @@ export class AppService extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.nodeList)) {
+      $dara.Model.validateArray(this.nodeList);
+    }
     if(this.profile && typeof (this.profile as any).validate === 'function') {
       (this.profile as any).validate();
     }

@@ -29,6 +29,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
    * {\\"MD5\\":\\"296f6c01e7fea2697ffe1cf41082b774\\",\\"driver\\":\\"vhd\\",\\"flag\\":\\"12845825\\",\\"imds_support\\":\\"v1\\",\\"io_optimized\\":true,\\"nvme_supported\\":true,\\"uefi_preferred\\":false}
    */
   metaData?: string;
+  recordKey?: string;
   /**
    * @remarks
    * Consumption scenario Name (such as AI application development, AI creative image generation, AI Video creation, AI Content creation)
@@ -44,6 +45,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
       consumeTime: 'ConsumeTime',
       consumeType: 'ConsumeType',
       metaData: 'MetaData',
+      recordKey: 'RecordKey',
       sceneName: 'SceneName',
     };
   }
@@ -55,6 +57,7 @@ export class QueryInspirationConsumeRecordsResponseBodyModuleData extends $dara.
       consumeTime: 'string',
       consumeType: 'string',
       metaData: 'string',
+      recordKey: 'string',
       sceneName: 'string',
     };
   }
