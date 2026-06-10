@@ -564,6 +564,234 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建Skill
+   * 
+   * @param request - CreateSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSkillResponse
+   */
+  async createSkillWithOptions(request: $_model.CreateSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ossUrl)) {
+      query["OssUrl"] = request.ossUrl;
+    }
+
+    if (!$dara.isNull(request.skillDescription)) {
+      query["SkillDescription"] = request.skillDescription;
+    }
+
+    if (!$dara.isNull(request.skillLabels)) {
+      query["SkillLabels"] = request.skillLabels;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["SkillName"] = request.skillName;
+    }
+
+    if (!$dara.isNull(request.skillSpaceId)) {
+      query["SkillSpaceId"] = request.skillSpaceId;
+    }
+
+    if (!$dara.isNull(request.sourceSkillId)) {
+      query["SourceSkillId"] = request.sourceSkillId;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSkill",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSkillResponse>(await this.callApi(params, req, runtime), new $_model.CreateSkillResponse({}));
+  }
+
+  /**
+   * 创建Skill
+   * 
+   * @param request - CreateSkillRequest
+   * @returns CreateSkillResponse
+   */
+  async createSkill(request: $_model.CreateSkillRequest): Promise<$_model.CreateSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSkillWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建Skill文件检测任务
+   * 
+   * @param request - CreateSkillFileDetectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSkillFileDetectResponse
+   */
+  async createSkillFileDetectWithOptions(request: $_model.CreateSkillFileDetectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSkillFileDetectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ossUrl)) {
+      query["OssUrl"] = request.ossUrl;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSkillFileDetect",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSkillFileDetectResponse>(await this.callApi(params, req, runtime), new $_model.CreateSkillFileDetectResponse({}));
+  }
+
+  /**
+   * 创建Skill文件检测任务
+   * 
+   * @param request - CreateSkillFileDetectRequest
+   * @returns CreateSkillFileDetectResponse
+   */
+  async createSkillFileDetect(request: $_model.CreateSkillFileDetectRequest): Promise<$_model.CreateSkillFileDetectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSkillFileDetectWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建SkillHub配置
+   * 
+   * @param request - CreateSkillHubConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSkillHubConfigResponse
+   */
+  async createSkillHubConfigWithOptions(request: $_model.CreateSkillHubConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSkillHubConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ossBucketName)) {
+      query["OssBucketName"] = request.ossBucketName;
+    }
+
+    if (!$dara.isNull(request.ossRegionId)) {
+      query["OssRegionId"] = request.ossRegionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSkillHubConfig",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSkillHubConfigResponse>(await this.callApi(params, req, runtime), new $_model.CreateSkillHubConfigResponse({}));
+  }
+
+  /**
+   * 创建SkillHub配置
+   * 
+   * @param request - CreateSkillHubConfigRequest
+   * @returns CreateSkillHubConfigResponse
+   */
+  async createSkillHubConfig(request: $_model.CreateSkillHubConfigRequest): Promise<$_model.CreateSkillHubConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSkillHubConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建SkillSpace
+   * 
+   * @param request - CreateSkillSpaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSkillSpaceResponse
+   */
+  async createSkillSpaceWithOptions(request: $_model.CreateSkillSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSkillSpaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.skillSpaceDescription)) {
+      query["SkillSpaceDescription"] = request.skillSpaceDescription;
+    }
+
+    if (!$dara.isNull(request.skillSpaceName)) {
+      query["SkillSpaceName"] = request.skillSpaceName;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSkillSpace",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSkillSpaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateSkillSpaceResponse({}));
+  }
+
+  /**
+   * 创建SkillSpace
+   * 
+   * @param request - CreateSkillSpaceRequest
+   * @returns CreateSkillSpaceResponse
+   */
+  async createSkillSpace(request: $_model.CreateSkillSpaceRequest): Promise<$_model.CreateSkillSpaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSkillSpaceWithOptions(request, runtime);
+  }
+
+  /**
    * Delete Compute Nest instance backups.
    * 
    * @remarks
@@ -661,6 +889,102 @@ export default class Client extends OpenApi {
   async deleteServiceInstances(request: $_model.DeleteServiceInstancesRequest): Promise<$_model.DeleteServiceInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteServiceInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除Skill
+   * 
+   * @param request - DeleteSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSkillResponse
+   */
+  async deleteSkillWithOptions(request: $_model.DeleteSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSkill",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSkillResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSkillResponse({}));
+  }
+
+  /**
+   * 删除Skill
+   * 
+   * @param request - DeleteSkillRequest
+   * @returns DeleteSkillResponse
+   */
+  async deleteSkill(request: $_model.DeleteSkillRequest): Promise<$_model.DeleteSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSkillWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除SkillSpace
+   * 
+   * @param request - DeleteSkillSpaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSkillSpaceResponse
+   */
+  async deleteSkillSpaceWithOptions(request: $_model.DeleteSkillSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSkillSpaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.skillSpaceId)) {
+      query["SkillSpaceId"] = request.skillSpaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSkillSpace",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSkillSpaceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSkillSpaceResponse({}));
+  }
+
+  /**
+   * 删除SkillSpace
+   * 
+   * @param request - DeleteSkillSpaceRequest
+   * @returns DeleteSkillSpaceResponse
+   */
+  async deleteSkillSpace(request: $_model.DeleteSkillSpaceRequest): Promise<$_model.DeleteSkillSpaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSkillSpaceWithOptions(request, runtime);
   }
 
   /**
@@ -1358,6 +1682,171 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Skill详情
+   * 
+   * @param request - GetSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillResponse
+   */
+  async getSkillWithOptions(request: $_model.GetSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSkill",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSkillResponse>(await this.callApi(params, req, runtime), new $_model.GetSkillResponse({}));
+  }
+
+  /**
+   * 查询Skill详情
+   * 
+   * @param request - GetSkillRequest
+   * @returns GetSkillResponse
+   */
+  async getSkill(request: $_model.GetSkillRequest): Promise<$_model.GetSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSkillWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Skill文件检测结果
+   * 
+   * @param request - GetSkillFileDetectResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillFileDetectResultResponse
+   */
+  async getSkillFileDetectResultWithOptions(request: $_model.GetSkillFileDetectResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillFileDetectResultResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.hashKey)) {
+      query["HashKey"] = request.hashKey;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSkillFileDetectResult",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSkillFileDetectResultResponse>(await this.callApi(params, req, runtime), new $_model.GetSkillFileDetectResultResponse({}));
+  }
+
+  /**
+   * 查询Skill文件检测结果
+   * 
+   * @param request - GetSkillFileDetectResultRequest
+   * @returns GetSkillFileDetectResultResponse
+   */
+  async getSkillFileDetectResult(request: $_model.GetSkillFileDetectResultRequest): Promise<$_model.GetSkillFileDetectResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSkillFileDetectResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询SkillHub配置
+   * 
+   * @param request - GetSkillHubConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillHubConfigResponse
+   */
+  async getSkillHubConfigWithOptions(request: $_model.GetSkillHubConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillHubConfigResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSkillHubConfig",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSkillHubConfigResponse>(await this.callApi(params, req, runtime), new $_model.GetSkillHubConfigResponse({}));
+  }
+
+  /**
+   * 查询SkillHub配置
+   * 
+   * @param request - GetSkillHubConfigRequest
+   * @returns GetSkillHubConfigResponse
+   */
+  async getSkillHubConfig(request: $_model.GetSkillHubConfigRequest): Promise<$_model.GetSkillHubConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSkillHubConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询SkillSpace详情
+   * 
+   * @param request - GetSkillSpaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillSpaceResponse
+   */
+  async getSkillSpaceWithOptions(request: $_model.GetSkillSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetSkillSpaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.skillSpaceId)) {
+      query["SkillSpaceId"] = request.skillSpaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSkillSpace",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSkillSpaceResponse>(await this.callApi(params, req, runtime), new $_model.GetSkillSpaceResponse({}));
+  }
+
+  /**
+   * 查询SkillSpace详情
+   * 
+   * @param request - GetSkillSpaceRequest
+   * @returns GetSkillSpaceResponse
+   */
+  async getSkillSpace(request: $_model.GetSkillSpaceRequest): Promise<$_model.GetSkillSpaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getSkillSpaceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a customer.
    * 
    * @param request - GetUserInformationRequest
@@ -1505,6 +1994,60 @@ export default class Client extends OpenApi {
   async listPolicies(request: $_model.ListPoliciesRequest): Promise<$_model.ListPoliciesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listPoliciesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询公开 Skill 列表
+   * 
+   * @param request - ListPublicSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPublicSkillsResponse
+   */
+  async listPublicSkillsWithOptions(request: $_model.ListPublicSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListPublicSkillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needDownloadUrl)) {
+      query["NeedDownloadUrl"] = request.needDownloadUrl;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListPublicSkills",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListPublicSkillsResponse>(await this.doRPCRequest(params.action, params.version, params.protocol, params.method, params.authType, params.bodyType, req, runtime), new $_model.ListPublicSkillsResponse({}));
+  }
+
+  /**
+   * 查询公开 Skill 列表
+   * 
+   * @param request - ListPublicSkillsRequest
+   * @returns ListPublicSkillsResponse
+   */
+  async listPublicSkills(request: $_model.ListPublicSkillsRequest): Promise<$_model.ListPublicSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listPublicSkillsWithOptions(request, runtime);
   }
 
   /**
@@ -2036,6 +2579,164 @@ export default class Client extends OpenApi {
   async listServices(request: $_model.ListServicesRequest): Promise<$_model.ListServicesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listServicesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取Skill文件列表
+   * 
+   * @param request - ListSkillFilesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillFilesResponse
+   */
+  async listSkillFilesWithOptions(request: $_model.ListSkillFilesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillFilesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSkillFiles",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSkillFilesResponse>(await this.callApi(params, req, runtime), new $_model.ListSkillFilesResponse({}));
+  }
+
+  /**
+   * 获取Skill文件列表
+   * 
+   * @param request - ListSkillFilesRequest
+   * @returns ListSkillFilesResponse
+   */
+  async listSkillFiles(request: $_model.ListSkillFilesRequest): Promise<$_model.ListSkillFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSkillFilesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询SkillSpace列表
+   * 
+   * @param request - ListSkillSpacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillSpacesResponse
+   */
+  async listSkillSpacesWithOptions(request: $_model.ListSkillSpacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillSpacesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSkillSpaces",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSkillSpacesResponse>(await this.callApi(params, req, runtime), new $_model.ListSkillSpacesResponse({}));
+  }
+
+  /**
+   * 查询SkillSpace列表
+   * 
+   * @param request - ListSkillSpacesRequest
+   * @returns ListSkillSpacesResponse
+   */
+  async listSkillSpaces(request: $_model.ListSkillSpacesRequest): Promise<$_model.ListSkillSpacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSkillSpacesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询Skill列表
+   * 
+   * @param request - ListSkillsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillsResponse
+   */
+  async listSkillsWithOptions(request: $_model.ListSkillsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSkillsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.needDownloadUrl)) {
+      query["NeedDownloadUrl"] = request.needDownloadUrl;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSkills",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSkillsResponse>(await this.callApi(params, req, runtime), new $_model.ListSkillsResponse({}));
+  }
+
+  /**
+   * 查询Skill列表
+   * 
+   * @param request - ListSkillsRequest
+   * @returns ListSkillsResponse
+   */
+  async listSkills(request: $_model.ListSkillsRequest): Promise<$_model.ListSkillsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSkillsWithOptions(request, runtime);
   }
 
   /**
@@ -2816,6 +3517,78 @@ export default class Client extends OpenApi {
   async updateServiceUsage(request: $_model.UpdateServiceUsageRequest): Promise<$_model.UpdateServiceUsageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateServiceUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新Skill
+   * 
+   * @param request - UpdateSkillRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSkillResponse
+   */
+  async updateSkillWithOptions(request: $_model.UpdateSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateSkillResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.ossUrl)) {
+      query["OssUrl"] = request.ossUrl;
+    }
+
+    if (!$dara.isNull(request.skillDescription)) {
+      query["SkillDescription"] = request.skillDescription;
+    }
+
+    if (!$dara.isNull(request.skillId)) {
+      query["SkillId"] = request.skillId;
+    }
+
+    if (!$dara.isNull(request.skillLabels)) {
+      query["SkillLabels"] = request.skillLabels;
+    }
+
+    if (!$dara.isNull(request.skillName)) {
+      query["SkillName"] = request.skillName;
+    }
+
+    if (!$dara.isNull(request.sourceSkillId)) {
+      query["SourceSkillId"] = request.sourceSkillId;
+    }
+
+    if (!$dara.isNull(request.sourceType)) {
+      query["SourceType"] = request.sourceType;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateSkill",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateSkillResponse>(await this.callApi(params, req, runtime), new $_model.UpdateSkillResponse({}));
+  }
+
+  /**
+   * 更新Skill
+   * 
+   * @param request - UpdateSkillRequest
+   * @returns UpdateSkillResponse
+   */
+  async updateSkill(request: $_model.UpdateSkillRequest): Promise<$_model.UpdateSkillResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateSkillWithOptions(request, runtime);
   }
 
   /**
