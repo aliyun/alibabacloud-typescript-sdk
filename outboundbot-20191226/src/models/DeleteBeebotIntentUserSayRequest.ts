@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBeebotIntentUserSayRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteBeebotIntentUserSayRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Intent ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteBeebotIntentUserSayRequest extends $dara.Model {
   intentId?: string;
   /**
    * @remarks
+   * Scenario ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class DeleteBeebotIntentUserSayRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
+   * User Say ID
+   * 
    * This parameter is required.
    * 
    * @example

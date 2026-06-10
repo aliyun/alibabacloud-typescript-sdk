@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlashSmsTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the flash SMS configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListFlashSmsTemplatesRequest extends $dara.Model {
   configId?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,14 @@ export class ListFlashSmsTemplatesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the flash SMS provider.
+   * 
+   * - Uincall: Beijing Uincall Communication Co., Ltd.
+   * 
+   * - ShangHaiTianNan: Shanghai Tiannan
+   * 
+   * - HeDao: Galacos
+   * 
    * This parameter is required.
    * 
    * @example

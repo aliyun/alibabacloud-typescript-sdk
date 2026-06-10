@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveContactWhiteListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The contact whitelist. This parameter is deprecated.
+   * 
    * @example
    * {}
    */
   contactWhiteListList?: string[];
   /**
+   * @remarks
+   * The whitelist. This parameter is required.
+   * 
    * @example
-   * {}
+   * [{"phoneNumber":"132322","remark":"123321","name":"ccc1","creator":"ccc222"}]
    */
   contactWhiteListsJson?: string;
   /**
    * @remarks
+   * The instance ID. This parameter is required.
+   * 
    * This parameter is required.
    * 
    * @example

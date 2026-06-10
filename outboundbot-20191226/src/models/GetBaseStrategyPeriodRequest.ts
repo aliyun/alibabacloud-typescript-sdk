@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetBaseStrategyPeriodRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,15 @@ export class GetBaseStrategyPeriodRequest extends $dara.Model {
    */
   entryId?: string;
   /**
+   * @remarks
+   * Strategy level. Default value is 2.
+   * 
+   * - 0: System
+   * 
+   * - 1: Tenant
+   * 
+   * - 2: Instance
+   * 
    * @example
    * 2
    */

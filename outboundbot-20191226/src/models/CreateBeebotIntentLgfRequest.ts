@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBeebotIntentLgfRequestLgfDefinition extends $dara.Model {
   /**
    * @remarks
+   * The intent ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,12 @@ export class CreateBeebotIntentLgfRequestLgfDefinition extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
+   * Intent configuration
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 我是一个问法模版
    */
   ruleText?: string;
   static names(): { [key: string]: string } {
@@ -42,6 +49,8 @@ export class CreateBeebotIntentLgfRequestLgfDefinition extends $dara.Model {
 export class CreateBeebotIntentLgfRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,11 +59,15 @@ export class CreateBeebotIntentLgfRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The LGF definition.
+   * 
    * This parameter is required.
    */
   lgfDefinition?: CreateBeebotIntentLgfRequestLgfDefinition;
   /**
    * @remarks
+   * The scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class TaskPreparingRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class TaskPreparingRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the account that owns the instance.
+   * 
    * @example
    * 1971226538081821
    */
   instanceOwnerId?: number;
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example

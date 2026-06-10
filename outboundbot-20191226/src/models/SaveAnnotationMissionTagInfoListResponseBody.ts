@@ -3,9 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SaveAnnotationMissionTagInfoListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The number of successful operations.
+   * 
+   * @example
+   * 1
+   */
   execCount?: number;
+  /**
+   * @remarks
+   * The message returned for the API call.
+   * 
+   * @example
+   * 执行失败：查找元素或操作超时，outTaskId：trademark_regnew_public_cn-uax33hol2uu，flowId：null，nodeUUID：541b6c71-8cce-4ab0-af84-713ca9741821
+   */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */
@@ -37,23 +54,46 @@ export class SaveAnnotationMissionTagInfoListResponseBodyData extends $dara.Mode
 
 export class SaveAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code of the API call.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: SaveAnnotationMissionTagInfoListResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The message returned for the API call.
+   * 
+   * @example
+   * 执行失败：查找元素或操作超时，outTaskId：trademark_regnew_public_cn-uax33hol2uu,flowId：null，nodeUUID：541b6c71-8cce-4ab0-af84-713ca9741821
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1B356EDC-F69A-53B0-B4AF-2AC42200684E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. A value of true indicates that the call was successful. A value of false indicates that the call failed.
+   * 
    * @example
    * true
    */

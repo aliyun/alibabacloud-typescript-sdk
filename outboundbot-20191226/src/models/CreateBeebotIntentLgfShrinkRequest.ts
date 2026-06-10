@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBeebotIntentLgfShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class CreateBeebotIntentLgfShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The LGF definition.
+   * 
    * This parameter is required.
    */
   lgfDefinitionShrink?: string;
   /**
    * @remarks
+   * The scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example

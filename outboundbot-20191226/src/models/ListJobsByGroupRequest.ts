@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobsByGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListJobsByGroupRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Job failure reason
+   * 
    * @example
    * NoAnswer
    */
   jobFailureReason?: string;
   /**
    * @remarks
+   * Job group ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,12 +32,17 @@ export class ListJobsByGroupRequest extends $dara.Model {
    */
   jobGroupId?: string;
   /**
+   * @remarks
+   * Job status
+   * 
    * @example
    * Succeeded
    */
   jobStatus?: string;
   /**
    * @remarks
+   * Page number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,6 +51,8 @@ export class ListJobsByGroupRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Number of entries per page
+   * 
    * This parameter is required.
    * 
    * @example

@@ -3,10 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyBeebotIntentRequestIntentDefinition extends $dara.Model {
+  /**
+   * @remarks
+   * Intent alias
+   * 
+   * @example
+   * 嗯明白了
+   */
   aliasName?: string;
   /**
    * @remarks
+   * Intent name
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 知道了么
    */
   intentName?: string;
   static names(): { [key: string]: string } {
@@ -35,6 +47,8 @@ export class ModifyBeebotIntentRequestIntentDefinition extends $dara.Model {
 export class ModifyBeebotIntentRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,11 +57,15 @@ export class ModifyBeebotIntentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Intent definition
+   * 
    * This parameter is required.
    */
   intentDefinition?: ModifyBeebotIntentRequestIntentDefinition;
   /**
    * @remarks
+   * Intent ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +74,8 @@ export class ModifyBeebotIntentRequest extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
+   * Scenario ID
+   * 
    * This parameter is required.
    * 
    * @example

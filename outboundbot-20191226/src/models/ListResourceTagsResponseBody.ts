@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListResourceTagsResponseBodyResourceTagsList extends $dara.Model {
   /**
+   * @remarks
+   * Tag key
+   * 
    * @example
    * name
    */
   key?: string;
   /**
+   * @remarks
+   * Tag value
+   * 
    * @example
    * xxx
    */
@@ -38,21 +44,33 @@ export class ListResourceTagsResponseBodyResourceTagsList extends $dara.Model {
 
 export class ListResourceTagsResponseBodyResourceTags extends $dara.Model {
   /**
+   * @remarks
+   * List of resource tags
+   * 
    * @example
    * []
    */
   list?: ListResourceTagsResponseBodyResourceTagsList[];
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of items
+   * 
    * @example
    * 100
    */
@@ -89,31 +107,49 @@ export class ListResourceTagsResponseBodyResourceTags extends $dara.Model {
 
 export class ListResourceTagsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Resource tag information
+   * 
    * @example
    * {}
    */
   resourceTags?: ListResourceTagsResponseBodyResourceTags;
   /**
+   * @remarks
+   * Indicates whether the request succeeded
+   * 
    * @example
    * true
    */

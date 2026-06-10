@@ -4,8 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTenantBindNumberRequest extends $dara.Model {
   /**
+   * @remarks
+   * Phone number to query (required)
+   * 
+   * > Query the binding status of this number across all instances. Get the number from the response of ListAllTenantBindNumberBinding.
+   * 
    * @example
-   * 95187
+   * 15005059355
    */
   number?: string;
   static names(): { [key: string]: string } {

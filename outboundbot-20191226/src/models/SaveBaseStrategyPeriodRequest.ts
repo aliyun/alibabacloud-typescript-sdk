@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveBaseStrategyPeriodRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,24 +14,45 @@ export class SaveBaseStrategyPeriodRequest extends $dara.Model {
    */
   entryId?: string;
   /**
+   * @remarks
+   * Make outbound calls only on weekdays. Defaults to false.
+   * 
    * @example
    * false
    */
   onlyWeekdays?: boolean;
+  /**
+   * @remarks
+   * Make outbound calls only on non-holiday days. Defaults to false.
+   * 
+   * @example
+   * false
+   */
   onlyWorkdays?: boolean;
   /**
+   * @remarks
+   * Policy level (required)
+   * 
+   * - 2: Instance
+   * 
    * @example
    * 2
    */
   strategyLevel?: number;
   /**
+   * @remarks
+   * Running time (deprecated)
+   * 
    * @example
    * []
    */
   workingTime?: string[];
   /**
+   * @remarks
+   * Running time
+   * 
    * @example
-   * [{\\"beginTime\\":\\"09:00:00\\",\\"beginTimeMillis\\":324000000000,\\"endTime\\":\\"21:00:00\\",\\"endTimeMillis\\":756000000000}]
+   * [{"beginTime":"09:00:00","endTime":"21:00:00"}]
    */
   workingTimeFramesJson?: string;
   static names(): { [key: string]: string } {

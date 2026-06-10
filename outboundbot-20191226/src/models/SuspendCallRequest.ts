@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SuspendCallRequest extends $dara.Model {
   /**
+   * @remarks
+   * The list of called numbers.
+   * 
    * @example
    * []
    */
   calledNumbers?: string[];
   /**
+   * @remarks
+   * The task group ID. This parameter is required.
+   * 
    * @example
    * f745881b-343d-43e4-9c51-31b7b063031c
    */
   groupId?: string;
   /**
    * @remarks
+   * The instance ID. This parameter is required.
+   * 
    * This parameter is required.
    * 
    * @example

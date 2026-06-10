@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveEffectiveDaysRequest extends $dara.Model {
   /**
+   * @remarks
+   * The effective time.
+   * 
    * @example
    * 30
    */
   effectiveDays?: number;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class SaveEffectiveDaysRequest extends $dara.Model {
    */
   entryId?: string;
   /**
+   * @remarks
+   * Policy level
+   * 
    * @example
    * 2
    */

@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $dara.Model {
   /**
+   * @remarks
+   * The number of times language model data was added.
+   * 
    * @example
    * 1
    */
   addCustomizationDataCount?: number;
   /**
+   * @remarks
+   * The number of times hotwords were added.
+   * 
    * @example
    * 1
    */
   addVocabularyDataCount?: number;
   /**
+   * @remarks
+   * Data is invalid.
+   * 
    * @example
    * 1
    */
   annotationInvalid?: number;
   /**
+   * @remarks
+   * The character accuracy rate. Unit: 0.01%.
+   * 
    * @example
    * 1
    */
   characterCorrectRate?: number;
   /**
+   * @remarks
+   * The character error rate. Unit: 0.01%.
+   * 
    * @example
    * 1
    */
   characterErrorRate?: number;
   /**
+   * @remarks
+   * The total number of chats.
+   * 
    * @example
    * 1
    */
   chatTotalCount?: number;
   /**
+   * @remarks
+   * Not annotated.
+   * 
    * @example
    * 1
    */
   noAnnotation?: number;
   /**
+   * @remarks
+   * The sentence error rate. Unit: 0.01%.
+   * 
    * @example
    * 1
    */
   sentenceErrorRate?: number;
   /**
+   * @remarks
+   * The word error rate. Unit: 0.01%. This parameter is typically used for English.
+   * 
    * @example
    * 1
    */
@@ -87,41 +114,65 @@ export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $
 
 export class GetAnnotationMissionSummaryResponseBodyDataIntentSummaryInfo extends $dara.Model {
   /**
+   * @remarks
+   * The number of correct chats.
+   * 
    * @example
    * 1
    */
   annotationCorrectCount?: number;
   /**
+   * @remarks
+   * Invalid data
+   * 
    * @example
    * 1
    */
   annotationInvalid?: number;
   /**
+   * @remarks
+   * The total number of chats.
+   * 
    * @example
    * 1
    */
   chatTotalCount?: number;
   /**
+   * @remarks
+   * The number of conversations.
+   * 
    * @example
    * 1
    */
   intentUserSayCount?: number;
   /**
+   * @remarks
+   * The number of uncovered intents.
+   * 
    * @example
    * 1
    */
   intentionNotCoveredCount?: number;
   /**
+   * @remarks
+   * The number of detection errors.
+   * 
    * @example
    * 1
    */
   matchErrorCount?: number;
   /**
+   * @remarks
+   * Not annotated.
+   * 
    * @example
    * 1
    */
   noAnnotation?: number;
   /**
+   * @remarks
+   * The number of translations that were not recognized.
+   * 
    * @example
    * 1
    */
@@ -163,10 +214,20 @@ export class GetAnnotationMissionSummaryResponseBodyDataIntentSummaryInfo extend
 
 export class GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfoTagSummaryInfoDetailList extends $dara.Model {
   /**
+   * @remarks
+   * The number of tags.
+   * 
    * @example
    * 3
    */
   count?: number;
+  /**
+   * @remarks
+   * The name of the tag.
+   * 
+   * @example
+   * 知晓率1_复制
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -192,6 +253,10 @@ export class GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfoTagSummary
 }
 
 export class GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tagSummaryInfoDetailList?: GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfoTagSummaryInfoDetailList[];
   static names(): { [key: string]: string } {
     return {
@@ -219,22 +284,43 @@ export class GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfo extends $
 
 export class GetAnnotationMissionSummaryResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the annotation task.
+   * 
    * @example
    * b3f2c931-5180-43ca-b4aa-2baee2d73c8b
    */
   annotationMissionId?: string;
+  /**
+   * @remarks
+   * The statistics of speech annotation.
+   */
   asrSummaryInfo?: GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo;
+  /**
+   * @remarks
+   * The statistics of semantic tagging.
+   */
   intentSummaryInfo?: GetAnnotationMissionSummaryResponseBodyDataIntentSummaryInfo;
   /**
+   * @remarks
+   * The additional information. If the request is successful, success is returned. If the request fails, an error code is returned.
+   * 
    * @example
    * You are not authorized to perform this action. CDR:View privileges are required.
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. A value of true indicates a successful call. A value of false indicates a failed call.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The custom tags and their quantities.
+   */
   tagSummaryInfo?: GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfo;
   static names(): { [key: string]: string } {
     return {
@@ -278,27 +364,46 @@ export class GetAnnotationMissionSummaryResponseBodyData extends $dara.Model {
 
 export class GetAnnotationMissionSummaryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The data.
+   */
   data?: GetAnnotationMissionSummaryResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The additional information. If the request is successful, success is returned. If the request fails, an error code is returned.
+   * 
    * @example
    * You are not authorized to perform this action. CDR:View privileges are required.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. A value of true indicates a successful call. A value of false indicates a failed call.
+   * 
    * @example
    * true
    */

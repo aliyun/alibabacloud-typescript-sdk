@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIntentStatisticsRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeIntentStatisticsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Job group ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DescribeIntentStatisticsRequest extends $dara.Model {
    */
   jobGroupId?: string;
   /**
+   * @remarks
+   * Number of statistics to display (required)
+   * 
    * @example
    * 5
    */

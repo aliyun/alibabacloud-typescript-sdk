@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteJobGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteJobGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the job group.
+   * 
    * This parameter is required.
    * 
    * @example

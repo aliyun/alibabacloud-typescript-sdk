@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建外呼任务
+   * Creates outbound call jobs in batches.
    * 
    * @param request - AssignJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -89,7 +89,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建外呼任务
+   * Creates outbound call jobs in batches.
    * 
    * @param request - AssignJobsRequest
    * @returns AssignJobsResponse
@@ -100,7 +100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 异步创建外呼任务
+   * Asynchronously creates outbound jobs.
    * 
    * @param tmpReq - AssignJobsAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -157,7 +157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 异步创建外呼任务
+   * Asynchronously creates outbound jobs.
    * 
    * @param request - AssignJobsAsyncRequest
    * @returns AssignJobsAsyncResponse
@@ -168,6 +168,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancels jobs that are pending or in progress. This operation cannot cancel jobs that are already in a call.
+   * 
    * @param request - CancelJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CancelJobsResponse
@@ -217,6 +219,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancels jobs that are pending or in progress. This operation cannot cancel jobs that are already in a call.
+   * 
    * @param request - CancelJobsRequest
    * @returns CancelJobsResponse
    */
@@ -226,6 +230,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the resource group of a resource.
+   * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ChangeResourceGroupResponse
@@ -259,6 +265,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Changes the resource group of a resource.
+   * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
    */
@@ -268,6 +276,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can create an intelligent configuration.
+   * 
    * @param request - CreateAgentProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateAgentProfileResponse
@@ -349,6 +359,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can create an intelligent configuration.
+   * 
    * @param request - CreateAgentProfileRequest
    * @returns CreateAgentProfileResponse
    */
@@ -358,7 +370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建标注任务
+   * Creates an annotation task.
    * 
    * @param tmpReq - CreateAnnotationMissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -463,7 +475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建标注任务
+   * Creates an annotation task.
    * 
    * @param request - CreateAnnotationMissionRequest
    * @returns CreateAnnotationMissionResponse
@@ -474,7 +486,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务
+   * Deprecated. Do not use this operation to batch-create outbound calling jobs.
    * 
    * @param request - CreateBatchJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -537,7 +549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务
+   * Deprecated. Do not use this operation to batch-create outbound calling jobs.
    * 
    * @param request - CreateBatchJobsRequest
    * @returns CreateBatchJobsResponse
@@ -548,7 +560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateBatchRepeatJob
+   * Copy an existing task group to reinitiate an outbound task.
    * 
    * @param request - CreateBatchRepeatJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -631,7 +643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateBatchRepeatJob
+   * Copy an existing task group to reinitiate an outbound task.
    * 
    * @param request - CreateBatchRepeatJobRequest
    * @returns CreateBatchRepeatJobResponse
@@ -642,7 +654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateBeebotIntent
+   * Creates an intent for a small-model scenario.
    * 
    * @param tmpReq - CreateBeebotIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -687,7 +699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateBeebotIntent
+   * Creates an intent for a small-model scenario.
    * 
    * @param request - CreateBeebotIntentRequest
    * @returns CreateBeebotIntentResponse
@@ -698,7 +710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateBeebotIntentLgf
+   * Creates a user utterance template for an intent in a small model scenario.
    * 
    * @param tmpReq - CreateBeebotIntentLgfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -743,7 +755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateBeebotIntentLgf
+   * Creates a user utterance template for an intent in a small model scenario.
    * 
    * @param request - CreateBeebotIntentLgfRequest
    * @returns CreateBeebotIntentLgfResponse
@@ -754,7 +766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateBeebotIntentUserSay
+   * Creates a user utterance for an intent in a small model scenario.
    * 
    * @param tmpReq - CreateBeebotIntentUserSayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -799,7 +811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateBeebotIntentUserSay
+   * Creates a user utterance for an intent in a small model scenario.
    * 
    * @param request - CreateBeebotIntentUserSayRequest
    * @returns CreateBeebotIntentUserSayResponse
@@ -810,6 +822,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * This legacy canvas API creates a dialogue flow.
+   * 
    * @param request - CreateDialogueFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDialogueFlowResponse
@@ -851,6 +865,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * This legacy canvas API creates a dialogue flow.
+   * 
    * @param request - CreateDialogueFlowRequest
    * @returns CreateDialogueFlowResponse
    */
@@ -860,6 +876,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a URL for a Download Hub task.
+   * 
    * @param request - CreateDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDownloadUrlResponse
@@ -885,6 +903,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a URL for a Download Hub task.
+   * 
    * @param request - CreateDownloadUrlRequest
    * @returns CreateDownloadUrlResponse
    */
@@ -894,6 +914,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a global question in a legacy canvas.
+   * 
    * @param request - CreateGlobalQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateGlobalQuestionResponse
@@ -943,6 +965,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a global question in a legacy canvas.
+   * 
    * @param request - CreateGlobalQuestionRequest
    * @returns CreateGlobalQuestionResponse
    */
@@ -952,6 +976,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an outbound call instance.
+   * 
    * @param request - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateInstanceResponse
@@ -1001,6 +1027,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an outbound call instance.
+   * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
    */
@@ -1010,7 +1038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例绑定号码
+   * Binds a number to a business instance.
    * 
    * @param request - CreateInstanceBindNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1045,7 +1073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例绑定号码
+   * Binds a number to a business instance.
    * 
    * @param request - CreateInstanceBindNumberRequest
    * @returns CreateInstanceBindNumberResponse
@@ -1056,6 +1084,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an intent in a legacy canvas script.
+   * 
    * @param request - CreateIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateIntentResponse
@@ -1105,6 +1135,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates an intent in a legacy canvas script.
+   * 
    * @param request - CreateIntentRequest
    * @returns CreateIntentResponse
    */
@@ -1114,6 +1146,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a job data parsing task.
+   * 
    * @param request - CreateJobDataParsingTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateJobDataParsingTaskResponse
@@ -1147,6 +1181,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a job data parsing task.
+   * 
    * @param request - CreateJobDataParsingTaskRequest
    * @returns CreateJobDataParsingTaskResponse
    */
@@ -1156,7 +1192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务组
+   * Create a job group.
    * 
    * @param request - CreateJobGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1235,7 +1271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务组
+   * Create a job group.
    * 
    * @param request - CreateJobGroupRequest
    * @returns CreateJobGroupResponse
@@ -1246,7 +1282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务组到处任务
+   * Creates an export task for an outbound job group.
    * 
    * @param request - CreateJobGroupExportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1285,7 +1321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建任务组到处任务
+   * Creates an export task for an outbound job group.
    * 
    * @param request - CreateJobGroupExportTaskRequest
    * @returns CreateJobGroupExportTaskResponse
@@ -1296,7 +1332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建场景
+   * Create a scenario.
    * 
    * @param request - CreateScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1403,7 +1439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建场景
+   * Create a scenario.
    * 
    * @param request - CreateScriptRequest
    * @returns CreateScriptResponse
@@ -1414,6 +1450,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a recording for the broadcast script.
+   * 
+   * @remarks
+   * **
+   * 
    * @param request - CreateScriptWaveformRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateScriptWaveformResponse
@@ -1459,6 +1500,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a recording for the broadcast script.
+   * 
+   * @remarks
+   * **
+   * 
    * @param request - CreateScriptWaveformRequest
    * @returns CreateScriptWaveformResponse
    */
@@ -1468,6 +1514,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a tag for use in the legacy canvas.
+   * 
    * @param request - CreateTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateTagResponse
@@ -1509,6 +1557,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a tag for use in the legacy canvas.
+   * 
    * @param request - CreateTagRequest
    * @returns CreateTagResponse
    */
@@ -1518,7 +1568,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 外呼历史导出
+   * Create an asynchronous task to export outbound call history.
    * 
    * @param request - CreateTaskExportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1545,7 +1595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 外呼历史导出
+   * Create an asynchronous task to export outbound call history.
    * 
    * @param request - CreateTaskExportTaskRequest
    * @returns CreateTaskExportTaskResponse
@@ -1556,7 +1606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建密钥
+   * Creates a key.
    * 
    * @param request - CreateTenantKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1580,7 +1630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建密钥
+   * Creates a key.
    * 
    * @param request - CreateTenantKeyRequest
    * @returns CreateTenantKeyResponse
@@ -1591,6 +1641,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes Large Language Model (LLM) agents.
+   * 
    * @param tmpReq - DeleteAgentProfilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAgentProfilesResponse
@@ -1630,6 +1682,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes Large Language Model (LLM) agents.
+   * 
    * @param request - DeleteAgentProfilesRequest
    * @returns DeleteAgentProfilesResponse
    */
@@ -1639,7 +1693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 清空归属地号码库
+   * Deletes all entries from the number district database. This operation is deprecated.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAllNumberDistrictInfoResponse
@@ -1661,7 +1715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 清空归属地号码库
+   * Deletes all entries from the number district database. This operation is deprecated.
    * @returns DeleteAllNumberDistrictInfoResponse
    */
   async deleteAllNumberDistrictInfo(): Promise<$_model.DeleteAllNumberDistrictInfoResponse> {
@@ -1670,7 +1724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteBeebotIntent
+   * Delete an intent in a small-model scenario.
    * 
    * @param request - DeleteBeebotIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1709,7 +1763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteBeebotIntent
+   * Delete an intent in a small-model scenario.
    * 
    * @param request - DeleteBeebotIntentRequest
    * @returns DeleteBeebotIntentResponse
@@ -1720,7 +1774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteBeebotIntentLgf
+   * Deletes utterance templates for intents in small model scenarios.
    * 
    * @param request - DeleteBeebotIntentLgfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1763,7 +1817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteBeebotIntentLgf
+   * Deletes utterance templates for intents in small model scenarios.
    * 
    * @param request - DeleteBeebotIntentLgfRequest
    * @returns DeleteBeebotIntentLgfResponse
@@ -1774,7 +1828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteBeebotIntentUserSay
+   * Delete user queries for intents in the small-model scenario.
    * 
    * @param request - DeleteBeebotIntentUserSayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1817,7 +1871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteBeebotIntentUserSay
+   * Delete user queries for intents in the small-model scenario.
    * 
    * @param request - DeleteBeebotIntentUserSayRequest
    * @returns DeleteBeebotIntentUserSayResponse
@@ -1828,6 +1882,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can delete a do-not-call list.
+   * 
    * @param request - DeleteContactBlockListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteContactBlockListResponse
@@ -1865,6 +1921,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can delete a do-not-call list.
+   * 
    * @param request - DeleteContactBlockListRequest
    * @returns DeleteContactBlockListResponse
    */
@@ -1874,6 +1932,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the global outbound calling policy whitelist.
+   * 
    * @param request - DeleteContactWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteContactWhiteListResponse
@@ -1911,6 +1971,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the global outbound calling policy whitelist.
+   * 
    * @param request - DeleteContactWhiteListRequest
    * @returns DeleteContactWhiteListResponse
    */
@@ -1920,6 +1982,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a dialogue flow. This is a legacy canvas API.
+   * 
    * @param request - DeleteDialogueFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDialogueFlowResponse
@@ -1957,6 +2021,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a dialogue flow. This is a legacy canvas API.
+   * 
    * @param request - DeleteDialogueFlowRequest
    * @returns DeleteDialogueFlowResponse
    */
@@ -1966,6 +2032,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a global question from a legacy canvas script.
+   * 
    * @param request - DeleteGlobalQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteGlobalQuestionResponse
@@ -2003,6 +2071,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a global question from a legacy canvas script.
+   * 
    * @param request - DeleteGlobalQuestionRequest
    * @returns DeleteGlobalQuestionResponse
    */
@@ -2012,6 +2082,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an Intelligent Outbound Calling instance.
+   * 
    * @param request - DeleteInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteInstanceResponse
@@ -2041,6 +2113,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an Intelligent Outbound Calling instance.
+   * 
    * @param request - DeleteInstanceRequest
    * @returns DeleteInstanceResponse
    */
@@ -2050,6 +2124,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an intent. This is a legacy API.
+   * 
    * @param request - DeleteIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteIntentResponse
@@ -2087,6 +2163,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an intent. This is a legacy API.
+   * 
    * @param request - DeleteIntentRequest
    * @returns DeleteIntentResponse
    */
@@ -2096,6 +2174,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a job group.
+   * 
    * @param request - DeleteJobGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteJobGroupResponse
@@ -2129,6 +2209,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a job group.
+   * 
    * @param request - DeleteJobGroupRequest
    * @returns DeleteJobGroupResponse
    */
@@ -2138,6 +2220,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an outbound call number. This API is deprecated.
+   * 
    * @param request - DeleteOutboundCallNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteOutboundCallNumberResponse
@@ -2171,6 +2255,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes an outbound call number. This API is deprecated.
+   * 
    * @param request - DeleteOutboundCallNumberRequest
    * @returns DeleteOutboundCallNumberResponse
    */
@@ -2180,6 +2266,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a specified script.
+   * 
    * @param request - DeleteScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteScriptResponse
@@ -2213,6 +2301,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a specified script.
+   * 
    * @param request - DeleteScriptRequest
    * @returns DeleteScriptResponse
    */
@@ -2222,6 +2312,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes uploaded recordings for a small-model scenario.
+   * 
    * @param request - DeleteScriptRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteScriptRecordingResponse
@@ -2259,6 +2351,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes uploaded recordings for a small-model scenario.
+   * 
    * @param request - DeleteScriptRecordingRequest
    * @returns DeleteScriptRecordingResponse
    */
@@ -2268,6 +2362,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete a script recording.
+   * 
    * @param request - DeleteScriptWaveformRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteScriptWaveformResponse
@@ -2305,6 +2401,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Delete a script recording.
+   * 
    * @param request - DeleteScriptWaveformRequest
    * @returns DeleteScriptWaveformResponse
    */
@@ -2314,10 +2412,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeBeebotIntent
+   * Retrieves the intent in the small model scenario.
    * 
    * @remarks
-   * ***
+   * **
    * 
    * @param request - DescribeBeebotIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2356,10 +2454,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeBeebotIntent
+   * Retrieves the intent in the small model scenario.
    * 
    * @remarks
-   * ***
+   * **
    * 
    * @param request - DescribeBeebotIntentRequest
    * @returns DescribeBeebotIntentResponse
@@ -2370,6 +2468,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves performance statistics for task labels.
+   * 
    * @param request - DescribeDialogueNodeStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeDialogueNodeStatisticsResponse
@@ -2407,6 +2507,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves performance statistics for task labels.
+   * 
    * @param request - DescribeDialogueNodeStatisticsRequest
    * @returns DescribeDialogueNodeStatisticsResponse
    */
@@ -2416,7 +2518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeDsReports
+   * Describes DS reports.
    * 
    * @param request - DescribeDsReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2451,7 +2553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeDsReports
+   * Describes DS reports.
    * 
    * @param request - DescribeDsReportsRequest
    * @returns DescribeDsReportsResponse
@@ -2462,6 +2564,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a global question in a legacy canvas script.
+   * 
+   * @remarks
+   * **
+   * 
    * @param request - DescribeGlobalQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeGlobalQuestionResponse
@@ -2499,6 +2606,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of a global question in a legacy canvas script.
+   * 
+   * @remarks
+   * **
+   * 
    * @param request - DescribeGlobalQuestionRequest
    * @returns DescribeGlobalQuestionResponse
    */
@@ -2508,7 +2620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务组数据统计
+   * Returns the execution status of tasks in a task group.
    * 
    * @param request - DescribeGroupExecutingInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2543,7 +2655,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 任务组数据统计
+   * Returns the execution status of tasks in a task group.
    * 
    * @param request - DescribeGroupExecutingInfoRequest
    * @returns DescribeGroupExecutingInfoResponse
@@ -2554,7 +2666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeInstance
+   * Queries the details of an Outbound Calling instance.
    * 
    * @param request - DescribeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2585,7 +2697,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeInstance
+   * Queries the details of an Outbound Calling instance.
    * 
    * @param request - DescribeInstanceRequest
    * @returns DescribeInstanceResponse
@@ -2596,6 +2708,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of an intent. This is a legacy Canvas API.
+   * 
    * @param request - DescribeIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeIntentResponse
@@ -2633,6 +2747,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the details of an intent. This is a legacy Canvas API.
+   * 
    * @param request - DescribeIntentRequest
    * @returns DescribeIntentResponse
    */
@@ -2642,7 +2758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeIntentStatistics
+   * Queries the performance statistics of intents for a task group.
    * 
    * @param request - DescribeIntentStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2681,7 +2797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeIntentStatistics
+   * Queries the performance statistics of intents for a task group.
    * 
    * @param request - DescribeIntentStatisticsRequest
    * @returns DescribeIntentStatisticsResponse
@@ -2692,7 +2808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取job信息
+   * Retrieves the conversation data for a specific job.
    * 
    * @param request - DescribeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2731,7 +2847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取job信息
+   * Retrieves the conversation data for a specific job.
    * 
    * @param request - DescribeJobRequest
    * @returns DescribeJobResponse
@@ -2742,6 +2858,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve the parsing progress of an uploaded job file.
+   * 
    * @param request - DescribeJobDataParsingTaskProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeJobDataParsingTaskProgressResponse
@@ -2775,6 +2893,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve the parsing progress of an uploaded job file.
+   * 
    * @param request - DescribeJobDataParsingTaskProgressRequest
    * @returns DescribeJobDataParsingTaskProgressResponse
    */
@@ -2784,7 +2904,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeJobGroup
+   * Retrieves data for intelligent outbound call job groups.
    * 
    * @param request - DescribeJobGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2823,7 +2943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeJobGroup
+   * Retrieves data for intelligent outbound call job groups.
    * 
    * @param request - DescribeJobGroupRequest
    * @returns DescribeJobGroupResponse
@@ -2834,6 +2954,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the progress of a task group export task. This operation is deprecated. Use ListDownloadTasks instead.
+   * 
    * @param request - DescribeJobGroupExportTaskProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeJobGroupExportTaskProgressResponse
@@ -2867,6 +2989,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the progress of a task group export task. This operation is deprecated. Use ListDownloadTasks instead.
+   * 
    * @param request - DescribeJobGroupExportTaskProgressRequest
    * @returns DescribeJobGroupExportTaskProgressResponse
    */
@@ -2876,7 +3000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取场景信息
+   * Returns information about a script.
    * 
    * @param request - DescribeScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2911,7 +3035,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取场景信息
+   * Returns information about a script.
    * 
    * @param request - DescribeScriptRequest
    * @returns DescribeScriptResponse
@@ -2922,6 +3046,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Describes the voice configuration of a script created in the legacy canvas.
+   * 
    * @param request - DescribeScriptVoiceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeScriptVoiceConfigResponse
@@ -2959,6 +3085,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Describes the voice configuration of a script created in the legacy canvas.
+   * 
    * @param request - DescribeScriptVoiceConfigRequest
    * @returns DescribeScriptVoiceConfigResponse
    */
@@ -2968,6 +3096,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the text-to-speech (TTS) configuration information.
+   * 
    * @param request - DescribeTTSConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTTSConfigResponse
@@ -3001,6 +3131,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the text-to-speech (TTS) configuration information.
+   * 
    * @param request - DescribeTTSConfigRequest
    * @returns DescribeTTSConfigResponse
    */
@@ -3010,6 +3142,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Preview text-to-speech (TTS) audio.
+   * 
    * @param request - DescribeTTSDemoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTTSDemoResponse
@@ -3087,6 +3221,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Preview text-to-speech (TTS) audio.
+   * 
    * @param request - DescribeTTSDemoRequest
    * @returns DescribeTTSDemoResponse
    */
@@ -3096,6 +3232,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries statistics about tag hits. This is a legacy canvas API.
+   * 
    * @param request - DescribeTagHitsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTagHitsSummaryResponse
@@ -3129,6 +3267,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries statistics about tag hits. This is a legacy canvas API.
+   * 
    * @param request - DescribeTagHitsSummaryRequest
    * @returns DescribeTagHitsSummaryResponse
    */
@@ -3138,7 +3278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 号码绑定实例列表
+   * Lists the instances to which a phone number is bound in a tenant.
    * 
    * @param request - DescribeTenantBindNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3169,7 +3309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 号码绑定实例列表
+   * Lists the instances to which a phone number is bound in a tenant.
    * 
    * @param request - DescribeTenantBindNumberRequest
    * @returns DescribeTenantBindNumberResponse
@@ -3180,6 +3320,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * This robot dialogue interface handles CC callback outbound calls. (Deprecated)
+   * 
    * @param request - DialogueRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DialogueResponse
@@ -3249,6 +3391,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * This robot dialogue interface handles CC callback outbound calls. (Deprecated)
+   * 
    * @param request - DialogueRequest
    * @returns DialogueResponse
    */
@@ -3258,7 +3402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DownloadRecording
+   * Downloads a call recording.
    * 
    * @param request - DownloadRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3273,6 +3417,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.needVoiceSliceRecording)) {
       query["NeedVoiceSliceRecording"] = request.needVoiceSliceRecording;
+    }
+
+    if (!$dara.isNull(request.swapChannels)) {
+      query["SwapChannels"] = request.swapChannels;
     }
 
     if (!$dara.isNull(request.taskId)) {
@@ -3297,7 +3445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DownloadRecording
+   * Downloads a call recording.
    * 
    * @param request - DownloadRecordingRequest
    * @returns DownloadRecordingResponse
@@ -3308,6 +3456,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Download script recordings by retrieving their URLs. This operation is intended for small model scenarios.
+   * 
    * @param request - DownloadScriptRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DownloadScriptRecordingResponse
@@ -3345,6 +3495,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Download script recordings by retrieving their URLs. This operation is intended for small model scenarios.
+   * 
    * @param request - DownloadScriptRecordingRequest
    * @returns DownloadScriptRecordingResponse
    */
@@ -3354,6 +3506,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Duplicates an existing script. This operation applies only to the legacy canvas.
+   * 
    * @param request - DuplicateScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DuplicateScriptResponse
@@ -3391,6 +3545,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Duplicates an existing script. This operation applies only to the legacy canvas.
+   * 
    * @param request - DuplicateScriptRequest
    * @returns DuplicateScriptResponse
    */
@@ -3400,6 +3556,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Exports a scenario.
+   * 
    * @param request - ExportScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExportScriptResponse
@@ -3433,6 +3591,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Exports a scenario.
+   * 
    * @param request - ExportScriptRequest
    * @returns ExportScriptResponse
    */
@@ -3442,6 +3602,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upload a hotword list file.
+   * 
    * @param request - GenerateUploadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateUploadUrlResponse
@@ -3475,6 +3637,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upload a hotword list file.
+   * 
    * @param request - GenerateUploadUrlRequest
    * @returns GenerateUploadUrlResponse
    */
@@ -3484,6 +3648,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve the delay before audio playback begins after a call is answered.
+   * 
    * @param request - GetAfterAnswerDelayPlaybackRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAfterAnswerDelayPlaybackResponse
@@ -3517,6 +3683,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieve the delay before audio playback begins after a call is answered.
+   * 
    * @param request - GetAfterAnswerDelayPlaybackRequest
    * @returns GetAfterAnswerDelayPlaybackResponse
    */
@@ -3526,6 +3694,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the configuration of an agent.
+   * 
    * @param request - GetAgentProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentProfileResponse
@@ -3563,6 +3733,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the configuration of an agent.
+   * 
    * @param request - GetAgentProfileRequest
    * @returns GetAgentProfileResponse
    */
@@ -3572,6 +3744,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves an agent profile template.
+   * 
    * @param request - GetAgentProfileTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAgentProfileTemplateResponse
@@ -3605,6 +3779,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves an agent profile template.
+   * 
    * @param request - GetAgentProfileTemplateRequest
    * @returns GetAgentProfileTemplateResponse
    */
@@ -3614,6 +3790,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * null
+   * 
    * @param request - GetAnnotationMissionSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAnnotationMissionSummaryResponse
@@ -3643,6 +3821,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * null
+   * 
    * @param request - GetAnnotationMissionSummaryRequest
    * @returns GetAnnotationMissionSummaryResponse
    */
@@ -3698,6 +3878,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves information such as the Automatic Speech Recognition (ASR) model list and hotword list. This operation is deprecated.
+   * 
    * @param request - GetAsrServerInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAsrServerInfoResponse
@@ -3731,6 +3913,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves information such as the Automatic Speech Recognition (ASR) model list and hotword list. This operation is deprecated.
+   * 
    * @param request - GetAsrServerInfoRequest
    * @returns GetAsrServerInfoResponse
    */
@@ -3740,7 +3924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取异步外呼任务上传结果
+   * Retrieves the result of an asynchronous outbound call task upload.
    * 
    * @param request - GetAssignJobsAsyncResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3771,7 +3955,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取异步外呼任务上传结果
+   * Retrieves the result of an asynchronous outbound call task upload.
    * 
    * @param request - GetAssignJobsAsyncResultRequest
    * @returns GetAssignJobsAsyncResultResponse
@@ -3782,7 +3966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取系统策略配置
+   * Retrieve the global outbound time periods for the outbound calling system.
    * 
    * @param request - GetBaseStrategyPeriodRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3817,7 +4001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取系统策略配置
+   * Retrieve the global outbound time periods for the outbound calling system.
    * 
    * @param request - GetBaseStrategyPeriodRequest
    * @returns GetBaseStrategyPeriodResponse
@@ -3828,6 +4012,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the remaining concurrency for the caller\\"s account.
+   * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetConcurrentConversationQuotaResponse
    */
@@ -3848,6 +4034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the remaining concurrency for the caller\\"s account.
    * @returns GetConcurrentConversationQuotaResponse
    */
   async getConcurrentConversationQuota(): Promise<$_model.GetConcurrentConversationQuotaResponse> {
@@ -3856,7 +4043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetContactBlockList
+   * Retrieves the list of contacts blocked for outbound calls.
    * 
    * @param request - GetContactBlockListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3899,7 +4086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetContactBlockList
+   * Retrieves the list of contacts blocked for outbound calls.
    * 
    * @param request - GetContactBlockListRequest
    * @returns GetContactBlockListResponse
@@ -3910,7 +4097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetContactWhiteList
+   * Retrieves the global outbound call policy whitelist.
    * 
    * @param request - GetContactWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3953,7 +4140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetContactWhiteList
+   * Retrieves the global outbound call policy whitelist.
    * 
    * @param request - GetContactWhiteListRequest
    * @returns GetContactWhiteListResponse
@@ -3964,6 +4151,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the current concurrency of an instance.
+   * 
    * @param request - GetCurrentConcurrencyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetCurrentConcurrencyResponse
@@ -3993,6 +4182,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the current concurrency of an instance.
+   * 
    * @param request - GetCurrentConcurrencyRequest
    * @returns GetCurrentConcurrencyResponse
    */
@@ -4002,7 +4193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetEmptyNumberNoMoreCallsInfo
+   * A query-based feature toggle that disables outbound calls to nonexistent numbers in the global dimension.
    * 
    * @param request - GetEmptyNumberNoMoreCallsInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4037,7 +4228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetEmptyNumberNoMoreCallsInfo
+   * A query-based feature toggle that disables outbound calls to nonexistent numbers in the global dimension.
    * 
    * @param request - GetEmptyNumberNoMoreCallsInfoRequest
    * @returns GetEmptyNumberNoMoreCallsInfoResponse
@@ -4048,7 +4239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上传信息
+   * Retrieves the parameters for uploading job data.
    * 
    * @param request - GetJobDataUploadParamsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4095,7 +4286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取上传信息
+   * Retrieves the parameters for uploading job data.
    * 
    * @param request - GetJobDataUploadParamsRequest
    * @returns GetJobDataUploadParamsResponse
@@ -4106,7 +4297,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetMaxAttemptsPerDay
+   * Retrieves the maximum number of daily call attempts allowed for a specified called number.
    * 
    * @param request - GetMaxAttemptsPerDayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4141,7 +4332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetMaxAttemptsPerDay
+   * Retrieves the maximum number of daily call attempts allowed for a specified called number.
    * 
    * @param request - GetMaxAttemptsPerDayRequest
    * @returns GetMaxAttemptsPerDayResponse
@@ -4152,7 +4343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取号码库模板下载链接
+   * Retrieves the download URL for the number library template. This API is deprecated.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNumberDistrictInfoTemplateDownloadUrlResponse
@@ -4174,7 +4365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取号码库模板下载链接
+   * Retrieves the download URL for the number library template. This API is deprecated.
    * @returns GetNumberDistrictInfoTemplateDownloadUrlResponse
    */
   async getNumberDistrictInfoTemplateDownloadUrl(): Promise<$_model.GetNumberDistrictInfoTemplateDownloadUrlResponse> {
@@ -4183,7 +4374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取非对称加密算法公钥
+   * Retrieves the public key for an asymmetric encryption algorithm.
    * 
    * @param request - GetPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4207,7 +4398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取非对称加密算法公钥
+   * Retrieves the public key for an asymmetric encryption algorithm.
    * 
    * @param request - GetPublicKeyRequest
    * @returns GetPublicKeyResponse
@@ -4218,7 +4409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetRealtimeConcurrencyReport
+   * Queries the current concurrency list.
    * 
    * @param request - GetRealtimeConcurrencyReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4245,7 +4436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetRealtimeConcurrencyReport
+   * Queries the current concurrency list.
    * 
    * @param request - GetRealtimeConcurrencyReportRequest
    * @returns GetRealtimeConcurrencyReportResponse
@@ -4256,7 +4447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetSummaryInfo
+   * Summary information for outbound call instances.
    * 
    * @param request - GetSummaryInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4287,7 +4478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetSummaryInfo
+   * Summary information for outbound call instances.
    * 
    * @param request - GetSummaryInfoRequest
    * @returns GetSummaryInfoResponse
@@ -4298,7 +4489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据TaskId获取Task信息
+   * Retrieve a task by its UUID.
    * 
    * @param request - GetTaskByUuidRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4325,7 +4516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据TaskId获取Task信息
+   * Retrieve a task by its UUID.
    * 
    * @param request - GetTaskByUuidRequest
    * @returns GetTaskByUuidResponse
@@ -4336,7 +4527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetVersion
+   * Retrieve the application version information.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetVersionResponse
@@ -4358,7 +4549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetVersion
+   * Retrieve the application version information.
    * @returns GetVersionResponse
    */
   async getVersion(): Promise<$_model.GetVersionResponse> {
@@ -4367,6 +4558,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Import a scenario.
+   * 
    * @param request - ImportScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ImportScriptResponse
@@ -4404,6 +4597,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Import a scenario.
+   * 
    * @param request - ImportScriptRequest
    * @returns ImportScriptResponse
    */
@@ -4463,6 +4658,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the publication history of an agent configuration in a Large Language Model (LLM) scenario.
+   * 
    * @param request - ListAgentProfilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAgentProfilesResponse
@@ -4500,6 +4697,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the publication history of an agent configuration in a Large Language Model (LLM) scenario.
+   * 
    * @param request - ListAgentProfilesRequest
    * @returns ListAgentProfilesResponse
    */
@@ -4509,7 +4708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 租户绑定号码列表
+   * Lists the phone numbers bound to the tenant.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAllTenantBindNumberBindingResponse
@@ -4531,7 +4730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 租户绑定号码列表
+   * Lists the phone numbers bound to the tenant.
    * @returns ListAllTenantBindNumberBindingResponse
    */
   async listAllTenantBindNumberBinding(): Promise<$_model.ListAllTenantBindNumberBindingResponse> {
@@ -4540,7 +4739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 标注中心
+   * Lists annotation missions.
    * 
    * @param request - ListAnnotationMissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4603,7 +4802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 标注中心
+   * Lists annotation missions.
    * 
    * @param request - ListAnnotationMissionRequest
    * @returns ListAnnotationMissionResponse
@@ -4676,6 +4875,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists API plugins.
+   * 
    * @param request - ListApiPluginsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListApiPluginsResponse
@@ -4717,6 +4918,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists API plugins.
+   * 
    * @param request - ListApiPluginsRequest
    * @returns ListApiPluginsResponse
    */
@@ -4726,7 +4929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListBeebotIntent
+   * Lists intents for small-model scenarios.
    * 
    * @param request - ListBeebotIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4773,7 +4976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListBeebotIntent
+   * Lists intents for small-model scenarios.
    * 
    * @param request - ListBeebotIntentRequest
    * @returns ListBeebotIntentResponse
@@ -4784,7 +4987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListBeebotIntentLgf
+   * Lists the utterance templates for a specified intent in a scenario.
    * 
    * @param request - ListBeebotIntentLgfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4835,7 +5038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListBeebotIntentLgf
+   * Lists the utterance templates for a specified intent in a scenario.
    * 
    * @param request - ListBeebotIntentLgfRequest
    * @returns ListBeebotIntentLgfResponse
@@ -4846,7 +5049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListBeebotIntentUserSay
+   * Lists user utterances for intents in small model scenarios.
    * 
    * @param request - ListBeebotIntentUserSayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4897,7 +5100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListBeebotIntentUserSay
+   * Lists user utterances for intents in small model scenarios.
    * 
    * @param request - ListBeebotIntentUserSayRequest
    * @returns ListBeebotIntentUserSayResponse
@@ -4908,6 +5111,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+   * 
    * @param request - ListChatbotInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListChatbotInstancesResponse
@@ -4945,6 +5150,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the instances of the Yunxiao Mi chatbot service in Alibaba Cloud.
+   * 
    * @param request - ListChatbotInstancesRequest
    * @returns ListChatbotInstancesResponse
    */
@@ -4954,6 +5161,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the dialogue flows of a script in the legacy canvas.
+   * 
    * @param request - ListDialogueFlowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDialogueFlowsResponse
@@ -4987,6 +5196,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the dialogue flows of a script in the legacy canvas.
+   * 
    * @param request - ListDialogueFlowsRequest
    * @returns ListDialogueFlowsResponse
    */
@@ -4996,6 +5207,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of download tasks in Download Hub.
+   * 
    * @param request - ListDownloadTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDownloadTasksResponse
@@ -5021,6 +5234,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of download tasks in Download Hub.
+   * 
    * @param request - ListDownloadTasksRequest
    * @returns ListDownloadTasksResponse
    */
@@ -5030,6 +5245,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call the ListFlashSmsTemplates operation to query flash SMS templates.
+   * 
    * @param request - ListFlashSmsTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListFlashSmsTemplatesResponse
@@ -5055,6 +5272,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can call the ListFlashSmsTemplates operation to query flash SMS templates.
+   * 
    * @param request - ListFlashSmsTemplatesRequest
    * @returns ListFlashSmsTemplatesResponse
    */
@@ -5064,6 +5283,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of key questions. This is a legacy canvas interface.
+   * 
    * @param request - ListGlobalQuestionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGlobalQuestionsResponse
@@ -5105,6 +5326,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of key questions. This is a legacy canvas interface.
+   * 
    * @param request - ListGlobalQuestionsRequest
    * @returns ListGlobalQuestionsResponse
    */
@@ -5114,6 +5337,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists Outbound Calling Bot service instances.
+   * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesResponse
@@ -5159,6 +5384,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists Outbound Calling Bot service instances.
+   * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
    */
@@ -5168,7 +5395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 意图列表
+   * Query intent for the Annotation Center list.
    * 
    * @param request - ListIntentionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5231,7 +5458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 意图列表
+   * Query intent for the Annotation Center list.
    * 
    * @param request - ListIntentionsRequest
    * @returns ListIntentionsResponse
@@ -5242,6 +5469,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves intents from the legacy canvas interface.
+   * 
    * @param request - ListIntentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListIntentsResponse
@@ -5287,6 +5516,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves intents from the legacy canvas interface.
+   * 
    * @param request - ListIntentsRequest
    * @returns ListIntentsResponse
    */
@@ -5296,6 +5527,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of outbound call task groups.
+   * 
    * @param request - ListJobGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListJobGroupsResponse
@@ -5357,6 +5590,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of outbound call task groups.
+   * 
    * @param request - ListJobGroupsRequest
    * @returns ListJobGroupsResponse
    */
@@ -5366,6 +5601,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+   * 
    * @param request - ListJobGroupsAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListJobGroupsAsyncResponse
@@ -5391,6 +5628,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of outbound call tasks asynchronously. Call this operation to retrieve the results of a `ListJobGroup` call that included the `Async` parameter.
+   * 
    * @param request - ListJobGroupsAsyncRequest
    * @returns ListJobGroupsAsyncResponse
    */
@@ -5400,7 +5639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListJobs
+   * Query multiple jobs.
    * 
    * @param request - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5435,7 +5674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListJobs
+   * Query multiple jobs.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -5446,6 +5685,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists jobs by job group.
+   * 
    * @param request - ListJobsByGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListJobsByGroupResponse
@@ -5495,6 +5736,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists jobs by job group.
+   * 
    * @param request - ListJobsByGroupRequest
    * @returns ListJobsByGroupResponse
    */
@@ -5504,6 +5747,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * List outbound call numbers.
+   * 
    * @param request - ListOutboundCallNumbersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListOutboundCallNumbersResponse
@@ -5541,6 +5786,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * List outbound call numbers.
+   * 
    * @param request - ListOutboundCallNumbersRequest
    * @returns ListOutboundCallNumbersResponse
    */
@@ -5550,6 +5797,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists tags for business resources.
+   * 
    * @param request - ListResourceTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListResourceTagsResponse
@@ -5587,6 +5836,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists tags for business resources.
+   * 
    * @param request - ListResourceTagsRequest
    * @returns ListResourceTagsResponse
    */
@@ -5596,6 +5847,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the publication history of the small model for outbound calls.
+   * 
    * @param request - ListScriptPublishHistoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListScriptPublishHistoriesResponse
@@ -5637,6 +5890,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the publication history of the small model for outbound calls.
+   * 
    * @param request - ListScriptPublishHistoriesRequest
    * @returns ListScriptPublishHistoriesResponse
    */
@@ -5646,6 +5901,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the list of recording files. Use this operation in small model scenarios.
+   * 
    * @param request - ListScriptRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListScriptRecordingResponse
@@ -5703,6 +5960,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the list of recording files. Use this operation in small model scenarios.
+   * 
    * @param request - ListScriptRecordingRequest
    * @returns ListScriptRecordingResponse
    */
@@ -5712,7 +5971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取场景中当前使用的变量
+   * Queries the variables used in a script.
    * 
    * @param request - ListScriptVariablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5751,7 +6010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取场景中当前使用的变量
+   * Queries the variables used in a script.
    * 
    * @param request - ListScriptVariablesRequest
    * @returns ListScriptVariablesResponse
@@ -5762,6 +6021,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the audio in a legacy canvas scene.
+   * 
+   * @remarks
+   * **
+   * 
    * @param request - ListScriptVoiceConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListScriptVoiceConfigsResponse
@@ -5803,6 +6067,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the audio in a legacy canvas scene.
+   * 
+   * @remarks
+   * **
+   * 
    * @param request - ListScriptVoiceConfigsRequest
    * @returns ListScriptVoiceConfigsResponse
    */
@@ -5812,7 +6081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * -
+   * View the script list.
    * 
    * @param request - ListScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5859,7 +6128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * -
+   * View the script list.
    * 
    * @param request - ListScriptsRequest
    * @returns ListScriptsResponse
@@ -5870,6 +6139,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the tag relationships for resources.
+   * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagResourcesResponse
@@ -5915,6 +6186,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Query the tag relationships for resources.
+   * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
    */
@@ -5924,6 +6197,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the tags of a script. This is a legacy canvas API.
+   * 
    * @param request - ListTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagsResponse
@@ -5957,6 +6232,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the tags of a script. This is a legacy canvas API.
+   * 
    * @param request - ListTagsRequest
    * @returns ListTagsResponse
    */
@@ -5966,6 +6243,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modify the agent configuration.
+   * 
    * @param tmpReq - ModifyAgentProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAgentProfileResponse
@@ -6049,6 +6328,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modify the agent configuration.
+   * 
    * @param request - ModifyAgentProfileRequest
    * @returns ModifyAgentProfileResponse
    */
@@ -6058,6 +6339,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the status and name of an annotation task.
+   * 
    * @param request - ModifyAnnotationMissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyAnnotationMissionResponse
@@ -6099,6 +6382,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the status and name of an annotation task.
+   * 
    * @param request - ModifyAnnotationMissionRequest
    * @returns ModifyAnnotationMissionResponse
    */
@@ -6108,6 +6393,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies batch jobs. This operation is deprecated.
+   * 
    * @param request - ModifyBatchJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyBatchJobsResponse
@@ -6173,6 +6460,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies batch jobs. This operation is deprecated.
+   * 
    * @param request - ModifyBatchJobsRequest
    * @returns ModifyBatchJobsResponse
    */
@@ -6182,7 +6471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyBeebotIntent
+   * Modify the intent for a small-model scenario.
    * 
    * @param tmpReq - ModifyBeebotIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6231,7 +6520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyBeebotIntent
+   * Modify the intent for a small-model scenario.
    * 
    * @param request - ModifyBeebotIntentRequest
    * @returns ModifyBeebotIntentResponse
@@ -6242,7 +6531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyBeebotIntentLgf
+   * Modifies the intent utterance template for a small model scenario.
    * 
    * @param tmpReq - ModifyBeebotIntentLgfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6291,7 +6580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyBeebotIntentLgf
+   * Modifies the intent utterance template for a small model scenario.
    * 
    * @param request - ModifyBeebotIntentLgfRequest
    * @returns ModifyBeebotIntentLgfResponse
@@ -6302,7 +6591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyBeebotIntentUserSay
+   * Modifies a user utterance for an intent in a Beebot scenario.
    * 
    * @param tmpReq - ModifyBeebotIntentUserSayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6351,7 +6640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyBeebotIntentUserSay
+   * Modifies a user utterance for an intent in a Beebot scenario.
    * 
    * @param request - ModifyBeebotIntentUserSayRequest
    * @returns ModifyBeebotIntentUserSayResponse
@@ -6362,6 +6651,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a dialogue flow. This is a legacy API for the canvas.
+   * 
    * @param request - ModifyDialogueFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyDialogueFlowResponse
@@ -6407,6 +6698,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a dialogue flow. This is a legacy API for the canvas.
+   * 
    * @param request - ModifyDialogueFlowRequest
    * @returns ModifyDialogueFlowResponse
    */
@@ -6416,6 +6709,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables or disables the global no-call feature for nonexistent numbers.
+   * 
    * @param request - ModifyEmptyNumberNoMoreCallsInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyEmptyNumberNoMoreCallsInfoResponse
@@ -6453,6 +6748,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables or disables the global no-call feature for nonexistent numbers.
+   * 
    * @param request - ModifyEmptyNumberNoMoreCallsInfoRequest
    * @returns ModifyEmptyNumberNoMoreCallsInfoResponse
    */
@@ -6462,6 +6759,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a global question in the legacy canvas.
+   * 
    * @param request - ModifyGlobalQuestionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyGlobalQuestionResponse
@@ -6515,6 +6814,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a global question in the legacy canvas.
+   * 
    * @param request - ModifyGlobalQuestionRequest
    * @returns ModifyGlobalQuestionResponse
    */
@@ -6524,6 +6825,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies an Outbound Bot instance.
+   * 
    * @param request - ModifyInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyInstanceResponse
@@ -6569,6 +6872,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies an Outbound Bot instance.
+   * 
    * @param request - ModifyInstanceRequest
    * @returns ModifyInstanceResponse
    */
@@ -6578,6 +6883,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies an intent in the legacy canvas. This is a legacy API.
+   * 
    * @param request - ModifyIntentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyIntentResponse
@@ -6631,6 +6938,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies an intent in the legacy canvas. This is a legacy API.
+   * 
    * @param request - ModifyIntentRequest
    * @returns ModifyIntentResponse
    */
@@ -6640,7 +6949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改任务组
+   * Modify an intelligent outbound call task group.
    * 
    * @param request - ModifyJobGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6727,7 +7036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改任务组
+   * Modify an intelligent outbound call task group.
    * 
    * @param request - ModifyJobGroupRequest
    * @returns ModifyJobGroupResponse
@@ -6738,7 +7047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyOutboundCallNumber
+   * Modifies an outbound call number. This API is deprecated.
    * 
    * @param request - ModifyOutboundCallNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6785,7 +7094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyOutboundCallNumber
+   * Modifies an outbound call number. This API is deprecated.
    * 
    * @param request - ModifyOutboundCallNumberRequest
    * @returns ModifyOutboundCallNumberResponse
@@ -6796,7 +7105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改场景
+   * Modify script information.
    * 
    * @param request - ModifyScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6919,7 +7228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改场景
+   * Modify script information.
    * 
    * @param request - ModifyScriptRequest
    * @returns ModifyScriptResponse
@@ -6930,6 +7239,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the voice configuration of a script in a legacy canvas.
+   * 
+   * @remarks
+   * **
+   * 
    * @param request - ModifyScriptVoiceConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyScriptVoiceConfigResponse
@@ -6975,6 +7289,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the voice configuration of a script in a legacy canvas.
+   * 
+   * @remarks
+   * **
+   * 
    * @param request - ModifyScriptVoiceConfigRequest
    * @returns ModifyScriptVoiceConfigResponse
    */
@@ -6984,6 +7303,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update the text-to-speech (TTS) configuration for an existing canvas scenario.
+   * 
    * @param request - ModifyTTSConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyTTSConfigResponse
@@ -7041,6 +7362,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Update the text-to-speech (TTS) configuration for an existing canvas scenario.
+   * 
    * @param request - ModifyTTSConfigRequest
    * @returns ModifyTTSConfigResponse
    */
@@ -7050,6 +7373,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies tag groups for the legacy canvas interface.
+   * 
    * @param request - ModifyTagGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyTagGroupsResponse
@@ -7091,6 +7416,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies tag groups for the legacy canvas interface.
+   * 
    * @param request - ModifyTagGroupsRequest
    * @returns ModifyTagGroupsResponse
    */
@@ -7100,6 +7427,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Publishing a scenario
+   * 
    * @param request - PublishScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PublishScriptResponse
@@ -7137,6 +7466,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Publishing a scenario
+   * 
    * @param request - PublishScriptRequest
    * @returns PublishScriptResponse
    */
@@ -7146,6 +7477,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Publishes the debug version of a script.
+   * 
    * @param request - PublishScriptForDebugRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PublishScriptForDebugResponse
@@ -7179,6 +7512,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Publishes the debug version of a script.
+   * 
    * @param request - PublishScriptForDebugRequest
    * @returns PublishScriptForDebugResponse
    */
@@ -7188,7 +7523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * QueryJobs
+   * You can query the list of jobs.
    * 
    * @param request - QueryJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7255,7 +7590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * QueryJobs
+   * You can query the list of jobs.
    * 
    * @param request - QueryJobsRequest
    * @returns QueryJobsResponse
@@ -7266,7 +7601,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取外呼任务结果信息
+   * Find tasks by result.
    * 
    * @param request - QueryJobsWithResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7349,7 +7684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取外呼任务结果信息
+   * Find tasks by result.
    * 
    * @param request - QueryJobsWithResultRequest
    * @returns QueryJobsWithResultResponse
@@ -7360,6 +7695,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * This legacy canvas interface retrieves the list of recorded speech transcripts.
+   * 
    * @param request - QueryScriptWaveformsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryScriptWaveformsResponse
@@ -7397,6 +7734,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * This legacy canvas interface retrieves the list of recorded speech transcripts.
+   * 
    * @param request - QueryScriptWaveformsRequest
    * @returns QueryScriptWaveformsResponse
    */
@@ -7406,6 +7745,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries scenario information by status.
+   * 
    * @param request - QueryScriptsByStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryScriptsByStatusResponse
@@ -7447,6 +7788,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries scenario information by status.
+   * 
    * @param request - QueryScriptsByStatusRequest
    * @returns QueryScriptsByStatusResponse
    */
@@ -7456,6 +7799,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+   * 
    * @param request - RecordFailureRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RecordFailureResponse
@@ -7513,6 +7858,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CC sends the call failure reason to the outbound calling system. This operation is deprecated.
+   * 
    * @param request - RecordFailureRequest
    * @returns RecordFailureResponse
    */
@@ -7522,6 +7869,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resumes paused jobs.
+   * 
    * @param request - ResumeJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResumeJobsResponse
@@ -7571,6 +7920,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resumes paused jobs.
+   * 
    * @param request - ResumeJobsRequest
    * @returns ResumeJobsResponse
    */
@@ -7580,6 +7931,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Roll back a published small model scenario.
+   * 
    * @param request - RollbackScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RollbackScriptResponse
@@ -7617,6 +7970,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Roll back a published small model scenario.
+   * 
    * @param request - RollbackScriptRequest
    * @returns RollbackScriptResponse
    */
@@ -7626,7 +7981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存接听后延迟播报时间
+   * Sets the delay before playback starts after the call is answered.
    * 
    * @param request - SaveAfterAnswerDelayPlaybackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7665,7 +8020,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存接听后延迟播报时间
+   * Sets the delay before playback starts after the call is answered.
    * 
    * @param request - SaveAfterAnswerDelayPlaybackRequest
    * @returns SaveAfterAnswerDelayPlaybackResponse
@@ -7676,6 +8031,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can save a list of annotation chat instances.
+   * 
    * @param request - SaveAnnotationMissionSessionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveAnnotationMissionSessionListResponse
@@ -7729,6 +8086,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can save a list of annotation chat instances.
+   * 
    * @param request - SaveAnnotationMissionSessionListRequest
    * @returns SaveAnnotationMissionSessionListResponse
    */
@@ -7738,6 +8097,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Saves instance tags in a batch.
+   * 
    * @param request - SaveAnnotationMissionTagInfoListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveAnnotationMissionTagInfoListResponse
@@ -7779,6 +8140,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Saves instance tags in a batch.
+   * 
    * @param request - SaveAnnotationMissionTagInfoListRequest
    * @returns SaveAnnotationMissionTagInfoListResponse
    */
@@ -7788,7 +8151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑基础策略有效时间窗口
+   * Modifies the global outbound call time window in system administration.
    * 
    * @param request - SaveBaseStrategyPeriodRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7839,7 +8202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑基础策略有效时间窗口
+   * Modifies the global outbound call time window in system administration.
    * 
    * @param request - SaveBaseStrategyPeriodRequest
    * @returns SaveBaseStrategyPeriodResponse
@@ -7850,7 +8213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存外呼黑名单列表
+   * Adds contacts to the instance\\"s blocklist.
    * 
    * @param request - SaveContactBlockListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7889,7 +8252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存外呼黑名单列表
+   * Adds contacts to the instance\\"s blocklist.
    * 
    * @param request - SaveContactBlockListRequest
    * @returns SaveContactBlockListResponse
@@ -7900,7 +8263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存外呼白名单
+   * Saves an outbound call whitelist.
    * 
    * @param request - SaveContactWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7939,7 +8302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存外呼白名单
+   * Saves an outbound call whitelist.
    * 
    * @param request - SaveContactWhiteListRequest
    * @returns SaveContactWhiteListResponse
@@ -7950,6 +8313,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Saves the validity period of a basic policy. This operation is deprecated.
+   * 
    * @param request - SaveEffectiveDaysRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveEffectiveDaysResponse
@@ -7987,6 +8352,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Saves the validity period of a basic policy. This operation is deprecated.
+   * 
    * @param request - SaveEffectiveDaysRequest
    * @returns SaveEffectiveDaysResponse
    */
@@ -7996,7 +8363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存每日最大外呼量
+   * Sets the maximum number of daily outbound call attempts to a specific number.
    * 
    * @param request - SaveMaxAttemptsPerDayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8035,7 +8402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存每日最大外呼量
+   * Sets the maximum number of daily outbound call attempts to a specific number.
    * 
    * @param request - SaveMaxAttemptsPerDayRequest
    * @returns SaveMaxAttemptsPerDayResponse
@@ -8046,7 +8413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 外呼历史查询
+   * Search for tasks.
    * 
    * @param request - SearchTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8073,7 +8440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 外呼历史查询
+   * Search for tasks.
    * 
    * @param request - SearchTaskRequest
    * @returns SearchTaskResponse
@@ -8084,7 +8451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启一个任务
+   * This API initiates a call directly, bypassing the outbound call scheduling system. It is available only to users on the whitelist.
    * 
    * @param request - StartJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8135,7 +8502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启一个任务
+   * This API initiates a call directly, bypassing the outbound call scheduling system. It is available only to users on the whitelist.
    * 
    * @param request - StartJobRequest
    * @returns StartJobResponse
@@ -8146,6 +8513,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a draft job group. This operation is deprecated.
+   * 
    * @param request - SubmitBatchJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitBatchJobsResponse
@@ -8179,6 +8548,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a draft job group. This operation is deprecated.
+   * 
    * @param request - SubmitBatchJobsRequest
    * @returns SubmitBatchJobsResponse
    */
@@ -8188,6 +8559,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a recording of an outbound call. This operation is deprecated.
+   * 
    * @param request - SubmitRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitRecordingResponse
@@ -8229,6 +8602,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a recording of an outbound call. This operation is deprecated.
+   * 
    * @param request - SubmitRecordingRequest
    * @returns SubmitRecordingResponse
    */
@@ -8238,6 +8613,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submit the scenario for release review.
+   * 
    * @param request - SubmitScriptReviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitScriptReviewResponse
@@ -8279,6 +8656,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submit the scenario for release review.
+   * 
    * @param request - SubmitScriptReviewRequest
    * @returns SubmitScriptReviewResponse
    */
@@ -8288,7 +8667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 止呼
+   * Suspends outbound calls for a list of phone numbers.
    * 
    * @param request - SuspendCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8327,7 +8706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 止呼
+   * Suspends outbound calls for a list of phone numbers.
    * 
    * @param request - SuspendCallRequest
    * @returns SuspendCallResponse
@@ -8338,7 +8717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SuspendCallWithFile
+   * Suspends outbound calls using data from a file.
    * 
    * @param request - SuspendCallWithFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8377,7 +8756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SuspendCallWithFile
+   * Suspends outbound calls using data from a file.
    * 
    * @param request - SuspendCallWithFileRequest
    * @returns SuspendCallWithFileResponse
@@ -8388,6 +8767,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can pause the job.
+   * 
    * @param request - SuspendJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SuspendJobsResponse
@@ -8437,6 +8818,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * You can pause the job.
+   * 
    * @param request - SuspendJobsRequest
    * @returns SuspendJobsResponse
    */
@@ -8446,8 +8829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds tags to instance resources.
+   * 
    * @remarks
-   * *
+   * \\*\\*
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8490,8 +8875,10 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Adds tags to instance resources.
+   * 
    * @remarks
-   * *
+   * \\*\\*
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -8502,7 +8889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * TaskPreparing
+   * Prepares a task for execution.
    * 
    * @param request - TaskPreparingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8541,7 +8928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * TaskPreparing
+   * Prepares a task for execution.
    * 
    * @param request - TaskPreparingRequest
    * @returns TaskPreparingResponse
@@ -8552,6 +8939,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Terminates a call during an active session.
+   * 
    * @param request - TerminateCallRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TerminateCallResponse
@@ -8585,6 +8974,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Terminates a call during an active session.
+   * 
    * @param request - TerminateCallRequest
    * @returns TerminateCallResponse
    */
@@ -8594,6 +8985,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Remove tags from resources.
+   * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UntagResourcesResponse
@@ -8639,6 +9032,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Remove tags from resources.
+   * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
    */
@@ -8648,6 +9043,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upload recording files.
+   * 
    * @param request - UploadScriptRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UploadScriptRecordingResponse
@@ -8693,6 +9090,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upload recording files.
+   * 
    * @param request - UploadScriptRecordingRequest
    * @returns UploadScriptRecordingResponse
    */
@@ -8702,10 +9101,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * WithdrawScriptReview
+   * Revoke script review.
    * 
    * @remarks
-   * ***
+   * **
    * 
    * @param request - WithdrawScriptReviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8740,10 +9139,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * WithdrawScriptReview
+   * Revoke script review.
    * 
    * @remarks
-   * ***
+   * **
    * 
    * @param request - WithdrawScriptReviewRequest
    * @returns WithdrawScriptReviewResponse

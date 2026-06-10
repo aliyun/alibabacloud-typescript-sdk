@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RecordFailureRequest extends $dara.Model {
   /**
    * @remarks
+   * Call start time
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RecordFailureRequest extends $dara.Model {
   actualTime?: number;
   /**
    * @remarks
+   * Call ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class RecordFailureRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
+   * Called number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class RecordFailureRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
+   * Calling number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,15 +45,38 @@ export class RecordFailureRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
+   * Failure reason.
+   * 
+   * - Nonexistent number (NotExists)
+   * 
+   * - Busy (Busy)
+   * 
+   * - No answer (NotAnswered)
+   * 
    * This parameter is required.
    * 
    * @example
-   * OutOfService
+   * NotExists
    */
   dispositionCode?: string;
+  /**
+   * @remarks
+   * Error code when the outbound call fails.
+   * 
+   * - Nonexistent number (NotExists)
+   * 
+   * - Busy (Busy)
+   * 
+   * - No answer (NotAnswered)
+   * 
+   * @example
+   * NotExists
+   */
   exceptionCodes?: string;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -54,6 +85,8 @@ export class RecordFailureRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Task ID
+   * 
    * This parameter is required.
    * 
    * @example

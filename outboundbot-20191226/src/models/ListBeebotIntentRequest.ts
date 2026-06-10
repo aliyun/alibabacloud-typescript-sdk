@@ -5,15 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class ListBeebotIntentRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * e5035654-1745-484a-8c5b-165f7c7bcd79
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The intent name.
+   * 
+   * > This is the intent code. It uniquely identifies the intent.
+   * 
+   * @example
+   * 知道了
+   */
   intentName?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +35,8 @@ export class ListBeebotIntentRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return on each page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +45,8 @@ export class ListBeebotIntentRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CancelJobsRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to cancel all jobs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CancelJobsRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,23 +24,41 @@ export class CancelJobsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * A filter condition. The task group ID.
+   * 
    * @example
    * 9f84892d-721a-4069-9975-668c8164d64e
    */
   jobGroupId?: string;
   /**
+   * @remarks
+   * A filter condition. The job ID.
+   * 
+   * > The JobId parameter is required when the All parameter is set to false.
+   * 
    * @example
    * edf45790-7200-4cbc-b157-8c0a5f400b75
    */
   jobId?: string[];
   /**
+   * @remarks
+   * A filter condition. The reference ID of the job.
+   * 
+   * > This is the ReferenceId that you specified when you uploaded the contact list.
+   * 
    * @example
    * 4a875676-b136-4087-88b4-de67c61fed69
    */
   jobReferenceId?: string[];
   /**
+   * @remarks
+   * A filter condition. The scenario ID.
+   * 
+   * > Obtain this ID by calling the DescribeJobGroup operation.
+   * 
    * @example
-   * 9cef0dd3-b9d6-4748-9a6f-77a8c3402bb1
+   * 35641113-b2f6-464e-a772-25c25554798b
    */
   scenarioId?: string;
   static names(): { [key: string]: string } {

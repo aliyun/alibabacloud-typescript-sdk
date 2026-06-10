@@ -3,24 +3,50 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAnnotationMissionTagInfoListResponseBodyDataAnnotationMissionTagInfoList extends $dara.Model {
+  /**
+   * @remarks
+   * Tag description
+   * 
+   * @example
+   * 用户投诉
+   */
   annotationMissionTagInfoDescription?: string;
   /**
+   * @remarks
+   * Tag ID
+   * 
    * @example
    * e1ee87ea-ebad-4079-aebb-1c56a4ef0c06
    */
   annotationMissionTagInfoId?: string;
+  /**
+   * @remarks
+   * Tag name
+   * 
+   * @example
+   * 用户投诉
+   */
   annotationMissionTagInfoName?: string;
   /**
+   * @remarks
+   * Indicates whether the tag is deleted. A value of true indicates that the tag is deleted.
+   * 
    * @example
    * false
    */
   delete?: boolean;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * 3c3b8d1d-deff-48d9-9318-addc80ae5b1e
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Tenant ID
+   * 
    * @example
    * DING_ORG_dingbd9daecdb7aaed3bffe93478753d9884
    */
@@ -57,13 +83,23 @@ export class GetAnnotationMissionTagInfoListResponseBodyDataAnnotationMissionTag
 }
 
 export class GetAnnotationMissionTagInfoListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Tag list
+   */
   annotationMissionTagInfoList?: GetAnnotationMissionTagInfoListResponseBodyDataAnnotationMissionTagInfoList[];
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * CDR \\"job-efbaeefc-4d45-4e79-83f7-b33b0769c969\\" doesn\\"t exists.
    */
   message?: string;
   /**
+   * @remarks
+   * Indicates whether the call succeeded. A value of true indicates success. A value of false indicates failure.
+   * 
    * @example
    * true
    */
@@ -98,27 +134,46 @@ export class GetAnnotationMissionTagInfoListResponseBodyData extends $dara.Model
 
 export class GetAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data
+   */
   data?: GetAnnotationMissionTagInfoListResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * CDR \\"job-efbaeefc-4d45-4e79-83f7-b33b0769c969\\" doesn\\"t exists.
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call succeeded. A value of true indicates success. A value of false indicates failure.
+   * 
    * @example
    * true
    */

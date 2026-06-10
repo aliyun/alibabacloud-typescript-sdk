@@ -3,9 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListScriptVariablesResponseBodyVariables extends $dara.Model {
+  /**
+   * @remarks
+   * The variable description.
+   * 
+   * @example
+   * 表示客户的真实姓名
+   */
   description?: string;
+  /**
+   * @remarks
+   * The variable display name.
+   * 
+   * @example
+   * 姓名
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The variable name.
+   * 
    * @example
    * name
    */
@@ -37,30 +54,49 @@ export class ListScriptVariablesResponseBodyVariables extends $dara.Model {
 
 export class ListScriptVariablesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The API message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The script variables.
+   */
   variables?: ListScriptVariablesResponseBodyVariables[];
   static names(): { [key: string]: string } {
     return {

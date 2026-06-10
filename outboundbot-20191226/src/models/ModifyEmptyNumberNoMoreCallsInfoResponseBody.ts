@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyEmptyNumberNoMoreCallsInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

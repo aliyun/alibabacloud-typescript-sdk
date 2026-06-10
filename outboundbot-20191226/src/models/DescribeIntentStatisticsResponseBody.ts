@@ -4,32 +4,61 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeIntentStatisticsResponseBodyGlobalIntents extends $dara.Model {
   /**
+   * @remarks
+   * Task group ID
+   * 
    * @example
    * 0c3f352f-d045-491d-9ce7-11f2d2b7775d
    */
   groupId?: string;
   /**
+   * @remarks
+   * Hit after no acknowledgement
+   * 
    * @example
    * 1
    */
   hitAfterNoAnswer?: number;
   /**
+   * @remarks
+   * Hit count
+   * 
    * @example
    * 11
    */
   hitNum?: number;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * a4274627-265f-4e14-b2d6-4ee7d4f8593e
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Intent ID
+   * 
    * @example
    * 21343425
    */
   intentId?: string;
+  /**
+   * @remarks
+   * Intent name
+   * 
+   * @example
+   * 请假意图
+   */
   intentName?: string;
   /**
+   * @remarks
+   * Type
+   * 
+   * GlobalIntent(0): Global intent
+   * 
+   * ProcessIntent(1): Flow intent
+   * 
    * @example
    * GlobalIntent
    */
@@ -68,14 +97,45 @@ export class DescribeIntentStatisticsResponseBodyGlobalIntents extends $dara.Mod
 }
 
 export class DescribeIntentStatisticsResponseBodyIntentsAfterNoAnswer extends $dara.Model {
+  /**
+   * @remarks
+   * Task group ID
+   * 
+   * @example
+   * b24d321a-2a74-4dd1-a0ba-4ab09cef6652
+   */
   groupId?: string;
+  /**
+   * @remarks
+   * No acknowledgement is received after a hit.
+   * 
+   * @example
+   * 1
+   */
   hitAfterNoAnswer?: number;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * a4274627-265f-4e14-b2d6-4ee7d4f8593e
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Intent ID
+   * 
+   * @example
+   * 10398032
+   */
   intentId?: string;
+  /**
+   * @remarks
+   * Intent name
+   * 
+   * @example
+   * 请假意图
+   */
   intentName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,33 +168,69 @@ export class DescribeIntentStatisticsResponseBodyIntentsAfterNoAnswer extends $d
 
 export class DescribeIntentStatisticsResponseBodyProcessIntents extends $dara.Model {
   /**
+   * @remarks
+   * Task group ID
+   * 
    * @example
    * 0c3f352f-d045-491d-9ce7-11f2d2b7775d
    */
   groupId?: string;
   /**
+   * @remarks
+   * Hit after no acknowledgement
+   * 
    * @example
    * 1
    */
   hitAfterNoAnswer?: number;
   /**
+   * @remarks
+   * Hit count
+   * 
    * @example
    * 10
    */
   hitNum?: number;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * a4274627-265f-4e14-b2d6-4ee7d4f8593e
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Intent ID
+   * 
    * @example
    * 12343
    */
   intentId?: string;
+  /**
+   * @remarks
+   * Intent name
+   * 
+   * @example
+   * 请假意图
+   */
   intentName?: string;
+  /**
+   * @remarks
+   * Percentage
+   * 
+   * @example
+   * 33.33%
+   */
   rateDisplay?: string;
   /**
+   * @remarks
+   * Type
+   * 
+   * - GlobalIntent(0): Global intent
+   * 
+   * - ProcessIntent(1): Flow intent
+   * 
    * @example
    * ProcessIntent
    */
@@ -176,57 +272,94 @@ export class DescribeIntentStatisticsResponseBodyProcessIntents extends $dara.Mo
 
 export class DescribeIntentStatisticsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Total count of global intents
+   * 
    * @example
    * 100
    */
   globalIntentNum?: number;
   /**
+   * @remarks
+   * Global intent array
+   * 
    * @example
    * []
    */
   globalIntents?: DescribeIntentStatisticsResponseBodyGlobalIntents[];
   /**
+   * @remarks
+   * Group ID of the instance.
+   * 
    * @example
    * 0c3f352f-d045-491d-9ce7-11f2d2b7775d
    */
   groupId?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * a4274627-265f-4e14-b2d6-4ee7d4f8593e
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Rejected intent information list
+   */
   intentsAfterNoAnswer?: DescribeIntentStatisticsResponseBodyIntentsAfterNoAnswer[];
   /**
+   * @remarks
+   * API message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Total count of flow intents
+   * 
    * @example
    * 123
    */
   processIntentNum?: number;
   /**
+   * @remarks
+   * Intent information list
+   * 
    * @example
    * []
    */
   processIntents?: DescribeIntentStatisticsResponseBodyProcessIntents[];
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success
+   * 
    * @example
    * true
    */

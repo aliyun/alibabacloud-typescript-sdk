@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetEmptyNumberNoMoreCallsInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,15 @@ export class GetEmptyNumberNoMoreCallsInfoRequest extends $dara.Model {
    */
   entryId?: string;
   /**
+   * @remarks
+   * Strategy level. Set to 2 for business instances.
+   * 
+   * - 0: System
+   * 
+   * - 1: Tenant
+   * 
+   * - 2: Instance
+   * 
    * @example
    * 2
    */

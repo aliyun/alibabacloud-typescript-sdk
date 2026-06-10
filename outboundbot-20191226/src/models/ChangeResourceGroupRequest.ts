@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the new resource group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   newResourceGroupId?: string;
   /**
    * @remarks
+   * The ID of the resource.
+   * 
    * This parameter is required.
    * 
    * @example

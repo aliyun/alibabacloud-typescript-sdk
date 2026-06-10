@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteIntentRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteIntentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the intent to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DeleteIntentRequest extends $dara.Model {
   intentId?: string;
   /**
    * @remarks
+   * The ID of the script that contains the intent.
+   * 
    * This parameter is required.
    * 
    * @example

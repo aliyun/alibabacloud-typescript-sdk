@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateJobGroupExportTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class CreateJobGroupExportTaskRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Job group ID. Required.
+   * 
    * @example
    * baf6dfdc-eb79-4c63-ab19-c56388b1fbdd
    */
   jobGroupId?: string;
   /**
+   * @remarks
+   * Parameters that control task execution for the import.
+   * 
    * @example
    * []
    */

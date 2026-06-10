@@ -3,9 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeJobGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter condition. This parameter is deprecated.
+   */
   briefTypes?: string[];
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +20,8 @@ export class DescribeJobGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Job group ID.
+   * 
    * This parameter is required.
    * 
    * @example

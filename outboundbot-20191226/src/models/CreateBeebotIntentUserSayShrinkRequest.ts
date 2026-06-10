@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBeebotIntentUserSayShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateBeebotIntentUserSayShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class CreateBeebotIntentUserSayShrinkRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
+   * The definition of the user utterance.
+   * 
    * This parameter is required.
    */
   userSayDefinitionShrink?: string;

@@ -5,22 +5,28 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOutboundCallNumberRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
-   * 52e80b02-0126-4556-a1e6-ef5b3747ed53/a9a3ddc7-d7d7-48cd-82b5-b31bb5510e71_2a66f8ad-dfbb-4980-9b84-439171295a11.xlsx
+   * 8fa1953f-4a84-46d8-b80c-8ce9cf684fb3
    */
   instanceId?: string;
   /**
    * @remarks
+   * The number to modify
+   * 
    * This parameter is required.
    * 
    * @example
-   * 10088
+   * 10088xxx
    */
   number?: string;
   /**
    * @remarks
+   * Number ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ModifyOutboundCallNumberRequest extends $dara.Model {
   outboundCallNumberId?: string;
   /**
    * @remarks
+   * Number of rate limiting rules
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,6 +45,8 @@ export class ModifyOutboundCallNumberRequest extends $dara.Model {
   rateLimitCount?: number;
   /**
    * @remarks
+   * Rate limiting time window, in seconds
+   * 
    * This parameter is required.
    * 
    * @example

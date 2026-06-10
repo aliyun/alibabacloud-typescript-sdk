@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RollbackScriptRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,14 +15,20 @@ export class RollbackScriptRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Version to roll back to
+   * 
+   * > For valid values, see the ListScriptPublishHistories operation.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 1579055782000
+   * 1578965079000
    */
   rollbackVersion?: string;
   /**
    * @remarks
+   * Script ID
+   * 
    * This parameter is required.
    * 
    * @example

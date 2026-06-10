@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateBatchRepeatJobResponseBodyJobGroup extends $dara.Model {
   /**
+   * @remarks
+   * Job group ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   id?: string;
   /**
+   * @remarks
+   * Minimum concurrency
+   * 
    * @example
    * 1
    */
   minConcurrency?: number;
   /**
+   * @remarks
+   * Job priority
+   * 
    * @example
    * 3
    */
   priority?: string;
   /**
+   * @remarks
+   * Ringing duration
+   * 
    * @example
    * 30
    */
@@ -52,31 +64,49 @@ export class CreateBatchRepeatJobResponseBodyJobGroup extends $dara.Model {
 
 export class CreateBatchRepeatJobResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP error code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Job group information
+   * 
    * @example
    * {}
    */
   jobGroup?: CreateBatchRepeatJobResponseBodyJobGroup;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

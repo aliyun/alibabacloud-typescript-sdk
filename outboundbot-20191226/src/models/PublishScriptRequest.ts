@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class PublishScriptRequest extends $dara.Model {
   /**
    * @remarks
+   * A description of the publication.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 本次发布了xxxx内容
    */
   description?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class PublishScriptRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the scenario to publish.
+   * 
    * This parameter is required.
    * 
    * @example

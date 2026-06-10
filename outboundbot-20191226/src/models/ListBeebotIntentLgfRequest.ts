@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListBeebotIntentLgfRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,15 +15,26 @@ export class ListBeebotIntentLgfRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The intent ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 10717802
    */
   intentId?: string;
+  /**
+   * @remarks
+   * The utterance template.
+   * 
+   * @example
+   * 我是一个问法模版
+   */
   lgfText?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +43,8 @@ export class ListBeebotIntentLgfRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Number of items
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +53,8 @@ export class ListBeebotIntentLgfRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example

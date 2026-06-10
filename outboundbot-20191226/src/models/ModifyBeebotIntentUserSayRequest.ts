@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBeebotIntentUserSayRequestUserSayDefinition extends $dara.Model {
   /**
    * @remarks
+   * The content of the user utterance.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 你知道xxxxx么？
    */
   content?: string;
   /**
    * @remarks
+   * The intent ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,6 +49,8 @@ export class ModifyBeebotIntentUserSayRequestUserSayDefinition extends $dara.Mod
 export class ModifyBeebotIntentUserSayRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +59,8 @@ export class ModifyBeebotIntentUserSayRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,11 +69,15 @@ export class ModifyBeebotIntentUserSayRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
+   * The definition of the user utterance.
+   * 
    * This parameter is required.
    */
   userSayDefinition?: ModifyBeebotIntentUserSayRequestUserSayDefinition;
   /**
    * @remarks
+   * The user utterance ID.
+   * 
    * This parameter is required.
    * 
    * @example

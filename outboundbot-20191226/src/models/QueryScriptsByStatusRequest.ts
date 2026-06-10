@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryScriptsByStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryScriptsByStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class QueryScriptsByStatusRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class QueryScriptsByStatusRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The list of statuses.
+   * 
    * This parameter is required.
    */
   statusList?: string[];

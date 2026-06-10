@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyTagGroupsResponseBodyTagGroups extends $dara.Model {
   /**
+   * @remarks
+   * The script ID.
+   * 
    * @example
    * 365b955d-6f4d-4ab5-a6e1-9a301307f4b1
    */
   scriptId?: string;
+  /**
+   * @remarks
+   * The name of the tag group.
+   * 
+   * @example
+   * 标签组
+   */
   tagGroup?: string;
   /**
+   * @remarks
+   * The ID of the tag group.
+   * 
    * @example
    * 54629be9-0746-464a-ab59-4830242cf644
    */
   tagGroupId?: string;
   /**
+   * @remarks
+   * The position of the tag group.
+   * 
    * @example
    * 1
    */
@@ -48,21 +64,44 @@ export class ModifyTagGroupsResponseBodyTagGroups extends $dara.Model {
 
 export class ModifyTagGroupsResponseBodyTags extends $dara.Model {
   /**
+   * @remarks
+   * The script ID.
+   * 
    * @example
-   * 365b955d-6f4d-4ab5-a6e1-9a301307f4b1
+   * 8a4c6d3d-5ed6-44ca-b779-16c20f8862be
    */
   scriptId?: string;
+  /**
+   * @remarks
+   * The name of the tag group.
+   * 
+   * @example
+   * 当前学历
+   */
   tagGroup?: string;
   /**
+   * @remarks
+   * The unique ID of the tag.
+   * 
    * @example
    * 19b23e92-4ee3-4129-8c2e-e1968670d887
    */
   tagId?: string;
   /**
+   * @remarks
+   * The index of the tag.
+   * 
    * @example
    * 1
    */
   tagIndex?: number;
+  /**
+   * @remarks
+   * The name of the tag.
+   * 
+   * @example
+   * 本科
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,31 +134,54 @@ export class ModifyTagGroupsResponseBodyTags extends $dara.Model {
 
 export class ModifyTagGroupsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 5a865b03-d2b9-4ef9-be98-f21fa0d93744
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The list of tag groups.
+   */
   tagGroups?: ModifyTagGroupsResponseBodyTagGroups[];
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: ModifyTagGroupsResponseBodyTags[];
   static names(): { [key: string]: string } {
     return {

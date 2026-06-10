@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSummaryInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * List of instance IDs.
+   * 
    * @example
    * []
    */

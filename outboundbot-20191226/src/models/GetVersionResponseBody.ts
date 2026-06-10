@@ -4,33 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetVersionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Response code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 1364f208-982d-4d0c-89aa-d56e22b47589
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call succeeded
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Version number
+   * 
    * @example
-   * 2018-12-13
+   * v2.4.1.xxxxxxx_release
    */
   version?: string;
   static names(): { [key: string]: string } {

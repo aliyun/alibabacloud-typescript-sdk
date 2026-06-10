@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceBindNumberResponseBodyDataList extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID.
+   * 
    * @example
    * 96b847ad-2683-4794-b7b4-7ef094fb81f6
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Indicates whether the binding was successful.
+   * 
    * @example
    * true
    */
@@ -37,6 +43,10 @@ export class CreateInstanceBindNumberResponseBodyDataList extends $dara.Model {
 }
 
 export class CreateInstanceBindNumberResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of number data.
+   */
   list?: CreateInstanceBindNumberResponseBodyDataList[];
   static names(): { [key: string]: string } {
     return {
@@ -64,27 +74,46 @@ export class CreateInstanceBindNumberResponseBodyData extends $dara.Model {
 
 export class CreateInstanceBindNumberResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: CreateInstanceBindNumberResponseBodyData;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * API message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful.
+   * 
    * @example
    * true
    */

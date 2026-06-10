@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactBlockListRequest extends $dara.Model {
   /**
    * @remarks
+   * Contact block list ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteContactBlockListRequest extends $dara.Model {
   contactBlockListId?: string;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DeleteContactBlockListRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Operator information
+   * 
    * @example
    * 160131
    */

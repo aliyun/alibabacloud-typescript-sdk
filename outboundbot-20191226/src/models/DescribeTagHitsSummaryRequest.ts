@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTagHitsSummaryRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,10 +15,12 @@ export class DescribeTagHitsSummaryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The job group ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 8a4c6d3d-5ed6-44ca-b779-16c20f8862be
+   * 292eba45-df08-4065-87e7-7e587a1ce4ce
    */
   jobGroupId?: string;
   static names(): { [key: string]: string } {

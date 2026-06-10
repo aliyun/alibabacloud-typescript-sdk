@@ -3,23 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListScriptPublishHistoriesResponseBodyScriptPublishHistoriesList extends $dara.Model {
+  /**
+   * @remarks
+   * The description of this published version.
+   * 
+   * @example
+   * 第一次发布
+   */
   description?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * af81a389-91f0-4157-8d82-720edd02b66a
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The publish time.
+   * 
    * @example
    * 1578965079000
    */
   publishTime?: number;
   /**
+   * @remarks
+   * The script ID.
+   * 
    * @example
    * 29420f65-8f1f-4009-b2f8-f4f7b5d59090
    */
   scriptId?: string;
   /**
+   * @remarks
+   * The script version.
+   * 
    * @example
    * 1578965079000
    */
@@ -54,18 +73,31 @@ export class ListScriptPublishHistoriesResponseBodyScriptPublishHistoriesList ex
 }
 
 export class ListScriptPublishHistoriesResponseBodyScriptPublishHistories extends $dara.Model {
+  /**
+   * @remarks
+   * The data list.
+   */
   list?: ListScriptPublishHistoriesResponseBodyScriptPublishHistoriesList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 100
    */
@@ -102,27 +134,46 @@ export class ListScriptPublishHistoriesResponseBodyScriptPublishHistories extend
 
 export class ListScriptPublishHistoriesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The API status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The script publishing histories.
+   */
   scriptPublishHistories?: ListScriptPublishHistoriesResponseBodyScriptPublishHistories;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

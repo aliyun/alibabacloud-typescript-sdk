@@ -3,9 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListBeebotIntentUserSayRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The keyword in the user utterance.
+   * 
+   * @example
+   * 知道
+   */
   content?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +23,8 @@ export class ListBeebotIntentUserSayRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The intent ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +33,8 @@ export class ListBeebotIntentUserSayRequest extends $dara.Model {
   intentId?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +43,8 @@ export class ListBeebotIntentUserSayRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to display on each page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +53,8 @@ export class ListBeebotIntentUserSayRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The scenario ID.
+   * 
    * This parameter is required.
    * 
    * @example

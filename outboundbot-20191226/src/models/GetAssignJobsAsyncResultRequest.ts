@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAssignJobsAsyncResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the asynchronous task.
+   * 
    * This parameter is required.
    * 
    * @example

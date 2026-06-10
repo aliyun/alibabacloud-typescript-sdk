@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyGlobalQuestionRequest extends $dara.Model {
   /**
    * @remarks
+   * A JSON string containing an array of answers.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ["你好,我是你的专属客服顾问."]
    */
   answers?: string;
   /**
    * @remarks
+   * The unique ID of the global question.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,11 +25,18 @@ export class ModifyGlobalQuestionRequest extends $dara.Model {
   globalQuestionId?: string;
   /**
    * @remarks
+   * The global question name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 未识别全局问题
    */
   globalQuestionName?: string;
   /**
    * @remarks
+   * The global question type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,23 +45,32 @@ export class ModifyGlobalQuestionRequest extends $dara.Model {
   globalQuestionType?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 8fa1953f-4a84-46d8-b80c-8ce9cf684fb3
+   * e5035654-1745-484a-8c5b-165f7c7bcd79
    */
   instanceId?: string;
   /**
    * @remarks
+   * A JSON string containing an array of questions.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ["你是谁","你叫什么"]
    */
   questions?: string;
   /**
    * @remarks
+   * The script ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 19ac2375-53e3-477f-abe9-6cd334227981
+   * 0fe7f71c-8771-42ef-9bb1-19aa16ae7120
    */
   scriptId?: string;
   static names(): { [key: string]: string } {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTaskByUuidRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetTaskByUuidRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Task ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,8 +24,13 @@ export class GetTaskByUuidRequest extends $dara.Model {
    */
   taskId?: string;
   /**
+   * @remarks
+   * Include conversation details
+   * 
+   * > The default value is false.
+   * 
    * @example
-   * true
+   * false
    */
   withConversations?: boolean;
   static names(): { [key: string]: string } {

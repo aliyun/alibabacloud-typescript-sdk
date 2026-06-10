@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteScriptRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteScriptRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the script to delete.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeJobsRequest extends $dara.Model {
   /**
    * @remarks
+   * Filter condition: Specifies whether to restart all jobs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ResumeJobsRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,21 +24,37 @@ export class ResumeJobsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Filter condition: Task group ID.
+   * 
    * @example
    * de48407d-309e-451a-81ec-6fb11f8fdbf3
    */
   jobGroupId?: string;
   /**
+   * @remarks
+   * Job ID list.
+   * 
+   * > This parameter is required when All is false.
+   * 
    * @example
    * b72425bd-7871-4050-838e-033d80d754b7
    */
   jobId?: string[];
   /**
+   * @remarks
+   * Third-party ID of the job.
+   * 
+   * > This is the ReferenceId uploaded by the customer when uploading the outbound list.
+   * 
    * @example
    * d5971d98-7312-4f0e-a918-a17d67133e28
    */
   jobReferenceId?: string[];
   /**
+   * @remarks
+   * Filter condition: Scenario ID (historical parameter, deprecated).
+   * 
    * @example
    * b016fbdb-b81c-4c06-8870-cb36b8783b6d
    */

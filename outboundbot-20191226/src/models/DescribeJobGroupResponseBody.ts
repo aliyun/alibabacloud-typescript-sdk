@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeJobGroupResponseBodyJobGroupExportProgress extends $dara.Model {
   /**
+   * @remarks
+   * File URL. This field is deprecated.
+   * 
    * @example
    * https://oss-cn-shanghai.aliyuncs.com/xx.zip
    */
   fileHttpUrl?: string;
   /**
+   * @remarks
+   * Export progress. This field is deprecated.
+   * 
    * @example
    * 1
    */
   progress?: string;
   /**
+   * @remarks
+   * Export status. This field is deprecated.
+   * 
    * @example
    * FINISHED
    */
@@ -44,7 +53,21 @@ export class DescribeJobGroupResponseBodyJobGroupExportProgress extends $dara.Mo
 }
 
 export class DescribeJobGroupResponseBodyJobGroupFlashSmsExtras extends $dara.Model {
+  /**
+   * @remarks
+   * Flash SMS configuration ID.
+   * 
+   * @example
+   * bebe23e6e2604f50bbeb12900c07703d
+   */
   configId?: string;
+  /**
+   * @remarks
+   * Flash SMS template ID.
+   * 
+   * @example
+   * e080d737-5c0b-4350-b7d4-1162530579e7
+   */
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71,11 +94,17 @@ export class DescribeJobGroupResponseBodyJobGroupFlashSmsExtras extends $dara.Mo
 
 export class DescribeJobGroupResponseBodyJobGroupProgressBriefs extends $dara.Model {
   /**
+   * @remarks
+   * Business result name.
+   * 
    * @example
    * score
    */
   key?: string;
   /**
+   * @remarks
+   * Business result value.
+   * 
    * @example
    * 5
    */
@@ -105,11 +134,17 @@ export class DescribeJobGroupResponseBodyJobGroupProgressBriefs extends $dara.Mo
 
 export class DescribeJobGroupResponseBodyJobGroupProgressCategories extends $dara.Model {
   /**
+   * @remarks
+   * Custom statistics field name.
+   * 
    * @example
    * success
    */
   key?: string;
   /**
+   * @remarks
+   * Custom statistics value.
+   * 
    * @example
    * 10
    */
@@ -138,59 +173,100 @@ export class DescribeJobGroupResponseBodyJobGroupProgressCategories extends $dar
 }
 
 export class DescribeJobGroupResponseBodyJobGroupProgress extends $dara.Model {
+  /**
+   * @remarks
+   * Business result information. This field is deprecated.
+   */
   briefs?: DescribeJobGroupResponseBodyJobGroupProgressBriefs[];
   /**
+   * @remarks
+   * Number of cancelled jobs.
+   * 
    * @example
    * 0
    */
   cancelled?: number;
+  /**
+   * @remarks
+   * Statistics in key-value format. This field is deprecated.
+   */
   categories?: DescribeJobGroupResponseBodyJobGroupProgressCategories[];
   /**
+   * @remarks
+   * Job execution time. This field is deprecated.
+   * 
    * @example
    * 1000
    */
   duration?: number;
   /**
+   * @remarks
+   * Number of jobs in execution.
+   * 
    * @example
    * 2
    */
   executing?: number;
   /**
+   * @remarks
+   * Number of failed jobs.
+   * 
    * @example
    * 0
    */
   failed?: number;
   /**
+   * @remarks
+   * Number of paused jobs.
+   * 
    * @example
    * 0
    */
   paused?: number;
   /**
+   * @remarks
+   * Number of jobs being scheduled.
+   * 
    * @example
    * 5
    */
   scheduling?: number;
   /**
+   * @remarks
+   * Start time of execution. This field is deprecated.
+   * 
    * @example
    * 1578881227404
    */
   startTime?: number;
   /**
+   * @remarks
+   * Overall job execution status. This field is deprecated.
+   * 
    * @example
    * Executing
    */
   status?: string;
   /**
+   * @remarks
+   * Total number of completed jobs.
+   * 
    * @example
    * 2
    */
   totalCompleted?: number;
   /**
+   * @remarks
+   * Total number of jobs.
+   * 
    * @example
    * 10
    */
   totalJobs?: number;
   /**
+   * @remarks
+   * This field is deprecated.
+   * 
    * @example
    * 1
    */
@@ -248,16 +324,25 @@ export class DescribeJobGroupResponseBodyJobGroupProgress extends $dara.Model {
 
 export class DescribeJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Model {
   /**
+   * @remarks
+   * Do not dial nonexistent numbers.
+   * 
    * @example
    * false
    */
   emptyNumberIgnore?: boolean;
   /**
+   * @remarks
+   * Do not dial numbers with overdue payments.
+   * 
    * @example
    * false
    */
   inArrearsIgnore?: boolean;
   /**
+   * @remarks
+   * Do not dial out-of-service numbers.
+   * 
    * @example
    * false
    */
@@ -289,26 +374,41 @@ export class DescribeJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Mo
 
 export class DescribeJobGroupResponseBodyJobGroupResult extends $dara.Model {
   /**
+   * @remarks
+   * Number of calls hung up by the customer. This field is deprecated.
+   * 
    * @example
    * 1
    */
   clientHangupNum?: number;
   /**
+   * @remarks
+   * Number of completed jobs. This field is deprecated.
+   * 
    * @example
    * 1
    */
   finishedNum?: number;
   /**
+   * @remarks
+   * Number of calls with no interaction. This field is deprecated.
+   * 
    * @example
    * 1
    */
   noInteractNum?: number;
   /**
+   * @remarks
+   * Number of calls hung up due to timeout. This field is deprecated.
+   * 
    * @example
    * 1
    */
   timeoutHangupNum?: number;
   /**
+   * @remarks
+   * Number of unrecognized responses. This field is deprecated.
+   * 
    * @example
    * 1
    */
@@ -344,11 +444,17 @@ export class DescribeJobGroupResponseBodyJobGroupResult extends $dara.Model {
 
 export class DescribeJobGroupResponseBodyJobGroupStrategyWorkingTime extends $dara.Model {
   /**
+   * @remarks
+   * End time
+   * 
    * @example
    * 09:00:00
    */
   beginTime?: string;
   /**
+   * @remarks
+   * End time.
+   * 
    * @example
    * 12:00:00
    */
@@ -378,64 +484,130 @@ export class DescribeJobGroupResponseBodyJobGroupStrategyWorkingTime extends $da
 
 export class DescribeJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   /**
+   * @remarks
+   * Custom data for the strategy. This is a legacy parameter and is no longer used.
+   * 
    * @example
    * {}
    */
   customized?: string;
   /**
+   * @remarks
+   * End time of the scheduling strategy.
+   * 
    * @example
    * 1579881227404
    */
   endTime?: number;
   /**
+   * @remarks
+   * Action to take after the execution period ends. This is a legacy parameter and is no longer used.
+   * 
    * @example
    * NONE
    */
   followUpStrategy?: string;
   /**
+   * @remarks
+   * Indicates whether this is a template.
+   * 
    * @example
    * false
    */
   isTemplate?: boolean;
   /**
+   * @remarks
+   * Maximum number of calls per day when the call is not answered.
+   * 
    * @example
    * 2
    */
   maxAttemptsPerDay?: number;
   /**
+   * @remarks
+   * Minimum interval between retry attempts.
+   * 
    * @example
    * 10
    */
   minAttemptInterval?: number;
   /**
+   * @remarks
+   * Job repetition method.
+   * 
    * @example
    * Once
    */
   repeatBy?: string;
+  /**
+   * @remarks
+   * Days on which the job repeats. Use with RepeatBy.
+   * 
+   * - If the recurrence is weekly, 0 means Sunday, and 1–6 mean Monday through Saturday.
+   * 
+   * - If the recurrence is monthly, 1–31 mean the 1st through 31st days of the month. Months without the specified day skip the job. For example, if you select the 30th, February skips it.
+   */
   repeatDays?: string[];
+  /**
+   * @remarks
+   * Indicates whether this is a recurring job.
+   * 
+   * @example
+   * false
+   */
   repeatable?: boolean;
   /**
+   * @remarks
+   * Phone number routing policy.
+   * 
    * @example
    * LocalFirst
    */
   routingStrategy?: string;
   /**
+   * @remarks
+   * Start time of the strategy.
+   * 
    * @example
    * 1578881227404
    */
   startTime?: number;
+  /**
+   * @remarks
+   * Strategy description.
+   * 
+   * @example
+   * 催收策略
+   */
   strategyDescription?: string;
   /**
+   * @remarks
+   * Strategy ID.
+   * 
    * @example
    * a2bff22c-2604-4df2-83d6-5952e2438c5a
    */
   strategyId?: string;
+  /**
+   * @remarks
+   * Strategy name.
+   * 
+   * @example
+   * 催收策略名字
+   */
   strategyName?: string;
   /**
+   * @remarks
+   * Strategy type.
+   * 
    * @example
    * Repeatable
    */
   type?: string;
+  /**
+   * @remarks
+   * Working hours.
+   */
   workingTime?: DescribeJobGroupResponseBodyJobGroupStrategyWorkingTime[];
   static names(): { [key: string]: string } {
     return {
@@ -495,77 +667,168 @@ export class DescribeJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
 }
 
 export class DescribeJobGroupResponseBodyJobGroup extends $dara.Model {
+  /**
+   * @remarks
+   * Caller number list.
+   */
   callingNumbers?: string[];
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 1578881227404
    */
   creationTime?: number;
+  /**
+   * @remarks
+   * Export progress. This field is deprecated.
+   * 
+   * > Get this information from the ListJobGroups API instead.
+   */
   exportProgress?: DescribeJobGroupResponseBodyJobGroupExportProgress;
+  /**
+   * @remarks
+   * Configuration parameters for flash SMS delivery. This is a JSON object that contains third-party flash SMS configuration details.
+   */
   flashSmsExtras?: DescribeJobGroupResponseBodyJobGroupFlashSmsExtras;
   /**
+   * @remarks
+   * Job list parsing task ID. This parameter is deprecated.
+   * 
    * @example
    * da37319b-6c83-4268-9f19-814aed62e401/a5a9a310-b902-4674-a6e1-29975cbaa312_100.xlsx
    */
   jobDataParsingTaskId?: string;
   /**
+   * @remarks
+   * OSS file key for the uploaded job list. This parameter is deprecated.
+   * 
    * @example
    * da37319b-6c83-4268-9f19-814aed62e401/a5a9a310-b902-4674-a6e1-29975cbaa312_100.xlsx
    */
   jobFilePath?: string;
+  /**
+   * @remarks
+   * Job description.
+   * 
+   * @example
+   * 催收作业组
+   */
   jobGroupDescription?: string;
   /**
+   * @remarks
+   * Job group ID.
+   * 
    * @example
    * 46a9ad0c-3e11-44da-a9a7-2c21bf5ce185
    */
   jobGroupId?: string;
+  /**
+   * @remarks
+   * Job group name.
+   * 
+   * @example
+   * 催收作业组
+   */
   jobGroupName?: string;
   /**
+   * @remarks
+   * Minimum concurrency.
+   * 
    * @example
    * 1
    */
   minConcurrency?: number;
   /**
+   * @remarks
+   * Modification time.
+   * 
    * @example
    * 1578881227404
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * Priority.
+   * 
    * @example
    * 1
    */
   priority?: string;
+  /**
+   * @remarks
+   * Job progress.
+   */
   progress?: DescribeJobGroupResponseBodyJobGroupProgress;
+  /**
+   * @remarks
+   * Caller number list for redials. These numbers are used only when the first call fails. If not specified, the system uses the main caller number list.
+   */
   recallCallingNumbers?: string[];
+  /**
+   * @remarks
+   * Redial strategy.
+   */
   recallStrategy?: DescribeJobGroupResponseBodyJobGroupRecallStrategy;
+  /**
+   * @remarks
+   * Statistics. This is a legacy parameter and is no longer provided. This field is deprecated.
+   */
   result?: DescribeJobGroupResponseBodyJobGroupResult;
   /**
+   * @remarks
+   * Ringing duration.
+   * 
    * @example
    * 30
    */
   ringingDuration?: number;
   /**
+   * @remarks
+   * Scenario ID. This is a legacy canvas parameter. For new canvases, this value is the same as ScriptId.
+   * 
    * @example
    * fce6c599-8ede-40e3-9f78-0928eda7b4e8
    */
   scenarioId?: string;
   /**
+   * @remarks
+   * Script scenario ID.
+   * 
    * @example
    * 49f00b0d-78ac-4d51-91de-a9e8e92b8470
    */
   scriptId?: string;
+  /**
+   * @remarks
+   * Script scenario name.
+   * 
+   * @example
+   * 催收话术
+   */
   scriptName?: string;
   scriptNluEngine?: string;
   /**
+   * @remarks
+   * Script scenario version number.
+   * 
    * @example
    * 49f00b0d-78ac-4d51-91de-a9e8e92b8470
    */
   scriptVersion?: string;
   /**
+   * @remarks
+   * Job status.
+   * 
    * @example
    * Completed
    */
   status?: string;
+  /**
+   * @remarks
+   * Job execution strategy.
+   */
   strategy?: DescribeJobGroupResponseBodyJobGroupStrategy;
   static names(): { [key: string]: string } {
     return {
@@ -660,27 +923,46 @@ export class DescribeJobGroupResponseBodyJobGroup extends $dara.Model {
 
 export class DescribeJobGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Job information.
+   */
   jobGroup?: DescribeJobGroupResponseBodyJobGroup;
   /**
+   * @remarks
+   * API message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
    * @example
    * true
    */

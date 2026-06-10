@@ -3,12 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListFlashSmsTemplatesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the template.
+   * 
+   * @example
+   * 您好，xxx来电。
+   */
   templateContent?: string;
   /**
+   * @remarks
+   * The ID of the flash SMS template.
+   * 
    * @example
    * 17*******************01
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   * 
+   * @example
+   * 模板1
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,23 +54,46 @@ export class ListFlashSmsTemplatesResponseBodyData extends $dara.Model {
 
 export class ListFlashSmsTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListFlashSmsTemplatesResponseBodyData[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * 无
+   */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * EC08CC41-6870-5594-939A-F758F057898F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call succeeded. A value of true indicates a successful call. A value of false indicates a failed call.
+   * 
    * @example
    * true
    */

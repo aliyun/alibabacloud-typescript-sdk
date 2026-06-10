@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAsrServerInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * 024f8cf0-c842-4c01-b74b-c8667e4579c7
    */
   entryId?: string;
   /**
+   * @remarks
+   * Policy level
+   * 
    * @example
    * 2
    */

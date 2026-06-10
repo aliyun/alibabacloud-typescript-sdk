@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class SuspendJobsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * API message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
-   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   * 1364f208-982d-4d0c-89aa-d56e22b47589
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether successful.
+   * 
    * @example
    * true
    */

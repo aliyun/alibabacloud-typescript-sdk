@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntentsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListIntentsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * A keyword to filter intents.
+   * 
    * @example
-   * ""
+   * 还款
    */
   keyword?: string;
   /**
    * @remarks
+   * The number of the page to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class ListIntentsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return on each page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +43,8 @@ export class ListIntentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The script ID.
+   * 
    * This parameter is required.
    * 
    * @example

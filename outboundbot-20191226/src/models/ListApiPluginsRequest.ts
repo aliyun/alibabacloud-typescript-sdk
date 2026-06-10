@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListApiPluginsRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListApiPluginsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Page number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListApiPluginsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Number of entries per page
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +34,9 @@ export class ListApiPluginsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * API plugin unique identifiers
+   * 
    * @example
    * ["d17d5bfa-4972-4389-9718-f9602edabe48"]
    */

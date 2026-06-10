@@ -5,26 +5,32 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIntentRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
-   * af81a389-91f0-4157-8d82-720edd02b66a
+   * da37319b-6c83-4268-9f19-814aed62e401
    */
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the intent.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 0f8a0059-dc9c-4151-8378-4734bbadf3cc
+   * 10717802
    */
   intentId?: string;
   /**
    * @remarks
+   * The ID of the script.
+   * 
    * This parameter is required.
    * 
    * @example
-   * b9ff4e88-65f9-4eb3-987c-11ba51f3f24d
+   * aa279896-64a6-4182-864c-4f2b04ec8d17
    */
   scriptId?: string;
   static names(): { [key: string]: string } {

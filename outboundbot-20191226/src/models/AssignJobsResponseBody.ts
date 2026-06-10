@@ -4,32 +4,54 @@ import * as $dara from '@darabonba/typescript';
 
 export class AssignJobsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The job group ID.
+   * 
    * @example
    * 390515b5-6115-4ccf-83e2-52d5bfaf2ddf
    */
   jobGroupId?: string;
+  /**
+   * @remarks
+   * A list of job IDs.
+   */
   jobsId?: string[];
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

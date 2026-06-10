@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SaveMaxAttemptsPerDayRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,19 @@ export class SaveMaxAttemptsPerDayRequest extends $dara.Model {
    */
   entryId?: string;
   /**
+   * @remarks
+   * Daily maximum redial attempts. Default is 3 if not specified.
+   * 
    * @example
-   * 5
+   * 3
    */
   maxAttemptsPerDay?: number;
   /**
+   * @remarks
+   * Policy level (required)
+   * 
+   * - 2: Instance
+   * 
    * @example
    * 2
    */

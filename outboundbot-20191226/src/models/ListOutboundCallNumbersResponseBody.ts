@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListOutboundCallNumbersResponseBodyOutboundCallNumbersList extends $dara.Model {
   /**
+   * @remarks
+   * Phone number.
+   * 
    * @example
    * 10088
    */
   number?: string;
   /**
+   * @remarks
+   * ID of the phone number.
+   * 
    * @example
    * fa0e21e9-caab-4629-9121-1e341243d599
    */
   outboundCallNumberId?: string;
   /**
+   * @remarks
+   * Time window for rate limiting, in seconds.
+   * 
    * @example
    * 10
    */
   rateLimitCount?: string;
   /**
+   * @remarks
+   * Maximum number of calls allowed in the time window.
+   * 
    * @example
    * 100
    */
@@ -51,18 +63,31 @@ export class ListOutboundCallNumbersResponseBodyOutboundCallNumbersList extends 
 }
 
 export class ListOutboundCallNumbersResponseBodyOutboundCallNumbers extends $dara.Model {
+  /**
+   * @remarks
+   * List of outbound call number data.
+   */
   list?: ListOutboundCallNumbersResponseBodyOutboundCallNumbersList[];
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of entries on the page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of entries.
+   * 
    * @example
    * 10
    */
@@ -99,27 +124,46 @@ export class ListOutboundCallNumbersResponseBodyOutboundCallNumbers extends $dar
 
 export class ListOutboundCallNumbersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * API message.
+   * 
    * @example
    * Success
    */
   message?: string;
+  /**
+   * @remarks
+   * List of outbound call numbers.
+   */
   outboundCallNumbers?: ListOutboundCallNumbersResponseBodyOutboundCallNumbers;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */

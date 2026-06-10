@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeJobRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class DescribeJobRequest extends $dara.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * Specifies whether to return the script.
+   * 
    * @example
    * false
    */

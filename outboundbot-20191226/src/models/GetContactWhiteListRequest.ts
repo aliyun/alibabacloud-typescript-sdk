@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetContactWhiteListRequest extends $dara.Model {
   /**
+   * @remarks
+   * Whether to return the total count
+   * 
    * @example
    * true
    */
   countTotalRow?: boolean;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +22,17 @@ export class GetContactWhiteListRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of entries per page
+   * 
    * @example
    * 10
    */

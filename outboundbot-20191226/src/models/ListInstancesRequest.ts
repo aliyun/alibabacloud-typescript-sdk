@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstancesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The key of the instance tag.
+   * 
    * @example
    * name
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the instance tag.
+   * 
    * @example
    * xxx
    */
@@ -37,14 +43,46 @@ export class ListInstancesRequestTag extends $dara.Model {
 }
 
 export class ListInstancesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Outbound Calling Bot instance.
+   * 
+   * @example
+   * xxx
+   */
   name?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * > For more information, see ListResourceGroups.
+   * 
    * @example
    * rg-acfm3iugit3uw7a
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags of the service instance.
+   * 
+   * > You can call the ListResourceTags operation to obtain the tags.
+   */
   tag?: ListInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {

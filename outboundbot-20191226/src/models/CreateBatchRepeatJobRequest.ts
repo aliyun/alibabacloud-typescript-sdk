@@ -4,19 +4,45 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateBatchRepeatJobRequest extends $dara.Model {
   /**
+   * @remarks
+   * Calling number
+   * 
    * @example
    * []
    */
   callingNumber?: string[];
+  /**
+   * @remarks
+   * Job group description
+   * 
+   * @example
+   * 测试3
+   */
   description?: string;
   /**
+   * @remarks
+   * Job group status
+   * 
    * @example
    * Succeeded,NoInteraction,Failed,Cancelled
    */
   filterStatus?: string;
+  /**
+   * @remarks
+   * Configuration parameters for flash SMS push, in JSON format, including configuration information for third-party flash SMS.
+   * 
+   * - Template ID: Flash SMS template ID.
+   * 
+   * - Config ID: Flash SMS configuration ID.
+   * 
+   * @example
+   * {"templateId":"10471","configId":"8037f524-6ff2-4dbe-bb28-f59234ea7a64"}
+   */
   flashSmsExtras?: string;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,12 +50,17 @@ export class CreateBatchRepeatJobRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Minimum concurrency
+   * 
    * @example
    * 2
    */
   minConcurrency?: number;
   /**
    * @remarks
+   * Job name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,28 +68,46 @@ export class CreateBatchRepeatJobRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * Job priority
+   * 
    * @example
    * 10
    */
   priority?: string;
+  /**
+   * @remarks
+   * Redial calling number list
+   */
   recallCallingNumber?: string[];
   /**
+   * @remarks
+   * Redial policy JSON
+   * 
    * @example
    * {\\"emptyNumberIgnore\\":false,\\"inArrearsIgnore\\":false,\\"outOfServiceIgnore\\":false}
    */
   recallStrategyJson?: string;
   /**
+   * @remarks
+   * Ringing duration
+   * 
    * @example
    * 25
    */
   ringingDuration?: number;
   /**
+   * @remarks
+   * Script ID
+   * 
    * @example
    * 0fe7f71c-8771-42ef-9bb1-19aa16ae7120
    */
   scriptId?: string;
   /**
    * @remarks
+   * Job group ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -66,6 +115,9 @@ export class CreateBatchRepeatJobRequest extends $dara.Model {
    */
   sourceGroupId?: string;
   /**
+   * @remarks
+   * Job execution policy
+   * 
    * @example
    * {\\"maxAttemptsPerDay\\":1,\\"minAttemptInterval\\":1,\\"routingStrategy\\":\\"LocalFirst\\"}
    */

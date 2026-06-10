@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRealtimeConcurrencyReportRequest extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * 85bf7efa-a07c-498a-850e-99a5849b8589
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Task group ID
+   * 
    * @example
    * c62e6789-28a8-41db-941e-171a01d3b3b9
    */
   jobGroupId?: string;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */

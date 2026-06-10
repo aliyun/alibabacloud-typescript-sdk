@@ -4,35 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
   /**
+   * @remarks
+   * The debug status.
+   * 
    * @example
    * PUBLISHED
    */
   debugStatus?: string;
+  /**
+   * @remarks
+   * The industry.
+   * 
+   * @example
+   * 金融
+   */
   industry?: string;
   /**
+   * @remarks
+   * Indicates whether the debug version is a draft.
+   * 
    * @example
    * false
    */
   isDebugDrafted?: boolean;
   /**
+   * @remarks
+   * Indicates whether the application version is a draft.
+   * 
    * @example
    * false
    */
   isDrafted?: boolean;
+  /**
+   * @remarks
+   * The scenario.
+   * 
+   * @example
+   * 电销
+   */
   scene?: string;
+  /**
+   * @remarks
+   * The script description.
+   * 
+   * @example
+   * 销售话术
+   */
   scriptDescription?: string;
   /**
+   * @remarks
+   * The script ID.
+   * 
    * @example
    * e4e2a770-b97b-465a-80d8-06dca008c503
    */
   scriptId?: string;
+  /**
+   * @remarks
+   * The script name.
+   * 
+   * @example
+   * 销售话术
+   */
   scriptName?: string;
   /**
+   * @remarks
+   * The status of the application version.
+   * 
    * @example
    * PUBLISHED
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the script was updated.
+   * 
    * @example
    * 1578881227000
    */
@@ -78,27 +124,46 @@ export class WithdrawScriptReviewResponseBodyScript extends $dara.Model {
 
 export class WithdrawScriptReviewResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The script information.
+   */
   script?: WithdrawScriptReviewResponseBodyScript;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

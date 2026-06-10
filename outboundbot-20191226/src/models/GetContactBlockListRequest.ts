@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetContactBlockListRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to return the total number of entries.
+   * 
    * @example
-   * 100
+   * true
    */
   countTotalRow?: boolean;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +22,17 @@ export class GetContactBlockListRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number. This parameter is required.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries (required)
+   * 
    * @example
    * 10
    */

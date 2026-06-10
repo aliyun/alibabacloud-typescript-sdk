@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentProfileTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the agent profile template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetAgentProfileTemplateRequest extends $dara.Model {
    */
   agentProfileTemplateId?: string;
   /**
+   * @remarks
+   * IP address of the application. This is a system field and is optional.
+   * 
    * @example
    * 127.0.0.1
    */

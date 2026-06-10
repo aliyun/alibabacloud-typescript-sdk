@@ -3,14 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryJobsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter condition. Contact name.
+   * 
+   * @example
+   * 张三
+   */
   contactName?: string;
   /**
+   * @remarks
+   * Filter condition. End time. Default value is 0, which means up to now.
+   * 
    * @example
    * 1579077794665
    */
   endTime?: number;
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,12 +30,17 @@ export class QueryJobsRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Task group ID.
+   * 
    * @example
    * 994b8baf-7ef8-480c-b141-b7b6db77c4df
    */
   jobGroupId?: string;
   /**
    * @remarks
+   * Page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -32,6 +49,8 @@ export class QueryJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Page size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,21 +58,33 @@ export class QueryJobsRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Filter condition. Contact phone number.
+   * 
    * @example
    * 135****8888
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * Scenario ID. This parameter is deprecated.
+   * 
    * @example
    * b0f35dd1-0337-402e-9c4f-3a6c2426950a
    */
   scenarioId?: string;
   /**
+   * @remarks
+   * Filter condition. Start time. Default value is 0, which means from 00:00 today.
+   * 
    * @example
    * 1579068424883
    */
   startTime?: number;
   /**
+   * @remarks
+   * Time filter basis. Valid values: start, end, and job_create.
+   * 
    * @example
    * start
    */

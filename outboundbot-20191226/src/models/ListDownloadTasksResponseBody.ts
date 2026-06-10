@@ -4,20 +4,48 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles extends $dara.Model {
   /**
+   * @remarks
+   * File ID
+   * 
    * @example
-   * UPLOADED/RECORDING/d5c651b3-3c0f-44b8-aafd-40526f2fb43d/dd33377f-abad-471b-84dd-04aed572ce60_2.wav
+   * 01f8d11abdb9406996c0c46e7*******
    */
   fileId?: string;
   /**
+   * @remarks
+   * Completion progress [Deprecated]
+   * 
    * @example
    * 10
    */
   progress?: number;
   /**
+   * @remarks
+   * File status
+   * 
+   * - Pending: Pending
+   * 
+   * - InProgress: In progress
+   * 
+   * - Finished: Completed
+   * 
+   * - Failed: Failed
+   * 
+   * - Expired: Expired
+   * 
+   * - Cancelled: Canceled
+   * 
    * @example
    * Empty
    */
   status?: string;
+  /**
+   * @remarks
+   * Title
+   * 
+   * @example
+   * GUI-TEST-新建风险
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,22 +75,54 @@ export class ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles ext
 }
 
 export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model {
+  /**
+   * @remarks
+   * Download task file list
+   */
   downloadTaskFiles?: ListDownloadTasksResponseBodyDownloadTasksListDownloadTaskFiles[];
   /**
+   * @remarks
+   * The expiration time.
+   * 
    * @example
    * 1646792941
    */
   expireTime?: number;
   /**
+   * @remarks
+   * Export status.
+   * 
+   * - Pending: Pending
+   * 
+   * - InProgress: In progress
+   * 
+   * - Finished: Completed
+   * 
+   * - Failed: Failed
+   * 
+   * - Expired: Expired
+   * 
+   * - Cancelled: Canceled
+   * 
    * @example
    * Empty
    */
   status?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * 6b0e547e-501c-480a-812f-d27e28e74f9a
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Title
+   * 
+   * @example
+   * GUI-TEST-新建风险
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -97,18 +157,31 @@ export class ListDownloadTasksResponseBodyDownloadTasksList extends $dara.Model 
 }
 
 export class ListDownloadTasksResponseBodyDownloadTasks extends $dara.Model {
+  /**
+   * @remarks
+   * Download task array
+   */
   list?: ListDownloadTasksResponseBodyDownloadTasksList[];
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Count
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count
+   * 
    * @example
    * 2
    */
@@ -145,27 +218,46 @@ export class ListDownloadTasksResponseBodyDownloadTasks extends $dara.Model {
 
 export class ListDownloadTasksResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status code
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Download task list
+   */
   downloadTasks?: ListDownloadTasksResponseBodyDownloadTasks;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * API message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 904CFA7B-8AD9-50FF-9B3E-404B20B9EE31
    */
   requestId?: string;
   /**
+   * @remarks
+   * Success
+   * 
    * @example
    * True
    */

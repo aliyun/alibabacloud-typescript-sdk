@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAgentProfilesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The IP address of the application. This is an optional system field.
+   * 
    * @example
    * 127.0.0.1
    */
   appIp?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class ListAgentProfilesRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The scenario ID.
+   * 
    * @example
    * d004cfd2-6a81-491c-83c6-cbe186620c95
    */

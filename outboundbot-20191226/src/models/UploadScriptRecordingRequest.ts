@@ -5,11 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class UploadScriptRecordingRequest extends $dara.Model {
   /**
    * @remarks
+   * Text content of the recording file
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 您好
    */
   content?: string;
   /**
    * @remarks
+   * File key in OSS
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class UploadScriptRecordingRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
+   * File name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +35,8 @@ export class UploadScriptRecordingRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +45,8 @@ export class UploadScriptRecordingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Script ID
+   * 
    * This parameter is required.
    * 
    * @example

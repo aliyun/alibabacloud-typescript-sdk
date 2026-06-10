@@ -5,12 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitScriptReviewRequest extends $dara.Model {
   /**
    * @remarks
+   * Description
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 第一版本提交审核
    */
   description?: string;
+  /**
+   * @remarks
+   * Source of review submission
+   * 
+   * @example
+   * MAINSITE
+   */
   from?: string;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,10 +33,12 @@ export class SubmitScriptReviewRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Script ID
+   * 
    * This parameter is required.
    * 
    * @example
-   * b0f35dd1-0337-402e-9c4f-3a6c2426950a
+   * af81a389-91f0-4157-8d82-720edd02b66a
    */
   scriptId?: string;
   static names(): { [key: string]: string } {

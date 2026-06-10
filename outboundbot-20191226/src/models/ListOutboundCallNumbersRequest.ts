@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListOutboundCallNumbersRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListOutboundCallNumbersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListOutboundCallNumbersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * Number of entries to return on each page.
+   * 
    * This parameter is required.
    * 
    * @example

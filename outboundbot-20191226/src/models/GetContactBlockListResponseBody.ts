@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetContactBlockListResponseBodyContactBlocklistListList extends $dara.Model {
   /**
+   * @remarks
+   * The unique key of the entry in the do-not-call list.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   contactBlockListId?: string;
   /**
+   * @remarks
+   * The time when the entry was created.
+   * 
    * @example
    * 1640077685465
    */
   creationTime?: number;
   /**
+   * @remarks
+   * The user who created the entry.
+   * 
    * @example
    * xxx
    */
   creator?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The name of the contact.
+   * 
    * @example
    * xxx
    */
   name?: string;
   /**
+   * @remarks
+   * The operator.
+   * 
    * @example
    * xxx
    */
   operator?: string;
   /**
+   * @remarks
+   * The mobile phone number.
+   * 
    * @example
    * 1388888888
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * xxxx
    */
@@ -80,21 +104,33 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
 
 export class GetContactBlockListResponseBodyContactBlocklistList extends $dara.Model {
   /**
+   * @remarks
+   * The data array.
+   * 
    * @example
    * []
    */
   list?: GetContactBlockListResponseBodyContactBlocklistListList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 100
    */
@@ -131,31 +167,49 @@ export class GetContactBlockListResponseBodyContactBlocklistList extends $dara.M
 
 export class GetContactBlockListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The list of blocked contacts.
+   * 
    * @example
    * {}
    */
   contactBlocklistList?: GetContactBlockListResponseBodyContactBlocklistList;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

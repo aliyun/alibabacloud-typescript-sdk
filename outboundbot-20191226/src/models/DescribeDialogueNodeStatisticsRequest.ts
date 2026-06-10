@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDialogueNodeStatisticsRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeDialogueNodeStatisticsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Task group ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DescribeDialogueNodeStatisticsRequest extends $dara.Model {
   jobGroupId?: string;
   /**
    * @remarks
+   * Limit for displaying statistics
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class TagResourcesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key. The value of n can be from 1 to 20.
+   * 
    * @example
    * Tag.1.Key=key1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the tag. The value can contain 1 to 20 characters.
+   * 
    * @example
    * Tag.1.Value=value1
    */
@@ -39,6 +45,8 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * This parameter is deprecated.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +55,8 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
+   * A list of resource IDs. The value of n can be from 1 to 50.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,14 +65,20 @@ export class TagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example
-   * instance
+   * INSTANCE
    */
   resourceType?: string;
   /**
    * @remarks
+   * The list of tags. If the key and value of a tag are different from existing tags, a new tag is created.
+   * 
+   * > Use the ListResourceTags operation to get the list of tags for an instance.
+   * 
    * This parameter is required.
    */
   tag?: TagResourcesRequestTag[];

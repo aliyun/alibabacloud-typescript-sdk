@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class AssignJobsAsyncResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The asynchronous task ID.
+   * 
    * @example
    * 12f3dd08-0c55-44ce-9b64-e69d35ed3a76
    */
   asyncTaskId?: string;
   /**
+   * @remarks
+   * The API status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The API response message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

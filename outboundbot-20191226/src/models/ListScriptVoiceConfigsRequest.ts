@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptVoiceConfigsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListScriptVoiceConfigsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The page number of the page to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListScriptVoiceConfigsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return on each page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class ListScriptVoiceConfigsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the script.
+   * 
    * This parameter is required.
    * 
    * @example

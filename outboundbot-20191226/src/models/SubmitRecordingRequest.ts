@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitRecordingRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SubmitRecordingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Script recording data
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class SubmitRecordingRequest extends $dara.Model {
    */
   mergedRecording?: string;
   /**
+   * @remarks
+   * Script recording data
+   * 
    * @example
    * {"contactId":"3d35c0487cc041abb7ad0ce61752601f","duration":27,"fileName":"ce2659e5-a20b-4f8e-91b5-5cd909c6b96e_3d35c0487cc041abb7ad0ce61752601f.wav","filePath":"oss://ForCompatibility/waveforms/","startTime":1579057583670,"type":"Source"}
    */
   resourceRecording?: string;
   /**
    * @remarks
+   * Task ID
+   * 
    * This parameter is required.
    * 
    * @example

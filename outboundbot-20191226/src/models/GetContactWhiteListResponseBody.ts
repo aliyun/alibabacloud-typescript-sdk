@@ -4,33 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetContactWhiteListResponseBodyContactWhitelistListList extends $dara.Model {
   /**
+   * @remarks
+   * Whitelist ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   contactWhiteListId?: string;
   /**
+   * @remarks
+   * Creation time
+   * 
    * @example
    * 1640174411848
    */
   creationTime?: number;
+  /**
+   * @remarks
+   * Creator
+   * 
+   * @example
+   * 测试123
+   */
   creator?: string;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Name
+   * 
+   * @example
+   * 张三
+   */
   name?: string;
   /**
+   * @remarks
+   * Operator
+   * 
    * @example
    * xxx
    */
   operator?: string;
   /**
+   * @remarks
+   * Mobile phone number
+   * 
    * @example
    * 13959999999
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * Remarks
+   * 
    * @example
    * xxxx
    */
@@ -72,21 +104,33 @@ export class GetContactWhiteListResponseBodyContactWhitelistListList extends $da
 
 export class GetContactWhiteListResponseBodyContactWhitelistList extends $dara.Model {
   /**
+   * @remarks
+   * Contact list
+   * 
    * @example
    * {}
    */
   list?: GetContactWhiteListResponseBodyContactWhitelistListList[];
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of entries per page
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of entries
+   * 
    * @example
    * 100
    */
@@ -123,31 +167,49 @@ export class GetContactWhiteListResponseBodyContactWhitelistList extends $dara.M
 
 export class GetContactWhiteListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Contact list
+   * 
    * @example
    * {}
    */
   contactWhitelistList?: GetContactWhiteListResponseBodyContactWhitelistList;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * API message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded
+   * 
    * @example
    * true
    */

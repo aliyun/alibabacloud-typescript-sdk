@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DuplicateScriptRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,18 @@ export class DuplicateScriptRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The name for the new script.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 复制的催收话术
    */
   name?: string;
   /**
    * @remarks
+   * The ID of the source script.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMaxAttemptsPerDayRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,15 @@ export class GetMaxAttemptsPerDayRequest extends $dara.Model {
    */
   entryId?: string;
   /**
+   * @remarks
+   * The policy level. The default value is 2 for a business instance.
+   * 
+   * - 0: System
+   * 
+   * - 1: Tenant
+   * 
+   * - 2: Instance
+   * 
    * @example
    * 2
    */

@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress extends $dara.Model {
   /**
+   * @remarks
+   * Number of canceled tasks
+   * 
    * @example
    * 5
    */
   cancelledNum?: number;
   /**
+   * @remarks
+   * Number of executing jobs
+   * 
    * @example
    * 5
    */
   executingNum?: number;
   /**
+   * @remarks
+   * Number of failed tasks
+   * 
    * @example
    * 5
    */
   failedNum?: number;
   /**
+   * @remarks
+   * Number of paused tasks
+   * 
    * @example
    * 5
    */
   pausedNum?: number;
   /**
+   * @remarks
+   * Number of tasks being scheduled
+   * 
    * @example
    * 5
    */
   schedulingNum?: number;
   /**
+   * @remarks
+   * Total number of completed tasks
+   * 
    * @example
    * 5
    */
   totalCompletedNum?: number;
   /**
+   * @remarks
+   * Total number of jobs
+   * 
    * @example
    * 5
    */
   totalJobs?: number;
   /**
+   * @remarks
+   * Number of unanswered calls
+   * 
    * @example
    * 5
    */
@@ -79,56 +103,120 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress ext
 }
 
 export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.Model {
+  /**
+   * @remarks
+   * Average talk time
+   * 
+   * @example
+   * 258
+   */
   avgTalkTime?: number;
   /**
+   * @remarks
+   * Number of failed calls
+   * 
    * @example
    * 5
    */
   callFailedNum?: number;
   /**
+   * @remarks
+   * Number of outbound calls
+   * 
    * @example
    * 5
    */
   callNum?: number;
   /**
+   * @remarks
+   * Deprecated
+   * 
    * @example
    * xxx
    */
   creatorName?: string;
+  /**
+   * @remarks
+   * Call duration distribution
+   * 
+   * @example
+   * {"max":"40","1":"1","total":"40","min":"40"}
+   */
   durationDistribution?: string;
   /**
+   * @remarks
+   * End time
+   * 
    * @example
    * 1640087774563
    */
   endTime?: number;
   /**
+   * @remarks
+   * Number of completed executions
+   * 
    * @example
    * 5
    */
   finishedNum?: number;
   /**
+   * @remarks
+   * Number of calls hung up by customers
+   * 
    * @example
    * 5
    */
   hangUpByClientNum?: number;
   /**
+   * @remarks
+   * Execution progress
+   * 
    * @example
    * {}
    */
   jobsProgress?: DescribeGroupExecutingInfoResponseBodyExecutingInfoJobsProgress;
+  /**
+   * @remarks
+   * Number of calls with no interaction
+   * 
+   * @example
+   * 1
+   */
   noInteractionNum?: number;
   /**
+   * @remarks
+   * Start time
+   * 
    * @example
    * 1640087774563
    */
   startTime?: number;
+  /**
+   * @remarks
+   * Distribution of conversation rounds
+   * 
+   * - total: total number of conversation rounds involved
+   * 
+   * - number: specific round number
+   * 
+   * > * Example: {"total":"5","5":"1"} means 5 conversation rounds were involved, and 1 call had 5 user turns.
+   * 
+   * @example
+   * {"total":"5","5":"4"}
+   */
   talkTurnsDistribution?: string;
   /**
+   * @remarks
+   * Intent recognition
+   * 
    * @example
    * 5
    */
   transferByIntentNum?: number;
   /**
+   * @remarks
+   * No answer
+   * 
    * @example
    * 5
    */
@@ -185,41 +273,65 @@ export class DescribeGroupExecutingInfoResponseBodyExecutingInfo extends $dara.M
 
 export class DescribeGroupExecutingInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Execution information
+   * 
    * @example
    * {}
    */
   executingInfo?: DescribeGroupExecutingInfoResponseBodyExecutingInfo;
   /**
+   * @remarks
+   * Task group ID
+   * 
    * @example
    * b24d321a-2a74-4dd1-a0ba-4ab09cef6652
    */
   groupId?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * c46001bc-3ead-4bfd-9a69-4b5b66a4a3f4
    */
   instanceId?: string;
   /**
+   * @remarks
+   * API message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded
+   * 
    * @example
    * true
    */

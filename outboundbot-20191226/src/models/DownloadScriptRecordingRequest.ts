@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadScriptRecordingRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DownloadScriptRecordingRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Recording scenario ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DownloadScriptRecordingRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
+   * Unique recording ID
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,28 +4,68 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeIntentResponseBodyIntent extends $dara.Model {
   /**
+   * @remarks
+   * The time when the intent was created.
+   * 
    * @example
    * 1578469042851
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The description of the intent.
+   * 
+   * @example
+   * 同意还款意图
+   */
   intentDescription?: string;
   /**
+   * @remarks
+   * The ID of the intent.
+   * 
    * @example
-   * a8494b35-eefb-4c8a-887b-b60d2f0fa57a
+   * 10722701
    */
   intentId?: string;
+  /**
+   * @remarks
+   * The name of the intent.
+   * 
+   * @example
+   * 统一还款
+   */
   intentName?: string;
+  /**
+   * @remarks
+   * The keywords for the intent. You can use these keywords to filter intents during list operations.
+   * 
+   * @example
+   * ["还款"]
+   */
   keywords?: string;
   /**
+   * @remarks
+   * The ID of the script.
+   * 
    * @example
    * 6ef95fd5-558f-4ee8-af34-b2ede087a87c
    */
   scriptId?: string;
   /**
+   * @remarks
+   * The time when the intent was last updated.
+   * 
    * @example
    * 1578469042851
    */
   updateTime?: number;
+  /**
+   * @remarks
+   * A list of utterances that trigger the intent.
+   * 
+   * @example
+   * ["ok","好的","好吧","好嘞","可以","行啊","行吧","那行","知道了","我看一下","能的","等会吧","等一下","马上还","等一会","过两天","我会想办法处理"]
+   */
   utterances?: string;
   static names(): { [key: string]: string } {
     return {
@@ -64,27 +104,46 @@ export class DescribeIntentResponseBodyIntent extends $dara.Model {
 
 export class DescribeIntentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The details of the intent.
+   */
   intent?: DescribeIntentResponseBodyIntent;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
+   * 327FEE69-F173-5B2F-9F3B-DCC6182D7BA0
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

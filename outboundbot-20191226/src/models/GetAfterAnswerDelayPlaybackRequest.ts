@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAfterAnswerDelayPlaybackRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,11 @@ export class GetAfterAnswerDelayPlaybackRequest extends $dara.Model {
    */
   entryId?: string;
   /**
+   * @remarks
+   * Policy level (required)
+   * 
+   * - 2: Instance
+   * 
    * @example
    * 2
    */

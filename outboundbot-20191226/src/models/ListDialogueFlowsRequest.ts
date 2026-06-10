@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListDialogueFlowsRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 361c8a53-0e29-42f3-8aa7-c7752d010399
+   * b5b0a30f-69e7-4147-98b5-553fc526361d
    */
   instanceId?: string;
   /**
    * @remarks
+   * The script ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyBeebotIntentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Internal request ID
+   * 
    * @example
    * A1F21BF2-CB21-1968-8039-C74699E7DDEB
    */
   beebotRequestId?: string;
   /**
+   * @remarks
+   * API status code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * HTTP return code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Intent ID
+   * 
    * @example
    * 10717802
    */
   intentId?: number;
   /**
+   * @remarks
+   * API message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 8785D26A-7406-50A1-9653-1313C292E23B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is successful
+   * 
    * @example
    * true
    */

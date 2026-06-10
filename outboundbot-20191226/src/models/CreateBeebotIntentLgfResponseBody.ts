@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateBeebotIntentLgfResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The internal request ID.
+   * 
    * @example
    * 497CFAFF-48CC-161A-AD2C-252DED569037
    */
   beebotRequestId?: string;
   /**
+   * @remarks
+   * The status code of the API call.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The ID of the user utterance template.
+   * 
    * @example
    * 5666117
    */
   lgfId?: number;
   /**
+   * @remarks
+   * The message returned for the API call.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */

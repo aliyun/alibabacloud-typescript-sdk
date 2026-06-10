@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key. The value range of n is [1, 20].
+   * 
    * @example
    * Tag.1.Key=key1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value. The value range of n is [1, 20].
+   * 
    * @example
    * Tag.1.Value=value1
    */
@@ -38,12 +44,17 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 
 export class ListTagResourcesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The token to start the next query
+   * 
    * @example
    * b949ae1f-01dc-4191-ae5a-70fbe6772fd8
    */
   nextToken?: string;
   /**
    * @remarks
+   * Deprecated
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,18 +62,27 @@ export class ListTagResourcesRequest extends $dara.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The list of resource IDs. The value range of n is [1, 50].
+   * 
    * @example
    * ResourceId.1=b949ae1f-01dc-4191-ae5a-70fbe6772fd8
    */
   resourceId?: string[];
   /**
    * @remarks
+   * Resource type
+   * 
    * This parameter is required.
    * 
    * @example
-   * instance
+   * INSTANCE
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {

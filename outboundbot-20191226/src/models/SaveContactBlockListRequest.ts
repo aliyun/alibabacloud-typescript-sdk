@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveContactBlockListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The list of contacts. [Deprecated]
+   * 
    * @example
    * []
    */
   contactBlockListList?: string[];
   /**
+   * @remarks
+   * A JSON string that contains the blocklist. This parameter is required.
+   * 
+   * - phoneNumber: The mobile phone number.
+   * 
+   * - remark: The remarks.
+   * 
+   * - name: The name.
+   * 
+   * - creator: The creator.
+   * 
    * @example
-   * {}
+   * [{"phoneNumber":"132322","remark":"123321","name":"ccc1","creator":"ccc222"}]
    */
   contactBlockListsJson?: string;
   /**
+   * @remarks
+   * The instance ID. This parameter is required.
+   * 
    * @example
    * c3c92de8-e4bd-4db4-a962-50f8acce40bc
    */

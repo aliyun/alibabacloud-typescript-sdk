@@ -4,38 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceResponseBodyInstance extends $dara.Model {
   /**
+   * @remarks
+   * The time when the instance was created. This value is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1578469042851
    */
   creationTime?: number;
   /**
+   * @remarks
+   * The ID of the user who created the instance.
+   * 
    * @example
    * 435986
    */
   creatorId?: number;
   /**
+   * @remarks
+   * The name of the user who created the instance.
+   * 
    * @example
    * xxx
    */
   creatorName?: string;
+  /**
+   * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * 这个是第一个实例
+   */
   instanceDescription?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 90515b5-6115-4ccf-83e2-52d5bfaf2ddf
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The name of the instance.
+   * 
+   * @example
+   * 第一个实例
+   */
   instanceName?: string;
   /**
+   * @remarks
+   * The maximum number of concurrent conversations for the instance.
+   * 
    * @example
    * 4
    */
   maxConcurrentConversation?: number;
   /**
+   * @remarks
+   * The name of the instance owner.
+   * 
    * @example
    * xxxx
    */
   ownerName?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * 90515b5-6115-4ccf-83e2-52d5bfaf2ddf
    */
@@ -79,27 +114,46 @@ export class CreateInstanceResponseBodyInstance extends $dara.Model {
 
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The information about the instance.
+   */
   instance?: CreateInstanceResponseBodyInstance;
   /**
+   * @remarks
+   * The message returned for the request.
+   * 
    * @example
-   * Success
+   * 无
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

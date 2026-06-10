@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class TerminateCallRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the call.
+   * 
+   * > You can get this ID by calling the DescribeJob operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class TerminateCallRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
+   * ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

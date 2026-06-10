@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBeebotIntentRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeBeebotIntentRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * Intent ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class DescribeBeebotIntentRequest extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
+   * Scenario ID
+   * 
    * This parameter is required.
    * 
    * @example

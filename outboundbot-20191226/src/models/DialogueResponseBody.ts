@@ -4,21 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DialogueResponseBodyFeedback extends $dara.Model {
   /**
+   * @remarks
+   * Instruction for IVR
+   * 
    * @example
    * broadcast
    */
   action?: string;
+  /**
+   * @remarks
+   * Instruction parameters
+   * 
+   * @example
+   * ""
+   */
   actionParams?: string;
+  /**
+   * @remarks
+   * Dialogue text
+   * 
+   * @example
+   * 你好，我是**客服
+   */
   content?: string;
   /**
    * @remarks
-   * 已废弃
+   * Deprecated
    * 
    * @example
    * “”
    */
   contentParams?: string;
   /**
+   * @remarks
+   * Indicates whether the broadcast can be interrupted
+   * 
    * @example
    * true
    */
@@ -54,27 +74,46 @@ export class DialogueResponseBodyFeedback extends $dara.Model {
 
 export class DialogueResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Interface status code
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Returns dialogue information
+   */
   feedback?: DialogueResponseBodyFeedback;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Interface message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful
+   * 
    * @example
    * true
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceTagsRequest extends $dara.Model {
   /**
    * @remarks
+   * Page number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListResourceTagsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ListResourceTagsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * Resource type
+   * 
    * This parameter is required.
    * 
    * @example

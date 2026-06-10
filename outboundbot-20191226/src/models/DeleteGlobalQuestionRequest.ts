@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGlobalQuestionRequest extends $dara.Model {
   /**
    * @remarks
+   * The global question ID.
+   * 
+   * > You can call the ListGlobalQuestions operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class DeleteGlobalQuestionRequest extends $dara.Model {
   globalQuestionId?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,10 +27,12 @@ export class DeleteGlobalQuestionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The script ID.
+   * 
    * This parameter is required.
    * 
    * @example
-   * aa279896-64a6-4182-864c-4f2b04ec8d17
+   * 0fe7f71c-8771-42ef-9bb1-19aa16ae7120
    */
   scriptId?: string;
   static names(): { [key: string]: string } {

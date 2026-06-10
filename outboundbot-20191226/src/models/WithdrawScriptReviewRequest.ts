@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class WithdrawScriptReviewRequest extends $dara.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class WithdrawScriptReviewRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The script ID.
+   * 
    * This parameter is required.
    * 
    * @example

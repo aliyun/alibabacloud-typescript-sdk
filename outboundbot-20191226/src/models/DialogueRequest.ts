@@ -4,13 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DialogueRequest extends $dara.Model {
   /**
+   * @remarks
+   * Action to perform for outbound calls. Hangup ends the call.
+   * 
    * @example
    * broadcast
    */
   actionKey?: string;
+  /**
+   * @remarks
+   * Parameters required to perform the action. (Deprecated)
+   * 
+   * @example
+   * ""
+   */
   actionParams?: string;
   /**
    * @remarks
+   * Call ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19,6 +31,8 @@ export class DialogueRequest extends $dara.Model {
   callId?: string;
   /**
    * @remarks
+   * Call type, typically Outbound
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +41,8 @@ export class DialogueRequest extends $dara.Model {
   callType?: string;
   /**
    * @remarks
+   * Called number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +51,8 @@ export class DialogueRequest extends $dara.Model {
   calledNumber?: string;
   /**
    * @remarks
+   * Calling number
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +61,8 @@ export class DialogueRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,26 +70,37 @@ export class DialogueRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Scenario ID
+   * 
    * @example
    * 6cea9bed-63e6-439e-ae4c-b3333efff53d
    */
   scenarioId?: string;
   /**
    * @remarks
-   * 场景id
+   * Scenario ID
    * 
    * @example
    * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
    */
   scriptId?: string;
   /**
+   * @remarks
+   * Task ID
+   * 
    * @example
    * ff44709e-39a6-43ba-959b-20fcabe3e496
    */
   taskId?: string;
   /**
    * @remarks
+   * User utterance
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 是的
    */
   utterance?: string;
   static names(): { [key: string]: string } {

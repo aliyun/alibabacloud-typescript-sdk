@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyEmptyNumberNoMoreCallsInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * Enable or disable the nonexistent number no-call feature.
+   * 
    * @example
    * true
    */
   emptyNumberNoMoreCalls?: boolean;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,15 @@ export class ModifyEmptyNumberNoMoreCallsInfoRequest extends $dara.Model {
    */
   entryId?: string;
   /**
+   * @remarks
+   * Policy level. Use 2 for business instances.
+   * 
+   * - 0: system
+   * 
+   * - 1: tenant
+   * 
+   * - 2: instance
+   * 
    * @example
    * 2
    */

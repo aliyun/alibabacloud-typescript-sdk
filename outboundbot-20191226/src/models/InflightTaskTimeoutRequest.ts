@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class InflightTaskTimeoutRequest extends $dara.Model {
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class InflightTaskTimeoutRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Alibaba Cloud account ID of the instance owner
+   * 
    * @example
    * 1864632921948620
    */
   instanceOwnerId?: number;
   /**
    * @remarks
+   * Task ID
+   * 
    * This parameter is required.
    * 
    * @example

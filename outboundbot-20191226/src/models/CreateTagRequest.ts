@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTagRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,20 +15,32 @@ export class CreateTagRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The ID of the script.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 797203ac-3874-422f-838f-d4cd63c72681
+   * 0fe7f71c-8771-42ef-9bb1-19aa16ae7120
    */
   scriptId?: string;
   /**
    * @remarks
+   * The tag group name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 目标学历
    */
   tagGroup?: string;
   /**
    * @remarks
+   * The tag name.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 研究生
    */
   tagName?: string;
   static names(): { [key: string]: string } {
