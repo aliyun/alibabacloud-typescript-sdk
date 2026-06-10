@@ -2,39 +2,43 @@
 import * as $dara from '@darabonba/typescript';
 
 
+/**
+ */
+export class GetUserResponseBodyApiKeys extends $dara.Model {
+  apiKey?: string;
+  innerApiKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiKey: 'ApiKey',
+      innerApiKey: 'InnerApiKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiKey: 'string',
+      innerApiKey: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetUserResponseBody extends $dara.Model {
   anthropicHost?: string;
-  apiKeys?: any;
-  /**
-   * @example
-   * 20200425******
-   */
+  apiKeys?: GetUserResponseBodyApiKeys[];
   appId?: string;
-  /**
-   * @example
-   * OK
-   */
   code?: string;
-  /**
-   * @example
-   * ai-service.******.alicontainer.com
-   */
   host?: string;
   innerToken?: string;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @example
-   * 897658D5-1FB8-5CFA-A030-727CCAE59EB0
-   */
   requestId?: string;
-  /**
-   * @example
-   * Njk0Njk******
-   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53,7 +57,7 @@ export class GetUserResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       anthropicHost: 'string',
-      apiKeys: 'any',
+      apiKeys: { 'type': 'array', 'itemType': GetUserResponseBodyApiKeys },
       appId: 'string',
       code: 'string',
       host: 'string',
@@ -65,6 +69,9 @@ export class GetUserResponseBody extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.apiKeys)) {
+      $dara.Model.validateArray(this.apiKeys);
+    }
     super.validate();
   }
 

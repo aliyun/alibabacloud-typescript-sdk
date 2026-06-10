@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class ListDayAmountResponseBodyDayAmounts extends $dara.Model {
   amount?: number;
   date?: string;
