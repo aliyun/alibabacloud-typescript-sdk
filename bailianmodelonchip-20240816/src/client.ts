@@ -146,6 +146,10 @@ export default class Client extends OpenApi {
       body["signature"] = request.signature;
     }
 
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),

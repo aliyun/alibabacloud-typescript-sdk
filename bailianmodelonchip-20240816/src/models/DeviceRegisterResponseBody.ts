@@ -24,6 +24,7 @@ export class DeviceRegisterResponseBodyData extends $dara.Model {
    * s8wPO/w79jP7sz6OaHkixAje2GmgzmZiCuCZZ+J8w77ICTyqD30lL6rUhnXwwx4MyGF62DRPFnpXtJ6c5mlmt6QdML3FkjGn+i/wR5T6QMkVDW6YRPWsx3jkIWRQ2sDnmVNBtixo2s9w3RJrnddRzVCaR/WeLOfiVLWcrLcJditzO/1YXBZ9vuRKQ4iperfhZvw372N/m8/1qtjJl+FUe2+wxK6RMxr03K7R
    */
   signature?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'appId',
@@ -31,6 +32,7 @@ export class DeviceRegisterResponseBodyData extends $dara.Model {
       nonce: 'nonce',
       responseTime: 'responseTime',
       signature: 'signature',
+      workspaceId: 'workspaceId',
     };
   }
 
@@ -41,6 +43,7 @@ export class DeviceRegisterResponseBodyData extends $dara.Model {
       nonce: 'string',
       responseTime: 'string',
       signature: 'string',
+      workspaceId: 'string',
     };
   }
 
