@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateFuncSwitchRecordResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Job ID
+   * 
    * @example
    * 63fc5acb99e642d793f42912612e8001
    */
@@ -31,12 +34,26 @@ export class UpdateFuncSwitchRecordResponseBodyData extends $dara.Model {
 
 export class UpdateFuncSwitchRecordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code  
+   * - If `code == Success`, authorization succeeded.  
+   * - Any other status code indicates authorization failed. When authorization fails, check the `message` field for detailed error information.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: UpdateFuncSwitchRecordResponseBodyData;
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty.  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * result: code=1 msg=(Request failed, status_code != 200)
    */

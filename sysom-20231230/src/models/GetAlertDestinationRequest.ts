@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAlertDestinationRequest extends $dara.Model {
   /**
+   * @remarks
+   * Alert contact ID
+   * 
    * @example
    * 1
    */

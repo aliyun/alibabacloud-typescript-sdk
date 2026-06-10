@@ -4,25 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetInstantScoreResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Error score
+   * 
    * @example
    * 100
    */
   error?: number;
   /**
+   * @remarks
+   * Latency score
+   * 
    * @example
    * 100
    */
   latency?: number;
   /**
+   * @remarks
+   * Load score
+   * 
    * @example
    * 100
    */
   load?: number;
   /**
+   * @remarks
+   * Saturation score
+   * 
    * @example
    * 100
    */
   saturation?: number;
+  /**
+   * @remarks
+   * Total score
+   * 
+   * @example
+   * 100
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -56,14 +75,25 @@ export class GetInstantScoreResponseBodyData extends $dara.Model {
 export class GetInstantScoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 集群ID
+   * Status code  
+   * - If `code == Success`, authorization succeeded.  
+   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
    * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetInstantScoreResponseBodyData;
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty.  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * Query no data
    */

@@ -3,8 +3,19 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * Set of clusters that accept alerts
+   */
   clusters?: string[];
   destinations?: any;
+  /**
+   * @remarks
+   * List of abnormal items that accept alerts
+   * 
+   * @example
+   * 节点CPU使用率检测
+   */
   items?: any;
   static names(): { [key: string]: string } {
     return {
@@ -36,33 +47,59 @@ export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
 
 export class GetAlertStrategyResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 1751520976660
    */
   createdAt?: number;
   /**
+   * @remarks
+   * Indicates whether the alert policy is enabled
+   * 
    * @example
    * false
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Alert policy ID
+   * 
    * @example
    * 1
    */
   id?: number;
+  /**
+   * @remarks
+   * k8s label
+   */
   k8sLabel?: boolean;
   /**
+   * @remarks
+   * Policy Name
+   * 
    * @example
    * strategy1
    */
   name?: string;
+  /**
+   * @remarks
+   * Details of the alert policy
+   */
   strategy?: GetAlertStrategyResponseBodyDataStrategy;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1222933234714935
    */
   uid?: string;
   /**
+   * @remarks
+   * Update Time.
+   * 
    * @example
    * 1751254826285
    */
@@ -107,12 +144,26 @@ export class GetAlertStrategyResponseBodyData extends $dara.Model {
 
 export class GetAlertStrategyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code:  
+   * - `code == Success` indicates successful authorization;  
+   * - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error message.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetAlertStrategyResponseBodyData;
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty;  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * success
    */

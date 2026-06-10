@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstancesEcsInfoListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * IP address of the machine.
+   * 
    * @example
    * 11.193.52.91
    */
   ip?: string;
   /**
+   * @remarks
+   * Name of the tag.
+   * 
    * @example
    * sysom
    */
   tagKey?: string;
   /**
+   * @remarks
+   * tag value.
+   * 
    * @example
    * diagnosis
    */
   tagValue?: string;
   /**
+   * @remarks
+   * IP type
+   * 
    * @example
    * public
    */
@@ -52,12 +64,24 @@ export class ListInstancesEcsInfoListResponseBodyData extends $dara.Model {
 
 export class ListInstancesEcsInfoListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SysomOpenAPI.InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * Return Data.
+   */
   data?: ListInstancesEcsInfoListResponseBodyData[];
   /**
+   * @remarks
+   * error message  
+   * - If `code == Success`, this field is empty;  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * ""
    */

@@ -3,11 +3,53 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAgentResponseBodyDataVersions extends $dara.Model {
+  /**
+   * @remarks
+   * Creation Time of the Agent version
+   * 
+   * @example
+   * 2024-09-14T20:46:08
+   */
   createdAt?: string;
+  /**
+   * @remarks
+   * Installation script for this version of the Agent
+   * 
+   * @example
+   * sysom.sh install
+   */
   installScript?: string;
+  /**
+   * @remarks
+   * Uninstall script for this Agent version
+   * 
+   * @example
+   * sysom.sh uninstall
+   */
   uninstallScript?: string;
+  /**
+   * @remarks
+   * Update Time of the Agent version
+   * 
+   * @example
+   * 2024-09-14T20:46:08
+   */
   updatedAt?: string;
+  /**
+   * @remarks
+   * Upgrade script for this Agent version
+   * 
+   * @example
+   * sysom.sh upgrade
+   */
   upgradeScript?: string;
+  /**
+   * @remarks
+   * Version number of the Agent
+   * 
+   * @example
+   * 3.4.0-1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,13 +83,66 @@ export class GetAgentResponseBodyDataVersions extends $dara.Model {
 }
 
 export class GetAgentResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Creation Time of the widget
+   * 
+   * @example
+   * 2024-09-14T20:46:08
+   */
   createdAt?: string;
+  /**
+   * @remarks
+   * Description of the widget
+   * 
+   * @example
+   * SysOM Agent
+   */
   description?: string;
+  /**
+   * @remarks
+   * Widget ID
+   * 
+   * @example
+   * 74a86327-3170-412c-8e67-da3389ec56a9
+   */
   id?: string;
+  /**
+   * @remarks
+   * Name of the widget
+   * 
+   * @example
+   * SysOM
+   */
   name?: string;
+  /**
+   * @remarks
+   * Supported architecture
+   * 
+   * @example
+   * x86
+   */
   supportArch?: string;
+  /**
+   * @remarks
+   * Type of the Agent
+   * 
+   * @example
+   * control
+   */
   type?: string;
+  /**
+   * @remarks
+   * Update Time
+   * 
+   * @example
+   * 2024-09-14T20:46:08
+   */
   updatedAt?: string;
+  /**
+   * @remarks
+   * Widget version information
+   */
   versions?: GetAgentResponseBodyDataVersions[];
   static names(): { [key: string]: string } {
     return {
@@ -88,14 +183,35 @@ export class GetAgentResponseBodyData extends $dara.Model {
 }
 
 export class GetAgentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request ID, which can be used for end-to-end Diagnosis
+   * 
+   * @example
+   * 2024-09-14T20:46:08
+   */
   requestId?: string;
   /**
+   * @remarks
+   * Status code  
+   * - `code == Success` indicates that authorization succeeded.  
+   * - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetAgentResponseBodyData;
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty;  
+   * - Otherwise, this field contains the Request error message.
+   * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict
    */

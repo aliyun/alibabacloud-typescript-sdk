@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPluginsInstancesResponseBodyDataInstanceTag extends $dara.Model {
   /**
+   * @remarks
+   * Name of the tag.
+   * 
    * @example
    * test_tag_key
    */
   tagKey?: string;
   /**
+   * @remarks
+   * Tag value.
+   * 
    * @example
    * test_tag_value
    */
@@ -38,42 +44,70 @@ export class ListPluginsInstancesResponseBodyDataInstanceTag extends $dara.Model
 
 export class ListPluginsInstancesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * i-bp118piqcio9tiwgh84b
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Widget instance name.
+   * 
    * @example
    * allowed-repos-qmf8w
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * Tags of instances
+   */
   instanceTag?: ListPluginsInstancesResponseBodyDataInstanceTag[];
   /**
+   * @remarks
+   * Operating system name of the instance
+   * 
    * @example
    * Alibaba Cloud Linux  3.2104 LTS 64 bit
    */
   osName?: string;
   /**
+   * @remarks
+   * Private IP address
+   * 
    * @example
    * 1.1.1.1
    */
   privateIp?: string;
   /**
+   * @remarks
+   * Internet IP address
+   * 
    * @example
    * 1.1.1.1
    */
   publicIp?: string;
   /**
+   * @remarks
+   * Area where the instance resides
+   * 
    * @example
    * cn-hangzhou
    */
   region?: string;
   /**
+   * @remarks
+   * Resource group ID.
+   * 
    * @example
    * rg-xxxx
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Resource group name
+   * 
    * @example
    * default resource group
    */
@@ -120,22 +154,40 @@ export class ListPluginsInstancesResponseBodyData extends $dara.Model {
 
 export class ListPluginsInstancesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code  
+   * - `code == Success` indicates successful authorization;  
+   * - Other status codes indicate failed authorization. When authorization fails, view the `message` field to obtain detailed error information.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Return Result.
+   */
   data?: ListPluginsInstancesResponseBodyData[];
   /**
+   * @remarks
+   * Description
+   * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict
    */
   message?: string;
   /**
+   * @remarks
+   * Request RequestId
+   * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of query results.
+   * 
    * @example
    * 42
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * ID of the created diagnostic task
+   * 
    * @example
    * bbe94a98-4192-4172-b856-95777e0a55d7
    */
@@ -31,17 +34,34 @@ export class CreateVmcoreDiagnosisTaskResponseBodyData extends $dara.Model {
 
 export class CreateVmcoreDiagnosisTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code  
+   * - If `code == Success`, authorization succeeded.  
+   * - Other status codes indicate authorization failed. When authorization fails, check the `message` field for detailed error information.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: CreateVmcoreDiagnosisTaskResponseBodyData;
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty.  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * ""
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822
    */

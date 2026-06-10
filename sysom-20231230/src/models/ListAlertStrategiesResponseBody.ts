@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAlertStrategiesResponseBodyDataStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * Set of clusters that accept alerts
+   */
   clusters?: string[];
   destinations?: number[];
+  /**
+   * @remarks
+   * List of abnormal items that accept alerts
+   */
   items?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -42,33 +50,55 @@ export class ListAlertStrategiesResponseBodyDataStrategy extends $dara.Model {
 
 export class ListAlertStrategiesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 1753669116286
    */
   createdAt?: string;
   /**
+   * @remarks
+   * Whether the alert policy is enabled
+   * 
    * @example
    * false
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Policy ID
+   * 
    * @example
    * 1
    */
   id?: number;
   k8sLabel?: boolean;
   /**
+   * @remarks
+   * Policy Name
+   * 
    * @example
    * strategy1
    */
   name?: string;
+  /**
+   * @remarks
+   * Details of the alert policy
+   */
   strategy?: ListAlertStrategiesResponseBodyDataStrategy;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1880327028143673
    */
   uid?: string;
   /**
+   * @remarks
+   * Update Time
+   * 
    * @example
    * 1753237017710
    */
@@ -113,22 +143,42 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
 
 export class ListAlertStrategiesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code  
+   * - If `code == Success`, authorization succeeded.  
+   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Return Result.
+   */
   data?: ListAlertStrategiesResponseBodyData[];
   /**
+   * @remarks
+   * Maximum number of returned records
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty;  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Pagination token for the next request.
+   * 
    * @example
    * c2f78a783f49457caba6bace6f6f79e4
    */
@@ -142,6 +192,9 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of records
+   * 
    * @example
    * 92
    */

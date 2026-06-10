@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Current page number (starting from page 1)
+   * 
+   * @example
+   * 1
+   */
   current?: number;
+  /**
+   * @remarks
+   * Filter plugins by plugin name
+   * 
+   * @example
+   * SysOM
+   */
   name?: string;
+  /**
+   * @remarks
+   * Page size
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * Retrieve the list based on the Agent Type. For example, passing "control" retrieves all control-type Agents.
+   * 
+   * @example
+   * control
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

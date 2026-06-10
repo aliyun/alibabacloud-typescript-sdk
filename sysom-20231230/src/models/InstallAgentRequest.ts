@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class InstallAgentRequestInstances extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class InstallAgentRequestInstances extends $dara.Model {
   instance?: string;
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,16 +49,31 @@ export class InstallAgentRequestInstances extends $dara.Model {
 export class InstallAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the widget to install
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 74a86327-3170-412c-8e67-da3389ec56a9
    */
   agentId?: string;
   /**
    * @remarks
+   * Version of the widget to install
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 3.4.0-1
    */
   agentVersion?: string;
   /**
    * @remarks
+   * Installation Type:  
+   * - InstallAndUpgrade: Install if not present; update if present.  
+   * - OnlyInstallNotHasAgent: Install if not present; do nothing if present.  
+   * - OnlyUpgradeHasAgent: Do nothing if not present; update if present.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +82,8 @@ export class InstallAgentRequest extends $dara.Model {
   installType?: string;
   /**
    * @remarks
+   * List of instances on which to install the widget
+   * 
    * This parameter is required.
    */
   instances?: InstallAgentRequestInstances[];

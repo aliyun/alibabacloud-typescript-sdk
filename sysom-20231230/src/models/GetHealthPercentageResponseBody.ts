@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetHealthPercentageResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Health level of the edge zone/pod
+   * 
    * @example
    * health
    */
   type?: string;
   /**
+   * @remarks
+   * Quantity
+   * 
    * @example
    * 1
    */
@@ -38,12 +44,24 @@ export class GetHealthPercentageResponseBodyData extends $dara.Model {
 
 export class GetHealthPercentageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code  
+   * - `code == Success` indicates that authorization succeeded.  
+   * - Other status codes indicate that authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+   * 
    * @example
    * SysomOpenAPI.ServerError
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetHealthPercentageResponseBodyData[];
   /**
+   * @remarks
+   * Error Details
+   * 
    * @example
    * ""
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDiagnosisResultResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Error code (0 indicates no error)
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * Diagnosis command
+   * 
    * @example
    * {
    *     "jobs":[
@@ -28,13 +34,26 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
    * }
    */
   command?: any;
+  /**
+   * @remarks
+   * Creation Time
+   * 
+   * @example
+   * 2025-12-03 16:30:28
+   */
   createdAt?: string;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * Diagnosis failed
    */
   errMsg?: string;
   /**
+   * @remarks
+   * Diagnosis parameters
+   * 
    * @example
    * {
    *     "type":"all",
@@ -46,6 +65,9 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
    */
   params?: any;
   /**
+   * @remarks
+   * Diagnosis result
+   * 
    * @example
    * {
    *     "summary":"  memory cgroup leak",
@@ -267,22 +289,46 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
    */
   result?: any;
   /**
+   * @remarks
+   * Diagnosis Type
+   * 
    * @example
    * memgraph
    */
   serviceName?: string;
   /**
+   * @remarks
+   * The execution status of the diagnostic task.  
+   * Valid values:  
+   * - **Ready**: Ready  
+   * - **Running**: Running  
+   * - **Success**: Succeeded  
+   * - **Fail**: Failed
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * grcuU21a
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Update Time
+   * 
+   * @example
+   * 2025-12-03 16:30:28
+   */
   updatedAt?: string;
   /**
+   * @remarks
+   * Diagnosis details URL
+   * 
    * @example
    * /diagnose/detail/qe3Z34sa
    */
@@ -330,17 +376,34 @@ export class GetDiagnosisResultResponseBodyData extends $dara.Model {
 
 export class GetDiagnosisResultResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code  
+   * - If `code == "Success"`, authorization succeeded.  
+   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetDiagnosisResultResponseBodyData;
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty.  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * ""
    */
   message?: string;
   /**
+   * @remarks
+   * Request RequestId
+   * 
    * @example
    * 9515E5A0-8905-59B0-9BBF-5F0BE568C3A0
    */

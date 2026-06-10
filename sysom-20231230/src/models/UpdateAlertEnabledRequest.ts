@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAlertEnabledRequest extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the alert policy is enabled
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Alert policy ID
+   * 
    * @example
    * 1
    */

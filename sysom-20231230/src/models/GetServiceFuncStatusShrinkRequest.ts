@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceFuncStatusShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * channel name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class GetServiceFuncStatusShrinkRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
+   * Diagnosis parameters. Different types of diagnosis require different diagnosis parameters. You can use this field to filter records whose parameter values match the specified values.
+   * 
    * This parameter is required.
    */
   paramsShrink?: string;
   /**
    * @remarks
+   * Service Name
+   * 
    * This parameter is required.
    * 
    * @example

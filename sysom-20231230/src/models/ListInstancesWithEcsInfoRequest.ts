@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListInstancesWithEcsInfoRequestInstanceTag extends $dara.Model {
   /**
+   * @remarks
+   * Tag key.
+   * 
    * @example
    * feature_dim_radar_chart
    */
   key?: string;
   /**
+   * @remarks
+   * Tag value.
+   * 
    * @example
    * test
    */
@@ -38,58 +44,94 @@ export class ListInstancesWithEcsInfoRequestInstanceTag extends $dara.Model {
 
 export class ListInstancesWithEcsInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * This field exists when using paging and indicates the current page.
+   * 
    * @example
    * 1
    */
   current?: number;
   /**
+   * @remarks
+   * Filter instances by health status.
+   * 
    * @example
    * healthy
    */
   healthStatus?: string;
   /**
+   * @remarks
+   * If this field is specified, filter the Agent installation status for the specified instance.
+   * 
    * @example
    * i-bp118piqcio9tiwgh84b
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Filter by instance name or instance ID. Fuzzy query is supported.
+   * 
    * @example
    * 84b
    */
   instanceIdName?: string;
   /**
+   * @remarks
+   * Widget instance name.
+   * 
    * @example
    * block-load-balancer-hjdm9
    */
   instanceName?: string;
+  /**
+   * @remarks
+   * Filter by tags of instances.
+   */
   instanceTag?: ListInstancesWithEcsInfoRequestInstanceTag;
   /**
+   * @remarks
+   * Filter instances by managed status.
+   * 
    * @example
    * 1
    */
   isManaged?: number;
   /**
+   * @remarks
+   * Filter instances by operating system name.
+   * 
    * @example
    * Alibaba Cloud Linux  3.2104 LTS 64bit
    */
   osName?: string;
   /**
+   * @remarks
+   * Page size. Default value is 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Filter instances by private IP address.
+   * 
    * @example
    * 1.1.1.1
    */
   privateIp?: string;
   /**
+   * @remarks
+   * Filter instances by public IP address.
+   * 
    * @example
    * 1.1.1.1
    */
   publicIp?: string;
   /**
    * @remarks
+   * Filter instances by region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -97,16 +139,25 @@ export class ListInstancesWithEcsInfoRequest extends $dara.Model {
    */
   region?: string;
   /**
+   * @remarks
+   * Filter instances by resource group ID.
+   * 
    * @example
    * rg-xxxxxxx
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * Filter by resource group name or resource group ID. Fuzzy query is supported.
+   * 
    * @example
    * default
    */
   resourceGroupIdName?: string;
   /**
+   * @remarks
+   * Filter instances by resource group name.
+   * 
    * @example
    * default resource group
    */

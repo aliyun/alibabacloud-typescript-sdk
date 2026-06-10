@@ -30,7 +30,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权 SysOM 对某个机器进行诊断
+   * This API is used to authorize SysOM to diagnose ECS instances under your account. You can only invoke the InvokeDiagnosis API to initiate diagnosis on a specific ECS instance after authorizing it through this API.
+   * 
+   * @remarks
+   * >Notice: The diagnosis feature requires a service-linked role to be created under a Resource Access Management (RAM) user. When you call this API, it automatically checks whether the service-linked role exists. If the role does not exist, the API automatically creates it. This requires the RAM user invoking this API to have the ram:CreateServiceLinkedRole permission.</notice>
+   * When calling this API to authorize SysOM to diagnose ECS instances, note the following:
+   * - Each authorization is valid for 7 days. After 7 days, the authorization expires, and you must call this API again to re-authorize.
+   * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you call this API, it will be automatically created. This requires the RAM user invoking this API to have the `ram:CreateServiceLinkedRole` permission.
+   * - When you authorize a specific instance through this API, the system automatically adds the label `sysom:diagnosis` to the target ECS instance. SysOM can only diagnose instances that have this label.
    * 
    * @param request - AuthDiagnosisRequest
    * @param headers - map
@@ -71,7 +78,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权 SysOM 对某个机器进行诊断
+   * This API is used to authorize SysOM to diagnose ECS instances under your account. You can only invoke the InvokeDiagnosis API to initiate diagnosis on a specific ECS instance after authorizing it through this API.
+   * 
+   * @remarks
+   * >Notice: The diagnosis feature requires a service-linked role to be created under a Resource Access Management (RAM) user. When you call this API, it automatically checks whether the service-linked role exists. If the role does not exist, the API automatically creates it. This requires the RAM user invoking this API to have the ram:CreateServiceLinkedRole permission.</notice>
+   * When calling this API to authorize SysOM to diagnose ECS instances, note the following:
+   * - Each authorization is valid for 7 days. After 7 days, the authorization expires, and you must call this API again to re-authorize.
+   * - If the SysOM service-linked role (AliyunServiceRoleForSysom) does not exist when you call this API, it will be automatically created. This requires the RAM user invoking this API to have the `ram:CreateServiceLinkedRole` permission.
+   * - When you authorize a specific instance through this API, the system automatically adds the label `sysom:diagnosis` to the target ECS instance. SysOM can only diagnose instances that have this label.
    * 
    * @param request - AuthDiagnosisRequest
    * @returns AuthDiagnosisResponse
@@ -83,7 +97,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查目标实例是否被 SysOM 支持
+   * Check whether the target instance is supported by SysOM
+   * 
+   * @remarks
+   * The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
    * 
    * @param request - CheckInstanceSupportRequest
    * @param headers - map
@@ -120,7 +137,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查目标实例是否被 SysOM 支持
+   * Check whether the target instance is supported by SysOM
+   * 
+   * @remarks
+   * The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
    * 
    * @param request - CheckInstanceSupportRequest
    * @returns CheckInstanceSupportResponse
@@ -132,7 +152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * cpu高agent流式接口
+   * High-CPU agent streaming API
    * 
    * @param request - CpuHighAgentStreamResponseRequest
    * @param headers - map
@@ -179,7 +199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * cpu高agent流式接口
+   * High-CPU agent streaming API
    * 
    * @param request - CpuHighAgentStreamResponseRequest
    * @param headers - map
@@ -212,7 +232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * cpu高agent流式接口
+   * High-CPU agent streaming API
    * 
    * @param request - CpuHighAgentStreamResponseRequest
    * @returns CpuHighAgentStreamResponseResponse
@@ -224,7 +244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个告警联系人
+   * This API is used to create an alert contact for push notifications.
    * 
    * @param request - CreateAlertDestinationRequest
    * @param headers - map
@@ -269,7 +289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个告警联系人
+   * This API is used to create an alert contact for push notifications.
    * 
    * @param request - CreateAlertDestinationRequest
    * @returns CreateAlertDestinationResponse
@@ -281,7 +301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增推送告警的策略
+   * Create an alert policy for push notifications
    * 
    * @param request - CreateAlertStrategyRequest
    * @param headers - map
@@ -326,7 +346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增推送告警的策略
+   * Create an alert policy for push notifications
    * 
    * @param request - CreateAlertStrategyRequest
    * @returns CreateAlertStrategyResponse
@@ -339,6 +359,11 @@ export default class Client extends OpenApi {
 
   /**
    * 创建集群Vpc端点连接
+   * 
+   * @remarks
+   * - 需配合aliyun-tea-openapi-inner包的call_sseapi接口使用
+   * - 需要按通用LLM服务输入参数填充参数，转为string后赋给llmParamString
+   * - 返回数据需将string转为dict后使用，参考通用LLM服务返回格式
    * 
    * @param request - CreateClusterVpcEndpointConnectionRequest
    * @param headers - map
@@ -381,6 +406,11 @@ export default class Client extends OpenApi {
   /**
    * 创建集群Vpc端点连接
    * 
+   * @remarks
+   * - 需配合aliyun-tea-openapi-inner包的call_sseapi接口使用
+   * - 需要按通用LLM服务输入参数填充参数，转为string后赋给llmParamString
+   * - 返回数据需将string转为dict后使用，参考通用LLM服务返回格式
+   * 
    * @param request - CreateClusterVpcEndpointConnectionRequest
    * @returns CreateClusterVpcEndpointConnectionResponse
    */
@@ -407,6 +437,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.items)) {
       body["items"] = request.items;
+    }
+
+    if (!$dara.isNull(request.metricSource)) {
+      body["metricSource"] = request.metricSource;
     }
 
     if (!$dara.isNull(request.region)) {
@@ -448,7 +482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建宕机诊断任务
+   * This API creates an intelligent breakdown diagnosis task to diagnose the vmcore or dmesg log file provided in the parameters.
    * 
    * @param request - CreateVmcoreDiagnosisTaskRequest
    * @param headers - map
@@ -497,7 +531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建宕机诊断任务
+   * This API creates an intelligent breakdown diagnosis task to diagnose the vmcore or dmesg log file provided in the parameters.
    * 
    * @param request - CreateVmcoreDiagnosisTaskRequest
    * @returns CreateVmcoreDiagnosisTaskResponse
@@ -509,7 +543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除告警联系人
+   * This API is used to delete an alert contact.
    * 
    * @param request - DeleteAlertDestinationRequest
    * @param headers - map
@@ -542,7 +576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除告警联系人
+   * This API is used to delete an alert contact.
    * 
    * @param request - DeleteAlertDestinationRequest
    * @returns DeleteAlertDestinationResponse
@@ -554,7 +588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户删除推送告警的策略
+   * User deletes the alert policy for push notifications.
    * 
    * @param request - DeleteAlertStrategyRequest
    * @param headers - map
@@ -587,7 +621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户删除推送告警的策略
+   * User deletes the alert policy for push notifications.
    * 
    * @param request - DeleteAlertStrategyRequest
    * @returns DeleteAlertStrategyResponse
@@ -599,7 +633,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指标
+   * Query metrics
+   * 
+   * @remarks
+   * The instance list obtained by this API includes only the machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
    * 
    * @param request - DescribeMetricListRequest
    * @param headers - map
@@ -644,7 +681,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指标
+   * Query metrics
+   * 
+   * @remarks
+   * The instance list obtained by this API includes only the machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
    * 
    * @param request - DescribeMetricListRequest
    * @returns DescribeMetricListResponse
@@ -656,7 +696,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取copilot服务的返回结果
+   * Obtain the Return Result of the copilot service
+   * 
+   * @remarks
+   * - You must fill in the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+   * - The returned data must be converted from a string to a dict before use. Refer to the standard LLM service return format.
    * 
    * @param request - GenerateCopilotResponseRequest
    * @param headers - map
@@ -689,7 +733,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取copilot服务的返回结果
+   * Obtain the Return Result of the copilot service
+   * 
+   * @remarks
+   * - You must fill in the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+   * - The returned data must be converted from a string to a dict before use. Refer to the standard LLM service return format.
    * 
    * @param request - GenerateCopilotResponseRequest
    * @returns GenerateCopilotResponseResponse
@@ -701,7 +749,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 流式copilot服务接口
+   * Stream Copilot service API
+   * 
+   * @remarks
+   * - Must be used together with the call_sseapi API of the aliyun-tea-openapi-inner package.  
+   * - You must populate the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+   * - The returned data is a string that you must convert into a dictionary for use, following the standard LLM service response format.
    * 
    * @param request - GenerateCopilotStreamResponseRequest
    * @param headers - map
@@ -748,7 +801,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 流式copilot服务接口
+   * Stream Copilot service API
+   * 
+   * @remarks
+   * - Must be used together with the call_sseapi API of the aliyun-tea-openapi-inner package.  
+   * - You must populate the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+   * - The returned data is a string that you must convert into a dictionary for use, following the standard LLM service response format.
    * 
    * @param request - GenerateCopilotStreamResponseRequest
    * @param headers - map
@@ -781,7 +839,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 流式copilot服务接口
+   * Stream Copilot service API
+   * 
+   * @remarks
+   * - Must be used together with the call_sseapi API of the aliyun-tea-openapi-inner package.  
+   * - You must populate the input parameters according to the standard LLM service input parameters, convert them into a string, and assign the result to llmParamString.  
+   * - The returned data is a string that you must convert into a dictionary for use, following the standard LLM service response format.
    * 
    * @param request - GenerateCopilotStreamResponseRequest
    * @returns GenerateCopilotStreamResponseResponse
@@ -793,7 +856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看AI Infra分析结果
+   * View AI Infra Analysis Result
    * 
    * @param request - GetAIQueryResultRequest
    * @param headers - map
@@ -826,7 +889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看AI Infra分析结果
+   * View AI Infra Analysis Result
    * 
    * @param request - GetAIQueryResultRequest
    * @returns GetAIQueryResultResponse
@@ -838,7 +901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节点/Pod不同等级异常事件的数量
+   * Obtain the quantity of unprocessed (undiagnosed) anomalous activity at different Levels for edge zones/pods.
    * 
    * @param request - GetAbnormalEventsCountRequest
    * @param headers - map
@@ -899,7 +962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取节点/Pod不同等级异常事件的数量
+   * Obtain the quantity of unprocessed (undiagnosed) anomalous activity at different Levels for edge zones/pods.
    * 
    * @param request - GetAbnormalEventsCountRequest
    * @returns GetAbnormalEventsCountResponse
@@ -911,7 +974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个组件的详情
+   * Retrieve the details of a widget
    * 
    * @param request - GetAgentRequest
    * @param headers - map
@@ -944,7 +1007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个组件的详情
+   * Retrieve the details of a widget
    * 
    * @param request - GetAgentRequest
    * @returns GetAgentResponse
@@ -956,7 +1019,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Agent安装任务执行状态
+   * Obtain the task execution status of Agent installation
    * 
    * @param request - GetAgentTaskRequest
    * @param headers - map
@@ -989,7 +1052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Agent安装任务执行状态
+   * Obtain the task execution status of Agent installation
    * 
    * @param request - GetAgentTaskRequest
    * @returns GetAgentTaskResponse
@@ -1001,7 +1064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取告警联系人详情
+   * This API is used to obtain the specified alert contact information.
    * 
    * @param request - GetAlertDestinationRequest
    * @param headers - map
@@ -1034,7 +1097,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取告警联系人详情
+   * This API is used to obtain the specified alert contact information.
    * 
    * @param request - GetAlertDestinationRequest
    * @returns GetAlertDestinationResponse
@@ -1046,7 +1109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据策略id，获取用户的一条告警
+   * Obtain an alert for a user by policy ID.
    * 
    * @param request - GetAlertStrategyRequest
    * @param headers - map
@@ -1079,7 +1142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据策略id，获取用户的一条告警
+   * Obtain an alert for a user by policy ID.
    * 
    * @param request - GetAlertStrategyRequest
    * @returns GetAlertStrategyResponse
@@ -1091,7 +1154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取copilot历史聊天记录
+   * Retrieve copilot chat history
    * 
    * @param request - GetCopilotHistoryRequest
    * @param headers - map
@@ -1124,7 +1187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取copilot历史聊天记录
+   * Retrieve copilot chat history
    * 
    * @param request - GetCopilotHistoryRequest
    * @returns GetCopilotHistoryResponse
@@ -1136,7 +1199,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取诊断结果
+   * Obtain the diagnosis result.
+   * 
+   * @remarks
+   * The diagnosis flow is asynchronous. Therefore, when you invoke this API, the diagnosis may still be executing and not yet ended. You can check the `data.status` field in the returned data to determine the status. When `data.status == "Success"`, it indicates that the diagnosis succeeded, and you can read the diagnosis result from `data.result`.
    * 
    * @param request - GetDiagnosisResultRequest
    * @param headers - map
@@ -1169,7 +1235,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取诊断结果
+   * Obtain the diagnosis result.
+   * 
+   * @remarks
+   * The diagnosis flow is asynchronous. Therefore, when you invoke this API, the diagnosis may still be executing and not yet ended. You can check the `data.status` field in the returned data to determine the status. When `data.status == "Success"`, it indicates that the diagnosis succeeded, and you can read the diagnosis result from `data.result`.
    * 
    * @param request - GetDiagnosisResultRequest
    * @returns GetDiagnosisResultResponse
@@ -1181,7 +1250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一段时间的节点/pod健康度比例
+   * Obtain the proportion of edge zone/pod health statuses over a period of time
    * 
    * @param request - GetHealthPercentageRequest
    * @param headers - map
@@ -1226,7 +1295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一段时间的节点/pod健康度比例
+   * Obtain the proportion of edge zone/pod health statuses over a period of time
    * 
    * @param request - GetHealthPercentageRequest
    * @returns GetHealthPercentageResponse
@@ -1238,7 +1307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群节点数量
+   * Obtain the number of edge zones in a cluster or the number of pods in an edge zone
    * 
    * @param request - GetHostCountRequest
    * @param headers - map
@@ -1283,7 +1352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群节点数量
+   * Obtain the number of edge zones in a cluster or the number of pods in an edge zone
    * 
    * @param request - GetHostCountRequest
    * @returns GetHostCountResponse
@@ -1295,7 +1364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例下的某个字段列表
+   * Obtain the list of a specific field under an instance.
    * 
    * @param request - GetHotSpotUniqListRequest
    * @param headers - map
@@ -1348,7 +1417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例下的某个字段列表
+   * Obtain the list of a specific field under an instance.
    * 
    * @param request - GetHotSpotUniqListRequest
    * @returns GetHotSpotUniqListResponse
@@ -1360,7 +1429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取热定分析结果
+   * Obtain hot spot analysis results
    * 
    * @param request - GetHotspotAnalysisRequest
    * @param headers - map
@@ -1413,7 +1482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取热定分析结果
+   * Obtain hot spot analysis results
    * 
    * @param request - GetHotspotAnalysisRequest
    * @returns GetHotspotAnalysisResponse
@@ -1425,7 +1494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 热点对比
+   * Obtain hot spot comparison tracing results
    * 
    * @param request - GetHotspotCompareRequest
    * @param headers - map
@@ -1494,7 +1563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 热点对比
+   * Obtain hot spot comparison tracing results
    * 
    * @param request - GetHotspotCompareRequest
    * @returns GetHotspotCompareResponse
@@ -1506,7 +1575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取热点实例列表
+   * Obtain the hot spot instance list
    * 
    * @param request - GetHotspotInstanceListRequest
    * @param headers - map
@@ -1547,7 +1616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取热点实例列表
+   * Obtain the hot spot instance list
    * 
    * @param request - GetHotspotInstanceListRequest
    * @returns GetHotspotInstanceListResponse
@@ -1559,7 +1628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个实例的pid列表
+   * Obtain the PID list of a specific instance
    * 
    * @param request - GetHotspotPidListRequest
    * @param headers - map
@@ -1604,7 +1673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个实例的pid列表
+   * Obtain the PID list of a specific instance
    * 
    * @param request - GetHotspotPidListRequest
    * @returns GetHotspotPidListResponse
@@ -1616,7 +1685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起热点追踪
+   * Obtain hot spot tracing results
    * 
    * @param request - GetHotspotTrackingRequest
    * @param headers - map
@@ -1669,7 +1738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起热点追踪
+   * Obtain hot spot tracing results
    * 
    * @param request - GetHotspotTrackingRequest
    * @returns GetHotspotTrackingResponse
@@ -1726,7 +1795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实时集群/节点健康度分数
+   * Obtain real-time cluster/edge zone health degree score
    * 
    * @param request - GetInstantScoreRequest
    * @param headers - map
@@ -1763,7 +1832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实时集群/节点健康度分数
+   * Obtain real-time cluster/edge zone health degree score
    * 
    * @param request - GetInstantScoreRequest
    * @returns GetInstantScoreResponse
@@ -1775,7 +1844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AI Infra获取分析记录列表
+   * AI Infra retrieves the list of analysis records
    * 
    * @param request - GetListRecordRequest
    * @param headers - map
@@ -1816,7 +1885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AI Infra获取分析记录列表
+   * AI Infra retrieves the list of analysis records
    * 
    * @param request - GetListRecordRequest
    * @returns GetListRecordResponse
@@ -1828,7 +1897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一定时间内集群中节点/节点中pod异常问题占比
+   * Obtain the proportion of abnormal issues in pods within edge zones or in an edge zone within a cluster over a specified period of time.
    * 
    * @param request - GetProblemPercentageRequest
    * @param headers - map
@@ -1873,7 +1942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一定时间内集群中节点/节点中pod异常问题占比
+   * Obtain the proportion of abnormal issues in pods within edge zones or in an edge zone within a cluster over a specified period of time.
    * 
    * @param request - GetProblemPercentageRequest
    * @returns GetProblemPercentageResponse
@@ -1885,7 +1954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取健康分趋势
+   * Retrieve the health score trend
    * 
    * @param request - GetRangeScoreRequest
    * @param headers - map
@@ -1930,7 +1999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取健康分趋势
+   * Retrieve the health score trend
    * 
    * @param request - GetRangeScoreRequest
    * @returns GetRangeScoreResponse
@@ -1942,7 +2011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群/节点资源实时使用情况
+   * Obtain real-time resource usage of clusters or edge zones
    * 
    * @param request - GetResourcesRequest
    * @param headers - map
@@ -1983,7 +2052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群/节点资源实时使用情况
+   * Obtain real-time resource usage of clusters or edge zones
    * 
    * @param request - GetResourcesRequest
    * @returns GetResourcesResponse
@@ -1995,7 +2064,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取功能模块配置
+   * Obtain Function Modules Configuration
+   * 
+   * @remarks
+   * This API is used to retrieve the service configuration status.
    * 
    * @param tmpReq - GetServiceFuncStatusRequest
    * @param headers - map
@@ -2042,7 +2114,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取功能模块配置
+   * Obtain Function Modules Configuration
+   * 
+   * @remarks
+   * This API is used to retrieve the service configuration status.
    * 
    * @param request - GetServiceFuncStatusRequest
    * @returns GetServiceFuncStatusResponse
@@ -2054,7 +2129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询宕机诊断任务结果
+   * This API queries the task execution status and diagnosis result based on the job ID.
    * 
    * @param request - GetVmcoreDiagnosisTaskRequest
    * @param headers - map
@@ -2087,7 +2162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询宕机诊断任务结果
+   * This API queries the task execution status and diagnosis result based on the job ID.
    * 
    * @param request - GetVmcoreDiagnosisTaskRequest
    * @returns GetVmcoreDiagnosisTaskResponse
@@ -2099,7 +2174,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 初始化SysOM，确保角色存在
+   * Initialize SysOM and ensure that the service role exists.
+   * 
+   * @remarks
+   * Some SysOM APIs require role assumption based on the `AliyunServiceRoleForSysom` service role. Therefore, before using SysOM features, you must invoke this API to perform initialization and ensure that the service role has been created.  
+   * - `check_only`: If this parameter is set to True, the API only checks whether the service role exists and does not create it. If this parameter is set to False or omitted, the API automatically creates the service role if it does not exist.
+   * >  
+   * > Note: When you invoke this API to initialize the role, you are deemed to have accepted the User Agreement of the operating system console by default. For more information, see [Overview of the Operating System Console](https://help.aliyun.com/zh/alinux/product-overview/os-console-overview?spm=a2c4g.11186623.help-menu-2632541.d_0_7.35a829ffLjQtgg) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
    * 
    * @param request - InitialSysomRequest
    * @param headers - map
@@ -2136,7 +2217,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 初始化SysOM，确保角色存在
+   * Initialize SysOM and ensure that the service role exists.
+   * 
+   * @remarks
+   * Some SysOM APIs require role assumption based on the `AliyunServiceRoleForSysom` service role. Therefore, before using SysOM features, you must invoke this API to perform initialization and ensure that the service role has been created.  
+   * - `check_only`: If this parameter is set to True, the API only checks whether the service role exists and does not create it. If this parameter is set to False or omitted, the API automatically creates the service role if it does not exist.
+   * >  
+   * > Note: When you invoke this API to initialize the role, you are deemed to have accepted the User Agreement of the operating system console by default. For more information, see [Overview of the Operating System Console](https://help.aliyun.com/zh/alinux/product-overview/os-console-overview?spm=a2c4g.11186623.help-menu-2632541.d_0_7.35a829ffLjQtgg) and [Alibaba Cloud Service Trial Terms](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202001091714_51956.html).
    * 
    * @param request - InitialSysomRequest
    * @returns InitialSysomResponse
@@ -2148,7 +2235,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在指定的实例上安装 Agent
+   * Install an agent on the specified instance
+   * 
+   * @remarks
+   * The API call to install an agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the job execution status.
    * 
    * @param request - InstallAgentRequest
    * @param headers - map
@@ -2193,7 +2283,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 在指定的实例上安装 Agent
+   * Install an agent on the specified instance
+   * 
+   * @remarks
+   * The API call to install an agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the job execution status.
    * 
    * @param request - InstallAgentRequest
    * @returns InstallAgentResponse
@@ -2205,7 +2298,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给集群安装组件
+   * Install widgets on a cluster
+   * 
+   * @remarks
+   * After you install widgets on the specified ACK cluster:  
+   * 1. When the cluster is first enrolled, widgets are installed on all ECS instances in the cluster (if the cluster contains more than 50 nodes, widgets are installed on only 50 nodes in the first batch).  
+   * 2. The operating system console periodically checks for scale-in or scale-out events in the enrolled cluster. Whenever new ECS instances are added to the cluster, the operating system console automatically installs widgets on them without requiring user intervention.
    * 
    * @param request - InstallAgentForClusterRequest
    * @param headers - map
@@ -2254,7 +2352,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给集群安装组件
+   * Install widgets on a cluster
+   * 
+   * @remarks
+   * After you install widgets on the specified ACK cluster:  
+   * 1. When the cluster is first enrolled, widgets are installed on all ECS instances in the cluster (if the cluster contains more than 50 nodes, widgets are installed on only 50 nodes in the first batch).  
+   * 2. The operating system console periodically checks for scale-in or scale-out events in the enrolled cluster. Whenever new ECS instances are added to the cluster, the operating system console automatically installs widgets on them without requiring user intervention.
    * 
    * @param request - InstallAgentForClusterRequest
    * @returns InstallAgentForClusterResponse
@@ -2266,7 +2369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 异常项诊断跳转
+   * Initiate diagnosis for anomalous activity
    * 
    * @param request - InvokeAnomalyDiagnosisRequest
    * @param headers - map
@@ -2299,7 +2402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 异常项诊断跳转
+   * Initiate diagnosis for anomalous activity
    * 
    * @param request - InvokeAnomalyDiagnosisRequest
    * @returns InvokeAnomalyDiagnosisResponse
@@ -2311,7 +2414,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起诊断
+   * Initiate a diagnosis.
+   * 
+   * @remarks
+   * Diagnosing the target ECS instance has the following requirements:  
+   * - The instance status of the target ECS instance must be running.  
+   * - The Cloud Assistant Agent must already be installed on the target ECS instance. If it is not installed, install it by referring to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent).  
+   * - You must invoke the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If this authorization is not granted, the API call will fail immediately.  
+   * - This API depends on the existence of the SysOM service-linked role (AliyunServiceRoleForSysom). This API does not create the service-linked role automatically. If the service-linked role does not exist, you must first call AuthDiagnosis to perform authorization, which will create the aforementioned service-linked role.
    * 
    * @param request - InvokeDiagnosisRequest
    * @param headers - map
@@ -2352,7 +2462,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起诊断
+   * Initiate a diagnosis.
+   * 
+   * @remarks
+   * Diagnosing the target ECS instance has the following requirements:  
+   * - The instance status of the target ECS instance must be running.  
+   * - The Cloud Assistant Agent must already be installed on the target ECS instance. If it is not installed, install it by referring to [Install the Cloud Assistant Agent](https://help.aliyun.com/zh/ecs/user-guide/install-the-cloud-assistant-agent).  
+   * - You must invoke the AuthDiagnosis API to authorize SysOM to diagnose the target ECS instance. If this authorization is not granted, the API call will fail immediately.  
+   * - This API depends on the existence of the SysOM service-linked role (AliyunServiceRoleForSysom). This API does not create the service-linked role automatically. If the service-linked role does not exist, you must first call AuthDiagnosis to perform authorization, which will create the aforementioned service-linked role.
    * 
    * @param request - InvokeDiagnosisRequest
    * @returns InvokeDiagnosisResponse
@@ -2364,7 +2481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一定时间段内的异常事件
+   * Obtain anomalous activity information for clusters, edge zones, or pods within a specified time period.
    * 
    * @param request - ListAbnormalyEventsRequest
    * @param headers - map
@@ -2437,7 +2554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一定时间段内的异常事件
+   * Obtain anomalous activity information for clusters, edge zones, or pods within a specified time period.
    * 
    * @param request - ListAbnormalyEventsRequest
    * @returns ListAbnormalyEventsResponse
@@ -2449,7 +2566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出 Agent 的安装记录
+   * List installation records of the agent
    * 
    * @param request - ListAgentInstallRecordsRequest
    * @param headers - map
@@ -2506,7 +2623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出 Agent 的安装记录
+   * List installation records of the agent
    * 
    * @param request - ListAgentInstallRecordsRequest
    * @returns ListAgentInstallRecordsResponse
@@ -2518,7 +2635,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Agent 列表
+   * Retrieve the Agent List
    * 
    * @param request - ListAgentsRequest
    * @param headers - map
@@ -2563,7 +2680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取 Agent 列表
+   * Retrieve the Agent List
    * 
    * @param request - ListAgentsRequest
    * @returns ListAgentsResponse
@@ -2575,7 +2692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看告警联系人列表
+   * This API is used to obtain the alert contact list.
    * 
    * @param request - ListAlertDestinationsRequest
    * @param headers - map
@@ -2624,7 +2741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看告警联系人列表
+   * This API is used to obtain the alert contact list.
    * 
    * @param request - ListAlertDestinationsRequest
    * @returns ListAlertDestinationsResponse
@@ -2636,7 +2753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取所有告警项
+   * Retrieve all alerting items
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2661,7 +2778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取所有告警项
+   * Retrieve all alerting items
    * @returns ListAlertItemsResponse
    */
   async listAlertItems(): Promise<$_model.ListAlertItemsResponse> {
@@ -2671,7 +2788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于获取用户所有推送告警的策略
+   * Used to obtain all alert policies for push notifications of a user
    * 
    * @param request - ListAlertStrategiesRequest
    * @param headers - map
@@ -2720,7 +2837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用于获取用户所有推送告警的策略
+   * Used to obtain all alert policies for push notifications of a user
    * 
    * @param request - ListAlertStrategiesRequest
    * @returns ListAlertStrategiesResponse
@@ -2732,7 +2849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+   * This API is used to obtain a list of managed or unmanaged instances along with instance information.
    * 
    * @param request - ListAllInstancesRequest
    * @param headers - map
@@ -2797,7 +2914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 此接口用于获取已纳管/未纳管实例列表并带有实例信息
+   * This API is used to obtain a list of managed or unmanaged instances along with instance information.
    * 
    * @param request - ListAllInstancesRequest
    * @returns ListAllInstancesResponse
@@ -2809,7 +2926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群组件安装记录
+   * Obtain cluster widget installation records
    * 
    * @param request - ListClusterAgentInstallRecordsRequest
    * @param headers - map
@@ -2862,7 +2979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取集群组件安装记录
+   * Obtain cluster widget installation records
    * 
    * @param request - ListClusterAgentInstallRecordsRequest
    * @returns ListClusterAgentInstallRecordsResponse
@@ -2874,7 +2991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前用户的所有集群
+   * Retrieve all clusters managed by the current user
    * 
    * @param request - ListClustersRequest
    * @param headers - map
@@ -2931,7 +3048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取当前用户的所有集群
+   * Retrieve all clusters managed by the current user
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -2943,7 +3060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取诊断历史记录列表
+   * Obtain the diagnosis history list.
    * 
    * @param request - ListDiagnosisRequest
    * @param headers - map
@@ -2992,7 +3109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取诊断历史记录列表
+   * Obtain the diagnosis history list.
    * 
    * @param request - ListDiagnosisRequest
    * @returns ListDiagnosisResponse
@@ -3004,7 +3121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain a list of cluster node or pod health degrees within a specified time period.
+   * Obtain a list of cluster node or pod health scores within a specified time period.
    * 
    * @param request - ListInstanceHealthRequest
    * @param headers - map
@@ -3057,7 +3174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain a list of cluster node or pod health degrees within a specified time period.
+   * Obtain a list of cluster node or pod health scores within a specified time period.
    * 
    * @param request - ListInstanceHealthRequest
    * @returns ListInstanceHealthResponse
@@ -3069,7 +3186,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例状态
+   * Obtain instance status
+   * 
+   * @remarks
+   * This API is used to obtain the list of machines managed by SysOM.
    * 
    * @param request - ListInstanceStatusRequest
    * @param headers - map
@@ -3118,7 +3238,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例状态
+   * Obtain instance status
+   * 
+   * @remarks
+   * This API is used to obtain the list of machines managed by SysOM.
    * 
    * @param request - ListInstanceStatusRequest
    * @returns ListInstanceStatusResponse
@@ -3130,7 +3253,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例列表
+   * Obtain the instance list
+   * 
+   * @remarks
+   * The instance list returned by this API includes only the machines that have been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
    * 
    * @param request - ListInstancesRequest
    * @param headers - map
@@ -3183,7 +3309,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例列表
+   * Obtain the instance list
+   * 
+   * @remarks
+   * The instance list returned by this API includes only the machines that have been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -3195,7 +3324,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取ecs信息的列表，如标签列表，公网ip列表等
+   * Obtain a list of ECS information, such as the tag list, public IP address list, and so on.
+   * 
+   * @remarks
+   * The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
    * 
    * @param request - ListInstancesEcsInfoListRequest
    * @param headers - map
@@ -3244,7 +3376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取ecs信息的列表，如标签列表，公网ip列表等
+   * Obtain a list of ECS information, such as the tag list, public IP address list, and so on.
+   * 
+   * @remarks
+   * The instance list returned by this API includes only machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
    * 
    * @param request - ListInstancesEcsInfoListRequest
    * @returns ListInstancesEcsInfoListResponse
@@ -3256,7 +3391,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取已纳管/未纳管实例信息，信息中包含ECS信息
+   * Obtain information about managed or unmanaged instances, including ECS information.
+   * 
+   * @remarks
+   * The current API returns a list of instances that have already been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
    * 
    * @param tmpReq - ListInstancesWithEcsInfoRequest
    * @param headers - map
@@ -3351,7 +3489,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取已纳管/未纳管实例信息，信息中包含ECS信息
+   * Obtain information about managed or unmanaged instances, including ECS information.
+   * 
+   * @remarks
+   * The current API returns a list of instances that have already been managed by SysOM. If an ECS instance exists but has not been managed by SysOM, it will not appear in the list.
    * 
    * @param request - ListInstancesWithEcsInfoRequest
    * @returns ListInstancesWithEcsInfoResponse
@@ -3363,7 +3504,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取插件的安装/更新/卸载实例列表
+   * Obtain the list of instances for plugin installation, update, or uninstallation
+   * 
+   * @remarks
+   * The instance list returned by this API consists of machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
    * 
    * @param request - ListPluginsInstancesRequest
    * @param headers - map
@@ -3420,7 +3564,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取插件的安装/更新/卸载实例列表
+   * Obtain the list of instances for plugin installation, update, or uninstallation
+   * 
+   * @remarks
+   * The instance list returned by this API consists of machines that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it will not appear in the list.
    * 
    * @param request - ListPluginsInstancesRequest
    * @returns ListPluginsInstancesResponse
@@ -3432,7 +3579,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例中的pod列表
+   * Retrieve the list of pods in a cluster or instance
    * 
    * @param request - ListPodsOfInstanceRequest
    * @param headers - map
@@ -3477,7 +3624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例中的pod列表
+   * Retrieve the list of pods in a cluster or instance
    * 
    * @param request - ListPodsOfInstanceRequest
    * @returns ListPodsOfInstanceResponse
@@ -3489,7 +3636,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出所有纳管了机器的区域
+   * List all areas where machines are managed
+   * 
+   * @remarks
+   * This API retrieves the list of areas where the current user has machines managed by SysOM. If the user has ECS instances in an area but those instances are not managed by SysOM, that area will not appear in the API response.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3514,7 +3664,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出所有纳管了机器的区域
+   * List all areas where machines are managed
+   * 
+   * @remarks
+   * This API retrieves the list of areas where the current user has machines managed by SysOM. If the user has ECS instances in an area but those instances are not managed by SysOM, that area will not appear in the API response.
    * @returns ListRegionsResponse
    */
   async listRegions(): Promise<$_model.ListRegionsResponse> {
@@ -3524,7 +3677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询历史宕机诊断任务
+   * Query the history list of breakdown diagnosis jobs.
    * 
    * @param request - ListVmcoreDiagnosisTaskRequest
    * @param headers - map
@@ -3557,7 +3710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询历史宕机诊断任务
+   * Query the history list of breakdown diagnosis jobs.
    * 
    * @param request - ListVmcoreDiagnosisTaskRequest
    * @returns ListVmcoreDiagnosisTaskResponse
@@ -3569,7 +3722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动AI作业分析
+   * Start an AI job analysis.
    * 
    * @param request - StartAIAnalysisRequest
    * @param headers - map
@@ -3654,7 +3807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动AI作业分析
+   * Start an AI job analysis.
    * 
    * @param request - StartAIAnalysisRequest
    * @returns StartAIAnalysisResponse
@@ -3666,7 +3819,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看AI Infra差分分析结果
+   * Start AI Infra differential analysis.
+   * 
+   * @remarks
+   * Currently, only comparative analysis between different steps under the same AI Infra analysis record and the same pid is supported.
    * 
    * @param request - StartAIDiffAnalysisRequest
    * @param headers - map
@@ -3703,7 +3859,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看AI Infra差分分析结果
+   * Start AI Infra differential analysis.
+   * 
+   * @remarks
+   * Currently, only comparative analysis between different steps under the same AI Infra analysis record and the same pid is supported.
    * 
    * @param request - StartAIDiffAnalysisRequest
    * @returns StartAIDiffAnalysisResponse
@@ -3715,7 +3874,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 卸载 SysOM Agent
+   * Uninstall a specified version of the widget
+   * 
+   * @remarks
+   * The API call to uninstall an Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
    * 
    * @param request - UninstallAgentRequest
    * @param headers - map
@@ -3756,7 +3918,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 卸载 SysOM Agent
+   * Uninstall a specified version of the widget
+   * 
+   * @remarks
+   * The API call to uninstall an Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
    * 
    * @param request - UninstallAgentRequest
    * @returns UninstallAgentResponse
@@ -3768,7 +3933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给集群卸载组件
+   * Uninstall a widget from a cluster
    * 
    * @param request - UninstallAgentForClusterRequest
    * @param headers - map
@@ -3809,7 +3974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给集群卸载组件
+   * Uninstall a widget from a cluster
    * 
    * @param request - UninstallAgentForClusterRequest
    * @returns UninstallAgentForClusterResponse
@@ -3821,7 +3986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新告警联系人
+   * This API is used to update an alert contact.
    * 
    * @remarks
    * 、
@@ -3873,7 +4038,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新告警联系人
+   * This API is used to update an alert contact.
    * 
    * @remarks
    * 、
@@ -3888,7 +4053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户更新推送告警策略的状态
+   * User updates the status of a push alert policy
    * 
    * @param request - UpdateAlertEnabledRequest
    * @param headers - map
@@ -3925,7 +4090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户更新推送告警策略的状态
+   * User updates the status of a push alert policy
    * 
    * @param request - UpdateAlertEnabledRequest
    * @returns UpdateAlertEnabledResponse
@@ -3937,7 +4102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新推送告警策略
+   * Update push alert policy
    * 
    * @param request - UpdateAlertStrategyRequest
    * @param headers - map
@@ -3986,7 +4151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新推送告警策略
+   * Update push alert policy
    * 
    * @param request - UpdateAlertStrategyRequest
    * @returns UpdateAlertStrategyResponse
@@ -3998,7 +4163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 异常项关注度更新
+   * Update the follow level of an anomalous activity to adjust the sensitivity of the anomaly detection algorithm by modifying the follow level.
    * 
    * @param request - UpdateEventsAttentionRequest
    * @param headers - map
@@ -4039,7 +4204,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 异常项关注度更新
+   * Update the follow level of an anomalous activity to adjust the sensitivity of the anomaly detection algorithm by modifying the follow level.
    * 
    * @param request - UpdateEventsAttentionRequest
    * @returns UpdateEventsAttentionResponse
@@ -4051,7 +4216,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取功能模块配置
+   * Update the service function module configuration.
+   * 
+   * @remarks
+   * - You must fill in the parameters according to the input parameters of the general LLM service, convert them to a string, and assign the result to `llmParamString`.  
+   * - To use the returned data, convert the string back to a dictionary, following the response format of the general LLM service.
    * 
    * @param tmpReq - UpdateFuncSwitchRecordRequest
    * @param headers - map
@@ -4098,7 +4267,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取功能模块配置
+   * Update the service function module configuration.
+   * 
+   * @remarks
+   * - You must fill in the parameters according to the input parameters of the general LLM service, convert them to a string, and assign the result to `llmParamString`.  
+   * - To use the returned data, convert the string back to a dictionary, following the response format of the general LLM service.
    * 
    * @param request - UpdateFuncSwitchRecordRequest
    * @returns UpdateFuncSwitchRecordResponse
@@ -4110,7 +4283,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 SysOM Agent
+   * Update the version of the installed widget to the specified version.
+   * 
+   * @remarks
+   * The API call to update the Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
    * 
    * @param request - UpgradeAgentRequest
    * @param headers - map
@@ -4151,7 +4327,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新 SysOM Agent
+   * Update the version of the installed widget to the specified version.
+   * 
+   * @remarks
+   * The API call to update the Agent is asynchronous. After invoking this API, a task_id is returned. You can use this ID to invoke the GetAgentTask API to retrieve the execution status of the job.
    * 
    * @param request - UpgradeAgentRequest
    * @returns UpgradeAgentResponse
@@ -4163,7 +4342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给集群更新组件
+   * Update widget for cluster
    * 
    * @param request - UpgradeAgentForClusterRequest
    * @param headers - map
@@ -4204,7 +4383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给集群更新组件
+   * Update widget for cluster
    * 
    * @param request - UpgradeAgentForClusterRequest
    * @returns UpgradeAgentForClusterResponse

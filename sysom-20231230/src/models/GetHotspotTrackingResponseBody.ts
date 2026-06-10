@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHotspotTrackingResponseBodyDataFlame extends $dara.Model {
+  /**
+   * @remarks
+   * List of column names
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * List of flame graph data
+   */
   values?: string[][];
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +43,15 @@ export class GetHotspotTrackingResponseBodyDataFlame extends $dara.Model {
 }
 
 export class GetHotspotTrackingResponseBodyDataSeries extends $dara.Model {
+  /**
+   * @remarks
+   * List of column names
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * List of hot spot metric data
+   */
   values?: string[][];
   static names(): { [key: string]: string } {
     return {
@@ -67,7 +83,15 @@ export class GetHotspotTrackingResponseBodyDataSeries extends $dara.Model {
 }
 
 export class GetHotspotTrackingResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Flame graph data
+   */
   flame?: GetHotspotTrackingResponseBodyDataFlame;
+  /**
+   * @remarks
+   * Data list
+   */
   series?: GetHotspotTrackingResponseBodyDataSeries;
   static names(): { [key: string]: string } {
     return {
@@ -100,17 +124,30 @@ export class GetHotspotTrackingResponseBodyData extends $dara.Model {
 
 export class GetHotspotTrackingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SysomOpenAPI.ServerError
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data
+   */
   data?: GetHotspotTrackingResponseBodyData;
   /**
+   * @remarks
+   * Return message
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822
    */

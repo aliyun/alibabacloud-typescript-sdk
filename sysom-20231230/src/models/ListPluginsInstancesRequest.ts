@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListPluginsInstancesRequest extends $dara.Model {
   /**
+   * @remarks
+   * This field exists when paging is used and indicates the current page number.
+   * 
    * @example
    * 5
    */
   current?: number;
   /**
+   * @remarks
+   * Filter by instance ID or instance name. Fuzzy query is supported.
+   * 
    * @example
    * i-bpxx
    */
   instanceIdName?: string;
   /**
+   * @remarks
+   * Filter by instance tags.
+   * 
    * @example
    * {"key":"app","value":"sysom-aliyun-com"}
    */
   instanceTag?: string;
   /**
    * @remarks
+   * Filter instances by plugin installation status.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,12 +38,17 @@ export class ListPluginsInstancesRequest extends $dara.Model {
    */
   operationType?: string;
   /**
+   * @remarks
+   * Page size. Default value is 10.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * If this parameter is specified, the response filters and returns the instance list for the specified agent.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +57,8 @@ export class ListPluginsInstancesRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
+   * Filter instances by area.
+   * 
    * This parameter is required.
    * 
    * @example

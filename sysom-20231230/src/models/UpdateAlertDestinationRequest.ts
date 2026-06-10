@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAlertDestinationRequestParams extends $dara.Model {
   /**
+   * @remarks
+   * mailbox
+   * 
    * @example
    * xxx@email.com
    */
   email?: string;
   /**
+   * @remarks
+   * Phone number
+   * 
    * @example
    * 1xxx
    */
   phone?: string;
   /**
+   * @remarks
+   * Robot key
+   * 
    * @example
    * SECxxx
    */
   sec?: string;
   /**
+   * @remarks
+   * Robot webhook address
+   * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
    */
@@ -52,22 +64,38 @@ export class UpdateAlertDestinationRequestParams extends $dara.Model {
 
 export class UpdateAlertDestinationRequest extends $dara.Model {
   /**
+   * @remarks
+   * ID of the alert contact
+   * 
    * @example
    * 1
    */
   id?: string;
   /**
+   * @remarks
+   * Name of the alert contact
+   * 
    * @example
    * name1
    */
   name?: string;
+  /**
+   * @remarks
+   * Configuration Parameter
+   */
   params?: UpdateAlertDestinationRequestParams;
   /**
+   * @remarks
+   * Source of the configuration
+   * 
    * @example
    * console
    */
   source?: string;
   /**
+   * @remarks
+   * Push Target for alerts. Currently, only DingTalk contacts are supported.
+   * 
    * @example
    * dingtalk
    */

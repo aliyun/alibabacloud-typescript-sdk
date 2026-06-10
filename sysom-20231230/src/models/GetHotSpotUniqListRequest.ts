@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotSpotUniqListRequest extends $dara.Model {
   /**
    * @remarks
+   * End time
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetHotSpotUniqListRequest extends $dara.Model {
   begEnd?: number;
   /**
    * @remarks
+   * Start time
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetHotSpotUniqListRequest extends $dara.Model {
   begStart?: number;
   /**
    * @remarks
+   * Instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,18 +34,29 @@ export class GetHotSpotUniqListRequest extends $dara.Model {
    */
   instance?: string;
   /**
+   * @remarks
+   * Process ID
+   * 
    * @example
    * 12345
    */
   pid?: number;
   /**
+   * @remarks
+   * Table name
+   * 
    * @example
    * prof_on
    */
   table?: string;
   /**
    * @remarks
+   * Identity flag
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 默认需要为"flag"，待查询的字段
    */
   uniq?: string;
   static names(): { [key: string]: string } {

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAlertDestinationResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 1751520976660
    */
   createdAt?: string;
   /**
+   * @remarks
+   * Alert contact ID
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * Alert contact name
+   * 
    * @example
    * name1
    */
   name?: string;
   /**
+   * @remarks
+   * Configuration Parameter
+   * 
    * @example
    * {
    *     "webhook":"",
@@ -27,21 +39,33 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
    */
   params?: any;
   /**
+   * @remarks
+   * Configuration source
+   * 
    * @example
    * console
    */
   source?: string;
   /**
+   * @remarks
+   * Alert push target. Currently, only DingTalk Robot is supported.
+   * 
    * @example
    * dingtalk
    */
   target?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1234123412352311
    */
   uid?: string;
   /**
+   * @remarks
+   * Update Time.
+   * 
    * @example
    * 1751254826285
    */
@@ -83,17 +107,34 @@ export class GetAlertDestinationResponseBodyData extends $dara.Model {
 
 export class GetAlertDestinationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code.  
+   * - If `code == Success`, authorization succeeded.  
+   * - Other status codes indicate authorization failed. When authorization fails, check the `message` field for detailed error information.
+   * 
    * @example
    * Success or Sysom.ServerError
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetAlertDestinationResponseBodyData;
   /**
+   * @remarks
+   * Error message.  
+   * - If `code == Success`, this field is empty.  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * SysomOpenAPIAssumeRoleException: EntityNotExist.Role The role not exists: acs:ram::xxxxx:role/aliyunserviceroleforsysom
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822
    */

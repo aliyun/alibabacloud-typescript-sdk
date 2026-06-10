@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeAgentRequestInstances extends $dara.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpgradeAgentRequestInstances extends $dara.Model {
   instance?: string;
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,16 +49,28 @@ export class UpgradeAgentRequestInstances extends $dara.Model {
 export class UpgradeAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the widget to update
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 74a86327-3170-412c-8e67-da3389ec56a9
    */
   agentId?: string;
   /**
    * @remarks
+   * Version of the widget to update
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 3.4.0-1
    */
   agentVersion?: string;
   /**
    * @remarks
+   * List of instances on which to update the widget
+   * 
    * This parameter is required.
    */
   instances?: UpgradeAgentRequestInstances[];

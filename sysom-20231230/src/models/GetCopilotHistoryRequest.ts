@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetCopilotHistoryRequest extends $dara.Model {
   /**
    * @remarks
+   * Quantity of historical chat records to request, typically fewer than 100 records
+   * 
    * This parameter is required.
    * 
    * @example

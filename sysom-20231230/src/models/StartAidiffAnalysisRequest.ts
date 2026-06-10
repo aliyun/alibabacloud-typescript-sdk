@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartAIDiffAnalysisRequestTask1 extends $dara.Model {
   /**
+   * @remarks
+   * AI analysis ID
+   * 
    * @example
    * 16896fa8-37f6-4c70-bb32-67fa9817d426
    */
   analysisId?: string;
+  /**
+   * @remarks
+   * PIDs of AI job processes; batch input is supported, separated by commas
+   */
   pids?: string[];
   /**
+   * @remarks
+   * Step end time, computed based on the selected step number
+   * 
    * @example
    * 4660551334179.955
    */
   stepEnd?: number;
   /**
+   * @remarks
+   * Step start time, computed based on the selected step number
+   * 
    * @example
    * 4660550379415.497
    */
@@ -52,6 +65,8 @@ export class StartAIDiffAnalysisRequestTask1 extends $dara.Model {
 export class StartAIDiffAnalysisRequestTask2 extends $dara.Model {
   /**
    * @remarks
+   * AI analysis ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,6 +75,8 @@ export class StartAIDiffAnalysisRequestTask2 extends $dara.Model {
   analysisId?: string;
   /**
    * @remarks
+   * Process IDs (PIDs) of AI jobs. Batch input is supported, with PIDs separated by commas.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,6 +85,8 @@ export class StartAIDiffAnalysisRequestTask2 extends $dara.Model {
   pids?: string[];
   /**
    * @remarks
+   * Step end time, computed based on the selected step number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -76,6 +95,8 @@ export class StartAIDiffAnalysisRequestTask2 extends $dara.Model {
   stepEnd?: number;
   /**
    * @remarks
+   * Step start time, computed based on the selected step number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -115,12 +136,22 @@ export class StartAIDiffAnalysisRequestTask2 extends $dara.Model {
 export class StartAIDiffAnalysisRequest extends $dara.Model {
   /**
    * @remarks
+   * task1 parameters
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * task1参数
    */
   task1?: StartAIDiffAnalysisRequestTask1;
   /**
    * @remarks
+   * task2 parameters
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * task2参数，目前只支持相同analysisId和pid的对比
    */
   task2?: StartAIDiffAnalysisRequestTask2;
   static names(): { [key: string]: string } {

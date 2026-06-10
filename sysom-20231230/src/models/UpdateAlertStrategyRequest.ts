@@ -3,8 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
+  /**
+   * @remarks
+   * Set of clusters that receive alerts
+   */
   clusters?: string[];
   destinations?: number[];
+  /**
+   * @remarks
+   * Set of abnormal items that receive alerts
+   */
   items?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -43,6 +51,8 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
 export class UpdateAlertStrategyRequest extends $dara.Model {
   /**
    * @remarks
+   * Whether the alert policy is enabled
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,6 +61,8 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
+   * Alert policy ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,6 +72,8 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
   k8sLabel?: boolean;
   /**
    * @remarks
+   * Alert policy name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -68,6 +82,8 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * Alert policy details
+   * 
    * This parameter is required.
    */
   strategy?: UpdateAlertStrategyRequestStrategy;

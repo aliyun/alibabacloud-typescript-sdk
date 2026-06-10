@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotspotAnalysisRequest extends $dara.Model {
   /**
    * @remarks
+   * Application Type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetHotspotAnalysisRequest extends $dara.Model {
   appType?: string;
   /**
    * @remarks
+   * End time
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetHotspotAnalysisRequest extends $dara.Model {
   begEnd?: number;
   /**
    * @remarks
+   * Start time
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class GetHotspotAnalysisRequest extends $dara.Model {
   begStart?: number;
   /**
    * @remarks
+   * instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,11 +44,17 @@ export class GetHotspotAnalysisRequest extends $dara.Model {
    */
   instance?: string;
   /**
+   * @remarks
+   * Process PID
+   * 
    * @example
    * 1657494
    */
   pid?: number;
   /**
+   * @remarks
+   * Name of the queried Table
+   * 
    * @example
    * prof_on
    */

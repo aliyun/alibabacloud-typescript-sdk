@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetRangeScoreResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Time point
+   * 
    * @example
    * 1725797727754
    */
   time?: number;
   /**
+   * @remarks
+   * Metric type
+   * 
    * @example
    * saturation
    */
   type?: string;
   /**
+   * @remarks
+   * Score
+   * 
    * @example
    * 100
    */
@@ -46,24 +55,41 @@ export class GetRangeScoreResponseBodyData extends $dara.Model {
 export class GetRangeScoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * Status code  
+   * - If `code == Success`, authorization succeeded.  
+   * - Other status codes indicate authorization failed. When authorization fails, view the `message` field to obtain detailed error information.
    * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetRangeScoreResponseBodyData[];
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty.  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * ""
    */
   message?: string;
   /**
+   * @remarks
+   * Request RequestId
+   * 
    * @example
    * 35F91AAB-5FDF-5A22-B211-C7C6B00817D0
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total data volume.
+   * 
    * @example
    * 2
    */

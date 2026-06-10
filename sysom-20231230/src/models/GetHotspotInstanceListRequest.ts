@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotspotInstanceListRequest extends $dara.Model {
   /**
    * @remarks
+   * stop time
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetHotspotInstanceListRequest extends $dara.Model {
   begEnd?: number;
   /**
    * @remarks
+   * start time
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetHotspotInstanceListRequest extends $dara.Model {
   begStart?: number;
   /**
    * @remarks
+   * Query table name
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAIQueryResultRequest extends $dara.Model {
   /**
+   * @remarks
+   * AI analysis ID
+   * 
    * @example
    * 16896fa8-37f6-4c70-bb32-67fa9817d426
    */

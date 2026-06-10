@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHotspotPidListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * List of column names
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * List of process information
+   */
   values?: string[][];
   static names(): { [key: string]: string } {
     return {
@@ -36,12 +44,22 @@ export class GetHotspotPidListResponseBodyData extends $dara.Model {
 
 export class GetHotspotPidListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SysomOpenAPI.InvalidParameter
    */
   code?: string;
+  /**
+   * @remarks
+   * Data returned
+   */
   data?: GetHotspotPidListResponseBodyData;
   /**
+   * @remarks
+   * Response message
+   * 
    * @example
    * Success
    */

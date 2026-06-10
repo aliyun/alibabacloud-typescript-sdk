@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
   /**
+   * @remarks
+   * mailbox
+   * 
    * @example
    * xxx@email.com
    */
   email?: string;
   /**
+   * @remarks
+   * Phone
+   * 
    * @example
    * 1xxx
    */
   phone?: string;
   /**
+   * @remarks
+   * Robot key
+   * 
    * @example
    * SECxxx
    */
   sec?: string;
   /**
+   * @remarks
+   * Robot address
+   * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=xxx
    */
@@ -52,37 +64,62 @@ export class CreateAlertDestinationResponseBodyDataParams extends $dara.Model {
 
 export class CreateAlertDestinationResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Creation Time.
+   * 
    * @example
    * 1753669116286
    */
   createdAt?: number;
   /**
+   * @remarks
+   * Policy ID
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * Policy Name
+   * 
    * @example
    * SysOM
    */
   name?: string;
+  /**
+   * @remarks
+   * Configuration Parameter of alert contact
+   */
   params?: CreateAlertDestinationResponseBodyDataParams;
   /**
+   * @remarks
+   * Configuration Source
+   * 
    * @example
    * console
    */
   source?: string;
   /**
+   * @remarks
+   * Push Target. Currently, only DingTalk Robot is supported.
+   * 
    * @example
    * dingtalk
    */
   target?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1222933234714935
    */
   uid?: string;
   /**
+   * @remarks
+   * Update Time
+   * 
    * @example
    * 1751254826285
    */
@@ -127,17 +164,32 @@ export class CreateAlertDestinationResponseBodyData extends $dara.Model {
 
 export class CreateAlertDestinationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: CreateAlertDestinationResponseBodyData;
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty.  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * SysomOpenAPIException: SysomOpenAPI.InvalidParameter Invalid params, should be json string or dict
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 2D693121-C925-5154-8DF6-C09A8B369822
    */

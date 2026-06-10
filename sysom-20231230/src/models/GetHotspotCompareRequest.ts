@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetHotspotCompareRequest extends $dara.Model {
   /**
    * @remarks
+   * End time 1
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetHotspotCompareRequest extends $dara.Model {
   beg1End?: number;
   /**
    * @remarks
+   * Start time 1
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetHotspotCompareRequest extends $dara.Model {
   beg1Start?: number;
   /**
    * @remarks
+   * End time 2
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,15 +35,26 @@ export class GetHotspotCompareRequest extends $dara.Model {
   beg2End?: number;
   /**
    * @remarks
+   * Start time 2
+   * 
    * This parameter is required.
    * 
    * @example
    * 1725415474000
    */
   beg2Start?: number;
+  /**
+   * @remarks
+   * Hot spot type
+   * 
+   * @example
+   * alloc
+   */
   hotType?: string;
   /**
    * @remarks
+   * Instance 1
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,6 +63,8 @@ export class GetHotspotCompareRequest extends $dara.Model {
   instance1?: string;
   /**
    * @remarks
+   * Instance 2
+   * 
    * This parameter is required.
    * 
    * @example
@@ -53,17 +72,25 @@ export class GetHotspotCompareRequest extends $dara.Model {
    */
   instance2?: string;
   /**
+   * @remarks
+   * Process of instance 1
+   * 
    * @example
    * 0
    */
   pid1?: number;
   /**
+   * @remarks
+   * Process of instance 2
+   * 
    * @example
    * i-2zei55fwj8nnu31h3z46
    */
   pid2?: number;
   /**
    * @remarks
+   * Query table name
+   * 
    * This parameter is required.
    * 
    * @example

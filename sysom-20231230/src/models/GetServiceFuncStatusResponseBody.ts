@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetServiceFuncStatusResponseBodyDataArgs extends $dara.Model {
   /**
+   * @remarks
+   * Configuration process
+   * 
    * @example
    * java
    */
   addCmd?: string;
   /**
+   * @remarks
+   * ONCPU tracing Toggle
+   * 
    * @example
    * true
    */
   cpu?: string;
   /**
+   * @remarks
+   * Storage Path
+   * 
    * @example
    * /tmp/sysom/java-profiler
    */
   javaStorePath?: string;
   /**
+   * @remarks
+   * Edit Lock tracing Toggle
+   * 
    * @example
    * true
    */
   locks?: string;
   /**
+   * @remarks
+   * Tracing epoch
+   * 
    * @example
    * -1
    */
   loop?: number;
   /**
+   * @remarks
+   * Memory tracing Toggle
+   * 
    * @example
    * true
    */
   mem?: string;
   /**
+   * @remarks
+   * System profiling Toggle
+   * 
    * @example
    * true
    */
@@ -72,6 +93,10 @@ export class GetServiceFuncStatusResponseBodyDataArgs extends $dara.Model {
 }
 
 export class GetServiceFuncStatusResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration Parameter
+   */
   args?: GetServiceFuncStatusResponseBodyDataArgs;
   static names(): { [key: string]: string } {
     return {
@@ -99,11 +124,26 @@ export class GetServiceFuncStatusResponseBodyData extends $dara.Model {
 
 export class GetServiceFuncStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code  
+   * - `code == Success` indicates that authorization succeeded.  
+   * - Any other status code indicates that authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * Return Result
+   */
   data?: GetServiceFuncStatusResponseBodyData;
+  /**
+   * @remarks
+   * error message  
+   * - If `code == Success`, this field is empty;  
+   * - Otherwise, this field contains the request error message.
+   */
   message?: string;
   /**
    * @remarks

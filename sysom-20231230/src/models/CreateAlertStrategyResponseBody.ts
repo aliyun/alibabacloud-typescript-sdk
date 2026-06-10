@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAlertStrategyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Status code  
+   * - If `code == Success`, authorization succeeded.  
+   * - Any other status code indicates authorization failed. When authorization fails, view the `message` field to obtain detailed error message.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * Returned data.
+   * 
    * @example
    * {
    *             "uid": "uid-1",
@@ -22,6 +30,15 @@ export class CreateAlertStrategyResponseBody extends $dara.Model {
    *         }
    */
   data?: any;
+  /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty.  
+   * - Otherwise, this field contains the request error message.
+   * 
+   * @example
+   * 创建策略失败
+   */
   message?: string;
   /**
    * @remarks

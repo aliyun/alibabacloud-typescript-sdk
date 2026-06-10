@@ -9,6 +9,7 @@ export class CreateInstanceInspectionRequest extends $dara.Model {
    */
   instance?: string;
   items?: string[];
+  metricSource?: string;
   /**
    * @example
    * cn-shenzhen
@@ -23,6 +24,7 @@ export class CreateInstanceInspectionRequest extends $dara.Model {
     return {
       instance: 'instance',
       items: 'items',
+      metricSource: 'metricSource',
       region: 'region',
       source: 'source',
     };
@@ -32,6 +34,7 @@ export class CreateInstanceInspectionRequest extends $dara.Model {
     return {
       instance: 'string',
       items: { 'type': 'array', 'itemType': 'string' },
+      metricSource: 'string',
       region: 'string',
       source: 'string',
     };

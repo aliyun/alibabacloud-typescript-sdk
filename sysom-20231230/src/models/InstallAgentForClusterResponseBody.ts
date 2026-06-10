@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class InstallAgentForClusterResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * 049ea0609515414b9e19c3389d7ba638
    */
@@ -31,17 +34,34 @@ export class InstallAgentForClusterResponseBodyData extends $dara.Model {
 
 export class InstallAgentForClusterResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID, which can be used for end-to-end diagnosis
+   * 
    * @example
    * B149FD9C-ED5C-5765-B3AD-05AA4A4D64D7
    */
   requestId?: string;
   /**
+   * @remarks
+   * Status code  
+   * - If `code == Success`, authorization succeeded.  
+   * - Any other status code indicates authorization failed. When authorization fails, check the `message` field for detailed error information.
+   * 
    * @example
    * SysomOpenAPI.ServerError
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: InstallAgentForClusterResponseBodyData;
   /**
+   * @remarks
+   * Error message  
+   * - If `code == Success`, this field is empty.  
+   * - Otherwise, this field contains the request error message.
+   * 
    * @example
    * success
    */

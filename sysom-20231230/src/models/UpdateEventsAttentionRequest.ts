@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateEventsAttentionRequest extends $dara.Model {
   /**
+   * @remarks
+   * Sensitivity of the anomalous activity. Valid values are -1 to 3. A value of -1 decreases sensitivity by 1 degree, and a value of 0 increases sensitivity by 1 degree.
+   * 
    * @example
-   * 0
+   * -1
    */
   mode?: number;
   /**
+   * @remarks
+   * Scope of effect: cluster or edge zone
+   * 
    * @example
    * cluster
    */
   range?: string;
   /**
    * @remarks
+   * UUID corresponding to the anomalous activity
+   * 
    * This parameter is required.
    * 
    * @example

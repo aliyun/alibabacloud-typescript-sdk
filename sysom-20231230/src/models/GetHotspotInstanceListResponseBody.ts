@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetHotspotInstanceListResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Column Name
+   */
   columns?: string[];
+  /**
+   * @remarks
+   * Instance List
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,12 +44,22 @@ export class GetHotspotInstanceListResponseBodyData extends $dara.Model {
 
 export class GetHotspotInstanceListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SysomOpenAPI.ServerError
    */
   code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   */
   data?: GetHotspotInstanceListResponseBodyData;
   /**
+   * @remarks
+   * Description
+   * 
    * @example
    * success
    */

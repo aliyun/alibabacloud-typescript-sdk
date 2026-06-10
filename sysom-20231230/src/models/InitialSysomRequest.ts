@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InitialSysomRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to only check if the service role exists
+   */
   checkOnly?: boolean;
+  /**
+   * @remarks
+   * Source, which is fixed as console.
+   * 
+   * @example
+   * console
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {

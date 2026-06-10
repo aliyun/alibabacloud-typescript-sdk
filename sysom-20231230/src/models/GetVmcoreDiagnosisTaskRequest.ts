@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetVmcoreDiagnosisTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Job ID
+   * 
    * This parameter is required.
    * 
    * @example

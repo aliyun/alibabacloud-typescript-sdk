@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAlertStrategyRequest extends $dara.Model {
   /**
    * @remarks
+   * Alert policy ID
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceFuncStatusRequestParams extends $dara.Model {
   /**
    * @remarks
+   * feature name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class GetServiceFuncStatusRequestParams extends $dara.Model {
    */
   functionName?: string;
   /**
+   * @remarks
+   * instance ID
+   * 
    * @example
    * i-2zei55fwj8nnu31h3z46
    */
   instance?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1338904783509062
    */
@@ -49,6 +57,8 @@ export class GetServiceFuncStatusRequestParams extends $dara.Model {
 export class GetServiceFuncStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * channel name
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,11 +67,15 @@ export class GetServiceFuncStatusRequest extends $dara.Model {
   channel?: string;
   /**
    * @remarks
+   * Diagnosis parameters. Different types of diagnosis require different diagnosis parameters. You can use this field to filter records whose parameter values match the specified values.
+   * 
    * This parameter is required.
    */
   params?: GetServiceFuncStatusRequestParams;
   /**
    * @remarks
+   * Service Name
+   * 
    * This parameter is required.
    * 
    * @example
