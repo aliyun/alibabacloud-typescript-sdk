@@ -1303,6 +1303,57 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量删除文档
+   * 
+   * @param tmpReq - DeleteFilesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteFilesResponse
+   */
+  async deleteFilesWithOptions(WorkspaceId: string, tmpReq: $_model.DeleteFilesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteFilesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteFilesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.fileIds)) {
+      request.fileIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.fileIds, "FileIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.fileIdsShrink)) {
+      body["FileIds"] = request.fileIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteFiles",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${$dara.URL.percentEncode(WorkspaceId)}/datacenter/file/delete`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteFilesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteFilesResponse({}));
+  }
+
+  /**
+   * 批量删除文档
+   * 
+   * @param request - DeleteFilesRequest
+   * @returns DeleteFilesResponse
+   */
+  async deleteFiles(WorkspaceId: string, request: $_model.DeleteFilesRequest): Promise<$_model.DeleteFilesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteFilesWithOptions(WorkspaceId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a specified knowledge base permanently.
    * 
    * @remarks
