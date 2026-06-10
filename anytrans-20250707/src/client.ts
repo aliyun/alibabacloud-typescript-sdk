@@ -912,4 +912,57 @@ export default class Client extends OpenApi {
     return await this.textTranslateWithOptions(request, headers, runtime);
   }
 
+  /**
+   * 通义多模态文档翻译查询Usage
+   * 
+   * @param request - UsageQueryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UsageQueryResponse
+   */
+  async usageQueryWithOptions(request: $_model.UsageQueryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UsageQueryResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      body["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      body["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      body["workspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UsageQuery",
+      version: "2025-07-07",
+      protocol: "HTTPS",
+      pathname: `/anytrans/translate/doc/usage/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UsageQueryResponse>(await this.callApi(params, req, runtime), new $_model.UsageQueryResponse({}));
+  }
+
+  /**
+   * 通义多模态文档翻译查询Usage
+   * 
+   * @param request - UsageQueryRequest
+   * @returns UsageQueryResponse
+   */
+  async usageQuery(request: $_model.UsageQueryRequest): Promise<$_model.UsageQueryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.usageQueryWithOptions(request, headers, runtime);
+  }
+
 }
