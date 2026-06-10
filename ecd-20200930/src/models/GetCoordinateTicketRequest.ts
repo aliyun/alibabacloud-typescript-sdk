@@ -18,7 +18,7 @@ export class GetCoordinateTicketRequest extends $dara.Model {
    * The name of the convenience user account. If you initiate the request as an administrator, you do not need to specify this parameter.
    * 
    * @example
-   * Alice
+   * alice
    */
   endUserId?: string;
   /**
@@ -45,17 +45,17 @@ export class GetCoordinateTicketRequest extends $dara.Model {
    * 
    * Set the value to TENANT_ADMIN.
    * 
-   * *   The value of
+   * - The value of
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     TENANT_ADMIN
+   *   TENANT_ADMIN
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     specifies an administrator.
+   *   specifies an administrator.
    * 
    * This parameter is required.
    * 

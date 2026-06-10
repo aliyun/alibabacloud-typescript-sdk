@@ -15,9 +15,9 @@ export class CreateTemplateRequestDataDiskList extends $dara.Model {
    * @remarks
    * The size of the data disk. Unit: GiB. Valid values: 40 to 2040. Increments: 10 GiB.
    * 
-   * **
+   * >Notice: 
    * 
-   * **Keep in mind** that the larger the ESSD disk capacity, the higher the available PL (for example, PL2 is available for disks larger than 460 GiB). A higher PL comes with a higher cost. Select an ESSD based on your specific needs.
+   * The larger the ESSD disk capacity, the higher the available PL (for example, PL2 is available for disks larger than 460 GiB). A higher PL comes with a higher cost. Select an ESSD based on your specific needs.
    * 
    * @example
    * 40
@@ -57,7 +57,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call the [](t2167755.xdita#)operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * @example
    * cn-hangzhou
@@ -91,18 +91,13 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
    * @remarks
    * Specifies whether to enable disk encryption.
    * 
-   * Valid values:
-   * 
-   * *   false (default): disables disk encryption.
-   * *   true: enables disk encryption.
-   * 
    * @example
    * false
    */
   volumeEncryptionEnable?: boolean;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key that you want to use to encrypt disks. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to query KMS keys.
+   * The ID of the Key Management Service (KMS) key that you want to use to encrypt disks. You can call the [](t22712.xdita#)operation to query KMS keys.
    * 
    * @example
    * a7b3c0c8-b3a2-4876-b1cc-*********
@@ -184,7 +179,7 @@ export class CreateTemplateRequestResourceTagList extends $dara.Model {
 export class CreateTemplateRequestSiteConfigList extends $dara.Model {
   /**
    * @remarks
-   * 应用管控策略ID
+   * The application control policy ID.
    * 
    * @example
    * bwr-5a5371e0db954d********
@@ -192,7 +187,7 @@ export class CreateTemplateRequestSiteConfigList extends $dara.Model {
   appRuleId?: string;
   /**
    * @remarks
-   * 站点ID。
+   * The site ID.
    * 
    * @example
    * mainland
@@ -226,11 +221,7 @@ export class CreateTemplateRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
-   * 
-   * Valid values:
-   * 
-   * *   1: the Enterprise edition.
+   * > This parameter is not publicly available.
    * 
    * @example
    * 1
@@ -254,8 +245,12 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The template description. It must meet the following criteria:
    * 
-   * *   It can be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-   * *   It can contain letters, digits, and special characters, including spaces. Note: You can use carriage returns to break lines.
+   * - It can be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * - It can contain letters, digits, and special characters, including spaces. Note: You can use carriage returns to break lines.
+   * 
+   * @example
+   * Design department template
    */
   description?: string;
   /**
@@ -281,8 +276,6 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The service type. Set the value to `CloudDesktop`.
    * 
-   * *
-   * 
    * @example
    * CloudDesktop
    */
@@ -291,7 +284,7 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The regions of the template. You can create cloud computers by using a template only within the same region as the template itself.
    * 
-   * >  You can specify up to 20 regions.
+   * > You can specify up to 20 regions.
    */
   regionConfigList?: CreateTemplateRequestRegionConfigList[];
   /**
@@ -309,20 +302,14 @@ export class CreateTemplateRequest extends $dara.Model {
   resourceTagList?: CreateTemplateRequestResourceTagList[];
   /**
    * @remarks
-   * 区域配置管理
+   * The site configurations.
    */
   siteConfigList?: CreateTemplateRequestSiteConfigList[];
   /**
    * @remarks
    * The performance level (PL) of the system disk.
    * 
-   * >  Only cloud computers of the Graphics or High Frequency type support Enterprise SSDs (ESSDs).
-   * 
-   * Valid values:
-   * 
-   * *   PL1: a PL1 ESSD.
-   * *   PL0: a PL0 ESSD.
-   * *   AutoPL: an AutoPL ESSD.
+   * > Only cloud computers of the Graphics or High Frequency type support Enterprise SSDs (ESSDs).
    * 
    * @example
    * AutoPL
@@ -332,7 +319,7 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The size of the system disk. Unit: GiB. Valid values: 40 to 500. Increments: 10 GiB.
    * 
-   * >  The system disk size must be at least as large as the configured image size.
+   * > The system disk size must be at least as large as the configured image size.
    * 
    * @example
    * 80
@@ -342,11 +329,16 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The template name. It must meet the following criteria:
    * 
-   * *   It can be 2 to 126 characters in length.
-   * *   It must begin with a letter and cannot start with `http://` or `https://`.
-   * *   It can contain letters, digits, colons (:), underscores (_), and hyphens (-). Note: Periods (.) are not supported in the name.
+   * - It can be 2 to 126 characters in length.
+   * 
+   * - It must begin with a letter and cannot start with `http://` or `https://`.
+   * 
+   * - It can contain letters, digits, colons (:), underscores (_), and hyphens (-). Note: Periods (.) are not supported in the name.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * My cloud desktop template 001
    */
   templateName?: string;
   /**

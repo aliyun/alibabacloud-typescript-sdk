@@ -39,7 +39,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
    * @remarks
    * The ID of the external user-level storage resource.
    * 
-   * >  A value is returned for this parameter only if ResourceType is set to PDS.
+   * > A value is returned for this parameter only if ResourceType is set to PDS.
    * 
    * @example
    * 1100****
@@ -87,7 +87,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
    * 
    * @example
    * -
@@ -99,12 +99,17 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   INIT: initializing
-   * *   MAINTAIN: maintaining
-   * *   DELETING
-   * *   INVALID
-   * *   NORMAL
-   * *   FAIL: failed
+   * - INIT: initializing
+   * 
+   * - MAINTAIN: maintaining
+   * 
+   * - DELETING
+   * 
+   * - INVALID
+   * 
+   * - NORMAL
+   * 
+   * - FAIL: failed
    * 
    * @example
    * NORMAL
@@ -114,7 +119,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
    * @remarks
    * The total amount of the user-level storage resource capacity.
    * 
-   * >  Unit: bytes.
+   * > Unit: bytes.
    * 
    * @example
    * 536870912000
@@ -126,8 +131,9 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   DESKTOP: data disk space
-   * *   USER_PROFILE: space for personal data of the user
+   * - DESKTOP: data disk space
+   * 
+   * - USER_PROFILE: space for personal data of the user
    * 
    * @example
    * USER_PROFILE
@@ -137,7 +143,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
    * @remarks
    * The amount of user-level storage resource capacity used.
    * 
-   * >  Unit: bytes.
+   * > Unit: bytes.
    * 
    * @example
    * 243175936

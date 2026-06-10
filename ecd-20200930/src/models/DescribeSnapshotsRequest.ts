@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotsRequest extends $dara.Model {
   /**
    * @remarks
-   * The user who creates the snapshot.
+   * The creator.
    * 
    * @example
    * Administrator
@@ -13,7 +13,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -21,7 +21,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud computer.
+   * The name of the cloud desktop.
    * 
    * @example
    * testName
@@ -29,7 +29,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * The end time to query for snapshots. The time follows the [ISO 8601](t10049.xdita#) standard and is in UTC. The format is `yyyy-mm-ddthh:mm:ssz`.
    * 
    * @example
    * 2020-11-31T06:32:31Z
@@ -39,8 +39,9 @@ export class DescribeSnapshotsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * *   Maximum value: 100.
-   * *   Default value: 10.
+   * - Maximum value: 100.
+   * 
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -48,20 +49,23 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token for the next page of results. This is the NextToken value from the previous API call.
    * 
    * @example
    * 8051af8d01b5479bec9f5ddf02e4a8fbd0ab6e7e43f8****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The operating system type.
+   * 
    * @example
    * Windows
    */
   osType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The ID of the region. Call [](t2167755.xdita#)to get a list of regions that support Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -79,41 +83,15 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The name of the snapshot. The name must be 2 to 127 characters in length. The name must start with a letter. The name can contain letters, digits, underscores (_), and hyphens (-). The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
+   * The display name of the snapshot. The name must be 2 to 127 characters long. It must start with a letter. It can contain digits, underscores (_), and hyphens (-). The name cannot start with `auto` to avoid naming conflicts with automatic snapshots.
    * 
    * @example
-   * test_data_disk
+   * Test data disk
    */
   snapshotName?: string;
   /**
    * @remarks
-   * The category of the snapshots.
-   * 
-   * Default value: all. Valid values:
-   * 
-   * *   all: all snapshot categories
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   auto: automatic snapshots
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   user: manual snapshots
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The snapshot type.
    * 
    * @example
    * user
@@ -121,14 +99,9 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The disk for which you want to create a snapshot.
+   * The disk from which to create the snapshot.
    * 
-   * >  The value of this parameter is not case-sensitive.
-   * 
-   * Valid values:
-   * 
-   * *   Data: the data disk.
-   * *   System: the system disk.
+   * > The value is case-insensitive.
    * 
    * @example
    * system
@@ -136,7 +109,7 @@ export class DescribeSnapshotsRequest extends $dara.Model {
   sourceDiskType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * The start time to query for snapshots. The time follows the [ISO 8601](t10049.xdita#) standard and is in UTC. The format is `yyyy-mm-ddthh:mm:ssz`.
    * 
    * @example
    * 2020-11-30T06:32:31Z

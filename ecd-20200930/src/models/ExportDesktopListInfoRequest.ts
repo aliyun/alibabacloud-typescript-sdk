@@ -79,7 +79,7 @@ export class ExportDesktopListInfoRequest extends $dara.Model {
    * The name of the cloud computer.
    * 
    * @example
-   * testName
+   * DemoComputer01
    */
   desktopName?: string;
   /**

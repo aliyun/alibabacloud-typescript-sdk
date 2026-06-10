@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunCommandResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the command execution.
+   * The script execution ID. You can use this ID with the [DescribeInvocations](~~DescribeInvocations~~) operation to query the script\\"s execution status.
    * 
    * @example
    * t-hz01qgsqj2n****
@@ -13,7 +13,7 @@ export class RunCommandResponseBody extends $dara.Model {
   invokeId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

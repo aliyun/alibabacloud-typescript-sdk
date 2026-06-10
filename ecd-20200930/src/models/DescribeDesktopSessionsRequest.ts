@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopSessionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to turn on the switch to check session status of cloud computers.
+   * Specifies whether to check the session status within the cloud computer.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   checkOsSession?: boolean;
   /**
    * @remarks
-   * The IDs of the cloud computers. You can specify the IDs of 1 to 100 cloud computers.
+   * The ID of the cloud computer. You can specify 1 to 100 IDs.
    */
   desktopId?: string[];
   /**
@@ -26,7 +26,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the query.
    * 
    * @example
    * 2023-02-13T02:51:43Z
@@ -37,26 +37,33 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
    * The ID of the end user.
    * 
    * @example
-   * testUser
+   * alice
    */
   endUserId?: string;
   /**
    * @remarks
-   * The user ID. This parameter functions the same as the `EndUserId` parameter. You only need to include one of them in your request.
+   * The ID of the end user. This parameter is the same as the `EndUserId` parameter. Specify only one of them.
    * 
    * @example
    * alice
    */
   endUserIdFilter?: string;
+  /**
+   * @remarks
+   * Specifies whether to return information about the terminal.
+   */
   fillHardwareInfo?: boolean;
   /**
+   * @remarks
+   * The language of the returned information.
+   * 
    * @example
    * zh-CN
    */
   language?: string;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the cloud computer.
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -64,7 +71,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number for a paged query.
    * 
    * @example
    * 1
@@ -72,7 +79,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The maximum number of entries to return on each page for a paged query.
    * 
    * @example
    * 10
@@ -80,7 +87,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The ID of the region. Call [](t2167755.xdita#)to obtain a list of regions that Elastic Desktop Service (EDS) supports.
    * 
    * This parameter is required.
    * 
@@ -91,12 +98,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The state of the session.
-   * 
-   * Valid values:
-   * 
-   * *   Connected
-   * *   Disconnected
+   * The connection status of the session.
    * 
    * @example
    * Connected
@@ -104,7 +106,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The start of the time range to query.
+   * The start time of the query.
    * 
    * @example
    * 2023-01-28T02:31:43Z
@@ -112,14 +114,7 @@ export class DescribeDesktopSessionsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The billing method of cloud computers.
-   * 
-   * Valid values:
-   * 
-   * *   duration: hourly plan (available for users in the whitelist)
-   * *   postPaid: pay-as-you-go
-   * *   monthPackage: monthly subscription (the 120-hour/250-hour computing plan)
-   * *   prePaid: monthly subscription (the Unlimited computing plan)
+   * The billing method of the cloud computer.
    * 
    * @example
    * monthPackage

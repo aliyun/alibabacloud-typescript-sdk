@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateADConnectorOfficeSiteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-363353****

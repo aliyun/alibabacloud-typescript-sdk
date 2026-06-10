@@ -3,13 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetUserProfilePathRulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

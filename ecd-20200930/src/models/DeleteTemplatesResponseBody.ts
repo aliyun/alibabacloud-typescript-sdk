@@ -49,8 +49,9 @@ export class DeleteTemplatesResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true: The request is successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

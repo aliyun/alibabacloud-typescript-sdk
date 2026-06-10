@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewNetworkPackagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 214726268900640
@@ -13,7 +13,7 @@ export class RenewNetworkPackagesResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

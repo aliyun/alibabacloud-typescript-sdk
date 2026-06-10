@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudDrivePermissionsRequest extends $dara.Model {
   /**
    * @remarks
+   * ID of the created enterprise cloud drive.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeCloudDrivePermissionsRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example

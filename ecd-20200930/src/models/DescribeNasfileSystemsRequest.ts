@@ -13,7 +13,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   fileSystemId?: string[];
   /**
    * @remarks
-   * Specifies whether to include only NAS file systems that support the User Profile Management (UPM) feature in the query results.
+   * Specifies whether to return only NAS file systems that are compatible with User Profile Management (UPM).
    * 
    * @example
    * false
@@ -23,9 +23,9 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * Maximum value: 100.
+   * - Maximum value: 100.
    * 
-   * Default value: 10.
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -33,7 +33,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query.
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -49,7 +49,7 @@ export class DescribeNASFileSystemsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions where Elastic Desktop Service (EDS) is available.
    * 
    * This parameter is required.
    * 

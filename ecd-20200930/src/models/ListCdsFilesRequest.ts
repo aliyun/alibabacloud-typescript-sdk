@@ -18,7 +18,7 @@ export class ListCdsFilesRequest extends $dara.Model {
    * The ID of the user to which the network disk is assigned.
    * 
    * @example
-   * testUser
+   * alice
    */
   endUserId?: string;
   /**
@@ -47,7 +47,7 @@ export class ListCdsFilesRequest extends $dara.Model {
    * The query token. Set the value to the value of the `NextToken` parameter returned in the last call to the operation. You do not need to set this parameter when you call the operation for the first time.
    * 
    * @example
-   * WyI2Mzg4MjAwMzFhNGQwZWVmN2I3MjRkZjZhZjAyMWU4YzY1MmRjZmUyIiwibiIsIm4iLDEsLTEsMTY2OTg2NTQ3NTMxMiwiNjM4ODIwMDNlNTU0YmZiZjFkYTk0MmEyYTZhMjEyZDkxODdjMjAy****
+   * aGN4YzAxQGNuLWhhbmd6aG91LjExNzU5NTMyNjgzMTQ1****
    */
   nextToken?: string;
   /**

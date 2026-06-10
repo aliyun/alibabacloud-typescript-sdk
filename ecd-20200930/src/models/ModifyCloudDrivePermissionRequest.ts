@@ -23,6 +23,10 @@ export class ModifyCloudDrivePermissionRequest extends $dara.Model {
    * The IDs of the users who have the upload and download permissions.
    */
   downloadUploadEndUserIds?: string[];
+  /**
+   * @remarks
+   * List of end user IDs with neither upload nor download permissions. These users cannot download files from the enterprise file storage to on-premises devices or upload files from on-premises devices to the enterprise file storage.
+   */
   noDownloadNoUploadEndUserIds?: string[];
   /**
    * @remarks

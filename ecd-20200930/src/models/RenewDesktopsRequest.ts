@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the auto-payment feature.
-   * 
-   * Valid values:
-   * 
-   * *   true (default): enables the auto-payment feature. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated.
-   * *   false: disables the auto-payment feature. In this case, an order is generated but you need to complete the payment. You can log on to the EDS console and complete the payment based on the order ID on the Orders page.
+   * Specifies whether to enable automatic payment.
    * 
    * @example
    * true
@@ -18,7 +13,7 @@ export class RenewDesktopsRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the auto-renewal feature.
+   * Specifies whether to enable auto-renewal.
    * 
    * @example
    * false
@@ -26,7 +21,7 @@ export class RenewDesktopsRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The cloud computer IDs. You can only renew monthly subscription cloud computers.
+   * A list of WUYING Workspace instance IDs. You can renew only instances purchased on a monthly basis.
    * 
    * This parameter is required.
    * 
@@ -36,10 +31,11 @@ export class RenewDesktopsRequest extends $dara.Model {
   desktopId?: string[];
   /**
    * @remarks
-   * The renewal duration. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
+   * The renewal duration. Valid values depend on the value of `PeriodUnit`.
    * 
-   * *   Valid values if you set the `PeriodUnit` parameter to `Month`: 1, 2, 3, and 6
-   * *   Valid values if you set the `PeriodUnit` parameter to `Year`: 1, 2, 3, 4, 5, and 6
+   * - If `PeriodUnit` is `Month`, valid values are 1, 2, 3, and 6.
+   * 
+   * - If `PeriodUnit` is `Year`, valid values are 1 to 5.
    * 
    * Default value: 1.
    * 
@@ -49,25 +45,7 @@ export class RenewDesktopsRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the renewal duration specified by the `Period` parameter.
-   * 
-   * Default value: Month. Valid values:
-   * 
-   * *   Month
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Year
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The unit for the renewal duration, which applies to the `Period` parameter.
    * 
    * @example
    * Month
@@ -75,15 +53,15 @@ export class RenewDesktopsRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the promotional activity.
+   * The promotion ID.
    * 
    * @example
-   * 500030980150146
+   * 50003098015****
    */
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to list the regions where WUYING Workspace is available.
    * 
    * This parameter is required.
    * 
@@ -94,7 +72,7 @@ export class RenewDesktopsRequest extends $dara.Model {
   resellerOwnerUid?: number;
   /**
    * @remarks
-   * >  This field is not available for public use.
+   * > This field is not available for public use.
    * 
    * @example
    * null

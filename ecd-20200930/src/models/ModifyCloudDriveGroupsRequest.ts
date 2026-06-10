@@ -46,7 +46,7 @@ export class ModifyCloudDriveGroupsRequest extends $dara.Model {
    * The total capacity of the team space.
    * 
    * @example
-   * 32212254720
+   * 1073741824
    */
   totalSize?: number;
   static names(): { [key: string]: string } {

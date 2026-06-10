@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudDrivePermissionsResponseBodyCloudDrivePermissionModels extends $dara.Model {
+  /**
+   * @remarks
+   * List of end user IDs.
+   */
   endUsers?: string[];
   /**
+   * @remarks
+   * File transfer permission between the enterprise cloud drive and on-premises devices for the user.
+   * 
    * @example
    * CDS_DOWNLOAD
    */
@@ -36,8 +43,15 @@ export class DescribeCloudDrivePermissionsResponseBodyCloudDrivePermissionModels
 }
 
 export class DescribeCloudDrivePermissionsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of enterprise cloud drive permission information.
+   */
   cloudDrivePermissionModels?: DescribeCloudDrivePermissionsResponseBodyCloudDrivePermissionModels[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * A87DBB05-653A-5E4B-B72B-5F4A1E07E5B3
    */

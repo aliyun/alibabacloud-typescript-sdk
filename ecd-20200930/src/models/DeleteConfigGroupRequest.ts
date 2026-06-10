@@ -13,7 +13,7 @@ export class DeleteConfigGroupRequest extends $dara.Model {
    * The ID of the region. Set the value to `cn-shanghai`.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   regionId?: string;
   static names(): { [key: string]: string } {

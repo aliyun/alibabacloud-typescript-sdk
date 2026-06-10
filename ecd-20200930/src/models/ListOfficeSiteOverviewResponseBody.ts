@@ -41,77 +41,77 @@ export class ListOfficeSiteOverviewResponseBodyOfficeSiteOverviewResults extends
    * 
    * Default values:
    * 
-   * *   CONFIGUSERFAILED
+   * - CONFIGUSERFAILED
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   REGISTERING
+   * - REGISTERING
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   REGISTERED
+   * - REGISTERED
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   NEEDCONFIGTRUST
+   * - NEEDCONFIGTRUST
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   CONFIGUSERING
+   * - CONFIGUSERING
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   CONFIGTRUSTFAILED
+   * - CONFIGTRUSTFAILED
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   ERROR
+   * - ERROR
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   CONFIGTRUSTING
+   * - CONFIGTRUSTING
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   NEEDCONFIGUSER
+   * - NEEDCONFIGUSER
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * REGISTERED
@@ -163,9 +163,11 @@ export class ListOfficeSiteOverviewResponseBodyOfficeSiteOverviewResults extends
    * 
    * Valid values:
    * 
-   * *   standard (default): standard, exclusive VPC
-   * *   customized: custom, user VPC
-   * *   basic: basic, shared VPC
+   * - standard (default): standard, exclusive VPC
+   * 
+   * - customized: custom, user VPC
+   * 
+   * - basic: basic, shared VPC
    * 
    * @example
    * standard

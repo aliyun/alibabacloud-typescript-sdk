@@ -7,7 +7,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   customStartTimePeriod?: number;
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * The ID of the desktop group.
    * 
    * This parameter is required.
    * 
@@ -17,12 +17,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to ignore deletion flags.
-   * 
-   * Default value: true. Valid values:
-   * 
-   * *   true: ignores deletion flags. The cloud computers that were deleted are returned.
-   * *   false: does not ignore deletion flags. The cloud computers that were deleted are not returned.
+   * Specifies whether to return deleted desktops.
    * 
    * @example
    * true
@@ -30,10 +25,11 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   ignoreDeleted?: boolean;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries to return on a single page.
    * 
-   * *   Default value: 10.
-   * *   Maximum value: 100.
+   * - Maximum value: 100.
+   * 
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -41,7 +37,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token that is used to start the next query. If this parameter is empty, all results are returned.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -49,7 +45,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The billing method of the cloud computer share.
+   * The billing method.
    * 
    * @example
    * PrePaid
@@ -57,7 +53,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

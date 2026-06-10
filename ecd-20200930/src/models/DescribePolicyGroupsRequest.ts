@@ -6,15 +6,16 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The array of cloud computer policy IDs to be excluded.
+   * The list of cloud computer policy IDs to exclude from the query results.
    */
   externalPolicyGroupIds?: string[];
   /**
    * @remarks
    * The number of entries per page.
    * 
-   * *   Valid values: 1 to 100
-   * *   Default value: 10
+   * - Maximum value: 100
+   * 
+   * - Default value: 10
    * 
    * @example
    * 10
@@ -22,7 +23,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token. Set this parameter to the NextToken value returned in the previous response. Do not set this parameter for the first request.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -32,7 +33,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of the cloud computer policies.
+   * The list of cloud computer policy IDs.
    * 
    * @example
    * system-all-enabled-policy
@@ -40,7 +41,7 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
   policyGroupId?: string[];
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -52,14 +53,8 @@ export class DescribePolicyGroupsRequest extends $dara.Model {
    * @remarks
    * The effective scope of the cloud computer policy.
    * 
-   * Valid values:
-   * 
-   * *   ALL
-   * *   IP
-   * *   GLOBAL
-   * 
    * @example
-   * ALL
+   * GLOBAL
    */
   scope?: string;
   static names(): { [key: string]: string } {

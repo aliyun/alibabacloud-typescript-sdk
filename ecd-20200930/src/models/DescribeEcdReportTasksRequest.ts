@@ -23,23 +23,11 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
   /**
    * @remarks
    * The task status.
-   * 
-   * Valid values:
-   * 
-   * *   INIT: initializing
-   * *   FAILED
-   * *   RUNNING
-   * *   EXPIRED
-   * *   FINISHED
    */
   status?: string[];
   /**
    * @remarks
    * The sub-type of the report export task.
-   * 
-   * Valid value:
-   * 
-   * *   DESKTOP: cloud computer
    * 
    * @example
    * DESKTOP
@@ -59,7 +47,7 @@ export class DescribeEcdReportTasksRequest extends $dara.Model {
    * 
    * Valid value:
    * 
-   * *   RESOURCE_REPORT
+   * - RESOURCE_REPORT
    * 
    * @example
    * RESOURCE_REPORT

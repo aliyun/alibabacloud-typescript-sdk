@@ -23,7 +23,7 @@ export class CreateDriveRequest extends $dara.Model {
    * @remarks
    * The ID of the storage resource.
    * 
-   * >  Call the DescribeDrives operation to retrieve the storage resource ID.
+   * > Call the DescribeDrives operation to retrieve the storage resource ID.
    * 
    * @example
    * dom-aaaa****
@@ -41,7 +41,7 @@ export class CreateDriveRequest extends $dara.Model {
    * @remarks
    * The ID of the external storage resource.
    * 
-   * >  Call the DescribeDrives operation to retrieve the external storage resource ID.
+   * > Call the DescribeDrives operation to retrieve the external storage resource ID.
    * 
    * @example
    * 1234****
@@ -49,7 +49,7 @@ export class CreateDriveRequest extends $dara.Model {
   externalDomainId?: string;
   /**
    * @remarks
-   * >  This parameter is deprecated.
+   * > This parameter is deprecated.
    * 
    * @example
    * -
@@ -69,8 +69,9 @@ export class CreateDriveRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   NAS: File Storage NAS
-   * *   PDS: Drive and Photo Service
+   * - NAS: File Storage NAS
+   * 
+   * - PDS: Drive and Photo Service
    * 
    * @example
    * NAS
@@ -82,8 +83,9 @@ export class CreateDriveRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   DESKTOP: data disk space
-   * *   USER_PROFILE: space for personal data of the user
+   * - DESKTOP: data disk space
+   * 
+   * - USER_PROFILE: space for personal data of the user
    * 
    * @example
    * USER_PROFILE

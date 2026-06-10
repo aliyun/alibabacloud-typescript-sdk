@@ -7,24 +7,6 @@ export class ModifyNetworkPackageEnabledRequest extends $dara.Model {
    * @remarks
    * Specifies whether to restore the premium bandwidth plan of the cloud computer.
    * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * true
    */
@@ -41,7 +23,7 @@ export class ModifyNetworkPackageEnabledRequest extends $dara.Model {
   networkPackageId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call the [](t2167755.xdita#)operation to query the most recent region list.
    * 
    * This parameter is required.
    * 

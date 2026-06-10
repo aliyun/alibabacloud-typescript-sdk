@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeModificationPriceRequestResourceSpecs extends $dara.Model {
+  /**
+   * @remarks
+   * Cloud computer ID.
+   * 
+   * @example
+   * ecd-6ghhzivgmnzgeyXXX
+   */
   desktopId?: string;
+  /**
+   * @remarks
+   * System disk size. Unit: GiB.
+   * 
+   * @example
+   * 80
+   */
   rootDiskSizeGib?: number;
+  /**
+   * @remarks
+   * Data disk size. Unit: GiB.
+   * 
+   * @example
+   * 100
+   */
   userDiskSizeGib?: number;
   static names(): { [key: string]: string } {
     return {
@@ -36,7 +57,7 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * @remarks
    * The maximum public bandwidth. Unit: Mbit/s.
    * 
-   * >  Valid values when PayByTraffic is set to PayByBandwidth: 10 to 1000.
+   * > Valid values when PayByTraffic is set to PayByBandwidth: 10 to 1000.
    * 
    * @example
    * 20
@@ -54,37 +75,61 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * @remarks
    * The specifications.
    * 
-   * *   Valid values when you set `ResourceType` to `Desktop`:
+   * - Valid values when you set `ResourceType` to `Desktop`:
    * 
-   *     *   ecd.basic.small
-   *     *   ecd.basic.large
-   *     *   ecd.advanced.large
-   *     *   ecd.advanced.xlarge
-   *     *   ecd.performance.2xlarge
-   *     *   ecd.graphics.xlarge
-   *     *   ecd.graphics.2xlarge
-   *     *   ecd.advanced.xlarge_s8d2
-   *     *   ecd.advanced.xlarge_s8d7
-   *     *   ecd.graphics.1g72c
-   *     *   eds.general.2c2g
-   *     *   eds.general.2c4g
-   *     *   eds.general.2c8g
-   *     *   eds.general.4c8g
-   *     *   eds.general.4c16g
-   *     *   eds.general.8c16g
-   *     *   eds.general.8c32g
-   *     *   eds.general.16c32g
+   *   - ecd.basic.small
    * 
-   * *   You can skip this parameter if `ResourceType` is set to `NetworkPackage`.
+   *   - ecd.basic.large
+   * 
+   *   - ecd.advanced.large
+   * 
+   *   - ecd.advanced.xlarge
+   * 
+   *   - ecd.performance.2xlarge
+   * 
+   *   - ecd.graphics.xlarge
+   * 
+   *   - ecd.graphics.2xlarge
+   * 
+   *   - ecd.advanced.xlarge_s8d2
+   * 
+   *   - ecd.advanced.xlarge_s8d7
+   * 
+   *   - ecd.graphics.1g72c
+   * 
+   *   - eds.general.2c2g
+   * 
+   *   - eds.general.2c4g
+   * 
+   *   - eds.general.2c8g
+   * 
+   *   - eds.general.4c8g
+   * 
+   *   - eds.general.4c16g
+   * 
+   *   - eds.general.8c16g
+   * 
+   *   - eds.general.8c32g
+   * 
+   *   - eds.general.16c32g
+   * 
+   * - You can skip this parameter if `ResourceType` is set to `NetworkPackage`.
    * 
    * @example
    * eds.enterprise_office.8c16g
    */
   instanceType?: string;
+  /**
+   * @remarks
+   * Promotion activity ID.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call the [](t2167755.xdita#)operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * This parameter is required.
    * 
@@ -92,24 +137,38 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * User ID for resource ownership in resale mode. You do not need to specify this parameter if resale mode is not used.
+   * 
+   * @example
+   * 1422724566551XXX
+   */
   resellerOwnerUid?: number;
+  /**
+   * @remarks
+   * List of resource specification templates.
+   */
   resourceSpecs?: DescribeModificationPriceRequestResourceSpecs[];
   /**
    * @remarks
    * The resource type. The required parameters depend on the resource type.
    * 
-   * *   When `ResourceType` is set to `Desktop`, the required parameters are `InstanceType`, `RootDiskSizeGib`, and `UserDiskSizeGib`.
-   * *   When `ResourceType` is set to `NetworkPackage`, the required parameter is `Bandwidth`.
+   * - When `ResourceType` is set to `Desktop`, the required parameters are `InstanceType`, `RootDiskSizeGib`, and `UserDiskSizeGib`.
    * 
-   * Valid values:
-   * 
-   * *   Desktop (default): cloud computers.
-   * *   NetworkPackage: premium bandwidth plans.
+   * - When `ResourceType` is set to `NetworkPackage`, the required parameter is `Bandwidth`.
    * 
    * @example
    * Desktop
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * Performance level of the system disk. When the WUYING Workspace instance type is set to graphics-optimized or high clock speed, you can specify the disk performance level. For differences between performance levels, see [](t583241.xdita#).
+   * 
+   * @example
+   * PL0
+   */
   rootDiskPerformanceLevel?: string;
   /**
    * @remarks
@@ -119,6 +178,13 @@ export class DescribeModificationPriceRequest extends $dara.Model {
    * 80
    */
   rootDiskSizeGib?: number;
+  /**
+   * @remarks
+   * Performance level of the data disk. When the WUYING Workspace instance type is set to graphics-optimized or high clock speed, you can specify the disk performance level. For differences between performance levels, see [](t583241.xdita#).
+   * 
+   * @example
+   * PL0
+   */
   userDiskPerformanceLevel?: string;
   /**
    * @remarks

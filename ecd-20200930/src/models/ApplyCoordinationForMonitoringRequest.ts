@@ -38,7 +38,7 @@ export class ApplyCoordinationForMonitoringRequestResourceCandidates extends $da
    * This parameter is required.
    * 
    * @example
-   * TestDesktop
+   * DemoComputer
    */
   resourceName?: string;
   /**
@@ -65,13 +65,13 @@ export class ApplyCoordinationForMonitoringRequestResourceCandidates extends $da
    * 
    * Set the value to CLOUD_DESKTOP.
    * 
-   * *   The value CLOUD_DESKTOP specifies that the resource is a cloud desktop.
+   * - The value CLOUD_DESKTOP specifies that the resource is a cloud desktop.
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * This parameter is required.
    * 
@@ -119,13 +119,13 @@ export class ApplyCoordinationForMonitoringRequest extends $dara.Model {
    * 
    * Set the value to FULL_CONTROL.
    * 
-   * *   The value FULL_CONTROL specifies that the cloud desktop is shared and remote access to the cloud desktop is allowed.
+   * - The value FULL_CONTROL specifies that the cloud desktop is shared and remote access to the cloud desktop is allowed.
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * This parameter is required.
    * 
@@ -147,13 +147,13 @@ export class ApplyCoordinationForMonitoringRequest extends $dara.Model {
    * 
    * Set the value to ADMIN_INITIATE.
    * 
-   * *   The value ADMIN_INITIATE specifies that the administrator initiates the coordination request.
+   * - The value ADMIN_INITIATE specifies that the administrator initiates the coordination request.
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * ADMIN_INITIATE
@@ -183,7 +183,7 @@ export class ApplyCoordinationForMonitoringRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 62f2f1f252f04e0e9d8bc****
+   * 3E14A18BD4D088504B9F8A8751AB****
    */
   uuid?: string;
   static names(): { [key: string]: string } {

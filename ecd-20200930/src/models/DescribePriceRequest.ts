@@ -15,8 +15,9 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The maximum public bandwidth. Unit: Mbit/s.
    * 
-   * *   Valid values if you set InternetChargeType to PayByBandwidth: 10 to 1000.
-   * *   Valid values if you set InternetChargeType to InternetChargeType: 10 to 200.
+   * - Valid values if you set InternetChargeType to PayByBandwidth: 10 to 1000.
+   * 
+   * - Valid values if you set InternetChargeType to InternetChargeType: 10 to 200.
    * 
    * @example
    * 10
@@ -26,11 +27,6 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The type of hourly plan if you use the Monthly Subscription billing method. If you set `ResourceType` to `DesktopMonthPackage`, you must specify this parameter.
    * 
-   * Valid values:
-   * 
-   * *   120: the 120-hour computing plan.
-   * *   250: the 250-hour computing plan.
-   * 
    * @example
    * 120
    */
@@ -39,7 +35,7 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The number of cloud computer shares. Default value: 1.
    * 
-   * >  This parameter takes effect only if you set `ResourceType` to `DesktopGroup`.
+   * > This parameter takes effect only if you set `ResourceType` to `DesktopGroup`.
    * 
    * @example
    * 1
@@ -49,9 +45,11 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The specifications of the resource.
    * 
-   * *   This parameter is required if you set `ResourceType` to `Desktop`. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) to query the available cloud computer types that correspond to the value of `DesktopTypeId`.
-   * *   If you set `ResourceType` to `DesktopGroup`, set the value of this parameter to `large`.
-   * *   If you set `ResourceType` to `Bandwidth`, you can leave this parameter empty.
+   * - This parameter is required if you set `ResourceType` to `Desktop`. You can call the [DescribeDesktopTypes](~~DescribeDesktopTypes~~) to query the available cloud computer types that correspond to the value of `DesktopTypeId`.
+   * 
+   * - If you set `ResourceType` to `DesktopGroup`, set the value of this parameter to `large`.
+   * 
+   * - If you set `ResourceType` to `Bandwidth`, you can leave this parameter empty.
    * 
    * @example
    * eds.general.2c2g
@@ -61,11 +59,6 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The metering method for network traffic.
    * 
-   * Valid values:
-   * 
-   * *   PayByTraffic: You are charged for the actually consumed traffic.
-   * *   PayByBandwidth: You are charged by a fixed bandwidth.
-   * 
    * @example
    * PayByTraffic
    */
@@ -73,11 +66,6 @@ export class DescribePriceRequest extends $dara.Model {
   /**
    * @remarks
    * The OS type.
-   * 
-   * Valid values:
-   * 
-   * *   Linux
-   * *   Windows (default)
    * 
    * @example
    * Windows
@@ -87,9 +75,11 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The subscription duration. The valid values of this parameter vary based on the value of `PeriodUnit`.
    * 
-   * *   If you set `PeriodUnit` to `Hour`, set the value of this parameter to 1.
-   * *   If you set `PeriodUnit` to `Month`, set the value of this parameter to 1, 2, 3, or 6.
-   * *   If you set `PeriodUnit` to `Year`, set the value of this parameter to 1, 2, or 3.
+   * - If you set `PeriodUnit` to `Hour`, set the value of this parameter to 1.
+   * 
+   * - If you set `PeriodUnit` to `Month`, set the value of this parameter to 1, 2, 3, or 6.
+   * 
+   * - If you set `PeriodUnit` to `Year`, set the value of this parameter to 1, 2, or 3.
    * 
    * Default value: 1.
    * 
@@ -100,12 +90,6 @@ export class DescribePriceRequest extends $dara.Model {
   /**
    * @remarks
    * The billing cycle.
-   * 
-   * Valid values:
-   * 
-   * *   Month
-   * *   Year
-   * *   Hour (default)
    * 
    * @example
    * Hour
@@ -121,7 +105,7 @@ export class DescribePriceRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by EDS.
+   * The region ID. You can call the [](t2167755.xdita#)operation to query the regions supported by EDS.
    * 
    * This parameter is required.
    * 
@@ -129,17 +113,17 @@ export class DescribePriceRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * User ID of the resource owner in resale mode. This parameter is not required in non-resale mode.
+   * 
+   * @example
+   * 1422724566551XXX
+   */
   resellerOwnerUid?: number;
   /**
    * @remarks
    * The type of the resource.
-   * 
-   * Valid values:
-   * 
-   * *   DesktopMonthPackage: monthly subscription cloud computers that use hourly limit plans.
-   * *   Desktop (default): pay-as-you-go cloud computers/monthly subscription cloud computers that use unlimited plans.
-   * *   Bandwidth: premium bandwidth plans.
-   * *   DesktopGroup: cloud computer shares.
    * 
    * @example
    * Desktop
@@ -149,16 +133,17 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The category of the system disk.
    * 
-   * Valid values:
-   * 
-   * *   cloud_efficiency: the ultra disk
-   * *   cloud_auto: the standard SSD.
-   * *   cloud_essd: the Enterprise SSD (ESSD). Take note that only specific cloud computer types support ESSDs.
-   * 
    * @example
    * 40
    */
   rootDiskCategory?: string;
+  /**
+   * @remarks
+   * Performance level of the system disk. You can configure the disk performance level when the cloud desktop instance type is graphics-optimized or high clock speed. For differences among performance levels of disks, see [](t583241.xdita#).
+   * 
+   * @example
+   * PL0
+   */
   rootDiskPerformanceLevel?: string;
   /**
    * @remarks
@@ -172,16 +157,17 @@ export class DescribePriceRequest extends $dara.Model {
    * @remarks
    * The category of the data disk.
    * 
-   * Valid values:
-   * 
-   * *   cloud_efficiency: the ultra disk
-   * *   cloud_auto: the standard SSD.
-   * *   cloud_essd: the ESSD. Take note that only specific cloud computer types support ESSDs.
-   * 
    * @example
    * 80
    */
   userDiskCategory?: string;
+  /**
+   * @remarks
+   * Performance level of the data disk. You can specify the disk performance level when the WUYING Workspace instance type is set to graphics-optimized or high clock speed. For differences between performance levels of disks, see [](t583241.xdita#).
+   * 
+   * @example
+   * PL0
+   */
   userDiskPerformanceLevel?: string;
   /**
    * @remarks

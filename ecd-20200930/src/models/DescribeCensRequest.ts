@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCensRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.\\
-   * Default value: 1.
+   * The page number.<br>Default value: 1.
    * 
    * @example
    * 1
@@ -14,8 +13,7 @@ export class DescribeCensRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.\\
-   * Default value: 50.
+   * The number of entries per page.<br>Default value: 50.
    * 
    * @example
    * 50

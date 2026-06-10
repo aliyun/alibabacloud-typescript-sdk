@@ -32,7 +32,7 @@ export class DescribeBundlesResponseBodyBundlesDesktopTypeAttribute extends $dar
    * The memory size. Unit: MiB.
    * 
    * @example
-   * 47104
+   * 4096
    */
   memorySize?: number;
   static names(): { [key: string]: string } {
@@ -67,40 +67,6 @@ export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
    * @remarks
    * The PL of the disk.
    * 
-   * Valid values:
-   * 
-   * *   PL1
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   PL0
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   PL3
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   PL2
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * PL0
    */
@@ -116,24 +82,6 @@ export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
   /**
    * @remarks
    * The type of the disk.
-   * 
-   * Valid values:
-   * 
-   * *   SYSTEM: system disk
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DATA: data disk
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * SYSTEM
@@ -185,24 +133,6 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
    * @remarks
    * The type of the cloud computer template.
    * 
-   * Valid values:
-   * 
-   * *   SYSTEM: system template
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CUSTOM: custom template
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * SYSTEM
    */
@@ -218,12 +148,6 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   /**
    * @remarks
    * The category of the data disk.
-   * 
-   * Valid values:
-   * 
-   * *   cloud_efficiency: the ultra disk
-   * *   cloud_auto: the standard SSD.
-   * *   cloud_essd: the ESSD. Take note that only specific cloud computer types support ESSDs.
    * 
    * @example
    * cloud_efficiency
@@ -253,12 +177,6 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   /**
    * @remarks
    * The instance family of the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   eds.graphics: graphical instance family
-   * *   eds.hf: instance family with a high clock speed
-   * *   eds.general: general-purpose instance family
    * 
    * @example
    * eds.general
@@ -297,13 +215,6 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
    * @remarks
    * The OS language of the image.
    * 
-   * Valid values:
-   * 
-   * *   en-US: English
-   * *   zh-HK: Chinese, Traditional (Hong Kong, China)
-   * *   zh-CN: Simplified Chinese
-   * *   ja-JP: Japanese
-   * 
    * @example
    * en-US
    */
@@ -311,24 +222,6 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   /**
    * @remarks
    * The type of the OS.
-   * 
-   * Valid values:
-   * 
-   * *   Linux
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Windows
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * Windows
@@ -338,56 +231,6 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
    * @remarks
    * The OS.
    * 
-   * Valid values:
-   * 
-   * *   Ubuntu
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Windows Server 2022
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   UOS
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CentOS
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Windows Server 2019
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Windows Server 2016
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * Windows Server 2019
    */
@@ -396,11 +239,6 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
    * @remarks
    * The protocol type.
    * 
-   * Valid values:
-   * 
-   * *   HDX: HDX protocol
-   * *   ASP: in-house ASP
-   * 
    * @example
    * ASP
    */
@@ -408,11 +246,6 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   /**
    * @remarks
    * The session type.
-   * 
-   * Valid values:
-   * 
-   * *   0: single-session
-   * *   1: multi-session
    * 
    * @example
    * 0
@@ -429,12 +262,6 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   /**
    * @remarks
    * The category of the system disk.
-   * 
-   * Valid values:
-   * 
-   * *   cloud_efficiency: the ultra disk
-   * *   cloud_auto: the standard SSD.
-   * *   cloud_essd: the Enterprise SSD (ESSD). Take note that only specific cloud computer types support ESSDs.
    * 
    * @example
    * cloud_efficiency

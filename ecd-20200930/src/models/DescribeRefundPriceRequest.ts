@@ -5,19 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRefundPriceRequest extends $dara.Model {
   /**
    * @remarks
-   * ID of cloud computer N. Valid values of N: 1 to 20.
+   * A list of cloud desktop IDs. You can specify one or more IDs. The number of IDs (N) must be between 1 and 20.
    * 
    * This parameter is required.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The unsubscription type.
-   * 
-   * Valid values:
-   * 
-   * *   RemainRefund: refunds the remaining balance and releases resources.
-   * *   RenewRefund: refunds only the renewal fee and adjusts the expiration date accordingly.
+   * Refund type.
    * 
    * @example
    * RemainRefund
@@ -25,7 +20,7 @@ export class DescribeRefundPriceRequest extends $dara.Model {
   refundType?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * Region ID. Call [DescribeRegions](~~DescribeRegions~~) to get a list of regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

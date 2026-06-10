@@ -15,8 +15,9 @@ export class ListOfficeSiteOverviewRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * *   Valid values: 1 to 100
-   * *   Default value: 10
+   * - Valid values: 1 to 100
+   * 
+   * - Default value: 10
    * 
    * @example
    * 10
@@ -44,9 +45,11 @@ export class ListOfficeSiteOverviewRequest extends $dara.Model {
    * 
    * Default values:
    * 
-   * *   1 (default): queries non-pooled cloud computers in the office network.
-   * *   2: queries pooled cloud computers in the office network.
-   * *   3: queries all cloud computers in the office network.
+   * - 1 (default): queries non-pooled cloud computers in the office network.
+   * 
+   * - 2: queries pooled cloud computers in the office network.
+   * 
+   * - 3: queries all cloud computers in the office network.
    * 
    * @example
    * 1

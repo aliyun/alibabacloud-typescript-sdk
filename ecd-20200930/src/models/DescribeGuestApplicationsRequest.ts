@@ -20,7 +20,7 @@ export class DescribeGuestApplicationsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * demo001
+   * alice
    */
   endUserId?: string;
   /**

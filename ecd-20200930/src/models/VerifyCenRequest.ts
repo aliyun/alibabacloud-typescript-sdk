@@ -31,7 +31,7 @@ export class VerifyCenRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 47.100.XX.XX
+   * 192.168.0.0/16
    */
   cidrBlock?: string;
   /**

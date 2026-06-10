@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The client CIDR block from which end users can connect to cloud computers. The value is an IPv4 CIDR block.
+   * The client access IP address range, specified as an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -13,7 +13,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAc
   cidrIp?: string;
   /**
    * @remarks
-   * The remarks on the client CIDR block.
+   * The description of the client access IP address range.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAc
 export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The object to which the security group rule applies. The value is an IPv4 CIDR block.
+   * The target of the security group control rule, specified as an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -53,7 +53,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the security group rule.
+   * The description of the security group control rule.
    * 
    * @example
    * test
@@ -61,7 +61,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   description?: string;
   /**
    * @remarks
-   * The protocol type of the security group rule.
+   * The protocol type of the security group control rule.
    * 
    * @example
    * tcp
@@ -69,7 +69,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   ipProtocol?: string;
   /**
    * @remarks
-   * The authorization policy of the security group rule.
+   * The authorization policy of the security group control rule.
    * 
    * @example
    * accept
@@ -77,7 +77,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   policy?: string;
   /**
    * @remarks
-   * The port range of the security group rule.
+   * The port range of the security group control rule.
    * 
    * @example
    * 22/22
@@ -85,7 +85,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   portRange?: string;
   /**
    * @remarks
-   * The priority of the security group rule. A smaller value indicates a higher priority.
+   * The priority of the security group control rule. A smaller number indicates a higher priority.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSe
   priority?: string;
   /**
    * @remarks
-   * The direction of the security group rule.
+   * The direction of the security group control rule.
    * 
    * @example
    * inflow
@@ -143,7 +143,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes
   clientType?: string;
   /**
    * @remarks
-   * Indicates whether a specific client type can connect to cloud computers.
+   * Indicates whether clients of a specific type can log on to Cloud Desktop.
    * 
    * @example
    * on
@@ -223,7 +223,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   deviceName?: string;
   /**
    * @remarks
-   * The product ID (PID).
+   * The product ID.
    * 
    * @example
    * 0x55b1
@@ -239,7 +239,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   deviceType?: string;
   /**
    * @remarks
-   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
    * 
    * @example
    * 0x0781
@@ -247,7 +247,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules
   deviceVid?: string;
   /**
    * @remarks
-   * The link optimization command.
+   * The link optimization instruction.
    * 
    * @example
    * 2:0
@@ -299,6 +299,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResol
   /**
    * @remarks
    * The policy description.
+   * 
+   * @example
+   * 测试规则
    */
   description?: string;
   /**
@@ -396,11 +399,14 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
   /**
    * @remarks
    * The rule description.
+   * 
+   * @example
+   * Test rule
    */
   description?: string;
   /**
    * @remarks
-   * The product ID (PID).
+   * The product ID.
    * 
    * @example
    * 08**
@@ -408,7 +414,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
   productId?: string;
   /**
    * @remarks
-   * Indicates whether USB redirection is allowed.
+   * The USB redirection type.
    * 
    * @example
    * 1
@@ -416,7 +422,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
   usbRedirectType?: number;
   /**
    * @remarks
-   * The type of the USB redirection rule.
+   * The USB redirection rule type.
    * 
    * @example
    * 1
@@ -424,7 +430,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRe
   usbRuleType?: number;
   /**
    * @remarks
-   * The vendor ID (VID). For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
    * 
    * @example
    * 04**
@@ -463,9 +469,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   academicProxy?: string;
   /**
    * @remarks
-   * Indicates whether the admin permissions are granted to end users.
+   * Indicates whether users have administrative permission after connecting to Cloud Desktop.
    * 
-   * >  This parameter is in private preview and only available to specific users.
+   * > This feature is in invitational preview and is not publicly available.
    * 
    * @example
    * deny
@@ -476,7 +482,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   adminMonitor?: number;
   /**
    * @remarks
-   * Indicates whether anti-screenshot is enabled.
+   * Indicates whether screenshot prevention is enabled.
    * 
    * @example
    * off
@@ -484,17 +490,17 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   appContentProtection?: string;
   /**
    * @remarks
-   * The client IP address whitelists.
+   * The client access IP address whitelist.
    */
   authorizeAccessPolicyRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules[];
   /**
    * @remarks
-   * The security group rules.
+   * The list of security group control rules.
    */
   authorizeSecurityPolicyRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules[];
   /**
    * @remarks
-   * Indicates whether on-premises webcam redirection is enabled.
+   * Indicates whether local camera redirection is enabled.
    * 
    * @example
    * on
@@ -512,7 +518,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   clientTypes?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsClientTypes[];
   /**
    * @remarks
-   * The read/write permissions on the clipboard.
+   * Clipboard permissions.
    * 
    * @example
    * off
@@ -520,7 +526,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   clipboard?: string;
   /**
    * @remarks
-   * Indicates whether color enhancement is enabled for design and 3D applications.
+   * Indicates whether to enable color enhancement for design and 3D application scenarios.
    * 
    * @example
    * off
@@ -529,7 +535,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpdDriveClipboard?: string;
   /**
    * @remarks
-   * The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
+   * The CPU frequency reduction duration. Valid values: 30 to 120. Unit: seconds.
    * 
    * @example
    * 30
@@ -538,12 +544,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuOverload?: string;
   /**
    * @remarks
-   * The CPU processors.
+   * Process names.
    */
   cpuProcessors?: string[];
   /**
    * @remarks
-   * The CPU spike protection policy.
+   * CPU protection mode switch.
    * 
    * @example
    * on
@@ -551,7 +557,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuProtectedMode?: string;
   /**
    * @remarks
-   * The overall CPU usage. Valid values: 70 to 90. Unit: percentage (%).
+   * The overall CPU usage percentage. Valid values: 70 to 90.
    * 
    * @example
    * 70
@@ -567,7 +573,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuSampleDuration?: number;
   /**
    * @remarks
-   * The single-CPU usage. Valid values: 70 to 100. Unit: %.
+   * The single-core CPU usage percentage. Valid values: 70 to 100.
    * 
    * @example
    * 70
@@ -575,7 +581,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   cpuSingleRateLimit?: number;
   /**
    * @remarks
-   * The number of cloud computers that are associated with the policy.
+   * The number of Cloud Desktop instances associated with this policy.
    * 
    * @example
    * 1
@@ -583,7 +589,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   desktopCount?: number;
   /**
    * @remarks
-   * The number of cloud computer shares that are associated with the policy.
+   * The number of Cloud Desktop pools associated with this policy.
    * 
    * @example
    * 1
@@ -591,19 +597,19 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   desktopGroupCount?: number;
   /**
    * @remarks
-   * The device redirection rules.
+   * Device redirection rules.
    */
   deviceRedirects?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRedirects[];
   /**
    * @remarks
-   * The custom peripheral rules.
+   * Custom peripheral rules.
    */
   deviceRules?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDeviceRules[];
   /**
    * @remarks
-   * Indicates whether the session is retained after disconnection.
+   * Retain session after disconnection.
    * 
-   * >  This parameter applies only to cloud application policies.
+   * > This parameter applies only to Cloud Application policies.
    * 
    * @example
    * persistent
@@ -611,9 +617,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   disconnectKeepSession?: string;
   /**
    * @remarks
-   * The retention period of the session after disconnection. Unit: seconds.
+   * The duration to retain the session after disconnection. Unit: seconds.
    * 
-   * >  This parameter applies only to cloud application policies.
+   * > This parameter applies only to Cloud Application policies.
    * 
    * @example
    * 120
@@ -622,7 +628,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   diskOverload?: string;
   /**
    * @remarks
-   * The display mode.
+   * Display mode.
    * 
    * @example
    * adminCustom
@@ -630,7 +636,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   displayMode?: string;
   /**
    * @remarks
-   * The field where the domain resolution policy is applied.
+   * The field that takes effect for domain name resolution.
    * 
    * @example
    * xxxx
@@ -638,12 +644,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   domainRegisterValue?: string;
   /**
    * @remarks
-   * The domain resolution policies.
+   * Details of the domain name resolution policy.
    */
   domainResolveRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsDomainResolveRule[];
   /**
    * @remarks
-   * Indicates whether domain name resolution is allowed.
+   * The domain name resolution policy switch.
    * 
    * @example
    * on
@@ -651,7 +657,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   domainResolveRuleType?: string;
   /**
    * @remarks
-   * Indicates whether end users are allowed to request administrator help.
+   * User requests administrator assistance.
    * 
    * @example
    * off
@@ -660,7 +666,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   endUserCount?: string;
   /**
    * @remarks
-   * Indicates whether end users in the same office network can share cloud computers.
+   * Users on the same office network share Cloud Desktop.
    * 
    * @example
    * off
@@ -672,7 +678,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   fileTransferSpeedLocation?: string;
   /**
    * @remarks
-   * Indicates whether image quality control is enabled. For optimal computer performance and user experience in professional design scenarios, we recommend enabling this feature.
+   * Indicates whether to enable visual quality policies for graphics-intensive Cloud Desktop instances. Enable this policy if you have high performance and user experience requirements, such as in professional design scenarios.
    * 
    * @example
    * off
@@ -692,7 +698,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   html5Access?: string;
   /**
    * @remarks
-   * The file transfer feature on the web client.
+   * The web client file transfer policy.
    * 
    * @example
    * off
@@ -712,7 +718,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   kmsServerConfig?: string;
   /**
    * @remarks
-   * The read/write permissions on the on-premises drive.
+   * Local disk mapping permissions.
    * 
    * @example
    * readwrite
@@ -720,7 +726,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   localDrive?: string;
   /**
    * @remarks
-   * The maximum duration to retry reconnecting to cloud computers after an unexpected disconnection (non-human causes). Valid values: 30 to 7200. Unit: seconds.
+   * The maximum retry time for reconnection if the Cloud Desktop disconnects due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
    * 
    * @example
    * 120
@@ -728,7 +734,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   maxReconnectTime?: number;
   /**
    * @remarks
-   * The memory underclocking duration per process. Valid values: 30 to 120. Unit: seconds.
+   * The memory frequency reduction duration per worker. Valid values: 30 to 120. Unit: seconds.
    * 
    * @example
    * 30
@@ -737,12 +743,12 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memoryOverload?: string;
   /**
    * @remarks
-   * The memory processors.
+   * Process names.
    */
   memoryProcessors?: string[];
   /**
    * @remarks
-   * The memory spike protection policy.
+   * Memory protection mode switch.
    * 
    * @example
    * off
@@ -750,7 +756,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memoryProtectedMode?: string;
   /**
    * @remarks
-   * The overall memory usage. Valid values: 70 to 90. Unit: %.
+   * The overall memory usage percentage. Valid values: 70 to 90.
    * 
    * @example
    * 70
@@ -766,7 +772,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memorySampleDuration?: number;
   /**
    * @remarks
-   * The memory usage per process. Valid values: 30 to 60. Unit: %.
+   * The memory usage percentage per worker. Valid values: 30 to 60.
    * 
    * @example
    * 30
@@ -774,9 +780,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   memorySingleRateLimit?: number;
   /**
    * @remarks
-   * Indicates whether the Restart button is displayed in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+   * Indicates whether to provide a restart button in the Cloud Desktop floating ball when connecting to Cloud Desktop from a mobile client (Android client<props="china"> and iOS client).
    * 
-   * >  This feature applies to only mobile clients of version 7.4.0 or later.
+   * > This feature applies only to mobile clients of V7.4 or later.
    * 
    * @example
    * off
@@ -785,9 +791,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   mobileSafeMenu?: string;
   /**
    * @remarks
-   * Indicates whether the Stop button is displayed in the DesktopAssistant menu when end users connect to cloud computers from Android clients.
+   * Indicates whether to provide a shutdown button in the Cloud Desktop floating ball when connecting to Cloud Desktop from a mobile client (Android client<props="china"> and iOS client).
    * 
-   * >  This feature applies to only mobile clients of version 7.4.0 or later.
+   * > This feature applies only to mobile clients of V7.4 or later.
    * 
    * @example
    * off
@@ -807,9 +813,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   name?: string;
   /**
    * @remarks
-   * The network redirection policy.
+   * Network redirection.
    * 
-   * >  This parameter is in private preview and only available to specific users.
+   * > This feature is in invitational preview and is not publicly available.
    * 
    * @example
    * off
@@ -817,17 +823,17 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   netRedirect?: string;
   /**
    * @remarks
-   * The network redirection policies.
+   * Details of the network redirection policy.
    * 
-   * >  This parameter is in private preview and only available to specific users.
+   * > This feature is in invitational preview and is not publicly available.
    */
   netRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsNetRedirectRule[];
   networkPrinter?: string;
   /**
    * @remarks
-   * Indicates whether a disconnection is enforced upon inactivity.
+   * Disconnect on no operation.
    * 
-   * >  This parameter applies only to cloud application policies.
+   * > This parameter applies only to Cloud Application policies.
    * 
    * @example
    * off
@@ -835,9 +841,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The duration of disconnection after inactivity. Unit: seconds.
+   * The duration before disconnecting due to no operation. Unit: seconds.
    * 
-   * >  This parameter applies only to cloud application policies.
+   * > This parameter applies only to Cloud Application policies.
    * 
    * @example
    * 120
@@ -854,7 +860,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   policyGroupId?: string;
   /**
    * @remarks
-   * The type of the policy.
+   * The policy type.
    * 
    * @example
    * SYSTEM
@@ -862,7 +868,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   policyGroupType?: string;
   /**
    * @remarks
-   * The status of the cloud computer policy.
+   * The status of the Cloud Desktop policy.
    * 
    * @example
    * AVAILABLE
@@ -879,7 +885,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   printerRedirection?: string;
   /**
    * @remarks
-   * Indicates whether image quality enhancement is enabled for design and 3D applications.
+   * Indicates whether to enable visual quality enhancement for design and 3D application scenarios.
    * 
    * @example
    * off
@@ -895,7 +901,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordContent?: string;
   /**
    * @remarks
-   * The duration for which custom screen recordings are kept before they expire. Default value: 30 days.
+   * The expiration time of custom screen recording files. Default value: 30 days.
    * 
    * @example
    * 30
@@ -903,7 +909,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordContentExpires?: number;
   /**
    * @remarks
-   * The duration of screen recording after the specified event is detected. Unit: minutes. Valid values: 10 to 60.
+   * The screen recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
    * 
    * @example
    * 10
@@ -911,12 +917,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordEventDuration?: number;
   /**
    * @remarks
-   * The absolute paths to screen recording files.
+   * The absolute paths for file monitoring in screen recording audit.
    */
   recordEventFilePaths?: string[];
   /**
    * @remarks
-   * The absolute paths to screen recording registries.
+   * The absolute paths for registry monitoring in screen recording audit.
+   * 
+   * @example
+   * Computer\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\USBSTOR
    */
   recordEventRegisters?: string[];
   /**
@@ -929,7 +938,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recording?: string;
   /**
    * @remarks
-   * Indicates whether audio files generated on cloud computers are recorded.
+   * The option for recording Cloud Desktop audio.
    * 
    * @example
    * on
@@ -937,7 +946,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingAudio?: string;
   /**
    * @remarks
-   * The length of the screen recording file. Unit: minutes. Screen recording files are split by the specified length and uploaded to OSS buckets. Once a file reaches 300 MB, the system prioritizes rolling updates for that file.
+   * The viewing duration of screen recording files. Unit: minutes. The recorded files are automatically split based on the duration you set and uploaded to the bucket. Files are rolled over when they reach 300 MB.
    * 
    * @example
    * 10
@@ -945,7 +954,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingDuration?: number;
   /**
    * @remarks
-   * The end time of screen recording. The value is in the HH:MM:SS format. The value is meaningful only when you set Recording to period.
+   * The end time of screen recording, in HH:MM:SS format. This parameter is valid only when Recording is set to period.
    * 
    * @example
    * 08:59:00
@@ -953,7 +962,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingEndTime?: string;
   /**
    * @remarks
-   * The retention period of the screen recording file. Valid values: 1 to 180. Unit: days.
+   * The retention period of screen recording files. Valid values: 1 to 180 days.
    * 
    * @example
    * 15
@@ -961,7 +970,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingExpires?: number;
   /**
    * @remarks
-   * The frame rate of screen recording. Unit: fps.
+   * The frame rate of screen recording. Unit: FPS (frames per second).
    * 
    * @example
    * 5
@@ -969,7 +978,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingFps?: number;
   /**
    * @remarks
-   * The start time of screen recording. The value is in the HH:MM:SS format. The value is meaningful only when you set Recording to period.
+   * The start time of screen recording, in HH:MM:SS format. This parameter is valid only when Recording is set to period.
    * 
    * @example
    * 08:00:00
@@ -977,7 +986,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingStartTime?: string;
   /**
    * @remarks
-   * Indicates whether to notify end users when screen recording is enabled.
+   * Notify end users that screen recording is enabled.
    * 
    * @example
    * off
@@ -985,12 +994,15 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   recordingUserNotify?: string;
   /**
    * @remarks
-   * The notification sent to end users when screen recording is enabled.
+   * The message to notify end users that screen recording is enabled.
+   * 
+   * @example
+   * Screen recording is enabled.
    */
   recordingUserNotifyMessage?: string;
   /**
    * @remarks
-   * The keyboard and mouse control permissions during remote assistance.
+   * Remote assistance keyboard and mouse control permissions.
    * 
    * @example
    * fullControl
@@ -999,7 +1011,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resolutionDpi?: number;
   /**
    * @remarks
-   * The height of the resolution. Unit: pixel.
+   * The height of the resolution. Unit: pixels.
    * 
    * @example
    * 1280
@@ -1015,7 +1027,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resolutionModel?: string;
   /**
    * @remarks
-   * The width of the resolution. Unit: pixel.
+   * The width of the resolution. Unit: pixels.
    * 
    * @example
    * 1920
@@ -1023,7 +1035,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   resolutionWidth?: number;
   /**
    * @remarks
-   * The number of resource groups that are associated with the policy.
+   * The number of resource groups associated with this policy.
    * 
    * @example
    * 1
@@ -1032,7 +1044,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   safeMenu?: string;
   /**
    * @remarks
-   * The effective scope of the policy.
+   * The scope where the policy takes effect.
    * 
    * @example
    * GLOBAL
@@ -1040,13 +1052,13 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   scope?: string;
   /**
    * @remarks
-   * The effective scopes specified by CIDR blocks.
+   * The effective CIDR blocks.
    */
   scopeValue?: string[];
   screenDisplayMode?: string;
   /**
    * @remarks
-   * Indicates whether smoothness enhancement is enabled for daily office use.
+   * Indicates whether to enable smoothness enhancement for daily office scenarios.
    * 
    * @example
    * off
@@ -1054,7 +1066,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   smoothEnhancement?: string;
   /**
    * @remarks
-   * Indicates whether the metric status entry is displayed in the DesktopAssistant menu.
+   * Indicates whether to provide an entry point for status monitoring in the Cloud Desktop floating ball.
    * 
    * @example
    * on
@@ -1062,7 +1074,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   statusMonitor?: string;
   /**
    * @remarks
-   * The streaming mode.
+   * Streaming mode adaptation scenario.
    * 
    * @example
    * smooth
@@ -1070,7 +1082,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   streamingMode?: string;
   /**
    * @remarks
-   * The target frame rate. Valid values: 10 to 60. Unit: fps.
+   * The target frame rate. Valid values: 10 to 60.
    * 
    * @example
    * 30
@@ -1078,9 +1090,9 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   targetFps?: number;
   /**
    * @remarks
-   * Indicates whether the application taskbar is displayed.
+   * Application taskbar.
    * 
-   * >  This parameter applies only to cloud application policies.
+   * > This parameter applies only to Cloud Application policies.
    * 
    * @example
    * off
@@ -1088,7 +1100,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   taskbar?: string;
   /**
    * @remarks
-   * The USB redirection policy.
+   * USB redirection.
    * 
    * @example
    * off
@@ -1096,13 +1108,13 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   usbRedirect?: string;
   /**
    * @remarks
-   * The USB redirection rules.
+   * USB redirection rules.
    */
   usbSupplyRedirectRule?: DescribeCenterPolicyListResponseBodyDescribePolicyGroupsUsbSupplyRedirectRule[];
   useTime?: string;
   /**
    * @remarks
-   * The average bitrate for video encoding. Unit: Kbit/s. Valid values: 1000 to 50000.
+   * The average bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
    * 
    * @example
    * 1000
@@ -1110,7 +1122,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncAvgKbps?: number;
   /**
    * @remarks
-   * The maximum QP for video files. Higher QP values result in lower video quality. Valid values: 0 to 51.
+   * The maximum QP for video encoding, representing the lowest quality. Valid values: 0 to 51.
    * 
    * @example
    * 20
@@ -1118,7 +1130,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncMaxQP?: number;
   /**
    * @remarks
-   * The minimum quantizer parameter (QP) for video files. A lower QP means better video quality. Valid values: 0 to 51.
+   * The minimum QP for video encoding, representing the highest quality. Valid values: 0 to 51.
    * 
    * @example
    * 20
@@ -1126,7 +1138,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncMinQP?: number;
   /**
    * @remarks
-   * The peak bitrate for video encoding. Unit: Kbit/s. Valid values: 1000 to 50000.
+   * The peak bitrate for video encoding. Unit: Kbps. Valid values: 1000 to 50000.
    * 
    * @example
    * 2000
@@ -1134,7 +1146,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncPeakKbps?: number;
   /**
    * @remarks
-   * The video encoding policy.
+   * Video encoding policy.
    * 
    * @example
    * qualityFirst
@@ -1142,7 +1154,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoEncPolicy?: string;
   /**
    * @remarks
-   * Indicates whether multimedia redirection is enabled.
+   * Multimedia redirection.
    * 
    * @example
    * off
@@ -1150,7 +1162,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   videoRedirect?: string;
   /**
    * @remarks
-   * The image quality policy.
+   * The image display quality policy.
    * 
    * @example
    * medium
@@ -1158,7 +1170,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   visualQuality?: string;
   /**
    * @remarks
-   * The watermark policy.
+   * Watermark.
    * 
    * @example
    * on
@@ -1166,7 +1178,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermark?: string;
   /**
    * @remarks
-   * Indicates whether anti-screen capture is enabled for invisible watermarks.
+   * Blind watermark anti-photo feature.
    * 
    * @example
    * off
@@ -1174,7 +1186,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkAntiCam?: string;
   /**
    * @remarks
-   * The font color of the watermark. Valid values: 0 to 16777215.
+   * The watermark font color. Valid values: 0 to 16777215.
    * 
    * @example
    * 0
@@ -1182,7 +1194,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkColor?: number;
   /**
    * @remarks
-   * If you set `WatermarkType` to `custom`, you must also specify `WatermarkCustomText`.
+   * If you set the `WatermarkType` parameter to `custom`, you must also specify the custom text using the `WatermarkCustomText` parameter.
    * 
    * @example
    * custom-watermark
@@ -1190,7 +1202,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkCustomText?: string;
   /**
    * @remarks
-   * The watermark rotation. Valid values: -10 to -30.
+   * The watermark tilt angle. Valid values: -10 to -30.
    * 
    * @example
    * -10
@@ -1198,7 +1210,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkDegree?: number;
   /**
    * @remarks
-   * The font size of the watermark. Valid values: 10 to 20.
+   * The watermark font size. Valid values: 10 to 20.
    * 
    * @example
    * 10
@@ -1206,7 +1218,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkFontSize?: number;
   /**
    * @remarks
-   * The font style of the watermark.
+   * The watermark font style.
    * 
    * @example
    * plain
@@ -1214,7 +1226,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkFontStyle?: string;
   /**
    * @remarks
-   * The enhancement level for invisible watermarks.
+   * Enhanced blind watermark feature.
    * 
    * @example
    * medium
@@ -1230,7 +1242,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkRowAmount?: number;
   /**
    * @remarks
-   * Indicates whether security priority is enabled for invisible watermarks.
+   * Blind watermark security priority rule.
    * 
    * @example
    * on
@@ -1239,7 +1251,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkShadow?: string;
   /**
    * @remarks
-   * The watermark transparency. A higher value means the watermark is less transparent. Valid values: 10 to 100.
+   * The watermark transparency. A larger value indicates lower transparency. Valid values: 10 to 100.
    * 
    * @example
    * 10
@@ -1255,7 +1267,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
   watermarkType?: string;
   /**
    * @remarks
-   * Indicates whether the Xiaoying AI Assistant entry is displayed in the DesktopAssistant menu.
+   * Indicates whether to provide an entry point for Wuying AI Assistant in the Cloud Desktop floating ball.
    * 
    * @example
    * on
@@ -1596,7 +1608,7 @@ export class DescribeCenterPolicyListResponseBodyDescribePolicyGroups extends $d
 export class DescribeCenterPolicyListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the cloud computer policies.
+   * Details of Cloud Desktop policies.
    */
   describePolicyGroups?: DescribeCenterPolicyListResponseBodyDescribePolicyGroups[];
   /**
@@ -1609,7 +1621,7 @@ export class DescribeCenterPolicyListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 20

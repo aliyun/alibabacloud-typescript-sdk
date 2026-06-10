@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the auto-payment feature.
-   * 
-   * Valid values:
-   * 
-   * *   true (default): enables the auto-payment feature. Make sure that your account balance is sufficient. Otherwise, an abnormal order is generated.
-   * *   false: disables the auto-payment feature. In this case, an order is generated but you need to make the payment manually. You can log on to the EDS console and complete the payment based on the order ID on the Orders page.
+   * Specifies whether to enable automatic payment.
    * 
    * @example
    * true
@@ -20,18 +15,13 @@ export class RenewDesktopGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal.
    * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
    * @example
    * false
    */
   autoRenew?: boolean;
   /**
    * @remarks
-   * The ID of the shared group.
+   * The ID of the cloud computer pool.
    * 
    * This parameter is required.
    * 
@@ -41,12 +31,13 @@ export class RenewDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The renewal duration. Valid values of this parameter are determined by the value of the `PeriodUnit` parameter.
+   * The renewal duration. The valid values of this parameter vary based on the `PeriodUnit` value.
    * 
-   * *   Valid values if you set the `PeriodUnit` parameter to `Month`: 1, 2, 3, and 6
-   * *   Valid values if you set the `PeriodUnit` parameter to `Year`: 1, 2, 3, 4, and 5
+   * - If you set `PeriodUnit` to `Month`, the valid values are 1, 2, 3, and 6.
    * 
-   * Default value: 1
+   * - If you set `PeriodUnit` to `Year`, the valid values are 1, 2, 3, 4, and 5.
+   * 
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -56,18 +47,13 @@ export class RenewDesktopGroupRequest extends $dara.Model {
    * @remarks
    * The unit of the renewal duration specified by the `Period` parameter.
    * 
-   * Valid values:
-   * 
-   * *   Month (default)
-   * *   Year
-   * 
    * @example
    * Month
    */
   periodUnit?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions that are supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

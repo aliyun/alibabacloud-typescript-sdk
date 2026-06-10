@@ -22,11 +22,15 @@ export class BatchModifyEntitlementResponseBodyEntitlementsAssignModels extends 
    * 
    * Valid values:
    * 
-   * *   FAILED
-   * *   NOT_STARTED
-   * *   STARTED
-   * *   PROCESSING
-   * *   FINISHED
+   * - FAILED
+   * 
+   * - NOT_STARTED
+   * 
+   * - STARTED
+   * 
+   * - PROCESSING
+   * 
+   * - FINISHED
    * 
    * @example
    * FINISHED
@@ -72,11 +76,15 @@ export class BatchModifyEntitlementResponseBodyEntitlements extends $dara.Model 
    * 
    * Valid values:
    * 
-   * *   FAILED
-   * *   NOT_STARTED
-   * *   STARTED
-   * *   PROCESSING
-   * *   FINISHED
+   * - FAILED
+   * 
+   * - NOT_STARTED
+   * 
+   * - STARTED
+   * 
+   * - PROCESSING
+   * 
+   * - FINISHED
    * 
    * @example
    * FINISHED

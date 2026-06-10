@@ -155,6 +155,9 @@ export class DescribeResourceByCenterPolicyIdResponseBodyResourceModelList exten
   /**
    * @remarks
    * The resource name.
+   * 
+   * @example
+   * O&M
    */
   resourceName?: string;
   /**

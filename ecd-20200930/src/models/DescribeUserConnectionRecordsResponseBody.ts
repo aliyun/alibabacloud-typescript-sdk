@@ -8,7 +8,7 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
    * The connection duration. Unit: milliseconds.
    * 
    * @example
-   * 3405035000
+   * 1800000
    */
   connectDuration?: string;
   /**
@@ -40,7 +40,7 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
    * The ID of the cloud computer to which the end user connected.
    * 
    * @example
-   * ud-2hawufy3uedi1****
+   * ecd-gx2x1dhsmucyy****
    */
   desktopId?: string;
   /**
@@ -48,7 +48,7 @@ export class DescribeUserConnectionRecordsResponseBodyConnectionRecords extends 
    * The name of the cloud computer to which the end user connected.
    * 
    * @example
-   * testName
+   * demoComputer
    */
   desktopName?: string;
   static names(): { [key: string]: string } {

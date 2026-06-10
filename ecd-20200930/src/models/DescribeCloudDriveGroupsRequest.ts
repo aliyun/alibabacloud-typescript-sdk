@@ -33,8 +33,9 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
    * @remarks
    * The team space status. Valid values:
    * 
-   * *   enabled
-   * *   disabled
+   * - enabled
+   * 
+   * - disabled
    * 
    * Default value: enabled.
    * 
@@ -46,8 +47,9 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
    * @remarks
    * Specifies whether the space is increased.
    * 
-   * *   binding: increased
-   * *   unbound: not increased
+   * - binding: increased
+   * 
+   * - unbound: not increased
    * 
    * Default value: null. The default value indicates that all spaces are queried.
    * 
@@ -68,15 +70,16 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
    * The team name for fuzzy search.
    * 
    * @example
-   * Test Team 1
+   * Test team 1
    */
   groupName?: string;
   /**
    * @remarks
    * The team type.
    * 
-   * *   org: organizational structure
-   * *   directory: workspace
+   * - org: organizational structure
+   * 
+   * - directory: workspace
    * 
    * Default value: null. The default value indicates that all types of teams are queried.
    * 
@@ -88,8 +91,9 @@ export class DescribeCloudDriveGroupsRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * *   Valid values: 1 to 100
-   * *   Default value: 20
+   * - Valid values: 1 to 100
+   * 
+   * - Default value: 20
    * 
    * @example
    * 10

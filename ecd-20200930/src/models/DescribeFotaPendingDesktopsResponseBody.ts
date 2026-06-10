@@ -8,7 +8,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktopsSessions 
    * The ID of the end user that connects to the cloud computer.
    * 
    * @example
-   * end user id
+   * alice
    */
   endUserId?: string;
   static names(): { [key: string]: string } {
@@ -54,7 +54,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
    * The name of the cloud computer.
    * 
    * @example
-   * TestDesktop
+   * demo-computer
    */
   desktopName?: string;
   /**
@@ -62,7 +62,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
    * > This parameter is not publicly available.
    * 
    * @example
-   * To be hidden
+   * windows
    */
   fotaProject?: string;
   /**
@@ -70,7 +70,7 @@ export class DescribeFotaPendingDesktopsResponseBodyFotaPendingDesktops extends 
    * The ID of the office network.
    * 
    * @example
-   * cn-hangzhou+dir-815419****
+   * cn-shanghai+dir-428216****
    */
   officeSiteId?: string;
   /**
@@ -152,7 +152,7 @@ export class DescribeFotaPendingDesktopsResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * success
+   * Succeeded
    */
   message?: string;
   /**

@@ -4,26 +4,32 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   /**
+   * @remarks
+   * The type of action performed.
+   * 
    * @example
    * REBOOT
    */
   actionType?: string;
   /**
    * @remarks
-   * The ID of the batch in which the scheduled task is executed.
+   * The batch ID of the scheduled task execution.
    * 
    * @example
    * ccg-0cvfvf6u1enx1****
    */
   batchId?: string;
   /**
+   * @remarks
+   * The recorded information during the execution of the scheduled task.
+   * 
    * @example
    * {}
    */
   context?: string;
   /**
    * @remarks
-   * The time when the execution record was created.
+   * The time when the record was created.
    * 
    * @example
    * 2023-08-03T08:27:29Z
@@ -31,7 +37,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The cloud computer ID.
+   * The cloud desktop ID.
    * 
    * @example
    * ecd-0c951fy9arnk9****
@@ -39,7 +45,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud computer name.
+   * The cloud desktop name.
    * 
    * @example
    * DesktopName
@@ -52,7 +58,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   displayResultName?: string;
   /**
    * @remarks
-   * The time when the scheduled task ended.
+   * The time when the task ended.
    * 
    * @example
    * 2025-01-21T02:00:45Z
@@ -78,7 +84,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   retryable?: boolean;
   /**
    * @remarks
-   * The ID of the scheduled task group.
+   * The scheduled task group ID.
    * 
    * @example
    * ccg-xxxx
@@ -165,7 +171,7 @@ export class DescribeGlobalTimerRecordsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6mnFXZiT7NdvGNgkInJ****
@@ -181,7 +187,7 @@ export class DescribeGlobalTimerRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The returned results.
    */
   results?: DescribeGlobalTimerRecordsResponseBodyResults[];
   static names(): { [key: string]: string } {

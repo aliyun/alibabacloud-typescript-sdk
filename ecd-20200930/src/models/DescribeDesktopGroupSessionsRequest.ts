@@ -29,7 +29,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
    * The user ID of the terminal that connects to the session.
    * 
    * @example
-   * xianqiu
+   * alice
    */
   endUserId?: string;
   /**
@@ -58,17 +58,12 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
    * A pagination token. It can be used in the next request to retrieve a new page of results.
    * 
    * @example
-   * "asdfdfsdfsdfds"
+   * AAAAAV3MpHK1AP0pfERHZN5pu6ljnKKgSRjo8yXAIT5QSvkU
    */
   nextToken?: string;
   /**
    * @remarks
    * The type of the session.
-   * 
-   * Valid values:
-   * 
-   * *   0: single-session
-   * *   1: multi-session
    * 
    * @example
    * 1
@@ -76,7 +71,7 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   ownType?: number;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The ID of the region. You can call the [](t2167755.xdita#)operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
    * 
    * @example
    * cn-hangzhou
@@ -85,24 +80,6 @@ export class DescribeDesktopGroupSessionsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the session.
-   * 
-   * Valid values:
-   * 
-   * *   Connected
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Disconnected
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * Connected

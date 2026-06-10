@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyQosRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The maximum downstream bandwidth. The unit is Mbps.
+   * 
    * @example
    * 10
    */
   download?: number;
   /**
    * @remarks
+   * The ID of the QoS rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,11 +22,17 @@ export class ModifyQosRuleRequest extends $dara.Model {
    */
   qosRuleId?: string;
   /**
+   * @remarks
+   * The name of the QoS rule.
+   * 
    * @example
    * test
    */
   qosRuleName?: string;
   /**
+   * @remarks
+   * The maximum upstream bandwidth. The unit is Mbps.
+   * 
    * @example
    * 10
    */

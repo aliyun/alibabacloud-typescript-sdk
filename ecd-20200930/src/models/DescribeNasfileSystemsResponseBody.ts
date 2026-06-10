@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group.
+   * The ID of the application delivery group.
    * 
    * @example
    * aig-0bz55ibznu9p7****
@@ -13,7 +13,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups exte
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the delivery group.
+   * The name of the application delivery group.
    * 
    * @example
    * DemoDeliveryGroup
@@ -45,7 +45,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups exte
 export class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * The ID of the desktop group.
    * 
    * @example
    * dg-9eeyf15b25nyl****
@@ -53,7 +53,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups extends 
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the cloud computer share.
+   * The name of the desktop group.
    * 
    * @example
    * test_dg
@@ -125,20 +125,21 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $d
 export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    */
   allowOperateUserDrive?: boolean;
   /**
    * @remarks
-   * The application delivery groups that are associated with the UPM-supported NAS file systems.
+   * The application delivery groups associated with the UPM-supported NAS file system.
    */
   appInstanceGroups?: DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups[];
   /**
    * @remarks
-   * The total capacity of the NAS file system. Unit: GiB.
+   * The storage capacity of the NAS file system, in GiB.
    * 
-   * *   The Capacity type has 10 PiB of storage, which is equal to 10,485,760 GiB.
-   * *   The Performance type has 1 PiB of storage, which is equal to 1,048,576 GiB.
+   * - If the storage type is capacity type, the capacity is 10 PiB (10,485,760 GiB).
+   * 
+   * - If the storage type is performance type, the capacity is 1 PiB (1,048,576 GiB).
    * 
    * @example
    * 10485760
@@ -146,7 +147,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   capacity?: number;
   /**
    * @remarks
-   * The time when the NAS file system was created.
+   * The creation time of the NAS file system.
    * 
    * @example
    * 2021-05-10T11:39Z
@@ -162,7 +163,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The cloud computer shares that are associated with the UPM-supported NAS file systems.
+   * The desktop groups associated with the UPM-supported NAS file system.
    */
   desktopGroups?: DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups[];
   /**
@@ -191,14 +192,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemName?: string;
   /**
    * @remarks
-   * The status of the NAS file system. The possible values include:
-   * 
-   * *   Pending: The NAS file system is being created.
-   * *   Running: The NAS file system is running.
-   * *   Stopped: The NAS file system is stopped.
-   * *   Deleting: The NAS file system is being deleted.
-   * *   Deleted: The NAS file system is deleted.
-   * *   Invalid: The NAS file system is invalid.
+   * The status of the NAS file system.
    * 
    * @example
    * Running
@@ -206,7 +200,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemStatus?: string;
   /**
    * @remarks
-   * The type of the NAS file system. The only valid value is `standard`.
+   * The type of the NAS file system. Currently, only the standard type is supported. The value is always `standard`.
    * 
    * @example
    * standard
@@ -214,7 +208,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   fileSystemType?: string;
   /**
    * @remarks
-   * The used capacity of the NAS file system. Unit: bytes.
+   * The amount of storage used by the NAS file system, in bytes.
    * 
    * @example
    * 0
@@ -230,13 +224,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   mountTargetDomain?: string;
   /**
    * @remarks
-   * The status of the mount target. The possible values include:
-   * 
-   * *   Pending: The mount target is being created.
-   * *   Active: The mount target is enabled.
-   * *   Inactive: The mount target is disabled.
-   * *   Deleting: The mount target is being deleted.
-   * *   Invalid: The mount target is invalid.
+   * The status of the mount target.
    * 
    * @example
    * Active
@@ -260,7 +248,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   officeSiteName?: string;
   /**
    * @remarks
-   * The office networks.
+   * The office networks associated with the file system.
    */
   officeSites?: DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites[];
   productType?: string;
@@ -274,7 +262,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   profileCompatible?: boolean;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -282,12 +270,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The storage type of the NAS file system.
-   * 
-   * Valid values:
-   * 
-   * *   Upm: the UPM-supported NAS file system.
-   * *   ShareNas: the shared NAS file system.
+   * The use case of the NAS file system.
    * 
    * @example
    * Upm
@@ -296,10 +279,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   sizeQuota?: number;
   /**
    * @remarks
-   * The storage type of the NAS file system. Valid values:
-   * 
-   * *   Capacity
-   * *   Performance
+   * The storage type of the NAS file system.
    * 
    * @example
    * Capacity
@@ -307,7 +287,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * Indicates whether the Server Message Block (SMB) access control list (ACL) feature was enabled.
+   * Indicates whether the Server Message Block (SMB) access control list (ACL) feature is supported.
    * 
    * @example
    * false
@@ -315,7 +295,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
   supportAcl?: boolean;
   /**
    * @remarks
-   * The ID of the zone where the NAS file system resides.
+   * The ID of the zone.
    * 
    * @example
    * cn-hangzhou-f
@@ -402,12 +382,12 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $dara.Model {
 export class DescribeNASFileSystemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The NAS file systems.
+   * The details of the NAS file systems.
    */
   fileSystems?: DescribeNASFileSystemsResponseBodyFileSystems[];
   /**
    * @remarks
-   * The token that determines the start point of the next query. This parameter is empty if no additional results exist.
+   * The token for the next page of results. If this parameter is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -415,7 +395,7 @@ export class DescribeNASFileSystemsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 269BDB16-2CD8-4865-84BD-11C40BC21DB0

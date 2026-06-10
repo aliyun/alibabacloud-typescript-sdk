@@ -23,12 +23,12 @@ export class CreateBundleRequest extends $dara.Model {
    * @remarks
    * The instance type of the cloud computers. You can call the [DescribeBundles](https://help.aliyun.com/document_detail/436974.html) operation to query cloud computer templates and obtain the instance types supported by the cloud computers from the `DesktopType` response parameter.
    * 
-   * >  If you want the template to use a non-GPU-accelerated image, you can only select a non-GPU-accelerated instance type. If you want the template to use a GPU-accelerated image, you can only select a GPU-accelerated instance type.
+   * > If you want the template to use a non-GPU-accelerated image, you can only select a non-GPU-accelerated instance type. If you want the template to use a GPU-accelerated image, you can only select a GPU-accelerated instance type.
    * 
    * This parameter is required.
    * 
    * @example
-   * ecd.basic.large
+   * eds.enterprise_office.2c4g
    */
   desktopType?: string;
   /**
@@ -45,10 +45,13 @@ export class CreateBundleRequest extends $dara.Model {
    * @remarks
    * The OS language. This parameter is available only for system images. Valid values:
    * 
-   * *   zh-CN: Simplified Chinese
-   * *   zh-HK: Traditional Chinese (Hong Kong)
-   * *   en-US: American English
-   * *   ja-JP: Japanese
+   * - zh-CN: Simplified Chinese
+   * 
+   * - zh-HK: Traditional Chinese (Hong Kong)
+   * 
+   * - en-US: American English
+   * 
+   * - ja-JP: Japanese
    * 
    * @example
    * zh-CN
@@ -70,37 +73,37 @@ export class CreateBundleRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   PL1
+   * - PL1
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   PL0
+   * - PL0
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   PL3
+   * - PL3
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   PL2
+   * - PL2
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * PL1
@@ -122,37 +125,37 @@ export class CreateBundleRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   PL1
+   * - PL1
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   PL0
+   * - PL0
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   PL3
+   * - PL3
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   PL2
+   * - PL2
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * PL1

@@ -10,7 +10,7 @@ export class AddFilePermissionRequestMemberListCdsIdentity extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * user01
+   * alice
    */
   id?: string;
   /**
@@ -147,7 +147,7 @@ export class AddFilePermissionRequest extends $dara.Model {
    * The ID of the user who uses the network disk.
    * 
    * @example
-   * user01
+   * alice
    */
   endUserId?: string;
   /**

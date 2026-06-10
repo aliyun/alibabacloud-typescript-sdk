@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the batch in which the scheduled task is executed.
+   * The batch ID for a scheduled task execution.
    * 
    * @example
    * ccg-****
@@ -13,7 +13,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   batchId?: string;
   /**
    * @remarks
-   * The cloud computer IDs.
+   * A list of cloud desktop IDs.
    */
   desktopIds?: string[];
   /**
@@ -23,7 +23,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   displayResultName?: string;
   /**
    * @remarks
-   * The ID of the scheduled task group.
+   * The scheduled task group ID.
    * 
    * @example
    * ccg-0cvfvf6u1enx1****
@@ -43,7 +43,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results.
+   * The token used to start the next query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -51,7 +51,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to list the regions available in Elastic Desktop Service.
    * 
    * @example
    * cn-shanghai
@@ -60,14 +60,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   resourceTypes?: string[];
   /**
    * @remarks
-   * The type of the execution result. You can specify this parameter to filter the execution results.
-   * 
-   * Valid values:
-   * 
-   * *   FAILED: The execution is successful.
-   * *   FAILED: The execution failed.
-   * *   RUNNING: The execution is in progress.
-   * *   SKIPPED: The execution is skipped.
+   * Filters the results by execution status. Valid values:
    * 
    * @example
    * SUCCEED
@@ -80,7 +73,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   retryable?: boolean;
   /**
    * @remarks
-   * The ID of the searched region. You can specify this parameter to filter cloud computers in specific regions.
+   * The ID of the region to filter by. Only records for cloud desktops in this region are returned.
    * 
    * @example
    * cn-shanghai
@@ -88,16 +81,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   searchRegionId?: string;
   /**
    * @remarks
-   * The execution result of the scheduled task.
-   * 
-   * Valid values:
-   * 
-   * *   CONNECTED_NOT_RUN: The cloud computer is connected, but the scheduled task is not executed.
-   * *   PAUSED: The scheduled task is suspended.
-   * *   COMPLETED: The scheduled task is executed.
-   * *   FAILED: The scheduled task failed to be executed.
-   * *   RUNNING: The scheduled task is being executed.
-   * *   TERMINATED: The scheduled task is stopped.
+   * The execution result of the scheduled task. Valid values:
    * 
    * @example
    * RUNNING
@@ -105,7 +89,7 @@ export class DescribeGlobalTimerRecordsRequest extends $dara.Model {
   timerResult?: string;
   /**
    * @remarks
-   * The scheduled tasks.
+   * The types of scheduled tasks.
    */
   timerTypes?: string[];
   wuyingServerIds?: string[];

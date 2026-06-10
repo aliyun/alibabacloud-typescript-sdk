@@ -38,7 +38,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   adUser?: DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser;
   /**
    * @remarks
-   * The number of consecutive failures to bind the virtual MFA device, or the number of failures on the verification of the virtual MFA device.
+   * The number of consecutive failed attempts to bind or authenticate the virtual MFA device.
    * 
    * @example
    * 1
@@ -46,7 +46,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   consecutiveFails?: number;
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in private preview.
    * 
    * @example
    * cn-hangzhou+dir-gx2x1dhsmu52rd****
@@ -54,7 +54,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   directoryId?: string;
   /**
    * @remarks
-   * The name of the AD user who uses the virtual MFA device.
+   * The AD username of the bound user.
    * 
    * @example
    * usertest
@@ -62,7 +62,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   endUserId?: string;
   /**
    * @remarks
-   * The time when the virtual MFA device was started. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the virtual MFA device was enabled. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and in UTC, as specified by the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
    * 
    * @example
    * 2020-12-20T14:52:28Z
@@ -70,7 +70,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   gmtEnabled?: string;
   /**
    * @remarks
-   * The time when a locked virtual MFA device was automatically unlocked. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the locked virtual MFA device is automatically unlocked. The time is in the `YYYY-MM-DDThh:mm:ssZ` format and in UTC, as specified by the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
    * 
    * @example
    * 2020-12-21T15:21:28Z
@@ -78,7 +78,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   gmtUnlock?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * cn-hangzhou+dir-269345****
@@ -86,7 +86,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   officeSiteId?: string;
   /**
    * @remarks
-   * The serial number of the virtual MFA device, which is a unique identifier.
+   * The serial number of the virtual MFA device.
    * 
    * @example
    * a25f297f-f2e1-4a44-bbf1-5f48a6e5****
@@ -95,32 +95,6 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   /**
    * @remarks
    * The status of the virtual MFA device.
-   * 
-   * Valid values:
-   * 
-   * *   LOCKED
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   UNBOUND
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   NORMAL
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * NORMAL
@@ -169,7 +143,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
 export class DescribeVirtualMFADevicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.If NextToken is empty, no next page exists.
+   * The token to retrieve the next page of results. If this parameter is empty, no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL23as
@@ -185,7 +159,7 @@ export class DescribeVirtualMFADevicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the virtual MFA devices.
+   * A list of virtual MFA devices.
    */
   virtualMFADevices?: DescribeVirtualMFADevicesResponseBodyVirtualMFADevices[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDesktopGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the shared group.
+   * The ID of the desktop group.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -13,17 +13,17 @@ export class CreateDesktopGroupResponseBody extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The IDs of the shared groups.
+   * The desktop group IDs.
    */
   desktopGroupIds?: string[];
   /**
    * @remarks
-   * The IDs of the orders.
+   * The order IDs.
    */
   orderIds?: string[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3EB7FCEE-D731-4948-85A3-4B2C341CA983

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDesktopSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 123456789
@@ -13,12 +13,12 @@ export class ModifyDesktopSpecResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The array of order IDs.
+   * A list of order IDs.
    */
   orderIds?: number[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

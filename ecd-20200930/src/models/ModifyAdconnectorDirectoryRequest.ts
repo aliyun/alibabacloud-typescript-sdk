@@ -121,7 +121,7 @@ export class ModifyADConnectorDirectoryRequest extends $dara.Model {
    * The domain name of the existing AD subdomain.
    * 
    * @example
-   * childexample.com
+   * child.example.com
    */
   subDomainName?: string;
   static names(): { [key: string]: string } {

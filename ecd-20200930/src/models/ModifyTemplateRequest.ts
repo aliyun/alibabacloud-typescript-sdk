@@ -5,16 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTemplateRequestDataDiskList extends $dara.Model {
   /**
    * @remarks
-   * The PL of the data disk. Default value: `AutoPL`.
-   * Valid values:
-   * *   PL1: a PL1 ESSD
-   * *   PL0: a PL0 ESSD
-   * *   AutoPL: an AutoPL ESSD
+   * The performance level of the data disk. The default value is `AutoPL`.
    */
   performanceLevel?: string;
   /**
    * @remarks
-   * The size of the data disk. Unit: GiB.Valid range: 40 to 2040 GiB with an increment of 10 GiB.
+   * The size of the data disk. Unit: GiB. The value must be between 40 and 2040, inclusive. The step size is 10 GiB.
    * 
    * @example
    * 40
@@ -46,7 +42,7 @@ export class ModifyTemplateRequestDataDiskList extends $dara.Model {
 export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the workspace.
    * 
    * @example
    * cn-hangzhou+dir-709****
@@ -54,7 +50,7 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to obtain a list of regions that WUYING Workspace supports.
    * 
    * @example
    * cn-beijing
@@ -62,7 +58,7 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the cloud computer type.
+   * The ID of the cloud desktop instance type.
    * 
    * @example
    * eds.enterprise_office.8c16g
@@ -78,7 +74,7 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
   snapshotPolicyId?: string;
   /**
    * @remarks
-   * The subnet ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-adjrehad1****
@@ -88,18 +84,13 @@ export class ModifyTemplateRequestRegionConfigList extends $dara.Model {
    * @remarks
    * Specifies whether to enable disk encryption.
    * 
-   * Valid values:
-   * 
-   * *   false (default): disables disk encryption.
-   * *   true: enables disk encryption.
-   * 
    * @example
    * false
    */
   volumeEncryptionEnable?: boolean;
   /**
    * @remarks
-   * The ID of the Key Management Service (KMS) key that you want to use to encrypt disks.
+   * The ID of the KMS key to use when disk encryption is enabled.
    * 
    * @example
    * a7b3c0c8-b3a2-4876-b1cc-116dddc9****
@@ -211,14 +202,7 @@ export class ModifyTemplateRequest extends $dara.Model {
   dataDiskList?: ModifyTemplateRequestDataDiskList[];
   /**
    * @remarks
-   * The default language of the cloud computer during startup. This parameter takes effect only when the cloud computer is created from a system image.
-   * 
-   * Valid values:
-   * 
-   * *   en-US: English.
-   * *   zh-HK: Chinese, Traditional (Hong Kong, China).
-   * *   zh-CN: Simplified Chinese.
-   * *   ja-JP: Japanese.
+   * The default language to set when the WUYING Workspace starts. This parameter is valid only when you create a WUYING Workspace from an OS image.
    * 
    * @example
    * zh-CN
@@ -226,10 +210,11 @@ export class ModifyTemplateRequest extends $dara.Model {
   defaultLanguage?: string;
   /**
    * @remarks
-   * The template description. It must meet the following criteria:
+   * The description of the template. The description must meet the following requirements:
    * 
-   * *   It can be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-   * *   It can contain letters, digits, and special characters, including spaces. Note: You can use carriage returns to break lines.
+   * - It must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+   * 
+   * - It can contain Chinese characters, letters, digits, spaces, and special characters. Use line breaks to start a new line.
    * 
    * @example
    * testDescription
@@ -237,7 +222,7 @@ export class ModifyTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the cloud computer image. You can query image IDs on the Images page. System images and custom images are supported.
+   * The ID of the WUYING Workspace image. You can find the ID on the Image Management page. OS images and custom images are supported.
    * 
    * @example
    * m-gx2x1dhsmusr2****
@@ -247,7 +232,7 @@ export class ModifyTemplateRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the policy group.
+   * The ID of the global policy.
    * 
    * @example
    * pg-gx2x1dhsmthe9****
@@ -256,9 +241,9 @@ export class ModifyTemplateRequest extends $dara.Model {
   postPaidAfterUsedUp?: boolean;
   /**
    * @remarks
-   * The regions by which you can search for cloud computer templates. When this parameter takes effect, cloud computer templates are matched based on the specified regions.
+   * The region-specific template configurations. You can specify configurations for multiple regions. The system matches the configuration based on the specific region.
    * 
-   * >  You can specify up to 20 regions.
+   * > You can specify configurations for up to 20 regions.
    */
   regionConfigList?: ModifyTemplateRequestRegionConfigList[];
   /**
@@ -271,21 +256,15 @@ export class ModifyTemplateRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags added to cloud computers. Specify tags in key-value pairs. You can specify up to 20 tags.
+   * Tags for the cloud computer, in key-value format. You can specify up to 20 tags.
    */
   resourceTagList?: ModifyTemplateRequestResourceTagList[];
   siteConfigList?: ModifyTemplateRequestSiteConfigList[];
   /**
    * @remarks
-   * The performance level (PL) of the system disk.
+   * The type of the system disk.
    * 
-   * >  Only cloud computers of the Graphics or High Frequency type support Enterprise SSDs (ESSDs).
-   * 
-   * Valid values:
-   * 
-   * *   PL1: a PL1 ESSD.
-   * *   PL0: a PL0 ESSD.
-   * *   AutoPL: an AutoPL ESSD.
+   * > Enhanced SSD (ESSD) disks are supported only by cloud computers with high clock speeds and powerful graphics capabilities.
    * 
    * @example
    * AutoPL
@@ -293,9 +272,9 @@ export class ModifyTemplateRequest extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB. Valid values: 40 to 500. Increments: 10 GiB.
+   * The size of the system disk. Unit: GiB. The value must be between 40 and 500, inclusive. The step size is 10 GiB.
    * 
-   * >  The system disk size must be at least as large as the configured image size.
+   * > The system disk size cannot be smaller than the size of the image.
    * 
    * @example
    * 80
@@ -313,16 +292,21 @@ export class ModifyTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The template name. It must meet the following criteria:
+   * The name of the template. The name must meet the following requirements:
    * 
-   * *   It can be 2 to 126 characters in length.
-   * *   It must begin with a letter and cannot start with `http://` or `https://`.
-   * *   It can contain letters, digits, colons (:), underscores (_), and hyphens (-). Note: Periods (.) are not supported in the name.
+   * - It must be 2 to 126 characters in length.
+   * 
+   * - It must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
+   * 
+   * - It can contain letters, digits, Chinese characters, colons (:), underscores (_), and hyphens (-). It cannot contain periods (.).
+   * 
+   * @example
+   * My cloud desktop template 001
    */
   templateName?: string;
   /**
    * @remarks
-   * The ID of the scheduled task group.
+   * The ID of the configuration group.
    * 
    * @example
    * bcc-dweha*****

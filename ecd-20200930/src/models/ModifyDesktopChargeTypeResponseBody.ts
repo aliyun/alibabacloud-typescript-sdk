@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDesktopChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud computers.
+   * The IDs of the cloud desktops.
    */
   desktopId?: string[];
   /**
@@ -18,7 +18,7 @@ export class ModifyDesktopChargeTypeResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

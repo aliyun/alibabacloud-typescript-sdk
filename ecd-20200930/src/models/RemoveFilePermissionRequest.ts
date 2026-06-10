@@ -127,7 +127,7 @@ export class RemoveFilePermissionRequest extends $dara.Model {
    * The ID of the end user.
    * 
    * @example
-   * user01
+   * alice
    */
   endUserId?: string;
   /**

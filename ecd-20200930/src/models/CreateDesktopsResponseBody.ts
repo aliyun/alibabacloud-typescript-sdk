@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDesktopsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud computers that are created. If multiple cloud computers are created, multiple IDs are returned.
+   * An array of cloud desktop IDs. An ID is returned for each cloud desktop created in the call.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
-   * > This parameter is returned only when you set the ChargeType parameter to PrePaid.
+   * > This parameter is returned only when the `ChargeType` request parameter is set to `PrePaid`.
    * 
    * @example
    * 123456789
@@ -20,7 +20,7 @@ export class CreateDesktopsResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

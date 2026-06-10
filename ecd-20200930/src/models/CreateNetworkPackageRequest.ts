@@ -5,29 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkPackageRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the automatic payment feature.
-   * 
-   * Valid values:
-   * 
-   * *   true (default): enables the auto-payment feature.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     Make sure that your account has sufficient balance. Otherwise, no order is generated.
-   * 
-   *     <!-- -->
-   * 
-   * *   false: disables the auto-payment feature. In this case, an order is generated but you need to make the payment manually.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     To make the payment, log on to the Elastic Desktop Service console, go to the Orders page, and find the order based on the order ID.
-   * 
-   *     <!-- -->
+   * Specifies whether to enable auto-payment.
    * 
    * @example
    * false
@@ -35,25 +13,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the premium bandwidth plan.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Specifies whether to enable auto-renewal.
    * 
    * @example
    * false
@@ -61,31 +21,34 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The bandwidth provided by the premium bandwidth plan. Unit: Mbit/s.
+   * The bandwidth of the network package, in Mbps.
    * 
-   * *   Valid values if the premium bandwidth plan is a subscription plan: 2 to 1000.
-   * *   Valid values if the premium bandwidth plan is a pay-as-you-go plan that charges by data transfer (PayByTraffic): 2 to 200.
-   * *   Valid values if the premium bandwidth plan is a pay-as-you-go plan that charges by fixed bandwidth (PayByBandwidth): 2 to 1000.
+   * - For subscription network packages, the value range is 2 to 1,000.
+   * 
+   * - For pay-as-you-go network packages that are billed by traffic, the value range is 2 to 200.
+   * 
+   * - For pay-as-you-go network packages that are billed by bandwidth, the value range is 2 to 1,000.
    * 
    * This parameter is required.
    * 
    * @example
-   * 10
+   * 2
    */
   bandwidth?: number;
   channelCookie?: string;
   /**
    * @remarks
-   * The charge type of the premium bandwidth plan.
+   * The billing method for the network package.
    * 
-   * *   Valid value when the `PayType` parameter is set to `PrePaid`:
+   * - When `PayType` is set to `PrePaid`, the only valid value is:
    * 
-   *     *   PayByBandwidth: charges by fixed bandwidth.
+   *   - `PayByBandwidth`: pay-by-bandwidth.
    * 
-   * *   Valid values when the `PayType` parameter is set to `PostPaid`:
+   * - When `PayType` is set to `PostPaid`, valid values are:
    * 
-   *     *   PayByTraffic: charges by data transfer.
-   *     *   PayByBandwidth: charges by fixed bandwidth.
+   *   - `PayByTraffic`: pay-by-traffic.
+   * 
+   *   - `PayByBandwidth`: pay-by-bandwidth.
    * 
    * @example
    * PayByTraffic
@@ -101,12 +64,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The billing method of the premium bandwidth plan.
-   * 
-   * Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go
-   * *   PrePaid: subscription
+   * The billing method.
    * 
    * @example
    * PrePaid
@@ -114,11 +72,13 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The subscription duration of the premium bandwidth plan. This parameter takes effect and is required only when the `PayType` parameter is set to `PrePaid`. The valid values of this parameter vary based on the `PeriodUnit` value.
+   * The subscription duration of the network package. This parameter is required and applies only when `PayType` is set to `PrePaid`. The valid values for this parameter depend on the value of `PeriodUnit`.
    * 
-   * *   Valid value when the `PeriodUnit` parameter is set to `Week`: 1
-   * *   Valid values when the `PeriodUnit` parameter is set to `Month`: 1, 2, 3, and 6
-   * *   Valid values when the `PeriodUnit` parameter is set to `Year`: 1, 2, and 3
+   * - If `PeriodUnit` is set to `Week`, the only valid value is 1.
+   * 
+   * - If `PeriodUnit` is set to `Month`, valid values are 1, 2, 3, and 6.
+   * 
+   * - If `PeriodUnit` is set to `Year`, valid values are 1, 2, and 3.
    * 
    * Default value: 1.
    * 
@@ -128,41 +88,15 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration of the premium bandwidth plan. This parameter takes effect and is required only when the `PayType` parameter is set to `PrePaid`.
-   * 
-   * Valid values:
-   * 
-   * *   Month
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Year
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Week
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The unit of the subscription duration for the network package. This parameter is required and applies only when `PayType` is set to `PrePaid`.
    * 
    * @example
-   * Month
+   * Week
    */
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the sales promotion.
+   * The promotion ID.
    * 
    * @example
    * 23141
@@ -170,7 +104,7 @@ export class CreateNetworkPackageRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to get the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

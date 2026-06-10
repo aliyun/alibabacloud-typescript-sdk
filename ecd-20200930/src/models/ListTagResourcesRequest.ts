@@ -8,7 +8,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * The tag keys. You can specify 1 to 20 tag keys.
    * 
    * @example
-   * TestKey
+   * department
    */
   key?: string;
   /**
@@ -16,7 +16,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
    * The tag values. You can specify 1 to 20 tag values.
    * 
    * @example
-   * TestValue
+   * design
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -83,7 +83,7 @@ export class ListTagResourcesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * * ALIYUN::GWS::INSTANCE: cloud computer.
+   * - ALIYUN::GWS::INSTANCE: cloud computer.
    * 
    * This parameter is required.
    * 

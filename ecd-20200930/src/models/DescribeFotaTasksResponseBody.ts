@@ -136,7 +136,7 @@ export class DescribeFotaTasksResponseBody extends $dara.Model {
    * The returned error message. This parameter is not returned if the Code value is a `success` message.
    * 
    * @example
-   * success
+   * The parameter is not specified.
    */
   message?: string;
   /**

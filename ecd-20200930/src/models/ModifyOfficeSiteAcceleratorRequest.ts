@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyOfficeSiteAcceleratorRequestAccelerateRegion extends $dara.Model {
   /**
    * @remarks
+   * The ID of the region to accelerate.
+   * 
+   * The number of regions that you can add is limited by the total bandwidth and the instance type of the GA instance. For more information about the number of access regions supported by each instance type, see [Overview of GA instances](t1855472.xdita#).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,10 @@ export class ModifyOfficeSiteAcceleratorRequestAccelerateRegion extends $dara.Mo
   accelerateRegionId?: string;
   /**
    * @remarks
+   * The peak public bandwidth. Unit: Mbps.
+   * 
+   * > For the pay-by-bandwidth metering method, the value ranges from 10 to 1000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +28,33 @@ export class ModifyOfficeSiteAcceleratorRequestAccelerateRegion extends $dara.Mo
    */
   bandwidth?: number;
   /**
+   * @remarks
+   * The IP protocol version used to access GA instances. Valid values:
+   * 
+   * - **IPv4** (default)
+   * 
+   * - **IPv6**
+   * 
+   * - **DUAL_STACK**: IPv4 and IPv6
+   * 
+   * > * Only standard pay-as-you-go GA instances support the DUAL_STACK option.
+   * 
    * @example
    * IPv4
    */
   ipVersion?: string;
   /**
    * @remarks
+   * The Internet line type in the acceleration region. Valid values:
+   * 
+   * - **BGP**: BGP (Multi-ISP) lines.
+   * 
+   * - **BGP_PRO**: BGP (Multi-ISP) Pro lines.
+   * 
+   * > * This parameter is required for GA instances that use the pay-by-data-transfer metering method.
+   * >
+   * > * The supported line types vary based on the acceleration region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -60,9 +89,15 @@ export class ModifyOfficeSiteAcceleratorRequestAccelerateRegion extends $dara.Mo
 }
 
 export class ModifyOfficeSiteAcceleratorRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The information about the regions to accelerate.
+   */
   accelerateRegion?: ModifyOfficeSiteAcceleratorRequestAccelerateRegion[];
   /**
    * @remarks
+   * The office network ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -71,6 +106,8 @@ export class ModifyOfficeSiteAcceleratorRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

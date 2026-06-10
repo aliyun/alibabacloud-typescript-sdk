@@ -5,33 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model {
   /**
    * @remarks
-   * The connection status of the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   Unknown
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Connected
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Disconnected
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The connection status of the cloud desktop.
    * 
    * @example
    * Connected
@@ -39,7 +13,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   connectionStatus?: string;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ud-7ftf5b6yu77b0****
@@ -47,81 +21,15 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud computer.
+   * The name of the cloud desktop.
    * 
    * @example
-   * testName
+   * DemoComputer
    */
   desktopName?: string;
   /**
    * @remarks
-   * The status of the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   Stopped
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Starting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Rebuilding
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Stopping
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Expired
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Deleted
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Pending
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The status of the cloud desktop.
    * 
    * @example
    * Running
@@ -129,25 +37,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   desktopStatus?: string;
   /**
    * @remarks
-   * The type of the disk.
-   * 
-   * Valid values:
-   * 
-   * *   SYSTEM: system disk
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DATA: data disk
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The disk type.
    * 
    * @example
    * SYSTEM
@@ -155,7 +45,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   diskType?: string;
   /**
    * @remarks
-   * The ID of the authorized user.
+   * The ID of the authorized end user.
    * 
    * @example
    * alice
@@ -163,12 +53,12 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   endUserId?: string;
   /**
    * @remarks
-   * The IDs of the end users who are connected to the cloud computers in the cloud computer share. If no end users are connected, no values are returned for this parameter.
+   * The IDs of end users connected to the cloud desktop. If no end user is connected, the array is empty.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The username of the authorized user.
+   * The name of the authorized end user.
    * 
    * @example
    * alice
@@ -176,9 +66,13 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   endUserName?: string;
   /**
    * @remarks
-   * The usernames of the end users who are connected to the cloud computers in the cloud computer share. If no end users are connected, no values are returned for this parameter.
+   * The usernames of end users connected to the cloud desktop. If no end user is connected, the array is empty.
    */
   endUserNames?: string[];
+  /**
+   * @remarks
+   * The expiration time of the subscription cloud desktop.
+   */
   expiredTime?: string;
   /**
    * @remarks
@@ -190,7 +84,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   fotaVersion?: string;
   /**
    * @remarks
-   * The version of the GPU driver.
+   * The GPU driver version.
    * 
    * @example
    * 1.0
@@ -214,25 +108,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   imageName?: string;
   /**
    * @remarks
-   * The flag that is used to manage the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   Updating: The configurations of the cloud computer are being updated.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   NoFlag: No flags are attached to the cloud computer.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The management flag.
    * 
    * @example
    * NoFlag
@@ -240,12 +116,12 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   managementFlag?: string;
   /**
    * @remarks
-   * The flags that are used to manage the cloud computers.
+   * The management flags.
    */
   managementFlags?: string[];
   /**
    * @remarks
-   * The IP address of the member network interface controller (NIC) of the instance.
+   * The IP address of the secondary elastic network interface of the instance.
    * 
    * @example
    * 192.168.XX.XX
@@ -253,25 +129,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   memberEniIp?: string;
   /**
    * @remarks
-   * The OS.
-   * 
-   * Valid values:
-   * 
-   * *   Linux
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Windows
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The type of the operating system.
    * 
    * @example
    * Windows
@@ -279,7 +137,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   osType?: string;
   /**
    * @remarks
-   * The IP address of the primary NIC of the instance.
+   * The IP address of the primary network interface of the instance.
    * 
    * @example
    * 192.168.XX.XX
@@ -287,25 +145,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   primaryEniIp?: string;
   /**
    * @remarks
-   * The protocol.
-   * 
-   * Valid values:
-   * 
-   * *   HDX: High-definition Experience (HDX) protocol
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ASP: Adaptive Streaming Protocol (ASP) protocol provided by Alibaba Cloud
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The session protocol.
    * 
    * @example
    * ASP
@@ -313,7 +153,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   protocolType?: string;
   /**
    * @remarks
-   * The time when the cloud computer was reset.
+   * The time when the cloud desktop was last reset.
    * 
    * @example
    * 2021-03-03 08:48:08
@@ -321,7 +161,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   resetTime?: string;
   /**
    * @remarks
-   * The system disk size. Unit: GiB.
+   * The size of the system disk, in GiB.
    * 
    * @example
    * 80
@@ -402,33 +242,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
 export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.Model {
   /**
    * @remarks
-   * The connection status of the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   Unknown
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Connected
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Disconnected
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The connection status of the cloud desktop.
    * 
    * @example
    * Connected
@@ -436,7 +250,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   connectionStatus?: string;
   /**
    * @remarks
-   * The retention period. Unit: milliseconds.
+   * The retention period of the cloud desktop, in milliseconds.
    * 
    * @example
    * 4153958447
@@ -444,7 +258,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   createDuration?: string;
   /**
    * @remarks
-   * The time when the cloud computer was created.
+   * The creation time of the cloud desktop.
    * 
    * @example
    * 2022-01-21T06:34:57Z
@@ -452,7 +266,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   createTime?: string;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ud-2i8qxpv6t1a07****
@@ -460,81 +274,15 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud computer.
+   * The name of the cloud desktop.
    * 
    * @example
-   * testName
+   * DemoComputer
    */
   desktopName?: string;
   /**
    * @remarks
-   * The status of the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   Stopped
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Starting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Rebuilding
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Running
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Stopping
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Expired
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Deleted
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Pending
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The status of the cloud desktop.
    * 
    * @example
    * Stopped
@@ -542,25 +290,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   desktopStatus?: string;
   /**
    * @remarks
-   * The type of the disk.
-   * 
-   * Valid values:
-   * 
-   * *   SYSTEM: system disk
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DATA: data disk
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The disk type.
    * 
    * @example
    * SYSTEM
@@ -568,7 +298,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   diskType?: string;
   /**
    * @remarks
-   * The ID of the authorized user.
+   * The ID of the authorized end user.
    * 
    * @example
    * alice
@@ -576,12 +306,12 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   endUserId?: string;
   /**
    * @remarks
-   * The IDs of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
+   * The IDs of end users connected to the cloud desktop. If no end user is connected, the array is empty.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The username of the authorized user.
+   * The name of the authorized end user.
    * 
    * @example
    * alice
@@ -589,7 +319,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   endUserName?: string;
   /**
    * @remarks
-   * The usernames of the end users who are connected to the cloud computers in the cloud computer pool. If no end users are connected, no values are returned for this parameter.
+   * The usernames of end users connected to the cloud desktop. If no end user is connected, the array is empty.
    */
   endUserNames?: string[];
   /**
@@ -602,7 +332,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   fotaVersion?: string;
   /**
    * @remarks
-   * The version of the GPU driver.
+   * The GPU driver version.
    * 
    * @example
    * 1.0
@@ -626,25 +356,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   imageName?: string;
   /**
    * @remarks
-   * The flag that is used to manage the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   Updating: The configurations of the cloud computer are being updated.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   NoFlag: No flags are attached to the cloud computer.
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The management flag.
    * 
    * @example
    * NoFlag
@@ -652,12 +364,12 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   managementFlag?: string;
   /**
    * @remarks
-   * The flags that are used to manage the cloud computers.
+   * The management flags.
    */
   managementFlags?: string[];
   /**
    * @remarks
-   * The IP address of the member NIC of the instance.
+   * The IP address of the secondary elastic network interface of the instance.
    * 
    * @example
    * 192.168.XX.XX
@@ -665,25 +377,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   memberEniIp?: string;
   /**
    * @remarks
-   * The OS.
-   * 
-   * Valid values:
-   * 
-   * *   Linux
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Windows
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The type of the operating system.
    * 
    * @example
    * Windows
@@ -691,7 +385,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   osType?: string;
   /**
    * @remarks
-   * The IP address of the primary NIC of the instance.
+   * The IP address of the primary network interface of the instance.
    * 
    * @example
    * 192.168.XX.XX
@@ -699,25 +393,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   primaryEniIp?: string;
   /**
    * @remarks
-   * The protocol.
-   * 
-   * Valid values:
-   * 
-   * *   HDX: HDX protocol
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   ASP: ASP protocol provided by Alibaba Cloud
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The session protocol.
    * 
    * @example
    * HDX
@@ -725,7 +401,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   protocolType?: string;
   /**
    * @remarks
-   * The time when the cloud computer was released.
+   * The release time of the cloud desktop.
    * 
    * @example
    * 2022-01-21T16:34:57Z
@@ -733,7 +409,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   releaseTime?: string;
   /**
    * @remarks
-   * The time when the cloud computer was reset.
+   * The time when the cloud desktop was last reset.
    * 
    * @example
    * 2021-03-03 08:48:08
@@ -741,7 +417,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   resetTime?: string;
   /**
    * @remarks
-   * The system disk size. Unit: GiB.
+   * The size of the system disk, in GiB.
    * 
    * @example
    * 80
@@ -826,8 +502,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
 export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
-   * If NextToken is empty, no next page exists.
+   * The token to retrieve the next page of results. If this parameter is not returned, all results have been retrieved.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -835,7 +510,7 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of subscription cloud computers that are in the Connected state.
+   * The number of connected subscription cloud desktops.
    * 
    * @example
    * 100
@@ -843,12 +518,12 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   onlinePrePaidDesktopsCount?: number;
   /**
    * @remarks
-   * The subscription cloud computers.
+   * A list of subscription cloud desktops.
    */
   paidDesktops?: DescribeDesktopsInGroupResponseBodyPaidDesktops[];
   /**
    * @remarks
-   * The total number of subscription cloud computers.
+   * The total number of subscription cloud desktops.
    * 
    * @example
    * 10
@@ -856,12 +531,12 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   paidDesktopsCount?: number;
   /**
    * @remarks
-   * The pay-as-you-go cloud computers.
+   * A list of pay-as-you-go cloud desktops.
    */
   postPaidDesktops?: DescribeDesktopsInGroupResponseBodyPostPaidDesktops[];
   /**
    * @remarks
-   * The total number of pay-as-you-go cloud computers.
+   * The total number of pay-as-you-go cloud desktops.
    * 
    * @example
    * 10
@@ -869,7 +544,7 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   postPaidDesktopsCount?: number;
   /**
    * @remarks
-   * The total amount of bills for pay-as-you-go cloud computers.
+   * The total billed amount for the pay-as-you-go cloud desktops.
    * 
    * @example
    * 10000
@@ -885,7 +560,7 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of subscription cloud computers that are in the Running state.
+   * The number of running subscription cloud desktops.
    * 
    * @example
    * 100
@@ -893,7 +568,7 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   runningPrePaidDesktopsCount?: number;
   /**
    * @remarks
-   * The number of subscription cloud computers that are in the Stopped state.
+   * Deprecated. This parameter is misspelled. Use `StoppedPrePaidDesktopsCount` instead.
    * 
    * @example
    * 100
@@ -901,7 +576,7 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   stopedPrePaidDesktopsCount?: number;
   /**
    * @remarks
-   * The number of subscription cloud computers that are in the Stopped state.
+   * The number of stopped subscription cloud desktops.
    * 
    * @example
    * 100

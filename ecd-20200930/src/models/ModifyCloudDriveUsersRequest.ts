@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCloudDriveUsersRequest extends $dara.Model {
   /**
    * @remarks
+   * The enterprise cloud disk ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class ModifyCloudDriveUsersRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
+   * A list of end user IDs.
+   * 
    * This parameter is required.
    */
   endUserId?: string[];
   /**
    * @remarks
+   * The region ID. You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to obtain the list of regions supported by WUYING Workspace.
+   * 
    * This parameter is required.
    * 
    * @example

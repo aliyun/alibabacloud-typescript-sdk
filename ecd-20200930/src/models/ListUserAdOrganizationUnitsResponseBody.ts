@@ -58,7 +58,7 @@ export class ListUserAdOrganizationUnitsResponseBody extends $dara.Model {
    * A pagination token.
    * 
    * @example
-   * CAAAAA==
+   * caeba0bbb2be03f84eb48b699f0a4883
    */
   nextToken?: string;
   /**

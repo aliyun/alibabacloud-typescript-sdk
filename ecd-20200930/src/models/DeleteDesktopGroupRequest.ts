@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * Shared desktop group ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the list of regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

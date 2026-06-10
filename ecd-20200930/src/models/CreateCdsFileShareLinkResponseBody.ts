@@ -39,21 +39,21 @@ export class CreateCdsFileShareLinkResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
+   * - true
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   false
+   * - false
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * true

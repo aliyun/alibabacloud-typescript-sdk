@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUsersInGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The status of the desktop connection for the end user.
-   * 
-   * Valid values:
-   * 
-   * - 0: Disconnected.
-   * - 1: Connected.
+   * The connection status of the user.
    * 
    * @example
    * 1
@@ -18,7 +13,7 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   connectState?: number;
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * The shared cloud desktop ID.
    * 
    * This parameter is required.
    * 
@@ -36,12 +31,12 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The IDs of the authorized users.
+   * A list of authorized user IDs.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The query string for fuzzy match. If you specify this parameter, the system returns all results that contain the string.
+   * The string for a partial match query. Results that contain this string are returned.
    * 
    * @example
    * alice
@@ -49,10 +44,11 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
-   * *   Maximum value: 100.
-   * *   Default value: 10.
+   * - Maximum value: 100.
+   * 
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -60,7 +56,7 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. If this parameter is left empty, all results are returned.
+   * The token to start the next query. An empty value indicates that all results have been returned.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -68,7 +64,7 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the organization to which the end user belongs.
+   * The ID of the organization to which the user belongs.
    * 
    * @example
    * org-d0fua2oyukw8j****
@@ -78,18 +74,13 @@ export class DescribeUsersInGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query user details.
    * 
-   * Valid values:
-   * 
-   * *   true (default)
-   * *   false
-   * 
    * @example
-   * false
+   * true
    */
   queryUserDetail?: boolean;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions where WUYING Workspace is available.
    * 
    * This parameter is required.
    * 

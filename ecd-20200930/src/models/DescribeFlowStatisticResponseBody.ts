@@ -68,7 +68,7 @@ export class DescribeFlowStatisticResponseBody extends $dara.Model {
    * The number of available cloud computers in the office network.
    * 
    * @example
-   * 10
+   * 2
    */
   desktopCount?: number;
   /**

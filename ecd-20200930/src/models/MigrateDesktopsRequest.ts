@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class MigrateDesktopsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the cloud computers. You can specify 1 to 100 IDs.
+   * The IDs of the cloud computers to migrate. You can specify 1 to 100 IDs.
    * 
    * This parameter is required.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. To get a list of supported regions, call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation.
    * 
    * This parameter is required.
    * 
@@ -20,10 +20,14 @@ export class MigrateDesktopsRequest extends $dara.Model {
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * This parameter is not publicly available.
+   */
   targetMemberIp?: string;
   /**
    * @remarks
-   * The ID of the destination office network.
+   * The ID of the target office network.
    * 
    * This parameter is required.
    * 
@@ -33,10 +37,7 @@ export class MigrateDesktopsRequest extends $dara.Model {
   targetOfficeSiteId?: string;
   /**
    * @remarks
-   * > This parameter is for internal use only.
-   * 
-   * @example
-   * null
+   * This parameter is not publicly available.
    */
   targetSubnetId?: string;
   static names(): { [key: string]: string } {

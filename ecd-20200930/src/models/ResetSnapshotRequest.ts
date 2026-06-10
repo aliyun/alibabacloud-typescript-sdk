@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetSnapshotRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ResetSnapshotRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the snapshot.
+   * The ID of the snapshot used to recover disk data.
    * 
    * This parameter is required.
    * 
@@ -23,6 +23,10 @@ export class ResetSnapshotRequest extends $dara.Model {
    * s-2zeipxmnhej803x7****
    */
   snapshotId?: string;
+  /**
+   * @remarks
+   * Indicates whether to shut down and recover the disk using the snapshot.
+   */
   stopDesktop?: boolean;
   static names(): { [key: string]: string } {
     return {

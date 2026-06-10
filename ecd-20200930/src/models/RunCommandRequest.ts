@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class RunCommandRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the command. The command content can be plaintext or Base64-encoded.\\
-   * The Base64-encoded command content cannot exceed 16 KB in size.
+   * The script content in plaintext or Base64-encoded format.<br>
+   * The Base64-encoded script content cannot exceed 16 KB.<br>
    * 
-   * > If the command content is Base64-encoded, you must set the ContentEncoding parameter to Base64.
+   * > If the script content is Base64-encoded, you must set the `ContentEncoding` parameter to `Base64`.
    * 
    * This parameter is required.
    * 
@@ -19,12 +19,9 @@ export class RunCommandRequest extends $dara.Model {
   commandRole?: string;
   /**
    * @remarks
-   * The encoding mode of the command content. Valid values:
+   * The encoding mode of the script content.
    * 
-   * *   PlainText: The command content is not encoded.
-   * *   Base64: The command content is Base64-encoded.
-   * 
-   * Default value: PlainText. If the specified value of this parameter is invalid, PlainText is used by default.
+   * > If you specify a value that is not a valid enumeration member, the system defaults to `PlainText`.
    * 
    * @example
    * Base64
@@ -32,23 +29,25 @@ export class RunCommandRequest extends $dara.Model {
   contentEncoding?: string;
   /**
    * @remarks
-   * The ID of cloud desktop N. Valid values of N: 1 to 50.\\
-   * If multiple cloud desktops are specified and the command execution succeeds on at least one of the cloud desktops, the operation is considered successful. If multiple cloud desktops are specified and the command execution fails on all the cloud desktops, verify the value of the parameter and try again.
+   * The IDs of the cloud computers on which to run the script. You can specify up to 50 IDs.<br>
+   * The API call is considered successful if the script runs on at least one of the specified cloud computers. The call fails only if the script fails on all of them.<br>
    * 
    * This parameter is required.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The ID of the end user. If you specify a value, you run the command as the end user that is granted specific permissions. Note: The end user has sessions on a cloud computer. That is, when the cloud computer is started, the end user logs on to an Alibaba Cloud Workspace client and connects to the cloud computer, and the cloud computer is not preempted by another end user during the connection. This parameter is not available for Linux cloud computers.
+   * If you specify this parameter, the command runs with the permissions of the specified end user.
+   * 
+   * > This user must have a session history on the cloud computer. This means the user must have logged in after the cloud computer started and their session was not taken over by another user. This parameter is not supported for Linux cloud computers.
    * 
    * @example
-   * User1
+   * alice
    */
   endUserId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -58,8 +57,8 @@ export class RunCommandRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The timeout period for the command to run. Unit: seconds. Default value: 60.\\
-   * A timeout error occurs if the command cannot be run because the process slows down or because a specific module or the Cloud Assistant client does not exist. When a timeout error occurs, the command process is forcibly terminated.
+   * The script execution timeout, in seconds. Default value: 300.<br>
+   * A command times out if the script cannot be run due to issues such as process conflicts, missing modules, or an unavailable Cloud Assistant client. When a command times out, the system forcibly terminates the script process.<br>
    * 
    * @example
    * 3600
@@ -67,10 +66,7 @@ export class RunCommandRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The language of the O\\&M command. Valid values:
-   * 
-   * *   RunBatScript
-   * *   RunPowerShellScript
+   * The type of the script.
    * 
    * This parameter is required.
    * 

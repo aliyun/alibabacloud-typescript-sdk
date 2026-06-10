@@ -17,21 +17,21 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * 
    * Valid values:
    * 
-   * *   Expired
+   * - Expired
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   Normal
+   * - Normal
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * Normal
@@ -54,8 +54,9 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * @remarks
    * The time when the premium bandwidth plan expires.
    * 
-   * *   If the plan is a subscription one, the time when the plan expires is returned.
-   * *   If the plan is a pay-as-you-go one, `2099-12-31T15:59:59Z` is returned.
+   * - If the plan is a subscription one, the time when the plan expires is returned.
+   * 
+   * - If the plan is a pay-as-you-go one, `2099-12-31T15:59:59Z` is returned.
    * 
    * @example
    * 2099-12-31T15:59:59Z
@@ -65,14 +66,15 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * @remarks
    * The charge type of the premium bandwidth plan.
    * 
-   * *   Valid value when the `PayType` parameter is set to `PrePaid`:
+   * - Valid value when the `PayType` parameter is set to `PrePaid`:
    * 
-   *     *   PayByBandwidth: charges by fixed bandwidth.
+   *   - PayByBandwidth: charges by fixed bandwidth.
    * 
-   * *   Valid values when the `PayType` parameter is set to `PostPaid`:
+   * - Valid values when the `PayType` parameter is set to `PostPaid`:
    * 
-   *     *   PayByTraffic: charges by data transfer.
-   *     *   PayByBandwidth: charges by fixed bandwidth.
+   *   - PayByTraffic: charges by data transfer.
+   * 
+   *   - PayByBandwidth: charges by fixed bandwidth.
    * 
    * @example
    * PayByTraffic
@@ -92,37 +94,37 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * 
    * Valid values:
    * 
-   * *   Creating
+   * - Creating
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   Released
+   * - Released
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   InUse
+   * - InUse
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   Releasing
+   * - Releasing
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * InUse
@@ -141,7 +143,7 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * The office network name.
    * 
    * @example
-   * test
+   * default
    */
   officeSiteName?: string;
   /**
@@ -150,9 +152,11 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * 
    * Valid values:
    * 
-   * *   standard: advanced office network
-   * *   customized: custom office network
-   * *   basic: basic office network
+   * - standard: advanced office network
+   * 
+   * - customized: custom office network
+   * 
+   * - basic: basic office network
    * 
    * @example
    * basic
@@ -164,8 +168,9 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * 
    * Valid values:
    * 
-   * *   PostPaid: pay-as-you-go
-   * *   PrePaid: subscription
+   * - PostPaid: pay-as-you-go
+   * 
+   * - PrePaid: subscription
    * 
    * @example
    * PostPaid
@@ -193,9 +198,9 @@ export class DescribeNetworkPackagesResponseBodyNetworkPackages extends $dara.Mo
    * 
    * Valid values:
    * 
-   * *   PayByTraffic: charges by data transfer.
+   * - PayByTraffic: charges by data transfer.
    * 
-   * *   PayByBandwidth: charges by fixed bandwidth.
+   * - PayByBandwidth: charges by fixed bandwidth.
    * 
    * @example
    * PayByBandwidth

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The execution result of the operation. If the request was successful, `success` is returned. If the request failed, an error message is returned.
+   * The result of the operation. A value of `success` indicates that the operation was successful. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class ModifyTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class ModifyTemplateResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned. This parameter is not returned if the value of Code is `success`.
+   * The error message. This parameter is not returned if the value of Code is `success`.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class ModifyTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values: true false
+   * Indicates whether the operation was successful. Valid values: true and false.
    * 
    * @example
    * true

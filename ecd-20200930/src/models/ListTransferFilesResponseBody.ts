@@ -7,11 +7,11 @@ export class ListTransferFilesResponseBodyFiles extends $dara.Model {
    * @remarks
    * The URL of the file icon.
    * 
-   * > 
+   * >
    * 
-   * *   For image file types (.png, .jpg, .jpeg, .gif, .webp, and .svg), the URL of the specific image is returned.
+   * - For image file types (.png, .jpg, .jpeg, .gif, .webp, and .svg), the URL of the specific image is returned.
    * 
-   * *   For other file types, the URL of the default image is returned.
+   * - For other file types, the URL of the default image is returned.
    * 
    * @example
    * https://app-center-icon-pre-hangzhou.oss-cn-hangzhou.aliyuncs.com/tenant****
@@ -28,24 +28,30 @@ export class ListTransferFilesResponseBodyFiles extends $dara.Model {
   /**
    * @remarks
    * The file name.
+   * 
+   * @example
+   * Test file
    */
   name?: string;
   /**
    * @remarks
    * The name of the object stored in OSS.
    * 
-   * > 
+   * >
    * 
-   * *   A value is returned for this parameter only when the object is stored in a custom OSS bucket.
+   * - A value is returned for this parameter only when the object is stored in a custom OSS bucket.
+   * 
+   * @example
+   * Test file_0982836423402342
    */
   ossFileName?: string;
   /**
    * @remarks
    * The path of the object in the OSS bucket.
    * 
-   * > 
+   * >
    * 
-   * *   A value is returned for this parameter only when the object is stored in a custom OSS bucket.
+   * - A value is returned for this parameter only when the object is stored in a custom OSS bucket.
    * 
    * @example
    * transfer/1244234/****
@@ -65,9 +71,11 @@ export class ListTransferFilesResponseBodyFiles extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   DELETING
-   * *   DELETED
-   * *   UPLOADED
+   * - DELETING
+   * 
+   * - DELETED
+   * 
+   * - UPLOADED
    * 
    * @example
    * DELETED

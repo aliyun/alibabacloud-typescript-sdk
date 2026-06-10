@@ -3,19 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ModifyQosEntriesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the cloud phones to bind to the QoS rule.
+   */
   authAndroidId?: string[];
   authDesktopGroupId?: string[];
+  /**
+   * @remarks
+   * The IDs of the cloud desktops to bind to the QoS rule.
+   */
   authDesktopId?: string[];
   /**
    * @remarks
+   * The ID of the QoS rule.
+   * 
    * This parameter is required.
    * 
    * @example
    * qos-5605u0gelk200****
    */
   qosRuleId?: string;
+  /**
+   * @remarks
+   * The IDs of the cloud phones to unbind from the QoS rule.
+   */
   revokeAndroidId?: string[];
   revokeDesktopGroupId?: string[];
+  /**
+   * @remarks
+   * The IDs of the cloud desktops to unbind from the QoS rule.
+   */
   revokeDesktopId?: string[];
   static names(): { [key: string]: string } {
     return {

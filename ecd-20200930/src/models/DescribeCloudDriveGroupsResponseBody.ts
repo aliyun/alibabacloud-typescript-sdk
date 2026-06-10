@@ -3,12 +3,61 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos extends $dara.Model {
+  /**
+   * @remarks
+   * Mailbox.
+   * 
+   * @example
+   * 123@aliyun.com
+   */
   email?: string;
+  /**
+   * @remarks
+   * Administrator username (may be unreadable when imported from a third party).
+   * 
+   * @example
+   * user01
+   */
   endUserId?: string;
+  /**
+   * @remarks
+   * Job number (DingTalk)
+   * 
+   * @example
+   * 12345
+   */
   jobNumber?: string;
+  /**
+   * @remarks
+   * Administrator nickname.
+   * 
+   * @example
+   * John Doe
+   */
   nickName?: string;
+  /**
+   * @remarks
+   * Phone number.
+   * 
+   * @example
+   * 12345678
+   */
   phone?: string;
+  /**
+   * @remarks
+   * Administrator nickname.
+   * 
+   * @example
+   * John Doe
+   */
   realNickName?: string;
+  /**
+   * @remarks
+   * Remark.
+   * 
+   * @example
+   * John Doe
+   */
   remark?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,7 +93,18 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos 
 }
 
 export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.Model {
+  /**
+   * @remarks
+   * List of group administrators.
+   * 
+   * @example
+   * ["user01"]
+   */
   adminUserIds?: string;
+  /**
+   * @remarks
+   * Administrator information for the group space.
+   */
   adminUserInfos?: DescribeCloudDriveGroupsResponseBodyCloudDriveGroupsAdminUserInfos[];
   /**
    * @remarks
@@ -83,17 +143,32 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $dara.
    * The name of the team space.
    * 
    * @example
-   * Test Team 1
+   * Test team 1
    */
   groupName?: string;
+  /**
+   * @remarks
+   * Organization ID of the team.
+   * 
+   * @example
+   * org-aliyun-wy-org-id
+   */
   orgId?: string;
+  /**
+   * @remarks
+   * Size of the recycle bin for the team space. Unit: Byte.
+   * 
+   * @example
+   * 1024000
+   */
   recycleBinSize?: string;
   /**
    * @remarks
    * The team space status. Valid values:
    * 
-   * *   enabled
-   * *   disabled
+   * - enabled
+   * 
+   * - disabled
    * 
    * Default value: enabled.
    * 

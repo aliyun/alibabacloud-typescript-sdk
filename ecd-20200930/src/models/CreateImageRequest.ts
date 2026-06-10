@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to clear private data of users. If you set AutoCleanUserdata to `true`, the custom image clears the data directories, excluding the `Administrator` and `Public` directories, in the `C:\\Users` directory.
+   * Specify whether to clear user personal data. If set to `true`, the image clears all folders under `C:\\Users`, except `Administrator` and `Public`.
    * 
    * @example
    * false
@@ -14,7 +14,7 @@ export class CreateImageRequest extends $dara.Model {
   dataSnapshotIds?: string[];
   /**
    * @remarks
-   * The description of the custom image. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+   * The description of the image. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
    * 
    * @example
    * This is description.
@@ -30,12 +30,7 @@ export class CreateImageRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The disk data that is contained in the custom image.
-   * 
-   * Valid values:
-   * 
-   * - SYSTEM: only contain data from system disks.
-   * - ALL: contain data from system disks and user disks. [default]
+   * The disk data included in the image.
    * 
    * @example
    * ALL
@@ -43,7 +38,7 @@ export class CreateImageRequest extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The name of the image. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+   * The name of the image. The name must be 2 to 128 characters in length. It must start with a letter or Chinese character. It cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * testImageName
@@ -51,15 +46,15 @@ export class CreateImageRequest extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * This parameter is not publicly available.
+   * This parameter is not available for use.
    * 
    * @example
-   * To be hidden.
+   * deprecated
    */
   imageResourceType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to view the list of regions that support WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -77,7 +72,7 @@ export class CreateImageRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The IDs of the snapshots.
+   * A list of snapshot IDs.
    */
   snapshotIds?: string[];
   static names(): { [key: string]: string } {

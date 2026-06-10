@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRecordFileResponseBodyRecordFilesEventDetails extends $dara.Model {
   /**
+   * @remarks
+   * The event details.
+   * 
    * @example
    * {\\n\\t\\"messageInfo\\" : \\"mouse_move\\",\\n\\t\\"messageType\\" : \\"UserInput\\"\\n}\\n"
    */
   eventName?: string;
   /**
+   * @remarks
+   * The time when the event occurred.
+   * 
    * @example
    * 60
    */
   eventTime?: number;
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * UserInput
    */
@@ -45,72 +54,130 @@ export class DescribeRecordFileResponseBodyRecordFilesEventDetails extends $dara
 
 export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cloud desktop.
+   * 
    * @example
    * ecd-7yulhw1g1attet7d2
    */
   desktopId?: string;
   /**
+   * @remarks
+   * The name of the cloud desktop.
+   * 
    * @example
    * fvt-ecd
    */
   desktopName?: string;
   /**
+   * @remarks
+   * The name of the end user.
+   * 
    * @example
    * Alice
    */
   endUserId?: string;
+  /**
+   * @remarks
+   * The event details.
+   */
   eventDetails?: DescribeRecordFileResponseBodyRecordFilesEventDetails[];
   /**
+   * @remarks
+   * The name of the screen recording file.
+   * 
    * @example
    * Task3
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 139
    */
   fileSize?: number;
   /**
+   * @remarks
+   * The ID of the policy.
+   * 
    * @example
    * pg-**
    */
   policyId?: string;
   /**
+   * @remarks
+   * The time when the screen recording ended. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+   * 
    * @example
    * 2025-12-18T06:02:25Z
    */
   recordEndTime?: string;
   /**
+   * @remarks
+   * The expiration time of the screen recording file.
+   * 
    * @example
    * 1774656000000
    */
   recordExpire?: number;
   /**
+   * @remarks
+   * The time when the screen recording started. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and is displayed in UTC.
+   * 
    * @example
    * 2025-12-18T06:02:25Z
    */
   recordStartTime?: string;
   /**
+   * @remarks
+   * The recording type. Valid values:
+   * 
+   * - `alltime`: continuous screen recording.
+   * 
+   * - `period`: interval screen recording.
+   * 
+   * - `event`: event-triggered screen recording.
+   * 
+   * - `session`: session-based screen recording.
+   * 
    * @example
    * period
    */
   recordType?: number;
   /**
+   * @remarks
+   * The ID of the region where the cloud desktop resides.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-f3s3dgt8dtb0vlqc8
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The name of the resource group.
+   * 
    * @example
    * resource
    */
   resourceGroupName?: string;
   /**
+   * @remarks
+   * The upload status of the screen recording file. Valid values:
+   * 
+   * - `0`: uploaded.
+   * 
+   * - `1`: uploading.
+   * 
    * @example
    * 1
    */
@@ -168,16 +235,23 @@ export class DescribeRecordFileResponseBodyRecordFiles extends $dara.Model {
 }
 
 export class DescribeRecordFileResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the screen recording files.
+   */
   recordFiles?: DescribeRecordFileResponseBodyRecordFiles[];
   /**
    * @remarks
-   * RequestId
+   * The request ID.
    * 
    * @example
    * 05C2791F-41A7-5E7C-B5E4-1401FD0E****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 2
    */

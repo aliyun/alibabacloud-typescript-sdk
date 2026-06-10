@@ -8,7 +8,7 @@ export class DisconnectDesktopSessionsRequestSessions extends $dara.Model {
    * The cloud desktop ID.
    * 
    * @example
-   * ecd-90g15fkhsxxxn0unj
+   * ecd-90g15fkhsxxxn****
    */
   desktopId?: string;
   /**
@@ -16,7 +16,7 @@ export class DisconnectDesktopSessionsRequestSessions extends $dara.Model {
    * The end user ID.
    * 
    * @example
-   * wy01
+   * alice
    */
   endUserId?: string;
   static names(): { [key: string]: string } {

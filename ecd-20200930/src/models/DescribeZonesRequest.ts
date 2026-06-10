@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. Call [](t2167755.xdita#)to get the list of regions supported by EDS.
    * 
    * This parameter is required.
    * 
@@ -16,7 +16,7 @@ export class DescribeZonesRequest extends $dara.Model {
   vpcAccessZone?: boolean;
   /**
    * @remarks
-   * The type of the zone. Default value: `AvailabilityZone`. This value indicates Alibaba Cloud zones.
+   * The zone type to query. Default value: `AvailabilityZone`. This queries standard cloud zones.
    * 
    * @example
    * AvailabilityZone

@@ -70,7 +70,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
    * 
    * Valid value:
    * 
-   * *   DESKTOP: cloud computer
+   * - DESKTOP: cloud computer
    * 
    * @example
    * DESKTOP
@@ -90,7 +90,7 @@ export class DescribeEcdReportTasksResponseBodyExportTaskList extends $dara.Mode
    * 
    * Valid value:
    * 
-   * *   RESOURCE_REPORT
+   * - RESOURCE_REPORT
    * 
    * @example
    * RESOURCE_REPORT

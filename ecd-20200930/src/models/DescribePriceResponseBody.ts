@@ -16,7 +16,7 @@ export class DescribePriceResponseBodyPriceInfoPricePromotions extends $dara.Mod
    * The description of the promotion.
    * 
    * @example
-   * Get started with new services with a discount.
+   * 新品上市，立享优惠
    */
   promotionDesc?: string;
   /**
@@ -32,7 +32,7 @@ export class DescribePriceResponseBodyPriceInfoPricePromotions extends $dara.Mod
    * The promotion name.
    * 
    * @example
-   * Special Offer
+   * Featured deals
    */
   promotionName?: string;
   /**
@@ -78,7 +78,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
    * The unit of currency (USD).
    * 
    * @example
-   * CNY
+   * CNY/USD
    */
   currency?: string;
   /**
@@ -86,7 +86,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
    * The discounted amount.
    * 
    * @example
-   * 0
+   * 15.8
    */
   discountPrice?: number;
   /**
@@ -99,7 +99,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
    * The original price.
    * 
    * @example
-   * 2.796
+   * 79.0
    */
   originalPrice?: number;
   /**
@@ -120,7 +120,7 @@ export class DescribePriceResponseBodyPriceInfoPrice extends $dara.Model {
    * The actual price. The original price minus the discounted amount equals the actual price.
    * 
    * @example
-   * 2.796
+   * 63.2
    */
   tradePrice?: number;
   static names(): { [key: string]: string } {
@@ -168,7 +168,7 @@ export class DescribePriceResponseBodyPriceInfoRules extends $dara.Model {
    * The description of the rule.
    * 
    * @example
-   * Receive a 15% discount on a one-year subscription.
+   * 买满1年，立享官网价格8.5折优惠。
    */
   description?: string;
   /**

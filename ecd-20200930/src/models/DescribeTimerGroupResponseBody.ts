@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends $dara.Model {
   /**
+   * @remarks
+   * The time to execute the scheduled task, specified as a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1764660600967
    */
@@ -12,12 +15,19 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   endCronExpression?: string;
   enforce?: boolean;
   /**
+   * @remarks
+   * The image ID for a scheduled image-change task.
+   * 
    * @example
    * m-5b0vjqbiqu010XXXXXX
    */
   imageId?: string;
   interval?: number;
+  ipSegments?: string[];
   /**
+   * @remarks
+   * The duration of user inactivity, in seconds, before the screen locks. This feature applies only to cloud computers joined to an Active Directory (AD) domain.
+   * 
    * @example
    * 1800
    */
@@ -45,6 +55,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
       enforce: 'Enforce',
       imageId: 'ImageId',
       interval: 'Interval',
+      ipSegments: 'IpSegments',
       lockScreenTime: 'LockScreenTime',
       notificationTime: 'NotificationTime',
       operationType: 'OperationType',
@@ -68,6 +79,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
       enforce: 'boolean',
       imageId: 'string',
       interval: 'number',
+      ipSegments: { 'type': 'array', 'itemType': 'string' },
       lockScreenTime: 'number',
       notificationTime: 'number',
       operationType: 'string',
@@ -84,6 +96,9 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
   }
 
   validate() {
+    if(Array.isArray(this.ipSegments)) {
+      $dara.Model.validateArray(this.ipSegments);
+    }
     if(Array.isArray(this.processWhitelist)) {
       $dara.Model.validateArray(this.processWhitelist);
     }
@@ -98,7 +113,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimersSegmentTimers extends
 export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether end users can configure scheduled tasks.
+   * Whether to allow end users to configure the scheduled task.
    * 
    * @example
    * true
@@ -106,7 +121,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   allowClientSetting?: boolean;
   /**
    * @remarks
-   * The CRON expression for the scheduled task.
+   * The cron expression for the scheduled task.
    * 
    * @example
    * 0 0 16 ? * 1,2,3,4,5,6,7
@@ -114,7 +129,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcibly execute the scheduled task. A value of true specifies the scheduled task will run forcefully, ignoring the cloud computer and connection status.
+   * Specifies whether to force the execution of the scheduled task. If set to `true`, the task runs regardless of the cloud computer\\"s status or connection state.
    * 
    * @example
    * false
@@ -122,7 +137,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   enforce?: boolean;
   /**
    * @remarks
-   * The interval at which the scheduled task is executed. Unit: minutes.
+   * The interval. Unit: minutes.
    * 
    * @example
    * 10
@@ -131,12 +146,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   notificationTime?: number;
   /**
    * @remarks
-   * The type of the scheduled disconnection task.
-   * 
-   * Valid values:
-   * 
-   * *   Hibernate: scheduled hibernation.
-   * *   Shutdown: scheduled shutdown.
+   * The operation to perform when `TimerType` is set to `NoConnect`.
    * 
    * @example
    * Shutdown
@@ -144,18 +154,12 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist. If whitelisted processes are running, the scheduled task upon inactivity does not take effect.
+   * The process whitelist for smart detection. A scheduled task based on user inactivity does not run if a whitelisted process is running.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * The reset operation of the scheduled task.
-   * 
-   * Valid values:
-   * 
-   * *   RESET_TYPE_SYSTEM: resets the system disk.
-   * *   RESET_TYPE_USER_DISK: resets the data disk.
-   * *   RESET_TYPE_BOTH: resets the system disk and data disk.
+   * The reset type for the scheduled reset task.
    * 
    * @example
    * RESET_TYPE_SYSTEM
@@ -166,30 +170,13 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
    * @remarks
    * The type of the scheduled task.
    * 
-   * Valid values:
-   * 
-   * *   NoOperationDisconnect: scheduled disconnection upon inactivity.
-   * *   NoConnect: scheduled disconnection upon specified operation (OperationType).
-   * *   TimerBoot: scheduled start.
-   * *   TimerReset: scheduled reset.
-   * *   NoOperationShutdown: scheduled shutdown upon inactivity.
-   * *   NoOperationHibernate: scheduled hibernation upon inactivity.
-   * *   TimerShutdown: scheduled shutdown.
-   * *   NoOperationReboot: scheduled restart upon inactivity.
-   * *   TimerReboot: scheduled restart.
-   * 
    * @example
    * TimerBoot
    */
   timerType?: string;
   /**
    * @remarks
-   * The method to trigger the scheduled task upon inactivity.
-   * 
-   * Valid values:
-   * 
-   * *   Advanced: intelligent detection.
-   * *   Standard: standard detection.
+   * The detection method for user inactivity.
    * 
    * @example
    * Standard
@@ -245,7 +232,7 @@ export class DescribeTimerGroupResponseBodyDataConfigTimers extends $dara.Model 
 export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of resources that are bound to the configuration group.
+   * The number of resources associated with the timer group.
    * 
    * @example
    * 50
@@ -253,51 +240,67 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   bindCount?: number;
   /**
    * @remarks
-   * The number of bound resources.
+   * A map of associated resource counts, categorized by resource type.
    */
   bindCountMap?: { [key: string]: number };
   /**
    * @remarks
-   * The scheduled tasks.
+   * The configurations of the scheduled tasks.
    */
   configTimers?: DescribeTimerGroupResponseBodyDataConfigTimers[];
   /**
    * @remarks
-   * The description of the configuration group.
+   * The description of the timer group.
+   * 
+   * @example
+   * Scheduled task
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the configuration group.
+   * The ID of the timer group.
    * 
    * @example
    * cg-75aazkg2tnqb2*****
    */
   groupId?: string;
   /**
+   * @remarks
+   * An internal code used by the frontend to display the description of a system-scheduled task.
+   * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE_DESC
    */
   innerTimerDesc?: string;
   /**
+   * @remarks
+   * An internal code used by the frontend to display the name of a system-scheduled task.
+   * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE
    */
   innerTimerName?: string;
+  /**
+   * @remarks
+   * Indicates that resources cannot be bound to or unbound from this timer group.
+   */
   isBind?: boolean;
+  /**
+   * @remarks
+   * Indicates that this timer group cannot be modified.
+   */
   isUpdate?: boolean;
   /**
    * @remarks
-   * The name of the configuration group.
+   * The name of the timer group.
+   * 
+   * @example
+   * Scheduled task
    */
   name?: string;
   /**
    * @remarks
-   * The service type of the configuration group.
-   * 
-   * Valid value:
-   * 
-   * *   CLOUD_DESKTOP: the cloud computer service.
+   * The product type that the timer group supports.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -305,14 +308,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The state of the configuration group.
-   * 
-   * Valid values:
-   * 
-   * *   AVAILABLE: The configuration group is available.
-   * *   UNAVAILABLE: The configuration group is deleted.
-   * *   DELETING: The configuration group is being deleted.
-   * *   UPDATING: The configuration group is being modified.
+   * The status of the timer group.
    * 
    * @example
    * AVAILABLE
@@ -320,11 +316,7 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the configuration group.
-   * 
-   * Valid value:
-   * 
-   * *   Timer: the scheduled task type.
+   * The type of the timer group.
    * 
    * @example
    * Timer
@@ -384,12 +376,12 @@ export class DescribeTimerGroupResponseBodyData extends $dara.Model {
 export class DescribeTimerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration group.
+   * The details of the timer group.
    */
   data?: DescribeTimerGroupResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

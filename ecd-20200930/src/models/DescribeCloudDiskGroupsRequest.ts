@@ -5,21 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudDiskGroupsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the enterprise cloud drive that you created.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou+cds-0456357992
    */
   cdsId?: string;
+  /**
+   * @remarks
+   * The group ID.
+   */
   groupId?: string[];
+  /**
+   * @remarks
+   * The team space name.
+   * 
+   * @example
+   * Test team 1
+   */
   groupName?: string;
   /**
+   * @remarks
+   * The parent organization ID.
+   * 
    * @example
    * root
    */
   parentOrgId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

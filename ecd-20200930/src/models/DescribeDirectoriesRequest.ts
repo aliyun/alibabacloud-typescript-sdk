@@ -29,7 +29,7 @@ export class DescribeDirectoriesRequest extends $dara.Model {
    * *   AD_CONNECTOR: the Active Directory (AD) directory.
    * 
    * @example
-   * RAM
+   * SIMPLE
    */
   directoryType?: string;
   /**

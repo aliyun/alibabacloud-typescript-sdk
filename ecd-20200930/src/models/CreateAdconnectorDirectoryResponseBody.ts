@@ -8,7 +8,7 @@ export class CreateADConnectorDirectoryResponseBodyAdConnectors extends $dara.Mo
    * The connection address.
    * 
    * @example
-   * ``127.0.**.**``
+   * 127.0.XX.XX
    */
   address?: string;
   static names(): { [key: string]: string } {

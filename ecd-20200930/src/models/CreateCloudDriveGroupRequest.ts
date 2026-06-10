@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateCloudDriveGroupRequest extends $dara.Model {
   /**
+   * @remarks
+   * List of user IDs to be set as team space administrators.
+   * 
    * **if can be null:**
    * true
    */

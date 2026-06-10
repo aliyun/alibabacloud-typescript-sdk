@@ -34,7 +34,7 @@ export class DescribeClientEventsResponseBodyEventsTerminalInfo extends $dara.Mo
 export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account with which the event is associated.
+   * The ID of the Alibaba Cloud account associated with the event.
    * 
    * @example
    * 112259558861****
@@ -42,7 +42,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The number of bytes that are received.
+   * The number of bytes received.
    * 
    * @example
    * 8665
@@ -50,7 +50,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   bytesReceived?: string;
   /**
    * @remarks
-   * The number of bytes that are sent.
+   * The number of bytes sent.
    * 
    * @example
    * 2345
@@ -66,7 +66,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The OS that the client runs.
+   * The operating system of the client.
    * 
    * @example
    * Darwin 17.7.0 x64
@@ -82,7 +82,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   clientVersion?: string;
   /**
    * @remarks
-   * The description.
+   * The description of the event.
    * 
    * @example
    * test
@@ -90,7 +90,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The desktop group ID.
+   * The ID of the desktop group.
    * 
    * @example
    * dg-kadkdfaf****
@@ -98,7 +98,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The desktop group name.
+   * The name of the desktop group.
    * 
    * @example
    * testName
@@ -106,7 +106,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   desktopGroupName?: string;
   /**
    * @remarks
-   * The cloud desktop ID.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ecd-8fupvkhg0aayu****
@@ -117,12 +117,12 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
    * The IP address of the cloud desktop.
    * 
    * @example
-   * 10.10.*.*
+   * 10.10.XX.XX
    */
   desktopIp?: string;
   /**
    * @remarks
-   * The cloud desktop name.
+   * The name of the cloud desktop.
    * 
    * @example
    * test
@@ -130,7 +130,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The ID of the directory to which the cloud desktop belongs.
+   * The ID of the cloud desktop\\"s directory.
    * 
    * @example
    * cn-hangzhou+dir-bh77qa8nmjot4****
@@ -146,7 +146,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   directoryType?: string;
   /**
    * @remarks
-   * The information about the end user that connects to the cloud desktop from the EDS client. The information can be a RAM user ID or an AD username.
+   * The ID of the end user. The value can be the ID of a RAM user or the username of an AD user.
    * 
    * @example
    * 28961708130834****
@@ -162,7 +162,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The time when the event occurred.
+   * The time the event occurred.
    * 
    * @example
    * 2020-11-30T06:32:31Z
@@ -170,7 +170,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   eventTime?: string;
   /**
    * @remarks
-   * The event type. Valid values:
+   * The event type.
    * 
    * @example
    * DESKTOP_DISCONNECT
@@ -178,7 +178,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the cloud desktop belongs.
+   * The ID of the cloud desktop\\"s office site.
    * 
    * @example
    * cn-hangzhou+dir-bh77qa8nmjot4****
@@ -186,7 +186,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the office site.
    * 
    * @example
    * test
@@ -194,25 +194,7 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   officeSiteName?: string;
   /**
    * @remarks
-   * The account type of the workspace.
-   * 
-   * Valid values:
-   * 
-   * *   SIMPLE: convenience account
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   AD_CONNECTOR: enterprise AD account
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The type of account system for the office site.
    * 
    * @example
    * SIMPLE
@@ -228,10 +210,11 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the event. If you set the EventType parameter to `DESKTOP_DISCONNECT` or `GET_CONNECTION_TICKET`, this parameter is returned. Valid values:
+   * The status of the event. This parameter is returned for `DESKTOP_DISCONNECT` and `GET_CONNECTION_TICKET` events. Valid values:
    * 
-   * *   200\\. The value indicates that the request is successful.
-   * *   An error message. The value indicates that the request failed. Example: FailedToGetConnectionTicket.
+   * - `200`: Success.
+   * 
+   * - An error message, such as `FailedToGetConnectionTicket`.
    * 
    * @example
    * 200
@@ -311,12 +294,12 @@ export class DescribeClientEventsResponseBodyEvents extends $dara.Model {
 export class DescribeClientEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The user events.
+   * The list of user events.
    */
   events?: DescribeClientEventsResponseBodyEvents[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token. If this parameter is empty, all results have been returned.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****

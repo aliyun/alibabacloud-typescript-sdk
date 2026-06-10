@@ -6,21 +6,25 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   businessChannel?: string;
   /**
    * @remarks
-   * The cloud computer IDs. You can specify 1 to 100 office network IDs.
+   * The IDs of the cloud desktops. You can specify up to 100 IDs.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The name of the cloud computer.
+   * The name of the cloud desktop.
    * 
    * @example
    * DemoComputer
    */
   desktopName?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   */
   desktopStatusList?: string[];
   /**
    * @remarks
-   * The cloud computer type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the specifications supported by the cloud computer.
+   * The desktop type. You can call the [DescribeDesktopTypes](https://help.aliyun.com/document_detail/188882.html) operation to query the IDs of the supported desktop types.
    * 
    * @example
    * eds.enterprise_office.2c4g
@@ -28,9 +32,9 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The end time. The interval between the start time and end time can be up to 30 days. Supported formats:
+   * The end time of the query. The time must be in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format. The interval between the start and end times cannot exceed 30 days.
    * 
-   * *   Format: YYYY-MM-DDThh:mm:ssZ.
+   * - Format: YYYY-MM-DDThh:mm:ssZ.
    * 
    * @example
    * 2022-08-31T06:56:45Z
@@ -38,7 +42,11 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The end user ID.
+   * The ID of the end user.
+   * 
+   * - Asc: ascending order
+   * 
+   * - Desc: descending order
    * 
    * @example
    * TestUser
@@ -47,7 +55,11 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   excludeDesktopStatusList?: string[];
   /**
    * @remarks
-   * The office network IDs.
+   * The ID of the office site.
+   * 
+   * - China (Shanghai)
+   * 
+   * - Singapore
    * 
    * @example
    * cn-hangzhou+dir-363353****
@@ -55,9 +67,9 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The sorting field. If this parameter is not provided, results are sorted by creation time in descending order. Valid values:
+   * The field by which to sort the results. If you do not specify this parameter, the results are sorted by creation time in descending order. Valid value:
    * 
-   * *   uptime: indicates that the cloud computers are sorted by startup duration.
+   * - `uptime`: Sorts the results by cloud desktop uptime.
    * 
    * @example
    * uptime
@@ -65,8 +77,9 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number of the current page.\\
-   * Default value: 1
+   * The page number to return.<br>Default value: 1.<br>
+   * 
+   * - Format: YYYY-MM-DDThh:mm:ssZ.
    * 
    * @example
    * 1
@@ -74,7 +87,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 1 to 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * @example
    * 20
@@ -82,10 +95,11 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
-   * *   China (Shanghai)
-   * *   Singapore
+   * - Shanghai
+   * 
+   * - Singapore
    * 
    * This parameter is required.
    * 
@@ -103,9 +117,13 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The query range. This parameter is empty by default. Optional values are:
+   * The query scope. This parameter is empty by default. Valid value:
    * 
-   * *   ADVANCED: indicates that statistics such as the connection duration are queried.
+   * - `ADVANCED`: Queries statistical records, such as connection duration.
+   * 
+   * - postPaid: Pay-as-you-go.
+   * 
+   * - monthPackage: monthly time-based package.
    * 
    * @example
    * ADVANCED
@@ -113,10 +131,9 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The sorting method. Default value: ascending. Valid value:
+   * The sort order. The default is `Asc`. Valid values:
    * 
-   * *   Asc: ascending order
-   * *   Desc: descending.
+   * - `Asc`: ascending order
    * 
    * @example
    * Asc
@@ -124,9 +141,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   sortType?: string;
   /**
    * @remarks
-   * The start time. Supported formats:
-   * 
-   * *   Format: YYYY-MM-DDThh:mm:ssZ.
+   * The start time of the query. The time must be in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format.
    * 
    * @example
    * 2022-03-23T04:10:21Z
@@ -134,11 +149,7 @@ export class DescribeGlobalDesktopRecordsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The way to purchase cloud computers. Valid values:
-   * 
-   * *   prePaid: The monthly purchase is unlimited.
-   * *   postPaid: pay-as-you-go
-   * *   monthPackage: monthly duration.
+   * The billing method of the cloud desktop. Valid values:
    * 
    * @example
    * monthPackage

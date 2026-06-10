@@ -8,7 +8,7 @@ export class VerifyCenResponseBodyRouteEntries extends $dara.Model {
    * The CIDR block of the route.
    * 
    * @example
-   * 172.16.111.3****
+   * 172.16.XX.XX
    */
   destinationCidrBlock?: string;
   /**

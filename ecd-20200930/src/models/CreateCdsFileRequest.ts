@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCdsFileRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud disk.
+   * Enterprise cloud disk ID.
    * 
    * This parameter is required.
    * 
@@ -15,65 +15,7 @@ export class CreateCdsFileRequest extends $dara.Model {
   cdsId?: string;
   /**
    * @remarks
-   * The policy that is used when the file that you want to upload has the same name as an existing file in the cloud disk.
-   * 
-   * Valid values:
-   * 
-   * *   refuse
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     denies creating the file
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   auto_rename
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     automatically renames the file
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   ignore
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     allows the file to use the same name as the existing file in the cloud disk
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   over_write
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     overwrites the existing file in the cloud disk
-   * 
-   *     <!-- -->
-   * 
-   *     .
+   * How to handle files with the same name.
    * 
    * @example
    * ignore
@@ -81,7 +23,7 @@ export class CreateCdsFileRequest extends $dara.Model {
   conflictPolicy?: string;
   /**
    * @remarks
-   * The user ID.
+   * User ID.
    * 
    * @example
    * test1
@@ -89,7 +31,7 @@ export class CreateCdsFileRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The hash value of the SHA1 algorithm that is used by the file.
+   * SHA-1 hash value of the file.
    * 
    * @example
    * 7C4A8D09CA3762AF61E59520943DC26494F8****
@@ -97,17 +39,17 @@ export class CreateCdsFileRequest extends $dara.Model {
   fileHash?: string;
   /**
    * @remarks
-   * The file size. Unit: bytes.
+   * File size. Unit: Byte.
    * 
    * This parameter is required.
    * 
    * @example
-   * 2048
+   * 1048576
    */
   fileLength?: number;
   /**
    * @remarks
-   * The file name.
+   * File name.
    * 
    * This parameter is required.
    * 
@@ -117,25 +59,7 @@ export class CreateCdsFileRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file type.
-   * 
-   * Valid values:
-   * 
-   * *   file
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   folder
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * File type.
    * 
    * This parameter is required.
    * 
@@ -143,10 +67,17 @@ export class CreateCdsFileRequest extends $dara.Model {
    * file
    */
   fileType?: string;
+  /**
+   * @remarks
+   * Team space ID.
+   * 
+   * @example
+   * cg-i1ruuudp92qpj****
+   */
   groupId?: string;
   /**
    * @remarks
-   * The ID of the parent folder.
+   * Parent file ID. Get this from the `FileId` parameter returned by the [ListCdsFiles](https://help.aliyun.com/document_detail/2247622.html) API.
    * 
    * @example
    * 637c9163b453b1a384874264ba79f3f9eab9****
@@ -154,7 +85,7 @@ export class CreateCdsFileRequest extends $dara.Model {
   parentFileId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to list regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

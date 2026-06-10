@@ -22,7 +22,7 @@ export class AttachEndUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 2
+   * 1
    */
   clientType?: number;
   /**
@@ -32,7 +32,7 @@ export class AttachEndUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 111810122200F0C24CF7F1BF-*05AY****
+   * 12OERSLDO7M3****
    */
   deviceId?: string;
   /**
@@ -50,7 +50,7 @@ export class AttachEndUserRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * moli
+   * alice
    */
   endUserId?: string;
   /**

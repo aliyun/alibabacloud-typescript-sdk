@@ -8,7 +8,7 @@ export class DescribeFotaTasksRequest extends $dara.Model {
    * >  This parameter is not publicly available.
    * 
    * @example
-   * To be hidden.
+   * windows
    */
   fotaStatus?: string;
   /**

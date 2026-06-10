@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * The ID of the shared cloud desktop from which you revoke the user’s permission.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -13,17 +13,18 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The IDs of the cloud computer shares.
+   * A list of shared desktop group IDs.
    */
   desktopGroupIds?: string[];
   /**
    * @remarks
-   * The IDs of the authorized users that you want to remove.
+   * The list of authorized users to remove.
    */
   endUserIds?: string[];
+  orgId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. Call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to get a list of regions where WUYING Workspace is available.
    * 
    * This parameter is required.
    * 
@@ -39,6 +40,7 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
       desktopGroupId: 'DesktopGroupId',
       desktopGroupIds: 'DesktopGroupIds',
       endUserIds: 'EndUserIds',
+      orgId: 'OrgId',
       regionId: 'RegionId',
       simpleUserGroupId: 'SimpleUserGroupId',
       userGroupName: 'UserGroupName',
@@ -51,6 +53,7 @@ export class RemoveUserFromDesktopGroupRequest extends $dara.Model {
       desktopGroupId: 'string',
       desktopGroupIds: { 'type': 'array', 'itemType': 'string' },
       endUserIds: { 'type': 'array', 'itemType': 'string' },
+      orgId: 'string',
       regionId: 'string',
       simpleUserGroupId: 'string',
       userGroupName: 'string',

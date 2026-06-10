@@ -8,7 +8,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesADConnectors extends $dar
    * The connection address.
    * 
    * @example
-   * ``172.17.**.**``
+   * 172.17.XX.XX
    */
   ADConnectorAddress?: string;
   /**

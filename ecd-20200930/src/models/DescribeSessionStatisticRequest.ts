@@ -23,8 +23,9 @@ export class DescribeSessionStatisticRequest extends $dara.Model {
    * @remarks
    * The query interval. Unit: seconds. Valid values:
    * 
-   * *   60
-   * *   120
+   * - 60
+   * 
+   * - 120
    * 
    * @example
    * 60

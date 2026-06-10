@@ -17,8 +17,9 @@ export class SetDirectorySsoStatusRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable SSO. Valid values:
    * 
-   * *   true: enables SSO.
-   * *   false: disables SSO.
+   * - true: enables SSO.
+   * 
+   * - false: disables SSO.
    * 
    * This parameter is required.
    * 

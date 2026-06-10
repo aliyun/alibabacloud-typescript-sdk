@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQosRulesRequest extends $dara.Model {
   /**
    * @remarks
+   * The network package ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class DescribeQosRulesRequest extends $dara.Model {
    */
   networkPackageId?: string;
   /**
+   * @remarks
+   * The QoS rule name.
+   * 
    * @example
    * test
    */

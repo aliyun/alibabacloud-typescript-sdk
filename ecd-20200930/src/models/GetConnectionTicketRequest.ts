@@ -7,8 +7,9 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * @remarks
    * The command that you want to run to configure a custom application in user mode. After you obtain the credential, the application is automatically started. Parameter description in the command:
    * 
-   * *   appPath: the path of the application startup file. Example: `"C:\\\\Program Files (x86)\\\\000\\\\000.exe"`. Use double slashes (\\\\\\) as the delimiter. Type of the parameter value: string.
-   * *   appParameter: the startup arguments of the application. Example: `"meetingid 000 meetingname aaa"`. Separate multiple arguments with spaces. Type of the parameter value: string.
+   * - appPath: the path of the application startup file. Example: `"C:\\Program Files (x86)\\000\\000.exe"`. Use double slashes (\\) as the delimiter. Type of the parameter value: string.
+   * 
+   * - appParameter: the startup arguments of the application. Example: `"meetingid 000 meetingname aaa"`. Separate multiple arguments with spaces. Type of the parameter value: string.
    * 
    * @example
    * {
@@ -41,7 +42,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * The ID of the end user of the cloud computer. The end user must be the current end user of the cloud computer.
    * 
    * @example
-   * Alice
+   * alice
    */
   endUserId?: string;
   ownerId?: number;
@@ -70,7 +71,7 @@ export class GetConnectionTicketRequest extends $dara.Model {
    * The ID of the cloud computer connection task.
    * 
    * @example
-   * 2afbad19-778a-4fc5-9674-1f19c63862da
+   * 2afbad19-778a-4fc5-9674-1f19c638****
    */
   taskId?: string;
   /**

@@ -104,7 +104,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the shared files are downloaded. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 0
+   * 10
    */
   downloadCount?: number;
   /**
@@ -112,7 +112,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The limit on the number of times that the shared files can be downloaded. The value of this parameter must be equal to or greater than 0. The value 0 specifies that no limit is imposed on the number of times that the shared files can be downloaded.
    * 
    * @example
-   * 0
+   * 10
    */
   downloadLimit?: number;
   /**
@@ -128,7 +128,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the shared files are previewed. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 0
+   * 10
    */
   previewCount?: number;
   /**
@@ -144,7 +144,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the shared files are reported. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 0
+   * 10
    */
   reportCount?: number;
   /**
@@ -152,7 +152,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the shared files are dumped. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 0
+   * 10
    */
   saveCount?: number;
   /**
@@ -178,6 +178,9 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The name of the file sharing task. If you do not configure this parameter, the sharing task name is the first ID that is returned in the file_id_list value.
    * 
    * >  The sharing task name must be 0 to 128 characters in length.
+   * 
+   * @example
+   * File sharing
    */
   shareName?: string;
   /**
@@ -219,7 +222,7 @@ export class ModifyCdsFileShareLinkRequest extends $dara.Model {
    * The number of times that the videos are previewed in the shared files. The value of this parameter must be equal to or greater than 0.
    * 
    * @example
-   * 0
+   * 10
    */
   videoPreviewCount?: number;
   static names(): { [key: string]: string } {

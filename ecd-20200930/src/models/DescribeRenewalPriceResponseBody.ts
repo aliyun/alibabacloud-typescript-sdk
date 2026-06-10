@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $dara.Model {
   /**
    * @remarks
-   * The description of the promotion rule.
+   * The promotion rule description.
    * 
    * @example
    * test
@@ -14,6 +14,9 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $d
   /**
    * @remarks
    * The promotion description.
+   * 
+   * @example
+   * 新品上市，立享优惠
    */
   promotionDesc?: string;
   /**
@@ -27,11 +30,14 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $d
   /**
    * @remarks
    * The promotion name.
+   * 
+   * @example
+   * Featured deals
    */
   promotionName?: string;
   /**
    * @remarks
-   * Indicates whether an item is selected.
+   * Indicates whether the promotion is selected.
    * 
    * @example
    * false
@@ -69,7 +75,8 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $d
 export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The unit of currency (USD).
+   * <props="china">The unit of currency. The value is CNY.
+   * <props="intl">The unit of currency. The value is USD.
    * 
    * @example
    * CNY
@@ -77,7 +84,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   currency?: string;
   /**
    * @remarks
-   * The discounted amount.
+   * The discount.
    * 
    * @example
    * 15.8
@@ -85,7 +92,7 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   discountPrice?: number;
   /**
    * @remarks
-   * The orders.
+   * The order details.
    */
   orderLines?: { [key: string]: string };
   /**
@@ -98,12 +105,12 @@ export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $dara.Model 
   originalPrice?: number;
   /**
    * @remarks
-   * The promotions.
+   * The promotion details.
    */
   promotions?: DescribeRenewalPriceResponseBodyPriceInfoPricePromotions[];
   /**
    * @remarks
-   * The actual price. The actual price is the original price minus the discount.
+   * The final price. This is the value of `OriginalPrice` minus `DiscountPrice`.
    * 
    * @example
    * 63.2
@@ -150,6 +157,9 @@ export class DescribeRenewalPriceResponseBodyPriceInfoRules extends $dara.Model 
   /**
    * @remarks
    * The rule description.
+   * 
+   * @example
+   * 买满1年，立享官网价格8.5折优惠。
    */
   description?: string;
   /**

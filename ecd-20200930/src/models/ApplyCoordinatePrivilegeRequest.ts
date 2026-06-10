@@ -10,7 +10,7 @@ export class ApplyCoordinatePrivilegeRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * co-fqsm6e8ee75w61fp9
+   * co-fqsm6e8ee75w6****
    */
   coId?: string;
   /**
@@ -18,7 +18,7 @@ export class ApplyCoordinatePrivilegeRequest extends $dara.Model {
    * The ID of the end user.
    * 
    * @example
-   * zhangsan
+   * alice
    */
   endUserId?: string;
   /**
@@ -48,7 +48,7 @@ export class ApplyCoordinatePrivilegeRequest extends $dara.Model {
    * The unique identifier of the client. If you use an Alibaba Cloud Workspace client, click **About** on the client logon page to view the identifier of the client.
    * 
    * @example
-   * 8b241d415da244a6936d6d6fa4f20f4d
+   * 3E14A18BD4D088504B9F8A8751AB****
    */
   uuid?: string;
   static names(): { [key: string]: string } {

@@ -3,39 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeUserProfilePathRulesResponseBodyUserProfilePathRuleRulesBlackPath extends $dara.Model {
-  /**
-   * @remarks
-   * The path.
-   * 
-   * @example
-   * AppLocal/Data
-   */
   path?: string;
-  /**
-   * @remarks
-   * The path type.
-   * 
-   * Valid values:
-   * 
-   * *   file
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   folder
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * file
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -61,39 +29,7 @@ export class DescribeUserProfilePathRulesResponseBodyUserProfilePathRuleRulesBla
 }
 
 export class DescribeUserProfilePathRulesResponseBodyUserProfilePathRuleRulesWhitePaths extends $dara.Model {
-  /**
-   * @remarks
-   * The path.
-   * 
-   * @example
-   * games
-   */
   path?: string;
-  /**
-   * @remarks
-   * The path type.
-   * 
-   * Valid values:
-   * 
-   * *   file
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   folder
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * folder
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -119,15 +55,7 @@ export class DescribeUserProfilePathRulesResponseBodyUserProfilePathRuleRulesWhi
 }
 
 export class DescribeUserProfilePathRulesResponseBodyUserProfilePathRuleRules extends $dara.Model {
-  /**
-   * @remarks
-   * The blacklist that is configured.
-   */
   blackPath?: DescribeUserProfilePathRulesResponseBodyUserProfilePathRuleRulesBlackPath;
-  /**
-   * @remarks
-   * The directories in the whitelist.
-   */
   whitePaths?: DescribeUserProfilePathRulesResponseBodyUserProfilePathRuleRulesWhitePaths[];
   static names(): { [key: string]: string } {
     return {
@@ -159,44 +87,8 @@ export class DescribeUserProfilePathRulesResponseBodyUserProfilePathRuleRules ex
 }
 
 export class DescribeUserProfilePathRulesResponseBodyUserProfilePathRule extends $dara.Model {
-  /**
-   * @remarks
-   * The desktop group ID.
-   * 
-   * @example
-   * dg-4i8fvpv6tfs03****
-   */
   desktopGroupId?: string;
-  /**
-   * @remarks
-   * The directory rules.
-   */
   rules?: DescribeUserProfilePathRulesResponseBodyUserProfilePathRuleRules[];
-  /**
-   * @remarks
-   * The directory type that is configured for the directory.
-   * 
-   * Valid values:
-   * 
-   * *   DesktopGroup
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Default
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * Default
-   */
   userProfileRuleType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -227,18 +119,7 @@ export class DescribeUserProfilePathRulesResponseBodyUserProfilePathRule extends
 }
 
 export class DescribeUserProfilePathRulesResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * A87DBB05-653A-5E4B-B72B-5F4A1E07****
-   */
   requestId?: string;
-  /**
-   * @remarks
-   * The directory blacklist and whitelist.
-   */
   userProfilePathRule?: DescribeUserProfilePathRulesResponseBodyUserProfilePathRule;
   static names(): { [key: string]: string } {
     return {

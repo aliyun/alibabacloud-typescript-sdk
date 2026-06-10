@@ -8,7 +8,7 @@ export class ModifyConfigGroupRequest extends $dara.Model {
    * The description of the configuration group.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task
    */
   description?: string;
   /**
@@ -26,7 +26,7 @@ export class ModifyConfigGroupRequest extends $dara.Model {
    * The name of the configuration group.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task
    */
   name?: string;
   /**
@@ -34,7 +34,7 @@ export class ModifyConfigGroupRequest extends $dara.Model {
    * The ID of the region. Set the value to `cn-shanghai`.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   regionId?: string;
   static names(): { [key: string]: string } {

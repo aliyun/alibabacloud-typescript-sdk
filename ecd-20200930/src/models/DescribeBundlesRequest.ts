@@ -15,24 +15,6 @@ export class DescribeBundlesRequest extends $dara.Model {
    * @remarks
    * The type of the cloud computer template.
    * 
-   * Valid values:
-   * 
-   * *   SYSTEM: system template
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CUSTOM: custom template
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * SYSTEM
    */
@@ -57,45 +39,21 @@ export class DescribeBundlesRequest extends $dara.Model {
    * @remarks
    * The instance family of the cloud computers.
    * 
-   * Valid values:
-   * 
-   * *   eds.graphics: graphical instance families
-   * *   eds.hf: instance families with high clock speeds
-   * *   eds.general: general-purpose instance families
-   * 
    * @example
    * eds.general
    */
   desktopTypeFamily?: string;
   /**
    * @remarks
-   * >  This parameter is not available for public use.
+   * > This parameter is not available for public use.
    * 
    * @example
-   * This parameter is now in invitational preview and unavailable.
+   * example
    */
   fotaChannel?: string;
   /**
    * @remarks
    * Specifies whether the cloud computers in the template belong to a cloud computer pool.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * false
@@ -112,13 +70,6 @@ export class DescribeBundlesRequest extends $dara.Model {
   /**
    * @remarks
    * The GPU driver type.
-   * 
-   * Valid values:
-   * 
-   * *   T4
-   * *   A10
-   * *   G28
-   * *   G39
    * 
    * @example
    * T4
@@ -161,24 +112,6 @@ export class DescribeBundlesRequest extends $dara.Model {
    * @remarks
    * The type of the OS.
    * 
-   * Valid values:
-   * 
-   * *   Linux
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Windows
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * Windows
    */
@@ -187,18 +120,13 @@ export class DescribeBundlesRequest extends $dara.Model {
    * @remarks
    * The protocol type.
    * 
-   * Valid values:
-   * 
-   * *   HDX: High-definition Experience (HDX) protocol
-   * *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommend)
-   * 
    * @example
    * ASP
    */
   protocolType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
+   * The region ID. You can call the [](t2167755.xdita#)operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -224,10 +152,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   selectedBundle?: boolean;
   /**
    * @remarks
-   * The type of the session. Valide values:
-   * 
-   * - SingleSession
-   * - MultipleSession
+   * The type of the session.
    * 
    * @example
    * SingleSession

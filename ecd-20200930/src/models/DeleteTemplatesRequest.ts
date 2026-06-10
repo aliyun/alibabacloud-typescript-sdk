@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
    * null

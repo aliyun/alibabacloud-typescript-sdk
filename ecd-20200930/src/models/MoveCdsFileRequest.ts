@@ -80,6 +80,9 @@ export class MoveCdsFileRequest extends $dara.Model {
   /**
    * @remarks
    * The group ID.
+   * 
+   * @example
+   * cg-hvyou5jbob3b0****
    */
   groupId?: string;
   /**

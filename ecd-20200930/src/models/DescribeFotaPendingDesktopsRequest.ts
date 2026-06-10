@@ -16,7 +16,7 @@ export class DescribeFotaPendingDesktopsRequest extends $dara.Model {
    * The name of the cloud computer.
    * 
    * @example
-   * testName
+   * demo-computer
    */
   desktopName?: string;
   /**
@@ -43,7 +43,7 @@ export class DescribeFotaPendingDesktopsRequest extends $dara.Model {
    * The ID of the office network. You can call the [DescribeOfficeSites](https://help.aliyun.com/document_detail/216071.html) operation to obtain the value of this parameter.
    * 
    * @example
-   * cn-hangzhou+dir-363353****
+   * cn-shanghai+dir-428216****
    */
   officeSiteId?: string;
   /**

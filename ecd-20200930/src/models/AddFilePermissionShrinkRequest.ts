@@ -18,7 +18,7 @@ export class AddFilePermissionShrinkRequest extends $dara.Model {
    * The ID of the user who uses the network disk.
    * 
    * @example
-   * user01
+   * alice
    */
   endUserId?: string;
   /**

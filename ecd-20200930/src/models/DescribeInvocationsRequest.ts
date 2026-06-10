@@ -49,7 +49,7 @@ export class DescribeInvocationsRequest extends $dara.Model {
    * The user ID.
    * 
    * @example
-   * test1
+   * alice
    */
   endUserId?: string;
   /**

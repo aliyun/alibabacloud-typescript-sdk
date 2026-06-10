@@ -14,6 +14,9 @@ export class DescribeModificationPriceResponseBodyPriceInfoPricePromotions exten
   /**
    * @remarks
    * The promotion description.
+   * 
+   * @example
+   * 新品上市，立享优惠
    */
   promotionDesc?: string;
   /**
@@ -27,6 +30,9 @@ export class DescribeModificationPriceResponseBodyPriceInfoPricePromotions exten
   /**
    * @remarks
    * The name of the promotion activity.
+   * 
+   * @example
+   * Featured deals
    */
   promotionName?: string;
   /**
@@ -69,7 +75,7 @@ export class DescribeModificationPriceResponseBodyPriceInfoPricePromotions exten
 export class DescribeModificationPriceResponseBodyPriceInfoPrice extends $dara.Model {
   /**
    * @remarks
-   * The unit of currency (USD).
+   * <props="china">The unit of currency (CNY).<props="intl">The unit of currency (USD).
    * 
    * @example
    * CNY
@@ -150,6 +156,9 @@ export class DescribeModificationPriceResponseBodyPriceInfoRules extends $dara.M
   /**
    * @remarks
    * The rule description.
+   * 
+   * @example
+   * 买满1年，立享官网价格8.5折优惠。
    */
   description?: string;
   /**

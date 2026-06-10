@@ -17,8 +17,9 @@ export class DeleteCdsFileResponseBody extends $dara.Model {
    * 
    * Valid value:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -46,8 +47,9 @@ export class DeleteCdsFileResponseBody extends $dara.Model {
    * 
    * Valid value:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

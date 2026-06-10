@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTransferFileDownloadUrlRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of file IDs to query.
+   */
   fileIds?: string[];
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * trt-hffhi4nmqoi4****
    */

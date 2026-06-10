@@ -3,11 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateQosRuleRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The IDs of the cloud phones to include in this rule.
+   */
   authAndroidId?: string[];
   authDesktopGroupId?: string[];
+  /**
+   * @remarks
+   * The IDs of the cloud desktops to include in this rule.
+   */
   authDesktopId?: string[];
   /**
    * @remarks
+   * The maximum downstream bandwidth. Unit: Mbps.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,6 +26,8 @@ export class CreateQosRuleRequest extends $dara.Model {
   download?: number;
   /**
    * @remarks
+   * The ID of the premium bandwidth plan.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,11 +36,18 @@ export class CreateQosRuleRequest extends $dara.Model {
   networkPackageId?: string;
   /**
    * @remarks
+   * The name of the QoS rule.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Test
    */
   qosRuleName?: string;
   /**
    * @remarks
+   * The maximum upstream bandwidth. Unit: Mbps.
+   * 
    * This parameter is required.
    * 
    * @example

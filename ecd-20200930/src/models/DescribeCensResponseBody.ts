@@ -101,17 +101,7 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
    * @remarks
    * The IPv6 level.
    * 
-   * >  IPv6 is not supported.
-   * 
-   * Valid value:
-   * 
-   * *   DISABLED
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * > IPv6 is not supported.
    * 
    * @example
    * DISABLED
@@ -136,7 +126,7 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
    * 
    * Valid value:
    * 
-   * *   REDUCED: CIDR block conflicts are allowed, but the conflicting CIDR blocks cannot be identical.
+   * - REDUCED: CIDR block conflicts are allowed, but the conflicting CIDR blocks cannot be identical.
    * 
    * @example
    * REDUCED
@@ -148,29 +138,11 @@ export class DescribeCensResponseBodyCens extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Creating
+   * - Creating
    * 
-   *     <!-- -->
+   * - Active
    * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Active
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Deleting
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * - Deleting
    * 
    * @example
    * Active

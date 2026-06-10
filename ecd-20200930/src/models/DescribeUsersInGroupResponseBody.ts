@@ -53,7 +53,7 @@ export class DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModelsProp
   propertyValue?: string;
   /**
    * @remarks
-   * The ID of the property value.
+   * The property value ID.
    * 
    * @example
    * 123
@@ -103,18 +103,13 @@ export class DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModels ext
    * @remarks
    * The property type.
    * 
-   * Valid values:
-   * 
-   * *   1: system property
-   * *   2: custom property
-   * 
    * @example
    * 1
    */
   propertyType?: number;
   /**
    * @remarks
-   * Details about property values.
+   * An array of property values.
    */
   propertyValues?: DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModelsPropertyValues[];
   /**
@@ -172,18 +167,13 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
    * @remarks
    * The connection status.
    * 
-   * Valid values:
-   * 
-   * *   0: disconnected
-   * *   1: connecting
-   * 
    * @example
    * 1
    */
   connectionStatus?: string;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -191,7 +181,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud computer.
+   * The name of the cloud desktop.
    * 
    * @example
    * testName
@@ -232,7 +222,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
   endUserName?: string;
   /**
    * @remarks
-   * The mobile number of the authorized user.
+   * The phone number of the authorized user.
    * 
    * @example
    * 1381111****
@@ -240,7 +230,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
   endUserPhone?: string;
   /**
    * @remarks
-   * The remarks.
+   * The user remarks.
    * 
    * @example
    * Note
@@ -250,23 +240,18 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
    * @remarks
    * The user account type.
    * 
-   * Valid values:
-   * 
-   * *   SIMPLE: convenience account
-   * *   AD_CONNECTOR: enterprise Active Directory (AD) account
-   * 
    * @example
    * SIMPLE
    */
   endUserType?: string;
   /**
    * @remarks
-   * The appended information.
+   * Additional information.
    */
   externalInfo?: DescribeUsersInGroupResponseBodyEndUsersExternalInfo;
   /**
    * @remarks
-   * The ID of the cloud computer that is used by the user.
+   * The ID of the virtual cloud desktop assigned to the user.
    * 
    * @example
    * ud-i896ze8hazpvl****
@@ -275,7 +260,7 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
   userPrincipalName?: string;
   /**
    * @remarks
-   * Details about the seats of users.
+   * A list of user seat information.
    */
   userSetPropertiesModels?: DescribeUsersInGroupResponseBodyEndUsersUserSetPropertiesModels[];
   static names(): { [key: string]: string } {
@@ -336,12 +321,12 @@ export class DescribeUsersInGroupResponseBodyEndUsers extends $dara.Model {
 export class DescribeUsersInGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The authorized users.
+   * A list of authorized user information.
    */
   endUsers?: DescribeUsersInGroupResponseBodyEndUsers[];
   /**
    * @remarks
-   * The token that is used to start the next query.
+   * The token to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -349,7 +334,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of authorized users that are connected to cloud computers of the cloud computer share.
+   * The total number of authorized users in the cloud desktop group who meet the query conditions and are connected to a cloud desktop.
    * 
    * @example
    * 0
@@ -357,7 +342,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
   onlineUsersCount?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -367,7 +352,7 @@ export class DescribeUsersInGroupResponseBody extends $dara.Model {
   userOuPath?: string;
   /**
    * @remarks
-   * The total number of authorized users of the cloud computer share.
+   * The total number of authorized users in the cloud desktop group who meet the query conditions.
    * 
    * @example
    * 1

@@ -49,8 +49,9 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   PostPaid: pay-as-you-go.
-   * *   PrePaid: subscription.
+   * - PostPaid: pay-as-you-go.
+   * 
+   * - PrePaid: subscription.
    * 
    * @example
    * PrePaid
@@ -66,7 +67,7 @@ export class ExportDesktopGroupInfoRequest extends $dara.Model {
    * The name of the cloud computer share.
    * 
    * @example
-   * test
+   * CloudComputerPool01
    */
   desktopGroupName?: string;
   /**

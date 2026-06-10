@@ -7,8 +7,9 @@ export class DescribeAclEntriesRequest extends $dara.Model {
    * @remarks
    * The number of entries per page.
    * 
-   * *   Maximum value: 1600.
-   * *   Default value: 1600.
+   * - Maximum value: 1600.
+   * 
+   * - Default value: 1600.
    * 
    * @example
    * 50
@@ -45,7 +46,7 @@ export class DescribeAclEntriesRequest extends $dara.Model {
    * The ID of the instance to which the ACL applies. You can specify an office network ID or a cloud computer ID.
    * 
    * @example
-   * cn-hangzhou+dir-****
+   * ecd-22poqua477xo4****
    */
   sourceId?: string;
   /**
@@ -54,8 +55,9 @@ export class DescribeAclEntriesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   desktop: cloud computer
-   * *   vpc: office network
+   * - desktop: cloud computer
+   * 
+   * - vpc: office network
    * 
    * @example
    * desktop

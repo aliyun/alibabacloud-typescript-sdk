@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopInfoResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
-   * The connection status of the user.
-   * 
-   * Valid values:
-   * 
-   * *   Connected
-   * *   Disconnected
+   * User connection status.
    * 
    * @example
    * Disconnected
@@ -18,7 +13,7 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The version of the cloud computer image.
+   * Desktop image version number.
    * 
    * @example
    * 1.4.0-R-***
@@ -26,7 +21,7 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $dara.Model {
   currentAppVersion?: string;
   /**
    * @remarks
-   * The ID of the cloud computer pool.
+   * Desktop group ID.
    * 
    * @example
    * dg-3uiojcc0j4kh7****
@@ -34,7 +29,7 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * Desktop ID.
    * 
    * @example
    * ecd-gx2x1dhsmucyy****
@@ -42,18 +37,7 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The status of the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   Stopped
-   * *   Failed
-   * *   Starting
-   * *   Running
-   * *   Stopping
-   * *   Expired
-   * *   Deleted
-   * *   Pending
+   * The status of the cloud desktop.
    * 
    * @example
    * Running
@@ -61,12 +45,12 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $dara.Model {
   desktopStatus?: string;
   /**
    * @remarks
-   * The information about flags that are used to manage cloud computers.
+   * The management flag.
    */
   managementFlag?: string[];
   /**
    * @remarks
-   * The size of the update package. Unit: KB.
+   * Upgrade package size, in KB.
    * 
    * @example
    * 568533470
@@ -74,7 +58,7 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $dara.Model {
   newAppSize?: number;
   /**
    * @remarks
-   * The version number of the image that can be updated on the cloud computer.
+   * Desktop upgradable image version number.
    * 
    * @example
    * 1.6.0-R-***
@@ -82,15 +66,15 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $dara.Model {
   newAppVersion?: string;
   /**
    * @remarks
-   * The description of the image version that can be updated.
+   * Description of the upgradable image version.
    * 
    * @example
-   * Test package 03-07
+   * Test upgrade package 03-07
    */
   releaseNote?: string;
   /**
    * @remarks
-   * The time when the cloud computer was first started.
+   * Desktop first startup time.
    * 
    * @example
    * 2020-11-06T08:31Z
@@ -141,12 +125,12 @@ export class DescribeDesktopInfoResponseBodyDesktops extends $dara.Model {
 export class DescribeDesktopInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The basic information about cloud computers.
+   * Basic desktop information.
    */
   desktops?: DescribeDesktopInfoResponseBodyDesktops[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 062B1439-709A-580E-85DF-CE97A1560565

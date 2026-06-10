@@ -8,7 +8,7 @@ export class DescribeUsersPasswordResponseBodyDesktopUsers extends $dara.Model {
    * The display name of the end user.
    * 
    * @example
-   * alice_1365*****
+   * demo_user01_1488****
    */
   displayName?: string;
   /**
@@ -16,7 +16,7 @@ export class DescribeUsersPasswordResponseBodyDesktopUsers extends $dara.Model {
    * The ID of the end user.
    * 
    * @example
-   * alice
+   * demo_user01
    */
   endUserId?: string;
   /**
@@ -24,7 +24,7 @@ export class DescribeUsersPasswordResponseBodyDesktopUsers extends $dara.Model {
    * The password of the end user.
    * 
    * @example
-   * tes123
+   * 3q8p-NDey-2Nac-TWcQ-****
    */
   password?: string;
   static names(): { [key: string]: string } {

@@ -6,6 +6,9 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
   /**
    * @remarks
    * This parameter is deprecated.
+   * 
+   * @example
+   * 无
    */
   downloadType?: string;
   /**
@@ -13,12 +16,15 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
    * The download URL.
    * 
    * @example
-   * https://pds-XXXX-bj-1693807057.oss-cn-beijing.aliyuncs.com/A0SKfLOp%2F2%2F6662612e0570fb2bdd5549759716d433439f0572%2F6662612ee3804e4901794928b14f9a7477640ee7?di=XXXX&dr=1030&f=667d5a322ebf7409e91c485d808fb3bd8a73efbb&response-content-disposition=attachment%3B%20
+   * https://pds-****-bj-169380****.oss-cn-beijing.aliyuncs.com/A0SK****?di=****&dr=1030&f=667d****&response-content-disposition=attachment%3B%20
    */
   downloadUrl?: string;
   /**
    * @remarks
    * This parameter is deprecated.
+   * 
+   * @example
+   * 无
    */
   expirationSecond?: string;
   /**
@@ -34,7 +40,7 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
    * The file ID.
    * 
    * @example
-   * 667d5a322ebf7409e91c485d808fb3bd8a73efbb
+   * 667d5a322ebf7409e91c485d808fb3bd8a73****
    */
   fileId?: string;
   /**
@@ -48,6 +54,9 @@ export class DownloadCdsFileResponseBodyDownloadFileModel extends $dara.Model {
   /**
    * @remarks
    * This parameter is deprecated.
+   * 
+   * @example
+   * 无
    */
   streamUrl?: string;
   static names(): { [key: string]: string } {

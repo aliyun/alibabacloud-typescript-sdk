@@ -8,7 +8,7 @@ export class TagResourcesRequestTag extends $dara.Model {
    * The tag keys. The tag key cannot be an empty string. The tag key can be up to 128 characters in length. It cannot start with `acs:` or `aliyun` and cannot contain `http://` or `https://`.
    * 
    * @example
-   * TestKey
+   * department
    */
   key?: string;
   /**
@@ -16,7 +16,7 @@ export class TagResourcesRequestTag extends $dara.Model {
    * The tag values. The tag value can be an empty string. The tag value can be up to 128 characters in length. It cannot start with `acs:` and cannot contain `http://` or `https://`.
    * 
    * @example
-   * TestValue
+   * design
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -69,7 +69,7 @@ export class TagResourcesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * * ALIYUN::GWS::INSTANCE: cloud computer.
+   * - ALIYUN::GWS::INSTANCE: cloud computer.
    * 
    * This parameter is required.
    * 

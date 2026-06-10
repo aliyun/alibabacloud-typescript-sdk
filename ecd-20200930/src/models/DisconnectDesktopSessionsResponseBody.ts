@@ -8,7 +8,7 @@ export class DisconnectDesktopSessionsResponseBodyInvalidSessions extends $dara.
    * The cloud desktop ID.
    * 
    * @example
-   * ecd-2jv6wugbkp65pxxxx
+   * ecd-2jv6wugbkp65p****
    */
   desktopId?: string;
   /**
@@ -16,7 +16,7 @@ export class DisconnectDesktopSessionsResponseBodyInvalidSessions extends $dara.
    * The end user ID.
    * 
    * @example
-   * wy01
+   * alice
    */
   endUserId?: string;
   static names(): { [key: string]: string } {

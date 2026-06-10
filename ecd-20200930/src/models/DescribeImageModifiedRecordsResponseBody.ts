@@ -5,48 +5,40 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extends $dara.Model {
   /**
    * @remarks
-   * The ID of the original image.
+   * ID of the original image before modification.
    * 
    * @example
-   * m-8rnz2imrpcfuh****
+   * desktopimage-windows-server-2019-64-ch-asp
    */
   imageId?: string;
   /**
    * @remarks
-   * The name of the original image.
+   * Name of the original image before modification.
    * 
    * @example
-   * win10-0307
+   * Windows server 2019 Mainland
    */
   imageName?: string;
   /**
    * @remarks
-   * The ID of the new image after the image was modified.
+   * ID of the new image after modification.
    * 
    * @example
-   * xxxNewImageID
+   * desktopimage-windows-server-2022-64-ch-asp
    */
   newImageId?: string;
   /**
    * @remarks
-   * The name of the new image after the image was modified.
+   * Name of the new image after modification.
    * 
    * @example
-   * xxxxImageID
+   * Windows server 2022 Mainland asp
    */
   newImageName?: string;
   reason?: string;
   /**
    * @remarks
-   * The status of the image modification.
-   * 
-   * Valid values:
-   * 
-   * *   0: The image is being modified.
-   * 
-   * *   1: The image is successfully modified.
-   * 
-   * *   2: The image fails to be modified.
+   * Status of the image modification.
    * 
    * @example
    * 1
@@ -54,7 +46,7 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
   status?: number;
   /**
    * @remarks
-   * The time when the image was last modified.
+   * Time when the image was last modified.
    * 
    * @example
    * 2022-03-03T02:43:44.851Z
@@ -96,12 +88,12 @@ export class DescribeImageModifiedRecordsResponseBodyImageModifiedRecords extend
 export class DescribeImageModifiedRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The image change records.
+   * Collection of image modification records.
    */
   imageModifiedRecords?: DescribeImageModifiedRecordsResponseBodyImageModifiedRecords[];
   /**
    * @remarks
-   * If the NextToken parameter is empty, no next page exists.
+   * Token for the next page of results. An empty NextToken means no more results.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6koN7RqHg3d2z8LKmSoe821
@@ -109,7 +101,7 @@ export class DescribeImageModifiedRecordsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * DC40EE61-7E83-59ED-AEA6-7EE9C437F352
@@ -117,7 +109,7 @@ export class DescribeImageModifiedRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of image modification records.
+   * Total number of image modification records.
    * 
    * @example
    * 20

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Model {
   /**
+   * @remarks
+   * The execution time for a one-time scheduled task, specified as a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1764660600967
    */
@@ -12,12 +15,19 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   endCronExpression?: string;
   enforce?: boolean;
   /**
+   * @remarks
+   * The image ID for a scheduled task that changes the image of a cloud desktop.
+   * 
    * @example
    * m-5b0vjqbiqu010XXXXXX
    */
   imageId?: string;
   interval?: number;
+  ipSegments?: string[];
   /**
+   * @remarks
+   * The amount of inactive time, in seconds, before the screen automatically locks. This parameter applies only to Active Directory desktops.
+   * 
    * @example
    * 1800
    */
@@ -45,6 +55,7 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
       enforce: 'Enforce',
       imageId: 'ImageId',
       interval: 'Interval',
+      ipSegments: 'IpSegments',
       lockScreenTime: 'LockScreenTime',
       notificationTime: 'NotificationTime',
       operationType: 'OperationType',
@@ -68,6 +79,7 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
       enforce: 'boolean',
       imageId: 'string',
       interval: 'number',
+      ipSegments: { 'type': 'array', 'itemType': 'string' },
       lockScreenTime: 'number',
       notificationTime: 'number',
       operationType: 'string',
@@ -84,6 +96,9 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
   }
 
   validate() {
+    if(Array.isArray(this.ipSegments)) {
+      $dara.Model.validateArray(this.ipSegments);
+    }
     if(Array.isArray(this.processWhitelist)) {
       $dara.Model.validateArray(this.processWhitelist);
     }
@@ -98,7 +113,7 @@ export class CreateConfigGroupRequestConfigTimersSegmentTimers extends $dara.Mod
 export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to allow end users to configure the scheduled task.
+   * Whether to allow end users to configure the scheduled task.
    * 
    * @example
    * true
@@ -106,9 +121,11 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   allowClientSetting?: boolean;
   /**
    * @remarks
-   * The cron expression specified in the scheduled task.
+   * The cron expression for the scheduled task.
    * 
-   * >  The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \\* 1,2,3,4,5,6,7
+   * >Notice: 
+   * 
+   * The cron expression is based on UTC. For example, to run a task at 00:00 China Standard Time (UTC+8) every day, set this parameter to `0 0 16 ? * 1,2,3,4,5,6,7`.
    * 
    * @example
    * 0 0 16 ? * 1,2,3,4,5,6,7
@@ -116,7 +133,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to forcefully execute the scheduled task.
+   * Whether to forcefully execute the scheduled task.
    * 
    * @example
    * true
@@ -124,7 +141,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   enforce?: boolean;
   /**
    * @remarks
-   * The interval at which the scheduled task is executed. Unit: minutes.
+   * The time interval, in minutes.
    * 
    * @example
    * 10
@@ -133,12 +150,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   notificationTime?: number;
   /**
    * @remarks
-   * The type of the scheduled operation. If you set TimerType to NoConnect, you can specify this parameter.
-   * 
-   * Valid values:
-   * 
-   * *   Hibernate: scheduled hibernation.
-   * *   Shutdown: scheduled shutdown.
+   * The operation to perform for the scheduled task. This parameter is valid only when `TimerType` is set to `NoConnect`.
    * 
    * @example
    * Shutdown
@@ -146,18 +158,12 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The process whitelist. If whitelisted processes are running, the scheduled task does not take effect.
+   * The process whitelist for smart detection. If a process from this whitelist is running, the inactivity-based scheduled task does not run.
    */
   processWhitelist?: string[];
   /**
    * @remarks
-   * The reset option.
-   * 
-   * Valid values:
-   * 
-   * *   RESET_TYPE_SYSTEM: resets only the system disk.
-   * *   RESET_TYPE_USER_DISK: resets only the data disk.
-   * *   RESET_TYPE_BOTH: resets the system and data disks.
+   * The reset type for the cloud desktop.
    * 
    * @example
    * RESET_TYPE_SYSTEM
@@ -166,19 +172,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   segmentTimers?: CreateConfigGroupRequestConfigTimersSegmentTimers[];
   /**
    * @remarks
-   * The scheduled task type.
-   * 
-   * Valid values:
-   * 
-   * *   NoOperationDisconnect: scheduled disconnection upon inactivity.
-   * *   NoConnect: scheduled disconnection upon specified operation (OperationType).
-   * *   TimerBoot: scheduled start.
-   * *   TimerReset: scheduled reset.
-   * *   NoOperationShutdown: scheduled shutdown upon inactivity.
-   * *   NoOperationHibernate: scheduled hibernation upon inactivity.
-   * *   TimerShutdown: scheduled shutdown.
-   * *   NoOperationReboot: scheduled restart upon inactivity.
-   * *   TimerReboot: scheduled restart.
+   * The type of the scheduled task.
    * 
    * This parameter is required.
    * 
@@ -188,12 +182,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
   timerType?: string;
   /**
    * @remarks
-   * The method to trigger the scheduled task upon inactivity.
-   * 
-   * Valid values:
-   * 
-   * *   Advanced: intelligent detection.
-   * *   Standard: standard detection.
+   * The trigger condition for inactivity-based scheduled tasks.
    * 
    * @example
    * Standard
@@ -249,7 +238,7 @@ export class CreateConfigGroupRequestConfigTimers extends $dara.Model {
 export class CreateConfigGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The scheduled task groups.
+   * An array of scheduled task configurations.
    */
   configTimers?: CreateConfigGroupRequestConfigTimers[];
   /**
@@ -257,7 +246,7 @@ export class CreateConfigGroupRequest extends $dara.Model {
    * The description of the configuration group.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task description content
    */
   description?: string;
   /**
@@ -267,16 +256,12 @@ export class CreateConfigGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task group
    */
   name?: string;
   /**
    * @remarks
-   * The service type of the configuration group.
-   * 
-   * Valid value:
-   * 
-   * *   CLOUD_DESKTOP: the cloud computer service.
+   * The product to which the configuration group applies.
    * 
    * This parameter is required.
    * 
@@ -286,19 +271,15 @@ export class CreateConfigGroupRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The ID of the region. Set the value to `cn-shanghai`.
+   * The region ID. This feature is not region-specific. You must set this parameter to cn-shanghai.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   regionId?: string;
   /**
    * @remarks
-   * The group type.
-   * 
-   * Valid value:
-   * 
-   * *   Timer: a scheduled task group.
+   * The type of the configuration group.
    * 
    * This parameter is required.
    * 

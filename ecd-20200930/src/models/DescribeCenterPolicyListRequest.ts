@@ -8,11 +8,6 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
    * @remarks
    * The business type.
    * 
-   * Valid values:
-   * 
-   * *   1: public cloud
-   * *   8: commercial edition.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -22,8 +17,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   modelLibrary?: string;
   /**
    * @remarks
-   * The page number.\\
-   * Default value: 1.
+   * The page number to return in a paged query.<br>Default value: 1.
    * 
    * @example
    * 1
@@ -31,7 +25,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The maximum number of entries per page in a paged query.
    * 
    * @example
    * 20
@@ -39,18 +33,13 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The IDs of the cloud computer policies.
+   * The list of Cloud Desktop policy IDs.
    */
   policyGroupId?: string[];
   portProxy?: string;
   /**
    * @remarks
    * The resource type.
-   * 
-   * Valid values:
-   * 
-   * *   app: cloud applications.
-   * *   desktop: cloud computers.
    * 
    * This parameter is required.
    * 
@@ -60,12 +49,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The effective scope of the cloud computer policy.
-   * 
-   * Valid values:
-   * 
-   * *   IP: The policy applies to specific IP addresses.
-   * *   GLOBAL: The policy applies globally.
+   * The scope where the Cloud Desktop policy takes effect.
    * 
    * @example
    * GLOBAL

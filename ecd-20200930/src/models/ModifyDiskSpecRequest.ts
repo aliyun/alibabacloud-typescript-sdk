@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDiskSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the automatic payment feature.
+   * Specifies whether to enable automatic payment.
    * 
-   * *   If you set the value to `true`, ensure your account has sufficient balance to avoid generating abnormal orders.
-   * *   If you set the value to `false`, go to the **Expenses and Costs** page to complete the payment based on the order number.
+   * - If set to `true`, ensure your account has a sufficient balance. Otherwise, an abnormal order is generated.
    * 
-   * Valid values:
-   * 
-   * *   true (default): enables the automatic payment feature.
-   * *   false: generates the order and manually complete the payment.
+   * - If set to `false`, log on to the console. Then, go to the **Expenses and Costs** page to pay for the order using the returned order ID.
    * 
    * @example
    * false
@@ -21,17 +17,17 @@ export class ModifyDiskSpecRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The ID of the cloud computer.
+   * The ID of the cloud desktop.
    * 
    * This parameter is required.
    * 
    * @example
-   * ecd-2yjhqxo1monxxxxxx
+   * ecd-2yjhqxo1monbf****
    */
   desktopId?: string;
   /**
    * @remarks
-   * The ID of the sales promotion activity. You can call the DescribePrice operation to obtain the IDs of matching sales promotion activities.
+   * The promotion ID. Call a pricing inquiry API to get a list of applicable promotion IDs.
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank
@@ -39,7 +35,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to get a list of supported regions for WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -50,14 +46,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
   resellerOwnerUid?: number;
   /**
    * @remarks
-   * The PL of the system disk. Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
-   * 
-   * Valid values:
-   * 
-   * *   PL1
-   * *   PL0
-   * *   PL3
-   * *   PL2
+   * The performance level of the system disk. You can set the performance level for Graphics or High-frequency workspaces.
    * 
    * @example
    * PL1
@@ -65,14 +54,7 @@ export class ModifyDiskSpecRequest extends $dara.Model {
   rootDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The PL of the data disk. Only Enterprise Graphics or High Frequency cloud computers support disk PL adjustments.
-   * 
-   * Valid values:
-   * 
-   * *   PL1
-   * *   PL0
-   * *   PL3
-   * *   PL2
+   * The performance level of the data disk. You can set the performance level for Graphics or High-frequency workspaces.
    * 
    * @example
    * PL1

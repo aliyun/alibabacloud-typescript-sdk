@@ -92,7 +92,7 @@ export class ModifyADConnectorOfficeSiteRequest extends $dara.Model {
    * The name of the organizational unit (OU) in the AD domain. You can call the [ListUserAdOrganizationUnits](https://help.aliyun.com/document_detail/311259.html) operation to obtain OUs.
    * 
    * @example
-   * oldad.com/Domain Controllers
+   * example.com/Domain Controllers
    */
   OUName?: string;
   /**
@@ -136,7 +136,7 @@ export class ModifyADConnectorOfficeSiteRequest extends $dara.Model {
    * The name of the subdomain in the enterprise AD domain.
    * 
    * @example
-   * childexample.com
+   * child.example.com
    */
   subDomainName?: string;
   static names(): { [key: string]: string } {

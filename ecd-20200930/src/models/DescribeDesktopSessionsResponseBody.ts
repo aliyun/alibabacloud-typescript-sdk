@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeDesktopSessionsResponseBodySessionsResourceGroups extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-8whrmo2gtsb8bxxxx
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the resource group.
+   * 
    * @example
    * RgTest
    */
@@ -38,21 +44,33 @@ export class DescribeDesktopSessionsResponseBodySessionsResourceGroups extends $
 
 export class DescribeDesktopSessionsResponseBodySessionsTerminalInfo extends $dara.Model {
   /**
+   * @remarks
+   * The model of the terminal device.
+   * 
    * @example
    * Mac
    */
   model?: string;
   /**
+   * @remarks
+   * The type of the terminal device.
+   * 
    * @example
    * Mac
    */
   productName?: string;
   /**
+   * @remarks
+   * The serial number of the terminal device.
+   * 
    * @example
    * 96c530bc-6095-4014-8bbc-d461b8ac****
    */
   serialNumber?: string;
   /**
+   * @remarks
+   * The universally unique identifier (UUID) of the logon device.
+   * 
    * @example
    * EBFDC7773BEBAD418A9F89429652****
    */
@@ -86,6 +104,9 @@ export class DescribeDesktopSessionsResponseBodySessionsTerminalInfo extends $da
 
 export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   /**
+   * @remarks
+   * The type of the account.
+   * 
    * @example
    * SIMPLE
    */
@@ -100,7 +121,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The client OS.
+   * The operating system of the client.
    * 
    * @example
    * windows_\\"Windows10Enterprise\\"10.0(Build22000)
@@ -108,7 +129,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   clientOS?: string;
   /**
    * @remarks
-   * The client version.
+   * The version of the client.
    * 
    * @example
    * 2.0.0-R-20221030.08****
@@ -127,17 +148,20 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
    * The name of the cloud computer.
    * 
    * @example
-   * testDesktop
+   * DemoComputer
    */
   desktopName?: string;
   /**
+   * @remarks
+   * The type of the office network.
+   * 
    * @example
    * SIMPLE
    */
   directoryType?: string;
   /**
    * @remarks
-   * The duration of the remote assistance. Unit: seconds.
+   * The duration of remote assistance initiated by the end user. Unit: seconds.
    * 
    * @example
    * 120
@@ -148,7 +172,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
    * The ID of the end user.
    * 
    * @example
-   * testUser
+   * alice
    */
   endUserId?: string;
   /**
@@ -161,7 +185,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   latestConnectionTime?: number;
   /**
    * @remarks
-   * The ID of the office network.
+   * The ID of the workspace.
    * 
    * @example
    * cn-hangzhou+dir-8904****
@@ -169,15 +193,15 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The name of the office network.
+   * The name of the office site.
    * 
    * @example
-   * DemoOfficeSite
+   * TestOfficeSite
    */
   officeSiteName?: string;
   /**
    * @remarks
-   * Indicates whether the switch to check session status of cloud computers is turned on.
+   * Indicates the session status of the cloud desktop.
    * 
    * @example
    * true
@@ -185,12 +209,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   osSessionStatus?: string;
   /**
    * @remarks
-   * The OS.
-   * 
-   * Valid values:
-   * 
-   * *   Linux
-   * *   Windows
+   * The operating system type.
    * 
    * @example
    * Windows
@@ -200,19 +219,18 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
    * @remarks
    * The protocol type.
    * 
-   * Valid values:
-   * 
-   * *   HDX
-   * *   ASP
-   * 
    * @example
    * ASP
    */
   protocolType?: string;
+  /**
+   * @remarks
+   * The information about the resource group.
+   */
   resourceGroups?: DescribeDesktopSessionsResponseBodySessionsResourceGroups[];
   /**
    * @remarks
-   * The end time of the session.
+   * The time when the session ended.
    * 
    * @example
    * 2023-01-28T02:31:43Z
@@ -220,7 +238,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   sessionEndTime?: string;
   /**
    * @remarks
-   * The idle duration of the session. Unit: seconds.
+   * The duration for which the session was idle. Unit: seconds.
    * 
    * @example
    * 120
@@ -228,7 +246,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   sessionIdleTime?: number;
   /**
    * @remarks
-   * The start time of the session.
+   * The time when the session started.
    * 
    * @example
    * 2023-01-28T02:31:43Z
@@ -236,12 +254,7 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   sessionStartTime?: string;
   /**
    * @remarks
-   * The state of the session.
-   * 
-   * Valid values:
-   * 
-   * *   Connected
-   * *   Disconnected
+   * The connection status of the session.
    * 
    * @example
    * Connected
@@ -249,19 +262,16 @@ export class DescribeDesktopSessionsResponseBodySessions extends $dara.Model {
   sessionStatus?: string;
   /**
    * @remarks
-   * The billing method of cloud computers.
-   * 
-   * Valid values:
-   * 
-   * *   duration: hourly plan (available for users in the whitelist)
-   * *   postPaid: pay-as-you-go
-   * *   monthPackage: monthly subscription (120-hour computing plan and 250-hour computing plan)
-   * *   prePaid: monthly subscription (Unlimited computing plan)
+   * The billing method of the cloud computer.
    * 
    * @example
    * monthPackage
    */
   subPayType?: string;
+  /**
+   * @remarks
+   * The description of the terminal device.
+   */
   terminalInfo?: DescribeDesktopSessionsResponseBodySessionsTerminalInfo;
   /**
    * @remarks
@@ -353,12 +363,12 @@ export class DescribeDesktopSessionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of sessions.
+   * The session details.
    */
   sessions?: DescribeDesktopSessionsResponseBodySessions[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of query results.
    * 
    * @example
    * 1

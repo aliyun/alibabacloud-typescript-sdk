@@ -25,21 +25,21 @@ export class DescribeImagesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
+   * - true
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   false
+   * - false
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * false
@@ -97,8 +97,9 @@ export class DescribeImagesRequest extends $dara.Model {
    * @remarks
    * The maximum number of entries to return on each page.
    * 
-   * *   Maximum value: 100.
-   * *   Default value: 10.
+   * - Maximum value: 100.
+   * 
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -118,21 +119,21 @@ export class DescribeImagesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Linux
+   * - Linux
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   Windows
+   * - Windows
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * Windows
@@ -144,8 +145,9 @@ export class DescribeImagesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   HDX: High-definition Experience (HDX) protocol
-   * *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
+   * - HDX: High-definition Experience (HDX) protocol
+   * 
+   * - ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
    * 
    * @example
    * ASP

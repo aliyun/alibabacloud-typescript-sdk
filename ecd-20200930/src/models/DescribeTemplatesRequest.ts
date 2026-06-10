@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The region that you can use to filter templates.
+   * Region filter for template queries.
    * 
-   * >  If you specify this parameter, only templates that are created in the specified region are returned.
+   * > If you set this parameter, results exclude configurations for other regions.
    * 
    * @example
    * cn-beijing
@@ -15,7 +15,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not available for public use.
    * 
    * @example
    * null
@@ -23,7 +23,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The ID of the cloud computer image. You can query image IDs on the Images page. System images and custom images are supported.
+   * Cloud Desktop image ID. You can find this ID on the Image Management page. Supported image types include OS images and custom images.
    * 
    * @example
    * m-dnz9xjgbm8*****
@@ -31,7 +31,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The keyword that you can use to search for the template. It can be the template ID or the template name. Fuzzy search is supported.
+   * Keyword for fuzzy search. Searches template IDs and template names.
    * 
    * @example
    * abc
@@ -39,7 +39,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number.
+   * Page number for paged queries.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * Maximum number of entries per page for paged queries.
    * 
    * @example
    * 20
@@ -55,9 +55,7 @@ export class DescribeTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The service type. Set the value to `CloudDesktop`.
-   * 
-   * *
+   * Product type. Set this parameter to `CloudDesktop`.
    * 
    * @example
    * CloudDesktop
@@ -65,22 +63,20 @@ export class DescribeTemplatesRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The IDs of the templates that you want to query.
+   * List of template IDs to query.
    */
   templateIds?: string[];
   /**
    * @remarks
-   * The name of the template. You can search for template by name.
+   * Query by template name.
+   * 
+   * @example
+   * My cloud desktop template 001
    */
   templateName?: string;
   /**
    * @remarks
-   * The type of the template that you want to query. If you leave this parameter empty, all types of templates are queried.
-   * 
-   * Valid values:
-   * 
-   * *   USER_TEMPLATE: custom templates.
-   * *   SYSTEM_TEMPLATE: system templates provided by Alibaba Cloud.
+   * Template type to query. If you omit this parameter, the system returns all template types.
    * 
    * @example
    * USER_TEMPLATE

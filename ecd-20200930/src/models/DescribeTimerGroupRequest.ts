@@ -15,10 +15,10 @@ export class DescribeTimerGroupRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the region. Set the value to `cn-shanghai`.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   regionId?: string;
   static names(): { [key: string]: string } {

@@ -17,7 +17,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
    * 
    * Valid values:
    * 
-   * * ALIYUN::GWS::INSTANCE: cloud computer.
+   * - ALIYUN::GWS::INSTANCE: cloud computer.
    * 
    * @example
    * ALIYUN::GWS::INSTANCE
@@ -28,7 +28,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
    * The tag keys.
    * 
    * @example
-   * TestKey
+   * department
    */
   tagKey?: string;
   /**
@@ -36,7 +36,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
    * The tag values.
    * 
    * @example
-   * TestValue
+   * design
    */
   tagValue?: string;
   static names(): { [key: string]: string } {

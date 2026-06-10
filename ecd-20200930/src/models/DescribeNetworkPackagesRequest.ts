@@ -9,9 +9,9 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   PayByTraffic: charges by data transfer.
+   * - PayByTraffic: charges by data transfer.
    * 
-   * *   PayByBandwidth: charges by fixed bandwidth.
+   * - PayByBandwidth: charges by fixed bandwidth.
    * 
    * @example
    * PayByBandwidth
@@ -21,8 +21,9 @@ export class DescribeNetworkPackagesRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page.
    * 
-   * *   Maximum value: 100
-   * *   Default value: 10
+   * - Maximum value: 100
+   * 
+   * - Default value: 10
    * 
    * @example
    * 10

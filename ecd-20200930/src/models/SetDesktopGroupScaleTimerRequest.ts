@@ -26,7 +26,7 @@ export class SetDesktopGroupScaleTimerRequestScaleTimerInfos extends $dara.Model
    * If a session is disconnected by the end user or accidentally due to a factor and the end user does not re-establish a connection with the session within the keep-alive duration, the session expires and unsaved data is deleted. If the end user successfully re-establishes a connection with the session within the keep-alive duration, the end user returns to the session and can still access the original data.
    * 
    * @example
-   * 1000
+   * 180000
    */
   keepDuration?: number;
   /**
@@ -35,8 +35,9 @@ export class SetDesktopGroupScaleTimerRequestScaleTimerInfos extends $dara.Model
    * 
    * Valid values:
    * 
-   * *   0: depth-first
-   * *   1: breadth first.
+   * - 0: depth-first
+   * 
+   * - 1: breadth first.
    * 
    * @example
    * 0
@@ -67,7 +68,7 @@ export class SetDesktopGroupScaleTimerRequestScaleTimerInfos extends $dara.Model
    * When the specified threshold is reached, new cloud computers are automatically created. When the specified threshold is not reached, idle cloud computers are released.
    * 
    * @example
-   * 0.9
+   * 0.85
    */
   ratioThreshold?: number;
   /**
@@ -76,37 +77,37 @@ export class SetDesktopGroupScaleTimerRequestScaleTimerInfos extends $dara.Model
    * 
    * Valid values:
    * 
-   * *   drop
+   * - drop
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   normal
+   * - normal
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   peak
+   * - peak
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   rise
+   * - rise
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * rise

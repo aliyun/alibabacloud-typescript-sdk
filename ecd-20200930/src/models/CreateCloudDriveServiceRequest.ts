@@ -5,12 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudDriveServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the auto-payment feature.
-   * 
-   * Valid values:
-   * 
-   * *   true: enables the auto-payment feature. Ensure your Alibaba Cloud account has sufficient balance. Insufficient balance may result in abnormal orders.
-   * *   false (default): disables the auto-payment feature. The order is generated, but payment must be made manually. You can log on to the Alibaba Cloud Management Console and complete the payment based on the order ID on the Orders page.
+   * Specifies whether to enable automatic payment.
    * 
    * @example
    * false
@@ -18,12 +13,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Optional. Specifies whether to enable the auto-renewal feature. This parameter takes effect only if you set CdsChargeType to `Prepaid`.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether to enable auto-renewal. This parameter applies only when `CdsChargeType` is set to `PrePaid`.
    * 
    * @example
    * false
@@ -31,20 +21,15 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
-   * 3
+   * null
    */
   bizType?: number;
   /**
    * @remarks
-   * The billing method of the enterprise drive.
-   * 
-   * Valid values:
-   * 
-   * *   PostPaid: pay-as-you-go.
-   * *   PrePaid: subscription.
+   * The billing method of the cloud drive.
    * 
    * @example
    * PostPaid
@@ -52,7 +37,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   cdsChargeType?: string;
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance. This parameter takes effect only if you set `OfficeSiteType` to `AD_CONNECTOR`. If you have configured `OfficeSiteId`, you can leave this parameter empty.
+   * The ID of the Cloud Enterprise Network (CEN) instance. This parameter is required when `OfficeSiteType` is set to `AD_CONNECTOR` and you do not specify `OfficeSiteId`.
    * 
    * @example
    * cen-g4ba1mkji8nj6****
@@ -60,7 +45,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The domain name of the enterprise AD office network. This parameter takes effect only if you set `OfficeSiteType` to `AD_CONNECTOR`. If you have configured `OfficeSiteId`, you can leave this parameter empty.
+   * The name of the domain controller. This parameter is required when `OfficeSiteType` is set to `AD_CONNECTOR` and you do not specify `OfficeSiteId`.
    * 
    * @example
    * test.local
@@ -68,15 +53,16 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The user IDs.
+   * A list of user IDs.
    */
   endUserId?: string[];
   /**
    * @remarks
-   * The maximum storage capacity of the enterprise drive.
+   * The total capacity of the cloud drive.
    * 
-   * *   For a pay-as-you-go enterprise drive, the unit is bytes.
-   * *   For a subscription enterprise drive, the unit is GiB. For example, to create a 500 GiB subscription drive, set the value to 500 GiB. To create a 2 TiB subscription drive, set the value to 2048 GiB.
+   * - For pay-as-you-go cloud drives, the unit is bytes.
+   * 
+   * - For subscription cloud drives, the unit is GiB. For example, set the value to 500 for 500 GiB, or to 2048 for 2 TiB.
    * 
    * This parameter is required.
    * 
@@ -86,15 +72,15 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   maxSize?: number;
   /**
    * @remarks
-   * The name of the enterprise drive
+   * The name of the cloud drive.
    * 
    * @example
-   * wuying-pds
+   * wuying-cds
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the office network. This parameter takes effect only if you set OfficeSiteType to `AD_CONNECTOR`.
+   * The ID of the office site. This parameter applies only when `OfficeSiteType` is set to `AD_CONNECTOR`.
    * 
    * @example
    * cn-hangzhou+dir-400695****
@@ -102,12 +88,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The type of the office network.
-   * 
-   * Valid values:
-   * 
-   * *   SIMPLE: convenience office network.
-   * *   AD_CONNECTOR: enterprise Active Directory (AD) office network.
+   * The type of the office site.
    * 
    * @example
    * SIMPLE
@@ -115,13 +96,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   officeSiteType?: string;
   /**
    * @remarks
-   * The subscription duration. The unit is specified by `PeriodUnit`. This parameter takes effect only if you set `CdsChargeType` to `PrePaid`.
-   * 
-   * Valid values:
-   * 
-   * *   1
-   * *   2
-   * *   3
+   * The subscription duration. The unit is specified by `PeriodUnit`. This parameter is required only when `CdsChargeType` is set to `PrePaid`.
    * 
    * @example
    * 1
@@ -129,11 +104,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * Required. The unit of the subscription duration. This parameter takes effect only if you set `CdsChargeType` to `PrePaid`.
-   * 
-   * Valid value:
-   * 
-   * *   Year
+   * The unit of the subscription duration. This parameter is required only when `CdsChargeType` is set to `PrePaid`.
    * 
    * @example
    * Year
@@ -141,7 +112,7 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Enterprise Drive Service is available.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 
@@ -152,21 +123,15 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   resellerOwnerUid?: number;
   /**
    * @remarks
-   * >  This parameter is not publicly available.
+   * > This parameter is not publicly available.
    * 
    * @example
-   * co-0esnf8kb8zpfbqmvt
+   * null
    */
   solutionId?: string;
   /**
    * @remarks
-   * Required. The maximum number of users allowed on the enterprise drive. This parameter takes effect only if you set `CdsChargeType` to `PrePaid`.
-   * 
-   * Valid values:
-   * 
-   * *   5 when the value of MaxSize is 500 GiB.
-   * *   20 when the value of MaxSize is 2048 GiB.
-   * *   50 when the value of MaxSize is 5120 GiB.
+   * The maximum number of users for a subscription cloud drive. This parameter is required only when `CdsChargeType` is set to `PrePaid`.
    * 
    * @example
    * 5
@@ -174,10 +139,10 @@ export class CreateCloudDriveServiceRequest extends $dara.Model {
   userCount?: number;
   /**
    * @remarks
-   * The maximum storage capacity of the user\\"s personal disk when allocated. Unit: bytes.
+   * The maximum size of the personal disk for each user, in bytes.
    * 
    * @example
-   * 1024000
+   * 104857600
    */
   userMaxSize?: number;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block that is allowed to access the client. The value is an IPv4 CIDR block.
+   * The client-accessible IP address segment. The value is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -13,7 +13,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccess
   cidrIp?: string;
   /**
    * @remarks
-   * The remarks on the CIDR block that is allowed to access the client.
+   * The remarks for the client-accessible CIDR block.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccess
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The object to which the security group rule applies. The value is an IPv4 CIDR block.
+   * The target of the security group control rule. The value is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -53,7 +53,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecuri
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the security group rule.
+   * The description of the security group control rule.
    * 
    * @example
    * test
@@ -61,15 +61,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecuri
   description?: string;
   /**
    * @remarks
-   * The protocol type of the security group rule.
-   * 
-   * Valid values:
-   * 
-   * *   tcp: Transmission Control Protocol (TCP)
-   * *   udp: User Datagram Protocol (UDP)
-   * *   all: all protocols
-   * *   gre: Generic Routing Encapsulation (GRE)
-   * *   icmp: Internet Control Message Protocol (ICMP) for IPv4
+   * The protocol type of the security group control rule.
    * 
    * @example
    * tcp
@@ -77,12 +69,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecuri
   ipProtocol?: string;
   /**
    * @remarks
-   * The authorization of the security group rule.
-   * 
-   * Valid values:
-   * 
-   * *   drop: denies all access requests.
-   * *   accept: accepts all requests.
+   * The authorization policy of the security group control rule.
    * 
    * @example
    * accept
@@ -90,7 +77,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecuri
   policy?: string;
   /**
    * @remarks
-   * The port range of the security group rule.
+   * The port range of the security group control rule.
    * 
    * @example
    * 22/22
@@ -98,7 +85,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecuri
   portRange?: string;
   /**
    * @remarks
-   * The priority of the security group rule. A smaller value indicates a higher priority.
+   * The priority of the security group control rule. A smaller number indicates a higher priority.
    * 
    * @example
    * 1
@@ -106,12 +93,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecuri
   priority?: string;
   /**
    * @remarks
-   * The direction of the security group rule.
-   * 
-   * Valid values:
-   * 
-   * *   outflow: outbound
-   * *   inflow: inbound
+   * The rule direction of the security group control rule.
    * 
    * @example
    * inflow
@@ -155,26 +137,13 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes ext
    * @remarks
    * The client type.
    * 
-   * Valid values:
-   * 
-   * *   html5: web client
-   * *   android: Android client
-   * *   windows: Windows client
-   * *   ios: iOS client
-   * *   macos: macOS client
-   * 
    * @example
    * windows
    */
   clientType?: string;
   /**
    * @remarks
-   * Indicates whether end users are allowed to use a specific type of the client to connect to cloud computers.
-   * 
-   * Valid values:
-   * 
-   * *   OFF
-   * *   ON
+   * Whether a specific client type is allowed to connect to the cloud computer.
    * 
    * @example
    * ON
@@ -208,24 +177,19 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects
    * @remarks
    * The peripheral type.
    * 
-   * Valid values:
-   * 
-   * *   printer
-   * *   scanner
-   * *   camera
-   * *   adb: the Android Debug Bridge (ADB) device.
-   * 
    * @example
    * camera
    */
   deviceType?: string;
   /**
    * @remarks
-   * The redirection type. Valid values:
+   * The redirection type.
    * 
-   * *   usbRedirect
-   * *   deviceRedirect
-   * *   off: direction disabled.
+   * - usbRedirect: USB redirection.
+   * 
+   * - deviceRedirect: Device redirection.
+   * 
+   * - off: Disabled.
    * 
    * @example
    * usbRedirect
@@ -265,7 +229,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules ext
   deviceName?: string;
   /**
    * @remarks
-   * The product ID (PID).
+   * The product ID.
    * 
    * @example
    * 0x55b1
@@ -275,26 +239,13 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules ext
    * @remarks
    * The peripheral type.
    * 
-   * Valid values:
-   * 
-   * *   usbKey
-   * *   other
-   * *   graphicsTablet
-   * *   printer
-   * *   cardReader
-   * *   scanner
-   * *   storage
-   * *   camera
-   * *   adb
-   * *   networkInterfaceCard: the NIC device.
-   * 
    * @example
    * storage
    */
   deviceType?: string;
   /**
    * @remarks
-   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
    * 
    * @example
    * 0x0781
@@ -312,12 +263,6 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules ext
   /**
    * @remarks
    * The redirection type.
-   * 
-   * Valid values:
-   * 
-   * *   deviceRedirect
-   * *   usbRedirect
-   * *   off: redirection disabled.
    * 
    * @example
    * usbRedirect
@@ -359,28 +304,23 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules ext
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule extends $dara.Model {
   /**
    * @remarks
-   * The rule description.
+   * The policy description.
    * 
    * @example
-   * Test
+   * 测试规则
    */
   description?: string;
   /**
    * @remarks
-   * The destination domain name.
+   * The domain name.
    * 
    * @example
-   * *.com
+   * *.example.com
    */
   domain?: string;
   /**
    * @remarks
-   * Indicates whether the domain name resolution rule is allowed.
-   * 
-   * Valid values:
-   * 
-   * *   allow
-   * *   block
+   * The resolution policy.
    * 
    * @example
    * allow
@@ -414,20 +354,15 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRu
 export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule extends $dara.Model {
   /**
    * @remarks
-   * The rule content.
+   * The policy content.
    * 
    * @example
-   * *.com
+   * *.example.com
    */
   domain?: string;
   /**
    * @remarks
-   * Indicates whether the rule is allowed.
-   * 
-   * Valid values:
-   * 
-   * *   allow
-   * *   block
+   * The policy type.
    * 
    * @example
    * allow
@@ -435,12 +370,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule
   policy?: string;
   /**
    * @remarks
-   * The rule type.
-   * 
-   * Valid values:
-   * 
-   * *   prc: process
-   * *   domain: domain name
+   * The policy type.
    * 
    * @example
    * domain
@@ -511,7 +441,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedire
    * The rule description.
    * 
    * @example
-   * Test
+   * Test rule
    */
   description?: string;
   /**
@@ -524,7 +454,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedire
   deviceClass?: string;
   /**
    * @remarks
-   * The subclass of the device. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
+   * The device subclass. This parameter is required when `usbRuleType` is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
    * 
    * @example
    * xxh
@@ -540,12 +470,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedire
   productId?: string;
   /**
    * @remarks
-   * Indicates whether USB redirection is allowed.
-   * 
-   * Valid values:
-   * 
-   * *   1: allowed
-   * *   2: not allowed
+   * The USB redirection type.
    * 
    * @example
    * 1
@@ -553,12 +478,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedire
   usbRedirectType?: number;
   /**
    * @remarks
-   * The type of the USB redirection rule.
-   * 
-   * Valid values:
-   * 
-   * *   1: by device class
-   * *   2: by device vendor
+   * The USB redirection rule type.
    * 
    * @example
    * 1
@@ -566,7 +486,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroupsUsbSupplyRedire
   usbRuleType?: number;
   /**
    * @remarks
-   * The vendor ID (VID). For more information, see [Valid USB VIDs](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
    * 
    * @example
    * 04**
@@ -609,9 +529,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   academicProxy?: string;
   /**
    * @remarks
-   * Indicates whether end users are granted the administrator permissions.
+   * Whether end users have administrative permission after connecting to the cloud computer.
    * 
-   * >  This parameter is in invitational preview for specific users and not available to the public.
+   * > This feature is in invitational preview and is not publicly available.
    * 
    * @example
    * deny
@@ -621,12 +541,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   adminKeyboardOnWindows?: string;
   /**
    * @remarks
-   * Indicates whether the anti-screenshot feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   off (default)
-   * *   on
+   * Whether to enable the anti-screenshot feature.
    * 
    * @example
    * off
@@ -634,17 +549,17 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   appContentProtection?: string;
   /**
    * @remarks
-   * The client IP address whitelist. End users can access cloud computers only from the IP addresses in the whitelist.
+   * The client IP address whitelist. Only IP addresses within the whitelisted CIDR blocks can access the cloud computer.
    */
   authorizeAccessPolicyRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeAccessPolicyRules[];
   /**
    * @remarks
-   * The security group rules.
+   * The security group control rules.
    */
   authorizeSecurityPolicyRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsAuthorizeSecurityPolicyRules[];
   /**
    * @remarks
-   * The automatic client connection recovery configurations.
+   * The automatic client reconnection configuration.
    * 
    * @example
    * off
@@ -652,12 +567,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   autoReconnect?: string;
   /**
    * @remarks
-   * Indicates whether the webcam redirection feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on (default)
+   * Whether to enable local camera redirection.
    * 
    * @example
    * on
@@ -670,32 +580,20 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   clientShutdown?: string;
   /**
    * @remarks
-   * The logon method control rules to limit the type of the Alibaba Cloud Workspace client used by end users to connect to cloud computers.
+   * The logon method control list. Controls which clients can access the cloud computer.
    */
   clientTypes?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsClientTypes[];
   /**
    * @remarks
-   * The permissions on the clipboard.
-   * 
-   * Valid values:
-   * 
-   * *   read: specifies one-way transfer. You can copy files only from local devices to cloud computers.
-   * *   readwrite: specifies two-way transfer. You can copy files between local devices and cloud computers.
-   * *   write: specifies one-way transfer. You can only copy files from cloud computers to local devices.
-   * *   off: disables both one-way and two-way transfer. Files cannot be copied between local devices and cloud computers.
+   * The clipboard permissions.
    * 
    * @example
-   * readwrite
+   * off
    */
   clipboard?: string;
   /**
    * @remarks
-   * Indicates whether the Color Enhancement switch is turned on in design and 3D scenarios.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Whether to enable color enhancement for design and 3D application scenarios.
    * 
    * @example
    * off
@@ -704,7 +602,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cpdDriveClipboard?: string;
   /**
    * @remarks
-   * The CPU underclocking duration. Valid values: 30 to 120. Unit: seconds.
+   * The CPU downclocking duration in seconds. Valid values: 30 to 120.
    * 
    * @example
    * 30
@@ -713,17 +611,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cpuOverload?: string;
   /**
    * @remarks
-   * The process whitelist that is not restricted by the CPU usage limit.
+   * The process whitelist exempt from CPU usage limits.
    */
   cpuProcessors?: string[];
   /**
    * @remarks
-   * Indicates whether the CPU spike protection switch is turned on.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The CPU protection mode switch.
    * 
    * @example
    * on
@@ -731,7 +624,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cpuProtectedMode?: string;
   /**
    * @remarks
-   * The overall CPU usage. Valid values: 70 to 90. Unit: percentage (%).
+   * The overall CPU usage percentage. Valid values: 70 to 90.
    * 
    * @example
    * 70
@@ -739,7 +632,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cpuRateLimit?: number;
   /**
    * @remarks
-   * The overall CPU sampling duration. Valid values: 10 to 60. Unit: seconds.
+   * The overall CPU sampling duration in seconds. Valid values: 10 to 60.
    * 
    * @example
    * 10
@@ -747,7 +640,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   cpuSampleDuration?: number;
   /**
    * @remarks
-   * The single-CPU usage. Valid values: 70 to 100. Unit: %.
+   * The single-core CPU usage percentage. Valid values: 70 to 100.
    * 
    * @example
    * 70
@@ -756,7 +649,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   description?: string;
   /**
    * @remarks
-   * The number of cloud computers bound with this policy.
+   * The number of cloud computers associated with this policy.
    * 
    * @example
    * 1
@@ -764,7 +657,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   desktopCount?: number;
   /**
    * @remarks
-   * The number of shared cloud computers bound with this policy.
+   * The number of cloud computer pools associated with this policy.
    * 
    * @example
    * 1
@@ -773,12 +666,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   deviceConnectHint?: string;
   /**
    * @remarks
-   * The device redirection rules.
+   * The device redirection rule list.
    */
   deviceRedirects?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects[];
   /**
    * @remarks
-   * The custom peripheral rules.
+   * The custom peripheral rule list.
    */
   deviceRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules[];
   diskOverload?: string;
@@ -786,25 +679,13 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * @remarks
    * The display mode.
    * 
-   * Valid values:
-   * 
-   * *   clientCustom: suitable for user-defined scenarios.
-   * *   adminOffice: suitable for daily office scenarios.
-   * *   adminDesign: suitable for 3D application scenarios.
-   * *   adminCustom: administrator-customized scenarios
-   * 
    * @example
    * adminCustom
    */
   displayMode?: string;
   /**
    * @remarks
-   * Specifies whether to enable the access control for domain names. Domain names support wildcards (\\*). Separate multiple domain names with commas (,).
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The access control for domain names. Wildcards (\\*) are supported. Separate multiple domain names with commas (,).
    * 
    * @example
    * off
@@ -812,17 +693,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   domainList?: string;
   /**
    * @remarks
-   * The domain name resolution rules.
+   * The domain name resolution policy list.
    */
   domainResolveRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDomainResolveRule[];
   /**
    * @remarks
-   * Indicates whether the switch for domain name resolution is turned on.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The domain name resolution policy switch.
    * 
    * @example
    * on
@@ -830,20 +706,15 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   domainResolveRuleType?: string;
   /**
    * @remarks
-   * The number of cloud computers that are associated with the policy. The number of cloud computers that are associated only with custom policies is returned.
+   * The total number of cloud computers and cloud computer pools associated with this policy. This value is returned only for custom policies.
    * 
    * @example
-   * 1
+   * 2
    */
   edsCount?: number;
   /**
    * @remarks
-   * Indicates whether the Contact Administrator for Help switch is turned on.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The switch for users to request administrator assistance.
    * 
    * @example
    * on
@@ -852,12 +723,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   endUserCount?: string;
   /**
    * @remarks
-   * Indicates whether the User Stream Collaboration switch is turned on.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The switch for stream collaboration between users.
    * 
    * @example
    * on
@@ -867,7 +733,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   fileMigrate?: string;
   /**
    * @remarks
-   * Transfers files.
+   * File transfer.
    * 
    * @example
    * null
@@ -878,12 +744,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   fileTransferSpeedLocation?: string;
   /**
    * @remarks
-   * Indicates whether the Image Quality Control feature is enabled. If you have high requirements on the performance and user experience in scenarios such as professional design, we recommend that you enable this feature.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Whether to enable the image quality policy for graphics-specification cloud computers. Enable this policy if you have high requirements for cloud computer performance and user experience, such as in professional design scenarios.
    * 
    * @example
    * off
@@ -895,12 +756,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   hoverShutdown?: string;
   /**
    * @remarks
-   * Specifies whether to allow web client access.
-   * 
-   * Valid values:
-   * 
-   * *   off (default)
-   * *   on
+   * The web client access policy.
    * 
    * @example
    * off
@@ -908,14 +764,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   html5Access?: string;
   /**
    * @remarks
-   * The file transfer feature on the web client.
-   * 
-   * Valid values:
-   * 
-   * *   all: Files can be uploaded and downloaded between local computers and the web client.
-   * *   download: Files on the web client can be downloaded to local computers.
-   * *   upload: Files on local computers can be uploaded to the web client.
-   * *   off (default): Files cannot be transferred between the web client and local computers.
+   * The file transfer policy for the web client.
    * 
    * @example
    * off
@@ -923,12 +772,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The protocol for network communication.
-   * 
-   * Valid values:
-   * 
-   * *   TCP (default): TCP.
-   * *   BOTH: TCP and UDP.
+   * The network communication protocol.
    * 
    * @example
    * BOTH
@@ -938,13 +782,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   keyboardControl?: string;
   /**
    * @remarks
-   * The permissions on local disk mapping.
-   * 
-   * Valid values:
-   * 
-   * *   read: read-only. Local disk mapping is available on cloud computers. However, you can only read (copy) local files but cannot modify the files.
-   * *   readwrite: read and write. Local disk mapping is available on cloud computers. You can read (copy) and write (modify) local files.
-   * *   off (default): none.
+   * The local disk mapping permissions.
    * 
    * @example
    * readwrite
@@ -952,7 +790,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   localDrive?: string;
   /**
    * @remarks
-   * The maximum retry period for reconnecting to cloud computers when the cloud computers are disconnected due to none-human reasons. Valid values: 30 to 7200. Unit: seconds.
+   * The maximum retry time for reconnecting to the cloud computer after a disconnection caused by objective reasons. Valid values: 30 to 7200 seconds.
    * 
    * @example
    * 120
@@ -960,7 +798,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   maxReconnectTime?: number;
   /**
    * @remarks
-   * The memory underclocking duration for a single process. Valid values: 30 to 120. Unit: seconds.
+   * The memory downclocking duration per process in seconds. Valid values: 30 to 120.
    * 
    * @example
    * 30
@@ -969,17 +807,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   memoryOverload?: string;
   /**
    * @remarks
-   * The whitelist of processes that are not restricted by the memory usage limit.
+   * The process whitelist exempt from memory usage limits.
    */
   memoryProcessors?: string[];
   /**
    * @remarks
-   * Indicates whether the memory spike protection switch is turned on.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The memory protection mode switch.
    * 
    * @example
    * on
@@ -987,7 +820,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   memoryProtectedMode?: string;
   /**
    * @remarks
-   * The overall memory usage. Valid values: 70 to 90. Unit: %.
+   * The overall memory usage percentage. Valid values: 70 to 90.
    * 
    * @example
    * 70
@@ -995,7 +828,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   memoryRateLimit?: number;
   /**
    * @remarks
-   * The overall memory sampling duration. Valid values: 30 to 60. Unit: seconds.
+   * The overall memory sampling duration in seconds. Valid values: 30 to 60.
    * 
    * @example
    * 30
@@ -1003,7 +836,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   memorySampleDuration?: number;
   /**
    * @remarks
-   * The memory usage of a single process. Valid values: 30 to 60. Unit: %.
+   * The memory usage percentage per worker. Valid values: 30 to 60.
    * 
    * @example
    * 30
@@ -1011,14 +844,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   memorySingleRateLimit?: number;
   /**
    * @remarks
-   * Specifies whether to display the restart button in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace mobile clients (including the Android client and the iOS client).
+   * Whether to display the restart button in the floating ball when accessing the cloud computer from mobile clients (including Android and iOS clients).
    * 
-   * > Mobile clients of V7.4 and higher versions required.
-   * 
-   * Valid values:
-   * 
-   * - off: not provided.
-   * - on: provided.
+   * > Applies only to mobile clients of V7.4 or later.
    * 
    * @example
    * off
@@ -1026,7 +854,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   mobileRestart?: string;
   /**
    * @remarks
-   * Indicates whether the Windows security control is enabled for mobile clients.
+   * The Windows security control switch for mobile clients.
    * 
    * @example
    * off
@@ -1034,14 +862,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   mobileSafeMenu?: string;
   /**
    * @remarks
-   * Specifies whether to display the shut down button in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace mobile clients (including the Android client and the iOS client).
+   * Whether to display the shutdown button in the floating ball when accessing the cloud computer from mobile clients (including Android and iOS clients).
    * 
-   * > Mobile clients of V7.4 and higher versions required.
-   * 
-   * Valid values:
-   * 
-   * - off: not provided.
-   * - on: provided.
+   * > Applies only to mobile clients of V7.4 or later.
    * 
    * @example
    * off
@@ -1049,7 +872,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   mobileShutdown?: string;
   /**
    * @remarks
-   * Indicates whether the Cloud Computer Manager is enabled for mobile clients.
+   * The WUYING Keeper switch for mobile clients.
    * 
    * @example
    * off
@@ -1057,7 +880,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   mobileWuyingKeeper?: string;
   /**
    * @remarks
-   * Indicates whether the Xiaoying AI Assistant is enabled for mobile clients.
+   * The Xiaoying AI Assistant switch for mobile clients.
    * 
    * @example
    * off
@@ -1067,7 +890,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   multiScreen?: string;
   /**
    * @remarks
-   * The name of the cloud computer policy.
+   * The cloud computer policy name.
    * 
    * @example
    * testPolicyGroupName
@@ -1075,14 +898,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   name?: string;
   /**
    * @remarks
-   * Indicates whether the network redirection feature is enabled.
+   * Network redirection.
    * 
-   * >  This parameter is in invitational preview for specific users and not available to the public.
-   * 
-   * Valid values:
-   * 
-   * *   off (default)
-   * *   on
+   * > This feature is in invitational preview and is not publicly available.
    * 
    * @example
    * off
@@ -1090,16 +908,16 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   netRedirect?: string;
   /**
    * @remarks
-   * The network redirection rule.
+   * The network redirection policy list.
    * 
-   * >  This parameter is in invitational preview for specific users and not available to the public.
+   * > This feature is in invitational preview and is not publicly available.
    */
   netRedirectRule?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule[];
   networkPrinter?: string;
   organizationCount?: string;
   /**
    * @remarks
-   * The ID of the cloud computer policy.
+   * The cloud computer policy ID.
    * 
    * @example
    * pg-gx2x1dhsmthe9****
@@ -1107,12 +925,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   policyGroupId?: string;
   /**
    * @remarks
-   * The type of the cloud computer policy.
-   * 
-   * Valid values:
-   * 
-   * *   SYSTEM
-   * *   CUSTOM
+   * The cloud computer policy type.
    * 
    * @example
    * SYSTEM
@@ -1122,11 +935,6 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * @remarks
    * The status of the cloud computer policy.
    * 
-   * Valid values:
-   * 
-   * *   AVAILABLE
-   * *   CREATING
-   * 
    * @example
    * AVAILABLE
    */
@@ -1134,13 +942,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   portProxy?: string;
   /**
    * @remarks
-   * The cloud computer preemption feature.
+   * The cloud computer preemption policy.
    * 
-   * >  To ensure user experience and data security, when a cloud computer is used by an end user, other end users cannot connect to the cloud computer. By default, this parameter is set to `off`, which cannot be modified.
-   * 
-   * Valid values:
-   * 
-   * *   off: Preemption is not allowed.
+   * > To ensure user experience and data security for end users currently using a cloud computer, mutual preemption between multiple users is not allowed. This parameter defaults to `off` and cannot be modified.
    * 
    * @example
    * off
@@ -1148,17 +952,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   preemptLogin?: string;
   /**
    * @remarks
-   * The usernames that can preempt to connect to the cloud computer.
+   * The usernames of users who can preempt the cloud computer.
    */
   preemptLoginUsers?: string[];
   /**
    * @remarks
-   * Indicates whether the printer redirection feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The printer redirection policy.
    * 
    * @example
    * on
@@ -1166,12 +965,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   printerRedirection?: string;
   /**
    * @remarks
-   * Indicates whether the Image Quality Enhancement switch is turned on for design and 3D scenarios.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Whether to enable image quality enhancement for design and 3D application scenarios.
    * 
    * @example
    * off
@@ -1179,12 +973,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   qualityEnhancement?: string;
   /**
    * @remarks
-   * Indicates whether the custom screen recording feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   off (default)
-   * *   on
+   * Whether to enable custom screen recording.
    * 
    * @example
    * off
@@ -1192,7 +981,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordContent?: string;
   /**
    * @remarks
-   * The period when the custom screen recording can be retained before expiration. Default value: 30 days.
+   * The expiration time for custom screen recording files. Default value: 30 days.
    * 
    * @example
    * 30
@@ -1200,7 +989,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordContentExpires?: number;
   /**
    * @remarks
-   * The recording duration since a target event is detected by the screen recording audit policy. Unit: Minute. Valid values: 10-60.
+   * The screen recording duration after an event is detected in screen recording audit. Unit: minutes. Valid values: 10 to 60.
    * 
    * @example
    * 10
@@ -1208,36 +997,30 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordEventDuration?: number;
   /**
    * @remarks
-   * The screen recording file suffix.
+   * The screen recording event suffix.
    */
   recordEventFileExts?: string[];
   /**
    * @remarks
-   * The array of absolute paths of the monitored files in the screen recording audit policy.
+   * The list of absolute paths for file monitoring in screen recording audit.
    */
   recordEventFilePaths?: string[];
   /**
    * @remarks
-   * Indicates whether the screen recording event severity is enabled.
+   * The screen recording event severity switch.
    */
   recordEventLevels?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsRecordEventLevels[];
   /**
    * @remarks
-   * The array of absolute paths of the monitored registry entries in the screen recording audit policy.
+   * The list of absolute paths for registry monitoring in screen recording audit.
+   * 
+   * @example
+   * Computer\\HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\USBSTOR
    */
   recordEventRegisters?: string[];
   /**
    * @remarks
-   * Indicates whether the screen recording feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   byaction_cmd_ft: enables the operation-triggered screen recording upon command execution and file transfer.
-   * *   ALLTIME: enables the whole-process screen recording. That is, the recording starts when cloud computers are connected and ends when the cloud computers are disconnected.
-   * *   PERIOD: enables the interval-based screen recording. You must specify an interval between the start time and end time of this type of recording.
-   * *   byaction_commands: enables the operation-triggered screen recording upon command execution.
-   * *   OFF: disables the screen recording feature.
-   * *   byaction_file_transfer: enables the operation-triggered screen recording upon file transfer.
+   * Whether to enable screen recording.
    * 
    * @example
    * OFF
@@ -1245,12 +1028,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recording?: string;
   /**
    * @remarks
-   * Indicates whether audio files generated from cloud computers are recorded.
-   * 
-   * Valid values:
-   * 
-   * *   off (default): records only video files.
-   * *   on: records video and audio files.
+   * The option to record audio from the cloud computer.
    * 
    * @example
    * on
@@ -1258,14 +1036,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingAudio?: string;
   /**
    * @remarks
-   * The file length of the screen recording. Unit: minutes. Screen recording files are split based on the specified file length and uploaded to Object Storage Service (OSS) buckets. When a screen recording file reaches 300 MB in size, the system preferentially performs rolling update for the file.
-   * 
-   * Valid values:
-   * 
-   * *   10
-   * *   20
-   * *   30
-   * *   60
+   * The screen recording file viewing duration in minutes. Recording files are automatically split based on this duration and uploaded to the bucket. When a file reaches 300 MB, it is preferentially rolled over.
    * 
    * @example
    * 10
@@ -1273,7 +1044,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingDuration?: number;
   /**
    * @remarks
-   * The time when the screen recording ended. The value is in the HH:MM:SS format. The value takes effect only when Recording is set to PERIOD.
+   * The screen recording end time in HH:MM:SS format. This parameter takes effect only when Recording is set to PERIOD.
    * 
    * @example
    * 08:59:00
@@ -1281,7 +1052,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingEndTime?: string;
   /**
    * @remarks
-   * The retention period of the screen recording file. Valid values: 1 to 180. Unit: days.
+   * The retention period for screen recording files. Valid values: 1 to 180 days.
    * 
    * @example
    * 15
@@ -1289,14 +1060,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingExpires?: number;
   /**
    * @remarks
-   * The frame rate of screen recording. Unit: fps.
-   * 
-   * Valid values:
-   * 
-   * *   2
-   * *   5
-   * *   10
-   * *   15
+   * The screen recording frame rate. Unit: FPS (frames per second).
    * 
    * @example
    * 5
@@ -1304,7 +1068,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingFps?: number;
   /**
    * @remarks
-   * The time when the screen recording was started. The value is in the HH:MM:SS format. The value takes effect only when Recording is set to PERIOD.
+   * The screen recording start time in HH:MM:SS format. This parameter takes effect only when Recording is set to PERIOD.
    * 
    * @example
    * 08:00:00
@@ -1312,12 +1076,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingStartTime?: string;
   /**
    * @remarks
-   * Indicates whether the screen recording notification feature is enabled after end users log on to the Alibaba Cloud Workspace client.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The screen recording client notification feature.
    * 
    * @example
    * off
@@ -1325,21 +1084,15 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   recordingUserNotify?: string;
   /**
    * @remarks
-   * The notification content of screen recording. By default, this parameter is left empty.
+   * The screen recording client notification message. Leave empty by default.
    * 
    * @example
-   * Your desktop is being recorded
+   * Your cloud desktop is being recorded.
    */
   recordingUserNotifyMessage?: string;
   /**
    * @remarks
-   * The permissions on keyboard and mouse control during remote assistance.
-   * 
-   * Valid values:
-   * 
-   * *   optionalControl: By default, you are not granted the permissions. You can apply for the permissions.
-   * *   fullControl: You are granted the full permissions.
-   * *   disableControl: You are not granted the permissions.
+   * The keyboard and mouse control permissions during remote assistance.
    * 
    * @example
    * fullControl
@@ -1359,7 +1112,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   resolutionWidth?: number;
   /**
    * @remarks
-   * The number of resource groups bound with this policy.
+   * The number of resource groups associated with this policy.
    * 
    * @example
    * 1
@@ -1367,9 +1120,9 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   resourceGroupCount?: number;
   /**
    * @remarks
-   * The region of the cloud computer policy.
+   * The region to which the cloud computer policy belongs.
    * 
-   * > The value of a region-less policy is `center`.
+   * > For region-less policies, this value is `center`.
    * 
    * @example
    * center
@@ -1380,29 +1133,19 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * @remarks
    * The effective scope of the policy.
    * 
-   * Valid values:
-   * 
-   * *   IP: The policy takes effect based on the IP address.
-   * *   GLOBAL: The policy takes effect globally.
-   * 
    * @example
    * GLOBAL
    */
   scope?: string;
   /**
    * @remarks
-   * This parameter is required when the `Scope` parameter is set to `IP`.````
+   * Specify this parameter when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
    */
   scopeValue?: string[];
   screenDisplayMode?: string;
   /**
    * @remarks
-   * Indicates whether the Smooth Enhancement switch is turned on.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Whether to enable smoothness enhancement for daily office scenarios.
    * 
    * @example
    * off
@@ -1410,10 +1153,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   smoothEnhancement?: string;
   /**
    * @remarks
-   * Specifies whether to provide the Metrics function in the DesktopAssistant. Valid values:
-   * 
-   * - off: not provided.
-   * - on: provided.
+   * Whether to provide the status monitoring feature in the floating ball when accessing the cloud computer.
    * 
    * @example
    * on
@@ -1421,12 +1161,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   statusMonitor?: string;
   /**
    * @remarks
-   * The streaming mode.
-   * 
-   * Valid values:
-   * 
-   * *   intelligent: suitable for daily office scenarios (Intelligent Mode).
-   * *   smooth: suitable for design and 3D application scenarios (Smooth Mode).
+   * The streaming mode adaptation scenario.
    * 
    * @example
    * smooth
@@ -1434,7 +1169,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   streamingMode?: string;
   /**
    * @remarks
-   * The destination frame rate. Valid values: 10 to 60. Unit: fps.
+   * The target frame rate. Valid values: 10 to 60.
    * 
    * @example
    * 30
@@ -1442,12 +1177,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   targetFps?: number;
   /**
    * @remarks
-   * Indicates whether the USB redirection feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * USB redirection.
    * 
    * @example
    * on
@@ -1469,7 +1199,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   videoEncAvgKbps?: number;
   /**
    * @remarks
-   * The maximum quantizer parameter (QP) of video files. A larger QP value indicates worse video quality. Valid values: 0 to 51.
+   * The maximum quantization parameter (QP) for video encoding, representing the lowest quality. Valid values: 0 to 51.
    * 
    * @example
    * 20
@@ -1477,7 +1207,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   videoEncMaxQP?: number;
   /**
    * @remarks
-   * The minimum quantizer parameter (QP) of video files. A smaller QP value indicates higher video quality. Valid values: 0 to 51.
+   * The minimum quantization parameter (QP) for video encoding, representing the highest quality. Valid values: 0 to 51.
    * 
    * @example
    * 20
@@ -1493,12 +1223,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   videoEncPeakKbps?: number;
   /**
    * @remarks
-   * The video encoding feature.
-   * 
-   * Valid values:
-   * 
-   * *   qualityFirst: The priority given to the image quality.
-   * *   bandwidthFirst: The priority given to the bitrate.
+   * The video encoding policy.
    * 
    * @example
    * qualityFirst
@@ -1506,12 +1231,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   videoEncPolicy?: string;
   /**
    * @remarks
-   * Indicates whether the multimedia redirection feature is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * Multimedia redirection.
    * 
    * @example
    * off
@@ -1519,14 +1239,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   videoRedirect?: string;
   /**
    * @remarks
-   * The image display quality.
-   * 
-   * Valid values:
-   * 
-   * *   high: high-definition (HD)
-   * *   low: fluent
-   * *   medium (default): adaptive
-   * *   lossless: no quality loss
+   * The image display quality policy.
    * 
    * @example
    * medium
@@ -1534,13 +1247,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   visualQuality?: string;
   /**
    * @remarks
-   * The watermarking feature.
-   * 
-   * Valid values:
-   * 
-   * *   blind: Invisible watermarks are applied.
-   * *   off: The watermarking feature is disabled.
-   * *   on: Visible watermarks are applied.
+   * Watermark.
    * 
    * @example
    * on
@@ -1548,12 +1255,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermark?: string;
   /**
    * @remarks
-   * Indicates whether the anti-screen photo feature is enabled for invisible watermarks.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The blind watermark anti-photo feature.
    * 
    * @example
    * off
@@ -1561,7 +1263,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkAntiCam?: string;
   /**
    * @remarks
-   * The font color in red, green, and blue (RGB) of the watermark. Valid values: 0 to 16777215.
+   * The watermark font color in RGB format. Valid values: 0 to 16777215.
    * 
    * @example
    * 0
@@ -1572,12 +1274,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * If you set `WatermarkType` to `custom`, you must also specify `WatermarkCustomText`.
    * 
    * @example
-   * test
+   * custom-watermark
    */
   watermarkCustomText?: string;
   /**
    * @remarks
-   * The slope of the watermark. Valid values: -10 to -30.
+   * The watermark tilt angle. Valid values: -10 to -30.
    * 
    * @example
    * -10
@@ -1585,7 +1287,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkDegree?: number;
   /**
    * @remarks
-   * The font size of the watermark. Valid values: 10 to 20.
+   * The watermark font size. Valid values: 10 to 20.
    * 
    * @example
    * 10
@@ -1595,24 +1297,13 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * @remarks
    * The watermark font style.
    * 
-   * Valid values:
-   * 
-   * *   plain
-   * *   bold
-   * 
    * @example
    * plain
    */
   watermarkFontStyle?: string;
   /**
    * @remarks
-   * The watermark enhancement feature.
-   * 
-   * Valid values:
-   * 
-   * *   high
-   * *   low
-   * *   medium
+   * The blind watermark enhancement feature.
    * 
    * @example
    * medium
@@ -1622,7 +1313,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
    * @remarks
    * The number of watermark rows.
    * 
-   * >  This parameter is not available for public use.
+   * > This parameter is not publicly available.
    * 
    * @example
    * 5
@@ -1630,12 +1321,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkRowAmount?: number;
   /**
    * @remarks
-   * Indicates whether the security priority feature is enabled for invisible watermarks.
-   * 
-   * Valid values:
-   * 
-   * *   off
-   * *   on
+   * The blind watermark security priority rule.
    * 
    * @example
    * on
@@ -1644,13 +1330,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkShadow?: string;
   /**
    * @remarks
-   * The watermark transparency.
-   * 
-   * Valid values:
-   * 
-   * *   LIGHT
-   * *   DARK
-   * *   MIDDLE
+   * The watermark transparency level.
    * 
    * @example
    * LIGHT
@@ -1658,7 +1338,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkTransparency?: string;
   /**
    * @remarks
-   * The watermark transparency. A greater value indicates that the watermark is less transparent. Valid values: 10 to 100.
+   * The watermark transparency. A higher value means lower transparency. Valid values: 10 to 100.
    * 
    * @example
    * 10
@@ -1666,16 +1346,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   watermarkTransparencyValue?: number;
   /**
    * @remarks
-   * The watermark content.
-   * 
-   * Valid values:
-   * 
-   * *   EndUserId: the username.
-   * *   Custom
-   * *   DesktopIp: the IP address of the cloud computer.
-   * *   ClientIp: the IP address of the Alibaba Cloud Workspace client.
-   * *   HostName: the rightmost 15 digits of the cloud computer ID.
-   * *   ClientTime: the current time displayed on the cloud computer.
+   * The watermark type.
    * 
    * @example
    * EndUserId
@@ -1684,14 +1355,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $dara.
   wuyingKeeper?: string;
   /**
    * @remarks
-   * Specifies whether to provide the AI Assistant function in the DesktopAssistant when the cloud computer is accessed from the Alibaba Cloud Workspace desktop clients (including the Windows client and the macOS client).
-   * 
-   * > Desktop clients of V7.7 and higher versions required.
-   * 
-   * Valid values:
-   * 
-   * - off: the AI Aisstant function is not provided.
-   * - on: the AI Aisstant function is provided.
+   * Whether to provide the WUYING AI Assistant feature in the floating ball when accessing the cloud computer.
    * 
    * @example
    * on
@@ -2054,12 +1718,12 @@ export class DescribePolicyGroupsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The details of the cloud computer policies.
+   * The detailed information about the cloud computer policies.
    */
   describePolicyGroups?: DescribePolicyGroupsResponseBodyDescribePolicyGroups[];
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The pagination token for the next query. If NextToken is empty, no further pages exist.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****

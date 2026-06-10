@@ -85,21 +85,21 @@ export class DescribeUserConnectionRecordsRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   SIMPLE: convenience account
+   * - SIMPLE: convenience account
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   AD_CONNECTOR: enterprise AD account
+   * - AD_CONNECTOR: enterprise AD account
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * SIMPLE

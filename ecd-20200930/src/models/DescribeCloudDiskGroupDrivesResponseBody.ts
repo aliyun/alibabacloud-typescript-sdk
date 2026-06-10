@@ -4,42 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $dara.Model {
   /**
+   * @remarks
+   * The time the drive was created.
+   * 
    * @example
    * 2022-04-11T07:44:21Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The office network ID.
+   * 
    * @example
    * cn-hangzhou+dir-959593****
    */
   directoryId?: string;
   /**
+   * @remarks
+   * The drive ID.
+   * 
    * @example
    * 1234
    */
   driveId?: string;
   /**
+   * @remarks
+   * The team drive ID.
+   * 
    * @example
    * cg-e70ga4ixp30ur****
    */
   groupId?: string;
+  /**
+   * @remarks
+   * The team drive name.
+   * 
+   * @example
+   * Test team 1
+   */
   groupName?: string;
   /**
+   * @remarks
+   * The organization ID of the team.
+   * 
    * @example
    * org-aliyun-wy-org-id
    */
   orgId?: string;
   /**
+   * @remarks
+   * The status of the team drive.
+   * 
    * @example
    * 1
    */
   status?: string;
   /**
+   * @remarks
+   * The total capacity of the cloud disk team drive.
+   * 
    * @example
    * 5368709120
    */
   totalSize?: number;
   /**
+   * @remarks
+   * The used space size, in bytes.
+   * 
    * @example
    * 1024000000
    */
@@ -82,23 +113,39 @@ export class DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups extends $d
 }
 
 export class DescribeCloudDiskGroupDrivesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of cloud disk team drives.
+   */
   cloudDriveGroups?: DescribeCloudDiskGroupDrivesResponseBodyCloudDriveGroups[];
   /**
+   * @remarks
+   * The total number of results.
+   * 
    * @example
    * 1
    */
   count?: number;
   /**
+   * @remarks
+   * The token that marks the start of the next query. An empty NextToken means no more results.
+   * 
    * @example
    * MTA0MjA=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B9F9CBBE-8A9F-5FE5-8A72-0E81C2401A91
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
    * @example
    * True
    */

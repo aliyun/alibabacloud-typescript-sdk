@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryHistoryActiveUserCountRequest extends $dara.Model {
   /**
+   * @remarks
+   * The date for which to query data, in YYYY-MM-DD format. Default: the previous day (T-1).
+   * 
    * @example
    * 2023-01-01
    */

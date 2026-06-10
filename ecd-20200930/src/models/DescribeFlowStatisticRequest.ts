@@ -23,7 +23,7 @@ export class DescribeFlowStatisticRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The number of the page to return.\\
+   * The number of the page to return.<br>
    * Default value: 1.
    * 
    * @example
@@ -44,9 +44,11 @@ export class DescribeFlowStatisticRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   3600: 1 hour
-   * *   10800: 3 hours
-   * *   86400: 24 hours
+   * - 3600: 1 hour
+   * 
+   * - 10800: 3 hours
+   * 
+   * - 86400: 24 hours
    * 
    * This parameter is required.
    * 

@@ -9,7 +9,7 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
    * The display name of the AD account.
    * 
    * @example
-   * Alice
+   * aduser
    */
   displayName?: string;
   displayNameNew?: string;
@@ -19,7 +19,7 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
    * The username of the AD account.
    * 
    * @example
-   * Alice
+   * aduser
    */
   endUser?: string;
   phone?: string;
@@ -60,7 +60,7 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
 export class ListOfficeSiteUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * The token to start the next query. If this parameter is empty, all results have been returned.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -76,8 +76,8 @@ export class ListOfficeSiteUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The usernames of the AD accounts.\\
-   * If the only Administrator and Guest users exist in the enterprise AD directory, an empty User array is returned.
+   * An array that consists of the AD accounts.<br>
+   * If the enterprise AD contains only the Administrator and Guest users, an empty Users array is returned.<br>
    */
   users?: ListOfficeSiteUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

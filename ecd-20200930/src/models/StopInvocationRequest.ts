@@ -18,7 +18,7 @@ export class StopInvocationRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * t-7d2a745b412b4601b2d47f6a768d****
+   * t-hz059ngm63k****
    */
   invokeId?: string;
   /**

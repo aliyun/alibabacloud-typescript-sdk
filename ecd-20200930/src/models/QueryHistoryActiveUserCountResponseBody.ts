@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryHistoryActiveUserCountResponseBodyActiveUserCount extends $dara.Model {
   /**
+   * @remarks
+   * The number of daily active users.
+   * 
    * @example
    * 20
    */
   dailyActiveUserCount?: number;
   /**
+   * @remarks
+   * The number of monthly active users.
+   * 
    * @example
    * 300
    */
@@ -37,8 +43,15 @@ export class QueryHistoryActiveUserCountResponseBodyActiveUserCount extends $dar
 }
 
 export class QueryHistoryActiveUserCountResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The active user statistics.
+   */
   activeUserCount?: QueryHistoryActiveUserCountResponseBodyActiveUserCount;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1234567890abcdefg
    */

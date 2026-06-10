@@ -9,8 +9,9 @@ export class DeleteCenterPolicyRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   1: public cloud.
-   * *   8: commercial edition.
+   * - 1: public cloud.
+   * 
+   * - 8: commercial edition.
    * 
    * This parameter is required.
    * 
@@ -41,8 +42,9 @@ export class DeleteCenterPolicyRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   app: cloud applications.
-   * *   desktop: cloud computers.
+   * - app: cloud applications.
+   * 
+   * - desktop: cloud computers.
    * 
    * This parameter is required.
    * 

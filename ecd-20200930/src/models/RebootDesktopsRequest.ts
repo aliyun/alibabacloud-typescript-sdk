@@ -6,7 +6,7 @@ export class RebootDesktopsRequest extends $dara.Model {
   createSnapshot?: boolean;
   /**
    * @remarks
-   * The IDs of the cloud computers. You can specify 1 to 100 IDs.
+   * An array of 1 to 100 desktop IDs.
    * 
    * This parameter is required.
    * 
@@ -14,6 +14,10 @@ export class RebootDesktopsRequest extends $dara.Model {
    * ecd-gx2x1dhsmucyy****
    */
   desktopId?: string[];
+  /**
+   * @remarks
+   * Specifies whether to install system patches.
+   */
   osUpdate?: boolean;
   /**
    * @example
@@ -22,7 +26,7 @@ export class RebootDesktopsRequest extends $dara.Model {
   patchId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The ID of the region. Call [DescribeRegions](~~DescribeRegions~~) to get a list of regions where Elastic Desktop Service is available.
    * 
    * This parameter is required.
    * 

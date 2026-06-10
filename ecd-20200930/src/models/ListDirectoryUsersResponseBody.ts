@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The number of assigned cloud computers.
+   * The number of assigned cloud desktops.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
   assignedDesktopNumber?: number;
   /**
    * @remarks
-   * The display name of the user.
+   * The display name.
    * 
    * @example
    * Alice
@@ -30,7 +30,7 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The name of the user.
+   * The username.
    * 
    * @example
    * Alice
@@ -38,7 +38,7 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
   endUser?: string;
   /**
    * @remarks
-   * The mobile number.
+   * The mobile phone number.
    * 
    * @example
    * 130********
@@ -81,7 +81,7 @@ export class ListDirectoryUsersResponseBodyUsers extends $dara.Model {
 export class ListDirectoryUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token used to start the next query. If the value of this parameter is empty, all results are returned.
+   * The token that is used to start the next query. If this parameter is empty, all results have been returned.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -89,7 +89,7 @@ export class ListDirectoryUsersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -97,7 +97,7 @@ export class ListDirectoryUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The usernames corresponding to the AD directory. If the AD directory contains only the Administrator and Guest accounts, the Users array will be empty.
+   * An array that consists of the users in the AD directory. If the AD directory contains only the Administrator and Guest users, an empty \\`Users\\` array is returned.
    */
   users?: ListDirectoryUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

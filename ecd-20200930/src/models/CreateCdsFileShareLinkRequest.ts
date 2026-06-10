@@ -16,6 +16,9 @@ export class CreateCdsFileShareLinkRequest extends $dara.Model {
   /**
    * @remarks
    * The description of the file sharing task. The description must be 0 to 1,024 characters in length.
+   * 
+   * @example
+   * SharedFile
    */
   description?: string;
   /**
@@ -24,33 +27,33 @@ export class CreateCdsFileShareLinkRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
+   * - true
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     prohibits file download
+   *   prohibits file download
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     .
+   *   .
    * 
-   * *   false
+   * - false
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     allows file download
+   *   allows file download
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     .
+   *   .
    * 
    * @example
    * false
@@ -62,33 +65,33 @@ export class CreateCdsFileShareLinkRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
+   * - true
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     prohibits file preview
+   *   prohibits file preview
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     .
+   *   .
    * 
-   * *   false
+   * - false
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     allows file preview
+   *   allows file preview
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     .
+   *   .
    * 
    * @example
    * false
@@ -100,33 +103,33 @@ export class CreateCdsFileShareLinkRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
+   * - true
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     prohibits file dump
+   *   prohibits file dump
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     .
+   *   .
    * 
-   * *   false
+   * - false
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     :
+   *   :
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     allows file dump
+   *   allows file dump
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     .
+   *   .
    * 
    * @example
    * false
@@ -145,7 +148,7 @@ export class CreateCdsFileShareLinkRequest extends $dara.Model {
    * The ID of the end user.
    * 
    * @example
-   * user01
+   * alice
    */
   endUserId?: string;
   /**
@@ -161,6 +164,13 @@ export class CreateCdsFileShareLinkRequest extends $dara.Model {
    * The file IDs.
    */
   fileIds?: string[];
+  /**
+   * @remarks
+   * Team space ID.
+   * 
+   * @example
+   * cg-i1ruuudp92qpj****
+   */
   groupId?: string;
   /**
    * @remarks

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryHistoryMetricDistributionResponseBodyDistributionList extends $dara.Model {
   /**
+   * @remarks
+   * The number of data points in this value range.
+   * 
    * @example
    * 40
    */
   count?: number;
   /**
+   * @remarks
+   * The range label that you defined in the request.
+   * 
    * @example
    * 2F2BF549-CBD9-1FED-9ABB-086B62D7B293
    */
   label?: string;
   /**
+   * @remarks
+   * The maximum value of the value range.
+   * 
    * @example
    * 20
    */
   max?: number;
   /**
+   * @remarks
+   * The minimum value of the value range.
+   * 
    * @example
    * 0
    */
@@ -51,13 +63,23 @@ export class QueryHistoryMetricDistributionResponseBodyDistributionList extends 
 }
 
 export class QueryHistoryMetricDistributionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of objects, each representing the distribution data for a specific value range.
+   */
   distributionList?: QueryHistoryMetricDistributionResponseBodyDistributionList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2F2BF549-CBD9-1FED-9ABB-086B62D7B293
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of data points that match the query.
+   * 
    * @example
    * 94
    */

@@ -35,9 +35,6 @@ export class DescribeRecordingsResponseBodyRecordings extends $dara.Model {
   /**
    * @remarks
    * The file path.
-   * 
-   * @example
-   * pg-4w5nk44zo5yl129dd/1mk78dugw344.mp4
    */
   filePath?: string;
   /**
@@ -45,7 +42,7 @@ export class DescribeRecordingsResponseBodyRecordings extends $dara.Model {
    * The policy ID.
    * 
    * @example
-   * pg-6dn811rzrwh9ws4z6
+   * pg-6dn811rzrwh9w****
    */
   policyGroupId?: string;
   /**

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOfficeSiteAcceleratorRequest extends $dara.Model {
   /**
    * @remarks
+   * The office network ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteOfficeSiteAcceleratorRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example

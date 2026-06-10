@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise resource group.
+   * The ID of the resource group.
    * 
    * @example
    * rg-f3s3dgt8dtb0vlqc8
@@ -13,7 +13,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups exte
   resourceGroupId?: string;
   /**
    * @remarks
-   * The queried resource group name.
+   * The name of the resource group.
    * 
    * @example
    * dms_test
@@ -45,7 +45,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups exte
 export class DescribeGlobalDesktopRecordsResponseBodySessionsSessions extends $dara.Model {
   /**
    * @remarks
-   * The end user ID.
+   * The ID of the end user.
    * 
    * @example
    * TestUser
@@ -53,7 +53,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsSessions extends $d
   endUserId?: string;
   /**
    * @remarks
-   * The time when the session was created.
+   * The time the session was created.
    * 
    * @example
    * 2022-08-31T06:56:45Z
@@ -85,7 +85,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessionsSessions extends $d
 export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Model {
   /**
    * @remarks
-   * The connection status of the cloud desktop.
+   * The connection status.
    * 
    * @example
    * Connected
@@ -101,7 +101,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   cpu?: number;
   /**
    * @remarks
-   * The ID of the cloud computer share.
+   * The ID of the desktop group.
    * 
    * @example
    * dg-iaqu3bi2xtie****
@@ -109,7 +109,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   desktopGroupId?: string;
   /**
    * @remarks
-   * The name of the cloud computer share.
+   * The name of the desktop group.
    * 
    * @example
    * DemoCCGroup
@@ -117,7 +117,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   desktopGroupName?: string;
   /**
    * @remarks
-   * The cloud computer IDs.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ecd-g6t1ukbaea****
@@ -125,7 +125,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   desktopId?: string;
   /**
    * @remarks
-   * The cloud computer name.
+   * The name of the cloud desktop.
    * 
    * @example
    * DemoComputer
@@ -133,7 +133,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   desktopName?: string;
   /**
    * @remarks
-   * 桌面状态
+   * The desktop status.
    * 
    * @example
    * Running
@@ -141,7 +141,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   desktopStatus?: string;
   /**
    * @remarks
-   * The end user ID.
+   * The ID of the end user.
    * 
    * @example
    * TestUser
@@ -149,12 +149,12 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   endUserId?: string;
   /**
    * @remarks
-   * The list of assigned terminal user IDs.
+   * A list of assigned end user IDs.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The size of the GPU memory.
+   * The GPU memory size.
    * 
    * @example
    * 8GiB
@@ -162,7 +162,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   gpuSpec?: string;
   /**
    * @remarks
-   * The duration of the last connection to the cloud computer. Unit: seconds
+   * The duration of the last connection, in seconds.
    * 
    * @example
    * 120
@@ -170,7 +170,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   latestConnectionTime?: number;
   /**
    * @remarks
-   * The memory of the cloud computer. Unit: MiB.
+   * The memory size of the cloud desktop, in MiB.
    * 
    * @example
    * 4096
@@ -178,7 +178,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   memory?: number;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office site.
    * 
    * @example
    * cn-hangzhou+dir-8904****
@@ -186,23 +186,27 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   officeSiteId?: string;
   /**
    * @remarks
-   * The office network name.
+   * The name of the office site.
    * 
    * @example
    * TestOfficeSite
    */
   officeSiteName?: string;
   /**
+   * @remarks
+   * The office site type.
+   * 
    * @example
    * Simple
    */
   officeSiteType?: string;
   /**
    * @remarks
-   * The OS type. Valid values:
+   * The operating system type. Valid values:
    * 
-   * *   Windows
-   * *   Linux
+   * - `Windows`
+   * 
+   * - `Linux`
    * 
    * @example
    * Linux
@@ -210,7 +214,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   osType?: string;
   /**
    * @remarks
-   * The specific model of the operating system.
+   * The operating system version.
    * 
    * @example
    * Windows 10
@@ -218,10 +222,11 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   platform?: string;
   /**
    * @remarks
-   * Protocol type.
+   * The protocol type. Valid values:
    * 
-   * *   HDX
-   * *   ASP
+   * - `HDX`
+   * 
+   * - `ASP`
    * 
    * @example
    * ASP
@@ -229,7 +234,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   protocolType?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The ID of the region.
    * 
    * @example
    * cn-beijing
@@ -237,12 +242,12 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   regionId?: string;
   /**
    * @remarks
-   * The name of the enterprise resource group.
+   * A list of resource groups.
    */
   resourceGroups?: DescribeGlobalDesktopRecordsResponseBodySessionsResourceGroups[];
   /**
    * @remarks
-   * The idle duration of the session. Unit: minutes.
+   * The idle duration of the session, in minutes.
    * 
    * @example
    * 120
@@ -250,12 +255,12 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   sessionIdleTime?: number;
   /**
    * @remarks
-   * The session details.
+   * A list of sessions.
    */
   sessions?: DescribeGlobalDesktopRecordsResponseBodySessionsSessions[];
   /**
    * @remarks
-   * The time when the status of the cloud computer was changed.
+   * The time when the cloud desktop status changed.
    * 
    * @example
    * 1760583xxxx
@@ -263,11 +268,13 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   statusChangeTime?: number;
   /**
    * @remarks
-   * The billing method of the cloud computer. Valid values:
+   * The billing method for the cloud desktop. Valid values:
    * 
-   * *   prePaid: The monthly purchase is unlimited.
-   * *   postPaid: pay-as-you-go
-   * *   monthPackage: monthly duration.
+   * - `prePaid`: Subscription.
+   * 
+   * - `postPaid`: Pay-as-you-go.
+   * 
+   * - `monthPackage`: Monthly usage package.
    * 
    * @example
    * monthPackage
@@ -275,7 +282,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   subPayType?: string;
   /**
    * @remarks
-   * The total connection duration. Unit: seconds
+   * The total connection duration, in seconds.
    * 
    * @example
    * 240
@@ -283,7 +290,7 @@ export class DescribeGlobalDesktopRecordsResponseBodySessions extends $dara.Mode
   totalConnectionTime?: number;
   /**
    * @remarks
-   * The startup duration of the cloud computer. Unit: seconds
+   * The cloud desktop uptime, in seconds.
    * 
    * @example
    * 86400
@@ -380,12 +387,12 @@ export class DescribeGlobalDesktopRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The session details.
+   * A list of sessions.
    */
   sessions?: DescribeGlobalDesktopRecordsResponseBodySessions[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

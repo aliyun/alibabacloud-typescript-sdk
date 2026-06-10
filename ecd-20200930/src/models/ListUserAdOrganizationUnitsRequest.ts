@@ -24,7 +24,7 @@ export class ListUserAdOrganizationUnitsRequest extends $dara.Model {
    * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request or if no next request exists. You must specify the token that is obtained from the previous query as the value of NextToken.
    * 
    * @example
-   * CAAAAA==
+   * caeba0bbb2be03f84eb48b699f0a4883
    */
   nextToken?: string;
   /**

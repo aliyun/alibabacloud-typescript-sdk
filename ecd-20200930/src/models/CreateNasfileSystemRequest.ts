@@ -13,12 +13,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether the file system is encrypted. Uses KMS service-managed keys to encrypt the file system\\"s on-disk data. No decryption is required when reading and writing encrypted data. Possible values and their meanings:
-   * 
-   * - 0: Not encrypted.
-   * - 1: Encrypted using NAS-managed keys.
-   * 
-   * Default value: 0
+   * Whether the file system is encrypted. Uses KMS service-managed keys to encrypt the file system\\"s on-disk data. No decryption is required when reading and writing encrypted data.
    * 
    * @example
    * 0
@@ -28,8 +23,11 @@ export class CreateNASFileSystemRequest extends $dara.Model {
    * @remarks
    * Name of the NAS file system.
    * The file name must follow these rules:
+   * 
    * - Length: 2 to 128 English or Chinese characters.
-   * - Must start with an uppercase or lowercase letter or a Chinese character, cannot start with http:// or https://.
+   * 
+   * - Must start with an uppercase or lowercase letter or a Chinese character, cannot start with http\\:// or https\\://.
+   * 
    * - Can include numbers, underscores (_), or hyphens (-).
    * 
    * @example
@@ -58,12 +56,7 @@ export class CreateNASFileSystemRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Storage specification type of the NAS file system. Allowed values:
-   * 
-   * - Capacity: Capacity type.
-   * - Performance: Performance type.
-   * 
-   * Default value: Capacity
+   * Storage specification type of the NAS file system.
    * 
    * @example
    * Capacity

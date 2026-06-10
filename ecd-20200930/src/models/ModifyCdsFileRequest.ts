@@ -10,7 +10,7 @@ export class ModifyCdsFileRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-hangzhou+cds-64326*****
+   * cn-hangzhou+cds-643267****
    */
   cdsId?: string;
   /**
@@ -53,7 +53,7 @@ export class ModifyCdsFileRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test.txt
+   * NewFileName.txt
    */
   fileName?: string;
   /**

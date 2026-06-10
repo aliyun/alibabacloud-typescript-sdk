@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise drive.
+   * The ID of the enterprise network disk.
    * 
    * @example
    * cn-hangzhou+cds-778205****
@@ -13,7 +13,7 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds e
   cdsId?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the list of regions where Elastic Desktop Service (EDS) Enterprise is available.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions that are supported by Elastic Desktop Service.
    * 
    * @example
    * cn-hangzhou
@@ -45,7 +45,7 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds e
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise drive. The enterprise drive cannot be used if the order is unpaid.
+   * The ID of the enterprise network disk (The order is not paid, and the enterprise network disk cannot be used).
    * 
    * @example
    * cn-hangzhou+cds-778205****
@@ -53,7 +53,7 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder
   cdsId?: string;
   /**
    * @remarks
-   * The ID of the order. You can obtain an order ID on the **Orders** page in the Expenses and Costs console.
+   * The order ID. You can obtain the order ID on the **Order Management** page in the Alibaba Cloud User Center.
    * 
    * @example
    * 22442411898****
@@ -61,7 +61,7 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder
   orderId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -95,12 +95,12 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder
 export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder extends $dara.Model {
   /**
    * @remarks
-   * The conflicting enterprise drive.
+   * The information of conflicting enterprise network disks.
    */
   conflictCds?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictCds[];
   /**
    * @remarks
-   * The subscription orders of the conflicting enterprise drives that are unpaid.
+   * The information of conflicting unpaid orders for enterprise network disks (orders for subscription enterprise network disks).
    */
   conflictOrder?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrderConflictOrder[];
   static names(): { [key: string]: string } {
@@ -135,15 +135,15 @@ export class CreateCloudDriveServiceResponseBodyConflictCdsAndOrder extends $dar
 export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the enterprise drive.
+   * The ID of the enterprise network disk.
    * 
    * @example
-   * cn-hangzhou+cds-7782057786
+   * cn-hangzhou+cds-778205****
    */
   cdsId?: string;
   /**
    * @remarks
-   * The name of the cloud disk that is created in Cloud Drive Service.
+   * The name of the cloud storage service.
    * 
    * @example
    * CDS_Windows_1126
@@ -151,9 +151,9 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   cdsName?: string;
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The ID of the Cloud Enterprise Network (CEN) instance.
    * 
-   * >  To allow end users to connect to cloud computers via virtual private clouds (VPCs), attach your office network to a CEN instance. The CEN instance connects to your on-premises network through VPN Gateway or Express Connect.
+   * > If you want to connect to a cloud desktop through a VPC, you can add the office network to a CEN instance. This CEN instance connects to your on-premises network through a VPN or a dedicated line.
    * 
    * @example
    * cen-638u3wxds9snyc****
@@ -161,12 +161,12 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The existing enterprise drive or its order that conflicts with the enterprise drive being created.
+   * The existing enterprise network disks or orders for enterprise network disks that conflict with the enterprise network disk that you want to create.
    */
   conflictCdsAndOrder?: CreateCloudDriveServiceResponseBodyConflictCdsAndOrder;
   /**
    * @remarks
-   * The domain name of the enterprise AD office network.
+   * The name of the Active Directory (AD) domain corresponding to the AD office network.
    * 
    * @example
    * test1.local
@@ -182,20 +182,15 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The maximum storage capacity of the enterprise drive. Unit: bytes.
+   * The maximum storage usage of the enterprise network disk. Unit: bytes.
    * 
    * @example
-   * 213674622976
+   * 5368709120
    */
   maxSize?: string;
   /**
    * @remarks
-   * The type of the office network.
-   * 
-   * Valid values:
-   * 
-   * *   SIMPLE: convenience office network.
-   * *   AD_CONNECTOR: enterprise AD office network.
+   * The office network type.
    * 
    * @example
    * AD_CONNECTOR
@@ -203,7 +198,7 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   officeSiteType?: string;
   /**
    * @remarks
-   * The ID of the order. You can obtain an order ID on the Orders page in the Expenses and Costs console.
+   * The order ID. You can obtain the order ID on the Order Management page in the Alibaba Cloud User Center.
    * 
    * @example
    * 214552063030752
@@ -211,10 +206,10 @@ export class CreateCloudDriveServiceResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
-   * 062B1439-709A-580E-85DF-CE97A1560565
+   * 062B1439-709A-580E-85DF-CE97A156****
    */
   requestId?: string;
   static names(): { [key: string]: string } {

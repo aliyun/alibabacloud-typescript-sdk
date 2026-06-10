@@ -65,7 +65,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessionsTerminalInfo extend
 export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Model {
   /**
    * @remarks
-   * 账号类型
+   * The account type.
    * 
    * @example
    * SIMPLE
@@ -84,7 +84,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * The operating system of the client.
    * 
    * @example
-   * windows_\\"Windows10Enterprise\\"10.0(Build22000)
+   * windows
    */
   clientOS?: string;
   /**
@@ -92,7 +92,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * The version of the client.
    * 
    * @example
-   * 2.0.0-R-20221030.08****
+   * 7.8.0
    */
   clientVersion?: string;
   /**
@@ -108,7 +108,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * The name of the cloud computer share.
    * 
    * @example
-   * Test
+   * DemoCCGroup
    */
   desktopGroupName?: string;
   /**
@@ -121,7 +121,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   desktopId?: string;
   /**
    * @remarks
-   * 办公网络类型
+   * The office network type.
    * 
    * @example
    * SIMPLE
@@ -140,7 +140,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * The user ID of the terminal that connects to the session.
    * 
    * @example
-   * xianqiu
+   * alice
    */
   endUserId?: string;
   /**
@@ -148,7 +148,7 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * The end time of the most recent connection.
    * 
    * @example
-   * 2022-08-31 06:56:45
+   * 2022-08-31 07:56:45
    */
   lastSessionEndTime?: string;
   /**
@@ -180,17 +180,12 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * The office network name.
    * 
    * @example
-   * Test
+   * DemoOfficeNetwork
    */
   officeSiteName?: string;
   /**
    * @remarks
    * The operating system type of the cloud computer.
-   * 
-   * Valid values:
-   * 
-   * *   linux.
-   * *   Windows.
    * 
    * @example
    * Windows
@@ -200,11 +195,6 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
    * @remarks
    * The type of the session.
    * 
-   * Valid values:
-   * 
-   * *   0: single-session
-   * *   1: multi-session
-   * 
    * @example
    * 0
    */
@@ -212,11 +202,6 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   /**
    * @remarks
    * The protocol type supported by the rule.
-   * 
-   * Valid value:
-   * 
-   * *   High-definition Experience (HDX).
-   * *   ASP.
    * 
    * @example
    * ASP
@@ -233,24 +218,6 @@ export class DescribeDesktopGroupSessionsResponseBodySessions extends $dara.Mode
   /**
    * @remarks
    * The state of the session.
-   * 
-   * Valid values:
-   * 
-   * *   Connected
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Disconnected
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * Connected

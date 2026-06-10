@@ -32,7 +32,7 @@ export class GetAsyncTaskResponseBodyData extends $dara.Model {
    * The error message of the asynchronous task.
    * 
    * @example
-   * The request has been failed due to some unknown error. Please try again later.
+   * The request failed due to some unknown errors. Please try again later.
    */
   message?: string;
   /**

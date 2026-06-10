@@ -17,13 +17,13 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
    * 
    * Valid values:
    * 
-   * *   COORDINATING: The collaboration task is being executed.
+   * - COORDINATING: The collaboration task is being executed.
    * 
-   * *   TERMINATING: The collaboration task is being terminated.
+   * - TERMINATING: The collaboration task is being terminated.
    * 
-   * *   TERMINATED: The collaboration task is terminated.
+   * - TERMINATED: The collaboration task is terminated.
    * 
-   * *   PENDING: The collaboration task is pending to be executed.
+   * - PENDING: The collaboration task is pending to be executed.
    * 
    * @example
    * PENDING
@@ -43,11 +43,11 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
    * 
    * Valid values:
    * 
-   * *   ADMIN_INITIATE_FORCE: The administrator forcibly initiates the collaboration request.
+   * - ADMIN_INITIATE_FORCE: The administrator forcibly initiates the collaboration request.
    * 
-   * *   ADMIN_INITIATE: The administrator initiates the collaboration request.
+   * - ADMIN_INITIATE: The administrator initiates the collaboration request.
    * 
-   * *   COORDINATOR_INITIATE_FORCE: The coordinator forcibly initiates the collaboration request.
+   * - COORDINATOR_INITIATE_FORCE: The coordinator forcibly initiates the collaboration request.
    * 
    * @example
    * COORDINATOR_INITIATE_FORCE
@@ -74,7 +74,7 @@ export class ApplyCoordinationForMonitoringResponseBodyCoordinateFlowModels exte
    * The name of the cloud desktop.
    * 
    * @example
-   * TestDesktop
+   * DemoComputer
    */
   resourceName?: string;
   static names(): { [key: string]: string } {

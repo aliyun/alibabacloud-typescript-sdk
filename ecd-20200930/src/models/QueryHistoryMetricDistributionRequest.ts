@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryHistoryMetricDistributionRequestRanges extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to include the maximum value in the range. The default value is `false`.
+   * 
    * @example
    * false
    */
   includeMax?: boolean;
   /**
+   * @remarks
+   * Specifies whether to include the minimum value in the range. The default value is `true`.
+   * 
    * @example
    * true
    */
   includeMin?: boolean;
   /**
+   * @remarks
+   * The label for the value range. This label is returned in the response.
+   * 
    * @example
    * label-02\\"
    */
   label?: string;
   /**
+   * @remarks
+   * The maximum value of the value range.
+   * 
    * @example
    * 20
    */
   max?: number;
   /**
+   * @remarks
+   * The minimum value of the value range.
+   * 
    * @example
    * 0
    */
@@ -59,17 +74,30 @@ export class QueryHistoryMetricDistributionRequestRanges extends $dara.Model {
 
 export class QueryHistoryMetricDistributionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The end date of the query period. The date must be in the `YYYY-MM-DD` format. The default value is T-1.
+   * 
    * @example
    * 2026-04-01
    */
   endDate?: string;
   /**
+   * @remarks
+   * The name of the metric to query.
+   * 
    * @example
    * LOAD_SCORE
    */
   metricName?: string;
+  /**
+   * @remarks
+   * An array of custom value ranges.
+   */
   ranges?: QueryHistoryMetricDistributionRequestRanges[];
   /**
+   * @remarks
+   * The start date of the query period. The date must be in the `YYYY-MM-DD` format. The default value is T-1.
+   * 
    * @example
    * 2026-04-01
    */

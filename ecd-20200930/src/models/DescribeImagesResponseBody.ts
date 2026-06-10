@@ -65,21 +65,21 @@ export class DescribeImagesResponseBodyImages extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   SYSTEM
+   * - SYSTEM
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   CUSTOM
+   * - CUSTOM
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * SYSTEM
@@ -107,61 +107,61 @@ export class DescribeImagesResponseBodyImages extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Ubuntu
+   * - Ubuntu
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   Windows Server 2022
+   * - Windows Server 2022
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   UOS
+   * - UOS
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   CentOS
+   * - CentOS
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   Windows Server 2019
+   * - Windows Server 2019
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   SQL Server 2016
+   * - SQL Server 2016
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   Windows 10
+   * - Windows 10
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * Windows Server 2019
@@ -181,8 +181,9 @@ export class DescribeImagesResponseBodyImages extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   HDX: High-definition Experience (HDX) protocol
-   * *   ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
+   * - HDX: High-definition Experience (HDX) protocol
+   * 
+   * - ASP: in-house Adaptive Streaming Protocol (ASP) (recommended)
    * 
    * @example
    * ASP
@@ -194,9 +195,9 @@ export class DescribeImagesResponseBodyImages extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   SINGLE_SESSION: single-session image.
+   * - SINGLE_SESSION: single-session image.
    * 
-   * *   MULTIPLE_SESSION: multi-session image.
+   * - MULTIPLE_SESSION: multi-session image.
    * 
    * @example
    * MULTIPLE_SESSION
@@ -224,29 +225,29 @@ export class DescribeImagesResponseBodyImages extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   Creating
+   * - Creating
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   Available
+   * - Available
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   CreateFailed
+   * - CreateFailed
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * Available

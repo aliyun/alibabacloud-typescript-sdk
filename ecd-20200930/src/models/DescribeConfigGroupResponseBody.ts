@@ -21,7 +21,7 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
    * The description of the configuration group.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task information
    */
   description?: string;
   /**
@@ -33,23 +33,37 @@ export class DescribeConfigGroupResponseBodyData extends $dara.Model {
    */
   groupId?: string;
   /**
+   * @remarks
+   * Used for frontend display. The system scheduled task description uses a code.
+   * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE_DESC
    */
   innerTimerDesc?: string;
   /**
+   * @remarks
+   * Used for frontend display; maps the system scheduled task name to a code.
+   * 
    * @example
    * INNER_TIMER_10_MINUTES_HIBERNATE_NO_UPDATE
    */
   innerTimerName?: string;
+  /**
+   * @remarks
+   * Used for system scheduled task checks. The current scheduled task does not support detach or attach operations.
+   */
   isBind?: boolean;
+  /**
+   * @remarks
+   * Used for system scheduled task checks. The current scheduled task does not support modification.
+   */
   isUpdate?: boolean;
   /**
    * @remarks
    * The name of the configuration group.
    * 
    * @example
-   * ScheduledTask
+   * Scheduled task
    */
   name?: string;
   /**

@@ -78,21 +78,21 @@ export class CopyCdsFileResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
+   * - true
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   false
+   * - false
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * @example
    * true

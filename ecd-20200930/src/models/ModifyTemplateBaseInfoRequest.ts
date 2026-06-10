@@ -24,6 +24,9 @@ export class ModifyTemplateBaseInfoRequest extends $dara.Model {
   /**
    * @remarks
    * The template name.
+   * 
+   * @example
+   * Shanghai template1
    */
   templateName?: string;
   static names(): { [key: string]: string } {

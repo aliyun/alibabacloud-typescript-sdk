@@ -3,62 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetUserProfilePathRulesShrinkRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The desktop group ID.
-   * 
-   * @example
-   * dg-2i8qxpv6t1a03****
-   */
   desktopGroupId?: string;
   /**
    * @remarks
-   * The region ID.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * cn-hangzhou
    */
   regionId?: string;
-  /**
-   * @remarks
-   * The directories that you want to configure in the blacklist and whitelist.
-   */
   userProfilePathRuleShrink?: string;
-  /**
-   * @remarks
-   * The directory type that you want to configure.
-   * 
-   * Valid values:
-   * 
-   * *   Both_Default_DesktopGroup
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   DesktopGroup
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   Default
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * @example
-   * DesktopGroup
-   */
   userProfileRuleType?: string;
   static names(): { [key: string]: string } {
     return {

@@ -13,7 +13,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   cpuCount?: string;
   /**
    * @remarks
-   * The size of the data disk. Unit: GiB.
+   * The size of the data disk, in GiB.
    * 
    * @example
    * 150
@@ -22,7 +22,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the cloud desktop type.
+   * The specification ID.
    * 
    * @example
    * ecd.graphics.xlarge
@@ -30,7 +30,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   desktopTypeId?: string;
   /**
    * @remarks
-   * The status of the cloud desktop type. If SUFFICIENT is returned, the number of cloud desktops of the type is sufficient.
+   * The availability of the specification. A value of `SUFFICIENT` indicates that the specification is in stock.
    * 
    * @example
    * SUFFICIENT
@@ -40,7 +40,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   envType?: string;
   /**
    * @remarks
-   * The number of GPUs.
+   * The number of GPU cores.
    * 
    * @example
    * 1
@@ -48,7 +48,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   gpuCount?: number;
   /**
    * @remarks
-   * The GPU memory size. For GPU-accelerated cloud computers, this return value is significant. Unit: MB.
+   * The GPU memory size in MiB. This parameter is valid only for GPU-accelerated cloud desktops.
    * 
    * @example
    * 2048
@@ -56,7 +56,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   gpuMemory?: number;
   /**
    * @remarks
-   * The GPU memory.
+   * The GPU memory size.
    * 
    * @example
    * 16 GiB
@@ -64,7 +64,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The family of the cloud desktop type.
+   * The instance type family.
    * 
    * @example
    * ecd.graphics
@@ -72,7 +72,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   instanceTypeFamily?: string;
   /**
    * @remarks
-   * The number of sessions supported by the specification.
+   * The maximum number of concurrent sessions that is supported by the cloud desktop specification.
    * 
    * @example
    * 4
@@ -80,7 +80,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   maxSessionCount?: number;
   /**
    * @remarks
-   * The memory size. Unit: MiB.
+   * The memory size, in MiB.
    * 
    * @example
    * 23552
@@ -88,17 +88,12 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   memorySize?: string;
   /**
    * @remarks
-   * The sales modes of the specifications.
+   * The purchase options for the specification.
    */
   scopes?: string[];
   /**
    * @remarks
-   * The inventory status of the specification.
-   * 
-   * Valid values:
-   * 
-   * *   Insufficient
-   * *   Sufficient
+   * The inventory status.
    * 
    * @example
    * Sufficient
@@ -106,7 +101,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
   stockState?: string;
   /**
    * @remarks
-   * The size of the system disk. Unit: GiB.
+   * The size of the system disk, in GiB.
    * 
    * @example
    * 150
@@ -169,12 +164,12 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $dara.Model {
 export class DescribeDesktopTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The specifications.
+   * The details of the specifications.
    */
   desktopTypes?: DescribeDesktopTypesResponseBodyDesktopTypes[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

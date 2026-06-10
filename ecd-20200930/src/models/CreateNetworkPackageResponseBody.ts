@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkPackageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the premium bandwidth plan.
+   * The ID of the created network package.
    * 
    * @example
    * np-amtp8e8q1o9e4****
@@ -13,7 +13,7 @@ export class CreateNetworkPackageResponseBody extends $dara.Model {
   networkPackageId?: string;
   /**
    * @remarks
-   * The ID of the bill.
+   * The ID of the order.
    * 
    * @example
    * 234526262716724

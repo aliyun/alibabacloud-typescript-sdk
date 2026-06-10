@@ -24,7 +24,7 @@ export class DescribeGuestApplicationsResponseBodyApplicationsProcessData extend
    * The CPU utilization (%).
    * 
    * @example
-   * 89
+   * 0
    */
   cpuPercent?: number;
   /**
@@ -32,7 +32,7 @@ export class DescribeGuestApplicationsResponseBodyApplicationsProcessData extend
    * The GPU usage (%).
    * 
    * @example
-   * 15
+   * 0
    */
   gpuPercent?: number;
   /**
@@ -40,7 +40,7 @@ export class DescribeGuestApplicationsResponseBodyApplicationsProcessData extend
    * The I/O read and write performance. Unit: byte/s.
    * 
    * @example
-   * 124906.0
+   * 8919266
    */
   iospeed?: number;
   /**
@@ -48,7 +48,7 @@ export class DescribeGuestApplicationsResponseBodyApplicationsProcessData extend
    * The memory usage (%).
    * 
    * @example
-   * 34
+   * 1.8368155
    */
   memPercent?: number;
   /**
@@ -64,7 +64,7 @@ export class DescribeGuestApplicationsResponseBodyApplicationsProcessData extend
    * The path to the process.
    * 
    * @example
-   * C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\ch****.exe
+   * C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe
    */
   processPath?: string;
   static names(): { [key: string]: string } {
@@ -124,7 +124,7 @@ export class DescribeGuestApplicationsResponseBodyApplications extends $dara.Mod
    * The CPU utilization (%).
    * 
    * @example
-   * 89
+   * 0
    */
   cpuPercent?: number;
   /**
@@ -132,7 +132,7 @@ export class DescribeGuestApplicationsResponseBodyApplications extends $dara.Mod
    * The GPU utilization (%).
    * 
    * @example
-   * 15
+   * 0
    */
   gpuPercent?: number;
   /**
@@ -148,7 +148,7 @@ export class DescribeGuestApplicationsResponseBodyApplications extends $dara.Mod
    * The I/O read and write performance. Unit: byte/s.
    * 
    * @example
-   * 124906.0
+   * 8919266
    */
   ioSpeed?: number;
   /**
@@ -156,7 +156,7 @@ export class DescribeGuestApplicationsResponseBodyApplications extends $dara.Mod
    * The memory utilization (%).
    * 
    * @example
-   * 34
+   * 1.8368155
    */
   memPercent?: number;
   /**
@@ -177,7 +177,7 @@ export class DescribeGuestApplicationsResponseBodyApplications extends $dara.Mod
    * The path to the process.
    * 
    * @example
-   * C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\ch****.exe
+   * C:\\\\Program Files\\\\Google\\\\Chrome\\\\Application\\\\chrome.exe
    */
   processPath?: string;
   /**

@@ -9,7 +9,7 @@ export class BindConfigGroupRequestResourceInfos extends $dara.Model {
    * 
    * Valid value:
    * 
-   * *   CLOUD_DESKTOP: the cloud computer service.
+   * - CLOUD_DESKTOP: the cloud computer service.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -37,8 +37,9 @@ export class BindConfigGroupRequestResourceInfos extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   RESOURCE_GROUP: the resource group
-   * *   CLOUD_DESKTOP: the cloud computer service.
+   * - RESOURCE_GROUP: the resource group
+   * 
+   * - CLOUD_DESKTOP: the cloud computer service.
    * 
    * @example
    * CLOUD_DESKTOP
@@ -87,7 +88,7 @@ export class BindConfigGroupRequest extends $dara.Model {
    * The ID of the region. Set the value to `cn-shanghai`.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   regionId?: string;
   /**

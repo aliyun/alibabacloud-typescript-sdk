@@ -9,21 +9,21 @@ export class ModifyOfficeSiteMfaEnabledRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * *   true
+   * - true
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   * *   false
+   * - false
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
-   *     <!-- -->
+   *   <!-- -->
    * 
    * This parameter is required.
    * 

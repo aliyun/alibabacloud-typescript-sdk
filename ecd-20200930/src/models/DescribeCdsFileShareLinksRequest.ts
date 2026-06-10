@@ -55,7 +55,7 @@ export class DescribeCdsFileShareLinksRequest extends $dara.Model {
    * The file sharing status. Valid values: ● disabled: canceled ● enabled: valid
    * 
    * @example
-   * disabled
+   * enabled
    */
   status?: string;
   static names(): { [key: string]: string } {

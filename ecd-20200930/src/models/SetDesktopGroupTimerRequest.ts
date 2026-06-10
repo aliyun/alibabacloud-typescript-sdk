@@ -8,7 +8,7 @@ export class SetDesktopGroupTimerRequest extends $dara.Model {
    * The cron expression for the scheduled task. This parameter is required when `TimerType` is set to 2, 3, or 4.
    * 
    * @example
-   * 0 0 2 ? * 1-7
+   * 0 0 9 * * ?
    */
   cronExpression?: string;
   /**

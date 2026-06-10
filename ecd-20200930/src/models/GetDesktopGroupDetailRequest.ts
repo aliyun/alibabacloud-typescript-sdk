@@ -15,7 +15,7 @@ export class GetDesktopGroupDetailRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * Region ID. Call [](t2167755.xdita#)to list regions that support Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
