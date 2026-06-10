@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentsResponseBodyList extends $dara.Model {
+  agentIconUrl?: string;
   /**
    * @example
    * 840016700254633984
@@ -14,6 +15,8 @@ export class ListAgentsResponseBodyList extends $dara.Model {
    * text
    */
   agentScene?: string;
+  characterAgeStage?: string;
+  characterName?: string;
   charactersDescription?: string;
   /**
    * @example
@@ -58,9 +61,12 @@ export class ListAgentsResponseBodyList extends $dara.Model {
   viewer?: string;
   static names(): { [key: string]: string } {
     return {
+      agentIconUrl: 'agentIconUrl',
       agentId: 'agentId',
       agentName: 'agentName',
       agentScene: 'agentScene',
+      characterAgeStage: 'characterAgeStage',
+      characterName: 'characterName',
       charactersDescription: 'charactersDescription',
       enableInteraction: 'enableInteraction',
       industry: 'industry',
@@ -75,9 +81,12 @@ export class ListAgentsResponseBodyList extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agentIconUrl: 'string',
       agentId: 'string',
       agentName: 'string',
       agentScene: 'string',
+      characterAgeStage: 'string',
+      characterName: 'string',
       charactersDescription: 'string',
       enableInteraction: 'number',
       industry: 'string',

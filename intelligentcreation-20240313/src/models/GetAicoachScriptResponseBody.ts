@@ -547,6 +547,7 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
    * test
    */
   questionDescription?: string;
+  questionSample?: string;
   scriptPointId?: string;
   /**
    * @example
@@ -565,6 +566,7 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
       name: 'name',
       pointId: 'pointId',
       questionDescription: 'questionDescription',
+      questionSample: 'questionSample',
       scriptPointId: 'scriptPointId',
       sortNo: 'sortNo',
       weight: 'weight',
@@ -578,6 +580,7 @@ export class GetAICoachScriptResponseBodyPoints extends $dara.Model {
       name: 'string',
       pointId: 'string',
       questionDescription: 'string',
+      questionSample: 'string',
       scriptPointId: 'string',
       sortNo: 'number',
       weight: 'number',
