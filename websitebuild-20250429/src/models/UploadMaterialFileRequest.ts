@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UploadMaterialFileRequest extends $dara.Model {
   /**
    * @remarks
+   * Application Instance Business ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UploadMaterialFileRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * Parent Folder ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,12 +25,21 @@ export class UploadMaterialFileRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
+   * File Path
+   * 
    * This parameter is required.
    * 
    * @example
    * http://docmind-api-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/4a7f_209934244261306272_14fd429b731245a79f291c64acf3ac77
    */
   fileUrl?: string;
+  /**
+   * @remarks
+   * File Name
+   * 
+   * @example
+   * 测试文件
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {

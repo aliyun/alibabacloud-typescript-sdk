@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppPublishStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20250731233102000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Deployment ticket ID
+   * 
    * @example
    * 4998717
    */
   deployOrderId?: number;
   /**
+   * @remarks
+   * Website domain name
+   * 
    * @example
    * www.aliyun.com
    */

@@ -5,16 +5,25 @@ import { ModuleNextComponentsValuePropertiesValue } from "./ModuleNextComponents
 
 export class ModuleNextComponentsValueInstancePropertyValues extends $dara.Model {
   /**
+   * @remarks
+   * Property encoding (system internal identity)
+   * 
    * @example
    * placeholder
    */
   code?: string;
   /**
+   * @remarks
+   * Attribute Value encoding (internal System value)
+   * 
    * @example
    * placeholder
    */
   value?: string;
   /**
+   * @remarks
+   * Property display name (User-visible Name)
+   * 
    * @example
    * placeholder
    */
@@ -46,20 +55,33 @@ export class ModuleNextComponentsValueInstancePropertyValues extends $dara.Model
 
 export class ModuleNextComponentsValueInstanceProperty extends $dara.Model {
   /**
+   * @remarks
+   * Property encoding (system internal identity)
+   * 
    * @example
    * placeholder
    */
   code?: string;
   /**
+   * @remarks
+   * Property display name (User-visible Name)
+   * 
    * @example
    * placeholder
    */
   name?: string;
   /**
+   * @remarks
+   * Attribute Value encoding (internal System value)
+   * 
    * @example
    * placeholder
    */
   value?: string;
+  /**
+   * @remarks
+   * List of module Attribute Values
+   */
   values?: ModuleNextComponentsValueInstancePropertyValues[];
   static names(): { [key: string]: string } {
     return {
@@ -93,18 +115,35 @@ export class ModuleNextComponentsValueInstanceProperty extends $dara.Model {
 
 export class ModuleNextComponentsValue extends $dara.Model {
   /**
+   * @remarks
+   * Unique widget encoding (system internal identity)
+   * 
    * @example
    * placeholder
    */
   code?: string;
   /**
+   * @remarks
+   * Widget display name (User-visible name)
+   * 
    * @example
    * placeholder
    */
   name?: string;
+  /**
+   * @remarks
+   * Widget instance property configuration
+   */
   instanceProperty?: ModuleNextComponentsValueInstanceProperty[];
+  /**
+   * @remarks
+   * widget instance attribute configuration
+   */
   properties?: { [key: string]: ModuleNextComponentsValuePropertiesValue };
   /**
+   * @remarks
+   * Module attribute status
+   * 
    * @example
    * placeholder
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAIStaffPreviewUrlRequest extends $dara.Model {
   /**
+   * @remarks
+   * session ID
+   * 
    * @example
    * 81bc5a34-1d8d-4ef7-a208-7401c51b054b
    */
   conversationId?: string;
   /**
+   * @remarks
+   * is application restart required
+   * 
    * @example
    * true
    */

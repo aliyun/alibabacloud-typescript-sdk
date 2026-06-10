@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppSeoTrendsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250814102215000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Domain name
+   * 
    * @example
    * yjdw.bpu.edu.cn-waf
    */
   domain?: string;
   /**
+   * @remarks
+   * Search engine type
+   * 
    * @example
    * type
    */

@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMiniAppAuthUrlRequest extends $dara.Model {
   /**
+   * @remarks
+   * Site ID
+   * 
    * @example
    * WS20250731233102000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Channel information
+   * 
    * @example
    * WECHAT
    */
   channel?: string;
+  /**
+   * @remarks
+   * Hyperlink URL
+   * 
+   * @example
+   * null
+   */
   redirectUri?: string;
   static names(): { [key: string]: string } {
     return {

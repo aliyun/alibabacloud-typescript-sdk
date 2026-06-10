@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAIStaffChatRequestMessages extends $dara.Model {
   /**
+   * @remarks
+   * Message content
+   * 
    * @example
    * {\\"CodeRevision\\": \\"1750040991876284109\\"}
    */
   content?: string;
   /**
+   * @remarks
+   * Content type
+   * 
    * @example
    * application/octet-stream
    */
   contentType?: string;
+  /**
+   * @remarks
+   * Business extension metadata (in Map format, must be a JSON string)
+   */
   metaData?: { [key: string]: string };
   /**
+   * @remarks
+   * Role in the conversation
+   * 
    * @example
    * polarx_dn
    */
   role?: string;
   /**
+   * @remarks
+   * File type
+   * 
    * @example
    * risk
    */
@@ -58,21 +74,38 @@ export class CreateAIStaffChatRequestMessages extends $dara.Model {
 
 export class CreateAIStaffChatRequest extends $dara.Model {
   /**
+   * @remarks
+   * Site ID
+   * 
    * @example
    * WS20250801154628000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Conversation ID (provided when recovering from a break)
+   * 
    * @example
    * 3b465fe1-6f06-4899-af9f-d43d9338df25
    */
   chatId?: string;
   /**
+   * @remarks
+   * session ID
+   * 
    * @example
    * 5b7105a2-2999-430b-ba23-ba09149d5434
    */
   conversationId?: string;
+  /**
+   * @remarks
+   * List of conversation messages
+   */
   messages?: CreateAIStaffChatRequestMessages[];
+  /**
+   * @remarks
+   * Additional conversation information
+   */
   metaData?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {

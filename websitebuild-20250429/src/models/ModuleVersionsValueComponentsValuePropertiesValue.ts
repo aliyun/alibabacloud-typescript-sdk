@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModuleVersionsValueComponentsValuePropertiesValueValues extends $dara.Model {
   /**
+   * @remarks
+   * Property code (system internal identity)
+   * 
    * @example
    * code
    */
   code?: string;
   /**
+   * @remarks
+   * Attribute Value encoding (internal System value)
+   * 
    * @example
    * value
    */
   value?: string;
   /**
+   * @remarks
+   * Property display name (User-visible name)
+   * 
    * @example
    * name
    */
@@ -45,20 +54,33 @@ export class ModuleVersionsValueComponentsValuePropertiesValueValues extends $da
 
 export class ModuleVersionsValueComponentsValuePropertiesValue extends $dara.Model {
   /**
+   * @remarks
+   * Property code (system internal identity)
+   * 
    * @example
    * code
    */
   code?: string;
   /**
+   * @remarks
+   * Property display name (user-visible name)
+   * 
    * @example
    * name
    */
   name?: string;
   /**
+   * @remarks
+   * Attribute value code (system internal value)
+   * 
    * @example
    * value
    */
   value?: string;
+  /**
+   * @remarks
+   * List of module Attribute Values
+   */
   values?: ModuleVersionsValueComponentsValuePropertiesValueValues[];
   static names(): { [key: string]: string } {
     return {

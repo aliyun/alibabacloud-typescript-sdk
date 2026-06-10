@@ -4,32 +4,54 @@ import * as $dara from '@darabonba/typescript';
 
 export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * access denied details
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * application name. Query the application with this name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic code, currently unused. Ignore it.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message.
+   * 
    * @example
    * SYSTEM.ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * indicates whether the deletion succeeded
+   * 
    * @example
    * true
    */
@@ -43,12 +65,25 @@ export class UploadAppSiteValidationFileResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

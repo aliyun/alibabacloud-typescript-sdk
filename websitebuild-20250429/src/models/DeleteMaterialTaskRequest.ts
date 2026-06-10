@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMaterialTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * List of job IDs
+   * 
    * This parameter is required.
    */
   taskIds?: string[];

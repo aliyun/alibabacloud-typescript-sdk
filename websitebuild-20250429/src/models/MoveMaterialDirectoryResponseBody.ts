@@ -4,42 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class MoveMaterialDirectoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * application Name. Query the application with this Name.
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * error code. The value is described as follows: If the request succeeded, the ErrorCode field is not returned. If the request failed, the ErrorCode field is returned. For more information, see the error code List in this topic.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message.
+   * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * is shift succeeded
+   * 
    * @example
    * true
    */
@@ -53,17 +81,33 @@ export class MoveMaterialDirectoryResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * identity indicating whether the request succeeded or failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Backup parameter.
+   * 
    * @example
    * True
    */

@@ -4,32 +4,55 @@ import * as $dara from '@darabonba/typescript';
 
 export class SaveAppRequirementResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name. Query the application with this name.
+   * 
    * @example
    * ish-intelligence-store-platform-admin-web
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message in the response.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** provided is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Response data
+   * 
    * @example
    * true
    */
@@ -43,12 +66,25 @@ export class SaveAppRequirementResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Backup parameter.
+   * 
    * @example
    * True
    */

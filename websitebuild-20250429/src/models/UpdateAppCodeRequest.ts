@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAppCodeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Edit operation Content (JSON)
+   * 
    * @example
    * verify_6554d8cc0de584306d16506dd119cbfc
    */
   content?: string;
   /**
+   * @remarks
+   * session ID
+   * 
    * @example
    * 81bc5a34-1d8d-4ef7-a208-7401c51b054b
    */

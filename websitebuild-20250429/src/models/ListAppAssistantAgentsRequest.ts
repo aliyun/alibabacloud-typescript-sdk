@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppAssistantAgentsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Platform Type
+   * 
    * @example
    * ChannelOps
    */

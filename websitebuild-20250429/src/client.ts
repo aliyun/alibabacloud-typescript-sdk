@@ -30,7 +30,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分配Supabase实例
+   * Assign a Supabase instance to a resource
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - AllocateSupabaseForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -85,7 +88,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分配Supabase实例
+   * Assign a Supabase instance to a resource
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - AllocateSupabaseForAdminRequest
    * @returns AllocateSupabaseForAdminResponse
@@ -96,7 +102,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量校验资源计量
+   * Batch check resource usage
+   * 
+   * @remarks
+   * Operation resource-related Supabase instance information
    * 
    * @param request - BatchCheckResourceMeasureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -147,7 +156,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量校验资源计量
+   * Batch check resource usage
+   * 
+   * @remarks
+   * Operation resource-related Supabase instance information
    * 
    * @param request - BatchCheckResourceMeasureRequest
    * @returns BatchCheckResourceMeasureResponse
@@ -212,7 +224,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验资源计量
+   * Check resource usage
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - CheckResourceMeasureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -267,7 +282,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验资源计量
+   * Check resource usage
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - CheckResourceMeasureRequest
    * @returns CheckResourceMeasureResponse
@@ -278,7 +296,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验用户资源计量
+   * Validate user resource metering
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - CheckUserResourceMeasureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -333,7 +354,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验用户资源计量
+   * Validate user resource metering
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - CheckUserResourceMeasureRequest
    * @returns CheckUserResourceMeasureResponse
@@ -345,6 +369,9 @@ export default class Client extends OpenApi {
 
   /**
    * 试用转正
+   * 
+   * @remarks
+   * 查询应用实例信息
    * 
    * @param request - ConfirmAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -421,6 +448,9 @@ export default class Client extends OpenApi {
   /**
    * 试用转正
    * 
+   * @remarks
+   * 查询应用实例信息
+   * 
    * @param request - ConfirmAppInstanceRequest
    * @returns ConfirmAppInstanceResponse
    */
@@ -431,6 +461,9 @@ export default class Client extends OpenApi {
 
   /**
    * 复制插件配置
+   * 
+   * @remarks
+   * 获取生码插件配置信息
    * 
    * @param request - CopyAppPluginConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -467,6 +500,9 @@ export default class Client extends OpenApi {
   /**
    * 复制插件配置
    * 
+   * @remarks
+   * 获取生码插件配置信息
+   * 
    * @param request - CopyAppPluginConfigRequest
    * @returns CopyAppPluginConfigResponse
    */
@@ -476,7 +512,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 异步发起AI员工对话
+   * Initiate an AI employee conversation asynchronously
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 AI conversation
    * 
    * @param request - CreateAIStaffChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -528,7 +567,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 异步发起AI员工对话
+   * Initiate an AI employee conversation asynchronously
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 AI conversation
    * 
    * @param request - CreateAIStaffChatRequest
    * @returns CreateAIStaffChatResponse
@@ -539,7 +581,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建AI员工会话
+   * Create an AI agent session
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 API for creating an AI session
    * 
    * @param request - CreateAIStaffConversationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -570,7 +615,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建AI员工会话
+   * Create an AI agent session
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 API for creating an AI session
    * 
    * @param request - CreateAIStaffConversationRequest
    * @returns CreateAIStaffConversationResponse
@@ -581,7 +629,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用助手智能体
+   * Create Application Assistant Agent
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - CreateAppAssistantAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -620,7 +671,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建应用助手智能体
+   * Create Application Assistant Agent
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - CreateAppAssistantAgentRequest
    * @returns CreateAppAssistantAgentResponse
@@ -631,7 +685,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成应用助手SSO免登
+   * Generate application assistant SSO logon
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - CreateAppAssistantAgentSsoLoginRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -670,7 +727,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成应用助手SSO免登
+   * Generate application assistant SSO logon
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - CreateAppAssistantAgentSsoLoginRequest
    * @returns CreateAppAssistantAgentSsoLoginResponse
@@ -681,7 +741,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 万小智发起AI对话
+   * Wan Xiaozhi initiates an AI conversation
    * 
    * @param request - CreateAppChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -742,7 +802,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 万小智发起AI对话
+   * Wan Xiaozhi initiates an AI conversation
    * 
    * @param request - CreateAppChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -789,7 +849,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 万小智发起AI对话
+   * Wan Xiaozhi initiates an AI conversation
    * 
    * @param request - CreateAppChatRequest
    * @returns CreateAppChatResponse
@@ -956,7 +1016,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用实例创建 LLM 网关 API-KEY
+   * Create an LLM gateway API key for an application instance
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - CreateAppLlmApiKeyForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -999,7 +1062,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用实例创建 LLM 网关 API-KEY
+   * Create an LLM gateway API key for an application instance
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - CreateAppLlmApiKeyForPartnerRequest
    * @returns CreateAppLlmApiKeyForPartnerResponse
@@ -1010,7 +1076,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activate the Wanxiaozhi Inspiration Value service
+   * Activate the Wanxiao Zhi Inspiration Value service
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - CreateAppTokenServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1041,7 +1110,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activate the Wanxiaozhi Inspiration Value service
+   * Activate the Wanxiao Zhi Inspiration Value service
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - CreateAppTokenServiceRequest
    * @returns CreateAppTokenServiceResponse
@@ -1052,7 +1124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交创建Logo任务
+   * Commit a job to create a logo.
    * 
    * @param request - CreateLogoTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1095,7 +1167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交创建Logo任务
+   * Commit a job to create a logo.
    * 
    * @param request - CreateLogoTaskRequest
    * @returns CreateLogoTaskResponse
@@ -1106,7 +1178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建素材中心文件夹
+   * Create a subfolder under the parent folder.
    * 
    * @param request - CreateMaterialDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1145,7 +1217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建素材中心文件夹
+   * Create a subfolder under the parent folder.
    * 
    * @param request - CreateMaterialDirectoryRequest
    * @returns CreateMaterialDirectoryResponse
@@ -1250,6 +1322,9 @@ export default class Client extends OpenApi {
   /**
    * 删除文件
    * 
+   * @remarks
+   * 查询应用实例信息
+   * 
    * @param request - DeleteAppFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAppFileResponse
@@ -1285,6 +1360,9 @@ export default class Client extends OpenApi {
   /**
    * 删除文件
    * 
+   * @remarks
+   * 查询应用实例信息
+   * 
    * @param request - DeleteAppFileRequest
    * @returns DeleteAppFileResponse
    */
@@ -1294,7 +1372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除文件
+   * Delete file
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - DeleteAppInstanceFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1329,7 +1410,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除文件
+   * Delete file
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - DeleteAppInstanceFileRequest
    * @returns DeleteAppInstanceFileResponse
@@ -1340,7 +1424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Supabase密钥
+   * Delete Supabase key
+   * 
+   * @remarks
+   * Operation resource corresponds to the supabase instance information
    * 
    * @param request - DeleteAppSupabaseSecretsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1375,7 +1462,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Supabase密钥
+   * Delete Supabase key
+   * 
+   * @remarks
+   * Operation resource corresponds to the supabase instance information
    * 
    * @param request - DeleteAppSupabaseSecretsRequest
    * @returns DeleteAppSupabaseSecretsResponse
@@ -1386,7 +1476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除素材中心文件夹
+   * Delete a material folder
    * 
    * @param request - DeleteMaterialDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1421,7 +1511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除素材中心文件夹
+   * Delete a material folder
    * 
    * @param request - DeleteMaterialDirectoryRequest
    * @returns DeleteMaterialDirectoryResponse
@@ -1432,7 +1522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除素材生产任务
+   * Delete Material Generation Job
    * 
    * @param tmpReq - DeleteMaterialTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1469,7 +1559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除素材生产任务
+   * Delete Material Generation Job
    * 
    * @param request - DeleteMaterialTaskRequest
    * @returns DeleteMaterialTaskResponse
@@ -1588,7 +1678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑插件配置
+   * Edit plugin configuration.
    * 
    * @param request - EditPluginConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1635,7 +1725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑插件配置
+   * Edit plugin configuration.
    * 
    * @param request - EditPluginConfigRequest
    * @returns EditPluginConfigResponse
@@ -1646,7 +1736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出素材文件
+   * Export material files
    * 
    * @param tmpReq - ExportMaterialFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1687,7 +1777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出素材文件
+   * Export material files
    * 
    * @param request - ExportMaterialFileRequest
    * @returns ExportMaterialFileResponse
@@ -1698,7 +1788,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取AI员工站点预览地址
+   * WanXiaoZhi 2.0 - Obtain Site Preview URL
+   * 
+   * @remarks
+   * WanXiaoZhi 2.0 - Obtain Site Preview URL
    * 
    * @param request - GetAIStaffPreviewUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1733,7 +1826,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取AI员工站点预览地址
+   * WanXiaoZhi 2.0 - Obtain Site Preview URL
+   * 
+   * @remarks
+   * WanXiaoZhi 2.0 - Obtain Site Preview URL
    * 
    * @param request - GetAIStaffPreviewUrlRequest
    * @returns GetAIStaffPreviewUrlResponse
@@ -1744,7 +1840,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取代码工作区详情
+   * Retrieve code workspace details
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - GetAppCodeWorkspaceDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1775,7 +1874,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取代码工作区详情
+   * Retrieve code workspace details
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - GetAppCodeWorkspaceDetailRequest
    * @returns GetAppCodeWorkspaceDetailResponse
@@ -1786,7 +1888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取对话详情
+   * Retrieve conversation details
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 API for creating an AI session
    * 
    * @param request - GetAppConversationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1821,7 +1926,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取对话详情
+   * Retrieve conversation details
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 API for creating an AI session
    * 
    * @param request - GetAppConversationRequest
    * @returns GetAppConversationResponse
@@ -1832,7 +1940,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话锁定状态
+   * Obtain session lock status
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 API for creating AI sessions
    * 
    * @param request - GetAppConversationLockStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1863,7 +1974,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会话锁定状态
+   * Obtain session lock status
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 API for creating AI sessions
    * 
    * @param request - GetAppConversationLockStatusRequest
    * @returns GetAppConversationLockStatusResponse
@@ -1875,6 +1989,9 @@ export default class Client extends OpenApi {
 
   /**
    * 查询数据库表结构
+   * 
+   * @remarks
+   * 查询应用实例信息
    * 
    * @param request - GetAppDatabaseTableSchemasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1911,6 +2028,9 @@ export default class Client extends OpenApi {
   /**
    * 查询数据库表结构
    * 
+   * @remarks
+   * 查询应用实例信息
+   * 
    * @param request - GetAppDatabaseTableSchemasRequest
    * @returns GetAppDatabaseTableSchemasResponse
    */
@@ -1921,6 +2041,9 @@ export default class Client extends OpenApi {
 
   /**
    * 读取文件及修改时间
+   * 
+   * @remarks
+   * 获取生码插件配置信息
    * 
    * @param request - GetAppFileContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1956,6 +2079,9 @@ export default class Client extends OpenApi {
 
   /**
    * 读取文件及修改时间
+   * 
+   * @remarks
+   * 获取生码插件配置信息
    * 
    * @param request - GetAppFileContentRequest
    * @returns GetAppFileContentResponse
@@ -2010,6 +2136,9 @@ export default class Client extends OpenApi {
   /**
    * GetAppInstanceEntitlement
    * 
+   * @remarks
+   * Query application instance information
+   * 
    * @param request - GetAppInstanceEntitlementRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAppInstanceEntitlementResponse
@@ -2041,6 +2170,9 @@ export default class Client extends OpenApi {
   /**
    * GetAppInstanceEntitlement
    * 
+   * @remarks
+   * Query application instance information
+   * 
    * @param request - GetAppInstanceEntitlementRequest
    * @returns GetAppInstanceEntitlementResponse
    */
@@ -2051,6 +2183,9 @@ export default class Client extends OpenApi {
 
   /**
    * Query application instance information
+   * 
+   * @remarks
+   * 查询应用实例信息
    * 
    * @param request - GetAppInstanceForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2087,6 +2222,9 @@ export default class Client extends OpenApi {
   /**
    * Query application instance information
    * 
+   * @remarks
+   * 查询应用实例信息
+   * 
    * @param request - GetAppInstanceForAdminRequest
    * @returns GetAppInstanceForAdminResponse
    */
@@ -2097,6 +2235,9 @@ export default class Client extends OpenApi {
 
   /**
    * Query instance details
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - GetAppInstanceForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2129,6 +2270,9 @@ export default class Client extends OpenApi {
   /**
    * Query instance details
    * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
+   * 
    * @param request - GetAppInstanceForPartnerRequest
    * @returns GetAppInstanceForPartnerResponse
    */
@@ -2138,7 +2282,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用临时短链
+   * Obtain a temporary short URL for the application
+   * 
+   * @remarks
+   * Obtain configuration information of the code generation plugin
    * 
    * @param request - GetAppInstanceTempShortUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2169,7 +2316,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用临时短链
+   * Obtain a temporary short URL for the application
+   * 
+   * @remarks
+   * Obtain configuration information of the code generation plugin
    * 
    * @param request - GetAppInstanceTempShortUrlRequest
    * @returns GetAppInstanceTempShortUrlResponse
@@ -2180,7 +2330,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生码-获取插件配置信息
+   * Obtain plugin configuration information.
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin.
    * 
    * @param request - GetAppPluginConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2215,7 +2368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生码-获取插件配置信息
+   * Obtain plugin configuration information.
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin.
    * 
    * @param request - GetAppPluginConfigRequest
    * @returns GetAppPluginConfigResponse
@@ -2226,7 +2382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布状态查询
+   * Query publishing status
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - GetAppPublishStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2265,7 +2424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布状态查询
+   * Query publishing status
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - GetAppPublishStatusRequest
    * @returns GetAppPublishStatusResponse
@@ -2276,7 +2438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询万小智推荐商品
+   * Query recommended products
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - GetAppRecommendedCommoditiesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2319,7 +2484,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询万小智推荐商品
+   * Query recommended products
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - GetAppRecommendedCommoditiesRequest
    * @returns GetAppRecommendedCommoditiesResponse
@@ -2330,7 +2498,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 需求查询
+   * Requirement query
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - GetAppRequirementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2361,7 +2532,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 需求查询
+   * Requirement query
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - GetAppRequirementRequest
    * @returns GetAppRequirementResponse
@@ -2372,7 +2546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取沙箱预览地址
+   * Obtain sandbox preview URL
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - Obtain site preview URL
    * 
    * @param request - GetAppSandboxPreviewUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2407,7 +2584,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取沙箱预览地址
+   * Obtain sandbox preview URL
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - Obtain site preview URL
    * 
    * @param request - GetAppSandboxPreviewUrlRequest
    * @returns GetAppSandboxPreviewUrlResponse
@@ -2418,7 +2598,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SEO索引状态
+   * Query SEO index status
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - GetAppSeoStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2457,7 +2640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SEO索引状态
+   * Query SEO index status
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - GetAppSeoStatusRequest
    * @returns GetAppSeoStatusResponse
@@ -2468,7 +2654,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SEO索引图表
+   * SEO Index Chart
+   * 
+   * @remarks
+   * Obtain plugin configuration information
    * 
    * @param request - GetAppSeoTrendsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2507,7 +2696,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SEO索引图表
+   * SEO Index Chart
+   * 
+   * @remarks
+   * Obtain plugin configuration information
    * 
    * @param request - GetAppSeoTrendsRequest
    * @returns GetAppSeoTrendsResponse
@@ -2518,7 +2710,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取站点地图
+   * Retrieve site map
+   * 
+   * @remarks
+   * Retrieve QR code plugin configuration information
    * 
    * @param request - GetAppSitemapRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2557,7 +2752,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取站点地图
+   * Retrieve site map
+   * 
+   * @remarks
+   * Retrieve QR code plugin configuration information
    * 
    * @param request - GetAppSitemapRequest
    * @returns GetAppSitemapResponse
@@ -2568,7 +2766,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Supabase认证设置查询
+   * Query Supabase authentication settings
+   * 
+   * @remarks
+   * Query the auth configuration information of the Supabase instance corresponding to the resource.
    * 
    * @param request - GetAppSupabaseAuthConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2603,7 +2804,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Supabase认证设置查询
+   * Query Supabase authentication settings
+   * 
+   * @remarks
+   * Query the auth configuration information of the Supabase instance corresponding to the resource.
    * 
    * @param request - GetAppSupabaseAuthConfigRequest
    * @returns GetAppSupabaseAuthConfigResponse
@@ -2614,7 +2818,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Supabase实例信息
+   * Obtain Supabase instance information
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - GetAppSupabaseInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2645,7 +2852,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Supabase实例信息
+   * Obtain Supabase instance information
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - GetAppSupabaseInstanceRequest
    * @returns GetAppSupabaseInstanceResponse
@@ -2656,7 +2866,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase密钥
+   * Query Supabase keys
+   * 
+   * @remarks
+   * The supabase instance information corresponding to the operated resource
    * 
    * @param request - GetAppSupabaseSecretsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2691,7 +2904,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase密钥
+   * Query Supabase keys
+   * 
+   * @remarks
+   * The supabase instance information corresponding to the operated resource
    * 
    * @param request - GetAppSupabaseSecretsRequest
    * @returns GetAppSupabaseSecretsResponse
@@ -2702,7 +2918,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板详情查询
+   * Query template details
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - GetAppTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2733,7 +2952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板详情查询
+   * Query template details
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - GetAppTemplateRequest
    * @returns GetAppTemplateResponse
@@ -2744,7 +2966,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询万小智灵感值服务
+   * Query the Wan Xiaozhi Inspiration Value service
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAppTokenServiceResponse
@@ -2766,7 +2991,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询万小智灵感值服务
+   * Query the Wan Xiaozhi Inspiration Value service
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * @returns GetAppTokenServiceResponse
    */
   async getAppTokenService(): Promise<$_model.GetAppTokenServiceResponse> {
@@ -2775,7 +3003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作区目录结构
+   * Obtain the workspace directory structure
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - GetAppWorkspaceDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2814,7 +3045,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作区目录结构
+   * Obtain the workspace directory structure
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - GetAppWorkspaceDirectoryRequest
    * @returns GetAppWorkspaceDirectoryResponse
@@ -2825,7 +3059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Logo创建任务
+   * Query the Logo creation job
    * 
    * @param request - GetCreateLogoTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2856,7 +3090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Logo创建任务
+   * Query the Logo creation job
    * 
    * @param request - GetCreateLogoTaskRequest
    * @returns GetCreateLogoTaskResponse
@@ -2867,7 +3101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提供给服务商的域名查询接口
+   * Domain name query API provided to service providers
    * 
    * @param request - GetDomainInfoForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2906,7 +3140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提供给服务商的域名查询接口
+   * Domain name query API provided to service providers
    * 
    * @param request - GetDomainInfoForPartnerRequest
    * @returns GetDomainInfoForPartnerResponse
@@ -2917,7 +3151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名备案信息
+   * Query ICP filing information of a domain name
    * 
    * @param request - GetIcpFilingInfoForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2952,7 +3186,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名备案信息
+   * Query ICP filing information of a domain name
    * 
    * @param request - GetIcpFilingInfoForPartnerRequest
    * @returns GetIcpFilingInfoForPartnerResponse
@@ -2963,7 +3197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询LLM Proxy配置
+   * Query LLM Proxy configuration
+   * 
+   * @remarks
+   * Query the Supabase instance configuration information corresponding to the resource.
    * 
    * @param request - GetLlmProxyConfigForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2998,7 +3235,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询LLM Proxy配置
+   * Query LLM Proxy configuration
+   * 
+   * @remarks
+   * Query the Supabase instance configuration information corresponding to the resource.
    * 
    * @param request - GetLlmProxyConfigForAdminRequest
    * @returns GetLlmProxyConfigForAdminResponse
@@ -3009,7 +3249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取小程序授权链接
+   * Obtain miniapp authorization link
    * 
    * @param request - GetMiniAppAuthUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3048,7 +3288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取小程序授权链接
+   * Obtain miniapp authorization link
    * 
    * @param request - GetMiniAppAuthUrlRequest
    * @returns GetMiniAppAuthUrlResponse
@@ -3059,7 +3299,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点绑定的小程序
+   * Query the miniapp attached to a site
+   * 
+   * @remarks
+   * Obtain the QR code plugin configuration information
    * 
    * @param tmpReq - GetMiniAppBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3104,7 +3347,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点绑定的小程序
+   * Query the miniapp attached to a site
+   * 
+   * @remarks
+   * Obtain the QR code plugin configuration information
    * 
    * @param request - GetMiniAppBindingRequest
    * @returns GetMiniAppBindingResponse
@@ -3115,7 +3361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据条件查询应用实例绑定的小程序
+   * Query the miniapp attached to an application instance based on conditions
    * 
    * @param request - GetMiniAppBindingForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3154,7 +3400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据条件查询应用实例绑定的小程序
+   * Query the miniapp attached to an application instance based on conditions
    * 
    * @param request - GetMiniAppBindingForAdminRequest
    * @returns GetMiniAppBindingForAdminResponse
@@ -3166,6 +3412,9 @@ export default class Client extends OpenApi {
 
   /**
    * 生成文件上传策略
+   * 
+   * @remarks
+   * 获取生码插件配置信息
    * 
    * @param request - GetOssUploadPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3198,6 +3447,9 @@ export default class Client extends OpenApi {
   /**
    * 生成文件上传策略
    * 
+   * @remarks
+   * 获取生码插件配置信息
+   * 
    * @param request - GetOssUploadPolicyRequest
    * @returns GetOssUploadPolicyResponse
    */
@@ -3208,6 +3460,9 @@ export default class Client extends OpenApi {
 
   /**
    * 获取临时下载地址
+   * 
+   * @remarks
+   * 获取生码插件配置信息
    * 
    * @param request - GetTempDownloadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3240,6 +3495,9 @@ export default class Client extends OpenApi {
   /**
    * 获取临时下载地址
    * 
+   * @remarks
+   * 获取生码插件配置信息
+   * 
    * @param request - GetTempDownloadUrlRequest
    * @returns GetTempDownloadUrlResponse
    */
@@ -3249,7 +3507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过授权码得到accessToken
+   * Exchange temporary AccessKey for accessToken
    * 
    * @param request - GetUserAccessTokenForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3284,7 +3542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过授权码得到accessToken
+   * Exchange temporary AccessKey for accessToken
    * 
    * @param request - GetUserAccessTokenForPartnerRequest
    * @returns GetUserAccessTokenForPartnerResponse
@@ -3295,7 +3553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合作伙伴获取用户SLR角色授权临时凭证
+   * Partnership obtains temporary credentials for User SLR role authorization
    * 
    * @param request - GetUserTmpIdentityForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3342,7 +3600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合作伙伴获取用户SLR角色授权临时凭证
+   * Partnership obtains temporary credentials for User SLR role authorization
    * 
    * @param request - GetUserTmpIdentityForPartnerRequest
    * @returns GetUserTmpIdentityForPartnerResponse
@@ -3353,7 +3611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查AccessToken
+   * Introspection analysis of免登 accessToken
    * 
    * @param request - IntrospectAppInstanceTicketForPreviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3388,7 +3646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查AccessToken
+   * Introspection analysis of免登 accessToken
    * 
    * @param request - IntrospectAppInstanceTicketForPreviewRequest
    * @returns IntrospectAppInstanceTicketForPreviewResponse
@@ -3399,7 +3657,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取AI员工对话增量SSE事件
+   * Obtain incremental SSE events of AI employee conversations
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 – Retrieve streaming output results of AI sessions
    * 
    * @param request - ListAIStaffChatEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3444,7 +3705,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取AI员工对话增量SSE事件
+   * Obtain incremental SSE events of AI employee conversations
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 – Retrieve streaming output results of AI sessions
    * 
    * @param request - ListAIStaffChatEventsRequest
    * @returns ListAIStaffChatEventsResponse
@@ -3455,7 +3719,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询AI员工对话消息列表
+   * Paged query of AI employee conversation message list
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - API for querying AI session history information
    * 
    * @param request - ListAIStaffChatMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3500,7 +3767,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询AI员工对话消息列表
+   * Paged query of AI employee conversation message list
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - API for querying AI session history information
    * 
    * @param request - ListAIStaffChatMessagesRequest
    * @returns ListAIStaffChatMessagesResponse
@@ -3511,7 +3781,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用助手智能体列表
+   * Query the list of application assistant agents
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - ListAppAssistantAgentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3546,7 +3819,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询应用助手智能体列表
+   * Query the list of application assistant agents
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - ListAppAssistantAgentsRequest
    * @returns ListAppAssistantAgentsResponse
@@ -3557,7 +3833,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定聊天的消息列表
+   * Query the message list of a specified chat
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - AI session history information query API
    * 
    * @param request - ListAppChatMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3604,7 +3883,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定聊天的消息列表
+   * Query the message list of a specified chat
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - AI session history information query API
    * 
    * @param request - ListAppChatMessagesRequest
    * @returns ListAppChatMessagesResponse
@@ -3615,7 +3897,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取商品配置信息
+   * Product information data
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
    * 
@@ -3640,7 +3925,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取商品配置信息
+   * Product information data
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @deprecated OpenAPI ListAppCommoditySpecificationsForPartner is deprecated, please use WebsiteBuild::2025-04-29::ListAppCommoditySpecificationsV2ForPartner instead.
    * @returns ListAppCommoditySpecificationsForPartnerResponse
@@ -3652,7 +3940,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网站信息查询
+   * Query website building product details
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - ListAppCommoditySpecificationsV2ForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3687,7 +3978,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 网站信息查询
+   * Query website building product details
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - ListAppCommoditySpecificationsV2ForPartnerRequest
    * @returns ListAppCommoditySpecificationsV2ForPartnerResponse
@@ -3698,7 +3992,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询对话消息列表
+   * Paged query of conversation message list
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - AI session history information query API
    * 
    * @param request - ListAppConversationMessagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3749,7 +4046,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询对话消息列表
+   * Paged query of conversation message list
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - AI session history information query API
    * 
    * @param request - ListAppConversationMessagesRequest
    * @returns ListAppConversationMessagesResponse
@@ -3760,7 +4060,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索对话列表
+   * Search session list
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 Create AI Session API
    * 
    * @param request - ListAppConversationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3819,7 +4122,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索对话列表
+   * Search session list
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 Create AI Session API
    * 
    * @param request - ListAppConversationsRequest
    * @returns ListAppConversationsResponse
@@ -4042,7 +4348,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取码农插件配置列表
+   * Retrieve the list of Code Farmer plugin configurations
+   * 
+   * @remarks
+   * Retrieve the configuration information of the code generation plugin
    * 
    * @param request - ListAppPluginConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4081,7 +4390,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取码农插件配置列表
+   * Retrieve the list of Code Farmer plugin configurations
+   * 
+   * @remarks
+   * Retrieve the configuration information of the code generation plugin
    * 
    * @param request - ListAppPluginConfigsRequest
    * @returns ListAppPluginConfigsResponse
@@ -4092,7 +4404,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用插件列表
+   * List of code generation plugins
+   * 
+   * @remarks
+   * Obtain configuration information of code generation plugins
    * 
    * @param request - ListAppPluginsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4139,7 +4454,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用插件列表
+   * List of code generation plugins
+   * 
+   * @remarks
+   * Obtain configuration information of code generation plugins
    * 
    * @param request - ListAppPluginsRequest
    * @returns ListAppPluginsResponse
@@ -4150,7 +4468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布历史查询
+   * Query publish history
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - ListAppPublishHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4187,12 +4508,20 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.publishEnv)) {
+      query["PublishEnv"] = request.publishEnv;
+    }
+
     if (!$dara.isNull(request.sort)) {
       query["Sort"] = request.sort;
     }
 
     if (!$dara.isNull(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.subchannel)) {
+      query["Subchannel"] = request.subchannel;
     }
 
     if (!$dara.isNull(request.websiteDomain)) {
@@ -4217,7 +4546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布历史查询
+   * Query publish history
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - ListAppPublishHistoryRequest
    * @returns ListAppPublishHistoryResponse
@@ -4228,7 +4560,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 字典列表查询
+   * Query dictionary list
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - ListAppTemplateDictsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4267,7 +4602,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 字典列表查询
+   * Query dictionary list
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - ListAppTemplateDictsRequest
    * @returns ListAppTemplateDictsResponse
@@ -4278,7 +4616,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板列表查询
+   * Query template list
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - ListAppTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4345,7 +4686,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 模板列表查询
+   * Query template list
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - ListAppTemplatesRequest
    * @returns ListAppTemplatesResponse
@@ -4356,7 +4700,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询支付宝ISV插件配置
+   * Query Alipay ISV plugin configuration
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - ListIsvPaymentPluginConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4395,7 +4742,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询支付宝ISV插件配置
+   * Query Alipay ISV plugin configuration
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - ListIsvPaymentPluginConfigsRequest
    * @returns ListIsvPaymentPluginConfigsResponse
@@ -4472,7 +4822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改素材中心文件夹
+   * Modify a material folder
    * 
    * @param request - ModifyMaterialDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4511,7 +4861,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改素材中心文件夹
+   * Modify a material folder
    * 
    * @param request - ModifyMaterialDirectoryRequest
    * @returns ModifyMaterialDirectoryResponse
@@ -4522,7 +4872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改素材文件
+   * Modify a material file
    * 
    * @param request - ModifyMaterialFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4561,7 +4911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改素材文件
+   * Modify a material file
    * 
    * @param request - ModifyMaterialFileRequest
    * @returns ModifyMaterialFileResponse
@@ -4572,7 +4922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改素材文件状态
+   * Modify the status of a material file
    * 
    * @param tmpReq - ModifyMaterialFileStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4617,7 +4967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改素材文件状态
+   * Modify the status of a material file
    * 
    * @param request - ModifyMaterialFileStatusRequest
    * @returns ModifyMaterialFileStatusResponse
@@ -4628,7 +4978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动素材中心文件夹
+   * Shift material folder
    * 
    * @param request - MoveMaterialDirectoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4671,7 +5021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动素材中心文件夹
+   * Shift material folder
    * 
    * @param request - MoveMaterialDirectoryRequest
    * @returns MoveMaterialDirectoryResponse
@@ -4682,7 +5032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动素材文件
+   * Shift material files
    * 
    * @param tmpReq - MoveMaterialFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4727,7 +5077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移动素材文件
+   * Shift material files
    * 
    * @param request - MoveMaterialFileRequest
    * @returns MoveMaterialFileResponse
@@ -4738,7 +5088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合作伙伴操作应用
+   * Operate application for Partnership
    * 
    * @param request - OperateAppInstanceForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4773,7 +5123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合作伙伴操作应用
+   * Operate application for Partnership
    * 
    * @param request - OperateAppInstanceForPartnerRequest
    * @returns OperateAppInstanceForPartnerResponse
@@ -4784,7 +5134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合作伙伴操作应用服务
+   * Partnership operates application services.
    * 
    * @param request - OperateAppServiceForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4827,7 +5177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合作伙伴操作应用服务
+   * Partnership operates application services.
    * 
    * @param request - OperateAppServiceForPartnerRequest
    * @returns OperateAppServiceForPartnerResponse
@@ -4838,7 +5188,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 切换模板点赞统计
+   * Switch template like statistics
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - OperateAppTemplateLikeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4873,7 +5226,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 切换模板点赞统计
+   * Switch template like statistics
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - OperateAppTemplateLikeRequest
    * @returns OperateAppTemplateLikeResponse
@@ -4884,7 +5240,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通用Supabase操作
+   * Supabase instance information corresponding to the operation resource
+   * 
+   * @remarks
+   * Supabase instance information corresponding to the operation resource
    * 
    * @param request - OperateSupabaseForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4959,7 +5318,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通用Supabase操作
+   * Supabase instance information corresponding to the operation resource
+   * 
+   * @remarks
+   * Supabase instance information corresponding to the operation resource
    * 
    * @param request - OperateSupabaseForAdminRequest
    * @returns OperateSupabaseForAdminResponse
@@ -4970,7 +5332,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布应用实例
+   * Publish application instance
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - PublishAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5021,7 +5386,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布应用实例
+   * Publish application instance
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - PublishAppInstanceRequest
    * @returns PublishAppInstanceResponse
@@ -5032,7 +5400,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 推送资源计量数据
+   * Push resource metering data
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - PushResourceMeasureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5095,7 +5466,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 推送资源计量数据
+   * Push resource metering data
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - PushResourceMeasureRequest
    * @returns PushResourceMeasureResponse
@@ -5106,7 +5480,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询灵感值获取明细
+   * Query the details of inspiration value acquisition (quota account list, including expiration mark)
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - QueryInspirationAccountDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5161,7 +5538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询灵感值获取明细
+   * Query the details of inspiration value acquisition (quota account list, including expiration mark)
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - QueryInspirationAccountDetailsRequest
    * @returns QueryInspirationAccountDetailsResponse
@@ -5172,7 +5552,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询灵感值余额总览
+   * Query the overview of inspiration balance
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryInspirationBalanceResponse
@@ -5194,7 +5577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询灵感值余额总览
+   * Query the overview of inspiration balance
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * @returns QueryInspirationBalanceResponse
    */
   async queryInspirationBalance(): Promise<$_model.QueryInspirationBalanceResponse> {
@@ -5203,7 +5589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询灵感值消耗明细
+   * Query inspiration value consumption details
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - QueryInspirationConsumeRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5258,7 +5647,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询灵感值消耗明细
+   * Query inspiration value consumption details
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - QueryInspirationConsumeRecordsRequest
    * @returns QueryInspirationConsumeRecordsResponse
@@ -5269,7 +5661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材中心文件夹树结构
+   * Query the material folder tree
    * 
    * @param request - QueryMaterialDirectoryTreeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5308,7 +5700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材中心文件夹树结构
+   * Query the material folder tree
    * 
    * @param request - QueryMaterialDirectoryTreeRequest
    * @returns QueryMaterialDirectoryTreeResponse
@@ -5319,7 +5711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材文件详情
+   * Query Material File Details
    * 
    * @param request - QueryMaterialFileDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5354,7 +5746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材文件详情
+   * Query Material File Details
    * 
    * @param request - QueryMaterialFileDetailRequest
    * @returns QueryMaterialFileDetailResponse
@@ -5365,7 +5757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Material File List
+   * Query the list of material files
    * 
    * @param tmpReq - QueryMaterialFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5462,7 +5854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Material File List
+   * Query the list of material files
    * 
    * @param request - QueryMaterialFileListRequest
    * @returns QueryMaterialFileListResponse
@@ -5473,7 +5865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材中心文件概要信息
+   * Query file overview
    * 
    * @param tmpReq - QueryMaterialFileSummaryInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5546,7 +5938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材中心文件概要信息
+   * Query file overview
    * 
    * @param request - QueryMaterialFileSummaryInfoRequest
    * @returns QueryMaterialFileSummaryInfoResponse
@@ -5557,7 +5949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材生产任务详情
+   * Query the details of a Material generation Job
    * 
    * @param request - QueryMaterialTaskDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5588,7 +5980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材生产任务详情
+   * Query the details of a Material generation Job
    * 
    * @param request - QueryMaterialTaskDetailRequest
    * @returns QueryMaterialTaskDetailResponse
@@ -5599,7 +5991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材生产任务列表
+   * Query the list of Material generation Jobs
    * 
    * @param tmpReq - QueryMaterialTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5668,7 +6060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询素材生产任务列表
+   * Query the list of Material generation Jobs
    * 
    * @param request - QueryMaterialTaskListRequest
    * @returns QueryMaterialTaskListResponse
@@ -5679,7 +6071,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase Auth配置信息
+   * Query the auth configuration information of the Supabase instance corresponding to the resource
+   * 
+   * @remarks
+   * Query the auth configuration information of the Supabase instance corresponding to the resource
    * 
    * @param request - QuerySupabaseAuthConfigsForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5738,7 +6133,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase Auth配置信息
+   * Query the auth configuration information of the Supabase instance corresponding to the resource
+   * 
+   * @remarks
+   * Query the auth configuration information of the Supabase instance corresponding to the resource
    * 
    * @param request - QuerySupabaseAuthConfigsForAdminRequest
    * @returns QuerySupabaseAuthConfigsForAdminResponse
@@ -5749,7 +6147,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase配置信息
+   * Query the Supabase instance configuration information corresponding to the resource.
+   * 
+   * @remarks
+   * Query the Supabase instance configuration information corresponding to the resource.
    * 
    * @param request - QuerySupabaseConfigsForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5804,7 +6205,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase配置信息
+   * Query the Supabase instance configuration information corresponding to the resource.
+   * 
+   * @remarks
+   * Query the Supabase instance configuration information corresponding to the resource.
    * 
    * @param request - QuerySupabaseConfigsForAdminRequest
    * @returns QuerySupabaseConfigsForAdminResponse
@@ -5815,7 +6219,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase实例信息
+   * Query the Supabase instance information corresponding to the resource
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - QuerySupabaseInstanceInfoForAdminRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5870,7 +6277,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Supabase实例信息
+   * Query the Supabase instance information corresponding to the resource
+   * 
+   * @remarks
+   * Query the Supabase instance information corresponding to the resource
    * 
    * @param request - QuerySupabaseInstanceInfoForAdminRequest
    * @returns QuerySupabaseInstanceInfoForAdminResponse
@@ -5881,7 +6291,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重新连接AI对话
+   * Reconnect AI conversation
+   * 
+   * @remarks
+   * Obtain QR code plugin Configuration Information
    * 
    * @param request - ReconnectAppChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5934,7 +6347,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重新连接AI对话
+   * Reconnect AI conversation
+   * 
+   * @remarks
+   * Obtain QR code plugin Configuration Information
    * 
    * @param request - ReconnectAppChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5973,7 +6389,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重新连接AI对话
+   * Reconnect AI conversation
+   * 
+   * @remarks
+   * Obtain QR code plugin Configuration Information
    * 
    * @param request - ReconnectAppChatRequest
    * @returns ReconnectAppChatResponse
@@ -6034,7 +6453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 渠道业务退款接口
+   * Refund for channel partner website building service.
    * 
    * @param request - RefundAppInstanceForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6077,7 +6496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 渠道业务退款接口
+   * Refund for channel partner website building service.
    * 
    * @param request - RefundAppInstanceForPartnerRequest
    * @returns RefundAppInstanceForPartnerResponse
@@ -6150,7 +6569,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 续期/刷新沙箱环境
+   * Renewal/Purge Sandbox Environment
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - RenewAppSandboxRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6181,7 +6603,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 续期/刷新沙箱环境
+   * Renewal/Purge Sandbox Environment
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - RenewAppSandboxRequest
    * @returns RenewAppSandboxResponse
@@ -6192,7 +6617,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 代码快照回滚
+   * Code snapshot rollback
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - RollbackAppCodeSnapshotRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6227,7 +6655,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 代码快照回滚
+   * Code snapshot rollback
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - RollbackAppCodeSnapshotRequest
    * @returns RollbackAppCodeSnapshotResponse
@@ -6238,7 +6669,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回滚应用实例发布
+   * Roll back application instance deployment
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - RollbackAppInstancePublishRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6281,7 +6715,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回滚应用实例发布
+   * Roll back application instance deployment
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - RollbackAppInstancePublishRequest
    * @returns RollbackAppInstancePublishResponse
@@ -6292,7 +6729,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存需求
+   * Save requirements
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - SaveAppRequirementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6329,7 +6769,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存需求
+   * Save requirements
+   * 
+   * @remarks
+   * Obtain barcode generation plugin configuration information
    * 
    * @param request - SaveAppRequirementRequest
    * @returns SaveAppRequirementResponse
@@ -6340,7 +6783,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存Supabase密钥
+   * Save Supabase key
+   * 
+   * @remarks
+   * The supabase instance information corresponding to the operation resource
    * 
    * @param request - SaveAppSupabaseSecretsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6375,7 +6821,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存Supabase密钥
+   * Save Supabase key
+   * 
+   * @remarks
+   * The supabase instance information corresponding to the operation resource
    * 
    * @param request - SaveAppSupabaseSecretsRequest
    * @returns SaveAppSupabaseSecretsResponse
@@ -6386,7 +6835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片检索
+   * Image retrieval
    * 
    * @param tmpReq - SearchImageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6479,7 +6928,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 图片检索
+   * Image retrieval
    * 
    * @param request - SearchImageRequest
    * @returns SearchImageResponse
@@ -6554,6 +7003,9 @@ export default class Client extends OpenApi {
   /**
    * 提交SEO索引
    * 
+   * @remarks
+   * 获取生码插件配置信息
+   * 
    * @param request - SubmitAppSeoIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitAppSeoIndexResponse
@@ -6597,6 +7049,9 @@ export default class Client extends OpenApi {
   /**
    * 提交SEO索引
    * 
+   * @remarks
+   * 获取生码插件配置信息
+   * 
    * @param request - SubmitAppSeoIndexRequest
    * @returns SubmitAppSeoIndexResponse
    */
@@ -6606,7 +7061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交素材生产任务
+   * Submit a Material Generation Job
    * 
    * @param request - SubmitMaterialTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6641,7 +7096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交素材生产任务
+   * Submit a Material Generation Job
    * 
    * @param request - SubmitMaterialTaskRequest
    * @returns SubmitMaterialTaskResponse
@@ -6653,6 +7108,9 @@ export default class Client extends OpenApi {
 
   /**
    * 切换到指定对话
+   * 
+   * @remarks
+   * 万小智2.0创建AI会话接口
    * 
    * @param request - SwitchAppConversationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6693,6 +7151,9 @@ export default class Client extends OpenApi {
   /**
    * 切换到指定对话
    * 
+   * @remarks
+   * 万小智2.0创建AI会话接口
+   * 
    * @param request - SwitchAppConversationRequest
    * @returns SwitchAppConversationResponse
    */
@@ -6702,7 +7163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合作伙伴同步应用实例
+   * Partnership synchronizes application instance
    * 
    * @param tmpReq - SyncAppInstanceForPartnerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6755,7 +7216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 合作伙伴同步应用实例
+   * Partnership synchronizes application instance
    * 
    * @param request - SyncAppInstanceForPartnerRequest
    * @returns SyncAppInstanceForPartnerResponse
@@ -6812,7 +7273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新消息内容
+   * Update message content
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - AI session history query API
    * 
    * @param request - UpdateAppChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6855,7 +7319,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新消息内容
+   * Update message content
+   * 
+   * @remarks
+   * Wan Xiaozhi 2.0 - AI session history query API
    * 
    * @param request - UpdateAppChatMessageRequest
    * @returns UpdateAppChatMessageResponse
@@ -6866,7 +7333,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑JSX代码
+   * Edit JSX Code
+   * 
+   * @remarks
+   * Retrieve the configuration information of the code generation plugin
    * 
    * @param request - UpdateAppCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6901,7 +7371,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑JSX代码
+   * Edit JSX Code
+   * 
+   * @remarks
+   * Retrieve the configuration information of the code generation plugin
    * 
    * @param request - UpdateAppCodeRequest
    * @returns UpdateAppCodeResponse
@@ -6912,7 +7385,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新文件
+   * Update file
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - UpdateAppFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6951,7 +7427,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新文件
+   * Update file
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - UpdateAppFileRequest
    * @returns UpdateAppFileResponse
@@ -6962,7 +7441,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 建站实例变配
+   * Upgrade/Downgrade website instance.
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param tmpReq - UpdateAppInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7049,7 +7531,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 建站实例变配
+   * Upgrade/Downgrade website instance.
+   * 
+   * @remarks
+   * Query application instance information
    * 
    * @param request - UpdateAppInstanceRequest
    * @returns UpdateAppInstanceResponse
@@ -7120,7 +7605,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Supabase认证配置更新
+   * Update Supabase authentication configuration
+   * 
+   * @remarks
+   * Query the auth configuration information of the Supabase instance corresponding to the resource
    * 
    * @param request - UpdateAppSupabaseAuthConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7155,7 +7643,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Supabase认证配置更新
+   * Update Supabase authentication configuration
+   * 
+   * @remarks
+   * Query the auth configuration information of the Supabase instance corresponding to the resource
    * 
    * @param request - UpdateAppSupabaseAuthConfigRequest
    * @returns UpdateAppSupabaseAuthConfigResponse
@@ -7166,7 +7657,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Supabase密钥
+   * Update Supabase key
+   * 
+   * @remarks
+   * Operation resource corresponds to the supabase instance information
    * 
    * @param request - UpdateAppSupabaseSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7213,7 +7707,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Supabase密钥
+   * Update Supabase key
+   * 
+   * @remarks
+   * Operation resource corresponds to the supabase instance information
    * 
    * @param request - UpdateAppSupabaseSecretRequest
    * @returns UpdateAppSupabaseSecretResponse
@@ -7224,7 +7721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新绑定小程序信息
+   * Update miniapp binding information
    * 
    * @param request - UpdateMiniAppBindingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7267,7 +7764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新绑定小程序信息
+   * Update miniapp binding information
    * 
    * @param request - UpdateMiniAppBindingRequest
    * @returns UpdateMiniAppBindingResponse
@@ -7278,7 +7775,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传到站点根目录
+   * Upload to the site root directory
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - UploadAppSiteValidationFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7329,7 +7829,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传到站点根目录
+   * Upload to the site root directory
+   * 
+   * @remarks
+   * Obtain the configuration information of the code generation plugin
    * 
    * @param request - UploadAppSiteValidationFileRequest
    * @returns UploadAppSiteValidationFileResponse
@@ -7340,7 +7843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传素材文件
+   * Upload material files
    * 
    * @param request - UploadMaterialFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7383,7 +7886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传素材文件
+   * Upload material files
    * 
    * @param request - UploadMaterialFileRequest
    * @returns UploadMaterialFileResponse

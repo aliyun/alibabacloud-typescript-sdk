@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMaterialDirectoryResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Folder ID.
+   * 
    * @example
    * 68157a0a-769a-4364-bbdc-a0e2cf3d5ad
    */
@@ -31,36 +34,62 @@ export class CreateMaterialDirectoryResponseBodyModule extends $dara.Model {
 
 export class CreateMaterialDirectoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason why access was denied.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name. Query the application with this name.
+   * 
    * @example
    * ish-intelligence-store-platform-admin-web
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters.
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Error code. The value is described as follows: If the request succeeded, the ErrorCode field is not returned. If the request failed, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
+  /**
+   * @remarks
+   * Returned object.
+   */
   module?: CreateMaterialDirectoryResponseBodyModule;
   /**
    * @remarks
@@ -71,17 +100,33 @@ export class CreateMaterialDirectoryResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Indicates whether the processing is synchronous.
+   * 
    * @example
    * True
    */

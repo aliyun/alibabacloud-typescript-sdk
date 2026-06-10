@@ -4,73 +4,121 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether quick rollback is supported.
+   * 
    * @example
    * true
    */
   canQuickRevert?: string;
+  commitHash?: string;
   /**
+   * @remarks
+   * Current step.
+   * 
    * @example
    * PRE_CHECK
    */
   currentStep?: string;
   /**
+   * @remarks
+   * Deployment channel.
+   * 
    * @example
    * PC
    */
   deployChannel?: string;
   /**
+   * @remarks
+   * Application description.
+   * 
    * @example
    * PSKB
    */
   description?: string;
   /**
+   * @remarks
+   * Publishing procedure.
+   * 
    * @example
    * error
    */
   errorStep?: string;
+  /**
+   * @remarks
+   * Indicates whether the process is complete.
+   */
   isFinish?: boolean;
   /**
+   * @remarks
+   * Indicates whether resource allocation to the cost center succeeded.
+   * - true indicates success.
+   * - false indicates failure.
+   * 
    * @example
    * True
    */
   isSuccess?: boolean;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * SUCCESS
    */
   msg?: string;
   /**
+   * @remarks
+   * Sorting type: ASC or DESC.
+   * 
    * @example
    * DESC
    */
   orderType?: string;
   /**
+   * @remarks
+   * Transcoding progress.
+   * 
    * @example
    * true
    */
   percent?: number;
   /**
+   * @remarks
+   * Publish number.
+   * 
    * @example
    * 123
    */
   publishNumber?: string;
   /**
+   * @remarks
+   * Publish order ID.
+   * 
    * @example
    * 123
    */
   publishOrderId?: number;
   /**
    * @remarks
+   * Published At.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
    * 2026
    */
   publishTime?: string;
+  /**
+   * @remarks
+   * Specific widget configuration.
+   */
   steps?: string[];
+  subchannel?: string;
   static names(): { [key: string]: string } {
     return {
       canQuickRevert: 'CanQuickRevert',
+      commitHash: 'CommitHash',
       currentStep: 'CurrentStep',
       deployChannel: 'DeployChannel',
       description: 'Description',
@@ -84,12 +132,14 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
       publishOrderId: 'PublishOrderId',
       publishTime: 'PublishTime',
       steps: 'Steps',
+      subchannel: 'Subchannel',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       canQuickRevert: 'string',
+      commitHash: 'string',
       currentStep: 'string',
       deployChannel: 'string',
       description: 'string',
@@ -103,6 +153,7 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
       publishOrderId: 'number',
       publishTime: 'string',
       steps: { 'type': 'array', 'itemType': 'string' },
+      subchannel: 'string',
     };
   }
 
@@ -120,22 +171,42 @@ export class ListAppPublishHistoryResponseBodyModuleHistory extends $dara.Model 
 
 export class ListAppPublishHistoryResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Current publish order ID
+   * 
    * @example
    * 123
    */
   currentPublishOrderId?: number;
+  /**
+   * @remarks
+   * Indicates whether to display the history of applying the alert template to application groups. Valid values:
+   * 
+   * - true: Display.
+   * 
+   * - false (default): Do not display.
+   */
   history?: ListAppPublishHistoryResponseBodyModuleHistory[];
   /**
+   * @remarks
+   * Page number. Default value is 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Paging size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 0
    */
@@ -174,38 +245,75 @@ export class ListAppPublishHistoryResponseBodyModule extends $dara.Model {
 
 export class ListAppPublishHistoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * frontend application Name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic message, not currently used. Please ignore.
+   * 
    * @example
    * abc
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * fault parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Number of results per query.  
+   * 
+   * Value range: 10 to 100. Default Value: 20.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * Data Table module.  
+   * 
+   * - ABTest: experiment Data Table  
+   * 
+   * - ExperimentTool: experiment tool table  
+   * 
+   * - DataDiagnosis: Data Diagnosis
+   */
   module?: ListAppPublishHistoryResponseBodyModule;
   /**
+   * @remarks
+   * Token for the start of the next query. It is empty if there is no next query.
+   * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
    */
@@ -219,12 +327,25 @@ export class ListAppPublishHistoryResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

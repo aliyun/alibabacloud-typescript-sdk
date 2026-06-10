@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class SubmitMaterialTaskResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * 01baf7bcdd5c3a4c8d481cdd57c15837
    */
@@ -31,41 +34,72 @@ export class SubmitMaterialTaskResponseBodyModule extends $dara.Model {
 
 export class SubmitMaterialTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * details of access denied
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed. Valid values:  
+   * - false: Retry is not allowed.  
+   * - true: Retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * application name. Query the application with this name.
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic message.
+   * 
    * @example
    * SYSTEM_ERRROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * error code. The ErrorCode field is returned only when the request fails. If the request succeeds, this field is not returned. For more information, see the error code list in this topic.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message.
+   * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
    */
   errorMsg?: string;
+  /**
+   * @remarks
+   * response Data
+   */
   module?: SubmitMaterialTaskResponseBodyModule;
   /**
    * @remarks
@@ -76,17 +110,33 @@ export class SubmitMaterialTaskResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Indicates whether the processing is synchronous.
+   * 
    * @example
    * True
    */

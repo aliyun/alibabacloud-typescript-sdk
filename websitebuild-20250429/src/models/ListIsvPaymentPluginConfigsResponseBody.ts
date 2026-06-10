@@ -4,13 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20250915163734000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * Extension information
+   */
   extend?: { [key: string]: string };
   /**
    * @remarks
+   * Creation Time
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -19,6 +28,8 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * Updated At
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -26,36 +37,57 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Primary key
+   * 
    * @example
    * 16257
    */
   id?: number;
   /**
+   * @remarks
+   * Plugin configuration
+   * 
    * @example
    * {}
    */
   pluginConfig?: string;
   /**
+   * @remarks
+   * Plugin description
+   * 
    * @example
    * a simple test plugin
    */
   pluginDesc?: string;
   /**
+   * @remarks
+   * Plugin ID
+   * 
    * @example
    * 1bae9ceaceea432d91c7069fab0dfc02
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Plugin name
+   * 
    * @example
    * tf_testaccapigatewayplugin29311
    */
   pluginName?: string;
   /**
+   * @remarks
+   * Site name
+   * 
    * @example
    * jugaocai.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 123456
    */
@@ -106,38 +138,70 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
 
 export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App name.
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic code; currently unused. Ignore this field.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * abc
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Number of results per query.  
+   * 
+   * Value range: 10–100. Default Value: 20.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * Response data
+   */
   module?: ListIsvPaymentPluginConfigsResponseBodyModule[];
   /**
+   * @remarks
+   * Token for starting the next query. It is empty if there is no next query.
+   * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
    */
@@ -151,16 +215,25 @@ export class ListIsvPaymentPluginConfigsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
   /**
+   * @remarks
+   * abnormal message
+   * 
    * @example
    * 系统异常
    */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

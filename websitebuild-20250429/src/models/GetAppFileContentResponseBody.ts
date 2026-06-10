@@ -65,9 +65,6 @@ export class GetAppFileContentResponseBody extends $dara.Model {
   errorArgs?: any[];
   module?: GetAppFileContentResponseBodyModule;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
    */
@@ -77,6 +74,10 @@ export class GetAppFileContentResponseBody extends $dara.Model {
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
    * @example

@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAppWorkspaceDirectoryResponseBodyModuleDirectoryList extends $dara.Model {
+  /**
+   * @remarks
+   * Child content
+   */
   children?: any[];
   /**
+   * @remarks
+   * Full path (relative to workspace)
+   * 
    * @example
    * PolarDBInnoDBRedoLogWrites
    */
   key?: string;
   /**
+   * @remarks
+   * Name
+   * 
    * @example
    * Evaluable=true
    */
@@ -44,10 +54,17 @@ export class GetAppWorkspaceDirectoryResponseBodyModuleDirectoryList extends $da
 
 export class GetAppWorkspaceDirectoryResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Current time
+   * 
    * @example
    * 2026
    */
   currentTime?: string;
+  /**
+   * @remarks
+   * Directory structure
+   */
   directoryList?: GetAppWorkspaceDirectoryResponseBodyModuleDirectoryList[];
   static names(): { [key: string]: string } {
     return {
@@ -77,31 +94,54 @@ export class GetAppWorkspaceDirectoryResponseBodyModule extends $dara.Model {
 
 export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App name.
+   * 
    * @example
    * ish-intelligence-store-platform-admin-web
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message. Not currently used. Ignore it.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Returned object.
+   */
   module?: GetAppWorkspaceDirectoryResponseBodyModule;
   /**
    * @remarks
@@ -112,12 +152,25 @@ export class GetAppWorkspaceDirectoryResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Spare parameter.
+   * 
    * @example
    * True
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppTokenServiceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Subscription Type: OPEN_SUBSCRIPTION
+   * 
    * @example
    * OPEN_SUBSCRIPTION
    */

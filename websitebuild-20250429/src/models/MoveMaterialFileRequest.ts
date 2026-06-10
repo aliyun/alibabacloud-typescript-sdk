@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class MoveMaterialFileRequest extends $dara.Model {
   /**
    * @remarks
+   * Application instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class MoveMaterialFileRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * Folder ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class MoveMaterialFileRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
+   * List of file IDs
+   * 
    * This parameter is required.
    */
   fileIds?: string[];

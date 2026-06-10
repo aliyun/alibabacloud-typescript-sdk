@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class EditPluginConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Plugin configuration
+   * 
    * @example
    * {}
    */
   pluginConfig?: string;
   /**
+   * @remarks
+   * Plugin description
+   * 
    * @example
-   * 通义万相通过文字描述生成图片
+   * 根据关键字查询相关的Github Repositories
    */
   pluginDesc?: string;
   /**
+   * @remarks
+   * Plugin ID
+   * 
    * @example
    * aliplayer-react
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Plugin name
+   * 
    * @example
    * alisecguard
    */

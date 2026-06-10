@@ -4,32 +4,54 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAppSupabaseSecretsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Whether the shift succeeded
+   * 
    * @example
    * true
    */
@@ -43,12 +65,25 @@ export class DeleteAppSupabaseSecretsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Whether processing is synchronous
+   * 
    * @example
    * True
    */

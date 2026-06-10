@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMiniAppBindingShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Site ID
+   * 
    * @example
    * WS20250814102215000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * WECHAT
    */
   channel?: string;
+  /**
+   * @remarks
+   * List of extension information keys
+   * 
+   * @example
+   * SERVER_DOMAIN
+   */
   settingKeysShrink?: string;
   static names(): { [key: string]: string } {
     return {

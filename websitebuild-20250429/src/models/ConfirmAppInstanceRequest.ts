@@ -28,6 +28,10 @@ export class ConfirmAppInstanceRequest extends $dara.Model {
    * 1
    */
   duration?: number;
+  /**
+   * @example
+   * {\\"deliveryNodeName\\":\\"视觉设计确认\\",\\"deliveryNodeStatus\\":\\"Reject\\",\\"deliveryOperatorRole\\":\\"Customer\\"}
+   */
   extend?: string;
   /**
    * @example

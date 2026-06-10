@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppInstanceTempShortUrlRequest extends $dara.Model {
   /**
+   * @remarks
+   * Application business ID
+   * 
    * @example
    * WD20250703155602000001
    */

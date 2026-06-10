@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateSupabaseForAdminRequest extends $dara.Model {
   /**
    * @remarks
+   * Business ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,51 +15,81 @@ export class OperateSupabaseForAdminRequest extends $dara.Model {
   bizId?: string;
   env?: string;
   /**
+   * @remarks
+   * SQL statement
+   * 
    * @example
    * select * from profiles
    */
   executeSql?: string;
   /**
+   * @remarks
+   * Operation Type
+   * 
    * @example
    * vul_fix
    */
   operateType?: string;
   /**
+   * @remarks
+   * ORDER BY clause
+   * 
    * @example
    * null
    */
   orderByClause?: string;
   /**
+   * @remarks
+   * Sorting field
+   * 
    * @example
    * CreationTime
    */
   orderColumn?: string;
   /**
+   * @remarks
+   * Sorting type: ASC|DESC
+   * 
    * @example
    * DESC
    */
   orderType?: string;
   /**
+   * @remarks
+   * Page number
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Page size
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Table name
+   * 
    * @example
    * default.ai_advertising_material_rec_train_v1103
    */
   tableName?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 111
    */
   userId?: string;
   /**
+   * @remarks
+   * WHERE clause
+   * 
    * @example
    * null
    */

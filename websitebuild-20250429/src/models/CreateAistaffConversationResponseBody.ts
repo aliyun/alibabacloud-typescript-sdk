@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Bot ID
+   * 
    * @example
    * Zero2
    */
   botId?: string;
   /**
+   * @remarks
+   * ID of the chat.
+   * 
    * @example
    * 53467af9-8c4e-4498-9032-1f26978007f8
    */
   chatId?: string;
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
    * 8642d886-0322-43a9-b12f-6629b067978c
    */
   conversationId?: string;
   /**
+   * @remarks
+   * Section ID of the check item.
+   * 
    * @example
    * 11
    */
   sectionId?: string;
   /**
+   * @remarks
+   * Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * 
    * @example
    * 865181640657408
    */
   siteId?: string;
   /**
+   * @remarks
+   * Current point, equivalent to a news title
+   * 
    * @example
    * Feel Like Makin\\" Love
    */
@@ -66,31 +84,54 @@ export class CreateAIStaffConversationResponseBodyModule extends $dara.Model {
 
 export class CreateAIStaffConversationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name. Query the application with this name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: CreateAIStaffConversationResponseBodyModule;
   /**
    * @remarks
@@ -101,12 +142,25 @@ export class CreateAIStaffConversationResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Backup parameter.
+   * 
    * @example
    * True
    */

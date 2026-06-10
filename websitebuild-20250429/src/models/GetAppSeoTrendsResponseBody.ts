@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppSeoTrendsResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Baidu
+   * 
    * @example
    * baiduIndexTrends
    */
   baiduIndexTrends?: string;
   /**
+   * @remarks
+   * Bing
+   * 
    * @example
    * bingIndexTrends
    */
   bingIndexTrends?: string;
   /**
+   * @remarks
+   * Google
+   * 
    * @example
    * googleIndexTrends
    */
@@ -45,31 +54,54 @@ export class GetAppSeoTrendsResponseBodyModule extends $dara.Model {
 
 export class GetAppSeoTrendsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: GetAppSeoTrendsResponseBodyModule;
   /**
    * @remarks
@@ -80,12 +112,25 @@ export class GetAppSeoTrendsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Backup parameter.
+   * 
    * @example
    * True
    */

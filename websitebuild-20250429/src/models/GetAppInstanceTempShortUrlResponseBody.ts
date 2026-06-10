@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
   /**
    * @remarks
+   * time-to-live (TTL)
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -12,11 +14,17 @@ export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
    */
   expireAtTime?: string;
   /**
+   * @remarks
+   * temporary short URL
+   * 
    * @example
    * http://www.aliyun.com
    */
   tempShortUrl?: string;
   /**
+   * @remarks
+   * full URL
+   * 
    * @example
    * https://bj.download.cycore.cn/zhkt-student-cystore-https/2025/9/31/10/12/9b48342f-e595-4c60-8032-dccd355e7552.jpg
    */
@@ -48,31 +56,54 @@ export class GetAppInstanceTempShortUrlResponseBodyModule extends $dara.Model {
 
 export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * access denied details
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic code, currently unused. Please ignore.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * response data
+   */
   module?: GetAppInstanceTempShortUrlResponseBodyModule;
   /**
    * @remarks
@@ -83,12 +114,25 @@ export class GetAppInstanceTempShortUrlResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

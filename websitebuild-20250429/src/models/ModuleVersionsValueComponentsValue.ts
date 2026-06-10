@@ -5,16 +5,25 @@ import { ModuleVersionsValueComponentsValuePropertiesValue } from "./ModuleVersi
 
 export class ModuleVersionsValueComponentsValueInstancePropertyValues extends $dara.Model {
   /**
+   * @remarks
+   * Property encoding (system internal identity)
+   * 
    * @example
    * code
    */
   code?: string;
   /**
+   * @remarks
+   * Attribute Value encoding (internal System value)
+   * 
    * @example
    * value
    */
   value?: string;
   /**
+   * @remarks
+   * Property display name (User-visible name)
+   * 
    * @example
    * name
    */
@@ -46,20 +55,33 @@ export class ModuleVersionsValueComponentsValueInstancePropertyValues extends $d
 
 export class ModuleVersionsValueComponentsValueInstanceProperty extends $dara.Model {
   /**
+   * @remarks
+   * Property encoding (system internal identity)
+   * 
    * @example
    * code
    */
   code?: string;
   /**
+   * @remarks
+   * Attribute display name (user-visible name)
+   * 
    * @example
    * name
    */
   name?: string;
   /**
+   * @remarks
+   * Attribute Value encoding (internal System value)
+   * 
    * @example
    * value
    */
   value?: string;
+  /**
+   * @remarks
+   * List of module Attribute Values
+   */
   values?: ModuleVersionsValueComponentsValueInstancePropertyValues[];
   static names(): { [key: string]: string } {
     return {
@@ -93,18 +115,35 @@ export class ModuleVersionsValueComponentsValueInstanceProperty extends $dara.Mo
 
 export class ModuleVersionsValueComponentsValue extends $dara.Model {
   /**
+   * @remarks
+   * Unique component code (system internal identity)
+   * 
    * @example
    * ComponentCode
    */
   componentCode?: string;
   /**
+   * @remarks
+   * Widget display name (user-visible name)
+   * 
    * @example
    * ComponentName
    */
   componentName?: string;
+  /**
+   * @remarks
+   * Component instance attribute configuration
+   */
   instanceProperty?: ModuleVersionsValueComponentsValueInstanceProperty[];
+  /**
+   * @remarks
+   * Widget instance attribute configuration
+   */
   properties?: { [key: string]: ModuleVersionsValueComponentsValuePropertiesValue };
   /**
+   * @remarks
+   * Module property status
+   * 
    * @example
    * attr
    */

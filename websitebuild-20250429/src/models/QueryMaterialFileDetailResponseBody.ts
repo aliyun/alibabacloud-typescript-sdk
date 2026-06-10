@@ -5,42 +5,70 @@ import { AppMaterialFile } from "./AppMaterialFile";
 
 export class QueryMaterialFileDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * access denied details
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * application Name. Query the application with this Name.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * error code. The ErrorCode field is not returned if the request succeeded. The ErrorCode field is returned if the request failed. For more information, see the error code List in this topic.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
   /**
+   * @remarks
+   * error message.
+   * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * response Data
+   * 
    * @example
    * {\\"TotalPageNum\\": 1, \\"ResultLimit\\": False, \\"CurrentPageNum\\": 0, \\"PageSize\\": 0, \\"TotalItemNum\\": 0}
    */
@@ -54,17 +82,33 @@ export class QueryMaterialFileDetailResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * identity indicating whether the request succeeded.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * backup parameter.
+   * 
    * @example
    * True
    */

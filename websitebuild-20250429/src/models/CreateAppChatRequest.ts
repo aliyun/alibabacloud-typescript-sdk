@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppChatRequest extends $dara.Model {
   /**
+   * @remarks
+   * Bot ID
+   * 
    * @example
    * Zero2
    */
   botId?: string;
   /**
+   * @remarks
+   * Chat ID to be provided when recovering a conversation after an execution break
+   * 
    * @example
    * 3b465fe1-6f06-4899-af9f-d43d9338df25
    */
   chatId?: string;
   /**
+   * @remarks
+   * Session ID; required from the second turn onward in a multi-turn conversation scenario
+   * 
    * @example
    * 593fe1a2-d0b4-4fde-a2b0-78ad6a438d41
    */
   conversationId?: string;
   /**
+   * @remarks
+   * List of conversation messages (in JSON array format)
+   * 
    * @example
    * [\\r\\n  {\\r\\n    \\"role\\": \\"user\\",\\r\\n    \\"content\\": \\"Prove that there are only five platonic solids, namely the tetrahedron, octahedron, icosahedron, cube, and dodecahedron.\\"\\r\\n  }\\r\\n]
    */
   messages?: string;
   /**
+   * @remarks
+   * Site ID
+   * 
    * @example
    * 857240041851344
    */

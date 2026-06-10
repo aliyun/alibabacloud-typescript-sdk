@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublishAppInstanceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250821161210000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Deployment channel
+   * 
    * @example
    * PC
    */
   deployChannel?: string;
   /**
+   * @remarks
+   * Publish description
+   * 
    * @example
    * CREATE_BY_NLB.nlb-jcvs5sm9l8um84zbfa
    */
   description?: string;
   /**
+   * @remarks
+   * Logical version number
+   * 
    * @example
    * 111
    */
   logicalNumber?: number;
   /**
+   * @remarks
+   * Publish number
+   * 
    * @example
    * 123
    */
   publishNumber?: string;
   /**
+   * @remarks
+   * action
+   * 
    * @example
    * BUILD
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class PublishAppInstanceResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Publish order ID
+   * 
    * @example
    * 231
    */
@@ -31,31 +34,54 @@ export class PublishAppInstanceResponseBodyModule extends $dara.Model {
 
 export class PublishAppInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Permission denied information
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message. Not currently used. Ignore this field.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: PublishAppInstanceResponseBodyModule;
   /**
    * @remarks
@@ -66,12 +92,25 @@ export class PublishAppInstanceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

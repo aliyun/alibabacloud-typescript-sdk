@@ -4,15 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetCreateLogoTaskResponseBodyTask extends $dara.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 604860995
    */
   taskId?: string;
   /**
+   * @remarks
+   * The current status of the job:
+   * 
+   * - pending: Pending execution  
+   * - configuring: Configuring  
+   * - success: Succeeded  
+   * - failed: Failed  
+   * - partialFailed: Partially failed
+   * 
    * @example
    * SUCCESS
    */
   taskStatus?: string;
+  /**
+   * @remarks
+   * The URLs of the prefetched resources.
+   */
   urls?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -44,11 +60,17 @@ export class GetCreateLogoTaskResponseBodyTask extends $dara.Model {
 
 export class GetCreateLogoTaskResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code. The ErrorCode field is not returned if the request succeeds. If the request fails, the ErrorCode field is returned. For more information, see the error code list in this topic.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
    */
@@ -62,10 +84,17 @@ export class GetCreateLogoTaskResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * Job information
+   */
   task?: GetCreateLogoTaskResponseBodyTask;
   static names(): { [key: string]: string } {
     return {

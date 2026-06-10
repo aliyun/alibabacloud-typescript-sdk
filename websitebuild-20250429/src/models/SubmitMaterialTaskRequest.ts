@@ -5,11 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMaterialTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * Job parameters
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "brandName": "品牌名称",
+   *     "direction": "HORIZONTAL",
+   *     "userPrompt": "设计要求"
+   * }
    */
   taskParam?: string;
   /**
    * @remarks
+   * Task Type
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,13 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryMaterialDirectoryTreeRequest extends $dara.Model {
   /**
+   * @remarks
+   * Application instance ID
+   * 
    * @example
    * WS20250731233102000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * Indicates whether shared folders are hidden.
+   */
   hiddenPublic?: boolean;
   /**
    * @remarks
+   * Indicates whether the request is for the top-level root folder.
+   * 
    * This parameter is required.
    * 
    * @example

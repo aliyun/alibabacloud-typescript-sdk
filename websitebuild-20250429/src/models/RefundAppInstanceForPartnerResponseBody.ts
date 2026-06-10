@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RefundAppInstanceForPartnerResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Order ID
+   * 
    * @example
    * 250822465990301
    */
@@ -31,31 +34,55 @@ export class RefundAppInstanceForPartnerResponseBodyModule extends $dara.Model {
 
 export class RefundAppInstanceForPartnerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name. Query the application with this name.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * 
    * @example
-   * SYSTEM_ERROR
+   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/u6qw3gxzu3b7sbj/u6qw3gxzu3b7sbj.diff.zip?Expires=1740975709&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=FP7dDnkrLlOZHmRRORVqbLOtv9c%3D
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: RefundAppInstanceForPartnerResponseBodyModule;
   /**
    * @remarks
@@ -66,12 +93,25 @@ export class RefundAppInstanceForPartnerResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

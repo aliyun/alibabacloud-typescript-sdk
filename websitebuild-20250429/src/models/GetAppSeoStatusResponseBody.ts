@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Primary domain name
+   * 
    * @example
    * stxycw.com
    */
   domain?: string;
   /**
    * @remarks
+   * Creation time of the output.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -23,6 +31,8 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * Updated At.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -30,16 +40,25 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Index permission
+   * 
    * @example
    * authinfo
    */
   seAuthInfo?: string;
   /**
+   * @remarks
+   * index status
+   * 
    * @example
    * 0,1,2
    */
   seIndexStatus?: number;
   /**
+   * @remarks
+   * search engine type
+   * 
    * @example
    * baidu,bing,google
    */
@@ -79,31 +98,55 @@ export class GetAppSeoStatusResponseBodyModule extends $dara.Model {
 
 export class GetAppSeoStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name. Query the application with this name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * response data
+   */
   module?: GetAppSeoStatusResponseBodyModule[];
   /**
    * @remarks
@@ -114,12 +157,25 @@ export class GetAppSeoStatusResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Fallback parameter.
+   * 
    * @example
    * True
    */

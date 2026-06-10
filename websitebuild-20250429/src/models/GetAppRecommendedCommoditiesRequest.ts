@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppRecommendedCommoditiesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Application instance business ID (required in scenario 1, used to filter instance versions during query)
+   * 
    * @example
    * WD20250703155602000001
    */
@@ -11,6 +14,9 @@ export class GetAppRecommendedCommoditiesRequest extends $dara.Model {
   extend?: string;
   resourceConditions?: string;
   /**
+   * @remarks
+   * Scenarios: ai_chat | inspiration
+   * 
    * @example
    * DataworksManualTask
    */

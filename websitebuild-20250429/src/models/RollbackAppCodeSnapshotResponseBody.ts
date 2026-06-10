@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class RollbackAppCodeSnapshotResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * SDK change log
+   * 
    * @example
    * - Test ProduceCommand ops tool.
    */
   changeLog?: string;
   /**
+   * @remarks
+   * Creation Time
+   * 
    * @example
    * 1740479834
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * logical value
+   * 
    * @example
    * 123
    */
@@ -45,31 +54,55 @@ export class RollbackAppCodeSnapshotResponseBodyModule extends $dara.Model {
 
 export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * abc
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * response data
+   */
   module?: RollbackAppCodeSnapshotResponseBodyModule;
   /**
    * @remarks
@@ -80,12 +113,25 @@ export class RollbackAppCodeSnapshotResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * is processed synchronously
+   * 
    * @example
    * True
    */

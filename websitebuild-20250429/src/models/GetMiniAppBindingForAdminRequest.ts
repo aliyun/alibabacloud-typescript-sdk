@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMiniAppBindingForAdminRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20250801152639000005
    */
   bizId?: string;
   /**
+   * @remarks
+   * Channel
+   * 
    * @example
    * WECHAT
    */
   channel?: string;
   /**
+   * @remarks
+   * Miniapp ID
+   * 
    * @example
    * xxxx
    */

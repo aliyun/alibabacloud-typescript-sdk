@@ -4,6 +4,10 @@ import { ModuleVersionsValue } from "./ModuleVersionsValue";
 
 
 export class ListAppCommoditySpecificationsForPartnerResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * domain name for container health check.
+   */
   versions?: { [key: string]: ModuleVersionsValue };
   static names(): { [key: string]: string } {
     return {
@@ -31,31 +35,55 @@ export class ListAppCommoditySpecificationsForPartnerResponseBodyModule extends 
 
 export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason why access was denied.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error Code
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * returned object.
+   */
   module?: ListAppCommoditySpecificationsForPartnerResponseBodyModule;
   /**
    * @remarks
@@ -66,12 +94,25 @@ export class ListAppCommoditySpecificationsForPartnerResponseBody extends $dara.
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * is processed synchronously
+   * 
    * @example
    * True
    */

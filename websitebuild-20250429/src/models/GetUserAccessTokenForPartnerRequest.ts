@@ -6,6 +6,9 @@ export class GetUserAccessTokenForPartnerRequest extends $dara.Model {
   siteHost?: string;
   /**
    * @remarks
+   * Credential for connecting to the cloud application.  
+   * > This parameter appears when the API is invoked again (not on the first invocation).
+   * 
    * This parameter is required.
    * 
    * @example

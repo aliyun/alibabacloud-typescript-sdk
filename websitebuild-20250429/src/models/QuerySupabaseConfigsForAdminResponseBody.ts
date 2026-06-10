@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuerySupabaseConfigsForAdminResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * Scope. Currently supports subUser and owner.
+   */
   configs?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -30,31 +34,56 @@ export class QuerySupabaseConfigsForAdminResponseBodyModule extends $dara.Model 
 
 export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
+   * - true: Retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Task object
+   */
   module?: QuerySupabaseConfigsForAdminResponseBodyModule;
   /**
    * @remarks
@@ -65,12 +94,25 @@ export class QuerySupabaseConfigsForAdminResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Indicates whether the processing is synchronous.
+   * 
    * @example
    * True
    */

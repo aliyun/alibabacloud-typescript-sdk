@@ -4,46 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Creation Time
+   * 
    * @example
    * 1740479834
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Updated At
+   * 
    * @example
    * 2025-08-28T02:25:41Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Primary key
+   * 
    * @example
    * 16257
    */
   id?: number;
   /**
+   * @remarks
+   * Specific widget configuration, formatted as a JSON string. Refer to the utility class: com.alibaba.dataphin.pipeline.common.facade.openapi.model.plugin.OABasePluginConfig and the toJsonString method of its child classes. Developers should inherit this widget configuration class and implement the corresponding widget configuration. The structure of each widget configuration is identical to the MPS queue configuration structure created on the Dataphin Page.
+   * 
    * @example
    * {}
    */
   pluginConfig?: string;
   /**
+   * @remarks
+   * View Description
+   * 
    * @example
    * a simple test plugin
    */
   pluginDesc?: string;
   /**
+   * @remarks
+   * ID of the attached API Gateway plugin
+   * 
    * @example
    * 1bae9ceaceea432d91c7069fab0dfc02
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Plugin Name. It can contain uppercase and lowercase English letters, Chinese characters, digits, and underscores (_). The length must be between 4 and 50 characters, and it cannot start with an underscore.
+   * 
    * @example
    * tf_testaccapigatewayplugin29311
    */
   pluginName?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 123
    */
@@ -87,15 +114,25 @@ export class GetAppPluginConfigResponseBodyModule extends $dara.Model {
 
 export class GetAppPluginConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * API status or POP error code
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Additional information
+   * 
    * @example
    * Instance `wget h33E1En5.popscan.xaliyun.com` does not exist.
    */
   message?: string;
+  /**
+   * @remarks
+   * Response data
+   */
   module?: GetAppPluginConfigResponseBodyModule;
   /**
    * @remarks
@@ -106,6 +143,9 @@ export class GetAppPluginConfigResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

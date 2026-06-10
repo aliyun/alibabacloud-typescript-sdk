@@ -4,11 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppCommoditySpecificationsV2ForPartnerRequest extends $dara.Model {
   /**
+   * @remarks
+   * Number of results per query.
+   * 
+   * Valid values: 10 to 100. Default value: 20.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token indicating the start of the next query. It is empty if there is no next query.
+   * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
    */

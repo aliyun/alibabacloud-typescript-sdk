@@ -4,23 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class AppMaterialDirectory extends $dara.Model {
   /**
+   * @remarks
+   * Application instance business ID
+   * 
    * @example
    * WD20250814102215000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * List of subfolders
+   */
   children?: AppMaterialDirectory[];
   /**
+   * @remarks
+   * Folder ID.
+   * 
    * @example
    * WS20260206134746000001-system
    */
   directoryId?: string;
+  /**
+   * @remarks
+   * Name
+   * 
+   * @example
+   * 图片管理
+   */
   name?: string;
   /**
+   * @remarks
+   * Sorting number
+   * 
    * @example
    * 1
    */
   sortNum?: string;
   /**
+   * @remarks
+   * Folder type
+   * 
    * @example
    * CUSTOM
    */

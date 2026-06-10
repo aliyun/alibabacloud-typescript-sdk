@@ -4,86 +4,137 @@ import * as $dara from '@darabonba/typescript';
 
 export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Anonymity key
+   * 
    * @example
    * 1111
    */
   anonKey?: string;
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20250915163734000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Creation Time of the database instance
+   * 
    * @example
    * 111
    */
   dbInstanceCreateTime?: string;
   /**
+   * @remarks
+   * database instance ID
+   * 
    * @example
    * selectdb-cn-2bl4djolb02
    */
   dbInstanceId?: string;
   /**
+   * @remarks
+   * Database public URL
+   * 
    * @example
    * 111
    */
   dbPublicUrl?: string;
   /**
+   * @remarks
+   * Database type
+   * 
    * @example
    * ORACLE
    */
   dbType?: string;
   /**
+   * @remarks
+   * Additional information
+   * 
    * @example
    * {\\"appId\\":\\"APP_NTJAK8P11SNZDJ3M6BWC\\"}
    */
   extra?: string;
   /**
+   * @remarks
+   * Instance creation completion time
+   * 
    * @example
    * 111
    */
   instanceCreateFinishedTime?: string;
   /**
+   * @remarks
+   * Instance creation status
+   * 
    * @example
    * 1111
    */
   instanceCreateStatus?: string;
   /**
+   * @remarks
+   * Deletion flag
+   * 
    * @example
    * false
    */
   isDeleted?: number;
   /**
+   * @remarks
+   * RDS database access password.
+   * 
    * @example
    * 111
    */
   rdsDatabasePassword?: string;
   /**
+   * @remarks
+   * Service key
+   * 
    * @example
    * e80f5a7a08514709a2fb
    */
   serviceKey?: string;
   /**
+   * @remarks
+   * 0: paused; 1: running
+   * 
    * @example
    * NORMAL
    */
   status?: number;
   /**
+   * @remarks
+   * Supabase Dashboard password.
+   * 
    * @example
    * 1111
    */
   supabaseDashboardPassword?: string;
   /**
+   * @remarks
+   * Supabase Dashboard username.
+   * 
    * @example
    * 111
    */
   supabaseDashboardUserName?: string;
   /**
+   * @remarks
+   * Creation Time of the Supabase instance
+   * 
    * @example
    * 111
    */
   supabaseInstanceCreateTime?: string;
   /**
+   * @remarks
+   * Supabase instance ID
+   * 
    * @example
    * 1111
    */
@@ -97,26 +148,41 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
    */
   supabaseKongUrl?: string;
   /**
+   * @remarks
+   * PrivateLink connection address of the Supabase instance.
+   * 
    * @example
    * 1111
    */
   supabasePrivateIp?: string;
   /**
+   * @remarks
+   * Public endpoint of the Supabase instance.
+   * 
    * @example
    * 111
    */
   supabasePublicIp?: string;
   /**
+   * @remarks
+   * Supabase public URL
+   * 
    * @example
    * 111
    */
   supabasePublicUrl?: string;
   /**
+   * @remarks
+   * Tenant ID
+   * 
    * @example
    * GFCBAMJH-zh_CN
    */
   tenantId?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1111
    */
@@ -188,31 +254,54 @@ export class AllocateSupabaseForAdminResponseBodyModule extends $dara.Model {
 
 export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Access denied details
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: AllocateSupabaseForAdminResponseBodyModule;
   /**
    * @remarks
@@ -223,12 +312,25 @@ export class AllocateSupabaseForAdminResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Is processed synchronously
+   * 
    * @example
    * True
    */

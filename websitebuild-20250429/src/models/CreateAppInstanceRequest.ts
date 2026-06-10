@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppInstanceRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * tag key
+   * 
    * @example
    * Group
    */
   tagKey?: string;
   /**
+   * @remarks
+   * value of tag 0
+   * 
    * @example
    * ufo
    */
@@ -125,6 +131,9 @@ export class CreateAppInstanceRequest extends $dara.Model {
    */
   quantity?: number;
   /**
+   * @remarks
+   * Resource group ID
+   * 
    * @example
    * rg-aek2smovqqpvuly
    */
@@ -137,6 +146,10 @@ export class CreateAppInstanceRequest extends $dara.Model {
    * Basic_Edition
    */
   siteVersion?: string;
+  /**
+   * @remarks
+   * List of tags
+   */
   tags?: CreateAppInstanceRequestTags[];
   /**
    * @example

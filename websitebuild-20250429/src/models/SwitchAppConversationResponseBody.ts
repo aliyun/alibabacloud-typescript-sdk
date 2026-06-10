@@ -128,9 +128,6 @@ export class SwitchAppConversationResponseBody extends $dara.Model {
   errorArgs?: any[];
   module?: SwitchAppConversationResponseBodyModule;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
    */
@@ -140,6 +137,10 @@ export class SwitchAppConversationResponseBody extends $dara.Model {
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
    * @example

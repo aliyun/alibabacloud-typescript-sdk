@@ -4,35 +4,82 @@ import * as $dara from '@darabonba/typescript';
 
 export class AppMaterialTask extends $dara.Model {
   /**
+   * @remarks
+   * Job completion time
+   * 
    * @example
    * 2025-12-26 11:30:05
    */
   completeTime?: string;
+  /**
+   * @remarks
+   * Completion time display format
+   * 
+   * @example
+   * 1分钟前
+   */
   completeTimeFormat?: string;
+  /**
+   * @remarks
+   * Reason for failure
+   * 
+   * @example
+   * 参数不合规
+   */
   failReason?: string;
+  /**
+   * @remarks
+   * List of final files
+   */
   finalFileUrls?: string[];
   /**
+   * @remarks
+   * Task Status
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * Job substatus
+   * 
    * @example
    * PENDING
    */
   subStatus?: string;
   /**
+   * @remarks
+   * Submitted At.
+   * 
    * @example
    * 2025-12-26 11:30:05
    */
   submitTime?: string;
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * 81d04d62c3483b32bacf1d306d2622b2
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Job parameter
+   * 
+   * @example
+   * {
+   *     "brandName": "品牌名称",
+   *     "direction": "HORIZONTAL",
+   *     "userPrompt": "设计要求"
+   * }
+   */
   taskParam?: string;
   /**
+   * @remarks
+   * Task Type.
+   * 
    * @example
    * IMAGE_LOGO
    */

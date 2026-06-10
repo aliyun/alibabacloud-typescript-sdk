@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppCodeWorkspaceDetailResponseBodyModuleSnapshots extends $dara.Model {
   /**
+   * @remarks
+   * SDK change log
+   * 
    * @example
    * - Add Params.
    */
   changeLog?: string;
   /**
    * @remarks
+   * Creation UTC time in ISO8601 format.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -17,6 +22,9 @@ export class GetAppCodeWorkspaceDetailResponseBodyModuleSnapshots extends $dara.
    */
   gmtCreateTime?: string;
   /**
+   * @remarks
+   * Logical value
+   * 
    * @example
    * 111
    */
@@ -55,6 +63,7 @@ export class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.Model {
    * 111
    */
   activeLogicalNumber?: number;
+  commitHash?: string;
   /**
    * @remarks
    * true
@@ -72,14 +81,22 @@ export class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.Model {
    */
   maxLogicalNumber?: number;
   /**
+   * @remarks
+   * Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * 
    * @example
    * 865181640657408
    */
   siteId?: string;
+  /**
+   * @remarks
+   * API Guide information.
+   */
   snapshots?: GetAppCodeWorkspaceDetailResponseBodyModuleSnapshots[];
   static names(): { [key: string]: string } {
     return {
       activeLogicalNumber: 'ActiveLogicalNumber',
+      commitHash: 'CommitHash',
       isDirty: 'IsDirty',
       maxLogicalNumber: 'MaxLogicalNumber',
       siteId: 'SiteId',
@@ -90,6 +107,7 @@ export class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       activeLogicalNumber: 'number',
+      commitHash: 'string',
       isDirty: 'boolean',
       maxLogicalNumber: 'number',
       siteId: 'string',
@@ -111,31 +129,57 @@ export class GetAppCodeWorkspaceDetailResponseBodyModule extends $dara.Model {
 
 export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed. Valid values:  
+   * - false: Retry is not allowed.  
+   * - true: Retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * abc
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Faulty parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Application module
+   */
   module?: GetAppCodeWorkspaceDetailResponseBodyModule;
   /**
    * @remarks
@@ -146,12 +190,25 @@ export class GetAppCodeWorkspaceDetailResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

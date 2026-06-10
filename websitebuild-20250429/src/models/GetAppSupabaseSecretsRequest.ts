@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppSupabaseSecretsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20250801154628000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Search keyword
+   * 
    * @example
    * v2_
    */

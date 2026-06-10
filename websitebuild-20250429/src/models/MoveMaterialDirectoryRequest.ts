@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class MoveMaterialDirectoryRequest extends $dara.Model {
   /**
    * @remarks
+   * Application instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class MoveMaterialDirectoryRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * Folder ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class MoveMaterialDirectoryRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
+   * Parent folder ID after shift
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +35,8 @@ export class MoveMaterialDirectoryRequest extends $dara.Model {
   parentDirectoryId?: string;
   /**
    * @remarks
+   * Sorting ordinal number
+   * 
    * This parameter is required.
    * 
    * @example

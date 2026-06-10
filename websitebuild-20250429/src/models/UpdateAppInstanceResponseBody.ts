@@ -4,17 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * BizId of the associated application instance
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * Application icon
+   * 
+   * @example
+   * https://yzm.zshud.com:34901/cloud-phone/养生_1763631730804.png
+   */
   iconUrl?: string;
   /**
+   * @remarks
+   * Order ID
+   * 
    * @example
    * 250822465990301
    */
   orderId?: string;
   /**
+   * @remarks
+   * Application thumbnail
+   * 
    * @example
    * placeHolder
    */
@@ -48,31 +64,54 @@ export class UpdateAppInstanceResponseBodyModule extends $dara.Model {
 
 export class UpdateAppInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message. Not currently used. Please ignore.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: UpdateAppInstanceResponseBodyModule;
   /**
    * @remarks
@@ -83,12 +122,25 @@ export class UpdateAppInstanceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

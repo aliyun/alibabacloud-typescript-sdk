@@ -113,8 +113,20 @@ export class ListAppInstanceDomainsResponseBodyModuleDataOwnership extends $dara
 }
 
 export class ListAppInstanceDomainsResponseBodyModuleDataQualification extends $dara.Model {
+  /**
+   * @remarks
+   * ICP entity filing number
+   */
   icpRecordNumber?: string;
+  /**
+   * @remarks
+   * ICP website filing number
+   */
   icpSiteRecordNumber?: string;
+  /**
+   * @remarks
+   * Public security filing number
+   */
   policeRecordNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -386,6 +398,10 @@ export class ListAppInstanceDomainsResponseBodyModuleData extends $dara.Model {
    * Domain ownership information
    */
   ownership?: ListAppInstanceDomainsResponseBodyModuleDataOwnership;
+  /**
+   * @remarks
+   * Domain name qualification information
+   */
   qualification?: ListAppInstanceDomainsResponseBodyModuleDataQualification;
   /**
    * @remarks
@@ -548,8 +564,20 @@ export class ListAppInstanceDomainsResponseBodyModuleNextOwnership extends $dara
 }
 
 export class ListAppInstanceDomainsResponseBodyModuleNextQualification extends $dara.Model {
+  /**
+   * @remarks
+   * ICP filing number of the entity
+   */
   icpRecordNumber?: string;
+  /**
+   * @remarks
+   * ICP filing number for the website
+   */
   icpSiteRecordNumber?: string;
+  /**
+   * @remarks
+   * Public security filing number
+   */
   policeRecordNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -811,6 +839,10 @@ export class ListAppInstanceDomainsResponseBodyModuleNext extends $dara.Model {
    * Domain ownership information
    */
   ownership?: ListAppInstanceDomainsResponseBodyModuleNextOwnership;
+  /**
+   * @remarks
+   * Domain name qualification information
+   */
   qualification?: ListAppInstanceDomainsResponseBodyModuleNextQualification;
   /**
    * @remarks

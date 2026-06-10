@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySupabaseAuthConfigsForAdminRequest extends $dara.Model {
   /**
    * @remarks
+   * Authentication type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QuerySupabaseAuthConfigsForAdminRequest extends $dara.Model {
   authType?: string;
   /**
    * @remarks
+   * Business ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,26 +25,41 @@ export class QuerySupabaseAuthConfigsForAdminRequest extends $dara.Model {
   bizId?: string;
   env?: string;
   /**
+   * @remarks
+   * Sorting field
+   * 
    * @example
    * gmtCreated
    */
   orderColumn?: string;
   /**
+   * @remarks
+   * Sorting type: ASC or DESC
+   * 
    * @example
    * DESC
    */
   orderType?: string;
   /**
+   * @remarks
+   * Page number, default is 1
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Page size, default is 10
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 111
    */

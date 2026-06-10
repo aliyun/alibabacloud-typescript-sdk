@@ -4,20 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppLlmApiKeyForPartnerRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID of the application instance
+   * 
    * @example
    * WD20250814102215000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Idempotent token (reserved)
+   * 
    * @example
    * xxxxx-xxxx
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Description of the API key usage
+   * 
    * @example
    * success
    */
   description?: string;
+  /**
+   * @remarks
+   * Caller-defined IP address whitelist (the backend appends the system default IP segment)
+   */
   ipWhiteList?: string[];
   static names(): { [key: string]: string } {
     return {

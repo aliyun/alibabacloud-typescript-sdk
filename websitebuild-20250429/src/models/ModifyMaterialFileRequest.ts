@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMaterialFileRequest extends $dara.Model {
   /**
    * @remarks
+   * Application instance business ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyMaterialFileRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * File ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,7 +25,12 @@ export class ModifyMaterialFileRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
+   * Modified file Name
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 测试文件
    */
   name?: string;
   static names(): { [key: string]: string } {

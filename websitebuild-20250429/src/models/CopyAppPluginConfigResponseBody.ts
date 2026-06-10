@@ -35,9 +35,6 @@ export class CopyAppPluginConfigResponseBody extends $dara.Model {
    */
   module?: boolean;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * 6C6B99AC-39EC-5350-874C-204128C905E6
    */

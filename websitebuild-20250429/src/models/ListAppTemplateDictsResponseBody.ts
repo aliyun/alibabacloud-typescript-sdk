@@ -4,27 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppTemplateDictsResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Dictionary Code
+   * 
    * @example
    * abc
    */
   dictCode?: string;
   /**
+   * @remarks
+   * Dictionary label
+   * 
    * @example
    * label
    */
   dictLabel?: string;
   /**
+   * @remarks
+   * Enumeration of template dictionary types
+   * 
    * @example
    * product_version
    */
   dictType?: string;
   /**
+   * @remarks
+   * Dictionary value
+   * 
    * @example
    * abc
    */
   dictValue?: string;
+  /**
+   * @remarks
+   * Indicates whether a template exists.
+   */
   hasTemplates?: boolean;
   /**
+   * @remarks
+   * Sorting order. The default is descending.  
+   * 
+   * Enumeration values:  
+   * 
+   * ASC: ascending.  
+   * 
+   * DESC: descending.
+   * 
    * @example
    * desc
    */
@@ -62,38 +87,70 @@ export class ListAppTemplateDictsResponseBodyModule extends $dara.Model {
 
 export class ListAppTemplateDictsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason why access was denied.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * application name; queries the application with this name
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message used to replace the `%s` placeholder in the **ErrMessage** response parameter.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * faulty parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Number of results per query.  
+   * 
+   * Value range: 10–100. Default Value: 20.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * response Data
+   */
   module?: ListAppTemplateDictsResponseBodyModule[];
   /**
+   * @remarks
+   * Token for the start of the next query. It is empty when there is no next query.
+   * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
    */
@@ -107,12 +164,25 @@ export class ListAppTemplateDictsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * is processing synchronous
+   * 
    * @example
    * True
    */

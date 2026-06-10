@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateAppTemplateLikeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the item is collected
+   */
   liked?: boolean;
   /**
+   * @remarks
+   * Template ID
+   * 
    * @example
    * K191WHV12URYQN06
    */

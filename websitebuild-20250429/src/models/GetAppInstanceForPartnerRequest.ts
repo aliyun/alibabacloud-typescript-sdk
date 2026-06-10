@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppInstanceForPartnerRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250814102215000001
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAppSupabaseSecretsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20250801154628000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * JSON list of keys to be deleted
+   * 
    * @example
    * {"key":"key"}
    */

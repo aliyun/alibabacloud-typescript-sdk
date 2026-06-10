@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateAppAssistantAgentResponseBodyModuleCredential extends $dara.Model {
+  /**
+   * @remarks
+   * Extension field
+   */
   extra?: { [key: string]: string };
   /**
+   * @remarks
+   * Username
+   * 
    * @example
    * Test
    */
@@ -36,7 +43,15 @@ export class CreateAppAssistantAgentResponseBodyModuleCredential extends $dara.M
 }
 
 export class CreateAppAssistantAgentResponseBodyModuleEmbedConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Extension Fields
+   */
   extra?: { [key: string]: string };
+  /**
+   * @remarks
+   * Raw embed script
+   */
   rawScript?: string;
   static names(): { [key: string]: string } {
     return {
@@ -66,49 +81,88 @@ export class CreateAppAssistantAgentResponseBodyModuleEmbedConfig extends $dara.
 
 export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Agent ID (returned by platform)
+   * 
    * @example
    * duanwei@qianrutest
    */
   agentId?: string;
   /**
+   * @remarks
+   * Agent Name
+   * 
    * @example
    * 测试业务空间
    */
   agentName?: string;
   /**
+   * @remarks
+   * Associated application instance bizId
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * Credential
+   */
   credential?: CreateAppAssistantAgentResponseBodyModuleCredential;
+  /**
+   * @remarks
+   * Embed Configuration
+   */
   embedConfig?: CreateAppAssistantAgentResponseBodyModuleEmbedConfig;
+  /**
+   * @remarks
+   * Extension parameters
+   */
   extraParams?: { [key: string]: string };
   /**
+   * @remarks
+   * Creation Time
+   * 
    * @example
    * 1740479834
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Updated At
+   * 
    * @example
    * 2025-08-28T02:25:41Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Agent platform appId
+   * 
    * @example
    * WA12313131313
    */
   platformAppId?: string;
   /**
+   * @remarks
+   * Platform Type
+   * 
    * @example
    * VMWARE
    */
   platformType?: string;
   /**
+   * @remarks
+   * Status
+   * 
    * @example
    * NORMAL
    */
   status?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 1231313131
    */
@@ -167,31 +221,55 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
 
 export class CreateAppAssistantAgentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Permission denied information
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App name.
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: CreateAppAssistantAgentResponseBodyModule;
   /**
    * @remarks
@@ -202,16 +280,25 @@ export class CreateAppAssistantAgentResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
   /**
+   * @remarks
+   * Abnormal message
+   * 
    * @example
    * 系统异常
    */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

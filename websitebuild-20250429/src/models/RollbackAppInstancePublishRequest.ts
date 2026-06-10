@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class RollbackAppInstancePublishRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Deployment channel
+   * 
    * @example
    * PC
    */
   deployChannel?: string;
   /**
+   * @remarks
+   * Publish number
+   * 
    * @example
    * 123
    */
   publishNumber?: string;
   /**
+   * @remarks
+   * Quick rollback.
+   * 
    * @example
    * true
    */

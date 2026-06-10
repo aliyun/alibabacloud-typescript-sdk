@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppInstanceEntitlementRequest extends $dara.Model {
   /**
+   * @remarks
+   * Application instance business ID
+   * 
    * @example
    * WD20250814102215000001
    */

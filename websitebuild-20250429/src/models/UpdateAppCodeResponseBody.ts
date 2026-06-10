@@ -4,32 +4,54 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAppCodeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * permission denied information
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * application Name; query the application with this Name
+   * 
    * @example
    * ish-intelligence-store-platform-admin-web
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic code; currently unused, please ignore
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message used to replace the %s placeholder in the ErrMessage error message in the response.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * response data
+   * 
    * @example
    * true
    */
@@ -43,12 +65,25 @@ export class UpdateAppCodeResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

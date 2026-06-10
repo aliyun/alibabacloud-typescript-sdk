@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Expiration UNIX timestamp
+   * 
    * @example
    * 2025-07-30T16:00Z
    */
   expireTime?: number;
+  /**
+   * @remarks
+   * Platform-specific extension fields
+   */
   extra?: { [key: string]: string };
   /**
+   * @remarks
+   * Platform type identifier
+   * 
    * @example
    * VMWARE
    */
   platformType?: string;
   /**
+   * @remarks
+   * SSO免登URL
+   * 
    * @example
    * https://sso.agent
    */
@@ -51,31 +64,55 @@ export class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $dara.Mod
 
 export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App name.
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** field of the response.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * faulty parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * response data
+   */
   module?: CreateAppAssistantAgentSsoLoginResponseBodyModule;
   /**
    * @remarks
@@ -86,12 +123,25 @@ export class CreateAppAssistantAgentSsoLoginResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

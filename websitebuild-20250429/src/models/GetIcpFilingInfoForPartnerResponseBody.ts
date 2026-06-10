@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetIcpFilingInfoForPartnerResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ICP filing number associated with the domain name. Supports entity ICP filing numbers and website ICP filing numbers.
+   * 
+   * @example
+   * 京ICP备15023563号-3
+   */
   icpNumber?: string;
+  /**
+   * @remarks
+   * Whether the domain is filed for ICP
+   */
   recorded?: boolean;
+  /**
+   * @remarks
+   * The website ICP filing number corresponding to the domain name
+   * 
+   * @example
+   * 湘ICP备14011526号-3A
+   */
   siteRecordNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32,6 +50,10 @@ export class GetIcpFilingInfoForPartnerResponseBodyData extends $dara.Model {
 }
 
 export class GetIcpFilingInfoForPartnerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request result.
+   */
   data?: GetIcpFilingInfoForPartnerResponseBodyData;
   /**
    * @remarks

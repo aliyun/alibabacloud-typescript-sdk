@@ -4,37 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   /**
+   * @remarks
+   * application Type
+   * 
    * @example
    * supabase
    */
   appType?: string;
   /**
+   * @remarks
+   * application instance ID
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Color
+   * 
    * @example
    * Red
    */
   colorScheme?: string;
   /**
+   * @remarks
+   * Color name
+   * 
    * @example
    * red
    */
   colorSchemeName?: string;
   /**
+   * @remarks
+   * The actual data volume of the original table copied during DMS lockless change.
+   * 
    * @example
    * 100
    */
   copyCount?: number;
   /**
+   * @remarks
+   * Creator ID.
+   * 
    * @example
    * SOAR
    */
   creator?: string;
   /**
    * @remarks
+   * Creation Time
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -43,6 +63,8 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * Updated At
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -50,82 +72,140 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * primary key
+   * 
    * @example
    * 9953352
    */
   id?: number;
   /**
+   * @remarks
+   * Industry of the file to be analyzed. Default value: **common** (general industry). Select an appropriate industry to enable the backend to match an algorithm combination suitable for that industry. Valid values:  
+   * 
+   * - **microVideo**: Short video industry.  
+   * - **common**: General industry.
+   * 
    * @example
    * NOUSE
    */
   industry?: string;
   /**
+   * @remarks
+   * Industry Name
+   * 
    * @example
    * abc
    */
   industryName?: string;
   /**
+   * @remarks
+   * Editor ID
+   * 
    * @example
    * admin
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * Number of likes.
+   * 
    * @example
    * 100
    */
   likeCount?: number;
+  /**
+   * @remarks
+   * Whether the current user has liked it
+   */
   liked?: boolean;
   /**
+   * @remarks
+   * Remediation action.
+   * 
    * @example
    * {\\"memFrom\\": \\"text\\", \\"uid\\": \\"text\\", \\"labels\\": \\"jsonb\\", \\"content\\": \\"text\\", \\"fromId\\": \\"text\\", \\"uuid\\": \\"text\\"}
    */
   metadata?: string;
   /**
+   * @remarks
+   * Preview URL
+   * 
    * @example
    * https://preview-lyj.aliyuncs.com/preview/b2c5a245c44946b99cf5435210bbb8b8?subSceneIds=728166
    */
   previewUrl?: string;
   /**
+   * @remarks
+   * Edition. Valid values:  
+   * - **BasicVersion**: Basic Edition.  
+   * - **EnterpriseVersion**: Enterprise Edition.
+   * 
    * @example
    * EnterpriseVersion
    */
   productVersion?: string;
   /**
+   * @remarks
+   * Edition name.
+   * 
    * @example
    * 1.0.1
    */
   productVersionName?: string;
   /**
+   * @remarks
+   * Share Count
+   * 
    * @example
    * 100
    */
   shareCount?: number;
   /**
+   * @remarks
+   * File Status
+   * 
    * @example
    * RUNNING
    */
   status?: string;
   /**
+   * @remarks
+   * Template ID
+   * 
    * @example
    * de10bf7d782392a70f293a3b1f7bb8fc
    */
   templateId?: string;
   /**
+   * @remarks
+   * Template Name.  
+   * - Maximum length: 128 characters.
+   * 
    * @example
    * cfdna6
    */
   templateName?: string;
   /**
+   * @remarks
+   * Application thumbnail
+   * 
    * @example
    * http://www.aliyun.com
    */
   thumbnailUrl?: string;
   /**
+   * @remarks
+   * View Count.
+   * 
    * @example
    * 100
    */
   viewCount?: number;
   /**
+   * @remarks
+   * weight
+   * 
    * @example
    * 255
    */
@@ -201,122 +281,205 @@ export class ListAppTemplatesResponseBodyModuleData extends $dara.Model {
 
 export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
   /**
+   * @remarks
+   * Application Type
+   * 
    * @example
    * memory
    */
   appType?: string;
   /**
+   * @remarks
+   * bizId of the associated application instance
+   * 
    * @example
    * WS20260502160409000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Color
+   * 
    * @example
    * red
    */
   colorScheme?: string;
   /**
+   * @remarks
+   * Color scheme name
+   * 
    * @example
    * red
    */
   colorSchemeName?: string;
   /**
+   * @remarks
+   * The actual data volume of the original table copied during DMS lockless change.
+   * 
    * @example
    * 100
    */
   copyCount?: number;
   /**
+   * @remarks
+   * Tenant User Information
+   * 
    * @example
    * 208116853206125255
    */
   creator?: string;
   /**
+   * @remarks
+   * Creation Time
+   * 
    * @example
    * 2025-09-17 20:43:21
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * Updated At
+   * 
    * @example
    * 2026-03-18T10:03:56+08:00
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Primary key
+   * 
    * @example
    * 1000039405002
    */
   id?: number;
   /**
+   * @remarks
+   * Industry. Default value: **common** (General Industry). Valid values:  
+   * 
+   * - **microVideo**: Short Video Industry.  
+   * 
+   * - **common**: General Industry.
+   * 
    * @example
    * NOUSE
    */
   industry?: string;
   /**
+   * @remarks
+   * Industry Name
+   * 
    * @example
    * abc
    */
   industryName?: string;
   /**
+   * @remarks
+   * ID of the last modifier
+   * 
    * @example
    * admin
    */
   lastModifier?: string;
   /**
+   * @remarks
+   * Like count.
+   * 
    * @example
    * 100
    */
   likeCount?: number;
+  /**
+   * @remarks
+   * Whether the current user has liked the item.
+   */
   liked?: boolean;
   /**
+   * @remarks
+   * Fix Content.
+   * 
    * @example
    * {\\"knowledge_point\\":\\"text\\",\\"trunk_id\\":\\"text\\",\\"doc_name\\":\\"text\\",\\"knowledge_point_id\\":\\"text\\",\\"doc_id\\":\\"text\\",\\"trunk_content\\":\\"text\\"}
    */
   metadata?: string;
   /**
+   * @remarks
+   * Preview URL
+   * 
    * @example
    * https://preview-lyj.aliyuncs.com/preview/b989c9ac526e4fb48e018805f43d5fb1?subSceneIds=816576
    */
   previewUrl?: string;
   /**
+   * @remarks
+   * Edition. Valid values:  
+   * - **BasicVersion**: Basic Edition.  
+   * - **EnterpriseVersion**: Enterprise Edition.  
+   * > This parameter is required only when ProductForm is set to IntegrationForm.
+   * 
    * @example
    * BasicVersion
    */
   productVersion?: string;
   /**
+   * @remarks
+   * Edition name.
+   * 
    * @example
    * 1.0.2
    */
   productVersionName?: string;
   /**
+   * @remarks
+   * Share Count
+   * 
    * @example
    * 100
    */
   shareCount?: number;
   /**
+   * @remarks
+   * Possible values: unknown, init, testing, online
+   * 
    * @example
    * Succeeded
    */
   status?: string;
   /**
+   * @remarks
+   * Template ID
+   * 
    * @example
    * 3802aefc8cb0003b71286c47afc83624
    */
   templateId?: string;
   /**
+   * @remarks
+   * Template Name
+   * 
    * @example
    * iem
    */
   templateName?: string;
   /**
+   * @remarks
+   * Application thumbnail
+   * 
    * @example
    * http://www.aliyun.com
    */
   thumbnailUrl?: string;
   /**
+   * @remarks
+   * View count.
+   * 
    * @example
    * 100
    */
   viewCount?: number;
   /**
+   * @remarks
+   * Weight
+   * 
    * @example
    * 1
    */
@@ -392,38 +555,67 @@ export class ListAppTemplatesResponseBodyModuleNext extends $dara.Model {
 
 export class ListAppTemplatesResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   currentPageNum?: number;
+  /**
+   * @remarks
+   * Request Result.
+   */
   data?: ListAppTemplatesResponseBodyModuleData[];
+  /**
+   * @remarks
+   * Decision weight
+   */
   next?: ListAppTemplatesResponseBodyModuleNext;
   /**
+   * @remarks
+   * Whether there is a next page.
+   * 
    * @example
    * False
    */
   nextPage?: boolean;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Indicates whether there is a previous page.
+   * 
    * @example
    * False
    */
   prePage?: boolean;
   /**
+   * @remarks
+   * For the current query, aside from paging limits, the server-side processes at most the latest 1000 records. If the result exceeds 1000 records, **ResultLimit** is **true**; you should narrow the Time Range and search again. Otherwise, **ResultLimit** is **false**.
+   * 
    * @example
    * False
    */
   resultLimit?: boolean;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 1
    */
   totalItemNum?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -473,38 +665,69 @@ export class ListAppTemplatesResponseBodyModule extends $dara.Model {
 
 export class ListAppTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message. Not currently used. Ignore it.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Faulty parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Number of results returned per query.  
+   * 
+   * Valid values: 10 to 100. Default value: 20.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * Response data
+   */
   module?: ListAppTemplatesResponseBodyModule;
   /**
+   * @remarks
+   * Token for starting the next query. It is empty if there is no next query.
+   * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
    */
@@ -518,16 +741,25 @@ export class ListAppTemplatesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
   /**
+   * @remarks
+   * Abnormal message
+   * 
    * @example
    * 系统异常
    */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

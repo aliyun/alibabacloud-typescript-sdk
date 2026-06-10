@@ -72,7 +72,7 @@ export class SetAppDomainCertificateResponseBody extends $dara.Model {
    * Dynamic message.
    * 
    * @example
-   * SYSTEM_ERROR
+   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/uoa11auyf2565k6/uoa11auyf2565k6.sql.zip?Expires=1730520371&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=WIutxAQYbbwxX0aeKmdObduLnDg%3D
    */
   dynamicMessage?: string;
   /**

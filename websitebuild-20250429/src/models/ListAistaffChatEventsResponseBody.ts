@@ -4,15 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAIStaffChatEventsResponseBodyModuleEvents extends $dara.Model {
   /**
+   * @remarks
+   * error message.
+   * 
    * @example
    * {\\"Recorded\\": False}
    */
   data?: string;
   /**
+   * @remarks
+   * primary key
+   * 
    * @example
    * 10426
    */
   id?: number;
+  /**
+   * @remarks
+   * Website Name
+   * 
+   * @example
+   * 文章素材2026050704
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41,17 +54,30 @@ export class ListAIStaffChatEventsResponseBodyModuleEvents extends $dara.Model {
 
 export class ListAIStaffChatEventsResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Unique ID of the sentence
+   * 
    * @example
    * chat-xrz3etcl2bsygwlx8g
    */
   chatId?: string;
   /**
+   * @remarks
+   * session ID
+   * 
    * @example
    * 872be9bc-3097-433d-b462-596202455102
    */
   conversationId?: string;
+  /**
+   * @remarks
+   * object ID
+   */
   events?: ListAIStaffChatEventsResponseBodyModuleEvents[];
   /**
+   * @remarks
+   * ID of the last SSE event
+   * 
    * @example
    * event-21dd6124760a4a259ae33bbd878f6e20
    */
@@ -88,31 +114,55 @@ export class ListAIStaffChatEventsResponseBodyModule extends $dara.Model {
 
 export class ListAIStaffChatEventsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message, used to replace `%s` in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * faulty parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * returned object.
+   */
   module?: ListAIStaffChatEventsResponseBodyModule;
   /**
    * @remarks
@@ -123,12 +173,25 @@ export class ListAIStaffChatEventsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * is processed synchronously
+   * 
    * @example
    * True
    */

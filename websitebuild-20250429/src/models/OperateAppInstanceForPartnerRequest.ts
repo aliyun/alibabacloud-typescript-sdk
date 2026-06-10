@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateAppInstanceForPartnerRequest extends $dara.Model {
+  /**
+   * @remarks
+   * extension information
+   * 
+   * @example
+   * {\\"deliveryNodeName\\":\\"交付质检\\",\\"deliveryNodeStatus\\":\\"Finish\\",\\"deliveryOperatorRole\\":\\"Provider\\"}
+   */
   extend?: string;
   /**
+   * @remarks
+   * event type of the operation
+   * 
    * @example
    * SERVICE_DELIVERY_PROCESS
    */

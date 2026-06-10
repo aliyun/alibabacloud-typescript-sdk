@@ -3,79 +3,132 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether an instance has been assigned
+   */
   allocated?: boolean;
   /**
+   * @remarks
+   * Is this item currently active?
+   * 
    * @example
    * on
    */
   available?: boolean;
   /**
+   * @remarks
+   * Authorization item identity
+   * 
    * @example
    * 0
    */
   code?: string;
   /**
+   * @remarks
+   * Indicates whether configuration has been completed
+   * 
    * @example
    * true
    */
   configured?: boolean;
+  /**
+   * @remarks
+   * Is this item entitled in the version?
+   */
   entitled?: boolean;
   /**
+   * @remarks
+   * Feature source type (PLUGIN/SKILL/CHANNEL/SYSTEM)
+   * 
    * @example
    * 5
    */
   featureType?: string;
   /**
+   * @remarks
+   * Runtime instance ID
+   * 
    * @example
    * waf_v2intl_public_intl-sg-i5c43rcpw04
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Authorization item Name
+   * 
    * @example
    * 4e46d24b56bfa944b5e6f2305715bc4e.jpg
    */
   name?: string;
   /**
+   * @remarks
+   * Plugin ID
+   * 
    * @example
    * alipay-isv
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Total quota
+   * 
    * @example
    * 10
    */
   quota?: number;
   /**
+   * @remarks
+   * Remaining quantity
+   * 
    * @example
    * 1234
    */
   remaining?: number;
   /**
+   * @remarks
+   * Resource domain association identity
+   * 
    * @example
    * SmsCount
    */
   resourceCode?: string;
   /**
+   * @remarks
+   * Resource type (QUOTA/LIMIT)
+   * 
    * @example
    * filesystem
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Is it running?
+   * 
    * @example
    * 0
    */
   running?: boolean;
   /**
+   * @remarks
+   * Authorization Type (FEATURE / RESOURCE / RUNTIME)
+   * 
    * @example
    * question
    */
   type?: string;
   /**
+   * @remarks
+   * Usage percentage
+   * 
    * @example
    * 10
    */
   usagePercent?: number;
   /**
+   * @remarks
+   * Usage
+   * 
    * @example
    * 3295422523872
    */
@@ -135,10 +188,17 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
 
 export class GetAppInstanceEntitlementResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * BizId of the associated application instance
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * All entitlements
+   */
   items?: GetAppInstanceEntitlementResponseBodyModuleItems[];
   static names(): { [key: string]: string } {
     return {
@@ -168,31 +228,55 @@ export class GetAppInstanceEntitlementResponseBodyModule extends $dara.Model {
 
 export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Permission denied information
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * ish-intelligence-store-platform-admin-web
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message, used to replace `%s` in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: GetAppInstanceEntitlementResponseBodyModule;
   /**
    * @remarks
@@ -203,12 +287,25 @@ export class GetAppInstanceEntitlementResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAIStaffChatEventsRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20250731233102000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Chat ID (optional; if not provided, the latest chatId is used)
+   * 
    * @example
    * 20833ba4-d189-4c50-9a44-a6bcbda2c93b
    */
   chatId?: string;
   /**
+   * @remarks
+   * session ID
+   * 
    * @example
    * 593fe1a2-d0b4-4fde-a2b0-78ad6a438d41
    */
   conversationId?: string;
   /**
+   * @remarks
+   * Last event ID, used for incremental retrieval
+   * 
    * @example
    * event-71ece53b7d474e01b755a9b5fa5305e6
    */

@@ -4,33 +4,51 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryInspirationBalanceResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Remaining (totalQuota - totalUsed)
+   * 
    * @example
    * 8
    */
   remaining?: number;
+  remainingStr?: string;
   /**
+   * @remarks
+   * Total quota (sum of initQuota from all valid accounts)
+   * 
    * @example
    * 10
    */
   totalQuota?: number;
+  totalQuotaStr?: string;
   /**
+   * @remarks
+   * Consumed amount (sum of used from all valid accounts)
+   * 
    * @example
    * 1
    */
   totalUsed?: number;
+  totalUsedStr?: string;
   static names(): { [key: string]: string } {
     return {
       remaining: 'Remaining',
+      remainingStr: 'RemainingStr',
       totalQuota: 'TotalQuota',
+      totalQuotaStr: 'TotalQuotaStr',
       totalUsed: 'TotalUsed',
+      totalUsedStr: 'TotalUsedStr',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       remaining: 'number',
+      remainingStr: 'string',
       totalQuota: 'number',
+      totalQuotaStr: 'string',
       totalUsed: 'number',
+      totalUsedStr: 'string',
     };
   }
 
@@ -45,31 +63,55 @@ export class QueryInspirationBalanceResponseBodyModule extends $dara.Model {
 
 export class QueryInspirationBalanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name; query the application with this name
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message used to replace `%s` in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Fault parameters.
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: QueryInspirationBalanceResponseBodyModule;
   /**
    * @remarks
@@ -80,12 +122,25 @@ export class QueryInspirationBalanceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Whether processing is synchronous
+   * 
    * @example
    * True
    */

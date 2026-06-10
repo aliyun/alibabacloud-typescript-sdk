@@ -34,10 +34,17 @@ export class ModuleNextPropertiesValueValues extends $dara.Model {
 
 export class ModuleNextPropertiesValue extends $dara.Model {
   /**
+   * @remarks
+   * Property code, such as "aliyun_commodity_agreement"
+   * 
    * @example
    * placeholder
    */
   code?: string;
+  /**
+   * @remarks
+   * List of attribute values
+   */
   values?: ModuleNextPropertiesValueValues[];
   static names(): { [key: string]: string } {
     return {

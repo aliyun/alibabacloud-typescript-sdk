@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateAppServiceForPartnerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code. The ErrorCode field is returned only when the request fails. If the request succeeds, the ErrorCode field is not returned. For more information, see the error code list in this topic.
+   * 
    * @example
    * 0
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * aliuid:1998006665794443 assumeRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
    */
@@ -22,6 +28,9 @@ export class OperateAppServiceForPartnerResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded.
+   * 
    * @example
    * true
    */

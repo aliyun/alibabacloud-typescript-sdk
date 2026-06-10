@@ -4,32 +4,54 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details of permission verification failure
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App name.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic code. Not currently used. Ignore it.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Indicates whether the modification succeeded
+   * 
    * @example
    * true
    */
@@ -43,12 +65,25 @@ export class ModifyMaterialFileStatusResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Fault message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is processed synchronously
+   * 
    * @example
    * True
    */

@@ -5,16 +5,25 @@ import { ModuleDataComponentsValuePropertiesValue } from "./ModuleDataComponents
 
 export class ModuleDataComponentsValueInstancePropertyValues extends $dara.Model {
   /**
+   * @remarks
+   * Property encoding (system internal identity)
+   * 
    * @example
    * placeholder
    */
   code?: string;
   /**
+   * @remarks
+   * Attribute Value encoding (internal system value)
+   * 
    * @example
    * placeholder
    */
   value?: string;
   /**
+   * @remarks
+   * Property display name (User-visible Name)
+   * 
    * @example
    * placeholder
    */
@@ -46,20 +55,33 @@ export class ModuleDataComponentsValueInstancePropertyValues extends $dara.Model
 
 export class ModuleDataComponentsValueInstanceProperty extends $dara.Model {
   /**
+   * @remarks
+   * Property encoding (system internal identity)
+   * 
    * @example
    * placeholder
    */
   code?: string;
   /**
+   * @remarks
+   * Property display name (User-visible Name)
+   * 
    * @example
    * placeholder
    */
   name?: string;
   /**
+   * @remarks
+   * Attribute Value encoding (internal system value)
+   * 
    * @example
    * placeholder
    */
   value?: string;
+  /**
+   * @remarks
+   * List of module Attribute Values
+   */
   values?: ModuleDataComponentsValueInstancePropertyValues[];
   static names(): { [key: string]: string } {
     return {
@@ -93,18 +115,35 @@ export class ModuleDataComponentsValueInstanceProperty extends $dara.Model {
 
 export class ModuleDataComponentsValue extends $dara.Model {
   /**
+   * @remarks
+   * Unique widget encoding (system internal identity)
+   * 
    * @example
    * placeholder
    */
   code?: string;
   /**
+   * @remarks
+   * The display name of the widget (user-visible name)
+   * 
    * @example
    * placeholder
    */
   name?: string;
+  /**
+   * @remarks
+   * Widget instance attribute configuration
+   */
   instanceProperty?: ModuleDataComponentsValueInstanceProperty[];
+  /**
+   * @remarks
+   * Widget instance attribute configuration
+   */
   properties?: { [key: string]: ModuleDataComponentsValuePropertiesValue };
   /**
+   * @remarks
+   * Module attribute status
+   * 
    * @example
    * placeholder
    */

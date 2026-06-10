@@ -3,23 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SyncAppInstanceForPartnerShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Application instance object data
+   */
   appInstanceShrink?: string;
   /**
+   * @remarks
+   * Type of system event. CREATE, UPDATE, COMPLETE
+   * 
    * @example
    * CREATE
    */
   eventType?: string;
   /**
+   * @remarks
+   * Operator ID
+   * 
    * @example
    * system
    */
   operator?: string;
   /**
+   * @remarks
+   * Source business ID.
+   * 
    * @example
    * 31104757
    */
   sourceBizId?: string;
   /**
+   * @remarks
+   * Source: MARKET_CLOUD_DREAM
+   * 
    * @example
    * MARKET_CLOUD_DREAM
    */

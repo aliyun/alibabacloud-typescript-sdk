@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMaterialFileListShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Business ID of the application instance
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryMaterialFileListShrinkRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * Folder ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,48 +24,93 @@ export class QueryMaterialFileListShrinkRequest extends $dara.Model {
    */
   directoryId?: string;
   /**
+   * @remarks
+   * Maximum file size
+   * 
    * @example
    * 1024
    */
   maxFileSize?: number;
   /**
+   * @remarks
+   * Number of results per query.
+   * 
+   * Valid values: 10 to 100. Default value: 20.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Minimum file size
+   * 
    * @example
    * 0
    */
   minFileSize?: number;
+  /**
+   * @remarks
+   * Website name
+   * 
+   * @example
+   * 测试
+   */
   name?: string;
   /**
+   * @remarks
+   * Token indicating the start of the next query. It is empty when there is no subsequent query.
+   * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Sorting field
+   * 
    * @example
    * gmtCreated
    */
   orderColumn?: string;
   /**
+   * @remarks
+   * Sorting type: ASC or DESC
+   * 
    * @example
    * BUY
    */
   orderType?: string;
   /**
+   * @remarks
+   * Page number. Default value is 1.
+   * 
    * @example
    * 0
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Page size. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Status range
+   */
   statusListShrink?: string;
+  /**
+   * @remarks
+   * File suffix list
+   */
   suffixListShrink?: string;
+  /**
+   * @remarks
+   * List of file types
+   */
   typeListShrink?: string;
   static names(): { [key: string]: string } {
     return {

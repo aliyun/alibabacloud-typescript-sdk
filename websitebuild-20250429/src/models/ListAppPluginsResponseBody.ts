@@ -4,37 +4,64 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppPluginsResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * plugin code
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Configuration form in React JSON Schema format
+   * 
    * @example
    * ***
    */
   configItems?: string;
   /**
+   * @remarks
+   * plugin Description
+   * 
    * @example
    * fail to decode json
    */
   desc?: string;
   /**
+   * @remarks
+   * Image display. Valid values:  
+   * 
+   * - **0** (None): Do not display.  
+   * - **1** (Always): Always display.
+   * 
    * @example
    * always
    */
   display?: number;
   /**
+   * @remarks
+   * Indicates whether scheduled delivery of resource snapshots is enabled.  
+   * 
+   * Valid values:  
+   * - true: Enabled.  
+   * - false: Shutdown.
+   * 
    * @example
    * True
    */
   enabled?: number;
   /**
+   * @remarks
+   * environment
+   * 
    * @example
    * pre
    */
   env?: string;
   /**
    * @remarks
+   * Creation Time
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -43,6 +70,8 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * Updated At
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -50,36 +79,57 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * hook definitions
+   * 
    * @example
    * []
    */
   hooks?: string;
   /**
+   * @remarks
+   * plugin Description
+   * 
    * @example
    * @lALPM2AwTOg9IUHNAUDNAUA
    */
   icon?: string;
   /**
+   * @remarks
+   * primary key
+   * 
    * @example
    * 16257
    */
   id?: number;
   /**
+   * @remarks
+   * Indicates whether the item has been deleted: 0—No, 1—Yes
+   * 
    * @example
    * false
    */
   isDeleted?: number;
   /**
+   * @remarks
+   * plugin Name
+   * 
    * @example
    * 文件名
    */
   name?: string;
   /**
+   * @remarks
+   * skill header, used by the model for selection
+   * 
    * @example
    * header
    */
   skillHeader?: string;
   /**
+   * @remarks
+   * Categorization label
+   * 
    * @example
    * [{\\"Key\\": \\"kubernetes.io/cluster-id\\", \\"Value\\": \\"cc67198b13db948c9848599654da5586e\\"}, {\\"Key\\": \\"created-by\\", \\"Value\\": \\"alibabacloud-imagecache-controller\\"}]
    */
@@ -135,38 +185,70 @@ export class ListAppPluginsResponseBodyModule extends $dara.Model {
 
 export class ListAppPluginsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application name. Query the application with this name.
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * Number of results per query.  
+   * 
+   * Value range: 10 to 100. Default value: 20.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * Returned object.
+   */
   module?: ListAppPluginsResponseBodyModule[];
   /**
+   * @remarks
+   * Token for starting the next query. It is empty if there is no next query.
+   * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3BFw8paIJ7ylB6A7Qn9JjM
    */
@@ -180,16 +262,25 @@ export class ListAppPluginsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
   /**
+   * @remarks
+   * Abnormal message
+   * 
    * @example
    * 系统异常
    */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

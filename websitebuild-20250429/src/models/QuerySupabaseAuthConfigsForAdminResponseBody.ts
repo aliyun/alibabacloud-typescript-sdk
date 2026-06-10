@@ -3,6 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QuerySupabaseAuthConfigsForAdminResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration values. Valid values:  
+   * - cc_rule: CC rule.  
+   * - ddos_dispatch: DDoS filter interaction scheduling.  
+   * - edge_safe: Edge application security.  
+   * - blocked_regions: Geo-blocking.  
+   * - http_acl_policy: Precise ACL rule.  
+   * - bot_manager: Bot traffic Management.  
+   * - ip_reputation: IP reputation investigation.
+   */
   configs?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -30,31 +41,54 @@ export class QuerySupabaseAuthConfigsForAdminResponseBodyModule extends $dara.Mo
 
 export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Details of access denied
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message. Not currently used. Ignore it.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Task object
+   */
   module?: QuerySupabaseAuthConfigsForAdminResponseBodyModule;
   /**
    * @remarks
@@ -65,12 +99,25 @@ export class QuerySupabaseAuthConfigsForAdminResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Fault message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Is processed synchronously
+   * 
    * @example
    * True
    */

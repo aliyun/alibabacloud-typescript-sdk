@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLlmProxyConfigForAdminRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250814102215000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Capability Type: llm, image, video
+   * 
    * @example
    * understand
    */

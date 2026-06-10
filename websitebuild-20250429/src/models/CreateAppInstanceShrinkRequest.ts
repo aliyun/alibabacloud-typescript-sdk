@@ -91,6 +91,9 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    */
   quantity?: number;
   /**
+   * @remarks
+   * Resource group ID
+   * 
    * @example
    * rg-aek2smovqqpvuly
    */
@@ -103,6 +106,10 @@ export class CreateAppInstanceShrinkRequest extends $dara.Model {
    * Basic_Edition
    */
   siteVersion?: string;
+  /**
+   * @remarks
+   * List of tags
+   */
   tagsShrink?: string;
   /**
    * @example

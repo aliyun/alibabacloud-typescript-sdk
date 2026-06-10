@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
   /**
    * @remarks
+   * Business instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,17 +15,38 @@ export class QuerySupabaseInstanceInfoForAdminRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * Environment identity
+   * 
    * This parameter is required.
    * 
    * @example
    * staging
    */
   env?: string;
+  /**
+   * @remarks
+   * Sorting field
+   */
   orderColumn?: string;
+  /**
+   * @remarks
+   * Sorting type: ASC or DESC
+   */
   orderType?: string;
+  /**
+   * @remarks
+   * Page number, default is 1
+   */
   pageNum?: number;
+  /**
+   * @remarks
+   * Page size, default is 10
+   */
   pageSize?: number;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 123
    */

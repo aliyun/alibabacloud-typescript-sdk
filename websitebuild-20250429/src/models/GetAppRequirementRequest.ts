@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppRequirementRequest extends $dara.Model {
   /**
+   * @remarks
+   * Session ID
+   * 
    * @example
    * 81bc5a34-1d8d-4ef7-a208-7401c51b054b
    */

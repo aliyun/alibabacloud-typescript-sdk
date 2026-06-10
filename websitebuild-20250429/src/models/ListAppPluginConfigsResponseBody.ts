@@ -4,23 +4,42 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAppPluginConfigsResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WD20250703155602000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Indicates whether to display.
+   * 
    * @example
    * always
    */
   display?: number;
   /**
+   * @remarks
+   * Indicates whether scheduled delivery of resource snapshots is enabled.  
+   * 
+   * Valid values:  
+   * - true: Enabled.  
+   * - false: Shutdown.
+   * 
    * @example
    * True
    */
   enabled?: number;
+  /**
+   * @remarks
+   * Extension information
+   */
   extend?: { [key: string]: string };
   /**
    * @remarks
+   * Creation Time
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -29,6 +48,8 @@ export class ListAppPluginConfigsResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * Updated At
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -36,36 +57,57 @@ export class ListAppPluginConfigsResponseBodyModule extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * primary key
+   * 
    * @example
    * 16257
    */
   id?: number;
   /**
+   * @remarks
+   * Plugin configuration
+   * 
    * @example
    * {}
    */
   pluginConfig?: string;
   /**
+   * @remarks
+   * Plugin description
+   * 
    * @example
    * a simple test plugin
    */
   pluginDesc?: string;
   /**
+   * @remarks
+   * Plugin ID
+   * 
    * @example
    * 1bae9ceaceea432d91c7069fab0dfc02
    */
   pluginId?: string;
   /**
+   * @remarks
+   * Plugin name
+   * 
    * @example
    * tf_testaccapigatewayplugin29311
    */
   pluginName?: string;
   /**
+   * @remarks
+   * Site name
+   * 
    * @example
    * wkweb.cn
    */
   siteName?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 123456
    */
@@ -120,38 +162,70 @@ export class ListAppPluginConfigsResponseBodyModule extends $dara.Model {
 
 export class ListAppPluginConfigsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The detailed reason why access was denied.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application Name. Query the application with this name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
   /**
+   * @remarks
+   * The number of results returned per query.  
+   * 
+   * Valid range: 10 to 100. Default Value: 20.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * task object
+   */
   module?: ListAppPluginConfigsResponseBodyModule[];
   /**
+   * @remarks
+   * The token to start the next query. It is empty if there is no next query.
+   * 
    * @example
    * 0l45bkwM022Dt+rOvPi/oQ==
    */
@@ -165,12 +239,25 @@ export class ListAppPluginConfigsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * is synchronous processing enabled
+   * 
    * @example
    * True
    */

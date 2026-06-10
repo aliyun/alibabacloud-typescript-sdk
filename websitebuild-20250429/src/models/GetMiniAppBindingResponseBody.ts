@@ -4,19 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMiniAppBindingResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Authorization status
+   * 
    * @example
    * disabled
    */
   authStatus?: string;
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20260206134402000001
    */
   bizId?: string;
+  /**
+   * @remarks
+   * ICP filing status
+   * 
+   * @example
+   * false
+   */
   icpFiled?: boolean;
+  /**
+   * @remarks
+   * Miniapp ID
+   * 
+   * @example
+   * wx7f122a7d23fdxxxx
+   */
   platformAppid?: string;
+  /**
+   * @remarks
+   * Preview QR code
+   * 
+   * @example
+   * http://xxxx
+   */
   previewQrCodeUrl?: string;
+  /**
+   * @remarks
+   * Production QR code
+   * 
+   * @example
+   * http://xxxx
+   */
   productionQrCodeUrl?: string;
+  /**
+   * @remarks
+   * Extension information
+   */
   settingValues?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -55,6 +93,10 @@ export class GetMiniAppBindingResponseBodyData extends $dara.Model {
 }
 
 export class GetMiniAppBindingResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request result.
+   */
   data?: GetMiniAppBindingResponseBodyData;
   /**
    * @remarks

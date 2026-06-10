@@ -3,6 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAppSupabaseAuthConfigResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration value. Valid values:  
+   * - cc_rule: CC rule.  
+   * - ddos_dispatch: DDoS filter interaction scheduling.  
+   * - edge_safe: Edge application security.  
+   * - blocked_regions: Geo-blocking.  
+   * - http_acl_policy: Precise ACL rule.  
+   * - bot_manager: Bot traffic management.  
+   * - ip_reputation: IP reputation investigation.
+   */
   configs?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -30,31 +41,55 @@ export class GetAppSupabaseAuthConfigResponseBodyModule extends $dara.Model {
 
 export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * 
    * @example
-   * https://check-result-file-sh.oss-cn-shanghai.aliyuncs.com/u6qw3gxzu3b7sbj/u6qw3gxzu3b7sbj.diff.zip?Expires=1740975709&OSSAccessKeyId=LTAI5tKUErVCETM4ev9SELNb&Signature=FP7dDnkrLlOZHmRRORVqbLOtv9c%3D
+   * abc
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Error arguments returned.
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Task object
+   */
   module?: GetAppSupabaseAuthConfigResponseBodyModule;
   /**
    * @remarks
@@ -65,12 +100,25 @@ export class GetAppSupabaseAuthConfigResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.EROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Error message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */

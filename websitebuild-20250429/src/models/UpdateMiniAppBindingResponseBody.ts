@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateMiniAppBindingResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the operation succeeded.
+   * 
    * @example
    * true
    */
@@ -30,6 +33,10 @@ export class UpdateMiniAppBindingResponseBodyData extends $dara.Model {
 }
 
 export class UpdateMiniAppBindingResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Request result.
+   */
   data?: UpdateMiniAppBindingResponseBodyData;
   /**
    * @remarks

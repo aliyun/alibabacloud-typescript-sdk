@@ -4,37 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Bot ID
+   * 
    * @example
    * Zero2
    */
   botId?: string;
   /**
+   * @remarks
+   * The ID of the chat.
+   * 
    * @example
    * 53467af9-8c4e-4498-9032-1f26978007f8
    */
   chatId?: string;
   /**
+   * @remarks
+   * Current conversation status
+   * 
    * @example
    * 123
    */
   chatStatus?: string;
   /**
+   * @remarks
+   * The ID of the data class API being invoked.
+   * 
    * @example
    * {\\"code\\": \\"200\\", \\"success\\": True, \\"content\\": True, \\"requestId\\": \\"4AF53F7B-FEA9-5966-B0F8-BAF9A1EEFE34\\", \\"businessError\\": False, \\"message\\": \\"success\\", \\"httpStatusCode\\": 200}
    */
   content?: string;
   /**
+   * @remarks
+   * Content type.
+   * 
    * @example
    * image/png
    */
   contentType?: string;
   /**
+   * @remarks
+   * Session ID.
+   * 
    * @example
    * 872be9bc-3097-433d-b462-596202455102
    */
   conversationId?: string;
   /**
    * @remarks
+   * Creation Time
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -43,6 +63,8 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * Updated At.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -50,36 +72,68 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Message ID
+   * 
    * @example
    * 471791769135220858
    */
   messageId?: string;
   /**
+   * @remarks
+   * Business extension metadata (in Map format, must be a JSON string)
+   * 
    * @example
    * {\\"appId\\":\\"WS20260418211121000001\\",\\"inputTokens\\":273,\\"outputTokens\\":1}
    */
   metaData?: string;
   /**
+   * @remarks
+   * The probability of not wearing a mask, not wearing a uniform, or not wearing a hat.
+   * 
    * @example
    * 1
    */
   no?: number;
   /**
+   * @remarks
+   * Indicates the role of a conversation participant. Valid values include:
+   * 
+   * - user: User
+   * 
+   * - assistant: Assistant
+   * 
+   * - system: System
+   * - function: Function
+   * 
+   * - plugin: Plugin
+   * 
+   * - tool: Tool
+   * 
    * @example
    * LoC
    */
   role?: string;
   /**
+   * @remarks
+   * Section ID of the checklist item.
+   * 
    * @example
    * 11
    */
   sectionId?: string;
   /**
+   * @remarks
+   * Site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * 
    * @example
    * 865181640657408
    */
   siteId?: string;
   /**
+   * @remarks
+   * File type
+   * 
    * @example
    * IMAGE
    */
@@ -135,31 +189,55 @@ export class UpdateAppChatMessageResponseBodyModule extends $dara.Model {
 
 export class UpdateAppChatMessageResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic code; not currently used. Please ignore.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * faulty parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * The returned object.
+   */
   module?: UpdateAppChatMessageResponseBodyModule;
   /**
    * @remarks
@@ -170,16 +248,25 @@ export class UpdateAppChatMessageResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
   /**
+   * @remarks
+   * abnormal message
+   * 
    * @example
    * 系统异常
    */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * is processed synchronously
+   * 
    * @example
    * True
    */

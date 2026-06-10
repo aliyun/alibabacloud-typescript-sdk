@@ -4,36 +4,59 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.Model {
   /**
+   * @remarks
+   * Acquisition Time
+   * 
    * @example
    * 2026-03-03 12:00:00
    */
   acquisitionTime?: string;
   /**
+   * @remarks
+   * Balance (initQuota - used)
+   * 
    * @example
    * 12
    */
   balance?: number;
+  balanceStr?: string;
   /**
+   * @remarks
+   * Validity Period expiration time
+   * 
    * @example
    * 2025-04-11 10:26:27 +0800
    */
   endDate?: string;
   /**
+   * @remarks
+   * Indicates whether it has expired (endDate < current time). The frontend uses this to gray out the display.
+   * 
    * @example
    * False
    */
   expired?: boolean;
   /**
+   * @remarks
+   * Quantity obtained (initial quota)
+   * 
    * @example
    * 123123
    */
   initQuota?: number;
+  initQuotaStr?: string;
   /**
+   * @remarks
+   * Source type code (such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, PURCHASED)
+   * 
    * @example
    * MARKET_CLOUD_DREAM
    */
   sourceType?: string;
   /**
+   * @remarks
+   * Source Type Display Name
+   * 
    * @example
    * FREE_TRIAL_GIFT
    */
@@ -43,9 +66,11 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
     return {
       acquisitionTime: 'AcquisitionTime',
       balance: 'Balance',
+      balanceStr: 'BalanceStr',
       endDate: 'EndDate',
       expired: 'Expired',
       initQuota: 'InitQuota',
+      initQuotaStr: 'InitQuotaStr',
       sourceType: 'SourceType',
       sourceTypeName: 'SourceTypeName',
       status: 'Status',
@@ -56,9 +81,11 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
     return {
       acquisitionTime: 'string',
       balance: 'number',
+      balanceStr: 'string',
       endDate: 'string',
       expired: 'boolean',
       initQuota: 'number',
+      initQuotaStr: 'string',
       sourceType: 'string',
       sourceTypeName: 'string',
       status: 'string',
@@ -76,36 +103,59 @@ export class QueryInspirationAccountDetailsResponseBodyModuleData extends $dara.
 
 export class QueryInspirationAccountDetailsResponseBodyModuleNext extends $dara.Model {
   /**
+   * @remarks
+   * Acquisition time
+   * 
    * @example
    * 2026-03-03 12:00:00
    */
   acquisitionTime?: string;
   /**
+   * @remarks
+   * Balance (initQuota - used)
+   * 
    * @example
    * 12
    */
   balance?: number;
+  balanceStr?: string;
   /**
+   * @remarks
+   * Expiration time of the validity period
+   * 
    * @example
    * 2026-02-25 10:11:25
    */
   endDate?: string;
   /**
+   * @remarks
+   * Indicates whether it has expired (endDate < current time). The frontend uses this to gray out the display.
+   * 
    * @example
    * False
    */
   expired?: boolean;
   /**
+   * @remarks
+   * Quantity obtained (initial quota)
+   * 
    * @example
    * 123123
    */
   initQuota?: number;
+  initQuotaStr?: string;
   /**
+   * @remarks
+   * Source type code (such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, PURCHASED)
+   * 
    * @example
    * MARKET_CLOUD_DREAM
    */
   sourceType?: string;
   /**
+   * @remarks
+   * Display Name of the source type
+   * 
    * @example
    * FREE_TRIAL_GIFT
    */
@@ -114,9 +164,11 @@ export class QueryInspirationAccountDetailsResponseBodyModuleNext extends $dara.
     return {
       acquisitionTime: 'AcquisitionTime',
       balance: 'Balance',
+      balanceStr: 'BalanceStr',
       endDate: 'EndDate',
       expired: 'Expired',
       initQuota: 'InitQuota',
+      initQuotaStr: 'InitQuotaStr',
       sourceType: 'SourceType',
       sourceTypeName: 'SourceTypeName',
     };
@@ -126,9 +178,11 @@ export class QueryInspirationAccountDetailsResponseBodyModuleNext extends $dara.
     return {
       acquisitionTime: 'string',
       balance: 'number',
+      balanceStr: 'string',
       endDate: 'string',
       expired: 'boolean',
       initQuota: 'number',
+      initQuotaStr: 'string',
       sourceType: 'string',
       sourceTypeName: 'string',
     };
@@ -145,34 +199,64 @@ export class QueryInspirationAccountDetailsResponseBodyModuleNext extends $dara.
 
 export class QueryInspirationAccountDetailsResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 12
    */
   currentPageNum?: number;
+  /**
+   * @remarks
+   * Request result.
+   */
   data?: QueryInspirationAccountDetailsResponseBodyModuleData[];
+  /**
+   * @remarks
+   * Decision weight
+   */
   next?: QueryInspirationAccountDetailsResponseBodyModuleNext;
   /**
+   * @remarks
+   * Indicates whether there is a next page.
+   * 
    * @example
    * False
    */
   nextPage?: boolean;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Indicates whether a previous page exists
+   * 
    * @example
    * False
    */
   prePage?: boolean;
+  /**
+   * @remarks
+   * In addition to paging limits, the server-side processes at most the latest 1,000 records for the current query. If the result exceeds 1,000 records, **ResultLimit** is **true**. You can narrow the Time Range and search again. Otherwise, **ResultLimit** is **false**.
+   */
   resultLimit?: boolean;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 1
    */
   totalItemNum?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */
@@ -222,31 +306,56 @@ export class QueryInspirationAccountDetailsResponseBodyModule extends $dara.Mode
 
 export class QueryInspirationAccountDetailsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Access denied details
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Indicates whether retry is allowed. Valid values:
+   * - false: Retry is not allowed.
+   * - true: Retry is allowed.
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * Application Name. Query the application with this name.
+   * 
    * @example
    * or
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Response data
+   */
   module?: QueryInspirationAccountDetailsResponseBodyModule;
   /**
    * @remarks
@@ -257,12 +366,25 @@ export class QueryInspirationAccountDetailsResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Indicates whether processing is synchronous
+   * 
    * @example
    * True
    */

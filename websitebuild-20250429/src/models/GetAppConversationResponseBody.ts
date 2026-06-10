@@ -4,27 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppConversationResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 12343131221311
    */
   aliyunPk?: string;
   /**
+   * @remarks
+   * bot ID
+   * 
    * @example
    * Zero2
    */
   botId?: string;
   /**
+   * @remarks
+   * Chat record
+   * 
    * @example
    * 123
    */
   chatNum?: number;
   /**
+   * @remarks
+   * session id
+   * 
    * @example
    * 872be9bc-3097-433d-b462-596202455102
    */
   conversationId?: string;
   /**
    * @remarks
+   * Creation Time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -33,6 +47,8 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
   gmtCreateTime?: string;
   /**
    * @remarks
+   * Update Time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
    * @example
@@ -40,25 +56,44 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
    */
   gmtModifiedTime?: string;
   /**
+   * @remarks
+   * Extension information (in JSON string format)
+   * 
    * @example
    * {\\"appId\\":\\"WS20260507200853000001\\",\\"inputTokens\\":1411,\\"outputTokens\\":51}
    */
   metaData?: string;
   /**
+   * @remarks
+   * Section ID of the checklist item.
+   * 
    * @example
    * 11
    */
   sectionId?: string;
   /**
+   * @remarks
+   * site ID, which can be obtained by invoking the [ListSites](~~ListSites~~) API.
+   * 
    * @example
    * 865181640657408
    */
   siteId?: string;
   /**
+   * @remarks
+   * Current point, equivalent to news title
+   * 
    * @example
    * Feel Like Makin\\" Love
    */
   title?: string;
+  /**
+   * @remarks
+   * User ID
+   * 
+   * @example
+   * 用户id
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -103,31 +138,55 @@ export class GetAppConversationResponseBodyModule extends $dara.Model {
 
 export class GetAppConversationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * access denied details
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * dewuApp
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * response Data
+   */
   module?: GetAppConversationResponseBodyModule;
   /**
    * @remarks
@@ -138,12 +197,25 @@ export class GetAppConversationResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * is processed synchronously
+   * 
    * @example
    * True
    */

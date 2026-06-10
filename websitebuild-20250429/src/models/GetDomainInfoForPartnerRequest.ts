@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDomainInfoForPartnerRequest extends $dara.Model {
   /**
    * @remarks
+   * Customer business ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetDomainInfoForPartnerRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetDomainInfoForPartnerRequest extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
+   * Alibaba Cloud pk
+   * 
    * This parameter is required.
    * 
    * @example

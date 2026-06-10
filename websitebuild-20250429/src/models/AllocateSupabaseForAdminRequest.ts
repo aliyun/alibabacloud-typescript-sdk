@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateSupabaseForAdminRequest extends $dara.Model {
   /**
    * @remarks
+   * Business ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,26 +15,41 @@ export class AllocateSupabaseForAdminRequest extends $dara.Model {
   bizId?: string;
   env?: string;
   /**
+   * @remarks
+   * Sorting field
+   * 
    * @example
    * gmtCreated
    */
   orderColumn?: string;
   /**
+   * @remarks
+   * Sorting type: ASC or DESC
+   * 
    * @example
    * BUY
    */
   orderType?: string;
   /**
+   * @remarks
+   * Page number, default is 1
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Page size, default is 10
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 111
    */

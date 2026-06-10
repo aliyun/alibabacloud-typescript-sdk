@@ -4,49 +4,73 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * anonymity key
+   * 
    * @example
    * 1111
    */
   anonKey?: string;
   /**
+   * @remarks
+   * application instance business ID
+   * 
    * @example
    * WS20250915163734000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * database instance ID
+   * 
    * @example
    * selectdb-cn-2bl4djolb02
    */
   dbInstanceId?: string;
   /**
+   * @remarks
+   * Database public URL
+   * 
    * @example
    * 111
    */
   dbPublicUrl?: string;
   /**
+   * @remarks
+   * instance creation status
+   * 
    * @example
    * 1111
    */
   instanceCreateStatus?: string;
   /**
+   * @remarks
+   * service key
+   * 
    * @example
    * e80f5a7a08514709a2fb
    */
   serviceKey?: string;
   /**
    * @remarks
-   * trial,draft,live,refunded,expired,released
+   * trial, draft, live, refunded, expired, released
    * 
    * @example
    * NORMAL
    */
   status?: number;
   /**
+   * @remarks
+   * Supabase instance ID
+   * 
    * @example
    * 1111
    */
   supabaseInstanceId?: string;
   /**
+   * @remarks
+   * Supabase public URL
+   * 
    * @example
    * 111
    */
@@ -90,31 +114,55 @@ export class GetAppSupabaseInstanceResponseBodyModule extends $dara.Model {
 
 export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * spring-cloud-b
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message, used to replace the `%s` placeholder in the **ErrMessage** error message.  
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the provided request parameter **DtsJobId** is invalid.
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Task object
+   */
   module?: GetAppSupabaseInstanceResponseBodyModule;
   /**
    * @remarks
@@ -125,12 +173,25 @@ export class GetAppSupabaseInstanceResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Spare parameter.
+   * 
    * @example
    * True
    */

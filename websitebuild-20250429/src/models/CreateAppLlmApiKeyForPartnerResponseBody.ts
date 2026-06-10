@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppLlmApiKeyForPartnerResponseBodyModule extends $dara.Model {
   /**
+   * @remarks
+   * ciphertext of the API key encrypted by AES
+   * 
    * @example
    * xxxx-xxxxxx
    */
@@ -31,31 +34,54 @@ export class CreateAppLlmApiKeyForPartnerResponseBodyModule extends $dara.Model 
 
 export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * watermark
    */
   appName?: string;
   /**
+   * @remarks
+   * dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * dynamic error message.
+   * 
    * @example
    * SYSTEM.ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * response data
+   */
   module?: CreateAppLlmApiKeyForPartnerResponseBodyModule;
   /**
    * @remarks
@@ -66,12 +92,25 @@ export class CreateAppLlmApiKeyForPartnerResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * SYSTEM.EROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * is processed synchronously
+   * 
    * @example
    * True
    */

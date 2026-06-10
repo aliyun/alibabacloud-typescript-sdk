@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   /**
    * @remarks
+   * Business instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,34 +15,63 @@ export class QueryMaterialFileSummaryInfoRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * Folder ID
+   * 
    * This parameter is required.
    * 
    * @example
    * 68157a0a-769a-4364-bbdc-a0e2cf3d5ad
    */
   directoryId?: string;
+  /**
+   * @remarks
+   * File name
+   * 
+   * @example
+   * 文件名
+   */
   name?: string;
   /**
+   * @remarks
+   * Sorting field
+   * 
    * @example
    * CreationTime
    */
   orderColumn?: string;
   /**
+   * @remarks
+   * Sorting type: ASC or DESC
+   * 
    * @example
    * BUY
    */
   orderType?: string;
   /**
+   * @remarks
+   * Page number. Default is 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Page size. Default is 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * File status
+   */
   statusList?: string[];
+  /**
+   * @remarks
+   * File type
+   */
   typeList?: string[];
   static names(): { [key: string]: string } {
     return {

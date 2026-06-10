@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAppSupabaseSecretRequest extends $dara.Model {
   /**
+   * @remarks
+   * Business ID
+   * 
    * @example
    * WS20250731233102000001
    */
   bizId?: string;
   /**
+   * @remarks
+   * Key value
+   * 
    * @example
    * ***
    */
   secretKey?: string;
   /**
+   * @remarks
+   * Key name
+   * 
    * @example
    * 277356_pre_auth
    */
   secretName?: string;
   /**
+   * @remarks
+   * Key Type
+   * 
    * @example
    * Opaque
    */
   secretType?: string;
   /**
+   * @remarks
+   * Key Value
+   * 
    * @example
    * 1231
    */

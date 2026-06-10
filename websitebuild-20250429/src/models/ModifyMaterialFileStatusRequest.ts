@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyMaterialFileStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * Business instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class ModifyMaterialFileStatusRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
+   * File ID
+   * 
    * This parameter is required.
    */
   fileIds?: string[];
   /**
    * @remarks
+   * Modified status
+   * 
    * This parameter is required.
    * 
    * @example

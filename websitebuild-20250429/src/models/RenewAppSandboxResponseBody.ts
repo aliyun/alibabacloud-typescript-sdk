@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RenewAppSandboxResponseBodyModule extends $dara.Model {
+  /**
+   * @remarks
+   * Preview URLs
+   */
   previewUrls?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -30,31 +34,54 @@ export class RenewAppSandboxResponseBodyModule extends $dara.Model {
 
 export class RenewAppSandboxResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Detailed reason for access denial.
+   * 
    * @example
    * {}
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * Is retry allowed
+   * 
    * @example
    * False
    */
   allowRetry?: boolean;
   /**
+   * @remarks
+   * App Name.
+   * 
    * @example
    * watermark
    */
   appName?: string;
   /**
+   * @remarks
+   * Dynamic error code.
+   * 
    * @example
    * ERROR-oo1
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic message; currently unused, please ignore
+   * 
    * @example
    * SYSTEM_ERROR
    */
   dynamicMessage?: string;
+  /**
+   * @remarks
+   * Returned error parameters
+   */
   errorArgs?: any[];
+  /**
+   * @remarks
+   * Whether the shift succeeded
+   */
   module?: RenewAppSandboxResponseBodyModule;
   /**
    * @remarks
@@ -65,12 +92,25 @@ export class RenewAppSandboxResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * SYSTEM.ERROR
    */
   rootErrorCode?: string;
+  /**
+   * @remarks
+   * Abnormal message
+   * 
+   * @example
+   * 系统异常
+   */
   rootErrorMsg?: string;
   /**
+   * @remarks
+   * Reserved parameter.
+   * 
    * @example
    * True
    */
