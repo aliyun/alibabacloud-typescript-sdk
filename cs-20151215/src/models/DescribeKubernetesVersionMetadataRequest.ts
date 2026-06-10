@@ -24,7 +24,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $dara.Model {
    * For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
-   * 1.16.9-aliyun.1
+   * 1.32.1-aliyun.1
    */
   kubernetesVersion?: string;
   /**
@@ -90,7 +90,7 @@ export class DescribeKubernetesVersionMetadataRequest extends $dara.Model {
    * Otherwise, all OS images are returned.
    * 
    * @example
-   * docker
+   * containerd
    */
   runtime?: string;
   static names(): { [key: string]: string } {

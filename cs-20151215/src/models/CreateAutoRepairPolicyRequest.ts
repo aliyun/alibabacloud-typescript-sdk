@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
   /**
+   * @remarks
+   * The incident name.
+   * 
    * @example
    * Node.FaultNeedReboot.HOST
    */
   name?: string;
   /**
+   * @remarks
+   * The incident type.
+   * 
    * @example
    * system
    */
@@ -38,11 +44,17 @@ export class CreateAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
 
 export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionApprovedLabel extends $dara.Model {
   /**
+   * @remarks
+   * The label key.
+   * 
    * @example
    * k8s.aliyun.com/incident
    */
   key?: string;
   /**
+   * @remarks
+   * The label value.
+   * 
    * @example
    * approved
    */
@@ -72,11 +84,17 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionApprov
 
 export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionInquiringLabel extends $dara.Model {
   /**
+   * @remarks
+   * The label key.
+   * 
    * @example
    * k8s.aliyun.com/incident
    */
   key?: string;
   /**
+   * @remarks
+   * The label value.
+   * 
    * @example
    * inquiring
    */
@@ -105,14 +123,28 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionInquir
 }
 
 export class CreateAutoRepairPolicyRequestRulesRepairProcedureIntervention extends $dara.Model {
+  /**
+   * @remarks
+   * The label that grants authorization for the repair step. To approve the step, add this label to the node. After the action is complete, ACK automatically removes both the inquiry and approval labels for this step. If this label is not added promptly, the repair procedure halts and the node remains impaired.
+   */
   approvedLabel?: CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionApprovedLabel;
   /**
+   * @remarks
+   * Specifies whether to enable manual approval.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The label used to request authorization for the repair step. When this step begins, ACK applies this label to the node and waits for approval before performing the action.
+   */
   inquiringLabel?: CreateAutoRepairPolicyRequestRulesRepairProcedureInterventionInquiringLabel;
   /**
+   * @remarks
+   * The manual approval type.
+   * 
    * @example
    * label
    */
@@ -151,9 +183,20 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedureIntervention exten
 }
 
 export class CreateAutoRepairPolicyRequestRulesRepairProcedure extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration parameters for the repair step.
+   */
   config?: { [key: string]: any };
+  /**
+   * @remarks
+   * Settings for manual intervention.
+   */
   intervention?: CreateAutoRepairPolicyRequestRulesRepairProcedureIntervention;
   /**
+   * @remarks
+   * The name of the repair step.
+   * 
    * @example
    * Drain
    */
@@ -190,7 +233,15 @@ export class CreateAutoRepairPolicyRequestRulesRepairProcedure extends $dara.Mod
 }
 
 export class CreateAutoRepairPolicyRequestRules extends $dara.Model {
+  /**
+   * @remarks
+   * The incidents that the rule detects.
+   */
   incidents?: CreateAutoRepairPolicyRequestRulesIncidents[];
+  /**
+   * @remarks
+   * The repair procedure.
+   */
   repairProcedure?: CreateAutoRepairPolicyRequestRulesRepairProcedure[];
   static names(): { [key: string]: string } {
     return {
@@ -223,21 +274,33 @@ export class CreateAutoRepairPolicyRequestRules extends $dara.Model {
 
 export class CreateAutoRepairPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the auto repair policy.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The resource subtype to which the auto repair policy applies.
+   * 
    * @example
    * ess
    */
   resourceSubType?: string;
   /**
+   * @remarks
+   * The resource type to which the auto repair policy applies.
+   * 
    * @example
    * nodepool
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The sub-rules for the auto repair policy.
+   * 
    * @example
    * ["np-xxx"]
    */

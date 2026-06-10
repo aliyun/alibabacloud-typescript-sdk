@@ -16,7 +16,7 @@ export class OpenAckServiceResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 20758A-585D-4A41-A9B2-28DA8F4F534F
+   * 20758A-585D-4A41-A9B2-28DA8F*******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

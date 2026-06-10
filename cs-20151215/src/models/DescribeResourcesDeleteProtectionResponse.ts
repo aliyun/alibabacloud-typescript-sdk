@@ -10,7 +10,7 @@ export class DescribeResourcesDeleteProtectionResponseBody extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * arms-prom
    */
   name?: string;
   /**

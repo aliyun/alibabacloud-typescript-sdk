@@ -8,7 +8,7 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
    * The update interval between batches takes effect only when the pause policy is set to NotPause. Unit: minutes. Valid values: 5 to 120.
    * 
    * @example
-   * 5 minutes
+   * 5
    */
   batchInterval?: number;
   /**
@@ -16,7 +16,7 @@ export class UpgradeClusterNodepoolRequestRollingPolicy extends $dara.Model {
    * The maximum number of nodes per batch.
    * 
    * @example
-   * 3
+   * 2
    */
   maxParallelism?: number;
   /**
@@ -62,7 +62,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
    * The ID of the OS image used by the nodes.
    * 
    * @example
-   * aliyun_2_1903_x64_20G_alibase_20200529.vhd
+   * aliyun_3_x64_20G_container_optimized_20241226.vhd
    */
   imageId?: string;
   /**
@@ -70,7 +70,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
    * The Kubernetes version used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation and get the Kubernetes version of the current cluster in the current_version field.
    * 
    * @example
-   * 1.22.15-aliyun.1
+   * 1.32.1-aliyun.1
    */
   kubernetesVersion?: string;
   /**
@@ -96,7 +96,7 @@ export class UpgradeClusterNodepoolRequest extends $dara.Model {
    * The version of the container runtime used by the nodes. You can call the [DescribeKubernetesVersionMetadata](https://help.aliyun.com/document_detail/2667899.html) operation and get the runtime version in the runtime field.
    * 
    * @example
-   * 1.5.10
+   * 1.6.36
    */
   runtimeVersion?: string;
   /**

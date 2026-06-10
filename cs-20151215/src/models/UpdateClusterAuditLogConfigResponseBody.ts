@@ -16,7 +16,7 @@ export class UpdateClusterAuditLogConfigResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * 48BD70F6-A7E6-543D-9F23-08DEB764C92E
+   * 48BD70F6-A7E6-543D-9F23-08DEB764****
    */
   requestId?: string;
   /**

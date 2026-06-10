@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskInfoResponseBodyError extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * 400
@@ -13,7 +13,7 @@ export class DescribeTaskInfoResponseBodyError extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * failed to xxx
@@ -45,7 +45,7 @@ export class DescribeTaskInfoResponseBodyError extends $dara.Model {
 export class DescribeTaskInfoResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The action of the event.
+   * The event action.
    * 
    * @example
    * start
@@ -53,7 +53,7 @@ export class DescribeTaskInfoResponseBodyEvents extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The severity level of the event.
+   * The event level.
    * 
    * @example
    * Normal
@@ -61,7 +61,7 @@ export class DescribeTaskInfoResponseBodyEvents extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The message about the event.
+   * The event message.
    * 
    * @example
    * start to xxx
@@ -69,7 +69,7 @@ export class DescribeTaskInfoResponseBodyEvents extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The cause of the event.
+   * The reason for the event.
    * 
    * @example
    * NodePoolUpgradeStart
@@ -85,7 +85,7 @@ export class DescribeTaskInfoResponseBodyEvents extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The timestamp when the event was generated.
+   * The time the event was generated.
    * 
    * @example
    * 1669706229286
@@ -125,7 +125,7 @@ export class DescribeTaskInfoResponseBodyEvents extends $dara.Model {
 export class DescribeTaskInfoResponseBodyStages extends $dara.Model {
   /**
    * @remarks
-   * The end time of the stage.
+   * The end time of the task stage.
    * 
    * @example
    * 2022-12-15 23:00:00
@@ -133,7 +133,7 @@ export class DescribeTaskInfoResponseBodyStages extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The message about the stage.
+   * The message for the task stage.
    * 
    * @example
    * success to xxxxx
@@ -141,12 +141,12 @@ export class DescribeTaskInfoResponseBodyStages extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The output generated at the stage.
+   * The output of the task stage.
    */
   outputs?: { [key: string]: any };
   /**
    * @remarks
-   * The start time of the stage.
+   * The start time of the task stage.
    * 
    * @example
    * 2022-12-15 23:00:00
@@ -154,7 +154,7 @@ export class DescribeTaskInfoResponseBodyStages extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the stage.
+   * The state of the task stage.
    * 
    * @example
    * running
@@ -195,7 +195,7 @@ export class DescribeTaskInfoResponseBodyStages extends $dara.Model {
 export class DescribeTaskInfoResponseBodyTarget extends $dara.Model {
   /**
    * @remarks
-   * The ID of the object.
+   * The ID of the task target.
    * 
    * @example
    * c78592bfe92244365b3c3ad47f1de****
@@ -203,7 +203,7 @@ export class DescribeTaskInfoResponseBodyTarget extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The type of the object.
+   * The type of the task target.
    * 
    * @example
    * cluster
@@ -235,7 +235,7 @@ export class DescribeTaskInfoResponseBodyTarget extends $dara.Model {
 export class DescribeTaskInfoResponseBodyTaskResult extends $dara.Model {
   /**
    * @remarks
-   * The resources that are managed by the task. For a scale-out task, the value of this parameter is the ID of the instance that is added by the task.
+   * The resource that the task operates on. For example, for a scale-out task that operates on an instance, this field is the instance ID.
    * 
    * @example
    * i-xxx
@@ -243,11 +243,13 @@ export class DescribeTaskInfoResponseBodyTaskResult extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The status of the scale-out task. Valid values:
+   * The scale-out state of the resource. Valid values:
    * 
-   * *   `success`: The scale-out task is successful.
-   * *   `success`: The scale-out task failed.
-   * *   `initial`: The scale-out task is being initialized.
+   * - `success`: The scale-out succeeded.
+   * 
+   * - `failed`: The scale-out failed.
+   * 
+   * - `initial`: The resource is initializing.
    * 
    * @example
    * success
@@ -287,7 +289,7 @@ export class DescribeTaskInfoResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The time when the task was created.
+   * The time the task was created.
    * 
    * @example
    * 2020-11-10T16:02:04+08:00
@@ -303,12 +305,12 @@ export class DescribeTaskInfoResponseBody extends $dara.Model {
   currentStage?: string;
   /**
    * @remarks
-   * The error returned for the task.
+   * Error information for the task.
    */
   error?: DescribeTaskInfoResponseBodyError;
   /**
    * @remarks
-   * The event generated by the task.
+   * Events generated by the task.
    */
   events?: DescribeTaskInfoResponseBodyEvents[];
   outputs?: { [key: string]: any };
@@ -319,16 +321,18 @@ export class DescribeTaskInfoResponseBody extends $dara.Model {
   parameters?: { [key: string]: any };
   /**
    * @remarks
-   * Detailed information about the stage of the task.
+   * The task stages.
    */
   stages?: DescribeTaskInfoResponseBodyStages[];
   /**
    * @remarks
-   * The status of the task. Valid values:
+   * The state of the task. Valid values:
    * 
-   * *   `running`: The task is running.
-   * *   `failed`: The task failed.
-   * *   `success`: The task is complete.
+   * - `running`: The task is in progress.
+   * 
+   * - `fail`: The task failed.
+   * 
+   * - `success`: The task succeeded.
    * 
    * @example
    * running
@@ -336,7 +340,7 @@ export class DescribeTaskInfoResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The object of the task.
+   * The target of the task.
    */
   target?: DescribeTaskInfoResponseBodyTarget;
   /**
@@ -349,12 +353,12 @@ export class DescribeTaskInfoResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The execution details of the task.
+   * The details of the task execution.
    */
   taskResult?: DescribeTaskInfoResponseBodyTaskResult[];
   /**
    * @remarks
-   * The task type. A value of `cluster_scaleout` indicates a scale-out task.
+   * The type of the task. For a scale-out task, the value is `cluster_scaleout`.
    * 
    * @example
    * cluster_scaleout
@@ -362,7 +366,7 @@ export class DescribeTaskInfoResponseBody extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The time when the task was updated.
+   * The time the task was last updated.
    * 
    * @example
    * 2020-11-10T16:03:06+08:00

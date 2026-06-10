@@ -10,6 +10,16 @@ import { Taint } from "./Taint";
 
 
 export class CreateClusterNodePoolRequestAutoMode extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to enable the intelligent managed mode.  
+   * Valid values:  
+   * - true: Enables the intelligent managed mode. This can be enabled only when the cluster has the intelligent managed mode enabled.  
+   * - false: Disables the intelligent managed mode.
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -44,7 +54,7 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
    * **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
    * 
    * @example
-   * 5
+   * null
    * 
    * @deprecated
    */
@@ -65,7 +75,7 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
    * **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
    * 
    * @example
-   * PayByBandwidth
+   * null
    * 
    * @deprecated
    */
@@ -80,7 +90,7 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
    * Default value: `false`.
    * 
    * @example
-   * true
+   * false
    */
   enable?: boolean;
   /**
@@ -99,7 +109,7 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
    * **Important** This parameter is deprecated. Use the internet_charge_type and internet_max_bandwidth_out parameters instead.
    * 
    * @example
-   * true
+   * null
    * 
    * @deprecated
    */
@@ -171,7 +181,21 @@ export class CreateClusterNodePoolRequestAutoScaling extends $dara.Model {
 }
 
 export class CreateClusterNodePoolRequestEfloNodeGroup extends $dara.Model {
+  /**
+   * @remarks
+   * The Lingjun cluster ID that must be associated when creating a Lingjun node pool.
+   * 
+   * @example
+   * i1169130516633730****
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the Lingjun group in the Lingjun cluster to associate when creating a Lingjun node pool.
+   * 
+   * @example
+   * ng-ec3c96ff0aa****
+   */
   groupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -204,7 +228,7 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
    * The bandwidth of the enhanced edge node pool. Unit: Mbit/s.
    * 
    * @example
-   * 10
+   * null
    */
   bandwidth?: number;
   /**
@@ -214,7 +238,7 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
    * The ID of the Cloud Connect Network (CCN) instance that is associated with the enhanced edge node pool.
    * 
    * @example
-   * ccn-qm5i0i0q9yi*******
+   * null
    */
   ccnId?: string;
   /**
@@ -224,7 +248,7 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
    * The region to which the CCN instance that is associated with the enhanced edge node pool belongs.
    * 
    * @example
-   * cn-shanghai
+   * null
    */
   ccnRegionId?: string;
   /**
@@ -234,7 +258,7 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
    * The ID of the Cloud Enterprise Network (CEN) instance that is associated with the enhanced edge node pool.
    * 
    * @example
-   * cen-ey9k9nfhz0f*******
+   * null
    */
   cenId?: string;
   /**
@@ -244,7 +268,7 @@ export class CreateClusterNodePoolRequestInterconnectConfig extends $dara.Model 
    * The subscription duration of the enhanced edge node pool. The duration is measured in months.
    * 
    * @example
-   * 1
+   * null
    */
   improvedPeriod?: string;
   static names(): { [key: string]: string } {
@@ -287,7 +311,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
    * Default value: `false`
    * 
    * @example
-   * true
+   * false
    */
   cmsEnabled?: boolean;
   /**
@@ -318,7 +342,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
    * Set the parameter to a value in the customized,aliyun,ip,com format. The value consists of four parts that are separated by commas (,). customized and ip are fixed content. aliyun is the prefix and com is the suffix. Example: aliyun.192.168.xxx.xxx.com.
    * 
    * @example
-   * customized,aliyun,ip,com
+   * aliyun.com192.XX.YY.55test
    */
   nodeNameMode?: string;
   /**
@@ -340,7 +364,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
    * Default value: containerd.
    * 
    * @example
-   * docker
+   * containerd
    */
   runtime?: string;
   /**
@@ -348,7 +372,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
    * The version of the container runtime.
    * 
    * @example
-   * 19.03.5
+   * 1.6.38
    */
   runtimeVersion?: string;
   /**
@@ -418,6 +442,10 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $dara.Model {
 }
 
 export class CreateClusterNodePoolRequestManagementAutoRepairPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Whether manual approval is required for edge zone repair.
+   */
   approvalRequired?: boolean;
   /**
    * @remarks
@@ -521,6 +549,15 @@ export class CreateClusterNodePoolRequestManagementAutoUpgradePolicy extends $da
 }
 
 export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Packages to exclude during vulnerability remediation.
+   * 
+   * Default Value: `kernel`.
+   * 
+   * @example
+   * kernel
+   */
   excludePackages?: string;
   /**
    * @remarks
@@ -530,7 +567,7 @@ export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $dar
    * *   `false`: does not allow node restart. If `auto_vul_fix` is set to true, the default value of this parameter is `false`. If `auto_vul_fix` is set to false, the default value of this parameter is `false`.
    * 
    * @example
-   * true
+   * false
    */
   restartNode?: boolean;
   /**
@@ -585,7 +622,7 @@ export class CreateClusterNodePoolRequestManagementUpgradeConfig extends $dara.M
    * **Caution** This parameter is deprecated. Use the preceding auto_upgrade parameter instead.
    * 
    * @example
-   * false
+   * null
    * 
    * @deprecated
    */
@@ -644,6 +681,7 @@ export class CreateClusterNodePoolRequestManagementUpgradeConfig extends $dara.M
 }
 
 export class CreateClusterNodePoolRequestManagement extends $dara.Model {
+  autoFaultDiagnosis?: boolean;
   /**
    * @remarks
    * Specifies whether to enable auto node repair. This parameter takes effect only when `enable` is set to true.
@@ -654,7 +692,7 @@ export class CreateClusterNodePoolRequestManagement extends $dara.Model {
    * If `enable` is set to true, the default value of this parameter is `true`. If `enable` is set to false, the default value of this parameter is `false`.
    * 
    * @example
-   * false
+   * true
    */
   autoRepair?: boolean;
   /**
@@ -720,6 +758,7 @@ export class CreateClusterNodePoolRequestManagement extends $dara.Model {
   upgradeConfig?: CreateClusterNodePoolRequestManagementUpgradeConfig;
   static names(): { [key: string]: string } {
     return {
+      autoFaultDiagnosis: 'auto_fault_diagnosis',
       autoRepair: 'auto_repair',
       autoRepairPolicy: 'auto_repair_policy',
       autoUpgrade: 'auto_upgrade',
@@ -733,6 +772,7 @@ export class CreateClusterNodePoolRequestManagement extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoFaultDiagnosis: 'boolean',
       autoRepair: 'boolean',
       autoRepairPolicy: CreateClusterNodePoolRequestManagementAutoRepairPolicy,
       autoUpgrade: 'boolean',
@@ -766,6 +806,10 @@ export class CreateClusterNodePoolRequestManagement extends $dara.Model {
 }
 
 export class CreateClusterNodePoolRequestNodeComponentsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Custom Configuration of the edge zone widget.
+   */
   customConfig?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -792,13 +836,23 @@ export class CreateClusterNodePoolRequestNodeComponentsConfig extends $dara.Mode
 }
 
 export class CreateClusterNodePoolRequestNodeComponents extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration of the edge zone widget.
+   */
   config?: CreateClusterNodePoolRequestNodeComponentsConfig;
   /**
+   * @remarks
+   * Name of the edge zone widget.
+   * 
    * @example
    * kubelet
    */
   name?: string;
   /**
+   * @remarks
+   * Version of the edge zone widget.
+   * 
    * @example
    * 1.33.3-aliyun.1
    */
@@ -869,7 +923,7 @@ export class CreateClusterNodePoolRequestNodepoolInfo extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cluster-demo
+   * nodepool-test
    */
   name?: string;
   /**
@@ -935,7 +989,7 @@ export class CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions extends 
    * *   `None`: no private pool is used. The resources of private pools are not used to launch the instances.
    * 
    * @example
-   * Open
+   * Target
    */
   matchCriteria?: string;
   static names(): { [key: string]: string } {
@@ -962,8 +1016,19 @@ export class CreateClusterNodePoolRequestScalingGroupPrivatePoolOptions extends 
 }
 
 export class CreateClusterNodePoolRequestScalingGroupResourcePoolOptions extends $dara.Model {
+  /**
+   * @remarks
+   * A list of private pool IDs, which are either Elasticity Assurance service IDs or Capacity Reservation service IDs. This parameter accepts only private pool IDs in Target pattern. The value range for N is 1 to 20.
+   */
   privatePoolIds?: string[];
   /**
+   * @remarks
+   * The resource pool policy used when creating an instance. Resource pools include private pools generated after Elasticity Assurance or Capacity Reservation services take effect, as well as the public pool, which are available for selection when starting an instance. Valid values:
+   * PrivatePoolFirst: Private pool first. With this policy, if `resource_pool_options.private_pool_ids` is specified, the specified private pool is used first. If no private pool is specified or the specified private pool lacks sufficient capacity, an open-type private pool is automatically matched. If no eligible private pool exists, the instance is created using the public pool.
+   * PrivatePoolOnly: Private pool only. With this policy, you must specify `resource_pool_options.private_pool_ids`. If the specified private pool lacks sufficient capacity, instance startup fails.
+   * None: Do not use a resource pool policy.
+   * Default Value: None.
+   * 
    * @example
    * PrivatePoolFirst
    */
@@ -1106,7 +1171,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * This parameter is deprecated. Use security_hardening_os instead.
    * 
    * @example
-   * false
+   * null
    * 
    * @deprecated
    */
@@ -1143,6 +1208,10 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * 0
    */
   desiredSize?: number;
+  /**
+   * @remarks
+   * Block device initialization configuration.
+   */
   diskInit?: DiskInit[];
   /**
    * @remarks
@@ -1168,7 +1237,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * *   `AliyunLinux3ContainerOptimized`: Alibaba Cloud Linux 3 Container-optimized.
    * 
    * @example
-   * AliyunLinux
+   * AliyunLinux3
    */
   imageType?: string;
   /**
@@ -1183,9 +1252,13 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * PrePaid
+   * PostPaid
    */
   instanceChargeType?: string;
+  /**
+   * @remarks
+   * Access configuration for ECS instance metadata.
+   */
   instanceMetadataOptions?: InstanceMetadataOptions;
   /**
    * @remarks
@@ -1243,7 +1316,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * The password for SSH logon. You must specify this parameter or the `key_pair` parameter. The password must be 8 to 30 characters in length, and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * 
    * @example
-   * Hello1234
+   * ****
    */
   loginPassword?: string;
   /**
@@ -1318,7 +1391,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * Default value: `AliyunLinux`.
    * 
    * @example
-   * AliyunLinux
+   * null
    * 
    * @deprecated
    */
@@ -1346,6 +1419,14 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * The IDs of ApsaraDB RDS instances.
    */
   rdsInstances?: string[];
+  /**
+   * @remarks
+   * The resource pool and resource pool policy used when creating instances. After you set this parameter, note the following:
+   * 
+   * This parameter takes effect only when pay-as-you-go instances are created.
+   * 
+   * This parameter cannot be set together with `private_pool_options.match_criteria` or `private_pool_options.id`.
+   */
   resourcePoolOptions?: CreateClusterNodePoolRequestScalingGroupResourcePoolOptions;
   /**
    * @remarks
@@ -1535,6 +1616,13 @@ export class CreateClusterNodePoolRequestScalingGroup extends $dara.Model {
    * 120
    */
   systemDiskSize?: number;
+  /**
+   * @remarks
+   * Snapshot policy for the system disk.
+   * 
+   * @example
+   * sp-0jl6xnmme8v7o935****
+   */
   systemDiskSnapshotPolicyId?: string;
   /**
    * @remarks
@@ -1741,6 +1829,10 @@ export class CreateClusterNodePoolRequestTeeConfig extends $dara.Model {
 }
 
 export class CreateClusterNodePoolRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Intelligent managed configuration for the node pool.
+   */
   autoMode?: CreateClusterNodePoolRequestAutoMode;
   /**
    * @remarks
@@ -1754,11 +1846,15 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
    * The number of nodes in the node pool.
    * 
    * @example
-   * 1
+   * null
    * 
    * @deprecated
    */
   count?: number;
+  /**
+   * @remarks
+   * Lingjun node pool configuration.
+   */
   efloNodeGroup?: CreateClusterNodePoolRequestEfloNodeGroup;
   /**
    * @remarks
@@ -1819,11 +1915,15 @@ export class CreateClusterNodePoolRequest extends $dara.Model {
    * The maximum number of nodes that can be contained in the edge node pool.
    * 
    * @example
-   * 10
+   * null
    * 
    * @deprecated
    */
   maxNodes?: number;
+  /**
+   * @remarks
+   * List of edge zone widgets.
+   */
   nodeComponents?: CreateClusterNodePoolRequestNodeComponents[];
   /**
    * @remarks

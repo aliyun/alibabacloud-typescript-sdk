@@ -46,7 +46,7 @@ export class AttachInstancesToNodePoolRequest extends $dara.Model {
    * The SSH password that is used to log on to the instance.
    * 
    * @example
-   * Hello1234
+   * ******
    */
   password?: string;
   static names(): { [key: string]: string } {

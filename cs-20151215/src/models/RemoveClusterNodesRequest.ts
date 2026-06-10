@@ -3,22 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class RemoveClusterNodesRequest extends $dara.Model {
-  /**
-   * @remarks
-   * Specifies whether to evict all pods from the nodes that you want to remove.
-   */
   drainNode?: boolean;
   /**
    * @remarks
-   * The list of nodes to be removed.
-   * 
    * This parameter is required.
    */
   nodes?: string[];
-  /**
-   * @remarks
-   * Specifies whether to release the Elastic Compute Service (ECS) instances when they are removed from the cluster.
-   */
   releaseNode?: boolean;
   static names(): { [key: string]: string } {
     return {

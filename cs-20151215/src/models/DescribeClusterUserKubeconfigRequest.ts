@@ -13,7 +13,7 @@ export class DescribeClusterUserKubeconfigRequest extends $dara.Model {
    * Default value: `false`
    * 
    * @example
-   * true
+   * false
    */
   privateIpAddress?: boolean;
   /**

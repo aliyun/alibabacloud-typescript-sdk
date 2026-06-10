@@ -16,7 +16,7 @@ export class DescribeClusterNodesRequest extends $dara.Model {
    * The node pool ID.
    * 
    * @example
-   * np****
+   * npe25633140a7d4fbea56cd0479c******
    */
   nodepoolId?: string;
   /**

@@ -3,19 +3,39 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ContainerdConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to ignore volumes defined in the image.
+   */
   ignoreImageDefinedVolume?: boolean;
   /**
    * @remarks
-   * Insecure image repositories that skipped the TLS certificate verification.
+   * A list of insecure registries that skip TLS certificate verification.
    */
   insecureRegistries?: string[];
+  /**
+   * @remarks
+   * Maximum core dump size in bytes.
+   */
   limitCore?: number;
+  /**
+   * @remarks
+   * Maximum locked memory in bytes.
+   */
   limitMemLock?: number;
+  /**
+   * @remarks
+   * Maximum number of open file handles.
+   */
   limitNoFile?: number;
+  /**
+   * @remarks
+   * The maximum number of concurrent image layer downloads.
+   */
   maxConcurrentDownloads?: number;
   /**
    * @remarks
-   * The image accelerator configuration.
+   * A list of registry mirrors to accelerate image pulls.
    */
   registryMirrors?: string[];
   static names(): { [key: string]: string } {

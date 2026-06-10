@@ -16,7 +16,7 @@ export class UpgradeClusterAddonsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * bfd12953-31cb-42f1-8a36-7b80ec345094
+   * bfd12953-31cb-42f1-8a36-7b80ec34****
    */
   requestId?: string;
   /**

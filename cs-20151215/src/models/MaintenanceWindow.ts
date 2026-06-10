@@ -35,7 +35,7 @@ export class MaintenanceWindow extends $dara.Model {
    * The start time of the cluster maintenance window. The value follows a standard time format in Golang. Example: 15:04:05Z.
    * 
    * @example
-   * 03:00:00Z
+   * 2020-10-15T12:31:00.000+08:00
    */
   maintenanceTime?: string;
   /**

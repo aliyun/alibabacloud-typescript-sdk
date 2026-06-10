@@ -15,7 +15,7 @@ export class RunClusterCheckRequest extends $dara.Model {
    * If you set `type=NodePoolUpgrade`, you must set this parameter to the node pool ID. Otherwise, this parameter is optional.
    * 
    * @example
-   * np1f6779297c4444a3a1cdd29be8e5****
+   * np1f6779297c4444a3a1cdd29be8******
    */
   target?: string;
   /**
@@ -32,7 +32,7 @@ export class RunClusterCheckRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ClusterUpgrade
+   * NodePoolUpgrade
    */
   type?: string;
   static names(): { [key: string]: string } {

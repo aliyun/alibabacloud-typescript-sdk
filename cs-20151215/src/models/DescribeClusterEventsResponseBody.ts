@@ -7,39 +7,13 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
    * @remarks
    * The severity level of the event.
    * 
-   * Valid values:
-   * 
-   * *   warning
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   error
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   info
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * info
    */
   level?: string;
   /**
    * @remarks
-   * The details of the event.
+   * The event message.
    * 
    * @example
    * Start to upgrade NodePool nodePool/npdd89dc2b76c04f14b06774883b******
@@ -47,7 +21,7 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The status of the event.
+   * The event status.
    * 
    * @example
    * Started
@@ -81,7 +55,7 @@ export class DescribeClusterEventsResponseBodyEventsData extends $dara.Model {
 export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * c82e6987e2961451182edacd74faf****
@@ -89,7 +63,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The description of the event.
+   * The event data.
    */
   data?: DescribeClusterEventsResponseBodyEventsData;
   /**
@@ -105,12 +79,12 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
    * The event source.
    * 
    * @example
-   * cluster
+   * task
    */
   source?: string;
   /**
    * @remarks
-   * The subject related to the event.
+   * The object associated with the event.
    * 
    * @example
    * npdd89dc2b76c04f14b06774883b******
@@ -118,15 +92,47 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * The time when the event started.
+   * The time the event occurred.
    * 
    * @example
-   * 2020-12-01T17:31:00Z
+   * 2025-05-14T10:00:56+08:00
    */
   time?: string;
   /**
    * @remarks
-   * The type of event. Valid values:
+   * The event type. Valid values:
+   * 
+   * - `cluster_create`: Cluster creation.
+   * 
+   * - `cluster_scaleout`: Cluster scale-out.
+   * 
+   * - `cluster_attach`: Attaching existing nodes to a cluster.
+   * 
+   * - `cluster_delete`: Cluster deletion.
+   * 
+   * - `cluster_upgrade`: Cluster upgrade.
+   * 
+   * - `cluster_migrate`: Cluster migration.
+   * 
+   * - `cluster_node_delete`: Node removal.
+   * 
+   * - `cluster_node_drain`: Node drain.
+   * 
+   * - `cluster_modify`: Cluster modification.
+   * 
+   * - `cluster_configuration_modify`: Control plane configuration modification.
+   * 
+   * - `cluster_addon_install`: Add-on installation.
+   * 
+   * - `cluster_addon_upgrade`: Add-on upgrade.
+   * 
+   * - `cluster_addon_uninstall`: Add-on uninstallation.
+   * 
+   * - `runtime_upgrade`: Container runtime upgrade.
+   * 
+   * - `nodepool_upgrade`: Node pool upgrade.
+   * 
+   * - `nodepool_update`: Node pool update.
    * 
    * @example
    * nodepool_update
@@ -171,7 +177,7 @@ export class DescribeClusterEventsResponseBodyEvents extends $dara.Model {
 export class DescribeClusterEventsResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -179,7 +185,7 @@ export class DescribeClusterEventsResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 50. Default value: 50.
+   * The number of entries returned per page.
    * 
    * @example
    * 50
@@ -187,10 +193,10 @@ export class DescribeClusterEventsResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the query.
    * 
    * @example
-   * 3
+   * 126
    */
   totalCount?: number;
   static names(): { [key: string]: string } {
@@ -224,6 +230,10 @@ export class DescribeClusterEventsResponseBody extends $dara.Model {
    * The list of events.
    */
   events?: DescribeClusterEventsResponseBodyEvents[];
+  /**
+   * @remarks
+   * The token used to retrieve the next page of results. If this parameter is empty, there are no more results to return.
+   */
   nextToken?: string;
   /**
    * @remarks

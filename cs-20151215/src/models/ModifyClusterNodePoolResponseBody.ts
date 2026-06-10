@@ -13,7 +13,7 @@ export class ModifyClusterNodePoolResponseBody extends $dara.Model {
   nodepoolId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 687C5BAA-D103-4993-884B-C35E4314****

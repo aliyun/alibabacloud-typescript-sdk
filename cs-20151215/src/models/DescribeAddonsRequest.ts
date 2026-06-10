@@ -33,7 +33,7 @@ export class DescribeAddonsRequest extends $dara.Model {
    * *   `ExternalKubernetes`: registered cluster.
    * 
    * @example
-   * kubernetes
+   * ManagedKubernetes
    */
   clusterType?: string;
   /**

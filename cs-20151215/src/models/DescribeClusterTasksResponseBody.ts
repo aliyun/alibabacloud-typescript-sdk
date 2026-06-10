@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterTasksResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of the page returned.
+   * The page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeClusterTasksResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeClusterTasksResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class DescribeClusterTasksResponseBodyPageInfo extends $dara.Model {
 export class DescribeClusterTasksResponseBodyTasksError extends $dara.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * BadRequest
@@ -63,7 +63,7 @@ export class DescribeClusterTasksResponseBodyTasksError extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * Addon status not match
@@ -103,12 +103,12 @@ export class DescribeClusterTasksResponseBodyTasks extends $dara.Model {
   created?: string;
   /**
    * @remarks
-   * The error returned for the task.
+   * The error message.
    */
   error?: DescribeClusterTasksResponseBodyTasksError;
   /**
    * @remarks
-   * The status of the task.
+   * The task state.
    * 
    * @example
    * success
@@ -124,7 +124,7 @@ export class DescribeClusterTasksResponseBodyTasks extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The type of task.
+   * The task type.
    * 
    * @example
    * cluster_addon_install
@@ -189,7 +189,7 @@ export class DescribeClusterTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the tasks.
+   * The tasks.
    */
   tasks?: DescribeClusterTasksResponseBodyTasks[];
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class DescribeTriggerResponseBody extends $dara.Model {
    * The ID of the trigger.
    * 
    * @example
-   * 1234
+   * 75973497486******
    */
   id?: string;
   /**

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
   /**
+   * @remarks
+   * The incident name.
+   * 
    * @example
    * Node.FaultNeedReboot.HOST
    */
   name?: string;
   /**
+   * @remarks
+   * The incident type.
+   * 
    * @example
    * system
    */
@@ -38,11 +44,17 @@ export class ModifyAutoRepairPolicyRequestRulesIncidents extends $dara.Model {
 
 export class ModifyAutoRepairPolicyRequestRulesRepairProcedureInterventionApprovedLabel extends $dara.Model {
   /**
+   * @remarks
+   * The label `key`.
+   * 
    * @example
    * k8s.aliyun.com/incident
    */
   key?: string;
   /**
+   * @remarks
+   * The label `value`.
+   * 
    * @example
    * approved
    */
@@ -72,11 +84,17 @@ export class ModifyAutoRepairPolicyRequestRulesRepairProcedureInterventionApprov
 
 export class ModifyAutoRepairPolicyRequestRulesRepairProcedureInterventionInquiringLabel extends $dara.Model {
   /**
+   * @remarks
+   * The label `key`.
+   * 
    * @example
    * k8s.aliyun.com/incident
    */
   key?: string;
   /**
+   * @remarks
+   * The label `value`.
+   * 
    * @example
    * inquiring
    */
@@ -105,14 +123,28 @@ export class ModifyAutoRepairPolicyRequestRulesRepairProcedureInterventionInquir
 }
 
 export class ModifyAutoRepairPolicyRequestRulesRepairProcedureIntervention extends $dara.Model {
+  /**
+   * @remarks
+   * The label configuration for authorization confirmation. Add this label to the node to authorize ACK to proceed with this stage. After the stage completes, ACK automatically removes the inquiry and confirmation labels. If you do not add this label in time, ACK will not proceed with this or subsequent stages, leaving the node in an unhealthy state.
+   */
   approvedLabel?: ModifyAutoRepairPolicyRequestRulesRepairProcedureInterventionApprovedLabel;
   /**
+   * @remarks
+   * Specifies whether to enable manual approval.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The label configuration for the authorization inquiry. At this stage, ACK adds this label to the node and waits for your authorization before proceeding.
+   */
   inquiringLabel?: ModifyAutoRepairPolicyRequestRulesRepairProcedureInterventionInquiringLabel;
   /**
+   * @remarks
+   * The approval type.
+   * 
    * @example
    * label
    */
@@ -151,9 +183,20 @@ export class ModifyAutoRepairPolicyRequestRulesRepairProcedureIntervention exten
 }
 
 export class ModifyAutoRepairPolicyRequestRulesRepairProcedure extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration parameters for the procedure.
+   */
   config?: { [key: string]: any };
+  /**
+   * @remarks
+   * The configuration for the manual intervention procedure.
+   */
   intervention?: ModifyAutoRepairPolicyRequestRulesRepairProcedureIntervention;
   /**
+   * @remarks
+   * The procedure name.
+   * 
    * @example
    * QuarantineGPU
    */
@@ -190,7 +233,15 @@ export class ModifyAutoRepairPolicyRequestRulesRepairProcedure extends $dara.Mod
 }
 
 export class ModifyAutoRepairPolicyRequestRules extends $dara.Model {
+  /**
+   * @remarks
+   * A list of identified incidents.
+   */
   incidents?: ModifyAutoRepairPolicyRequestRulesIncidents[];
+  /**
+   * @remarks
+   * A list of repair procedures.
+   */
   repairProcedure?: ModifyAutoRepairPolicyRequestRulesRepairProcedure[];
   static names(): { [key: string]: string } {
     return {
@@ -223,10 +274,17 @@ export class ModifyAutoRepairPolicyRequestRules extends $dara.Model {
 
 export class ModifyAutoRepairPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the self-healing rule.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * A list of self-healing sub-rules.
+   */
   rules?: ModifyAutoRepairPolicyRequestRules[];
   static names(): { [key: string]: string } {
     return {

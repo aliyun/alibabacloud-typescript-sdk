@@ -18,7 +18,7 @@ export class InstallClusterAddonsRequestBody extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * logtail-ds
+   * storage-operato
    */
   name?: string;
   /**
@@ -28,7 +28,7 @@ export class InstallClusterAddonsRequestBody extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * v1.7.3.0-aliyun
+   * v1.32.9
    */
   version?: string;
   static names(): { [key: string]: string } {

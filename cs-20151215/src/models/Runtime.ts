@@ -14,7 +14,7 @@ export class Runtime extends $dara.Model {
    * Default value: `containerd`.
    * 
    * @example
-   * docker
+   * containerd
    */
   name?: string;
   /**
@@ -24,7 +24,7 @@ export class Runtime extends $dara.Model {
    * For more information about the changes to Sandboxed-Container, see [Sandboxed-Container release notes](https://help.aliyun.com/document_detail/160312.html).
    * 
    * @example
-   * 19.03.5
+   * 1.6.20
    */
   version?: string;
   static names(): { [key: string]: string } {

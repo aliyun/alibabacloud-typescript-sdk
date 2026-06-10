@@ -24,7 +24,7 @@ export class GetClusterAddonInstanceResponseBodyLogging extends $dara.Model {
    * The Simple Log Service project that is used to collect logs for the component.
    * 
    * @example
-   * my-log-project
+   * k8s-log-c02b3e03be10643e8a644a843ffcb****
    */
   logProject?: string;
   /**

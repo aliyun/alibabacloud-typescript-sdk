@@ -8,7 +8,7 @@ export class DeleteClusterNodepoolResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 7263C978-3DBD-4E06-B319-793B38A2F388
+   * 7263C978-3DBD-4E06-B319-793B38******
    */
   requestId?: string;
   /**
@@ -16,7 +16,7 @@ export class DeleteClusterNodepoolResponseBody extends $dara.Model {
    * task IDs
    * 
    * @example
-   * T-655ace947e0e6603af000004
+   * T-655ace947e0e6603af******
    */
   taskId?: string;
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
    * The time when the node was created.
    * 
    * @example
-   * 2020-08-25T11:25:35+08:00
+   * 2025-04-16T07:28:00Z
    */
   creationTime?: string;
   /**
@@ -24,7 +24,7 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
    * The expiration date of the node.
    * 
    * @example
-   * 2099-12-31T23:59:00+08:00
+   * 2099-12-31T15:59:00Z
    */
   expiredTime?: string;
   /**
@@ -40,7 +40,7 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
    * The ID of the system image that is used by the node.
    * 
    * @example
-   * aliyun_2_1903_x64_20G_alibase_20200529.vhd
+   * aliyun_3_x64_20G_alibase_20241218.vhd
    */
   imageId?: string;
   /**
@@ -126,7 +126,7 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
    * The name of the node. This name is the identifier of the node in the cluster.
    * 
    * @example
-   * cn-chengdu.192.168.0.36
+   * cn-chengdu.192.168xx.xx
    */
   nodeName?: string;
   /**
@@ -155,7 +155,7 @@ export class DescribeClusterNodesResponseBodyNodes extends $dara.Model {
    * Indicates how the node is initialized. A node can be manually created or created by using Resource Orchestration Service (ROS).
    * 
    * @example
-   * ess_attach
+   * ess
    */
   source?: string;
   /**

@@ -8,7 +8,7 @@ export class RemoveNodePoolNodesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * A9891419-D125-4D89-AFCA-68846675E2F7
+   * A9891419-D125-4D89-AFCA-68846675****
    */
   requestId?: string;
   /**

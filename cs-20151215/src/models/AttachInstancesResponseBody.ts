@@ -63,7 +63,7 @@ export class AttachInstancesResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * T-5a544aff80282e39ea000039
+   * T-5a544aff80282e39ea00****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

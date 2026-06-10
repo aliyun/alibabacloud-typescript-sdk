@@ -16,7 +16,7 @@ export class ModifyNodePoolNodeConfigResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * D7631D83-6E98-1949-B665-766A62xxxxxx
+   * D7631D83-6E98-1949-B665-766A62****
    */
   requestId?: string;
   /**
@@ -24,7 +24,7 @@ export class ModifyNodePoolNodeConfigResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * T-5fd211e924e1d00787xxxxxx
+   * T-5fd211e924e1d00787****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

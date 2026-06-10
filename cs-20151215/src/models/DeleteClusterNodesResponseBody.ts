@@ -8,7 +8,7 @@ export class DeleteClusterNodesResponseBody extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * c104d5d5f301c4e2a8ee578c37bc****
+   * c104d5d5f301c4e2a8ee578c37******
    */
   clusterId?: string;
   /**
@@ -16,7 +16,7 @@ export class DeleteClusterNodesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * A9891419-D125-4D89-AFCA-68846675E2F7
+   * A9891419-D125-4D89-AFCA-688466******
    */
   requestId?: string;
   /**
@@ -24,7 +24,7 @@ export class DeleteClusterNodesResponseBody extends $dara.Model {
    * The ID of the task.
    * 
    * @example
-   * T-60fea8ad2e277f0879000ae9
+   * T-60fea8ad2e27000ae9******
    */
   taskId?: string;
   static names(): { [key: string]: string } {

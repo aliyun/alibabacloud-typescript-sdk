@@ -8,7 +8,7 @@ export class RepairClusterNodePoolResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * db82195b-75a8-40e5-9be4-16f1829dc624
+   * db82195b-75a8-40e5-9be4-16f182******
    */
   requestId?: string;
   /**
@@ -16,7 +16,7 @@ export class RepairClusterNodePoolResponseBody extends $dara.Model {
    * The ID of the task.
    * 
    * @example
-   * T-613b19bbd160ad4928000001
+   * T-613b19bbd160ad2800******
    */
   taskId?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterResourcesResponseBodyDependencies extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster to which the dependent resource is related.
+   * The cluster ID of the dependent resource.
    * 
    * @example
    * cc5ee03f63e43425cb6f71f1a1756****
@@ -13,7 +13,7 @@ export class DescribeClusterResourcesResponseBodyDependencies extends $dara.Mode
   clusterId?: string;
   /**
    * @remarks
-   * The dependent resource type.
+   * The type of the dependent resource.
    * 
    * @example
    * ALIYUN::VPC::NatGateway
@@ -21,7 +21,7 @@ export class DescribeClusterResourcesResponseBodyDependencies extends $dara.Mode
   resourceType?: string;
   /**
    * @remarks
-   * The dependent resource ID.
+   * The instance ID of the dependent resource.
    * 
    * @example
    * ngw-wz9sphwk42sdtjixo****
@@ -55,7 +55,7 @@ export class DescribeClusterResourcesResponseBodyDependencies extends $dara.Mode
 export class DescribeClusterResourcesResponseBodyAssociatedObject extends $dara.Model {
   /**
    * @remarks
-   * The Kubernetes object type.
+   * The type of the Kubernetes object.
    * 
    * @example
    * Service
@@ -63,7 +63,7 @@ export class DescribeClusterResourcesResponseBodyAssociatedObject extends $dara.
   kind?: string;
   /**
    * @remarks
-   * The namespace in which the Kubernetes object resides.
+   * The namespace of the Kubernetes object.
    * 
    * @example
    * kube-system
@@ -71,7 +71,7 @@ export class DescribeClusterResourcesResponseBodyAssociatedObject extends $dara.
   namespace?: string;
   /**
    * @remarks
-   * The Kubernetes object name.
+   * The name of the Kubernetes object.
    * 
    * @example
    * nginx-ingress-lb
@@ -105,7 +105,11 @@ export class DescribeClusterResourcesResponseBodyAssociatedObject extends $dara.
 export class DescribeClusterResourcesResponseBodyDeleteBehavior extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete the resource by default when the cluster is deleted.
+   * Indicates whether to delete the resource by default when the cluster is deleted. Valid values:
+   * 
+   * - true: The resource is deleted by default.
+   * 
+   * - false: The resource is not deleted by default.
    * 
    * @example
    * false
@@ -113,7 +117,11 @@ export class DescribeClusterResourcesResponseBodyDeleteBehavior extends $dara.Mo
   deleteByDefault?: boolean;
   /**
    * @remarks
-   * Specifies whether the default behavior returned in delete_by_default can be changed.
+   * Indicates whether the default behavior specified by the `delete_by_default` parameter can be changed. Valid values:
+   * 
+   * - true: The default behavior can be changed.
+   * 
+   * - false: The default behavior cannot be changed.
    * 
    * @example
    * false
@@ -156,7 +164,7 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
    * The time when the resource was created.
    * 
    * @example
-   * 2020-09-11T10:11:54+08:00
+   * 2023-08-15T14:34:42+08:00
    */
   created?: string;
   /**
@@ -164,15 +172,15 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
    * The resource ID.
    * 
    * @example
-   * lb-wz9poz4r0ymh8u0uf****
+   * ngw-wz9sphwk42sdtjixo****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The resource information. For more information about how to query the source information about the resource, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
+   * Information about the resource. For more details about its source, see [ListStackResources](https://help.aliyun.com/document_detail/133836.html).
    * 
    * @example
-   * {\\"Id\\":\\"k8s_master_slb\\",\\"Name\\":\\"k8s_master_slb\\",\\"Type\\":\\"ALIYUN::SLB::LoadBalancer\\",\\"Status\\":\\"CREATE_COMPLETE\\",\\"StatusReason\\":\\"state changed\\",\\"Updated\\":\\"2020-05-21T13:25:02\\",\\"PhysicalId\\":\\"lb-wz9poz4r0ymh8u0uf****\\"}
+   * {\\"Id\\":\\"KubernetesWorkerRole\\",\\"Name\\":\\"KubernetesWorkerRole\\",\\"Type\\":\\"ALIYUN::RAM::Role\\",\\"Status\\":\\"CREATE_COMPLETE\\",\\"StatusReason\\":\\"state changed\\",\\"Updated\\":\\"2025-04-10T06:21:17\\",\\"PhysicalId\\":\\"KubernetesWorkerRole-7e611193-225f-40f6-bc3c-ea8633******\\"}
    */
   resourceInfo?: string;
   /**
@@ -180,21 +188,28 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
    * The resource type.
    * 
    * @example
-   * ALIYUN::SLB::LoadBalancer
+   * ALIYUN::VPC::NatGateway
    */
   resourceType?: string;
   /**
    * @remarks
-   * The resource status. Valid values:
+   * The state of the resource. Valid values:
    * 
-   * *   `CREATE_COMPLETE`: the resource is created.
-   * *   `CREATE_FAILED`: the resource failed to be created.
-   * *   `CREATE_IN_PROGRESS`: the resource is being created.
-   * *   `DELETE_FAILED`: the resource failed to be deleted.
-   * *   `DELETE_IN_PROGRESS`: the resource is being deleted.
-   * *   `ROLLBACK_COMPLETE`: the resource is rolled back.
-   * *   `ROLLBACK_FAILED`: the resource failed to be rolled back.
-   * *   `ROLLBACK_IN_PROGRESS`: the resource is being rolled back.
+   * - `CREATE_COMPLETE`: The resource is successfully created.
+   * 
+   * - `CREATE_FAILED`: The resource fails to be created.
+   * 
+   * - `CREATE_IN_PROGRESS`: The resource is being created.
+   * 
+   * - `DELETE_FAILED`: The resource fails to be deleted.
+   * 
+   * - `DELETE_IN_PROGRESS`: The resource is being deleted.
+   * 
+   * - `ROLLBACK_COMPLETE`: The rollback is successful.
+   * 
+   * - `ROLLBACK_FAILED`: The rollback fails.
+   * 
+   * - `ROLLBACK_IN_PROGRESS`: The rollback is in progress.
    * 
    * @example
    * CREATE_COMPLETE
@@ -202,10 +217,11 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Specifies whether the resource is created by Container Service for Kubernetes (ACK). Valid values:
+   * Indicates whether the resource is created by ACK. Valid values:
    * 
-   * *   1: the resource is created by ACK.
-   * *   0: the resource is an existing resource.
+   * - 1: The resource is created by ACK.
+   * 
+   * - 0: The resource is an existing resource.
    * 
    * @example
    * 1
@@ -213,12 +229,12 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
   autoCreate?: number;
   /**
    * @remarks
-   * The dependent resources.
+   * The list of dependent resources.
    */
   dependencies?: DescribeClusterResourcesResponseBodyDependencies[];
   /**
    * @remarks
-   * The Kubernetes object with which the resource is associated.
+   * The Kubernetes object that is associated with the resource.
    */
   associatedObject?: DescribeClusterResourcesResponseBodyAssociatedObject;
   /**
@@ -228,11 +244,13 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
   deleteBehavior?: DescribeClusterResourcesResponseBodyDeleteBehavior;
   /**
    * @remarks
-   * The type of the resource creator. Valid values:
+   * The type of the creator of the resource. Valid values:
    * 
-   * *   user: The resource is created by the user.
-   * *   system: The resource is created by the ACK management system.
-   * *   addon: The resource is created by a cluster component.
+   * - user: The resource is created by a user.
+   * 
+   * - system: The resource is created by the ACK control plane.
+   * 
+   * - addon: The resource is created by an add-on.
    * 
    * @example
    * addon
@@ -240,10 +258,10 @@ export class DescribeClusterResourcesResponseBody extends $dara.Model {
   creatorType?: string;
   /**
    * @remarks
-   * The additional information about the resource.
+   * Extra information about the resource.
    * 
    * @example
-   * {"IP": "xx.xx.xx.xx"}
+   * { "type": "SLS_Data" }
    */
   extraInfo?: { [key: string]: any };
   static names(): { [key: string]: string } {

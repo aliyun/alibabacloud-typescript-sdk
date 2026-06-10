@@ -18,7 +18,7 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
    * The custom component settings that you want to use. The value is a JSON string.
    * 
    * @example
-   * {\\"CpuRequest\\":\\"800m\\"}
+   * {"CpuRequest":"800m"}
    */
   config?: string;
   /**
@@ -28,7 +28,7 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 1.6.7
+   * v1.11.3.5-5321daf49-aliyun
    */
   nextVersion?: string;
   /**
@@ -47,7 +47,7 @@ export class UpgradeClusterAddonsRequestBody extends $dara.Model {
    * The current version of the component.
    * 
    * @example
-   * v1.6.2
+   * v1.11.3.2-f57ea7ed6-aliyun
    */
   version?: string;
   static names(): { [key: string]: string } {

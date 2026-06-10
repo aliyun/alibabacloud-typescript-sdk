@@ -16,7 +16,7 @@ export class UpgradeClusterNodepoolResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * T-5fd211e924e1d0078700xxxx
+   * T-5fd211e924e1d0078700****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

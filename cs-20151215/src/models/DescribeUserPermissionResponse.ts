@@ -32,7 +32,7 @@ export class DescribeUserPermissionResponseBody extends $dara.Model {
    * The name of the custom role. If a custom role is assigned, the value is the name of the assigned custom role.
    * 
    * @example
-   * view
+   * terway-pod-reader
    */
   roleName?: string;
   /**

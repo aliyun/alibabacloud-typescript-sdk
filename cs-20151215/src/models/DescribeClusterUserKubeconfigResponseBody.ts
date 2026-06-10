@@ -8,7 +8,7 @@ export class DescribeClusterUserKubeconfigResponseBody extends $dara.Model {
    * The kubeconfig file of the cluster.
    * 
    * @example
-   * apiVersion: v1****
+   * apiVersion: v1\\nclusters:\\n- cluster:\\n    server: https://114.55.xx.xx:6443\\n    certificate-authority-data: LS0tLS****
    */
   config?: string;
   /**

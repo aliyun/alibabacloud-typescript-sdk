@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsDeny extends $dara.Model {
+  /**
+   * @remarks
+   * The severity level. Valid values: `low`, `medium`, and `high`.
+   * 
+   * @example
+   * medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The number of violations.
+   * 
+   * @example
+   * 2
+   */
   violations?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +43,21 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolatio
 }
 
 export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsWarn extends $dara.Model {
+  /**
+   * @remarks
+   * The severity level. Valid values: `low`, `medium`, and `high`.
+   * 
+   * @example
+   * high
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The number of violations.
+   * 
+   * @example
+   * 0
+   */
   violations?: number;
   static names(): { [key: string]: string } {
     return {
@@ -55,7 +83,15 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolatio
 }
 
 export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolations extends $dara.Model {
+  /**
+   * @remarks
+   * A summary of deny actions.
+   */
   deny?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsDeny[];
+  /**
+   * @remarks
+   * A summary of warn actions.
+   */
   warn?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolationsWarn[];
   static names(): { [key: string]: string } {
     return {
@@ -87,9 +123,37 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolatio
 }
 
 export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDeny extends $dara.Model {
+  /**
+   * @remarks
+   * The policy description.
+   * 
+   * @example
+   * Prevent specific namespaces from being deleted.
+   */
   policyDescription?: string;
+  /**
+   * @remarks
+   * The policy name.
+   * 
+   * @example
+   * ACKNamespacesDeleteProtection
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The severity level.
+   * 
+   * @example
+   * medium
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The number of violations.
+   * 
+   * @example
+   * 1
+   */
   violations?: number;
   static names(): { [key: string]: string } {
     return {
@@ -119,9 +183,25 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDen
 }
 
 export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWarn extends $dara.Model {
+  /**
+   * @remarks
+   * The policy description.
+   */
   policyDescription?: string;
+  /**
+   * @remarks
+   * The policy name.
+   */
   policyName?: string;
+  /**
+   * @remarks
+   * The severity level.
+   */
   severity?: string;
+  /**
+   * @remarks
+   * The number of violations.
+   */
   violations?: number;
   static names(): { [key: string]: string } {
     return {
@@ -151,7 +231,15 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWar
 }
 
 export class DescribePolicyGovernanceInClusterResponseBodyViolationViolations extends $dara.Model {
+  /**
+   * @remarks
+   * A summary of deny actions.
+   */
   deny?: DescribePolicyGovernanceInClusterResponseBodyViolationViolationsDeny[];
+  /**
+   * @remarks
+   * A summary of warn actions.
+   */
   warn?: DescribePolicyGovernanceInClusterResponseBodyViolationViolationsWarn[];
   static names(): { [key: string]: string } {
     return {
@@ -183,7 +271,15 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolationViolations ex
 }
 
 export class DescribePolicyGovernanceInClusterResponseBodyViolation extends $dara.Model {
+  /**
+   * @remarks
+   * A summary of all policy violations.
+   */
   totalViolations?: DescribePolicyGovernanceInClusterResponseBodyViolationTotalViolations;
+  /**
+   * @remarks
+   * A summary of violations, grouped by policy name.
+   */
   violations?: DescribePolicyGovernanceInClusterResponseBodyViolationViolations;
   static names(): { [key: string]: string } {
     return {
@@ -215,20 +311,129 @@ export class DescribePolicyGovernanceInClusterResponseBodyViolation extends $dar
 }
 
 export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $dara.Model {
+  /**
+   * @remarks
+   * The cluster ID.
+   * 
+   * @example
+   * hash code
+   */
   clusterId?: string;
+  /**
+   * @remarks
+   * The enforcement action of the policy. Valid values:
+   * 
+   * - `warn`: Logs a warning for the violating request but allows it to proceed.
+   * 
+   * - deny: Deny requests that violate the policy.
+   * 
+   * @example
+   * deny
+   */
   constraintAction?: string;
+  /**
+   * @remarks
+   * The API version of the policy.
+   * 
+   * @example
+   * v1beta1
+   */
   constraintApiVersion?: string;
+  /**
+   * @remarks
+   * The policy type.
+   * 
+   * @example
+   * cis-k8s
+   */
   constraintCategory?: string;
+  /**
+   * @remarks
+   * The API group of the policy.
+   * 
+   * @example
+   * constraints.gatekeeper.sh
+   */
   constraintGroup?: string;
+  /**
+   * @remarks
+   * The kind of the policy constraint.
+   * 
+   * @example
+   * ACKNamespacesDeleteProtection
+   */
   constraintKind?: string;
+  /**
+   * @remarks
+   * The name of the policy instance.
+   * 
+   * @example
+   * namespace-delete-protection-jpjwv
+   */
   constraintName?: string;
+  /**
+   * @remarks
+   * The message generated by the policy enforcement.
+   * 
+   * @example
+   * Admission webhook \\"validation.gatekeeper.sh\\" denied request, Resource Namespace: , Constraint: namespace-delete-protection-jpjwv, Message: not allow to delete protection namespace test.
+   */
   eventMsg?: string;
+  /**
+   * @remarks
+   * The type of the logged event, such as `violation`.
+   * 
+   * @example
+   * violation
+   */
   eventType?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * hash code
+   */
   requestUid?: string;
+  /**
+   * @remarks
+   * Information about the user who made the request that violated the policy.
+   * 
+   * @example
+   * account id
+   */
   requestUserinfo?: string;
+  /**
+   * @remarks
+   * The name of the user who made the request that violated the policy.
+   * 
+   * @example
+   * account user name
+   */
   requestUsername?: string;
+  /**
+   * @remarks
+   * The type of the violating resource. For example, if a request to operate on a namespace is denied, the value is `Namespace`.
+   * 
+   * @example
+   * Namespace
+   */
   resourceKind?: string;
+  /**
+   * @remarks
+   * The name of the violating resource.
+   * 
+   * @example
+   * test
+   */
   resourceName?: string;
+  /**
+   * @remarks
+   * The time when the policy violation occurred.
+   * 
+   * @example
+   * 2025-10-27T11:31:40Z
+   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -282,21 +487,40 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs extends $
 export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara.Model {
   /**
    * @remarks
-   * The number of audit log entries.
+   * The total number of logs returned by the current query.
    * 
    * @example
    * 100
    */
   count?: number;
+  /**
+   * @remarks
+   * The log project that stores policy enforcement information.
+   * 
+   * @example
+   * k8s-log-clusterid
+   */
   logProject?: string;
+  /**
+   * @remarks
+   * The log store that stores policy enforcement information.
+   * 
+   * @example
+   * policyadmit-clusterid
+   */
   logStore?: string;
+  /**
+   * @remarks
+   * The log entries for policy violations.
+   */
   logs?: DescribePolicyGovernanceInClusterResponseBodyAdmitLogLogs[];
   /**
    * @remarks
    * The status of the query. Valid values:
    * 
-   * *   `Complete`: The query succeeded and the complete query result is returned.
-   * *   `Incomplete`: The query succeeded but the query result is incomplete. To obtain the complete query result, you must repeat the request.
+   * - `Complete`: All query results are returned.
+   * 
+   * - `Incomplete`: The query returned a partial result set. Send the request again to retrieve the remaining results.
    * 
    * @example
    * Complete
@@ -337,7 +561,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyAdmitLog extends $dara
 export class DescribePolicyGovernanceInClusterResponseBodyOnState extends $dara.Model {
   /**
    * @remarks
-   * The number of policies that are enabled.
+   * The number of enabled policy types.
    * 
    * @example
    * 3
@@ -353,7 +577,7 @@ export class DescribePolicyGovernanceInClusterResponseBodyOnState extends $dara.
   severity?: string;
   /**
    * @remarks
-   * The total number of policies of the severity level.
+   * The total number of policy types for this severity.
    * 
    * @example
    * 8
@@ -385,15 +609,19 @@ export class DescribePolicyGovernanceInClusterResponseBodyOnState extends $dara.
 }
 
 export class DescribePolicyGovernanceInClusterResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A summary of policy violations, grouped by severity.
+   */
   violation?: DescribePolicyGovernanceInClusterResponseBodyViolation;
   /**
    * @remarks
-   * The audit logs of the policies in the cluster.
+   * The audit log for policy governance in the cluster.
    */
   admitLog?: DescribePolicyGovernanceInClusterResponseBodyAdmitLog;
   /**
    * @remarks
-   * Details about the policies of different severity levels that are enabled for the cluster.
+   * The statistics for enabled policies in the cluster, categorized by severity.
    */
   onState?: DescribePolicyGovernanceInClusterResponseBodyOnState[];
   static names(): { [key: string]: string } {

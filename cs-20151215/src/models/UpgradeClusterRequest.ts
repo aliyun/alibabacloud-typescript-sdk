@@ -40,7 +40,7 @@ export class UpgradeClusterRequest extends $dara.Model {
    * This parameter is deprecated. No need to pass values.
    * 
    * @example
-   * k8s
+   * null
    * 
    * @deprecated
    */
@@ -61,7 +61,7 @@ export class UpgradeClusterRequest extends $dara.Model {
    * The target Kubernetes version for cluster upgrade.
    * 
    * @example
-   * 1.16.9-aliyun.1
+   * 1.32.1-aliyun.1
    */
   nextVersion?: string;
   /**
@@ -76,7 +76,7 @@ export class UpgradeClusterRequest extends $dara.Model {
    * This parameter is deprecated. Use next_version to specify the upgrade target Kubernetes version.
    * 
    * @example
-   * 1.14.8-aliyun.1
+   * null
    * 
    * @deprecated
    */

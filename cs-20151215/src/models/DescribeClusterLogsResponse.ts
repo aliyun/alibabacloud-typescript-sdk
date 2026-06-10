@@ -8,7 +8,7 @@ export class DescribeClusterLogsResponseBody extends $dara.Model {
    * The ID of the log entry.
    * 
    * @example
-   * 590749245
+   * 73117232145******
    */
   ID?: number;
   /**
@@ -32,7 +32,7 @@ export class DescribeClusterLogsResponseBody extends $dara.Model {
    * The time when the log entry was generated.
    * 
    * @example
-   * 2020-09-11T10:11:51+08:00
+   * 2025-04-10T17:54:26+08:00
    */
   created?: string;
   /**
@@ -40,7 +40,7 @@ export class DescribeClusterLogsResponseBody extends $dara.Model {
    * The time when the log entry was updated.
    * 
    * @example
-   * 2020-09-11T10:11:51+08:00
+   * 2025-04-10T17:54:26+08:00
    */
   updated?: string;
   static names(): { [key: string]: string } {

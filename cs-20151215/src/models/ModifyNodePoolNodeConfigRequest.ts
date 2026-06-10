@@ -6,6 +6,10 @@ import { Hugepage } from "./Hugepage";
 
 
 export class ModifyNodePoolNodeConfigRequestOsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Hugepage configuration.
+   */
   hugepage?: Hugepage;
   /**
    * @remarks
@@ -82,6 +86,10 @@ export class ModifyNodePoolNodeConfigRequest extends $dara.Model {
    * The kubelet configurations.
    */
   kubeletConfig?: KubeletConfig;
+  /**
+   * @remarks
+   * List of nodes to upgrade.
+   */
   nodeNames?: string[];
   /**
    * @remarks

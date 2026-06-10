@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Model {
   /**
+   * @remarks
+   * The incident name.
+   * 
    * @example
    * Node.FaultNeedReboot.HOST
    */
   name?: string;
   /**
+   * @remarks
+   * The incident type.
+   * 
    * @example
    * system
    */
@@ -38,11 +44,17 @@ export class DescribeAutoRepairPolicyResponseBodyRulesIncidents extends $dara.Mo
 
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionApprovedLabel extends $dara.Model {
   /**
+   * @remarks
+   * The label\\"s `key`.
+   * 
    * @example
    * k8s.aliyun.com/incident
    */
   key?: string;
   /**
+   * @remarks
+   * The label\\"s value.
+   * 
    * @example
    * approved
    */
@@ -72,11 +84,17 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
 
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionInquiringLabel extends $dara.Model {
   /**
+   * @remarks
+   * The label key.
+   * 
    * @example
    * k8s.aliyun.com/incident
    */
   key?: string;
   /**
+   * @remarks
+   * The label value.
+   * 
    * @example
    * inquiring
    */
@@ -105,14 +123,28 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
 }
 
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureIntervention extends $dara.Model {
+  /**
+   * @remarks
+   * The label you add to a node to approve a repair action. When ACK detects this label, it proceeds with the current repair step. After the action is complete, ACK automatically removes both the inquiring and approved labels. If you do not add this label promptly, the repair procedure is paused, and the node may remain unhealthy.
+   */
   approvedLabel?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionApprovedLabel;
   /**
+   * @remarks
+   * Specifies whether to enable manual approval.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * When a repair procedure reaches this step, ACK applies this label to the affected node and pauses until you grant approval.
+   */
   inquiringLabel?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventionInquiringLabel;
   /**
+   * @remarks
+   * The manual approval type.
+   * 
    * @example
    * label
    */
@@ -151,9 +183,20 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureInterventio
 }
 
 export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedure extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration parameters for the repair action.
+   */
   config?: { [key: string]: any };
+  /**
+   * @remarks
+   * The manual approval configuration.
+   */
   intervention?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedureIntervention;
   /**
+   * @remarks
+   * The name of the repair action.
+   * 
    * @example
    * QuarantineGPU
    */
@@ -190,7 +233,15 @@ export class DescribeAutoRepairPolicyResponseBodyRulesRepairProcedure extends $d
 }
 
 export class DescribeAutoRepairPolicyResponseBodyRules extends $dara.Model {
+  /**
+   * @remarks
+   * The detected incidents that trigger the rule.
+   */
   incidents?: DescribeAutoRepairPolicyResponseBodyRulesIncidents[];
+  /**
+   * @remarks
+   * The repair procedure, which contains a list of repair actions.
+   */
   repairProcedure?: DescribeAutoRepairPolicyResponseBodyRulesRepairProcedure[];
   static names(): { [key: string]: string } {
     return {
@@ -223,26 +274,46 @@ export class DescribeAutoRepairPolicyResponseBodyRules extends $dara.Model {
 
 export class DescribeAutoRepairPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the auto-repair rule.
+   * 
    * @example
    * r-xxx
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the auto-repair rule.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The IDs of resources affected by the auto-repair rule.
+   */
   resourceIds?: string[];
   /**
+   * @remarks
+   * The subtype of the resource affected by the auto-repair rule.
+   * 
    * @example
    * ess
    */
   resourceSubType?: string;
   /**
+   * @remarks
+   * The resource type affected by the auto-repair rule.
+   * 
    * @example
    * nodepool
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * The list of rules.
+   */
   rules?: DescribeAutoRepairPolicyResponseBodyRules[];
   static names(): { [key: string]: string } {
     return {

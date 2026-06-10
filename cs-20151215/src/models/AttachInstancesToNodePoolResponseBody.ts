@@ -16,7 +16,7 @@ export class AttachInstancesToNodePoolResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * T-5a54309c80282e39ea00002f
+   * T-5a54309c80282e39eaxxxxxx
    */
   taskId?: string;
   static names(): { [key: string]: string } {

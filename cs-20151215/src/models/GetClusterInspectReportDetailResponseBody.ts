@@ -28,11 +28,17 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   /**
    * @remarks
    * The description of the inspection item.
+   * 
+   * @example
+   * 集群API Server负载均衡实例异常会影响集群可用性，请检查负载均衡实例状态是否正常。
    */
   description?: string;
   /**
    * @remarks
    * The fixing suggestion.
+   * 
+   * @example
+   * 请提交工单处理。
    */
   fix?: string;
   /**
@@ -51,6 +57,9 @@ export class GetClusterInspectReportDetailResponseBodyCheckItemResults extends $
   /**
    * @remarks
    * The name of the inspection item.
+   * 
+   * @example
+   * API Server CLB 实例状态异常
    */
   name?: string;
   /**

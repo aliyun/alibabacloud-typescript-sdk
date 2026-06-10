@@ -10,7 +10,7 @@ export class DescribeSubaccountK8sClusterUserConfigResponseBody extends $dara.Mo
    * This parameter is required.
    * 
    * @example
-   * apiVersion: v1****
+   * apiVersion: v1\\nclusters:\\n- cluster:\\n    server: https://114.55.xx.xx:6443\\n    certificate-authority-data: LS0tLS****
    */
   config?: string;
   /**
@@ -18,7 +18,7 @@ export class DescribeSubaccountK8sClusterUserConfigResponseBody extends $dara.Mo
    * The expiration date of the kubeconfig file. The value is the UTC time displayed in RFC3339 format.
    * 
    * @example
-   * 2024-03-10T09:56:17Z
+   * 2028-04-09T06:20:47Z
    */
   expiration?: string;
   static names(): { [key: string]: string } {

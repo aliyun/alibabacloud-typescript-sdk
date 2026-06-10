@@ -77,7 +77,7 @@ export class DescribePolicyDetailsResponseBody extends $dara.Model {
    * The content of the policy.
    * 
    * @example
-   * For more information, see sample requests.
+   * 详情请参见请求示例
    */
   template?: string;
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class ScanClusterVulsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 687C5BAA-D103-4993-884B-C35E4314A1E1
+   * 687C5BAA-D103-4993-884B-C35E4******
    */
   requestId?: string;
   /**

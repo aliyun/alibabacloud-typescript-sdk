@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster.
+   * Cluster ID.
    * 
    * @example
    * cb95aa626a47740afbf6aa099b650****
@@ -13,18 +13,18 @@ export class CreateClusterResponseBody extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
-   * 687C5BAA-D103-4993-884B-C35E4314A1E1
+   * 687C5BAA-D103-4993-884B-C35E4314****
    */
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * Task ID.
    * 
    * @example
-   * T-5a54309c80282e39ea00002f
+   * T-5a54309c80282e39ea****
    */
   taskId?: string;
   static names(): { [key: string]: string } {

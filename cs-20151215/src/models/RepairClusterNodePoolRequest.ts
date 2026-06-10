@@ -52,7 +52,7 @@ export class RepairClusterNodePoolRequest extends $dara.Model {
    * **Warning** This parameter is deprecated. Any configured values will be ignored.
    * 
    * @example
-   * true
+   * null
    * 
    * @deprecated
    */

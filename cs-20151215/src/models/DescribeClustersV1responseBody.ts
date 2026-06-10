@@ -7,13 +7,15 @@ import { Tag } from "./Tag";
 export class DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade extends $dara.Model {
   /**
    * @remarks
-   * The frequency of auto cluster updates. For more information, see [Update frequency](https://help.aliyun.com/document_detail/2712866.html).
+   * The upgrade channel. For more information, see [Upgrade channels](https://help.aliyun.com/document_detail/2712866.html).
    * 
    * Valid values:
    * 
-   * *   patch: the latest patch version.
-   * *   stables: the second-latest minor version.
-   * *   rapid: the latest minor version.
+   * - `patch`: Upgrades the cluster to the latest available patch version.
+   * 
+   * - `stable`: Upgrades the cluster to the latest stable minor version. This version is typically the second latest minor version.
+   * 
+   * - `rapid`: Upgrades the cluster to the latest available minor version.
    * 
    * @example
    * patch
@@ -21,7 +23,7 @@ export class DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpg
   channel?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto cluster update.
+   * Indicates whether auto-upgrade is enabled for the cluster.
    * 
    * @example
    * true
@@ -53,7 +55,7 @@ export class DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpg
 export class DescribeClustersV1ResponseBodyClustersOperationPolicy extends $dara.Model {
   /**
    * @remarks
-   * The configurations of auto cluster update.
+   * The cluster auto-upgrade policy.
    */
   clusterAutoUpgrade?: DescribeClustersV1ResponseBodyClustersOperationPolicyClusterAutoUpgrade;
   static names(): { [key: string]: string } {
@@ -99,7 +101,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The specification of the cluster.
+   * The edition of the cluster.
    * 
    * @example
    * ack.standard
@@ -107,7 +109,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
-   * The type of the instance.
+   * The cluster type.
    * 
    * @example
    * Kubernetes
@@ -115,34 +117,35 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The pod CIDR block and the configuration of the Flannel network plug-in.
+   * The CIDR block of pods. This parameter is applicable to Flannel networks.
    * 
    * @example
-   * 172.20.0.0/16
+   * 172.20.xx.xx/16
    */
   containerCidr?: string;
   /**
    * @remarks
-   * The time at which the instance is created.
+   * The time when the cluster was created.
    * 
    * @example
-   * 2020-08-20T10:51:29+08:00
+   * 2025-04-07T09:57:26+08:00
    */
   created?: string;
   /**
    * @remarks
-   * The Kubernetes version of the cluster.
+   * The current version of the cluster.
    * 
    * @example
-   * 1.16.9-aliyun.1
+   * 1.32.1-aliyun.1
    */
   currentVersion?: string;
   /**
    * @remarks
-   * Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. Valid values:
+   * Indicates whether deletion protection is enabled. If deletion protection is enabled, you cannot delete the cluster in the console or by calling an API operation. Valid values:
    * 
-   * *   `true`: enables deletion protection for the cluster. This way, the cluster cannot be deleted in the ACK console or by calling API operations.
-   * *   `false`: disables deletion protection for the cluster. This way, the cluster can be deleted in the ACK console or by calling API operations.
+   * - `true`: Deletion protection is enabled.
+   * 
+   * - `false`: Deletion protection is disabled.
    * 
    * @example
    * true
@@ -150,7 +153,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The Docker version that is used by the cluster.
+   * The Docker version of the cluster.
    * 
    * @example
    * 19.03.5
@@ -160,9 +163,9 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   dockerVersion?: string;
   /**
    * @remarks
-   * The ID of the Server Load Balancer (SLB) instance that is used by the Ingresses of the cluster.
+   * The ID of the Server Load Balancer (SLB) instance that is used for the Ingress.
    * 
-   * The default SLB specification is slb.s1.small, which belongs to the high-performance instance type.
+   * Default instance specification: slb.s1.small (performance-guaranteed).
    * 
    * @example
    * lb-2vcrbmlevo6kjpgch****
@@ -172,18 +175,19 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   externalLoadbalancerId?: string;
   /**
    * @remarks
-   * The version of the cluster. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
+   * The initial version of the cluster. For information about the Kubernetes versions supported by ACK, see [Kubernetes release overview](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
-   * 1.16.9-aliyun.1
+   * 1.32.1-aliyun.1
    */
   initVersion?: string;
   /**
    * @remarks
    * The IP stack of the cluster. Valid values:
    * 
-   * *   ipv4: creates a cluster that supports only the IPv4 protocol stack.
-   * *   dual: creates a cluster that supports IPv4/IPv6 dual-stack.
+   * - `ipv4`: an IPv4-only cluster.
+   * 
+   * - `dual`: a dual-stack cluster that supports both IPv4 and IPv6.
    * 
    * @example
    * ipv4
@@ -196,10 +200,10 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   maintenanceWindow?: MaintenanceWindow;
   /**
    * @remarks
-   * The address of the cluster API server. It includes an internal endpoint and a public endpoint.
+   * The endpoints of the API server. The endpoints include an internal endpoint and a public endpoint.
    * 
    * @example
-   * {\\"api_server_endpoint\\":\\"\\",\\"intranet_api_server_endpoint\\":\\"https://192.168.0.251:6443\\"}
+   * {\\"api_server_endpoint\\":\\"\\",\\"intranet_api_server_endpoint\\":\\"https://192.168.xx.xx:6443\\"}
    */
   masterUrl?: string;
   /**
@@ -207,12 +211,12 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
    * The metadata of the cluster.
    * 
    * @example
-   * {\\"Addons\\":[{\\"config\\":***}
+   * {\\"Addons\\":[{\\"config\\":***}}
    */
   metaData?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The name of the cluster.
    * 
    * @example
    * cluster-demo
@@ -222,10 +226,13 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
    * @remarks
    * The network mode of the cluster. Valid values:
    * 
-   * *   `classic`: classic network.
-   * *   `vpc`: virtual private cloud (VPC).
-   * *   `overlay`: overlay network.
-   * *   `calico`: network powered by Calico.
+   * - `classic`: classic network
+   * 
+   * - `vpc`: VPC
+   * 
+   * - `overlay`: overlay network
+   * 
+   * - `calico`: Calico network
    * 
    * @example
    * vpc
@@ -235,23 +242,24 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   networkMode?: string;
   /**
    * @remarks
-   * The Kubernetes version to which the cluster can be updated.
+   * The version to which the cluster can be upgraded.
    * 
    * @example
-   * 1.18.8-aliyun.1
+   * 1.xx.x-aliyun.1
    */
   nextVersion?: string;
   /**
    * @remarks
-   * The automatic O\\&M policy of the cluster.
+   * The auto O\\&M policy of the cluster.
    */
   operationPolicy?: DescribeClustersV1ResponseBodyClustersOperationPolicy;
   /**
    * @remarks
-   * Indicates whether Alibaba Cloud DNS PrivateZone is enabled. Valid values:
+   * Indicates whether PrivateZone is enabled. Valid values:
    * 
-   * *   `true`: Alibaba Cloud DNS PrivateZone is enabled.
-   * *   `false`: Alibaba Cloud DNS PrivateZone is disabled.
+   * - `true`: PrivateZone is enabled.
+   * 
+   * - `false`: PrivateZone is disabled.
    * 
    * @example
    * false
@@ -269,10 +277,11 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   profile?: string;
   /**
    * @remarks
-   * The kube-proxy mode.
+   * The kube-proxy proxy mode.
    * 
-   * *   `iptables`: a mature and stable mode that uses iptables rules to conduct service discovery and load balancing. The performance of this mode is limited by the size of the cluster. This mode is suitable for clusters that run a small number of Services.
-   * *   `ipvs`: provides high performance and uses IP Virtual Server (IPVS). This allows you to configure service discovery and load balancing. This mode is suitable for clusters that are required to run a large number of services. We recommend that you use this mode in scenarios that require high load balancing performance.
+   * - `iptables`: a stable and mature proxy mode. The service discovery and load balancing of Kubernetes Services are implemented by using iptables rules. This mode offers moderate performance and is suitable for clusters that have a small number of Services.
+   * 
+   * - `ipvs`: a high-performance proxy mode. The service discovery and load balancing of Kubernetes Services are implemented by using the Linux IP Virtual Server (IPVS) module. This mode is suitable for clusters that have a large number of Services and require high-performance load balancing.
    * 
    * @example
    * ipvs
@@ -280,7 +289,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   proxyMode?: string;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The ID of the region where the cluster is deployed.
    * 
    * @example
    * cn-beijing
@@ -296,7 +305,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the security group of the cluster.
+   * The ID of the security group to which the cluster belongs.
    * 
    * @example
    * sg-2vcgwsrwgt5mp0yi****
@@ -304,17 +313,17 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The Service CIDR block.
+   * The CIDR block of Services.
    * 
    * This parameter is required.
    * 
    * @example
-   * 172.21.0.0/20
+   * 172.21.xx.xx/20
    */
   serviceCidr?: string;
   /**
    * @remarks
-   * The number of nodes in the cluster, including control planes and worker nodes.
+   * The total number of nodes in the cluster. This includes master nodes and worker nodes.
    * 
    * @example
    * 5
@@ -322,20 +331,37 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The status of the cluster. Valid values:
+   * The state of the cluster. Valid values:
    * 
-   * *   `initial`: The cluster is being created.
-   * *   `failed`: The cluster failed to be created.
-   * *   `running`: The cluster is running.
-   * *   `upgrading`: The cluster is undergoing an upgrade.
-   * *   `updating`: Cluster specification changes are being applied.
-   * *   `removing`: Nodes are being removed from the node pool.
-   * *   `draining`: Node draining is in progress.
-   * *   `scaling`: Auto-scaling operation is in progress for the cluster.
-   * *   `stopped`: The cluster has stopped running.
-   * *   `deleting`: The cluster is being deleted.
-   * *   `deleted`: The cluster has been deleted.
-   * *   `delete_failed`: The cluster failed to be deleted.
+   * - `initial`: The cluster is being created.
+   * 
+   * - `failed`: The cluster failed to be created.
+   * 
+   * - `running`: The cluster is running.
+   * 
+   * - `updating`: The cluster is being updated.
+   * 
+   * - `upgrading`: The cluster is being upgraded.
+   * 
+   * - `removing`: Nodes are being removed from the cluster.
+   * 
+   * - `draining`: Nodes in the cluster are being drained.
+   * 
+   * - `scaling`: The cluster is being scaled.
+   * 
+   * - `inactive`: The cluster is inactive.
+   * 
+   * - `unavailable`: The cluster is unavailable.
+   * 
+   * - `deleting`: The cluster is being deleted.
+   * 
+   * - `deleted`: The cluster has been deleted.
+   * 
+   * - `delete_failed`: The cluster failed to be deleted.
+   * 
+   * - `waiting`: The cluster is awaiting connection.
+   * 
+   * - `disconnected`: The cluster is disconnected.
    * 
    * @example
    * running
@@ -343,22 +369,22 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * This parameter is deprecated. Use the container_cidr parameter to obtain the pod CIDR block.
+   * This parameter is deprecated. Use the `container_cidr` parameter to obtain the pod CIDR block.
    * 
    * @example
-   * 172.21.0.0/16
+   * null
    * 
    * @deprecated
    */
   subnetCidr?: string;
   /**
    * @remarks
-   * The label of the cluster.
+   * The tags of the cluster.
    */
   tags?: Tag[];
   /**
    * @remarks
-   * The time zone
+   * The time zone of the cluster.
    * 
    * @example
    * Asia/Shanghai
@@ -366,15 +392,15 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The time when the cluster was updated.
+   * The time when the cluster was last updated.
    * 
    * @example
-   * 2020-09-16T11:09:55+08:00
+   * 2025-04-07T09:57:26+08:00
    */
   updated?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) that is used by the cluster.
+   * The ID of the VPC in which the cluster is deployed.
    * 
    * @example
    * vpc-2vcg932hsxsxuqbgl****
@@ -382,7 +408,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in the cluster.
+   * The ID of the vSwitch to which the cluster belongs.
    * 
    * @example
    * vsw-2vc41xuumx5z2rdma****,vsw-2vc41xuumx5z2rdma****
@@ -392,12 +418,12 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   vswitchId?: string;
   /**
    * @remarks
-   * The vSwitches of the control planes.
+   * The vSwitches of the cluster control plane.
    */
   vswitchIds?: string[];
   /**
    * @remarks
-   * The name of the worker Resource Access Management (RAM) role. The RAM role is assigned to the worker nodes of the cluster to allow the worker nodes to manage ECS instances.
+   * The name of the worker RAM role. This role is used to authorize Elastic Compute Service (ECS) instances to be used as worker nodes.
    * 
    * @example
    * KubernetesWorkerRole-ec87d15b-edca-4302-933f-c8a16bf0****
@@ -407,7 +433,7 @@ export class DescribeClustersV1ResponseBodyClusters extends $dara.Model {
   workerRamRoleName?: string;
   /**
    * @remarks
-   * The ID of the zone where the cluster is deployed.
+   * The ID of the zone in which the cluster is deployed.
    * 
    * @example
    * cn-beijing-b
@@ -539,7 +565,7 @@ export class DescribeClustersV1ResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that were returned.
    * 
    * @example
    * 50
@@ -573,7 +599,7 @@ export class DescribeClustersV1ResponseBodyPageInfo extends $dara.Model {
 export class DescribeClustersV1ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried cluster details.
+   * A list of clusters.
    */
   clusters?: DescribeClustersV1ResponseBodyClusters[];
   /**

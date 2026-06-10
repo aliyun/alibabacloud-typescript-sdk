@@ -58,7 +58,7 @@ export class ListUserKubeConfigStatesResponseBodyStates extends $dara.Model {
    * The expiration date of the certificate used in a kubeconfig file. Format: the UTC time in the RFC3339 format.
    * 
    * @example
-   * 2026-11-30T07:41:50Z
+   * 2028-04-09T06:20:47Z
    */
   certExpireTime?: string;
   /**

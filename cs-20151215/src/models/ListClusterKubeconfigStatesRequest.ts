@@ -3,6 +3,16 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClusterKubeconfigStatesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Whether to query the KubeConfig list of service roles for cloud products within the cluster.  
+   * 
+   * - true: Query the KubeConfig list of service roles for cloud products within the cluster.  
+   * - false: Query the KubeConfig list of Resource Access Management (RAM) users or roles within the cluster.
+   * 
+   * @example
+   * true
+   */
   cloudServiceKubeConfig?: boolean;
   /**
    * @remarks

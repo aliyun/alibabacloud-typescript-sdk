@@ -53,9 +53,37 @@ export class ListClusterKubeconfigStatesResponseBodyPage extends $dara.Model {
 }
 
 export class ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the content matches the default cluster role template.  
+   * 
+   * - true: Matches  
+   * - false: Does not match
+   */
   isDefaultTemplate?: boolean;
+  /**
+   * @remarks
+   * Name of the cluster role associated with the cluster cloud product service role.
+   * 
+   * @example
+   * cluster-admin
+   */
   roleName?: string;
+  /**
+   * @remarks
+   * Namespace of the cluster role associated with the cluster cloud product service role.
+   * 
+   * @example
+   * kube-system
+   */
   roleNamespace?: string;
+  /**
+   * @remarks
+   * The type of the cluster role associated with the cloud service role of the cluster.
+   * 
+   * @example
+   * ClusterRole
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -153,7 +181,18 @@ export class ListClusterKubeconfigStatesResponseBodyStates extends $dara.Model {
    * Expired
    */
   certState?: string;
+  /**
+   * @remarks
+   * Cloud service name.
+   * 
+   * @example
+   * cs/ecs/sls
+   */
   cloudServiceName?: string;
+  /**
+   * @remarks
+   * List of cluster roles associated with the cluster cloud product service roles.
+   */
   cloudServiceRoles?: ListClusterKubeconfigStatesResponseBodyStatesCloudServiceRoles[];
   /**
    * @remarks

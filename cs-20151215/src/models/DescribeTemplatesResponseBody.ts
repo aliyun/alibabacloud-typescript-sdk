@@ -72,7 +72,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
    * The time when the template was created.
    * 
    * @example
-   * 2020-06-10T16:30:16+08:00
+   * 2025-04-25T16:56:33+08:00
    */
   created?: string;
   /**
@@ -88,7 +88,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
    * The ID of the template.
    * 
    * @example
-   * 874ec485-e7e6-4373-8a3b-47bde8ae789f
+   * 874ec485-e7e6-4373-8a3b-47bde8******
    */
   id?: string;
   /**
@@ -131,7 +131,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
    * The ID of the parent template. The value of `template_with_hist_id` is the same for each template version. This allows you to manage different template versions.
    * 
    * @example
-   * ad81d115-7c8b-47e7-a222-9c28d7f6e588
+   * ad81d115-7c8b-47e7-a222-9c28d7******
    */
   templateWithHistId?: string;
   /**
@@ -139,7 +139,7 @@ export class DescribeTemplatesResponseBodyTemplates extends $dara.Model {
    * The time when the template was updated.
    * 
    * @example
-   * 2020-06-10T16:30:16+08:00
+   * 2025-04-25T16:56:33+08:00
    */
   updated?: string;
   static names(): { [key: string]: string } {

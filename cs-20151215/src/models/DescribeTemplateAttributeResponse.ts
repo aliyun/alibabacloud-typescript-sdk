@@ -78,7 +78,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
    * The time when the template was created.
    * 
    * @example
-   * 2020-09-16T19:21:29+08:00
+   * 2025-04-25T16:56:33+08:00
    */
   created?: string;
   /**
@@ -86,7 +86,7 @@ export class DescribeTemplateAttributeResponseBody extends $dara.Model {
    * The time when the template was updated.
    * 
    * @example
-   * 2020-09-16T19:21:29+08:00
+   * 2025-04-25T16:56:33+08:00
    */
   updated?: string;
   static names(): { [key: string]: string } {

@@ -35,7 +35,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
    * The node pool ID.
    * 
    * @example
-   * np0156da1082b54fa987e32618dd45f5d3
+   * np0156da1082b54fa987e32618dd******
    */
   nodepoolId?: string;
   /**
@@ -51,7 +51,7 @@ export class DescribeClusterVulsResponseBodyVulRecords extends $dara.Model {
    * The alias of the vulnerability.
    * 
    * @example
-   * CVE-2022-xxxx:rsync Security vulnerabilities
+   * CVE-2022-xxxx:rsync 安全漏洞
    */
   vulAliasName?: string;
   /**

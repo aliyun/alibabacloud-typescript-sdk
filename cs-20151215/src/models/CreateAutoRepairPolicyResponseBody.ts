@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAutoRepairPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The auto-repair policy ID.
+   * 
    * @example
    * r-xxxxxxx
    */
   policyId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E368C761-F8F6-4A36-9B58-BD53D5******
    */

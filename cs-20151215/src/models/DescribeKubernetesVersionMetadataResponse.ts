@@ -9,7 +9,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
    * The ID of the image.
    * 
    * @example
-   * centos_7_7_x64_20G_alibase_20200426.vhd
+   * aliyun_3_x64_20G_alibase_20241218.vhd
    */
   imageId?: string;
   /**
@@ -17,7 +17,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
    * The image name.
    * 
    * @example
-   * CentOS 7.7
+   * Alibaba Cloud Linux 3.2104
    */
   imageName?: string;
   /**
@@ -30,7 +30,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
    * *   `WindowsCore`
    * 
    * @example
-   * CentOS
+   * AliyunLinux
    */
   platform?: string;
   /**
@@ -38,7 +38,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
    * The version of the image.
    * 
    * @example
-   * 7.7
+   * 3.2104
    */
   osVersion?: string;
   /**
@@ -56,7 +56,7 @@ export class DescribeKubernetesVersionMetadataResponseBodyImages extends $dara.M
    * *   `ContainerOS`
    * 
    * @example
-   * centos_7_7_20
+   * AliyunLinux3
    */
   imageType?: string;
   /**
@@ -165,7 +165,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
    * The Kubernetes version supported by ACK. For more information, see [Release notes for Kubernetes versions](https://help.aliyun.com/document_detail/185269.html).
    * 
    * @example
-   * 1.16.9-aliyun.1
+   * 1.31.1-aliyun.1
    */
   version?: string;
   /**
@@ -173,7 +173,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
    * The release date of the Kubernetes version.
    * 
    * @example
-   * 2023-04-30T00:00:00Z
+   * 2025-01-30T00:00:00Z
    */
   releaseDate?: string;
   /**
@@ -181,7 +181,7 @@ export class DescribeKubernetesVersionMetadataResponseBody extends $dara.Model {
    * The expiration date of the Kubernetes version.
    * 
    * @example
-   * 2025-04-30T00:00:00Z
+   * 2026-01-30T00:00:00Z
    */
   expirationDate?: string;
   /**

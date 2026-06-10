@@ -16,7 +16,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
    * The time when the cluster check task was created.
    * 
    * @example
-   * 2023-10-16T08:31:20.292030178Z
+   * 2025-04-11T02:56:02.565982623Z
    */
   createdAt?: string;
   /**
@@ -24,7 +24,7 @@ export class ListClusterChecksResponseBodyChecks extends $dara.Model {
    * The time when the cluster check task was completed.
    * 
    * @example
-   * 2023-10-16T08:35:20.292030178Z
+   * 2025-04-11T02:56:18.881054031Z
    */
   finishedAt?: string;
   /**

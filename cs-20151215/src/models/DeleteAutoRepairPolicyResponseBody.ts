@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAutoRepairPolicyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A9891419-D125-4D89-AFCA-68846675****
    */

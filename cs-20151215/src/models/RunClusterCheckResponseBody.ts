@@ -8,7 +8,7 @@ export class RunClusterCheckResponseBody extends $dara.Model {
    * The ID of the cluster check task.
    * 
    * @example
-   * 1697100584236600453-ce0da5a1d627e4e9e9f96cae8ad07****-clustercheck-lboto
+   * 1697100584236******-ce0da5a1d627e4e9e9f96cae8ad******-clustercheck-lboto
    */
   checkId?: string;
   /**
@@ -16,7 +16,7 @@ export class RunClusterCheckResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * F04DF81D-5C12-1524-B36A-86E02526****
+   * F04DF81D-5C12-1524-B36A-86E025******
    */
   requestId?: string;
   static names(): { [key: string]: string } {

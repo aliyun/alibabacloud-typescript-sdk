@@ -13,7 +13,7 @@ export class DeleteClusterNodesRequest extends $dara.Model {
    * Default value: `false`
    * 
    * @example
-   * true
+   * false
    */
   drainNode?: boolean;
   /**

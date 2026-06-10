@@ -8,7 +8,7 @@ export class MigrateClusterResponseBody extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * c8155823d057948c69a****
+   * c21e0591548ba4c10bdb535d657******
    */
   clusterId?: string;
   /**
@@ -16,7 +16,7 @@ export class MigrateClusterResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 20758A-585D-4A41-A9B2-28DA8F4F534F
+   * 687C5BAA-D103-4993-884B-C35E43******
    */
   requestId?: string;
   /**
@@ -24,7 +24,7 @@ export class MigrateClusterResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * T-62ccd14aacb8db06ca00****
+   * T-62ccd14aacb8db06ca******
    */
   taskId?: string;
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class UnInstallClusterAddonsResponseBody extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * c5b5e80b0b64a4bf6939d2d8fbbc5****
+   * c5b5e80b0b64a4bf6939d2d8fbb******
    */
   clusterId?: string;
   /**
@@ -16,7 +16,7 @@ export class UnInstallClusterAddonsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 74D1512F-67DA-54E8-99EA-4D50EB4898F4
+   * 74D1512F-67DA-54E8-99EA-4D50EB******
    */
   requestId?: string;
   /**
@@ -24,7 +24,7 @@ export class UnInstallClusterAddonsResponseBody extends $dara.Model {
    * The task ID.
    * 
    * @example
-   * T-66e39b39c0fdd001320005c0
+   * T-66e39b39c0fdd00132******
    */
   taskId?: string;
   static names(): { [key: string]: string } {

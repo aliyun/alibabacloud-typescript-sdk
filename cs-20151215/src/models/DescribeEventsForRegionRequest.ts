@@ -15,7 +15,7 @@ export class DescribeEventsForRegionRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of pages.
+   * The page number.
    * 
    * @example
    * 1
@@ -23,7 +23,11 @@ export class DescribeEventsForRegionRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on each page.
+   * The number of entries to return on each page.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 50.
    * 
    * @example
    * 50

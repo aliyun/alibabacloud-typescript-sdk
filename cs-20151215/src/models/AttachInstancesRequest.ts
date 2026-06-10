@@ -86,7 +86,7 @@ export class AttachInstancesRequest extends $dara.Model {
    * Default value: `false`.
    * 
    * @example
-   * true
+   * false
    */
   keepInstanceName?: boolean;
   /**
@@ -96,7 +96,7 @@ export class AttachInstancesRequest extends $dara.Model {
    * >  This parameter is not supported if you specify `nodepool_id`.
    * 
    * @example
-   * secrity-key
+   * security-key
    */
   keyPair?: string;
   /**

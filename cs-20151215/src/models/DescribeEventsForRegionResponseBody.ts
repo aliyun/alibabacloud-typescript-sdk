@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventsForRegionResponseBodyEventsData extends $dara.Model {
   /**
    * @remarks
-   * The severity level of the event.
+   * The event level.
    * 
    * @example
    * info
@@ -13,7 +13,7 @@ export class DescribeEventsForRegionResponseBodyEventsData extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The details of the event.
+   * The event message.
    * 
    * @example
    * Start to upgrade NodePool nodePool/nodePool-A
@@ -21,7 +21,7 @@ export class DescribeEventsForRegionResponseBodyEventsData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The event status.
+   * The reason for the event.
    * 
    * @example
    * Started
@@ -58,12 +58,12 @@ export class DescribeEventsForRegionResponseBodyEvents extends $dara.Model {
    * The cluster ID.
    * 
    * @example
-   * cluster-id
+   * c82e6987e2961451182edacd74faf****
    */
   clusterId?: string;
   /**
    * @remarks
-   * The description of the event.
+   * The event data.
    */
   data?: DescribeEventsForRegionResponseBodyEventsData;
   /**
@@ -71,28 +71,31 @@ export class DescribeEventsForRegionResponseBodyEvents extends $dara.Model {
    * The event ID.
    * 
    * @example
-   * A234-1234-1234
+   * e-9ad04f72-8ee7-46bf-a02c-e4a06b39****
    */
   eventId?: string;
   /**
    * @remarks
    * The event source.
+   * 
+   * @example
+   * task
    */
   source?: string;
   /**
    * @remarks
-   * The object associated with the event.
+   * The event subject.
    * 
    * @example
-   * nodePool-id
+   * npdd89dc2b76c04f14b06774883b******
    */
   subject?: string;
   /**
    * @remarks
-   * The time when the event was generated.
+   * The time when the event occurred.
    * 
    * @example
-   * 2020-12-01T17:31:00Z
+   * 2025-05-14T10:00:56+08:00
    */
   time?: string;
   /**
@@ -142,7 +145,7 @@ export class DescribeEventsForRegionResponseBodyEvents extends $dara.Model {
 export class DescribeEventsForRegionResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of pages.
+   * The page number.
    * 
    * @example
    * 1
@@ -150,7 +153,7 @@ export class DescribeEventsForRegionResponseBodyPageInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on each page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 50
@@ -158,7 +161,7 @@ export class DescribeEventsForRegionResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -192,13 +195,17 @@ export class DescribeEventsForRegionResponseBodyPageInfo extends $dara.Model {
 export class DescribeEventsForRegionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The events.
+   * A list of events.
    */
   events?: DescribeEventsForRegionResponseBodyEvents[];
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The pagination details.
+   * The pagination information.
    */
   pageInfo?: DescribeEventsForRegionResponseBodyPageInfo;
   static names(): { [key: string]: string } {

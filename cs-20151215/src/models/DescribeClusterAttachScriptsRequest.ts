@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   /**
    * @remarks
-   * The CPU architecture of the node. Valid values: `amd64`, `arm`, and `arm64`.
+   * The CPU architecture of the node. Supported CPU architectures include `amd64`, `arm`, and `arm64`.
    * 
    * Default value: `amd64`.
    * 
-   * >  This parameter is required if you want to add a node to an ACK Edge cluster.
+   * > This parameter is required if the cluster is a managed edge cluster.
    * 
    * @example
    * amd64
@@ -17,7 +17,7 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   arch?: string;
   /**
    * @remarks
-   * The expiration time of the token that is generated. The value is a UNIX timestamp. For example, a value of 1739980800 indicates 00:00:00 (UTC+8) on February 20, 2025.
+   * The Unix timestamp that indicates when the generated token expires. For example, the timestamp 1739980800 corresponds to 00:00:00 on February 20, 2025 (UTC).
    * 
    * @example
    * 1740037333
@@ -25,17 +25,19 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   expired?: number;
   /**
    * @remarks
-   * Specifies whether to mount data disks to an existing instance when you manually add this instance to the cluster. You can use data disks to store container data and images. Valid values:
+   * Specifies whether to mount a data disk to the instance and store containers and images on the data disk when you manually add an existing instance to the cluster. Valid values:
    * 
-   * *   `true`: mounts data disks to the instance that you want to add. After a data disk is mounted, the original data on the disk is erased. Back up data before you mount a data disk.
-   * *   `false`: does not mount data disks to the instance.
+   * - `true`: Mounts the data disk to the instance. The original data on the data disk will be erased. Back up your data before you proceed.
+   * 
+   * - `false`: Does not mount the data disk to the instance.
    * 
    * Default value: `false`.
    * 
-   * How a data disk is mounted:
+   * Data disk mounting rules:
    * 
-   * *   If the Elastic Compute Service (ECS) instances are already mounted with data disks and the file system of the last data disk is uninitialized, the system automatically formats this data disk to ext4 and uses the disk to store the data in the /var/lib/docker and /var/lib/kubelet directories.
-   * *   If no data disk is mounted to the ECS instance, the system does not purchase a new data disk.
+   * - If an ECS instance has data disks attached and the last data disk is uninitialized, the system automatically formats that disk to ext4 and uses it to store content for `/var/lib/docker` and `/var/lib/kubelet`.
+   * 
+   * - If no data disk is attached to the ECS instance, the system does not mount a new data disk.
    * 
    * @example
    * false
@@ -43,10 +45,11 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   formatDisk?: boolean;
   /**
    * @remarks
-   * Specifies whether to retain the name of an existing instance when it is added to the cluster. If you do not retain the instance name, the instance is renamed in the `worker-k8s-for-cs-<clusterid>` format. Valid values:
+   * Specifies whether to retain the instance name when the instance is added to the cluster. If you do not retain the instance name, the system renames the instance to use the `worker-k8s-for-cs-<clusterid>` format. Valid values:
    * 
-   * *   `true`: retains the instance name.
-   * *   `false`: does not retain the instance name.
+   * - `true`: Retains the instance name.
+   * 
+   * - `false`: Does not retain the instance name. The system renames the instance based on a system rule.
    * 
    * Default value: `true`.
    * 
@@ -56,9 +59,9 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   keepInstanceName?: boolean;
   /**
    * @remarks
-   * The ID of the node pool to which you want to add an existing node.
+   * The node pool ID. You can add the node to a specific node pool.
    * 
-   * >  If you do not specify a node pool ID, the node is added to the default node pool.
+   * > If you do not specify a node pool ID, the node is added to the default node pool.
    * 
    * @example
    * np1c9229d9be2d432c93f77a88fca0****
@@ -67,17 +70,17 @@ export class DescribeClusterAttachScriptsRequest extends $dara.Model {
   oneTimeToken?: boolean;
   /**
    * @remarks
-   * The node configurations for the node that you want to add.
+   * The configuration parameters for node attachment.
    * 
-   * >  This parameter is required if you want to add a node to an ACK Edge cluster.
+   * > This parameter is required if the cluster is a managed edge cluster.
    * 
    * @example
-   * {\\"enableIptables\\": true,\\"manageRuntime\\": true,\\"quiet\\": true,\\"allowedClusterAddons\\": [\\"kube-proxy\\",\\"flannel\\",\\"coredns\\"]}
+   * {"enableIptables": true,"manageRuntime": true,"quiet": true,"allowedClusterAddons": ["kube-proxy","flannel","coredns"]}
    */
   options?: string;
   /**
    * @remarks
-   * A list of ApsaraDB RDS instances. ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
+   * If you specify a list of RDS instances, the system automatically adds the ECS instances of the cluster nodes to the access whitelists of the specified RDS instances.
    */
   rdsInstances?: string[];
   static names(): { [key: string]: string } {

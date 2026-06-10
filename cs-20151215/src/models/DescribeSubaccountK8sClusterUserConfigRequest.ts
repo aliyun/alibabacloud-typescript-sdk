@@ -13,7 +13,7 @@ export class DescribeSubaccountK8sClusterUserConfigRequest extends $dara.Model {
    * Default value: `false`.
    * 
    * @example
-   * true
+   * false
    */
   privateIpAddress?: boolean;
   /**

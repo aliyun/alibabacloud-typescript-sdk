@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList extends $dara.Model {
+  /**
+   * @remarks
+   * Package name.
+   * 
+   * @example
+   * WebLogic
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -69,6 +76,10 @@ export class DescribeNodePoolVulsResponseBodyVulRecordsVulList extends $dara.Mod
    * false
    */
   needReboot?: boolean;
+  /**
+   * @remarks
+   * List of packages affected by the vulnerability.
+   */
   packageList?: DescribeNodePoolVulsResponseBodyVulRecordsVulListPackageList[];
   static names(): { [key: string]: string } {
     return {

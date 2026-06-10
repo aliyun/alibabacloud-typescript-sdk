@@ -22,7 +22,7 @@ export class UpdateK8sClusterUserConfigExpireRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * The ID of the Resource Access Management (RAM) user that you use.
+   * 206945240368******
    */
   user?: string;
   static names(): { [key: string]: string } {
