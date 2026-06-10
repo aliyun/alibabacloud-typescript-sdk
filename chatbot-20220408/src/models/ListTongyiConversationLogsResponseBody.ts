@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListTongyiConversationLogsResponseBodySessionFlowDebugInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The API parameters from the session flow.
+   */
   apiParams?: { [key: string]: any };
+  /**
+   * @remarks
+   * The slot parameters from the session flow.
+   */
   slotParams?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
@@ -36,17 +44,30 @@ export class ListTongyiConversationLogsResponseBodySessionFlowDebugInfo extends 
 
 export class ListTongyiConversationLogsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request processing time, in milliseconds.
+   * 
    * @example
    * 66
    */
   costTime?: string;
+  /**
+   * @remarks
+   * An array of conversation log entries.
+   */
   datas?: { [key: string]: any }[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 28805A7C-D695-548C-A31B-67E52C2C274F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The debug information for the session flow.
+   * 
    * **if can be null:**
    * true
    */

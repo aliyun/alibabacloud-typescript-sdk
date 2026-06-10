@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateUserSayResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2356fg3wf34634vdt23wef2
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the updated user say.
+   * 
    * @example
    * 34512323
    */

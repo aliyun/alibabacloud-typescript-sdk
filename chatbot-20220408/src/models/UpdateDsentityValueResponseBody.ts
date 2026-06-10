@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDSEntityValueResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the updated entity value.
+   * 
    * @example
    * 2342377423
    */
   entityValueId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * sDag3g43wesf2
    */

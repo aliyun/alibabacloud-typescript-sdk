@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSimQuestionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16AC1B3C-66E0-438B-BB7C-71B692407B67
    */
   requestId?: string;
   /**
+   * @remarks
+   * The similar question ID.
+   * 
    * @example
    * 1000002788
    */

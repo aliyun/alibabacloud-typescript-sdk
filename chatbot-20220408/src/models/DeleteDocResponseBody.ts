@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDocResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the knowledge.
+   * 
    * @example
    * 30002406051
    */
   knowledgeId?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * DFB71B34-4188-4EA2-9988-EF3014E75910
    */

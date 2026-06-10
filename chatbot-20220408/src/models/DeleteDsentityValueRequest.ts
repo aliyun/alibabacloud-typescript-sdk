@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDSEntityValueRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Agent key. If omitted, the system uses the default Agent. You can get this key from the Business Management page of your main account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
    * @remarks
+   * The unique identifier of the entity.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DeleteDSEntityValueRequest extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
+   * The unique identifier of the entity value.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class DeleteDSEntityValueRequest extends $dara.Model {
   entityValueId?: number;
   /**
    * @remarks
+   * The unique identifier of the instance.
+   * 
    * This parameter is required.
    * 
    * @example

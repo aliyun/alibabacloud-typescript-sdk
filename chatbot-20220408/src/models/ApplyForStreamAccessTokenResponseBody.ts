@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyForStreamAccessTokenResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request token for the service.
+   * 
    * @example
    * 63ba97b4f18a4a04f715c81e8e643938
    */
   accessToken?: string;
   /**
+   * @remarks
+   * Channel ID
+   * 
    * @example
    * cc9e88c0-4f41-4f1d-a1a9-91a72d2aa27d
    */
@@ -22,6 +28,9 @@ export class ApplyForStreamAccessTokenResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Key of the workspace, used to add signature to stream requests
+   * 
    * @example
    * cc9e88c0-4f41-4f1d-a1a9-91a72d2aa27d
    */

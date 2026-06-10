@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteIntentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the deleted intent.
+   * 
    * @example
    * 12345
    */
   intentId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3464dfg3qwr34tf34
    */

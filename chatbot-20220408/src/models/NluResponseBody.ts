@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class NluResponseBodyMessagesDialogHubNluInfoGlobalDictList extends $dara.Model {
   /**
+   * @remarks
+   * The standard word.
+   * 
    * @example
    * 天气
    */
   standardWord?: string;
   /**
+   * @remarks
+   * The synonym.
+   * 
    * @example
    * 天气
    */
@@ -38,11 +44,17 @@ export class NluResponseBodyMessagesDialogHubNluInfoGlobalDictList extends $dara
 
 export class NluResponseBodyMessagesDialogHubNluInfoGlobalSensitiveWordList extends $dara.Model {
   /**
+   * @remarks
+   * The standard word.
+   * 
    * @example
    * 天气
    */
   standardWord?: string;
   /**
+   * @remarks
+   * The synonym.
+   * 
    * @example
    * 天气
    */
@@ -71,7 +83,15 @@ export class NluResponseBodyMessagesDialogHubNluInfoGlobalSensitiveWordList exte
 }
 
 export class NluResponseBodyMessagesDialogHubNluInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of global dictionary entries.
+   */
   globalDictList?: NluResponseBodyMessagesDialogHubNluInfoGlobalDictList[];
+  /**
+   * @remarks
+   * The list of global sensitive words.
+   */
   globalSensitiveWordList?: NluResponseBodyMessagesDialogHubNluInfoGlobalSensitiveWordList[];
   static names(): { [key: string]: string } {
     return {
@@ -104,21 +124,33 @@ export class NluResponseBodyMessagesDialogHubNluInfo extends $dara.Model {
 
 export class NluResponseBodyMessagesDsNluInfoEntityList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the entity.
+   * 
    * @example
    * @城市
    */
   name?: string;
   /**
+   * @remarks
+   * The original word for the entity, also known as an entity member.
+   * 
    * @example
    * 北京
    */
   origin?: string;
   /**
+   * @remarks
+   * The type of the entity. Currently, only the `text` type is supported.
+   * 
    * @example
    * text
    */
   type?: string;
   /**
+   * @remarks
+   * The entity\\"s synonym.
+   * 
    * @example
    * 首都
    */
@@ -152,21 +184,33 @@ export class NluResponseBodyMessagesDsNluInfoEntityList extends $dara.Model {
 
 export class NluResponseBodyMessagesDsNluInfoIntentListSlotList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the entity.
+   * 
    * @example
    * @城市
    */
   name?: string;
   /**
+   * @remarks
+   * The original word for the entity, also known as an entity member.
+   * 
    * @example
    * 北京
    */
   origin?: string;
   /**
+   * @remarks
+   * The type of the entity. Currently, only the `text` type is supported.
+   * 
    * @example
    * text
    */
   type?: string;
   /**
+   * @remarks
+   * The entity\\"s synonym.
+   * 
    * @example
    * 首都
    */
@@ -200,30 +244,49 @@ export class NluResponseBodyMessagesDsNluInfoIntentListSlotList extends $dara.Mo
 
 export class NluResponseBodyMessagesDsNluInfoIntentList extends $dara.Model {
   /**
+   * @remarks
+   * The intent ID.
+   * 
    * @example
    * 724387
    */
   intentId?: number;
   /**
+   * @remarks
+   * The details of the matching process.
+   * 
    * @example
    * classifierType=Fewshot,from=Fewshot,content=[我要查北京的天气, 帮我查北京的天气, 北京天气怎么样, 北京今天下雨吗, 北京今天多少度]
    */
   matchDetail?: string;
   /**
+   * @remarks
+   * The match type. Valid values are `Similarity` (match by utterance similarity), `Lgf` (match by LGF), `Classify` (match by model training), `FewShotLearning` (match by the built-in few-shot learning model), and `BuildIn` (match with a built-in intent).
+   * 
    * @example
    * FewShotLearning
    */
   matchType?: string;
   /**
+   * @remarks
+   * The name of the intent.
+   * 
    * @example
    * 查天气意图
    */
   name?: string;
   /**
+   * @remarks
+   * The confidence score of the match.
+   * 
    * @example
    * 0.995
    */
   score?: number;
+  /**
+   * @remarks
+   * The list of slots for the matched intent.
+   */
   slotList?: NluResponseBodyMessagesDsNluInfoIntentListSlotList[];
   static names(): { [key: string]: string } {
     return {
@@ -260,7 +323,15 @@ export class NluResponseBodyMessagesDsNluInfoIntentList extends $dara.Model {
 }
 
 export class NluResponseBodyMessagesDsNluInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The list of entities.
+   */
   entityList?: NluResponseBodyMessagesDsNluInfoEntityList[];
+  /**
+   * @remarks
+   * The list of intents.
+   */
   intentList?: NluResponseBodyMessagesDsNluInfoIntentList[];
   static names(): { [key: string]: string } {
     return {
@@ -292,7 +363,15 @@ export class NluResponseBodyMessagesDsNluInfo extends $dara.Model {
 }
 
 export class NluResponseBodyMessages extends $dara.Model {
+  /**
+   * @remarks
+   * The natural language understanding information from DialogHub.
+   */
   dialogHubNluInfo?: NluResponseBodyMessagesDialogHubNluInfo;
+  /**
+   * @remarks
+   * The natural language understanding information from Dialog Studio.
+   */
   dsNluInfo?: NluResponseBodyMessagesDsNluInfo;
   static names(): { [key: string]: string } {
     return {
@@ -325,12 +404,22 @@ export class NluResponseBodyMessages extends $dara.Model {
 
 export class NluResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the natural language understanding response.
+   * 
    * @example
    * 2828708A-2C7A-1BAE-B810-87DB9DA9C661
    */
   messageId?: string;
+  /**
+   * @remarks
+   * The list of messages.
+   */
   messages?: NluResponseBodyMessages[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A6357C1B-1D79-1382-B259-BD9E80751B42
    */

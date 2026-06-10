@@ -4,57 +4,102 @@ import * as $dara from '@darabonba/typescript';
 
 export class SearchFaqResponseBodyFaqHits extends $dara.Model {
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 30000055639
    */
   categoryId?: number;
   /**
+   * @remarks
+   * The creation time (UTC).
+   * 
    * @example
    * 2022-04-02T03:09:30Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The creator ID.
+   * 
    * @example
    * 18453
    */
   createUserId?: number;
   /**
+   * @remarks
+   * The creator\\"s username.
+   * 
    * @example
    * test01
    */
   createUserName?: string;
   /**
+   * @remarks
+   * The effective status of the FAQ. This status is determined by the StartDate and EndDate parameters.
+   * 
    * @example
    * 20
    */
   effectStatus?: number;
+  /**
+   * @remarks
+   * A list of matched similar titles.
+   */
   hitSimilarTitles?: string[];
+  /**
+   * @remarks
+   * A list of matched answers.
+   */
   hitSolutions?: string[];
   /**
+   * @remarks
+   * The FAQ ID.
+   * 
    * @example
    * 30002145804
    */
   knowledgeId?: number;
   /**
+   * @remarks
+   * The modification time (UTC).
+   * 
    * @example
    * 2022-04-02T03:09:30Z
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The modifier ID.
+   * 
    * @example
    * 18453
    */
   modifyUserId?: number;
   /**
+   * @remarks
+   * The modifier\\"s username.
+   * 
    * @example
    * test01
    */
   modifyUserName?: string;
   /**
+   * @remarks
+   * The FAQ status.
+   * 
    * @example
    * 3
    */
   status?: number;
+  /**
+   * @remarks
+   * The title of the FAQ.
+   * 
+   * @example
+   * 测试标题
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,23 +153,39 @@ export class SearchFaqResponseBodyFaqHits extends $dara.Model {
 }
 
 export class SearchFaqResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of matching FAQs.
+   */
   faqHits?: SearchFaqResponseBodyFaqHits[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E45491D5-7E0A-42C6-9B21-91D1066B1475
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of matched entries.
+   * 
    * @example
    * 1075
    */

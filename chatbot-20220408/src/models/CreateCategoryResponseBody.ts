@@ -3,19 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateCategoryResponseBodyCategory extends $dara.Model {
+  /**
+   * @remarks
+   * The business code.
+   * 
+   * @example
+   * bizcode123
+   */
   bizCode?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 30000049006
    */
   categoryId?: number;
+  /**
+   * @remarks
+   * The category name.
+   * 
+   * @example
+   * 类目名称
+   */
   name?: string;
   /**
+   * @remarks
+   * The ID of the parent category.
+   * 
    * @example
    * -1
    */
   parentCategoryId?: number;
   /**
+   * @remarks
+   * The category status. A value of -1 indicates that the category has been deleted, but this change has not been published. A value of 0 indicates Normal.
+   * 
    * @example
    * 0
    */
@@ -50,8 +73,15 @@ export class CreateCategoryResponseBodyCategory extends $dara.Model {
 }
 
 export class CreateCategoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Details of the created category.
+   */
   category?: CreateCategoryResponseBodyCategory;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A629A28F-F25E-5572-A679-FA46FB0151D6
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDSEntityResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The entity ID.
+   * 
    * @example
    * 123
    */
   entityId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4dfghf56235asdf452
    */

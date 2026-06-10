@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUserSayResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8g4n8bnd236fg79
    */
   requestId?: string;
   /**
+   * @remarks
+   * The unique ID of the intent-user say pair.
+   * 
    * @example
    * 46456176856
    */

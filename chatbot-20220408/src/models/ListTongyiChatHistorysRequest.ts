@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListTongyiChatHistorysRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key for the business space. If this parameter is omitted, the default business space is used. You can obtain this key from the Business Management page of your primary account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
    * @remarks
+   * The end time for the query, in `yyyy-MM-dd HH:mm:ss` format. For example: `2024-04-01 08:00:00`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class ListTongyiChatHistorysRequest extends $dara.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The number of entries to return. Default: 30. Maximum: 500.
+   * 
    * @example
    * 30
    */
   limit?: number;
   /**
    * @remarks
+   * The robot instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +41,8 @@ export class ListTongyiChatHistorysRequest extends $dara.Model {
   robotInstanceId?: string;
   /**
    * @remarks
+   * The start time for the query, in `yyyy-MM-dd HH:mm:ss` format. For example: `2024-04-01 00:00:00`.
+   * 
    * This parameter is required.
    * 
    * @example

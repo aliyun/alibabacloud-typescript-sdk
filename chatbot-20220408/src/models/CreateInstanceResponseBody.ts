@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateInstanceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID of the robot.
+   * 
    * @example
    * chatbot-cn-mp90s2lrk00050
    */
   instanceId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * F2E2C40D-AB09-45A1-B5C5-EB9F5C4E4E4A

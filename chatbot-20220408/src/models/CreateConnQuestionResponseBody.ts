@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateConnQuestionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The outline ID.
+   * 
    * @example
    * 1000002123
    */
   outlineId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C191B48B-9268-4FB1-A3C2-5143B4A91D0C
    */

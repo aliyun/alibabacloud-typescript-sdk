@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateLgfShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key for the business space. If omitted, the default business space is used. You can get the key on the Business Management page of your main account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
    * @remarks
+   * The bot ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,12 +23,14 @@ export class UpdateLgfShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The LGF definition.
+   * 
    * This parameter is required.
    */
   lgfDefinitionShrink?: string;
   /**
    * @remarks
-   * LGF ID
+   * The LGF ID.
    * 
    * This parameter is required.
    * 

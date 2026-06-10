@@ -4,21 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class GenerateUserAccessTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key of the business space. If you do not specify this parameter, the system accesses the default business space. You can obtain the key from the Business Management page of your main account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
-   * @example
-   * a***bcx@gmail.com
+   * @remarks
+   * The user\\"s email address.
    */
   email?: string;
   /**
+   * @remarks
+   * This parameter is reserved. You do not need to specify it.
+   * 
    * @example
    * 1000
    */
   expireTime?: number;
   /**
+   * @remarks
+   * Additional information formatted as a JSON string.
+   * 
    * @example
    * {
    *     "xx": 123,
@@ -42,6 +51,8 @@ export class GenerateUserAccessTokenRequest extends $dara.Model {
   extraInfo?: string;
   /**
    * @remarks
+   * The external user ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50,6 +61,8 @@ export class GenerateUserAccessTokenRequest extends $dara.Model {
   foreignId?: string;
   /**
    * @remarks
+   * The visitor\\"s nickname.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,8 +70,8 @@ export class GenerateUserAccessTokenRequest extends $dara.Model {
    */
   nick?: string;
   /**
-   * @example
-   * 1381111****
+   * @remarks
+   * The user\\"s telephone number.
    */
   telephone?: string;
   static names(): { [key: string]: string } {

@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class RetryDocResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The knowledge ID.
+   * 
    * @example
    * 30001905617
    */
   knowledgeId?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6419BA93-D111-5225-8998-13E63E6D3940

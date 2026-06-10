@@ -4,14 +4,13 @@ import * as $dara from '@darabonba/typescript';
 
 export class BeginSessionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key for the business space. If not specified, the default business space is used. You can find the key on the Business Management page of your main account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
-  /**
-   * @example
-   * chatbot-cn-mp90s2lrk00050
-   */
   instanceId?: string;
   sandBox?: boolean;
   sessionId?: string;

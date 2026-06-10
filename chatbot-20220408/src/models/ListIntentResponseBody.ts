@@ -4,26 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIntentResponseBodyIntentsSlotInfos extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the slot can accept multiple values.
+   * 
    * @example
    * false
    */
   array?: boolean;
   /**
+   * @remarks
+   * Indicates whether the slot contains sensitive data.
+   * 
    * @example
    * false
    */
   encrypt?: boolean;
   /**
+   * @remarks
+   * Indicates whether the slot value is collected interactively.
+   * 
    * @example
    * false
    */
   interactive?: boolean;
+  /**
+   * @remarks
+   * The slot name.
+   * 
+   * @example
+   * 天气
+   */
   name?: string;
   /**
+   * @remarks
+   * The slot ID.
+   * 
    * @example
    * 12134223
    */
   slotId?: string;
+  /**
+   * @remarks
+   * The slot value (entity name).
+   * 
+   * @example
+   * 天气
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,43 +83,82 @@ export class ListIntentResponseBodyIntentsSlotInfos extends $dara.Model {
 }
 
 export class ListIntentResponseBodyIntents extends $dara.Model {
+  /**
+   * @remarks
+   * The intent alias.
+   * 
+   * @example
+   * 查天气意图
+   */
   aliasName?: string;
   /**
+   * @remarks
+   * The time at which the intent was created, in UTC.
+   * 
    * @example
    * 2021-08-12T16:00:01Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the user who created the intent.
+   * 
    * @example
    * 123231
    */
   createUserId?: string;
   /**
+   * @remarks
+   * The name of the user who created the intent.
+   * 
    * @example
    * test
    */
   createUserName?: string;
   /**
+   * @remarks
+   * The intent ID.
+   * 
    * @example
    * 234234234234
    */
   intentId?: number;
+  /**
+   * @remarks
+   * The intent name.
+   * 
+   * @example
+   * 查天气意图
+   */
   intentName?: string;
   /**
+   * @remarks
+   * The time at which the intent was last modified, in UTC.
+   * 
    * @example
    * 2021-08-12T16:00:01Z
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The ID of the user who last modified the intent.
+   * 
    * @example
    * 123231
    */
   modifyUserId?: string;
   /**
+   * @remarks
+   * The name of the user who last modified the intent.
+   * 
    * @example
    * test
    */
   modifyUserName?: string;
+  /**
+   * @remarks
+   * A list of slots associated with the intent.
+   */
   slotInfos?: ListIntentResponseBodyIntentsSlotInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -138,23 +203,39 @@ export class ListIntentResponseBodyIntents extends $dara.Model {
 }
 
 export class ListIntentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of intents.
+   */
   intents?: ListIntentResponseBodyIntents[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of intents per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 23dsfa34r2s2s2sd12
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of intents.
+   * 
    * @example
    * 1
    */

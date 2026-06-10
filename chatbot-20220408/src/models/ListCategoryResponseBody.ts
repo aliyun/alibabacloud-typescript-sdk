@@ -3,19 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCategoryResponseBodyCategories extends $dara.Model {
+  /**
+   * @remarks
+   * The business code.
+   * 
+   * @example
+   * bizcode123
+   */
   bizCode?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 231001028593
    */
   categoryId?: number;
+  /**
+   * @remarks
+   * The category name.
+   * 
+   * @example
+   * 类目名称
+   */
   name?: string;
   /**
+   * @remarks
+   * The parent category ID.
+   * 
    * @example
    * -1
    */
   parentCategoryId?: number;
   /**
+   * @remarks
+   * The status of the category. Valid values: `0` (Normal) and `-1` (Deleted).
+   * 
    * @example
    * 0
    */
@@ -50,8 +73,15 @@ export class ListCategoryResponseBodyCategories extends $dara.Model {
 }
 
 export class ListCategoryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of categories.
+   */
   categories?: ListCategoryResponseBodyCategories[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9C5F8186-2D22-433E-9545-606D344F30B5
    */

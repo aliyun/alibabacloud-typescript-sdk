@@ -4,21 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class InitIMConnectRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key for the business space. Omit this parameter to use the default business space. You can get the key from the business management page of your main account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
    * @remarks
-   * This parameter is required.
+   * The identifier for the connection source. You can obtain this value from the channel console.
    * 
-   * @example
-   * 8XNBzDucJv
+   * This parameter is required.
    */
   from?: string;
   /**
-   * @example
-   * QUM4SndaY3VPMjhkQldDZUNOR0ZaTmZ5R3NBY0FKWHJ4OGc4dERZbEJzcjNIKzFiS1RyTjhXRUpBYmVpQlpsakprNDRFVkdxcy9HWVk2RXZvalU3bHhxRkJlc1NBUXZwdHFKOTE2UTNwamQ4b1U4N3dEbmhyRjc4R2hOQStvMnMrYkV2dlVpSHNvWC96SEVNZWRqMjBuMXdjNklpamJzaDNWYllnUldDZGhJPQ==
+   * @remarks
+   * The access token for user authentication.
    */
   userAccessToken?: string;
   static names(): { [key: string]: string } {

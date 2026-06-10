@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDSEntityRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key for the `business space`. If you omit this parameter, the default `business space` is used. You can get the key from the Business Management page of your `main account`.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
    * @remarks
+   * The `entity name`. The name can contain Chinese characters, uppercase and lowercase letters, digits, and underscores (_).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class CreateDSEntityRequest extends $dara.Model {
    */
   entityName?: string;
   /**
+   * @remarks
+   * The `entity type`. Valid values: `synonyms` and `regex`.
+   * 
    * @example
    * synonyms
    */
   entityType?: string;
   /**
    * @remarks
+   * The `instance ID`.
+   * 
    * This parameter is required.
    * 
    * @example

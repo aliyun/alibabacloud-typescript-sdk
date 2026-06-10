@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAgentInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * beebot_bot_public_cn-ca36x8v3n1x
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeletePerspectiveResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FC384CE1-8D42-1900-84E1-F33F990F2B5E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the perspective was successfully deleted.
+   * 
    * @example
    * true
    */

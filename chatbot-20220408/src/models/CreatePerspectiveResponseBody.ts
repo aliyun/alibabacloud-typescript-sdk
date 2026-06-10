@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePerspectiveResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The perspective ID.
+   * 
    * @example
    * 3001
    */
   perspectiveId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F285D735-D580-18A8-B97F-B2E72B00F101
    */

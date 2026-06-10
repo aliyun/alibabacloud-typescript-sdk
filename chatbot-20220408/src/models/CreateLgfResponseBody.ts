@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLgfResponseBody extends $dara.Model {
   /**
    * @remarks
-   * LGF ID
+   * The LGF ID.
    * 
    * @example
    * 123453433453
    */
   lgfId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * af5fg3sdf457j5
    */

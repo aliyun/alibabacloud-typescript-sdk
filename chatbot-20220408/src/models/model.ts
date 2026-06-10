@@ -56,6 +56,12 @@ export { QueryPerspectivesResponseBodyPerspectives } from './QueryPerspectivesRe
 export { SearchDocResponseBodyDocHitsDocTags } from './SearchDocResponseBody';
 export { SearchDocResponseBodyDocHits } from './SearchDocResponseBody';
 export { SearchFaqResponseBodyFaqHits } from './SearchFaqResponseBody';
+export { TongyiChatDebugInfoResponseBodyAnswerInfoAnswerReferenceInfoItemList } from './TongyiChatDebugInfoResponseBody';
+export { TongyiChatDebugInfoResponseBodyAnswerInfoAnswerReferenceInfo } from './TongyiChatDebugInfoResponseBody';
+export { TongyiChatDebugInfoResponseBodyAnswerInfoMessageBodyDirectMessageBodySentenceList } from './TongyiChatDebugInfoResponseBody';
+export { TongyiChatDebugInfoResponseBodyAnswerInfoMessageBodyDirectMessageBody } from './TongyiChatDebugInfoResponseBody';
+export { TongyiChatDebugInfoResponseBodyAnswerInfoMessageBody } from './TongyiChatDebugInfoResponseBody';
+export { TongyiChatDebugInfoResponseBodyAnswerInfo } from './TongyiChatDebugInfoResponseBody';
 export { TongyiChatDebugInfoResponseBodyPipeline } from './TongyiChatDebugInfoResponseBody';
 export { UpdateDocRequestDocMetadataMetaCellInfoDTOList } from './UpdateDocRequest';
 export { UpdateDocRequestDocMetadata } from './UpdateDocRequest';

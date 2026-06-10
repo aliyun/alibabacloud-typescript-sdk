@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RetryDocRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key for the business space. If you do not specify this parameter, the default business space is used. You can obtain the key from the Business Management page of your primary account.
+   * 
    * @example
    * e2a20f74cd9042558002c0f7dc873739_p_outbound_public
    */
   agentKey?: string;
   /**
    * @remarks
+   * The knowledge ID.
+   * 
    * This parameter is required.
    * 
    * @example

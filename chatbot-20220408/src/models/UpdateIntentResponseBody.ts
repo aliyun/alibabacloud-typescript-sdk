@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateIntentResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the updated intent.
+   * 
    * @example
    * 234234234534
    */
   intentId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * dfaf23dfas234234234534
    */

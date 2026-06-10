@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateLgfResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The unique ID of the LGF.
+   * 
    * @example
    * 2342556223532
    */
   lgfId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 289dfa131adf23wqe2r
    */

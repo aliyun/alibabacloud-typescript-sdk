@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateUserSayRequestUserSayDefinitionSlotInfos extends $dara.Model {
   /**
+   * @remarks
+   * The zero-based end index of the slot in the user say content. This index is exclusive.
+   * 
    * @example
    * 6
    */
   endIndex?: number;
   /**
+   * @remarks
+   * The ID of the slot.
+   * 
    * @example
    * fb34adf2fv43f2
    */
   slotId?: string;
   /**
+   * @remarks
+   * The zero-based start index of the slot in the user say content.
+   * 
    * @example
    * 4
    */
@@ -46,17 +55,28 @@ export class CreateUserSayRequestUserSayDefinitionSlotInfos extends $dara.Model 
 export class CreateUserSayRequestUserSayDefinition extends $dara.Model {
   /**
    * @remarks
+   * The content of the user say.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 请问明天北京的天气
    */
   content?: string;
   /**
    * @remarks
+   * The ID of the intent.
+   * 
    * This parameter is required.
    * 
    * @example
    * 123232
    */
   intentId?: number;
+  /**
+   * @remarks
+   * An array of objects, each containing information about a slot.
+   */
   slotInfos?: CreateUserSayRequestUserSayDefinitionSlotInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -88,18 +108,27 @@ export class CreateUserSayRequestUserSayDefinition extends $dara.Model {
 
 export class CreateUserSayRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key of the business space. If you do not specify this parameter, the default business space is used. You can find the key on the Business Management page of your Alibaba Cloud account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
    * @remarks
+   * The ID of the chatbot instance.
+   * 
    * This parameter is required.
    * 
    * @example
    * chatbot-cn-yjzbyrEvqd
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The definition of the user say.
+   */
   userSayDefinition?: CreateUserSayRequestUserSayDefinition;
   static names(): { [key: string]: string } {
     return {

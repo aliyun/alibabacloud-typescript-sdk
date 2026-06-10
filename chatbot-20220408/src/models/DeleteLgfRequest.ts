@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteLgfRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key of the business space. If omitted, the default business space is used. You can find this key on the Business Management page of your primary account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
    * @remarks
+   * The robot ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DeleteLgfRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The intent ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,7 +33,7 @@ export class DeleteLgfRequest extends $dara.Model {
   intentId?: number;
   /**
    * @remarks
-   * lgf Id
+   * The ID of the LGF configuration.
    * 
    * This parameter is required.
    * 

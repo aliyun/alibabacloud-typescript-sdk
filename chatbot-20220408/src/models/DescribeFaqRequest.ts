@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeFaqRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies the key for the business space. If this parameter is omitted, the default business space is used. You can get this key from the Business Management page of your main account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
    * @remarks
+   * Specifies the knowledge ID.
+   * 
    * This parameter is required.
    * 
    * @example

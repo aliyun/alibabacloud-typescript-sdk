@@ -4,28 +4,44 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListLgfResponseBodyLgfs extends $dara.Model {
   /**
+   * @remarks
+   * The creation time, in UTC.
+   * 
    * @example
    * 2021-08-12T16:00:01Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the intent.
+   * 
    * @example
    * 256756734345
    */
   intentId?: number;
   /**
    * @remarks
-   * LGF ID
+   * The LGF ID.
    * 
    * @example
    * 123
    */
   lgfId?: number;
   /**
+   * @remarks
+   * The modification time, in UTC.
+   * 
    * @example
    * 2021-08-12T16:00:01Z
    */
   modifyTime?: string;
+  /**
+   * @remarks
+   * The LGF rule.
+   * 
+   * @example
+   * .{0,5}北京天气
+   */
   ruleText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -57,23 +73,39 @@ export class ListLgfResponseBodyLgfs extends $dara.Model {
 }
 
 export class ListLgfResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of advanced semantic configurations.
+   */
   lgfs?: ListLgfResponseBodyLgfs[];
   /**
+   * @remarks
+   * The returned page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 34fg57h2gh5783
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count of matching entries.
+   * 
    * @example
    * 1
    */

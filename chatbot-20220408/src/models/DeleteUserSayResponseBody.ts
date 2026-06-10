@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteUserSayResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * dfgdg324gf34t34g34g3
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the user say.
+   * 
    * @example
    * 4562121234
    */

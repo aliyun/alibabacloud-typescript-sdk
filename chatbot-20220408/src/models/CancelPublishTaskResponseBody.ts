@@ -3,34 +3,65 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CancelPublishTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of business types.
+   */
   bizTypeList?: string[];
   /**
+   * @remarks
+   * The time when the task was created, in UTC.
+   * 
    * @example
    * 2022-04-12T06:30:17Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The error message returned if the task fails.
+   * 
+   * @example
+   * 检查待发布模块是否空闲发生错误，faq
+   */
   error?: string;
   /**
+   * @remarks
+   * The ID of the publish task.
+   * 
    * @example
    * 8522
    */
   id?: number;
   /**
+   * @remarks
+   * The time when the task was last modified, in UTC.
+   * 
    * @example
    * 2022-04-12T06:30:33Z
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5CBF0581-EAE7-1DC4-95C6-A089656A1E2D
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the publish task. This is a redundant field. We recommend that you use the `Id` field instead.
+   * 
    * @example
    * 8522
    */
   response?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * `FE_RUNNING`: in progress, `FE_SUCCESS`: succeeded, `FE_FAILED`: failed, `FE_ABORTED`: aborted.
+   * 
    * @example
    * FE_ABORTED
    */

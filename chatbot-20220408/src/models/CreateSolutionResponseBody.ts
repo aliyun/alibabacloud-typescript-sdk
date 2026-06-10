@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSolutionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F55D90C1-31BE-4B2A-AA3F-25EFC36F9419
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the knowledge answer.
+   * 
    * @example
    * 100001089003
    */

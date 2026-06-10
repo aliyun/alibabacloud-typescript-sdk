@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateUserSayRequestUserSayDefinitionSlotInfos extends $dara.Model {
   /**
+   * @remarks
+   * The zero-based end index (exclusive) of the slot within the content of the user say.
+   * 
    * @example
    * 3
    */
   endIndex?: number;
   /**
+   * @remarks
+   * The ID of the slot.
+   * 
    * @example
    * 346ffg3q23dv
    */
   slotId?: string;
   /**
+   * @remarks
+   * The zero-based start index of the slot within the content of the user say.
+   * 
    * @example
    * 1
    */
@@ -46,17 +55,28 @@ export class UpdateUserSayRequestUserSayDefinitionSlotInfos extends $dara.Model 
 export class UpdateUserSayRequestUserSayDefinition extends $dara.Model {
   /**
    * @remarks
+   * The content of the user say.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 做核酸了吗您
    */
   content?: string;
   /**
    * @remarks
+   * The ID of the intent.
+   * 
    * This parameter is required.
    * 
    * @example
    * 123
    */
   intentId?: number;
+  /**
+   * @remarks
+   * An array that contains information for each slot.
+   */
   slotInfos?: UpdateUserSayRequestUserSayDefinitionSlotInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -88,21 +108,32 @@ export class UpdateUserSayRequestUserSayDefinition extends $dara.Model {
 
 export class UpdateUserSayRequest extends $dara.Model {
   /**
+   * @remarks
+   * The workspace key. If you omit this parameter, the default workspace is used. You can find this key on the Workspace Management page in your main account.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
    * @remarks
+   * The ID of the bot.
+   * 
    * This parameter is required.
    * 
    * @example
    * chatbot-cn-yjzbyrEvqd
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The definition of the user say.
+   */
   userSayDefinition?: UpdateUserSayRequestUserSayDefinition;
   /**
    * @remarks
+   * The ID of the user say.
+   * 
    * This parameter is required.
    * 
    * @example

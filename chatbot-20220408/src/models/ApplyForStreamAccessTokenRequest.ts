@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ApplyForStreamAccessTokenRequest extends $dara.Model {
   /**
+   * @remarks
+   * Workspace key. If not set, the default workspace is accessed. The key value can be obtained from the Alibaba Cloud account workspace Management page.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */

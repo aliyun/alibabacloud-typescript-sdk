@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePerspectiveRequest extends $dara.Model {
   /**
+   * @remarks
+   * The key for the business space. If you do not specify this parameter, the default business space is used. You can get the key from your main account\\"s Business Management page.
+   * 
    * @example
    * ac627989eb4f8a98ed05fd098bbae5_p_beebot_public
    */
   agentKey?: string;
   /**
+   * @remarks
+   * The ID of the perspective.
+   * 
    * @example
    * 3001
    */

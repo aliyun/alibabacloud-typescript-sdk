@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDocResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The knowledge ID of the document.
+   * 
    * @example
    * 30002406051
    */
   knowledgeId?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0F9F136A-1BF6-5CC1-9D57-9717761F03B8

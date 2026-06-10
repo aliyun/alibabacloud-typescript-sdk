@@ -4,20 +4,36 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSimQuestionResponseBodySimQuestions extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the similar question, in UTC.
+   * 
    * @example
    * 2022-05-30T02:08:33Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The modification time of the similar question, in UTC.
+   * 
    * @example
    * 2022-05-13T03:49:28Z
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The similar question ID.
+   * 
    * @example
    * 30001979424
    */
   simQuestionId?: number;
+  /**
+   * @remarks
+   * The title of the similar question.
+   * 
+   * @example
+   * 相似问
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,10 +64,17 @@ export class ListSimQuestionResponseBodySimQuestions extends $dara.Model {
 
 export class ListSimQuestionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15CD94CC-CBEB-4189-806C-A132D1F45D51
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of similar questions.
+   */
   simQuestions?: ListSimQuestionResponseBodySimQuestions[];
   static names(): { [key: string]: string } {
     return {
