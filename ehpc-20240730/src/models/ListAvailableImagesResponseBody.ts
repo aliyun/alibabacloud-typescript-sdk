@@ -66,6 +66,9 @@ export class ListAvailableImagesResponseBodyImages extends $dara.Model {
   /**
    * @remarks
    * The OS name in Chinese.
+   * 
+   * @example
+   * CentOS  7.9 64位
    */
   OSName?: string;
   /**

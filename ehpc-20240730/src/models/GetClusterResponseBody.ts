@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetClusterResponseBodyClusterCustomConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The arguments that are used to run the script after the scrip is installed.
+   * The runtime parameters of the post-installation script.
    * 
    * @example
    * E-HPC cn-hangzhou
@@ -13,7 +13,7 @@ export class GetClusterResponseBodyClusterCustomConfiguration extends $dara.Mode
   args?: string;
   /**
    * @remarks
-   * The URL that is used to download the post-processing script.
+   * The download URL of the post-processing script.
    * 
    * @example
    * http://*****
@@ -45,15 +45,21 @@ export class GetClusterResponseBodyClusterCustomConfiguration extends $dara.Mode
 export class GetClusterResponseBodyManagerDNS extends $dara.Model {
   /**
    * @remarks
-   * The state of the domain name resolution service. Valid values:
+   * The domain name resolution service status. Valid values:
    * 
-   * *   uninit: The service is being installed.
-   * *   initing: The service is being initialized.
-   * *   running: The service is running.
-   * *   exception: The service has run into an exception.
-   * *   releasing: The service is being released.
-   * *   stopped: The service is stopped.
-   * *   pending: The service is waiting to be configured.
+   * - uninit: Installing
+   * 
+   * - initing: Initializing
+   * 
+   * - running: Running
+   * 
+   * - exception: Abnormal
+   * 
+   * - releasing: Releasing
+   * 
+   * - stopped: Stopped
+   * 
+   * - pending: Pending configuration
    * 
    * @example
    * running
@@ -61,7 +67,7 @@ export class GetClusterResponseBodyManagerDNS extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The resolution type.
+   * The domain name resolution type.
    * 
    * @example
    * nis
@@ -69,7 +75,7 @@ export class GetClusterResponseBodyManagerDNS extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version of the resolution service.
+   * The domain name resolution version.
    * 
    * @example
    * 2.31
@@ -103,15 +109,21 @@ export class GetClusterResponseBodyManagerDNS extends $dara.Model {
 export class GetClusterResponseBodyManagerDirectoryService extends $dara.Model {
   /**
    * @remarks
-   * The state of the domain account service. Valid values:
+   * The domain account service status. Valid values:
    * 
-   * *   uninit: The service is being installed.
-   * *   initing: The service is being initialized.
-   * *   running: The service is running.
-   * *   exception: The service has run into an exception.
-   * *   releasing: The service is being released.
-   * *   stopped: The service is stopped.
-   * *   pending: The service is waiting to be configured.
+   * - uninit: Installing
+   * 
+   * - initing: Initializing
+   * 
+   * - running: Running
+   * 
+   * - exception: Abnormal
+   * 
+   * - releasing: Releasing
+   * 
+   * - stopped: Stopped
+   * 
+   * - pending: Pending configuration
    * 
    * @example
    * running
@@ -119,7 +131,7 @@ export class GetClusterResponseBodyManagerDirectoryService extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the domain account.
+   * The domain account type.
    * 
    * @example
    * nis
@@ -127,7 +139,7 @@ export class GetClusterResponseBodyManagerDirectoryService extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The version of the domain account service.
+   * The domain account version.
    * 
    * @example
    * 2.31
@@ -214,7 +226,7 @@ export class GetClusterResponseBodyManagerManagerNode extends $dara.Model {
   enableHt?: boolean;
   /**
    * @remarks
-   * The expiration time of the management node.
+   * The expiration time of the control plane node.
    * 
    * @example
    * 2099-12-31T15:59Z
@@ -227,10 +239,11 @@ export class GetClusterResponseBodyManagerManagerNode extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The instance billing method of the management node. Valid values:
+   * The billing method of the control plane node instance. Valid values:
    * 
-   * *   PostPaid: pay-as-you-go
-   * *   PrePaid: subscription
+   * - PostPaid: Pay-as-you-go
+   * 
+   * - PrePaid: Subscription
    * 
    * @example
    * PostPaid
@@ -238,7 +251,7 @@ export class GetClusterResponseBodyManagerManagerNode extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance ID of the management node.
+   * The control plane node instance ID.
    * 
    * @example
    * i-bp1a170jgea1vl******
@@ -246,7 +259,7 @@ export class GetClusterResponseBodyManagerManagerNode extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance type of the management node.
+   * The control plane node instance type.
    * 
    * @example
    * ecs.g6.4xlarge
@@ -326,15 +339,21 @@ export class GetClusterResponseBodyManagerManagerNode extends $dara.Model {
 export class GetClusterResponseBodyManagerScheduler extends $dara.Model {
   /**
    * @remarks
-   * The scheduler state. Valid values:
+   * The scheduler service status. Valid values:
    * 
-   * *   uninit: The scheduler is being installed.
-   * *   initing: The scheduler is being initialized.
-   * *   running: The scheduler is running.
-   * *   exception: The scheduler has run into an exception.
-   * *   releasing: The scheduler is being released.
-   * *   stopped: The scheduler is stopped.
-   * *   pending: The scheduler is waiting to be configured.
+   * - uninit: Installing
+   * 
+   * - initing: Initializing
+   * 
+   * - running: Running
+   * 
+   * - exception: Abnormal
+   * 
+   * - releasing: Releasing
+   * 
+   * - stopped: Stopped
+   * 
+   * - pending: Pending configuration
    * 
    * @example
    * running
@@ -344,11 +363,15 @@ export class GetClusterResponseBodyManagerScheduler extends $dara.Model {
    * @remarks
    * The scheduler type. Valid values:
    * 
-   * *   SLURM
-   * *   PBS
-   * *   OPENGRIDSCHEDULER
-   * *   LSF_PLUGIN
-   * *   PBS_PLUGIN
+   * - SLURM
+   * 
+   * - PBS
+   * 
+   * - OPENGRIDSCHEDULER
+   * 
+   * - LSF_PLUGIN
+   * 
+   * - PBS_PLUGIN
    * 
    * @example
    * SLURM
@@ -390,22 +413,22 @@ export class GetClusterResponseBodyManagerScheduler extends $dara.Model {
 export class GetClusterResponseBodyManager extends $dara.Model {
   /**
    * @remarks
-   * The configurations of the domain name resolution service.
+   * The domain name resolution service configuration.
    */
   DNS?: GetClusterResponseBodyManagerDNS;
   /**
    * @remarks
-   * The information about the domain account service.
+   * The domain account service information.
    */
   directoryService?: GetClusterResponseBodyManagerDirectoryService;
   /**
    * @remarks
-   * The configurations of the management node.
+   * The control plane node configuration.
    */
   managerNode?: GetClusterResponseBodyManagerManagerNode;
   /**
    * @remarks
-   * The information about the scheduler.
+   * The scheduler service information.
    */
   scheduler?: GetClusterResponseBodyManagerScheduler;
   static names(): { [key: string]: string } {
@@ -450,10 +473,11 @@ export class GetClusterResponseBodyManager extends $dara.Model {
 export class GetClusterResponseBodyMonitorSpec extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the monitoring component of compute nodes is enabled for the cluster. Valid values:
+   * Indicates whether the monitoring component for compute nodes is enabled for the cluster. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enable
+   * 
+   * - false: Disable
    * 
    * @example
    * true
@@ -486,8 +510,9 @@ export class GetClusterResponseBodySchedulerSpec extends $dara.Model {
    * @remarks
    * Indicates whether the topology awareness feature is enabled for the cluster. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enable
+   * 
+   * - false: Disable
    * 
    * @example
    * true
@@ -519,7 +544,7 @@ export class GetClusterResponseBodySchedulerSpec extends $dara.Model {
 export class GetClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The E-HPC Util version.
+   * The E-HPC Util version used by the cluster.
    * 
    * @example
    * 2.0.31
@@ -527,10 +552,11 @@ export class GetClusterResponseBody extends $dara.Model {
   clientVersion?: string;
   /**
    * @remarks
-   * The cluster type. Valid values:
+   * The cluster series. Valid values:
    * 
-   * *   Standard
-   * *   Serverless
+   * - Standard
+   * 
+   * - Serverless
    * 
    * @example
    * Standard
@@ -538,7 +564,7 @@ export class GetClusterResponseBody extends $dara.Model {
   clusterCategory?: string;
   /**
    * @remarks
-   * The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * The cluster creation time. The time follows the ISO 8601 standard and is in UTC+0. The format is yyyy-MM-ddTHH:mmZ. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
    * 
    * @example
    * 2024-08-06T12:43:01.000Z
@@ -546,12 +572,12 @@ export class GetClusterResponseBody extends $dara.Model {
   clusterCreateTime?: string;
   /**
    * @remarks
-   * The post-processing script of the cluster.
+   * The cluster post-processing script.
    */
   clusterCustomConfiguration?: GetClusterResponseBodyClusterCustomConfiguration;
   /**
    * @remarks
-   * The cluster ID.
+   * The E-HPC cluster ID.
    * 
    * @example
    * ehpc-hz-FYUr32****
@@ -561,9 +587,11 @@ export class GetClusterResponseBody extends $dara.Model {
    * @remarks
    * The deployment type of the cluster. Valid values:
    * 
-   * *   Integrated: The cluster is deployed on a public cloud.
-   * *   Hybrid: The cluster is deployed on a hybrid cloud.
-   * *   Custom: The cluster is a custom cluster.
+   * - Integrated: Public cloud
+   * 
+   * - Hybrid: Hybrid cloud
+   * 
+   * - Custom: Custom cluster
    * 
    * @example
    * Integrated
@@ -571,7 +599,7 @@ export class GetClusterResponseBody extends $dara.Model {
   clusterMode?: string;
   /**
    * @remarks
-   * The time when the cluster was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
+   * The cluster modification time. The time follows the ISO 8601 standard and is in UTC+0. The format is yyyy-MM-ddTHH:mmZ. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
    * 
    * @example
    * 2024-08-06T12:43:01.000Z
@@ -579,7 +607,7 @@ export class GetClusterResponseBody extends $dara.Model {
   clusterModifyTime?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The E-HPC cluster name.
    * 
    * @example
    * slurm22.05.8-cluster-20240614
@@ -587,17 +615,25 @@ export class GetClusterResponseBody extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The cluster state. Valid values:
+   * The cluster status. Valid values:
    * 
-   * *   uninit: The cluster is being installed.
-   * *   creating: The cluster is being created.
-   * *   initing: The cluster is being initialized.
-   * *   running: The cluster is running.
-   * *   exception: The cluster has run into an exception.
-   * *   raleasing: The cluster is being released.
-   * *   stopping: The cluster is being stopped.
-   * *   stopped: The cluster is stopped.
-   * *   pending: The cluster is waiting to be configured.
+   * - uninit: Installing
+   * 
+   * - creating: Creating
+   * 
+   * - initing: Initializing
+   * 
+   * - running: Running
+   * 
+   * - exception: Abnormal
+   * 
+   * - releasing: Releasing
+   * 
+   * - stopping: Stopping
+   * 
+   * - stopped: Stopped
+   * 
+   * - pending: Pending configuration
    * 
    * @example
    * running
@@ -605,7 +641,7 @@ export class GetClusterResponseBody extends $dara.Model {
   clusterStatus?: string;
   /**
    * @remarks
-   * The ID of the vSwitch used by the cluster.
+   * The virtual switch ID used by the cluster.
    * 
    * @example
    * vsw-bp1p2uugqsjppno******
@@ -613,7 +649,7 @@ export class GetClusterResponseBody extends $dara.Model {
   clusterVSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) used by the cluster.
+   * The Virtual Private Cloud (VPC) ID used by the cluster.
    * 
    * @example
    * vpc-uf6u3lk1pjy28eg*****
@@ -621,10 +657,11 @@ export class GetClusterResponseBody extends $dara.Model {
   clusterVpcId?: string;
   /**
    * @remarks
-   * Indicates whether deletion protection is enabled for the cluster. Valid values:
+   * Indicates whether delete protection is enabled for the cluster. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enable delete protection.
+   * 
+   * - false: Do not enable delete protection.
    * 
    * @example
    * true
@@ -632,7 +669,7 @@ export class GetClusterResponseBody extends $dara.Model {
   deleteProtection?: string;
   /**
    * @remarks
-   * The E-HPC version.
+   * The E-HPC product version number.
    * 
    * @example
    * 2.0.0
@@ -640,10 +677,11 @@ export class GetClusterResponseBody extends $dara.Model {
   ehpcVersion?: string;
   /**
    * @remarks
-   * Indicates whether automatic scale-in is enabled for the cluster. Valid values:
+   * Indicates whether auto scale-in is enabled for the cluster. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enable
+   * 
+   * - false: Disable
    * 
    * @example
    * true
@@ -651,10 +689,11 @@ export class GetClusterResponseBody extends $dara.Model {
   enableScaleIn?: boolean;
   /**
    * @remarks
-   * Indicates whether automatic scale-out is enabled for the cluster. Valid values:
+   * Indicates whether auto scale-out is enabled for the cluster. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enable
+   * 
+   * - false: Disable
    * 
    * @example
    * true
@@ -662,7 +701,7 @@ export class GetClusterResponseBody extends $dara.Model {
   enableScaleOut?: boolean;
   /**
    * @remarks
-   * The interval at which the cluster is automatically scaled out.
+   * The interval for cluster auto scale-out.
    * 
    * @example
    * 2
@@ -670,7 +709,7 @@ export class GetClusterResponseBody extends $dara.Model {
   growInterval?: number;
   /**
    * @remarks
-   * The idle duration of the compute nodes allowed by the cluster.
+   * The idle time of the cluster\\"s compute nodes.
    * 
    * @example
    * 4
@@ -678,12 +717,12 @@ export class GetClusterResponseBody extends $dara.Model {
   idleInterval?: number;
   /**
    * @remarks
-   * The management node configurations.
+   * The cluster control plane node configuration.
    */
   manager?: GetClusterResponseBodyManager;
   /**
    * @remarks
-   * The maximum total number of vCPUs that can be used by all compute nodes managed by the cluster.
+   * The total number of cores of compute nodes the cluster can manage.
    * 
    * @example
    * 10000
@@ -691,7 +730,7 @@ export class GetClusterResponseBody extends $dara.Model {
   maxCoreCount?: string;
   /**
    * @remarks
-   * The maximum number of compute nodes that the cluster can manage.
+   * The number of compute nodes the cluster can manage.
    * 
    * @example
    * 100
@@ -699,7 +738,7 @@ export class GetClusterResponseBody extends $dara.Model {
   maxCount?: string;
   /**
    * @remarks
-   * The monitoring details of the cluster.
+   * The cluster monitoring details.
    */
   monitorSpec?: GetClusterResponseBodyMonitorSpec;
   /**
@@ -720,7 +759,7 @@ export class GetClusterResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The scheduler specifications of the cluster.
+   * The cluster scheduling details.
    */
   schedulerSpec?: GetClusterResponseBodySchedulerSpec;
   /**

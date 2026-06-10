@@ -127,11 +127,17 @@ export class DescribeAddonTemplateResponseBodyAddonServicesSpecInputParams exten
   /**
    * @remarks
    * The help information of the parameter.
+   * 
+   * @example
+   * MySQL installation root directory
    */
   helpText?: string;
   /**
    * @remarks
    * The parameter label.
+   * 
+   * @example
+   * MySQL installation path
    */
   label?: string;
   /**
@@ -329,6 +335,9 @@ export class DescribeAddonTemplateResponseBodyAddon extends $dara.Model {
   /**
    * @remarks
    * The addon description.
+   * 
+   * @example
+   * Logon node, mainly used for connecting to the E-HPC cluster environment and submitting user tasks.
    */
   description?: string;
   /**
@@ -342,6 +351,9 @@ export class DescribeAddonTemplateResponseBodyAddon extends $dara.Model {
   /**
    * @remarks
    * The addon label.
+   * 
+   * @example
+   * Logon node
    */
   label?: string;
   /**

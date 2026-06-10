@@ -172,11 +172,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+   * Create a pay-as-you-go or subscription cluster.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
+   * ## API
+   * Before using this interface, ensure you understand the E-HPC billing method and pricing. For more information, see [billing overview](https://help.aliyun.com/document_detail/2842985.html).
    * 
    * @param tmpReq - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -267,6 +267,14 @@ export default class Client extends OpenApi {
       query["DeletionProtection"] = request.deletionProtection;
     }
 
+    if (!$dara.isNull(request.growInterval)) {
+      query["GrowInterval"] = request.growInterval;
+    }
+
+    if (!$dara.isNull(request.idleInterval)) {
+      query["IdleInterval"] = request.idleInterval;
+    }
+
     if (!$dara.isNull(request.isEnterpriseSecurityGroup)) {
       query["IsEnterpriseSecurityGroup"] = request.isEnterpriseSecurityGroup;
     }
@@ -321,11 +329,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+   * Create a pay-as-you-go or subscription cluster.
    * 
    * @remarks
-   * ## [](#)Usage notes
-   * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
+   * ## API
+   * Before using this interface, ensure you understand the E-HPC billing method and pricing. For more information, see [billing overview](https://help.aliyun.com/document_detail/2842985.html).
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -398,10 +406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
-   * 
-   * @remarks
-   * ## [](#)
+   * Creates a batch of compute nodes for an E-HPC cluster.
    * 
    * @param tmpReq - CreateNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -494,10 +499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
-   * 
-   * @remarks
-   * ## [](#)
+   * Creates a batch of compute nodes for an E-HPC cluster.
    * 
    * @param request - CreateNodesRequest
    * @returns CreateNodesResponse
@@ -560,7 +562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建预设节点池
+   * Creates a reserved node pool. A reserved node pool reserves a batch of active IP addresses from a vSwitch. It maps each IP address to a hostname based on a rule and maintains the resources for the node pool. When you use the reserved node pool to scale nodes, the corresponding resources are allocated or released.
    * 
    * @param request - CreateReservedNodePoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -615,7 +617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建预设节点池
+   * Creates a reserved node pool. A reserved node pool reserves a batch of active IP addresses from a vSwitch. It maps each IP address to a hostname based on a rule and maintains the resources for the node pool. When you use the reserved node pool to scale nodes, the corresponding resources are allocated or released.
    * 
    * @param request - CreateReservedNodePoolRequest
    * @returns CreateReservedNodePoolResponse
@@ -850,7 +852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群预设节点池
+   * Deletes the specified reserved node pool.
    * 
    * @param request - DeleteReservedNodePoolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -885,7 +887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除集群预设节点池
+   * Deletes the specified reserved node pool.
    * 
    * @param request - DeleteReservedNodePoolRequest
    * @returns DeleteReservedNodePoolResponse
@@ -1100,7 +1102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an Elastic High Performance Computing (E-HPC) cluster.
+   * Query information about a specified E-HPC cluster.
    * 
    * @param request - GetClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1131,7 +1133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about an Elastic High Performance Computing (E-HPC) cluster.
+   * Query information about a specified E-HPC cluster.
    * 
    * @param request - GetClusterRequest
    * @returns GetClusterResponse
@@ -1308,7 +1310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+   * Query the details of a specified queue in an E-HPC cluster.
    * 
    * @param request - GetQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1343,7 +1345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+   * Query the details of a specified queue in an E-HPC cluster.
    * 
    * @param request - GetQueueRequest
    * @returns GetQueueResponse
@@ -2094,7 +2096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询产品支持的地域列表。
+   * Queries the available regions for the product.
    * 
    * @param request - ListRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2137,7 +2139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询产品支持的地域列表。
+   * Queries the available regions for the product.
    * 
    * @param request - ListRegionsRequest
    * @returns ListRegionsResponse
@@ -2610,7 +2612,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+   * Updates the configuration of a specified queue in an E-HPC cluster.
+   * 
+   * @remarks
+   * When you update a queue configuration, the system sets all fields based on the parameters in your current request. If you call this operation multiple times, only the parameters from the last call take effect.
    * 
    * @param tmpReq - UpdateQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2651,7 +2656,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
+   * Updates the configuration of a specified queue in an E-HPC cluster.
+   * 
+   * @remarks
+   * When you update a queue configuration, the system sets all fields based on the parameters in your current request. If you call this operation multiple times, only the parameters from the last call take effect.
    * 
    * @param request - UpdateQueueRequest
    * @returns UpdateQueueResponse

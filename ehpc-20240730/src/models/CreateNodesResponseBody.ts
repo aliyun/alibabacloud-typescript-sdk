@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the compute nodes to be created.
+   * A list of instance IDs for the created compute nodes.
    */
   instanceIds?: string[];
   /**
@@ -18,10 +18,11 @@ export class CreateNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The operation was successful.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true

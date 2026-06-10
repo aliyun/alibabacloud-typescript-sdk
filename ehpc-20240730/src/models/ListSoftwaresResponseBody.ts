@@ -3,24 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOsSupportOsInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The OS architecture. Valid values:
-   * 
-   * *   x86_64
-   * *   arm64
-   * 
-   * @example
-   * x86_64
-   */
   architecture?: string;
-  /**
-   * @remarks
-   * The image tag.
-   * 
-   * @example
-   * Alibaba Cloud Linux  3.2104 LTS 64 bit ARM Edition
-   */
   osTag?: string;
   static names(): { [key: string]: string } {
     return {
@@ -72,26 +55,8 @@ export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVe
 }
 
 export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfos extends $dara.Model {
-  /**
-   * @remarks
-   * Indicates whether the version is the latest.
-   * 
-   * @example
-   * false
-   */
   latest?: string;
-  /**
-   * @remarks
-   * The information about the supported OSs.
-   */
   supportOs?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersionsVersionInfosSupportOs;
-  /**
-   * @remarks
-   * The software version.
-   * 
-   * @example
-   * 2024.1
-   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -148,39 +113,10 @@ export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVe
 }
 
 export class ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfos extends $dara.Model {
-  /**
-   * @remarks
-   * The application category.
-   * 
-   * @example
-   * NWP
-   */
   category?: string;
-  /**
-   * @remarks
-   * The software description.
-   */
   description?: string;
-  /**
-   * @remarks
-   * The URL of the software icon.
-   * 
-   * @example
-   * https://gw.alicdn.com/imgextra/i2/O1CN01FIkxZ81LmE0fvrAyR_!!6000000001341-55-tps-6349-1603.svg
-   */
   icon?: string;
-  /**
-   * @remarks
-   * The software name.
-   * 
-   * @example
-   * gromacs
-   */
   name?: string;
-  /**
-   * @remarks
-   * The information about the software versions that can be installed in the cluster.
-   */
   versions?: ListSoftwaresResponseBodyAdditionalPackagesAdditionalPackageInfosVersions;
   static names(): { [key: string]: string } {
     return {
@@ -241,10 +177,6 @@ export class ListSoftwaresResponseBodyAdditionalPackages extends $dara.Model {
 }
 
 export class ListSoftwaresResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The information about the software that can be installed in the cluster.
-   */
   additionalPackages?: ListSoftwaresResponseBodyAdditionalPackages;
   /**
    * @remarks

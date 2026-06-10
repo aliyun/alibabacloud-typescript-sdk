@@ -4,36 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateReservedNodePoolRequest extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the cluster.
+   * 
    * @example
    * ehpc-hz-FYUr32****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The number of reserved nodes.
+   * 
    * @example
    * 10
    */
   count?: number;
   /**
+   * @remarks
+   * The description of the reserved node pool.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The suffix of the hostnames for the reserved nodes.
+   * 
    * @example
    * ed
    */
   hostPostfix?: string;
   /**
+   * @remarks
+   * The prefix of the hostnames for the reserved nodes.
+   * 
    * @example
    * cloud
    */
   hostPrefix?: string;
   /**
+   * @remarks
+   * The name of the reserved node pool.
+   * 
    * @example
    * nodepool
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
    * @example
    * vsw-bp1lfcjbfb099rrjn****
    */

@@ -7,7 +7,7 @@ export class UpdateQueueShrinkRequest extends $dara.Model {
    * @remarks
    * The cluster ID.
    * 
-   * You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
+   * Call [ListClusters](https://help.aliyun.com/document_detail/87116.html) to get the cluster ID.
    * 
    * @example
    * ehpc-hz-FYUr32****
@@ -15,7 +15,7 @@ export class UpdateQueueShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The information about the queue to be updated.
+   * The queue information to update.
    */
   queueShrink?: string;
   static names(): { [key: string]: string } {

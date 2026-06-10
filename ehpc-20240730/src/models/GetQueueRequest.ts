@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetQueueRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
-   * You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
+   * You can call [ListClusters](https://help.aliyun.com/document_detail/87116.html) to query the cluster ID.
    * 
    * @example
    * ehpc-hz-FYUr32****
@@ -15,7 +15,7 @@ export class GetQueueRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * @example
    * comp

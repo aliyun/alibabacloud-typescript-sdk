@@ -6,7 +6,7 @@ import { NodeTemplate } from "./NodeTemplate";
 export class GetQueueResponseBodyQueue extends $dara.Model {
   /**
    * @remarks
-   * The auto scale-out policy of the queue.
+   * The strategy used for automatic scale-out of the queue.
    * 
    * @example
    * PriorityInstanceType
@@ -14,7 +14,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   allocationStrategy?: string;
   /**
    * @remarks
-   * The hardware configurations of the compute nodes in the queue.
+   * The hardware configurations of compute nodes in the queue.
    */
   computeNodes?: NodeTemplate[];
   /**
@@ -24,10 +24,11 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether auto scale-in is enabled for the queue. Valid values:
+   * Specifies whether automatic scale-in is enabled for the queue. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -35,10 +36,11 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   enableScaleIn?: boolean;
   /**
    * @remarks
-   * Indicates whether auto scale-out is enabled for the queue. Valid values:
+   * Specifies whether automatic scale-out is enabled for the queue. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true
@@ -46,7 +48,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   enableScaleOut?: boolean;
   /**
    * @remarks
-   * The hostname prefix of the compute nodes in the queue.
+   * The hostname prefix for compute nodes in the queue.
    * 
    * @example
    * compute
@@ -54,7 +56,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   hostnamePrefix?: string;
   /**
    * @remarks
-   * The hostname suffix of the compute nodes in the queue.
+   * The hostname suffix for compute nodes in the queue.
    * 
    * @example
    * demo
@@ -70,10 +72,11 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   initialCount?: number;
   /**
    * @remarks
-   * The type of the network between compute nodes in the queue. Valid values:
+   * The network type between compute nodes in the queue. Valid values:
    * 
-   * *   vpc
-   * *   eRDMA
+   * - vpc
+   * 
+   * - eRDMA
    * 
    * @example
    * erdma
@@ -81,12 +84,12 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   interConnect?: string;
   /**
    * @remarks
-   * The nodes for which deletion protection is enabled in the queue.
+   * The list of nodes with deletion protection enabled in the queue.
    */
   keepAliveNodes?: string[];
   /**
    * @remarks
-   * The maximum number of compute nodes that the queue can contain.
+   * The maximum number of compute nodes that the queue maintains.
    * 
    * @example
    * 1000
@@ -94,7 +97,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   maxCount?: number;
   /**
    * @remarks
-   * The minimum number of nodes that are delivered to the queue in each scale-out cycle.
+   * The minimum number of nodes delivered per scale-out cycle.
    * 
    * @example
    * 99
@@ -102,7 +105,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   maxCountPerCycle?: number;
   /**
    * @remarks
-   * The minimum number of compute nodes that the queue must contain.
+   * The minimum number of compute nodes that the queue maintains.
    * 
    * @example
    * 0
@@ -110,7 +113,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   minCount?: number;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * This parameter is required.
    * 
@@ -120,7 +123,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The Resource Access Management (RAM) role that is assumed by compute nodes in the queue.
+   * The name of the RAM role attached to compute nodes in the queue.
    * 
    * @example
    * AliyunECSInstanceForEHPCRole
@@ -128,7 +131,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   ramRole?: string;
   /**
    * @remarks
-   * Preset node pool ID.
+   * The ID of the reserved node pool.
    * 
    * @example
    * rnp-756vlp7a
@@ -141,7 +144,7 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The available vSwitches for compute nodes in the queue. Valid values of N: 1 to 5.
+   * The list of virtual switches available to compute nodes in the queue. N ranges from 1 to 5.
    */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -211,12 +214,12 @@ export class GetQueueResponseBodyQueue extends $dara.Model {
 export class GetQueueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queue configurations.
+   * The configuration of the queue.
    */
   queue?: GetQueueResponseBodyQueue;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE7****

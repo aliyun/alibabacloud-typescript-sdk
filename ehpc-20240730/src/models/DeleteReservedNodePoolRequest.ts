@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteReservedNodePoolRequest extends $dara.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * ehpc-hz-FYUr32****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The reserved node pool ID.
+   * 
    * @example
    * rnp-cdx****
    */

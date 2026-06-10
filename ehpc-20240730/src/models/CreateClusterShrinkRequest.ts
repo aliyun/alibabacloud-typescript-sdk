@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of software that you want to install in the cluster. Valid values of N: 0 to 10.
+   * A list of software to install in the cluster. You can specify up to 10 packages.
    */
   additionalPackagesShrink?: string;
   /**
    * @remarks
-   * The configurations of the custom addons in the cluster. Only one addon is supported.
+   * The configuration of the custom service component for the cluster. Only one component is supported.
    */
   addonsShrink?: string;
   /**
    * @remarks
-   * The client version. By default, the latest version is used.
+   * The version of the E-HPC client. By default, the latest version is used.
    * 
    * @example
    * 2.1.0
@@ -23,10 +23,11 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clientVersion?: string;
   /**
    * @remarks
-   * The cluster type. Valid values:
+   * The edition of the cluster. Valid values:
    * 
-   * *   Standard
-   * *   Serverless
+   * - Standard
+   * 
+   * - Serverless
    * 
    * @example
    * Standard
@@ -34,17 +35,17 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clusterCategory?: string;
   /**
    * @remarks
-   * The access credentials of the cluster.
+   * The security credentials for the cluster.
    */
   clusterCredentialsShrink?: string;
   /**
    * @remarks
-   * The post-processing script of the cluster.
+   * The post-processing script for the cluster.
    */
   clusterCustomConfigurationShrink?: string;
   /**
    * @remarks
-   * The cluster description. The description must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * The description of the cluster. The description must be 2 to 128 characters long and can contain letters, Chinese characters, digits, hyphens (-), and underscores (_).
    * 
    * @example
    * slurm22.05.8-cluster-20240718
@@ -52,11 +53,13 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clusterDescription?: string;
   /**
    * @remarks
-   * The deployment mode of the cluster. Valid values:
+   * The cluster\\"s deployment type. Valid values:
    * 
-   * *   Integrated
-   * *   Hybrid
-   * *   Custom
+   * - Integrated: An integrated cluster.
+   * 
+   * - Hybrid: A hybrid cloud cluster.
+   * 
+   * - Custom: A custom cluster.
    * 
    * @example
    * Integrated
@@ -64,7 +67,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clusterMode?: string;
   /**
    * @remarks
-   * The cluster name. The name must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * The name of the cluster. The name must be 2 to 128 characters long and can contain letters, Chinese characters, digits, hyphens (-), and underscores (_).
    * 
    * @example
    * slurm22.05.8-cluster-20240718
@@ -72,9 +75,9 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The ID of the vSwitch that you want the cluster to use. The vSwitch must reside in the VPC that is specified by the `ClusterVpcId` parameter.
+   * The ID of the VSwitch for the cluster. The VSwitch must be in the VPC specified by `ClusterVpcId`.
    * 
-   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html) operation to query information about the created VPCs and vSwitches.
+   * Call the [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html) operation to find available VPCs and VSwitches.
    * 
    * @example
    * vsw-f8za5p0mwzgdu3wgx****
@@ -82,7 +85,7 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clusterVSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) in which the cluster resides.
+   * The ID of the VPC for the cluster.
    * 
    * @example
    * vpc-m5efjevmclc0xdmys****
@@ -90,10 +93,11 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   clusterVpcId?: string;
   /**
    * @remarks
-   * Specifies whether to enable deletion protection for the cluster. Deletion protection decides whether the cluster can be deleted in the console or by calling the [DeleteCluster](https://help.aliyun.com/document_detail/424406.html) operation. Valid values:
+   * Specifies whether to enable deletion protection for the cluster. This feature prevents the cluster from being deleted via the console or the [DeleteCluster](https://help.aliyun.com/document_detail/424406.html) operation.
    * 
-   * *   true
-   * *   false
+   * - true: Enables deletion protection.
+   * 
+   * - false: Disables deletion protection.
    * 
    * Default value: false.
    * 
@@ -101,14 +105,17 @@ export class CreateClusterShrinkRequest extends $dara.Model {
    * false
    */
   deletionProtection?: boolean;
+  growInterval?: number;
+  idleInterval?: number;
   /**
    * @remarks
-   * Specifies whether to use an advanced security group. Valid values:
+   * Specifies whether to use an enterprise security group. Valid values:
    * 
-   * *   true: automatically creates and uses an advanced security group.
-   * *   false: automatically creates and uses a basic security group.
+   * - true: The system automatically creates and uses an enterprise security group.
    * 
-   * For more information, see [Basic security groups and advanced security groups](https://help.aliyun.com/document_detail/605897.html).
+   * - false: The system automatically creates and uses a security group.
+   * 
+   * For more information about how to select a security group type, see [Security groups and enterprise security groups](https://help.aliyun.com/document_detail/605897.html).
    * 
    * @example
    * false
@@ -116,12 +123,12 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   isEnterpriseSecurityGroup?: boolean;
   /**
    * @remarks
-   * The configurations of the cluster management node.
+   * Configuration for the cluster manager node.
    */
   managerShrink?: string;
   /**
    * @remarks
-   * The maximum number of vCPUs that can be used by compute nodes in the cluster. Valid values: 0 to 100,000.
+   * The maximum number of CPU cores that the cluster can manage across all compute nodes. Valid values: 0 to 100,000.
    * 
    * @example
    * 10000
@@ -137,14 +144,14 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   maxCount?: number;
   /**
    * @remarks
-   * The queues in the cluster. The number of queues can be 0 to 8.
+   * Configuration for the cluster queues. You can specify up to 8 queues.
    */
   queuesShrink?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the cluster belongs.
+   * The ID of the resource group.
    * 
-   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the IDs of the resource groups.
+   * Call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to find resource group IDs.
    * 
    * @example
    * rg-acfmxazb4******
@@ -152,9 +159,9 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the security group to which the cluster belongs.
+   * The ID of the security group for the cluster.
    * 
-   * You can call the [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) operation to query available security groups in the current region.
+   * Call the [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) operation to find available security groups in the current region.
    * 
    * @example
    * sg-bp13n61xsydodfyg****
@@ -162,12 +169,12 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The shared storage resources of the cluster.
+   * Configuration for the cluster\\"s shared storage.
    */
   sharedStoragesShrink?: string;
   /**
    * @remarks
-   * The tags of the cluster.
+   * The list of tags to add to the cluster. You can add up to 20 tags.
    */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
@@ -184,6 +191,8 @@ export class CreateClusterShrinkRequest extends $dara.Model {
       clusterVSwitchId: 'ClusterVSwitchId',
       clusterVpcId: 'ClusterVpcId',
       deletionProtection: 'DeletionProtection',
+      growInterval: 'GrowInterval',
+      idleInterval: 'IdleInterval',
       isEnterpriseSecurityGroup: 'IsEnterpriseSecurityGroup',
       managerShrink: 'Manager',
       maxCoreCount: 'MaxCoreCount',
@@ -210,6 +219,8 @@ export class CreateClusterShrinkRequest extends $dara.Model {
       clusterVSwitchId: 'string',
       clusterVpcId: 'string',
       deletionProtection: 'boolean',
+      growInterval: 'number',
+      idleInterval: 'number',
       isEnterpriseSecurityGroup: 'boolean',
       managerShrink: 'string',
       maxCoreCount: 'number',

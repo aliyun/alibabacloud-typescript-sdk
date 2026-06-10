@@ -6,11 +6,17 @@ export class ListAddonTemplatesResponseBodyAddons extends $dara.Model {
   /**
    * @remarks
    * The addon description.
+   * 
+   * @example
+   * Logon node, mainly used for connecting to the E-HPC cluster environment and submitting user tasks.
    */
   description?: string;
   /**
    * @remarks
    * The addon label
+   * 
+   * @example
+   * Logon node
    */
   label?: string;
   /**

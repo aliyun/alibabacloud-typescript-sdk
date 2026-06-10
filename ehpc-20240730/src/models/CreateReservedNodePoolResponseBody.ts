@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateReservedNodePoolResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the reserved node pool.
+   * 
    * @example
    * rnp-cdx****
    */

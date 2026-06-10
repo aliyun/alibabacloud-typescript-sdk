@@ -21,10 +21,11 @@ export class CreateClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request result. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request succeeded.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

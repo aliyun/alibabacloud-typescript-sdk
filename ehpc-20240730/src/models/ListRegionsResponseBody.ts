@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListRegionsResponseBodyRegions extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the region.
+   * 
+   * @example
+   * 华东1（杭州）
+   */
   localName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -34,22 +44,42 @@ export class ListRegionsResponseBodyRegions extends $dara.Model {
 
 export class ListRegionsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * Valid values: 1 to 100.
+   * 
+   * Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results.
+   * 
    * @example
    * caeba0bbb2be03f84eb48b699f0axxxx
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of available regions.
+   */
   regions?: ListRegionsResponseBodyRegions[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries that meet the query conditions.<br>This parameter is optional and may not be returned.
+   * 
    * @example
    * 16
    */
