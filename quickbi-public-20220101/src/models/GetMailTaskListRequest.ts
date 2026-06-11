@@ -4,21 +4,39 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMailTaskListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
+   * - Starts from: 1
+   * 
+   * - Default value: 1
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * - Default value: 25
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Specifies whether the tracking task is paused.
+   * 
    * @example
    * true
    */
   paused?: boolean;
   /**
+   * @remarks
+   * The nickname of the user who owns the tracking task. If this parameter is not specified, all tasks are returned.
+   * 
    * @example
    * test
    */

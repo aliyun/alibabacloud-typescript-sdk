@@ -16,7 +16,7 @@ export class BatchAddFeishuUsersResponseBodyResultFailResultsFailInfos extends $
    * Description of the error code.
    * 
    * @example
-   * TEST
+   * 账号已存在
    */
   codeDesc?: string;
   /**

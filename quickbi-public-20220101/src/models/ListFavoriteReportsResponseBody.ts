@@ -56,7 +56,7 @@ export class ListFavoriteReportsResponseBodyResultData extends $dara.Model {
    * Name of the work.
    * 
    * @example
-   * test
+   * 测试报表
    */
   name?: string;
   /**
@@ -64,7 +64,7 @@ export class ListFavoriteReportsResponseBodyResultData extends $dara.Model {
    * Alibaba Cloud account name of the work owner.
    * 
    * @example
-   * test
+   * luyaotest的昵称非管理员
    */
   ownerName?: string;
   /**
@@ -119,7 +119,7 @@ export class ListFavoriteReportsResponseBodyResultData extends $dara.Model {
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * test
+   * 测试工作空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

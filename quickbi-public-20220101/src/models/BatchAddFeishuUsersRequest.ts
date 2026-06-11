@@ -8,7 +8,7 @@ export class BatchAddFeishuUsersRequest extends $dara.Model {
    * Information of the users to be added
    * 
    * @example
-   * {"ad****fd": "TEST", "82****5a": "TEST"}"
+   * {"ad****fd": "张三", "82****5a": "李四"}"
    */
   feishuUsers?: string;
   /**

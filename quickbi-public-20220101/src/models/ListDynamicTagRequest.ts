@@ -2,26 +2,14 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListWhitePortalMenuRequest extends $dara.Model {
-  /**
-   * @remarks
-   * The ID of the BI portal.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * asdagad***213425
-   */
-  dataportalId?: string;
+export class ListDynamicTagRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
-      dataportalId: 'DataportalId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataportalId: 'string',
     };
   }
 

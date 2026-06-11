@@ -8,7 +8,7 @@ export class ListFavoriteReportsRequest extends $dara.Model {
    * Keyword of the work name.
    * 
    * @example
-   * test
+   * 财务报表
    */
   keyword?: string;
   /**

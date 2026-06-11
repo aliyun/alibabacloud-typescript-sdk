@@ -77,7 +77,7 @@ export class ListApiDatasourceResponseBodyResultData extends $dara.Model {
    * The name of the API data source.
    * 
    * @example
-   * test data source
+   * 测试数据源
    */
   showName?: string;
   /**

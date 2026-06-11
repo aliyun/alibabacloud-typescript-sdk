@@ -21,6 +21,7 @@ export { ListCollectionsResponseBodyResult } from './ListCollectionsResponseBody
 export { ListDataLevelPermissionWhiteListResponseBodyResultUsersModel } from './ListDataLevelPermissionWhiteListResponseBody';
 export { ListDataLevelPermissionWhiteListResponseBodyResult } from './ListDataLevelPermissionWhiteListResponseBody';
 export { ListDataSourceResponseBodyResult } from './ListDataSourceResponseBody';
+export { ListDynamicTagResponseBodyResult } from './ListDynamicTagResponseBody';
 export { ListFavoriteReportsResponseBodyResultData } from './ListFavoriteReportsResponseBody';
 export { ListFavoriteReportsResponseBodyResult } from './ListFavoriteReportsResponseBody';
 export { ListOrganizationRoleUsersResponseBodyResultData } from './ListOrganizationRoleUsersResponseBody';
@@ -188,6 +189,9 @@ export { CheckOrganizationMemberResponse } from './CheckOrganizationMemberRespon
 export { CheckReadableRequest } from './CheckReadableRequest';
 export { CheckReadableResponseBody } from './CheckReadableResponseBody';
 export { CheckReadableResponse } from './CheckReadableResponse';
+export { ClearDynamicTagCacheRequest } from './ClearDynamicTagCacheRequest';
+export { ClearDynamicTagCacheResponseBody } from './ClearDynamicTagCacheResponseBody';
+export { ClearDynamicTagCacheResponse } from './ClearDynamicTagCacheResponse';
 export { CreateCubeBySqlRequest } from './CreateCubeBySqlRequest';
 export { CreateCubeBySqlResponseBody } from './CreateCubeBySqlResponseBody';
 export { CreateCubeBySqlResponse } from './CreateCubeBySqlResponse';
@@ -281,6 +285,9 @@ export { ListDataLevelPermissionWhiteListResponse } from './ListDataLevelPermiss
 export { ListDataSourceRequest } from './ListDataSourceRequest';
 export { ListDataSourceResponseBody } from './ListDataSourceResponseBody';
 export { ListDataSourceResponse } from './ListDataSourceResponse';
+export { ListDynamicTagRequest } from './ListDynamicTagRequest';
+export { ListDynamicTagResponseBody } from './ListDynamicTagResponseBody';
+export { ListDynamicTagResponse } from './ListDynamicTagResponse';
 export { ListFavoriteReportsRequest } from './ListFavoriteReportsRequest';
 export { ListFavoriteReportsResponseBody } from './ListFavoriteReportsResponseBody';
 export { ListFavoriteReportsResponse } from './ListFavoriteReportsResponse';

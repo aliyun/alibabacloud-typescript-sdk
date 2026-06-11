@@ -8,7 +8,7 @@ export class ModifyCopilotEmbedConfigRequest extends $dara.Model {
    * Agent nickname.
    * 
    * @example
-   * smartq
+   * 小Q
    */
   agentName?: string;
   /**
@@ -27,12 +27,10 @@ export class ModifyCopilotEmbedConfigRequest extends $dara.Model {
    * >Notice: The parameter type is jsonString, and only one switch between analysis themes and query resources can be effective. When the all-select switch is true, it takes precedence. It is recommended to pass only one parameter, with other notes
    * 
    * @example
-   * Map<String,Object> data=new HashMap<>();
-   *         data.put("allTheme",true);
-   *         //data.put("allCube",true);
-   *         //data.put("themes",Lists.newArrayList("1111","22222"));
-   *         //data.put("llmCubes",Lists.newArrayList("33333","44444"));
-   *         request.setDataRange(JSON.toJSONString(data));
+   * 如果客户要授权所有分析主题，则 {allTheme: true}
+   * 如果客户要授权所有问数资源，则 {allCube: true}
+   * 如果客户要授权部分问数资源，则 {llmCubes: [12314,12345]}
+   * 如果客户要授权部分分析主题，则 {themes: [12314,12345]}
    */
   dataRange?: string;
   /**
@@ -40,7 +38,7 @@ export class ModifyCopilotEmbedConfigRequest extends $dara.Model {
    * Module name.
    * 
    * @example
-   * smartq
+   * 小Q
    */
   moduleName?: string;
   static names(): { [key: string]: string } {

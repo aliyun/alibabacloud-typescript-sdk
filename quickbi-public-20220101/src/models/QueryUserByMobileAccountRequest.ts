@@ -6,17 +6,11 @@ export class QueryUserByMobileAccountRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * ding
    */
   mobileType?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * sasda
    */
   mobileUserId?: string;
   static names(): { [key: string]: string } {

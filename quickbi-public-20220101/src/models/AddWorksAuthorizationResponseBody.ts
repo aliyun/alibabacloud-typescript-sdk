@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddWorksAuthorizationResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 78C1AA***************C462E57A95
    */
   requestId?: string;
   /**
+   * @remarks
+   * The authorization ID.
+   * 
    * @example
    * asdasf8****sda
    */
   result?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

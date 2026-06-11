@@ -16,7 +16,7 @@ export class QueryWorksResponseBodyResultDirectory extends $dara.Model {
    * The name of the directory.
    * 
    * @example
-   * Test directory
+   * 测试目录
    */
   name?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryWorksResponseBodyResultDirectory extends $dara.Model {
    * The hierarchical structure of the directory to which the directory belongs. Separate the hierarchical structure with a (/).
    * 
    * @example
-   * Test directory
+   * 测试目录
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * Remarks on the work.
    * 
    * @example
-   * Description
+   * 备注
    */
   description?: string;
   /**
@@ -108,7 +108,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * The Alibaba Cloud account name of the person who modified the work.
    * 
    * @example
-   * Tom
+   * 张三
    */
   modifyName?: string;
   /**
@@ -124,7 +124,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * The Alibaba Cloud account name of the work owner.
    * 
    * @example
-   * Tom
+   * 张三
    */
   ownerName?: string;
   /**
@@ -179,7 +179,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * The name of the work.
    * 
    * @example
-   * Test report
+   * 测试报表
    */
   workName?: string;
   /**
@@ -217,7 +217,7 @@ export class QueryWorksResponseBodyResult extends $dara.Model {
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * Test Space
+   * 测试空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

@@ -53,7 +53,7 @@ export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
    * Description of the user group.
    * 
    * @example
-   * test
+   * 测试描述
    */
   usergroupDesc?: string;
   /**
@@ -69,7 +69,7 @@ export class GetUserGroupInfoResponseBodyResult extends $dara.Model {
    * Name of the user group.
    * 
    * @example
-   * test
+   * 测试用户组01
    */
   usergroupName?: string;
   static names(): { [key: string]: string } {

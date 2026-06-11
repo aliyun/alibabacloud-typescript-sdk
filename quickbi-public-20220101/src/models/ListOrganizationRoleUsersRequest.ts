@@ -8,7 +8,7 @@ export class ListOrganizationRoleUsersRequest extends $dara.Model {
    * Keyword for the nickname of the organization member.
    * 
    * @example
-   * zhangsan
+   * 小刘
    */
   keyword?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmartqPermissionByCubeIdResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Dataset ID.
+   * The ID of the dataset.
    * 
    * @example
    * 7c7223ae-****-3c744528014b
@@ -13,7 +13,7 @@ export class QuerySmartqPermissionByCubeIdResponseBodyResult extends $dara.Model
   cubeId?: string;
   /**
    * @remarks
-   * Dataset name.
+   * The name of the dataset.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class QuerySmartqPermissionByCubeIdResponseBodyResult extends $dara.Model
   cubeName?: string;
   /**
    * @remarks
-   * Whether the current user has permission for the smart question. Note: \\"HasPerssion\\" seems to be a typo, it should probably be \\"HasPermission\\".
+   * Indicates whether the current user has permissions for Smart Q\\&A.
    */
   hasPerssion?: boolean;
   static names(): { [key: string]: string } {
@@ -52,7 +52,7 @@ export class QuerySmartqPermissionByCubeIdResponseBodyResult extends $dara.Model
 export class QuerySmartqPermissionByCubeIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 617277******************ABA47E31
@@ -60,14 +60,15 @@ export class QuerySmartqPermissionByCubeIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Basic information of the dataset.
+   * The basic information about the dataset.
    */
   result?: QuerySmartqPermissionByCubeIdResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request was successful. Valid values:
    * 
    * - true: The request was successful.
+   * 
    * - false: The request failed.
    * 
    * @example

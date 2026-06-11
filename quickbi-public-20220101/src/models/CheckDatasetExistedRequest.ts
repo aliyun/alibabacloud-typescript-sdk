@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDatasetExistedRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example

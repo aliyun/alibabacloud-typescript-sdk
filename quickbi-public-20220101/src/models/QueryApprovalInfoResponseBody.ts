@@ -16,7 +16,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
    * Applicant\\"s nickname.
    * 
    * @example
-   * Li Fei
+   * 李飞
    */
   applicantName?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
    * Application reason.
    * 
    * @example
-   * Development needs
+   * 开发需要
    */
   applyReason?: string;
   /**
@@ -101,7 +101,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
    * Handling reason.
    * 
    * @example
-   * Development needs
+   * 开发需要
    */
   handleReason?: string;
   /**
@@ -117,7 +117,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
    * The name of the resource for which permission is requested (e.g., report name, space name...).
    * 
    * @example
-   * Test Resources
+   * 测试资源
    */
   resourceName?: string;
   /**
@@ -133,7 +133,7 @@ export class QueryApprovalInfoResponseBodyResultData extends $dara.Model {
    * The name of the workspace.
    * 
    * @example
-   * Test Workspace
+   * 测试工作空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

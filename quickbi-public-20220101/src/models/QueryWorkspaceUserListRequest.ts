@@ -8,7 +8,7 @@ export class QueryWorkspaceUserListRequest extends $dara.Model {
    * Keyword for the username of the workspace member.
    * 
    * @example
-   * test
+   * 分析
    */
   keyword?: string;
   /**

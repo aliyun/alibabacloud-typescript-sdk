@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F68B***********A3DF743
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result of the operation. Valid values:
+   * 
+   * - true: The request is successful.
+   * 
+   * - false: The request fails.
+   * 
    * @example
    * true
    */
   result?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: The request is successful.
+   * 
+   * - false: The request fails.
+   * 
    * @example
    * true
    */

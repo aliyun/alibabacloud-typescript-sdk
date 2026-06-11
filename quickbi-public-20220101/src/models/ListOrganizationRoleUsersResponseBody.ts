@@ -8,7 +8,7 @@ export class ListOrganizationRoleUsersResponseBodyResultData extends $dara.Model
    * Nickname of the organization member.
    * 
    * @example
-   * Test User
+   * 测试用户
    */
   nickName?: string;
   /**
@@ -118,7 +118,7 @@ export class ListOrganizationRoleUsersResponseBody extends $dara.Model {
    * Request ID.
    * 
    * @example
-   * BCE45E6D-****-4F94-86BB-****2B1615FF
+   * BCE45E6D-9304-4F94-86BB-5A772B1615FF
    */
   requestId?: string;
   /**

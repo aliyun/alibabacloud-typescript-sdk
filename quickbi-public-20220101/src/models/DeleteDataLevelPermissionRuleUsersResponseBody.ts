@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDataLevelPermissionRuleUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D8749D65-E80A-433C-AF1B-CE9C180FF3B4
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result of the API call. Valid values:
+   * 
+   * - true: The call was successful.
+   * 
+   * - false: The call failed.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

@@ -10,7 +10,7 @@ export class GetUserGroupInfoRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * 测试用户组
    */
   keyword?: string;
   static names(): { [key: string]: string } {

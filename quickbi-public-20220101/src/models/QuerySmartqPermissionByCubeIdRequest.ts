@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySmartqPermissionByCubeIdRequest extends $dara.Model {
   /**
    * @remarks
-   * Dataset ID.
+   * The ID of the dataset.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QuerySmartqPermissionByCubeIdRequest extends $dara.Model {
   cubeId?: string;
   /**
    * @remarks
-   * User ID.
+   * The ID of the user.
    * 
    * This parameter is required.
    * 

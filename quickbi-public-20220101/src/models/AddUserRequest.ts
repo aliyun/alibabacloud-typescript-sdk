@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserRequest extends $dara.Model {
   /**
    * @remarks
-   * Aliyun account ID.
-   * >Warning: For versions of Quick BI released after December 31, 2024, AccountId will be a required parameter. Please modify your API before this date.
-   * 
-   * <props="china">Published only on the China site
+   * The ID of the Alibaba Cloud account.>Warning: The `AccountId` parameter will be required in Quick BI versions released after December 31, 2024. We recommend that you update your API calls to include this parameter before then.
    * 
    * @example
    * 191476xxxxx23754
@@ -16,10 +13,11 @@ export class AddUserRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * Aliyun account name.
+   * The name of the Alibaba Cloud account.
    * 
-   * - Note: If it is a sub-account, the format should be \\"primary account: sub-account\\". For example: master_test@aliyun.com:subaccount
-   * - Format check: Maximum length of 50 characters.
+   * - For a sub-account, use the format `master account:sub-account`. Example: `master_test@aliyun.com:subaccount`.
+   * 
+   * - The maximum length is 50 characters.
    * 
    * @example
    * xxxxxx@163.com
@@ -29,12 +27,15 @@ export class AddUserRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Whether to assign the organization administrator role. Value range: 
+   * Specifies whether to assign the organization administrator role. Valid values:
    * 
-   * - true: Yes 
-   * - false: No
+   * - true
    * 
-   * <notice>This parameter is deprecated and not recommended for use. It is invalid when RoleIds is provided.</notice>
+   * - false
+   * 
+   * >Notice: 
+   * 
+   * This parameter is deprecated. It is ignored if `RoleIds` is specified.
    * 
    * @example
    * true
@@ -47,12 +48,15 @@ export class AddUserRequest extends $dara.Model {
   adminUser?: boolean;
   /**
    * @remarks
-   * Whether to assign the organization permission administrator role. Value range: 
+   * Specifies whether to assign the permission administrator role. Valid values:
    * 
-   * - true: Yes 
-   * - false: No
+   * - true
    * 
-   * <notice>This parameter is deprecated and not recommended for use. It is invalid when RoleIds is provided.</notice>
+   * - false
+   * 
+   * >Notice: 
+   * 
+   * This parameter is deprecated. It is ignored if `RoleIds` is specified.
    * 
    * @example
    * true
@@ -60,26 +64,45 @@ export class AddUserRequest extends $dara.Model {
    * @deprecated
    */
   authAdminUser?: boolean;
+  /**
+   * @remarks
+   * The Copilot modules to enable for the user. To enable multiple modules, specify their codes separated by a comma (,).
+   * 
+   * - `qreport`: Q Report
+   * 
+   * - `qExploreNum`: Q Explore
+   * 
+   * - `smartQAskNum`: Q\\&A with Data
+   * 
+   * - `smartQDevNum`: Q-assisted Building
+   * 
+   * @example
+   * qreport,qExploreNum
+   */
   copilotModules?: string;
   /**
    * @remarks
-   * Aliyun account nickname.
+   * The user\\"s nickname.
    * 
-   * - Format check: Maximum length of 50 characters.
-   * - Special format validation: Chinese and English characters, numbers, _ \\ / | () ] [
+   * - The maximum length is 50 characters.
+   * 
+   * - The nickname can contain Chinese characters, letters, digits, and the following special characters: `_ \\ / | () []`.
    * 
    * This parameter is required.
    * 
    * @example
-   * ddd
+   * 张三
    */
   nickName?: string;
   /**
    * @remarks
-   * Preset or custom organization role IDs bound to the user, separated by commas, with a maximum of 3. Value range:
-   * - Organization Administrator (preset role): 111111111
-   * - Permission Administrator (preset role): 111111112
-   * - Regular User (preset role): 111111113
+   * The IDs of the predefined or custom organization roles to assign. You can specify up to three role IDs, separated by commas (,). Valid values for predefined roles:
+   * 
+   * - `111111111`: organization administrator
+   * 
+   * - `111111112`: permission administrator
+   * 
+   * - `111111113`: regular user
    * 
    * @example
    * 111111111,456
@@ -87,10 +110,13 @@ export class AddUserRequest extends $dara.Model {
   roleIds?: string;
   /**
    * @remarks
-   * The user type of the organization member. Value range:
-   * - 1: Developer
-   * - 2: Visitor
-   * - 3: Analyst
+   * The type of the organization member. Valid values:
+   * 
+   * - 1: developer
+   * 
+   * - 2: viewer
+   * 
+   * - 3: analyst
    * 
    * This parameter is required.
    * 

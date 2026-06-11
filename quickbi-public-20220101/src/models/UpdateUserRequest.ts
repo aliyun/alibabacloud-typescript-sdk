@@ -5,10 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the organization administrator. Valid values:
+   * Whether to assign the organization administrator role to the user. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`
+   * 
+   * - `false`
+   * 
+   * >Notice: 
+   * 
+   * This parameter is deprecated and is ignored if RoleIds is also specified.
    * 
    * @example
    * true
@@ -19,21 +24,41 @@ export class UpdateUserRequest extends $dara.Model {
   adminUser?: boolean;
   /**
    * @remarks
-   * Indicate whether the RAM user is a permission administrator. Valid values:
+   * Whether to assign the permission administrator role to the user. Valid values:
    * 
-   * *   true
-   * *   false
+   * - `true`
+   * 
+   * - `false`
+   * 
+   * >Notice: 
+   * 
+   * This parameter is deprecated and is ignored if RoleIds is also specified.
    * 
    * @example
    * true
    */
   authAdminUser?: boolean;
+  /**
+   * @example
+   * [
+   *     {
+   *         "moduleType": "smartQAskNum",
+   *         "status": 1
+   *     },
+   *     {
+   *         "moduleType": "smartQDevNum",
+   *         "status": 0
+   *     }
+   * ]
+   */
   copilotModules?: string;
   /**
    * @remarks
-   * User status: 
-   * * **false**: Active
-   *  * **true**: Inactive
+   * The user status:
+   * 
+   * - **`false`**: active
+   * 
+   * - **`true`**: inactive
    * 
    * @example
    * false
@@ -41,18 +66,25 @@ export class UpdateUserRequest extends $dara.Model {
   isDeleted?: boolean;
   /**
    * @remarks
-   * The nickname of the account.
+   * The nickname of the user.
    * 
-   * *   Format check: The value can be up to 50 characters in length.
-   * *   Special format verification: Chinese and English digits_ \\ / | () ] [
+   * - The nickname can be up to 50 characters in length.
+   * 
+   * - The nickname can contain Chinese characters, letters, digits, and the following special characters: `_ \\ / | () ] [`
    * 
    * @example
-   * Xiao Zhang
+   * test
    */
   nickName?: string;
   /**
    * @remarks
-   * The IDs of the preset or custom organization roles bound to the user, separated by English commas \\",\\", with a maximum of 3. The value range is as follows: - Organization Administrator (preset role): 111111111 - Permission Administrator (preset role): 111111112 - Regular User (preset role): 111111113
+   * The IDs of the built-in or custom organization roles to assign to the user. Specify up to three comma-separated role IDs.
+   * 
+   * - organization administrator (built-in role): 111111111
+   * 
+   * - permission administrator (built-in role): 111111112
+   * 
+   * - standard user (built-in role): 111111113
    * 
    * @example
    * 111111111,456
@@ -60,7 +92,7 @@ export class UpdateUserRequest extends $dara.Model {
   roleIds?: string;
   /**
    * @remarks
-   * The ID of the user to be updated. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
+   * The ID of the Quick BI user to update. This is not an Alibaba Cloud UID.
    * 
    * This parameter is required.
    * 
@@ -70,11 +102,13 @@ export class UpdateUserRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The type of user who is a member of the organization. Valid values:
+   * The user type of the organization member. Valid values:
    * 
-   * *   1 : developer
-   * *   2 : visitors
-   * *   3 : Analyst
+   * - `1`: developer
+   * 
+   * - `2`: viewer
+   * 
+   * - `3`: analyst
    * 
    * @example
    * 1

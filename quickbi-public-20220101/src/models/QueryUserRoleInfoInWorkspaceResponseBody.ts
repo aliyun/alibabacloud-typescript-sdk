@@ -28,7 +28,7 @@ export class QueryUserRoleInfoInWorkspaceResponseBodyResult extends $dara.Model 
    * Preset role name.
    * 
    * @example
-   * test
+   * 空间管理员
    */
   roleName?: string;
   static names(): { [key: string]: string } {

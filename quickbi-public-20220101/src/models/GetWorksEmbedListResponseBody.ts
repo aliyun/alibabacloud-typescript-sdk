@@ -24,7 +24,7 @@ export class GetWorksEmbedListResponseBodyResultData extends $dara.Model {
    * Report name
    * 
    * @example
-   * test
+   * 测试哦
    */
   worksName?: string;
   /**

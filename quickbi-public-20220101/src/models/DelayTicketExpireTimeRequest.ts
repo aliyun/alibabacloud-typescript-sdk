@@ -7,8 +7,9 @@ export class DelayTicketExpireTimeRequest extends $dara.Model {
    * @remarks
    * The time to postpone.
    * 
-   * *   Unit: minutes. Valid values: 0 to 240. Unit: minutes. Valid values: 4 hours.
-   * *   Expired bills cannot be extended.
+   * - Unit: minutes. Valid values: 0 to 240. Unit: minutes. Valid values: 4 hours.
+   * 
+   * - Expired bills cannot be extended.
    * 
    * This parameter is required.
    * 

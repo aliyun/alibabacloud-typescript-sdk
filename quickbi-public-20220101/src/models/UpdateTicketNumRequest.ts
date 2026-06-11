@@ -17,7 +17,7 @@ export class UpdateTicketNumRequest extends $dara.Model {
    * @remarks
    * The number of bills.
    * 
-   * *   Valid values: 1 to 99998. Recommended value: 1.
+   * - Valid values: 1 to 99998. Recommended value: 1.
    * 
    * This parameter is required.
    * 

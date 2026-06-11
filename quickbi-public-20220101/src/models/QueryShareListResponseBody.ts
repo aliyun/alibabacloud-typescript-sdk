@@ -53,7 +53,7 @@ export class QueryShareListResponseBodyResult extends $dara.Model {
    * The name of the sharing target.
    * 
    * @example
-   * test
+   * 小张
    */
   shareToName?: string;
   /**

@@ -14,7 +14,9 @@ export class DeleteTicketResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the deletion was successful. Possible values:
+   * 
    * - true: The request was successful
+   * 
    * - false: The request failed
    * 
    * @example
@@ -24,7 +26,9 @@ export class DeleteTicketResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Possible values:
+   * 
    * - true: The request was successful
+   * 
    * - false: The request failed
    * 
    * @example

@@ -5,21 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class SmartqQueryAbilityRequest extends $dara.Model {
   /**
    * @remarks
-   * Dataset ID.
+   * The ID of the dataset. To obtain the ID, navigate to \\*\\*Workbench\\*\\* > \\*\\*Dataset\\*\\* in the Quick BI console. Open the dataset and find the \\`cubeId\\` in the URL.
+   * 
+   * In multi-table scenarios, this parameter must be empty.
    * 
    * @example
    * 7c7223ae-****-3c744528014b
    */
   cubeId?: string;
   /**
+   * @remarks
+   * A list of dataset IDs. The model selects one or more tables from the list to generate an answer based on the question. This parameter is required for multi-table scenarios and is not used for single-table scenarios.
+   * 
    * @example
-   * 123124
+   * 7c7****-3c744528014b,a876asd***yhashd2
    */
   multipleCubeIds?: string;
   /**
    * @remarks
-   * User ID.
-   * >Notice: If this field is not filled, the data will be queried by default as the organization owner.
+   * The ID of the user.
+   * >Notice: If you do not specify this parameter, data is queried as the organization owner by default.
    * 
    * @example
    * 7c7223ae-****-3c744528014b
@@ -27,12 +32,12 @@ export class SmartqQueryAbilityRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Question text.
+   * The question in text format.
    * 
    * This parameter is required.
    * 
    * @example
-   * This year\\"s sales data
+   * test
    */
   userQuestion?: string;
   static names(): { [key: string]: string } {

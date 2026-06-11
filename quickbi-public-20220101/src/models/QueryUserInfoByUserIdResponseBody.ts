@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID.
    * 
    * @example
    * 135****5848
@@ -13,7 +13,7 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account that corresponds to the member.
+   * The Alibaba Cloud account name.
    * 
    * @example
    * 1386587****@163.com
@@ -21,10 +21,15 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Whether you are an administrator of the organization. Valid values:
+   * Indicates whether the organization administrator role is assigned to the user. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The role is assigned.
+   * 
+   * - false: The role is not assigned.
+   * 
+   * >Notice: 
+   * 
+   * This parameter is deprecated. Use the `RoleIdList` parameter instead.
    * 
    * @example
    * true
@@ -32,15 +37,24 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   adminUser?: boolean;
   /**
    * @remarks
-   * Whether you are a permission administrator. Valid values:
+   * Indicates whether the permission administrator role is assigned to the user. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The role is assigned.
+   * 
+   * - false: The role is not assigned.
+   * 
+   * >Notice: 
+   * 
+   * This parameter is deprecated. Use the `RoleIdList` parameter instead.
    * 
    * @example
    * true
    */
   authAdminUser?: boolean;
+  /**
+   * @remarks
+   * The list of `CopilotModules` available to the user.
+   */
   copilotModules?: string[];
   /**
    * @remarks
@@ -52,24 +66,28 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The nickname of the account.
+   * The nickname of the user.
    * 
    * @example
-   * Test user
+   * 测试用户
    */
   nickName?: string;
   /**
    * @remarks
-   * The phone number of the alert contact.
+   * The phone number of the user.
    * 
    * @example
    * 1386587****
    */
   phone?: string;
+  /**
+   * @remarks
+   * The list of organization role IDs that are assigned to the user.
+   */
   roleIdList?: number[];
   /**
    * @remarks
-   * The UserID in the Quick BI.
+   * The user ID in Quick BI.
    * 
    * @example
    * fe67f61a35a94b7da1a34ba174a7****
@@ -77,11 +95,13 @@ export class QueryUserInfoByUserIdResponseBodyResult extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The role type of the organization member. Valid values:
+   * The user type of the organization member. Valid values:
    * 
-   * *   1 : developer
-   * *   2 : visitors
-   * *   3 : Analyst
+   * - `1`: developer
+   * 
+   * - `2`: viewer
+   * 
+   * - `3`: analyst
    * 
    * @example
    * 1
@@ -145,15 +165,16 @@ export class QueryUserInfoByUserIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned organization user information.
+   * The information about the organization user.
    */
   result?: QueryUserInfoByUserIdResponseBodyResult;
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request is successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

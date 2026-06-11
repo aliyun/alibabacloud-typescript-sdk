@@ -5,20 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class SmartqQueryAbilityResponseBodyResultMetaType extends $dara.Model {
   /**
    * @remarks
-   * Column tuple name.
+   * The name of the column tuple.
    * 
    * @example
    * Polar***STPS
    */
   key?: string;
   /**
+   * @remarks
+   * The type of the metadata. Valid values:
+   * 
+   * - Dimension
+   * 
+   * - Measure
+   * 
+   * @example
+   * Dimension
+   * 
    * **if can be null:**
    * true
    */
   type?: string;
   /**
    * @remarks
-   * Column tuple type.
+   * The type of the column tuple.
    * 
    * @example
    * string
@@ -52,7 +62,7 @@ export class SmartqQueryAbilityResponseBodyResultMetaType extends $dara.Model {
 export class SmartqQueryAbilityResponseBodyResultValues extends $dara.Model {
   /**
    * @remarks
-   * Data values for each row.
+   * The data values in a row.
    * 
    * **if can be null:**
    * true
@@ -85,7 +95,7 @@ export class SmartqQueryAbilityResponseBodyResultValues extends $dara.Model {
 export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Suggested chart type.
+   * The recommended chart type.
    * 
    * @example
    * NEW_TABLE
@@ -93,19 +103,23 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   chartType?: string;
   /**
    * @remarks
-   * Summary information.
+   * The summary.
    * 
    * @example
-   * Schedule
+   * test
    * 
    * **if can be null:**
    * true
    */
   conclusionText?: string;
+  /**
+   * @remarks
+   * The list of data that is returned only in multi-step scenarios. Each element corresponds to a set of chart data.
+   */
   dataList?: string[];
   /**
    * @remarks
-   * Visualized logical SQL.
+   * The visual logical SQL statement.
    * 
    * @example
    * select * ****
@@ -113,12 +127,12 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
   logicSql?: string;
   /**
    * @remarks
-   * List of column tuple types.
+   * A list of column tuple types.
    */
   metaType?: SmartqQueryAbilityResponseBodyResultMetaType[];
   /**
    * @remarks
-   * Array of data value lists.
+   * An array of data value lists.
    */
   values?: SmartqQueryAbilityResponseBodyResultValues[];
   static names(): { [key: string]: string } {
@@ -164,7 +178,7 @@ export class SmartqQueryAbilityResponseBodyResult extends $dara.Model {
 export class SmartqQueryAbilityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * D787E1A3-A************2B05DF8D885
@@ -172,12 +186,12 @@ export class SmartqQueryAbilityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Return result.
+   * The returned result.
    */
   result?: SmartqQueryAbilityResponseBodyResult;
   /**
    * @remarks
-   * Whether the operation was successful.
+   * Indicates whether the request was successful.
    * 
    * This parameter is required.
    * 

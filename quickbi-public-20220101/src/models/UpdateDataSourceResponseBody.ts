@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * D787E1A***********5DF8D885
@@ -13,10 +13,11 @@ export class UpdateDataSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result of the API call. Possible values:
+   * The result of the operation. Valid values:
    * 
-   * - true: Request successful
-   * - false: Request failed
+   * - `true`: The operation was successful.
+   * 
+   * - `false`: The operation failed.
    * 
    * @example
    * true
@@ -24,10 +25,11 @@ export class UpdateDataSourceResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: Request successful
-   * - false: Request failed
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

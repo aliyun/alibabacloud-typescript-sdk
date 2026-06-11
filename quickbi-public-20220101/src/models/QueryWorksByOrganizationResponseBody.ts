@@ -16,7 +16,7 @@ export class QueryWorksByOrganizationResponseBodyResultDataDirectory extends $da
    * Name of the directory to which it belongs.
    * 
    * @example
-   * test
+   * 测试目录
    */
   name?: string;
   /**
@@ -32,7 +32,7 @@ export class QueryWorksByOrganizationResponseBodyResultDataDirectory extends $da
    * Hierarchical structure of the directory name, separated by『/』.
    * 
    * @example
-   * Attention
+   * 测试目录
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * Notes for the work.
    * 
    * @example
-   * Attention
+   * 备注
    */
   description?: string;
   /**
@@ -108,7 +108,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * The Alibaba Cloud account name of the work modifier.
    * 
    * @example
-   * test
+   * 张三
    */
   modifyName?: string;
   /**
@@ -116,7 +116,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * The UserID of the work\\"s owner in Quick BI.
    * 
    * @example
-   * test
+   * 作品所属工作空间名称。
    */
   ownerId?: string;
   /**
@@ -124,7 +124,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * The Alibaba Cloud account name of the work\\"s owner.
    * 
    * @example
-   * test
+   * 李四
    */
   ownerName?: string;
   /**
@@ -175,7 +175,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * The name of the work.
    * 
    * @example
-   * test
+   * 测试报表
    */
   workName?: string;
   /**
@@ -204,7 +204,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * The ID of the workspace to which the work belongs.
    * 
    * @example
-   * test
+   * 作品修改者的阿里云账户名。
    */
   workspaceId?: string;
   /**
@@ -212,7 +212,7 @@ export class QueryWorksByOrganizationResponseBodyResultData extends $dara.Model 
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * test
+   * 测试工作空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

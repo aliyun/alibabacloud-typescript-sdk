@@ -8,7 +8,7 @@ export class ModifyCopilotEmbedConfigResponseBody extends $dara.Model {
    * Request ID.
    * 
    * @example
-   * 4BAA469******A9289FEE
+   * 4BAA4694-CC27-555F-B15A-688AA9289FEE
    */
   requestId?: string;
   /**

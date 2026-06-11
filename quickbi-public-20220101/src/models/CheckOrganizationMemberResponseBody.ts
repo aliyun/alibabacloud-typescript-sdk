@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckOrganizationMemberResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D787E1A**********DF8D885
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the API call succeeded. Valid values:
+   * 
+   * - true: The call succeeded.
+   * 
+   * - false: The call failed.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

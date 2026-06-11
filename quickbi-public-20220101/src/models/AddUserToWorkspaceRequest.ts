@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserToWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The preset space role ID. Value range:
-   * - 25: Space Administrator
-   * - 26: Space Developer
-   * - 27: Space Analyst
-   * - 30: Space Viewer
+   * The ID of the role in the workspace. Predefined roles:
+   * 
+   * - 25: workspace administrator
+   * 
+   * - 26: workspace developer
+   * 
+   * - 27: workspace analyst
+   * 
+   * - 30: workspace viewer
+   * 
+   * > Custom role IDs are supported in version 6.0.3 and later.
    * 
    * This parameter is required.
    * 

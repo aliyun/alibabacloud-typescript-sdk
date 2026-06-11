@@ -8,7 +8,7 @@ export class ListWorkspaceRoleUsersResponseBodyResultData extends $dara.Model {
    * Nickname of the organization member.
    * 
    * @example
-   * Test user
+   * 测试用户
    */
   nickName?: string;
   /**
@@ -32,7 +32,7 @@ export class ListWorkspaceRoleUsersResponseBodyResultData extends $dara.Model {
    * Workspace name.
    * 
    * @example
-   * Test space
+   * 测试空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

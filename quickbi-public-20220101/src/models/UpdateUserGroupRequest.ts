@@ -11,7 +11,7 @@ export class UpdateUserGroupRequest extends $dara.Model {
    * *   Special format verification: Chinese and English digits_ \\ / | () ] [
    * 
    * @example
-   * Description
+   * 描述信息
    */
   userGroupDescription?: string;
   /**

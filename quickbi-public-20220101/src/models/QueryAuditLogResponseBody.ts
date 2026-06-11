@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAuditLogResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Log time.
+   * The time when the log was generated.
    * 
    * @example
    * 2024-04-16 13:17:39
@@ -13,7 +13,7 @@ export class QueryAuditLogResponseBodyResult extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Operator account.
+   * The account name of the operator.
    * 
    * @example
    * wukaibis
@@ -21,7 +21,7 @@ export class QueryAuditLogResponseBodyResult extends $dara.Model {
   operatorAccountName?: string;
   /**
    * @remarks
-   * Operator\\"s nickname.
+   * The nickname of the operator.
    * 
    * @example
    * buc_344078
@@ -29,7 +29,7 @@ export class QueryAuditLogResponseBodyResult extends $dara.Model {
   operatorName?: string;
   /**
    * @remarks
-   * Operation type.
+   * The operation type.
    * 
    * @example
    * CREATE
@@ -37,7 +37,7 @@ export class QueryAuditLogResponseBodyResult extends $dara.Model {
   operatorType?: string;
   /**
    * @remarks
-   * Target ID.
+   * The ID of the operation target.
    * 
    * @example
    * 1113***************8500
@@ -45,7 +45,7 @@ export class QueryAuditLogResponseBodyResult extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * Target name.
+   * The name of the operation target.
    * 
    * @example
    * test
@@ -53,7 +53,7 @@ export class QueryAuditLogResponseBodyResult extends $dara.Model {
   targetName?: string;
   /**
    * @remarks
-   * Target type.
+   * The type of the operation target.
    * 
    * @example
    * USER
@@ -61,7 +61,7 @@ export class QueryAuditLogResponseBodyResult extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * 87c6b145-090c-43e1-9426-8f93be23****
@@ -105,7 +105,7 @@ export class QueryAuditLogResponseBodyResult extends $dara.Model {
 export class QueryAuditLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 78C1AA2D-9201-599E-A0BA-6FC462E57A95
@@ -113,14 +113,16 @@ export class QueryAuditLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Array of logs.
+   * An array of log objects.
    */
   result?: QueryAuditLogResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values: 
-   * - true: The request succeeded 
-   * - false: The request failed
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

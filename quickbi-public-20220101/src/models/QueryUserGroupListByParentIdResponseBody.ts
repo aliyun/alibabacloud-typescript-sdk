@@ -53,7 +53,7 @@ export class QueryUserGroupListByParentIdResponseBodyResult extends $dara.Model 
    * The description of the sub-user group.
    * 
    * @example
-   * User Group for Testing
+   * 用来测试的用户组
    */
   userGroupDescription?: string;
   /**
@@ -69,7 +69,7 @@ export class QueryUserGroupListByParentIdResponseBodyResult extends $dara.Model 
    * The name of the sub-user group.
    * 
    * @example
-   * popapi test group
+   * popapi测试分组
    */
   userGroupName?: string;
   static names(): { [key: string]: string } {

@@ -32,7 +32,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
    * The name of the add-on.
    * 
    * @example
-   * test
+   * 线图
    */
   componentName?: string;
   /**
@@ -192,7 +192,7 @@ export class QueryComponentPerformanceResponseBodyResult extends $dara.Model {
    * The name of the group.
    * 
    * @example
-   * test
+   * 测试空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

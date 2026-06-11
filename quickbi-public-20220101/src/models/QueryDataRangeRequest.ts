@@ -8,7 +8,7 @@ export class QueryDataRangeRequest extends $dara.Model {
    * Name, for fuzzy search.
    * 
    * @example
-   * test
+   * 测试
    */
   keyword?: string;
   /**

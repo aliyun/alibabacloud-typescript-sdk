@@ -74,7 +74,7 @@ export class ListOrganizationRolesResponseBodyResult extends $dara.Model {
    * Role name.
    * 
    * @example
-   * Organization Admin
+   * 组织管理员
    */
   roleName?: string;
   static names(): { [key: string]: string } {

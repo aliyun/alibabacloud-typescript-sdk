@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDatasetSmartqStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 7c7223ae-****-3c744528014b
@@ -13,9 +13,11 @@ export class QueryDatasetSmartqStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Result of the API execution. Possible values:
-   * - true: Request succeeded
-   * - false: Request failed
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request succeeded.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -23,10 +25,11 @@ export class QueryDatasetSmartqStatusResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

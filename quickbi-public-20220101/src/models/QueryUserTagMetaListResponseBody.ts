@@ -8,7 +8,7 @@ export class QueryUserTagMetaListResponseBodyResult extends $dara.Model {
    * The description of the tag.
    * 
    * @example
-   * Used to distinguish some positions
+   * 用于区分部分职位
    */
   tagDescription?: string;
   /**
@@ -24,7 +24,7 @@ export class QueryUserTagMetaListResponseBodyResult extends $dara.Model {
    * The name of the tag.
    * 
    * @example
-   * Position
+   * 职位
    */
   tagName?: string;
   static names(): { [key: string]: string } {

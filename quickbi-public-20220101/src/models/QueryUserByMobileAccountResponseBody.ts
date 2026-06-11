@@ -3,15 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryUserByMobileAccountResponseBodyResult extends $dara.Model {
-  /**
-   * @example
-   * test
-   */
   boundUserId?: string;
-  /**
-   * @example
-   * test
-   */
   thirdAccountName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,16 +29,8 @@ export class QueryUserByMobileAccountResponseBodyResult extends $dara.Model {
 }
 
 export class QueryUserByMobileAccountResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 46e53***********270
-   */
   requestId?: string;
   result?: QueryUserByMobileAccountResponseBodyResult;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

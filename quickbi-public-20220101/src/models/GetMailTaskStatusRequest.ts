@@ -10,7 +10,7 @@ export class GetMailTaskStatusRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * d5a5****8b634d****5584f8dc159c62
+   * d5a59a898b634d75be5584f8dc159c62
    */
   mailId?: string;
   /**
@@ -21,7 +21,7 @@ export class GetMailTaskStatusRequest extends $dara.Model {
    * > - If the task ID is provided, the status of the specified task will be returned.
    * 
    * @example
-   * 7218****0392****212
+   * 7218865303929605212
    */
   taskId?: number;
   static names(): { [key: string]: string } {

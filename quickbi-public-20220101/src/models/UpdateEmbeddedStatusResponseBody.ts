@@ -8,7 +8,7 @@ export class UpdateEmbeddedStatusResponseBody extends $dara.Model {
    * The ID of the request.
    * 
    * @example
-   * D78*********DF8D885
+   * D787E1A3-A93C-424A-B626-C2B05DF8D885
    */
   requestId?: string;
   /**
@@ -23,8 +23,9 @@ export class UpdateEmbeddedStatusResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

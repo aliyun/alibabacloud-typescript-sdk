@@ -4,27 +4,43 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAccelerationOfWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The user ID in Quick BI. This is not your Alibaba Cloud account ID. Call the QueryUserInfoByAccount operation to obtain the user ID.
+   * 
    * @example
    * 1***************139
    */
   creatorId?: string;
   /**
+   * @remarks
+   * The name of the dataset.
+   * 
    * @example
    * test
    */
   cubeName?: string;
   /**
+   * @remarks
+   * The page number. If this parameter is left empty, the default value is 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of rows on each page for a paged query.
+   * 
+   * - Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

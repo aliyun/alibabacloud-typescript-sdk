@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDatasetListResponseBodyResultDataDataSource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the training dataset that you want to remove from the specified custom linguistic model.
+   * The data source ID.
    * 
    * @example
    * 261b252d-c3c3-498a-a0a7-5d1ec6cd****
@@ -13,15 +13,15 @@ export class QueryDatasetListResponseBodyResultDataDataSource extends $dara.Mode
   dsId?: string;
   /**
    * @remarks
-   * The time when the scaling group was modified.
+   * The data source name.
    * 
    * @example
-   * The name of the training dataset.
+   * test
    */
   dsName?: string;
   /**
    * @remarks
-   * The user ID of the dataset owner in the Quick BI.
+   * The data source type.
    * 
    * @example
    * mysql
@@ -55,7 +55,7 @@ export class QueryDatasetListResponseBodyResultDataDataSource extends $dara.Mode
 export class QueryDatasetListResponseBodyResultDataDirectory extends $dara.Model {
   /**
    * @remarks
-   * The ID of the directory path.
+   * The folder ID.
    * 
    * @example
    * schemaad8aad00-9c55-4984-a767-b4e0ec60****
@@ -63,15 +63,15 @@ export class QueryDatasetListResponseBodyResultDataDirectory extends $dara.Model
   id?: string;
   /**
    * @remarks
-   * The ID of the data source.
+   * The folder name.
    * 
    * @example
-   * Information about the directory where the dataset is located
+   * test
    */
   name?: string;
   /**
    * @remarks
-   * The type of the data source.
+   * The ID of the folder path.
    * 
    * @example
    * schemaad8aad00-9c55-4984-a767-b4e0ec60****
@@ -79,10 +79,10 @@ export class QueryDatasetListResponseBodyResultDataDirectory extends $dara.Model
   pathId?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * The name of the folder path.
    * 
    * @example
-   * Test a data source
+   * test
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -115,7 +115,7 @@ export class QueryDatasetListResponseBodyResultDataDirectory extends $dara.Model
 export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * The details of the dataset list.
+   * The time when the dataset was created.
    * 
    * @example
    * 2020-11-02 10:36:05
@@ -123,12 +123,12 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Test Space
+   * The information about the data source to which the dataset belongs.
    */
   dataSource?: QueryDatasetListResponseBodyResultDataDataSource;
   /**
    * @remarks
-   * The name of the workspace.
+   * The dataset ID.
    * 
    * @example
    * 5820f58c-c734-4d8a-baf1-7979af4f****
@@ -136,7 +136,7 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * Tom
+   * The dataset name.
    * 
    * @example
    * company_sales_record_copy12
@@ -144,29 +144,40 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The number of rows per page set when the interface is requested.
+   * The description of the dataset.
    * 
    * @example
-   * The total number of rows in the table.
+   * test
    */
   description?: string;
   /**
    * @remarks
-   * The information about the data source to which the dataset belongs.
+   * The information about the folder in which the dataset is located.
    */
   directory?: QueryDatasetListResponseBodyResultDataDirectory;
   /**
    * @remarks
-   * The nickname of the dataset owner.
+   * The time when the dataset was last modified.
    * 
    * @example
    * 2020-11-02 10:36:05
    */
   modifyTime?: string;
+  /**
+   * @remarks
+   * Indicates whether extraction-based acceleration is enabled. Valid values:
+   * 
+   * - true: Enabled
+   * 
+   * - false: Disabled
+   * 
+   * @example
+   * true
+   */
   openOfflineAcceleration?: boolean;
   /**
    * @remarks
-   * The creation time.
+   * The user ID of the dataset owner in Quick BI.
    * 
    * @example
    * 136516262323****
@@ -174,18 +185,19 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * Whether to enable row-level permissions. Valid values:
-   * 
-   * *   true: The VIP Netty channel is enabled.
-   * *   false: The incremental log backup feature is disabled.
+   * The nickname of the dataset owner.
    * 
    * @example
-   * The ID of the workspace.
+   * test
    */
   ownerName?: string;
   /**
    * @remarks
-   * The total number of pages returned.
+   * Indicates whether row-level permissions are enabled. Valid values:
+   * 
+   * - true: Enabled
+   * 
+   * - false: Disabled
    * 
    * @example
    * true
@@ -193,7 +205,7 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   rowLevel?: boolean;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The workspace ID.
    * 
    * @example
    * 95296e95-ca89-4c7d-8af9-dedf0ad06adf
@@ -201,10 +213,10 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The description of the dataset.
+   * The workspace name.
    * 
    * @example
-   * Test dataset
+   * test
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -261,15 +273,12 @@ export class QueryDatasetListResponseBodyResultData extends $dara.Model {
 export class QueryDatasetListResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Returns the pagination results of the dataset list. The detailed information of the dataset list is stored in the response parameter Data.
+   * The details of the dataset list.
    */
   data?: QueryDatasetListResponseBodyResultData[];
   /**
    * @remarks
-   * The number of rows per page in a paged query.
-   * 
-   * *   Default value: 10.
-   * *   Maximum value: 1,000.
+   * The page number.
    * 
    * @example
    * 1
@@ -277,10 +286,7 @@ export class QueryDatasetListResponseBodyResult extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * The number of entries per page specified in the request.
    * 
    * @example
    * 10
@@ -288,7 +294,7 @@ export class QueryDatasetListResponseBodyResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -296,10 +302,7 @@ export class QueryDatasetListResponseBodyResult extends $dara.Model {
   totalNum?: number;
   /**
    * @remarks
-   * Current page number for dataset list:
-   * 
-   * *   Pages start from page 1.
-   * *   Default value: 1.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -340,7 +343,7 @@ export class QueryDatasetListResponseBodyResult extends $dara.Model {
 export class QueryDatasetListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The keyword used to search for the dataset name.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -348,15 +351,16 @@ export class QueryDatasetListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Test dataset
+   * The paged results of the dataset list. The details of the datasets are returned in the Data parameter.
    */
   result?: QueryDatasetListResponseBodyResult;
   /**
    * @remarks
-   * Whether to recursively wrap the dataset in the subdirectory. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true: returns datasets in all recursive subdirectories in the directoryId directory.
-   * *   false: Only datasets in the directory specified by directoryId are returned, excluding subdirectories.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

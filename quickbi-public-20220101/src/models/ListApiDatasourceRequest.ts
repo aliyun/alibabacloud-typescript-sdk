@@ -8,7 +8,7 @@ export class ListApiDatasourceRequest extends $dara.Model {
    * The keyword of the API data source name.
    * 
    * @example
-   * test
+   * 测试
    */
   keyWord?: string;
   /**

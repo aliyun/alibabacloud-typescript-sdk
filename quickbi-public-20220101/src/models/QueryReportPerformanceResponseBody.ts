@@ -192,7 +192,7 @@ export class QueryReportPerformanceResponseBodyResult extends $dara.Model {
    * The name of the group.
    * 
    * @example
-   * test
+   * 自定义模板
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

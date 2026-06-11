@@ -4,16 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCubeBySqlResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 617277******************ABA47E31
    */
   requestId?: string;
   /**
+   * @remarks
+   * The result of the request. Valid values:
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */
   result?: boolean;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

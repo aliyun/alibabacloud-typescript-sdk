@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataLevelPermissionWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the training dataset that you want to remove from the specified custom linguistic model.
+   * The ID of the dataset.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,11 @@ export class AddDataLevelPermissionWhiteListRequest extends $dara.Model {
   cubeId?: string;
   /**
    * @remarks
-   * Operation Type: You can set this parameter to one of the following values.
+   * The operation to perform. Valid values:
    * 
-   * *   ADD: Add a whitelist
-   * *   DELETE: deletes a whitelist.
+   * - ADD: adds users or user groups to the whitelist.
+   * 
+   * - DELETE: removes users or user groups from the whitelist.
    * 
    * @example
    * ADD
@@ -26,26 +27,35 @@ export class AddDataLevelPermissionWhiteListRequest extends $dara.Model {
   operateType?: string;
   /**
    * @remarks
-   * The type of row-level permissions.
+   * The type of permission. Valid values:
    * 
-   * *   ROW_LEVEL: row-level permissions,
-   * *   COLUMN_LEVEL: column-level permissions
+   * - ROW_LEVEL: row-level permission
+   * 
+   * - COLUMN_LEVEL: column-level permission
    * 
    * @example
    * ROW_LEVEL
    */
   ruleType?: string;
   /**
+   * @remarks
+   * The IDs of the users or user groups to add to the whitelist.
+   * 
+   * - If you set TargetType to 1 (user), specify the user IDs.
+   * 
+   * - When `TargetType=2` (user group), the value is the user group ID.
+   * 
    * @example
    * 43342***435,1553a****41231
    */
   targetIds?: string;
   /**
    * @remarks
-   * Modify the type of the whitelist:
+   * The type of object to add to the whitelist. Valid values:
    * 
-   * *   1: user
-   * *   2: user group
+   * - 1: user
+   * 
+   * - 2: user group
    * 
    * @example
    * 1

@@ -27,7 +27,7 @@ export class QueryUserGroupMemberResponseBodyResult extends $dara.Model {
    * Name or nickname of the user group or its member.
    * 
    * @example
-   * test
+   * 小刘的测试用户组
    */
   name?: string;
   /**
@@ -43,7 +43,7 @@ export class QueryUserGroupMemberResponseBodyResult extends $dara.Model {
    * Name of the parent user group.
    * 
    * @example
-   * test
+   * 财务组
    */
   parentUserGroupName?: string;
   static names(): { [key: string]: string } {

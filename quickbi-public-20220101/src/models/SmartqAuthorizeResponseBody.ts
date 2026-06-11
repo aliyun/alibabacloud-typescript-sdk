@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SmartqAuthorizeResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Reason for failure.
+   * The reason for the failure.
    * 
    * @example
    * INVALID_FILE_FORMAT
@@ -13,7 +13,7 @@ export class SmartqAuthorizeResponseBodyResult extends $dara.Model {
   detailMessage?: string;
   /**
    * @remarks
-   * Q&A resource ID.
+   * The Q\\&A resource ID.
    * 
    * @example
    * 617277C****************ABA47E31
@@ -21,7 +21,7 @@ export class SmartqAuthorizeResponseBodyResult extends $dara.Model {
   llmCube?: string;
   /**
    * @remarks
-   * Analysis theme ID.
+   * The analysis subject ID.
    * 
    * @example
    * 617277C****************ABA47E31
@@ -29,7 +29,7 @@ export class SmartqAuthorizeResponseBodyResult extends $dara.Model {
   llmCubeTheme?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 617277C****************ABA47E31
@@ -65,7 +65,7 @@ export class SmartqAuthorizeResponseBodyResult extends $dara.Model {
 export class SmartqAuthorizeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 617277C****************ABA47E31
@@ -73,15 +73,16 @@ export class SmartqAuthorizeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Array of failed user information.
+   * An array of user information for failed operations.
    */
   result?: SmartqAuthorizeResponseBodyResult[];
   /**
    * @remarks
-   * Indicates whether the request was successful. The value range is as follows:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: Request succeeded
-   * - false: Request failed
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

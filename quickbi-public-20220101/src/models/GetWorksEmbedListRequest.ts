@@ -8,7 +8,7 @@ export class GetWorksEmbedListRequest extends $dara.Model {
    * Report name (fuzzy match)
    * 
    * @example
-   * test
+   * 测试数据集
    */
   keyword?: string;
   /**

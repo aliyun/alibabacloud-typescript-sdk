@@ -2,26 +2,24 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListWhitePortalMenuRequest extends $dara.Model {
+export class ClearDynamicTagCacheRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the BI portal.
-   * 
    * This parameter is required.
    * 
    * @example
-   * asdagad***213425
+   * cfg************405791744
    */
-  dataportalId?: string;
+  configId?: string;
   static names(): { [key: string]: string } {
     return {
-      dataportalId: 'DataportalId',
+      configId: 'ConfigId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      dataportalId: 'string',
+      configId: 'string',
     };
   }
 

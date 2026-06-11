@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.Model {
   /**
    * @remarks
-   * Whether the work can be made public. Value range:
+   * Whether works in the workspace can be published. Valid values:
    * 
-   * - true: Public
-   * - false: Not public
+   * - true: Publishing is allowed.
+   * 
+   * - false: Publishing is not allowed.
    * 
    * @example
    * true
@@ -16,10 +17,11 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   allowPublishOperation?: boolean;
   /**
    * @remarks
-   * Indicates whether the work can be authorized for sharing. Possible values:
+   * Whether works in the workspace can be shared. Valid values:
    * 
-   * - true: Authorized
-   * - false: Not authorized
+   * - true: Sharing is allowed.
+   * 
+   * - false: Sharing is not allowed.
    * 
    * @example
    * true
@@ -27,7 +29,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   allowShareOperation?: boolean;
   /**
    * @remarks
-   * Creation time of the workspace.
+   * The time when the workspace was created.
    * 
    * @example
    * 2020-11-10 17:51:07
@@ -35,7 +37,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * Quick BI user ID of the creator.
+   * The creator\\"s Quick BI user ID.
    * 
    * @example
    * de4bc5f9429141cc8091cdd1c15b****
@@ -43,7 +45,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   createUser?: string;
   /**
    * @remarks
-   * Aliyun account name of the creator.
+   * The creator\\"s Alibaba Cloud account name.
    * 
    * @example
    * pop****@aliyun.com
@@ -51,7 +53,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   createUserAccountName?: string;
   /**
    * @remarks
-   * Last modified time of the workspace.
+   * The time when the workspace was last modified.
    * 
    * @example
    * 2020-11-10 17:51:07
@@ -59,7 +61,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   modifiedTime?: string;
   /**
    * @remarks
-   * ID of the Quick BI user who modified the workspace.
+   * The modifier\\"s Quick BI user ID.
    * 
    * @example
    * de4bc5f9429141cc8091cdd1c15b****
@@ -67,7 +69,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   modifyUser?: string;
   /**
    * @remarks
-   * Aliyun account name of the modifier.
+   * The modifier\\"s Alibaba Cloud account name.
    * 
    * @example
    * pop****@aliyun.com
@@ -75,7 +77,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   modifyUserAccountName?: string;
   /**
    * @remarks
-   * ID of the organization to which the workspace belongs.
+   * The ID of the workspace\\"s organization.
    * 
    * @example
    * 2fe4fbd8-588f-489a-b3e1-e92c7af0****
@@ -83,7 +85,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   organizationId?: string;
   /**
    * @remarks
-   * Quick BI user ID of the workspace owner.
+   * The workspace owner\\"s Quick BI user ID.
    * 
    * @example
    * de4bc5f9429141cc8091cdd1c15b****
@@ -91,28 +93,31 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   owner?: string;
   /**
    * @remarks
-   * Aliyun account name of the workspace owner.
+   * The workspace owner\\"s Alibaba Cloud account name.
    * 
    * @example
    * pop****@aliyun.com
    */
   ownerAccountName?: string;
   /**
+   * @remarks
+   * The workspace owner\\"s Quick BI account name.
+   * 
    * @example
    * test
    */
   realOwnerAccountName?: string;
   /**
    * @remarks
-   * Workspace description.
+   * The workspace description.
    * 
    * @example
-   * test
+   * 该空间是测试空间
    */
   workspaceDescription?: string;
   /**
    * @remarks
-   * Workspace ID.
+   * The workspace ID.
    * 
    * @example
    * 7350a155-0e94-4c6c-8620-57bbec38****
@@ -120,10 +125,10 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
   workspaceId?: string;
   /**
    * @remarks
-   * Name of the workspace.
+   * The workspace name.
    * 
    * @example
-   * test
+   * 测试空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -178,12 +183,12 @@ export class QueryOrganizationWorkspaceListResponseBodyResultData extends $dara.
 export class QueryOrganizationWorkspaceListResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * List of workspaces.
+   * An array of workspace objects.
    */
   data?: QueryOrganizationWorkspaceListResponseBodyResultData[];
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -191,7 +196,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResult extends $dara.Mode
   pageNum?: number;
   /**
    * @remarks
-   * Number of rows per page as set in the request.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -199,7 +204,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResult extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * Total number of rows.
+   * The total number of workspaces.
    * 
    * @example
    * 1
@@ -207,7 +212,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResult extends $dara.Mode
   totalNum?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 1
@@ -248,7 +253,7 @@ export class QueryOrganizationWorkspaceListResponseBodyResult extends $dara.Mode
 export class QueryOrganizationWorkspaceListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -256,15 +261,16 @@ export class QueryOrganizationWorkspaceListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns the paginated result of the workspace list, with detailed information about the workspaces stored in the Data parameter.
+   * The paginated query results. The Data parameter contains the details of each workspace.
    */
   result?: QueryOrganizationWorkspaceListResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Whether the request succeeded. Valid values:
    * 
-   * - true: Request succeeded
-   * - false: Request failed
+   * - true: The request succeeded.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

@@ -4,12 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyDashboardNl2sqlStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 46e537a5****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of dashboard IDs for which the operation failed.
+   */
   result?: string[];
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

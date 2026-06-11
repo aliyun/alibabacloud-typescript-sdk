@@ -8,7 +8,7 @@ export class AddUserTagMetaRequest extends $dara.Model {
    * Tag description. Format check: maximum length of 255 characters.
    * 
    * @example
-   * test
+   * 部门内的职位
    */
   tagDescription?: string;
   /**
@@ -20,7 +20,7 @@ export class AddUserTagMetaRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * test
+   * 职位
    */
   tagName?: string;
   static names(): { [key: string]: string } {

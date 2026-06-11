@@ -15,8 +15,9 @@ export class QueryEmbeddedStatusResponseBody extends $dara.Model {
    * @remarks
    * Whether the work is enabled for embedding. Valid values:
    * 
-   * *   true: embedded
-   * *   false: not embedded
+   * - true: embedded
+   * 
+   * - false: not embedded
    * 
    * @example
    * true
@@ -26,8 +27,9 @@ export class QueryEmbeddedStatusResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

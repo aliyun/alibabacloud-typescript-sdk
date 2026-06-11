@@ -37,7 +37,7 @@ export class ListPortalMenusResponseBody extends $dara.Model {
    * *   children: submenu
    * 
    * @example
-   * [{"children":[{"children":[{"children":[{"menuId":"54kqgoa\\*\\*\\*\\*","menuName":"Report menu","menuType":0,"showOnlyWithAccess":true,"dependentPermisson":false,"uri":"e5da4a3f-d7f9-4262-a39e-a840043c\\*\\*\\*\\*"},{\\*\\*\\*\\* "menu1nId":"pName" 135 "Directory menu","menuType":4,"showOnlyWithAccess":false,"dependentPermisson":true}],"menuId":"23a7d5d8-e55a-4737-b6a1-3c585505\\*\\*\\*\\*","menuName":"pop level -3 menu","menuType":4,"showOnlyWithAccess":true,"dependentPermisson":true}],"menuId":"80764 f3c-affd-45a1-aaa1-bb039d8a\\*\\*\\*\\*","menuName":"pop menu","menuType":4,"showOnlyWithAccess":false,"dependentPermisson":true}],"menuId":"277 f968a-22 ff-4ce6-83f0-a82950f4\\*\\*\\*\\*","menuName":"pop menu","menuType":4,"showOnlyWithAccess":false,"dependentPermisson":true}]
+   * [{"children":[{"children":[{"children":[{"menuId":"54kqgoa****","menuName":"报表菜单","menuType":0,"showOnlyWithAccess":true,"dependentPermisson":false,"uri":"e5da4a3f-d7f9-4262-a39e-a840043c****"},{"menuId":"pg1n135****","menuName":"目录菜单","menuType":4,"showOnlyWithAccess":false,"dependentPermisson":true}],"menuId":"23a7d5d8-e55a-4737-b6a1-3c585505****","menuName":"pop三级菜单","menuType":4,"showOnlyWithAccess":true,"dependentPermisson":true}],"menuId":"80764f3c-affd-45a1-aaa1-bb039d8a****","menuName":"pop二级菜单","menuType":4,"showOnlyWithAccess":false,"dependentPermisson":true}],"menuId":"277f968a-22ff-4ce6-83f0-a82950f4****","menuName":"pop一级菜单","menuType":4,"showOnlyWithAccess":false,"dependentPermisson":true}]
    */
   result?: string;
   /**

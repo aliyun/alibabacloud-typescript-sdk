@@ -268,7 +268,7 @@ export class QueryDatasetInfoResponseBodyResultDirectory extends $dara.Model {
    * Test directory
    * 
    * @example
-   * The name of the directory.
+   * 测试目录
    */
   name?: string;
   /**
@@ -284,7 +284,7 @@ export class QueryDatasetInfoResponseBodyResultDirectory extends $dara.Model {
    * The path of the directory ID, for example, aa/bb/cc/dd.
    * 
    * @example
-   * The path name of the directory ID, for example, one-level directory /two-level directory.
+   * 测试目录
    */
   pathName?: string;
   static names(): { [key: string]: string } {
@@ -551,7 +551,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
    * The unique ID of the data source.
    * 
    * @example
-   * The name of the dataset owner.
+   * 大娃
    */
   ownerName?: string;
   /**
@@ -578,7 +578,7 @@ export class QueryDatasetInfoResponseBodyResult extends $dara.Model {
    * Big Baby
    * 
    * @example
-   * The name of the workspace in which the dataset resides.
+   * 测试空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

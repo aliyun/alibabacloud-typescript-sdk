@@ -15,8 +15,9 @@ export class DelayTicketExpireTimeResponseBody extends $dara.Model {
    * @remarks
    * Whether the extension is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -26,8 +27,9 @@ export class DelayTicketExpireTimeResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request is successful. Valid values:
    * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * - true: The request was successful.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true

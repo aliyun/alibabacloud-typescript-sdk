@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataLevelRuleConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteDataLevelRuleConfigRequest extends $dara.Model {
   cubeId?: string;
   /**
    * @remarks
+   * The ID of the row-level permission rule.
+   * 
    * This parameter is required.
    * 
    * @example

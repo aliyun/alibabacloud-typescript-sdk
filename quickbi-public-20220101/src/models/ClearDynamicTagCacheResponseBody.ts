@@ -2,35 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class AddDataLevelPermissionRuleUsersResponseBody extends $dara.Model {
+export class ClearDynamicTagCacheResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * D8749D65-E80A-433C-AF1B-CE9C180FF3B4
+   * 78C17888****C462E57A95
    */
   requestId?: string;
   /**
-   * @remarks
-   * The result of the API operation. Valid values:
-   * 
-   * - true: The request is successful.
-   * 
-   * - false: The request fails.
-   * 
    * @example
    * true
    */
   result?: boolean;
   /**
-   * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * 
-   * - true: The request is successful.
-   * 
-   * - false: The request fails.
-   * 
    * @example
    * true
    */

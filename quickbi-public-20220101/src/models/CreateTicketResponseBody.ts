@@ -21,8 +21,10 @@ export class CreateTicketResponseBody extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Value range: 
-   * - true: Request succeeded 
+   * Indicates whether the request was successful. Value range:
+   * 
+   * - true: Request succeeded
+   * 
    * - false: Request failed
    * 
    * @example

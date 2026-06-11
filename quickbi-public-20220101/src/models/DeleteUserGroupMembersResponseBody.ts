@@ -8,7 +8,7 @@ export class DeleteUserGroupMembersResponseBody extends $dara.Model {
    * Request ID.
    * 
    * @example
-   * ABBAD906-****-5D18-B23D-****53AB0AA2
+   * ABBAD906-3925-5D18-B23D-714053AB0AA2
    */
   requestId?: string;
   /**

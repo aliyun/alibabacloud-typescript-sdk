@@ -8,7 +8,7 @@ export class ListRecentViewReportsRequest extends $dara.Model {
    * Keyword of the name of the work.
    * 
    * @example
-   * Financial Statements
+   * 财务报表
    */
   keyword?: string;
   /**

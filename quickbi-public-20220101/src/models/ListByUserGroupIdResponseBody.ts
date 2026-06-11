@@ -56,7 +56,7 @@ export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $dara.Mo
    * The description of the user group.
    * 
    * @example
-   * Description
+   * 描述信息
    */
   usergroupDesc?: string;
   /**
@@ -72,7 +72,7 @@ export class ListByUserGroupIdResponseBodyResultUserGroupModels extends $dara.Mo
    * The name of the user group.
    * 
    * @example
-   * Test user group
+   * 测试用户组
    */
   usergroupName?: string;
   static names(): { [key: string]: string } {

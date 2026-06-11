@@ -64,7 +64,7 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFieldsField 
    * Display name in the cube model (can be in Chinese or English).
    * 
    * @example
-   * date(year)
+   * 日期(year)
    */
   caption?: string;
   /**
@@ -182,7 +182,7 @@ export class QueryDataServiceListResponseBodyResultDataContentReturnFields exten
    * Remark for the returned field.
    * 
    * @example
-   * Theme Configuration already exists
+   * 主题配置已存在。
    */
   desc?: string;
   /**
@@ -248,7 +248,7 @@ export class QueryDataServiceListResponseBodyResultDataContent extends $dara.Mod
    * Dataset name.
    * 
    * @example
-   * test data source
+   * 测试数据集
    */
   cubeName?: string;
   /**
@@ -323,7 +323,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
    * Creator\\"s name.
    * 
    * @example
-   * zhangsan
+   * 张仔龙
    */
   creatorName?: string;
   /**
@@ -339,7 +339,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
    * Dataset name.
    * 
    * @example
-   * test data source
+   * 测试数据集
    */
   cubeName?: string;
   /**
@@ -347,7 +347,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
    * Description
    * 
    * @example
-   * test
+   * 测试用
    */
   desc?: string;
   /**
@@ -379,7 +379,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
    * Modifier\\"s name
    * 
    * @example
-   * zhangsan
+   * 张仔龙
    */
   modifierName?: string;
   /**
@@ -387,7 +387,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
    * Data service name.
    * 
    * @example
-   * test report
+   * 测试报表
    */
   name?: string;
   /**
@@ -403,7 +403,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
    * Owner\\"s name
    * 
    * @example
-   * lisi
+   * 李四
    */
   ownerName?: string;
   /**
@@ -427,7 +427,7 @@ export class QueryDataServiceListResponseBodyResultData extends $dara.Model {
    * Workspace name.
    * 
    * @example
-   * test workspace
+   * 测试工作空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

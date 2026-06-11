@@ -168,7 +168,7 @@ export class QueryCubePerformanceResponseBodyResult extends $dara.Model {
    * The name of the group.
    * 
    * @example
-   * taascontainerprod
+   * 测试工作空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {

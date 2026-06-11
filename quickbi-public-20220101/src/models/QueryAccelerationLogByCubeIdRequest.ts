@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAccelerationLogByCubeIdRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the dataset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class QueryAccelerationLogByCubeIdRequest extends $dara.Model {
   cubeId?: string;
   /**
    * @remarks
+   * The end time. The format is yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,17 +24,27 @@ export class QueryAccelerationLogByCubeIdRequest extends $dara.Model {
    */
   endDate?: string;
   /**
+   * @remarks
+   * The page number. The default value is **1**.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * - Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The start time. The format is yyyy-MM-dd HH:mm:ss.
+   * 
    * This parameter is required.
    * 
    * @example

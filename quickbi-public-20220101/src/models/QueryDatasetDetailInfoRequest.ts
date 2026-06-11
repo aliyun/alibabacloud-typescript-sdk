@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDatasetDetailInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the training dataset that you want to remove from the specified custom linguistic model.
+   * The dataset ID.
    * 
    * This parameter is required.
    * 

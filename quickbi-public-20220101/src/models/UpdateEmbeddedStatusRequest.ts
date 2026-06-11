@@ -7,8 +7,9 @@ export class UpdateEmbeddedStatusRequest extends $dara.Model {
    * @remarks
    * Whether to enable the embedding feature for the work. Valid values:
    * 
-   * *   true: enables embedding.
-   * *   false: disables embedding.
+   * - true: enables embedding.
+   * 
+   * - false: disables embedding.
    * 
    * This parameter is required.
    * 
@@ -20,7 +21,7 @@ export class UpdateEmbeddedStatusRequest extends $dara.Model {
    * @remarks
    * The ID of the work.
    * 
-   * *   Batch modification is supported. Separate multiple values with commas (,).
+   * - Batch modification is supported. Separate multiple values with commas (,).
    * 
    * This parameter is required.
    * 

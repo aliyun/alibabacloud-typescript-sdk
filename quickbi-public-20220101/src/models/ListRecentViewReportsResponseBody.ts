@@ -56,7 +56,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
    * The name of the work.
    * 
    * @example
-   * Test report
+   * 测试报表
    */
   name?: string;
   /**
@@ -64,7 +64,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
    * The Alibaba Cloud account name of the work owner.
    * 
    * @example
-   * test
+   * 李四
    */
   ownerName?: string;
   /**
@@ -129,7 +129,7 @@ export class ListRecentViewReportsResponseBodyResultData extends $dara.Model {
    * The name of the workspace to which the work belongs.
    * 
    * @example
-   * Test Workspace
+   * 测试工作空间
    */
   workspaceName?: string;
   static names(): { [key: string]: string } {
@@ -187,7 +187,7 @@ export class ListRecentViewReportsResponseBodyResult extends $dara.Model {
    * Attention
    * 
    * @example
-   * test
+   * 当前API返回的分页参数如TotalNum等即将下线，如有使用请及时修改
    */
   attention?: string;
   /**

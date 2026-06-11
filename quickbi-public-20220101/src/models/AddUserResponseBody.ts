@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Aliyun account.
+   * The Alibaba Cloud account.
    * 
    * @example
    * xxxxxx@163.com
@@ -15,12 +15,15 @@ export class AddUserResponseBodyResult extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Whether the organization administrator role is assigned. Value range: 
+   * Indicates whether the organization administrator role is assigned. Valid values:
    * 
-   * - true: Yes
-   * - false: No
+   * - true
    * 
-   * <notice>This parameter is deprecated and not recommended for use. It is invalid when RoleIdList is provided.</notice>
+   * - false
+   * 
+   * >Notice: 
+   * 
+   * This parameter is deprecated. It does not take effect when `RoleIdList` is specified.
    * 
    * @example
    * true
@@ -28,34 +31,41 @@ export class AddUserResponseBodyResult extends $dara.Model {
   adminUser?: boolean;
   /**
    * @remarks
-   * Whether the permission administrator role is assigned. Value range: 
+   * Indicates whether the permission administrator role is assigned. Valid values:
    * 
-   * - true: Yes
-   * - false: No
+   * - true
    * 
-   * <notice>This parameter is deprecated and not recommended for use. It is invalid when RoleIdList is provided.</notice>
+   * - false
+   * 
+   * >Notice: 
+   * 
+   * This parameter is deprecated. It does not take effect when `RoleIdList` is specified.
    * 
    * @example
    * true
    */
   authAdminUser?: boolean;
+  /**
+   * @remarks
+   * The Copilot modules for which the user has a quota.
+   */
   copilotModules?: string[];
   /**
    * @remarks
-   * Aliyun account nickname.
+   * The nickname of the Alibaba Cloud account.
    * 
    * @example
-   * ddd
+   * 张三
    */
   nickName?: string;
   /**
    * @remarks
-   * List of organization role IDs bound to the user.
+   * A list of organization role IDs assigned to the user.
    */
   roleIdList?: number[];
   /**
    * @remarks
-   * UserID in Quick BI.
+   * The user ID in Quick BI.
    * 
    * @example
    * b5d8fd9348cc4327****afb604
@@ -63,10 +73,13 @@ export class AddUserResponseBodyResult extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * User type of the organization member. Value range: 
-   * - 1: Developer 
-   * - 2: Visitor 
-   * - 3: Analyst
+   * The user type. Valid values:
+   * 
+   * - 1: developer
+   * 
+   * - 2: viewer
+   * 
+   * - 3: analyst
    * 
    * @example
    * 1
@@ -116,7 +129,7 @@ export class AddUserResponseBodyResult extends $dara.Model {
 export class AddUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * D787E1A3-A93C-424A-B626-C2B05DF8D885
@@ -124,15 +137,16 @@ export class AddUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns detailed information about the newly added Aliyun user.
+   * The details of the newly added Alibaba Cloud user.
    */
   result?: AddUserResponseBodyResult;
   /**
    * @remarks
-   * Indicates whether the request was successful. Possible values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * - true
+   * 
+   * - false
    * 
    * @example
    * true

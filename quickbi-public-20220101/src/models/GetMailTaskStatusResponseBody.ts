@@ -16,7 +16,7 @@ export class GetMailTaskStatusResponseBodyResult extends $dara.Model {
    * Mail ID
    * 
    * @example
-   * c38f73f4c5*****c808c41b3f4d23b7852
+   * c38f73f4c5xxxxxc808c41b3f4d23b7852
    */
   mailId?: string;
   /**
@@ -72,7 +72,7 @@ export class GetMailTaskStatusResponseBody extends $dara.Model {
    * Request ID.
    * 
    * @example
-   * 38C0FEC8-****-415C-A9F1-****422BDB65
+   * 38C0FEC8-1510-415C-A9F1-9AE9422BDB65
    */
   requestId?: string;
   /**

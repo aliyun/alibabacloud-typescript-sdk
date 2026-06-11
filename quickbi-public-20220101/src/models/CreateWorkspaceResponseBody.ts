@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 685072****************4e79e718f
    */
   requestId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 12423twfasva********
    */
   result?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - true: The request is successful.
+   * 
+   * - false: The request failed.
+   * 
    * @example
    * true
    */

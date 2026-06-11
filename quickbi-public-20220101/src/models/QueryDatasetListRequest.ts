@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class QueryDatasetListRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the folder.
+   * 
+   * - If you specify this parameter, all datasets in the folder are returned.
    * 
    * @example
    * schemaad8aad00-9c55-4984-a767-b4e0ec60****
@@ -13,15 +15,19 @@ export class QueryDatasetListRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * Information about the directory where the dataset is located
+   * The keyword used to search for datasets by name.
    * 
    * @example
-   * Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
+   * test
    */
   keyword?: string;
   /**
    * @remarks
-   * The ID of the workspace.
+   * The page number of the dataset list.
+   * 
+   * - Start value: 1
+   * 
+   * - Default value: 1
    * 
    * @example
    * 1
@@ -29,9 +35,11 @@ export class QueryDatasetListRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Specifies the directory ID.
+   * The number of entries to return on each page.
    * 
-   * *   If this field is not empty, all datasets in the directory are obtained.
+   * - Default value: 10
+   * 
+   * - Maximum value: 1000
    * 
    * @example
    * 10
@@ -39,7 +47,11 @@ export class QueryDatasetListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of pages returned.
+   * Specifies whether to recursively include datasets in subdirectories. Valid values:
+   * 
+   * - true: Returns all datasets in the folder specified by DirectoryId and its subdirectories.
+   * 
+   * - false: Returns only the datasets in the folder specified by DirectoryId.
    * 
    * @example
    * true
@@ -47,7 +59,7 @@ export class QueryDatasetListRequest extends $dara.Model {
   withChildren?: boolean;
   /**
    * @remarks
-   * The name of the data source.
+   * The workspace ID.
    * 
    * This parameter is required.
    * 

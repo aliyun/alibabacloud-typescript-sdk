@@ -32,7 +32,7 @@ export class SetDataLevelPermissionRuleConfigResponseBody extends $dara.Model {
    *     },
    *     "ruleId": "3971fa8e-f7e0-****-b6e3-5b3167dd7247",
    *     "ruleLevelType": "COLUMN_LEVEL",
-   *     "ruleName": "test",
+   *     "ruleName": "name",
    *     "ruleTargetScope": "ALL"
    * }
    */
@@ -42,6 +42,7 @@ export class SetDataLevelPermissionRuleConfigResponseBody extends $dara.Model {
    * Indicates whether the request was successful. The value range is as follows:
    * 
    * - true: The request succeeded
+   * 
    * - false: The request failed
    * 
    * @example

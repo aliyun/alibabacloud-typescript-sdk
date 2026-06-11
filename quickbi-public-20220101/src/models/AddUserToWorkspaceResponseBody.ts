@@ -13,10 +13,11 @@ export class AddUserToWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns the result of the interface execution. Value range:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: Execution successful
-   * - false: Execution failed
+   * - true: The operation succeeded.
+   * 
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -24,10 +25,11 @@ export class AddUserToWorkspaceResponseBody extends $dara.Model {
   result?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Value range:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - true: Request successful
-   * - false: Request failed
+   * - true: The request succeeded.
+   * 
+   * - false: The request failed.
    * 
    * @example
    * true
