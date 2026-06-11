@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterNodePoolsRequest extends $dara.Model {
   /**
    * @remarks
-   * Node pool name.
+   * The name of the node pool.
    * 
    * @example
    * nodepool-test

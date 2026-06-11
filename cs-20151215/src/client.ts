@@ -1315,7 +1315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * A node pool is a logical collection of nodes that share the same properties, enabling unified management and O&M operations such as node upgrades and Auto Scaling. You can further leverage the automated O&M capabilities of node pools to reduce operational costs—for example, by automatically patching OS CVE vulnerabilities, automatically recovering failed nodes, and automatically upgrading kubelet and containerd versions. You can invoke CreateClusterNodePool to create a node pool for a cluster.
+   * A node pool is a logical group of nodes that share the same properties. Node pools allow you to manage nodes and perform operations and maintenance (O&M) tasks, such as upgrades and auto scaling, on them as a group. You can use the automated O&M features of a node pool to automatically fix operating system (OS) Common Vulnerabilities and Exposures (CVE) vulnerabilities, recover failed nodes, and upgrade kubelet and containerd versions. This helps reduce your O&M costs. Call the CreateClusterNodePool operation to create a node pool for a cluster.
    * 
    * @param request - CreateClusterNodePoolRequest
    * @param headers - map
@@ -1408,7 +1408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * A node pool is a logical collection of nodes that share the same properties, enabling unified management and O&M operations such as node upgrades and Auto Scaling. You can further leverage the automated O&M capabilities of node pools to reduce operational costs—for example, by automatically patching OS CVE vulnerabilities, automatically recovering failed nodes, and automatically upgrading kubelet and containerd versions. You can invoke CreateClusterNodePool to create a node pool for a cluster.
+   * A node pool is a logical group of nodes that share the same properties. Node pools allow you to manage nodes and perform operations and maintenance (O&M) tasks, such as upgrades and auto scaling, on them as a group. You can use the automated O&M features of a node pool to automatically fix operating system (OS) Common Vulnerabilities and Exposures (CVE) vulnerabilities, recover failed nodes, and upgrade kubelet and containerd versions. This helps reduce your O&M costs. Call the CreateClusterNodePool operation to create a node pool for a cluster.
    * 
    * @param request - CreateClusterNodePoolRequest
    * @returns CreateClusterNodePoolResponse
@@ -2799,7 +2799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DescribeClusterNodePoolDetail operation with a node pool ID to query the configuration of a specific node pool in a cluster.
+   * You can call the DescribeClusterNodePoolDetail operation to query the details of a node pool in a cluster.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2824,7 +2824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the DescribeClusterNodePoolDetail operation with a node pool ID to query the configuration of a specific node pool in a cluster.
+   * You can call the DescribeClusterNodePoolDetail operation to query the details of a node pool in a cluster.
    * @returns DescribeClusterNodePoolDetailResponse
    */
   async describeClusterNodePoolDetail(ClusterId: string, NodepoolId: string): Promise<$_model.DescribeClusterNodePoolDetailResponse> {
@@ -2834,7 +2834,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all node pools in a cluster.
+   * Queries the node pools in a cluster.
    * 
    * @param request - DescribeClusterNodePoolsRequest
    * @param headers - map
@@ -2867,7 +2867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all node pools in a cluster.
+   * Queries the node pools in a cluster.
    * 
    * @param request - DescribeClusterNodePoolsRequest
    * @returns DescribeClusterNodePoolsResponse
@@ -5811,7 +5811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the ModifyClusterNodePool API to update the configuration of a node pool by specifying its node pool ID.
+   * Call the ModifyClusterNodePool operation to update the configurations of a node pool.
    * 
    * @param request - ModifyClusterNodePoolRequest
    * @param headers - map
@@ -5872,7 +5872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the ModifyClusterNodePool API to update the configuration of a node pool by specifying its node pool ID.
+   * Call the ModifyClusterNodePool operation to update the configurations of a node pool.
    * 
    * @param request - ModifyClusterNodePoolRequest
    * @returns ModifyClusterNodePoolResponse
@@ -6663,6 +6663,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runClusterInspectWithOptions(clusterId, request, headers, runtime);
+  }
+
+  /**
+   * 执行节点上的运维操作
+   * 
+   * @param request - RunNodeOperationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunNodeOperationResponse
+   */
+  async runNodeOperationWithOptions(clusterId: string, nodepoolId: string, nodeName: string, request: $_model.RunNodeOperationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RunNodeOperationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.operationAction)) {
+      body["operationAction"] = request.operationAction;
+    }
+
+    if (!$dara.isNull(request.operationArgs)) {
+      body["operationArgs"] = request.operationArgs;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunNodeOperation",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/nodepools/${$dara.URL.percentEncode(nodepoolId)}/nodes/${$dara.URL.percentEncode(nodeName)}/operation`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunNodeOperationResponse>(await this.callApi(params, req, runtime), new $_model.RunNodeOperationResponse({}));
+  }
+
+  /**
+   * 执行节点上的运维操作
+   * 
+   * @param request - RunNodeOperationRequest
+   * @returns RunNodeOperationResponse
+   */
+  async runNodeOperation(clusterId: string, nodepoolId: string, nodeName: string, request: $_model.RunNodeOperationRequest): Promise<$_model.RunNodeOperationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runNodeOperationWithOptions(clusterId, nodepoolId, nodeName, request, headers, runtime);
   }
 
   /**
