@@ -5,25 +5,45 @@ import { DLTable } from "./Dltable";
 
 export class CreateDataLakeTableResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code that is returned when the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned when the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The ID of the request, used for log tracing and troubleshooting.
+   * 
    * @example
    * 7FAD400F-7A5C-4193-8F9A-39D86C4F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The details of the table.
+   */
   table?: DLTable;
   static names(): { [key: string]: string } {
     return {

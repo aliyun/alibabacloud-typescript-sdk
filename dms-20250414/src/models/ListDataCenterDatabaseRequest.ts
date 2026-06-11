@@ -3,19 +3,44 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDataCenterDatabaseRequest extends $dara.Model {
+  /**
+   * @remarks
+   * This parameter is for internal use.
+   * 
+   * @example
+   * Frontend only
+   */
   callFrom?: string;
   /**
+   * @remarks
+   * The DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   dmsUnit?: string;
   /**
+   * @remarks
+   * The import type.
+   * 
+   * - FILE
+   * 
    * @example
    * FILE
    */
   importType?: string;
+  /**
+   * @remarks
+   * This parameter is for internal use.
+   * 
+   * @example
+   * Frontend only
+   */
   language?: string;
   /**
+   * @remarks
+   * The keyword for a fuzzy search for databases.
+   * 
    * @example
    * testdb
    */

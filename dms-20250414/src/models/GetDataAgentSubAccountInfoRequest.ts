@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetDataAgentSubAccountInfoRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   dmsUnit?: string;
   /**
+   * @remarks
+   * The UID of the RAM user.
+   * 
    * @example
    * 20282*****7591
    */

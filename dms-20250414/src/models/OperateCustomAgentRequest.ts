@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class OperateCustomAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * Custom Agent ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class OperateCustomAgentRequest extends $dara.Model {
   customAgentId?: string;
   /**
    * @remarks
+   * Operation type
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,9 @@ export class OperateCustomAgentRequest extends $dara.Model {
    */
   operateType?: string;
   /**
+   * @remarks
+   * Workspace ID
+   * 
    * @example
    * 56kv1pvl9uvt9**********bb
    */

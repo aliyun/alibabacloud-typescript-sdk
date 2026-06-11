@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFileUploadResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * File ID
+   * 
    * @example
    * f-8*******01m
    */
@@ -30,13 +33,23 @@ export class DeleteFileUploadResponseBodyData extends $dara.Model {
 }
 
 export class DeleteFileUploadResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Return struct
+   */
   data?: DeleteFileUploadResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message returned when the invocation fails.
+   * 
    * @example
    * Specified parameter Tid is not valid.
    */
@@ -50,6 +63,12 @@ export class DeleteFileUploadResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - **true**: The request succeeded.                                 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

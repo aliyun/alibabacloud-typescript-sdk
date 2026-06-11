@@ -6,6 +6,8 @@ import { DLPartitionInput } from "./DlpartitionInput";
 export class CreateDataLakePartitionRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the data catalog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class CreateDataLakePartitionRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,22 +25,36 @@ export class CreateDataLakePartitionRequest extends $dara.Model {
    */
   dbName?: string;
   /**
+   * @remarks
+   * Specifies whether to ignore an exception if a partition with the same name already exists.
+   * 
    * @example
    * true
    */
   ifNotExists?: boolean;
   /**
+   * @remarks
+   * Specifies whether to return information about the new partition. If you set this parameter to **true**, the Partition parameter is returned. Valid values:
+   * 
+   * - **true**: Returns information about the new partition.
+   * 
+   * - **false**: Does not return information about the new partition.
+   * 
    * @example
    * true
    */
   needResult?: boolean;
   /**
    * @remarks
+   * The information about the new partition.
+   * 
    * This parameter is required.
    */
   partitionInput?: DLPartitionInput;
   /**
    * @remarks
+   * The name of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,11 +62,19 @@ export class CreateDataLakePartitionRequest extends $dara.Model {
    */
   tableName?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
+   * 
    * @example
    * 3****
    */
   tid?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 12****
    */

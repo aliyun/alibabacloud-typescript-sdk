@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDocumentRequest extends $dara.Model {
   /**
    * @remarks
+   * The document name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateDocumentRequest extends $dara.Model {
   documentName?: string;
   /**
    * @remarks
+   * The ID of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class UpdateDocumentRequest extends $dara.Model {
   kbUuid?: string;
   /**
    * @remarks
+   * The new document description.
+   * 
    * This parameter is required.
    * 
    * @example

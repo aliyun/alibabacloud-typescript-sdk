@@ -6,6 +6,8 @@ import { DataMountInfo } from "./DataMountInfo";
 export class CreateAirflowRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the Airflow instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,17 @@ export class CreateAirflowRequest extends $dara.Model {
    */
   airflowName?: string;
   /**
+   * @remarks
+   * The Airflow version. Supported versions: 2.10 and 3.1.
+   * 
    * @example
    * 3.1
    */
   airflowVersion?: string;
   /**
    * @remarks
+   * The compute specifications for the Airflow instance. Valid values: **SMALL**, **MEDIUM**, **LARGE**, **XLARGE**, or **X2LARGE**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,29 +33,51 @@ export class CreateAirflowRequest extends $dara.Model {
    */
   appSpec?: string;
   /**
+   * @remarks
+   * A client token to ensure request idempotence.
+   * 
    * @example
    * token-****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The path to the DAG directory for Airflow to scan.
+   * 
    * @example
    * default/dags
    */
   dagsDir?: string;
+  /**
+   * @remarks
+   * A list of data mount configurations.
+   */
   dataMountInfoList?: DataMountInfo[];
   /**
+   * @remarks
+   * The description of the Airflow instance.
+   * 
    * @example
    * order scheduler
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable worker elasticity.
+   */
   enableServerless?: boolean;
   /**
+   * @remarks
+   * The graceful shutdown timeout for workers, in seconds.
+   * 
    * @example
    * 60
    */
   gracefulShutdownTimeout?: number;
   /**
    * @remarks
+   * The name of the OSS bucket.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -57,6 +86,8 @@ export class CreateAirflowRequest extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
+   * The OSS path for log storage.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,17 +95,25 @@ export class CreateAirflowRequest extends $dara.Model {
    */
   ossPath?: string;
   /**
+   * @remarks
+   * The path to the plugin directory for the Airflow instance to scan.
+   * 
    * @example
    * default/plugins
    */
   pluginsDir?: string;
   /**
+   * @remarks
+   * The path to the Python requirements file.
+   * 
    * @example
    * default/requirements.txt
    */
   requirementFile?: string;
   /**
    * @remarks
+   * The security group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -82,12 +121,17 @@ export class CreateAirflowRequest extends $dara.Model {
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The path to the startup script in the Airflow container.
+   * 
    * @example
    * default/startup.sh
    */
   startupFile?: string;
   /**
    * @remarks
+   * The vSwitch ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -96,7 +140,7 @@ export class CreateAirflowRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * This parameter is required.
    * 
@@ -106,6 +150,8 @@ export class CreateAirflowRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
+   * The number of elastic worker nodes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -114,6 +160,8 @@ export class CreateAirflowRequest extends $dara.Model {
   workerServerlessReplicas?: number;
   /**
    * @remarks
+   * The ID of the DMS workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -121,6 +169,9 @@ export class CreateAirflowRequest extends $dara.Model {
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The ID of the zone where the instance will be created.
+   * 
    * @example
    * cn-hangzhou-h
    */

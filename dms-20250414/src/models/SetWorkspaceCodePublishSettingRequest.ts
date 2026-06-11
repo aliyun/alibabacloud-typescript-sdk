@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class SetWorkspaceCodePublishSettingRequest extends $dara.Model {
   /**
    * @remarks
+   * The deployment configuration, provided as a JSON string. The repos array specifies the Git repositories in the workspace, primarily for setting the branch for publishing. The exclude parameter specifies which directories to skip.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class SetWorkspaceCodePublishSettingRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
+   * The numeric ID of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example

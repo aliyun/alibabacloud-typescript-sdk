@@ -4,47 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The time when the workspace was created, specified as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1765960516
    */
   createTime?: string;
   /**
+   * @remarks
+   * The user ID (UID) of the workspace creator.
+   * 
    * @example
    * 20282*****7591
    */
   creator?: string;
   /**
+   * @remarks
+   * The description of the workspace.
+   * 
    * @example
    * space for test new
    */
   description?: string;
+  /**
+   * @remarks
+   * Indicates whether session sharing is enabled in the workspace.
+   * 
+   * @example
+   * true
+   */
   isSessionShareEnabled?: boolean;
   /**
+   * @remarks
+   * The time when the workspace was last modified, specified as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1765962516
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The user role in the workspace.
+   * 
    * @example
    * active
    */
   roleName?: string;
   /**
+   * @remarks
+   * The total number of members in the workspace.
+   * 
    * @example
    * 20
    */
   totalMember?: string;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 20923*****7291
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The updated name of the workspace.
+   * 
    * @example
    * yunqitest_v2
    */
   workspaceName?: string;
   /**
+   * @remarks
+   * The updated status of the workspace.
+   * 
    * @example
    * space for test new
    */
@@ -89,23 +123,39 @@ export class UpdateDataAgentSpaceInfoResponseBodyData extends $dara.Model {
 }
 
 export class UpdateDataAgentSpaceInfoResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: UpdateDataAgentSpaceInfoResponseBodyData;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * DMS-DA-40114
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * Specified parameter is not valid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 67E910F2-***-695C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

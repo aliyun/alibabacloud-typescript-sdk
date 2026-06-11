@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class OperateCustomAgentResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Custom Agent ID
+   * 
    * @example
    * ca-4y3ca4khkcu**********ysf
    */
   customAgentId?: string;
   /**
+   * @remarks
+   * Operation message
+   * 
    * @example
    * Custom agent successfully released
    */
   message?: string;
   /**
+   * @remarks
+   * Is the operation successful?
+   * 
    * @example
    * true
    */
@@ -44,13 +53,23 @@ export class OperateCustomAgentResponseBodyData extends $dara.Model {
 }
 
 export class OperateCustomAgentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Return struct
+   */
   data?: OperateCustomAgentResponseBodyData;
   /**
+   * @remarks
+   * Error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Error message returned when the call fails.
+   * 
    * @example
    * Specified parameter Tid is not valid.
    */
@@ -64,6 +83,13 @@ export class OperateCustomAgentResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Is the request successful? Return values are as follows:
+   * 
+   * - True: The request is successful.
+   * 
+   * - False: The request failed.
+   * 
    * @example
    * true
    */

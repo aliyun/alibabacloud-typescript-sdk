@@ -3,12 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DmsKnowledgeSearchOrderInfoDO extends $dara.Model {
+  /**
+   * @remarks
+   * The UID of the Alibaba Cloud account.
+   */
   aliyunAccountUid?: string;
+  /**
+   * @remarks
+   * The API key used for authentication.
+   */
   apiKey?: string;
+  /**
+   * @remarks
+   * The time when the entry was created.
+   */
   gmtCreate?: string;
+  /**
+   * @remarks
+   * The time when the entry was last modified.
+   */
   gmtModified?: string;
+  /**
+   * @remarks
+   * The unique ID of the entry.
+   */
   id?: number;
+  /**
+   * @remarks
+   * The unique ID of the order.
+   */
   orderId?: string;
+  /**
+   * @remarks
+   * The endpoint URL for the web search API.
+   */
   webSearchApiUrl?: string;
   static names(): { [key: string]: string } {
     return {

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCustomAgentResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Custom Agent ID
+   * 
    * @example
    * ca-4y3ca4khkcu**********ysf
    */
   customAgentId?: string;
   /**
+   * @remarks
+   * Deletion operation message
+   * 
    * @example
    * Custom agent successfully deleted
    */
   message?: string;
   /**
+   * @remarks
+   * Is deletion successful?
+   * 
    * @example
    * true
    */
@@ -44,13 +53,23 @@ export class DeleteCustomAgentResponseBodyData extends $dara.Model {
 }
 
 export class DeleteCustomAgentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Return struct
+   */
   data?: DeleteCustomAgentResponseBodyData;
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * Returns an error message if the call fails.
+   * 
    * @example
    * Specified parameter Tid is not valid.
    */
@@ -64,6 +83,13 @@ export class DeleteCustomAgentResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Return value description.
+   * 
+   * - **true**: Deletion successful.
+   * 
+   * - **false**: Deletion failed.
+   * 
    * @example
    * true
    */

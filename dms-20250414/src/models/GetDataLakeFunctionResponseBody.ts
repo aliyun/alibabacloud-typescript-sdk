@@ -5,22 +5,42 @@ import { DLFunction } from "./Dlfunction";
 
 export class GetDataLakeFunctionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The details of the function.
+   */
   function?: DLFunction;
   /**
+   * @remarks
+   * The request ID, used for log tracing and troubleshooting.
+   * 
    * @example
    * D911009F-3E95-5AFD-8CF1-73F7B4F1****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * - **true**: The request is successful.
+   * 
+   * - **false**: The request fails.
+   * 
    * @example
    * true
    */

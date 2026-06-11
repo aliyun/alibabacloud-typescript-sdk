@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DLOrder extends $dara.Model {
   /**
+   * @remarks
+   * The name of the column.
+   * 
    * @example
    * col1
    */
   col?: string;
   /**
+   * @remarks
+   * The position of the column in the sort order.
+   * 
    * @example
    * 1
    */

@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeFileUploadSignatureRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Used by the frontend only
+   * 
+   * @example
+   * 仅前端使用
+   */
   callFrom?: string;
   /**
+   * @remarks
+   * Current DMS unit
+   * 
    * @example
    * cn-hangzhou
    */

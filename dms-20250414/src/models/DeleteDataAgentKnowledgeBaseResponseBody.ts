@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDataAgentKnowledgeBaseResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the deleted knowledge base.
+   * 
    * @example
    * kb-HZ-rtl5lwx********q32d3ux
    */
@@ -30,26 +33,43 @@ export class DeleteDataAgentKnowledgeBaseResponseBodyData extends $dara.Model {
 }
 
 export class DeleteDataAgentKnowledgeBaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned by the operation.
+   */
   data?: DeleteDataAgentKnowledgeBaseResponseBodyData;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * InvalidTid
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * Specified parameter Tid is not valid.
    */
   errorMessage?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

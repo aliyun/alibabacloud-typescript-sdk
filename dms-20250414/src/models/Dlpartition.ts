@@ -5,32 +5,59 @@ import { DLStorageDescriptor } from "./DlstorageDescriptor";
 
 export class DLPartition extends $dara.Model {
   /**
+   * @remarks
+   * The name of the data catalog.
+   * 
    * @example
    * hive
    */
   catalogName?: string;
   /**
+   * @remarks
+   * The time when the partition was created. The time is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1735109884
    */
   createTime?: number;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * default
    */
   dbName?: string;
   /**
+   * @remarks
+   * The time when the partition was last accessed.
+   * 
    * @example
    * 1608707407
    */
   lastAccessTime?: number;
+  /**
+   * @remarks
+   * The key-value pairs for the partition.
+   */
   parameters?: { [key: string]: string };
+  /**
+   * @remarks
+   * The data storage description.
+   */
   sd?: DLStorageDescriptor;
   /**
+   * @remarks
+   * The table name.
+   * 
    * @example
    * table_name
    */
   tableName?: string;
+  /**
+   * @remarks
+   * The partition values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetWorkspaceCodePublishSettingResponseBodyDataRepos extends $dara.Model {
   /**
+   * @remarks
+   * The name of the branch.
+   * 
    * @example
    * main
    */
   branch?: string;
   /**
+   * @remarks
+   * The path to the notebook file.
+   * 
    * @example
    * /luna-public/
    */
   path?: string;
   /**
+   * @remarks
+   * The name of the repository.
+   * 
    * @example
    * analyticscomputing/dide
    */
@@ -44,12 +53,23 @@ export class GetWorkspaceCodePublishSettingResponseBodyDataRepos extends $dara.M
 }
 
 export class GetWorkspaceCodePublishSettingResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The files and directories to exclude from the deployment.
+   */
   exclude?: string[];
   /**
+   * @remarks
+   * Indicates whether the deployment branch is locked. If `true`, configurations submitted via the `workspaceCodePublish` API are ignored. If `false`, configurations submitted via the `workspaceCodePublish` API update the settings.
+   * 
    * @example
    * false
    */
   lockRepoBranch?: boolean;
+  /**
+   * @remarks
+   * The Git repositories in the workspace.
+   */
   repos?: GetWorkspaceCodePublishSettingResponseBodyDataRepos[];
   static names(): { [key: string]: string } {
     return {
@@ -84,27 +104,46 @@ export class GetWorkspaceCodePublishSettingResponseBodyData extends $dara.Model 
 
 export class GetWorkspaceCodePublishSettingResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code that indicates the result of the request. A value of `200` indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetWorkspaceCodePublishSettingResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * This record is being collected, please wait for a moment.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E0D21075-CD3E-4D98-8264-FD8AD04A63B6
    */

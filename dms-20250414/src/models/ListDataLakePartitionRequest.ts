@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataLakePartitionRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the data catalog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListDataLakePartitionRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,18 +24,34 @@ export class ListDataLakePartitionRequest extends $dara.Model {
    */
   dbName?: string;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 0 to 100.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to retrieve the next page of results. Set this parameter to the value of NextToken that is returned in the last response.
+   * 
+   * - If **NextToken** is empty, no subsequent query is needed.
+   * 
+   * - If **NextToken** has a value, that value is the token to start the next query.
+   * 
    * @example
    * f056501ada12****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The list of partition names.
+   */
   partNames?: string[];
   /**
    * @remarks
+   * The name of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -39,11 +59,19 @@ export class ListDataLakePartitionRequest extends $dara.Model {
    */
   tableName?: string;
   /**
+   * @remarks
+   * The ID of the tenant.
+   * 
+   * > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
+   * 
    * @example
    * 3****
    */
   tid?: number;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 12****
    */

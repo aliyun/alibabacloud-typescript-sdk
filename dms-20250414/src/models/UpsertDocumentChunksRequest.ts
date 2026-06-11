@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertDocumentChunksRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of document chunks to upsert.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +24,8 @@ export class UpsertDocumentChunksRequest extends $dara.Model {
   chunks?: string;
   /**
    * @remarks
+   * The name of the document.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +34,8 @@ export class UpsertDocumentChunksRequest extends $dara.Model {
   documentName?: string;
   /**
    * @remarks
+   * The unique identifier for the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example

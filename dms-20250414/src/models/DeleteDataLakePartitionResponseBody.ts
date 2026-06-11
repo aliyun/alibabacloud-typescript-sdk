@@ -4,21 +4,37 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDataLakePartitionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned when the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned when the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID, used for log tracing and troubleshooting.
+   * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the deletion succeeded.
+   * 
+   * - **true**: The deletion succeeded.
+   * 
+   * - **false**: The deletion failed.
+   * 
    * @example
    * true
    */

@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDocumentChunksShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * A list of chunk IDs.
+   * 
    * This parameter is required.
    */
   chunkIdsShrink?: string;
   /**
    * @remarks
+   * The name of the document.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +22,8 @@ export class DeleteDocumentChunksShrinkRequest extends $dara.Model {
   documentName?: string;
   /**
    * @remarks
+   * The ID of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example

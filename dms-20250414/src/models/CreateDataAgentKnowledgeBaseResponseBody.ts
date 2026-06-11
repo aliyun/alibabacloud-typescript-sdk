@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataAgentKnowledgeBaseResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The knowledge base ID.
+   * 
    * @example
    * kb-HZ-ra99akg0t*********1bku
    */
@@ -30,26 +33,43 @@ export class CreateDataAgentKnowledgeBaseResponseBodyData extends $dara.Model {
 }
 
 export class CreateDataAgentKnowledgeBaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The data returned by the request.
+   */
   data?: CreateDataAgentKnowledgeBaseResponseBodyData;
   /**
+   * @remarks
+   * The error code returned when the request fails.
+   * 
    * @example
    * InvalidTid
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned when the request fails.
+   * 
    * @example
    * Specified parameter Tid is not valid.
    */
   errorMessage?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

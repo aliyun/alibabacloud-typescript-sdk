@@ -5,83 +5,142 @@ import { DLColumn } from "./Dlcolumn";
 
 export class DLTablebaseInfo extends $dara.Model {
   /**
+   * @remarks
+   * The data catalog to which the table belongs.
+   * 
    * @example
    * hive
    */
   catalogName?: string;
   /**
+   * @remarks
+   * The time when the table was created.
+   * 
    * @example
    * 1608707407
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who created the table.
+   * 
    * @example
    * 141****
    */
   creatorId?: number;
   /**
+   * @remarks
+   * The ID of the database to which the table belongs.
+   * 
    * @example
    * 19
    */
   dbId?: number;
   /**
+   * @remarks
+   * The name of the database to which the table belongs.
+   * 
    * @example
    * default
    */
   dbName?: string;
   /**
+   * @remarks
+   * The description of the table.
+   * 
    * @example
    * "table"
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the table was last accessed.
+   * 
    * @example
    * 1731586286
    */
   lastAccessTime?: number;
   /**
+   * @remarks
+   * The storage path of the table.
+   * 
    * @example
    * oss://xxx
    */
   location?: string;
   /**
+   * @remarks
+   * The time when the table was modified.
+   * 
    * @example
    * 1731585286
    */
   modifierId?: number;
   /**
+   * @remarks
+   * The name of the table.
+   * 
    * @example
    * 100g_customer
    */
   name?: string;
   /**
+   * @remarks
+   * The owner of the table.
+   * 
    * @example
    * test
    */
   owner?: string;
+  /**
+   * @remarks
+   * The type of the owner. Valid values: USER, ROLE, or GROUP.
+   * 
+   * @example
+   * USER
+   */
   ownerType?: string;
   /**
+   * @remarks
+   * The additional parameters of the table.
+   * 
    * @example
    * "EXTERNAL": "TRUE"
    */
   parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The list of column attributes.
+   */
   partitionKeys?: DLColumn[];
   /**
+   * @remarks
+   * The retention period of the table, in days.
+   * 
    * @example
    * 30000
    */
   retention?: number;
   /**
+   * @remarks
+   * The type of the table. Examples include MANAGED_TABLE, EXTERNAL_TABLE, VIRTUAL_VIEW, INDEX_TABLE, and MATERIALIZED_VIEW.
+   * 
    * @example
    * EXTERNAL_TABLE
    */
   tableType?: string;
   /**
+   * @remarks
+   * The expanded text of the view if the table is a view.
+   * 
    * @example
    * ""
    */
   viewExpandedText?: string;
   /**
+   * @remarks
+   * The original text of the view if the table is a view.
+   * 
    * @example
    * ""
    */

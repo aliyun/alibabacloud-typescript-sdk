@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.Model {
   /**
+   * @remarks
+   * The custom agent ID.
+   * 
    * @example
    * ca-e*******ckd
    */
   customAgentId?: string;
   /**
+   * @remarks
+   * The stage of the custom agent. Valid values:
+   * 
+   * - **debug**: Debug stage
+   * 
+   * - **prod**: Production stage
+   * 
    * @example
    * debug
    */
   customAgentStage?: string;
   /**
+   * @remarks
+   * Indicates whether web search is enabled.
+   * 
    * @example
    * true
    */
@@ -22,18 +35,47 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
   encryptType?: string;
   kbUuidList?: string[];
   /**
+   * @remarks
+   * The language. Valid values:
+   * 
+   * - **CHINESE**: Chinese
+   * 
+   * - **ENGLISH**: English
+   * 
    * @example
    * CHINESE
    */
   language?: string;
+  /**
+   * @remarks
+   * A list of MCP server IDs.
+   */
   mcpServerIds?: string[];
   /**
+   * @remarks
+   * The mode. Valid values:
+   * 
+   * - **ASK_DATA**: Quick Inquiry Mode
+   * 
+   * - **ANALYSIS**: Analysis Mode
+   * 
+   * - **INSIGHT**: Insight Mode
+   * 
    * @example
    * ANALYSIS
    */
   mode?: string;
   reportPageWidth?: number;
   reportWaterMark?: string;
+  /**
+   * @remarks
+   * The name of the user\\"s OSS bucket.
+   * 
+   * - Analysis files and report artifacts can be uploaded to this OSS bucket.
+   * 
+   * @example
+   * user-oss-bucket
+   */
   userOssBucket?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,35 +129,72 @@ export class CreateDataAgentSessionResponseBodyDataSessionConfig extends $dara.M
 export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Agent Id
+   * The agent ID.
    * 
    * @example
    * cu0cs*******mf
    */
   agentId?: string;
+  /**
+   * @remarks
+   * The agent status.
+   * 
+   * @example
+   * RUNNING
+   */
   agentStatus?: string;
   /**
+   * @remarks
+   * The time when the session was created, in Unix milliseconds.
+   * 
    * @example
    * 1765262307992
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the associated file.
+   * 
    * @example
    * f-8*******01m
    */
   file?: string;
   /**
+   * @remarks
+   * Indicates whether the current user has favorited the session.
+   * 
    * @example
    * false
    */
   saved?: boolean;
+  /**
+   * @remarks
+   * The session configuration.
+   */
   sessionConfig?: CreateDataAgentSessionResponseBodyDataSessionConfig;
   /**
+   * @remarks
+   * The agent session ID.
+   * 
    * @example
    * 976*********p
    */
   sessionId?: string;
+  /**
+   * @remarks
+   * The session status.
+   * 
+   * @example
+   * RUNNING
+   */
   sessionStatus?: string;
+  /**
+   * @remarks
+   * The session title.
+   * 
+   * @example
+   * 帮我分析一下这份数据，给出报告。
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -158,26 +237,43 @@ export class CreateDataAgentSessionResponseBodyData extends $dara.Model {
 }
 
 export class CreateDataAgentSessionResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response structure.
+   */
   data?: CreateDataAgentSessionResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1CB***********3F1A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

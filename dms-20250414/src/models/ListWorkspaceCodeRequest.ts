@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspaceCodeRequest extends $dara.Model {
   /**
    * @remarks
+   * The path of the file or directory.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListWorkspaceCodeRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
+   * The ID of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example

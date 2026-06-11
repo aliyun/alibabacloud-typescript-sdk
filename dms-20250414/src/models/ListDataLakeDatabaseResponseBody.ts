@@ -4,33 +4,59 @@ import { DLDatabase } from "./Dldatabase";
 
 
 export class ListDataLakeDatabaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of databases.
+   */
   databaseList?: DLDatabase[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 400
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The maximum number of entries returned per page. This parameter is used with \\`NextToken\\` for paging.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to retrieve the next page of results. If this parameter is empty, no more results are available.
+   * 
    * @example
    * NesLoKLEdIZrKhDT7I2g****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID, used for log tracing and troubleshooting.
+   * 
    * @example
    * 4E1D2B4D-3E53-4ABC-999D-1D2520B3****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

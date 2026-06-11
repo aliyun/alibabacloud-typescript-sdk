@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteDataAgentWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   DMSUnit?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 20923*****7291
    */

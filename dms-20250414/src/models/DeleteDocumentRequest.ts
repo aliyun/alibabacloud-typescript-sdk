@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDocumentRequest extends $dara.Model {
   /**
    * @remarks
+   * The document name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteDocumentRequest extends $dara.Model {
   documentName?: string;
   /**
    * @remarks
+   * The knowledge base ID.
+   * 
    * This parameter is required.
    * 
    * @example

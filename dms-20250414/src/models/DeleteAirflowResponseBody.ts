@@ -4,11 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAirflowResponseBodyRootResponses extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the request was successful. The following values are returned:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The UUID of the asset instance.
+   * 
+   * > This result is not returned if no process exists under the asset.
+   * 
    * @example
    * af-test****
    */
@@ -37,6 +49,10 @@ export class DeleteAirflowResponseBodyRootResponses extends $dara.Model {
 }
 
 export class DeleteAirflowResponseBodyRoot extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the return value.
+   */
   responses?: DeleteAirflowResponseBodyRootResponses[];
   static names(): { [key: string]: string } {
     return {
@@ -64,32 +80,58 @@ export class DeleteAirflowResponseBodyRoot extends $dara.Model {
 
 export class DeleteAirflowResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The details of the access denied error.
+   * 
    * @example
    * NOT_FOUND
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance not found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E0D21075-CD3E-4D98-8264-****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the deleted instance.
+   */
   root?: DeleteAirflowResponseBodyRoot;
   /**
+   * @remarks
+   * Indicates whether the request was successful. The following values are returned:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

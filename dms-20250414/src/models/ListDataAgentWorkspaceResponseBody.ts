@@ -4,47 +4,74 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the workspace, provided as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1765960516
    */
   createTime?: number;
   /**
+   * @remarks
+   * The creator\\"s user ID (UID).
+   * 
    * @example
    * 20282*****7591
    */
   creator?: string;
   /**
+   * @remarks
+   * The description of the workspace.
+   * 
    * @example
    * space for test
    */
   description?: string;
   isSessionShareEnabled?: boolean;
   /**
+   * @remarks
+   * The last modification time of the workspace, provided as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1765961516
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The name of the user\\"s role in the workspace.
+   * 
    * @example
    * admin
    */
   roleName?: string;
   /**
+   * @remarks
+   * The number of members in the workspace.
+   * 
    * @example
    * 11
    */
   totalMember?: number;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 20923*****7291
    */
   workspaceId?: string;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * workspaceTest
    */
   workspaceName?: string;
   /**
+   * @remarks
+   * The status of the workspace.
+   * 
    * @example
    * active
    */
@@ -89,23 +116,39 @@ export class ListDataAgentWorkspaceResponseBodyDataContent extends $dara.Model {
 }
 
 export class ListDataAgentWorkspaceResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the workspaces.
+   */
   content?: ListDataAgentWorkspaceResponseBodyDataContent[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 12
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of workspaces on each page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of workspaces.
+   * 
    * @example
    * 122
    */
   totalElements?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 12
    */
@@ -143,33 +186,55 @@ export class ListDataAgentWorkspaceResponseBodyData extends $dara.Model {
 }
 
 export class ListDataAgentWorkspaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListDataAgentWorkspaceResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DMS-DA-40114
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * Specified parameter is not valid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * This parameter is not used.
+   * 
    * @example
    * nu use
    */
   maxResults?: number;
   /**
+   * @remarks
+   * This parameter is not used.
+   * 
    * @example
    * no use
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E0D2-*****-A63B6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

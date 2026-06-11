@@ -5,17 +5,35 @@ import { DLStorageDescriptor } from "./DlstorageDescriptor";
 
 export class DLPartitionInput extends $dara.Model {
   /**
+   * @remarks
+   * The time when the partition was created. This is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1735109884
    */
   createTime?: number;
   /**
+   * @remarks
+   * The time when the partition was last accessed. This is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1735109884
    */
   lastAccessTime?: number;
+  /**
+   * @remarks
+   * The key-value pair parameters for the partition.
+   */
   parameters?: { [key: string]: string };
+  /**
+   * @remarks
+   * The data storage information of the data lakehouse table.
+   */
   storageDescriptor?: DLStorageDescriptor;
+  /**
+   * @remarks
+   * The partition values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {

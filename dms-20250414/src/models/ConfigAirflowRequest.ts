@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigAirflowRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the Airflow instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,11 +15,15 @@ export class ConfigAirflowRequest extends $dara.Model {
   airflowId?: string;
   /**
    * @remarks
+   * The list of custom Airflow configurations.
+   * 
    * This parameter is required.
    */
   customAirflowCfg?: string[];
   /**
    * @remarks
+   * The DMS workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

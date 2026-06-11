@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AgentServiceOrderSummaryVO extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the agent service.
+   */
   agentService?: string;
+  /**
+   * @remarks
+   * The deep research quota for the service.
+   */
   deepResearchQuota?: number;
+  /**
+   * @remarks
+   * The model call quota for the service.
+   */
   modelCallQuota?: number;
+  /**
+   * @remarks
+   * The order count for the agent service.
+   */
   orderCount?: number;
+  /**
+   * @remarks
+   * The total number of services.
+   */
   serviceNumTotal?: number;
+  /**
+   * @remarks
+   * The skill plan call quota for the service.
+   */
   skillPlanCallQuota?: number;
   static names(): { [key: string]: string } {
     return {

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetNotebookTaskStatusRequest extends $dara.Model {
   /**
+   * @remarks
+   * The Notebook session ID.
+   * 
    * @example
    * 8141456676986429894916354
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The scheduling task ID.
+   * 
    * @example
    * c2b4cb5a-7420-49a8-aa7c-528becd6e1bf
    */
   taskId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 8630242382****
    */

@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PartitionError extends $dara.Model {
   /**
+   * @remarks
+   * The details of the error.
+   * 
    * @example
    * auth failed
    */
   errorDetail?: string;
+  /**
+   * @remarks
+   * The partition values.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {

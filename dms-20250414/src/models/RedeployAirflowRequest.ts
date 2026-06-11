@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RedeployAirflowRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique ID of the Airflow instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class RedeployAirflowRequest extends $dara.Model {
   airflowId?: string;
   /**
    * @remarks
+   * The ID of the DMS workspace.
+   * 
    * This parameter is required.
    * 
    * @example

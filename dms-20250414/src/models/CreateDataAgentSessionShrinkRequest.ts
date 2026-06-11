@@ -4,18 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataAgentSessionShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   DMSUnit?: string;
   /**
+   * @remarks
+   * The file ID.
+   * 
    * @example
    * f-8*******01m
    */
   file?: string;
+  /**
+   * @remarks
+   * The session configuration.
+   */
   sessionConfigShrink?: string;
+  /**
+   * @remarks
+   * The session title. Supports Chinese and English. Maximum length: 128 characters.
+   * 
+   * @example
+   * 帮我分析一下这份数据，给出报告。
+   */
   title?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 12****
    */

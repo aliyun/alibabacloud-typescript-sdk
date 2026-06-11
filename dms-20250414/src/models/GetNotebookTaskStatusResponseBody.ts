@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetNotebookTaskStatusResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The URL to preview the scheduling result.
+   * 
+   * @example
+   * https://dms.aliyun.com/web-ide?***
+   */
   notebookSchedulePreviewUrl?: string;
+  /**
+   * @remarks
+   * The progress of the scheduling task.
+   * 
+   * @example
+   * 5/6
+   */
   progress?: string;
+  /**
+   * @remarks
+   * The output of the scheduling task.
+   * 
+   * @example
+   * test
+   */
   result?: string;
+  /**
+   * @remarks
+   * The status of the scheduling result.
+   * 
+   * @example
+   * Success
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36,32 +64,58 @@ export class GetNotebookTaskStatusResponseBodyData extends $dara.Model {
 
 export class GetNotebookTaskStatusResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code. A value of Success indicates that the request was successful.
+   * 
    * @example
    * Success
    */
   code?: string;
+  /**
+   * @remarks
+   * The scheduling result.
+   */
   data?: GetNotebookTaskStatusResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Instance not found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E0D21075-CD3E-4D98-8264-FD8AD04A63B6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

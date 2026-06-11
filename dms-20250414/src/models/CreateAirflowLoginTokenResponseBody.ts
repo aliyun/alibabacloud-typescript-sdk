@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAirflowLoginTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The endpoint that is used to access the Airflow instance.
+   * The endpoint of the Airflow instance.
    * 
    * @example
-   * https://data-dms.aliyuncs.com/airflow/x/xxxx/af-ehrmszbxxxxxxx
+   * https://data-dms.aliyuncs.com/airflow/x/xxxx/af-ehrmszb****
    */
   host?: string;
   /**
@@ -16,7 +16,7 @@ export class CreateAirflowLoginTokenResponseBodyData extends $dara.Model {
    * The generated token.
    * 
    * @example
-   * f432d77de03b6b95fc24f91414e29c
+   * f432d77de03b6b95fc24f9****
    */
   token?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class CreateAirflowLoginTokenResponseBodyData extends $dara.Model {
 export class CreateAirflowLoginTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The status code 200 indicates that the request was successful.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -53,17 +53,18 @@ export class CreateAirflowLoginTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of the site monitoring task.
+   * The returned data.
    */
   data?: CreateAirflowLoginTokenResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the call failed. Variable description:
+   * The error code.
    * 
-   * *   If the request was successful, this parameter is not returned.
-   * *   This parameter is returned only if the request failed.
+   * - If the request is successful, this parameter is not returned.
    * 
-   * For more information, see the "Error codes" section in this topic.
+   * - If the request fails, this parameter is returned.
+   * 
+   * For more information, see the error codes in this topic.
    * 
    * @example
    * Success
@@ -71,7 +72,7 @@ export class CreateAirflowLoginTokenResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The description of the error code.
+   * The error code description.
    * 
    * @example
    * 200
@@ -79,7 +80,7 @@ export class CreateAirflowLoginTokenResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * Successful
@@ -87,7 +88,7 @@ export class CreateAirflowLoginTokenResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. You can use the ID to locate logs and troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 4284D079-30F4-5B23-ADC4-28F291622C9A
@@ -97,8 +98,9 @@ export class CreateAirflowLoginTokenResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   True
-   * *   False
+   * - True: The request was successful.
+   * 
+   * - False: The request failed.
    * 
    * @example
    * True

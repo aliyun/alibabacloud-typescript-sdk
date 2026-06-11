@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class SetWorkspaceQuotaRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable auto-payment for the order.
+   * 
    * @example
    * false
    */
   autoPay?: boolean;
   /**
+   * @remarks
+   * A unique, client-generated token to ensure request idempotence. The token can contain only ASCII characters and must be no longer than 64 characters. For more information, see How to ensure idempotence.
+   * 
    * @example
    * acdxxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The compute unit (CU) quota for the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class SetWorkspaceQuotaRequest extends $dara.Model {
   cuQuota?: number;
   /**
    * @remarks
+   * The ID of the region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +41,8 @@ export class SetWorkspaceQuotaRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The ID of the Data Management Service (DMS) workspace.
+   * 
    * This parameter is required.
    * 
    * @example

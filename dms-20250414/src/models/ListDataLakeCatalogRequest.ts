@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataLakeCatalogRequest extends $dara.Model {
   /**
+   * @remarks
+   * The keyword used to search for data catalog names.
+   * 
    * @example
    * hive
    * 
@@ -12,11 +15,17 @@ export class ListDataLakeCatalogRequest extends $dara.Model {
    */
   searchKey?: string;
   /**
+   * @remarks
+   * The tenant ID. Call the GetUserActiveTenant or ListUserTenants operation to get the value of this parameter.
+   * 
    * @example
    * 3****
    */
   tid?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 12****
    */

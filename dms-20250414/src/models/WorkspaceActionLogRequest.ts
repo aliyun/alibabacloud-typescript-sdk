@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class WorkspaceActionLogRequest extends $dara.Model {
   /**
    * @remarks
+   * The key for the session playback history.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class WorkspaceActionLogRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKnowledgeBaseStatsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example

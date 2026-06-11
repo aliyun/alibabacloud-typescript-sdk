@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateDataLakePartitionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the data catalog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class BatchCreateDataLakePartitionsShrinkRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,22 +24,36 @@ export class BatchCreateDataLakePartitionsShrinkRequest extends $dara.Model {
    */
   dbName?: string;
   /**
+   * @remarks
+   * Specifies whether to ignore an error if a partition with the same name already exists. Valid values:
+   * 
+   * - **true**: Ignore the error.
+   * 
+   * - **false**: Do not ignore the error.
+   * 
    * @example
    * true
    */
   ifNotExists?: boolean;
   /**
+   * @remarks
+   * Specifies whether to return partition information. If you set this parameter to **true**, the response includes the Partitions parameter.
+   * 
    * @example
    * true
    */
   needResult?: boolean;
   /**
    * @remarks
+   * The information about the new partitions.
+   * 
    * This parameter is required.
    */
   partitionInputsShrink?: string;
   /**
    * @remarks
+   * The name of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,11 +61,19 @@ export class BatchCreateDataLakePartitionsShrinkRequest extends $dara.Model {
    */
   tableName?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
+   * 
    * @example
    * 3****
    */
   tid?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 12****
    */

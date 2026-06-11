@@ -4,13 +4,45 @@ import { AgenticTableEngineMeta } from "./AgenticTableEngineMeta";
 
 
 export class AgenticTableBaseInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The catalog type.
+   */
   catalogType?: string;
+  /**
+   * @remarks
+   * The database\\"s unique identifier.
+   */
   databaseUuid?: string;
+  /**
+   * @remarks
+   * The table description.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The engine metadata.
+   */
   engineMeta?: AgenticTableEngineMeta;
+  /**
+   * @remarks
+   * The table name.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The table\\"s qualified name.
+   */
   qualifiedName?: string;
+  /**
+   * @remarks
+   * The table type.
+   */
   tableType?: string;
+  /**
+   * @remarks
+   * The table\\"s unique identifier.
+   */
   tableUuid?: string;
   static names(): { [key: string]: string } {
     return {

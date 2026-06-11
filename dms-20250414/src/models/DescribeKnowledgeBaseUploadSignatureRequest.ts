@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKnowledgeBaseUploadSignatureRequest extends $dara.Model {
   /**
    * @remarks
+   * The knowledge base ID.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,10 +4,30 @@ import { AgenticTableColumnEngineMeta } from "./AgenticTableColumnEngineMeta";
 
 
 export class AgenticTableColumn extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the column.
+   */
   columnName?: string;
+  /**
+   * @remarks
+   * The data type of the column.
+   */
   columnType?: string;
+  /**
+   * @remarks
+   * The description of the column.
+   */
   description?: string;
+  /**
+   * @remarks
+   * Engine-specific metadata for the column.
+   */
   engineMeta?: AgenticTableColumnEngineMeta;
+  /**
+   * @remarks
+   * The 1-based ordinal position of the column within the table.
+   */
   position?: number;
   static names(): { [key: string]: string } {
     return {

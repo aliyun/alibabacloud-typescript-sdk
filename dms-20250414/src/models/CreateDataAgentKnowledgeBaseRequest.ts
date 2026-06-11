@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataAgentKnowledgeBaseRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   DMSUnit?: string;
   /**
+   * @remarks
+   * The description of the knowledge base.
+   * 
    * @example
    * KnowledgeBaseTest
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the source industry knowledge base.
+   * 
    * @example
    * kb-HZ-ra99********ss0xp1bku
    */
   fromKbUuid?: string;
   /**
    * @remarks
+   * The name of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +39,8 @@ export class CreateDataAgentKnowledgeBaseRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example

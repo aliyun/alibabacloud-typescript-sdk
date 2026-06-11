@@ -4,22 +4,43 @@ import { OneMetaKnowledgeBaseDocument } from "./OneMetaKnowledgeBaseDocument";
 
 
 export class UploadDocumentResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data object.
+   */
   data?: OneMetaKnowledgeBaseDocument;
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * KnowledgeBaseNotFound
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the request fails.
+   * 
    * @example
    * Resource not found kb-***
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The unique ID of the request. Use this ID to troubleshoot issues.
+   * 
    * @example
    * 67E910F2-4B62-5B0C-ACA3-7547695C****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request succeeded. Valid values:
+   * 
+   * - **true**: The request succeeded.
+   * 
+   * - **false**: The request failed.
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

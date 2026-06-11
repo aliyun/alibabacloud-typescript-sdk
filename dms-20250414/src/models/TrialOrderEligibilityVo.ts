@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class TrialOrderEligibilityVO extends $dara.Model {
+  /**
+   * @remarks
+   * Contains details about the eligibility status, such as the reason for ineligibility.
+   */
   message?: string;
+  /**
+   * @remarks
+   * Indicates whether the user is eligible for the trial.
+   */
   valid?: boolean;
   static names(): { [key: string]: string } {
     return {

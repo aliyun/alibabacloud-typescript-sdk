@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDocumentRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the document.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeDocumentRequest extends $dara.Model {
   documentName?: string;
   /**
    * @remarks
+   * The ID of the knowledge base.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDataLakeTableShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the data catalog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateDataLakeTableShrinkRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,20 +25,33 @@ export class UpdateDataLakeTableShrinkRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
+   * The information about the table.
+   * 
    * This parameter is required.
    */
   tableInputShrink?: string;
   /**
+   * @remarks
+   * The name of the table to update. If you do not want to change the table name, set this parameter to the same value as the Name parameter in TableInput.
+   * 
    * @example
    * 100g_customer
    */
   tableName?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
+   * 
    * @example
    * 3****
    */
   tid?: number;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 12****
    */

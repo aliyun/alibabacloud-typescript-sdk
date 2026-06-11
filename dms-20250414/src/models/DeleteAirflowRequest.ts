@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAirflowRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the Airflow instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class DeleteAirflowRequest extends $dara.Model {
    */
   airflowId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * token-****
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example

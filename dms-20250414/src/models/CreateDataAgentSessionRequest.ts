@@ -4,16 +4,29 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
   /**
+   * @remarks
+   * The custom agent ID.
+   * 
    * @example
    * ca-e*******ckd
    */
   customAgentId?: string;
   /**
+   * @remarks
+   * The custom agent stage. Valid values:
+   * 
+   * - **debug**: Test stage.
+   * 
+   * - **prod**: Production stage.
+   * 
    * @example
    * debug
    */
   customAgentStage?: string;
   /**
+   * @remarks
+   * Specifies whether to enable web search.
+   * 
    * @example
    * false
    */
@@ -22,18 +35,47 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
   encryptType?: string;
   kbUuidList?: string[];
   /**
+   * @remarks
+   * The language. Valid values:
+   * 
+   * - **CHINESE**: Chinese
+   * 
+   * - **ENGLISH**: English
+   * 
    * @example
    * CHINESE
    */
   language?: string;
+  /**
+   * @remarks
+   * A list of MCP server IDs.
+   */
   mcpServerIds?: string[];
   /**
+   * @remarks
+   * The mode. Valid values:
+   * 
+   * - **ASK_DATA**: Quick inquiry mode.
+   * 
+   * - **ANALYSIS**: Analysis mode.
+   * 
+   * - **INSIGHT**: Insight mode.
+   * 
    * @example
    * ANALYSIS
    */
   mode?: string;
   reportPageWidth?: number;
   reportWaterMark?: string;
+  /**
+   * @remarks
+   * The OSS bucket name.
+   * 
+   * - This bucket stores intermediate files and report artifacts from the analysis.
+   * 
+   * @example
+   * user-oss-bucket
+   */
   userOssBucket?: string;
   static names(): { [key: string]: string } {
     return {
@@ -86,18 +128,38 @@ export class CreateDataAgentSessionRequestSessionConfig extends $dara.Model {
 
 export class CreateDataAgentSessionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   DMSUnit?: string;
   /**
+   * @remarks
+   * The file ID.
+   * 
    * @example
    * f-8*******01m
    */
   file?: string;
+  /**
+   * @remarks
+   * The session configuration.
+   */
   sessionConfig?: CreateDataAgentSessionRequestSessionConfig;
+  /**
+   * @remarks
+   * The session title. Supports Chinese and English. Maximum length: 128 characters.
+   * 
+   * @example
+   * 帮我分析一下这份数据，给出报告。
+   */
   title?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 12****
    */

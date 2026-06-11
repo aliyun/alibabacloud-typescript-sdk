@@ -4,66 +4,115 @@ import * as $dara from '@darabonba/typescript';
 
 export class OneMetaKnowledgeBaseDocument extends $dara.Model {
   /**
+   * @remarks
+   * The document description.
+   * 
    * @example
    * abc
    */
   description?: string;
   /**
+   * @remarks
+   * The number of chunks.
+   * 
    * @example
    * 123
    */
   docsCount?: number;
   /**
+   * @remarks
+   * The name of the document loader.
+   * 
    * @example
    * ADBPGLoader
    */
   documentLoaderName?: string;
   /**
+   * @remarks
+   * The file extension.
+   * 
    * @example
    * md
    */
   fileExt?: string;
   /**
+   * @remarks
+   * The file size, in bytes.
+   * 
    * @example
    * 20307
    */
   fileSize?: number;
   /**
+   * @remarks
+   * When the document was created.
+   * 
    * @example
    * 2026-04-22 22:59:35
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * When the document was last modified.
+   * 
    * @example
    * 2026-04-24 21:22:53
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The knowledge base ID.
+   * 
    * @example
    * kb-***
    */
   kbUuid?: string;
   /**
+   * @remarks
+   * Keywords extracted from the document.
+   * 
    * @example
    * ["test","abc"]
    */
   keywords?: string;
   /**
+   * @remarks
+   * The document name.
+   * 
    * @example
    * test.md
    */
   name?: string;
   /**
+   * @remarks
+   * The document status. Valid values are:
+   * 
+   * - **0**: Complete.
+   * 
+   * - **-1**: Unprocessed.
+   * 
+   * - **-2**: Parsing.
+   * 
+   * - **-3**: Failed.
+   * 
+   * - **-4**: Canceled.
+   * 
    * @example
    * 0
    */
   state?: number;
   /**
+   * @remarks
+   * The summary of the document.
+   * 
    * @example
    * This is a test document.
    */
   summary?: string;
   /**
+   * @remarks
+   * The name of the text splitter.
+   * 
    * @example
    * ChineseRecursiveTextSplitter
    */

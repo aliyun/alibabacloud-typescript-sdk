@@ -4,32 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListDataAgentWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The current DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   DMSUnit?: string;
   /**
+   * @remarks
+   * This parameter is reserved for future use.
+   * 
    * @example
    * no use
    */
   maxResults?: number;
   /**
+   * @remarks
+   * This parameter is reserved for future use.
+   * 
    * @example
    * no use
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * DESC
    */
   order?: string;
   /**
+   * @remarks
+   * The field to sort by.
+   * 
    * @example
    * CreateTime
    */
   orderBy?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -38,6 +55,8 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
+   * The number of entries to return on each page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,12 +64,17 @@ export class ListDataAgentWorkspaceRequest extends $dara.Model {
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The workspace name.
+   * 
    * @example
    * workspaceTest
    */
   workspaceName?: string;
   /**
    * @remarks
+   * The workspace type.
+   * 
    * This parameter is required.
    * 
    * @example

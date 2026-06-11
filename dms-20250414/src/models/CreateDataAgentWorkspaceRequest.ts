@@ -4,17 +4,26 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDataAgentWorkspaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * The DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   DMSUnit?: string;
   isSessionShareEnabled?: boolean;
   /**
+   * @remarks
+   * The description of the workspace.
+   * 
    * @example
    * Space for test
    */
   workspaceDesc?: string;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * workspaceTest
    */

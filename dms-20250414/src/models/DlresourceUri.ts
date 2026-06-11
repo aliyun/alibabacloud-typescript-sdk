@@ -4,11 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class DLResourceUri extends $dara.Model {
   /**
+   * @remarks
+   * The resource type. Valid values:
+   * 
+   * - ARCHIVE
+   * 
+   * - JAR
+   * 
+   * - FILE
+   * 
    * @example
    * JAR
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The URL used to access the resource.
+   * 
    * @example
    * hdfs://name****.example.com:8020/user/hive/udfs/my_***.jar
    */

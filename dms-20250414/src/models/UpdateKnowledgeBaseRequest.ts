@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateKnowledgeBaseRequest extends $dara.Model {
   /**
+   * @remarks
+   * The new knowledge base description.
+   * 
    * @example
    * updated kb desc
    */
   description?: string;
   /**
    * @remarks
+   * The knowledge base ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
    */
   kbUuid?: string;
   /**
+   * @remarks
+   * The new knowledge base name.
+   * 
    * @example
    * updated kb name
    */

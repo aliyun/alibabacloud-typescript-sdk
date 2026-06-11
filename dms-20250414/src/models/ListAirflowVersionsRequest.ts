@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListAirflowVersionsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the DMS workspace.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,22 +5,42 @@ import { DLPartition } from "./Dlpartition";
 
 export class GetDataLakePartitionResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the call fails.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
+  /**
+   * @remarks
+   * The information about the data lakehouse table partition.
+   */
   partition?: DLPartition;
   /**
+   * @remarks
+   * The request ID, used for log tracing and troubleshooting.
+   * 
    * @example
    * FE8EE2F1-4880-46BC-A704-5CF63EAF****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The call was successful.
+   * 
+   * - **false**: The call failed.
+   * 
    * @example
    * true
    */

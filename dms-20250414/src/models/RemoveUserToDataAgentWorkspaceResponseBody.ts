@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveUserToDataAgentWorkspaceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * DMS-DA-40114
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned when the call fails.
+   * 
    * @example
    * Specified parameter is not valid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E0D2-*****-A63B6
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */

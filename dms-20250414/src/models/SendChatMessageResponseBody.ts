@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SendChatMessageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * AgentId
+   * The agent ID.
    * 
    * @example
-   * 3jqqdiuxunfe2f7feren21eeq
+   * 3jqqdiuxun******
    */
   agentId?: string;
   /**
    * @remarks
-   * Message
+   * Describes the result of the request.
    * 
    * @example
    * success
@@ -21,10 +21,10 @@ export class SendChatMessageResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * SessionId
+   * The session ID.
    * 
    * @example
-   * 6zbqbhoamv7gk20p8pgygt4hh
+   * 6zbqbho********
    */
   sessionId?: string;
   static names(): { [key: string]: string } {
@@ -53,25 +53,38 @@ export class SendChatMessageResponseBodyData extends $dara.Model {
 }
 
 export class SendChatMessageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: SendChatMessageResponseBodyData;
   /**
+   * @remarks
+   * The error code. A value of `Success` indicates that the request was successful.
+   * 
    * @example
    * Success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message. This field is empty if the request is successful.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * FE65CE1F-155B-1A38-9A3A-0208982C773B
+   * FE65CE1F-****-****-****-******
    */
   requestId?: string;
   /**
    * @remarks
-   * Success
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

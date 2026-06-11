@@ -5,27 +5,50 @@ import { DLTablebaseInfo } from "./DltablebaseInfo";
 
 export class ListDataLakeTablebaseInfoResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 400
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Specified parameter Rows is not valid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B43AD641-49C2-5299-9E06-1B37EC1B****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. The return values are:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
+  /**
+   * @remarks
+   * The list of data lake tables.
+   */
   tablebaseInfoList?: DLTablebaseInfo[];
   /**
+   * @remarks
+   * The number of tables that meet the conditions.
+   * 
    * @example
    * 100
    */

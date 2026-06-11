@@ -4,23 +4,43 @@ import { DLDatabase } from "./Dldatabase";
 
 
 export class UpdateDataLakeDatabaseResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the database.
+   */
   database?: DLDatabase;
   /**
+   * @remarks
+   * The error code that is returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the request fails.
+   * 
    * @example
    * UnknownError
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The ID of the request, used for log tracing and troubleshooting.
+   * 
    * @example
    * 4E1D2B4D-3E53-4ABC-999D-1D2520B3****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - **true**: The request was successful.
+   * 
+   * - **false**: The request failed.
+   * 
    * @example
    * true
    */

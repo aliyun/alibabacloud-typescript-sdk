@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteFileUploadRequest extends $dara.Model {
   /**
+   * @remarks
+   * Used by frontend only
+   * 
    * @example
    * TrailCenter
    */
   callFrom?: string;
   /**
+   * @remarks
+   * Current DMS unit
+   * 
    * @example
    * cn-hangzhou
    */
   dmsUnit?: string;
   /**
    * @remarks
+   * File ID
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,45 +5,79 @@ import { DLResourceUri } from "./DlresourceUri";
 
 export class DLFunctionInput extends $dara.Model {
   /**
+   * @remarks
+   * The Java class that contains the function code.
+   * 
    * @example
    * com.example.hive.MyCustomUDF
    */
   className?: string;
   /**
+   * @remarks
+   * The time when the function was created.
+   * 
    * @example
    * 1731586286
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who created the function.
+   * 
    * @example
    * 12****
    */
   creatorId?: number;
   /**
+   * @remarks
+   * The function name.
+   * 
    * @example
    * my_funciton
    */
   functionName?: string;
   /**
+   * @remarks
+   * The function type.
+   * 
    * @example
    * JAVA
    */
   functionType?: string;
   /**
+   * @remarks
+   * The ID of the user who modified the function.
+   * 
    * @example
    * 26****
    */
   modifierId?: number;
   /**
+   * @remarks
+   * The owner of the function.
+   * 
    * @example
    * zhangsan
    */
   ownerName?: string;
   /**
+   * @remarks
+   * The type of the owner. Valid values:
+   * 
+   * - ROLE
+   * 
+   * - GROUP
+   * 
+   * - USER
+   * 
    * @example
    * USER
    */
   ownerType?: string;
+  /**
+   * @remarks
+   * The resource URIs of the function. This parameter cannot be modified after the function is created.
+   */
   resourceUris?: DLResourceUri[];
   static names(): { [key: string]: string } {
     return {

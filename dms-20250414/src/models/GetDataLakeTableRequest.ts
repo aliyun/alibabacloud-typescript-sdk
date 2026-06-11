@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataLakeTableRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the data catalog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16,6 +18,8 @@ export class GetDataLakeTableRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
+   * The name of the database to which the table belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,6 +31,8 @@ export class GetDataLakeTableRequest extends $dara.Model {
   dbName?: string;
   /**
    * @remarks
+   * The name of the table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,11 +43,17 @@ export class GetDataLakeTableRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The tenant ID. Call the GetUserActiveTenant or ListUserTenants operation to get this ID.
+   * 
    * @example
    * 3****
    */
   tid?: number;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 12****
    */

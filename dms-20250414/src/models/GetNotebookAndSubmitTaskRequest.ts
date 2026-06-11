@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetNotebookAndSubmitTaskRequest extends $dara.Model {
   /**
    * @remarks
+   * The input parameters for the Notebook file. Pass the parameters in a dictionary format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetNotebookAndSubmitTaskRequest extends $dara.Model {
   params?: string;
   /**
    * @remarks
+   * The path of the Notebook file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,17 @@ export class GetNotebookAndSubmitTaskRequest extends $dara.Model {
    */
   path?: string;
   /**
+   * @remarks
+   * The number of retries if scheduling fails.
+   * 
    * @example
    * true
    */
   retry?: number;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -33,6 +42,9 @@ export class GetNotebookAndSubmitTaskRequest extends $dara.Model {
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 8630242382****
    */

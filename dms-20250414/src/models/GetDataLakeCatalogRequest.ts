@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataLakeCatalogRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the data catalog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15,11 +17,17 @@ export class GetDataLakeCatalogRequest extends $dara.Model {
    */
   catalogName?: string;
   /**
+   * @remarks
+   * The tenant ID. You can call the GetUserActiveTenant or ListUserTenants operation to obtain this value.
+   * 
    * @example
    * 3****
    */
   tid?: number;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 12****
    */

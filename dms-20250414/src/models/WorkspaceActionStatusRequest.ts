@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class WorkspaceActionStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique key that identifies the asynchronous task. You can obtain this key from the response of an operation, such as a deployment.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class WorkspaceActionStatusRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
+   * The ID of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example

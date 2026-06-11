@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataLakeFunctionNameRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the data catalog.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ListDataLakeFunctionNameRequest extends $dara.Model {
   catalogName?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,26 +24,47 @@ export class ListDataLakeFunctionNameRequest extends $dara.Model {
    */
   dbName?: string;
   /**
+   * @remarks
+   * A regular expression used to filter function names.
+   * 
    * @example
    * .*
    */
   functionNamePattern?: string;
   /**
+   * @remarks
+   * The page size. The maximum value is 100.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used to page through results. Set this parameter to the \\`NextToken\\` value that is returned in the last response to retrieve the next page of results. You do not need to specify this parameter for the first request.
+   * 
+   * - If **NextToken** is empty, there is no subsequent query.
+   * 
+   * - If **NextToken** returns a value, it is the token for the next query.
+   * 
    * @example
    * f056501ada12****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
+   * > Hover over your profile picture in the upper-right corner of the DMS console to obtain the tenant ID. For details, see [View tenant information](https://help.aliyun.com/document_detail/181330.html).
+   * 
    * @example
    * 3****
    */
   tid?: number;
   /**
+   * @remarks
+   * The ID of the workspace.
+   * 
    * @example
    * 12****
    */

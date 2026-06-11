@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetWorkspaceCodeRequest extends $dara.Model {
   /**
+   * @remarks
+   * If the file is in JSON format, set this parameter to `true` to convert the returned content to YAML format.
+   * 
    * @example
    * false
    */
   iac?: string;
   /**
    * @remarks
+   * The path to the code file. For example: `/Workspace/code/test.py`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class GetWorkspaceCodeRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
+   * The ID of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example

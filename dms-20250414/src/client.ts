@@ -30,7 +30,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为空间添加用户
+   * Adds a user to a specified workspace.
    * 
    * @param request - AddUserToDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为空间添加用户
+   * Adds a user to a specified workspace.
    * 
    * @param request - AddUserToDataAgentWorkspaceRequest
    * @returns AddUserToDataAgentWorkspaceResponse
@@ -84,7 +84,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量新建湖仓表分区
+   * Creates partitions for a data lake table in a batch.
    * 
    * @param tmpReq - BatchCreateDataLakePartitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -151,7 +151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量新建湖仓表分区
+   * Creates partitions for a data lake table in a batch.
    * 
    * @param request - BatchCreateDataLakePartitionsRequest
    * @returns BatchCreateDataLakePartitionsResponse
@@ -162,7 +162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除湖仓表分区
+   * Batch deletes partitions from a data lake table.
    * 
    * @param request - BatchDeleteDataLakePartitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除湖仓表分区
+   * Batch deletes partitions from a data lake table.
    * 
    * @param request - BatchDeleteDataLakePartitionsRequest
    * @returns BatchDeleteDataLakePartitionsResponse
@@ -228,7 +228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新湖仓表分区
+   * Update partitions in a data lake table in batch.
    * 
    * @param tmpReq - BatchUpdateDataLakePartitionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -287,7 +287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量更新湖仓表分区
+   * Update partitions in a data lake table in batch.
    * 
    * @param request - BatchUpdateDataLakePartitionsRequest
    * @returns BatchUpdateDataLakePartitionsResponse
@@ -298,7 +298,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Airflow实例的自定义配置
+   * Update an Airflow instance\\"s custom configuration
+   * 
+   * @remarks
+   * Configure the airflow\\.cfg file for DMS Airflow.
    * 
    * @param tmpReq - ConfigAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -343,7 +346,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Airflow实例的自定义配置
+   * Update an Airflow instance\\"s custom configuration
+   * 
+   * @remarks
+   * Configure the airflow\\.cfg file for DMS Airflow.
    * 
    * @param request - ConfigAirflowRequest
    * @returns ConfigAirflowResponse
@@ -354,7 +360,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Airflow
+   * Creates an Airflow instance in a workspace.
+   * 
+   * @remarks
+   * Creates an Airflow instance in a workspace.
    * 
    * @param tmpReq - CreateAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -467,7 +476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Airflow
+   * Creates an Airflow instance in a workspace.
+   * 
+   * @remarks
+   * Creates an Airflow instance in a workspace.
    * 
    * @param request - CreateAirflowRequest
    * @returns CreateAirflowResponse
@@ -478,7 +490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Airflow logon credential. You can use this credential to log on to the DMS-managed Airflow instance.
+   * Obtains logon credentials for an Airflow instance hosted by Data Management Service (DMS). Use the returned token and host endpoint to construct a logon URL for the Airflow web UI.
    * 
    * @param request - CreateAirflowLoginTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -509,7 +521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Airflow logon credential. You can use this credential to log on to the DMS-managed Airflow instance.
+   * Obtains logon credentials for an Airflow instance hosted by Data Management Service (DMS). Use the returned token and host endpoint to construct a logon URL for the Airflow web UI.
    * 
    * @param request - CreateAirflowLoginTokenRequest
    * @returns CreateAirflowLoginTokenResponse
@@ -520,7 +532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateCustomAgent
+   * Create a custom agent in your personal space or a workspace.
    * 
    * @param tmpReq - CreateCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -621,7 +633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateCustomAgent
+   * Create a custom agent in your personal space or a workspace.
    * 
    * @param request - CreateCustomAgentRequest
    * @returns CreateCustomAgentResponse
@@ -632,7 +644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateDataAgentKnowledgeBase
+   * Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
    * 
    * @param request - CreateDataAgentKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -679,7 +691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateDataAgentKnowledgeBase
+   * Creates a DataAgent knowledge base. The knowledge base creator has read and write permissions. Other workspace members have permission to use it.
    * 
    * @param request - CreateDataAgentKnowledgeBaseRequest
    * @returns CreateDataAgentKnowledgeBaseResponse
@@ -690,7 +702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateDataAgentSession
+   * Create a DataAgent session
    * 
    * @param tmpReq - CreateDataAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -743,7 +755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateDataAgentSession
+   * Create a DataAgent session
    * 
    * @param request - CreateDataAgentSessionRequest
    * @returns CreateDataAgentSessionResponse
@@ -754,7 +766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建DataAgent工作空间
+   * Creates a DataAgent workspace.
    * 
    * @param request - CreateDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -797,7 +809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建DataAgent工作空间
+   * Creates a DataAgent workspace.
    * 
    * @param request - CreateDataAgentWorkspaceRequest
    * @returns CreateDataAgentWorkspaceResponse
@@ -808,7 +820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓数据库
+   * Creates a data lake database.
    * 
    * @param tmpReq - CreateDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -869,7 +881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓数据库
+   * Creates a data lake database.
    * 
    * @param request - CreateDataLakeDatabaseRequest
    * @returns CreateDataLakeDatabaseResponse
@@ -880,7 +892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓自定义函数
+   * Creates a user-defined function (UDF) for a data lake.
    * 
    * @param tmpReq - CreateDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -935,7 +947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓自定义函数
+   * Creates a user-defined function (UDF) for a data lake.
    * 
    * @param request - CreateDataLakeFunctionRequest
    * @returns CreateDataLakeFunctionResponse
@@ -946,7 +958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓表分区
+   * Creates a partition for a data lake table.
    * 
    * @param tmpReq - CreateDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1013,7 +1025,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓表分区
+   * Creates a partition for a data lake table.
    * 
    * @param request - CreateDataLakePartitionRequest
    * @returns CreateDataLakePartitionResponse
@@ -1024,7 +1036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓表
+   * Creates a data lake table in Data Management (DMS).
    * 
    * @param tmpReq - CreateDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1079,7 +1091,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建湖仓表
+   * Creates a data lake table in Data Management (DMS).
    * 
    * @param request - CreateDataLakeTableRequest
    * @returns CreateDataLakeTableResponse
@@ -1090,7 +1102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Airflow
+   * Deletes an Airflow instance.
    * 
    * @param request - DeleteAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1129,7 +1141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Airflow
+   * Deletes an Airflow instance.
    * 
    * @param request - DeleteAirflowRequest
    * @returns DeleteAirflowResponse
@@ -1140,7 +1152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteCustomAgent
+   * Delete a custom agent in your personal workspace or a shared workspace. Note: Only custom agents that are newly created or offline can be deleted.
    * 
    * @param request - DeleteCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1175,7 +1187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteCustomAgent
+   * Delete a custom agent in your personal workspace or a shared workspace. Note: Only custom agents that are newly created or offline can be deleted.
    * 
    * @param request - DeleteCustomAgentRequest
    * @returns DeleteCustomAgentResponse
@@ -1186,7 +1198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteDataAgentKnowledgeBase
+   * Deletes a DataAgent knowledge base.
    * 
    * @param request - DeleteDataAgentKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1225,7 +1237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteDataAgentKnowledgeBase
+   * Deletes a DataAgent knowledge base.
    * 
    * @param request - DeleteDataAgentKnowledgeBaseRequest
    * @returns DeleteDataAgentKnowledgeBaseResponse
@@ -1236,7 +1248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DataAgent工作空间
+   * Deletes a DataAgent workspace.
    * 
    * @param request - DeleteDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1271,7 +1283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DataAgent工作空间
+   * Deletes a DataAgent workspace.
    * 
    * @param request - DeleteDataAgentWorkspaceRequest
    * @returns DeleteDataAgentWorkspaceResponse
@@ -1282,7 +1294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓数据库
+   * Deletes a data lake database.
    * 
    * @param request - DeleteDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1325,7 +1337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓数据库
+   * Deletes a data lake database.
    * 
    * @param request - DeleteDataLakeDatabaseRequest
    * @returns DeleteDataLakeDatabaseResponse
@@ -1336,7 +1348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓自定义函数
+   * Deletes a user-defined function in a data lake.
    * 
    * @param request - DeleteDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1383,7 +1395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓自定义函数
+   * Deletes a user-defined function in a data lake.
    * 
    * @param request - DeleteDataLakeFunctionRequest
    * @returns DeleteDataLakeFunctionResponse
@@ -1394,7 +1406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓表分区
+   * Deletes a partition from a data lake table.
    * 
    * @param tmpReq - DeleteDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1455,7 +1467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓表分区
+   * Deletes a partition from a data lake table.
    * 
    * @param request - DeleteDataLakePartitionRequest
    * @returns DeleteDataLakePartitionResponse
@@ -1466,7 +1478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓表
+   * Deletes a data lake table.
    * 
    * @param request - DeleteDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1513,7 +1525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除湖仓表
+   * Deletes a data lake table.
    * 
    * @param request - DeleteDataLakeTableRequest
    * @returns DeleteDataLakeTableResponse
@@ -1524,7 +1536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除文档
+   * Deletes a document from a specified knowledge base.
    * 
    * @param request - DeleteDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1559,7 +1571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除文档
+   * Deletes a document from a specified knowledge base.
    * 
    * @param request - DeleteDocumentRequest
    * @returns DeleteDocumentResponse
@@ -1570,7 +1582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除onemeta3.0的知识库chunks
+   * Deletes chunks from a document in a knowledge base.
    * 
    * @param tmpReq - DeleteDocumentChunksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1615,7 +1627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除onemeta3.0的知识库chunks
+   * Deletes chunks from a document in a knowledge base.
    * 
    * @param request - DeleteDocumentChunksRequest
    * @returns DeleteDocumentChunksResponse
@@ -1676,7 +1688,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间代码以及目录
+   * Deletes a code file or directory from a workspace.
+   * 
+   * @remarks
+   * This operation permanently removes a specified code file or directory.
    * 
    * @param request - DeleteWorkspaceCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1719,7 +1734,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除工作空间代码以及目录
+   * Deletes a code file or directory from a workspace.
+   * 
+   * @remarks
+   * This operation permanently removes a specified code file or directory.
    * 
    * @param request - DeleteWorkspaceCodeRequest
    * @returns DeleteWorkspaceCodeResponse
@@ -1730,7 +1748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeCustomAgent
+   * `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1765,7 +1783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeCustomAgent
+   * `DescribeCustomAgent` retrieves the details of a custom agent by its agent ID.
    * 
    * @param request - DescribeCustomAgentRequest
    * @returns DescribeCustomAgentResponse
@@ -1776,7 +1794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeDataAgentSession
+   * Gets the details of a DataAgent session.
    * 
    * @param request - DescribeDataAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1815,7 +1833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeDataAgentSession
+   * Gets the details of a DataAgent session.
    * 
    * @param request - DescribeDataAgentSessionRequest
    * @returns DescribeDataAgentSessionResponse
@@ -1826,7 +1844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档详情
+   * Retrieves the details of a specific document.
    * 
    * @param request - DescribeDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1861,7 +1879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档详情
+   * Retrieves the details of a specific document.
    * 
    * @param request - DescribeDocumentRequest
    * @returns DescribeDocumentResponse
@@ -1918,7 +1936,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取onemeta3.0的知识库统计信息
+   * Retrieves the statistics of a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseStatsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1949,7 +1967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取onemeta3.0的知识库统计信息
+   * Retrieves the statistics of a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseStatsRequest
    * @returns DescribeKnowledgeBaseStatsResponse
@@ -1960,7 +1978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取知识库中的上传签名
+   * Generates a signature to upload a document to a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseUploadSignatureRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1991,7 +2009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取知识库中的上传签名
+   * Generates a signature to upload a document to a knowledge base.
    * 
    * @param request - DescribeKnowledgeBaseUploadSignatureRequest
    * @returns DescribeKnowledgeBaseUploadSignatureResponse
@@ -2064,7 +2082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 Airflow
+   * Queries the configuration and status of an Airflow instance.
    * 
    * @param request - GetAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2099,7 +2117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 Airflow
+   * Queries the configuration and status of an Airflow instance.
    * 
    * @param request - GetAirflowRequest
    * @returns GetAirflowResponse
@@ -2110,7 +2128,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetChatContent
+   * Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+   * 
+   * @remarks
+   * ## Request
+   * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
+   * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
    * 
    * @param request - GetChatContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2167,7 +2190,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetChatContent
+   * Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+   * 
+   * @remarks
+   * ## Request
+   * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
+   * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
    * 
    * @param request - GetChatContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2210,7 +2238,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetChatContent
+   * Retrieves chat content from a specific checkpoint by specifying a session ID and an agent ID.
+   * 
+   * @remarks
+   * ## Request
+   * - The response is an SSE stream. Each event follows the`SSEEvent` schema and includes metadata, such as the message level.
+   * - The `content` field contains either message text or a JSON object, as determined by the `content_type` field.
    * 
    * @param request - GetChatContentRequest
    * @returns GetChatContentResponse
@@ -2221,7 +2254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取主账号下的子账号信息
+   * Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
    * 
    * @param request - GetDataAgentSubAccountInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2256,7 +2289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取主账号下的子账号信息
+   * Retrieves information about a RAM user that belongs to an Alibaba Cloud account.
    * 
    * @param request - GetDataAgentSubAccountInfoRequest
    * @returns GetDataAgentSubAccountInfoResponse
@@ -2267,7 +2300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取空间信息
+   * Retrieves workspace details.
    * 
    * @param request - GetDataAgentWorkspaceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2302,7 +2335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取空间信息
+   * Retrieves workspace details.
    * 
    * @param request - GetDataAgentWorkspaceInfoRequest
    * @returns GetDataAgentWorkspaceInfoResponse
@@ -2313,7 +2346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取uc的数据库目录
+   * Retrieves the data catalog of a data lake.
    * 
    * @param request - GetDataLakeCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2352,7 +2385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取uc的数据库目录
+   * Retrieves the data catalog of a data lake.
    * 
    * @param request - GetDataLakeCatalogRequest
    * @returns GetDataLakeCatalogResponse
@@ -2363,7 +2396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取UC的数据库
+   * Retrieves information about a database in a data lake.
    * 
    * @param request - GetDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2406,7 +2439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取UC的数据库
+   * Retrieves information about a database in a data lake.
    * 
    * @param request - GetDataLakeDatabaseRequest
    * @returns GetDataLakeDatabaseResponse
@@ -2417,7 +2450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取湖仓自定义函数详细信息
+   * Retrieves the details of a user-defined function in a data lake.
    * 
    * @param request - GetDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2464,7 +2497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取湖仓自定义函数详细信息
+   * Retrieves the details of a user-defined function in a data lake.
    * 
    * @param request - GetDataLakeFunctionRequest
    * @returns GetDataLakeFunctionResponse
@@ -2475,7 +2508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取湖仓表分区详情
+   * Retrieves the details of a data lakehouse table partition.
    * 
    * @param tmpReq - GetDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2532,7 +2565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取湖仓表分区详情
+   * Retrieves the details of a data lakehouse table partition.
    * 
    * @param request - GetDataLakePartitionRequest
    * @returns GetDataLakePartitionResponse
@@ -2543,7 +2576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表信息
+   * Retrieves information about a table in a data lake.
    * 
    * @param request - GetDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2590,7 +2623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表信息
+   * Retrieves information about a table in a data lake.
    * 
    * @param request - GetDataLakeTableRequest
    * @returns GetDataLakeTableResponse
@@ -2601,7 +2634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调度运行Notebook文件
+   * Submits a task to schedule and run a Notebook file.
    * 
    * @param request - GetNotebookAndSubmitTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2650,7 +2683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调度运行Notebook文件
+   * Submits a task to schedule and run a Notebook file.
    * 
    * @param request - GetNotebookAndSubmitTaskRequest
    * @returns GetNotebookAndSubmitTaskResponse
@@ -2661,7 +2694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看Notebook任务运行结果
+   * Retrieves the execution status of a Notebook task.
    * 
    * @param request - GetNotebookTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2700,7 +2733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看Notebook任务运行结果
+   * Retrieves the execution status of a Notebook task.
    * 
    * @param request - GetNotebookTaskStatusRequest
    * @returns GetNotebookTaskStatusResponse
@@ -2711,7 +2744,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 读取工作空间的代码文件内容
+   * Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+   * 
+   * @remarks
+   * Retrieves the content of a specified code file from a workspace.
    * 
    * @param request - GetWorkspaceCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2750,7 +2786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 读取工作空间的代码文件内容
+   * Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+   * 
+   * @remarks
+   * Retrieves the content of a specified code file from a workspace.
    * 
    * @param request - GetWorkspaceCodeRequest
    * @returns GetWorkspaceCodeResponse
@@ -2761,7 +2800,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间发布配置
+   * Retrieves the deployment configuration of a workspace.
+   * 
+   * @remarks
+   * This operation retrieves the deployment configuration of a workspace. The configuration includes details such as repository and branch information, and directories to exclude.
    * 
    * @param request - GetWorkspaceCodePublishSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2792,7 +2834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间发布配置
+   * Retrieves the deployment configuration of a workspace.
+   * 
+   * @remarks
+   * This operation retrieves the deployment configuration of a workspace. The configuration includes details such as repository and branch information, and directories to exclude.
    * 
    * @param request - GetWorkspaceCodePublishSettingRequest
    * @returns GetWorkspaceCodePublishSettingResponse
@@ -2803,7 +2848,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间配额
+   * Returns the quota for a workspace.
+   * 
+   * @remarks
+   * Retrieves the resource quotas and instance status for a workspace.
    * 
    * @param request - GetWorkspaceQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2834,7 +2882,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作空间配额
+   * Returns the quota for a workspace.
+   * 
+   * @remarks
+   * Retrieves the resource quotas and instance status for a workspace.
    * 
    * @param request - GetWorkspaceQuotaRequest
    * @returns GetWorkspaceQuotaResponse
@@ -2845,7 +2896,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取可用的Airflow版本列表
+   * Lists the available Airflow versions.
+   * 
+   * @remarks
+   * Lists the available Airflow versions.
    * 
    * @param request - ListAirflowVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2876,7 +2930,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取可用的Airflow版本列表
+   * Lists the available Airflow versions.
+   * 
+   * @remarks
+   * Lists the available Airflow versions.
    * 
    * @param request - ListAirflowVersionsRequest
    * @returns ListAirflowVersionsResponse
@@ -2887,7 +2944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出资源Airflow
+   * Retrieves a list of Airflow instances in a workspace.
    * 
    * @param request - ListAirflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2934,7 +2991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出资源Airflow
+   * Retrieves a list of Airflow instances in a workspace.
    * 
    * @param request - ListAirflowsRequest
    * @returns ListAirflowsResponse
@@ -2945,7 +3002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListCustomAgent
+   * ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
    * 
    * @param request - ListCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2996,7 +3053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListCustomAgent
+   * ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
    * 
    * @param request - ListCustomAgentRequest
    * @returns ListCustomAgentResponse
@@ -3007,7 +3064,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataAgentSession
+   * Retrieve a list of Data Agent session descriptions.
    * 
    * @param request - ListDataAgentSessionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3074,7 +3131,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataAgentSession
+   * Retrieve a list of Data Agent session descriptions.
    * 
    * @param request - ListDataAgentSessionRequest
    * @returns ListDataAgentSessionResponse
@@ -3085,7 +3142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取主账号下的空间（分页）
+   * Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3148,7 +3205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取主账号下的空间（分页）
+   * Retrieves paginated collaboration workspaces for an Alibaba Cloud account.
    * 
    * @param request - ListDataAgentWorkspaceRequest
    * @returns ListDataAgentWorkspaceResponse
@@ -3159,7 +3216,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取空间所有成员
+   * Lists all members in a workspace.
    * 
    * @param request - ListDataAgentWorkspaceMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3226,7 +3283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取空间所有成员
+   * Lists all members in a workspace.
    * 
    * @param request - ListDataAgentWorkspaceMemberRequest
    * @returns ListDataAgentWorkspaceMemberResponse
@@ -3237,7 +3294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataCenterDatabase
+   * Lists user-uploaded files in a data center, excluding databases.
    * 
    * @param request - ListDataCenterDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3284,7 +3341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataCenterDatabase
+   * Lists user-uploaded files in a data center, excluding databases.
    * 
    * @param request - ListDataCenterDatabaseRequest
    * @returns ListDataCenterDatabaseResponse
@@ -3295,7 +3352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataCenterTable
+   * Retrieves a list of user-uploaded tables from the data center, for file types only.
    * 
    * @param request - ListDataCenterTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3358,7 +3415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataCenterTable
+   * Retrieves a list of user-uploaded tables from the data center, for file types only.
    * 
    * @param request - ListDataCenterTableRequest
    * @returns ListDataCenterTableResponse
@@ -3369,7 +3426,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取uc的数据库目录列表
+   * Retrieves a list of data lake catalogs.
    * 
    * @param request - ListDataLakeCatalogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3408,7 +3465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取uc的数据库目录列表
+   * Retrieves a list of data lake catalogs.
    * 
    * @param request - ListDataLakeCatalogRequest
    * @returns ListDataLakeCatalogResponse
@@ -3419,7 +3476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据库列表
+   * Retrieves a list of databases in a data lake.
    * 
    * @param request - ListDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3470,7 +3527,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据库列表
+   * Retrieves a list of databases in a data lake.
    * 
    * @param request - ListDataLakeDatabaseRequest
    * @returns ListDataLakeDatabaseResponse
@@ -3481,7 +3538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖函数列表
+   * Retrieves a list of data lake functions.
    * 
    * @param request - ListDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3536,7 +3593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖函数列表
+   * Retrieves a list of data lake functions.
    * 
    * @param request - ListDataLakeFunctionRequest
    * @returns ListDataLakeFunctionResponse
@@ -3547,7 +3604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖函数名列表
+   * Retrieves a list of data lake function names.
    * 
    * @param request - ListDataLakeFunctionNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3602,7 +3659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖函数名列表
+   * Retrieves a list of data lake function names.
    * 
    * @param request - ListDataLakeFunctionNameRequest
    * @returns ListDataLakeFunctionNameResponse
@@ -3613,7 +3670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表分区列表
+   * Retrieves the list of partitions of a data lake table.
    * 
    * @param tmpReq - ListDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3680,7 +3737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表分区列表
+   * Retrieves the list of partitions of a data lake table.
    * 
    * @param request - ListDataLakePartitionRequest
    * @returns ListDataLakePartitionResponse
@@ -3691,7 +3748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据筛选条件获取数据湖表分区列表
+   * Retrieves a list of partitions for a data lake table based on filter conditions.
    * 
    * @param request - ListDataLakePartitionByFilterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3752,7 +3809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据筛选条件获取数据湖表分区列表
+   * Retrieves a list of partitions for a data lake table based on filter conditions.
    * 
    * @param request - ListDataLakePartitionByFilterRequest
    * @returns ListDataLakePartitionByFilterResponse
@@ -3763,7 +3820,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表分区名列表
+   * Retrieves a list of partition names for a data lake table.
    * 
    * @param request - ListDataLakePartitionNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3818,7 +3875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表分区名列表
+   * Retrieves a list of partition names for a data lake table.
    * 
    * @param request - ListDataLakePartitionNameRequest
    * @returns ListDataLakePartitionNameResponse
@@ -3829,7 +3886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表列表
+   * Retrieves a list of data lake tables.
    * 
    * @param request - ListDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3888,7 +3945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表列表
+   * Retrieves a list of data lake tables.
    * 
    * @param request - ListDataLakeTableRequest
    * @returns ListDataLakeTableResponse
@@ -3899,7 +3956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表名列表
+   * Retrieves a list of data lake table names.
    * 
    * @param request - ListDataLakeTableNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3958,7 +4015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据湖表名列表
+   * Retrieves a list of data lake table names.
    * 
    * @param request - ListDataLakeTableNameRequest
    * @returns ListDataLakeTableNameResponse
@@ -3969,7 +4026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表信息
+   * Retrieves the basic information about tables in a data lake.
    * 
    * @param request - ListDataLakeTablebaseInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4024,7 +4081,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取表信息
+   * Retrieves the basic information about tables in a data lake.
    * 
    * @param request - ListDataLakeTablebaseInfoRequest
    * @returns ListDataLakeTablebaseInfoResponse
@@ -4035,7 +4092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询onemeta3.0的知识库chunks
+   * Queries a list of chunks.
    * 
    * @param request - ListDocumentChunksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4090,7 +4147,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询onemeta3.0的知识库chunks
+   * Queries a list of chunks.
    * 
    * @param request - ListDocumentChunksRequest
    * @returns ListDocumentChunksResponse
@@ -4101,7 +4158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档列表
+   * Lists the documents in a knowledge base.
    * 
    * @param request - ListDocumentsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4156,7 +4213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文档列表
+   * Lists the documents in a knowledge base.
    * 
    * @param request - ListDocumentsRequest
    * @returns ListDocumentsResponse
@@ -4241,7 +4298,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询onemeta3.0的知识库
+   * Returns a paginated list of knowledge bases.
    * 
    * @param request - ListKnowledgeBasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4296,7 +4353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询onemeta3.0的知识库
+   * Returns a paginated list of knowledge bases.
    * 
    * @param request - ListKnowledgeBasesRequest
    * @returns ListKnowledgeBasesResponse
@@ -4307,7 +4364,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作空间目录下的code文件
+   * Lists code files and directories at a specified path in a workspace.
+   * 
+   * @remarks
+   * This operation lists the code files and directories at a specified path in a workspace.
    * 
    * @param request - ListWorkspaceCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4342,7 +4402,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出工作空间目录下的code文件
+   * Lists code files and directories at a specified path in a workspace.
+   * 
+   * @remarks
+   * This operation lists the code files and directories at a specified path in a workspace.
    * 
    * @param request - ListWorkspaceCodeRequest
    * @returns ListWorkspaceCodeResponse
@@ -4353,7 +4416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyCustomAgent
+   * Modify a custom agent in a personal space or workspace
    * 
    * @param tmpReq - ModifyCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4458,7 +4521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ModifyCustomAgent
+   * Modify a custom agent in a personal space or workspace
    * 
    * @param request - ModifyCustomAgentRequest
    * @returns ModifyCustomAgentResponse
@@ -4469,7 +4532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OperateCustomAgent
+   * Operate custom agents in personal spaces and workspaces.
    * 
    * @param request - OperateCustomAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4508,7 +4571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * OperateCustomAgent
+   * Operate custom agents in personal spaces and workspaces.
    * 
    * @param request - OperateCustomAgentRequest
    * @returns OperateCustomAgentResponse
@@ -4519,7 +4582,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重新部署Airflow实例
+   * Redeploy an Airflow instance
+   * 
+   * @remarks
+   * Redeploys an Airflow instance.
    * 
    * @param request - RedeployAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4554,7 +4620,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重新部署Airflow实例
+   * Redeploy an Airflow instance
+   * 
+   * @remarks
+   * Redeploys an Airflow instance.
    * 
    * @param request - RedeployAirflowRequest
    * @returns RedeployAirflowResponse
@@ -4565,7 +4634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从空间中移除用户
+   * Removes a user from a workspace.
    * 
    * @param request - RemoveUserToDataAgentWorkspaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4604,7 +4673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 从空间中移除用户
+   * Removes a user from a workspace.
    * 
    * @param request - RemoveUserToDataAgentWorkspaceRequest
    * @returns RemoveUserToDataAgentWorkspaceResponse
@@ -4615,7 +4684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检索知识库
+   * Query a knowledge base
    * 
    * @param request - RetrieveKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4694,7 +4763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检索知识库
+   * Query a knowledge base
    * 
    * @param request - RetrieveKnowledgeBaseRequest
    * @returns RetrieveKnowledgeBaseResponse
@@ -4705,7 +4774,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存工作空间代码，如果文件不存在则自动新建
+   * Saves code in a workspace and creates the file if it does not exist.
+   * 
+   * @remarks
+   * Saves code in a workspace and optionally publishes it to a repository.
    * 
    * @param request - SaveWorkspaceCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4714,33 +4786,33 @@ export default class Client extends OpenApi {
   async saveWorkspaceCodeWithOptions(request: $_model.SaveWorkspaceCodeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveWorkspaceCodeResponse> {
     request.validate();
     let query = { };
-    if (!$dara.isNull(request.content)) {
-      query["Content"] = request.content;
-    }
-
-    if (!$dara.isNull(request.force)) {
-      query["Force"] = request.force;
-    }
-
-    if (!$dara.isNull(request.iac)) {
-      query["Iac"] = request.iac;
-    }
-
-    if (!$dara.isNull(request.mtime)) {
-      query["Mtime"] = request.mtime;
-    }
-
-    if (!$dara.isNull(request.repo)) {
-      query["Repo"] = request.repo;
-    }
-
     if (!$dara.isNull(request.workspaceId)) {
       query["WorkspaceId"] = request.workspaceId;
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!$dara.isNull(request.force)) {
+      body["Force"] = request.force;
+    }
+
+    if (!$dara.isNull(request.iac)) {
+      body["Iac"] = request.iac;
+    }
+
+    if (!$dara.isNull(request.mtime)) {
+      body["Mtime"] = request.mtime;
+    }
+
     if (!$dara.isNull(request.path)) {
       body["Path"] = request.path;
+    }
+
+    if (!$dara.isNull(request.repo)) {
+      body["Repo"] = request.repo;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -4762,7 +4834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存工作空间代码，如果文件不存在则自动新建
+   * Saves code in a workspace and creates the file if it does not exist.
+   * 
+   * @remarks
+   * Saves code in a workspace and optionally publishes it to a repository.
    * 
    * @param request - SaveWorkspaceCodeRequest
    * @returns SaveWorkspaceCodeResponse
@@ -4773,7 +4848,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SendChatMessage
+   * Sends a user message to a specified session or ends the session.
+   * 
+   * @remarks
+   * ## Request
+   * - The `agent_id` and `session_id` fields are required.
+   * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
+   * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+   * - When `message_type` is `additional`, the `question` field is required.
+   * - Use the `quoted_message` field to reference a previous user message.
+   * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
    * 
    * @param tmpReq - SendChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4862,7 +4946,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SendChatMessage
+   * Sends a user message to a specified session or ends the session.
+   * 
+   * @remarks
+   * ## Request
+   * - The `agent_id` and `session_id` fields are required.
+   * - The `message_type` field defaults to `primary`. Set it to `additional` to append information or to `cancel` to end the session.
+   * - The `reply_to` field specifies which agent message the current message is a response to. It defaults to `0`.
+   * - When `message_type` is `additional`, the `question` field is required.
+   * - Use the `quoted_message` field to reference a previous user message.
+   * - The optional fields `data_source`, `dms_user`, `db_metadata`, and `session_config` provide more detailed context.
    * 
    * @param request - SendChatMessageRequest
    * @returns SendChatMessageResponse
@@ -4873,7 +4966,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置工作空间代码发布配置
+   * Sets the code deployment configuration for a workspace. This is an asynchronous operation that returns a key. Use this key to query the operation\\"s status by calling the WorkspaceActionStatus operation.
+   * 
+   * @remarks
+   * Sets the default code deployment configuration for a workspace. This configuration includes the Git repository branch and the directories to exclude from deployment.
    * 
    * @param request - SetWorkspaceCodePublishSettingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4910,7 +5006,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置工作空间代码发布配置
+   * Sets the code deployment configuration for a workspace. This is an asynchronous operation that returns a key. Use this key to query the operation\\"s status by calling the WorkspaceActionStatus operation.
+   * 
+   * @remarks
+   * Sets the default code deployment configuration for a workspace. This configuration includes the Git repository branch and the directories to exclude from deployment.
    * 
    * @param request - SetWorkspaceCodePublishSettingRequest
    * @returns SetWorkspaceCodePublishSettingResponse
@@ -4921,7 +5020,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置工作空间配额
+   * Sets the quota for a workspace.
+   * 
+   * @remarks
+   * Sets the quota for a specific workspace.
    * 
    * @param request - SetWorkspaceQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4968,7 +5070,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置工作空间配额
+   * Sets the quota for a workspace.
+   * 
+   * @remarks
+   * Sets the quota for a specific workspace.
    * 
    * @param request - SetWorkspaceQuotaRequest
    * @returns SetWorkspaceQuotaResponse
@@ -4979,7 +5084,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新UpdateAirflow
+   * Updates the properties of an Airflow instance.
    * 
    * @param tmpReq - UpdateAirflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5068,7 +5173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新UpdateAirflow
+   * Updates the properties of an Airflow instance.
    * 
    * @param request - UpdateAirflowRequest
    * @returns UpdateAirflowResponse
@@ -5079,7 +5184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新空间的信息
+   * Updates workspace information.
    * 
    * @param request - UpdateDataAgentSpaceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5126,7 +5231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新空间的信息
+   * Updates workspace information.
    * 
    * @param request - UpdateDataAgentSpaceInfoRequest
    * @returns UpdateDataAgentSpaceInfoResponse
@@ -5137,7 +5242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调整空间成员的角色
+   * Changes the role of a workspace member.
    * 
    * @param request - UpdateDataAgentWorkspaceMemberRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5180,7 +5285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调整空间成员的角色
+   * Changes the role of a workspace member.
    * 
    * @param request - UpdateDataAgentWorkspaceMemberRoleRequest
    * @returns UpdateDataAgentWorkspaceMemberRoleResponse
@@ -5191,7 +5296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓数据库
+   * Updates the information of a data lakehouse database.
    * 
    * @param tmpReq - UpdateDataLakeDatabaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5252,7 +5357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓数据库
+   * Updates the information of a data lakehouse database.
    * 
    * @param request - UpdateDataLakeDatabaseRequest
    * @returns UpdateDataLakeDatabaseResponse
@@ -5263,7 +5368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓自定义函数
+   * Update a user-defined function in a data lake.
    * 
    * @param tmpReq - UpdateDataLakeFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5322,7 +5427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓自定义函数
+   * Update a user-defined function in a data lake.
    * 
    * @param request - UpdateDataLakeFunctionRequest
    * @returns UpdateDataLakeFunctionResponse
@@ -5333,7 +5438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓表分区
+   * Updates the partition information of a data lake table.
    * 
    * @param tmpReq - UpdateDataLakePartitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5392,7 +5497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓表分区
+   * Updates the partition information of a data lake table.
    * 
    * @param request - UpdateDataLakePartitionRequest
    * @returns UpdateDataLakePartitionResponse
@@ -5403,7 +5508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓表信息
+   * Updates the information of a data lake table.
    * 
    * @param tmpReq - UpdateDataLakeTableRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5462,7 +5567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新湖仓表信息
+   * Updates the information of a data lake table.
    * 
    * @param request - UpdateDataLakeTableRequest
    * @returns UpdateDataLakeTableResponse
@@ -5473,7 +5578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新文档
+   * Updates the description of a document.
    * 
    * @param request - UpdateDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5512,7 +5617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新文档
+   * Updates the description of a document.
    * 
    * @param request - UpdateDocumentRequest
    * @returns UpdateDocumentResponse
@@ -5523,7 +5628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新onemeta3.0的知识库
+   * Updates a knowledge base.
    * 
    * @param request - UpdateKnowledgeBaseRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5562,7 +5667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新onemeta3.0的知识库
+   * Updates a knowledge base.
    * 
    * @param request - UpdateKnowledgeBaseRequest
    * @returns UpdateKnowledgeBaseResponse
@@ -5573,7 +5678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传文档
+   * Uploads a document to a knowledge base.
    * 
    * @param tmpReq - UploadDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5654,7 +5759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传文档
+   * Uploads a document to a knowledge base.
    * 
    * @param request - UploadDocumentRequest
    * @returns UploadDocumentResponse
@@ -5665,7 +5770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新或插入onemeta3.0的知识库chunks
+   * Upserts document chunks into a knowledge base.
    * 
    * @param request - UpsertDocumentChunksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5704,7 +5809,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新或插入onemeta3.0的知识库chunks
+   * Upserts document chunks into a knowledge base.
    * 
    * @param request - UpsertDocumentChunksRequest
    * @returns UpsertDocumentChunksResponse
@@ -5715,7 +5820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工作空间异步操作日志查询接口
+   * Queries the log of an asynchronous task in a workspace.
+   * 
+   * @remarks
+   * Pass the `key` to view the execution log of the corresponding asynchronous task. Use this API for troubleshooting.
    * 
    * @param request - WorkspaceActionLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5750,7 +5858,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工作空间异步操作日志查询接口
+   * Queries the log of an asynchronous task in a workspace.
+   * 
+   * @remarks
+   * Pass the `key` to view the execution log of the corresponding asynchronous task. Use this API for troubleshooting.
    * 
    * @param request - WorkspaceActionLogRequest
    * @returns WorkspaceActionLogResponse
@@ -5761,7 +5872,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工作空间异步操作状态查询接口
+   * Queries the status of an asynchronous task in a workspace. Operations such as a deployment return a key. Call this operation with the key to retrieve the task\\"s status.
+   * 
+   * @remarks
+   * Provide the key returned by an asynchronous action, such as a deployment, to retrieve the task\\"s status.
    * 
    * @param request - WorkspaceActionStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5796,7 +5910,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工作空间异步操作状态查询接口
+   * Queries the status of an asynchronous task in a workspace. Operations such as a deployment return a key. Call this operation with the key to retrieve the task\\"s status.
+   * 
+   * @remarks
+   * Provide the key returned by an asynchronous action, such as a deployment, to retrieve the task\\"s status.
    * 
    * @param request - WorkspaceActionStatusRequest
    * @returns WorkspaceActionStatusResponse
@@ -5807,7 +5924,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+   * This asynchronous API returns a key. Use this key to query the WorkspaceActionStatus API for the code deployment status.
+   * 
+   * @remarks
+   * Deploys the code in a workspace.
    * 
    * @param request - WorkspaceCodePublishRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5844,7 +5964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 工作空间代码发布。这是个异步接口，请求返回一个key，请根据key查询 WorkspaceActionStatus接口获取状态
+   * This asynchronous API returns a key. Use this key to query the WorkspaceActionStatus API for the code deployment status.
+   * 
+   * @remarks
+   * Deploys the code in a workspace.
    * 
    * @param request - WorkspaceCodePublishRequest
    * @returns WorkspaceCodePublishResponse

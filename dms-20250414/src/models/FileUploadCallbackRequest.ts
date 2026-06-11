@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class FileUploadCallbackRequest extends $dara.Model {
   /**
+   * @remarks
+   * For frontend use only.
+   * 
    * @example
    * TrailCenter
    */
   callFrom?: string;
   /**
+   * @remarks
+   * The current DMS unit.
+   * 
    * @example
    * cn-hangzhou
    */
   dmsUnit?: string;
   /**
+   * @remarks
+   * The file size in bytes.
+   * 
    * @example
    * 8110
    */
   fileSize?: number;
   /**
    * @remarks
+   * The file name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,6 +40,12 @@ export class FileUploadCallbackRequest extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
+   * The full path for the file upload.
+   * 
+   * - Format: This path is formed by appending the file name to the UploadDir value returned by the DescribeFileUploadSignature operation.
+   * 
+   * - Example: ${UploadDir}/${Filename}
+   * 
    * This parameter is required.
    */
   uploadLocation?: string;

@@ -7,41 +7,83 @@ import { DLOrder } from "./Dlorder";
 
 
 export class DLStorageDescriptor extends $dara.Model {
+  /**
+   * @remarks
+   * A list of bucket column names that determine the hash distribution of the data.
+   */
   bucketCols?: string[];
+  /**
+   * @remarks
+   * The description of the data columns in the table.
+   */
   columns?: DLColumn[];
   /**
+   * @remarks
+   * The name of the input format class used to read data.
+   * 
    * @example
    * org.apache.hadoop.mapred.SequenceFileInputFormat
    */
   inputFormat?: string;
   /**
+   * @remarks
+   * Specifies whether the data is compressed.
+   * 
    * @example
    * false
    */
   isCompressed?: boolean;
   /**
+   * @remarks
+   * The specific location of the data storage.
+   * 
    * @example
    * oss://xxx
    */
   location?: string;
   /**
+   * @remarks
+   * The number of buckets.
+   * 
    * @example
    * -1
    */
   numBuckets?: number;
+  /**
+   * @remarks
+   * The description of the original columns.
+   */
   originalColumns?: DLColumn[];
   /**
+   * @remarks
+   * The name of the output format class used to write data.
+   * 
    * @example
    * org.apache.hadoop.hive.ql.io.HiveSequenceFileOutputFormat
    */
   outputFormat?: string;
   /**
+   * @remarks
+   * Other parameter mappings for data storage.
+   * 
    * @example
    * key/value
    */
   parameters?: { [key: string]: any };
+  /**
+   * @remarks
+   * The serialization and deserialization information.
+   */
   serdeInfo?: DLSerdeInfo;
+  /**
+   * @remarks
+   * The data structure that stores information about skewed columns.
+   */
   skewedInfo?: DLSkewedInfo;
+  /**
+   * @remarks
+   * The description of the sorted columns.
+   */
   sortCols?: DLOrder[];
   static names(): { [key: string]: string } {
     return {
