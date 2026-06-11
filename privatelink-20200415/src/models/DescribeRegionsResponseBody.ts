@@ -29,29 +29,8 @@ export class DescribeRegionsResponseBodyRegionsRegionServiceResourceTypes extend
 }
 
 export class DescribeRegionsResponseBodyRegionsRegion extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the region.
-   * 
-   * @example
-   * China (Hangzhou)
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The endpoint of the region.
-   * 
-   * @example
-   * privatelink.cn-hangzhou.aliyuncs.com
-   */
   regionEndpoint?: string;
-  /**
-   * @remarks
-   * The region ID.
-   * 
-   * @example
-   * cn-hangzhou
-   */
   regionId?: string;
   serviceResourceTypes?: DescribeRegionsResponseBodyRegionsRegionServiceResourceTypes;
   static names(): { [key: string]: string } {
@@ -111,10 +90,6 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 }
 
 export class DescribeRegionsResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The available regions.
-   */
   regions?: DescribeRegionsResponseBodyRegions;
   /**
    * @remarks

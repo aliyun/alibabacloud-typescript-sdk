@@ -17,8 +17,9 @@ export class DisableVpcEndpointZoneConnectionRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -50,10 +51,11 @@ export class DisableVpcEndpointZoneConnectionRequest extends $dara.Model {
    * @remarks
    * Specifies whether to close connections in the endpoint zone after migration. Valid values:
    * 
-   * *   **true**: yes
-   * *   **false** (default): no
+   * - **true**: yes
    * 
-   * >  Set the value to true if you want to close connections in the endpoint zone after migration.
+   * - **false** (default): no
+   * 
+   * > Set the value to true if you want to close connections in the endpoint zone after migration.
    * 
    * @example
    * false

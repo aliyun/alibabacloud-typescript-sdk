@@ -21,7 +21,7 @@ export class ListVpcEndpointZonesResponseBodyZones extends $dara.Model {
   eniIp?: string;
   /**
    * @remarks
-   * The region ID of the endpoint.
+   * The ID of the region where the endpoint is deployed.
    * 
    * @example
    * cn-huhehaote
@@ -29,7 +29,7 @@ export class ListVpcEndpointZonesResponseBodyZones extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in the zone. The system automatically creates an endpoint elastic network interface (ENI) in the vSwitch.
+   * The vSwitch in the zone. The system automatically creates an endpoint elastic network interface (ENI) in the vSwitch.
    * 
    * @example
    * vsw-hjkshjvdkdvd****
@@ -39,10 +39,10 @@ export class ListVpcEndpointZonesResponseBodyZones extends $dara.Model {
    * @remarks
    * The domain name of the zone.
    * 
-   * After the endpoint in the zone is connected to the endpoint service, you can access the service resources of the endpoint service by using the domain name of the zone.
+   * After an endpoint connection is established, use this domain name to access the service resources of the endpoint service.
    * 
    * @example
-   * ep-hp3f033dp24c5yc9****-cn-huhehaote.epsrv-hp3itcpowf37m3d5****.cn-huhehaote-a.privatelink.aliyuncs.com
+   * ep-hp3f033dp24c5yc9****-cn-huhehaote-a.epsrv-hp3itcpowf37m3d5****.cn-huhehaote.privatelink.aliyuncs.com
    */
   zoneDomain?: string;
   /**
@@ -55,26 +55,29 @@ export class ListVpcEndpointZonesResponseBodyZones extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * Indicates whether the endpoint service supports IPv6. Valid values:
-   * 
-   * *   **true**
-   * *   **false** (default)
+   * The IPv6 address of the endpoint ENI.
    * 
    * @example
-   * false
+   * 2408:4005:3b6:****:6955:c3cb:34c:****
    */
   zoneIpv6Address?: string;
   /**
    * @remarks
-   * The state of the zone. Valid values:
+   * The status of the zone. Valid values:
    * 
-   * *   **Creating**: The zone is being created.
-   * *   **Wait**: The zone is to be connected.
-   * *   **Connected**: The zone is connected.
-   * *   **Deleting**: The zone is being deleted.
-   * *   **Disconnecting**: The zone is being disconnected.
-   * *   **Disconnected**: The zone is disconnected.
-   * *   **Connecting**: The zone is being connected.
+   * - **Creating**: The zone is being created.
+   * 
+   * - **Wait**: The zone is waiting to be connected.
+   * 
+   * - **Connected**: The zone is connected.
+   * 
+   * - **Deleting**: The zone is being deleted.
+   * 
+   * - **Disconnecting**: The zone is being disconnected.
+   * 
+   * - **Disconnected**: The zone is disconnected.
+   * 
+   * - **Connecting**: The zone is being connected.
    * 
    * @example
    * Wait
@@ -126,10 +129,11 @@ export class ListVpcEndpointZonesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * The token that is used to retrieve the next page of results. Valid values:
    * 
-   * *   If no value is returned for **NextToken**, no next requests are performed.
-   * *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+   * - If this parameter is empty, no next page exists.
+   * 
+   * - If a value is returned, use the value to retrieve the next page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -148,12 +152,12 @@ export class ListVpcEndpointZonesResponseBody extends $dara.Model {
    * The total number of entries returned.
    * 
    * @example
-   * 3
+   * 12
    */
   totalCount?: number;
   /**
    * @remarks
-   * The information about the zones.
+   * The collection of zone information.
    */
   zones?: ListVpcEndpointZonesResponseBodyZones[];
   static names(): { [key: string]: string } {

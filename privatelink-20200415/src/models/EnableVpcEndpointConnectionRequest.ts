@@ -5,19 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class EnableVpcEndpointConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth of the endpoint connection. Unit: Mbit/s. Valid values: **3072 to 10240**.
+   * The bandwidth of the endpoint connection. Unit: Mbit/s.
    * 
-   * >  The bandwidth of an endpoint connection is in the range of **100 to 10,240** Mbit/s. The default bandwidth is **3,072** Mbit/s. When the endpoint is connected to the endpoint service, the default bandwidth is the minimum bandwidth. In this case, the connection bandwidth range is **3,072 to 10,240** Mbit/s. If Classic Load Balancer (CLB) instances or Application Load Balancer (ALB) instances are specified as service resources, you can modify the endpoint connection bandwidth based on your business requirements. This parameter is invalid if Network Load Balancer (NLB) instances are specified as service resources.
+   * > The valid values vary depending on the service resource type:
+   * > - NLB: 100 to 50000.
+   * > - ALB: 100 to 25000.
+   * > - CLB: 100 to 10240. Default value: 3072.
+   * > - GWLB: 100 to 25000.
    * 
    * @example
-   * 1024
+   * 3072
    */
   bandwidth?: number;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. **ClientToken** can contain only ASCII characters.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -27,8 +31,9 @@ export class EnableVpcEndpointConnectionRequest extends $dara.Model {
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs only a dry run. The system checks the request for potential issues, including missing required parameters, the request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the connection request is accepted.
    * 
    * @example
    * false
@@ -46,9 +51,9 @@ export class EnableVpcEndpointConnectionRequest extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the region where the connection request is accepted.
+   * The region ID of the endpoint connection to be accepted.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the region IDs.
    * 
    * This parameter is required.
    * 
@@ -66,6 +71,19 @@ export class EnableVpcEndpointConnectionRequest extends $dara.Model {
    * epsrv-hp3vpx8yqxblby3i****
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * - Scalability: automatic scaling. In this mode, the connection bandwidth configured for the endpoint connection does not take effect.
+   * 
+   * - BandwidthLimit: supports setting a bandwidth upper limit for the endpoint connection. The bandwidth upper limit is the value of Bandwidth.
+   *  
+   * >- When the service resource is NLB, TrafficControlMode is set to Scalability by default. You can set it to BandwidthLimit and modify the value of Bandwidth to provide a bandwidth upper limit.
+   * >- When the service resource is CLB, TrafficControlMode can only be set to BandwidthLimit, which indicates that the service provider provides default bandwidth throttling for each endpoint.
+   * > - When the service resource is GWLB, TrafficControlMode can only be set to Scalability.
+   * 
+   * @example
+   * BandwidthLimit
+   */
   trafficControlMode?: string;
   static names(): { [key: string]: string } {
     return {

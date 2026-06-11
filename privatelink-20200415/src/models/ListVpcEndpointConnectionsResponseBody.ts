@@ -13,7 +13,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $dar
   eniId?: string;
   /**
    * @remarks
-   * The ID of the replaced endpoint ENI in smooth migration scenarios.
+   * The ID of the endpoint ENI that is replaced in the smooth migration scenario.
    * 
    * @example
    * eni-hp32lk0pyv6o94hs****
@@ -21,7 +21,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $dar
   replacedEniId?: string;
   /**
    * @remarks
-   * The ID of the replaced service resource in smooth migration scenarios.
+   * The ID of the service resource that is replaced in the smooth migration scenario.
    * 
    * @example
    * lb-hp32z1wp5peaoox2q****
@@ -37,7 +37,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $dar
   resourceId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch to which the endpoint belongs.
+   * The vSwitch to which the endpoint belongs.
    * 
    * @example
    * vsw-hp3uf6045ljdhd5zr****
@@ -62,16 +62,15 @@ export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $dar
   /**
    * @remarks
    * The state of the zone. Valid values:
-   * 
-   * *   **Creating**: The zone is being created.
-   * *   **Wait**: The zone is to be connected.
-   * *   **Connected**: The zone is connected.
-   * *   **Deleting**: The zone is being deleted.
-   * *   **Disconnecting**: The zone is being disconnected.
-   * *   **Disconnected**: The zone is disconnected.
-   * *   **Connecting**: The zone is being connected.
-   * *   **Migrating**: The zone is being migrated.
-   * *   **Migrated**: The zone is migrated.
+   * - **Creating**: The zone is being created.
+   * - **Wait**: The zone is waiting to be connected.
+   * - **Connected**: The zone is connected.
+   * - **Deleting**: The zone is being deleted.
+   * - **Disconnecting**: The zone is being disconnected.
+   * - **Disconnected**: The zone is disconnected.
+   * - **Connecting**: The zone is being connected.
+   * - **Migrating**: The zone is being migrated.
+   * - **Migrated**: The zone is migrated.
    * 
    * @example
    * Connected
@@ -115,23 +114,29 @@ export class ListVpcEndpointConnectionsResponseBodyConnectionsZones extends $dar
 export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth of the endpoint connection. Valid values: **1024 to 10240**. Unit: Mbit/s.
+   * The bandwidth of the endpoint connection. Unit: Mbit/s.
    * 
    * @example
-   * 1024
+   * 3072
    */
   bandwidth?: number;
   /**
    * @remarks
    * The state of the endpoint connection. Valid values:
    * 
-   * *   **Pending**: The connection is being modified.
-   * *   **Connecting**: The connection is being established.
-   * *   **Connected**: The connection is established.
-   * *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
-   * *   **Disconnected**: The endpoint is disconnected from the endpoint service.
-   * *   **Deleting**: The connection is being deleted.
-   * *   **ServiceDeleted**: The corresponding endpoint service has been deleted.
+   * - **Pending**: The endpoint connection is being modified.
+   * 
+   * - **Connecting**: The endpoint connection is being established.
+   * 
+   * - **Connected**: The endpoint is connected to the endpoint service.
+   * 
+   * - **Disconnecting**: The endpoint is being disconnected from the endpoint service.
+   * 
+   * - **Disconnected**: The endpoint is disconnected from the endpoint service.
+   * 
+   * - **Deleting**: The endpoint connection is being deleted.
+   * 
+   * - **ServiceDeleted**: The corresponding endpoint service is deleted.
    * 
    * @example
    * Disconnected
@@ -153,6 +158,13 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
    * 25346073170691****
    */
   endpointOwnerId?: number;
+  /**
+   * @remarks
+   * The region ID of the endpoint.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   endpointRegionId?: string;
   /**
    * @remarks
@@ -164,7 +176,7 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
   endpointVpcId?: string;
   /**
    * @remarks
-   * The time when the endpoint connection was modified.
+   * The time when the connection was modified.
    * 
    * @example
    * 2021-09-28T10:34:46Z
@@ -182,8 +194,9 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
    * @remarks
    * Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -197,11 +210,27 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
    * epsrv-hp3vpx8yqxblby3i****
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The region ID of the endpoint service.
+   * 
+   * @example
+   * cn-huhehaote
+   */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * - Scalability: automatic scaling. In this mode, the bandwidth configured for the endpoint connection does not take effect.
+   * 
+   * - BandwidthLimit: the bandwidth limit of the endpoint connection. The bandwidth limit is the value of Bandwidth.
+   * 
+   * @example
+   * BandwidthLimit
+   */
   trafficControlMode?: string;
   /**
    * @remarks
-   * The zones.
+   * The zone information.
    */
   zones?: ListVpcEndpointConnectionsResponseBodyConnectionsZones[];
   static names(): { [key: string]: string } {
@@ -255,12 +284,12 @@ export class ListVpcEndpointConnectionsResponseBodyConnections extends $dara.Mod
 export class ListVpcEndpointConnectionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The endpoint connections.
+   * The information about the endpoint connections.
    */
   connections?: ListVpcEndpointConnectionsResponseBodyConnections[];
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 50
@@ -268,10 +297,9 @@ export class ListVpcEndpointConnectionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If no value is returned for **NextToken**, no next requests are performed.
-   * *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+   * The token that is used for the next query. Valid values:
+   * - If **NextToken** is empty, no next query is to be sent.
+   * - If a value of **NextToken** is returned, the value is the token that is used for the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -287,7 +315,7 @@ export class ListVpcEndpointConnectionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The number of entries returned in the endpoint connection list.
    * 
    * @example
    * 1

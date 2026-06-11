@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVpcEndpointAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the endpoint whose attributes you want to query.
+   * The ID of the endpoint.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class GetVpcEndpointAttributeRequest extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The region ID of the endpoint whose attributes you want to query.
+   * The region ID of the endpoint.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/448570.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

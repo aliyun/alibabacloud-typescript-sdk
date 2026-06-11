@@ -7,8 +7,9 @@ export class ListVpcEndpointServiceResourcesResponseBodyResources extends $dara.
    * @remarks
    * Indicates whether automatic resource allocation is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -58,8 +59,9 @@ export class ListVpcEndpointServiceResourcesResponseBodyResources extends $dara.
    * @remarks
    * Indicates whether IPv6 is enabled for the endpoint service. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * false
@@ -153,8 +155,9 @@ export class ListVpcEndpointServiceResourcesResponseBody extends $dara.Model {
    * @remarks
    * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If no value is returned for **NextToken**, no next requests are performed.
-   * *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+   * - If no value is returned for **NextToken**, no next requests are performed.
+   * 
+   * - If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

@@ -3,12 +3,42 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateVpcEndpointServiceResponseBodySupportedRegionSet extends $dara.Model {
+  /**
+   * @remarks
+   * The business status of the region in which the endpoint service is available. Valid values:
+   * 
+   * - **Normal**: normal.
+   * - **FinancialLocked**: locked due to overdue payments.
+   * 
+   * @example
+   * Normal
+   */
   regionBusinessStatus?: string;
+  /**
+   * @remarks
+   * The state of the region in which the endpoint service is available. Valid values:
+   * 
+   * - **Pending**: changing.
+   * - **Available**: available.
+   * - **Deleting**: being deleted.
+   * - **Failed**: failed.
+   * - **Closed**: closed.
+   * 
+   * @example
+   * Available
+   */
   regionServiceStatus?: string;
   /**
    * @deprecated
    */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * The ID of a region in which the endpoint service is available.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   supportedRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,10 +70,10 @@ export class CreateVpcEndpointServiceResponseBodySupportedRegionSet extends $dar
 export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The IP version. Valid values:
    * 
-   * *   **IPv4**
-   * *   **DualStack**
+   * - **IPv4**: IPv4.
+   * - **DualStack**: dual stack.
    * 
    * @example
    * IPv4
@@ -51,10 +81,10 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * Indicates whether the endpoint service automatically accepts endpoint connection requests. Valid values:
+   * Indicates whether endpoint connection requests are automatically accepted. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: automatically accepts endpoint connection requests.
+   * - **false**: does not automatically accept endpoint connection requests.
    * 
    * @example
    * false
@@ -78,7 +108,7 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy*****
@@ -86,10 +116,11 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service state of the endpoint service. Valid values:
+   * The business status of the endpoint service. Valid values:
    * 
-   * *   **Normal**: The endpoint service runs as expected.
-   * *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
+   * - **Normal**: normal.
+   * 
+   * - **FinancialLocked**: locked due to overdue payments.
    * 
    * @example
    * Normal
@@ -113,7 +144,7 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
   serviceDomain?: string;
   /**
    * @remarks
-   * The endpoint service ID.
+   * The ID of the endpoint service.
    * 
    * @example
    * epsrv-hp3vpx8yqxblby3i****
@@ -131,10 +162,13 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
    * @remarks
    * The state of the endpoint service. Valid values:
    * 
-   * *   **Creating**: The endpoint service is being created.
-   * *   **Pending**: The endpoint service is being modified.
-   * *   **Active**: The endpoint service is available.
-   * *   **Deleting**: The endpoint service is being deleted.
+   * - **Creating**: being created.
+   * 
+   * - **Pending**: being modified.
+   * 
+   * - **Active**: available.
+   * 
+   * - **Deleting**: being deleted.
    * 
    * @example
    * Active
@@ -142,10 +176,11 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
   serviceStatus?: string;
   /**
    * @remarks
-   * Indicates whether IPv6 was enabled for the endpoint service. Valid values:
+   * Indicates whether the endpoint service supports IPv6. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * false
@@ -153,13 +188,17 @@ export class CreateVpcEndpointServiceResponseBody extends $dara.Model {
    * @deprecated
    */
   serviceSupportIPv6?: boolean;
+  /**
+   * @remarks
+   * The list of regions in which the endpoint service is available. Service consumers can initiate endpoint connections from the regions in the list.
+   */
   supportedRegionSet?: CreateVpcEndpointServiceResponseBodySupportedRegionSet[];
   /**
    * @remarks
-   * Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
+   * Indicates whether zone affinity is enabled for endpoint domain name resolution. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * - **false**: no.
    * 
    * @example
    * false

@@ -3,12 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListVpcEndpointServicesResponseBodyServicesSupportedRegionSet extends $dara.Model {
+  /**
+   * @remarks
+   * The business status of the region supported by the endpoint service. Valid values:
+   * 
+   * - **Normal**: Normal.
+   * 
+   * - **FinancialLocked**: Locked due to an overdue payment.
+   * 
+   * @example
+   * Normal
+   */
   regionBusinessStatus?: string;
+  /**
+   * @remarks
+   * The status of the region supported by the endpoint service. Valid values:
+   * 
+   * - **Pending**: The status is being updated.
+   * 
+   * - **Available**: The region is available.
+   * 
+   * - **Deleting**: The region is being deleted.
+   * 
+   * - **Failed**: The operation failed.
+   * 
+   * - **Closed**: The region is closed.
+   * 
+   * @example
+   * Available
+   */
   regionServiceStatus?: string;
   /**
    * @deprecated
    */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the region supported by the endpoint service.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   supportedRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,7 +75,7 @@ export class ListVpcEndpointServicesResponseBodyServicesSupportedRegionSet exten
 export class ListVpcEndpointServicesResponseBodyServicesTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag added to the resource.
+   * The tag key of the instance.
    * 
    * @example
    * FinanceDept
@@ -48,7 +83,7 @@ export class ListVpcEndpointServicesResponseBodyServicesTags extends $dara.Model
   key?: string;
   /**
    * @remarks
-   * The value of the tag added to the resource.
+   * The tag value of the instance.
    * 
    * @example
    * FinanceJoshua
@@ -80,10 +115,11 @@ export class ListVpcEndpointServicesResponseBodyServicesTags extends $dara.Model
 export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The IP address version. Valid values:
    * 
-   * *   **IPv4**
-   * *   **DualStack**
+   * - **IPv4**: IPv4 type.
+   * 
+   * - **DualStack**: Dual-stack type.
    * 
    * @example
    * IPv4
@@ -91,10 +127,11 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * Indicates whether endpoint connection requests are automatically accepted. Valid values:
+   * Specifies whether to automatically accept endpoint connections. Valid values:
    * 
-   * *   **true**: Endpoint connection requests are automatically accepted.
-   * *   **false**: Endpoint connection requests are not automatically accepted.
+   * - **true**: Automatically accept endpoint connections.
+   * 
+   * - **false**: Do not automatically accept endpoint connections.
    * 
    * @example
    * true
@@ -102,7 +139,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   autoAcceptEnabled?: boolean;
   /**
    * @remarks
-   * The default maximum bandwidth of the endpoint connection. Unit: Mbit/s.
+   * The default maximum bandwidth. Unit: Mbps.
    * 
    * @example
    * 1024
@@ -110,7 +147,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   connectBandwidth?: number;
   /**
    * @remarks
-   * The time when the endpoint service was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the endpoint service was created.
    * 
    * @example
    * 2021-09-24T17:15:10Z
@@ -118,7 +155,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The maximum bandwidth of the endpoint connection. Unit: Mbit/s.
+   * The maximum bandwidth of the endpoint connection. Unit: Mbps.
    * 
    * @example
    * 1024
@@ -126,7 +163,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   maxBandwidth?: number;
   /**
    * @remarks
-   * The minimum bandwidth of the endpoint connection. Unit: Mbit/s.
+   * The minimum bandwidth of the endpoint connection. Unit: Mbps.
    * 
    * @example
    * 100
@@ -136,8 +173,9 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
    * @remarks
    * The payer. Valid values:
    * 
-   * *   **Endpoint**: service consumer
-   * *   **EndpointService**: service provider
+   * - **Endpoint**: the service consumer.
+   * 
+   * - **EndpointService**: the service provider.
    * 
    * @example
    * Endpoint
@@ -145,7 +183,7 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   payer?: string;
   /**
    * @remarks
-   * The region ID of the endpoint service.
+   * The region where the endpoint service is deployed.
    * 
    * @example
    * cn-huhehaote
@@ -161,10 +199,11 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service state of the endpoint service. Valid values:
+   * The business status of the endpoint service. Valid values:
    * 
-   * *   **Normal**: The endpoint service runs as expected.
-   * *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
+   * - **Normal**: The endpoint service is running as expected.
+   * 
+   * - **FinancialLocked**: The endpoint service is locked due to an overdue payment.
    * 
    * @example
    * Normal
@@ -206,9 +245,13 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
    * @remarks
    * The type of the service resource. Valid values:
    * 
-   * *   **slb**: Classic Load Balancer (CLB) instance
-   * *   **alb**: Application Load Balancer (ALB) instance
-   * *   **nlb**: Network Load Balancer (NLB) instance
+   * - **slb**: The service resource is a CLB instance.
+   * 
+   * - **alb**: The service resource is an ALB instance.
+   * 
+   * - **nlb**: The service resource is an NLB instance.
+   * 
+   * - **gwlb**: The service resource is a GWLB instance.
    * 
    * @example
    * slb
@@ -216,12 +259,15 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   serviceResourceType?: string;
   /**
    * @remarks
-   * The state of the endpoint service. Valid values:
+   * The status of the endpoint service. Valid values:
    * 
-   * *   **Creating**: The endpoint service is being created.
-   * *   **Pending**: The endpoint service is being modified.
-   * *   **Active**: The endpoint service is available.
-   * *   **Deleting**: The endpoint service is being deleted.
+   * - **Creating**: The endpoint service is being created.
+   * 
+   * - **Pending**: The endpoint service is being modified.
+   * 
+   * - **Active**: The endpoint service is available.
+   * 
+   * - **Deleting**: The endpoint service is being deleted.
    * 
    * @example
    * Active
@@ -231,8 +277,9 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
    * @remarks
    * Indicates whether the endpoint service supports IPv6. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * false
@@ -242,26 +289,33 @@ export class ListVpcEndpointServicesResponseBodyServices extends $dara.Model {
   serviceSupportIPv6?: boolean;
   /**
    * @remarks
-   * The type of the endpoint service.
+   * The type of the endpoint service. Valid values:
    * 
-   * *   Only **Interface** may be returned. You can specify CLB, ALB, and NLB instances as the service resources of the endpoint service.
+   * - **Interface**: an interface endpoint. You can add CLB, ALB, and NLB instances as service resources.
+   * 
+   * - **GatewayLoadBalancer**: a Gateway Load Balancer endpoint. You can add GWLB instances as service resources.
    * 
    * @example
    * Interface
    */
   serviceType?: string;
+  /**
+   * @remarks
+   * The list of regions supported by the endpoint service. Service consumers can initiate endpoint connections from these regions.
+   */
   supportedRegionSet?: ListVpcEndpointServicesResponseBodyServicesSupportedRegionSet[];
   /**
    * @remarks
-   * The tags added to the resource.
+   * The list of tags.
    */
   tags?: ListVpcEndpointServicesResponseBodyServicesTags[];
   /**
    * @remarks
-   * Indicates whether zone affinity is enabled. Valid values:
+   * Specifies whether zonal affinity is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true
@@ -345,10 +399,11 @@ export class ListVpcEndpointServicesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * A pagination token for the next query. Valid values:
    * 
-   * *   If no value is returned for **NextToken**, no next requests are performed.
-   * *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+   * - If **NextToken** is empty, no further results exist.
+   * 
+   * - If **NextToken** has a value, use it as the starting token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -364,12 +419,12 @@ export class ListVpcEndpointServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The endpoint services.
+   * The collection of endpoint services.
    */
   services?: ListVpcEndpointServicesResponseBodyServices[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of records.
    * 
    * @example
    * 12

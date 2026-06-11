@@ -3,21 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeZonesResponseBodyZonesZone extends $dara.Model {
-  /**
-   * @remarks
-   * The name of the zone.
-   * 
-   * @example
-   * Hangzhou Zone B
-   */
   localName?: string;
-  /**
-   * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-b
-   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -71,16 +57,12 @@ export class DescribeZonesResponseBodyZones extends $dara.Model {
 export class DescribeZonesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * 请求ID。
    * 
    * @example
    * 611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F
    */
   requestId?: string;
-  /**
-   * @remarks
-   * The returned zones.
-   */
   zones?: DescribeZonesResponseBodyZones;
   static names(): { [key: string]: string } {
     return {

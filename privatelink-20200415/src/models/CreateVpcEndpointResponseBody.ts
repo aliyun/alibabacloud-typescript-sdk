@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcEndpointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The IP version of the endpoint. Valid values:
    * 
-   * *   **IPv4** (default)
-   * *   **DualStack**
+   * - **IPv4**: IPv4 (default).
+   * 
+   * - **DualStack**: Dual-stack.
    * 
    * @example
    * IPv4
@@ -16,7 +17,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The bandwidth of the endpoint connection. Unit: Mbit/s.
+   * The bandwidth of the endpoint connection, in Mbps.
    * 
    * @example
    * 200
@@ -24,14 +25,19 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The state of the endpoint connection. Valid values:
+   * The connection status of the endpoint. Valid values:
    * 
-   * *   **Pending**: The connection is being modified.
-   * *   **Connecting**: The connection is being established.
-   * *   **Connected**: The connection is established.
-   * *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
-   * *   **Disconnected**: The endpoint is disconnected from the endpoint service.
-   * *   **Deleting**: The connection is being deleted.
+   * - **Pending**: The endpoint is being modified.
+   * 
+   * - **Connecting**: The endpoint is being connected.
+   * 
+   * - **Connected**: The endpoint is connected.
+   * 
+   * - **Disconnecting**: The endpoint is being disconnected.
+   * 
+   * - **Disconnected**: The endpoint is disconnected.
+   * 
+   * - **Deleting**: The endpoint is being deleted.
    * 
    * @example
    * Disconnected
@@ -39,19 +45,27 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The time when the endpoint was created.
+   * The time the endpoint was created.
    * 
    * @example
    * 2022-01-02T19:11:12Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The cross-region bandwidth in Mbps. This parameter is returned only when the endpoint and the endpoint service are in different regions.
+   * 
+   * @example
+   * 1000
+   */
   crossRegionBandwidth?: number;
   /**
    * @remarks
-   * The service state of the endpoint. Valid values:
+   * The business status of the endpoint. Valid values:
    * 
-   * *   **Normal**: The endpoint runs as expected.
-   * *   **FinancialLocked**: The endpoint is locked due to overdue payments.
+   * - **Normal**: The endpoint is running as expected.
+   * 
+   * - **FinancialLocked**: The endpoint is locked due to overdue payments.
    * 
    * @example
    * Normal
@@ -67,7 +81,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   endpointDescription?: string;
   /**
    * @remarks
-   * The domain name of the endpoint.
+   * The endpoint domain name.
    * 
    * @example
    * ep-hp33b2e43fays7s8****.epsrv-hp3xdsq46ael67lo****.cn-huhehaote.privatelink.aliyuncs.com
@@ -75,7 +89,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   endpointDomain?: string;
   /**
    * @remarks
-   * The endpoint ID.
+   * The ID of the endpoint.
    * 
    * @example
    * ep-hp33b2e43fays7s8****
@@ -91,12 +105,15 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * The state of the endpoint. Valid values:
+   * The status of the endpoint. Valid values:
    * 
-   * *   **Creating**: The endpoint is being created.
-   * *   **Active**: The endpoint is available.
-   * *   **Pending**: The endpoint is being modified.
-   * *   **Deleting**: The endpoint is being deleted.
+   * - **Creating**: The endpoint is being created.
+   * 
+   * - **Active**: The endpoint is available.
+   * 
+   * - **Pending**: The endpoint is being modified.
+   * 
+   * - **Deleting**: The endpoint is being deleted.
    * 
    * @example
    * Active
@@ -112,7 +129,7 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the endpoint service with which the endpoint is associated.
+   * The ID of the associated endpoint service.
    * 
    * @example
    * epsrv-hp3vpx8yqxblby3i****
@@ -120,21 +137,39 @@ export class CreateVpcEndpointResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The name of the endpoint service with which the endpoint is associated.
+   * The name of the associated endpoint service.
    * 
    * @example
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * The region ID of the endpoint service.
+   * 
+   * @example
+   * cn-huhehaote
+   */
   serviceRegionId?: string;
   /**
    * @remarks
-   * The ID of the VPC to which the endpoint belongs.
+   * The ID of the VPC that contains the endpoint.
    * 
    * @example
    * vpc-hp356stwkxg3fn2xe****
    */
   vpcId?: string;
+  /**
+   * @remarks
+   * Indicates whether zone affinity is enabled. Valid values:
+   * 
+   * - **true**: Zone affinity is enabled.
+   * 
+   * - **false**: Zone affinity is disabled.
+   * 
+   * @example
+   * false
+   */
   zoneAffinityEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {

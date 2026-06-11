@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcEndpointsResponseBodyEndpointsTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag added to the resource.
+   * The tag key.
    * 
    * @example
    * FinanceDept
@@ -13,7 +13,7 @@ export class ListVpcEndpointsResponseBodyEndpointsTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag added to the resource.
+   * The tag value.
    * 
    * @example
    * FinanceJoshua
@@ -45,10 +45,11 @@ export class ListVpcEndpointsResponseBodyEndpointsTags extends $dara.Model {
 export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The IP address family. Valid values:
    * 
-   * *   **IPv4**
-   * *   **DualStack**
+   * - **IPv4**: IPv4.
+   * 
+   * - **DualStack**: dual stack.
    * 
    * @example
    * IPv4
@@ -56,7 +57,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The bandwidth of the endpoint connection. Unit: Mbit/s.
+   * The connection bandwidth of the endpoint, in Mbps.
    * 
    * @example
    * 1024
@@ -64,15 +65,21 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
   bandwidth?: number;
   /**
    * @remarks
-   * The state of the endpoint connection. Valid values:
+   * The connection status of the endpoint. Valid values:
    * 
-   * *   **Pending**: The endpoint connection is being modified.
-   * *   **Connecting**: The endpoint connection is being established.
-   * *   **Connected**: The endpoint connection is established.
-   * *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
-   * *   **Disconnected**: The endpoint is disconnected from the endpoint service.
-   * *   **Deleting**: The endpoint connection is being deleted.
-   * *   **ServiceDeleted**: The corresponding service is deleted.
+   * - **Pending**: The connection is being modified.
+   * 
+   * - **Connecting**: The endpoint is being connected.
+   * 
+   * - **Connected**: The endpoint is connected.
+   * 
+   * - **Disconnecting**: The endpoint is being disconnected.
+   * 
+   * - **Disconnected**: The endpoint is disconnected.
+   * 
+   * - **Deleting**: The endpoint is being deleted.
+   * 
+   * - **ServiceDeleted**: The associated endpoint service has been deleted.
    * 
    * @example
    * Disconnected
@@ -86,13 +93,21 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
    * 2021-09-24T18:00:07Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The bandwidth of the cross-region connection, in Mbps.
+   * 
+   * @example
+   * 1000
+   */
   crossRegionBandwidth?: number;
   /**
    * @remarks
-   * The service state of the endpoint. Valid values:
+   * The business status of the endpoint. Valid values:
    * 
-   * *   **Normal**: The endpoint runs as expected.
-   * *   **FinancialLocked**: The endpoint is locked due to overdue payments.
+   * - **Normal**: The endpoint is running as expected.
+   * 
+   * - **FinancialLocked**: The endpoint is locked due to an overdue payment.
    * 
    * @example
    * Normal
@@ -132,12 +147,15 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
   endpointName?: string;
   /**
    * @remarks
-   * The state of the endpoint. Valid values:
+   * The status of the endpoint. Valid values:
    * 
-   * *   **Creating**: The endpoint is being created.
-   * *   **Active**: The endpoint is available.
-   * *   **Pending**: The endpoint is being modified.
-   * *   **Deleting**: The endpoint is being deleted.
+   * - **Creating**: The endpoint is being created.
+   * 
+   * - **Active**: The endpoint is available.
+   * 
+   * - **Pending**: The endpoint is being modified.
+   * 
+   * - **Deleting**: The endpoint is being deleted.
    * 
    * @example
    * Active
@@ -147,8 +165,11 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
    * @remarks
    * The type of the endpoint. Valid values:
    * 
-   * *   **Interface**: interface endpoint
-   * *   **Reverse**: reverse endpoint
+   * - **Interface**: an interface endpoint.
+   * 
+   * - **Reverse**: a reverse endpoint.
+   * 
+   * - **GatewayLoadBalancer**: a gateway load balancer endpoint.
    * 
    * @example
    * Interface
@@ -156,7 +177,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
   endpointType?: string;
   /**
    * @remarks
-   * The Resource Access Management (RAM) policy. For more information about policy definitions, see [Policy elements](https://help.aliyun.com/document_detail/93738.html).
+   * The RAM access policy. For details on the policy syntax, see [Basic elements of a RAM policy](https://help.aliyun.com/document_detail/93738.html).
    * 
    * @example
    * {\\n  \\"Version\\": \\"1\\",\\n  \\"Statement\\": [\\n    {\\n      \\"Effect\\": \\"Allow\\",\\n      \\"Action\\": \\"*\\",\\n      \\"Principal\\": \\"*\\",\\n      \\"Resource\\": \\"*\\"\\n    }\\n  ]\\n}
@@ -164,7 +185,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
   policyDocument?: string;
   /**
    * @remarks
-   * The region ID of the endpoint.
+   * The ID of the region that contains the endpoint.
    * 
    * @example
    * cn-huhehaote
@@ -182,8 +203,9 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
    * @remarks
    * Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -191,7 +213,7 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
   resourceOwner?: boolean;
   /**
    * @remarks
-   * The ID of the endpoint service that is associated with the endpoint.
+   * The ID of the associated endpoint service.
    * 
    * @example
    * epsrv-hp3vpx8yqxblby3i****
@@ -199,21 +221,28 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The name of the endpoint service that is associated with the endpoint.
+   * The name of the associated endpoint service.
    * 
    * @example
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * The ID of the region where the associated endpoint service is deployed.
+   * 
+   * @example
+   * cn-huhehaote
+   */
   serviceRegionId?: string;
   /**
    * @remarks
-   * The tags added to the resource.
+   * A list of tags.
    */
   tags?: ListVpcEndpointsResponseBodyEndpointsTags[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the endpoint belongs.
+   * The ID of the VPC to which the endpoint belongs.
    * 
    * @example
    * vpc-hp356stwkxg3fn2xe****
@@ -221,10 +250,11 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
+   * Indicates whether zone-aware DNS resolution is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**
+   * 
+   * - **false**
    * 
    * @example
    * true
@@ -299,12 +329,12 @@ export class ListVpcEndpointsResponseBodyEndpoints extends $dara.Model {
 export class ListVpcEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the endpoints.
+   * A list of endpoints.
    */
   endpoints?: ListVpcEndpointsResponseBodyEndpoints[];
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 50
@@ -312,10 +342,11 @@ export class ListVpcEndpointsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * The token to retrieve the next page of results.
    * 
-   * *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
-   * *   If a next request is to be performed, set the parameter to the value of **NextToken** that is returned from the last call.
+   * - If **NextToken** is empty, no next page exists.
+   * 
+   * - If a value is returned, use it in your next request to retrieve the next page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -331,7 +362,7 @@ export class ListVpcEndpointsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries that match the query.
    * 
    * @example
    * 12

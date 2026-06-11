@@ -7,13 +7,19 @@ export class ListVpcEndpointConnectionsRequest extends $dara.Model {
    * @remarks
    * The state of the endpoint connection. Valid values:
    * 
-   * *   **Pending**: The endpoint connection is being modified.
-   * *   **Connecting**: The endpoint connection is being established.
-   * *   **Connected**: The endpoint connection is established.
-   * *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
-   * *   **Disconnected**: The endpoint is disconnected from the endpoint service.
-   * *   **Deleting**: The connection is being deleted.
-   * *   **ServiceDeleted**: The corresponding endpoint service has been deleted.
+   * - **Pending**: The endpoint connection is being modified.
+   * 
+   * - **Connecting**: The endpoint connection is being established.
+   * 
+   * - **Connected**: The endpoint is connected to the endpoint service.
+   * 
+   * - **Disconnecting**: The endpoint is being disconnected from the endpoint service.
+   * 
+   * - **Disconnected**: The endpoint is disconnected from the endpoint service.
+   * 
+   * - **Deleting**: The endpoint connection is being deleted.
+   * 
+   * - **ServiceDeleted**: The corresponding endpoint service is deleted.
    * 
    * @example
    * Disconnected
@@ -37,7 +43,7 @@ export class ListVpcEndpointConnectionsRequest extends $dara.Model {
   endpointOwnerId?: number;
   /**
    * @remarks
-   * The ID of the endpoint elastic network interface (ENI).
+   * The endpoint elastic network interface (ENI) ID.
    * 
    * @example
    * eni-hp32lk0pyv6o94hs****
@@ -45,7 +51,7 @@ export class ListVpcEndpointConnectionsRequest extends $dara.Model {
   eniId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **50**. Default value: **50**.
+   * The number of entries per page. Valid values: **1** to **1000**. Default value: **50**.
    * 
    * @example
    * 50
@@ -53,10 +59,9 @@ export class ListVpcEndpointConnectionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
-   * *   If a next request is to be performed, set the value to the value of **NextToken** that is returned from the last call.
+   * The token that is used for the next query. Valid values:
+   * - You do not need to specify this parameter for the first query or if no next query is to be sent.
+   * - If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -64,9 +69,9 @@ export class ListVpcEndpointConnectionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the endpoint connection.
+   * The region ID of the endpoint connections that you want to query.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -76,7 +81,7 @@ export class ListVpcEndpointConnectionsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the replaced service resource in smooth migration scenarios.
+   * The ID of the service resource that is replaced in the smooth migration scenario.
    * 
    * @example
    * lb-hp32z1wp5peaoox2q****

@@ -7,7 +7,7 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate a value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters.
+   * Generate a unique token for each request. The token can contain only ASCII characters.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -15,10 +15,11 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * Specifies whether to perform a dry run. Valid values:
    * 
-   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: Performs a dry run. The system checks the request for potential issues, including missing required parameters, incorrect request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * 
+   * - **false** (default): Sends the request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -26,9 +27,7 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The region ID of the endpoint.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
+   * The ID of the region where the endpoint service is deployed. Call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to get a region ID.
    * 
    * This parameter is required.
    * 
@@ -38,7 +37,7 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The service resource ID.
+   * The ID of the service resource.
    * 
    * This parameter is required.
    * 
@@ -48,10 +47,15 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The type of the service resource. Valid values:
+   * The type of the service resource.
    * 
-   * *   **slb**: a Classic Load Balancer (CLB) instance that supports PrivateLink. In addition, the CLB instance is deployed in a virtual private cloud (VPC).
-   * *   **alb**: an Application Load Balancer (ALB) instance that supports PrivateLink. In addition, the ALB instance is deployed in a VPC.
+   * - **slb**: Classic Load Balancer (CLB).
+   * 
+   * - **alb**: Application Load Balancer (ALB).
+   * 
+   * - **nlb**: Network Load Balancer (NLB).
+   * 
+   * - **gwlb**: Gateway Load Balancer (GWLB).
    * 
    * @example
    * slb
@@ -59,7 +63,7 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The endpoint service ID.
+   * The ID of the endpoint service from which you want to remove the service resource.
    * 
    * This parameter is required.
    * 
@@ -69,7 +73,7 @@ export class DetachResourceFromVpcEndpointServiceRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The ID of the zone that you want to remove.
+   * The ID of the zone. This parameter is required if the service resource is an ALB, a NLB, or a GWLB. Call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to get a zone ID.
    * 
    * @example
    * cn-hangzhou-c

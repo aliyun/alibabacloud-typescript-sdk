@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcEndpointServicesByEndUserResponseBodyServicesTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * FinanceDept
@@ -13,7 +13,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServicesTags extends $d
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * FinanceJoshua
@@ -45,22 +45,35 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServicesTags extends $d
 export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.Model {
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The IP version. Valid values:
    * 
-   * *   **IPv4**
-   * *   **DualStack**
+   * - **IPv4**: The service supports IPv4.
+   * 
+   * - **DualStack**: The service supports both IPv4 and IPv6 (dual stack).
    * 
    * @example
    * IPv4
    */
   addressIpVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether connection requests are automatically accepted. Valid values:
+   * 
+   * - **true**: Connection requests are automatically accepted.
+   * 
+   * - **false**: Connection requests must be manually accepted.
+   * 
+   * @example
+   * true
+   */
   autoAcceptEnabled?: boolean;
   /**
    * @remarks
    * The payer. Valid values:
    * 
-   * *   **Endpoint**: the service consumer
-   * *   **EndpointService**: the service provider
+   * - **Endpoint**: the service consumer.
+   * 
+   * - **EndpointService**: the service provider.
    * 
    * @example
    * Endpoint
@@ -68,7 +81,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   payer?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy*****
@@ -76,7 +89,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   resourceGroupId?: string;
   /**
    * @remarks
-   * The domain name of the endpoint service that can be associated with the endpoint.
+   * The domain name of the endpoint service.
    * 
    * @example
    * epsrv-hp3vpx8yqxblby3i****.cn-huhehaote.privatelink.aliyuncs.com
@@ -84,7 +97,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   serviceDomain?: string;
   /**
    * @remarks
-   * The ID of the endpoint service that can be associated with the endpoint.
+   * The ID of the endpoint service.
    * 
    * @example
    * epsrv-hp3vpx8yqxblby3i****
@@ -92,7 +105,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   serviceId?: string;
   /**
    * @remarks
-   * The name of the endpoint service that can be associated with the endpoint.
+   * The name of the endpoint service.
    * 
    * @example
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
@@ -100,11 +113,13 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   serviceName?: string;
   /**
    * @remarks
-   * The type of the service resource. Valid values:
+   * The service resource type.
    * 
-   * *   **slb**: Classic Load Balancer (CLB) instance
-   * *   **alb**: Application Load Balancer (ALB) instance
-   * *   **nlb**: Network Load Balancer (NLB) instance
+   * - **slb**: A Classic Load Balancer (CLB) instance.
+   * 
+   * - **alb**: An Application Load Balancer (ALB) instance.
+   * 
+   * - **nlb**: A Network Load Balancer (NLB) instance.
    * 
    * @example
    * slb
@@ -112,10 +127,11 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   serviceResourceType?: string;
   /**
    * @remarks
-   * Indicates whether IPv6 is enabled. Valid values:
+   * Specifies whether the endpoint service supports IPv6. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The endpoint service supports IPv6.
+   * 
+   * - **false**: The endpoint service does not support IPv6.
    * 
    * @example
    * false
@@ -125,7 +141,7 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
    * @remarks
    * The type of the endpoint service.
    * 
-   * Only **Interface** is returned, which indicates an interface endpoint. You can specify **CLB** and **ALB** instances as service resources.
+   * The value is always **Interface**. This indicates an interface endpoint where you can add service resources such as Application Load Balancer (ALB), Classic Load Balancer (CLB), and Network Load Balancer (NLB).
    * 
    * @example
    * Interface
@@ -133,14 +149,25 @@ export class ListVpcEndpointServicesByEndUserResponseBodyServices extends $dara.
   serviceType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * A list of tags.
    */
   tags?: ListVpcEndpointServicesByEndUserResponseBodyServicesTags[];
   vpcEndpointPolicySupported?: boolean;
+  /**
+   * @remarks
+   * Specifies whether zone affinity is enabled. Valid values:
+   * 
+   * - **true**: Zone affinity is enabled.
+   * 
+   * - **false**: Zone affinity is disabled.
+   * 
+   * @example
+   * false
+   */
   zoneAffinityEnabled?: boolean;
   /**
    * @remarks
-   * The zones of the endpoint service that can be associated with the endpoint.
+   * The zones where the endpoint service is available.
    */
   zones?: string[];
   static names(): { [key: string]: string } {
@@ -207,10 +234,11 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+   * The token that is used to retrieve the next page of results. Valid values:
    * 
-   * *   If no value is returned for **NextToken**, no next requests are performed.
-   * *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+   * - If this parameter is empty, all results have been returned.
+   * 
+   * - If a value is returned, use it in a subsequent request to retrieve the next page of results.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -226,12 +254,12 @@ export class ListVpcEndpointServicesByEndUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about endpoint services.
+   * The endpoint services.
    */
   services?: ListVpcEndpointServicesByEndUserResponseBodyServices[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 29

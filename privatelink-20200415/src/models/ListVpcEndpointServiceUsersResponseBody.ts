@@ -75,8 +75,9 @@ export class ListVpcEndpointServiceUsersResponseBody extends $dara.Model {
    * @remarks
    * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
    * 
-   * *   If no value is returned for **NextToken**, no next requests are performed.
-   * *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+   * - If no value is returned for **NextToken**, no next requests are performed.
+   * 
+   * - If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

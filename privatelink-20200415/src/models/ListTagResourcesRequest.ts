@@ -61,8 +61,9 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The pagination token that is used in the next request to retrieve a new page of results.
    * 
-   * *   If this is your first request or no next requests are to be sent, you do not need to specify this parameter.
-   * *   If a next request is to be sent, you must specify the token that is obtained from the previous request as the value of **NextToken**.
+   * - If this is your first request or no next requests are to be sent, you do not need to specify this parameter.
+   * 
+   * - If a next request is to be sent, you must specify the token that is obtained from the previous request as the value of **NextToken**.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -87,8 +88,9 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The type of the resource. Valid values:
    * 
-   * *   **vpcendpoint**: endpoint
-   * *   **vpcendpointservice**: endpoint service
+   * - **vpcendpoint**: endpoint
+   * 
+   * - **vpcendpointservice**: endpoint service
    * 
    * This parameter is required.
    * 

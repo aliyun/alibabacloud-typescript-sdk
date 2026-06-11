@@ -3,12 +3,47 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetVpcEndpointServiceAttributeResponseBodySupportedRegionSet extends $dara.Model {
+  /**
+   * @remarks
+   * The business status of the endpoint service in the supported region. Valid values:
+   * 
+   * - **Normal**: The service is operating normally in the supported region.
+   * 
+   * - **FinancialLocked**: The endpoint service is locked due to an overdue payment.
+   * 
+   * @example
+   * Normal
+   */
   regionBusinessStatus?: string;
+  /**
+   * @remarks
+   * The status of the endpoint service in the supported region. Valid values:
+   * 
+   * - **Pending**: The supported region is being modified.
+   * 
+   * - **Available**: The service is available in the supported region.
+   * 
+   * - **Deleting**: The supported region is being deleted.
+   * 
+   * - **Failed**: The service failed to be deployed in the supported region.
+   * 
+   * - **Closed**: The endpoint service is not available in the supported region.
+   * 
+   * @example
+   * Available
+   */
   regionServiceStatus?: string;
   /**
    * @deprecated
    */
   serviceRegionId?: string;
+  /**
+   * @remarks
+   * The ID of the supported region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   supportedRegionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -40,10 +75,11 @@ export class GetVpcEndpointServiceAttributeResponseBodySupportedRegionSet extend
 export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The IP address version. Valid values:
    * 
-   * *   **IPv4**
-   * *   **DualStack**
+   * - **IPv4**: The IPv4 address family.
+   * 
+   * - **DualStack**: The dual stack IP address family.
    * 
    * @example
    * IPv4
@@ -51,10 +87,11 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * Indicates whether endpoint connection requests are automatically accepted. Valid values:
+   * Specifies whether to automatically accept endpoint connections. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Endpoint connections are automatically accepted.
+   * 
+   * - **false**: Endpoint connections are not automatically accepted.
    * 
    * @example
    * true
@@ -62,15 +99,15 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   autoAcceptEnabled?: boolean;
   /**
    * @remarks
-   * The default maximum bandwidth of the endpoint connection. Unit: Mbit/s. Valid values: **100** to 10240.
+   * The default maximum bandwidth of an endpoint connection, in Mbps. Valid values are **100 to 10,240**.
    * 
    * @example
-   * 1024
+   * 3072
    */
   connectBandwidth?: number;
   /**
    * @remarks
-   * The time when the endpoint service was created.
+   * The time the service was created.
    * 
    * @example
    * 2020-01-02T19:11:12Z
@@ -78,7 +115,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The maximum bandwidth of the endpoint connection. Unit: Mbit/s.
+   * The maximum bandwidth of the endpoint connection, in Mbps.
    * 
    * @example
    * 1024
@@ -86,7 +123,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   maxBandwidth?: number;
   /**
    * @remarks
-   * The minimum bandwidth of the endpoint connection. Unit: Mbit/s.
+   * The minimum bandwidth of the endpoint connection, in Mbps.
    * 
    * @example
    * 100
@@ -94,10 +131,11 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   minBandwidth?: number;
   /**
    * @remarks
-   * The payer of the endpoint service. Valid values:
+   * The party that pays for the service. Valid values:
    * 
-   * *   **Endpoint**: the service consumer.
-   * *   **EndpointService**: the service provider.
+   * - **Endpoint**: The service consumer.
+   * 
+   * - **EndpointService**: The service provider.
    * 
    * @example
    * Endpoint
@@ -105,7 +143,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   payer?: string;
   /**
    * @remarks
-   * The region ID of the endpoint service.
+   * The region where the service is deployed.
    * 
    * @example
    * cn-huhehaote
@@ -121,7 +159,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy*****
@@ -129,10 +167,11 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service status of the endpoint service. Valid values:
+   * The business status of the service. Valid values:
    * 
-   * *   **Normal**: The endpoint service runs as expected.
-   * *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
+   * - **Normal**: The service is operating normally.
+   * 
+   * - **FinancialLocked**: The endpoint service is locked due to an overdue payment.
    * 
    * @example
    * Normal
@@ -140,7 +179,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   serviceBusinessStatus?: string;
   /**
    * @remarks
-   * The description of the endpoint service.
+   * The description of the service.
    * 
    * @example
    * This is my EndpointService.
@@ -148,7 +187,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   serviceDescription?: string;
   /**
    * @remarks
-   * The domain name of the endpoint service.
+   * The domain name of the service.
    * 
    * @example
    * epsrv-hp3vpx8yqxblby3i****.cn-huhehaote.privatelink.aliyuncs.com
@@ -156,7 +195,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   serviceDomain?: string;
   /**
    * @remarks
-   * The endpoint service ID.
+   * The ID of the service.
    * 
    * @example
    * epsrv-hp3vpx8yqxblby3i****
@@ -164,7 +203,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The name of the endpoint service.
+   * The name of the service.
    * 
    * @example
    * com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
@@ -174,8 +213,13 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
    * @remarks
    * The type of the service resource. Valid values:
    * 
-   * *   **slb**: a CLB instance.
-   * *   **alb**: an ALB instance.
+   * - **slb**: The service resource is a Classic Load Balancer (CLB).
+   * 
+   * - **alb**: The service resource is an Application Load Balancer (ALB).
+   * 
+   * - **nlb**: The service resource is a Network Load Balancer (NLB).
+   * 
+   * - **gwlb**: The service resource is a Gateway Load Balancer (GWLB).
    * 
    * @example
    * slb
@@ -183,13 +227,15 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   serviceResourceType?: string;
   /**
    * @remarks
-   * The state of the endpoint service. Valid values:
+   * The status of the service. Valid values:
    * 
-   * *   **Creating**: The endpoint service is being created.
-   * *   **Pending**: The endpoint service is being modified.
-   * *   **Active**: The endpoint service is available.
-   * *   **Deleting**: The endpoint service is being deleted.
-   * *   **Inactive**: The endpoint service is unavailable.
+   * - **Creating**: The service is being created.
+   * 
+   * - **Pending**: The service is being updated.
+   * 
+   * - **Active**: The service is available.
+   * 
+   * - **Deleting**: The service is being deleted.
    * 
    * @example
    * Active
@@ -197,10 +243,11 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   serviceStatus?: string;
   /**
    * @remarks
-   * Specifies whether the endpoint service supports IPv6. Valid values:
+   * Specifies whether the service supports IPv6. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: The service supports IPv6.
+   * 
+   * - **false** (default): The service does not support IPv6.
    * 
    * @example
    * false
@@ -210,21 +257,28 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   serviceSupportIPv6?: boolean;
   /**
    * @remarks
-   * The type of the endpoint.
+   * The endpoint type.
    * 
-   * Only **Interface** is returned. The value indicates the interface endpoint. Then, you can specify ALB and CLB instances as service resources for the endpoint service.
+   * - **Interface**: An interface endpoint. You can add Classic Load Balancer (CLB), Application Load Balancer (ALB), and Network Load Balancer (NLB) instances as service resources.
+   * 
+   * - **GatewayLoadBalancer**: A gateway endpoint. You can add Gateway Load Balancer (GWLB) instances as service resources.
    * 
    * @example
    * Interface
    */
   serviceType?: string;
+  /**
+   * @remarks
+   * The regions where the service is supported. Service consumers can create endpoint connections to the service from these regions.
+   */
   supportedRegionSet?: GetVpcEndpointServiceAttributeResponseBodySupportedRegionSet[];
   /**
    * @remarks
-   * Indicates whether the domain name of the nearest endpoint that is associated with the endpoint service is resolved first. Valid values:
+   * Specifies whether zone affinity is enabled. Valid values:
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true** (default): Zone affinity is enabled.
+   * 
+   * - **false**: Zone affinity is disabled.
    * 
    * @example
    * true
@@ -232,7 +286,7 @@ export class GetVpcEndpointServiceAttributeResponseBody extends $dara.Model {
   zoneAffinityEnabled?: boolean;
   /**
    * @remarks
-   * The zones to which the service resources belong.
+   * The zones where the service is available.
    */
   zones?: string[];
   static names(): { [key: string]: string } {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListVpcEndpointServicesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the instance. You can specify up to 20 tag keys. The key cannot be an empty string.
    * 
-   * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
+   * The key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListVpcEndpointServicesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the instance. You can specify up to 20 tag values. The value can be an empty string.
    * 
-   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * The value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,10 +49,11 @@ export class ListVpcEndpointServicesRequestTag extends $dara.Model {
 export class ListVpcEndpointServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The protocol. Valid values:
+   * The IP address version. Valid values:
    * 
-   * *   **IPv4**
-   * *   **DualStack**
+   * - **IPv4**: IPv4 type.
+   * 
+   * - **DualStack**: Dual-stack type.
    * 
    * @example
    * IPv4
@@ -60,10 +61,11 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * Specifies whether to automatically accept endpoint connection requests. Valid values:
+   * Specifies whether to automatically accept endpoint connections. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: Automatically accept endpoint connections.
+   * 
+   * - **false**: Do not automatically accept endpoint connections.
    * 
    * @example
    * false
@@ -71,7 +73,7 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   autoAcceptEnabled?: boolean;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1** to **1000**. Default value: **50**.
+   * The number of entries to return per page. Valid values: **1** to **1000**. Default value: **50**.
    * 
    * @example
    * 50
@@ -79,10 +81,11 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * A pagination token for the next query. Valid values:
    * 
-   * *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
-   * *   If a next request is to be performed, set the parameter to the value of NextToken that is returned from the last call.
+   * - Leave this parameter empty for the first query or when no further results exist.
+   * 
+   * - If another query is needed, set this parameter to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -90,9 +93,9 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID of the endpoint service.
+   * The ID of the region where the endpoint service is deployed.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to query the most recent region list.
+   * Call the [DescribeRegions](https://help.aliyun.com/document_detail/120468.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -102,7 +105,7 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmy*****
@@ -110,7 +113,7 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service resource ID.
+   * The ID of the service resource.
    * 
    * @example
    * lb-hp32z1wp5peaoox2q****
@@ -118,10 +121,11 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The service state of the endpoint service. Valid values:
+   * The business status of the endpoint service. Valid values:
    * 
-   * *   **Normal**: The endpoint service runs as expected.
-   * *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
+   * - **Normal**: The endpoint service is running as expected.
+   * 
+   * - **FinancialLocked**: The endpoint service is locked due to an overdue payment.
    * 
    * @example
    * Normal
@@ -129,7 +133,7 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   serviceBusinessStatus?: string;
   /**
    * @remarks
-   * The endpoint service ID.
+   * The ID of the endpoint service.
    * 
    * @example
    * epsrv-hp3vpx8yqxblby3i****
@@ -147,8 +151,13 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
    * @remarks
    * The type of the service resource. Valid values:
    * 
-   * *   **slb**: a Classic Load Balancer (CLB) instance
-   * *   **alb**: an Application Load Balancer (ALB) instance
+   * - **slb**: The service resource is a Classic Load Balancer (CLB) instance.
+   * 
+   * - **alb**: The service resource is an Application Load Balancer (ALB) instance.
+   * 
+   * - **nlb**: The service resource is a Network Load Balancer (NLB) instance.
+   * 
+   * - **gwlb**: The service resource is a Gateway Load Balancer (GWLB) instance.
    * 
    * @example
    * slb
@@ -156,12 +165,15 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   serviceResourceType?: string;
   /**
    * @remarks
-   * The state of the endpoint service. Valid values:
+   * The status of the endpoint service. Valid values:
    * 
-   * *   **Creating**: The endpoint service is being created.
-   * *   **Pending**: The endpoint service is being modified.
-   * *   **Active**: The endpoint service is available.
-   * *   **Deleting**: The endpoint service is being deleted
+   * - **Creating**: The endpoint service is being created.
+   * 
+   * - **Pending**: The endpoint service is being modified.
+   * 
+   * - **Active**: The endpoint service is available.
+   * 
+   * - **Deleting**: The endpoint service is being deleted.
    * 
    * @example
    * Active
@@ -169,15 +181,16 @@ export class ListVpcEndpointServicesRequest extends $dara.Model {
   serviceStatus?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tag?: ListVpcEndpointServicesRequestTag[];
   /**
    * @remarks
-   * Specifies whether to first resolve the domain name of the nearest endpoint that is associated with the endpoint service. Valid values:
+   * Specifies whether zonal affinity is enabled for domain name resolution. Valid values:
    * 
-   * *   **true** (default)
-   * *   **false**
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * @example
    * true

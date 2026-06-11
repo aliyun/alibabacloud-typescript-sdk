@@ -27,8 +27,9 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    * @remarks
    * The type of resource. Valid values:
    * 
-   * *   **VpcEndpoint**: endpoint
-   * *   **VpcEndpointService**: endpoint service
+   * - **VpcEndpoint**: endpoint
+   * 
+   * - **VpcEndpointService**: endpoint service
    * 
    * @example
    * VpcEndpoint
