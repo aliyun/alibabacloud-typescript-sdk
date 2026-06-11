@@ -3,23 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryUserProfileResponseBodyDataAttributes extends $dara.Model {
-  /**
-   * @remarks
-   * id
-   * 
-   * @example
-   * babadd60b9e74d4f9d12cdf954f2c667
-   */
   id?: string;
-  /**
-   * @example
-   * test
-   */
   name?: string;
-  /**
-   * @example
-   * 18
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -48,15 +33,7 @@ export class QueryUserProfileResponseBodyDataAttributes extends $dara.Model {
 
 export class QueryUserProfileResponseBodyData extends $dara.Model {
   attributes?: QueryUserProfileResponseBodyDataAttributes[];
-  /**
-   * @example
-   * project name pass the check
-   */
   description?: string;
-  /**
-   * @example
-   * cert-15192707
-   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -87,34 +64,11 @@ export class QueryUserProfileResponseBodyData extends $dara.Model {
 }
 
 export class QueryUserProfileResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: QueryUserProfileResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * BE6BCB9B-7D90-5A56-96C8-A5E990D85B21
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

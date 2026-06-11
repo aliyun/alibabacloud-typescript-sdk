@@ -6,9 +6,6 @@ export class CreateMemoryRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
   autoUpdate?: boolean;
@@ -16,26 +13,16 @@ export class CreateMemoryRequest extends $dara.Model {
   expirationTime?: number;
   messagesJson?: string;
   metaData?: { [key: string]: string };
-  /**
-   * @example
-   * profile_project
-   */
   projectId?: string;
   prompt?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * CD51C0ED-4666-13DA-BC7D-C0D21CBE16C9
    */
   userDefinedId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

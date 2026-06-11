@@ -2,22 +2,12 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateMmAppRagWeightRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+export class QueryAppQuotaRequest extends $dara.Model {
   appId?: string;
-  rankWeights?: { [key: string]: number };
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      rankWeights: 'RankWeights',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -25,15 +15,11 @@ export class UpdateMmAppRagWeightRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      rankWeights: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
       workspaceId: 'string',
     };
   }
 
   validate() {
-    if(this.rankWeights) {
-      $dara.Model.validateMap(this.rankWeights);
-    }
     super.validate();
   }
 

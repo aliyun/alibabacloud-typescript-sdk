@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MmAppBindingMcpResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -30,34 +26,11 @@ export class MmAppBindingMcpResponseBodyData extends $dara.Model {
 }
 
 export class MmAppBindingMcpResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: MmAppBindingMcpResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 539759F7-A281-577D-9962-6E69AEBD3AB9
-   */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

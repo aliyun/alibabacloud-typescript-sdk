@@ -2,38 +2,42 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateMmAppRagWeightRequest extends $dara.Model {
+export class DeviceUpdateRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
    */
   appId?: string;
-  rankWeights?: { [key: string]: number };
   /**
    * @remarks
    * This parameter is required.
    */
-  workspaceId?: string;
+  deviceName?: string;
+  remark?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  status?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      rankWeights: 'RankWeights',
-      workspaceId: 'WorkspaceId',
+      deviceName: 'DeviceName',
+      remark: 'Remark',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      rankWeights: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
-      workspaceId: 'string',
+      deviceName: 'string',
+      remark: 'string',
+      status: 'number',
     };
   }
 
   validate() {
-    if(this.rankWeights) {
-      $dara.Model.validateMap(this.rankWeights);
-    }
     super.validate();
   }
 

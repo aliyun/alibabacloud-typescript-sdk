@@ -2,38 +2,36 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateMmAppRagWeightRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+export class QueryAppQuotaResponseBody extends $dara.Model {
+  activeLicenseCount?: number;
   appId?: string;
-  rankWeights?: { [key: string]: number };
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+  licenseCount?: number;
+  requestId?: string;
+  usagePercent?: number;
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
+      activeLicenseCount: 'ActiveLicenseCount',
       appId: 'AppId',
-      rankWeights: 'RankWeights',
+      licenseCount: 'LicenseCount',
+      requestId: 'RequestId',
+      usagePercent: 'UsagePercent',
       workspaceId: 'WorkspaceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      activeLicenseCount: 'number',
       appId: 'string',
-      rankWeights: { 'type': 'map', 'keyType': 'string', 'valueType': 'number' },
+      licenseCount: 'number',
+      requestId: 'string',
+      usagePercent: 'number',
       workspaceId: 'string',
     };
   }
 
   validate() {
-    if(this.rankWeights) {
-      $dara.Model.validateMap(this.rankWeights);
-    }
     super.validate();
   }
 

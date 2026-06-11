@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMemoryResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * A90B1930-D2CC-57ED-A2F6-079466EB16F6
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,34 +26,11 @@ export class DeleteMemoryResponseBodyData extends $dara.Model {
 }
 
 export class DeleteMemoryResponseBody extends $dara.Model {
-  /**
-   * @example
-   * SUCCEED
-   */
   code?: string;
   data?: DeleteMemoryResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * successful
-   */
   message?: string;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 5979B783-0AF5-547E-A549-8659F8A2A12A
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeCommandResponseBodyToolExamples extends $dara.Model {
+  parameters?: { [key: string]: string };
   /**
    * @example
    * xxx
@@ -10,17 +11,22 @@ export class DescribeCommandResponseBodyToolExamples extends $dara.Model {
   query?: string;
   static names(): { [key: string]: string } {
     return {
+      parameters: 'Parameters',
       query: 'Query',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       query: 'string',
     };
   }
 
   validate() {
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
     super.validate();
   }
 
@@ -45,11 +51,15 @@ export class DescribeCommandResponseBodyToolParams extends $dara.Model {
    * xxx
    */
   paramName?: string;
+  paramType?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
       paramDesc: 'ParamDesc',
       paramExample: 'ParamExample',
       paramName: 'ParamName',
+      paramType: 'ParamType',
+      required: 'Required',
     };
   }
 
@@ -58,6 +68,8 @@ export class DescribeCommandResponseBodyToolParams extends $dara.Model {
       paramDesc: 'string',
       paramExample: 'string',
       paramName: 'string',
+      paramType: 'string',
+      required: 'boolean',
     };
   }
 
@@ -121,6 +133,7 @@ export class DescribeCommandResponseBody extends $dara.Model {
    * xxx
    */
   modifyUserName?: string;
+  replyMode?: string;
   /**
    * @example
    * xxxx
@@ -150,6 +163,7 @@ export class DescribeCommandResponseBody extends $dara.Model {
       gmtModified: 'GmtModified',
       modifyUserId: 'ModifyUserId',
       modifyUserName: 'ModifyUserName',
+      replyMode: 'ReplyMode',
       requestId: 'RequestId',
       toolExamples: 'ToolExamples',
       toolId: 'ToolId',
@@ -170,6 +184,7 @@ export class DescribeCommandResponseBody extends $dara.Model {
       gmtModified: 'string',
       modifyUserId: 'string',
       modifyUserName: 'string',
+      replyMode: 'string',
       requestId: 'string',
       toolExamples: { 'type': 'array', 'itemType': DescribeCommandResponseBodyToolExamples },
       toolId: 'string',

@@ -3,16 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class MmAppBindingMcpRequestMcps extends $dara.Model {
-  /**
-   * @example
-   * mcp-ZDI1MDU2ZTExZGZh
-   */
   code?: string;
   toolList?: string[];
-  /**
-   * @example
-   * CUSTOM
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -46,18 +38,12 @@ export class MmAppBindingMcpRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * mm_a2eb4e04b48041108edb1f6de815
    */
   appId?: string;
   mcps?: MmAppBindingMcpRequestMcps[];
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-o8ixktz41iyd2b6p
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

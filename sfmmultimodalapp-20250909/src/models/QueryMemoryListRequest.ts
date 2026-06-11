@@ -6,46 +6,27 @@ export class QueryMemoryListRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 10
    */
   pageSize?: number;
-  /**
-   * @example
-   * profile_project
-   */
   projectId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * b6d4359977d16
    */
   userDefinedId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

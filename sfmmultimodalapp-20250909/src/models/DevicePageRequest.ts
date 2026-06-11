@@ -2,35 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class UpdateMmAppTransitionRequest extends $dara.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+export class DevicePageRequest extends $dara.Model {
   appId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  status?: boolean;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  workspaceId?: string;
+  deviceName?: string;
+  pageNumber?: number;
+  pageSize?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
-      status: 'Status',
-      workspaceId: 'WorkspaceId',
+      deviceName: 'DeviceName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       appId: 'string',
-      status: 'boolean',
-      workspaceId: 'string',
+      deviceName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
     };
   }
 

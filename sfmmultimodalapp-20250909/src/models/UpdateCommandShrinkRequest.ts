@@ -21,6 +21,7 @@ export class UpdateCommandShrinkRequest extends $dara.Model {
    * shopping_t
    */
   domainName?: string;
+  replyMode?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -57,6 +58,7 @@ export class UpdateCommandShrinkRequest extends $dara.Model {
       appId: 'AppId',
       domainCode: 'DomainCode',
       domainName: 'DomainName',
+      replyMode: 'ReplyMode',
       toolDescription: 'ToolDescription',
       toolExamplesShrink: 'ToolExamples',
       toolId: 'ToolId',
@@ -71,6 +73,7 @@ export class UpdateCommandShrinkRequest extends $dara.Model {
       appId: 'string',
       domainCode: 'string',
       domainName: 'string',
+      replyMode: 'string',
       toolDescription: 'string',
       toolExamplesShrink: 'string',
       toolId: 'string',

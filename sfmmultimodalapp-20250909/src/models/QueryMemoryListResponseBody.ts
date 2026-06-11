@@ -3,51 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryMemoryListResponseBodyDataMemoryNodes extends $dara.Model {
-  /**
-   * @example
-   * []
-   */
   content?: string;
-  /**
-   * @example
-   * 1743991502383
-   */
   createTime?: number;
-  /**
-   * @example
-   * ADD
-   */
   event?: string;
-  /**
-   * @example
-   * 384dc4786b9d4f5a8cab0d83112cd5a8
-   */
   memoryNodeId?: string;
   metaData?: { [key: string]: any };
-  /**
-   * @example
-   * []
-   */
   metaDataJson?: string;
-  /**
-   * @example
-   * []
-   */
   oldContent?: string;
-  /**
-   * @example
-   * profile_project
-   */
   projectId?: string;
-  /**
-   * @example
-   * 1743991502383
-   */
   timestamp?: number;
-  /**
-   * @example
-   * 1743991502383
-   */
   updateTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -93,20 +57,8 @@ export class QueryMemoryListResponseBodyDataMemoryNodes extends $dara.Model {
 
 export class QueryMemoryListResponseBodyData extends $dara.Model {
   memoryNodes?: QueryMemoryListResponseBodyDataMemoryNodes[];
-  /**
-   * @example
-   * 1
-   */
   pageNum?: string;
-  /**
-   * @example
-   * 10
-   */
   pageSize?: string;
-  /**
-   * @example
-   * 60
-   */
   total?: string;
   static names(): { [key: string]: string } {
     return {
@@ -139,31 +91,11 @@ export class QueryMemoryListResponseBodyData extends $dara.Model {
 }
 
 export class QueryMemoryListResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: QueryMemoryListResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @example
-   * A42FFCBD-33A9-54AA-9351-86E3C3B316A7
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

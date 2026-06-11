@@ -6,29 +6,15 @@ export class UpdateProfileShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
   attributesOperationsShrink?: string;
   description?: string;
-  /**
-   * @example
-   * example
-   */
   name?: string;
-  /**
-   * @example
-   * 10b6d435
-   */
   userDefinedId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

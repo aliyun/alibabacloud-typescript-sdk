@@ -5,10 +5,6 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProfileRequestAttributes extends $dara.Model {
   defaultValue?: string;
   description?: string;
-  /**
-   * @example
-   * False
-   */
   immutable?: boolean;
   /**
    * @remarks
@@ -46,9 +42,6 @@ export class CreateProfileRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
   /**
@@ -66,17 +59,10 @@ export class CreateProfileRequest extends $dara.Model {
    * This parameter is required.
    */
   name?: string;
-  /**
-   * @example
-   * 6e18191727f747ec9de06a2
-   */
   userDefinedId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

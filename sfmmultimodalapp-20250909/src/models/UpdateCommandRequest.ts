@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateCommandRequestToolExamples extends $dara.Model {
+  parameters?: { [key: string]: string };
   /**
    * @example
    * 给我xxx
@@ -10,17 +11,22 @@ export class UpdateCommandRequestToolExamples extends $dara.Model {
   query?: string;
   static names(): { [key: string]: string } {
     return {
+      parameters: 'Parameters',
       query: 'Query',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       query: 'string',
     };
   }
 
   validate() {
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
     super.validate();
   }
 
@@ -45,11 +51,15 @@ export class UpdateCommandRequestToolParams extends $dara.Model {
    * xxxx
    */
   paramName?: string;
+  paramType?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
       paramDesc: 'ParamDesc',
       paramExample: 'ParamExample',
       paramName: 'ParamName',
+      paramType: 'ParamType',
+      required: 'Required',
     };
   }
 
@@ -58,6 +68,8 @@ export class UpdateCommandRequestToolParams extends $dara.Model {
       paramDesc: 'string',
       paramExample: 'string',
       paramName: 'string',
+      paramType: 'string',
+      required: 'boolean',
     };
   }
 
@@ -89,6 +101,7 @@ export class UpdateCommandRequest extends $dara.Model {
    * shopping_t
    */
   domainName?: string;
+  replyMode?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -125,6 +138,7 @@ export class UpdateCommandRequest extends $dara.Model {
       appId: 'AppId',
       domainCode: 'DomainCode',
       domainName: 'DomainName',
+      replyMode: 'ReplyMode',
       toolDescription: 'ToolDescription',
       toolExamples: 'ToolExamples',
       toolId: 'ToolId',
@@ -139,6 +153,7 @@ export class UpdateCommandRequest extends $dara.Model {
       appId: 'string',
       domainCode: 'string',
       domainName: 'string',
+      replyMode: 'string',
       toolDescription: 'string',
       toolExamples: { 'type': 'array', 'itemType': UpdateCommandRequestToolExamples },
       toolId: 'string',

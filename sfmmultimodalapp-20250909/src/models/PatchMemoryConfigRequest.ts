@@ -6,43 +6,17 @@ export class PatchMemoryConfigRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * mm_bfaf7e110b6d4359977d1686a3f8
    */
   appId?: string;
-  /**
-   * @example
-   * true
-   */
   autoUpdate?: boolean;
-  /**
-   * @example
-   * 30
-   */
   expirationTime?: number;
   prompt?: string;
-  /**
-   * @example
-   * 0.03
-   */
   threshold?: number;
-  /**
-   * @example
-   * 3
-   */
   topK?: number;
-  /**
-   * @example
-   * 110b6d4359977d1
-   */
   userDefinedId?: string;
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * llm-jb5sabg80b4ts71g
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {

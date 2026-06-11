@@ -3,23 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateProfileResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * 210235A52L5248C0000N
-   */
   description?: string;
-  /**
-   * @example
-   * ST-JobTemplate
-   */
   name?: string;
-  /**
-   * @remarks
-   * schema id
-   * 
-   * @example
-   * 33440
-   */
   schemaId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47,31 +32,11 @@ export class CreateProfileResponseBodyData extends $dara.Model {
 }
 
 export class CreateProfileResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: CreateProfileResponseBodyData;
-  /**
-   * @example
-   * 400
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @example
-   * F62225F8-DDE4-526E-A88B-08906DED5060
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

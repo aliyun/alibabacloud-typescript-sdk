@@ -3,6 +3,7 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListCommandResponseBodyToolInfoListToolExamples extends $dara.Model {
+  parameters?: { [key: string]: any };
   /**
    * @example
    * xxx
@@ -10,17 +11,22 @@ export class ListCommandResponseBodyToolInfoListToolExamples extends $dara.Model
   query?: string;
   static names(): { [key: string]: string } {
     return {
+      parameters: 'Parameters',
       query: 'Query',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       query: 'string',
     };
   }
 
   validate() {
+    if(this.parameters) {
+      $dara.Model.validateMap(this.parameters);
+    }
     super.validate();
   }
 
@@ -45,11 +51,15 @@ export class ListCommandResponseBodyToolInfoListToolParams extends $dara.Model {
    * xxxx
    */
   paramName?: string;
+  paramType?: string;
+  required?: boolean;
   static names(): { [key: string]: string } {
     return {
       paramDesc: 'ParamDesc',
       paramExample: 'ParamExample',
       paramName: 'ParamName',
+      paramType: 'ParamType',
+      required: 'Required',
     };
   }
 
@@ -58,6 +68,8 @@ export class ListCommandResponseBodyToolInfoListToolParams extends $dara.Model {
       paramDesc: 'string',
       paramExample: 'string',
       paramName: 'string',
+      paramType: 'string',
+      required: 'boolean',
     };
   }
 
@@ -121,6 +133,7 @@ export class ListCommandResponseBodyToolInfoList extends $dara.Model {
    * xxx
    */
   modifyUserName?: string;
+  replyMode?: string;
   toolExamples?: ListCommandResponseBodyToolInfoListToolExamples[];
   /**
    * @example
@@ -145,6 +158,7 @@ export class ListCommandResponseBodyToolInfoList extends $dara.Model {
       gmtModified: 'GmtModified',
       modifyUserId: 'ModifyUserId',
       modifyUserName: 'ModifyUserName',
+      replyMode: 'ReplyMode',
       toolExamples: 'ToolExamples',
       toolId: 'ToolId',
       toolName: 'ToolName',
@@ -164,6 +178,7 @@ export class ListCommandResponseBodyToolInfoList extends $dara.Model {
       gmtModified: 'string',
       modifyUserId: 'string',
       modifyUserName: 'string',
+      replyMode: 'string',
       toolExamples: { 'type': 'array', 'itemType': ListCommandResponseBodyToolInfoListToolExamples },
       toolId: 'string',
       toolName: 'string',

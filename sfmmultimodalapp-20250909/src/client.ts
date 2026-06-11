@@ -61,6 +61,10 @@ export default class Client extends OpenApi {
       query["DomainName"] = request.domainName;
     }
 
+    if (!$dara.isNull(request.replyMode)) {
+      query["ReplyMode"] = request.replyMode;
+    }
+
     if (!$dara.isNull(request.toolDescription)) {
       query["ToolDescription"] = request.toolDescription;
     }
@@ -642,6 +646,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 设备信息查询
+   * 
+   * @param request - DevicePageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DevicePageResponse
+   */
+  async devicePageWithOptions(request: $_model.DevicePageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DevicePageResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DevicePage",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DevicePageResponse>(await this.callApi(params, req, runtime), new $_model.DevicePageResponse({}));
+  }
+
+  /**
+   * 设备信息查询
+   * 
+   * @param request - DevicePageRequest
+   * @returns DevicePageResponse
+   */
+  async devicePage(request: $_model.DevicePageRequest): Promise<$_model.DevicePageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.devicePageWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改设备状态
+   * 
+   * @param request - DeviceUpdateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeviceUpdateResponse
+   */
+  async deviceUpdateWithOptions(request: $_model.DeviceUpdateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeviceUpdateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.deviceName)) {
+      query["DeviceName"] = request.deviceName;
+    }
+
+    if (!$dara.isNull(request.remark)) {
+      query["Remark"] = request.remark;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeviceUpdate",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeviceUpdateResponse>(await this.callApi(params, req, runtime), new $_model.DeviceUpdateResponse({}));
+  }
+
+  /**
+   * 修改设备状态
+   * 
+   * @param request - DeviceUpdateRequest
+   * @returns DeviceUpdateResponse
+   */
+  async deviceUpdate(request: $_model.DeviceUpdateRequest): Promise<$_model.DeviceUpdateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deviceUpdateWithOptions(request, runtime);
+  }
+
+  /**
    * 指令列表
    * 
    * @param request - ListCommandRequest
@@ -1048,6 +1160,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 额度使用量查询
+   * 
+   * @param request - QueryAppQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAppQuotaResponse
+   */
+  async queryAppQuotaWithOptions(request: $_model.QueryAppQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QueryAppQuotaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QueryAppQuota",
+      version: "2025-09-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QueryAppQuotaResponse>(await this.callApi(params, req, runtime), new $_model.QueryAppQuotaResponse({}));
+  }
+
+  /**
+   * 额度使用量查询
+   * 
+   * @param request - QueryAppQuotaRequest
+   * @returns QueryAppQuotaResponse
+   */
+  async queryAppQuota(request: $_model.QueryAppQuotaRequest): Promise<$_model.QueryAppQuotaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.queryAppQuotaWithOptions(request, runtime);
+  }
+
+  /**
    * 查询用户记忆配置
    * 
    * @param request - QueryMemoryConfigRequest
@@ -1289,6 +1447,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.domainName)) {
       query["DomainName"] = request.domainName;
+    }
+
+    if (!$dara.isNull(request.replyMode)) {
+      query["ReplyMode"] = request.replyMode;
     }
 
     if (!$dara.isNull(request.toolDescription)) {

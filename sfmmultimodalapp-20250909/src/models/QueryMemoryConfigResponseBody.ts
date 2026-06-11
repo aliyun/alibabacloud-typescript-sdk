@@ -3,41 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class QueryMemoryConfigResponseBodyData extends $dara.Model {
-  /**
-   * @example
-   * mm_bfaf7e110b6d4359977d1686a3f8
-   */
   appId?: string;
-  /**
-   * @example
-   * true
-   */
   autoUpdate?: boolean;
-  /**
-   * @example
-   * 30
-   */
   expirationTime?: number;
   prompt?: string;
-  /**
-   * @example
-   * 0.03
-   */
   threshold?: number;
-  /**
-   * @example
-   * 10
-   */
   topK?: number;
-  /**
-   * @example
-   * we4m6373
-   */
   userDefinedId?: string;
-  /**
-   * @example
-   * llm-956eawe4m6373633
-   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -75,31 +47,11 @@ export class QueryMemoryConfigResponseBodyData extends $dara.Model {
 }
 
 export class QueryMemoryConfigResponseBody extends $dara.Model {
-  /**
-   * @example
-   * 200
-   */
   code?: string;
   data?: QueryMemoryConfigResponseBodyData;
-  /**
-   * @example
-   * 200
-   */
   httpStatusCode?: number;
-  /**
-   * @example
-   * success
-   */
   message?: string;
-  /**
-   * @example
-   * B075711B-7857-5BC3-A953-F04B1755EF67
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {

@@ -3,10 +3,6 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMmAppResponseBodyAppConfig extends $dara.Model {
-  /**
-   * @example
-   * true
-   */
   enableTransition?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -72,7 +68,7 @@ export class DescribeMmAppResponseBodyBindingConfigCommands extends $dara.Model 
 export class DescribeMmAppResponseBodyBindingConfigMcps extends $dara.Model {
   /**
    * @example
-   * mcp-xxxx
+   * xxx
    */
   code?: string;
   toolList?: string[];
@@ -343,9 +339,6 @@ export class DescribeMmAppResponseBody extends $dara.Model {
    */
   publishVersion?: number;
   /**
-   * @remarks
-   * Id of the request
-   * 
    * @example
    * xxxx
    */
