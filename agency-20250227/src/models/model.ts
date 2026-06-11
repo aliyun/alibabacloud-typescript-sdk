@@ -1,10 +1,10 @@
-export { GetBillDetailFileListResponseBodyData } from './GetBillDetailFileListResponseBodyData';
-export { GetCommissionDetailFileListResponseBodyDataFileList } from './GetCommissionDetailFileListResponseBodyDataFileList';
-export { GetCommissionDetailFileListResponseBodyData } from './GetCommissionDetailFileListResponseBodyData';
-export { GetCustomerOrderListResponseBodyData } from './GetCustomerOrderListResponseBodyData';
-export { GetRenewalRateListResponseBodyData } from './GetRenewalRateListResponseBodyData';
-export { GetSubPartnerListResponseBodySubPartnerList } from './GetSubPartnerListResponseBodySubPartnerList';
-export { GetSubPartnerOrderListResponseBodyData } from './GetSubPartnerOrderListResponseBodyData';
+export { GetBillDetailFileListResponseBodyData } from './GetBillDetailFileListResponseBody';
+export { GetCommissionDetailFileListResponseBodyDataFileList } from './GetCommissionDetailFileListResponseBody';
+export { GetCommissionDetailFileListResponseBodyData } from './GetCommissionDetailFileListResponseBody';
+export { GetCustomerOrderListResponseBodyData } from './GetCustomerOrderListResponseBody';
+export { GetRenewalRateListResponseBodyData } from './GetRenewalRateListResponseBody';
+export { GetSubPartnerListResponseBodySubPartnerList } from './GetSubPartnerListResponseBody';
+export { GetSubPartnerOrderListResponseBodyData } from './GetSubPartnerOrderListResponseBody';
 export { GetBillDetailFileListRequest } from './GetBillDetailFileListRequest';
 export { GetBillDetailFileListResponseBody } from './GetBillDetailFileListResponseBody';
 export { GetBillDetailFileListResponse } from './GetBillDetailFileListResponse';

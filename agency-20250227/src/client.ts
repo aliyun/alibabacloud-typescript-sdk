@@ -88,7 +88,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账单导出文件
+   * Query bill export files.
    * 
    * @param request - GetBillDetailFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -143,7 +143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账单导出文件
+   * Query bill export files.
    * 
    * @param request - GetBillDetailFileListRequest
    * @returns GetBillDetailFileListResponse
@@ -154,7 +154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询伙伴佣金明细
+   * Query partner commission details.
    * 
    * @param request - GetCommissionDetailFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -209,7 +209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询伙伴佣金明细
+   * Query partner commission details.
    * 
    * @param request - GetCommissionDetailFileListRequest
    * @returns GetCommissionDetailFileListResponse
@@ -220,7 +220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询伙伴拓客订单
+   * Query partner customer acquisition orders.
    * 
    * @param tmpReq - GetCustomerOrderListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -325,7 +325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询伙伴拓客订单
+   * Query partner customer acquisition orders.
    * 
    * @param request - GetCustomerOrderListRequest
    * @returns GetCustomerOrderListResponse
@@ -336,7 +336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询伙伴续费率
+   * Query partner renewal rate.
    * 
    * @param request - GetRenewalRateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -367,7 +367,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询伙伴续费率
+   * Query partner renewal rate.
    * 
    * @param request - GetRenewalRateListRequest
    * @returns GetRenewalRateListResponse
@@ -378,7 +378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询二级分销商列表
+   * Query the list of second-tier distributors.
    * 
    * @param request - GetSubPartnerListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -421,7 +421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询二级分销商列表
+   * Query the list of second-tier distributors.
    * 
    * @param request - GetSubPartnerListRequest
    * @returns GetSubPartnerListResponse
@@ -432,7 +432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询拓渠订单
+   * Query channel expansion orders.
    * 
    * @param tmpReq - GetSubPartnerOrderListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -533,7 +533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询拓渠订单
+   * Query channel expansion orders.
    * 
    * @param request - GetSubPartnerOrderListRequest
    * @returns GetSubPartnerOrderListResponse
