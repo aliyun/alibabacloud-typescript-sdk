@@ -5,23 +5,38 @@ import { IncidentEscalationStageForView } from "./IncidentEscalationStageForView
 
 export class IncidentEscalationPolicyForView extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2025-03-11T08:21:58Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * workspace api monitor update test
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the policy is enabled.
+   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The list of escalation stages.
+   */
   escalationStageList?: IncidentEscalationStageForView[];
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29,41 +44,69 @@ export class IncidentEscalationPolicyForView extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The owner type.
+   * 
+   * - **USER**: User. This is the default value.
+   * 
+   * - **APP**: Application.
+   * 
    * @example
    * "USER"
    */
   ownerType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * "cn-hangzhou"
    */
   regionId?: string;
   /**
+   * @remarks
+   * The source.
+   * 
    * @example
    * "MANUAL"
    */
   source?: string;
   /**
+   * @remarks
+   * The source type of the synchronization policy.
+   * 
    * @example
    * "ARMS"
    */
   syncFromType?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2025-04-15T02:02:50Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * "user-abc123"
    */
   userId?: string;
   /**
+   * @remarks
+   * The globally unique identifier.
+   * 
    * @example
    * "a1b2c3d4-e5f6-7890-1234-567890abcdef"
    */
   uuid?: string;
   /**
+   * @remarks
+   * The workspace.
+   * 
    * @example
    * "ws-xyz789"
    */

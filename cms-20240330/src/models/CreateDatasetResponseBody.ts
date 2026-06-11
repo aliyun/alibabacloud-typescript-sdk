@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateDatasetResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */

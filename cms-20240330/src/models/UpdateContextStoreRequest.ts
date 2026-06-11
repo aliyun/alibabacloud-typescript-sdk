@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateContextStoreRequestConfigSource extends $dara.Model {
   /**
+   * @remarks
+   * The Log Service Logstore name.
+   * 
    * @example
    * sls-test-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The Log Service Project name.
+   * 
    * @example
    * sls-test-project
    */
   project?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 1776824891000
    */
@@ -44,7 +53,15 @@ export class UpdateContextStoreRequestConfigSource extends $dara.Model {
 }
 
 export class UpdateContextStoreRequestConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata field.
+   */
   metadataField?: { [key: string]: string };
+  /**
+   * @remarks
+   * The data source.
+   */
   source?: UpdateContextStoreRequestConfigSource;
   static names(): { [key: string]: string } {
     return {
@@ -77,6 +94,9 @@ export class UpdateContextStoreRequestConfig extends $dara.Model {
 
 export class UpdateContextStoreRequestDataset extends $dara.Model {
   /**
+   * @remarks
+   * The dataset name.
+   * 
    * @example
    * test_dataset
    */
@@ -103,14 +123,28 @@ export class UpdateContextStoreRequestDataset extends $dara.Model {
 }
 
 export class UpdateContextStoreRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration.
+   */
   config?: UpdateContextStoreRequestConfig;
   /**
+   * @remarks
+   * The context type.
+   * 
    * @example
    * memory
    */
   contextType?: string;
+  /**
+   * @remarks
+   * The dataset.
+   */
   dataset?: UpdateContextStoreRequestDataset;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */

@@ -4,18 +4,31 @@ import { QueryAlertRulesInput } from "./QueryAlertRulesInput";
 
 
 export class QueryAlertRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The request parameters for querying alert rules.
+   */
   body?: QueryAlertRulesInput;
   /**
+   * @remarks
+   * The client token used to ensure the idempotency of the request.
+   * 
    * @example
    * xxxxx-xxxx-xxxx
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The maximum number of results to return per page.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token used to retrieve the next page of results. If you do not specify this parameter, the query starts from the beginning.
+   * 
    * @example
    * 123456
    */

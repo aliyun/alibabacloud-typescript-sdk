@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListPipelinesResponseBodyPipelines extends $dara.Model {
   /**
    * @remarks
+   * The creation time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -12,22 +14,33 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description of the pipeline.
+   * 
    * @example
    * test pipeline
    */
   description?: string;
   /**
+   * @remarks
+   * The pipeline name.
+   * 
    * @example
    * pipeline-name-1
    */
   pipelineName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The update time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -35,6 +48,9 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * workspace-test
    */
@@ -72,19 +88,29 @@ export class ListPipelinesResponseBodyPipelines extends $dara.Model {
 
 export class ListPipelinesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The number of results returned on the current page.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token. If this parameter is not empty, use it in a subsequent request to get the next page of results. If this parameter is empty, all results have been returned.
+   * 
    * @example
    * 3f0d6785770d5fb308f0605d718d422a227c38f96117633678f029842acd19039329e8281583b3da7bc598dfc4c1973e
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * A list of pipelines.
+   */
   pipelines?: ListPipelinesResponseBodyPipelines[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-************

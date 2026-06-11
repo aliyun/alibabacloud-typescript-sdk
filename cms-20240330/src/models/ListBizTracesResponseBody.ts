@@ -4,23 +4,39 @@ import { BizTraceConfig } from "./BizTraceConfig";
 
 
 export class ListBizTracesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of business traces.
+   */
   items?: BizTraceConfig[];
   /**
+   * @remarks
+   * The maximum number of results returned. The maximum value is 100.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to use to retrieve the next page of results.
+   * 
    * @example
    * aa9d0e569b88098a0e3155c29b473201a
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0CEC5375-C554-562B-A65F-*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 66
    */

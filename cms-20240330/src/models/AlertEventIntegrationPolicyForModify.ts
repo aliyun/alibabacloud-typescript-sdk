@@ -7,6 +7,8 @@ import { TransformAction } from "./TransformAction";
 export class AlertEventIntegrationPolicyForModify extends $dara.Model {
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,18 +16,35 @@ export class AlertEventIntegrationPolicyForModify extends $dara.Model {
    */
   alertEventIntegrationPolicyName?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The filter settings.
+   */
   filterSetting?: FilterSetting;
   /**
+   * @remarks
+   * The subscription settings.
+   * 
    * @example
    * {"region":"cn-hangzhou"}
    */
   integrationSetting?: string;
+  /**
+   * @remarks
+   * The transform settings.
+   */
   transformerSetting?: TransformAction[];
   /**
+   * @remarks
+   * The type.
+   * 
    * @example
    * ALERT_CUSTOM
    */

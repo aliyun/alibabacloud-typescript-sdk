@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListServicesRequestTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * evn
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * prod
    */
@@ -39,7 +45,7 @@ export class ListServicesRequestTags extends $dara.Model {
 export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return in this request.
+   * The maximum number of records to return for this request.
    * 
    * @example
    * 10
@@ -47,31 +53,40 @@ export class ListServicesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for the next query, an empty value indicates the last page.
+   * The token for the next page of results. If this parameter is empty, it means you have reached the last page.
    * 
    * @example
    * 7-b81a-4bc9-bbfa-a50cc6988667
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-aekxxzuad5zzzz
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The application service name.
+   * 
    * @example
    * app-demo
    */
   serviceName?: string;
   /**
    * @remarks
-   * Service type
+   * The service type.
    * 
    * @example
-   * apm
+   * TRACE
    */
   serviceType?: string;
   /**
+   * @remarks
+   * An array of tags.
+   * 
    * **if can be null:**
    * true
    */

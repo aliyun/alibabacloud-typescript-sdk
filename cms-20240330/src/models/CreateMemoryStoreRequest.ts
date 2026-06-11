@@ -4,13 +4,23 @@ import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 
 
 export class CreateMemoryStoreRequestTraceSourceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to include the output in the trace.
+   */
   includeOutput?: boolean;
   /**
+   * @remarks
+   * The query to filter traces.
+   * 
    * @example
    * (serviceName : "langchain-rag" or serviceName : "agentscope-code-correction") and hostname = frontend-proxy-999c48c8d-hvk6c
    */
   query?: string;
   /**
+   * @remarks
+   * The name of the workspace that contains the trace source.
+   * 
    * @example
    * test-workspace
    */
@@ -41,15 +51,28 @@ export class CreateMemoryStoreRequestTraceSourceConfig extends $dara.Model {
 }
 
 export class CreateMemoryStoreRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A list of custom extraction strategies.
+   */
   customExtractionStrategies?: CustomExtractionStrategy[];
   /**
+   * @remarks
+   * The description of the MemoryStore.
+   * 
    * @example
    * Test memory store for demonstration.
    */
   description?: string;
+  /**
+   * @remarks
+   * The extraction strategies to use. Valid values include `Episodic`, `Summary`, and `Fact`.
+   */
   extractionStrategies?: string[];
   /**
    * @remarks
+   * The name of the MemoryStore. The name must be unique within the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -58,6 +81,8 @@ export class CreateMemoryStoreRequest extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
+   * The short-term TTL, which is the number of conversation rounds to retain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,10 +90,17 @@ export class CreateMemoryStoreRequest extends $dara.Model {
    */
   shortTermTtl?: number;
   /**
+   * @remarks
+   * The source type of the memory. Valid values are `None` and `Trace`.
+   * 
    * @example
    * None/Trace
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * Configuration for the trace source. Required if `sourceType` is `Trace`.
+   */
   traceSourceConfig?: CreateMemoryStoreRequestTraceSourceConfig;
   static names(): { [key: string]: string } {
     return {

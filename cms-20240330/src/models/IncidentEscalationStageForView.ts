@@ -6,31 +6,53 @@ import { NotifyChannel } from "./NotifyChannel";
 
 export class IncidentEscalationStageForView extends $dara.Model {
   /**
+   * @remarks
+   * The number of loop notifications.
+   * 
    * @example
    * 3
    */
   cycleNotifyCount?: number;
   /**
+   * @remarks
+   * The loop notification interval.
+   * 
    * @example
    * 5
    */
   cycleNotifyInterval?: number;
+  /**
+   * @remarks
+   * The effective time range.
+   */
   effectTimeRange?: EffectTimeRange;
   /**
    * @remarks
+   * The stage index.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   index?: number;
+  /**
+   * @remarks
+   * The list of notification channels.
+   */
   notifyChannels?: NotifyChannel[];
   /**
+   * @remarks
+   * The target event state.
+   * 
    * @example
    * "Open"
    */
   targetIncidentState?: string;
   /**
+   * @remarks
+   * The trigger delay time.
+   * 
    * @example
    * 30
    */

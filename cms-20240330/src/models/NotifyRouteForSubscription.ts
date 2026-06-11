@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class NotifyRouteForSubscriptionChannels extends $dara.Model {
+  /**
+   * @remarks
+   * The channel type. For example, `Email`, `SMS`, or `Webhook`.
+   */
   channelType?: string;
+  /**
+   * @remarks
+   * A list of enabled sub-channels. Applicable to channels that support finer-grained topics or categories.
+   */
   enabledSubChannels?: string[];
+  /**
+   * @remarks
+   * A list of notification receivers. The receiver format depends on the `channelType`.
+   */
   receivers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38,9 +50,25 @@ export class NotifyRouteForSubscriptionChannels extends $dara.Model {
 }
 
 export class NotifyRouteForSubscriptionEffectTimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * The active days of the week, specified as an array of integers.
+   */
   dayInWeek?: number[];
+  /**
+   * @remarks
+   * The end of the active period, in minutes from 00:00. The value ranges from 0 to 1439.
+   */
   endTimeInMinute?: number;
+  /**
+   * @remarks
+   * The start of the active period, in minutes from 00:00. The value ranges from 0 to 1439.
+   */
   startTimeInMinute?: number;
+  /**
+   * @remarks
+   * The time zone for the effect time range, specified in the IANA Time Zone Database format. For example, `UTC` or `Asia/Shanghai`.
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,7 +101,15 @@ export class NotifyRouteForSubscriptionEffectTimeRange extends $dara.Model {
 }
 
 export class NotifyRouteForSubscription extends $dara.Model {
+  /**
+   * @remarks
+   * An array of objects, each defining a notification channel.
+   */
   channels?: NotifyRouteForSubscriptionChannels[];
+  /**
+   * @remarks
+   * The active period for the notification rule.
+   */
   effectTimeRange?: NotifyRouteForSubscriptionEffectTimeRange;
   static names(): { [key: string]: string } {
     return {

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ActionIntegrationConfig extends $dara.Model {
   /**
    * @remarks
-   * 行动集成 ID 列表
+   * A list of actions to perform.
    */
   actions?: string[];
   /**
    * @remarks
-   * 是否启用行动集成
+   * Indicates whether action integration is enabled.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {

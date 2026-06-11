@@ -5,26 +5,41 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
   digitalEmployeeName?: string;
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * zh_CN
    */
   lang?: string;
   /**
+   * @remarks
+   * The name of the robot.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The unique robot ID.
+   * 
    * @example
    * test
    */
   robotId?: string;
   /**
+   * @remarks
+   * The robot type.
+   * 
    * @example
    * DING
    */
   type?: string;
   /**
+   * @remarks
+   * The webhook URL.
+   * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=*******
    */
@@ -65,25 +80,38 @@ export class ListAlertRobotsResponseBodyRobots extends $dara.Model {
 
 export class ListAlertRobotsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the robot.
+   */
   robots?: ListAlertRobotsResponseBodyRobots[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 3
    */

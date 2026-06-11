@@ -4,7 +4,21 @@ import { CustomExtractionStrategy } from "./CustomExtractionStrategy";
 
 
 export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the Simple Log Service Logstore.
+   * 
+   * @example
+   * memory-store
+   */
   logstore?: string;
+  /**
+   * @remarks
+   * The name of the Simple Log Service Project.
+   * 
+   * @example
+   * wk_cms_data_warehouse
+   */
   project?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30,13 +44,23 @@ export class GetMemoryStoreResponseBodyShortTermStorage extends $dara.Model {
 }
 
 export class GetMemoryStoreResponseBodyTraceSourceConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether to include Large Language Model (LLM) output in the memory extraction.
+   */
   includeOutput?: boolean;
   /**
+   * @remarks
+   * The query to filter traces from Simple Log Service.
+   * 
    * @example
    * (serviceName : "langchain-rag" or serviceName : "agentscope-code-correction") and hostname = frontend-proxy-999c48c8d-hvk6c
    */
   query?: string;
   /**
+   * @remarks
+   * The workspace where the trace is located.
+   * 
    * @example
    * test-workspace
    */
@@ -69,48 +93,86 @@ export class GetMemoryStoreResponseBodyTraceSourceConfig extends $dara.Model {
 export class GetMemoryStoreResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The Unix timestamp (in milliseconds) when the memory store was created.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
    * 1764556182850
    */
   createTime?: string;
+  /**
+   * @remarks
+   * A list of custom extraction strategies.
+   */
   customExtractionStrategies?: CustomExtractionStrategy[];
   /**
+   * @remarks
+   * The description of the memory store.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The built-in extraction strategies. Valid values are `Episodic`, `Summary`, and `Fact`.
+   */
   extractionStrategies?: string[];
   /**
+   * @remarks
+   * The name of the memory store.
+   * 
    * @example
    * test-memory-store
    */
   memoryStoreName?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The configuration for short-term memory storage.
+   */
   shortTermStorage?: GetMemoryStoreResponseBodyShortTermStorage;
   /**
+   * @remarks
+   * The short-term memory retention time, in seconds.
+   * 
    * @example
    * 10
    */
   shortTermTtl?: number;
   /**
+   * @remarks
+   * The memory source.
+   * 
    * @example
    * Trace
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * The configuration for the trace source. This parameter is returned only when `sourceType` is set to `Trace`.
+   */
   traceSourceConfig?: GetMemoryStoreResponseBodyTraceSourceConfig;
   /**
    * @remarks
+   * The Unix timestamp (in milliseconds) when the memory store was last updated.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -118,6 +180,9 @@ export class GetMemoryStoreResponseBody extends $dara.Model {
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * default-cms-xxxxxx-cn-beijing
    */

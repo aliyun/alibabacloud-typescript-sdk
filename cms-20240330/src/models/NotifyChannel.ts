@@ -4,11 +4,22 @@ import * as $dara from '@darabonba/typescript';
 
 export class NotifyChannel extends $dara.Model {
   /**
+   * @remarks
+   * The type of the notification channel.
+   * 
    * @example
    * "DingTalk"
    */
   channelType?: string;
+  /**
+   * @remarks
+   * The list of enabled sub-channels.
+   */
   enabledSubChannels?: string[];
+  /**
+   * @remarks
+   * The list of receivers.
+   */
   receivers?: string[];
   static names(): { [key: string]: string } {
     return {

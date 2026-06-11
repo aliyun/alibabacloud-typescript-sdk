@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrometheusViewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Prometheus view ID.
+   * The ID of the Prometheus view.
    * 
    * @example
    * cd5237f7dbd574cf9bbd648ff9efb16cd
@@ -13,7 +13,7 @@ export class CreatePrometheusViewResponseBody extends $dara.Model {
   prometheusViewId?: string;
   /**
    * @remarks
-   * ID of the request
+   * The ID of the request.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****

@@ -6,12 +6,12 @@ import { LabelMatcher } from "./LabelMatcher";
 export class LabelsFilter extends $dara.Model {
   /**
    * @remarks
-   * 匹配所有标签（AND）
+   * An array of `LabelMatcher` requirements. An object is selected only if it satisfies all of the requirements in this list (a logical AND). If provided, the list cannot be empty.
    */
   allOf?: LabelMatcher[];
   /**
    * @remarks
-   * 匹配任意一个标签（OR）
+   * An array of `LabelMatcher` requirements. An object is selected if it satisfies at least one of the requirements in this list (a logical OR). If provided, the list cannot be empty.
    */
   anyOf?: LabelMatcher[];
   static names(): { [key: string]: string } {

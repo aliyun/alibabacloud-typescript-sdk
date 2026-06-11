@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RepeatNotifySetting extends $dara.Model {
   /**
+   * @remarks
+   * The state that ends the management event.
+   * 
    * @example
    * "Resolved"
    */
   endIncidentState?: string;
   /**
+   * @remarks
+   * The interval between repeated notifications.
+   * 
    * @example
    * 5
    */

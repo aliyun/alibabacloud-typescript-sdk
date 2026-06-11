@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListContactGroupsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The contact group IDs.
+   */
   contactGroupIds?: string[];
   /**
+   * @remarks
+   * The name of the contact group.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The page number. The default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return per page. The default is 100.
+   * 
    * @example
    * 20
    */

@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UmodelEntityFilter extends $dara.Model {
   /**
    * @remarks
-   * 过滤字段名
+   * The field name to filter on.
    */
   field?: string;
   /**
    * @remarks
-   * 过滤操作符，仅支持 = 或 !=
+   * The comparison operator to use. Supported operators include `=`, `>`, `<`, `!=`, `IN`, and `NOT IN`.
    */
   operator?: string;
   /**
    * @remarks
-   * 过滤值
+   * The value to compare the field against.
    */
   value?: string;
   static names(): { [key: string]: string } {

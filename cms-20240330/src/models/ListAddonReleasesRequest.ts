@@ -5,15 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListAddonReleasesRequest extends $dara.Model {
   /**
    * @remarks
-   * Addon component name.
+   * The name of the add-on.
    * 
    * @example
    * cs-gpu
    */
   addonName?: string;
+  maxResults?: string;
+  nextToken?: string;
   /**
    * @remarks
-   * Parent AddonReleaseId.
+   * The parent AddonRelease ID.
    * 
    * @example
    * policy-xxxxxxxxxxxxx
@@ -22,6 +24,8 @@ export class ListAddonReleasesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       addonName: 'addonName',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
       parentAddonReleaseId: 'parentAddonReleaseId',
     };
   }
@@ -29,6 +33,8 @@ export class ListAddonReleasesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       addonName: 'string',
+      maxResults: 'string',
+      nextToken: 'string',
       parentAddonReleaseId: 'string',
     };
   }

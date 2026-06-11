@@ -4,43 +4,75 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListContactsResponseBodyContacts extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the contact.
+   * 
    * @example
    * test
    */
   contactId?: string;
   /**
+   * @remarks
+   * The email address of the contact.
+   * 
    * @example
    * test@aliyun.com
    */
   email?: string;
   /**
+   * @remarks
+   * Indicates whether the email address is verified.
+   * 
    * @example
    * true
    */
   emailVerify?: boolean;
+  /**
+   * @remarks
+   * A list of contact group IDs to which the contact belongs.
+   */
   groupList?: string[];
+  /**
+   * @remarks
+   * A map of user IDs for various instant messaging (IM) tools.
+   */
   imUserIds?: { [key: string]: string };
   /**
+   * @remarks
+   * The language preference for notifications. Valid values: zh-CN and en-US.
+   * 
    * @example
    * zh_CN
    */
   lang?: string;
   /**
+   * @remarks
+   * The name of the contact.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The phone number of the contact.
+   * 
    * @example
    * 130123456789
    */
   phone?: string;
   /**
+   * @remarks
+   * Indicates whether the phone number is verified.
+   * 
    * @example
    * true
    */
   phoneVerify?: boolean;
   /**
+   * @remarks
+   * The last time the contact was updated.
+   * 
    * @example
    * 2024-10-22 02:21:51
    */
@@ -94,26 +126,39 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
 }
 
 export class ListContactsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of contacts.
+   */
   contacts?: ListContactsResponseBodyContacts[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 56
    */

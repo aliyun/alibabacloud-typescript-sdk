@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
   /**
+   * @remarks
+   * The start timestamp.
+   * 
    * @example
    * 1772519013
    */
   fromTime?: number;
   /**
+   * @remarks
+   * The end timestamp.
+   * 
    * @example
    * 1772519013
    */
@@ -38,11 +44,17 @@ export class CreatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
 
 export class CreatePipelineRequestExecutePolicyScheduled extends $dara.Model {
   /**
+   * @remarks
+   * The start timestamp.
+   * 
    * @example
    * 1772519013
    */
   fromTime?: number;
   /**
+   * @remarks
+   * The execution interval in seconds.
+   * 
    * @example
    * 86400
    */
@@ -72,11 +84,22 @@ export class CreatePipelineRequestExecutePolicyScheduled extends $dara.Model {
 
 export class CreatePipelineRequestExecutePolicy extends $dara.Model {
   /**
+   * @remarks
+   * The execution mode. Set to `runOnce` for a single execution, or `scheduled` for a recurring execution.
+   * 
    * @example
    * runOnce
    */
   mode?: string;
+  /**
+   * @remarks
+   * The configuration for a one-time execution. This parameter is required when `executePolicy.mode` is set to `runOnce`.
+   */
   runOnce?: CreatePipelineRequestExecutePolicyRunOnce;
+  /**
+   * @remarks
+   * The configuration for a scheduled execution. This parameter is required when `executePolicy.mode` is set to `scheduled`.
+   */
   scheduled?: CreatePipelineRequestExecutePolicyScheduled;
   static names(): { [key: string]: string } {
     return {
@@ -111,12 +134,22 @@ export class CreatePipelineRequestExecutePolicy extends $dara.Model {
 
 export class CreatePipelineRequestPipelineNodes extends $dara.Model {
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * node_1
    */
   id?: string;
+  /**
+   * @remarks
+   * The node parameters.
+   */
   parameters?: { [key: string]: any };
   /**
+   * @remarks
+   * The node type.
+   * 
    * @example
    * dedup-fuzzy
    */
@@ -150,6 +183,10 @@ export class CreatePipelineRequestPipelineNodes extends $dara.Model {
 }
 
 export class CreatePipelineRequestPipeline extends $dara.Model {
+  /**
+   * @remarks
+   * The pipeline nodes.
+   */
   nodes?: CreatePipelineRequestPipelineNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -177,11 +214,17 @@ export class CreatePipelineRequestPipeline extends $dara.Model {
 
 export class CreatePipelineRequestSinkDataset extends $dara.Model {
   /**
+   * @remarks
+   * The dataset name.
+   * 
    * @example
    * dataset_1
    */
   dataset?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * workspace-test
    */
@@ -210,8 +253,15 @@ export class CreatePipelineRequestSinkDataset extends $dara.Model {
 }
 
 export class CreatePipelineRequestSink extends $dara.Model {
+  /**
+   * @remarks
+   * The destination dataset configuration. This parameter is required when `sink.type` is set to `dataset`.
+   */
   dataset?: CreatePipelineRequestSinkDataset;
   /**
+   * @remarks
+   * The sink type.
+   * 
    * @example
    * dataset
    */
@@ -244,16 +294,25 @@ export class CreatePipelineRequestSink extends $dara.Model {
 
 export class CreatePipelineRequestSourceLogstore extends $dara.Model {
   /**
+   * @remarks
+   * The Logstore name.
+   * 
    * @example
    * test-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The Log Service Project name.
+   * 
    * @example
    * test-project
    */
   project?: string;
   /**
+   * @remarks
+   * The query statement to filter logs.
+   * 
    * @example
    * status:500 and method:GET
    */
@@ -284,8 +343,15 @@ export class CreatePipelineRequestSourceLogstore extends $dara.Model {
 }
 
 export class CreatePipelineRequestSource extends $dara.Model {
+  /**
+   * @remarks
+   * The Log Service Logstore configuration. This parameter is required when `source.type` is set to `logstore`.
+   */
   logstore?: CreatePipelineRequestSourceLogstore;
   /**
+   * @remarks
+   * The data source type.
+   * 
    * @example
    * logstore
    */
@@ -318,18 +384,40 @@ export class CreatePipelineRequestSource extends $dara.Model {
 
 export class CreatePipelineRequest extends $dara.Model {
   /**
+   * @remarks
+   * The pipeline description.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The execution policy.
+   */
   executePolicy?: CreatePipelineRequestExecutePolicy;
+  /**
+   * @remarks
+   * The pipeline configuration.
+   */
   pipeline?: CreatePipelineRequestPipeline;
   /**
+   * @remarks
+   * The pipeline name.
+   * 
    * @example
    * pipeline-name-1
    */
   pipelineName?: string;
+  /**
+   * @remarks
+   * The data sink for the processed output.
+   */
   sink?: CreatePipelineRequestSink;
+  /**
+   * @remarks
+   * The data source.
+   */
   source?: CreatePipelineRequestSource;
   static names(): { [key: string]: string } {
     return {

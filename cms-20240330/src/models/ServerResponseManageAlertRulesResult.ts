@@ -6,43 +6,47 @@ import { ManageAlertRulesResult } from "./ManageAlertRulesResult";
 export class ServerResponseManageAlertRulesResult extends $dara.Model {
   /**
    * @remarks
-   * 响应码
+   * The operation status code.
    */
   code?: string;
+  /**
+   * @remarks
+   * The result of the operation.
+   */
   data?: ManageAlertRulesResult;
   /**
    * @remarks
-   * 错误消息
+   * A message detailing the outcome of the request, such as a success message or an error description.
    */
   message?: string;
   /**
    * @remarks
-   * 分页 Token
+   * The token used to retrieve the next page of results. If the token is not returned, there are no more results.
    */
   nextToken?: string;
   /**
    * @remarks
-   * 页码
+   * The current page number.
    */
   pageNumber?: number;
   /**
    * @remarks
-   * 每页大小
+   * The number of entries per page.
    */
   pageSize?: number;
   /**
    * @remarks
-   * 请求 ID
+   * The unique ID for the request. Provide this ID when contacting support for assistance.
    */
   requestId?: string;
   /**
    * @remarks
-   * 是否成功
+   * Indicates whether the request succeeded (`true`) or failed (`false`).
    */
   success?: boolean;
   /**
    * @remarks
-   * 总数
+   * The total number of entries that match the query.
    */
   total?: number;
   static names(): { [key: string]: string } {

@@ -4,15 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class EntityDiscoverRuleAnnotations extends $dara.Model {
   /**
+   * @remarks
+   * The operation.
+   * 
    * @example
    * in
    */
   op?: string;
   /**
+   * @remarks
+   * The key of the annotation.
+   * 
    * @example
    * instanceId
    */
   tagKey?: string;
+  /**
+   * @remarks
+   * A collection of annotation values.
+   */
   tagValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -44,12 +54,22 @@ export class EntityDiscoverRuleAnnotations extends $dara.Model {
 
 export class EntityDiscoverRuleFieldRules extends $dara.Model {
   /**
+   * @remarks
+   * The key of the property.
+   * 
    * @example
    * instanceId
    */
   fieldKey?: string;
+  /**
+   * @remarks
+   * A collection of property values.
+   */
   fieldValues?: string[];
   /**
+   * @remarks
+   * The operation.
+   * 
    * @example
    * in
    */
@@ -110,15 +130,25 @@ export class EntityDiscoverRuleIpMatchRule extends $dara.Model {
 
 export class EntityDiscoverRuleLabels extends $dara.Model {
   /**
+   * @remarks
+   * The operation.
+   * 
    * @example
    * in
    */
   op?: string;
   /**
+   * @remarks
+   * The key of the label.
+   * 
    * @example
    * project
    */
   tagKey?: string;
+  /**
+   * @remarks
+   * A collection of label values.
+   */
   tagValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -150,15 +180,25 @@ export class EntityDiscoverRuleLabels extends $dara.Model {
 
 export class EntityDiscoverRuleTags extends $dara.Model {
   /**
+   * @remarks
+   * The operation.
+   * 
    * @example
    * in
    */
   op?: string;
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * project
    */
   tagKey?: string;
+  /**
+   * @remarks
+   * A collection of tag values.
+   */
   tagValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -189,18 +229,53 @@ export class EntityDiscoverRuleTags extends $dara.Model {
 }
 
 export class EntityDiscoverRule extends $dara.Model {
+  /**
+   * @remarks
+   * A collection of annotation matching rules.
+   */
   annotations?: EntityDiscoverRuleAnnotations[];
+  /**
+   * @remarks
+   * A collection of entity types.
+   */
   entityTypes?: string[];
+  /**
+   * @remarks
+   * The property matching rules.
+   */
   fieldRules?: EntityDiscoverRuleFieldRules[];
+  /**
+   * @remarks
+   * A collection of instance IDs.
+   */
   instanceIds?: string[];
+  /**
+   * @remarks
+   * A collection of IP address matching rules.
+   */
   ipMatchRule?: EntityDiscoverRuleIpMatchRule;
+  /**
+   * @remarks
+   * A collection of label matching rules.
+   */
   labels?: EntityDiscoverRuleLabels[];
+  /**
+   * @remarks
+   * A collection of region IDs.
+   */
   regionIds?: string[];
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-acfm2m7atreujs1
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag-based service discovery rules.
+   */
   tags?: EntityDiscoverRuleTags[];
   static names(): { [key: string]: string } {
     return {

@@ -4,32 +4,57 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetMemoriesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application\\"s agent ID.
+   * 
    * @example
    * 952730652285943809
    */
   agentId?: string;
   /**
+   * @remarks
+   * The Application ID.
+   * 
    * @example
    * 150130323
    */
   appId?: string;
+  /**
+   * @remarks
+   * The filter criteria.
+   * 
+   * @example
+   * {"__strategy_type__":"Fact"}
+   */
   filters?: { [key: string]: any };
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   page?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 1000
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The Run ID.
+   * 
    * @example
    * jr-80ded1d6953c64ea
    */
   runId?: string;
   /**
+   * @remarks
+   * The User ID.
+   * 
    * @example
    * test_user_001
    */

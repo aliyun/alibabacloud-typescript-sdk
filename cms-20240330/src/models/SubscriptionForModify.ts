@@ -37,7 +37,7 @@ export class SubscriptionForModifyAgentConfig extends $dara.Model {
 export class SubscriptionForModifyPushingSetting extends $dara.Model {
   /**
    * @remarks
-   * Alert push action plan ID list.
+   * A list of alert push action plan IDs.
    */
   alertActionIds?: string[];
   /**
@@ -50,7 +50,7 @@ export class SubscriptionForModifyPushingSetting extends $dara.Model {
   responsePlanId?: string;
   /**
    * @remarks
-   * Action integration plan ID list.
+   * A list of action integration plan IDs.
    */
   restoreActionIds?: string[];
   /**
@@ -106,7 +106,7 @@ export class SubscriptionForModify extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Filtering settings.
+   * Filter settings.
    */
   filterSetting?: FilterSetting;
   /**
@@ -129,7 +129,7 @@ export class SubscriptionForModify extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Test subscription.
+   * 测试订阅
    */
   subscriptionName?: string;
   workspaceFilterSetting?: WorkspaceFilterSetting;

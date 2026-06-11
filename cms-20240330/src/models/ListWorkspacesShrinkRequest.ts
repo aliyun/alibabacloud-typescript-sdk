@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Page size
-   * Default value:
-   * 	50
-   * Maximum value:
-   * 	50
+   * The number of entries to return on each page. Default value: 50. Maximum value: 50.
    * 
    * @example
    * 10
@@ -17,7 +13,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Pagination Token
+   * The token for the next page of results.
    * 
    * @example
    * xxxxxxxxxx
@@ -25,7 +21,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Region
+   * The region.
    * 
    * @example
    * cn-heyuan
@@ -36,7 +32,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Workspace name, fuzzy search
+   * The name of the workspace. This parameter supports fuzzy search.
    * 
    * @example
    * workspace-test-001
@@ -44,7 +40,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * Workspace name, exact match
+   * The names of the workspaces. This parameter supports exact search.
    * 
    * @example
    * workspace-test-001

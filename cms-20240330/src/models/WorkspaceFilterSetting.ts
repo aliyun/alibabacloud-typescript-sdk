@@ -4,7 +4,15 @@ import { FilterSetting } from "./FilterSetting";
 
 
 export class WorkspaceFilterSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The tag filter.
+   */
   tagSelector?: FilterSetting;
+  /**
+   * @remarks
+   * A list of workspace UUIDs.
+   */
   workspaceUuids?: string[];
   static names(): { [key: string]: string } {
     return {

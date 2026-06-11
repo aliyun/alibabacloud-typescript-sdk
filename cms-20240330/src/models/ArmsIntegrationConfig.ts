@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ArmsIntegrationConfig extends $dara.Model {
   /**
    * @remarks
-   * 是否启用 ARMS 集成
+   * Whether ARMS integration is enabled.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {

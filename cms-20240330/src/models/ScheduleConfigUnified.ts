@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ScheduleConfigUnified extends $dara.Model {
   /**
    * @remarks
-   * 调度间隔（秒），type=FIXED 时使用
+   * The interval between scheduled runs, in seconds.
    */
   intervalSecs?: number;
   /**
    * @remarks
-   * 调度类型
+   * The type of the schedule.
    * 
    * This parameter is required.
    */

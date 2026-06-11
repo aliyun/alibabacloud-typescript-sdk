@@ -6,41 +6,41 @@ import { DirectNotifyChannel } from "./DirectNotifyChannel";
 export class NotifyConfigUnified extends $dara.Model {
   /**
    * @remarks
-   * 一周中发送通知的星期，1-7
+   * The active days of the week.
    */
   activeDays?: number[];
   /**
    * @remarks
-   * 每天通知生效结束时间
+   * The end of the daily active time window. On active days, the system sends notifications only before this time. Format: `HH:mm`.
    */
   activeEndTime?: string;
   /**
    * @remarks
-   * 每天通知生效开始时间
+   * The start of the daily active time window. On active days, the system sends notifications only after this time. Format: `HH:mm`.
    */
   activeStartTime?: string;
   /**
    * @remarks
-   * 通知渠道列表
+   * The notification channels that receive alerts.
    * 
    * This parameter is required.
    */
   channels?: DirectNotifyChannel[];
   /**
    * @remarks
-   * 通道沉默周期（秒）
+   * The silence time in seconds. After sending a notification, the system suppresses new notifications for the same alert for this duration.
    */
   silenceTimeSecs?: number;
   /**
    * @remarks
-   * 通知配置类型
+   * The type of the notification configuration.
    * 
    * This parameter is required.
    */
   type?: string;
   /**
    * @remarks
-   * UTC 时区偏移量
+   * The UTC offset for `activeStartTime` and `activeEndTime`. The format is `[+/-]HH:mm`. For example, `+08:00` represents the UTC+8 time zone.
    */
   utcOffset?: string;
   static names(): { [key: string]: string } {

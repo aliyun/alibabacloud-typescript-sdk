@@ -12,56 +12,84 @@ import { ScheduleConfigUnified } from "./ScheduleConfigUnified";
 export class ManageAlertRulesUnifiedActionInput extends $dara.Model {
   /**
    * @remarks
-   * 操作类型
+   * The action to perform on the alert rule. For example, `create` or `update`.
    * 
    * This parameter is required.
    */
   action?: string;
+  /**
+   * @remarks
+   * The action integration configuration for triggering automated workflows or actions in external systems.
+   */
   actionIntegrationConfig?: ActionIntegrationConfig;
   /**
    * @remarks
-   * 注解
+   * A collection of key-value pairs attached to the alert as annotations. Use annotations to provide additional, non-identifying information, such as descriptions or runbook links.
    */
   annotations?: { [key: string]: string };
+  /**
+   * @remarks
+   * Configuration for integrating with Application Real-Time Monitoring Service (ARMS).
+   */
   armsIntegrationConfig?: ArmsIntegrationConfig;
+  /**
+   * @remarks
+   * The condition configuration that specifies the trigger criteria for the alert.
+   */
   conditionConfig?: ConditionConfigUnified;
   /**
    * @remarks
-   * 内容模板
+   * The content template for the alert notification. You can use variables to customize the message.
    */
   contentTemplate?: string;
+  /**
+   * @remarks
+   * The data source configuration for the alert rule.
+   */
   datasourceConfig?: DatasourceConfigUnified;
   /**
    * @remarks
-   * 显示名称
+   * The display name of the alert rule, as shown in the console.
    */
   displayName?: string;
   /**
    * @remarks
-   * 是否启用
+   * Specifies whether the alert rule is enabled. A value of `true` indicates the rule is active, and `false` indicates it is inactive. Default: `true`.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * 标签
+   * A collection of key-value pairs attached to the alert rule as labels. Use labels for categorization and filtering.
    */
   labels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The notification configuration that specifies how and where to send alert notifications.
+   */
   notifyConfig?: NotifyConfigUnified;
+  /**
+   * @remarks
+   * The query configuration that defines the data for rule evaluation.
+   */
   queryConfig?: QueryConfigUnified;
+  /**
+   * @remarks
+   * The schedule configuration that determines how often the system evaluates the rule.
+   */
   scheduleConfig?: ScheduleConfigUnified;
   /**
    * @remarks
-   * 规则 UUID（UPDATE/PATCH 必填）
+   * The unique identifier (UUID) of the alert rule. This parameter is required when you update or delete an existing rule.
    */
   uuid?: string;
   /**
    * @remarks
-   * 待删除规则 UUID 列表（BATCH_DELETE）
+   * A list of UUIDs. Use this parameter to perform bulk actions on multiple rules, such as batch deletion.
    */
   uuidList?: string[];
   /**
    * @remarks
-   * 工作空间（CREATE/UPDATE 等）
+   * The ID of the workspace that contains the alert rule.
    */
   workspace?: string;
   static names(): { [key: string]: string } {

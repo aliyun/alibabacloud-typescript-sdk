@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIntegrationPolicyCollectorsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the add-on release.
+   * 
    * @example
    * release-1234567
    */
   addonReleaseName?: string;
   /**
    * @remarks
+   * The collector type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class ListIntegrationPolicyCollectorsRequest extends $dara.Model {
    */
   collectorType?: string;
   /**
+   * @remarks
+   * The language.
+   * 
    * @example
    * zh
    */

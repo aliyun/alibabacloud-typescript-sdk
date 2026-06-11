@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AlertRuleAlertMetricInputParamValue extends $dara.Model {
   /**
    * @remarks
+   * The name of the predefined metric parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class AlertRuleAlertMetricInputParamValue extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The value of the predefined metric parameter.
+   * 
    * This parameter is required.
    * 
    * @example

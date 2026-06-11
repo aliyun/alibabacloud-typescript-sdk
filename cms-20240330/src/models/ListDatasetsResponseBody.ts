@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasetsResponseBodyDatasets extends $dara.Model {
   /**
    * @remarks
+   * The time the dataset was created, as a UNIX timestamp.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -12,22 +14,33 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The name of the dataset.
+   * 
    * @example
    * test_dataset
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The description of the dataset.
+   * 
    * @example
    * test dataset
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the region where the dataset resides.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The time the dataset was last updated, as a UNIX timestamp.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -35,6 +48,9 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The ID of the workspace that contains the dataset.
+   * 
    * @example
    * workspace-test
    */
@@ -71,23 +87,39 @@ export class ListDatasetsResponseBodyDatasets extends $dara.Model {
 }
 
 export class ListDatasetsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of dataset objects.
+   */
   datasets?: ListDatasetsResponseBodyDatasets[];
   /**
+   * @remarks
+   * The maximum number of results returned per page.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A token to retrieve the next page of results. This element is returned only when the result set is truncated.
+   * 
    * @example
    * d9a48d977f45aa6fcf6981ed13b885b3fab0b124c12dcbbe70edce5d81ba****************
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of datasets that match the query.
+   * 
    * @example
    * 96
    */

@@ -5,18 +5,30 @@ import { IncidentEscalationStageForView } from "./IncidentEscalationStageForView
 
 export class IncidentEscalationPolicyForModify extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * workspace api monitor create test
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the policy is enabled.
+   * 
    * @example
    * false
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The list of escalation stages. This list defines multiple progressive escalation steps. Each stage contains trigger conditions and notification targets.
+   */
   escalationStageList?: IncidentEscalationStageForView[];
   /**
    * @remarks
+   * The name.
+   * 
    * This parameter is required.
    * 
    * @example

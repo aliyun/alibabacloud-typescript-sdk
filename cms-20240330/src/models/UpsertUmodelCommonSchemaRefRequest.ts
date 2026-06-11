@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertUmodelCommonSchemaRefRequest extends $dara.Model {
   /**
    * @remarks
+   * The group of the common Umodel schema.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpsertUmodelCommonSchemaRefRequest extends $dara.Model {
   group?: string;
   /**
    * @remarks
+   * The version number.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,6 +4,10 @@ import { ManageAlertRulesUnifiedActionInput } from "./ManageAlertRulesUnifiedAct
 
 
 export class ManageAlertRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * A unified request body for managing alert rules with the CREATE, UPDATE, PATCH, and BATCH_DELETE actions. The required fields depend on the specified action.
+   */
   body?: ManageAlertRulesUnifiedActionInput;
   static names(): { [key: string]: string } {
     return {

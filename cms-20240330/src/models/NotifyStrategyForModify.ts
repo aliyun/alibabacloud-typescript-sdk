@@ -7,7 +7,7 @@ import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 export class NotifyStrategyForModifyCustomTemplateEntries extends $dara.Model {
   /**
    * @remarks
-   * Notification type.
+   * The notification type.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class NotifyStrategyForModifyCustomTemplateEntries extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * Template UUID.
+   * The template UUID.
    * 
    * This parameter is required.
    * 
@@ -51,12 +51,12 @@ export class NotifyStrategyForModifyCustomTemplateEntries extends $dara.Model {
 export class NotifyStrategyForModifyGroupingSetting extends $dara.Model {
   /**
    * @remarks
-   * Grouping keys.
+   * The keys used for merging.
    */
   groupingKeys?: string[];
   /**
    * @remarks
-   * Check interval in minutes.
+   * The check period in minutes.
    * 
    * @example
    * 5
@@ -64,7 +64,7 @@ export class NotifyStrategyForModifyGroupingSetting extends $dara.Model {
   periodMin?: number;
   /**
    * @remarks
-   * Silence duration in seconds.
+   * The silence period in seconds.
    * 
    * @example
    * 300
@@ -72,7 +72,7 @@ export class NotifyStrategyForModifyGroupingSetting extends $dara.Model {
   silenceSec?: number;
   /**
    * @remarks
-   * Trigger count.
+   * The number of triggers.
    * 
    * @example
    * 1
@@ -109,8 +109,23 @@ export class NotifyStrategyForModifyGroupingSetting extends $dara.Model {
 }
 
 export class NotifyStrategyForModifyPushingSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The list of alert action IDs.
+   */
   alertActionIds?: string[];
+  /**
+   * @remarks
+   * The list of restore action IDs.
+   */
   restoreActionIds?: string[];
+  /**
+   * @remarks
+   * The message template UUID.
+   * 
+   * @example
+   * 模板 UUID
+   */
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -144,7 +159,21 @@ export class NotifyStrategyForModifyPushingSetting extends $dara.Model {
 }
 
 export class NotifyStrategyForModifyRepeatNotifySetting extends $dara.Model {
+  /**
+   * @remarks
+   * The incident state that stops the repeated notifications.
+   * 
+   * @example
+   * "Resolved"
+   */
   endIncidentState?: string;
+  /**
+   * @remarks
+   * The interval for repeated notifications.
+   * 
+   * @example
+   * 5
+   */
   repeatInterval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -172,7 +201,7 @@ export class NotifyStrategyForModifyRepeatNotifySetting extends $dara.Model {
 export class NotifyStrategyForModifyRoutesChannels extends $dara.Model {
   /**
    * @remarks
-   * Channel type.
+   * The channel type.
    * 
    * This parameter is required.
    * 
@@ -182,12 +211,12 @@ export class NotifyStrategyForModifyRoutesChannels extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * Enabled notification types.
+   * The enabled notification types.
    */
   enabledSubChannels?: string[];
   /**
    * @remarks
-   * Channel recipient.
+   * The channel receivers.
    * 
    * This parameter is required.
    */
@@ -226,12 +255,12 @@ export class NotifyStrategyForModifyRoutesChannels extends $dara.Model {
 export class NotifyStrategyForModifyRoutesEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * Effective days (Monday to Sunday).
+   * The days of the week when the policy is active. Monday to Sunday.
    */
   dayInWeek?: number[];
   /**
    * @remarks
-   * End time (in minutes).
+   * The end time in minutes.
    * 
    * @example
    * 30
@@ -239,7 +268,7 @@ export class NotifyStrategyForModifyRoutesEffectTimeRange extends $dara.Model {
   endTimeInMinute?: number;
   /**
    * @remarks
-   * Start time (in minutes).
+   * The start time in minutes.
    * 
    * @example
    * 60
@@ -247,7 +276,7 @@ export class NotifyStrategyForModifyRoutesEffectTimeRange extends $dara.Model {
   startTimeInMinute?: number;
   /**
    * @remarks
-   * Time Zone.
+   * The time zone.
    * 
    * @example
    * +08:00
@@ -286,24 +315,24 @@ export class NotifyStrategyForModifyRoutesEffectTimeRange extends $dara.Model {
 export class NotifyStrategyForModifyRoutes extends $dara.Model {
   /**
    * @remarks
-   * Notification channel.
+   * The notification channel.
    */
   channels?: NotifyStrategyForModifyRoutesChannels[];
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * Valid time range.
+   * The effective time range.
    */
   effectTimeRange?: NotifyStrategyForModifyRoutesEffectTimeRange;
   enableRca?: boolean;
   /**
    * @remarks
-   * Routing conditions.
+   * The routing conditions.
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Severity level list.
+   * The list of severity levels.
    */
   severities?: string[];
   static names(): { [key: string]: string } {
@@ -350,33 +379,55 @@ export class NotifyStrategyForModifyRoutes extends $dara.Model {
 }
 
 export class NotifyStrategyForModify extends $dara.Model {
+  /**
+   * @remarks
+   * The auto-recovery time in seconds.
+   * 
+   * @example
+   * 300
+   */
   autoRecoverSeconds?: number;
   /**
    * @remarks
-   * Notification channel template.
+   * The notification channel template.
    */
   customTemplateEntries?: NotifyStrategyForModifyCustomTemplateEntries[];
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable incident management.
+   * 
+   * @example
+   * true
+   */
   enableIncidentManagement?: boolean;
+  /**
+   * @remarks
+   * The list of escalation policy IDs.
+   */
   escalationId?: string[];
+  /**
+   * @remarks
+   * The filter settings.
+   */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Grouping settings.
+   * The grouping settings.
    * 
    * This parameter is required.
    */
   groupingSetting?: NotifyStrategyForModifyGroupingSetting;
   /**
    * @remarks
-   * Whether to notify on recovery.
+   * Specifies whether to send a notification upon recovery.
    * 
    * @example
    * false
@@ -384,23 +435,35 @@ export class NotifyStrategyForModify extends $dara.Model {
   ignoreRestoredNotification?: boolean;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * This parameter is required.
    * 
    * @example
-   * Policy name.
+   * 策略名称
    */
   notifyStrategyName?: string;
+  /**
+   * @remarks
+   * The push settings.
+   */
   pushingSetting?: NotifyStrategyForModifyPushingSetting;
+  /**
+   * @remarks
+   * The settings for repeated notifications.
+   */
   repeatNotifySetting?: NotifyStrategyForModifyRepeatNotifySetting;
   /**
    * @remarks
-   * Notification channel routing configuration.
+   * The routing settings for the notification channel.
    * 
    * This parameter is required.
    */
   routes?: NotifyStrategyForModifyRoutes[];
+  /**
+   * @remarks
+   * The workspace filter settings.
+   */
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {

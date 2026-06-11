@@ -5,8 +5,20 @@ import { Pagination } from "./Pagination";
 
 
 export class QueryAlertRulesInput extends $dara.Model {
+  /**
+   * @remarks
+   * The filter criteria. Only alert rules that match these criteria are returned.
+   */
   filter?: QueryAlertRulesFilter;
+  /**
+   * @remarks
+   * The pagination settings for the query. If omitted, the system returns the first page of results with the default page size.
+   */
   pagination?: Pagination;
+  /**
+   * @remarks
+   * The ID of the workspace that contains the alert rules.
+   */
   workspace?: string;
   static names(): { [key: string]: string } {
     return {

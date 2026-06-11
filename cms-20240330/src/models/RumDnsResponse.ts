@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class RumDnsResponse extends $dara.Model {
   /**
+   * @remarks
+   * The domain name for RUM reporting.
+   * 
    * @example
    * rum
    */
   domain?: string;
   /**
+   * @remarks
+   * The message returned if initialization fails.
+   * 
    * @example
    * ""
    */
   message?: string;
   /**
+   * @remarks
+   * The DNS initialization status of the domain name.
+   * 
    * @example
    * true
    */

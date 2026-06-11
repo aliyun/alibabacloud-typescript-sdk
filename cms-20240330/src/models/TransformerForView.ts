@@ -7,12 +7,12 @@ import { FilterSetting } from "./FilterSetting";
 export class TransformerForView extends $dara.Model {
   /**
    * @remarks
-   * Transformation operation.
+   * The transform operations.
    */
   actions?: TransformAction[];
   /**
    * @remarks
-   * Create Time.
+   * The time when the converter was created.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -20,7 +20,7 @@ export class TransformerForView extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * workspace test
@@ -28,7 +28,7 @@ export class TransformerForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether enabled.
+   * Indicates whether the converter is enabled.
    * 
    * @example
    * false
@@ -36,12 +36,12 @@ export class TransformerForView extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Filter Setting.
+   * The filter settings.
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Exit after matching processing.
+   * Indicates whether to exit after a match is processed.
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class TransformerForView extends $dara.Model {
   quitAfterMatch?: boolean;
   /**
    * @remarks
-   * Sort order.
+   * The sort ID.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class TransformerForView extends $dara.Model {
   sortId?: number;
   /**
    * @remarks
-   * transformer Id
+   * The transformer ID.
    * 
    * @example
    * 1123123123123
@@ -65,17 +65,17 @@ export class TransformerForView extends $dara.Model {
   transformerId?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * This parameter is required.
    * 
    * @example
-   * Test processing flow.
+   * 测试处理流
    */
   transformerName?: string;
   /**
    * @remarks
-   * Update Time.
+   * The time when the converter was last updated.
    * 
    * @example
    * 2025-01-16T02:27:01Z
@@ -83,7 +83,7 @@ export class TransformerForView extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 123123123**
@@ -91,7 +91,7 @@ export class TransformerForView extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * workspace
+   * The workspace.
    * 
    * @example
    * workspace-test

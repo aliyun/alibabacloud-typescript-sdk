@@ -6,13 +6,17 @@ export class ListPrometheusVirtualInstancesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Optional cloud product
+   * The namespace of the cloud product. This parameter is optional.
    * 
    * @example
    * ack-csi-fuse
    */
   namespace?: string;
   nextToken?: string;
+  /**
+   * @remarks
+   * The tenant ID.
+   */
   tenantId?: string;
   static names(): { [key: string]: string } {
     return {

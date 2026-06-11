@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreatePipelineResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0CEC5375-C554-562B-A65F-***
    */

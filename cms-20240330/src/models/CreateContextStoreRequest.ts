@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateContextStoreRequestConfigSource extends $dara.Model {
   /**
+   * @remarks
+   * The name of the Log Service Logstore.
+   * 
    * @example
    * sls-test-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The name of the Log Service project.
+   * 
    * @example
    * sls-test-project
    */
   project?: string;
   /**
    * @remarks
+   * The effective start time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -47,7 +55,15 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
 }
 
 export class CreateContextStoreRequestConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The metadata fields.
+   */
   metadataField?: { [key: string]: string };
+  /**
+   * @remarks
+   * The configuration source.
+   */
   source?: CreateContextStoreRequestConfigSource;
   static names(): { [key: string]: string } {
     return {
@@ -80,6 +96,9 @@ export class CreateContextStoreRequestConfig extends $dara.Model {
 
 export class CreateContextStoreRequestDataset extends $dara.Model {
   /**
+   * @remarks
+   * The name of the dataset.
+   * 
    * @example
    * test_dataset
    */
@@ -106,9 +125,15 @@ export class CreateContextStoreRequestDataset extends $dara.Model {
 }
 
 export class CreateContextStoreRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The configuration.
+   */
   config?: CreateContextStoreRequestConfig;
   /**
    * @remarks
+   * The name of the context store.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -117,14 +142,23 @@ export class CreateContextStoreRequest extends $dara.Model {
   contextStoreName?: string;
   /**
    * @remarks
+   * The type of the context store.
+   * 
    * This parameter is required.
    * 
    * @example
    * memory
    */
   contextType?: string;
+  /**
+   * @remarks
+   * The properties of the dataset.
+   */
   dataset?: CreateContextStoreRequestDataset;
   /**
+   * @remarks
+   * The description of the context store.
+   * 
    * @example
    * desc
    */

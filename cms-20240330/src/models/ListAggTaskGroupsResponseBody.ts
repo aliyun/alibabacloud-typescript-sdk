@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   /**
    * @remarks
-   * Hash of the aggregation task group configuration.
+   * The summary of the aggregation task group configuration.
    * 
    * @example
    * a54136014xxx
@@ -13,7 +13,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   aggTaskGroupConfigHash?: string;
   /**
    * @remarks
-   * ID of the aggregation task group.
+   * The ID of the aggregation task group.
    * 
    * @example
    * aggTaskGroup-xxxx
@@ -21,7 +21,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   aggTaskGroupId?: string;
   /**
    * @remarks
-   * Name of the aggregation task group.
+   * The name of the aggregation task group.
    * 
    * @example
    * pipeline-aggtask-group
@@ -29,7 +29,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   aggTaskGroupName?: string;
   /**
    * @remarks
-   * Cron expression for the aggregation task group when the scheduling mode is set to \\"Cron\\".
+   * The scheduling expression for the aggregation task group when the scheduling mode is \\`Cron\\`.
    * 
    * @example
    * 0 10 8 1 * ? *
@@ -37,7 +37,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   cronExpr?: string;
   /**
    * @remarks
-   * Fixed delay time (in seconds) for scheduling.
+   * The fixed delay for scheduling, in seconds.
    * 
    * @example
    * 30
@@ -45,7 +45,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   delay?: number;
   /**
    * @remarks
-   * Description of the aggregation task group.
+   * The description of the aggregation task group.
    * 
    * @example
    * workspace api monitor update test
@@ -53,7 +53,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Start time of the schedule in seconds since epoch.
+   * The UNIX timestamp that indicates the scheduling start time.
    * 
    * @example
    * 1757409499000
@@ -61,7 +61,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * Scheduling interval.
+   * The scheduling interval.
    * 
    * @example
    * 2025-04-24 00:00:00,2025-04-24 00:00:00
@@ -69,7 +69,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * Maximum number of retries for the aggregation task.
+   * The maximum number of retries for an aggregation task.
    * 
    * @example
    * 2
@@ -77,7 +77,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   maxRetries?: number;
   /**
    * @remarks
-   * Maximum retry time (in seconds) for the aggregation task.
+   * The maximum retry duration for an aggregation task, in seconds.
    * 
    * @example
    * 200
@@ -85,7 +85,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   maxRunTimeInSeconds?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -93,7 +93,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Scheduling mode.
+   * The scheduling mode.
    * 
    * @example
    * FixedRate
@@ -101,7 +101,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   scheduleMode?: string;
   /**
    * @remarks
-   * Scheduling time expression.
+   * The scheduling time expression.
    * 
    * @example
    * @m
@@ -109,7 +109,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   scheduleTimeExpr?: string;
   /**
    * @remarks
-   * The source Prometheus instance ID of the aggregation task group.
+   * The ID of the source Prometheus instance for the aggregation task group.
    * 
    * @example
    * rw-xxx
@@ -117,7 +117,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   sourcePrometheusId?: string;
   /**
    * @remarks
-   * Status of the aggregation task group.
+   * The status of the aggregation task group.
    * 
    * @example
    * Running
@@ -125,7 +125,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The target Prometheus instance ID of the aggregation task group.
+   * The ID of the target Prometheus instance for the aggregation task group.
    * 
    * @example
    * rw-xxx
@@ -133,7 +133,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   targetPrometheusId?: string;
   /**
    * @remarks
-   * The second-level timestamp corresponding to the end time of scheduling.
+   * The UNIX timestamp that indicates the scheduling end time.
    * 
    * @example
    * 0
@@ -141,7 +141,7 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
   toTime?: number;
   /**
    * @remarks
-   * Update time of the aggregation task group.
+   * The time when the aggregation task group was updated.
    * 
    * @example
    * 1757409499000
@@ -205,12 +205,12 @@ export class ListAggTaskGroupsResponseBodyAggTaskGroups extends $dara.Model {
 export class ListAggTaskGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of aggregation task groups.
+   * A list of aggregation task groups.
    */
   aggTaskGroups?: ListAggTaskGroupsResponseBodyAggTaskGroups[];
   /**
    * @remarks
-   * The maximum number of records returned.
+   * The maximum number of entries returned.
    * 
    * @example
    * 100
@@ -218,7 +218,7 @@ export class ListAggTaskGroupsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for the next query.
+   * The token to use to retrieve the next page of results. This value is empty when there are no more results to return.
    * 
    * @example
    * aa9d0e569b880xxx
@@ -226,7 +226,7 @@ export class ListAggTaskGroupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 7BF1F4D6-B9A8-5F0B-8C1D-4347FFCB798E
@@ -234,7 +234,7 @@ export class ListAggTaskGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of instances.
+   * The total number of entries.
    * 
    * @example
    * 5

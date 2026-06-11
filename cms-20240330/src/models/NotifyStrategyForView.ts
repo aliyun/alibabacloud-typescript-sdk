@@ -7,7 +7,7 @@ import { WorkspaceFilterSetting } from "./WorkspaceFilterSetting";
 export class NotifyStrategyForViewCustomTemplateEntries extends $dara.Model {
   /**
    * @remarks
-   * Notification type.
+   * The notification type.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class NotifyStrategyForViewCustomTemplateEntries extends $dara.Model {
   targetType?: string;
   /**
    * @remarks
-   * Template UUID.
+   * The template UUID.
    * 
    * This parameter is required.
    * 
@@ -51,12 +51,12 @@ export class NotifyStrategyForViewCustomTemplateEntries extends $dara.Model {
 export class NotifyStrategyForViewGroupingSetting extends $dara.Model {
   /**
    * @remarks
-   * Grouping Keys
+   * The merge keys.
    */
   groupingKeys?: string[];
   /**
    * @remarks
-   * Check interval in minutes.
+   * The check period in minutes.
    * 
    * @example
    * 5
@@ -64,7 +64,7 @@ export class NotifyStrategyForViewGroupingSetting extends $dara.Model {
   periodMin?: number;
   /**
    * @remarks
-   * Silence duration in seconds.
+   * The silence period in seconds.
    * 
    * @example
    * 300
@@ -72,7 +72,7 @@ export class NotifyStrategyForViewGroupingSetting extends $dara.Model {
   silenceSec?: number;
   /**
    * @remarks
-   * Trigger count.
+   * The number of triggers.
    * 
    * @example
    * 3
@@ -109,8 +109,23 @@ export class NotifyStrategyForViewGroupingSetting extends $dara.Model {
 }
 
 export class NotifyStrategyForViewPushingSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The list of alert action IDs.
+   */
   alertActionIds?: string[];
+  /**
+   * @remarks
+   * The list of recovery action IDs.
+   */
   restoreActionIds?: string[];
+  /**
+   * @remarks
+   * The template UUID.
+   * 
+   * @example
+   * "template-abc123"
+   */
   templateUuid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -144,7 +159,21 @@ export class NotifyStrategyForViewPushingSetting extends $dara.Model {
 }
 
 export class NotifyStrategyForViewRepeatNotifySetting extends $dara.Model {
+  /**
+   * @remarks
+   * The event state at which to stop.
+   * 
+   * @example
+   * "Resolved"
+   */
   endIncidentState?: string;
+  /**
+   * @remarks
+   * The interval for repeated notifications.
+   * 
+   * @example
+   * 5
+   */
   repeatInterval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -172,7 +201,7 @@ export class NotifyStrategyForViewRepeatNotifySetting extends $dara.Model {
 export class NotifyStrategyForViewRoutesChannels extends $dara.Model {
   /**
    * @remarks
-   * Channel type.
+   * The channel type.
    * 
    * This parameter is required.
    * 
@@ -182,12 +211,12 @@ export class NotifyStrategyForViewRoutesChannels extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * Enabled notification types.
+   * The enabled notification types.
    */
   enabledSubChannels?: string[];
   /**
    * @remarks
-   * Channel recipient.
+   * The channel receivers.
    * 
    * This parameter is required.
    */
@@ -226,12 +255,12 @@ export class NotifyStrategyForViewRoutesChannels extends $dara.Model {
 export class NotifyStrategyForViewRoutesEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * Effective days (Monday to Sunday).
+   * The days of the week when the policy is effective (Monday to Sunday).
    */
   dayInWeek?: number[];
   /**
    * @remarks
-   * End time (in minutes).
+   * The end time in minutes.
    * 
    * @example
    * 60
@@ -239,7 +268,7 @@ export class NotifyStrategyForViewRoutesEffectTimeRange extends $dara.Model {
   endTimeInMinute?: number;
   /**
    * @remarks
-   * Start time (in minutes).
+   * The start time in minutes.
    * 
    * @example
    * 60
@@ -247,7 +276,7 @@ export class NotifyStrategyForViewRoutesEffectTimeRange extends $dara.Model {
   startTimeInMinute?: number;
   /**
    * @remarks
-   * Time Zone.
+   * The time zone.
    * 
    * @example
    * +08:00
@@ -286,24 +315,24 @@ export class NotifyStrategyForViewRoutesEffectTimeRange extends $dara.Model {
 export class NotifyStrategyForViewRoutes extends $dara.Model {
   /**
    * @remarks
-   * Notification channel.
+   * The notification channels.
    */
   channels?: NotifyStrategyForViewRoutesChannels[];
   digitalEmployeeName?: string;
   /**
    * @remarks
-   * Field.
+   * The field.
    */
   effectTimeRange?: NotifyStrategyForViewRoutesEffectTimeRange;
   enableRca?: boolean;
   /**
    * @remarks
-   * Routing settings.
+   * The routing settings.
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Severity level list.
+   * The list of severity levels.
    */
   severities?: string[];
   static names(): { [key: string]: string } {
@@ -350,10 +379,17 @@ export class NotifyStrategyForViewRoutes extends $dara.Model {
 }
 
 export class NotifyStrategyForView extends $dara.Model {
+  /**
+   * @remarks
+   * The automatic recovery time.
+   * 
+   * @example
+   * 300
+   */
   autoRecoverSeconds?: number;
   /**
    * @remarks
-   * Create Time.
+   * The creation time.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -361,12 +397,12 @@ export class NotifyStrategyForView extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Notification channel template.
+   * The notification channel templates.
    */
   customTemplateEntries?: NotifyStrategyForViewCustomTemplateEntries[];
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * test
@@ -374,32 +410,40 @@ export class NotifyStrategyForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether enabled.
+   * Indicates whether the policy is enabled.
    * 
    * @example
    * false
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The filter settings.
+   */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Grouping Setting.
+   * The merge settings.
    * 
    * This parameter is required.
    */
   groupingSetting?: NotifyStrategyForViewGroupingSetting;
   /**
    * @remarks
-   * Whether to notify on recovery.
+   * Indicates whether to send a notification upon recovery.
    * 
    * @example
    * true
    */
   ignoreRestoredNotification?: boolean;
+  /**
+   * @remarks
+   * The list of associated escalation policies.
+   */
   incidentEscalationPolicies?: any[];
   /**
    * @remarks
-   * UUID
+   * The UUID.
    * 
    * @example
    * 12312-31-23-123-1-23123
@@ -407,28 +451,47 @@ export class NotifyStrategyForView extends $dara.Model {
   notifyStrategyId?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * This parameter is required.
    * 
    * @example
-   * Test policy.
+   * 测试策略
    */
   notifyStrategyName?: string;
+  /**
+   * @remarks
+   * The push settings.
+   */
   pushingSetting?: NotifyStrategyForViewPushingSetting;
+  /**
+   * @remarks
+   * The list of receiver names.
+   */
   receiverNames?: string[];
+  /**
+   * @remarks
+   * The settings for repeated notifications.
+   */
   repeatNotifySetting?: NotifyStrategyForViewRepeatNotifySetting;
   /**
    * @remarks
-   * Notification channel routing configuration.
+   * The routing settings for notification channels.
    * 
    * This parameter is required.
    */
   routes?: NotifyStrategyForViewRoutes[];
+  /**
+   * @remarks
+   * The source type of the synchronization policy.
+   * 
+   * @example
+   * "ARMS"
+   */
   syncFromType?: string;
   /**
    * @remarks
-   * Update Time.
+   * The update time.
    * 
    * @example
    * 2025-05-30T02:29:09Z
@@ -436,7 +499,7 @@ export class NotifyStrategyForView extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 123123****
@@ -444,12 +507,16 @@ export class NotifyStrategyForView extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * workspace
+   * The workspace.
    * 
    * @example
    * workspace-test
    */
   workspace?: string;
+  /**
+   * @remarks
+   * The workspace filter settings.
+   */
   workspaceFilterSetting?: WorkspaceFilterSetting;
   static names(): { [key: string]: string } {
     return {

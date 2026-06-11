@@ -6,12 +6,12 @@ import { FilterSetting } from "./FilterSetting";
 export class MaintainWindowForModifyEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * Effective days (Monday to Sunday).
+   * The days of the week when the policy is effective (Monday to Sunday).
    */
   dayInWeek?: number[];
   /**
    * @remarks
-   * End time (in minutes).
+   * The end time in minutes.
    * 
    * @example
    * 60
@@ -19,7 +19,7 @@ export class MaintainWindowForModifyEffectTimeRange extends $dara.Model {
   endTimeInMinute?: number;
   /**
    * @remarks
-   * Start time (in minutes).
+   * The start time in minutes.
    * 
    * @example
    * 60
@@ -27,7 +27,7 @@ export class MaintainWindowForModifyEffectTimeRange extends $dara.Model {
   startTimeInMinute?: number;
   /**
    * @remarks
-   * Time zone.
+   * The time zone.
    * 
    * @example
    * +08:00
@@ -66,7 +66,7 @@ export class MaintainWindowForModifyEffectTimeRange extends $dara.Model {
 export class MaintainWindowForModify extends $dara.Model {
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * workspace test
@@ -74,12 +74,12 @@ export class MaintainWindowForModify extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Effective time range.
+   * The effective time range.
    */
   effectTimeRange?: MaintainWindowForModifyEffectTimeRange;
   /**
    * @remarks
-   * Crontab expression.
+   * The Crontab expression.
    * 
    * @example
    * * * 14-18 ? * *
@@ -87,7 +87,7 @@ export class MaintainWindowForModify extends $dara.Model {
   effective?: string;
   /**
    * @remarks
-   * Effective end time.
+   * The time when the policy stops taking effect.
    * 
    * @example
    * 2024-09-05 09:30:40
@@ -95,12 +95,12 @@ export class MaintainWindowForModify extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Filtering conditions.
+   * The filter conditions.
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * This parameter is required.
    * 
@@ -110,7 +110,7 @@ export class MaintainWindowForModify extends $dara.Model {
   maintainWindowName?: string;
   /**
    * @remarks
-   * Effective start time.
+   * The time when the policy starts to take effect.
    * 
    * @example
    * 2025-04-11 07:55:00

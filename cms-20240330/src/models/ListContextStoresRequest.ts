@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListContextStoresRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the context store.
+   * 
    * @example
    * test-context-store
    */
   contextStoreName?: string;
   /**
+   * @remarks
+   * The context type.
+   * 
    * @example
    * memory
    */
   contextType?: string;
   /**
+   * @remarks
+   * The maximum number of results to return.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page of results.
+   * 
    * @example
    * OCAQV0pBqldexv7EidbIZw==
    */

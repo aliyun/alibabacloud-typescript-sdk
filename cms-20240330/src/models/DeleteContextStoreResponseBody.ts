@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteContextStoreResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8FDE2569-626B-5176-9844-28877A*****
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

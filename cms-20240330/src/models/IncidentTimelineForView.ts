@@ -5,43 +5,78 @@ import { ContactForIncidentView } from "./ContactForIncidentView";
 
 export class IncidentTimelineForView extends $dara.Model {
   /**
+   * @remarks
+   * The type of status change.
+   * 
    * @example
    * "Open -> In Progress"
    */
   changeType?: string;
   /**
+   * @remarks
+   * The content of the timeline event.
+   * 
    * @example
    * "{"action":"restart","resourceId":"i-bp123456"}"
    */
   content?: any;
   /**
+   * @remarks
+   * The unique identifier of the incident.
+   * 
    * @example
    * "a1b2c3d4-e5f6-7890-1234-567890abcdef"
    */
   incidentUuid?: string;
+  /**
+   * @remarks
+   * Information about the operator.
+   */
   operator?: ContactForIncidentView;
   /**
+   * @remarks
+   * The UNIX timestamp when the timeline event occurred.
+   * 
    * @example
    * 1743876000000
    */
   time?: number;
   /**
+   * @remarks
+   * The unique identifier of the timeline record.
+   * 
    * @example
    * "x1y2z3a4-b5c6-d7e8-f9g0-h1i2j3k4l5m6"
    */
   timelineUuid?: string;
+  /**
+   * @remarks
+   * The title of the timeline event.
+   * 
+   * @example
+   * "故障已升级至值班主管"
+   */
   title?: string;
   /**
+   * @remarks
+   * The type of the timeline event.
+   * 
    * @example
    * "Comment"
    */
   type?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * "user-abc123"
    */
   userId?: string;
   /**
+   * @remarks
+   * The workspace.
+   * 
    * @example
    * "ws-xyz789"
    */

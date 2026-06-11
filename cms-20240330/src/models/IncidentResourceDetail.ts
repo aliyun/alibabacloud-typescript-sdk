@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentResourceDetail extends $dara.Model {
   /**
    * @remarks
-   * Additional resource identifier.
+   * An additional resource identifier.
    * 
    * @example
    * app-prod-web-01
@@ -13,7 +13,7 @@ export class IncidentResourceDetail extends $dara.Model {
   extraId?: string;
   /**
    * @remarks
-   * Resource ID object.
+   * The resource ID object.
    * 
    * @example
    * { "type": "ecs", "id": "i-bp1234567890abcdef" }
@@ -21,7 +21,7 @@ export class IncidentResourceDetail extends $dara.Model {
   resourceId?: { [key: string]: any };
   /**
    * @remarks
-   * Resource type, indicating which cloud product the resource belongs to.
+   * The resource type. This indicates the cloud product to which the resource belongs.
    * 
    * @example
    * ecs

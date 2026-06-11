@@ -7,47 +7,47 @@ import { ApmThresholdConfig } from "./ApmThresholdConfig";
 export class ConditionConfigUnified extends $dara.Model {
   /**
    * @remarks
-   * 聚合函数（APM_SIMPLE_CONDITION）
+   * The aggregation method for metric data points over the evaluation period. Valid values include `AVG`, `SUM`, and `MAX`.
    */
   aggregate?: string;
   /**
    * @remarks
-   * 多条比较（APM_COMPOSITE_CONDITION）
+   * A list of composite comparison configurations for APM alerts. Each item is an `ApmCompositeCompareConfig` object.
    */
   compareList?: ApmCompositeCompareConfig[];
   /**
    * @remarks
-   * 持续时间（秒），PROMETHEUS_SIMPLE / UMODEL_METRICSET 使用
+   * The number of seconds a condition must be true before triggering an alert.
    */
   durationSecs?: number;
   /**
    * @remarks
-   * 比较操作符（UMODEL_METRICSET_CONDITION 或 APM_SIMPLE_CONDITION）
+   * The comparison operator used to evaluate the metric against the threshold.
    */
   operator?: string;
   /**
    * @remarks
-   * 条件间逻辑关系（APM_COMPOSITE_CONDITION）
+   * The logical relationship between multiple conditions. Valid values are `AND` and `OR`.
    */
   relation?: string;
   /**
    * @remarks
-   * 严重等级（UMODEL / PROMETHEUS_SIMPLE / APM_COMPOSITE）
+   * The alert severity. Valid values are `CRITICAL`, `WARNING`, and `INFO`.
    */
   severity?: string;
   /**
    * @remarks
-   * 阈值（UMODEL_METRICSET_CONDITION）
+   * The value against which the metric is evaluated to trigger an alert.
    */
   threshold?: number;
   /**
    * @remarks
-   * 多阈值列表（APM_SIMPLE_CONDITION）
+   * A list of threshold configurations for Application Performance Monitoring (APM) alerts. Each item is an `ApmThresholdConfig` object.
    */
   thresholdList?: ApmThresholdConfig[];
   /**
    * @remarks
-   * 检测条件类型
+   * The type of the alert condition.
    * 
    * This parameter is required.
    */

@@ -4,15 +4,19 @@ import { AlertRuleV2 } from "./AlertRuleV2";
 
 
 export class ManageAlertRulesResult extends $dara.Model {
+  /**
+   * @remarks
+   * The details of the created or updated alert rule.
+   */
   alertRule?: AlertRuleV2;
   /**
    * @remarks
-   * 成功删除的规则数量
+   * The number of deleted alert rules.
    */
   deletedCount?: number;
   /**
    * @remarks
-   * 成功删除的规则 UUID 列表
+   * A list of UUIDs of deleted alert rules.
    */
   deletedUuidList?: string[];
   static names(): { [key: string]: string } {

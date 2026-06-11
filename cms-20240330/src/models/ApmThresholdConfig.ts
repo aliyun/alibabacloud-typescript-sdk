@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ApmThresholdConfig extends $dara.Model {
   /**
    * @remarks
-   * 告警等级
+   * The severity of the alert.
    * 
    * This parameter is required.
    */
   severity?: string;
   /**
    * @remarks
-   * 阈值
+   * The metric value that triggers the alert.
    * 
    * This parameter is required.
    */

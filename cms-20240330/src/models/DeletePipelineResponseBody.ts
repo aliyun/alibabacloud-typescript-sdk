@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeletePipelineResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CD8BA7D6-995D-578D-9941-78B0FECD14B5
    */

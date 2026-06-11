@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class MergeRobotExtend extends $dara.Model {
   /**
+   * @remarks
+   * The card template.
+   * 
    * @example
    * incident-card-template
    */
   cardTemplate?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the daily on-duty report.
+   * 
    * @example
    * true
    */
   dailyNoc?: boolean;
   /**
+   * @remarks
+   * The time for the daily on-duty report.
+   * 
    * @example
    * 09:00
    */
   dailyNocTime?: string;
   /**
+   * @remarks
+   * The signature key for DingTalk.
+   * 
    * @example
    * abc123
    */
   dingSignKey?: string;
   /**
+   * @remarks
+   * Specifies whether to enable outbound requests.
+   * 
    * @example
    * false
    */
   enableOutgoing?: boolean;
   /**
+   * @remarks
+   * The authentication token.
+   * 
    * @example
    * token-abc123
    */
@@ -66,38 +84,70 @@ export class MergeRobotExtend extends $dara.Model {
 
 export class MergeRobot extends $dara.Model {
   /**
+   * @remarks
+   * The time when the bot was created.
+   * 
    * @example
    * 2025-03-11T08:21:58.789Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The extension fields.
+   */
   extend?: MergeRobotExtend;
   /**
+   * @remarks
+   * The time when the bot was last modified.
+   * 
    * @example
    * 2025-03-11T08:21:58.789Z
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The unique identifier of the bot.
+   * 
    * @example
    * robot-12345
    */
   identifier?: string;
   /**
+   * @remarks
+   * The language preference.
+   * 
    * @example
    * zh-CN
    */
   lang?: string;
+  /**
+   * @remarks
+   * The name of the bot.
+   * 
+   * @example
+   * 运维告警机器人
+   */
   name?: string;
   /**
+   * @remarks
+   * The source system of the bot.
+   * 
    * @example
    * dingtalk
    */
   source?: string;
   /**
+   * @remarks
+   * The type of the bot.
+   * 
    * @example
    * dingtalk
    */
   type?: string;
   /**
+   * @remarks
+   * The webhook address.
+   * 
    * @example
    * https://oapi.dingtalk.com/robot/send?access_token=abc123
    */

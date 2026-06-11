@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateContextRequest extends $dara.Model {
   /**
+   * @remarks
+   * The updated text for the long-term memory.
+   * 
    * @example
    * Users prefer to first view the SLS error logs, index configuration, and the most recent Agent execution trace.
    */
   content?: string;
   /**
+   * @remarks
+   * The experience object.
+   * 
    * @example
    * {
    * 	"taskType": "troubleshooting",
@@ -18,11 +24,17 @@ export class UpdateContextRequest extends $dara.Model {
    */
   experience?: { [key: string]: any };
   /**
+   * @remarks
+   * A set of key-value pairs to attach to an object for storing custom information.
+   * 
    * @example
    * {"sessionId":"test_session_001"}
    */
   metadata?: { [key: string]: any };
   /**
+   * @remarks
+   * The payload to update.
+   * 
    * @example
    * {
    *     "userId": "u-10001",
@@ -40,6 +52,9 @@ export class UpdateContextRequest extends $dara.Model {
    */
   payload?: { [key: string]: any };
   /**
+   * @remarks
+   * The trigger condition.
+   * 
    * @example
    * Identify and troubleshoot SLs issues
    */

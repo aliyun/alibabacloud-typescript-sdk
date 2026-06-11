@@ -7,12 +7,12 @@ import { AlertRuleAlertMetricInputParamValue } from "./AlertRuleAlertMetricInput
 export class AlertRuleAlertMetricInput extends $dara.Model {
   /**
    * @remarks
-   * List of user-provided filter conditions. The supported parameters and filter conditions for the metric can be queried via ListAlertMetrics.
+   * A list of filter conditions. Call the ListAlertMetrics operation to query the lists of parameters and filter conditions that the metric supports.
    */
   filterValues?: AlertRuleAlertMetricInputFilterValue[];
   /**
    * @remarks
-   * Key of the metric group selected by the user.
+   * The key of the metric group.
    * 
    * @example
    * apm.jvm
@@ -20,7 +20,7 @@ export class AlertRuleAlertMetricInput extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * Key of the predefined metric selected by the user.
+   * The key of the predefined metric.
    * 
    * @example
    * appstat.jvm.GcPsMarkSweepCount
@@ -28,7 +28,7 @@ export class AlertRuleAlertMetricInput extends $dara.Model {
   metricId?: string;
   /**
    * @remarks
-   * List of input parameters. The metric\\"s supported parameters and filter conditions can be queried via ListAlertMetrics.
+   * A list of parameters. Call the ListAlertMetrics operation to query the lists of parameters and filter conditions that the metric supports.
    */
   paramValues?: AlertRuleAlertMetricInputParamValue[];
   static names(): { [key: string]: string } {

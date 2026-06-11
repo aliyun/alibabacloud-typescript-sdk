@@ -3,18 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EffectTimeRange extends $dara.Model {
+  /**
+   * @remarks
+   * The values 0 to 6 indicate Sunday to Saturday.
+   */
   dayInWeek?: number[];
   /**
+   * @remarks
+   * The end time in minutes.
+   * 
    * @example
    * 1080
    */
   endTimeInMinute?: number;
   /**
+   * @remarks
+   * The start time in minutes.
+   * 
    * @example
    * 360
    */
   startTimeInMinute?: number;
   /**
+   * @remarks
+   * The time zone.
+   * 
    * @example
    * "Asia/Shanghai"
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntegrationPolicyStorageRequirementsRequest extends $dara.Model {
   /**
    * @remarks
-   * Addon Release Name
+   * The name of the add-on release.
    * 
    * @example
    * release-1234357
@@ -13,7 +13,7 @@ export class ListIntegrationPolicyStorageRequirementsRequest extends $dara.Model
   addonName?: string;
   /**
    * @remarks
-   * Name of AddonRelease.
+   * The name of the AddonRelease.
    * 
    * @example
    * kafka-17201012937917
@@ -21,7 +21,7 @@ export class ListIntegrationPolicyStorageRequirementsRequest extends $dara.Model
   addonReleaseName?: string;
   /**
    * @remarks
-   * Storage Type, LogStore/Prometheus/TraceStore/EventStore/EntityStore.
+   * The storage type. Valid values: LogStore, Prometheus, TraceStore, EventStore, and EntityStore.
    * 
    * @example
    * LogStore

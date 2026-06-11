@@ -5,31 +5,49 @@ import { AddonMeta } from "./AddonMeta";
 
 export class ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions extends $dara.Model {
   /**
+   * @remarks
+   * The time of the first transition.
+   * 
    * @example
    * 2024-08-27T13:59:23+08:00
    */
   firstTransitionTime?: string;
   /**
+   * @remarks
+   * The time of the last transition.
+   * 
    * @example
    * 2024-08-27T13:59:23+08:00
    */
   lastTransitionTime?: string;
   /**
+   * @remarks
+   * The details.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The reason for the failure.
+   * 
    * @example
    * Probe
    */
   reason?: string;
   /**
+   * @remarks
+   * The phase status.
+   * 
    * @example
    * True
    */
   status?: string;
   /**
+   * @remarks
+   * The phase type.
+   * 
    * @example
    * Ready
    */
@@ -67,11 +85,17 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions ext
 
 export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloadsManagedInfo extends $dara.Model {
   /**
+   * @remarks
+   * The security group ID.
+   * 
    * @example
    * sg-xxxxx
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The vSwitch ID.
+   * 
    * @example
    * vsw-xxxxxx
    */
@@ -101,57 +125,94 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloadsManag
 
 export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads extends $dara.Model {
   /**
+   * @remarks
+   * The host IP address.
+   * 
    * @example
    * 10.10.10.10
    */
   hostIp?: string;
   /**
+   * @remarks
+   * The IP address of the workload.
+   * 
    * @example
    * 11.193.82.198
    */
   ip?: string;
   /**
+   * @remarks
+   * Indicates whether the component is a managed component.
+   * 
    * @example
    * false
    */
   managed?: boolean;
+  /**
+   * @remarks
+   * The policy management information.
+   */
   managedInfo?: ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloadsManagedInfo;
   /**
+   * @remarks
+   * The details.
+   * 
    * @example
    * ok
    */
   message?: string;
   /**
+   * @remarks
+   * The workload name.
+   * 
    * @example
    * exporter-xxx
    */
   name?: string;
   /**
+   * @remarks
+   * The workload namespace.
+   * 
    * @example
    * prod-db
    */
   namespace?: string;
   /**
+   * @remarks
+   * The kind of the parent reference.
+   * 
    * @example
    * Deployment
    */
   ownerReferenceKind?: string;
   /**
+   * @remarks
+   * The name of the parent reference.
+   * 
    * @example
    * exporter
    */
   ownerReferenceName?: string;
   /**
+   * @remarks
+   * The start time.
+   * 
    * @example
    * 2024-08-27T13:59:23+08:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * {}
    */
   status?: string;
   /**
+   * @remarks
+   * The workload version.
+   * 
    * @example
    * v2.4.4
    */
@@ -203,34 +264,68 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads exte
 }
 
 export class ListIntegrationPolicyCollectorsResponseBodyCollectors extends $dara.Model {
+  /**
+   * @remarks
+   * The add-on details.
+   */
   addonMeta?: AddonMeta;
   /**
+   * @remarks
+   * The collector name.
+   * 
    * @example
    * collector-kkxx
    */
   collectorName?: string;
   /**
+   * @remarks
+   * The collector type.
+   * 
    * @example
    * Exporter
    */
   collectorType?: string;
+  /**
+   * @remarks
+   * The phase status.
+   */
   conditions?: ListIntegrationPolicyCollectorsResponseBodyCollectorsConditions[];
   /**
+   * @remarks
+   * Indicates whether the component is a managed component.
+   * 
    * @example
    * false
    */
   managed?: boolean;
+  /**
+   * @remarks
+   * The name of the add-on release.
+   * 
+   * @example
+   * ecs-loong-collector-i-f8z1176fg57rlwmc1rfi
+   */
   releaseName?: string;
   /**
+   * @remarks
+   * The collector status.
+   * 
    * @example
    * xx
    */
   state?: string;
   /**
+   * @remarks
+   * The component version.
+   * 
    * @example
    * 2.6.2
    */
   version?: string;
+  /**
+   * @remarks
+   * The list of workloads.
+   */
   workloads?: ListIntegrationPolicyCollectorsResponseBodyCollectorsWorkloads[];
   static names(): { [key: string]: string } {
     return {
@@ -279,8 +374,15 @@ export class ListIntegrationPolicyCollectorsResponseBodyCollectors extends $dara
 }
 
 export class ListIntegrationPolicyCollectorsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of collectors.
+   */
   collectors?: ListIntegrationPolicyCollectorsResponseBodyCollectors[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B9377D9-C56B-5C2E-A8A4-A01D6CC3F4B8
    */

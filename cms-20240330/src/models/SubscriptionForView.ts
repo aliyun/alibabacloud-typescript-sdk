@@ -37,12 +37,12 @@ export class SubscriptionForViewAgentConfig extends $dara.Model {
 export class SubscriptionForViewPushingSetting extends $dara.Model {
   /**
    * @remarks
-   * Alert push action integration ID list.
+   * A list of action integration IDs for alert pushes.
    */
   alertActionIds?: string[];
   /**
    * @remarks
-   * Action plan ID.
+   * The action plan ID.
    * 
    * @example
    * 123123123
@@ -50,12 +50,12 @@ export class SubscriptionForViewPushingSetting extends $dara.Model {
   responsePlanId?: string;
   /**
    * @remarks
-   * Recovery push action integration ID list.
+   * A list of action integration IDs for recovery pushes.
    */
   restoreActionIds?: string[];
   /**
    * @remarks
-   * Template UUID.
+   * The template UUID.
    * 
    * @example
    * 123123123
@@ -98,7 +98,7 @@ export class SubscriptionForView extends $dara.Model {
   agentConfig?: SubscriptionForViewAgentConfig;
   /**
    * @remarks
-   * Create Time.
+   * The creation time.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -106,7 +106,7 @@ export class SubscriptionForView extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * workspace test
@@ -114,7 +114,7 @@ export class SubscriptionForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Whether enabled.
+   * Indicates whether the subscription is enabled.
    * 
    * @example
    * false
@@ -122,12 +122,12 @@ export class SubscriptionForView extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Filtering settings.
+   * The filter settings.
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Notification policy UUID.
+   * The UUID of the notification policy.
    * 
    * @example
    * 23123123
@@ -135,12 +135,12 @@ export class SubscriptionForView extends $dara.Model {
   notifyStrategyId?: string;
   /**
    * @remarks
-   * Push settings.
+   * The push settings.
    */
   pushingSetting?: SubscriptionForViewPushingSetting;
   /**
    * @remarks
-   * UUID
+   * The UUID.
    * 
    * @example
    * 123123123123
@@ -148,12 +148,12 @@ export class SubscriptionForView extends $dara.Model {
   subscriptionId?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * This parameter is required.
    * 
    * @example
-   * Subscription test.
+   * 订阅测试
    */
   subscriptionName?: string;
   /**
@@ -161,10 +161,17 @@ export class SubscriptionForView extends $dara.Model {
    * NORMAL
    */
   subscriptionType?: string;
+  /**
+   * @remarks
+   * The source type of the synchronization policy.
+   * 
+   * @example
+   * "ARMS"
+   */
   syncFromType?: string;
   /**
    * @remarks
-   * Update Time.
+   * The update time.
    * 
    * @example
    * 2025-05-23T02:29:02Z
@@ -172,7 +179,7 @@ export class SubscriptionForView extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 123123123
@@ -180,7 +187,7 @@ export class SubscriptionForView extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * workspace
+   * Specifies the workspace.
    * 
    * @example
    * workspace-test

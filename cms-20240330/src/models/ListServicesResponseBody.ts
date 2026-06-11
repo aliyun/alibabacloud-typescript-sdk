@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServicesResponseBodyServices extends $dara.Model {
   /**
    * @remarks
-   * Extended information.
+   * Additional information.
    * 
    * @example
    * {"language":"java"}
@@ -13,7 +13,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 2025-07-01T02:23:59Z
@@ -21,7 +21,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Service description, valid only when serviceType=RUM.
+   * The service description. This parameter is valid only when serviceType is RUM.
    * 
    * @example
    * workspace api monitor test
@@ -29,7 +29,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Display name, valid only when serviceType=RUM.
+   * The display name. This parameter is valid only when serviceType is RUM.
    * 
    * @example
    * test
@@ -37,20 +37,23 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Historical compatible ARMS application ID
+   * The ID of the ARMS application for backward compatibility.
    * 
    * @example
    * kgcsf@192197e828d51aa
    */
   pid?: string;
   /**
+   * @remarks
+   * The resource group ID.
+   * 
    * @example
    * rg-aekxxzuad5zzzz
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * Service ID
+   * The service ID.
    * 
    * @example
    * jm2pl0yoqf@d4905cb11a4f218dfb0a8
@@ -58,7 +61,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * Service name
+   * The service name.
    * 
    * @example
    * demo-app
@@ -66,7 +69,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * Service status, valid only when serviceType=RUM.
+   * The service status. This parameter is valid only when serviceType is RUM.
    * 
    * @example
    * Running
@@ -74,7 +77,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   serviceStatus?: string;
   /**
    * @remarks
-   * Service type
+   * The service type.
    * 
    * @example
    * TRACE
@@ -82,7 +85,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * Workspace.
+   * The workspace.
    * 
    * @example
    * default-cms-1192928460540589-cn-hangzhou
@@ -132,7 +135,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
 export class ListServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Maximum number of results to return, with a maximum value of 200
+   * The maximum number of results returned. The maximum value is 200.
    * 
    * @example
    * 10
@@ -140,7 +143,7 @@ export class ListServicesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Pagination token
+   * The paging token.
    * 
    * @example
    * 2-ba4d-4b9f-aa24-dcb067a30f1c
@@ -148,7 +151,7 @@ export class ListServicesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 0CEC5375-C554-562B-A65F-9A629907C1F0
@@ -156,12 +159,12 @@ export class ListServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * List of service information.
+   * A list of service information.
    */
   services?: ListServicesResponseBodyServices[];
   /**
    * @remarks
-   * Total count
+   * The total number of records.
    * 
    * @example
    * 66

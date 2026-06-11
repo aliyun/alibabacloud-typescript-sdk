@@ -6,15 +6,15 @@ import { IncidentResourceDetail } from "./IncidentResourceDetail";
 export class IncidentResourceStruct extends $dara.Model {
   /**
    * @remarks
-   * Description information.
+   * The description.
    * 
    * @example
-   * Production environment web server.
+   * 生产环境 Web 服务器
    */
   description?: string;
   /**
    * @remarks
-   * Incident ID.
+   * The event ID.
    * 
    * @example
    * incident-001
@@ -22,7 +22,7 @@ export class IncidentResourceStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * The unique ID of this resource in the event.
+   * The unique ID of the resource in the event.
    * 
    * @example
    * res-001
@@ -30,12 +30,12 @@ export class IncidentResourceStruct extends $dara.Model {
   incidentResourceId?: string;
   /**
    * @remarks
-   * Event resource details object.
+   * The details object for the event resource.
    */
   resource?: IncidentResourceDetail;
   /**
    * @remarks
-   * Source.
+   * The source.
    * 
    * @example
    * cloudmonitor
@@ -43,7 +43,7 @@ export class IncidentResourceStruct extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Time.
+   * The timestamp.
    * 
    * @example
    * 1741234567890
@@ -51,7 +51,7 @@ export class IncidentResourceStruct extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * user-12345

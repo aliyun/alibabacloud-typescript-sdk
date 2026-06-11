@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DatasourceConfigUnified extends $dara.Model {
   /**
    * @remarks
-   * Prometheus 实例 ID（type=PROMETHEUS 时使用）
+   * The unique instance ID.
    */
   instanceId?: string;
   /**
    * @remarks
-   * 地域 ID（各类型可选，缺省与规则/网关一致）
+   * The region ID.
    */
   regionId?: string;
   /**
    * @remarks
-   * 数据源类型
+   * The type of the data source.
    * 
    * This parameter is required.
    */

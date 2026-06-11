@@ -7,7 +7,7 @@ import { IncidentPlanFieldPath } from "./IncidentPlanFieldPath";
 export class IncidentPlanStruct extends $dara.Model {
   /**
    * @remarks
-   * Automatic recovery wait time.
+   * The wait time for automatic recovery.
    * 
    * @example
    * 3600
@@ -15,7 +15,7 @@ export class IncidentPlanStruct extends $dara.Model {
   autoRecoverSeconds?: number;
   /**
    * @remarks
-   * Event closure timeout.
+   * The timeout period for closing an event.
    * 
    * @example
    * 86400000
@@ -23,25 +23,25 @@ export class IncidentPlanStruct extends $dara.Model {
   closeExpire?: number;
   /**
    * @remarks
-   * List of teams or roles involved in collaboration.
+   * A list of collaborating teams or roles.
    */
   corporation?: IncidentPlanCorporationStruct[];
   /**
    * @remarks
-   * Contingency plan description.
+   * The description of the plan.
    * 
    * @example
-   * Emergency response plan for excessively high database connection count.
+   * 针对数据库连接数过高的应急处理方案
    */
   description?: string;
   /**
    * @remarks
-   * List of escalation policy IDs.
+   * A list of escalation policy IDs.
    */
   escalationId?: string[];
   /**
    * @remarks
-   * Creation time.
+   * The time when the plan was created.
    * 
    * @example
    * 1741234567890
@@ -49,7 +49,7 @@ export class IncidentPlanStruct extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * Last modification time.
+   * The time when the plan was last modified.
    * 
    * @example
    * 1741234567890
@@ -57,12 +57,12 @@ export class IncidentPlanStruct extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * Grouping field path.
+   * The grouping field path.
    */
   groupBy?: IncidentPlanFieldPath[];
   /**
    * @remarks
-   * Event contingency plan ID.
+   * The incident plan ID.
    * 
    * @example
    * plan-001
@@ -70,20 +70,20 @@ export class IncidentPlanStruct extends $dara.Model {
   incidentPlanId?: string;
   /**
    * @remarks
-   * Contingency plan name.
+   * The name of the plan.
    * 
    * @example
-   * Database connection count alert contingency plan.
+   * 数据库连接数告警预案
    */
   name?: string;
   /**
    * @remarks
-   * List of resource field mapping paths.
+   * A list of resource field mapping paths.
    */
   resourceFiled?: IncidentPlanFieldPath[];
   /**
    * @remarks
-   * Status.
+   * The status.
    * 
    * @example
    * Running
@@ -91,7 +91,7 @@ export class IncidentPlanStruct extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * uesr-12345
@@ -99,7 +99,7 @@ export class IncidentPlanStruct extends $dara.Model {
   userId?: number;
   /**
    * @remarks
-   * Workspace name.
+   * The name of the workspace.
    * 
    * @example
    * workspace-test

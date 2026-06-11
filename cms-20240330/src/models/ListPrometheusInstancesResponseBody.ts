@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dara.Model {
   /**
    * @remarks
-   * Access type:
-   * readWrite, readOnly, httpReadOnly
+   * The permission type. Valid values: readWrite, readOnly, and httpReadOnly.
    * 
    * @example
    * readWrite
@@ -14,7 +13,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   accessType?: string;
   /**
    * @remarks
-   * Instance creation time, using UTC+0 time, formatted as yyyy-MM-ddTHH:mmZ
+   * The time when the instance was created. The time is in UTC and the format is yyyy-MM-ddTHH:mmZ.
    * 
    * @example
    * 2025-08-10T02:07:53Z
@@ -22,7 +21,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   createTime?: string;
   /**
    * @remarks
-   * Instance type.
+   * The instance type.
    * 
    * @example
    * remote-write
@@ -30,9 +29,9 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   instanceType?: string;
   /**
    * @remarks
-   * POSTPAY: Postpaid by metric.
-   * POSTPAY_GB: Postpaid by write volume.
-   * PREPAY: Prepaid.
+   * POSTPAY: Pay-as-you-go, billed by metrics.
+   * POSTPAY_GB: Pay-as-you-go, billed by data written.
+   * PREPAY: Subscription.
    * FREE: Free.
    * 
    * @example
@@ -41,7 +40,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   paymentType?: string;
   /**
    * @remarks
-   * Product to which the prom instance belongs
+   * The product to which the Prometheus instance belongs.
    * 
    * @example
    * arms
@@ -49,7 +48,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   product?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * rw-63549e054ff596a4149927961dff
@@ -57,7 +56,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * Instance name.
+   * The instance name.
    * 
    * @example
    * test-prom-name
@@ -65,7 +64,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   prometheusInstanceName?: string;
   /**
    * @remarks
-   * Region ID
+   * The region ID.
    * 
    * @example
    * cn-nanjing
@@ -73,7 +72,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   regionId?: string;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * Prometheus
@@ -81,7 +80,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   resourceType?: string;
   /**
    * @remarks
-   * Backend data storage status
+   * The status of the backend data storage.
    * 
    * @example
    * Pending2Running
@@ -89,12 +88,12 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   status?: string;
   /**
    * @remarks
-   * Supported authentication types.
+   * The supported authentication types.
    */
   supportAuthTypes?: string[];
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 17073812345
@@ -102,7 +101,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   userId?: string;
   /**
    * @remarks
-   * Version
+   * The version.
    * 
    * @example
    * *
@@ -110,7 +109,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
   version?: string;
   /**
    * @remarks
-   * Workspace to which the Prometheus instance belongs
+   * The workspace to which the Prometheus instance belongs.
    * 
    * @example
    * default-cms-115214006-cn-hangzhou
@@ -169,7 +168,7 @@ export class ListPrometheusInstancesResponseBodyPrometheusInstances extends $dar
 export class ListPrometheusInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Maximum number of records to return.
+   * The maximum number of records returned.
    * 
    * @example
    * 10
@@ -180,7 +179,7 @@ export class ListPrometheusInstancesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for the next query.
+   * The token for the next query.
    * 
    * @example
    * xxxxxxxxxx
@@ -188,12 +187,12 @@ export class ListPrometheusInstancesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * List of Prometheus instances.
+   * The list of Prometheus instances.
    */
   prometheusInstances?: ListPrometheusInstancesResponseBodyPrometheusInstances[];
   /**
    * @remarks
-   * ID of the request
+   * The ID of the request.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
@@ -201,7 +200,7 @@ export class ListPrometheusInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of instances
+   * The total number of instances.
    * 
    * @example
    * 66

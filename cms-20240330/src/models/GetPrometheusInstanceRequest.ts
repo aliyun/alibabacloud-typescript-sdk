@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * Language setting, default is Chinese zh | en
+   * The language of the response. Valid values: `zh` (Chinese) and `en` (English). Default value: `zh`.
    * 
    * @example
    * zh
@@ -13,7 +13,7 @@ export class GetPrometheusInstanceRequest extends $dara.Model {
   aliyunLang?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek2bhocin5e2na

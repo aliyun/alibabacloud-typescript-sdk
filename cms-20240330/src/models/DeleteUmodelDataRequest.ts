@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteUmodelDataRequest extends $dara.Model {
   /**
    * @remarks
-   * Can specify the name of a specific Umodel data, leaving it blank means all
+   * The name of the Umodel data to delete. Omit this parameter to delete all Umodel data.
    * 
    * @example
    * apm
@@ -13,7 +13,7 @@ export class DeleteUmodelDataRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * Can specify the kind of a specific Umodel data, leaving it blank means all
+   * The kind of the Umodel data. If unspecified, data of all kinds is deleted.
    * 
    * @example
    * metric_set
@@ -21,7 +21,7 @@ export class DeleteUmodelDataRequest extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * Can specify the name of a specific Umodel data, leaving it blank means all
+   * The name of the Umodel data. If unspecified, data with any name is deleted.
    * 
    * @example
    * test

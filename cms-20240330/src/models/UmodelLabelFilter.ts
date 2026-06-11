@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class UmodelLabelFilter extends $dara.Model {
   /**
    * @remarks
-   * 标签名
+   * The key of the label used for filtering.
    */
   name?: string;
   /**
    * @remarks
-   * 标签过滤操作符，仅支持 = 或 !=
+   * The logical operator used to compare the label\\"s value.
    */
   operator?: string;
   /**
    * @remarks
-   * 标签值
+   * The value of the label to match.
    */
   value?: string;
   static names(): { [key: string]: string } {

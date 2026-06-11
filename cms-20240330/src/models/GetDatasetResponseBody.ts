@@ -6,6 +6,8 @@ import { IndexKey } from "./IndexKey";
 export class GetDatasetResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The time the dataset was created, as a Unix timestamp.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -13,28 +15,46 @@ export class GetDatasetResponseBody extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The name of the dataset.
+   * 
    * @example
    * test_dataset
    */
   datasetName?: string;
   /**
+   * @remarks
+   * The description of the dataset.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the region where the dataset is located.
+   * 
    * @example
    * cn-heyuan
    */
   regionId?: string;
   /**
+   * @remarks
+   * The unique identifier for the request.
+   * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The data schema of the dataset.
+   */
   schema?: { [key: string]: IndexKey };
   /**
    * @remarks
+   * The time the dataset was last updated, as a Unix timestamp.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -42,6 +62,9 @@ export class GetDatasetResponseBody extends $dara.Model {
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * workspace-test
    */

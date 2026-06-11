@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class FilterSettingConditions extends $dara.Model {
   /**
+   * @remarks
+   * The field.
+   * 
    * @example
    * severity
    */
   field?: string;
   /**
+   * @remarks
+   * The comparison operator.
+   * 
    * @example
    * EQ
    */
   op?: string;
   /**
+   * @remarks
+   * The value.
+   * 
    * @example
    * CRITICAL
    */
@@ -44,13 +53,23 @@ export class FilterSettingConditions extends $dara.Model {
 }
 
 export class FilterSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The subscription conditions.
+   */
   conditions?: FilterSettingConditions[];
   /**
+   * @remarks
+   * The expression.
+   * 
    * @example
    * 1 and 2 or 3
    */
   expression?: string;
   /**
+   * @remarks
+   * The relationship between conditions.
+   * 
    * @example
    * AND
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePrometheusViewRequestPrometheusInstances extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * arms-1d581fac20a462dcde743d9628
@@ -13,7 +13,7 @@ export class CreatePrometheusViewRequestPrometheusInstances extends $dara.Model 
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-wulanchabu
@@ -21,7 +21,7 @@ export class CreatePrometheusViewRequestPrometheusInstances extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 167271234567890
@@ -55,7 +55,7 @@ export class CreatePrometheusViewRequestPrometheusInstances extends $dara.Model 
 export class CreatePrometheusViewRequestTags extends $dara.Model {
   /**
    * @remarks
-   * Tag key.
+   * The key of the tag.
    * 
    * @example
    * test-key
@@ -63,7 +63,7 @@ export class CreatePrometheusViewRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Tag value.
+   * The value of the tag.
    * 
    * @example
    * test-value
@@ -95,7 +95,7 @@ export class CreatePrometheusViewRequestTags extends $dara.Model {
 export class CreatePrometheusViewRequest extends $dara.Model {
   /**
    * @remarks
-   * Not enabled yet
+   * This parameter is not in use.
    * 
    * @example
    * {
@@ -112,7 +112,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * Whether to support password-free read
+   * Specifies whether to enable password-free read access.
    * 
    * @example
    * true
@@ -120,7 +120,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Whether to support authToken
+   * Specifies whether to enable an authentication token.
    * 
    * @example
    * true
@@ -128,14 +128,14 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * List of Prometheus instances.
+   * The list of Prometheus instances.
    * 
    * This parameter is required.
    */
   prometheusInstances?: CreatePrometheusViewRequestPrometheusInstances[];
   /**
    * @remarks
-   * Prometheus view name.
+   * The name of the Prometheus view.
    * 
    * This parameter is required.
    * 
@@ -145,7 +145,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   prometheusViewName?: string;
   /**
    * @remarks
-   * Resource group ID.
+   * The resource group ID.
    * 
    * @example
    * rg-acfm3gn5i6bigbi
@@ -153,7 +153,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Not enabled yet.
+   * This parameter is not in use.
    * 
    * @example
    * null
@@ -161,13 +161,14 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The operation to be performed.
+   * Specifies the operation to execute.
    */
   tags?: CreatePrometheusViewRequestTags[];
   /**
    * @remarks
-   * - V1: Old version
-   * - V2: New version
+   * - V1: The old version.
+   * 
+   * - V2: The new version.
    * 
    * This parameter is required.
    * 
@@ -177,7 +178,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * Default value: default-cms-{userId}-{regionId}
+   * The default value is default-cms-{userId}-{regionId}.
    * 
    * @example
    * cms-monitor-test-aysls-pub-cn-zhangjiakou-spe-monitor

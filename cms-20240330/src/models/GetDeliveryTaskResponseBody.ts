@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The names of the associated EventBridge tasks.
+   */
   taskNameList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29,8 +33,15 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo extends $dara.Mode
 }
 
 export class GetDeliveryTaskResponseBodyDeliveryTaskSinkList extends $dara.Model {
+  /**
+   * @remarks
+   * The sink configuration. The structure of this object depends on the value of `sinkType`. For details, see CreateDeliveryTask.
+   */
   sinkConfigs?: { [key: string]: string };
   /**
+   * @remarks
+   * The sink type.
+   * 
    * @example
    * Prometheus
    */
@@ -63,11 +74,17 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskSinkList extends $dara.Model
 
 export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * sourcetype
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * production
    */
@@ -98,6 +115,8 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
 export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   /**
    * @remarks
+   * The creation time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -105,47 +124,90 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The data source ID (the Prometheus instance ID).
+   * 
    * @example
    * rw-xxxxxx
    */
   dataSourceId?: string;
+  /**
+   * @remarks
+   * A map of key-value pairs to add as external labels to all delivered metrics.
+   */
   externalLabels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The extra information.
+   */
   extraInfo?: GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo;
+  /**
+   * @remarks
+   * The label filters, used with `labelFiltersType`. In each filter, the key is the metric label and the value is the value to match.
+   */
   labelFilters?: { [key: string]: string };
   /**
+   * @remarks
+   * The label filter type.
+   * 
    * @example
    * Allow
    */
   labelFiltersType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-chengdu
    */
   regionId?: string;
+  /**
+   * @remarks
+   * An array of sink configurations.
+   */
   sinkList?: GetDeliveryTaskResponseBodyDeliveryTaskSinkList[];
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * Pending2Running
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags attached to the task.
+   */
   tags?: GetDeliveryTaskResponseBodyDeliveryTaskTags[];
   /**
+   * @remarks
+   * The task description.
+   * 
    * @example
    * my delivery task
    */
   taskDescription?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 8b07eeac8249866d
    */
   taskId?: string;
   /**
+   * @remarks
+   * The task name.
+   * 
    * @example
    * test-task
    */
   taskName?: string;
   /**
    * @remarks
+   * The update time.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
    * @example
@@ -215,8 +277,15 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
 }
 
 export class GetDeliveryTaskResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The delivery task details.
+   */
   deliveryTask?: GetDeliveryTaskResponseBodyDeliveryTask;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0CEC5375-C554-562B-A65F-9A629907C1F0
    */

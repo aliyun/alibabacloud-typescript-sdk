@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ApmMeasureConfig extends $dara.Model {
   /**
    * @remarks
-   * 分组维度
+   * An array of dimension keys used to group the results.
    */
   groupBy?: string[];
   /**
    * @remarks
-   * 指标代码
+   * The unique code that identifies the metric.
    * 
    * This parameter is required.
    */
   measureCode?: string;
   /**
    * @remarks
-   * 查询时间窗口（秒）
+   * The aggregation period in seconds, which determines the time granularity of data points.
    * 
    * This parameter is required.
    */

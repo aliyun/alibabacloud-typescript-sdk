@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateContextStoreResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E5B1D3D4-BB28-5996-8AD2-***********
    */

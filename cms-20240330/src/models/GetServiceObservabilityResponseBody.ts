@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Model {
   /**
    * @remarks
-   * Authentication Token for Data Reporting
+   * The authentication token for reporting data.
    * 
    * @example
    * gaddp****@de20f2***1ce***
@@ -13,7 +13,7 @@ export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Mod
   authToken?: string;
   /**
    * @remarks
-   * Private Network Access Address
+   * The internal endpoint.
    * 
    * @example
    * project-xtrace-xxxx-cn-hangzhou.cn-hangzhou-intranet.log.aliyuncs.com
@@ -21,7 +21,7 @@ export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Mod
   privateDomain?: string;
   /**
    * @remarks
-   * SLS Project
+   * The Simple Log Service project.
    * 
    * @example
    * proj-xtrace-xxxxx
@@ -29,7 +29,7 @@ export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Mod
   project?: string;
   /**
    * @remarks
-   * Public Network Access Address
+   * The public endpoint.
    * 
    * @example
    * project-xtrace-xxxx-cn-hangzhou.cn-hangzhou.log.aliyuncs.com
@@ -65,12 +65,12 @@ export class GetServiceObservabilityResponseBodyEntryPointInfo extends $dara.Mod
 export class GetServiceObservabilityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Endpoint and Authentication Information
+   * The endpoint and authentication information.
    */
   entryPointInfo?: GetServiceObservabilityResponseBodyEntryPointInfo;
   /**
    * @remarks
-   * Billing Type
+   * The billing type.
    * 
    * @example
    * arms=serverless;xtrace=serverless
@@ -78,12 +78,12 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   feeType?: string;
   /**
    * @remarks
-   * Quota Configuration
+   * The quota configuration.
    */
   quotas?: { [key: string]: string };
   /**
    * @remarks
-   * Region
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -91,7 +91,7 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 4852B9B5-345C-5CBC-A15F-786D83ECCBBA
@@ -99,12 +99,12 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * System Configuration
+   * The system configuration.
    */
   settings?: { [key: string]: string };
   /**
    * @remarks
-   * Resource Initialization Status
+   * The resource initialization status.
    * 
    * @example
    * Running
@@ -112,7 +112,7 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Application Observability Type
+   * The type of application observability.
    * 
    * @example
    * apm
@@ -120,7 +120,7 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Workspace Name
+   * The workspace name.
    * 
    * @example
    * default-cms-1654218***343050-cn-hangzhou

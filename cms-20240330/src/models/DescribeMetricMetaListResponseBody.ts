@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeMetricMetaListResponseBodyResourcesDimensionDescription extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the dimension.
+   * 
+   * @example
+   * user_id
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26,16 +33,87 @@ export class DescribeMetricMetaListResponseBodyResourcesDimensionDescription ext
 }
 
 export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * ECS CPU Utilization
+   */
   description?: string;
+  /**
+   * @remarks
+   * The descriptions of the dimensions.
+   */
   dimensionDescription?: DescribeMetricMetaListResponseBodyResourcesDimensionDescription[];
+  /**
+   * @remarks
+   * The dimensions for filtering resources in CloudMonitor.
+   */
   dimensions?: string[];
+  /**
+   * @remarks
+   * The CloudMonitor labels. This parameter is returned only when `metaFormat` is set to `CMS`.
+   */
   labels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The metadata format.
+   */
   metaFormat?: string;
+  /**
+   * @remarks
+   * The metric name.
+   * 
+   * @example
+   * CPUUtilization
+   */
   metricName?: string;
+  /**
+   * @remarks
+   * The namespace.
+   * 
+   * @example
+   * acs_ecs_dashboard
+   */
   namespace?: string;
+  /**
+   * @remarks
+   * The aggregation period.
+   * 
+   * @example
+   * 60
+   */
   periods?: string;
+  /**
+   * @remarks
+   * The statistic of the metric. Examples:
+   * 
+   * - `Maximum`: the maximum value.
+   * 
+   * - `Minimum`: the minimum value.
+   * 
+   * - `Average`: the average value.
+   * 
+   * @example
+   * Maximum
+   */
   statistics?: string;
+  /**
+   * @remarks
+   * The metric type.
+   * 
+   * @example
+   * Gauge
+   */
   type?: string;
+  /**
+   * @remarks
+   * The unit.
+   * 
+   * @example
+   * %
+   */
   unit?: string;
   static names(): { [key: string]: string } {
     return {
@@ -89,25 +167,38 @@ export class DescribeMetricMetaListResponseBodyResources extends $dara.Model {
 
 export class DescribeMetricMetaListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number. The default value is `1`.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 2000
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The configurations of the metrics in the resource.
+   */
   resources?: DescribeMetricMetaListResponseBodyResources[];
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 6370
    */

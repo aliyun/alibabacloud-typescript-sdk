@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertActionsRequest extends $dara.Model {
   /**
    * @remarks
-   * Unique identifier for the action integration.
+   * The unique IDs of the alert action integrations.
    */
   alertActionIds?: string[];
   /**
    * @remarks
-   * Name of the action integration.
+   * The name of the alert action integration.
    * 
    * @example
    * testName
@@ -18,7 +18,7 @@ export class ListAlertActionsRequest extends $dara.Model {
   alertActionName?: string;
   /**
    * @remarks
-   * Page number. Default is 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -26,7 +26,7 @@ export class ListAlertActionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size. Default is 100.
+   * The number of entries per page. Default value: 100.
    * 
    * @example
    * 100
@@ -34,7 +34,7 @@ export class ListAlertActionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Type of the action integration.
+   * The type of the alert action integration.
    * 
    * @example
    * FC

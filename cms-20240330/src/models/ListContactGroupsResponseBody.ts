@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListContactGroupsResponseBodyContactGroups extends $dara.Model {
   /**
+   * @remarks
+   * The contact group ID.
+   * 
    * @example
    * test
    */
   contactGroupId?: string;
+  /**
+   * @remarks
+   * The contact IDs in the group.
+   * 
+   * @example
+   * ["Demo meeting"]
+   */
   contactIds?: string[];
   /**
+   * @remarks
+   * The name of the contact group.
+   * 
    * @example
    * test
    */
@@ -46,26 +59,39 @@ export class ListContactGroupsResponseBodyContactGroups extends $dara.Model {
 }
 
 export class ListContactGroupsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of contact groups.
+   */
   contactGroups?: ListContactGroupsResponseBodyContactGroups[];
   /**
+   * @remarks
+   * The returned page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 8FDE2569-626B-5176-9844-28877A*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 15
    */

@@ -10,61 +10,110 @@ import { ScheduleConfigUnified } from "./ScheduleConfigUnified";
 
 
 export class AlertRuleV2 extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration for action integrations, such as webhooks, that execute when an alert is triggered.
+   */
   actionIntegrationConfig?: ActionIntegrationConfig;
   /**
    * @remarks
-   * 注解
+   * A set of key-value pairs that serve as annotations, providing additional, non-identifying information, such as a description or a runbook link.
    */
   annotations?: { [key: string]: string };
+  /**
+   * @remarks
+   * The configuration for integrating the alert rule with Application Real-Time Monitoring Service (ARMS).
+   */
   armsIntegrationConfig?: ArmsIntegrationConfig;
+  /**
+   * @remarks
+   * The configuration for the conditions that trigger an alert.
+   */
   conditionConfig?: ConditionConfigUnified;
   /**
    * @remarks
-   * 内容模板
+   * The template for the alert notification content.
    */
   contentTemplate?: string;
+  coveredSeverityLevels?: string;
   /**
    * @remarks
-   * 创建时间（只读），ISO 8601
+   * The time the alert rule was created.
    */
   createdAt?: string;
+  /**
+   * @remarks
+   * The configuration for the data source to be evaluated.
+   */
   datasourceConfig?: DatasourceConfigUnified;
   /**
    * @remarks
-   * 显示名称
+   * The data source type. Examples: `sls`, `prometheus`.
+   */
+  datasourceType?: string;
+  /**
+   * @remarks
+   * The user-defined display name for the alert rule.
    */
   displayName?: string;
   /**
    * @remarks
-   * 是否启用
+   * Indicates whether the alert rule is active. Set to `true` to enable the rule, or `false` to disable it.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * 标签
+   * A set of key-value pairs that serve as labels to filter and group alert rules.
    */
   labels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The configuration for sending notifications when an alert is triggered.
+   */
   notifyConfig?: NotifyConfigUnified;
+  /**
+   * @remarks
+   * Indicates whether the alert rule monitors all resources of the specified type. If `true`, the rule applies globally within the workspace.
+   */
+  observeResourceGlobalScope?: boolean;
+  /**
+   * @remarks
+   * A list of specific resource IDs to monitor, used only when `observeResourceGlobalScope` is `false`.
+   */
+  observeResourceList?: string;
+  /**
+   * @remarks
+   * The type of resource that the alert rule monitors.
+   */
+  observeResourceType?: string;
+  /**
+   * @remarks
+   * The configuration for querying and processing data from the data source.
+   */
   queryConfig?: QueryConfigUnified;
+  /**
+   * @remarks
+   * The configuration for how often the alert rule is evaluated.
+   */
   scheduleConfig?: ScheduleConfigUnified;
   /**
    * @remarks
-   * 告警状态（只读）
+   * The current status of the alert rule. Examples: `RUNNING`, `STOPPED`.
    */
   status?: string;
   /**
    * @remarks
-   * 更新时间（只读），ISO 8601
+   * The time the alert rule was last updated.
    */
   updatedAt?: string;
   /**
    * @remarks
-   * 规则 UUID（系统生成，只读）
+   * The unique identifier for the alert rule.
    */
   uuid?: string;
   /**
    * @remarks
-   * 工作空间
+   * The ID of the workspace that contains the alert rule.
    */
   workspace?: string;
   static names(): { [key: string]: string } {
@@ -74,12 +123,17 @@ export class AlertRuleV2 extends $dara.Model {
       armsIntegrationConfig: 'armsIntegrationConfig',
       conditionConfig: 'conditionConfig',
       contentTemplate: 'contentTemplate',
+      coveredSeverityLevels: 'coveredSeverityLevels',
       createdAt: 'createdAt',
       datasourceConfig: 'datasourceConfig',
+      datasourceType: 'datasourceType',
       displayName: 'displayName',
       enabled: 'enabled',
       labels: 'labels',
       notifyConfig: 'notifyConfig',
+      observeResourceGlobalScope: 'observeResourceGlobalScope',
+      observeResourceList: 'observeResourceList',
+      observeResourceType: 'observeResourceType',
       queryConfig: 'queryConfig',
       scheduleConfig: 'scheduleConfig',
       status: 'status',
@@ -96,12 +150,17 @@ export class AlertRuleV2 extends $dara.Model {
       armsIntegrationConfig: ArmsIntegrationConfig,
       conditionConfig: ConditionConfigUnified,
       contentTemplate: 'string',
+      coveredSeverityLevels: 'string',
       createdAt: 'string',
       datasourceConfig: DatasourceConfigUnified,
+      datasourceType: 'string',
       displayName: 'string',
       enabled: 'boolean',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       notifyConfig: NotifyConfigUnified,
+      observeResourceGlobalScope: 'boolean',
+      observeResourceList: 'string',
+      observeResourceType: 'string',
       queryConfig: QueryConfigUnified,
       scheduleConfig: ScheduleConfigUnified,
       status: 'string',

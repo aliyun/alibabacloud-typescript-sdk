@@ -3,9 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PushingSetting extends $dara.Model {
+  /**
+   * @remarks
+   * The list of alert action IDs.
+   */
   alertActionIds?: string[];
+  /**
+   * @remarks
+   * The list of restore action IDs.
+   */
   restoreActionIds?: string[];
   /**
+   * @remarks
+   * The UUID of the message template.
+   * 
    * @example
    * "template-abc123"
    */

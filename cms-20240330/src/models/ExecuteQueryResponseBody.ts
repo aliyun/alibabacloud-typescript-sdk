@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ExecuteQueryResponseBodyMeta extends $dara.Model {
   /**
+   * @remarks
+   * The number of scanned or processed log entries.
+   * 
    * @example
    * 1
    */
   affectedRows?: number;
   /**
+   * @remarks
+   * The number of log entries returned.
+   * 
    * @example
    * 1
    */
   count?: number;
   /**
+   * @remarks
+   * The query execution time in milliseconds.
+   * 
    * @example
    * 1231243
    */
   elapsedMillisecond?: number;
   /**
+   * @remarks
+   * The query completion status. A value of `Complete` indicates that the query has finished.
+   * 
    * @example
    * Complete
    */
@@ -51,9 +63,20 @@ export class ExecuteQueryResponseBodyMeta extends $dara.Model {
 }
 
 export class ExecuteQueryResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * An array of log entries. Each object in the array represents a log entry.
+   */
   data?: { [key: string]: string }[];
+  /**
+   * @remarks
+   * Metadata about the query execution.
+   */
   meta?: ExecuteQueryResponseBodyMeta;
   /**
+   * @remarks
+   * The unique request ID.
+   * 
    * @example
    * 3B311FD9-A60B-55E0-A896-A0C73*********
    */

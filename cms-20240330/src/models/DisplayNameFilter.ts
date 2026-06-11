@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DisplayNameFilter extends $dara.Model {
+  /**
+   * @remarks
+   * Returns only resources whose display name contains the specified string. The match is case-sensitive.
+   */
   contains?: string;
+  /**
+   * @remarks
+   * Returns only resources whose display name does not contain the specified string. The match is case-sensitive.
+   */
   notContains?: string;
   static names(): { [key: string]: string } {
     return {

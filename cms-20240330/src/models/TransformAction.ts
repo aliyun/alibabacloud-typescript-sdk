@@ -4,39 +4,68 @@ import { FilterSetting } from "./FilterSetting";
 
 
 export class TransformAction extends $dara.Model {
+  /**
+   * @remarks
+   * The filter configuration.
+   */
   filterSetting?: FilterSetting;
   /**
+   * @remarks
+   * The label name.
+   * 
    * @example
    * labelkey1
    */
   labelKey?: string;
+  /**
+   * @remarks
+   * The mapping configuration.
+   */
   mapping?: { [key: string]: string };
   /**
+   * @remarks
+   * The regular expression.
+   * 
    * @example
    * (.*):(.*)
    */
   regExp?: string;
   /**
+   * @remarks
+   * The reference path.
+   * 
    * @example
    * data.subject
    */
   source?: string;
   /**
+   * @remarks
+   * The target location.
+   * 
    * @example
    * SUBJECT
    */
   target?: string;
   /**
+   * @remarks
+   * The transform type.
+   * 
    * @example
    * SET_FIELD
    */
   type?: string;
   /**
+   * @remarks
+   * The value to set.
+   * 
    * @example
    * value1
    */
   value?: string;
   /**
+   * @remarks
+   * The variable name.
+   * 
    * @example
    * var1
    */

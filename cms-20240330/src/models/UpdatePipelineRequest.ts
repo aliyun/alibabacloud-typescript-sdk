@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
   /**
+   * @remarks
+   * The start timestamp.
+   * 
    * @example
    * 1772519013
    */
   fromTime?: number;
   /**
+   * @remarks
+   * The end timestamp.
+   * 
    * @example
    * 1772605413
    */
@@ -38,11 +44,17 @@ export class UpdatePipelineRequestExecutePolicyRunOnce extends $dara.Model {
 
 export class UpdatePipelineRequestExecutePolicyScheduled extends $dara.Model {
   /**
+   * @remarks
+   * The start timestamp.
+   * 
    * @example
    * 1772519013
    */
   fromTime?: number;
   /**
+   * @remarks
+   * The execution interval.
+   * 
    * @example
    * 86400
    */
@@ -72,11 +84,22 @@ export class UpdatePipelineRequestExecutePolicyScheduled extends $dara.Model {
 
 export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
   /**
+   * @remarks
+   * The execution mode.
+   * 
    * @example
    * runOnce
    */
   mode?: string;
+  /**
+   * @remarks
+   * The one-time execution configuration.
+   */
   runOnce?: UpdatePipelineRequestExecutePolicyRunOnce;
+  /**
+   * @remarks
+   * The scheduled execution configuration.
+   */
   scheduled?: UpdatePipelineRequestExecutePolicyScheduled;
   static names(): { [key: string]: string } {
     return {
@@ -111,12 +134,22 @@ export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
 
 export class UpdatePipelineRequestPipelineNodes extends $dara.Model {
   /**
+   * @remarks
+   * The node ID.
+   * 
    * @example
    * node_1
    */
   id?: string;
+  /**
+   * @remarks
+   * The node parameters.
+   */
   parameters?: { [key: string]: any };
   /**
+   * @remarks
+   * The node type.
+   * 
    * @example
    * dedup-fuzzy
    */
@@ -150,6 +183,10 @@ export class UpdatePipelineRequestPipelineNodes extends $dara.Model {
 }
 
 export class UpdatePipelineRequestPipeline extends $dara.Model {
+  /**
+   * @remarks
+   * The pipeline nodes.
+   */
   nodes?: UpdatePipelineRequestPipelineNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -177,11 +214,17 @@ export class UpdatePipelineRequestPipeline extends $dara.Model {
 
 export class UpdatePipelineRequestSinkDataset extends $dara.Model {
   /**
+   * @remarks
+   * The dataset name.
+   * 
    * @example
    * dataset_1
    */
   dataset?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * workspace-test
    */
@@ -210,8 +253,15 @@ export class UpdatePipelineRequestSinkDataset extends $dara.Model {
 }
 
 export class UpdatePipelineRequestSink extends $dara.Model {
+  /**
+   * @remarks
+   * The destination dataset configuration.
+   */
   dataset?: UpdatePipelineRequestSinkDataset;
   /**
+   * @remarks
+   * The sink type.
+   * 
    * @example
    * dataset
    */
@@ -244,11 +294,17 @@ export class UpdatePipelineRequestSink extends $dara.Model {
 
 export class UpdatePipelineRequestSourceLogstore extends $dara.Model {
   /**
+   * @remarks
+   * The Logstore name.
+   * 
    * @example
    * test-logstore
    */
   logstore?: string;
   /**
+   * @remarks
+   * The filter query.
+   * 
    * @example
    * status:500 and method:GET
    */
@@ -277,8 +333,15 @@ export class UpdatePipelineRequestSourceLogstore extends $dara.Model {
 }
 
 export class UpdatePipelineRequestSource extends $dara.Model {
+  /**
+   * @remarks
+   * The Log Service Logstore configuration.
+   */
   logstore?: UpdatePipelineRequestSourceLogstore;
   /**
+   * @remarks
+   * The source type.
+   * 
    * @example
    * logstore
    */
@@ -311,13 +374,32 @@ export class UpdatePipelineRequestSource extends $dara.Model {
 
 export class UpdatePipelineRequest extends $dara.Model {
   /**
+   * @remarks
+   * The pipeline description.
+   * 
    * @example
    * test pipeline
    */
   description?: string;
+  /**
+   * @remarks
+   * The execution policy.
+   */
   executePolicy?: UpdatePipelineRequestExecutePolicy;
+  /**
+   * @remarks
+   * The pipeline configuration.
+   */
   pipeline?: UpdatePipelineRequestPipeline;
+  /**
+   * @remarks
+   * The data sink configuration.
+   */
   sink?: UpdatePipelineRequestSink;
+  /**
+   * @remarks
+   * The data source configuration.
+   */
   source?: UpdatePipelineRequestSource;
   static names(): { [key: string]: string } {
     return {

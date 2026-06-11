@@ -6,39 +6,43 @@ import { AlertRuleTimeSpan } from "./AlertRuleTimeSpan";
 export class AlertRuleNotification extends $dara.Model {
   /**
    * @remarks
-   * List of contact IDs.
+   * A list of contact IDs.
    */
   contacts?: string[];
   /**
    * @remarks
-   * List of custom webhook notification object IDs.
+   * A list of custom webhook notification object IDs.
    */
   customWebhooks?: string[];
+  /**
+   * @remarks
+   * A list of DingTalk Cool App webhook notification object IDs.
+   */
   dingCoolAppWebhooks?: string[];
   /**
    * @remarks
-   * List of DingTalk webhook notification object IDs.
+   * A list of DingTalk webhook notification object IDs.
    */
   dingWebhooks?: string[];
   /**
    * @remarks
-   * List of Feishu webhook notification object IDs.
+   * A list of Lark webhook notification object IDs.
    */
   fsWebhooks?: string[];
   /**
    * @remarks
-   * List of contact group IDs.
+   * A list of contact group IDs.
    */
   groups?: string[];
   /**
    * @remarks
-   * Notification time window; notifications are sent only during this period.
+   * The notification period. Notifications are sent only within this period.
    */
   notifyTime?: AlertRuleTimeSpan;
   qwencloudContacts?: { [key: string]: {[key: string]: any} };
   /**
    * @remarks
-   * Notification silence duration, in seconds.
+   * The notification silence period. Unit: seconds.
    * 
    * @example
    * 86400
@@ -46,12 +50,12 @@ export class AlertRuleNotification extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * List of Slack webhook notification object IDs.
+   * A list of Slack webhook notification object IDs.
    */
   slackWebhooks?: string[];
   /**
    * @remarks
-   * List of WeChat webhook notification object IDs.
+   * A list of WeChat webhook notification object IDs.
    */
   wxWebhooks?: string[];
   static names(): { [key: string]: string } {

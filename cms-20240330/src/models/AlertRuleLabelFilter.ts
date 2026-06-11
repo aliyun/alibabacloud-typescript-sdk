@@ -3,8 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AlertRuleLabelFilter extends $dara.Model {
+  /**
+   * @remarks
+   * The label filter.
+   */
   labels?: { [key: string]: string };
   /**
+   * @remarks
+   * The relationship operator between multiple labels.
+   * 
    * @example
    * AND
    */

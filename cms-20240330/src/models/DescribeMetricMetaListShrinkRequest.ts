@@ -4,28 +4,59 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeMetricMetaListShrinkRequest extends $dara.Model {
   keywords?: string;
+  /**
+   * @remarks
+   * The labels used to filter resources. The following labels are supported:
+   * 
+   * - `metricCategory`: The metric category.
+   * 
+   * - `alertEnable`: Indicates whether to enable alerts.
+   * 
+   * - `alertUnit`: The recommended unit for alerts.
+   * 
+   * - `unitFactor`: The unit conversion factor.
+   * 
+   * - `minAlertPeriod`: The minimum alert period.
+   * 
+   * - `productCategory`: The product category.
+   */
   labelsShrink?: string;
   /**
+   * @remarks
+   * The source of the metadata. Valid values: `CMS` for CloudMonitor metrics and `PROM_BASIC` for basic Prometheus metrics.
+   * 
    * @example
    * CMS
    */
   metaFormat?: string;
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * CPUUtilization
    */
   metricName?: string;
   /**
+   * @remarks
+   * The namespace of the product.
+   * 
    * @example
    * acs_ecs_dashboard
    */
   namespace?: string;
   /**
+   * @remarks
+   * The number of the page to return. Default value: `1`.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries to return on each page. Default value: `2000`.
+   * 
    * @example
    * 2000
    */

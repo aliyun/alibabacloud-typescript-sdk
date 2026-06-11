@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class Pagination extends $dara.Model {
   /**
    * @remarks
-   * 页码（从 1 开始）
+   * The current page number.
    */
   pageNumber?: number;
   /**
    * @remarks
-   * 每页数量
+   * The number of entries returned per page.
    */
   pageSize?: number;
   static names(): { [key: string]: string } {

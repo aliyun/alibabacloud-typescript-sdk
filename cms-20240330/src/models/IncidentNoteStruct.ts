@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentNoteStructOperator extends $dara.Model {
   /**
    * @remarks
-   * Contact.
+   * The contact.
    * 
    * @example
    * {\\"mobile_phone_num\\":\\"153xxxx8040\\",\\"mobile_country_code\\":\\"86\\",\\"email\\":\\"flightxxg@dida.com\\"}
@@ -13,7 +13,7 @@ export class IncidentNoteStructOperator extends $dara.Model {
   contact?: string;
   /**
    * @remarks
-   * Contact ID.
+   * The contact ID.
    * 
    * @example
    * user-12345
@@ -21,15 +21,15 @@ export class IncidentNoteStructOperator extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * @example
-   * Zhang San.
+   * 张三
    */
   name?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 4123456
@@ -65,15 +65,15 @@ export class IncidentNoteStructOperator extends $dara.Model {
 export class IncidentNoteStruct extends $dara.Model {
   /**
    * @remarks
-   * Content.
+   * The content.
    * 
    * @example
-   * The operations team has been contacted and is currently investigating the issue.
+   * 已联系运维团队，正在排查问题。
    */
   content?: string;
   /**
    * @remarks
-   * Content format.
+   * The content format.
    * 
    * @example
    * markdown
@@ -81,7 +81,7 @@ export class IncidentNoteStruct extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * Incident ID.
+   * The event ID.
    * 
    * @example
    * incident-001
@@ -89,7 +89,7 @@ export class IncidentNoteStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * Note ID.
+   * The record ID.
    * 
    * @example
    * note-001
@@ -97,12 +97,12 @@ export class IncidentNoteStruct extends $dara.Model {
   noteId?: string;
   /**
    * @remarks
-   * Operator.
+   * The operator.
    */
   operator?: IncidentNoteStructOperator;
   /**
    * @remarks
-   * Time.
+   * The time.
    * 
    * @example
    * 1741234567890
@@ -110,7 +110,7 @@ export class IncidentNoteStruct extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * Type.
+   * The type.
    * 
    * @example
    * apm

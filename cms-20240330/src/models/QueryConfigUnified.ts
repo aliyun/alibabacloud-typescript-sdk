@@ -10,68 +10,72 @@ import { ApmMeasureConfig } from "./ApmMeasureConfig";
 export class QueryConfigUnified extends $dara.Model {
   /**
    * @remarks
-   * 是否启用数据完整性检查
+   * Specifies whether to check for data completeness. A value of `true` enables the check.
    */
   enableDataCompleteCheck?: boolean;
   /**
    * @remarks
-   * 实体所属域
+   * Specifies the domain of the entity, such as `acs` for Alibaba Cloud services.
    */
   entityDomain?: string;
   /**
    * @remarks
-   * 需要附带返回的实体字段
+   * A list of entity fields to include in the response.
    */
   entityFields?: UmodelEntityField[];
   /**
    * @remarks
-   * 实体过滤列表
+   * A list of filters for selecting specific entities.
    */
   entityFilters?: UmodelEntityFilter[];
   /**
    * @remarks
-   * 实体类型
+   * Specifies the type of the entity, such as `EcsInstance`.
    */
   entityType?: string;
+  /**
+   * @remarks
+   * Specifies the expression to post-process query results.
+   */
   expr?: string;
   /**
    * @remarks
-   * APM 过滤条件列表
+   * A list of Application Performance Monitoring (APM) filter configurations.
    */
   filterList?: ApmFilterConfig[];
   /**
    * @remarks
-   * 标签过滤条件
+   * A list of filters that match labels.
    */
   labelFilters?: UmodelLabelFilter[];
   /**
    * @remarks
-   * APM 度量配置列表
+   * A list of APM measure configurations.
    */
   measureList?: ApmMeasureConfig[];
   /**
    * @remarks
-   * 指标名称（type=UMODEL_METRICSET_QUERY）
+   * Specifies the name of the metric to query.
    */
   metric?: string;
   /**
    * @remarks
-   * 指标集名称（type=UMODEL_METRICSET_QUERY）
+   * Specifies the metric set that contains the metric.
    */
   metricSet?: string;
   /**
    * @remarks
-   * Prometheus 查询语句（type=PROMETHEUS_SINGLE_QUERY）
+   * Specifies the query string in Prometheus Query Language (PromQL).
    */
   promQl?: string;
   /**
    * @remarks
-   * 服务 ID 列表（type=APM_MULTI_QUERY）
+   * A list of service IDs to query.
    */
   serviceIdList?: string[];
   /**
    * @remarks
-   * 查询类型
+   * The query type.
    * 
    * This parameter is required.
    */

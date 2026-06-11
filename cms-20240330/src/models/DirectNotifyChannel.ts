@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DirectNotifyChannel extends $dara.Model {
   /**
    * @remarks
-   * 通知对象标识列表
+   * An array of recipient identifiers. The format of each identifier depends on the `type`. For example, if `type` is `email`, the identifiers are email addresses.
    * 
    * This parameter is required.
    */
   identifiers?: string[];
   /**
    * @remarks
-   * 通知渠道类型
+   * The notification channel type. For example, `sms` or `email`.
    * 
    * This parameter is required.
    */

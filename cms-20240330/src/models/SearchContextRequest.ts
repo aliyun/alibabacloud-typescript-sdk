@@ -3,19 +3,31 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SearchContextRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Filter conditions
+   */
   filter?: { [key: string]: any };
   /**
+   * @remarks
+   * Whether to format
+   * 
    * @example
    * true
    */
   formatted?: boolean;
   /**
+   * @remarks
+   * Limit the number of items returned
+   * 
    * @example
    * 100
    */
   limit?: number;
   /**
    * @remarks
+   * Query content
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,11 +35,17 @@ export class SearchContextRequest extends $dara.Model {
    */
   query?: string;
   /**
+   * @remarks
+   * Retrieval option
+   * 
    * @example
    * reranker,llm_rank
    */
   retrievalOption?: string;
   /**
+   * @remarks
+   * Similarity threshold
+   * 
    * @example
    * 0.3
    */

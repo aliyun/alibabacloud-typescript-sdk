@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePrometheusViewRequestPrometheusInstances extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * c7ba84651c71e442c8d0653085d862164
@@ -13,7 +13,7 @@ export class UpdatePrometheusViewRequestPrometheusInstances extends $dara.Model 
   prometheusInstanceId?: string;
   /**
    * @remarks
-   * Region.
+   * The region ID.
    * 
    * @example
    * cn-north-2-gov-1
@@ -21,7 +21,7 @@ export class UpdatePrometheusViewRequestPrometheusInstances extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 16727123456789
@@ -55,7 +55,7 @@ export class UpdatePrometheusViewRequestPrometheusInstances extends $dara.Model 
 export class UpdatePrometheusViewRequest extends $dara.Model {
   /**
    * @remarks
-   * Password-free read policy (supports IP segments and VpcId).
+   * The policy for password-free read access. IP address segments and VPC IDs are supported.
    * 
    * @example
    * {
@@ -72,7 +72,7 @@ export class UpdatePrometheusViewRequest extends $dara.Model {
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * Whether to support password-free read.
+   * Specifies whether to enable password-free read access.
    * 
    * @example
    * true
@@ -80,7 +80,7 @@ export class UpdatePrometheusViewRequest extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Whether to support authToken.
+   * Specifies whether to enable authentication tokens.
    * 
    * @example
    * false
@@ -88,12 +88,12 @@ export class UpdatePrometheusViewRequest extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * List of Prometheus instances.
+   * A list of Prometheus instances.
    */
   prometheusInstances?: UpdatePrometheusViewRequestPrometheusInstances[];
   /**
    * @remarks
-   * Prometheus view name.
+   * The name of the Prometheus view.
    * 
    * @example
    * test-prom-view-name
@@ -101,7 +101,7 @@ export class UpdatePrometheusViewRequest extends $dara.Model {
   prometheusViewName?: string;
   /**
    * @remarks
-   * Running status.
+   * The status of the Prometheus view.
    * 
    * @example
    * Running
@@ -109,7 +109,7 @@ export class UpdatePrometheusViewRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Belonging workspace.
+   * The workspace to which the view belongs.
    * 
    * @example
    * default-cms-108490012345-cn-heyuan

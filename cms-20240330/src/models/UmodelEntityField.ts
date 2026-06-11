@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UmodelEntityField extends $dara.Model {
   /**
    * @remarks
-   * 实体字段名
+   * The name of the entity field.
    */
   field?: string;
   /**
    * @remarks
-   * 字段别名或展示值
+   * The field alias or display value.
    */
   value?: string;
   static names(): { [key: string]: string } {

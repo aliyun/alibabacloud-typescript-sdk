@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class EventResourceForEventViewEntity extends $dara.Model {
   /**
+   * @remarks
+   * The product domain to which the resource belongs.
+   * 
    * @example
    * "ECS"
    */
   domain?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * "i-bp123456"
    */
   entityId?: string;
   /**
+   * @remarks
+   * The specific type of the resource.
+   * 
    * @example
    * "Instance"
    */
   entityType?: string;
   /**
+   * @remarks
+   * Extra properties of the resource.
+   * 
    * @example
    * { "name": "web-server-01", "ip": "10.0.0.1" }
    */
@@ -54,8 +66,15 @@ export class EventResourceForEventViewEntity extends $dara.Model {
 }
 
 export class EventResourceForEventView extends $dara.Model {
+  /**
+   * @remarks
+   * The resource entity.
+   */
   entity?: EventResourceForEventViewEntity;
   /**
+   * @remarks
+   * The tags.
+   * 
    * @example
    * { "env": "prod", "project": "payment-gateway" }
    */

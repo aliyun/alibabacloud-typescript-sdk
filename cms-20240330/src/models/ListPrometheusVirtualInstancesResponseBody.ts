@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * Creation time
+   * The creation time.
    * 
    * @example
    * 1750315319946
@@ -13,7 +13,7 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
   createdAt?: string;
   /**
    * @remarks
-   * HTTP API URL.
+   * The HTTP API URL.
    * 
    * @example
    * http://xxxxxxxx
@@ -21,9 +21,9 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
   httpApiUrl?: string;
   /**
    * @remarks
-   * Applicable data source type: PROMETHEUS_DS
+   * Returned for the `PROMETHEUS_DS` data source type.
    * 
-   * Prometheus instance ID
+   * The Prometheus instance ID.
    * 
    * @example
    * rw-b8cfbbe94194ac37fe83f3d2d16a
@@ -31,9 +31,9 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * Applicable query type: CMS_BASIC_QUERY.
+   * Returned for the `CMS_BASIC_QUERY` query type.
    * 
-   * Namespace of the metric
+   * The namespace of the metric.
    * 
    * @example
    * arms-prom
@@ -41,7 +41,7 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
   namespace?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-shanghai-cloudspe
@@ -49,7 +49,7 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
   regionId?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 17073812345
@@ -89,19 +89,31 @@ export class ListPrometheusVirtualInstancesResponseBodyInstances extends $dara.M
 export class ListPrometheusVirtualInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Instance information.
+   * A list of instances.
    */
   instances?: ListPrometheusVirtualInstancesResponseBodyInstances[];
+  /**
+   * @remarks
+   * The maximum number of entries returned on each page.
+   */
   maxResults?: string;
+  /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If all results are returned, this parameter is left empty.
+   */
   nextToken?: string;
   /**
    * @remarks
-   * ID of the request
+   * The request ID.
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteQueryRequest extends $dara.Model {
   /**
    * @remarks
+   * The query statement to execute.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ExecuteQueryRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
+   * The query type. Valid values: SQL and SPL.
+   * 
    * This parameter is required.
    * 
    * @example

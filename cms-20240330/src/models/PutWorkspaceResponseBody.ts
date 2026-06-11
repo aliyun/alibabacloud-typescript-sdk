@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * 264C3E89-XXXX-XXXX-XXXX-CE9C2196C7DC
@@ -13,7 +13,7 @@ export class PutWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Name of the workspace.
+   * The name of the workspace.
    * 
    * @example
    * workspace-test-001

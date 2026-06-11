@@ -6,12 +6,12 @@ import { FilterSetting } from "./FilterSetting";
 export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * Effective days (Monday to Sunday).
+   * The days of the week when the policy is effective.
    */
   dayInWeek?: number[];
   /**
    * @remarks
-   * End time (in minutes).
+   * The end time in minutes.
    * 
    * @example
    * 360
@@ -19,7 +19,7 @@ export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
   endTimeInMinute?: number;
   /**
    * @remarks
-   * Start time (in minutes).
+   * The start time in minutes.
    * 
    * @example
    * 60
@@ -27,7 +27,7 @@ export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
   startTimeInMinute?: number;
   /**
    * @remarks
-   * Time Zone.
+   * The time zone.
    * 
    * @example
    * +08:00
@@ -66,7 +66,7 @@ export class MaintainWindowForViewEffectTimeRange extends $dara.Model {
 export class MaintainWindowForView extends $dara.Model {
   /**
    * @remarks
-   * Creation time.
+   * The time when the policy was created.
    * 
    * @example
    * 2025-03-11T08:21:58Z
@@ -74,7 +74,7 @@ export class MaintainWindowForView extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * test
@@ -82,12 +82,12 @@ export class MaintainWindowForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Effective time range.
+   * The effective time range.
    */
   effectTimeRange?: MaintainWindowForViewEffectTimeRange;
   /**
    * @remarks
-   * Crontab expression.
+   * The crontab expression.
    * 
    * @example
    * * * 14-18 ? * *
@@ -95,7 +95,7 @@ export class MaintainWindowForView extends $dara.Model {
   effective?: string;
   /**
    * @remarks
-   * Whether enabled.
+   * Indicates whether the policy is enabled.
    * 
    * @example
    * true
@@ -103,7 +103,7 @@ export class MaintainWindowForView extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Effective end time.
+   * The end time of the effective period.
    * 
    * @example
    * 2024-11-26 12:02:01
@@ -111,12 +111,12 @@ export class MaintainWindowForView extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Filtering conditions.
+   * The filter conditions.
    */
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * UUID
+   * The UUID.
    * 
    * @example
    * 123-12-312-31-23123
@@ -124,17 +124,17 @@ export class MaintainWindowForView extends $dara.Model {
   maintainWindowId?: string;
   /**
    * @remarks
-   * Name.
+   * The name.
    * 
    * This parameter is required.
    * 
    * @example
-   * Test policy.
+   * 测试策略
    */
   maintainWindowName?: string;
   /**
    * @remarks
-   * Effective start time.
+   * The start time of the effective period.
    * 
    * @example
    * 2024-11-26 10:02:01
@@ -142,7 +142,7 @@ export class MaintainWindowForView extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Update time.
+   * The last time the resource was updated.
    * 
    * @example
    * 2025-05-07T02:19:05Z
@@ -150,7 +150,7 @@ export class MaintainWindowForView extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * User ID.
+   * The user ID.
    * 
    * @example
    * 12312312***
@@ -158,7 +158,7 @@ export class MaintainWindowForView extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * workspace
+   * The workspace.
    * 
    * @example
    * workspace-test
