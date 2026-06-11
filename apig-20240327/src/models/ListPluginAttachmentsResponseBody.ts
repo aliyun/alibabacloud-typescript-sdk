@@ -10,10 +10,15 @@ export class ListPluginAttachmentsResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The types of resource attachments.
+   * 
    * - HttpApi
+   * 
    * - Operation
+   * 
    * - GatewayRoute
+   * 
    * - GatewayDomain
+   * 
    * - Gateway
    * 
    * @example

@@ -25,7 +25,7 @@ export class ServicePorts extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The protocol. Valid values: TCP and UDP.
+   * The protocol. Valid values: `TCP` or `UDP`.
    * 
    * @example
    * TCP
@@ -57,7 +57,15 @@ export class ServicePorts extends $dara.Model {
 }
 
 export class ServiceVersionsLabels extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the label.
+   */
   key?: string;
+  /**
+   * @remarks
+   * The value of the label.
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83,7 +91,15 @@ export class ServiceVersionsLabels extends $dara.Model {
 }
 
 export class ServiceVersions extends $dara.Model {
+  /**
+   * @remarks
+   * The labels of the version.
+   */
   labels?: ServiceVersionsLabels[];
+  /**
+   * @remarks
+   * The version name.
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -114,22 +130,22 @@ export class ServiceVersions extends $dara.Model {
 export class Service extends $dara.Model {
   /**
    * @remarks
-   * The address details, which can be IP addresses or domain names.
+   * A list of service addresses, such as IP addresses or domain names.
    */
   addresses?: string[];
   /**
    * @remarks
-   * The agent service configuration
+   * The agent service configuration.
    */
   agentServiceConfig?: AgentServiceConfig;
   /**
    * @remarks
-   * The AI service configurations.
+   * The AI service configuration.
    */
   aiServiceConfig?: AiServiceConfig;
   /**
    * @remarks
-   * The creation time (unix timestamp).
+   * The creation timestamp.
    * 
    * @example
    * 1725617840096
@@ -137,7 +153,7 @@ export class Service extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The express type
+   * The execution type for the cloud workflow.
    * 
    * @example
    * StartExecution
@@ -153,7 +169,7 @@ export class Service extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The service group name.
+   * The name of the service group.
    * 
    * @example
    * publich
@@ -161,17 +177,12 @@ export class Service extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The health check configurations.
+   * The health check configuration.
    */
   healthCheck?: ServiceHealthCheck;
   /**
    * @remarks
-   * The health check status.
-   * 
-   * Valid values:
-   * 
-   * *   Unhealthy
-   * *   Healthy
+   * The health status. Valid values: `Healthy` or `Unhealthy`.
    * 
    * @example
    * Healthy
@@ -179,7 +190,7 @@ export class Service extends $dara.Model {
   healthStatus?: string;
   /**
    * @remarks
-   * The label details for service version configuration
+   * A list of labels for the service.
    */
   labelDetails?: LabelDetail[];
   /**
@@ -192,7 +203,7 @@ export class Service extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace of the service.
+   * The namespace.
    * 
    * @example
    * PUBLIC
@@ -200,17 +211,17 @@ export class Service extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The outlier endpoints list
+   * A list of outlier endpoints.
    */
   outlierEndpoints?: string[];
   /**
    * @remarks
-   * The list of objects containing port details.
+   * A list of port configurations.
    */
   ports?: ServicePorts[];
   /**
    * @remarks
-   * The service protocol type.
+   * The service protocol.
    * 
    * @example
    * HTTP
@@ -218,7 +229,7 @@ export class Service extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The function qualifier name.
+   * The function qualifier.
    * 
    * @example
    * LATEST
@@ -234,7 +245,7 @@ export class Service extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The service unique ID.
+   * The unique service ID.
    * 
    * @example
    * svc-cr6pk4tlhtgm***
@@ -242,7 +253,7 @@ export class Service extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The source type.
+   * The source type of the service.
    * 
    * @example
    * MSE_NACOS
@@ -250,17 +261,21 @@ export class Service extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The list of unhealthy endpoints.
+   * A list of unhealthy endpoints.
    */
   unhealthyEndpoints?: string[];
   /**
    * @remarks
-   * The last modified time (unix timestamp).
+   * The update timestamp.
    * 
    * @example
    * 1725868548440
    */
   updateTimestamp?: number;
+  /**
+   * @remarks
+   * A list of service versions.
+   */
   versions?: ServiceVersions[];
   static names(): { [key: string]: string } {
     return {

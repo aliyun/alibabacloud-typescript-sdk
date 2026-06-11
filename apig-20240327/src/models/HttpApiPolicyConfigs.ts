@@ -101,7 +101,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
    * Policy Enable
    * 
    * @example
-   * true
+   * false
    */
   enable?: boolean;
   /**
@@ -117,7 +117,7 @@ export class HttpApiPolicyConfigs extends $dara.Model {
    * Policy Type
    * 
    * @example
-   * AiCache
+   * K8S
    */
   type?: string;
   static names(): { [key: string]: string } {

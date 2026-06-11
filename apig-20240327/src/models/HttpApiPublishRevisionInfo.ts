@@ -369,7 +369,7 @@ export class HttpApiPublishRevisionInfoEnvironmentInfoGatewayInfo extends $dara.
    * The instance name.
    * 
    * @example
-   * Instance 1
+   * 实例1
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -401,7 +401,7 @@ export class HttpApiPublishRevisionInfoEnvironmentInfo extends $dara.Model {
    * The environment alias.
    * 
    * @example
-   * Test
+   * 测试
    */
   alias?: string;
   /**

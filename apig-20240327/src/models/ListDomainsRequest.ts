@@ -8,7 +8,7 @@ export class ListDomainsRequest extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * gw-xxx
+   * gw-xxxxxx
    */
   gatewayId?: string;
   /**
@@ -48,7 +48,7 @@ export class ListDomainsRequest extends $dara.Model {
    * The ID of the resource group.
    * 
    * @example
-   * rg-ahr5uil8raz0rq3b
+   * rg-aek27lpqyiie6qy
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

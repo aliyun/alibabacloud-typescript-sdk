@@ -3,12 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Unique identifier for the agent API.
+   */
   agentApiId?: string;
+  /**
+   * @remarks
+   * The name of the agent API.
+   */
   agentApiName?: string;
+  /**
+   * @remarks
+   * Unique identifier for the MCP route.
+   */
   mcpRouteId?: string;
+  /**
+   * @remarks
+   * Unique identifier for the MCP server.
+   */
   mcpServerId?: string;
+  /**
+   * @remarks
+   * The name of the MCP server.
+   */
   mcpServerName?: string;
+  /**
+   * @remarks
+   * Unique identifier for the model API.
+   */
   modelApiId?: string;
+  /**
+   * @remarks
+   * The name of the model API.
+   */
   modelApiName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -44,7 +72,15 @@ export class HiMarketProductRefConfigApigRefConfig extends $dara.Model {
 }
 
 export class HiMarketProductRefConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Reference settings for the API gateway.
+   */
   apigRefConfig?: HiMarketProductRefConfigApigRefConfig;
+  /**
+   * @remarks
+   * Unique identifier for the gateway.
+   */
   gatewayId?: string;
   static names(): { [key: string]: string } {
     return {

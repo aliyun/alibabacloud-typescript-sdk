@@ -4,7 +4,15 @@ import { HiMarketDomain } from "./HiMarketDomain";
 
 
 export class HiMarketMcpConfigMcpServerConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The domains managed by the server.
+   */
   domains?: HiMarketDomain[];
+  /**
+   * @remarks
+   * The base path for the service endpoint.
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,6 +41,10 @@ export class HiMarketMcpConfigMcpServerConfig extends $dara.Model {
 }
 
 export class HiMarketMcpConfigMeta extends $dara.Model {
+  /**
+   * @remarks
+   * The communication protocol. Can be `http` or `https`.
+   */
   protocol?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,9 +68,25 @@ export class HiMarketMcpConfigMeta extends $dara.Model {
 }
 
 export class HiMarketMcpConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Configuration for the MCP server.
+   */
   mcpServerConfig?: HiMarketMcpConfigMcpServerConfig;
+  /**
+   * @remarks
+   * A unique name for the MCP server.
+   */
   mcpServerName?: string;
+  /**
+   * @remarks
+   * Metadata for the configuration.
+   */
   meta?: HiMarketMcpConfigMeta;
+  /**
+   * @remarks
+   * The tools associated with this configuration, typically provided as a JSON-formatted string.
+   */
   tools?: string;
   static names(): { [key: string]: string } {
     return {

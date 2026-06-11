@@ -8,7 +8,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
    * Environment alias, fuzzy search.
    * 
    * @example
-   * production
+   * 测试
    */
   aliasLike?: string;
   /**
@@ -64,7 +64,7 @@ export class ListEnvironmentsRequest extends $dara.Model {
    * Resource group ID.
    * 
    * @example
-   * rg-aek2sy66mftleiq
+   * rg-aek2nqpppkzplmq
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

@@ -48,7 +48,7 @@ export class CreateMcpServerResponseBody extends $dara.Model {
    * code
    * 
    * @example
-   * 200
+   * Ok
    */
   code?: string;
   /**

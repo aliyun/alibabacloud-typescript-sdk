@@ -9,7 +9,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
    * Unix timestamp when the secret was created
    * 
    * @example
-   * 1234567890
+   * 1725617840096
    */
   createTimestamp?: number;
   /**
@@ -30,7 +30,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
    * Name of the secret
    * 
    * @example
-   * test-secret
+   * my_secret
    */
   name?: string;
   /**
@@ -38,7 +38,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
    * Number of resources referencing this secret
    * 
    * @example
-   * 5
+   * 3
    */
   referenceCount?: number;
   /**
@@ -46,7 +46,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
    * Source of the ID
    * 
    * @example
-   * xxxxxx
+   * sec-d5e6shmm1hkoxxxxxxxx
    */
   secretId?: string;
   /**
@@ -70,7 +70,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
    * Unix timestamp when the secret was last updated
    * 
    * @example
-   * 1234567890
+   * 1721116090326
    */
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
@@ -140,7 +140,7 @@ export class ListSecretsResponseBodyData extends $dara.Model {
    * Total number of records matching the query
    * 
    * @example
-   * 104
+   * 10
    */
   totalSize?: number;
   static names(): { [key: string]: string } {
@@ -179,7 +179,7 @@ export class ListSecretsResponseBody extends $dara.Model {
    * Code of the request
    * 
    * @example
-   * 200
+   * Ok
    */
   code?: string;
   /**
@@ -200,7 +200,7 @@ export class ListSecretsResponseBody extends $dara.Model {
    * Id of the request
    * 
    * @example
-   * 2F270C0B-7D6A-5DA7-93E2-******
+   * 3A3D1392-0F71-5A10-9AE8-89C434696966
    */
   requestId?: string;
   static names(): { [key: string]: string } {

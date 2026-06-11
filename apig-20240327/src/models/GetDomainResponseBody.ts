@@ -15,7 +15,7 @@ export class GetDomainResponseBodyDataStatisticsInfo extends $dara.Model {
    * The total number of resources.
    * 
    * @example
-   * 1
+   * 30
    */
   totalCount?: string;
   static names(): { [key: string]: string } {
@@ -58,7 +58,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
    * The CA certificate ID.
    * 
    * @example
-   * 876****-cn-hangzhou
+   * 8237***-cn-hangzhou
    */
   caCertIdentifier?: string;
   /**
@@ -66,7 +66,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
    * The certificate ID.
    * 
    * @example
-   * 645****-cn-hangzhou
+   * 2382***-cn-hangzhou
    */
   certIdentifier?: string;
   /**
@@ -212,7 +212,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
    * The resource group ID.
    * 
    * @example
-   * rg-aekzvlxzgo5b4si
+   * rg-aekztduhoagat4y
    */
   resourceGroupId?: string;
   /**

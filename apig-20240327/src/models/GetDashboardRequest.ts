@@ -46,7 +46,7 @@ export class GetDashboardRequest extends $dara.Model {
    * API ID
    * 
    * @example
-   * api-c9uuekzmia8q2****
+   * api-ctl7no6m1h****
    */
   apiId?: string;
   /**

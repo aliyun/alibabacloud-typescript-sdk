@@ -8,17 +8,17 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 export class CreateConsumerRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of AK/SK identity configurations.
+   * A list of AK/SK identity configurations.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
    * @remarks
-   * The configuration for the API key authentication method.
+   * The identity configuration for API key authentication.
    */
   apikeyIdentityConfig?: ApiKeyIdentityConfig;
   /**
    * @remarks
-   * The description of the consumer.
+   * The consumer description.
    * 
    * @example
    * consumer for test
@@ -26,7 +26,7 @@ export class CreateConsumerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates if enabled.
+   * Specifies whether to enable the consumer.
    * 
    * @example
    * false
@@ -34,7 +34,11 @@ export class CreateConsumerRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The type of the gateway.
+   * The gateway type. Valid values:
+   * 
+   * - API: For a cloud-native API gateway.
+   * 
+   * - AI: For an AI gateway.
    * 
    * @example
    * API
@@ -42,12 +46,12 @@ export class CreateConsumerRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The configuration of the JWT identity.
+   * The JWT identity configuration.
    */
   jwtIdentityConfig?: JwtIdentityConfig;
   /**
    * @remarks
-   * The name of the consumer.
+   * The consumer name.
    * 
    * @example
    * test

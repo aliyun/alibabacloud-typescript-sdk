@@ -10,7 +10,7 @@ export class AgentServiceConfigCustomConfig extends $dara.Model {
    * apiKey
    * 
    * @example
-   * sk-xxx
+   * app-xxx
    */
   apiKey?: string;
   /**
@@ -120,7 +120,7 @@ export class AgentServiceConfigDifyConfig extends $dara.Model {
    * API Key
    * 
    * @example
-   * sk-xxx
+   * app-xxx
    */
   apiKey?: string;
   /**
@@ -208,7 +208,7 @@ export class AgentServiceConfig extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * aliyun
+   * qwen
    */
   provider?: string;
   static names(): { [key: string]: string } {

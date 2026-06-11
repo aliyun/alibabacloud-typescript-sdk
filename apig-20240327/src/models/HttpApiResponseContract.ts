@@ -16,7 +16,7 @@ export class HttpApiResponseContractItems extends $dara.Model {
    * The response description.
    * 
    * @example
-   * This is a description.
+   * 正常接口响应
    */
   description?: string;
   /**
@@ -40,7 +40,7 @@ export class HttpApiResponseContractItems extends $dara.Model {
    *     "properties": {
    *         "result": {
    *             "type": "string",
-   *             "description": "This is a description."
+   *             "description": "操作结果，\\"ok\\" 表示成功"
    *         }
    *     }
    * }

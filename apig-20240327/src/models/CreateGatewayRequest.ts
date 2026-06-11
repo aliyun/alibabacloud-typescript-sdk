@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateGatewayRequestLogConfigSls extends $dara.Model {
   /**
+   * @remarks
+   * Whether to enable.
+   * 
    * @example
    * false
    */
@@ -30,6 +33,10 @@ export class CreateGatewayRequestLogConfigSls extends $dara.Model {
 }
 
 export class CreateGatewayRequestLogConfig extends $dara.Model {
+  /**
+   * @remarks
+   * SLS log configuration.
+   */
   sls?: CreateGatewayRequestLogConfigSls;
   static names(): { [key: string]: string } {
     return {
@@ -87,11 +94,17 @@ export class CreateGatewayRequestNetworkAccessConfig extends $dara.Model {
 
 export class CreateGatewayRequestTag extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the label.
+   * 
    * @example
    * value
    */
@@ -121,11 +134,17 @@ export class CreateGatewayRequestTag extends $dara.Model {
 
 export class CreateGatewayRequestZoneConfigZones extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the virtual switch.
+   * 
    * @example
    * vsw-xx
    */
   vSwitchId?: string;
   /**
+   * @remarks
+   * The ID of the zone.
+   * 
    * @example
    * cn-wulanchabu-a
    */
@@ -163,10 +182,17 @@ export class CreateGatewayRequestZoneConfig extends $dara.Model {
    */
   selectOption?: string;
   /**
+   * @remarks
+   * Virtual switch ID.
+   * 
    * @example
    * vsw-xxx
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * List of supported zones.
+   */
   zones?: CreateGatewayRequestZoneConfigZones[];
   static names(): { [key: string]: string } {
     return {
@@ -206,6 +232,13 @@ export class CreateGatewayRequest extends $dara.Model {
    */
   chargeType?: string;
   /**
+   * @remarks
+   * Gateway instance edition:
+   * 
+   * - Standard instance: Professional
+   * 
+   * - Serverless: Serverless (currently supports only AI gateway)
+   * 
    * @example
    * Professional
    */
@@ -218,6 +251,10 @@ export class CreateGatewayRequest extends $dara.Model {
    * API
    */
   gatewayType?: string;
+  /**
+   * @remarks
+   * Gateway log configuration.
+   */
   logConfig?: CreateGatewayRequestLogConfig;
   /**
    * @remarks
@@ -233,6 +270,9 @@ export class CreateGatewayRequest extends $dara.Model {
    */
   networkAccessConfig?: CreateGatewayRequestNetworkAccessConfig;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-ahr5uil8raz0rq3b
    */
@@ -245,6 +285,10 @@ export class CreateGatewayRequest extends $dara.Model {
    * apigw.dev.x2
    */
   spec?: string;
+  /**
+   * @remarks
+   * The list of labels.
+   */
   tag?: CreateGatewayRequestTag[];
   /**
    * @remarks

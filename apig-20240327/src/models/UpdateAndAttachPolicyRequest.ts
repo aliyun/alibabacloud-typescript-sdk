@@ -43,7 +43,7 @@ export class UpdateAndAttachPolicyRequest extends $dara.Model {
    * The policy description.
    * 
    * @example
-   * This is the description.
+   * 这是策略描述。
    */
   description?: string;
   /**

@@ -30,6 +30,113 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 新增网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+   * > 
+   * >  推荐调用逻辑：
+   * > - 一、先 dryRun 预检检验是否存在规则冲突
+   * > - - 传dryRun=true
+   * > - - 返回含conflictHash的冲突预览
+   * > - 二、确认后正式提交
+   * > - - 无冲突：dryRun=false,overwrite=false
+   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * 
+   * @param request - AddGatewayQuotaRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddGatewayQuotaRuleResponse
+   */
+  async addGatewayQuotaRuleWithOptions(gatewayId: string, request: $_model.AddGatewayQuotaRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AddGatewayQuotaRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conflictHash)) {
+      body["conflictHash"] = request.conflictHash;
+    }
+
+    if (!$dara.isNull(request.consumerGroupIds)) {
+      body["consumerGroupIds"] = request.consumerGroupIds;
+    }
+
+    if (!$dara.isNull(request.consumerIds)) {
+      body["consumerIds"] = request.consumerIds;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["dryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.overwrite)) {
+      body["overwrite"] = request.overwrite;
+    }
+
+    if (!$dara.isNull(request.periodType)) {
+      body["periodType"] = request.periodType;
+    }
+
+    if (!$dara.isNull(request.quotaDimension)) {
+      body["quotaDimension"] = request.quotaDimension;
+    }
+
+    if (!$dara.isNull(request.quotaLimit)) {
+      body["quotaLimit"] = request.quotaLimit;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      body["ruleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      body["timezone"] = request.timezone;
+    }
+
+    if (!$dara.isNull(request.windowAlignment)) {
+      body["windowAlignment"] = request.windowAlignment;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddGatewayQuotaRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/quota-rules`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddGatewayQuotaRuleResponse>(await this.callApi(params, req, runtime), new $_model.AddGatewayQuotaRuleResponse({}));
+  }
+
+  /**
+   * 新增网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于对AI网关增加基于消费者的配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+   * > 
+   * >  推荐调用逻辑：
+   * > - 一、先 dryRun 预检检验是否存在规则冲突
+   * > - - 传dryRun=true
+   * > - - 返回含conflictHash的冲突预览
+   * > - 二、确认后正式提交
+   * > - - 无冲突：dryRun=false,overwrite=false
+   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * 
+   * @param request - AddGatewayQuotaRuleRequest
+   * @returns AddGatewayQuotaRuleResponse
+   */
+  async addGatewayQuotaRule(gatewayId: string, request: $_model.AddGatewayQuotaRuleRequest): Promise<$_model.AddGatewayQuotaRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addGatewayQuotaRuleWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
    * Adds a security group that authorizes an instance to access services.
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
@@ -598,7 +705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud-native gateway.
+   * The zone information.
    * 
    * @param request - CreateGatewayRequest
    * @param headers - map
@@ -671,7 +778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cloud-native gateway.
+   * The zone information.
    * 
    * @param request - CreateGatewayRequest
    * @returns CreateGatewayResponse
@@ -683,7 +790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an HTTP API.
+   * $.parameters[0].schema.properties.ingressConfig.example
    * 
    * @param request - CreateHttpApiRequest
    * @param headers - map
@@ -788,7 +895,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an HTTP API.
+   * $.parameters[0].schema.properties.ingressConfig.example
    * 
    * @param request - CreateHttpApiRequest
    * @returns CreateHttpApiResponse
@@ -1389,7 +1496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service source.
+   * Create a source.
    * 
    * @param request - CreateSourceRequest
    * @param headers - map
@@ -1438,7 +1545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service source.
+   * Create a source.
    * 
    * @param request - CreateSourceRequest
    * @returns CreateSourceResponse
@@ -1627,6 +1734,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteGatewayWithOptions(gatewayId, headers, runtime);
+  }
+
+  /**
+   * 删除网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+   * 
+   * @param request - DeleteGatewayQuotaRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteGatewayQuotaRuleResponse
+   */
+  async deleteGatewayQuotaRuleWithOptions(gatewayId: string, ruleId: string, request: $_model.DeleteGatewayQuotaRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteGatewayQuotaRuleResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteGatewayQuotaRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/quota-rules/${$dara.URL.percentEncode(ruleId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteGatewayQuotaRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteGatewayQuotaRuleResponse({}));
+  }
+
+  /**
+   * 删除网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于对 AI 网关删除某条基于消费者的配额规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+   * 
+   * @param request - DeleteGatewayQuotaRuleRequest
+   * @returns DeleteGatewayQuotaRuleResponse
+   */
+  async deleteGatewayQuotaRule(gatewayId: string, ruleId: string, request: $_model.DeleteGatewayQuotaRuleRequest): Promise<$_model.DeleteGatewayQuotaRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteGatewayQuotaRuleWithOptions(gatewayId, ruleId, request, headers, runtime);
   }
 
   /**
@@ -1922,6 +2074,9 @@ export default class Client extends OpenApi {
   /**
    * Deletes a key value.
    * 
+   * @remarks
+   * 接口支持创建多个服务。
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSecretResponse
@@ -1946,6 +2101,9 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a key value.
+   * 
+   * @remarks
+   * 接口支持创建多个服务。
    * @returns DeleteSecretResponse
    */
   async deleteSecret(secretId: string): Promise<$_model.DeleteSecretResponse> {
@@ -2025,7 +2183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service source.
+   * Delete a service source.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2050,7 +2208,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service source.
+   * Delete a service source.
    * @returns DeleteSourceResponse
    */
   async deleteSource(sourceId: string): Promise<$_model.DeleteSourceResponse> {
@@ -2060,7 +2218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploy HttpApi
+   * Deploy an HTTP API, including REST and HTTP API routes.
    * 
    * @param request - DeployHttpApiRequest
    * @param headers - map
@@ -2101,7 +2259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deploy HttpApi
+   * Deploy an HTTP API, including REST and HTTP API routes.
    * 
    * @param request - DeployHttpApiRequest
    * @returns DeployHttpApiResponse
@@ -2148,7 +2306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports an HTTP API.
+   * Exports the specified HTTP API.
    * 
    * @param request - ExportHttpApiRequest
    * @param headers - map
@@ -2189,7 +2347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports an HTTP API.
+   * Exports the specified HTTP API.
    * 
    * @param request - ExportHttpApiRequest
    * @returns ExportHttpApiResponse
@@ -2488,6 +2646,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询网关配额限流规则详情
+   * 
+   * @remarks
+   * 该接口用于查询 AI 网关上某条消费者配额规则。
+   * 
+   * @param request - GetGatewayQuotaRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGatewayQuotaRuleResponse
+   */
+  async getGatewayQuotaRuleWithOptions(gatewayId: string, ruleId: string, request: $_model.GetGatewayQuotaRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetGatewayQuotaRuleResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.consumerPageNumber)) {
+      query["consumerPageNumber"] = request.consumerPageNumber;
+    }
+
+    if (!$dara.isNull(request.consumerPageSize)) {
+      query["consumerPageSize"] = request.consumerPageSize;
+    }
+
+    if (!$dara.isNull(request.withConsumers)) {
+      query["withConsumers"] = request.withConsumers;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGatewayQuotaRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/quota-rules/${$dara.URL.percentEncode(ruleId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGatewayQuotaRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetGatewayQuotaRuleResponse({}));
+  }
+
+  /**
+   * 查询网关配额限流规则详情
+   * 
+   * @remarks
+   * 该接口用于查询 AI 网关上某条消费者配额规则。
+   * 
+   * @param request - GetGatewayQuotaRuleRequest
+   * @returns GetGatewayQuotaRuleResponse
+   */
+  async getGatewayQuotaRule(gatewayId: string, ruleId: string, request: $_model.GetGatewayQuotaRuleRequest): Promise<$_model.GetGatewayQuotaRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getGatewayQuotaRuleWithOptions(gatewayId, ruleId, request, headers, runtime);
+  }
+
+  /**
+   * 查询网关配额限流规则主体用量详情
+   * 
+   * @remarks
+   * 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+   * 
+   * @param request - GetGatewayQuotaRuleSubjectUsageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGatewayQuotaRuleSubjectUsageResponse
+   */
+  async getGatewayQuotaRuleSubjectUsageWithOptions(gatewayId: string, ruleId: string, subjectId: string, request: $_model.GetGatewayQuotaRuleSubjectUsageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetGatewayQuotaRuleSubjectUsageResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGatewayQuotaRuleSubjectUsage",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/quota-rules/${$dara.URL.percentEncode(ruleId)}/subjects/${$dara.URL.percentEncode(subjectId)}/usage`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGatewayQuotaRuleSubjectUsageResponse>(await this.callApi(params, req, runtime), new $_model.GetGatewayQuotaRuleSubjectUsageResponse({}));
+  }
+
+  /**
+   * 查询网关配额限流规则主体用量详情
+   * 
+   * @remarks
+   * 该接口用于获取配额规则下的某个消费者用量详情。注意，只针对于版本大于 2.1.19 的 AI 网关生效。
+   * 
+   * @param request - GetGatewayQuotaRuleSubjectUsageRequest
+   * @returns GetGatewayQuotaRuleSubjectUsageResponse
+   */
+  async getGatewayQuotaRuleSubjectUsage(gatewayId: string, ruleId: string, subjectId: string, request: $_model.GetGatewayQuotaRuleSubjectUsageRequest): Promise<$_model.GetGatewayQuotaRuleSubjectUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getGatewayQuotaRuleSubjectUsageWithOptions(gatewayId, ruleId, subjectId, request, headers, runtime);
+  }
+
+  /**
    * Read HttpApi
    * 
    * @param headers - map
@@ -2593,10 +2865,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed information of an MCP server.
+   * Get the MCP server.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * This API supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2621,10 +2893,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed information of an MCP server.
+   * Get the MCP server.
    * 
    * @remarks
-   * You can call this operation to create multiple services at a time.
+   * This API supports creating multiple services.
    * @returns GetMcpServerResponse
    */
   async getMcpServer(mcpServerId: string): Promise<$_model.GetMcpServerResponse> {
@@ -2827,6 +3099,9 @@ export default class Client extends OpenApi {
   /**
    * Gets the key value.
    * 
+   * @remarks
+   * 接口支持创建多个服务。
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetSecretValueResponse
@@ -2851,6 +3126,9 @@ export default class Client extends OpenApi {
 
   /**
    * Gets the key value.
+   * 
+   * @remarks
+   * 接口支持创建多个服务。
    * @returns GetSecretValueResponse
    */
   async getSecretValue(name: string): Promise<$_model.GetSecretValueResponse> {
@@ -2975,7 +3253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
+   * Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
    * 
    * @param request - ImportHttpApiRequest
    * @param headers - map
@@ -3056,7 +3334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
+   * Import an OpenAPI 2.0 or 3.0.x definition file to create a REST API.
    * 
    * @param request - ImportHttpApiRequest
    * @returns ImportHttpApiResponse
@@ -3372,6 +3650,9 @@ export default class Client extends OpenApi {
   /**
    * 获取网关外的服务信息
    * 
+   * @remarks
+   * 接口支持创建多个服务。
+   * 
    * @param request - ListExternalServicesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3421,6 +3702,9 @@ export default class Client extends OpenApi {
   /**
    * 获取网关外的服务信息
    * 
+   * @remarks
+   * 接口支持创建多个服务。
+   * 
    * @param request - ListExternalServicesRequest
    * @returns ListExternalServicesResponse
    */
@@ -3463,6 +3747,73 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayFeaturesWithOptions(gatewayId, headers, runtime);
+  }
+
+  /**
+   * 查询网关周期配额规则列表
+   * 
+   * @remarks
+   * 该接口用于查询网关上绑定的消费者配额规则列表
+   * 
+   * @param request - ListGatewayQuotaRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayQuotaRulesResponse
+   */
+  async listGatewayQuotaRulesWithOptions(gatewayId: string, request: $_model.ListGatewayQuotaRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayQuotaRulesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayQuotaRules",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/quota-rules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayQuotaRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayQuotaRulesResponse({}));
+  }
+
+  /**
+   * 查询网关周期配额规则列表
+   * 
+   * @remarks
+   * 该接口用于查询网关上绑定的消费者配额规则列表
+   * 
+   * @param request - ListGatewayQuotaRulesRequest
+   * @returns ListGatewayQuotaRulesResponse
+   */
+  async listGatewayQuotaRules(gatewayId: string, request: $_model.ListGatewayQuotaRulesRequest): Promise<$_model.ListGatewayQuotaRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayQuotaRulesWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -3638,7 +3989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the routes of an HTTP API.
+   * Gets the route list for an HTTP API.
    * 
    * @param request - ListHttpApiRoutesRequest
    * @param headers - map
@@ -3727,7 +4078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the routes of an HTTP API.
+   * Gets the route list for an HTTP API.
    * 
    * @param request - ListHttpApiRoutesRequest
    * @returns ListHttpApiRoutesResponse
@@ -4361,7 +4712,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询密钥列表
+   * List keys.
+   * 
+   * @remarks
+   * The API supports creating multiple services.
    * 
    * @param request - ListSecretsRequest
    * @param headers - map
@@ -4406,7 +4760,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询密钥列表
+   * List keys.
+   * 
+   * @remarks
+   * The API supports creating multiple services.
    * 
    * @param request - ListSecretsRequest
    * @returns ListSecretsResponse
@@ -4696,6 +5053,93 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.removeConsumerAuthorizationRuleWithOptions(consumerAuthorizationRuleId, headers, runtime);
+  }
+
+  /**
+   * 重置网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+   * > 
+   * >  推荐调用逻辑：
+   * > - 一、先 dryRun 预检检验是否存在规则冲突
+   * > - - 传dryRun=true
+   * > - - 返回含conflictHash的冲突预览
+   * > - 二、确认后正式提交
+   * > - - 无冲突：dryRun=false,overwrite=false
+   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * 
+   * @param request - ResetGatewayQuotaRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetGatewayQuotaRuleResponse
+   */
+  async resetGatewayQuotaRuleWithOptions(gatewayId: string, ruleId: string, request: $_model.ResetGatewayQuotaRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ResetGatewayQuotaRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.conflictHash)) {
+      body["conflictHash"] = request.conflictHash;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["dryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.overwrite)) {
+      body["overwrite"] = request.overwrite;
+    }
+
+    if (!$dara.isNull(request.periodType)) {
+      body["periodType"] = request.periodType;
+    }
+
+    if (!$dara.isNull(request.quotaLimit)) {
+      body["quotaLimit"] = request.quotaLimit;
+    }
+
+    if (!$dara.isNull(request.timezone)) {
+      body["timezone"] = request.timezone;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResetGatewayQuotaRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/quota-rules/${$dara.URL.percentEncode(ruleId)}/reset`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResetGatewayQuotaRuleResponse>(await this.callApi(params, req, runtime), new $_model.ResetGatewayQuotaRuleResponse({}));
+  }
+
+  /**
+   * 重置网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于重置网关上某条配额限流规则。注意，只针对于版本大于 2.1.19 的 AI 网关生效；重置将清零规则上消费者历史用量。
+   * > 
+   * >  推荐调用逻辑：
+   * > - 一、先 dryRun 预检检验是否存在规则冲突
+   * > - - 传dryRun=true
+   * > - - 返回含conflictHash的冲突预览
+   * > - 二、确认后正式提交
+   * > - - 无冲突：dryRun=false,overwrite=false
+   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * 
+   * @param request - ResetGatewayQuotaRuleRequest
+   * @returns ResetGatewayQuotaRuleResponse
+   */
+  async resetGatewayQuotaRule(gatewayId: string, ruleId: string, request: $_model.ResetGatewayQuotaRuleRequest): Promise<$_model.ResetGatewayQuotaRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.resetGatewayQuotaRuleWithOptions(gatewayId, ruleId, request, headers, runtime);
   }
 
   /**
@@ -5192,7 +5636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an environment.
+   * UpdateEnvironment
    * 
    * @deprecated OpenAPI UpdateEnvironment is deprecated
    * 
@@ -5231,7 +5675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an environment.
+   * UpdateEnvironment
    * 
    * @deprecated OpenAPI UpdateEnvironment is deprecated
    * 
@@ -5291,7 +5735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of a Cloud-native API Gateway instance.
+   * The response message returned.
    * 
    * @param request - UpdateGatewayNameRequest
    * @param headers - map
@@ -5324,7 +5768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the name of a Cloud-native API Gateway instance.
+   * The response message returned.
    * 
    * @param request - UpdateGatewayNameRequest
    * @returns UpdateGatewayNameResponse
@@ -5333,6 +5777,154 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateGatewayNameWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
+   * 更新网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
+   * >  推荐调用逻辑：
+   * > - 一、先 dryRun 预检检验是否存在规则冲突
+   * > - - 传dryRun=true
+   * > - - 返回含conflictHash的冲突预览
+   * > - 二、确认后正式提交
+   * > - - 无冲突：dryRun=false,overwrite=false
+   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * 
+   * @param request - UpdateGatewayQuotaRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayQuotaRuleResponse
+   */
+  async updateGatewayQuotaRuleWithOptions(gatewayId: string, ruleId: string, request: $_model.UpdateGatewayQuotaRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayQuotaRuleResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addIds)) {
+      body["addIds"] = request.addIds;
+    }
+
+    if (!$dara.isNull(request.conflictHash)) {
+      body["conflictHash"] = request.conflictHash;
+    }
+
+    if (!$dara.isNull(request.consumerGroupIds)) {
+      body["consumerGroupIds"] = request.consumerGroupIds;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      body["dryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.overwrite)) {
+      body["overwrite"] = request.overwrite;
+    }
+
+    if (!$dara.isNull(request.quotaLimit)) {
+      body["quotaLimit"] = request.quotaLimit;
+    }
+
+    if (!$dara.isNull(request.removeIds)) {
+      body["removeIds"] = request.removeIds;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      body["ruleName"] = request.ruleName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayQuotaRule",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/quota-rules/${$dara.URL.percentEncode(ruleId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayQuotaRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayQuotaRuleResponse({}));
+  }
+
+  /**
+   * 更新网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于编辑网关上某条配额规则。注意，只针对于版本大于2.1.19的AI网关生效；编辑将保留规则上消费者历史用量。
+   * >  推荐调用逻辑：
+   * > - 一、先 dryRun 预检检验是否存在规则冲突
+   * > - - 传dryRun=true
+   * > - - 返回含conflictHash的冲突预览
+   * > - 二、确认后正式提交
+   * > - - 无冲突：dryRun=false,overwrite=false
+   * > - - 有冲突且确认覆盖：dryRun=false,overwrite=true, conflictHash=<上一步返回的值＞
+   * 
+   * @param request - UpdateGatewayQuotaRuleRequest
+   * @returns UpdateGatewayQuotaRuleResponse
+   */
+  async updateGatewayQuotaRule(gatewayId: string, ruleId: string, request: $_model.UpdateGatewayQuotaRuleRequest): Promise<$_model.UpdateGatewayQuotaRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGatewayQuotaRuleWithOptions(gatewayId, ruleId, request, headers, runtime);
+  }
+
+  /**
+   * 启/停用网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+   * 
+   * @param request - UpdateGatewayQuotaRuleStatusRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayQuotaRuleStatusResponse
+   */
+  async updateGatewayQuotaRuleStatusWithOptions(gatewayId: string, ruleId: string, request: $_model.UpdateGatewayQuotaRuleStatusRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateGatewayQuotaRuleStatusResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clearHistory)) {
+      body["clearHistory"] = request.clearHistory;
+    }
+
+    if (!$dara.isNull(request.enable)) {
+      body["enable"] = request.enable;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateGatewayQuotaRuleStatus",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/quota-rules/${$dara.URL.percentEncode(ruleId)}/status`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateGatewayQuotaRuleStatusResponse>(await this.callApi(params, req, runtime), new $_model.UpdateGatewayQuotaRuleStatusResponse({}));
+  }
+
+  /**
+   * 启/停用网关配额限流规则
+   * 
+   * @remarks
+   * 该接口用于启用或者停用网关上某个配额规则。注意，只针对于版本大于2.1.19的AI网关生效。
+   * 
+   * @param request - UpdateGatewayQuotaRuleStatusRequest
+   * @returns UpdateGatewayQuotaRuleStatusResponse
+   */
+  async updateGatewayQuotaRuleStatus(gatewayId: string, ruleId: string, request: $_model.UpdateGatewayQuotaRuleStatusRequest): Promise<$_model.UpdateGatewayQuotaRuleStatusResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateGatewayQuotaRuleStatusWithOptions(gatewayId, ruleId, request, headers, runtime);
   }
 
   /**
@@ -5474,7 +6066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the route of an HTTP API.
+   * Updates a route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @param headers - map
@@ -5531,7 +6123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the route of an HTTP API.
+   * Updates a route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @returns UpdateHttpApiRouteResponse
@@ -5795,7 +6387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
+   * Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
    * 
    * @param request - UpdateServiceRequest
    * @param headers - map
@@ -5860,7 +6452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a service. You can call this operation to update the health check, DNS domain name, and fixed address configurations of a service.
+   * Update a service. You can update the health check configuration of the service, and the configuration information of DNS domain names and static addresses.
    * 
    * @param request - UpdateServiceRequest
    * @returns UpdateServiceResponse

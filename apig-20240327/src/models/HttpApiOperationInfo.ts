@@ -31,7 +31,7 @@ export class HttpApiOperationInfo extends $dara.Model {
    * The operation description.
    * 
    * @example
-   * A example operation.
+   * 获取用户信息
    */
   description?: string;
   /**

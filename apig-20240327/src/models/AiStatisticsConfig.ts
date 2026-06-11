@@ -4,7 +4,15 @@ import { AiStatisticsPathField } from "./AiStatisticsPathField";
 
 
 export class AiStatisticsConfigPathFieldConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * A key-value map for extracting fields. Keys are custom names, and values are paths to the data within the request or response body.
+   */
   fieldPaths?: { [key: string]: AiStatisticsPathField };
+  /**
+   * @remarks
+   * The API endpoint path to which this configuration applies, such as /user/id.
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,8 +41,20 @@ export class AiStatisticsConfigPathFieldConfigs extends $dara.Model {
 }
 
 export class AiStatisticsConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to record the body of incoming requests.
+   */
   logRequestContent?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to record the body of outgoing responses.
+   */
   logResponseContent?: boolean;
+  /**
+   * @remarks
+   * An array of configurations for extracting data from specific paths.
+   */
   pathFieldConfigs?: AiStatisticsConfigPathFieldConfigs[];
   static names(): { [key: string]: string } {
     return {

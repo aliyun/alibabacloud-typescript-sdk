@@ -111,7 +111,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
    * The environment ID.
    * 
    * @example
-   * The source ID.
+   * 更新API描述
    */
   description?: string;
   /**

@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HiMarketProductPublicationConifg extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier for the publication.
+   */
   publicationId?: string;
   static names(): { [key: string]: string } {
     return {

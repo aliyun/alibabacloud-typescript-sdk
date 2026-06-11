@@ -12,6 +12,9 @@ export class PolicyInfo extends $dara.Model {
   /**
    * @remarks
    * The policy class alias.
+   * 
+   * @example
+   * 流量控制
    */
   classAlias?: string;
   /**
@@ -38,6 +41,9 @@ export class PolicyInfo extends $dara.Model {
    * *   JWTAuth: implements global JWT authentication. Supported: Gateway.
    * *   OIDCAuth: implements global OIDC authentication. Supported: Gateway.
    * *   ExternalZAuth: implements custom authentication. Supported: Gateway.
+   * 
+   * @example
+   * RateLimit
    */
   className?: string;
   /**
@@ -104,6 +110,9 @@ export class PolicyInfo extends $dara.Model {
   /**
    * @remarks
    * The policy type.
+   * 
+   * @example
+   * 策略类型
    */
   type?: string;
   static names(): { [key: string]: string } {

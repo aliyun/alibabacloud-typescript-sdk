@@ -8,7 +8,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
    * The environment ID.
    * 
    * @example
-   * env-cti17hem1hktoruj98ug
+   * env-******
    */
   environmentId?: string;
   /**
@@ -68,7 +68,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
    * The consumer ID.
    * 
    * @example
-   * cs-cu08olem1hkokaut34i0
+   * cs-******
    */
   consumerId?: string;
   /**

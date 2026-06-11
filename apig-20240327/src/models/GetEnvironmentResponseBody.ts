@@ -51,7 +51,7 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
    * Test environment
    * 
    * @example
-   * The environment description.
+   * 测试环境
    */
   alias?: string;
   /**
@@ -75,7 +75,7 @@ export class GetEnvironmentResponseBodyData extends $dara.Model {
    * Testing environment for xx project of xxx
    * 
    * @example
-   * The instance information.
+   * 这是xxx的xx项目测试环境
    */
   description?: string;
   /**

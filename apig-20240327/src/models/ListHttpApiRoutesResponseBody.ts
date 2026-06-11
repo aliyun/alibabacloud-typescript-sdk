@@ -6,12 +6,12 @@ import { HttpRoute } from "./HttpRoute";
 export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The routes.
+   * An array of route objects.
    */
   items?: HttpRoute[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -27,7 +27,7 @@ export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of available entries.
    * 
    * @example
    * 9
@@ -66,7 +66,7 @@ export class ListHttpApiRoutesResponseBodyData extends $dara.Model {
 export class ListHttpApiRoutesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -74,12 +74,12 @@ export class ListHttpApiRoutesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response payload.
+   * The response data.
    */
   data?: ListHttpApiRoutesResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

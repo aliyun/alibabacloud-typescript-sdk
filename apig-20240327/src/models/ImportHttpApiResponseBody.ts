@@ -6,15 +6,15 @@ import { HttpApiApiInfo } from "./HttpApiApiInfo";
 export class ImportHttpApiResponseBodyDataDryRunInfoFailureComponents extends $dara.Model {
   /**
    * @remarks
-   * The error message.
+   * The reason for the dry run failure.
    * 
    * @example
-   * The data struct is incorrectly defined.
+   * 数据结构定义有误。
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The data struct name.
+   * The data structure name.
    * 
    * @example
    * orderDTO
@@ -46,15 +46,15 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureComponents extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoFailureOperations extends $dara.Model {
   /**
    * @remarks
-   * The error message.
+   * The reason for the dry run failure.
    * 
    * @example
-   * Missing response definition.
+   * 缺少响应定义。
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP method of the operation.
+   * The operation method.
    * 
    * @example
    * GET
@@ -96,10 +96,11 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureOperations extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $dara.Model {
   /**
    * @remarks
-   * The action that will be performed for the data struct after the dry run.
+   * Indicates whether the data structure will be created or updated.
    * 
-   * *   Create: The data struct is created.
-   * *   Update: The data struct is updated.
+   * - `Create`: Creates a new data structure.
+   * 
+   * - `Update`: Updates an existing data structure.
    * 
    * @example
    * Create
@@ -107,7 +108,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
   action?: string;
   /**
    * @remarks
-   * The data struct name.
+   * The data structure name.
    * 
    * @example
    * userDTO
@@ -139,10 +140,11 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $dara.Model {
   /**
    * @remarks
-   * The action that will be performed for the operation after the dry run.
+   * Indicates whether the operation creates or updates a resource.
    * 
-   * *   Create: The operation is created.
-   * *   Update: The operation is updated.
+   * - `Create`: Creates a new resource.
+   * 
+   * - `Update`: Updates an existing resource.
    * 
    * @example
    * Create
@@ -150,7 +152,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
   action?: string;
   /**
    * @remarks
-   * The HTTP method of the operation.
+   * The operation method.
    * 
    * @example
    * POST
@@ -202,38 +204,38 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   /**
    * @remarks
-   * The error messages. If an error message is returned, the API fails to be imported.
+   * Global error messages. If this list is not empty, the API import fails.
    */
   errorMessages?: string[];
   /**
    * @remarks
-   * The existing APIs. If an existing API is returned, the import updates the existing API.
+   * Details of the existing API. If this field is populated, the import operation updates this API.
    */
   existHttpApiInfo?: HttpApiApiInfo;
   /**
    * @remarks
-   * The data structs that fail the dry run.
+   * Data structures that failed the dry run.
    */
   failureComponents?: ImportHttpApiResponseBodyDataDryRunInfoFailureComponents[];
   /**
    * @remarks
-   * The operations that fail the dry run.
+   * Operations that failed the dry run.
    */
   failureOperations?: ImportHttpApiResponseBodyDataDryRunInfoFailureOperations[];
   mcpToolsDefinition?: string;
   /**
    * @remarks
-   * The data structs that pass the dry run.
+   * Data structures that passed the dry run.
    */
   successComponents?: ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents[];
   /**
    * @remarks
-   * The operations that pass the dry run.
+   * Operations that passed the dry run.
    */
   successOperations?: ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations[];
   /**
    * @remarks
-   * The alerts. If an alert is returned, specific operations or structs may fail to be imported.
+   * Global warning messages. If this list is not empty, some operations or data structures might not be imported.
    */
   warningMessages?: string[];
   static names(): { [key: string]: string } {
@@ -295,12 +297,12 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
 export class ImportHttpApiResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The dry run result.
+   * The results of the dry run.
    */
   dryRunInfo?: ImportHttpApiResponseBodyDataDryRunInfo;
   /**
    * @remarks
-   * The API ID.
+   * The unique ID of the HTTP API.
    * 
    * @example
    * api-xxx
@@ -345,7 +347,7 @@ export class ImportHttpApiResponseBodyData extends $dara.Model {
 export class ImportHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -353,12 +355,12 @@ export class ImportHttpApiResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The API information.
+   * Details of the imported API.
    */
   data?: ImportHttpApiResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success

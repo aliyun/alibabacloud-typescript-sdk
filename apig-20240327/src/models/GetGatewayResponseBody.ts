@@ -8,10 +8,7 @@ export class GetGatewayResponseBodyDataEnvironments extends $dara.Model {
    * The port information.
    * 
    * @example
-   * The protocol. Valid values:
-   * 
-   * *   TCP
-   * *   UDP
+   * 默认环境
    */
   alias?: string;
   /**
@@ -357,7 +354,7 @@ export class GetGatewayResponseBodyDataVSwitch extends $dara.Model {
    * The resource tags.
    * 
    * @example
-   * The resource tag.
+   * 杭州VPC虚拟交换机
    */
   name?: string;
   /**
@@ -397,7 +394,7 @@ export class GetGatewayResponseBodyDataVpc extends $dara.Model {
    * =
    * 
    * @example
-   * $.errorCode
+   * 杭州VPC
    */
   name?: string;
   /**
@@ -437,7 +434,7 @@ export class GetGatewayResponseBodyDataZonesVSwitch extends $dara.Model {
    * The VSwitch name
    * 
    * @example
-   * vswitch-name
+   * 杭州VPC虚拟交换机
    */
   name?: string;
   /**
@@ -477,7 +474,7 @@ export class GetGatewayResponseBodyDataZones extends $dara.Model {
    * The zone name
    * 
    * @example
-   * Hangzhou Zone I
+   * 杭州可用区E
    */
   name?: string;
   /**

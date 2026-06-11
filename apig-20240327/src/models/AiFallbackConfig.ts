@@ -3,9 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AiFallbackConfigServiceConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the fallback service.
+   */
   name?: string;
+  /**
+   * @remarks
+   * Determines whether to pass the original model name to the fallback service. If `true`, the model name from the original request is used. If `false`, the value of `targetModelName` is used instead.
+   */
   passThroughModelName?: boolean;
+  /**
+   * @remarks
+   * The unique ID of the fallback service.
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The name of the model to use for the fallback request.
+   */
   targetModelName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,7 +51,15 @@ export class AiFallbackConfigServiceConfigs extends $dara.Model {
 }
 
 export class AiFallbackConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Determines whether fallback is triggered solely by the upstream service\\"s status code. If `true`, fallback occurs only if the upstream service returns an error code. If `false`, other conditions, such as timeouts, can also trigger the fallback.
+   */
   onlyRedirectUpstreamCode?: boolean;
+  /**
+   * @remarks
+   * A list of fallback service configurations.
+   */
   serviceConfigs?: AiFallbackConfigServiceConfigs[];
   static names(): { [key: string]: string } {
     return {

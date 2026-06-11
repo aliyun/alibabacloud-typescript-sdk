@@ -10,7 +10,7 @@ export class CreateEnvironmentRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * The environment name.
+   * 测试环境
    */
   alias?: string;
   /**
@@ -18,7 +18,7 @@ export class CreateEnvironmentRequest extends $dara.Model {
    * The environment alias.
    * 
    * @example
-   * Test environment
+   * 这是xxx的xx项目测试环境
    */
   description?: string;
   /**

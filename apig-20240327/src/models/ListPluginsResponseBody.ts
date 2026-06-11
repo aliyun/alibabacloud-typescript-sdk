@@ -88,7 +88,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
    * The alias.
    * 
    * @example
-   * key-based rate limit
+   * 基于 Key 限流
    */
   alias?: string;
   /**
@@ -144,7 +144,7 @@ export class ListPluginsResponseBodyDataItemsPluginClassInfo extends $dara.Model
    * The description of the version.
    * 
    * @example
-   * version description
+   * 版本描述
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {

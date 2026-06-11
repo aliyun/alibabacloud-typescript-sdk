@@ -4,6 +4,10 @@ import { AiPluginStatus } from "./AiPluginStatus";
 
 
 export class AiToolSelectionConfigEnableConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The minimum number of tools required to activate tool selection.
+   */
   toolCountThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27,7 +31,15 @@ export class AiToolSelectionConfigEnableConditions extends $dara.Model {
 }
 
 export class AiToolSelectionConfigQueryRewritingContextSelection extends $dara.Model {
+  /**
+   * @remarks
+   * The strategy for selecting the conversation context.
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value associated with the context selection strategy, such as the number of messages to include.
+   */
   value?: number;
   static names(): { [key: string]: string } {
     return {
@@ -53,8 +65,20 @@ export class AiToolSelectionConfigQueryRewritingContextSelection extends $dara.M
 }
 
 export class AiToolSelectionConfigQueryRewritingModelService extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the model used for query rewriting.
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * The ID of the model service used for query rewriting.
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The request timeout in milliseconds for the query rewriting model service.
+   */
   timeoutMillisecond?: number;
   static names(): { [key: string]: string } {
     return {
@@ -82,7 +106,15 @@ export class AiToolSelectionConfigQueryRewritingModelService extends $dara.Model
 }
 
 export class AiToolSelectionConfigQueryRewritingPromptConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The custom prompt template for query rewriting. This parameter is required if `type` is set to `custom`.
+   */
   customPrompt?: string;
+  /**
+   * @remarks
+   * The type of prompt, such as default or custom.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -108,6 +140,10 @@ export class AiToolSelectionConfigQueryRewritingPromptConfig extends $dara.Model
 }
 
 export class AiToolSelectionConfigQueryRewritingTriggerConditions extends $dara.Model {
+  /**
+   * @remarks
+   * The minimum number of messages in the conversation history required to activate query rewriting.
+   */
   messageCountThreshold?: number;
   static names(): { [key: string]: string } {
     return {
@@ -131,12 +167,40 @@ export class AiToolSelectionConfigQueryRewritingTriggerConditions extends $dara.
 }
 
 export class AiToolSelectionConfigQueryRewriting extends $dara.Model {
+  /**
+   * @remarks
+   * Method for selecting the conversation context for query rewriting.
+   */
   contextSelection?: AiToolSelectionConfigQueryRewritingContextSelection;
+  /**
+   * @remarks
+   * Whether to enable query rewriting.
+   */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The fallback strategy used if query rewriting fails or returns no results.
+   */
   fallbackStrategy?: string;
+  /**
+   * @remarks
+   * The maximum number of tokens to generate for the rewritten query.
+   */
   maxOutputTokens?: number;
+  /**
+   * @remarks
+   * Model service configuration for query rewriting.
+   */
   modelService?: AiToolSelectionConfigQueryRewritingModelService;
+  /**
+   * @remarks
+   * Prompt configuration for query rewriting.
+   */
   promptConfig?: AiToolSelectionConfigQueryRewritingPromptConfig;
+  /**
+   * @remarks
+   * Conditions for activating query rewriting.
+   */
   triggerConditions?: AiToolSelectionConfigQueryRewritingTriggerConditions;
   static names(): { [key: string]: string } {
     return {
@@ -184,8 +248,20 @@ export class AiToolSelectionConfigQueryRewriting extends $dara.Model {
 }
 
 export class AiToolSelectionConfigToolRerankingModelService extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the model used for reranking.
+   */
   modelName?: string;
+  /**
+   * @remarks
+   * The ID of the model service used for reranking.
+   */
   serviceId?: string;
+  /**
+   * @remarks
+   * The request timeout in milliseconds for the reranking model service.
+   */
   timeoutMillisecond?: number;
   static names(): { [key: string]: string } {
     return {
@@ -213,11 +289,35 @@ export class AiToolSelectionConfigToolRerankingModelService extends $dara.Model 
 }
 
 export class AiToolSelectionConfigToolReranking extends $dara.Model {
+  /**
+   * @remarks
+   * The fallback strategy used if tool reranking fails or returns no results.
+   */
   fallbackStrategy?: string;
+  /**
+   * @remarks
+   * The method for filtering tools after reranking.
+   */
   filteringMethod?: string;
+  /**
+   * @remarks
+   * Model service configuration for tool reranking.
+   */
   modelService?: AiToolSelectionConfigToolRerankingModelService;
+  /**
+   * @remarks
+   * The minimum score a tool must have to be selected. Tools with scores below this threshold are filtered out.
+   */
   scoreThreshold?: number;
+  /**
+   * @remarks
+   * The percentage of top-ranked tools to select. This parameter only applies when `filteringMethod` is set to a percentage-based method.
+   */
   topKPercent?: number;
+  /**
+   * @remarks
+   * The number of top-ranked tools to select. This parameter only applies when `filteringMethod` is set to a count-based method.
+   */
   topNCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -254,13 +354,28 @@ export class AiToolSelectionConfigToolReranking extends $dara.Model {
 }
 
 export class AiToolSelectionConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Conditions for activating the tool selection feature.
+   */
   enableConditions?: AiToolSelectionConfigEnableConditions;
   /**
+   * @remarks
+   * The status of the AI tool selection plugin.
+   * 
    * **if can be null:**
    * true
    */
   pluginStatus?: AiPluginStatus;
+  /**
+   * @remarks
+   * Configuration for query rewriting, which optimizes user queries before tool selection.
+   */
   queryRewriting?: AiToolSelectionConfigQueryRewriting;
+  /**
+   * @remarks
+   * Configuration for tool reranking, which controls how tools are scored and filtered.
+   */
   toolReranking?: AiToolSelectionConfigToolReranking;
   static names(): { [key: string]: string } {
     return {

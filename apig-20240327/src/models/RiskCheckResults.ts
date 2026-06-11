@@ -81,7 +81,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
    * The risk description
    * 
    * @example
-   * The version is outdated
+   * {"desc":"单节点实例存在架构风险，单点故障会导致服务不可用。建议扩容到2节点及以上。"}
    */
   description?: string;
   /**
@@ -113,7 +113,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
    * The risk title
    * 
    * @example
-   * Version Risk
+   * 单节点架构风险
    */
   riskName?: string;
   /**
@@ -129,7 +129,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
    * The risk situation
    * 
    * @example
-   * Current version is 2 releases behind
+   * {"desc":"集群节点数为1，不具备高可用能力"}
    */
   situation?: string;
   /**
@@ -137,7 +137,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
    * The fix suggestion
    * 
    * @example
-   * Upgrade to the latest version
+   * {"desc":"扩容到2节点及以上","links":[{"descEn":"click to upgrade specification","type":"upgrade","desc":"点击扩容"}]}
    */
   suggestion?: string;
   static names(): { [key: string]: string } {

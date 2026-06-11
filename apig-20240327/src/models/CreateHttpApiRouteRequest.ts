@@ -189,7 +189,7 @@ export class CreateHttpApiRouteRequest extends $dara.Model {
    * The route description.
    * 
    * @example
-   * User logon route
+   * 用户登录路由。
    */
   description?: string;
   /**

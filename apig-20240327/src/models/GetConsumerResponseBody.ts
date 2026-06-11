@@ -45,7 +45,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * This is the description.
+   * 测试专用消费者
    */
   description?: string;
   /**

@@ -3,11 +3,35 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class HiMarketProductPublicationDetail extends $dara.Model {
+  /**
+   * @remarks
+   * The unique ID of the portal.
+   */
   portalId?: string;
+  /**
+   * @remarks
+   * The name of the portal.
+   */
   portalName?: string;
+  /**
+   * @remarks
+   * The unique ID of the product.
+   */
   productId?: string;
+  /**
+   * @remarks
+   * The name of the product.
+   */
   productName?: string;
+  /**
+   * @remarks
+   * The type of the product.
+   */
   productType?: string;
+  /**
+   * @remarks
+   * The unique ID of the product publication.
+   */
   publicationId?: string;
   static names(): { [key: string]: string } {
     return {

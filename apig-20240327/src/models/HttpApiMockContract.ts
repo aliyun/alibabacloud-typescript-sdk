@@ -24,7 +24,7 @@ export class HttpApiMockContract extends $dara.Model {
    * The response content.
    * 
    * @example
-   * Mock content.
+   * Mock测试
    */
   responseContent?: string;
   static names(): { [key: string]: string } {

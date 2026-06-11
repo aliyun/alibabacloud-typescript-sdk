@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeployHttpApiResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the HTTP API.
+   */
   httpApiId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28,16 +32,20 @@ export class DeployHttpApiResponseBodyData extends $dara.Model {
 export class DeployHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response status code.
+   * The response code.
    * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DeployHttpApiResponseBodyData;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * success
@@ -45,7 +53,7 @@ export class DeployHttpApiResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0C2D1C68-0D93-5561-8EE6-FDB7BF067A30

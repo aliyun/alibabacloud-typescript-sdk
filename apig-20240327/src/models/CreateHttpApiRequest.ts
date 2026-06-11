@@ -111,6 +111,13 @@ export class CreateHttpApiRequest extends $dara.Model {
    * /v1
    */
   basePath?: string;
+  /**
+   * @remarks
+   * ID of the gateway to which the API belongs.
+   * 
+   * @example
+   * gw-abc123xyz789
+   */
   belongGatewayId?: string;
   /**
    * @remarks
@@ -122,10 +129,16 @@ export class CreateHttpApiRequest extends $dara.Model {
    * $.parameters[0].schema.properties.aiProtocols.items.description
    * 
    * @example
-   * $.parameters[0].schema.properties.aiProtocols.items.example
+   * 测试专用API。
    */
   description?: string;
   /**
+   * @remarks
+   * Whether to preview without execution.
+   * 
+   * @example
+   * true
+   * 
    * @deprecated
    */
   dryRun?: boolean;
@@ -189,6 +202,13 @@ export class CreateHttpApiRequest extends $dara.Model {
    * rg-xxx
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The conflict merge strategy for import.
+   * 
+   * @example
+   * ExistFirst
+   */
   strategy?: string;
   /**
    * @remarks

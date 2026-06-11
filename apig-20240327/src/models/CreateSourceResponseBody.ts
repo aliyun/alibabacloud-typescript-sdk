@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSourceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Source ID
+   * 
    * @example
    * src-crdddallhtgt***
    */
@@ -31,17 +34,30 @@ export class CreateSourceResponseBodyData extends $dara.Model {
 
 export class CreateSourceResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreateSourceResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A
    */

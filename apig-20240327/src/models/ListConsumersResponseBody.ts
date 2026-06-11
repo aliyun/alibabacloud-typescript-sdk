@@ -32,7 +32,7 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
    * The description.
    * 
    * @example
-   * This is the description.
+   * 测试消费者
    */
   description?: string;
   /**

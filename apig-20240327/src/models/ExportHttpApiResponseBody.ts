@@ -35,7 +35,7 @@ export class ExportHttpApiResponseBodyData extends $dara.Model {
 export class ExportHttpApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The response code.
    * 
    * @example
    * Ok
@@ -48,7 +48,7 @@ export class ExportHttpApiResponseBody extends $dara.Model {
   data?: ExportHttpApiResponseBodyData;
   /**
    * @remarks
-   * The response message returned.
+   * The response message.
    * 
    * @example
    * success

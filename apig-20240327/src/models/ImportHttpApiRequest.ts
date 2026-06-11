@@ -7,15 +7,15 @@ import { HttpApiVersionConfig } from "./HttpApiVersionConfig";
 export class ImportHttpApiRequestSpecOssConfig extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket name.
+   * The name of the OSS bucket that contains the API definition file.
    * 
    * @example
-   * api-1
+   * gms-service-prod
    */
   bucketName?: string;
   /**
    * @remarks
-   * The full file path in OSS.
+   * The object key (file path) of the API definition file within the bucket.
    * 
    * @example
    * /test/swagger.json
@@ -23,10 +23,10 @@ export class ImportHttpApiRequestSpecOssConfig extends $dara.Model {
   objectKey?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region where the OSS bucket is located.
    * 
    * @example
-   * cn-hangzhou
+   * cn-shanghai
    */
   regionId?: string;
   static names(): { [key: string]: string } {
@@ -57,20 +57,20 @@ export class ImportHttpApiRequestSpecOssConfig extends $dara.Model {
 export class ImportHttpApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The API deployment configuration.
+   * The API deployment configurations.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The imported API description (255-byte limit). If not specified, a description is extracted from the API definition file. A maximum of 255 bytes is supported.
+   * The description of the API to import. If omitted, the description is taken from the API definition. The maximum length is 255 bytes.
    * 
    * @example
-   * API for testing
+   * 测试专用API
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a precheck. If set to true, a check is performed without actual import.
+   * Indicates whether to perform a dry run. If `true`, the system validates the request but does not import the API.
    * 
    * @example
    * false
@@ -78,7 +78,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Gateway ID.
+   * The gateway ID.
    * 
    * @example
    * gw-xxx
@@ -94,7 +94,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   mcpRouteId?: string;
   /**
    * @remarks
-   * The imported API name. If not specified, a name is extracted from the API definition file. If the API name and versioning configuration already exist, this import will update the existing API definition based on the strategy field.
+   * The name of the API to import. If omitted, the name is taken from the API definition file. If an API with the same name and versioning configuration already exists, the import acts as an update based on the specified `strategy`.
    * 
    * @example
    * import-test
@@ -105,12 +105,12 @@ export class ImportHttpApiRequest extends $dara.Model {
    * The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
-   * rg-acfm3q4zjh7fkki
+   * rg-aek23nsa353vmra
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * The Base64-encoded API definition (supports OAS 2.0/OAS 3.0 in YAML/JSON). This parameter has higher priority than the specFileUrl parameter. However, if the file size exceeds 10 MB, use the specFileUrl parameter to pass the definition.
+   * The Base64-encoded API definition. It supports OpenAPI Specification (OAS) 2.0 and 3.0 and can be in either YAML or JSON format. This parameter takes precedence over `specFileUrl`. If the file size is larger than 10 MB, use the `specFileUrl` parameter.
    * 
    * @example
    * b3BlbmFwaTogMy4wLjAKaW5mbzoKICAgIHRpdGxlOiBkZW1vCiAgICBkZXNjcmlwdGlvbjogdGhpc2lzZGVtbwogICAgdmVyc2lvbjogIiIKcGF0aHM6CiAgICAvdXNlci97dXNlcklkfToKICAgICAgICBnZXQ6CiAgICAgICAgICAgIHN1bW1hcnk6IOiOt+WPlueUqOaIt+S/oeaBrwogICAgICAgICAgICBkZXNjcmlwdGlvbjog6I635Y+W55So5oi35L+h5oGvCiAgICAgICAgICAgIG9wZXJhdGlvbklkOiBHZXRVc2VySW5mbwogICAgICAgICAgICByZXNwb25zZXM6CiAgICAgICAgICAgICAgICAiMjAwIjoKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbjog5oiQ5YqfCiAgICAgICAgICAgICAgICAgICAgY29udGVudDoKICAgICAgICAgICAgICAgICAgICAgICAgYXBwbGljYXRpb24vanNvbjtjaGFyc2V0PXV0Zi04OgogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2NoZW1hOiBudWxsCnNlcnZlcnM6CiAgICAtIHVybDogaHR0cDovL2FwaS5leGFtcGxlLmNvbS92MQo=
@@ -118,24 +118,23 @@ export class ImportHttpApiRequest extends $dara.Model {
   specContentBase64?: string;
   /**
    * @remarks
-   * The download URL of the API definition file. Must be either a publicly accessible Object Storage Service (OSS) URL or an OSS intranet endpoint within the same region. Requires download permissions. For OSS URLs that are not publicly readable, refer to [https://www.alibabacloud.com/help/en/oss/user-guide/how-to-obtain-the-url-of-a-single-object-or-the-urls-of-multiple-objects](https://help.aliyun.com/document_detail/39607.html) and use URLs with download permissions. Currently, only OSS URLs are supported.
-   * 
-   * @example
-   * https://my-bucket.oss-cn-hangzhou.aliyuncs.com/my-api/api.yaml
+   * The URL of the API definition file stored in OSS. The URL must be accessible from the public network or be an internal OSS endpoint in the same region. For OSS objects that are not publicly readable, use a presigned URL. For details, see [Download a file by using a presigned URL](https://help.aliyun.com/document_detail/39607.html).
    */
   specFileUrl?: string;
   /**
    * @remarks
-   * The OSS configuration details.
+   * Configuration for fetching the API definition from an OSS bucket.
    */
   specOssConfig?: ImportHttpApiRequestSpecOssConfig;
   /**
    * @remarks
-   * The conflict resolution strategy when the API to be imported has the same name and version as an existing one. Valid values:
+   * The update strategy to apply when an API with the same name and versioning configuration already exists.
    * 
-   * *   SpecOnly: full override.
-   * *   SpecFirst: Merge with priority on the newly imported file. New APIs are created and existing ones are updated. APIs not included in the file remain unchanged.
-   * *   ExistFirst (default): Merge with priority on existing APIs. New APIs are created but existing ones remain unchanged. If this parameter is not specified, the ExistFirst policy takes effect.
+   * - `SpecOnly`: Overwrites the existing API completely with the imported definition.
+   * 
+   * - `SpecFirst`: Updates existing APIs and creates new ones based on the imported definition. Existing APIs not included in the import file are unaffected.
+   * 
+   * - `ExistFirst`: Creates new APIs from the imported definition but does not modify any existing APIs. This is the default strategy.
    * 
    * @example
    * ExistFirst
@@ -143,7 +142,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   strategy?: string;
   /**
    * @remarks
-   * The target REST API ID for direct updates. If specified, the import operation will directly update the designated API instead of creating new APIs or updating existing APIs based on the name and version. Only REST APIs can be specified.
+   * If you specify this parameter, the import updates the specified API instead of creating a new one or searching for an existing API by name and versioning configuration. The target API must be an HTTP API.
    * 
    * @example
    * api-xxxx
@@ -151,7 +150,7 @@ export class ImportHttpApiRequest extends $dara.Model {
   targetHttpApiId?: string;
   /**
    * @remarks
-   * The API versioning configuration. If versioning is enabled, an imported API that matches both the version number and the API name of an existing API will update that API. If versioning is disabled, an imported API that matches the API name of an existing API will update it.
+   * The versioning configuration for the API. If an existing API matches the specified name (and version, if enabled), this import updates that API.
    */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {

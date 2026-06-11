@@ -6,6 +6,9 @@ export class CreateSourceRequestK8sSourceConfigAuthorizeSecurityGroupRules exten
   /**
    * @remarks
    * The rule description.
+   * 
+   * @example
+   * 预发网关访问安全组
    */
   description?: string;
   /**

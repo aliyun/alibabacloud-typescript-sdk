@@ -8,7 +8,7 @@ export class ListSecretsRequest extends $dara.Model {
    * Gateway type for filtering secrets of specific gateway type
    * 
    * @example
-   * API
+   * AI
    */
   gatewayType?: string;
   /**
@@ -16,7 +16,7 @@ export class ListSecretsRequest extends $dara.Model {
    * Secret name for fuzzy matching, supports filtering secrets by name
    * 
    * @example
-   * test-secret
+   * my_secret
    */
   nameLike?: string;
   /**

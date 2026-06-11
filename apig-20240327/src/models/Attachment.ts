@@ -3,24 +3,38 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class Attachment extends $dara.Model {
+  /**
+   * @remarks
+   * The attachment point ID.
+   */
   attachResourceId?: string;
   /**
    * @remarks
-   * The resource IDs.
+   * A list of attached resource IDs.
    */
   attachResourceIds?: string[];
+  /**
+   * @remarks
+   * A list of parent resource IDs.
+   */
   attachResourceParentIds?: string[];
   /**
    * @remarks
-   * The supported mount point type. Valid values:
+   * The supported attachment point types for the policy.
    * 
-   * *   HttpApi: an HTTP API
-   * *   Operation: an operation in an HTTP API
-   * *   GatewayRoute: a gateway route
-   * *   GatewayService: a gateway service
-   * *   GatewayServicePort: a gateway service port
-   * *   Domain: a gateway domain name
-   * *   Gateway: a gateway instance
+   * - `HttpApi`: An HTTP API.
+   * 
+   * - `Operation`: An operation of an HTTP API.
+   * 
+   * - `GatewayRoute`: A gateway route.
+   * 
+   * - `GatewayService`: A gateway service.
+   * 
+   * - `GatewayServicePort`: A gateway service port.
+   * 
+   * - `Domain`: A gateway domain.
+   * 
+   * - `Gateway`: A gateway.
    * 
    * @example
    * HttpApi
@@ -28,7 +42,7 @@ export class Attachment extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The environment to which the mounted resource belongs. If an asterisk (\\*) is returned as the environment ID, the mounted resource is not related to the environment.
+   * The ID of the environment for the attached resource. An asterisk (`*`) indicates that the policy attachment is not environment-specific.
    * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
@@ -36,7 +50,7 @@ export class Attachment extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The instance to which the mounted resource belongs.
+   * The ID of the gateway for the attached resource.
    * 
    * @example
    * gw-cpr4f9dlhtgq5ksfgmb0
@@ -44,7 +58,7 @@ export class Attachment extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The mount ID.
+   * The policy attachment ID.
    * 
    * @example
    * pr-cq7l5s5lhtgi6qasrdc0

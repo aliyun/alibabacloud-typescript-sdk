@@ -3,7 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListExternalServicesResponseBodyDataItemsServices extends $dara.Model {
+  /**
+   * @example
+   * enable-slash-merge
+   */
   name?: string;
+  /**
+   * @example
+   * public
+   */
   namespace?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,7 +37,15 @@ export class ListExternalServicesResponseBodyDataItemsServices extends $dara.Mod
 }
 
 export class ListExternalServicesResponseBodyDataItems extends $dara.Model {
+  /**
+   * @example
+   * PUBLIC
+   */
   namespace?: string;
+  /**
+   * @example
+   * PUBLIC
+   */
   namespaceShowName?: string;
   services?: ListExternalServicesResponseBodyDataItemsServices[];
   static names(): { [key: string]: string } {
@@ -87,12 +103,23 @@ export class ListExternalServicesResponseBodyData extends $dara.Model {
 }
 
 export class ListExternalServicesResponseBody extends $dara.Model {
+  /**
+   * @example
+   * Ok
+   */
   code?: string;
   data?: ListExternalServicesResponseBodyData;
+  /**
+   * @example
+   * Failed to upload data. Please try again
+   */
   message?: string;
   /**
    * @remarks
    * Id of the request
+   * 
+   * @example
+   * D9B03B59-B2D6-51B0-A7E9-AF8466E320CA
    */
   requestId?: string;
   static names(): { [key: string]: string } {

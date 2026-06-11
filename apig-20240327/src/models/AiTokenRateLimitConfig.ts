@@ -6,18 +6,36 @@ import { AiPolicyRedisConfig } from "./AiPolicyRedisConfig";
 
 
 export class AiTokenRateLimitConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Controls whether global rules are enabled. If set to `true`, the rules in `globalRules` are applied. Defaults to `false`.
+   */
   enableGlobalRules?: boolean;
+  /**
+   * @remarks
+   * A list of global rate limit rules. These rules are applied when no specific rule in `rules` is matched.
+   */
   globalRules?: AiTokenRateLimitConfigRule[];
   /**
+   * @remarks
+   * Specifies the status of the plugin, such as `enabled` or `disabled`.
+   * 
    * **if can be null:**
    * true
    */
   pluginStatus?: AiPluginStatus;
   /**
+   * @remarks
+   * Specifies the Redis configuration for distributed rate limiting.
+   * 
    * **if can be null:**
    * true
    */
   redisConfig?: AiPolicyRedisConfig;
+  /**
+   * @remarks
+   * A list of specific rate limit rules.
+   */
   rules?: AiTokenRateLimitConfigRule[];
   static names(): { [key: string]: string } {
     return {

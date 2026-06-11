@@ -160,7 +160,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
    * The environment alias
    * 
    * @example
-   * prod
+   * 商品中心预发环境
    */
   alias?: string;
   /**
@@ -379,7 +379,7 @@ export class HttpRoute extends $dara.Model {
    * The description of the route
    * 
    * @example
-   * Route for user management API
+   * 商品中心预发路由
    */
   description?: string;
   /**

@@ -16,7 +16,7 @@ export class AiServiceConfigBedrockServiceConfig extends $dara.Model {
    * AWS-Region
    * 
    * @example
-   * us-west-2
+   * us-east-1
    */
   awsRegion?: string;
   /**
@@ -66,7 +66,7 @@ export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
    * Service identifier.
    * 
    * @example
-   * svc-d33onfmm1hkn5duhuqjg
+   * svc-cvaeb0um1hkqp79k72v0
    */
   serviceId?: string;
   /**
@@ -74,7 +74,7 @@ export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
    * Name of the service.
    * 
    * @example
-   * service-hello
+   * auto-ai-service
    */
   serviceName?: string;
   /**
@@ -82,7 +82,7 @@ export class AiServiceConfigPaiEASServiceConfig extends $dara.Model {
    * Workspace identifier.
    * 
    * @example
-   * plw-d5g7qsem1hkmih54g210
+   * cb89d4de30042df4459442589664e00d
    */
   workspaceId?: string;
   static names(): { [key: string]: string } {
@@ -123,7 +123,7 @@ export class AiServiceConfigVertexServiceConfig extends $dara.Model {
    * Vertex AI authentication key.
    * 
    * @example
-   * {\\"type\\":\\"service_account\\",\\"project_id\\":\\"xxx\\",\\"private_key\\":\\"-----BEGIN PRIVATE KEY-----\\",\\"client_email\\":\\"xxx@xxx.iam.gserviceaccount.com\\",\\"token_uri\\":\\"https://oauth2.googleapis.com/token\\"}
+   * {\\"type\\":\\"service_account\\",\\"project_id\\":\\"my-project\\",\\"private_key\\":\\"-----BEGIN PRIVATE KEY-----...\\",\\"client_email\\":\\"xxx@xxx.iam.gserviceaccount.com\\",\\"token_uri\\":\\"https://oauth2.googleapis.com/token\\"}
    */
   vertexAuthKey?: string;
   /**
@@ -131,7 +131,7 @@ export class AiServiceConfigVertexServiceConfig extends $dara.Model {
    * Vertex AI auth service name.
    * 
    * @example
-   * custom-vertex-auth
+   * google-oauth2
    */
   vertexAuthServiceName?: string;
   /**
@@ -139,7 +139,7 @@ export class AiServiceConfigVertexServiceConfig extends $dara.Model {
    * Vertex AI project ID.
    * 
    * @example
-   * my-gcp-project-123
+   * my-project
    */
   vertexProjectId?: string;
   /**
@@ -198,7 +198,7 @@ export class AiServiceConfig extends $dara.Model {
    * API key generation mode.
    * 
    * @example
-   * -
+   * Custom
    */
   apiKeyGenerateMode?: string;
   /**
@@ -229,7 +229,7 @@ export class AiServiceConfig extends $dara.Model {
    * Default model name.
    * 
    * @example
-   * qwen-turbo
+   * gpt-4
    */
   defaultModelName?: string;
   /**
@@ -245,7 +245,7 @@ export class AiServiceConfig extends $dara.Model {
    * Enable outlier detection.
    * 
    * @example
-   * false
+   * true
    */
   enableOutlierDetection?: boolean;
   /**
@@ -264,6 +264,26 @@ export class AiServiceConfig extends $dara.Model {
    * 
    * @example
    * qwen
+   * moonshot
+   * baichuan
+   * yi
+   * zhipuai
+   * 360ai
+   * hunyuan
+   * stepfun
+   * spark
+   * openai
+   * claude
+   * anthropic
+   * doubao
+   * minimax
+   * gemini
+   * azure
+   * deepseek
+   * custom
+   * pai-eas
+   * bedrock
+   * vertex
    */
   provider?: string;
   /**

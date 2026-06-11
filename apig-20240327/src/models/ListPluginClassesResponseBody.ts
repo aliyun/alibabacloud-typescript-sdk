@@ -6,11 +6,17 @@ export class ListPluginClassesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
    * The alias of the plugin.
+   * 
+   * @example
+   * OAuth2 认证
    */
   alias?: string;
   /**
    * @remarks
    * The description of the plugin.
+   * 
+   * @example
+   * 基于 OAuth2 实现身份认证和鉴权。
    */
   description?: string;
   /**

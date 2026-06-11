@@ -69,7 +69,7 @@ export class ListHttpApisResponseBody extends $dara.Model {
    * The status code.
    * 
    * @example
-   * 200
+   * Ok
    */
   code?: string;
   /**

@@ -69,7 +69,7 @@ export class ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo extends $dara.M
    * The synchronized MCP server ID.
    * 
    * @example
-   * nacos-mcp-001
+   * 同步的MCP Server ID
    */
   importMcpServerId?: string;
   /**
@@ -151,7 +151,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * The description.
    * 
    * @example
-   * My MCP Server
+   * 这是xxx的xx项目测试环境
    */
   description?: string;
   /**
@@ -198,7 +198,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * The HTTP-to-MCP configurations.
    * 
    * @example
-   * mcp spec content
+   * HTTP转MCP Config base64值
    */
   mcpServerConfig?: string;
   /**
@@ -259,7 +259,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * The type of the MCP server. Valid values: RealMCP and AssemblyMCP.
    * 
    * @example
-   * RealMCP
+   * 可选值：RealMCP、AssemblyMCP
    */
   type?: string;
   static names(): { [key: string]: string } {

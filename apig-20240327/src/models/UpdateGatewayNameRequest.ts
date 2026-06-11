@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateGatewayNameRequest extends $dara.Model {
   /**
+   * @remarks
+   * The gateway name.
+   * 
    * @example
    * dev-itemcenter-router
    */

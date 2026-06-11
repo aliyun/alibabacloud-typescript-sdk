@@ -8,7 +8,7 @@ export class UpdateDomainResponseBodyData extends $dara.Model {
    * The released version ID.
    * 
    * @example
-   * apr-xxx
+   * apr-xxxxx
    */
   deployRevisionId?: string;
   static names(): { [key: string]: string } {

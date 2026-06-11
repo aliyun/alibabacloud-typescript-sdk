@@ -10,7 +10,7 @@ export class UpdateEnvironmentRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * The request ID, which is used to trace the API call link.
+   * 测试环境
    */
   alias?: string;
   /**
@@ -18,7 +18,7 @@ export class UpdateEnvironmentRequest extends $dara.Model {
    * The status code returned.
    * 
    * @example
-   * The response message returned.
+   * 这是xx的xx项目测试环境
    */
   description?: string;
   static names(): { [key: string]: string } {

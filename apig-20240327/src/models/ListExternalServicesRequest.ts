@@ -3,10 +3,30 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListExternalServicesRequest extends $dara.Model {
+  /**
+   * @example
+   * true
+   */
   importableOnly?: boolean;
+  /**
+   * @example
+   * 100
+   */
   limit?: number;
+  /**
+   * @example
+   * imah
+   */
   nameLike?: string;
+  /**
+   * @example
+   * 667435
+   */
   paiWorkspaceId?: string;
+  /**
+   * @example
+   * FC3
+   */
   sourceType?: string;
   static names(): { [key: string]: string } {
     return {

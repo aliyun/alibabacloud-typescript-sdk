@@ -8,7 +8,7 @@ export class AddGatewaySecurityGroupRuleRequest extends $dara.Model {
    * The description of security group rule N.
    * 
    * @example
-   * ProductCenterSG
+   * 商品中心访问安全组
    */
   description?: string;
   /**

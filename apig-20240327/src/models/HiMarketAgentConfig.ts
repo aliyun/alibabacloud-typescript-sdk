@@ -4,7 +4,15 @@ import { HiMarketHttpRoute } from "./HiMarketHttpRoute";
 
 
 export class HiMarketAgentConfigAgentAPIConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The communication protocols supported by the agent.
+   */
   agentProtocols?: string[];
+  /**
+   * @remarks
+   * The routing rules for incoming requests.
+   */
   routes?: HiMarketHttpRoute[];
   static names(): { [key: string]: string } {
     return {
@@ -36,6 +44,10 @@ export class HiMarketAgentConfigAgentAPIConfig extends $dara.Model {
 }
 
 export class HiMarketAgentConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Contains the API configuration for the agent.
+   */
   agentAPIConfig?: HiMarketAgentConfigAgentAPIConfig;
   static names(): { [key: string]: string } {
     return {

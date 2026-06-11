@@ -6,6 +6,9 @@ export class ListPluginClassesRequest extends $dara.Model {
   /**
    * @remarks
    * The alias keyword for a fuzzy search.
+   * 
+   * @example
+   * OAuth2 认证
    */
   aliasLike?: string;
   /**

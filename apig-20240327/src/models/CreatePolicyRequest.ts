@@ -28,7 +28,7 @@ export class CreatePolicyRequest extends $dara.Model {
    * Policy description
    * 
    * @example
-   * timeout policy
+   * 超时策略
    */
   description?: string;
   /**

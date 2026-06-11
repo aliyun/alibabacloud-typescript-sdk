@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AiPluginStatus extends $dara.Model {
+  /**
+   * @remarks
+   * An object containing error logs, where each key is a string identifying an error and the value is a string describing that error.
+   */
   errorLogs?: { [key: string]: any }[];
+  /**
+   * @remarks
+   * The unique identifier of the plugin.
+   */
   pluginId?: string;
+  /**
+   * @remarks
+   * Indicates if the service is healthy. `true` indicates normal operation, and `false` indicates an issue.
+   */
   serviceHealthy?: boolean;
   static names(): { [key: string]: string } {
     return {

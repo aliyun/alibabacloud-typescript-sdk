@@ -14,6 +14,9 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinitionValueOptions exte
   /**
    * @remarks
    * The display value.
+   * 
+   * @example
+   * 保持不变
    */
   label?: string;
   static names(): { [key: string]: string } {
@@ -51,6 +54,9 @@ export class ListGatewayFeaturesResponseBodyDataItemsDefinition extends $dara.Mo
   /**
    * @remarks
    * The parameter description.
+   * 
+   * @example
+   * 作用于请求与响应环节，启用gzip会对请求响应进行压缩，会减少网关流量，增加网关cpu消耗
    */
   description?: string;
   /**

@@ -100,7 +100,7 @@ export class CreateDomainRequest extends $dara.Model {
    * The [resource group ID](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
-   * rg-aekzoiafjtr7zyq
+   * rg-aekzhiv7derfweq
    */
   resourceGroupId?: string;
   /**

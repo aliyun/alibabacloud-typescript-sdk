@@ -10,7 +10,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   backendServiceName?: string;
   /**
    * @remarks
-   * The string that is used to filter routes based on consumer authentication rules. Only authorized APIs are returned.
+   * Filters the results, returning only routes authorized by the specified consumer authorization rule.
    * 
    * @example
    * cas-xxx
@@ -18,17 +18,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   consumerAuthorizationRuleId?: string;
   /**
    * @remarks
-   * The deployment state of the route.
-   * 
-   * Enumerated values:
-   * 
-   * *   Deploying: The route is being deployed.
-   * *   DeployedWithChanges: The route is deployed and modified.
-   * *   Undeploying: The route is being undeployed.
-   * *   NotDeployed: The route is not deployed.
-   * *   Deployed: The route is deployed.
-   * *   UndeployFailed: The route failed to be undeployed.
-   * *   DeployFailed: The route failed to be deployed.
+   * The deployment status of the route.
    * 
    * @example
    * NotDeployed
@@ -36,7 +26,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   deployStatuses?: string;
   /**
    * @remarks
-   * Specifies to filter routes by domain ID.
+   * Filters routes by the specified domain ID.
    * 
    * @example
    * d-xxx
@@ -52,7 +42,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * Whether to filter for deployment scenario
+   * Set to `true` if the query is for a deployment scenario.
    * 
    * @example
    * true
@@ -60,7 +50,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   forDeploy?: boolean;
   /**
    * @remarks
-   * The ID of the Cloud-native API Gateway instance.
+   * The cloud-native API gateway ID.
    * 
    * @example
    * gw-cpv4sqdl****
@@ -68,7 +58,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The route name.
+   * The route name. This parameter requires an exact match.
    * 
    * @example
    * itemcenter-gateway
@@ -76,7 +66,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The route name keyword for a fuzzy search.
+   * Filters the results by route name using a fuzzy search.
    * 
    * @example
    * item
@@ -84,7 +74,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The page number of the page to return. Pages start from page 1. Default value: 1.
+   * The page number, starting from 1. Defaults to 1 if unspecified.
    * 
    * @example
    * 1
@@ -92,7 +82,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The page size. Valid values are 1 to 100. Defaults to 10 if unspecified.
    * 
    * @example
    * 10
@@ -100,7 +90,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The route path keyword for a fuzzy search.
+   * Filters the results by route path using a fuzzy search.
    * 
    * @example
    * /v1
@@ -108,7 +98,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   pathLike?: string;
   /**
    * @remarks
-   * The consumer authorization information in the response.
+   * Set to `true` to include the consumer authorization policy in the response.
    * 
    * @example
    * true
@@ -116,7 +106,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withAuthPolicyInfo?: boolean;
   /**
    * @remarks
-   * The authentication rules of the specified consumer in each route returned.
+   * The consumer ID. If specified, the response includes the consumer\\"s associated authorization rules for each route.
    * 
    * @example
    * cs-xxx
@@ -124,7 +114,7 @@ export class ListHttpApiRoutesRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * The mounting information of the specified plug-in in each route returned.
+   * The plugin ID. If specified, the response includes the attachment information for this plugin for each route.
    * 
    * @example
    * pl-xxx

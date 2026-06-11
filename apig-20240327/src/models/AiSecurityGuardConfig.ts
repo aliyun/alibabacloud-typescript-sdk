@@ -4,10 +4,30 @@ import { AiPluginStatus } from "./AiPluginStatus";
 
 
 export class AiSecurityGuardConfigConsumerRequestCheckService extends $dara.Model {
+  /**
+   * @remarks
+   * The match type for identifying the consumer. For example: `header` or `query`.
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * The modality type for this rule. For example: `text` or `image`.
+   */
   modalityType?: string;
+  /**
+   * @remarks
+   * The identifier of the consumer.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The identifier of the request check service for text content for this consumer.
+   */
   requestCheckService?: string;
+  /**
+   * @remarks
+   * The identifier of the request check service for image content for this consumer.
+   */
   requestImageCheckService?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,10 +59,30 @@ export class AiSecurityGuardConfigConsumerRequestCheckService extends $dara.Mode
 }
 
 export class AiSecurityGuardConfigConsumerResponseCheckService extends $dara.Model {
+  /**
+   * @remarks
+   * The match type for identifying the consumer. For example: `header` or `query`.
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * The modality type for this rule. For example: `text` or `image`.
+   */
   modalityType?: string;
+  /**
+   * @remarks
+   * The identifier of the consumer.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The identifier of the response check service for text content for this consumer.
+   */
   responseCheckService?: string;
+  /**
+   * @remarks
+   * The identifier of the response check service for image content for this consumer.
+   */
   responseImageCheckService?: string;
   static names(): { [key: string]: string } {
     return {
@@ -74,9 +114,25 @@ export class AiSecurityGuardConfigConsumerResponseCheckService extends $dara.Mod
 }
 
 export class AiSecurityGuardConfigConsumerRiskLevel extends $dara.Model {
+  /**
+   * @remarks
+   * The risk level to apply to the specified consumer and risk type. For example: `low`, `medium`, or `high`.
+   */
   level?: string;
+  /**
+   * @remarks
+   * The match type for identifying the consumer. For example: `header` or `query`.
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * The identifier of the consumer.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The type of risk to configure. For example: `profanity` or `spam`.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -106,7 +162,15 @@ export class AiSecurityGuardConfigConsumerRiskLevel extends $dara.Model {
 }
 
 export class AiSecurityGuardConfigRiskConfigConsumerRules extends $dara.Model {
+  /**
+   * @remarks
+   * The location in the request to search for the `pattern`. For example: `header` or `query`.
+   */
   matchType?: string;
+  /**
+   * @remarks
+   * The pattern for matching a consumer. This can be a regular expression.
+   */
   pattern?: string;
   static names(): { [key: string]: string } {
     return {
@@ -132,8 +196,20 @@ export class AiSecurityGuardConfigRiskConfigConsumerRules extends $dara.Model {
 }
 
 export class AiSecurityGuardConfigRiskConfig extends $dara.Model {
+  /**
+   * @remarks
+   * Contains rules that override the default settings for specific consumers.
+   */
   consumerRules?: AiSecurityGuardConfigRiskConfigConsumerRules;
+  /**
+   * @remarks
+   * The default risk level for this risk type. For example: `low`, `medium`, or `high`.
+   */
   level?: string;
+  /**
+   * @remarks
+   * The type of risk to configure. For example: `profanity` or `spam`.
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -164,25 +240,88 @@ export class AiSecurityGuardConfigRiskConfig extends $dara.Model {
 }
 
 export class AiSecurityGuardConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The buffer limit in bytes for streaming content checks. The service buffers content up to this limit before sending it for analysis.
+   */
   bufferLimit?: number;
+  /**
+   * @remarks
+   * Specifies whether to check the content of incoming requests.
+   */
   checkRequest?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to check incoming requests for image content. Requires `checkRequest` to be `true`.
+   */
   checkRequestImage?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to check the content of outgoing responses.
+   */
   checkResponse?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to check outgoing responses for image content. Requires `checkResponse` to be `true`.
+   */
   checkResponseImage?: boolean;
+  /**
+   * @remarks
+   * Specifies consumer-specific configurations for the request check service.
+   */
   consumerRequestCheckService?: AiSecurityGuardConfigConsumerRequestCheckService[];
+  /**
+   * @remarks
+   * Specifies consumer-specific configurations for the response check service.
+   */
   consumerResponseCheckService?: AiSecurityGuardConfigConsumerResponseCheckService[];
+  /**
+   * @remarks
+   * Specifies customized risk thresholds for different consumers.
+   */
   consumerRiskLevel?: AiSecurityGuardConfigConsumerRiskLevel[];
   /**
+   * @remarks
+   * Controls whether the AI Security Guard plugin is enabled or disabled.
+   * 
    * **if can be null:**
    * true
    */
   pluginStatus?: AiPluginStatus;
+  /**
+   * @remarks
+   * The identifier of the request check service for text content.
+   */
   requestCheckService?: string;
+  /**
+   * @remarks
+   * The identifier of the request check service for image content.
+   */
   requestImageCheckService?: string;
+  /**
+   * @remarks
+   * The identifier of the response check service for text content.
+   */
   responseCheckService?: string;
+  /**
+   * @remarks
+   * The identifier of the response check service for image content.
+   */
   responseImageCheckService?: string;
+  /**
+   * @remarks
+   * The risk alert level. The service triggers an alert when a detected risk meets or exceeds this level.
+   */
   riskAlertLevel?: string;
+  /**
+   * @remarks
+   * Specifies general risk configurations.
+   */
   riskConfig?: AiSecurityGuardConfigRiskConfig[];
+  /**
+   * @remarks
+   * The service address of the security check endpoint.
+   */
   serviceAddress?: string;
   static names(): { [key: string]: string } {
     return {

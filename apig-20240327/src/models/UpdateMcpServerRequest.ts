@@ -391,7 +391,7 @@ export class UpdateMcpServerRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * Updated MCP server description
+   * 商品中心服务路由
    */
   description?: string;
   /**

@@ -18,7 +18,7 @@ export class UpdatePolicyRequest extends $dara.Model {
    * Description
    * 
    * @example
-   * this is a timeout policy description
+   * 这是一条网关超时策略
    */
   description?: string;
   /**

@@ -17,7 +17,7 @@ export class HttpApiRequestContractBody extends $dara.Model {
    * The parameter description.
    * 
    * @example
-   * This is a description.
+   * body参数描述
    */
   description?: string;
   /**
@@ -34,17 +34,17 @@ export class HttpApiRequestContractBody extends $dara.Model {
    * 
    * @example
    * {
-   *       "type": "object",
-   *       "required": [
-   *           "result"
-   *       ],
-   *       "properties": {
-   *           "result": {
-   *               "type": "string",
-   *               "description": "Operation result. \\"ok\\" indicates success."
-   *           }
-   *       }
-   *   }
+   *     "type": "object",
+   *     "required": [
+   *         "result"
+   *     ],
+   *     "properties": {
+   *         "result": {
+   *             "type": "string",
+   *             "description": "操作结果，\\"ok\\" 表示成功"
+   *         }
+   *     }
+   * }
    */
   jsonSchema?: string;
   static names(): { [key: string]: string } {

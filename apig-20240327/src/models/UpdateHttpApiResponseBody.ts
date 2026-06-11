@@ -8,7 +8,7 @@ export class UpdateHttpApiResponseBody extends $dara.Model {
    * Response status code.
    * 
    * @example
-   * 200
+   * Ok
    */
   code?: string;
   /**
