@@ -71,4 +71,58 @@ export default class Client extends OpenApi {
     return await this.createSkillFileCheckWithOptions(request, runtime);
   }
 
+  /**
+   * 获取子任务信息
+   * 
+   * @param request - ListSubTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSubTasksResponse
+   */
+  async listSubTasksWithOptions(request: $_model.ListSubTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSubTasksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.rootTaskId)) {
+      query["RootTaskId"] = request.rootTaskId;
+    }
+
+    if (!$dara.isNull(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSubTasks",
+      version: "2026-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSubTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListSubTasksResponse({}));
+  }
+
+  /**
+   * 获取子任务信息
+   * 
+   * @param request - ListSubTasksRequest
+   * @returns ListSubTasksResponse
+   */
+  async listSubTasks(request: $_model.ListSubTasksRequest): Promise<$_model.ListSubTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSubTasksWithOptions(request, runtime);
+  }
+
 }
