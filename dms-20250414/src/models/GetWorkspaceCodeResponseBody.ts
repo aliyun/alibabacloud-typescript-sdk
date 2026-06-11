@@ -29,7 +29,7 @@ export class GetWorkspaceCodeResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The error message returned when the request fails.
    * 
    * @example
    * This record is being collected, please wait for a moment.
@@ -45,7 +45,7 @@ export class GetWorkspaceCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

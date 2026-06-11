@@ -2744,10 +2744,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+   * Reads the content of a code file in the workspace and returns the file content along with mtime (in the header).
    * 
    * @remarks
-   * Retrieves the content of a specified code file from a workspace.
+   * Obtains the resource configuration limit information and the instance purchase status of the workspace.
    * 
    * @param request - GetWorkspaceCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2786,10 +2786,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the content of a code file from a workspace. The response header includes the file\\"s modification time (`mtime`).
+   * Reads the content of a code file in the workspace and returns the file content along with mtime (in the header).
    * 
    * @remarks
-   * Retrieves the content of a specified code file from a workspace.
+   * Obtains the resource configuration limit information and the instance purchase status of the workspace.
    * 
    * @param request - GetWorkspaceCodeRequest
    * @returns GetWorkspaceCodeResponse
@@ -4774,10 +4774,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Saves code in a workspace and creates the file if it does not exist.
+   * Saves workspace code. If the file does not exist, a new file is automatically created.
    * 
    * @remarks
-   * Saves code in a workspace and optionally publishes it to a repository.
+   * 发布工作空间的代码
    * 
    * @param request - SaveWorkspaceCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4834,10 +4834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Saves code in a workspace and creates the file if it does not exist.
+   * Saves workspace code. If the file does not exist, a new file is automatically created.
    * 
    * @remarks
-   * Saves code in a workspace and optionally publishes it to a repository.
+   * 发布工作空间的代码
    * 
    * @param request - SaveWorkspaceCodeRequest
    * @returns SaveWorkspaceCodeResponse
