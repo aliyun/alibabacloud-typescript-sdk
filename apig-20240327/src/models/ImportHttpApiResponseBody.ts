@@ -93,6 +93,32 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureOperations extends $d
   }
 }
 
+export class ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes extends $dara.Model {
+  errorMessage?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'errorMessage',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $dara.Model {
   /**
    * @remarks
@@ -201,6 +227,32 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $d
   }
 }
 
+export class ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes extends $dara.Model {
+  action?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'action',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      name: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   /**
    * @remarks
@@ -222,6 +274,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
    * Operations that failed the dry run.
    */
   failureOperations?: ImportHttpApiResponseBodyDataDryRunInfoFailureOperations[];
+  failureRoutes?: ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes[];
   mcpToolsDefinition?: string;
   /**
    * @remarks
@@ -233,6 +286,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
    * Operations that passed the dry run.
    */
   successOperations?: ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations[];
+  successRoutes?: ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes[];
   /**
    * @remarks
    * Global warning messages. If this list is not empty, some operations or data structures might not be imported.
@@ -244,9 +298,11 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
       existHttpApiInfo: 'existHttpApiInfo',
       failureComponents: 'failureComponents',
       failureOperations: 'failureOperations',
+      failureRoutes: 'failureRoutes',
       mcpToolsDefinition: 'mcpToolsDefinition',
       successComponents: 'successComponents',
       successOperations: 'successOperations',
+      successRoutes: 'successRoutes',
       warningMessages: 'warningMessages',
     };
   }
@@ -257,9 +313,11 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
       existHttpApiInfo: HttpApiApiInfo,
       failureComponents: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoFailureComponents },
       failureOperations: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoFailureOperations },
+      failureRoutes: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes },
       mcpToolsDefinition: 'string',
       successComponents: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents },
       successOperations: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations },
+      successRoutes: { 'type': 'array', 'itemType': ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes },
       warningMessages: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -277,11 +335,17 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
     if(Array.isArray(this.failureOperations)) {
       $dara.Model.validateArray(this.failureOperations);
     }
+    if(Array.isArray(this.failureRoutes)) {
+      $dara.Model.validateArray(this.failureRoutes);
+    }
     if(Array.isArray(this.successComponents)) {
       $dara.Model.validateArray(this.successComponents);
     }
     if(Array.isArray(this.successOperations)) {
       $dara.Model.validateArray(this.successOperations);
+    }
+    if(Array.isArray(this.successRoutes)) {
+      $dara.Model.validateArray(this.successRoutes);
     }
     if(Array.isArray(this.warningMessages)) {
       $dara.Model.validateArray(this.warningMessages);

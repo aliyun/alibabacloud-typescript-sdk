@@ -495,7 +495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a consumer authentication rule.
+   * Create consumer authorization rules.
    * 
    * @param request - CreateConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -528,7 +528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a consumer authentication rule.
+   * Create consumer authorization rules.
    * 
    * @param request - CreateConsumerAuthorizationRulesRequest
    * @returns CreateConsumerAuthorizationRulesResponse
@@ -2306,6 +2306,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询当前账号可见的云原生API网关开服地域
+   * 
+   * @param request - DescribeRegionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegionsWithOptions(request: $_model.DescribeRegionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeRegionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.language)) {
+      query["language"] = request.language;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeRegions",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/regions`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeRegionsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeRegionsResponse({}));
+  }
+
+  /**
+   * 查询当前账号可见的云原生API网关开服地域
+   * 
+   * @param request - DescribeRegionsRequest
+   * @returns DescribeRegionsResponse
+   */
+  async describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Exports the specified HTTP API.
    * 
    * @param request - ExportHttpApiRequest
@@ -3313,6 +3358,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.versionConfig)) {
       body["versionConfig"] = request.versionConfig;
+    }
+
+    if (!$dara.isNull(request.withGatewayExtension)) {
+      body["withGatewayExtension"] = request.withGatewayExtension;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({

@@ -153,6 +153,7 @@ export class ImportHttpApiRequest extends $dara.Model {
    * The versioning configuration for the API. If an existing API matches the specified name (and version, if enabled), this import updates that API.
    */
   versionConfig?: HttpApiVersionConfig;
+  withGatewayExtension?: boolean;
   static names(): { [key: string]: string } {
     return {
       deployConfigs: 'deployConfigs',
@@ -168,6 +169,7 @@ export class ImportHttpApiRequest extends $dara.Model {
       strategy: 'strategy',
       targetHttpApiId: 'targetHttpApiId',
       versionConfig: 'versionConfig',
+      withGatewayExtension: 'withGatewayExtension',
     };
   }
 
@@ -186,6 +188,7 @@ export class ImportHttpApiRequest extends $dara.Model {
       strategy: 'string',
       targetHttpApiId: 'string',
       versionConfig: HttpApiVersionConfig,
+      withGatewayExtension: 'boolean',
     };
   }
 
