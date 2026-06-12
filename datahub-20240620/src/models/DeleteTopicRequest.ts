@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTopicRequest extends $dara.Model {
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteTopicRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
+   * The name of the topic to delete.
+   * 
    * This parameter is required.
    * 
    * @example

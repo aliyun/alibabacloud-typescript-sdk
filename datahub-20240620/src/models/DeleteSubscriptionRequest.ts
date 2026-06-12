@@ -2,11 +2,9 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetRecordsRequest extends $dara.Model {
+export class DeleteSubscriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The project name.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -15,24 +13,14 @@ export class GetRecordsRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The shard ID from which to read data.
+   * This parameter is required.
    * 
    * @example
-   * 7
+   * 1713853462590KA0YP
    */
-  shardId?: string;
+  subscriptionId?: string;
   /**
    * @remarks
-   * The start time for reading data. By default, data is read starting from 5 minutes before the current time.
-   * 
-   * @example
-   * 1769065251123
-   */
-  startTime?: number;
-  /**
-   * @remarks
-   * The topic name.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -42,8 +30,7 @@ export class GetRecordsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       projectName: 'ProjectName',
-      shardId: 'ShardId',
-      startTime: 'StartTime',
+      subscriptionId: 'SubscriptionId',
       topicName: 'TopicName',
     };
   }
@@ -51,8 +38,7 @@ export class GetRecordsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       projectName: 'string',
-      shardId: 'string',
-      startTime: 'number',
+      subscriptionId: 'string',
       topicName: 'string',
     };
   }

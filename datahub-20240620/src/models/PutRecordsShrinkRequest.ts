@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class PutRecordsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,16 +15,23 @@ export class PutRecordsShrinkRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
+   * The data to be written.
+   * 
    * This parameter is required.
    */
   recordsShrink?: string;
   /**
+   * @remarks
+   * The ID of the shard to which data is written. If this parameter is not specified, data is randomly written to a shard.
+   * 
    * @example
    * 7
    */
   shardId?: string;
   /**
    * @remarks
+   * The topic name.
+   * 
    * This parameter is required.
    * 
    * @example

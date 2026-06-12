@@ -30,7 +30,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Project资源
+   * Creates a project.
+   * 
+   * @remarks
+   * Creates a project.
    * 
    * @param request - CreateProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65,7 +68,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Project资源
+   * Creates a project.
+   * 
+   * @remarks
+   * Creates a project.
    * 
    * @param request - CreateProjectRequest
    * @returns CreateProjectResponse
@@ -76,7 +82,74 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Topic资源
+   * 创建Subscription资源
+   * 
+   * @remarks
+   * 创建订阅信息
+   * 
+   * @param request - CreateSubscriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSubscriptionResponse
+   */
+  async createSubscriptionWithOptions(request: $_model.CreateSubscriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSubscriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.application)) {
+      query["Application"] = request.application;
+    }
+
+    if (!$dara.isNull(request.comment)) {
+      query["Comment"] = request.comment;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.subscriptionId)) {
+      query["SubscriptionId"] = request.subscriptionId;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateSubscription",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.CreateSubscriptionResponse({}));
+  }
+
+  /**
+   * 创建Subscription资源
+   * 
+   * @remarks
+   * 创建订阅信息
+   * 
+   * @param request - CreateSubscriptionRequest
+   * @returns CreateSubscriptionResponse
+   */
+  async createSubscription(request: $_model.CreateSubscriptionRequest): Promise<$_model.CreateSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createSubscriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * A topic is the smallest unit for DataHub subscription and publishing. You can use a topic to represent a type or category of streaming data.
+   * 
+   * @remarks
+   * Creates a topic resource.
    * 
    * @param request - CreateTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -139,7 +212,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建Topic资源
+   * A topic is the smallest unit for DataHub subscription and publishing. You can use a topic to represent a type or category of streaming data.
+   * 
+   * @remarks
+   * Creates a topic resource.
    * 
    * @param request - CreateTopicRequest
    * @returns CreateTopicResponse
@@ -150,7 +226,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Project资源
+   * Deletes a project. Before deleting a project, delete all resources under the project, including topics, synchronization tasks, and subscription tasks.
+   * 
+   * @remarks
+   * Deletes a project.
    * 
    * @param request - DeleteProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -181,7 +260,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Project资源
+   * Deletes a project. Before deleting a project, delete all resources under the project, including topics, synchronization tasks, and subscription tasks.
+   * 
+   * @remarks
+   * Deletes a project.
    * 
    * @param request - DeleteProjectRequest
    * @returns DeleteProjectResponse
@@ -192,7 +274,66 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Topic资源
+   * 删除Subscription资源
+   * 
+   * @remarks
+   * 删除订阅任务
+   * 
+   * @param request - DeleteSubscriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSubscriptionResponse
+   */
+  async deleteSubscriptionWithOptions(request: $_model.DeleteSubscriptionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteSubscriptionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.subscriptionId)) {
+      query["SubscriptionId"] = request.subscriptionId;
+    }
+
+    if (!$dara.isNull(request.topicName)) {
+      query["TopicName"] = request.topicName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteSubscription",
+      version: "2024-06-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteSubscriptionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteSubscriptionResponse({}));
+  }
+
+  /**
+   * 删除Subscription资源
+   * 
+   * @remarks
+   * 删除订阅任务
+   * 
+   * @param request - DeleteSubscriptionRequest
+   * @returns DeleteSubscriptionResponse
+   */
+  async deleteSubscription(request: $_model.DeleteSubscriptionRequest): Promise<$_model.DeleteSubscriptionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteSubscriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a topic resource. Before deleting a topic resource, delete all subscriptions and sync tasks under the topic.
+   * 
+   * @remarks
+   * Deletes a topic resource.
    * 
    * @param request - DeleteTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -227,7 +368,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Topic资源
+   * Deletes a topic resource. Before deleting a topic resource, delete all subscriptions and sync tasks under the topic.
+   * 
+   * @remarks
+   * Deletes a topic resource.
    * 
    * @param request - DeleteTopicRequest
    * @returns DeleteTopicResponse
@@ -238,7 +382,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Connector信息
+   * Queries the information about a synchronization task.
+   * 
+   * @remarks
+   * Queries the information about a synchronization task.
    * 
    * @param request - GetConnectorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -277,7 +424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Connector信息
+   * Queries the information about a synchronization task.
+   * 
+   * @remarks
+   * Queries the information about a synchronization task.
    * 
    * @param request - GetConnectorRequest
    * @returns GetConnectorResponse
@@ -288,7 +438,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Group信息
+   * Queries the information about a consumer group.
+   * 
+   * @remarks
+   * Queries the information about a consumer group.
    * 
    * @param request - GetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -323,7 +476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Group信息
+   * Queries the information about a consumer group.
+   * 
+   * @remarks
+   * Queries the information about a consumer group.
    * 
    * @param request - GetGroupRequest
    * @returns GetGroupResponse
@@ -334,7 +490,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Project资源详细信息
+   * Queries project information.
+   * 
+   * @remarks
+   * Queries project information.
    * 
    * @param request - GetProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -365,7 +524,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Project资源详细信息
+   * Queries project information.
+   * 
+   * @remarks
+   * Queries project information.
    * 
    * @param request - GetProjectRequest
    * @returns GetProjectResponse
@@ -376,7 +538,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 读取Topic数据
+   * Reads data from a specified topic. This operation is primarily used for debugging. For high-volume data reading, refer to the SDK documentation.
+   * 
+   * @remarks
+   * This operation is intended for debugging purposes. Do not use this operation to read large amounts of data.
    * 
    * @param request - GetRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -419,7 +584,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 读取Topic数据
+   * Reads data from a specified topic. This operation is primarily used for debugging. For high-volume data reading, refer to the SDK documentation.
+   * 
+   * @remarks
+   * This operation is intended for debugging purposes. Do not use this operation to read large amounts of data.
    * 
    * @param request - GetRecordsRequest
    * @returns GetRecordsResponse
@@ -430,7 +598,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Schema信息
+   * Queries schema information.
+   * 
+   * @remarks
+   * Queries schema information.
    * 
    * @param request - GetSchemaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -469,7 +640,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Schema信息
+   * Queries schema information.
+   * 
+   * @remarks
+   * Queries schema information.
    * 
    * @param request - GetSchemaRequest
    * @returns GetSchemaResponse
@@ -480,7 +654,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Subscription信息
+   * Queries subscription information.
+   * 
+   * @remarks
+   * Queries subscription information.
    * 
    * @param request - GetSubscriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -519,7 +696,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Subscription信息
+   * Queries subscription information.
+   * 
+   * @remarks
+   * Queries subscription information.
    * 
    * @param request - GetSubscriptionRequest
    * @returns GetSubscriptionResponse
@@ -530,7 +710,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Topic信息
+   * Queries topic information.
+   * 
+   * @remarks
+   * Queries topic information.
    * 
    * @param request - GetTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -565,7 +748,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Topic信息
+   * Queries topic information.
+   * 
+   * @remarks
+   * Queries topic information.
    * 
    * @param request - GetTopicRequest
    * @returns GetTopicResponse
@@ -576,7 +762,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Connector列表信息
+   * Retrieves a list of synchronization tasks.
+   * 
+   * @remarks
+   * Queries the list of synchronization tasks.
    * 
    * @param request - ListConnectorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -631,7 +820,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Connector列表信息
+   * Retrieves a list of synchronization tasks.
+   * 
+   * @remarks
+   * Queries the list of synchronization tasks.
    * 
    * @param request - ListConnectorsRequest
    * @returns ListConnectorsResponse
@@ -642,7 +834,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Group列表信息
+   * Retrieves a list of consumer groups.
+   * 
+   * @remarks
+   * Queries the list of consumer groups.
    * 
    * @param request - ListGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -693,7 +888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Group列表信息
+   * Retrieves a list of consumer groups.
+   * 
+   * @remarks
+   * Queries the list of consumer groups.
    * 
    * @param request - ListGroupsRequest
    * @returns ListGroupsResponse
@@ -704,7 +902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Project列表信息
+   * Retrieves a list of projects.
+   * 
+   * @remarks
+   * Queries the list of projects.
    * 
    * @param request - ListProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -751,7 +952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Project列表信息
+   * Retrieves a list of projects.
+   * 
+   * @remarks
+   * Queries the list of projects.
    * 
    * @param request - ListProjectsRequest
    * @returns ListProjectsResponse
@@ -762,7 +966,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Schema列表信息
+   * Lists schemas.
+   * 
+   * @remarks
+   * Queries schema list information.
    * 
    * @param request - ListSchemasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -809,7 +1016,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Schema列表信息
+   * Lists schemas.
+   * 
+   * @remarks
+   * Queries schema list information.
    * 
    * @param request - ListSchemasRequest
    * @returns ListSchemasResponse
@@ -820,7 +1030,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Subscription列表信息
+   * Retrieves a list of subscriptions.
+   * 
+   * @remarks
+   * Queries subscription list information.
    * 
    * @param request - ListSubscriptionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -871,7 +1084,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Subscription列表信息
+   * Retrieves a list of subscriptions.
+   * 
+   * @remarks
+   * Queries subscription list information.
    * 
    * @param request - ListSubscriptionsRequest
    * @returns ListSubscriptionsResponse
@@ -882,7 +1098,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Topic列表信息
+   * Retrieves a list of topics.
+   * 
+   * @remarks
+   * Queries the list of topics.
    * 
    * @param request - ListTopicsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -933,7 +1152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Topic列表信息
+   * Retrieves a list of topics.
+   * 
+   * @remarks
+   * Queries the list of topics.
    * 
    * @param request - ListTopicsRequest
    * @returns ListTopicsResponse
@@ -944,7 +1166,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 写入数据
+   * Writes data to a specified topic. This operation is primarily intended for debugging. For high-volume data writes, refer to the SDK documentation.
+   * 
+   * @remarks
+   * This operation is primarily intended for debugging. Do not use this operation to write large amounts of data.
    * 
    * @param tmpReq - PutRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -993,7 +1218,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 写入数据
+   * Writes data to a specified topic. This operation is primarily intended for debugging. For high-volume data writes, refer to the SDK documentation.
+   * 
+   * @remarks
+   * This operation is primarily intended for debugging. Do not use this operation to write large amounts of data.
    * 
    * @param request - PutRecordsRequest
    * @returns PutRecordsResponse
@@ -1004,7 +1232,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Project资源属性
+   * Updates the description of a project.
+   * 
+   * @remarks
+   * Updates the description of a project.
    * 
    * @param request - UpdateProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1039,7 +1270,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Project资源属性
+   * Updates the description of a project.
+   * 
+   * @remarks
+   * Updates the description of a project.
    * 
    * @param request - UpdateProjectRequest
    * @returns UpdateProjectResponse
@@ -1050,7 +1284,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Topic资源属性
+   * Updates the description of a topic.
+   * 
+   * @remarks
+   * Updates the description of a topic.
    * 
    * @param request - UpdateTopicRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1089,7 +1326,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Topic资源属性
+   * Updates the description of a topic.
+   * 
+   * @remarks
+   * Updates the description of a topic.
    * 
    * @param request - UpdateTopicRequest
    * @returns UpdateTopicResponse

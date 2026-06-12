@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetTopicRequest extends $dara.Model {
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetTopicRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
+   * The topic name.
+   * 
    * This parameter is required.
    * 
    * @example

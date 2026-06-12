@@ -90,26 +90,41 @@ export class ListTopicsResponseBodyList extends $dara.Model {
 export class ListTopicsResponseBody extends $dara.Model {
   list?: ListTopicsResponseBodyList;
   /**
+   * @remarks
+   * The maximum number of records returned in this query.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token for the next query. If NextToken is empty, no more results are available. If NextToken is returned, the value indicates the token for the next query.
+   * 
    * @example
    * 9892074a2a89600ae4b0d5a34fb99a3f
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A20A7093-8FE0-058C-BE0C-3C8057D5F1A1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of query results.
+   * 
    * @example
    * 50
    */

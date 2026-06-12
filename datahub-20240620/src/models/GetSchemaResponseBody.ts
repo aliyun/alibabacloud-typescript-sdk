@@ -4,41 +4,65 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetSchemaResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1724041098000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The creator of the schema.
+   * 
    * @example
    * 1559031978056215
    */
   creator?: string;
   /**
+   * @remarks
+   * The project name.
+   * 
    * @example
    * test_project
    */
   projectName?: string;
   /**
+   * @remarks
+   * The schema data corresponding to the specified VersionId.
+   * 
    * @example
    * [{\\"Type\\":\\"STRING\\",\\"AllowNull\\":true,\\"Name\\":\\"context\\"}]
    */
   recordSchema?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A20A7093-8FE0-058C-BE0C-3C8057D5F1A1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
   success?: boolean;
   /**
+   * @remarks
+   * The topic name.
+   * 
    * @example
    * test_topic
    */
   topicName?: string;
   /**
+   * @remarks
+   * The schema version number.
+   * 
    * @example
    * 0
    */

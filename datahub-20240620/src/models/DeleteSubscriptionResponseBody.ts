@@ -2,19 +2,13 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteTopicResponseBody extends $dara.Model {
+export class DeleteSubscriptionResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * 20250623101207d2a3770b026dd321
+   * 2026031915480122c53d0b00c2d347
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the operation is successful.
-   * 
    * @example
    * True
    */

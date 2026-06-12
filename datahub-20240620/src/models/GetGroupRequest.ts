@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * The consumer group name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetGroupRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example

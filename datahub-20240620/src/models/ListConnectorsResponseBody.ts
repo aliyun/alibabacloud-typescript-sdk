@@ -87,26 +87,41 @@ export class ListConnectorsResponseBodyList extends $dara.Model {
 export class ListConnectorsResponseBody extends $dara.Model {
   list?: ListConnectorsResponseBodyList;
   /**
+   * @remarks
+   * The maximum number of records returned in this query.
+   * 
    * @example
    * 1
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token for the next query. If NextToken is empty, no more results are available. If NextToken has a value, it indicates the token from which the next query starts.
+   * 
    * @example
    * 9892074a2a89600ae4b0d5a34fb99a3f
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A20A7093-8FE0-058C-BE0C-3C8057D5F1A1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
   success?: boolean;
   /**
+   * @remarks
+   * The total number of query results.
+   * 
    * @example
    * 50
    */

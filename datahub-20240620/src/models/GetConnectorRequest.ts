@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetConnectorRequest extends $dara.Model {
   /**
    * @remarks
+   * The synchronization task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetConnectorRequest extends $dara.Model {
   connectorId?: string;
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetConnectorRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
+   * The topic name.
+   * 
    * This parameter is required.
    * 
    * @example

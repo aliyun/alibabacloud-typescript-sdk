@@ -2,26 +2,26 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class DeleteTopicResponseBody extends $dara.Model {
+export class CreateSubscriptionResponseBody extends $dara.Model {
   /**
-   * @remarks
-   * The request ID.
-   * 
    * @example
-   * 20250623101207d2a3770b026dd321
+   * 2025092710234722c53d0b08e811d8
    */
   requestId?: string;
   /**
-   * @remarks
-   * Indicates whether the operation is successful.
-   * 
+   * @example
+   * 1764123368886L0S9H
+   */
+  subscriptionId?: string;
+  /**
    * @example
    * True
    */
-  success?: boolean;
+  success?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      subscriptionId: 'SubscriptionId',
       success: 'Success',
     };
   }
@@ -29,7 +29,8 @@ export class DeleteTopicResponseBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      success: 'boolean',
+      subscriptionId: 'string',
+      success: 'string',
     };
   }
 

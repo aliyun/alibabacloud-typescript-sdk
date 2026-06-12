@@ -2,27 +2,25 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class ListSchemasRequest extends $dara.Model {
+export class CreateSubscriptionRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return in a paginated query.
+   * This parameter is required.
    * 
    * @example
-   * 5
+   * test_application
    */
-  maxResults?: number;
+  application?: string;
   /**
    * @remarks
-   * The pagination token. If NextToken is empty, the query starts from the beginning. Otherwise, the query starts from where the previous query left off based on the token.
+   * This parameter is required.
    * 
    * @example
-   * 9892074a2a89600ae4b0d5a34fb99a3f
+   * test_abc
    */
-  nextToken?: string;
+  comment?: string;
   /**
    * @remarks
-   * The project name.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -30,17 +28,12 @@ export class ListSchemasRequest extends $dara.Model {
    */
   projectName?: string;
   /**
-   * @remarks
-   * The number of records to skip in a paginated query.
-   * 
    * @example
-   * 1
+   * 1764122860063VIIZ2
    */
-  skip?: number;
+  subscriptionId?: string;
   /**
    * @remarks
-   * The topic name.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -49,20 +42,20 @@ export class ListSchemasRequest extends $dara.Model {
   topicName?: string;
   static names(): { [key: string]: string } {
     return {
-      maxResults: 'MaxResults',
-      nextToken: 'NextToken',
+      application: 'Application',
+      comment: 'Comment',
       projectName: 'ProjectName',
-      skip: 'Skip',
+      subscriptionId: 'SubscriptionId',
       topicName: 'TopicName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxResults: 'number',
-      nextToken: 'string',
+      application: 'string',
+      comment: 'string',
       projectName: 'string',
-      skip: 'number',
+      subscriptionId: 'string',
       topicName: 'string',
     };
   }

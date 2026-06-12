@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class PutRecordsRequestRecords extends $dara.Model {
   /**
+   * @remarks
+   * The additional information of the record. You can leave this parameter empty if no additional information is available.
+   * 
    * @example
    * {"key1":"val1","key2":"val2"}
    */
   attributes?: { [key: string]: string };
   /**
    * @remarks
+   * The data content of the record.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +53,8 @@ export class PutRecordsRequestRecords extends $dara.Model {
 export class PutRecordsRequest extends $dara.Model {
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,16 +63,23 @@ export class PutRecordsRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
+   * The data to be written.
+   * 
    * This parameter is required.
    */
   records?: PutRecordsRequestRecords[];
   /**
+   * @remarks
+   * The ID of the shard to which data is written. If this parameter is not specified, data is randomly written to a shard.
+   * 
    * @example
    * 7
    */
   shardId?: string;
   /**
    * @remarks
+   * The topic name.
+   * 
    * This parameter is required.
    * 
    * @example

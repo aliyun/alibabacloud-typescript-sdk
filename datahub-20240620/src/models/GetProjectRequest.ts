@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetProjectRequest extends $dara.Model {
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example

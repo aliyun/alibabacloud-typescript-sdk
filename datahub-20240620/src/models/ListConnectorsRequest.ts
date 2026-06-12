@@ -4,22 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListConnectorsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The filter keyword for the paged query.
+   * 
    * @example
    * dh
    */
   keyword?: string;
   /**
+   * @remarks
+   * The maximum number of records to return in a paged query.
+   * 
    * @example
    * 5
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token. If NextToken is empty, paged query starts from the beginning. Otherwise, paged query starts from the end of the previous query indicated by the token.
+   * 
    * @example
    * 9892074a2a89600ae4b0d5a34fb99a3f
    */
   nextToken?: string;
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,17 +38,25 @@ export class ListConnectorsRequest extends $dara.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * Specifies whether to return only primary key information.
+   * 
    * @example
    * false
    */
   pure?: boolean;
   /**
+   * @remarks
+   * The number of records to skip in a paged query.
+   * 
    * @example
    * 1
    */
   skip?: number;
   /**
    * @remarks
+   * The topic name.
+   * 
    * This parameter is required.
    * 
    * @example

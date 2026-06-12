@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSchemaRequest extends $dara.Model {
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class GetSchemaRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
+   * The topic name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class GetSchemaRequest extends $dara.Model {
   topicName?: string;
   /**
    * @remarks
+   * The schema version number.
+   * 
    * This parameter is required.
    * 
    * @example

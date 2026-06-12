@@ -5,9 +5,20 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class GetRecordsResponseBodyRecords extends $dara.Model {
+  /**
+   * @remarks
+   * The additional information of the record. This value is empty if no additional information exists.
+   */
   attributes?: { [key: string]: string };
+  /**
+   * @remarks
+   * The data content of the record.
+   */
   data?: string[];
   /**
+   * @remarks
+   * The write time of the record.
+   * 
    * @example
    * 1769065251123
    */
@@ -44,13 +55,25 @@ export class GetRecordsResponseBodyRecords extends $dara.Model {
 }
 
 export class GetRecordsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The records that were read.
+   */
   records?: GetRecordsResponseBodyRecords[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A20A7093-8FE0-058C-BE0C-3C8057D5F1A1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
+   * 
    * @example
    * True
    */

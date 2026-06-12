@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProjectRequest extends $dara.Model {
   /**
    * @remarks
+   * The description of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateProjectRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateTopicRequest extends $dara.Model {
   /**
+   * @remarks
+   * The comment.
+   * 
    * @example
    * test
    */
   comment?: string;
   /**
    * @remarks
+   * The project name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class UpdateTopicRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
+   * The topic name.
+   * 
    * This parameter is required.
    * 
    * @example

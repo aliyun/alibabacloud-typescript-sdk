@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PutRecordsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A20A7093-8FE0-058C-BE0C-3C8057D5F1A1
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the shard to which the data was written.
+   * 
    * @example
    * 7
    */
   shardId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
