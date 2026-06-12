@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Region Id.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class GetServiceRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The service instance id.
+   * The service instance ID.
    * 
    * @example
    * si-b58c874912fc4294****
@@ -32,7 +32,7 @@ export class GetServiceRequest extends $dara.Model {
    * The service name.
    * 
    * @example
-   * Wordpress
+   * WordPress Community Edition
    */
   serviceName?: string;
   /**
@@ -45,7 +45,7 @@ export class GetServiceRequest extends $dara.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * Whether to disclose service details.
+   * Specifies whether to return the detailed information of the service.
    */
   showDetails?: string[];
   static names(): { [key: string]: string } {

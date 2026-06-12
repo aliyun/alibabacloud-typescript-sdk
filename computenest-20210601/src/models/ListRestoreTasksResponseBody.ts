@@ -13,7 +13,7 @@ export class ListRestoreTasksResponseBodyRestoreTasks extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the job was created.
    * 
    * @example
    * 2023-09-07T11:37:37Z
@@ -21,7 +21,7 @@ export class ListRestoreTasksResponseBodyRestoreTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time of the service instance.
+   * The time when the restore job ended.
    * 
    * @example
    * 2025-01-27T18:00:00Z
@@ -29,7 +29,7 @@ export class ListRestoreTasksResponseBodyRestoreTasks extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the job was last updated.
    * 
    * @example
    * 2025-05-07T12:16:16Z
@@ -37,7 +37,7 @@ export class ListRestoreTasksResponseBodyRestoreTasks extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The ID of the restore task.
+   * The ID of the restore job.
    * 
    * @example
    * restore-xxxxxx
@@ -53,7 +53,7 @@ export class ListRestoreTasksResponseBodyRestoreTasks extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The time when the update started.
+   * The time when the restore job started.
    * 
    * @example
    * 2025-01-27T16:00:00Z
@@ -63,9 +63,11 @@ export class ListRestoreTasksResponseBodyRestoreTasks extends $dara.Model {
    * @remarks
    * The status of the service instance. Valid values:
    * 
-   * *   Restoring
-   * *   Restored
-   * *   RestoreFailed
+   * - Restoring: The service instance is being restored.
+   * 
+   * - Restored: The service instance was restored.
+   * 
+   * - RestoreFailed: The service instance failed to be restored.
    * 
    * @example
    * Restoring
@@ -73,7 +75,7 @@ export class ListRestoreTasksResponseBodyRestoreTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the service instance deployment information.
+   * The details of the instance status.
    * 
    * @example
    * i-xxxx  failed, error message: error
@@ -119,7 +121,7 @@ export class ListRestoreTasksResponseBodyRestoreTasks extends $dara.Model {
 export class ListRestoreTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of entries returned for the request.
    * 
    * @example
    * 20
@@ -127,7 +129,7 @@ export class ListRestoreTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Indicates the read position returned by the current call. An empty value means all data has been read.
+   * The token that is used to retrieve the next page of results. If this parameter is empty, all results have been returned.
    * 
    * This parameter is required.
    * 
@@ -137,7 +139,7 @@ export class ListRestoreTasksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 464C8CB6-A548-5206-B83C-D32A8E43EC21
@@ -145,12 +147,12 @@ export class ListRestoreTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of restore tasks.
+   * The list of restore jobs.
    */
   restoreTasks?: ListRestoreTasksResponseBodyRestoreTasks[];
   /**
    * @remarks
-   * Total data count under the current request conditions (optional; not returned by default).
+   * The total number of entries that meet the filter criteria.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ContinueDeployServiceInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token that is used to ensure the idempotence of the request. Generate a unique value for this parameter from your client. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,10 +13,11 @@ export class ContinueDeployServiceInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * Specifies whether to perform a dry run. A dry run checks items such as permissions and the instance status. Valid values:
    * 
-   * *   true: performs a dry run for the request, but does not create a service instance.
-   * *   false: performs a dry run for the request, and creates a service instance if the request passes the dry run.
+   * - true: performs a dry run to check the request. The service instance is not deployed.
+   * 
+   * - false: sends a regular request. If the request passes the check, the service instance is deployed.
    * 
    * @example
    * false
@@ -24,12 +25,12 @@ export class ContinueDeployServiceInstanceRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The options that the system adopts when the system continues to create the service instance.
+   * The recreation options.
    */
   option?: string[];
   /**
    * @remarks
-   * The parameters configured for the service instance.
+   * The configuration parameters of the service instance.
    * 
    * @example
    * {"NodeCount": 3, "SystemDiskSize": 40, "InstancePassword": "******"}

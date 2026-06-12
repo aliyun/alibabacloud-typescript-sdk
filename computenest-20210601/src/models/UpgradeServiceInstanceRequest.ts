@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeServiceInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client-generated token that ensures the idempotence of the request. The token must be unique for each request. It can contain only ASCII characters and must be no more than 64 characters long.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -13,10 +13,11 @@ export class UpgradeServiceInstanceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * Specifies whether to perform a dry run. A dry run checks for issues such as permissions and the instance status. Valid values:
    * 
-   * *   **true**: performs a dry run for the request, but does not upgrade service instance.
-   * *   **false**: performs a dry run for the request, and upgrade service instance if the request passes the dry run.
+   * - true: Sends the request without upgrading the service instance.
+   * 
+   * - false: Sends the request and upgrades the service instance after the check is passed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class UpgradeServiceInstanceRequest extends $dara.Model {
   dryRun?: string;
   /**
    * @remarks
-   * The parameters required for the upgrade. This parameter is required if the destination version of the service has new parameters.
+   * The parameters required for the upgrade. This is used when new parameters are added to the new service version.
    * 
    * @example
    * { \\"RegionId\\": \\"cn-hangzhou\\", \\"InstanceType\\": \\"ecs.g5.large\\"}
@@ -40,7 +41,7 @@ export class UpgradeServiceInstanceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the service instance.
+   * The service instance ID.
    * 
    * @example
    * si-d6ab3a63ccbb4bxxxxxx
@@ -48,7 +49,7 @@ export class UpgradeServiceInstanceRequest extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The destination version.
+   * The service version to upgrade to.
    * 
    * @example
    * 2

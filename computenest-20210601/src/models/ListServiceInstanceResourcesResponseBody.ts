@@ -23,8 +23,9 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   Subscription
-   * *   PayAsYouGo
+   * - Subscription: subscription.
+   * 
+   * - PayAsYouGo: pay-as-you-go.
    * 
    * @example
    * Subscription
@@ -32,7 +33,7 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   payType?: string;
   /**
    * @remarks
-   * The code of the cloud service.
+   * The product code.
    * 
    * @example
    * rds
@@ -40,7 +41,7 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   productCode?: string;
   /**
    * @remarks
-   * The type of the cloud service.
+   * The product type.
    * 
    * @example
    * RDS
@@ -48,11 +49,13 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   productType?: string;
   /**
    * @remarks
-   * The renewal state. Valid values:
+   * The renewal status. Valid values:
    * 
-   * *   AutoRenewal
-   * *   ManualRenewal
-   * *   NotRenewal
+   * - AutoRenewal: auto-renewal.
+   * 
+   * - ManualRenewal: manual renewal.
+   * 
+   * - NotRenewal: no renewal.
    * 
    * @example
    * AutoRenewal
@@ -70,8 +73,9 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
    * @remarks
    * The unit of the renewal period. Valid values:
    * 
-   * *   Month
-   * *   Year
+   * - Month: month.
+   * 
+   * - Year: year.
    * 
    * @example
    * Month
@@ -87,13 +91,15 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
   resourceARN?: string;
   /**
    * @remarks
-   * The state of the resource. Valid values:
+   * The status of the resource. Valid values:
    * 
-   * *   running
-   * *   waiting
-   * *   terminated
+   * - running: The resource is running.
    * 
-   * >  This parameter is returned only for containers.
+   * - waiting: The resource is pending.
+   * 
+   * - terminated: The resource is terminated.
+   * 
+   * > This parameter is returned only for container resources.
    * 
    * @example
    * running
@@ -141,7 +147,7 @@ export class ListServiceInstanceResourcesResponseBodyResources extends $dara.Mod
 export class ListServiceInstanceResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -149,7 +155,7 @@ export class ListServiceInstanceResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token to retrieve the next page of results.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
@@ -165,7 +171,7 @@ export class ListServiceInstanceResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resources.
    */
   resources?: ListServiceInstanceResourcesResponseBodyResources[];
   static names(): { [key: string]: string } {

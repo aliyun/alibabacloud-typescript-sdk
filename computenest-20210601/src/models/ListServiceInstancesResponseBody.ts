@@ -31,19 +31,26 @@ export class ListServiceInstancesResponseBodyServiceInstancesGrantedPermission e
 export class ListServiceInstancesResponseBodyServiceInstancesServiceCommodity extends $dara.Model {
   /**
    * @remarks
-   * The configuration metadata related to SaaS Boost.
+   * The metadata of the Software as a Service (SaaS) Boost configuration.
    * 
    * @example
-   * { // Specifies whether to associate the service with the SaaS Boost commodity. Default value: false. "Enabled":true/false // The public endpoint of the SaaS Boost instance. "PublicAccessUrl":"https://example.com" }
+   * {
+   *      //Enable/disable SaaS Boost binding
+   *     "Enabled":true/false,default is false
+   *     //Public access URL
+   *     "PublicAccessUrl":"https://example.com"
+   * }
    */
   saasBoostMetadata?: string;
   /**
    * @remarks
-   * The platform type. Valid values:
+   * The type. Possible values:
    * 
-   * *   marketplace: Alibaba Cloud Marketplace.
-   * *   Css: Lingxiao.
-   * *   SaasBoost: SaaS Boost.
+   * - Marketplace: Alibaba Cloud Marketplace.
+   * 
+   * - Css: Lingxiao.
+   * 
+   * - SaasBoost: SaaS Boost.
    * 
    * @example
    * Marketplace
@@ -91,18 +98,18 @@ export class ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos
   locale?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
-   * wordpress
+   * Database B
    */
   name?: string;
   /**
    * @remarks
-   * The description of the service.
+   * The service overview.
    * 
    * @example
-   * WordPress is a free and open-source website content management system (CMS).
+   * B is an open-source distributed relational database independently designed and developed by Company A.
    */
   shortDescription?: string;
   static names(): { [key: string]: string } {
@@ -135,18 +142,22 @@ export class ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos
 export class ListServiceInstancesResponseBodyServiceInstancesService extends $dara.Model {
   /**
    * @remarks
-   * The commodity details.
+   * The commodity specifications.
    */
   commodity?: ListServiceInstancesResponseBodyServiceInstancesServiceCommodity;
   /**
    * @remarks
-   * The deployment type of the service. Valid values:
+   * The deployment type. Possible values:
    * 
-   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-   * *   terraform: The service is deployed by using Terraform.
-   * *   ack: The service is deployed by using Alibaba Cloud Container Service for Kubernetes (ACK).
-   * *   spi: The service is deployed by calling the Service Provider Interface (SPI).
-   * *   operation: The service is deployed by using a hosted O\\&M service.
+   * - ros: The service is deployed using ROS.
+   * 
+   * - terraform: The service is deployed using Terraform.
+   * 
+   * - ack: The service is deployed using ACK.
+   * 
+   * - spi: The service is deployed by calling SPI.
+   * 
+   * - operation: The service is deployed using Alibaba Cloud Managed Services.
    * 
    * @example
    * ros
@@ -154,7 +165,7 @@ export class ListServiceInstancesResponseBodyServiceInstancesService extends $da
   deployType?: string;
   /**
    * @remarks
-   * The time when the service was published.
+   * The publishing time.
    * 
    * @example
    * 2021-05-21T00:00:00Z
@@ -170,16 +181,18 @@ export class ListServiceInstancesResponseBodyServiceInstancesService extends $da
   serviceId?: string;
   /**
    * @remarks
-   * The information about the service.
+   * The service information.
    */
   serviceInfos?: ListServiceInstancesResponseBodyServiceInstancesServiceServiceInfos[];
   /**
    * @remarks
-   * The type of the service. Valid values:
+   * The service type. Possible values:
    * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
+   * - private: The service is deployed in the user\\"s account.
+   * 
+   * - managed: The service is hosted in the service provider\\"s account.
+   * 
+   * - operation: The service is an Alibaba Cloud Managed Service.
    * 
    * @example
    * private
@@ -187,7 +200,7 @@ export class ListServiceInstancesResponseBodyServiceInstancesService extends $da
   serviceType?: string;
   /**
    * @remarks
-   * The service state.
+   * The service status.
    * 
    * @example
    * Online
@@ -198,12 +211,12 @@ export class ListServiceInstancesResponseBodyServiceInstancesService extends $da
    * The name of the service provider.
    * 
    * @example
-   * Alibaba Cloud
+   * Company A Ltd.
    */
   supplierName?: string;
   /**
    * @remarks
-   * The URL of the service provider.
+   * The service provider\\"s URL.
    * 
    * @example
    * http://example.com
@@ -222,7 +235,7 @@ export class ListServiceInstancesResponseBodyServiceInstancesService extends $da
    * The custom version name defined by the service provider.
    * 
    * @example
-   * 1.1.0
+   * Version A
    */
   versionName?: string;
   static names(): { [key: string]: string } {
@@ -315,12 +328,15 @@ export class ListServiceInstancesResponseBodyServiceInstancesTags extends $dara.
 export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Model {
   /**
    * @remarks
-   * The business state of the service instance. Valid values:
+   * The business status of the service instance. Possible values:
    * 
-   * *   Normal
-   * *   Renewing
-   * *   RenewFailed
-   * *   Expired
+   * - Normal: The service instance is running as expected.
+   * 
+   * - Renewing: The service instance is being renewed.
+   * 
+   * - RenewFoiled: The renewal of the service instance failed.
+   * 
+   * - Expired: The service instance has expired.
    * 
    * @example
    * Normal
@@ -328,7 +344,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   bizStatus?: string;
   /**
    * @remarks
-   * The time when the service instance was created.
+   * The creation time.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -336,10 +352,11 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether the service instance supports the hosted O\\&M feature. Valid values:
+   * Indicates whether the service instance has the Alibaba Cloud Managed Services feature. Possible values:
    * 
-   * *   true
-   * *   false
+   * - true: The service instance has the Alibaba Cloud Managed Services feature.
+   * 
+   * - false: The service instance does not have the Alibaba Cloud Managed Services feature.
    * 
    * @example
    * true
@@ -347,7 +364,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   enableInstanceOps?: boolean;
   /**
    * @remarks
-   * The time when the service instance expires.
+   * The expiration time of the service instance.
    * 
    * @example
    * 2022-01-01T12:00:00
@@ -372,7 +389,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The ID of the managed service instance.
+   * The ID of the service instance that is managed by Alibaba Cloud.
    * 
    * @example
    * si-d6ab3a63ccbb4b17****
@@ -380,7 +397,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   operatedServiceInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range during which hosted O\\&M is implemented.
+   * The end time of the Alibaba Cloud Managed Services.
    * 
    * @example
    * 2022-01-28T06:48:56Z
@@ -388,7 +405,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   operationEndTime?: string;
   /**
    * @remarks
-   * The beginning of the time range during which hosted O\\&M is implemented.
+   * The start time of the Alibaba Cloud Managed Services.
    * 
    * @example
    * 2021-12-29T06:48:56Z
@@ -404,7 +421,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   orderId?: string;
   /**
    * @remarks
-   * The information returned after the service instance is created.
+   * The output information of the service instance.
    * 
    * @example
    * {"managementUrl": "http://xx.xx"}
@@ -412,7 +429,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   outputs?: string;
   /**
    * @remarks
-   * The parameters of the service instance.
+   * The parameter information of the service instance.
    * 
    * @example
    * {"param":"value"}
@@ -422,10 +439,13 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   Permanent: Once you purchase the service, you can use it permanently.
-   * *   Subscription: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a subscription basis.
-   * *   PayAsYouGo: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a pay-as-you-go basis.
-   * *   CustomFixTime: You are charged for the service based on a custom duration fixed by the service provider.
+   * - Permanent: The service is purchased permanently.
+   * 
+   * - Subscription: The service is a subscription instance from Alibaba Cloud Marketplace.
+   * 
+   * - PayAsYouGo: The service is a pay-as-you-go instance from Alibaba Cloud Marketplace.
+   * 
+   * - CustomFixTime: The service has a custom fixed duration.
    * 
    * @example
    * Subscription
@@ -434,7 +454,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   policyNames?: string;
   /**
    * @remarks
-   * The deployment progress of the service instance, in percentage.
+   * The deployment progress of the service instance. Unit: %.
    * 
    * @example
    * 90
@@ -450,7 +470,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resources.
    * 
    * @example
    * [{"StackId": "stack-xxx"}]
@@ -458,7 +478,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   resources?: string;
   /**
    * @remarks
-   * The services.
+   * The service.
    */
   service?: ListServiceInstancesResponseBodyServiceInstancesService;
   /**
@@ -471,12 +491,15 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The type of the service. Valid values:
+   * The service type. Possible values:
    * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
-   * *   poc: The service is a trial service.
+   * - private: The service is deployed in the user\\"s account.
+   * 
+   * - managed: The service is hosted in the service provider\\"s account.
+   * 
+   * - operation: The service is an Alibaba Cloud Managed Service.
+   * 
+   * - poc: The service instance is a trial instance.
    * 
    * @example
    * private
@@ -484,7 +507,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   serviceType?: string;
   /**
    * @remarks
-   * The source from which the service instance is created.
+   * The source from which the service instance was created.
    * 
    * @example
    * Supplier
@@ -492,16 +515,23 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   source?: string;
   /**
    * @remarks
-   * The state of the service instance. Valid values:
+   * The status of the service instance. Possible values:
    * 
-   * *   Created
-   * *   Deploying
-   * *   DeployedFailed
-   * *   Deployed
-   * *   Upgrading
-   * *   Deleting
-   * *   Deleted
-   * *   DeletedFailed
+   * - Created: The service instance is created.
+   * 
+   * - Deploying: The service instance is being deployed.
+   * 
+   * - DeployedFailed: The service instance failed to be deployed.
+   * 
+   * - Deployed: The service instance is deployed.
+   * 
+   * - Upgrading: The service instance is being upgraded.
+   * 
+   * - Deleting: The service instance is being deleted.
+   * 
+   * - Deleted: The service instance is deleted.
+   * 
+   * - DeletedFailed: The service instance failed to be deleted.
    * 
    * @example
    * Deployed
@@ -509,7 +539,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The description of the deployment of the service instance.
+   * The description of the deployment information of the service instance.
    * 
    * @example
    * deploy successfully
@@ -517,10 +547,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
   statusDetail?: string;
   /**
    * @remarks
-   * Is it supported to convert from trial to formal
-   * 
-   * @example
-   * true
+   * Indicates whether the trial instance can be converted to a regular instance.
    */
   supportTrialToPrivate?: boolean;
   /**
@@ -533,12 +560,12 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
    * The template name.
    * 
    * @example
-   * Single ECS
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * The time when the service instance was updated.
+   * The update time.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -631,7 +658,7 @@ export class ListServiceInstancesResponseBodyServiceInstances extends $dara.Mode
 export class ListServiceInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -639,7 +666,7 @@ export class ListServiceInstancesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token for the next query.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
@@ -655,12 +682,12 @@ export class ListServiceInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about service instances.
+   * The information about the service instances.
    */
   serviceInstances?: ListServiceInstancesResponseBodyServiceInstances[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of results.
    * 
    * @example
    * 100

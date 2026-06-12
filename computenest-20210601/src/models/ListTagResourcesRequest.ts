@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The token to retrieve the next page of results. Set this parameter to the \\`NextToken\\` value from the previous API call.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI4=
@@ -70,9 +70,11 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * *   service: service
-   * *   serviceinstance: service instance
-   * *   artifact: deployment package
+   * - service: a service.
+   * 
+   * - serviceinstance: a service instance.
+   * 
+   * - artifact: an artifact.
    * 
    * This parameter is required.
    * 
@@ -82,7 +84,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags.
+   * A list of tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

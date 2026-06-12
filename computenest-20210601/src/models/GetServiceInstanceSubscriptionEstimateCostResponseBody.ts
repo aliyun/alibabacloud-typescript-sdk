@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesDetailInfos extends $dara.Model {
   /**
    * @remarks
-   * Discount amount.
+   * The discount.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   discountAmount?: number;
   /**
    * @remarks
-   * Original price.
+   * The original price.
    * 
    * @example
    * 900
@@ -21,7 +21,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   originalAmount?: number;
   /**
    * @remarks
-   * Pricing module identifier.
+   * The identifier of the pricing module.
    * 
    * @example
    * instance
@@ -29,7 +29,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   resource?: string;
   /**
    * @remarks
-   * Discounted price.
+   * The discounted price.
    * 
    * @example
    * 500
@@ -65,7 +65,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
 export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesRules extends $dara.Model {
   /**
    * @remarks
-   * Promotion description.
+   * The description of the discount.
    * 
    * @example
    * test
@@ -73,7 +73,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   description?: string;
   /**
    * @remarks
-   * Promotion name.
+   * The name of the discount.
    * 
    * @example
    * test
@@ -81,7 +81,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   name?: string;
   /**
    * @remarks
-   * Promotion ID.
+   * The discount ID.
    * 
    * @example
    * 1021199213
@@ -115,9 +115,12 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
 export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrices extends $dara.Model {
   /**
    * @remarks
-   * Currency. Valid values:
+   * The currency. Valid values:
+   * 
    * - CNY: Chinese Yuan.
+   * 
    * - USD: US Dollar.
+   * 
    * - JPY: Japanese Yen.
    * 
    * @example
@@ -131,7 +134,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   detailInfos?: GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesDetailInfos[];
   /**
    * @remarks
-   * Discount.
+   * The discount.
    * 
    * @example
    * 100
@@ -139,7 +142,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   discountAmount?: number;
   /**
    * @remarks
-   * Original price.
+   * The original price.
    * 
    * @example
    * 900
@@ -147,7 +150,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   originalAmount?: number;
   /**
    * @remarks
-   * Renewal duration. The unit is specified by PeriodUnit.
+   * The renewal duration. The unit is specified by PeriodUnit.
    * 
    * @example
    * 1
@@ -155,7 +158,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   period?: number;
   /**
    * @remarks
-   * The time unit for the renewal duration, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
+   * The unit of the renewal duration. This is the unit for the Period parameter. Valid values: Month and Year. Default value: Month.
    * 
    * @example
    * Month
@@ -163,7 +166,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   periodUnit?: string;
   /**
    * @remarks
-   * Resource ARN (Aliyun Resource Name).
+   * The ARN of the resource.
    * 
    * @example
    * acs:ecs:cn-hongkong:1488317743351199:instance/i-j6c6f3lbky38o8rpeqw2
@@ -171,12 +174,12 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
   resourceArn?: string;
   /**
    * @remarks
-   * Promotion details.
+   * The discount details.
    */
   rules?: GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePricesRules[];
   /**
    * @remarks
-   * Discounted price.
+   * The discounted price.
    * 
    * @example
    * 500
@@ -228,7 +231,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrice
 export class GetServiceInstanceSubscriptionEstimateCostResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 464C8CB6-A548-5206-B83C-D32A8E43EC21
@@ -236,7 +239,7 @@ export class GetServiceInstanceSubscriptionEstimateCostResponseBody extends $dar
   requestId?: string;
   /**
    * @remarks
-   * List of resource price information.
+   * The list of resource price information.
    */
   resourcePrices?: GetServiceInstanceSubscriptionEstimateCostResponseBodyResourcePrices[];
   static names(): { [key: string]: string } {

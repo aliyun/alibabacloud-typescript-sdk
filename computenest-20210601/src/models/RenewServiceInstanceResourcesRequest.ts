@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewServiceInstanceResourcesRequestResourcePeriod extends $dara.Model {
   /**
    * @remarks
-   * The renewal duration for the resource. The unit is specified by PeriodUnit.
+   * The renewal duration for the resource. The unit is specified by \\`PeriodUnit\\`.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class RenewServiceInstanceResourcesRequestResourcePeriod extends $dara.Mo
   period?: number;
   /**
    * @remarks
-   * The time unit for the renewal duration of the resource, which is the unit for the Period parameter. Valid values: Month, Year. Default value: Month.
+   * The time unit of the renewal duration for the resource. This parameter specifies the unit for \\`Period\\`. Valid values: \\`Month\\` and \\`Year\\`. Default value: \\`Month\\`.
    * 
    * @example
    * Month
@@ -21,7 +21,7 @@ export class RenewServiceInstanceResourcesRequestResourcePeriod extends $dara.Mo
   periodUnit?: string;
   /**
    * @remarks
-   * Resource ARN (Aliyun Resource Name).
+   * The Aliyun Resource Name (ARN) of the resource.
    * 
    * @example
    * acs:ecs:cn-hongkong:1488317743351199:instance/i-j6c6f3lbky38o8rpeqw2
@@ -55,7 +55,7 @@ export class RenewServiceInstanceResourcesRequestResourcePeriod extends $dara.Mo
 export class RenewServiceInstanceResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token to ensure that the request is idempotent. Generate a unique value for this parameter from your client for each request. The token can contain only ASCII characters and must not exceed 64 characters in length.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -63,7 +63,7 @@ export class RenewServiceInstanceResourcesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The renewal duration for all prepaid resources in the service instance. The unit is specified by PeriodUnit.
+   * The renewal duration for all subscription resources in the service instance. The unit is specified by \\`PeriodUnit\\`.
    * 
    * @example
    * 1
@@ -71,7 +71,7 @@ export class RenewServiceInstanceResourcesRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The time unit for the renewal duration of all prepaid resources in the service instance, which is the unit for the Period parameter. Valid values: Month, Year. Default value: Month.
+   * The time unit of the renewal duration for all subscription resources in the service instance. This parameter specifies the unit for \\`Period\\`. Valid values: \\`Month\\` and \\`Year\\`. Default value: \\`Month\\`.
    * 
    * @example
    * Month
@@ -79,7 +79,7 @@ export class RenewServiceInstanceResourcesRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -87,12 +87,12 @@ export class RenewServiceInstanceResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * List of resource renewals.
+   * The list of resource renewals.
    */
   resourcePeriod?: RenewServiceInstanceResourcesRequestResourcePeriod[];
   /**
    * @remarks
-   * Service instance ID.
+   * The service instance ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupRequest extends $dara.Model {
   /**
    * @remarks
-   * Backup description
+   * The backup description.
    * 
    * @example
    * No description
@@ -13,7 +13,7 @@ export class CreateBackupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the service instance to be transferred to official version.
+   * The ID of the service instance to back up.
    * 
    * This parameter is required.
    * 

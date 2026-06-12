@@ -4,32 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSkillRequest extends $dara.Model {
   /**
+   * @remarks
+   * A client-generated token that ensures request idempotence. It must be unique for each request. The **ClientToken** can contain only ASCII characters and must be no more than 64 characters long.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Required when SourceType is set to UPLOAD. The OSS URL of the Skill package to upload.
+   * 
    * @example
    * https://embedding-pic.oss-cn-beijing-internal.aliyuncs.com/30516570
    */
   ossUrl?: string;
   /**
+   * @remarks
+   * The description of the Skill.
+   * 
    * @example
    * 11111
    */
   skillDescription?: string;
   /**
+   * @remarks
+   * The Skill labels.
+   * 
    * @example
    * ["category:frontend-development"]
    */
   skillLabels?: string[];
   /**
+   * @remarks
+   * The name of the Skill.
+   * 
    * @example
    * 11111
    */
   skillName?: string;
   /**
    * @remarks
+   * The ID of the SkillSpace containing the Skill.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -37,12 +54,17 @@ export class CreateSkillRequest extends $dara.Model {
    */
   skillSpaceId?: string;
   /**
+   * @remarks
+   * Required when SourceType is set to COPY. The ID of the public Skill.
+   * 
    * @example
    * s-11111
    */
   sourceSkillId?: string;
   /**
    * @remarks
+   * The creation method for the Skill.
+   * 
    * This parameter is required.
    * 
    * @example

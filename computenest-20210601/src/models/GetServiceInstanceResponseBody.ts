@@ -31,7 +31,7 @@ export class GetServiceInstanceResponseBodyGrantedPermission extends $dara.Model
 export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth limit for the private connection established based on the private network interconnection mode of Compute Nest.
+   * The bandwidth limit for the connection that is established in Compute Nest intranet-connected mode.
    * 
    * @example
    * 1536Mbps
@@ -47,18 +47,22 @@ export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsCon
   domainName?: string;
   /**
    * @remarks
-   * The IP addresses of the endpoints of the private connections.
+   * The IP address of the PrivateLink endpoint.
    */
   endpointIps?: string[];
   /**
    * @remarks
-   * The state of the ingress endpoint. Valid values:
+   * The status of the Ingress endpoint. Valid values:
    * 
-   * *   Ready: The ingress endpoint is connected.
-   * *   Pending: The ingress endpoint is being connected.
-   * *   Failed: The ingress endpoint fails to be connected.
-   * *   Deleted: The ingress endpoint is deleted.
-   * *   Deleting: The ingress endpoint is being deleted.
+   * - Ready: The Ingress endpoint is connected.
+   * 
+   * - Pending: The Ingress endpoint is being connected.
+   * 
+   * - Failed: The Ingress endpoint failed to be connected.
+   * 
+   * - Deleted: The Ingress endpoint is deleted.
+   * 
+   * - Deleting: The Ingress endpoint is being deleted.
    * 
    * @example
    * Ready
@@ -66,13 +70,17 @@ export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsCon
   ingressEndpointStatus?: string;
   /**
    * @remarks
-   * The state of the network service. Valid values:
+   * The status of the network service. Valid values:
    * 
-   * *   Ready: The network service is connected.
-   * *   Pending: The network service is being connected.
-   * *   Failed: The network service fails to be connected.
-   * *   Deleted: The network service is deleted.
-   * *   Deleting: The network service is being deleted.
+   * - Ready: The network service is connected.
+   * 
+   * - Pending: The network service is being connected.
+   * 
+   * - Failed: The network service failed to be connected.
+   * 
+   * - Deleted: The network service is deleted.
+   * 
+   * - Deleting: The network service is being deleted.
    * 
    * @example
    * Ready
@@ -80,7 +88,7 @@ export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsCon
   networkServiceStatus?: string;
   /**
    * @remarks
-   * The region ID of the VPC to which the endpoint of the private connection established based on the private network interconnection mode of Compute Nest belongs.
+   * The region where the VPC of the endpoint is located when a private connection is established in Compute Nest intranet-connected mode.
    * 
    * @example
    * cn-beijing
@@ -88,17 +96,17 @@ export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsCon
   regionId?: string;
   /**
    * @remarks
-   * The names of the security groups.
+   * The security group name.
    */
   securityGroups?: string[];
   /**
    * @remarks
-   * The names of the vSwitches.
+   * The vSwitch name.
    */
   vSwitches?: string[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The virtual private cloud (VPC) ID.
    * 
    * @example
    * vpc-bp1vwnn14rqpyiczj****
@@ -153,12 +161,12 @@ export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsCon
 export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections extends $dara.Model {
   /**
    * @remarks
-   * The network configurations, which are mainly used for private connections.
+   * The network configurations. This parameter is used for PrivateLink connections.
    */
   connectionConfigs?: GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnectionsConnectionConfigs[];
   /**
    * @remarks
-   * The endpoint ID of the private connection.
+   * The endpoint ID of the PrivateLink connection.
    * 
    * @example
    * ep-m5ei37240541816b****
@@ -166,7 +174,7 @@ export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections ex
   endpointId?: string;
   /**
    * @remarks
-   * The ID of the private zone of the custom private domain name.
+   * The ID of the PrivateZone for the custom private domain name.
    * 
    * @example
    * cb7f214f80ac348d87daaeac1f35****
@@ -182,7 +190,7 @@ export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections ex
   privateZoneName?: string;
   /**
    * @remarks
-   * The region ID of the endpoint of the PrivateLink connection.
+   * The region ID of the endpoint for the PrivateLink connection.
    * 
    * @example
    * cn-hangzhou
@@ -223,7 +231,7 @@ export class GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections ex
 export class GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections extends $dara.Model {
   /**
    * @remarks
-   * The endpoint ID of the reverse private connection.
+   * The endpoint ID of the reverse PrivateLink connection.
    * 
    * @example
    * ep-m5ei42370541816b****
@@ -253,9 +261,9 @@ export class GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnect
 export class GetServiceInstanceResponseBodyNetworkConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the endpoint for the private connection.
+   * The endpoint ID of the PrivateLink connection.
    * 
-   * >  This parameter is discontinued.
+   * > This parameter is deprecated.
    * 
    * @example
    * ep-m5ei37240541816b****
@@ -263,12 +271,14 @@ export class GetServiceInstanceResponseBodyNetworkConfig extends $dara.Model {
   endpointId?: string;
   /**
    * @remarks
-   * The information about private connections.
+   * The information about the PrivateLink connection.
    */
   privateVpcConnections?: GetServiceInstanceResponseBodyNetworkConfigPrivateVpcConnections[];
   /**
    * @remarks
-   * The PrivateZone ID.
+   * The ID of the PrivateZone for the custom private domain name.
+   * 
+   * > This parameter is deprecated.
    * 
    * @example
    * cb7f214f80ac348d87daaeac1f35****
@@ -276,7 +286,7 @@ export class GetServiceInstanceResponseBodyNetworkConfig extends $dara.Model {
   privateZoneId?: string;
   /**
    * @remarks
-   * The information about the reverse private connection.
+   * The information about the reverse PrivateLink connection.
    */
   reversePrivateVpcConnections?: GetServiceInstanceResponseBodyNetworkConfigReversePrivateVpcConnections[];
   static names(): { [key: string]: string } {
@@ -331,18 +341,18 @@ export class GetServiceInstanceResponseBodyServiceServiceInfos extends $dara.Mod
   locale?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
-   * Docker Community Edition
+   * B数据库
    */
   name?: string;
   /**
    * @remarks
-   * The description of the service.
+   * The summary of the service.
    * 
    * @example
-   * Docker Community Edition (CE) is a free version of the Docker project, aimed at developers, enthusiasts, and individuals and organizations who want to use container technology.
+   * B is an open-source distributed relational database independently designed and developed by Company A.
    */
   shortDescription?: string;
   static names(): { [key: string]: string } {
@@ -386,7 +396,7 @@ export class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos extends
    * The version name.
    * 
    * @example
-   * 0.1.0
+   * 20241112
    */
   versionName?: string;
   static names(): { [key: string]: string } {
@@ -415,18 +425,22 @@ export class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos extends
 export class GetServiceInstanceResponseBodyService extends $dara.Model {
   /**
    * @remarks
-   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   * The information about the service deployment configuration. The information varies based on the deployment type. The data is stored in the JSON string format.
    */
   deployMetadata?: string;
   /**
    * @remarks
-   * The deployment type of the service. Valid values:
+   * The deployment type. Valid values:
    * 
-   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-   * *   terraform: The service is deployed by using Terraform.
-   * *   ack: The service is deployed by using Container Service for Kubernetes (ACK).
-   * *   spi: The service is deployed by calling a service provider interface (SPI).
-   * *   operation: The service is deployed by using a hosted O\\&M service.
+   * - ros: The service is deployed using ROS.
+   * 
+   * - terraform: The service is deployed using Terraform.
+   * 
+   * - ack: The service is deployed using ACK.
+   * 
+   * - spi: The service is deployed by calling SPI.
+   * 
+   * - operation: The service is deployed using Alibaba Cloud Managed Services.
    * 
    * @example
    * ros
@@ -434,15 +448,15 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * Parameters related to O\\&M operations, including configuration change, prometheus, and log configurations.
+   * The parameters related to O\\&M operations, including service upgrade and downgrade, Prometheus, and log configurations.
    * 
    * @example
-   * {"SupportBackup":false,"PrometheusConfigMap":{},"ModifyParametersConfig":[{"TemplateName":"Chinese mainland version","Operation":[{"Name":"Change Plan","Description":"Change Plan","Type":"Custom","SupportPredefinedParameters":true,"EnableLogging":false},{"Name":"Parameter configuration change","Description":"Parameter configuration change","Type":"Custom","SupportPredefinedParameters":false,"EnableLogging":false,"Parameters":["DataDiskSize"]}]}}
+   * {"SupportBackup":false,"PrometheusConfigMap":{},"ModifyParametersConfig":[{"TemplateName":"China edition","Operation":[{"Name":"Plan modification","Description":"Plan modification","Type":"Custom","SupportPredefinedParameters":true,"EnableLogging":false},{"Name":"Parameter modification","Description":"Parameter modification","Type":"Custom","SupportPredefinedParameters":false,"EnableLogging":false,"Parameters":["DataDiskSize"]}]}]}
    */
   operationMetadata?: string;
   /**
    * @remarks
-   * The time when the service version was published.
+   * The time when the service was published.
    * 
    * @example
    * 2021-05-21T00:00:00Z
@@ -450,7 +464,7 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
   publishTime?: string;
   /**
    * @remarks
-   * The URL of the service documentation.
+   * The URL of the product documentation.
    * 
    * @example
    * http://example.com
@@ -466,12 +480,12 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The information about the service.
+   * The service information.
    */
   serviceInfos?: GetServiceInstanceResponseBodyServiceServiceInfos[];
   /**
    * @remarks
-   * The URL of the service page.
+   * The URL of the product page.
    * 
    * @example
    * https://service-info-private.oss-cn-hangzhou.aliyuncs.com
@@ -479,11 +493,13 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
   serviceProductUrl?: string;
   /**
    * @remarks
-   * The type of the service. Valid values:
+   * The service type. Valid values:
    * 
-   * *   private: The service is a private service and is deployed within the account of a customer.
-   * *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * *   operation: The service is a hosted O\\&M service.
+   * - private: The service is deployed in the user\\"s account.
+   * 
+   * - managed: The service is hosted in the service provider\\"s account.
+   * 
+   * - operation: The service is an Alibaba Cloud Managed Service.
    * 
    * @example
    * private
@@ -491,16 +507,21 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The status of the service. Valid values:
+   * The service status. Valid values:
    * 
-   * *   Draft
-   * *   Submited
-   * *   Approved
-   * *   Online
-   * *   Offline
-   * *   Deleted
-   * *   Launching
-   * *   Beta
+   * - Draft: The service is pending registration submission.
+   * 
+   * - Submitted: The registration is submitted.
+   * 
+   * - Approved: The registration is approved.
+   * 
+   * - Online: The service is published.
+   * 
+   * - Offline: The service is unpublished.
+   * 
+   * - Deleted: The service is deleted.
+   * 
+   * - Launching: The service is being published.
    * 
    * @example
    * Online
@@ -511,7 +532,7 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
    * The name of the service provider.
    * 
    * @example
-   * Alibaba Cloud
+   * Company A
    */
   supplierName?: string;
   /**
@@ -524,20 +545,48 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
   supplierUrl?: string;
   /**
    * @remarks
-   * The service versions that can be updated.
+   * The information about the service versions to which the service can be upgraded.
    */
   upgradableServiceInfos?: GetServiceInstanceResponseBodyServiceUpgradableServiceInfos[];
   /**
    * @remarks
-   * The service version that can be updated.
+   * The list of service versions to which the service can be upgraded.
    */
   upgradableServiceVersions?: string[];
   /**
    * @remarks
-   * The metadata about the upgrade.
+   * The upgrade metadata.
    * 
    * @example
-   * {\\"Description\\":\\"Allowed Upgrade 11\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\",\\"Resource\\"]}
+   * {
+   *   "Type": "OOS",
+   *   "Description": "Changelog or something description",
+   *   "SupportUpgradeFromVersions": [1, 2],
+   *   "UpgradeSteps": {
+   *     "PreUpgradeStage": {
+   *       "Description": "Initialize database",
+   *       "Type": "RunCommand",
+   *       "ResourceName": "EcsRole1",
+   *       "CommandType": "runShellScript",
+   *       "CommandContent": "echo hello"
+   *     },
+   *     "UpgradeStage": [{
+   *       "Description": "Update EcsRole1 instance",
+   *       "Type": "RunCommand",
+   *       "ResourceName": "EcsRole1",
+   *       "ArtifactsDownloadDirectory": "/home/admin",
+   *       "CommandType": "runShellScript",
+   *       "CommandContent": "echo hello"
+   *     }],
+   *     "PostUpgradeStage": {
+   *       "Description": "Post-deployment check",
+   *       "Type": "None/RunCommand",
+   *       "ResourceName": "EcsRole1",
+   *       "CommandType": "runShellScript",
+   *       "CommandContent": "echo hello"
+   *     }
+   *   }
+   * }
    */
   upgradeMetadata?: string;
   /**
@@ -553,7 +602,7 @@ export class GetServiceInstanceResponseBodyService extends $dara.Model {
    * The custom version name defined by the service provider.
    * 
    * @example
-   * 1.1.0
+   * Version A
    */
   versionName?: string;
   static names(): { [key: string]: string } {
@@ -661,12 +710,15 @@ export class GetServiceInstanceResponseBodyTags extends $dara.Model {
 export class GetServiceInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business state of the service instance. Valid values:
+   * The business status of the service instance. Valid values:
    * 
-   * *   Normal
-   * *   Renewing
-   * *   RenewFailed
-   * *   Expired
+   * - Normal: The service instance is normal.
+   * 
+   * - Renewing: The service instance is being renewed.
+   * 
+   * - RenewFoiled: The renewal failed.
+   * 
+   * - Expired: The service instance has expired.
    * 
    * @example
    * Normal
@@ -674,7 +726,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   bizStatus?: string;
   /**
    * @remarks
-   * Cloud Marketplace additional billing items.
+   * The extra billing items of Alibaba Cloud Marketplace.
    * 
    * @example
    * {"TiKVServerCount":"3","package_version":"yuncode5398300001","PDServerCount":"3","TiDBServerCount":"2"}
@@ -682,7 +734,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   components?: string;
   /**
    * @remarks
-   * The time when the serviceInstance was created.
+   * The time when the service instance was created.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -690,10 +742,11 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether the service instance supports the operation feature. Valid values:
+   * Indicates whether the service instance supports managed O\\&M. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The service instance supports managed O\\&M.
+   * 
+   * - false: The service instance does not support managed O\\&M.
    * 
    * @example
    * true
@@ -701,7 +754,11 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   enableInstanceOps?: boolean;
   /**
    * @remarks
-   * Whether to enable Prometheus monitoring.
+   * Indicates whether Prometheus monitoring is enabled. Valid values:
+   * 
+   * - true: enabled.
+   * 
+   * - false: disabled.
    * 
    * @example
    * true
@@ -709,7 +766,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   enableUserPrometheus?: boolean;
   /**
    * @remarks
-   * The expiration time of service instance.
+   * The time when the service instance expires.
    * 
    * @example
    * 2022-01-01T12:00:00
@@ -726,10 +783,11 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   grantedPermission?: GetServiceInstanceResponseBodyGrantedPermission;
   /**
    * @remarks
-   * Indicates whether the hosted O\\&M feature is enabled for the service instance. Valid values:
+   * Indicates whether managed O\\&M is enabled for the service instance. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Managed O\\&M is enabled for the service instance.
+   * 
+   * - false: Managed O\\&M is not enabled for the service instance.
    * 
    * @example
    * true
@@ -737,7 +795,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   isOperated?: boolean;
   /**
    * @remarks
-   * The expiration time of licence.
+   * The time when the license expires.
    * 
    * @example
    * 2022-01-01T12:00:00
@@ -745,7 +803,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   licenseEndTime?: string;
   /**
    * @remarks
-   * The market Instance ID.
+   * The Alibaba Cloud Marketplace instance ID.
    * 
    * @example
    * 704***59
@@ -756,19 +814,19 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
    * The name of the service instance.
    * 
    * @example
-   * TestName
+   * Database B
    */
   name?: string;
   /**
    * @remarks
-   * The network configurations.
+   * The network configuration.
    * 
-   * >  This parameter is discontinued.
+   * > This parameter is deprecated.
    */
   networkConfig?: GetServiceInstanceResponseBodyNetworkConfig;
   /**
    * @remarks
-   * The serviceInstance  to be operated.
+   * The ID of the service instance that is managed.
    * 
    * @example
    * si-d6ab3a63ccbb4b17****
@@ -776,7 +834,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   operatedServiceInstanceId?: string;
   /**
    * @remarks
-   * The operation end time.
+   * The end time of the managed O\\&M.
    * 
    * @example
    * 2022-01-28T06:48:56Z
@@ -784,7 +842,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   operationEndTime?: string;
   /**
    * @remarks
-   * The operation start time.
+   * The start time of the managed O\\&M.
    * 
    * @example
    * 2021-12-29T06:48:56Z
@@ -792,10 +850,11 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   operationStartTime?: string;
   /**
    * @remarks
-   * The outputs returned from creating the service instance.
+   * The output fields returned when the service instance is created.
    * 
-   * *   If the service is deployed by using a ROS template, all output fields of the template are returned.
-   * *   If the service is deployed by calling an SPI operation, the output fields of the service provider and for the Compute Nest additional features are returned.
+   * - In ROS mode, all output fields of the template are returned.
+   * 
+   * - In Service Provider Interface (SPI) mode, the output fields from the independent software vendor (ISV) and the additional features of Compute Nest are returned.
    * 
    * @example
    * {"InstanceIds":["i-hp38ofxl0dsyfi7z****"]}
@@ -803,7 +862,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   outputs?: string;
   /**
    * @remarks
-   * The parameters configured for the service instance.
+   * The parameters that are entered for deploying the service instance.
    * 
    * @example
    * {"param":"value"}
@@ -811,12 +870,15 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The billing method of the instance for market. Valid values:
+   * The billing method. Valid values:
    * 
-   * *   Permanent: Permanent purchase
-   * *   Subscription: Subscription.
-   * *   PayAsYouGo: Pay-as-you-go.
-   * *   CustomFixTime: Merchant custom fixed duration.
+   * - Permanent: permanent.
+   * 
+   * - Subscription: subscription.
+   * 
+   * - PayAsYouGo: pay-as-you-go.
+   * 
+   * - CustomFixTime: a custom fixed duration.
    * 
    * @example
    * Subscription
@@ -825,15 +887,15 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   policyNames?: string;
   /**
    * @remarks
-   * The package name.
+   * The name of the package.
    * 
    * @example
-   * Package one
+   * Package 1
    */
   predefinedParameterName?: string;
   /**
    * @remarks
-   * The deployment progress of the service instance. Unit: percentage.
+   * The deployment progress of the service instance. Unit: %.
    * 
    * @example
    * 90
@@ -857,7 +919,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resources.
    * 
    * @example
    * [{"StackId": "stack-xxx"}]
@@ -865,12 +927,12 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   resources?: string;
   /**
    * @remarks
-   * The service details.
+   * The details of the service.
    */
   service?: GetServiceInstanceResponseBodyService;
   /**
    * @remarks
-   * The ID of the service instance.
+   * The service instance ID.
    * 
    * @example
    * si-d6ab3a63ccbb4b17****
@@ -878,11 +940,15 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The type of the service. Valid values:
+   * The service type. Valid values:
    * 
-   * - private: The service is a private service and is deployed within the account of a customer.
-   * - managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * - operation: The service is a hosted O&M service.
+   * - private: a service instance that is deployed in the user\\"s account.
+   * 
+   * - managed: a service instance that is hosted in the service provider\\"s account.
+   * 
+   * - operation: a managed service instance.
+   * 
+   * - poc: a trial service instance.
    * 
    * @example
    * private
@@ -890,10 +956,13 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The source of the serviceInstance. Valid values:
-   * - User
-   * - Market
-   * - Supplier
+   * The source of the service instance. Valid values:
+   * 
+   * - User: a Compute Nest user.
+   * 
+   * - Market: Alibaba Cloud Marketplace.
+   * 
+   * - Supplier: a Compute Nest service provider.
    * 
    * @example
    * User
@@ -901,15 +970,23 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The deploy status of the serviceInstance. Valid values:
-   * - Created
-   * - Deploying
-   * - DeployedFailed
-   * - Deployed
-   * - Upgrading
-   * - Deleting
-   * - Deleted
-   * - DeletedFailed
+   * The deployment status of the service instance. Valid values:
+   * 
+   * - Created: The service instance is created.
+   * 
+   * - Deploying: The service instance is being deployed.
+   * 
+   * - DeployedFailed: The service instance failed to be deployed.
+   * 
+   * - Deployed: The service instance is deployed.
+   * 
+   * - Upgrading: The service instance is being upgraded.
+   * 
+   * - Deleting: The service instance is being deleted.
+   * 
+   * - Deleted: The service instance is deleted.
+   * 
+   * - DeletedFailed: The service instance failed to be deleted.
    * 
    * @example
    * Deployed
@@ -917,7 +994,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the deployment state of the service instance.
+   * The description of the deployment status of the instance.
    * 
    * @example
    * deploy successfully
@@ -933,12 +1010,12 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   supplierUid?: number;
   /**
    * @remarks
-   * Is it supported to convert from trial to private
+   * Indicates whether the trial service can be converted to a paid service.
    */
   supportTrialToPrivate?: boolean;
   /**
    * @remarks
-   * The tags.
+   * The custom tags.
    */
   tags?: GetServiceInstanceResponseBodyTags[];
   /**
@@ -946,12 +1023,12 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Template one
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * The time when the serviceInstance  was last updated.
+   * The time when the service instance was updated.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -959,7 +1036,7 @@ export class GetServiceInstanceResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The AliUid of the user.
+   * The user\\"s Alibaba Cloud account ID.
    * 
    * @example
    * 130920852836****

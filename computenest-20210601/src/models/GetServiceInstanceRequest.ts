@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The MarketInstance ID.
+   * The Alibaba Cloud Marketplace instance ID.
    * 
    * @example
    * 704***59
@@ -25,7 +25,7 @@ export class GetServiceInstanceRequest extends $dara.Model {
    * @remarks
    * The service instance ID.
    * 
-   * >  You must specify either `ServiceInstanceId` or `MarketInstanceId`. Otherwise, the operation fails.
+   * > You must specify either `ServiceInstanceId` or `MarketInstanceId` to query the detailed information about the service instance.
    * 
    * @example
    * si-d6ab3a63ccbb4b17****

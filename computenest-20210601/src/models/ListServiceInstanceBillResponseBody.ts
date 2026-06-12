@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   /**
    * @remarks
-   * The billing cycle. Format: YYYY-MM.
+   * The billing cycle of the computing resources for the instance. This parameter is supported only for pay-as-you-go instances. Valid values:
+   * 
+   * - **Day**: daily billing.
+   * 
+   * - **Month**: monthly billing.
    * 
    * @example
    * 2025-02
@@ -13,7 +17,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   billingCycle?: string;
   /**
    * @remarks
-   * The billing date. This parameter is required only if the **Granularity** parameter is set to DAILY. Format: YYYY-MM-DD.
+   * The billing date in YYYY-MM-DD format. This parameter is returned only when **Granularity** is set to DAILY.
    * 
    * @example
    * 2024-10-23
@@ -37,18 +41,21 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   billingItemCode?: string;
   /**
    * @remarks
-   * The currency unit.
+   * The currency. Valid values:
    * 
-   * *   China site: **CNY**.
-   * *   International site: **USD**.
+   * - CNY: Chinese Yuan.
+   * 
+   * - USD: US Dollar.
+   * 
+   * - JPY: Japanese Yen.
    * 
    * @example
-   * CNY
+   * RMB
    */
   currency?: string;
   /**
    * @remarks
-   * The amount deducted with resource plans.
+   * The amount deducted by a resource plan.
    * 
    * @example
    * 0
@@ -56,7 +63,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   deductedByResourcePackage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * rm-bp1z88pb48487907u
@@ -72,7 +79,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   invoiceDiscount?: string;
   /**
    * @remarks
-   * The unit price.
+   * The list price.
    * 
    * @example
    * 0.12
@@ -80,7 +87,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   listPrice?: string;
   /**
    * @remarks
-   * The unit of the unit price.
+   * The unit of the list price.
    * 
    * @example
    * CNY/GB
@@ -104,7 +111,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   pretaxGrossAmount?: string;
   /**
    * @remarks
-   * The code of the service.
+   * The product code.
    * 
    * @example
    * sls
@@ -112,7 +119,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The specific service resource.
+   * The product details.
    * 
    * @example
    * sls
@@ -120,7 +127,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   productDetail?: string;
   /**
    * @remarks
-   * The name of the cloud service or the name of the service-linked role with which the cloud service is associated.
+   * The name of the product to which the resource belongs.
    * 
    * @example
    * NLB
@@ -128,7 +135,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * The billing cycle in which the bill is split.
+   * The month of the split bill.
    * 
    * @example
    * 2021-07
@@ -138,8 +145,9 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * *   Subscription: the subscription billing method.
-   * *   PayAsYouGo: the pay-as-you-go billing method.
+   * - Subscription: subscription.
+   * 
+   * - PayAsYouGo: pay-as-you-go.
    * 
    * @example
    * Subscription
@@ -147,7 +155,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   subscriptionType?: string;
   /**
    * @remarks
-   * The amount of resource usage.
+   * The number of input tokens.
    * 
    * @example
    * {\\"EmbeddingTokens\\": 314}
@@ -155,7 +163,7 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
   usage?: string;
   /**
    * @remarks
-   * The unit of usage.
+   * The unit of the usage.
    * 
    * @example
    * GB
@@ -221,12 +229,12 @@ export class ListServiceInstanceBillResponseBodyItem extends $dara.Model {
 export class ListServiceInstanceBillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing information of the backup schedule.
+   * A list of billing information for the service instance.
    */
   item?: ListServiceInstanceBillResponseBodyItem[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 10
@@ -234,7 +242,7 @@ export class ListServiceInstanceBillResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
@@ -250,7 +258,7 @@ export class ListServiceInstanceBillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 0

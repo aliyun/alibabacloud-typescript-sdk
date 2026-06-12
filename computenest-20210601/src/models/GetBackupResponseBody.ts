@@ -13,7 +13,7 @@ export class GetBackupResponseBody extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The creation time of the backup task.
+   * The time when the backup was created.
    * 
    * @example
    * 2021-05-20T00:00:00Z
@@ -21,7 +21,7 @@ export class GetBackupResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the backup task.
+   * The backup description.
    * 
    * @example
    * No description
@@ -29,7 +29,7 @@ export class GetBackupResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The end time of the backup task.
+   * The time when the backup ended.
    * 
    * @example
    * 2022-01-01T12:00:00
@@ -37,7 +37,7 @@ export class GetBackupResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The update time of the backup task.
+   * The time when the backup was last modified.
    * 
    * @example
    * 2025-03-10T19:26:20Z
@@ -53,7 +53,7 @@ export class GetBackupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The service instance ID.
    * 
    * @example
    * si-b58c874912fc4294****
@@ -61,7 +61,7 @@ export class GetBackupResponseBody extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The start time of the backup task.
+   * The time when the backup started.
    * 
    * @example
    * 2022-01-01T11:00:00
@@ -69,14 +69,19 @@ export class GetBackupResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the backup task.
+   * The status.
    * 
-   * *   Creating
-   * *   Created
-   * *   CreateFailed
-   * *   Deleting
-   * *   Deleted
-   * *   DeleteFailed
+   * - Creating: The backup is being created.
+   * 
+   * - Created: The backup is created.
+   * 
+   * - CreateFailed: The backup failed to be created.
+   * 
+   * - Deleting: The backup is being deleted.
+   * 
+   * - Deleted: The backup is deleted.
+   * 
+   * - DeleteFailed: The backup failed to be deleted.
    * 
    * @example
    * Creating
@@ -84,7 +89,7 @@ export class GetBackupResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the deployment instance status.
+   * The detailed status of the deployment instance.
    * 
    * @example
    * Disk i-xxxx backup failed, error message: error

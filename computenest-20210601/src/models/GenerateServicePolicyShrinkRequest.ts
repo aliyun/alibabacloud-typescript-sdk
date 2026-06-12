@@ -2,18 +2,18 @@
 import * as $dara from '@darabonba/typescript';
 
 
-export class GetServiceProvisionsShrinkRequest extends $dara.Model {
+export class GenerateServicePolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters for deploying the user instance.
-   * 
-   * @example
-   * {\\"RegionId\\":\\"cn-hangzhou\\",\\"ZoneId\\":\\"cn-hangzhou-g\\",\\"EcsInstanceType\\":\\"ecs.g5.large\\",\\"InstancePassword\\":\\"xxxxxxxx\\",\\"PayType\\":\\"PostPaid\\",\\"PayPeriodUnit\\":\\"Month\\",\\"PayPeriod\\":1}
+   * The types of operations for which to generate policy information.
    */
+  operationTypes?: string[];
   parametersShrink?: string;
   /**
    * @remarks
    * The region ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * cn-hangzhou
@@ -26,7 +26,7 @@ export class GetServiceProvisionsShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * service-0efc0db451794bxxxxxx
+   * service-b3e9ed878b0c4xxxxxx
    */
   serviceId?: string;
   /**
@@ -34,7 +34,7 @@ export class GetServiceProvisionsShrinkRequest extends $dara.Model {
    * The service version.
    * 
    * @example
-   * 1
+   * draft
    */
   serviceVersion?: string;
   /**
@@ -47,18 +47,19 @@ export class GetServiceProvisionsShrinkRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The usage type. Valid values:
+   * The trial type. The default value is NotTrial. Valid values:
    * 
    * - Trial: The service supports trial use.
    * 
    * - NotTrial: The service does not support trial use.
    * 
    * @example
-   * Trial
+   * NotTrial
    */
   trialType?: string;
   static names(): { [key: string]: string } {
     return {
+      operationTypes: 'OperationTypes',
       parametersShrink: 'Parameters',
       regionId: 'RegionId',
       serviceId: 'ServiceId',
@@ -70,6 +71,7 @@ export class GetServiceProvisionsShrinkRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      operationTypes: { 'type': 'array', 'itemType': 'string' },
       parametersShrink: 'string',
       regionId: 'string',
       serviceId: 'string',
@@ -80,6 +82,9 @@ export class GetServiceProvisionsShrinkRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.operationTypes)) {
+      $dara.Model.validateArray(this.operationTypes);
+    }
     super.validate();
   }
 

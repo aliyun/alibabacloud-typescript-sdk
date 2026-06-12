@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends $dara.Model {
   /**
    * @remarks
-   * The time when the update ended.
+   * The time when the upgrade ended.
    * 
    * @example
    * 2022-04-26T09:09:51Z
@@ -21,7 +21,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   fromVersion?: string;
   /**
    * @remarks
-   * The upgrade result.
+   * The upgrade results.
    * 
    * @example
    * {\\"PreUpgradeExecutionId\\":\\"exec-123\\"}
@@ -29,7 +29,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   results?: string;
   /**
    * @remarks
-   * The time when the update started.
+   * The time when the upgrade started.
    * 
    * @example
    * 2022-04-26T08:09:51Z
@@ -37,11 +37,13 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   startTime?: string;
   /**
    * @remarks
-   * The state of the update. Valid values:
+   * The status of the upgrade. Valid values:
    * 
-   * *   upgrading: The service instance is being upgraded.
-   * *   UpgradeSuccessful: The service instance is upgraded.
-   * *   UpgradeFailed: The service instance failed to be upgraded.
+   * - upgrading
+   * 
+   * - UpgradeSuccessful
+   * 
+   * - UpgradeFailed
    * 
    * @example
    * UpgradeFailed
@@ -57,7 +59,11 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   toVersion?: string;
   /**
    * @remarks
-   * The update type.
+   * The type of upgrade. Valid values:
+   * 
+   * - Upgrade
+   * 
+   * - Rollback
    * 
    * @example
    * Upgrade
@@ -65,7 +71,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
   type?: string;
   /**
    * @remarks
-   * The ID of the upgrade record.
+   * The ID of the upgrade history.
    * 
    * @example
    * exec-123
@@ -109,7 +115,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory extends
 export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -117,7 +123,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token to retrieve the next page of results. If this parameter is empty, all results have been returned.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI41
@@ -133,7 +139,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2
@@ -141,7 +147,7 @@ export class ListServiceInstanceUpgradeHistoryResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The upgrade history.
+   * The upgrade history records.
    */
   upgradeHistory?: ListServiceInstanceUpgradeHistoryResponseBodyUpgradeHistory[];
   static names(): { [key: string]: string } {

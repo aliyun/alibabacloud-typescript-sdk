@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceCategoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The category list of the service.
+   * A list of service category names.
    */
   categories?: string[];
   /**

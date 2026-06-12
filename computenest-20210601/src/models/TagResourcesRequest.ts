@@ -55,7 +55,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify up to 50 resource IDs.
+   * The resource IDs.
    * 
    * This parameter is required.
    */
@@ -64,10 +64,13 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * *   service: service
-   * *   serviceinstance: service instance
-   * *   artifact: artifact
-   * *   dataset: dataset
+   * - service: a service.
+   * 
+   * - serviceinstance: a service instance.
+   * 
+   * - artifact: a deployment.
+   * 
+   * - dataset: a dataset.
    * 
    * This parameter is required.
    * 
@@ -77,7 +80,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag key and value.
+   * The resource tags.
    */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {

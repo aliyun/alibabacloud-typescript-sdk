@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListServicesRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * The filter name. You can specify one or more filter names to query services. Valid values:
    * 
-   * *   ServiceId: the ID of the service.
-   * *   Name: the name of the service.
-   * *   Status: the state of the service.
-   * *   SupplierName: the name of the service provider.
+   * - ServiceId: The service ID.
+   * 
+   * - Name: The service name.
+   * 
+   * - Status: The service status.
+   * 
+   * - SupplierName: The service provider name.
    * 
    * @example
    * Status
@@ -18,7 +21,7 @@ export class ListServicesRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * A value of the filter condition.
+   * The filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -95,7 +98,7 @@ export class ListServicesRequest extends $dara.Model {
   filter?: ListServicesRequestFilter[];
   /**
    * @remarks
-   * Keyword fuzzy query.
+   * The keyword for a fuzzy query.
    * 
    * @example
    * name
@@ -103,15 +106,11 @@ export class ListServicesRequest extends $dara.Model {
   fuzzyKeyword?: string;
   /**
    * @remarks
-   * Whether it is used. Optional values:
+   * Specifies whether the service is in use. Valid values:
    * 
+   * - false: The service is not in use.
    * 
-   * 
-   * - false: not being used.
-   * 
-   * 
-   * 
-   * - true: already in use.
+   * - true: The service is in use.
    * 
    * @example
    * false
@@ -119,7 +118,7 @@ export class ListServicesRequest extends $dara.Model {
   inUsed?: boolean;
   /**
    * @remarks
-   * The number of entries page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -127,7 +126,7 @@ export class ListServicesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that is used to retrieve the next page of results. Set this to the NextToken value returned from the previous API call.
    * 
    * @example
    * BBBAAfu+XtuBE55iRLHEYYuojI4=
@@ -135,7 +134,7 @@ export class ListServicesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Service ordering type.
+   * The sorting type for services.
    * 
    * @example
    * UpdateTime
@@ -153,7 +152,7 @@ export class ListServicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Service access type.
+   * The service access type.
    * 
    * @example
    * All
@@ -161,7 +160,7 @@ export class ListServicesRequest extends $dara.Model {
   serviceAccessType?: string;
   /**
    * @remarks
-   * The tags.
+   * The custom tags.
    */
   tag?: ListServicesRequestTag[];
   static names(): { [key: string]: string } {

@@ -5,21 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $dara.Model {
   /**
    * @remarks
-   * The parameters that can be modified. The operation that is performed to modify the parameters does not cause a validation error.
+   * The parameters that can be modified. Modifying these parameters does not cause a check error.
    * 
    * > This parameter is returned only if DryRun is set to true.
    */
   parametersAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters that can be modified under specific conditions. The new values of the parameters determine whether the operation that is performed to modify the parameters causes a validation error.
+   * The parameters that can be conditionally modified.
+   * Whether modifying these parameters causes a check error depends on their values.
    * 
    * > This parameter is returned only if DryRun is set to true.
    */
   parametersConditionallyAllowedToBeModified?: string[];
   /**
    * @remarks
-   * The parameters that cannot be modified. The operation that is performed to modify the parameters causes a validation error.
+   * The parameters that cannot be modified. Modifying these parameters always causes a check error.
    * 
    * > This parameter is returned only if DryRun is set to true.
    */
@@ -61,7 +62,7 @@ export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $dara
 export class ContinueDeployServiceInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dry run result.
+   * The check result.
    */
   dryRunResult?: ContinueDeployServiceInstanceResponseBodyDryRunResult;
   /**

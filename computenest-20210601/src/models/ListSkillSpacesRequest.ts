@@ -4,10 +4,23 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSkillSpacesRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * The filter name. You can specify one or more filter names. Valid values:
+   * 
+   * - `SkillSpaceId`: The SkillSpace ID. This filter performs an exact match.
+   * 
+   * - `SkillSpaceName`: The SkillSpace name.
+   * 
+   * - `MatchType`: The match type for the `SkillSpaceName` filter. Valid values: `exact`, `prefix`, and `fuzzy`.
+   * 
    * @example
    * SkillSpaceId
    */
   name?: string;
+  /**
+   * @remarks
+   * The filter values. You can specify 1 to 10 values.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,13 +49,23 @@ export class ListSkillSpacesRequestFilter extends $dara.Model {
 }
 
 export class ListSkillSpacesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The query filters.
+   */
   filter?: ListSkillSpacesRequestFilter[];
   /**
+   * @remarks
+   * The number of entries to return per page. Maximum value: 100. Default value: 20.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token for the next page of results. To retrieve the next page, set this parameter to the `NextToken` value from the previous response.
+   * 
    * @example
    * BBBAAfu+XtuBE55iRLHEYYuojI4=
    */

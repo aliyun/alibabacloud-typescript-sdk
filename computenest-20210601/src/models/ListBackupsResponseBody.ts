@@ -13,9 +13,9 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The backup mode. Valid values:
+   * The backup mode. The return value is:
    * 
-   * *   **Manual**: manual backup
+   * - **Manual**: The backup is created manually.
    * 
    * @example
    * Manual
@@ -23,7 +23,7 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the backup was created.
    * 
    * @example
    * 2024-09-03T19:54:38+08:00
@@ -31,7 +31,7 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the backup task.
+   * The description of the backup.
    * 
    * @example
    * No description
@@ -39,7 +39,7 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The end time of the backup task.
+   * The time when the backup ended.
    * 
    * @example
    * 2024-08-15T02:24:00Z
@@ -47,7 +47,7 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the backup was last updated.
    * 
    * @example
    * 2024-09-03T19:54:38+08:00
@@ -55,7 +55,7 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * Retention Days. Resources will be cleared upon expiration. Defaults to no expiration if left blank.
+   * The retention period in days. Backups are deleted after the retention period expires. By default, this parameter is empty, which means that the backups do not expire.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   retentionDays?: number;
   /**
    * @remarks
-   * The ID of the service instance.
+   * The service instance ID.
    * 
    * @example
    * si-7b6138dfce1e4c41ab71
@@ -71,7 +71,7 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * The start time of the backup task.
+   * The time when the backup started.
    * 
    * @example
    * 2025-06-30T16:00:00Z
@@ -79,14 +79,19 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the backup task. Valid values:
+   * The status.
    * 
-   * *   Creating
-   * *   Created
-   * *   CreateFailed
-   * *   Deleting
-   * *   Deleted
-   * *   DeleteFailed
+   * - Creating: The backup is being created.
+   * 
+   * - Created: The backup is created.
+   * 
+   * - CreateFailed: The backup failed to be created.
+   * 
+   * - Deleting: The backup is being deleted.
+   * 
+   * - Deleted: The backup is deleted.
+   * 
+   * - DeleteFailed: The backup failed to be deleted.
    * 
    * @example
    * Creating
@@ -94,7 +99,7 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the service instance deployment information.
+   * The details of the status.
    * 
    * @example
    * Disk i-xxxx backup failed, error message: error
@@ -144,12 +149,12 @@ export class ListBackupsResponseBodyBackups extends $dara.Model {
 export class ListBackupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the backup.
+   * The backups.
    */
   backups?: ListBackupsResponseBodyBackups[];
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of entries returned on the current page.
    * 
    * @example
    * 100
@@ -157,7 +162,7 @@ export class ListBackupsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Indicates the read position returned by the current call. An empty value means all data has been read.
+   * The token that is used to retrieve the next page of results. If this parameter is empty, all results have been returned.
    * 
    * This parameter is required.
    * 
@@ -167,7 +172,7 @@ export class ListBackupsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * BB58FE53-ED8F-5D12-9746-CD3A5F463D95
@@ -175,7 +180,7 @@ export class ListBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total data count under the current request conditions (optional; not returned by default).
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 1

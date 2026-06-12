@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceTemplateParameterConstraintsRequestParameters extends $dara.Model {
   /**
    * @remarks
-   * The name of the parameter. If you do not specify Parameters, the parameters and values in the template are used.
+   * The name of the parameter. If you do not specify the name and value of the parameter, Resource Orchestration Service (ROS) uses the default value that is specified in the template.
    * 
-   * >  Parameters is an optional parameter. ParameterKey is required if you specify Parameters.
+   * > The Parameters parameter is optional. If you specify Parameters, ParameterKey is required.
    * 
    * @example
    * InstanceType
@@ -15,9 +15,9 @@ export class GetServiceTemplateParameterConstraintsRequestParameters extends $da
   parameterKey?: string;
   /**
    * @remarks
-   * The parameter value that is defined in the template.
+   * The value of the parameter that is defined in the template.
    * 
-   * >  Parameters is an optional parameter. ParameterValue is required if you specify Parameters.
+   * > The Parameters parameter is optional. If you specify Parameters, ParameterValue is required.
    * 
    * @example
    * cn-hangzhou-j
@@ -49,7 +49,7 @@ export class GetServiceTemplateParameterConstraintsRequestParameters extends $da
 export class GetServiceTemplateParameterConstraintsRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client for each request. The token can contain only ASCII characters and cannot be more than 64 characters long.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -57,7 +57,7 @@ export class GetServiceTemplateParameterConstraintsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The region ID of the service instance.
+   * The deployment region ID.
    * 
    * This parameter is required.
    * 
@@ -67,10 +67,11 @@ export class GetServiceTemplateParameterConstraintsRequest extends $dara.Model {
   deployRegionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the private connection. Valid values:
+   * Indicates whether PrivateLink is enabled. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: enabled
+   * 
+   * - false: disabled
    * 
    * @example
    * true
@@ -119,10 +120,10 @@ export class GetServiceTemplateParameterConstraintsRequest extends $dara.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * The name of the specification package.
+   * The specification name.
    * 
    * @example
-   * 套餐一
+   * Package 1
    */
   specificationName?: string;
   /**
@@ -132,15 +133,16 @@ export class GetServiceTemplateParameterConstraintsRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 模板1
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * The trial policy. Valid values:
+   * The usage type. Valid values:
    * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
+   * - Trial: The service supports a trial.
+   * 
+   * - NotTrial: The service does not support a trial.
    * 
    * @example
    * NotTrial

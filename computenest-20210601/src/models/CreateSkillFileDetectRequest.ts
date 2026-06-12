@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateSkillFileDetectRequest extends $dara.Model {
   /**
+   * @remarks
+   * A unique, client-generated token to ensure request idempotence. **ClientToken** must contain only ASCII characters and be no longer than 64 characters.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * The OSS URL of the compressed Skill package.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,6 +22,9 @@ export class CreateSkillFileDetectRequest extends $dara.Model {
    */
   ossUrl?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

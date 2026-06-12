@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new resource group.
+   * The ID of the destination resource group.
    * 
-   * You can view resource group IDs in the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) .
+   * You can obtain the resource group ID from the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups).
    * 
    * @example
    * rg-acfmzmhzo******
@@ -23,7 +23,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the cloud resource that you want to move to a new resource group.
+   * The ID of the cloud resource whose resource group you want to change.
    * 
    * @example
    * si-5dc794a7fd254e******
@@ -33,8 +33,9 @@ export class ChangeResourceGroupRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * *   service: service
-   * *   serviceinstance: service instance
+   * - service: The resource is a service.
+   * 
+   * - serviceinstance: The resource is a service instance.
    * 
    * @example
    * service

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckServiceDeployableResponseBodyCheckResults extends $dara.Model {
   /**
    * @remarks
-   * Returns a hint message for the result.
+   * The message returned for the result.
    * 
    * @example
    * ""
@@ -14,11 +14,11 @@ export class CheckServiceDeployableResponseBodyCheckResults extends $dara.Model 
   skippable?: boolean;
   /**
    * @remarks
-   * Check type, invalid values:
+   * The type of precheck. Valid values:
    * 
-   * - Balance ：Account balance.
+   * - Balance: The account balance.
    * 
-   * - Quota:  Account quota.
+   * - Quota: The resource quota.
    * 
    * @example
    * Balance
@@ -26,7 +26,7 @@ export class CheckServiceDeployableResponseBodyCheckResults extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * Inspection result.
+   * The check result.
    * 
    * @example
    * true
@@ -62,12 +62,12 @@ export class CheckServiceDeployableResponseBodyCheckResults extends $dara.Model 
 export class CheckServiceDeployableResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Inspection result.
+   * The check results.
    */
   checkResults?: CheckServiceDeployableResponseBodyCheckResults[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 06BF8F22-02DC-4750-83DF-3FFC11C065EA

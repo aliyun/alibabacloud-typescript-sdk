@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListPoliciesResponseBodyPolicies extends $dara.Model {
   /**
    * @remarks
-   * Permission policy description.
+   * The description of the access policy.
    * 
    * @example
-   * Only read permission policy
+   * Read-only permission
    */
   description?: string;
   /**
    * @remarks
-   * Policy content.
+   * The content of the policy.
    * 
    * @example
    * {"Action":["*:Describe*","*:List*","*:Get*","*:BatchGet*","*:Query*","*:BatchQuery*","actiontrail:LookupEvents"],"Resource":["*"],"Effect":"Allow"}
@@ -21,7 +21,7 @@ export class ListPoliciesResponseBodyPolicies extends $dara.Model {
   policyDocument?: string;
   /**
    * @remarks
-   * Permission policy name.
+   * The name of the access policy.
    * 
    * @example
    * AliyunComputeNestPolicyForReadOnly
@@ -29,10 +29,11 @@ export class ListPoliciesResponseBodyPolicies extends $dara.Model {
   policyName?: string;
   /**
    * @remarks
-   * Permission policy type.
+   * The type of the access policy.
    * 
-   * - Custom: Custom policy.
-   * - System: System policy.
+   * - Custom: A custom policy.
+   * 
+   * - System: A system policy.
    * 
    * @example
    * System
@@ -68,7 +69,7 @@ export class ListPoliciesResponseBodyPolicies extends $dara.Model {
 export class ListPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 分页大小。
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -76,7 +77,7 @@ export class ListPoliciesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Next Token
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * AAAAAZ9FmxgN6wKfeK/GOKRnnjU=
@@ -84,12 +85,12 @@ export class ListPoliciesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Permission policy list
+   * The list of access policies.
    */
   policies?: ListPoliciesResponseBodyPolicies[];
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 51945B04-6AA6-410D-93BA-236E0248B104

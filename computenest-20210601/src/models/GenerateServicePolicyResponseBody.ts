@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateServicePolicyResponseBodyMissingPolicy extends $dara.Model {
   /**
    * @remarks
-   * Operations on specific resources.
+   * The access policy information.
    */
   action?: string[];
   /**
    * @remarks
-   * The specific objects authorized. An asterisk (*) denotes all resources.
+   * The object to which the permissions are granted. An asterisk (\\*) indicates all resources.
    * 
    * @example
    * *
@@ -18,7 +18,7 @@ export class GenerateServicePolicyResponseBodyMissingPolicy extends $dara.Model 
   resource?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The name of the service to which the access policy belongs.
    * 
    * @example
    * ecs
@@ -55,12 +55,12 @@ export class GenerateServicePolicyResponseBodyMissingPolicy extends $dara.Model 
 export class GenerateServicePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The policies that are missing.
+   * The missing access policies.
    */
   missingPolicy?: GenerateServicePolicyResponseBodyMissingPolicy[];
   /**
    * @remarks
-   * The RAM policy.
+   * The required access policy.
    * 
    * @example
    * {Statement": [{ "Action": ["oos:*"], "Effect": "Allow", "Resource": "*"},{ "Action": ["ecs:DescribeInstances"], "Effect": "Allow", "Resource": "*"},{ "Action": ["ecs:RunInstance"], "Effect": "Allow", "Resource": "*"}], "Version": "1"}

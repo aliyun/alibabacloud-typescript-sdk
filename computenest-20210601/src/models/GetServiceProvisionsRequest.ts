@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceProvisionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters configured for the service instance.
+   * The parameters for deploying the user instance.
    * 
    * @example
    * {\\"RegionId\\":\\"cn-hangzhou\\",\\"ZoneId\\":\\"cn-hangzhou-g\\",\\"EcsInstanceType\\":\\"ecs.g5.large\\",\\"InstancePassword\\":\\"xxxxxxxx\\",\\"PayType\\":\\"PostPaid\\",\\"PayPeriodUnit\\":\\"Month\\",\\"PayPeriod\\":1}
@@ -31,7 +31,7 @@ export class GetServiceProvisionsRequest extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The version of the service.
+   * The service version.
    * 
    * @example
    * 1
@@ -42,15 +42,16 @@ export class GetServiceProvisionsRequest extends $dara.Model {
    * The template name.
    * 
    * @example
-   * ECS
+   * Template 1
    */
   templateName?: string;
   /**
    * @remarks
-   * The trial policy. Valid values:
+   * The usage type. Valid values:
    * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
+   * - Trial: The service supports trial use.
+   * 
+   * - NotTrial: The service does not support trial use.
    * 
    * @example
    * Trial

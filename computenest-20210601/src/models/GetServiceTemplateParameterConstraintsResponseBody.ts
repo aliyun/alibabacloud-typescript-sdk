@@ -65,7 +65,7 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
 export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors extends $dara.Model {
   /**
    * @remarks
-   * The error message.
+   * The error details.
    * 
    * @example
    * record not exist
@@ -120,18 +120,20 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
   allowedValues?: string[];
   /**
    * @remarks
-   * The names of the associated parameters.
+   * The associated parameters.
    */
   associationParameterNames?: string[];
   /**
    * @remarks
    * The behavior of the parameter. Valid values:
    * 
-   * *   NoLimit: No limit is imposed on the value of this parameter.
-   * *   NotSupport: The value of this parameter cannot be queried.
-   * *   QueryError: This parameter failed to be queried.
+   * - NoLimit: No limits are imposed on the value of this parameter.
    * 
-   * >  If AllowedValues is not returned, Behavior and BehaviorReason are returned, which indicate the behavior of the parameter and the reason for the behavior.
+   * - NotSupport: The values of this parameter cannot be queried.
+   * 
+   * - QueryError: The query failed.
+   * 
+   * > If AllowedValues is not returned, Behavior and BehaviorReason are returned to describe the behavior of the parameter and the reason.
    * 
    * @example
    * NoLimit
@@ -139,7 +141,7 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
   behavior?: string;
   /**
    * @remarks
-   * The reason why the behavior of the parameter is returned.
+   * The reason for the parameter behavior.
    * 
    * @example
    * No resource property refer to the parameter
@@ -147,7 +149,7 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
   behaviorReason?: string;
   /**
    * @remarks
-   * The original constraint information.
+   * The original constraints.
    */
   originalConstraints?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsOriginalConstraints[];
   /**
@@ -160,12 +162,12 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
   parameterKey?: string;
   /**
    * @remarks
-   * The error details that are returned if the request fails.
+   * The details of the query failure.
    */
   queryErrors?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraintsQueryErrors[];
   /**
    * @remarks
-   * The data type of the parameter.
+   * The type of the parameter.
    * 
    * @example
    * String
@@ -221,12 +223,12 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
 export class GetServiceTemplateParameterConstraintsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The package family constraints.
+   * The constraints on the specification family.
    */
   familyConstraints?: string[];
   /**
    * @remarks
-   * The constraints on the parameters.
+   * The parameter constraints.
    */
   parameterConstraints?: GetServiceTemplateParameterConstraintsResponseBodyParameterConstraints[];
   /**

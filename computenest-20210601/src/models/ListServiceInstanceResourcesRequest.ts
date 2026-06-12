@@ -5,10 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceInstanceResourcesRequestFilters extends $dara.Model {
   /**
    * @remarks
-   * Vaild values:
+   * The name of the filter. Valid values:
+   * 
    * - ExpireTimeStart
+   * 
    * - ExpireTimeEnd
+   * 
    * - PayType
+   * 
    * - ResourceARN
    * 
    * @example
@@ -17,7 +21,7 @@ export class ListServiceInstanceResourcesRequestFilters extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The value of the filter condition.
+   * The filter condition values.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -49,7 +53,7 @@ export class ListServiceInstanceResourcesRequestFilters extends $dara.Model {
 export class ListServiceInstanceResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The key of the resource tag.
    * 
    * @example
    * key1
@@ -57,7 +61,7 @@ export class ListServiceInstanceResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the resource tag.
    * 
    * @example
    * value1
@@ -89,30 +93,29 @@ export class ListServiceInstanceResourcesRequestTag extends $dara.Model {
 export class ListServiceInstanceResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter conditions. Vaild values:
+   * The filter conditions. Valid values:
    * 
-   * - ExpireTimeStart：
-   * Query start time for Subscription resource expiration.
-   * <notice>Notice Note: Only supports querying service instances on private deployments.>Notice: 
+   * - ExpireTimeStart: The start of the time range to query the expiration time of subscription resources.
+   *   >Notice: This parameter applies only to service instances in private deployments.
    * 
-   * - ExpireTimeEnd：Query end time for Subscription resource expiration.
-   * <notice>Notice Note: Only supports querying service instances on private deployments.>Notice: 
+   * - ExpireTimeEnd: The end of the time range to query the expiration time of subscription resources.
+   *   >Notice: This parameter applies only to service instances in private deployments.
    * 
-   * - PayType：The billing method of the read-only instance. 
-   * <notice>Notice Note: Only supports querying service instances on private deployments.<notice> 
+   * - PayType: The billing method.>Notice:  This parameter applies only to service instances in private deployments.
+   *   Valid values:
    * 
-   *    Valid values:
+   *   - Subscription: subscription.
    * 
-   *    - PayAsYouGo
+   *   - PayAsYouGo: pay-as-you-go.
    * 
-   *    - Subscription
+   * - ResourceARN: The Alibaba Cloud Resource Name (ARN) of the resource.
    * 
-   * - ResourceARN：The Alibaba Cloud Resource Name (ARN) of a resource.
+   * resource name (ARN).
    */
   filters?: ListServiceInstanceResourcesRequestFilters[];
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -120,10 +123,7 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
-   * 
-   * *   If **NextToken** is not returned, it indicates that no additional results exist.
-   * *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+   * The token that is used to retrieve the next page of results. Set this to the NextToken value from a previous API call.
    * 
    * @example
    * AAAAAc3HCuYhJi/wvpk4xOr0VLbAx7BkQzyYC+ONO+WudHGKEdB0uWSY7AGnM3qCgm/Ynge7zU6NWdbj0Tegyajyqyc=
@@ -131,10 +131,7 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The region ID. Valid values:
-   * 
-   * *   cn-hangzhou: China (Hangzhou).
-   * *   ap-southeast-1: Singapore.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -152,7 +149,11 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * Service Instance resource type，include AliyunResource and ContainerResource.
+   * The resource type of the service instance. Valid values:
+   * 
+   * - AliyunResource: an Alibaba Cloud resource.
+   * 
+   * - ContainerResource: a container group (pod) resource.
    * 
    * @example
    * AliyunResource
@@ -160,7 +161,7 @@ export class ListServiceInstanceResourcesRequest extends $dara.Model {
   serviceInstanceResourceType?: string;
   /**
    * @remarks
-   * The tag key and value.
+   * The resource tags.
    */
   tag?: ListServiceInstanceResourcesRequestTag[];
   static names(): { [key: string]: string } {

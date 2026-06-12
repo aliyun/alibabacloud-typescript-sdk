@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceInstanceSubscriptionEstimateCostRequestResourcePeriod extends $dara.Model {
   /**
    * @remarks
-   * Renewal duration. The unit is specified by PeriodUnit.
+   * The renewal duration. The unit is specified by PeriodUnit.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetServiceInstanceSubscriptionEstimateCostRequestResourcePeriod ext
   period?: number;
   /**
    * @remarks
-   * The time unit for the resource renewal duration, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
+   * The unit of the renewal duration for the resource. This is the unit for the Period parameter. Valid values: Month and Year. Default value: Month.
    * 
    * @example
    * Month
@@ -21,7 +21,7 @@ export class GetServiceInstanceSubscriptionEstimateCostRequestResourcePeriod ext
   periodUnit?: string;
   /**
    * @remarks
-   * Resource ARN (Aliyun Resource Name).
+   * The Alibaba Cloud Resource Name (ARN) of the resource.
    * 
    * @example
    * acs:ecs:cn-guangzhou:1361753504587228:instance/i-7xv9pgeqvhxg10jji3vd
@@ -55,7 +55,7 @@ export class GetServiceInstanceSubscriptionEstimateCostRequestResourcePeriod ext
 export class GetServiceInstanceSubscriptionEstimateCostRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures idempotence of the request. Generate a parameter value from your client to ensure its uniqueness across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters.
+   * A client-generated token that ensures the idempotence of the request. The token must be unique for each request. It can contain only ASCII characters and cannot be longer than 64 characters.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -63,7 +63,7 @@ export class GetServiceInstanceSubscriptionEstimateCostRequest extends $dara.Mod
   clientToken?: string;
   /**
    * @remarks
-   * Order type. Possible value: Renewal.
+   * The order type. Valid value: Renewal.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class GetServiceInstanceSubscriptionEstimateCostRequest extends $dara.Mod
   orderType?: string;
   /**
    * @remarks
-   * The renewal duration for all prepaid resources of the service instance. The unit is specified by PeriodUnit.
+   * The renewal duration for all subscription resources of the service instance. The unit is specified by PeriodUnit.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class GetServiceInstanceSubscriptionEstimateCostRequest extends $dara.Mod
   period?: number;
   /**
    * @remarks
-   * The time unit for the renewal duration of all prepaid resources of the service instance, which is the unit of the Period parameter. Valid values: Month, Year. Default value: Month.
+   * The unit of the renewal duration for all subscription resources of the service instance. This is the unit for the Period parameter. Valid values: Month and Year. Default value: Month.
    * 
    * @example
    * Month
@@ -89,7 +89,7 @@ export class GetServiceInstanceSubscriptionEstimateCostRequest extends $dara.Mod
   periodUnit?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -97,12 +97,12 @@ export class GetServiceInstanceSubscriptionEstimateCostRequest extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * Resource renewal configuration.
+   * The renewal configuration for the resources.
    */
   resourcePeriod?: GetServiceInstanceSubscriptionEstimateCostRequestResourcePeriod[];
   /**
    * @remarks
-   * Service instance ID.
+   * The service instance ID.
    * 
    * This parameter is required.
    * 

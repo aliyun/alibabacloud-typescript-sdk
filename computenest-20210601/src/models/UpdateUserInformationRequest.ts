@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserInformationRequestDeliverySettings extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable screencast delivery to OSS. Valid values:
+   * Specifies whether to deliver ActionTrail events to OSS. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Delivery is enabled.
+   * 
+   * - false: Delivery is disabled.
    * 
    * @example
    * true
@@ -24,10 +25,11 @@ export class UpdateUserInformationRequestDeliverySettings extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * Specifies whether to enable screencast delivery to Object Storage Service (OSS). Valid values:
+   * Specifies whether to deliver data to Object Storage Service (OSS). Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Delivery is enabled.
+   * 
+   * - false: Delivery is disabled.
    * 
    * @example
    * true
@@ -35,7 +37,7 @@ export class UpdateUserInformationRequestDeliverySettings extends $dara.Model {
   ossEnabled?: boolean;
   /**
    * @remarks
-   * The number of days for which the screencasts are saved.
+   * The number of days to retain screen recordings.
    * 
    * @example
    * 7
@@ -81,7 +83,7 @@ export class UpdateUserInformationRequestDeliverySettings extends $dara.Model {
 export class UpdateUserInformationRequest extends $dara.Model {
   /**
    * @remarks
-   * The modified delivery settings.
+   * The configurations to modify.
    */
   deliverySettings?: UpdateUserInformationRequestDeliverySettings;
   /**

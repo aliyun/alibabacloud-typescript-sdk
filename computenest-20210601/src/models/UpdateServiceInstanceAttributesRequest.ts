@@ -31,7 +31,7 @@ export class UpdateServiceInstanceAttributesRequestGrantedPermission extends $da
 export class UpdateServiceInstanceAttributesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to authorize the service provider to perform O\\&M operations on the service instance.
+   * Specifies whether to enable managed O\\&M.
    * 
    * @example
    * true
@@ -52,7 +52,7 @@ export class UpdateServiceInstanceAttributesRequest extends $dara.Model {
    * @remarks
    * The ID of the service instance.
    * 
-   * You can call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the ID of the service instance.
+   * Call the [ListServiceInstances](https://help.aliyun.com/document_detail/396200.html) operation to obtain the service instance ID.
    * 
    * This parameter is required.
    * 

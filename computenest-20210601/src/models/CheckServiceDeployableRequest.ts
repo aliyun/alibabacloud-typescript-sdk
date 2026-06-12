@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckServiceDeployableRequest extends $dara.Model {
   /**
    * @remarks
-   * Total amount of postpaid.
+   * The total pay-as-you-go amount.
    * 
    * @example
    * 1.29
@@ -13,7 +13,7 @@ export class CheckServiceDeployableRequest extends $dara.Model {
   postPaidAmount?: string;
   /**
    * @remarks
-   * Total amount of prepayment.
+   * The total upfront payment amount.
    * 
    * @example
    * 0.0
@@ -45,13 +45,21 @@ export class CheckServiceDeployableRequest extends $dara.Model {
    * 1
    */
   serviceVersion?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template 1
+   */
   templateName?: string;
   /**
    * @remarks
-   * The trial type of the service instance. Valid values:
+   * The trial type. Valid values:
    * 
-   * *   **Trial**: Trials are supported.
-   * *   **NotTrial**: Trials are not supported.
+   * - Trial: The service supports trial use.
+   * 
+   * - NotTrial: The service does not support trial use.
    * 
    * @example
    * NotTrial

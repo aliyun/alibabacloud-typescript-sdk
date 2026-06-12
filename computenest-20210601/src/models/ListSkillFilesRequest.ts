@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSkillFilesRequestFilter extends $dara.Model {
   /**
+   * @remarks
+   * No filter names are currently supported.
+   * 
    * @example
    * 111111
    */
   name?: string;
+  /**
+   * @remarks
+   * The filter values. You can specify 1 to 10 values.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -36,20 +43,30 @@ export class ListSkillFilesRequestFilter extends $dara.Model {
 }
 
 export class ListSkillFilesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The filter conditions.
+   */
   filter?: ListSkillFilesRequestFilter[];
   /**
+   * @remarks
+   * The maximum number of entries to return per page. Valid values: 1 to 100. Default: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that was returned from a previous call to this operation. Use this token to retrieve the next page of results.
+   * 
    * @example
    * AAAAAVz7BQqj2xtiNSC3d3RAD38=
    */
   nextToken?: string;
   /**
    * @remarks
-   * Skill ID
+   * The ID of the Skill.
    * 
    * This parameter is required.
    * 

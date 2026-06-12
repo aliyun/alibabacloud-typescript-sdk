@@ -13,7 +13,7 @@ export class GetServiceResponseBodyCommodityCssMetadataComponentsMappings extend
    * The template name.
    * 
    * @example
-   * Template one.
+   * 单机版
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class GetServiceResponseBodyCommodityCssMetadataComponentsMappings extend
 export class GetServiceResponseBodyCommodityCssMetadata extends $dara.Model {
   /**
    * @remarks
-   * The mapping information about the billing items.
+   * The billing item mappings.
    */
   componentsMappings?: GetServiceResponseBodyCommodityCssMetadataComponentsMappings[];
   static names(): { [key: string]: string } {
@@ -75,7 +75,7 @@ export class GetServiceResponseBodyCommodityCssMetadata extends $dara.Model {
 export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings extends $dara.Model {
   /**
    * @remarks
-   * The specification code of the service in Alibaba Cloud Marketplace.
+   * The specification code of the Alibaba Cloud Marketplace commodity.
    * 
    * @example
    * cmjj00****
@@ -86,7 +86,7 @@ export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMapp
    * The package name.
    * 
    * @example
-   * Package one.
+   * Package 1
    */
   specificationName?: string;
   /**
@@ -94,7 +94,7 @@ export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMapp
    * The template name.
    * 
    * @example
-   * Template one.
+   * Standalone edition
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMapp
 export class GetServiceResponseBodyCommodityMarketplaceMetadata extends $dara.Model {
   /**
    * @remarks
-   * The mappings between the service specifications and the template or package.
+   * The mapping between commodity specifications and templates or packages.
    */
   specificationMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings[];
   static names(): { [key: string]: string } {
@@ -171,7 +171,7 @@ export class GetServiceResponseBodyCommoditySpecifications extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The subscription duration. Unit: week or year.
+   * The purchasable duration. Unit: week or year.
    */
   times?: string[];
   static names(): { [key: string]: string } {
@@ -205,10 +205,13 @@ export class GetServiceResponseBodyCommoditySpecifications extends $dara.Model {
 export class GetServiceResponseBodyCommodity extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the service. Valid values:
+   * The billing method.
    * 
-   * *   **PREPAY** (default): subscription.
-   * *   **POSTPAY**: pay-as-you-go.
+   * Valid values:
+   * 
+   * **PREPAY** (default): subscription.
+   * 
+   * **POSTPAY**: pay-as-you-go.
    * 
    * @example
    * POSTPAY
@@ -216,7 +219,7 @@ export class GetServiceResponseBodyCommodity extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * The commodity code.
    * 
    * @example
    * cmjj00****
@@ -224,21 +227,21 @@ export class GetServiceResponseBodyCommodity extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The configuration metadata related to Lingxiao.
+   * The Lingxiao configuration metadata.
    */
   cssMetadata?: GetServiceResponseBodyCommodityCssMetadata;
   /**
    * @remarks
-   * The deploy page.
+   * The deployment page.
    * 
    * @example
-   * Order： Order page
-   * Detail： Detail page
+   * Order: Order page
+   * Detail: Details page
    */
   deployPage?: string;
   /**
    * @remarks
-   * The metadata of Alibaba Cloud Marketplace.
+   * The Alibaba Cloud Marketplace metadata.
    */
   marketplaceMetadata?: GetServiceResponseBodyCommodityMarketplaceMetadata;
   /**
@@ -248,25 +251,30 @@ export class GetServiceResponseBodyCommodity extends $dara.Model {
   orderTime?: { [key: string]: string[] };
   /**
    * @remarks
-   * The configuration metadata related to Saas Boost.
+   * The SaasBoost configuration metadata.
    * 
    * @example
    * {
-   *     "Enabled":false    "PublicAccessUrl":"https://example.com"
+   *     "Enabled":false
+   *     //Public access URL
+   *     "PublicAccessUrl":"https://example.com"
    * }
    */
   saasBoostMetadata?: string;
   /**
    * @remarks
-   * The specification details of the service in Alibaba Cloud Marketplace.
+   * The Alibaba Cloud Marketplace specification details.
    */
   specifications?: GetServiceResponseBodyCommoditySpecifications[];
   /**
    * @remarks
-   * The service type. Valid values:
+   * The type.
    * 
-   * *   marketplace: Alibaba Cloud Marketplace.
-   * *   Css: Lingxiao.
+   * Valid values:
+   * 
+   * Marketplace: Alibaba Cloud Marketplace.
+   * 
+   * Css: Lingxiao.
    * 
    * @example
    * Marketplace
@@ -324,7 +332,7 @@ export class GetServiceResponseBodyCommodity extends $dara.Model {
 export class GetServiceResponseBodyComplianceMetadata extends $dara.Model {
   /**
    * @remarks
-   * The compliance pack list.
+   * The list of compliance packages.
    */
   compliancePacks?: string[];
   static names(): { [key: string]: string } {
@@ -354,7 +362,7 @@ export class GetServiceResponseBodyComplianceMetadata extends $dara.Model {
 export class GetServiceResponseBodyInstanceRoleInfos extends $dara.Model {
   /**
    * @remarks
-   * The content of the policy.
+   * The content of the control policy.
    * 
    * @example
    * {\\n  \\"Version\\": \\"1\\",\\n  \\"Statement\\": [\\n    {\\n      \\"Effect\\": \\"Allow\\",\\n      \\"Action\\": \\"*\\",\\n      \\"Principal\\": \\"*\\",\\n      \\"Resource\\": \\"*\\"\\n    }\\n  ]\\n}
@@ -362,12 +370,12 @@ export class GetServiceResponseBodyInstanceRoleInfos extends $dara.Model {
   policyDocument?: string;
   /**
    * @remarks
-   * The information of the RAM entity.
+   * The information about the RAM entity.
    */
   principals?: string[];
   /**
    * @remarks
-   * The ram role name.
+   * The role name.
    * 
    * @example
    * ram-for-dts
@@ -378,7 +386,7 @@ export class GetServiceResponseBodyInstanceRoleInfos extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Template one.
+   * Template 1
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -414,7 +422,7 @@ export class GetServiceResponseBodyInstanceRoleInfos extends $dara.Model {
 export class GetServiceResponseBodyServiceDocumentInfos extends $dara.Model {
   /**
    * @remarks
-   * The URL that is used to access the document.
+   * The document URL.
    * 
    * @example
    * https://help.aliyun.com/zh/compute-nest/use-cases/deploy-an-sd-painting-service-instance?spm=a2c4g.11186623.0.i2
@@ -422,7 +430,11 @@ export class GetServiceResponseBodyServiceDocumentInfos extends $dara.Model {
   documentUrl?: string;
   /**
    * @remarks
-   * The language that you use for the query. Valid values: zh-CN and en-US.
+   * The language of the service document. Valid values:
+   * 
+   * - zh-CN: Chinese.
+   * 
+   * - en-US: English.
    * 
    * @example
    * zh-CN
@@ -433,7 +445,7 @@ export class GetServiceResponseBodyServiceDocumentInfos extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Template one.
+   * 单机版
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -504,7 +516,7 @@ export class GetServiceResponseBodyServiceInfosAgreements extends $dara.Model {
 export class GetServiceResponseBodyServiceInfosSoftwares extends $dara.Model {
   /**
    * @remarks
-   * The name of the Software.
+   * The software name.
    * 
    * @example
    * wordpress
@@ -512,7 +524,7 @@ export class GetServiceResponseBodyServiceInfosSoftwares extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The version of the software.
+   * The software version.
    * 
    * @example
    * 6.0.1
@@ -544,7 +556,7 @@ export class GetServiceResponseBodyServiceInfosSoftwares extends $dara.Model {
 export class GetServiceResponseBodyServiceInfos extends $dara.Model {
   /**
    * @remarks
-   * The agreement information about the service.
+   * The service agreements.
    */
   agreements?: GetServiceResponseBodyServiceInfosAgreements[];
   /**
@@ -557,10 +569,11 @@ export class GetServiceResponseBodyServiceInfos extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The language of the service. Valid values:
+   * The language of the service configuration. Valid values:
    * 
-   * *   zh-CN: Chinese
-   * *   en-US: English
+   * - zh-CN: Chinese.
+   * 
+   * - en-US: English.
    * 
    * @example
    * zh-CN
@@ -571,20 +584,20 @@ export class GetServiceResponseBodyServiceInfos extends $dara.Model {
    * The service name.
    * 
    * @example
-   * Service document information.
+   * Database B
    */
   name?: string;
   /**
    * @remarks
-   * The description of the service.
+   * The summary of the service.
    * 
    * @example
-   * Docker Community Edition (CE) is a free version of the Docker project, aimed at developers, enthusiasts, and individuals and organizations who want to use container technology.
+   * B is an open-source distributed relational database independently designed and developed by Company A.
    */
   shortDescription?: string;
   /**
    * @remarks
-   * The list of the software in the service.
+   * The service software.
    */
   softwares?: GetServiceResponseBodyServiceInfosSoftwares[];
   static names(): { [key: string]: string } {
@@ -625,8 +638,29 @@ export class GetServiceResponseBodyServiceInfos extends $dara.Model {
 }
 
 export class GetServiceResponseBodyServiceLocaleConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The English value of the service information.
+   * 
+   * @example
+   * Service Name
+   */
   enValue?: string;
+  /**
+   * @remarks
+   * The raw data value of the service information.
+   * 
+   * @example
+   * Service Name
+   */
   originalValue?: string;
+  /**
+   * @remarks
+   * The Chinese value of the service information.
+   * 
+   * @example
+   * 服务名称
+   */
   zhValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -656,7 +690,7 @@ export class GetServiceResponseBodyServiceLocaleConfigs extends $dara.Model {
 export class GetServiceResponseBodySupportContacts extends $dara.Model {
   /**
    * @remarks
-   * The type of contact information.
+   * The type of the contact information.
    * 
    * @example
    * Email
@@ -664,7 +698,7 @@ export class GetServiceResponseBodySupportContacts extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value of contact information.
+   * The contact information.
    * 
    * @example
    * supplier@example.com
@@ -736,17 +770,17 @@ export class GetServiceResponseBodyTags extends $dara.Model {
 export class GetServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The alert configurations of the service.
+   * The alert configuration of the service.
    * 
-   * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+   * > This configuration takes effect only if you configure an alert policy in **PolicyNames**.
    * 
    * @example
-   * { "TemplateUrl": "http://template.file.url", "ApplicationGroups": [ { "Name": "applicationGroup1", "TemplateUrl": "url1" }, { "Name": "applicationGroup2", "TemplateUrl": "url2" } ] }
+   * { "TemplateUrl": "http://template.file.url", // Application group level alarm metadata "ApplicationGroups": [ { "Name": "applicationGroup1", "TemplateUrl": "url1" }, { "Name": "applicationGroup2", "TemplateUrl": "url2" } ] }
    */
   alarmMetadata?: string;
   /**
    * @remarks
-   * The categories of the Flow.
+   * The service category name.
    * 
    * @example
    * AI
@@ -754,21 +788,23 @@ export class GetServiceResponseBody extends $dara.Model {
   categories?: string;
   /**
    * @remarks
-   * The information about the order placed in Alibaba Cloud Marketplace.
+   * The commodity specifications.
    */
   commodity?: GetServiceResponseBodyCommodity;
   /**
    * @remarks
-   * Compliance check metadata.
+   * The compliance package metadata.
    */
   complianceMetadata?: GetServiceResponseBodyComplianceMetadata;
   /**
    * @remarks
-   * Service deployment approach, Valid values：
+   * The deployment channel. Valid values:
    * 
-   * - NoWhere
-   * - Marketplace
-   * - ComputeNest
+   * - NoWhere: The service has no deployment channel.
+   * 
+   * - Marketplace: The service is deployed from Alibaba Cloud Marketplace.
+   * 
+   * - ComputeNest: The service is deployed from Compute Nest.
    * 
    * @example
    * Marketplace
@@ -776,7 +812,7 @@ export class GetServiceResponseBody extends $dara.Model {
   deployFrom?: string;
   /**
    * @remarks
-   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   * The deployment configuration of the service. The configuration is stored as a JSON string. The data format of the string varies based on the deployment type.
    * 
    * @example
    * {\\"TemplateUrl\\": \\"http://tidbRosFile\\"}
@@ -784,10 +820,19 @@ export class GetServiceResponseBody extends $dara.Model {
   deployMetadata?: string;
   /**
    * @remarks
-   * The deployment type of the service. Valid values:
+   * The deployment type. Valid values:
    * 
-   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-   * *   terraform: The service is deployed by using Terraform.
+   * - ros: The service is deployed using ROS.
+   * 
+   * - terraform: The service is deployed using Terraform.
+   * 
+   * - spi: The service is deployed by calling a Service Provider Interface (SPI).
+   * 
+   * - operation: The service is an Alibaba Cloud Managed Services deployment.
+   * 
+   * - container: The service is deployed using a container.
+   * 
+   * - pkg: The service is a package service.
    * 
    * @example
    * ros
@@ -795,7 +840,7 @@ export class GetServiceResponseBody extends $dara.Model {
   deployType?: string;
   /**
    * @remarks
-   * The duration for which hosted O\\&M is implemented. Unit: seconds.
+   * The duration of the Alibaba Cloud Managed Services. Unit: seconds.
    * 
    * @example
    * 259200
@@ -803,17 +848,18 @@ export class GetServiceResponseBody extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * Information about the ram role created in the service template.
+   * The information about the roles that are created in the service template.
    */
   instanceRoleInfos?: GetServiceResponseBodyInstanceRoleInfos[];
   /**
    * @remarks
-   * Indicates whether the hosted O\\&M feature is enabled for the service. Default value: false. Valid values:
+   * Specifies whether to enable Alibaba Cloud Managed Services. Default value: false. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: enabled.
    * 
-   * >  This parameter is returned if you set **ServiceType** to **private**.
+   * - false: disabled.
+   * 
+   * > This parameter is required when **ServiceType** is set to **private**.
    * 
    * @example
    * false
@@ -824,12 +870,12 @@ export class GetServiceResponseBody extends $dara.Model {
    * The license metadata.
    * 
    * @example
-   * {\\"PayType\\":\\"CustomFixTime\\",\\"DefaultLicenseDays\\":7,\\"CustomMetadata\\":[{\\"TemplateName\\":\\"ECS\\",\\"SpecificationName\\":\\"bandwith-0\\",\\"CustomData\\":\\"1\\"}]}
+   * {\\"PayType\\":\\"CustomFixTime\\",\\"DefaultLicenseDays\\":7,\\"CustomMetadata\\":[{\\"TemplateName\\":\\" template1\\",\\"SpecificationName\\":\\"bandwith-0\\",\\"CustomData\\":\\"1\\"}]}
    */
   licenseMetadata?: string;
   /**
    * @remarks
-   * The logging configurations.
+   * The application log configuration.
    * 
    * @example
    * {\\"Logstores\\":[]}
@@ -837,7 +883,7 @@ export class GetServiceResponseBody extends $dara.Model {
   logMetadata?: string;
   /**
    * @remarks
-   * The operation metadata.
+   * The O\\&M configuration.
    * 
    * @example
    * {\\"PrometheusConfigMap\\":{\\"New_Vpc_Ack_And_Jumpserver\\":{}}}
@@ -845,10 +891,11 @@ export class GetServiceResponseBody extends $dara.Model {
   operationMetadata?: string;
   /**
    * @remarks
-   * The permissions on the service. Valid values:
+   * The permission type. Valid values:
    * 
-   * *   Deployable: Permissions to deploy the service.
-   * *   Accessible: Permissions to access the service.
+   * - Deployable: The service is deployable.
+   * 
+   * - Accessible: The service is accessible.
    * 
    * @example
    * Deployable
@@ -856,7 +903,7 @@ export class GetServiceResponseBody extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+   * The policy names. A single policy name can be up to 128 characters in length. Separate multiple names with commas (,). Only policies related to Alibaba Cloud Managed Services are supported.
    * 
    * @example
    * policyName1, policyName2
@@ -880,7 +927,7 @@ export class GetServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Service document information.
+   * The service documents.
    */
   serviceDocumentInfos?: GetServiceResponseBodyServiceDocumentInfos[];
   /**
@@ -893,13 +940,17 @@ export class GetServiceResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The information about the service.
+   * The service information.
    */
   serviceInfos?: GetServiceResponseBodyServiceInfos[];
+  /**
+   * @remarks
+   * The multilingual configurations of the service.
+   */
   serviceLocaleConfigs?: GetServiceResponseBodyServiceLocaleConfigs[];
   /**
    * @remarks
-   * The URL of the service page.
+   * The URL of the product page.
    * 
    * @example
    * http://example1.com
@@ -907,11 +958,13 @@ export class GetServiceResponseBody extends $dara.Model {
   serviceProductUrl?: string;
   /**
    * @remarks
-   * The type of the service. Valid values:
+   * The service type. Valid values:
    * 
-   * - private: The service is a private service and is deployed within the account of a customer.
-   * - managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * - operation: The service is a hosted O&M service.
+   * - private: The service is deployed in the user\\"s account.
+   * 
+   * - managed: The service is hosted in the service provider\\"s account.
+   * 
+   * - operation: The service is an Alibaba Cloud Managed Service.
    * 
    * @example
    * private
@@ -919,13 +972,17 @@ export class GetServiceResponseBody extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The permission type of the deployment URL. Valid values:
+   * The share type. Valid values:
    * 
-   * *   Public: All users can go to the URL to create a service instance or a trial service instance.
-   * *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
-   * *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
-   * *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
-   * *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+   * - Public: The service is public. Formal and trial deployments are not restricted.
+   * 
+   * - Restricted: The service is restricted. Formal and trial deployments are restricted.
+   * 
+   * - OnlyFormalRestricted: Only formal deployments are restricted.
+   * 
+   * - OnlyTrialRestricted: Only trial deployments are restricted.
+   * 
+   * - Hidden: The service is hidden, is not visible, and you cannot request permissions for deployment.
    * 
    * @example
    * Public
@@ -933,15 +990,29 @@ export class GetServiceResponseBody extends $dara.Model {
   shareType?: string;
   /**
    * @remarks
-   * The deploy status of the service. Valid values:
-   * - Draft
-   * - Beta
-   * - Submitted
-   * - Approved
-   * - Launching
-   * - Online
-   * - Offline
-   * - Creating
+   * The status of the service. Valid values:
+   * 
+   * - Draft: The service is in the draft state.
+   * 
+   * - Beta: The service is in a pre-release state. The service cannot be modified but can be shared with other users.
+   * 
+   * - Submitted: The service is submitted for approval. The service cannot be modified.
+   * 
+   * - Approved: The service is approved. The service cannot be modified but can be published.
+   * 
+   * - Launching: The service is being published.
+   * 
+   * - Online: The service is published.
+   * 
+   * - Offline: The service is unpublished.
+   * 
+   * - Creating: The service is being created.
+   * 
+   * - CreateFailed: The service failed to be created.
+   * 
+   * - Updating: The service is being updated.
+   * 
+   * - UpdateFailed: The service failed to be updated.
    * 
    * @example
    * Online
@@ -949,15 +1020,15 @@ export class GetServiceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of service provider.
+   * The description of the service provider.
    * 
    * @example
-   * Computing Nest Community service
+   * Alibaba Cloud Compute Nest team
    */
   supplierDesc?: string;
   /**
    * @remarks
-   * The Logo of service provider.
+   * The icon of the service provider.
    * 
    * @example
    * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/xxx/service-image/xxx.png
@@ -968,7 +1039,7 @@ export class GetServiceResponseBody extends $dara.Model {
    * The name of the service provider.
    * 
    * @example
-   * Alibaba Cloud
+   * Company A
    */
   supplierName?: string;
   /**
@@ -989,20 +1060,21 @@ export class GetServiceResponseBody extends $dara.Model {
   supplierUrl?: string;
   /**
    * @remarks
-   * Contact information of the service provider
+   * The contact information of the service provider.
    */
   supportContacts?: GetServiceResponseBodySupportContacts[];
   /**
    * @remarks
-   * The tags.
+   * The service tags.
    */
   tags?: GetServiceResponseBodyTags[];
   /**
    * @remarks
-   * The type of the tenant. Valid values:
+   * The tenant type. Valid values:
    * 
-   * *   SingleTenant
-   * *   MultiTenant
+   * - SingleTenant: The service is a single-tenant service.
+   * 
+   * - MultiTenant: The service is a multitenancy service.
    * 
    * @example
    * SingleTenant
@@ -1010,7 +1082,7 @@ export class GetServiceResponseBody extends $dara.Model {
   tenantType?: string;
   /**
    * @remarks
-   * The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+   * The trial duration in days. The maximum trial duration is 30 days.
    * 
    * @example
    * 7
@@ -1018,10 +1090,11 @@ export class GetServiceResponseBody extends $dara.Model {
   trialDuration?: number;
   /**
    * @remarks
-   * The trial policy. Valid values:
+   * The trial type. Valid values:
    * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
+   * - Trial: The service supports trial.
+   * 
+   * - NotTrial: The service does not support trial.
    * 
    * @example
    * Trial

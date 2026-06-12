@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceUsagesResponseBodyServiceUsages extends $dara.Model {
   /**
    * @remarks
-   * The review comment.
+   * The remarks of the approval.
    * 
    * @example
-   * Approved
+   * Review approved.
    */
   comments?: string;
   /**
    * @remarks
-   * The time when the application was created.
+   * The time when the request was created.
    * 
    * @example
    * 2022-05-25T02:02:02Z
@@ -32,17 +32,20 @@ export class ListServiceUsagesResponseBodyServiceUsages extends $dara.Model {
    * The service name.
    * 
    * @example
-   * LobelChat
+   * Deployment link permission request
    */
   serviceName?: string;
   /**
    * @remarks
-   * The state of the service application. Valid values:
+   * The service status. Valid values:
    * 
-   * *   Submitted: The application is submitted for review.
-   * *   Approved: The application is approved.
-   * *   Rejected: The application is rejected.
-   * *   Canceled: The application is canceled.
+   * - Submitted: The request is submitted and pending approval.
+   * 
+   * - Approved: The request is approved.
+   * 
+   * - Rejected: The request is rejected.
+   * 
+   * - Canceled: The request is canceled.
    * 
    * @example
    * Submitted
@@ -50,15 +53,15 @@ export class ListServiceUsagesResponseBodyServiceUsages extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the service provider.
+   * The name of the supplier.
    * 
    * @example
-   * TestSupplier
+   * Acceptance test
    */
   supplierName?: string;
   /**
    * @remarks
-   * The time when the application was updated.
+   * The time when the request was last updated.
    * 
    * @example
    * 2022-05-25T02:02:02Z
@@ -66,7 +69,7 @@ export class ListServiceUsagesResponseBodyServiceUsages extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud account ID of the user.
    * 
    * @example
    * 127383705958xxxx
@@ -74,7 +77,7 @@ export class ListServiceUsagesResponseBodyServiceUsages extends $dara.Model {
   userAliUid?: number;
   /**
    * @remarks
-   * The information about the applicants.
+   * The user information.
    */
   userInformation?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -120,7 +123,7 @@ export class ListServiceUsagesResponseBodyServiceUsages extends $dara.Model {
 export class ListServiceUsagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned on each page. The maximum value is 100. The default value is 20.
    * 
    * @example
    * 20
@@ -128,7 +131,7 @@ export class ListServiceUsagesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * A pagination token. It is returned when the results are not complete. To retrieve the next page of results, include this token in the NextToken parameter of the next request.
    * 
    * @example
    * AAAAAYChudnQUoBH+mGWFpb6oP0=
@@ -144,15 +147,15 @@ export class ListServiceUsagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service applications.
+   * The service usage details.
    */
   serviceUsages?: ListServiceUsagesResponseBodyServiceUsages[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
-   * 2
+   * 1
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

@@ -7,8 +7,6 @@ export class ListTagValuesRequest extends $dara.Model {
    * @remarks
    * The tag key.
    * 
-   * >  This parameter is required.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -17,7 +15,7 @@ export class ListTagValuesRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that is used to start the next query.
    * 
    * @example
    * AAAAAfmTH5rcd4YFfob4P0uDAAc=
@@ -37,10 +35,13 @@ export class ListTagValuesRequest extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * *   service: service
-   * *   serviceinstance: service instance
-   * *   artifact: artifact
-   * *   dataset: dataset
+   * - service: service.
+   * 
+   * - serviceinstance: service instance.
+   * 
+   * - artifact: deployment.
+   * 
+   * - dataset: dataset.
    * 
    * This parameter is required.
    * 

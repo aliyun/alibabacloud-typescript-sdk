@@ -13,7 +13,7 @@ export class UpgradeServiceInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The parameters required for the upgrade. This parameter is returned only if DryRun is set to true in the request. You can specify the required parameters based on the returned value when you perform an actual request.
+   * The new parameters required for the service upgrade. This parameter is returned only when DryRun is set to true. Include these parameters in the request when you perform the upgrade.
    */
   upgradeRequiredParameters?: string[];
   static names(): { [key: string]: string } {

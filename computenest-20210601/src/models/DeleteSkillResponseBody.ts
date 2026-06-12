@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C

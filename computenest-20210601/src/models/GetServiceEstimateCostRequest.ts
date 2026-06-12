@@ -13,7 +13,7 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
   couponId?: string;
   /**
    * @remarks
-   * The subscription duration of the instance.
+   * The subscription duration.
    * 
    * @example
    * 1
@@ -23,9 +23,11 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
    * @remarks
    * The unit of the subscription duration. Valid values:
    * 
-   * *   Year.
-   * *   Month.
-   * *   Day.
+   * - Year: Year.
+   * 
+   * - Month: Month.
+   * 
+   * - Day: Day.
    * 
    * @example
    * Year
@@ -33,7 +35,7 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
   payPeriodUnit?: string;
   /**
    * @remarks
-   * The PrivateOffer ID of the Alibaba Cloud Marketplace.
+   * The ID of the private offer in Alibaba Cloud Marketplace.
    * 
    * @example
    * 17cde2e8-2f5d-xxxx-xxxx-5120dd215d66
@@ -69,7 +71,7 @@ export class GetServiceEstimateCostRequestCommodity extends $dara.Model {
 export class GetServiceEstimateCostRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * A client token to ensure the idempotence of the request. Generate a unique value for each request. The **ClientToken** supports only ASCII characters and cannot be longer than 64 characters.
    * 
    * @example
    * qwertyuiop
@@ -77,20 +79,20 @@ export class GetServiceEstimateCostRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The information about the subscription duration.
+   * The subscription period for the purchase order.
    */
   commodity?: GetServiceEstimateCostRequestCommodity;
   /**
    * @remarks
-   * The name of the configuration change operation.
+   * The name of the upgrade or downgrade operation.
    * 
    * @example
-   * Parameter change
+   * Parameter configuration change
    */
   operationName?: string;
   /**
    * @remarks
-   * The parameters that are specified to deploy the service instance.
+   * The parameters to deploy the service instance.
    * 
    * @example
    * { \\"RegionId\\": \\"cn-hangzhou\\", \\"InstanceType\\": \\"ecs.g5.large\\"}
@@ -132,7 +134,7 @@ export class GetServiceEstimateCostRequest extends $dara.Model {
   serviceVersion?: string;
   /**
    * @remarks
-   * The name of the package specification.
+   * The specification name.
    * 
    * @example
    * Package 1
@@ -148,10 +150,11 @@ export class GetServiceEstimateCostRequest extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The trial policy. Valid values:
+   * The usage type. Valid values:
    * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
+   * - Trial: The service supports a free trial.
+   * 
+   * - NotTrial: The service does not support a free trial.
    * 
    * @example
    * NotTrial

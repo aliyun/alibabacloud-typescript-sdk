@@ -161,6 +161,7 @@ export { DescribeRegionsRequest } from './DescribeRegionsRequest';
 export { DescribeRegionsResponseBody } from './DescribeRegionsResponseBody';
 export { DescribeRegionsResponse } from './DescribeRegionsResponse';
 export { GenerateServicePolicyRequest } from './GenerateServicePolicyRequest';
+export { GenerateServicePolicyShrinkRequest } from './GenerateServicePolicyShrinkRequest';
 export { GenerateServicePolicyResponseBody } from './GenerateServicePolicyResponseBody';
 export { GenerateServicePolicyResponse } from './GenerateServicePolicyResponse';
 export { GetBackupRequest } from './GetBackupRequest';

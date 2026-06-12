@@ -4,40 +4,62 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListSkillsResponseBodySkills extends $dara.Model {
   /**
+   * @remarks
+   * The creation time of the Skill.
+   * 
    * @example
    * 2026-05-10T02:22:18Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The download URL of the Skill package. This parameter is returned only if `NeedDownloadUrl` is set to `true`.
+   * 
    * @example
    * https://testts-1.oss-cn-beijing.aliyuncs.com/app/yyb_9.1.1.zip
    */
   downloadUrl?: string;
   /**
+   * @remarks
+   * The Skill description.
+   * 
    * @example
    * 1111
    */
   skillDescription?: string;
   /**
    * @remarks
-   * Skill ID
+   * The Skill ID.
    * 
    * @example
    * s-111111
    */
   skillId?: string;
+  /**
+   * @remarks
+   * The Skill labels.
+   */
   skillLabels?: string[];
   /**
+   * @remarks
+   * The Skill name.
+   * 
    * @example
    * reimbursement-print
    */
   skillName?: string;
   /**
+   * @remarks
+   * The ID of the SkillSpace to which the Skill belongs.
+   * 
    * @example
    * ss-11111
    */
   skillSpaceId?: string;
   /**
+   * @remarks
+   * The last update time of the Skill.
+   * 
    * @example
    * 2025-11-03T22:58:52Z
    */
@@ -82,25 +104,38 @@ export class ListSkillsResponseBodySkills extends $dara.Model {
 
 export class ListSkillsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token to retrieve the next page of results. This parameter is empty when all results have been returned.
+   * 
    * @example
    * AAAAAWns8w4MmhzeptXVRG0PUEU=
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 06BF8F22-02DC-4750-83DF-3FFC11C065EA
    */
   requestId?: string;
+  /**
+   * @remarks
+   * A list of Skills.
+   */
   skills?: ListSkillsResponseBodySkills[];
   /**
+   * @remarks
+   * The total number of entries that match the query.
+   * 
    * @example
    * 100
    */

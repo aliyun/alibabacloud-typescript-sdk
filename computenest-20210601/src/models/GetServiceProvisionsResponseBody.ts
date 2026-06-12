@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions extends $dara.Model {
   /**
    * @remarks
-   * Commodity Code
+   * The commodity code.
    * 
    * @example
    * acs_postpaid_public_cn
@@ -13,7 +13,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvision
   commodityCode?: string;
   /**
    * @remarks
-   * Product activation link.
+   * The URL for activating the commodity.
    * 
    * @example
    * https://common-buy.aliyun.com/?commodityCode=acs_postpaid_public_cn
@@ -21,7 +21,11 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvision
   enableURL?: string;
   /**
    * @remarks
-   * Cloud service activation status.
+   * The activation status of the Alibaba Cloud service. Valid values:
+   * 
+   * - Enabled: The service is activated.
+   * 
+   * - Disabled: The service is not activated.
    * 
    * @example
    * Disabled
@@ -55,7 +59,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvision
 export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation extends $dara.Model {
   /**
    * @remarks
-   * The name of the API operation.
+   * The API operation name.
    * 
    * @example
    * CreateServiceLinkedRole
@@ -63,7 +67,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles
   apiName?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud service to which the API operation belongs.
+   * The ID of the product to which the API operation belongs.
    * 
    * @example
    * rds
@@ -71,10 +75,12 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles
   apiProductId?: string;
   /**
    * @remarks
-   * The type of the API operation. Valid values:
+   * The API type.
+   * Valid values:
    * 
-   * *   Open: public
-   * *   Inner: private
+   * - Open: public API.
+   * 
+   * - Inner: internal API.
    * 
    * @example
    * Open
@@ -82,7 +88,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles
   apiType?: string;
   /**
    * @remarks
-   * The ROS parameters of the cluster.
+   * The API parameters. ${variable} indicates a dynamic parameter.
    * 
    * @example
    * { "ServiceLinkedRole": "AliyunServiceRoleForRdsPgsqlOnEcs", "RegionId": "${RegionId}" }
@@ -121,15 +127,16 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles
 export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles extends $dara.Model {
   /**
    * @remarks
-   * The information about the API operation that is used to create the RAM role.
+   * The information about the API operation used to create the role.
    */
   apiForCreation?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRolesApiForCreation;
   /**
    * @remarks
-   * Indicates whether the RAM role is created. Valid values:
+   * Indicates whether the role is created. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: The role is created.
+   * 
+   * - false: The role is not created.
    * 
    * @example
    * true
@@ -137,7 +144,8 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles
   created?: boolean;
   /**
    * @remarks
-   * The purpose for which the RAM role is used. Default value: Default. A value of Default indicates that the RAM role is the default role of the service.
+   * The purpose of the role.
+   * Default value: Default. This value indicates that the role is the default role for the service.
    * 
    * @example
    * Default
@@ -145,7 +153,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles
   function?: string;
   /**
    * @remarks
-   * The name of the role.
+   * The role name.
    * 
    * @example
    * AliyunCSManagedVKRole
@@ -184,9 +192,8 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles
 export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision extends $dara.Model {
   /**
    * @remarks
-   * The authorization URL of the RAM role.
-   * 
-   * > This parameter is returned if Created is set to false.
+   * The authorization URL for accessing the cloud resources of the service.
+   * This URL is returned if the role is not created.
    * 
    * @example
    * https://ram.console.aliyun.com/role/authorization?request={"Services":[{"Service":"CS","Roles":[{"RoleName":"AliyunCSManagedVKRole","TemplateId":"AliyunCSManagedVKRole"},{"RoleName":"AliyunCSDefaultRole","TemplateId":"Default"}]}],"ReturnUrl":"https://cs.console.aliyun.com/"}
@@ -194,7 +201,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision exte
   authorizationURL?: string;
   /**
    * @remarks
-   * The RAM roles of the service.
+   * The list of service roles.
    */
   roles?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvisionRoles[];
   static names(): { [key: string]: string } {
@@ -226,10 +233,11 @@ export class GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision exte
 export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether automatic activation for the service is defined in the template. Valid values:
+   * Indicates whether the service is automatically activated as defined in the template. Valid values:
    * 
-   * *   true: Automatic activation for the service is defined in the template.
-   * *   false: Manual activation for the service is defined in the template.
+   * - true: The service is automatically activated.
+   * 
+   * - false: The service is manually activated.
    * 
    * @example
    * true
@@ -237,14 +245,14 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Mod
   autoEnableService?: boolean;
   /**
    * @remarks
-   * Product details. Some services (such as ACS) involve the activation of multiple products
+   * The commodity details. Some services, such as ACS, require the activation of multiple commodities.
    */
   commodityProvisions?: GetServiceProvisionsResponseBodyServiceProvisionsCommodityProvisions[];
   /**
    * @remarks
-   * The URL that points to the activation page of the service.
+   * The URL for activating the Alibaba Cloud service.
    * 
-   * > This parameter is returned if Status is set to Disabled.
+   * > This parameter is returned when Status is set to Disabled.
    * 
    * @example
    * https://common-buy.aliyun.com/?commodityCode=sls
@@ -252,7 +260,7 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Mod
   enableURL?: string;
   /**
    * @remarks
-   * The information about the RAM roles of the service. If this parameter is empty, no RAM role is associated with the service.
+   * The information about the service role. If this parameter is empty, no service role is associated with the service.
    */
   roleProvision?: GetServiceProvisionsResponseBodyServiceProvisionsRoleProvision;
   /**
@@ -267,9 +275,13 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Mod
    * @remarks
    * The activation status of the service. Valid values:
    * 
-   * *   Enabled: The service is activated.
-   * *   Disabled: The service is not activated.
-   * *   Unknown: The activation status of the service is unknown.
+   * - Enabled: The service is activated.
+   * 
+   * - EnabledByDefault: The service is activated by default.
+   * 
+   * - Disabled: The service is not activated.
+   * 
+   * - Unknown: The activation status is unknown.
    * 
    * @example
    * Enabled
@@ -277,9 +289,9 @@ export class GetServiceProvisionsResponseBodyServiceProvisions extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The reason why the service is in the Disabled or Unknown state.
+   * The reason why the Alibaba Cloud service is not activated or the activation status is unknown.
    * 
-   * > This parameter is returned if Status is set to Disabled or Unknown.
+   * > This parameter is returned when Status is set to Disabled or Unknown.
    * 
    * @example
    * No permission
@@ -335,7 +347,7 @@ export class GetServiceProvisionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about the cloud services.
+   * The service details.
    */
   serviceProvisions?: GetServiceProvisionsResponseBodyServiceProvisions[];
   static names(): { [key: string]: string } {

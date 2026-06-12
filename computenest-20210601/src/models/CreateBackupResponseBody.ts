@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backup ID
+   * The backup ID.
    * 
    * @example
    * backup-cad4a85ff5e340388b93
@@ -13,7 +13,7 @@ export class CreateBackupResponseBody extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * Description
+   * The description.
    * 
    * @example
    * No description
@@ -21,7 +21,7 @@ export class CreateBackupResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 8DC02957-A0FC-5AB2-8C54-496B636EAF12
@@ -29,13 +29,19 @@ export class CreateBackupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Backup status 
-   * - Creating: In progress 
-   * - Created: Success 
-   * - CreateFailed: Failed 
-   * - Deleting: In progress 
-   * - Deleted: Success 
-   * - DeleteFailed: Failed
+   * The status of the backup.
+   * 
+   * - Creating: The backup is being created.
+   * 
+   * - Created: The backup is created.
+   * 
+   * - CreateFailed: The backup failed to be created.
+   * 
+   * - Deleting: The backup is being deleted.
+   * 
+   * - Deleted: The backup is deleted.
+   * 
+   * - DeleteFailed: The backup failed to be deleted.
    * 
    * @example
    * Creating

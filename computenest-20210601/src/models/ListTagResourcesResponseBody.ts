@@ -15,10 +15,13 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * *   service: service
-   * *   serviceinstance: service instance
-   * *   artifact: deployment package
-   * *   dataset: dataset
+   * - service: a service.
+   * 
+   * - serviceinstance: a service instance.
+   * 
+   * - artifact: an artifact.
+   * 
+   * - dataset: a dataset.
    * 
    * @example
    * serviceinstance
@@ -70,7 +73,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token to retrieve the next page of results.
    * 
    * @example
    * AAAAAVz7BQqj2xtiNSC3d3RAD38=
@@ -86,7 +89,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The collection of details about resources and tags, such as resource IDs, resource types, and tag key-value pairs.
+   * A collection of resources and their tags. This collection includes information such as resource IDs, resource types, and tag key-value pairs.
    */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   static names(): { [key: string]: string } {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillFileDetectResultRequest extends $dara.Model {
   /**
    * @remarks
+   * The unique identifier for the detection task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,6 +14,9 @@ export class GetSkillFileDetectResultRequest extends $dara.Model {
    */
   hashKey?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */

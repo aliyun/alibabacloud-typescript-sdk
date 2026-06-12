@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetUserInformationResponseBodyDeliverySettings extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether screencast delivery to OSS is enabled. Valid values:
+   * Specifies whether to use the delivery feature. Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -24,10 +25,11 @@ export class GetUserInformationResponseBodyDeliverySettings extends $dara.Model 
   ossBucketName?: string;
   /**
    * @remarks
-   * Indicates whether screencast delivery to Object Storage Service (OSS) is enabled. Valid values:
+   * Specifies whether to deliver data to Object Storage Service (OSS). Valid values:
    * 
-   * *   true
-   * *   false
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -35,7 +37,7 @@ export class GetUserInformationResponseBodyDeliverySettings extends $dara.Model 
   ossEnabled?: boolean;
   /**
    * @remarks
-   * The number of days for which the screencasts are saved.
+   * The number of days to save screen recordings.
    * 
    * @example
    * 7
@@ -43,7 +45,7 @@ export class GetUserInformationResponseBodyDeliverySettings extends $dara.Model 
   ossExpirationDays?: number;
   /**
    * @remarks
-   * The OSS path.
+   * The path in OSS.
    * 
    * @example
    * /test

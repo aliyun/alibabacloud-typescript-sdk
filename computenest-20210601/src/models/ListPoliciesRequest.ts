@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * Page size.
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListPoliciesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Token for the next query, an empty nextToken indicates there is no next page.
+   * The token that is used to retrieve the next page of results. If this parameter is empty, no more results exist.
    * 
    * @example
    * BBBAAfu+XtuBE55iRLHEYYuojI4=
@@ -21,7 +21,7 @@ export class ListPoliciesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

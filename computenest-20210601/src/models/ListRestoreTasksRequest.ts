@@ -5,13 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ListRestoreTasksRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * The name of the filter. You can query by one or more filter names. Valid values:
    * 
-   * *   RestoreTaskId: the ID of the restore task.
-   * *   ServiceInstanceId: The ID of the service instance.
-   * *   Status
-   * *   StartTime
-   * *   EndTime
+   * - RestoreTaskId: The restore job ID.
+   * 
+   * - ServiceInstanceId: The service instance ID.
+   * 
+   * - Status: The status.
+   * 
+   * - StartTime: The start time.
+   * 
+   * - EndTime: The end time.
    * 
    * @example
    * ServiceInstanceId
@@ -19,7 +23,7 @@ export class ListRestoreTasksRequestFilter extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parameter values of the filter.
+   * A list of filter values.
    */
   value?: string[];
   static names(): { [key: string]: string } {
@@ -51,12 +55,12 @@ export class ListRestoreTasksRequestFilter extends $dara.Model {
 export class ListRestoreTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of the filters.
+   * The filter.
    */
   filter?: ListRestoreTasksRequestFilter[];
   /**
    * @remarks
-   * The number of rows displayed per page in paginated queries. Maximum: 100 rows per page. Default: 20 rows.
+   * The number of entries to return on each page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -64,7 +68,7 @@ export class ListRestoreTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * NextToken
+   * The token that is used to retrieve the next page of results.
    * 
    * @example
    * AAAAAWns8w4MmhzeptXVRG0PUEU=

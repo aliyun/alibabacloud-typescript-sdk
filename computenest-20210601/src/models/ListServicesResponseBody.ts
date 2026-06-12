@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServicesResponseBodyServicesCommodity extends $dara.Model {
   /**
    * @remarks
-   * The commodity code.
+   * The commodity specification code.
    * 
    * @example
    * cmjj00****
@@ -13,11 +13,11 @@ export class ListServicesResponseBodyServicesCommodity extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * Deploy Page.
+   * The deployment page.
    * 
    * @example
-   * Order： Order Page
-   * Detail： Detail Page
+   * Order: Order page
+   * Detail: Details page
    */
   deployPage?: string;
   static names(): { [key: string]: string } {
@@ -46,7 +46,7 @@ export class ListServicesResponseBodyServicesCommodity extends $dara.Model {
 export class ListServicesResponseBodyServicesServiceInfosSoftwares extends $dara.Model {
   /**
    * @remarks
-   * The name of the software.
+   * The software name.
    * 
    * @example
    * wordpress
@@ -54,7 +54,7 @@ export class ListServicesResponseBodyServicesServiceInfosSoftwares extends $dara
   name?: string;
   /**
    * @remarks
-   * The version of the software.
+   * The software version.
    * 
    * @example
    * 6.0.1
@@ -94,10 +94,11 @@ export class ListServicesResponseBodyServicesServiceInfos extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The language of the service. Valid values:
+   * The language of the service configuration. Valid values:
    * 
-   * *   zh-CN: Chinese.
-   * *   en-US: English.
+   * - zh-CN: Chinese.
+   * 
+   * - en-US: English.
    * 
    * @example
    * zh-CN
@@ -105,23 +106,23 @@ export class ListServicesResponseBodyServicesServiceInfos extends $dara.Model {
   locale?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
-   * Docker Community Edition
+   * Database B
    */
   name?: string;
   /**
    * @remarks
-   * The description of the service.
+   * The service overview.
    * 
    * @example
-   * Docker Community Edition (CE) is a free version of the Docker project, aimed at developers, enthusiasts, and individuals and organizations who want to use container technology.
+   * B is an open-source distributed relational database independently designed and developed by Company A.
    */
   shortDescription?: string;
   /**
    * @remarks
-   * Service software information.
+   * The software information of the service.
    */
   softwares?: ListServicesResponseBodyServicesServiceInfosSoftwares[];
   static names(): { [key: string]: string } {
@@ -157,8 +158,29 @@ export class ListServicesResponseBodyServicesServiceInfos extends $dara.Model {
 }
 
 export class ListServicesResponseBodyServicesServiceLocaleConfigs extends $dara.Model {
+  /**
+   * @remarks
+   * The English value of the business information.
+   * 
+   * @example
+   * Service Name
+   */
   enValue?: string;
+  /**
+   * @remarks
+   * The raw data value of the business information.
+   * 
+   * @example
+   * Service Name
+   */
   originalValue?: string;
+  /**
+   * @remarks
+   * The Chinese value of the business information.
+   * 
+   * @example
+   * 服务名称
+   */
   zhValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -189,8 +211,6 @@ export class ListServicesResponseBodyServicesTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
-   * 
-   * >  This parameter is required.
    * 
    * @example
    * key1
@@ -230,7 +250,15 @@ export class ListServicesResponseBodyServicesTags extends $dara.Model {
 export class ListServicesResponseBodyServices extends $dara.Model {
   /**
    * @remarks
-   * The category of the service.
+   * The category of the data disk. Valid values:
+   * 
+   * - cloud_efficiency: ultra disk.
+   * 
+   * - cloud_ssd: standard SSD.
+   * 
+   * - cloud_essd: ESSD.
+   * 
+   * - cloud: basic disk.
    * 
    * @example
    * cloud_ssd
@@ -238,7 +266,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   categories?: string;
   /**
    * @remarks
-   * The commodity details.
+   * The commodity specifications.
    */
   commodity?: ListServicesResponseBodyServicesCommodity;
   /**
@@ -251,12 +279,13 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * Service deployment approach. Valid values:
-   * - NoWhere
+   * The deployment source of the service. Valid values:
    * 
-   * - Marketplace
+   * - NoWhere: The service has no deployment source.
    * 
-   * - ComputeNest
+   * - Marketplace: The service is deployed from Alibaba Cloud Marketplace.
+   * 
+   * - ComputeNest: The service is deployed from Compute Nest.
    * 
    * @example
    * ComputeNest
@@ -264,10 +293,13 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   deployFrom?: string;
   /**
    * @remarks
-   * The deployment type of the service. Valid values:
+   * The deployment type. Valid values:
    * 
-   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-   * *   terraform: The service is deployed by using Terraform.
+   * - ros: The service is deployed using ROS.
+   * 
+   * - terraform: The service is deployed using Terraform.
+   * 
+   * - spi: The service is deployed by calling SPI.
    * 
    * @example
    * ros
@@ -283,7 +315,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   publishTime?: string;
   /**
    * @remarks
-   * Service recommendation score.
+   * The service score.
    * 
    * @example
    * 5
@@ -302,10 +334,14 @@ export class ListServicesResponseBodyServices extends $dara.Model {
    * The service information.
    */
   serviceInfos?: ListServicesResponseBodyServicesServiceInfos[];
+  /**
+   * @remarks
+   * The multi-language configurations of the service.
+   */
   serviceLocaleConfigs?: ListServicesResponseBodyServicesServiceLocaleConfigs[];
   /**
    * @remarks
-   * The URL of the service page.
+   * The URL of the product page.
    * 
    * @example
    * http://example1.com
@@ -313,11 +349,13 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   serviceProductUrl?: string;
   /**
    * @remarks
-   * The type of the service. Valid values:
+   * The service type. Valid values:
    * 
-   * - private: The service is a private service and is deployed within the account of a customer.
-   * - managed: The service is a fully managed service and is deployed within the account of a service provider.
-   * - operation: The service is a hosted O&M service.
+   * - private: The service is deployed in the user\\"s account.
+   * 
+   * - managed: The service is hosted in the service provider\\"s account.
+   * 
+   * - operation: The service is an Alibaba Cloud Managed Service.
    * 
    * @example
    * private
@@ -325,14 +363,19 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The state of the service. Valid values:
+   * The service status. Valid values:
    * 
-   * *   Draft: The service is a draft.
-   * *   Submitted: The service is submitted for review. You cannot modify services in this state.
-   * *   Approved: The service is approved. You cannot modify services in this state. You can publish services in this state.
-   * *   Launching: The service is being published.
-   * *   Online: The service is published.
-   * *   Offline: The service is unpublished.
+   * - Draft: The service is in the draft state.
+   * 
+   * - Submitted: The service is submitted for review. You cannot modify the service.
+   * 
+   * - Approved: The service is approved. You cannot modify the service, but you can publish it.
+   * 
+   * - Launching: The service is being published.
+   * 
+   * - Online: The service is published.
+   * 
+   * - Offline: The service is unpublished.
    * 
    * @example
    * Online
@@ -340,15 +383,15 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the service provider.
+   * The service provider name.
    * 
    * @example
-   * Alibaba Cloud
+   * Company A Ltd.
    */
   supplierName?: string;
   /**
    * @remarks
-   * The name of service provider.
+   * The English name of the service provider.
    * 
    * @example
    * Alibaba Cloud
@@ -364,7 +407,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   supplierUid?: number;
   /**
    * @remarks
-   * The URL of the service provider.
+   * The service provider\\"s URL.
    * 
    * @example
    * http://example.com
@@ -372,15 +415,16 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   supplierUrl?: string;
   /**
    * @remarks
-   * The tags.
+   * The service tags.
    */
   tags?: ListServicesResponseBodyServicesTags[];
   /**
    * @remarks
-   * The tenant type of the managed service. Valid values:
+   * The tenant type. Valid values:
    * 
-   * *   SingleTenant
-   * *   MultiTenant
+   * - SingleTenant: single-tenant.
+   * 
+   * - MultiTenant: multi-tenant.
    * 
    * @example
    * SingleTenant
@@ -388,7 +432,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   tenantType?: string;
   /**
    * @remarks
-   * The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+   * The trial duration. Unit: days. The maximum trial duration is 30 days.
    * 
    * @example
    * 7
@@ -396,10 +440,11 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   trialDuration?: string;
   /**
    * @remarks
-   * The trial policy. Valid values:
+   * The trial type. Valid values:
    * 
-   * *   Trial: Trials are supported.
-   * *   NotTrial: Trials are not supported.
+   * - Trial: The service supports trial.
+   * 
+   * - NotTrial: The service does not support trial.
    * 
    * @example
    * Trial
@@ -407,7 +452,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
   trialType?: string;
   /**
    * @remarks
-   * The version of the service.
+   * The service version.
    * 
    * @example
    * 4
@@ -425,8 +470,9 @@ export class ListServicesResponseBodyServices extends $dara.Model {
    * @remarks
    * Indicates whether the service is a virtual Internet service. Valid values:
    * 
-   * *   false
-   * *   true
+   * - false: No.
+   * 
+   * - true: Yes.
    * 
    * @example
    * false
@@ -514,7 +560,7 @@ export class ListServicesResponseBodyServices extends $dara.Model {
 export class ListServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries returned per page. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -522,7 +568,7 @@ export class ListServicesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token.
+   * The token for the next query.
    * 
    * @example
    * AAAAAfu+XtuBE55iRLHEYYuojI41
@@ -538,12 +584,12 @@ export class ListServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The services.
+   * The list of services.
    */
   services?: ListServicesResponseBodyServices[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of results.
    * 
    * @example
    * 1

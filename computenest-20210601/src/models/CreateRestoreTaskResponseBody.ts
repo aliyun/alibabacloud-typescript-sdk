@@ -13,7 +13,7 @@ export class CreateRestoreTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the restore task.
+   * The ID of the restore job.
    * 
    * @example
    * restore-fdsafda
@@ -23,9 +23,11 @@ export class CreateRestoreTaskResponseBody extends $dara.Model {
    * @remarks
    * The status of the service instance. Valid values:
    * 
-   * *   Restoring
-   * *   Restored
-   * *   RestoreFailed
+   * - Restoring: The service instance is being restored.
+   * 
+   * - Restored: The service instance is restored.
+   * 
+   * - RestoreFailed: The service instance failed to be restored.
    * 
    * @example
    * Restoring

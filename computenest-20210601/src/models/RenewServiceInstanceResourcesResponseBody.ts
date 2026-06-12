@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RenewServiceInstanceResourcesResponseBodyFailureDetails extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * InvalidPeriod
@@ -13,15 +13,15 @@ export class RenewServiceInstanceResourcesResponseBodyFailureDetails extends $da
   errorCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
-   * Error message
+   * Renewal failure reason.
    */
   errorMessage?: string;
   /**
    * @remarks
-   * Resource ARN (Aliyun Resource Name).
+   * The ARN of the resource.
    * 
    * @example
    * acs:ecs:cn-hongkong:1488317743351199:instance/i-j6c6f3lbky38o8rpeqw2
@@ -55,7 +55,7 @@ export class RenewServiceInstanceResourcesResponseBodyFailureDetails extends $da
 export class RenewServiceInstanceResourcesResponseBodyRenewalResult extends $dara.Model {
   /**
    * @remarks
-   * Number of failed renewals.
+   * The number of resources that failed to be renewed.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class RenewServiceInstanceResourcesResponseBodyRenewalResult extends $dar
   failed?: number;
   /**
    * @remarks
-   * Number of successfully renewed resources.
+   * The number of successfully renewed resources.
    * 
    * @example
    * 9
@@ -71,7 +71,7 @@ export class RenewServiceInstanceResourcesResponseBodyRenewalResult extends $dar
   succeeded?: number;
   /**
    * @remarks
-   * Number of renewed resources.
+   * The number of resources to be renewed.
    * 
    * @example
    * 10
@@ -105,17 +105,17 @@ export class RenewServiceInstanceResourcesResponseBodyRenewalResult extends $dar
 export class RenewServiceInstanceResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details of failed renewals.
+   * The details of renewal failures.
    */
   failureDetails?: RenewServiceInstanceResourcesResponseBodyFailureDetails[];
   /**
    * @remarks
-   * Renewal result.
+   * The renewal result.
    */
   renewalResult?: RenewServiceInstanceResourcesResponseBodyRenewalResult;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 13FE89A5-C036-56BF-A0FF-A31C59819FD7
